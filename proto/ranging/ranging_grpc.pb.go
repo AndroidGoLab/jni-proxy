@@ -21,6 +21,438 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	DeviceService_DescribeContents_FullMethodName = "/ranging.DeviceService/DescribeContents"
+	DeviceService_Equals_FullMethodName           = "/ranging.DeviceService/Equals"
+	DeviceService_GetUuid_FullMethodName          = "/ranging.DeviceService/GetUuid"
+	DeviceService_HashCode_FullMethodName         = "/ranging.DeviceService/HashCode"
+	DeviceService_ToString_FullMethodName         = "/ranging.DeviceService/ToString"
+	DeviceService_WriteToParcel_FullMethodName    = "/ranging.DeviceService/WriteToParcel"
+)
+
+// DeviceServiceClient is the client API for DeviceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetUuid(ctx context.Context, in *GetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type deviceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceServiceClient(cc grpc.ClientConnInterface) DeviceServiceClient {
+	return &deviceServiceClient{cc}
+}
+
+func (c *deviceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DeviceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, DeviceService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetUuid(ctx context.Context, in *GetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUuidResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetUuid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, DeviceService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DeviceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DeviceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceServiceServer is the server API for DeviceService service.
+// All implementations must embed UnimplementedDeviceServiceServer
+// for forward compatibility.
+type DeviceServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetUuid(context.Context, *GetUuidRequest) (*GetUuidResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDeviceServiceServer()
+}
+
+// UnimplementedDeviceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceServiceServer struct{}
+
+func (UnimplementedDeviceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDeviceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetUuid(context.Context, *GetUuidRequest) (*GetUuidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUuid not implemented")
+}
+func (UnimplementedDeviceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDeviceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDeviceServiceServer) mustEmbedUnimplementedDeviceServiceServer() {}
+func (UnimplementedDeviceServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceServiceServer will
+// result in compilation errors.
+type UnsafeDeviceServiceServer interface {
+	mustEmbedUnimplementedDeviceServiceServer()
+}
+
+func RegisterDeviceServiceServer(s grpc.ServiceRegistrar, srv DeviceServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceService_ServiceDesc, srv)
+}
+
+func _DeviceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUuidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetUuid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetUuid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetUuid(ctx, req.(*GetUuidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceService_ServiceDesc is the grpc.ServiceDesc for DeviceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.DeviceService",
+	HandlerType: (*DeviceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DeviceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _DeviceService_Equals_Handler,
+		},
+		{
+			MethodName: "GetUuid",
+			Handler:    _DeviceService_GetUuid_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _DeviceService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DeviceService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DeviceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	DeviceBuilderService_Build_FullMethodName   = "/ranging.DeviceBuilderService/Build"
+	DeviceBuilderService_SetUuid_FullMethodName = "/ranging.DeviceBuilderService/SetUuid"
+)
+
+// DeviceBuilderServiceClient is the client API for DeviceBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetUuid(ctx context.Context, in *SetUuidRequest, opts ...grpc.CallOption) (*SetUuidResponse, error)
+}
+
+type deviceBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceBuilderServiceClient(cc grpc.ClientConnInterface) DeviceBuilderServiceClient {
+	return &deviceBuilderServiceClient{cc}
+}
+
+func (c *deviceBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, DeviceBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceBuilderServiceClient) SetUuid(ctx context.Context, in *SetUuidRequest, opts ...grpc.CallOption) (*SetUuidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUuidResponse)
+	err := c.cc.Invoke(ctx, DeviceBuilderService_SetUuid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceBuilderServiceServer is the server API for DeviceBuilderService service.
+// All implementations must embed UnimplementedDeviceBuilderServiceServer
+// for forward compatibility.
+type DeviceBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetUuid(context.Context, *SetUuidRequest) (*SetUuidResponse, error)
+	mustEmbedUnimplementedDeviceBuilderServiceServer()
+}
+
+// UnimplementedDeviceBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceBuilderServiceServer struct{}
+
+func (UnimplementedDeviceBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedDeviceBuilderServiceServer) SetUuid(context.Context, *SetUuidRequest) (*SetUuidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUuid not implemented")
+}
+func (UnimplementedDeviceBuilderServiceServer) mustEmbedUnimplementedDeviceBuilderServiceServer() {}
+func (UnimplementedDeviceBuilderServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeDeviceBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceBuilderServiceServer will
+// result in compilation errors.
+type UnsafeDeviceBuilderServiceServer interface {
+	mustEmbedUnimplementedDeviceBuilderServiceServer()
+}
+
+func RegisterDeviceBuilderServiceServer(s grpc.ServiceRegistrar, srv DeviceBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceBuilderService_ServiceDesc, srv)
+}
+
+func _DeviceBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceBuilderService_SetUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUuidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceBuilderServiceServer).SetUuid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceBuilderService_SetUuid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceBuilderServiceServer).SetUuid(ctx, req.(*SetUuidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceBuilderService_ServiceDesc is the grpc.ServiceDesc for DeviceBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.DeviceBuilderService",
+	HandlerType: (*DeviceBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _DeviceBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetUuid",
+			Handler:    _DeviceBuilderService_SetUuid_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
 	SessionConfigService_DescribeContents_FullMethodName            = "/ranging.SessionConfigService/DescribeContents"
 	SessionConfigService_Equals_FullMethodName                      = "/ranging.SessionConfigService/Equals"
 	SessionConfigService_GetDataNotificationConfig_FullMethodName   = "/ranging.SessionConfigService/GetDataNotificationConfig"
@@ -675,6 +1107,1928 @@ var SessionConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetSensorFusionParams",
 			Handler:    _SessionConfigBuilderService_SetSensorFusionParams_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	PreferenceService_DescribeContents_FullMethodName = "/ranging.PreferenceService/DescribeContents"
+	PreferenceService_GetDeviceRole_FullMethodName    = "/ranging.PreferenceService/GetDeviceRole"
+	PreferenceService_GetRangingParams_FullMethodName = "/ranging.PreferenceService/GetRangingParams"
+	PreferenceService_GetSessionConfig_FullMethodName = "/ranging.PreferenceService/GetSessionConfig"
+	PreferenceService_ToString_FullMethodName         = "/ranging.PreferenceService/ToString"
+	PreferenceService_WriteToParcel_FullMethodName    = "/ranging.PreferenceService/WriteToParcel"
+)
+
+// PreferenceServiceClient is the client API for PreferenceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PreferenceServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDeviceRole(ctx context.Context, in *GetDeviceRoleRequest, opts ...grpc.CallOption) (*GetDeviceRoleResponse, error)
+	GetRangingParams(ctx context.Context, in *GetRangingParamsRequest, opts ...grpc.CallOption) (*GetRangingParamsResponse, error)
+	GetSessionConfig(ctx context.Context, in *GetSessionConfigRequest, opts ...grpc.CallOption) (*GetSessionConfigResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type preferenceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPreferenceServiceClient(cc grpc.ClientConnInterface) PreferenceServiceClient {
+	return &preferenceServiceClient{cc}
+}
+
+func (c *preferenceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetDeviceRole(ctx context.Context, in *GetDeviceRoleRequest, opts ...grpc.CallOption) (*GetDeviceRoleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceRoleResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetDeviceRole_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetRangingParams(ctx context.Context, in *GetRangingParamsRequest, opts ...grpc.CallOption) (*GetRangingParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRangingParamsResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetRangingParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) GetSessionConfig(ctx context.Context, in *GetSessionConfigRequest, opts ...grpc.CallOption) (*GetSessionConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionConfigResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_GetSessionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PreferenceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PreferenceServiceServer is the server API for PreferenceService service.
+// All implementations must embed UnimplementedPreferenceServiceServer
+// for forward compatibility.
+type PreferenceServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDeviceRole(context.Context, *GetDeviceRoleRequest) (*GetDeviceRoleResponse, error)
+	GetRangingParams(context.Context, *GetRangingParamsRequest) (*GetRangingParamsResponse, error)
+	GetSessionConfig(context.Context, *GetSessionConfigRequest) (*GetSessionConfigResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPreferenceServiceServer()
+}
+
+// UnimplementedPreferenceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPreferenceServiceServer struct{}
+
+func (UnimplementedPreferenceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetDeviceRole(context.Context, *GetDeviceRoleRequest) (*GetDeviceRoleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceRole not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetRangingParams(context.Context, *GetRangingParamsRequest) (*GetRangingParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRangingParams not implemented")
+}
+func (UnimplementedPreferenceServiceServer) GetSessionConfig(context.Context, *GetSessionConfigRequest) (*GetSessionConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionConfig not implemented")
+}
+func (UnimplementedPreferenceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPreferenceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPreferenceServiceServer) mustEmbedUnimplementedPreferenceServiceServer() {}
+func (UnimplementedPreferenceServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafePreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PreferenceServiceServer will
+// result in compilation errors.
+type UnsafePreferenceServiceServer interface {
+	mustEmbedUnimplementedPreferenceServiceServer()
+}
+
+func RegisterPreferenceServiceServer(s grpc.ServiceRegistrar, srv PreferenceServiceServer) {
+	// If the following call panics, it indicates UnimplementedPreferenceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PreferenceService_ServiceDesc, srv)
+}
+
+func _PreferenceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetDeviceRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetDeviceRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetDeviceRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetDeviceRole(ctx, req.(*GetDeviceRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetRangingParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRangingParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetRangingParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetRangingParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetRangingParams(ctx, req.(*GetRangingParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_GetSessionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).GetSessionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_GetSessionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).GetSessionConfig(ctx, req.(*GetSessionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PreferenceService_ServiceDesc is the grpc.ServiceDesc for PreferenceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PreferenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.PreferenceService",
+	HandlerType: (*PreferenceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PreferenceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDeviceRole",
+			Handler:    _PreferenceService_GetDeviceRole_Handler,
+		},
+		{
+			MethodName: "GetRangingParams",
+			Handler:    _PreferenceService_GetRangingParams_Handler,
+		},
+		{
+			MethodName: "GetSessionConfig",
+			Handler:    _PreferenceService_GetSessionConfig_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PreferenceService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PreferenceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	PreferenceBuilderService_Build_FullMethodName            = "/ranging.PreferenceBuilderService/Build"
+	PreferenceBuilderService_SetSessionConfig_FullMethodName = "/ranging.PreferenceBuilderService/SetSessionConfig"
+)
+
+// PreferenceBuilderServiceClient is the client API for PreferenceBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PreferenceBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetSessionConfig(ctx context.Context, in *SetSessionConfigRequest, opts ...grpc.CallOption) (*SetSessionConfigResponse, error)
+}
+
+type preferenceBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPreferenceBuilderServiceClient(cc grpc.ClientConnInterface) PreferenceBuilderServiceClient {
+	return &preferenceBuilderServiceClient{cc}
+}
+
+func (c *preferenceBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PreferenceBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *preferenceBuilderServiceClient) SetSessionConfig(ctx context.Context, in *SetSessionConfigRequest, opts ...grpc.CallOption) (*SetSessionConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSessionConfigResponse)
+	err := c.cc.Invoke(ctx, PreferenceBuilderService_SetSessionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PreferenceBuilderServiceServer is the server API for PreferenceBuilderService service.
+// All implementations must embed UnimplementedPreferenceBuilderServiceServer
+// for forward compatibility.
+type PreferenceBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetSessionConfig(context.Context, *SetSessionConfigRequest) (*SetSessionConfigResponse, error)
+	mustEmbedUnimplementedPreferenceBuilderServiceServer()
+}
+
+// UnimplementedPreferenceBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPreferenceBuilderServiceServer struct{}
+
+func (UnimplementedPreferenceBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPreferenceBuilderServiceServer) SetSessionConfig(context.Context, *SetSessionConfigRequest) (*SetSessionConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSessionConfig not implemented")
+}
+func (UnimplementedPreferenceBuilderServiceServer) mustEmbedUnimplementedPreferenceBuilderServiceServer() {
+}
+func (UnimplementedPreferenceBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePreferenceBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PreferenceBuilderServiceServer will
+// result in compilation errors.
+type UnsafePreferenceBuilderServiceServer interface {
+	mustEmbedUnimplementedPreferenceBuilderServiceServer()
+}
+
+func RegisterPreferenceBuilderServiceServer(s grpc.ServiceRegistrar, srv PreferenceBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPreferenceBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PreferenceBuilderService_ServiceDesc, srv)
+}
+
+func _PreferenceBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PreferenceBuilderService_SetSessionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSessionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PreferenceBuilderServiceServer).SetSessionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PreferenceBuilderService_SetSessionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PreferenceBuilderServiceServer).SetSessionConfig(ctx, req.(*SetSessionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PreferenceBuilderService_ServiceDesc is the grpc.ServiceDesc for PreferenceBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PreferenceBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.PreferenceBuilderService",
+	HandlerType: (*PreferenceBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PreferenceBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetSessionConfig",
+			Handler:    _PreferenceBuilderService_SetSessionConfig_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	SensorFusionParamsService_DescribeContents_FullMethodName      = "/ranging.SensorFusionParamsService/DescribeContents"
+	SensorFusionParamsService_Equals_FullMethodName                = "/ranging.SensorFusionParamsService/Equals"
+	SensorFusionParamsService_HashCode_FullMethodName              = "/ranging.SensorFusionParamsService/HashCode"
+	SensorFusionParamsService_IsSensorFusionEnabled_FullMethodName = "/ranging.SensorFusionParamsService/IsSensorFusionEnabled"
+	SensorFusionParamsService_ToString_FullMethodName              = "/ranging.SensorFusionParamsService/ToString"
+	SensorFusionParamsService_WriteToParcel_FullMethodName         = "/ranging.SensorFusionParamsService/WriteToParcel"
+)
+
+// SensorFusionParamsServiceClient is the client API for SensorFusionParamsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorFusionParamsServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsSensorFusionEnabled(ctx context.Context, in *IsSensorFusionEnabledRequest, opts ...grpc.CallOption) (*IsSensorFusionEnabledResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type sensorFusionParamsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorFusionParamsServiceClient(cc grpc.ClientConnInterface) SensorFusionParamsServiceClient {
+	return &sensorFusionParamsServiceClient{cc}
+}
+
+func (c *sensorFusionParamsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SensorFusionParamsService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorFusionParamsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SensorFusionParamsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorFusionParamsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SensorFusionParamsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorFusionParamsServiceClient) IsSensorFusionEnabled(ctx context.Context, in *IsSensorFusionEnabledRequest, opts ...grpc.CallOption) (*IsSensorFusionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSensorFusionEnabledResponse)
+	err := c.cc.Invoke(ctx, SensorFusionParamsService_IsSensorFusionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorFusionParamsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SensorFusionParamsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorFusionParamsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SensorFusionParamsService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorFusionParamsServiceServer is the server API for SensorFusionParamsService service.
+// All implementations must embed UnimplementedSensorFusionParamsServiceServer
+// for forward compatibility.
+type SensorFusionParamsServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsSensorFusionEnabled(context.Context, *IsSensorFusionEnabledRequest) (*IsSensorFusionEnabledResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSensorFusionParamsServiceServer()
+}
+
+// UnimplementedSensorFusionParamsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorFusionParamsServiceServer struct{}
+
+func (UnimplementedSensorFusionParamsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSensorFusionParamsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSensorFusionParamsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSensorFusionParamsServiceServer) IsSensorFusionEnabled(context.Context, *IsSensorFusionEnabledRequest) (*IsSensorFusionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSensorFusionEnabled not implemented")
+}
+func (UnimplementedSensorFusionParamsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSensorFusionParamsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSensorFusionParamsServiceServer) mustEmbedUnimplementedSensorFusionParamsServiceServer() {
+}
+func (UnimplementedSensorFusionParamsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorFusionParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorFusionParamsServiceServer will
+// result in compilation errors.
+type UnsafeSensorFusionParamsServiceServer interface {
+	mustEmbedUnimplementedSensorFusionParamsServiceServer()
+}
+
+func RegisterSensorFusionParamsServiceServer(s grpc.ServiceRegistrar, srv SensorFusionParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorFusionParamsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorFusionParamsService_ServiceDesc, srv)
+}
+
+func _SensorFusionParamsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorFusionParamsServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorFusionParamsService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorFusionParamsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorFusionParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorFusionParamsServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorFusionParamsService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorFusionParamsServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorFusionParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorFusionParamsServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorFusionParamsService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorFusionParamsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorFusionParamsService_IsSensorFusionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSensorFusionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorFusionParamsServiceServer).IsSensorFusionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorFusionParamsService_IsSensorFusionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorFusionParamsServiceServer).IsSensorFusionEnabled(ctx, req.(*IsSensorFusionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorFusionParamsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorFusionParamsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorFusionParamsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorFusionParamsServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorFusionParamsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorFusionParamsServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorFusionParamsService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorFusionParamsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorFusionParamsService_ServiceDesc is the grpc.ServiceDesc for SensorFusionParamsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorFusionParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.SensorFusionParamsService",
+	HandlerType: (*SensorFusionParamsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SensorFusionParamsService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _SensorFusionParamsService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _SensorFusionParamsService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsSensorFusionEnabled",
+			Handler:    _SensorFusionParamsService_IsSensorFusionEnabled_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SensorFusionParamsService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SensorFusionParamsService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	SensorFusionParamsBuilderService_Build_FullMethodName                  = "/ranging.SensorFusionParamsBuilderService/Build"
+	SensorFusionParamsBuilderService_SetSensorFusionEnabled_FullMethodName = "/ranging.SensorFusionParamsBuilderService/SetSensorFusionEnabled"
+)
+
+// SensorFusionParamsBuilderServiceClient is the client API for SensorFusionParamsBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorFusionParamsBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetSensorFusionEnabled(ctx context.Context, in *SetSensorFusionEnabledRequest, opts ...grpc.CallOption) (*SetSensorFusionEnabledResponse, error)
+}
+
+type sensorFusionParamsBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorFusionParamsBuilderServiceClient(cc grpc.ClientConnInterface) SensorFusionParamsBuilderServiceClient {
+	return &sensorFusionParamsBuilderServiceClient{cc}
+}
+
+func (c *sensorFusionParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, SensorFusionParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorFusionParamsBuilderServiceClient) SetSensorFusionEnabled(ctx context.Context, in *SetSensorFusionEnabledRequest, opts ...grpc.CallOption) (*SetSensorFusionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSensorFusionEnabledResponse)
+	err := c.cc.Invoke(ctx, SensorFusionParamsBuilderService_SetSensorFusionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorFusionParamsBuilderServiceServer is the server API for SensorFusionParamsBuilderService service.
+// All implementations must embed UnimplementedSensorFusionParamsBuilderServiceServer
+// for forward compatibility.
+type SensorFusionParamsBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetSensorFusionEnabled(context.Context, *SetSensorFusionEnabledRequest) (*SetSensorFusionEnabledResponse, error)
+	mustEmbedUnimplementedSensorFusionParamsBuilderServiceServer()
+}
+
+// UnimplementedSensorFusionParamsBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorFusionParamsBuilderServiceServer struct{}
+
+func (UnimplementedSensorFusionParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedSensorFusionParamsBuilderServiceServer) SetSensorFusionEnabled(context.Context, *SetSensorFusionEnabledRequest) (*SetSensorFusionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSensorFusionEnabled not implemented")
+}
+func (UnimplementedSensorFusionParamsBuilderServiceServer) mustEmbedUnimplementedSensorFusionParamsBuilderServiceServer() {
+}
+func (UnimplementedSensorFusionParamsBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorFusionParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorFusionParamsBuilderServiceServer will
+// result in compilation errors.
+type UnsafeSensorFusionParamsBuilderServiceServer interface {
+	mustEmbedUnimplementedSensorFusionParamsBuilderServiceServer()
+}
+
+func RegisterSensorFusionParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv SensorFusionParamsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorFusionParamsBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorFusionParamsBuilderService_ServiceDesc, srv)
+}
+
+func _SensorFusionParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorFusionParamsBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorFusionParamsBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorFusionParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorFusionParamsBuilderService_SetSensorFusionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSensorFusionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorFusionParamsBuilderServiceServer).SetSensorFusionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorFusionParamsBuilderService_SetSensorFusionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorFusionParamsBuilderServiceServer).SetSensorFusionEnabled(ctx, req.(*SetSensorFusionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorFusionParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for SensorFusionParamsBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorFusionParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.SensorFusionParamsBuilderService",
+	HandlerType: (*SensorFusionParamsBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _SensorFusionParamsBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetSensorFusionEnabled",
+			Handler:    _SensorFusionParamsBuilderService_SetSensorFusionEnabled_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	SessionService_AddDeviceToRangingSession_FullMethodName      = "/ranging.SessionService/AddDeviceToRangingSession"
+	SessionService_Close_FullMethodName                          = "/ranging.SessionService/Close"
+	SessionService_ReconfigureRangingInterval_FullMethodName     = "/ranging.SessionService/ReconfigureRangingInterval"
+	SessionService_RemoveDeviceFromRangingSession_FullMethodName = "/ranging.SessionService/RemoveDeviceFromRangingSession"
+	SessionService_Start_FullMethodName                          = "/ranging.SessionService/Start"
+	SessionService_Stop_FullMethodName                           = "/ranging.SessionService/Stop"
+	SessionService_ToString_FullMethodName                       = "/ranging.SessionService/ToString"
+)
+
+// SessionServiceClient is the client API for SessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SessionServiceClient interface {
+	AddDeviceToRangingSession(ctx context.Context, in *AddDeviceToRangingSessionRequest, opts ...grpc.CallOption) (*AddDeviceToRangingSessionResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	ReconfigureRangingInterval(ctx context.Context, in *ReconfigureRangingIntervalRequest, opts ...grpc.CallOption) (*ReconfigureRangingIntervalResponse, error)
+	RemoveDeviceFromRangingSession(ctx context.Context, in *RemoveDeviceFromRangingSessionRequest, opts ...grpc.CallOption) (*RemoveDeviceFromRangingSessionResponse, error)
+	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
+	Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*StopResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type sessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSessionServiceClient(cc grpc.ClientConnInterface) SessionServiceClient {
+	return &sessionServiceClient{cc}
+}
+
+func (c *sessionServiceClient) AddDeviceToRangingSession(ctx context.Context, in *AddDeviceToRangingSessionRequest, opts ...grpc.CallOption) (*AddDeviceToRangingSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDeviceToRangingSessionResponse)
+	err := c.cc.Invoke(ctx, SessionService_AddDeviceToRangingSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) ReconfigureRangingInterval(ctx context.Context, in *ReconfigureRangingIntervalRequest, opts ...grpc.CallOption) (*ReconfigureRangingIntervalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReconfigureRangingIntervalResponse)
+	err := c.cc.Invoke(ctx, SessionService_ReconfigureRangingInterval_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) RemoveDeviceFromRangingSession(ctx context.Context, in *RemoveDeviceFromRangingSessionRequest, opts ...grpc.CallOption) (*RemoveDeviceFromRangingSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveDeviceFromRangingSessionResponse)
+	err := c.cc.Invoke(ctx, SessionService_RemoveDeviceFromRangingSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartResponse)
+	err := c.cc.Invoke(ctx, SessionService_Start_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*StopResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopResponse)
+	err := c.cc.Invoke(ctx, SessionService_Stop_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SessionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SessionServiceServer is the server API for SessionService service.
+// All implementations must embed UnimplementedSessionServiceServer
+// for forward compatibility.
+type SessionServiceServer interface {
+	AddDeviceToRangingSession(context.Context, *AddDeviceToRangingSessionRequest) (*AddDeviceToRangingSessionResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	ReconfigureRangingInterval(context.Context, *ReconfigureRangingIntervalRequest) (*ReconfigureRangingIntervalResponse, error)
+	RemoveDeviceFromRangingSession(context.Context, *RemoveDeviceFromRangingSessionRequest) (*RemoveDeviceFromRangingSessionResponse, error)
+	Start(context.Context, *StartRequest) (*StartResponse, error)
+	Stop(context.Context, *StopRequest) (*StopResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedSessionServiceServer()
+}
+
+// UnimplementedSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSessionServiceServer struct{}
+
+func (UnimplementedSessionServiceServer) AddDeviceToRangingSession(context.Context, *AddDeviceToRangingSessionRequest) (*AddDeviceToRangingSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDeviceToRangingSession not implemented")
+}
+func (UnimplementedSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSessionServiceServer) ReconfigureRangingInterval(context.Context, *ReconfigureRangingIntervalRequest) (*ReconfigureRangingIntervalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReconfigureRangingInterval not implemented")
+}
+func (UnimplementedSessionServiceServer) RemoveDeviceFromRangingSession(context.Context, *RemoveDeviceFromRangingSessionRequest) (*RemoveDeviceFromRangingSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveDeviceFromRangingSession not implemented")
+}
+func (UnimplementedSessionServiceServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Start not implemented")
+}
+func (UnimplementedSessionServiceServer) Stop(context.Context, *StopRequest) (*StopResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Stop not implemented")
+}
+func (UnimplementedSessionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSessionServiceServer) mustEmbedUnimplementedSessionServiceServer() {}
+func (UnimplementedSessionServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionServiceServer will
+// result in compilation errors.
+type UnsafeSessionServiceServer interface {
+	mustEmbedUnimplementedSessionServiceServer()
+}
+
+func RegisterSessionServiceServer(s grpc.ServiceRegistrar, srv SessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SessionService_ServiceDesc, srv)
+}
+
+func _SessionService_AddDeviceToRangingSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDeviceToRangingSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).AddDeviceToRangingSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_AddDeviceToRangingSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).AddDeviceToRangingSession(ctx, req.(*AddDeviceToRangingSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_ReconfigureRangingInterval_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReconfigureRangingIntervalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).ReconfigureRangingInterval(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_ReconfigureRangingInterval_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).ReconfigureRangingInterval(ctx, req.(*ReconfigureRangingIntervalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_RemoveDeviceFromRangingSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveDeviceFromRangingSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).RemoveDeviceFromRangingSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_RemoveDeviceFromRangingSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).RemoveDeviceFromRangingSession(ctx, req.(*RemoveDeviceFromRangingSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Start_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Start(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Start_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Start(ctx, req.(*StartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Stop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Stop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Stop_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Stop(ctx, req.(*StopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SessionService_ServiceDesc is the grpc.ServiceDesc for SessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.SessionService",
+	HandlerType: (*SessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDeviceToRangingSession",
+			Handler:    _SessionService_AddDeviceToRangingSession_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SessionService_Close_Handler,
+		},
+		{
+			MethodName: "ReconfigureRangingInterval",
+			Handler:    _SessionService_ReconfigureRangingInterval_Handler,
+		},
+		{
+			MethodName: "RemoveDeviceFromRangingSession",
+			Handler:    _SessionService_RemoveDeviceFromRangingSession_Handler,
+		},
+		{
+			MethodName: "Start",
+			Handler:    _SessionService_Start_Handler,
+		},
+		{
+			MethodName: "Stop",
+			Handler:    _SessionService_Stop_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SessionService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	SessionCallbackService_OnClosed_FullMethodName     = "/ranging.SessionCallbackService/OnClosed"
+	SessionCallbackService_OnOpenFailed_FullMethodName = "/ranging.SessionCallbackService/OnOpenFailed"
+	SessionCallbackService_OnOpened_FullMethodName     = "/ranging.SessionCallbackService/OnOpened"
+	SessionCallbackService_OnResults_FullMethodName    = "/ranging.SessionCallbackService/OnResults"
+	SessionCallbackService_OnStarted_FullMethodName    = "/ranging.SessionCallbackService/OnStarted"
+	SessionCallbackService_OnStopped_FullMethodName    = "/ranging.SessionCallbackService/OnStopped"
+)
+
+// SessionCallbackServiceClient is the client API for SessionCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SessionCallbackServiceClient interface {
+	OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error)
+	OnOpenFailed(ctx context.Context, in *OnOpenFailedRequest, opts ...grpc.CallOption) (*OnOpenFailedResponse, error)
+	OnOpened(ctx context.Context, in *OnOpenedRequest, opts ...grpc.CallOption) (*OnOpenedResponse, error)
+	OnResults(ctx context.Context, in *OnResultsRequest, opts ...grpc.CallOption) (*OnResultsResponse, error)
+	OnStarted(ctx context.Context, in *OnStartedRequest, opts ...grpc.CallOption) (*OnStartedResponse, error)
+	OnStopped(ctx context.Context, in *OnStoppedRequest, opts ...grpc.CallOption) (*OnStoppedResponse, error)
+}
+
+type sessionCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSessionCallbackServiceClient(cc grpc.ClientConnInterface) SessionCallbackServiceClient {
+	return &sessionCallbackServiceClient{cc}
+}
+
+func (c *sessionCallbackServiceClient) OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClosedResponse)
+	err := c.cc.Invoke(ctx, SessionCallbackService_OnClosed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionCallbackServiceClient) OnOpenFailed(ctx context.Context, in *OnOpenFailedRequest, opts ...grpc.CallOption) (*OnOpenFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnOpenFailedResponse)
+	err := c.cc.Invoke(ctx, SessionCallbackService_OnOpenFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionCallbackServiceClient) OnOpened(ctx context.Context, in *OnOpenedRequest, opts ...grpc.CallOption) (*OnOpenedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnOpenedResponse)
+	err := c.cc.Invoke(ctx, SessionCallbackService_OnOpened_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionCallbackServiceClient) OnResults(ctx context.Context, in *OnResultsRequest, opts ...grpc.CallOption) (*OnResultsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnResultsResponse)
+	err := c.cc.Invoke(ctx, SessionCallbackService_OnResults_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionCallbackServiceClient) OnStarted(ctx context.Context, in *OnStartedRequest, opts ...grpc.CallOption) (*OnStartedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartedResponse)
+	err := c.cc.Invoke(ctx, SessionCallbackService_OnStarted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionCallbackServiceClient) OnStopped(ctx context.Context, in *OnStoppedRequest, opts ...grpc.CallOption) (*OnStoppedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStoppedResponse)
+	err := c.cc.Invoke(ctx, SessionCallbackService_OnStopped_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SessionCallbackServiceServer is the server API for SessionCallbackService service.
+// All implementations must embed UnimplementedSessionCallbackServiceServer
+// for forward compatibility.
+type SessionCallbackServiceServer interface {
+	OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error)
+	OnOpenFailed(context.Context, *OnOpenFailedRequest) (*OnOpenFailedResponse, error)
+	OnOpened(context.Context, *OnOpenedRequest) (*OnOpenedResponse, error)
+	OnResults(context.Context, *OnResultsRequest) (*OnResultsResponse, error)
+	OnStarted(context.Context, *OnStartedRequest) (*OnStartedResponse, error)
+	OnStopped(context.Context, *OnStoppedRequest) (*OnStoppedResponse, error)
+	mustEmbedUnimplementedSessionCallbackServiceServer()
+}
+
+// UnimplementedSessionCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSessionCallbackServiceServer struct{}
+
+func (UnimplementedSessionCallbackServiceServer) OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClosed not implemented")
+}
+func (UnimplementedSessionCallbackServiceServer) OnOpenFailed(context.Context, *OnOpenFailedRequest) (*OnOpenFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnOpenFailed not implemented")
+}
+func (UnimplementedSessionCallbackServiceServer) OnOpened(context.Context, *OnOpenedRequest) (*OnOpenedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnOpened not implemented")
+}
+func (UnimplementedSessionCallbackServiceServer) OnResults(context.Context, *OnResultsRequest) (*OnResultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnResults not implemented")
+}
+func (UnimplementedSessionCallbackServiceServer) OnStarted(context.Context, *OnStartedRequest) (*OnStartedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStarted not implemented")
+}
+func (UnimplementedSessionCallbackServiceServer) OnStopped(context.Context, *OnStoppedRequest) (*OnStoppedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStopped not implemented")
+}
+func (UnimplementedSessionCallbackServiceServer) mustEmbedUnimplementedSessionCallbackServiceServer() {
+}
+func (UnimplementedSessionCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSessionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionCallbackServiceServer will
+// result in compilation errors.
+type UnsafeSessionCallbackServiceServer interface {
+	mustEmbedUnimplementedSessionCallbackServiceServer()
+}
+
+func RegisterSessionCallbackServiceServer(s grpc.ServiceRegistrar, srv SessionCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SessionCallbackService_ServiceDesc, srv)
+}
+
+func _SessionCallbackService_OnClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClosedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionCallbackServiceServer).OnClosed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionCallbackService_OnClosed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionCallbackServiceServer).OnClosed(ctx, req.(*OnClosedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionCallbackService_OnOpenFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnOpenFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionCallbackServiceServer).OnOpenFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionCallbackService_OnOpenFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionCallbackServiceServer).OnOpenFailed(ctx, req.(*OnOpenFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionCallbackService_OnOpened_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnOpenedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionCallbackServiceServer).OnOpened(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionCallbackService_OnOpened_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionCallbackServiceServer).OnOpened(ctx, req.(*OnOpenedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionCallbackService_OnResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnResultsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionCallbackServiceServer).OnResults(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionCallbackService_OnResults_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionCallbackServiceServer).OnResults(ctx, req.(*OnResultsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionCallbackService_OnStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionCallbackServiceServer).OnStarted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionCallbackService_OnStarted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionCallbackServiceServer).OnStarted(ctx, req.(*OnStartedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionCallbackService_OnStopped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStoppedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionCallbackServiceServer).OnStopped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionCallbackService_OnStopped_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionCallbackServiceServer).OnStopped(ctx, req.(*OnStoppedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SessionCallbackService_ServiceDesc is the grpc.ServiceDesc for SessionCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SessionCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.SessionCallbackService",
+	HandlerType: (*SessionCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnClosed",
+			Handler:    _SessionCallbackService_OnClosed_Handler,
+		},
+		{
+			MethodName: "OnOpenFailed",
+			Handler:    _SessionCallbackService_OnOpenFailed_Handler,
+		},
+		{
+			MethodName: "OnOpened",
+			Handler:    _SessionCallbackService_OnOpened_Handler,
+		},
+		{
+			MethodName: "OnResults",
+			Handler:    _SessionCallbackService_OnResults_Handler,
+		},
+		{
+			MethodName: "OnStarted",
+			Handler:    _SessionCallbackService_OnStarted_Handler,
+		},
+		{
+			MethodName: "OnStopped",
+			Handler:    _SessionCallbackService_OnStopped_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	CapabilitiesService_DescribeContents_FullMethodName          = "/ranging.CapabilitiesService/DescribeContents"
+	CapabilitiesService_GetCsCapabilities_FullMethodName         = "/ranging.CapabilitiesService/GetCsCapabilities"
+	CapabilitiesService_GetRttRangingCapabilities_FullMethodName = "/ranging.CapabilitiesService/GetRttRangingCapabilities"
+	CapabilitiesService_GetUwbCapabilities_FullMethodName        = "/ranging.CapabilitiesService/GetUwbCapabilities"
+	CapabilitiesService_ToString_FullMethodName                  = "/ranging.CapabilitiesService/ToString"
+	CapabilitiesService_WriteToParcel_FullMethodName             = "/ranging.CapabilitiesService/WriteToParcel"
+)
+
+// CapabilitiesServiceClient is the client API for CapabilitiesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CapabilitiesServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCsCapabilities(ctx context.Context, in *GetCsCapabilitiesRequest, opts ...grpc.CallOption) (*GetCsCapabilitiesResponse, error)
+	GetRttRangingCapabilities(ctx context.Context, in *GetRttRangingCapabilitiesRequest, opts ...grpc.CallOption) (*GetRttRangingCapabilitiesResponse, error)
+	GetUwbCapabilities(ctx context.Context, in *GetUwbCapabilitiesRequest, opts ...grpc.CallOption) (*GetUwbCapabilitiesResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type capabilitiesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCapabilitiesServiceClient(cc grpc.ClientConnInterface) CapabilitiesServiceClient {
+	return &capabilitiesServiceClient{cc}
+}
+
+func (c *capabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilitiesServiceClient) GetCsCapabilities(ctx context.Context, in *GetCsCapabilitiesRequest, opts ...grpc.CallOption) (*GetCsCapabilitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCsCapabilitiesResponse)
+	err := c.cc.Invoke(ctx, CapabilitiesService_GetCsCapabilities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilitiesServiceClient) GetRttRangingCapabilities(ctx context.Context, in *GetRttRangingCapabilitiesRequest, opts ...grpc.CallOption) (*GetRttRangingCapabilitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRttRangingCapabilitiesResponse)
+	err := c.cc.Invoke(ctx, CapabilitiesService_GetRttRangingCapabilities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilitiesServiceClient) GetUwbCapabilities(ctx context.Context, in *GetUwbCapabilitiesRequest, opts ...grpc.CallOption) (*GetUwbCapabilitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUwbCapabilitiesResponse)
+	err := c.cc.Invoke(ctx, CapabilitiesService_GetUwbCapabilities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CapabilitiesServiceServer is the server API for CapabilitiesService service.
+// All implementations must embed UnimplementedCapabilitiesServiceServer
+// for forward compatibility.
+type CapabilitiesServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCsCapabilities(context.Context, *GetCsCapabilitiesRequest) (*GetCsCapabilitiesResponse, error)
+	GetRttRangingCapabilities(context.Context, *GetRttRangingCapabilitiesRequest) (*GetRttRangingCapabilitiesResponse, error)
+	GetUwbCapabilities(context.Context, *GetUwbCapabilitiesRequest) (*GetUwbCapabilitiesResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCapabilitiesServiceServer()
+}
+
+// UnimplementedCapabilitiesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCapabilitiesServiceServer struct{}
+
+func (UnimplementedCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCapabilitiesServiceServer) GetCsCapabilities(context.Context, *GetCsCapabilitiesRequest) (*GetCsCapabilitiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCsCapabilities not implemented")
+}
+func (UnimplementedCapabilitiesServiceServer) GetRttRangingCapabilities(context.Context, *GetRttRangingCapabilitiesRequest) (*GetRttRangingCapabilitiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRttRangingCapabilities not implemented")
+}
+func (UnimplementedCapabilitiesServiceServer) GetUwbCapabilities(context.Context, *GetUwbCapabilitiesRequest) (*GetUwbCapabilitiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUwbCapabilities not implemented")
+}
+func (UnimplementedCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCapabilitiesServiceServer) mustEmbedUnimplementedCapabilitiesServiceServer() {}
+func (UnimplementedCapabilitiesServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CapabilitiesServiceServer will
+// result in compilation errors.
+type UnsafeCapabilitiesServiceServer interface {
+	mustEmbedUnimplementedCapabilitiesServiceServer()
+}
+
+func RegisterCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv CapabilitiesServiceServer) {
+	// If the following call panics, it indicates UnimplementedCapabilitiesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CapabilitiesService_ServiceDesc, srv)
+}
+
+func _CapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilitiesServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilitiesService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilitiesService_GetCsCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCsCapabilitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilitiesServiceServer).GetCsCapabilities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilitiesService_GetCsCapabilities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilitiesServiceServer).GetCsCapabilities(ctx, req.(*GetCsCapabilitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilitiesService_GetRttRangingCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRttRangingCapabilitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilitiesServiceServer).GetRttRangingCapabilities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilitiesService_GetRttRangingCapabilities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilitiesServiceServer).GetRttRangingCapabilities(ctx, req.(*GetRttRangingCapabilitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilitiesService_GetUwbCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUwbCapabilitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilitiesServiceServer).GetUwbCapabilities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilitiesService_GetUwbCapabilities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilitiesServiceServer).GetUwbCapabilities(ctx, req.(*GetUwbCapabilitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilitiesServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilitiesService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilitiesServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilitiesService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CapabilitiesService_ServiceDesc is the grpc.ServiceDesc for CapabilitiesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CapabilitiesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.CapabilitiesService",
+	HandlerType: (*CapabilitiesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CapabilitiesService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCsCapabilities",
+			Handler:    _CapabilitiesService_GetCsCapabilities_Handler,
+		},
+		{
+			MethodName: "GetRttRangingCapabilities",
+			Handler:    _CapabilitiesService_GetRttRangingCapabilities_Handler,
+		},
+		{
+			MethodName: "GetUwbCapabilities",
+			Handler:    _CapabilitiesService_GetUwbCapabilities_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CapabilitiesService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CapabilitiesService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	ConfigService_GetRangingSessionType_FullMethodName = "/ranging.ConfigService/GetRangingSessionType"
+	ConfigService_ToString_FullMethodName              = "/ranging.ConfigService/ToString"
+)
+
+// ConfigServiceClient is the client API for ConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConfigServiceClient interface {
+	GetRangingSessionType(ctx context.Context, in *GetRangingSessionTypeRequest, opts ...grpc.CallOption) (*GetRangingSessionTypeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type configServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConfigServiceClient(cc grpc.ClientConnInterface) ConfigServiceClient {
+	return &configServiceClient{cc}
+}
+
+func (c *configServiceClient) GetRangingSessionType(ctx context.Context, in *GetRangingSessionTypeRequest, opts ...grpc.CallOption) (*GetRangingSessionTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRangingSessionTypeResponse)
+	err := c.cc.Invoke(ctx, ConfigService_GetRangingSessionType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConfigServiceServer is the server API for ConfigService service.
+// All implementations must embed UnimplementedConfigServiceServer
+// for forward compatibility.
+type ConfigServiceServer interface {
+	GetRangingSessionType(context.Context, *GetRangingSessionTypeRequest) (*GetRangingSessionTypeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedConfigServiceServer()
+}
+
+// UnimplementedConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConfigServiceServer struct{}
+
+func (UnimplementedConfigServiceServer) GetRangingSessionType(context.Context, *GetRangingSessionTypeRequest) (*GetRangingSessionTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRangingSessionType not implemented")
+}
+func (UnimplementedConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedConfigServiceServer) mustEmbedUnimplementedConfigServiceServer() {}
+func (UnimplementedConfigServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConfigServiceServer will
+// result in compilation errors.
+type UnsafeConfigServiceServer interface {
+	mustEmbedUnimplementedConfigServiceServer()
+}
+
+func RegisterConfigServiceServer(s grpc.ServiceRegistrar, srv ConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConfigService_ServiceDesc, srv)
+}
+
+func _ConfigService_GetRangingSessionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRangingSessionTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigServiceServer).GetRangingSessionType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigService_GetRangingSessionType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigServiceServer).GetRangingSessionType(ctx, req.(*GetRangingSessionTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConfigService_ServiceDesc is the grpc.ServiceDesc for ConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.ConfigService",
+	HandlerType: (*ConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRangingSessionType",
+			Handler:    _ConfigService_GetRangingSessionType_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ConfigService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1342,6 +3696,287 @@ var DataService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ManagerService_CreateRangingSession_FullMethodName           = "/ranging.ManagerService/CreateRangingSession"
+	ManagerService_RegisterCapabilitiesCallback_FullMethodName   = "/ranging.ManagerService/RegisterCapabilitiesCallback"
+	ManagerService_UnregisterCapabilitiesCallback_FullMethodName = "/ranging.ManagerService/UnregisterCapabilitiesCallback"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	CreateRangingSession(ctx context.Context, in *CreateRangingSessionRequest, opts ...grpc.CallOption) (*CreateRangingSessionResponse, error)
+	RegisterCapabilitiesCallback(ctx context.Context, in *RegisterCapabilitiesCallbackRequest, opts ...grpc.CallOption) (*RegisterCapabilitiesCallbackResponse, error)
+	UnregisterCapabilitiesCallback(ctx context.Context, in *UnregisterCapabilitiesCallbackRequest, opts ...grpc.CallOption) (*UnregisterCapabilitiesCallbackResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) CreateRangingSession(ctx context.Context, in *CreateRangingSessionRequest, opts ...grpc.CallOption) (*CreateRangingSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateRangingSessionResponse)
+	err := c.cc.Invoke(ctx, ManagerService_CreateRangingSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RegisterCapabilitiesCallback(ctx context.Context, in *RegisterCapabilitiesCallbackRequest, opts ...grpc.CallOption) (*RegisterCapabilitiesCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterCapabilitiesCallbackResponse)
+	err := c.cc.Invoke(ctx, ManagerService_RegisterCapabilitiesCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) UnregisterCapabilitiesCallback(ctx context.Context, in *UnregisterCapabilitiesCallbackRequest, opts ...grpc.CallOption) (*UnregisterCapabilitiesCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterCapabilitiesCallbackResponse)
+	err := c.cc.Invoke(ctx, ManagerService_UnregisterCapabilitiesCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	CreateRangingSession(context.Context, *CreateRangingSessionRequest) (*CreateRangingSessionResponse, error)
+	RegisterCapabilitiesCallback(context.Context, *RegisterCapabilitiesCallbackRequest) (*RegisterCapabilitiesCallbackResponse, error)
+	UnregisterCapabilitiesCallback(context.Context, *UnregisterCapabilitiesCallbackRequest) (*UnregisterCapabilitiesCallbackResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) CreateRangingSession(context.Context, *CreateRangingSessionRequest) (*CreateRangingSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateRangingSession not implemented")
+}
+func (UnimplementedManagerServiceServer) RegisterCapabilitiesCallback(context.Context, *RegisterCapabilitiesCallbackRequest) (*RegisterCapabilitiesCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterCapabilitiesCallback not implemented")
+}
+func (UnimplementedManagerServiceServer) UnregisterCapabilitiesCallback(context.Context, *UnregisterCapabilitiesCallbackRequest) (*UnregisterCapabilitiesCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterCapabilitiesCallback not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_CreateRangingSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRangingSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).CreateRangingSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_CreateRangingSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).CreateRangingSession(ctx, req.(*CreateRangingSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RegisterCapabilitiesCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterCapabilitiesCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RegisterCapabilitiesCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RegisterCapabilitiesCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RegisterCapabilitiesCallback(ctx, req.(*RegisterCapabilitiesCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_UnregisterCapabilitiesCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterCapabilitiesCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).UnregisterCapabilitiesCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_UnregisterCapabilitiesCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).UnregisterCapabilitiesCallback(ctx, req.(*UnregisterCapabilitiesCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateRangingSession",
+			Handler:    _ManagerService_CreateRangingSession_Handler,
+		},
+		{
+			MethodName: "RegisterCapabilitiesCallback",
+			Handler:    _ManagerService_RegisterCapabilitiesCallback_Handler,
+		},
+		{
+			MethodName: "UnregisterCapabilitiesCallback",
+			Handler:    _ManagerService_UnregisterCapabilitiesCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
+	ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_FullMethodName = "/ranging.ManagerRangingCapabilitiesCallbackService/OnRangingCapabilities"
+)
+
+// ManagerRangingCapabilitiesCallbackServiceClient is the client API for ManagerRangingCapabilitiesCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerRangingCapabilitiesCallbackServiceClient interface {
+	OnRangingCapabilities(ctx context.Context, in *OnRangingCapabilitiesRequest, opts ...grpc.CallOption) (*OnRangingCapabilitiesResponse, error)
+}
+
+type managerRangingCapabilitiesCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerRangingCapabilitiesCallbackServiceClient(cc grpc.ClientConnInterface) ManagerRangingCapabilitiesCallbackServiceClient {
+	return &managerRangingCapabilitiesCallbackServiceClient{cc}
+}
+
+func (c *managerRangingCapabilitiesCallbackServiceClient) OnRangingCapabilities(ctx context.Context, in *OnRangingCapabilitiesRequest, opts ...grpc.CallOption) (*OnRangingCapabilitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRangingCapabilitiesResponse)
+	err := c.cc.Invoke(ctx, ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerRangingCapabilitiesCallbackServiceServer is the server API for ManagerRangingCapabilitiesCallbackService service.
+// All implementations must embed UnimplementedManagerRangingCapabilitiesCallbackServiceServer
+// for forward compatibility.
+type ManagerRangingCapabilitiesCallbackServiceServer interface {
+	OnRangingCapabilities(context.Context, *OnRangingCapabilitiesRequest) (*OnRangingCapabilitiesResponse, error)
+	mustEmbedUnimplementedManagerRangingCapabilitiesCallbackServiceServer()
+}
+
+// UnimplementedManagerRangingCapabilitiesCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerRangingCapabilitiesCallbackServiceServer struct{}
+
+func (UnimplementedManagerRangingCapabilitiesCallbackServiceServer) OnRangingCapabilities(context.Context, *OnRangingCapabilitiesRequest) (*OnRangingCapabilitiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRangingCapabilities not implemented")
+}
+func (UnimplementedManagerRangingCapabilitiesCallbackServiceServer) mustEmbedUnimplementedManagerRangingCapabilitiesCallbackServiceServer() {
+}
+func (UnimplementedManagerRangingCapabilitiesCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerRangingCapabilitiesCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerRangingCapabilitiesCallbackServiceServer will
+// result in compilation errors.
+type UnsafeManagerRangingCapabilitiesCallbackServiceServer interface {
+	mustEmbedUnimplementedManagerRangingCapabilitiesCallbackServiceServer()
+}
+
+func RegisterManagerRangingCapabilitiesCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerRangingCapabilitiesCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerRangingCapabilitiesCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerRangingCapabilitiesCallbackService_ServiceDesc, srv)
+}
+
+func _ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRangingCapabilitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerRangingCapabilitiesCallbackServiceServer).OnRangingCapabilities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerRangingCapabilitiesCallbackServiceServer).OnRangingCapabilities(ctx, req.(*OnRangingCapabilitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerRangingCapabilitiesCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerRangingCapabilitiesCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerRangingCapabilitiesCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ranging.ManagerRangingCapabilitiesCallbackService",
+	HandlerType: (*ManagerRangingCapabilitiesCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnRangingCapabilities",
+			Handler:    _ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ranging/ranging.proto",
+}
+
+const (
 	DataNotificationConfigService_DescribeContents_FullMethodName          = "/ranging.DataNotificationConfigService/DescribeContents"
 	DataNotificationConfigService_Equals_FullMethodName                    = "/ranging.DataNotificationConfigService/Equals"
 	DataNotificationConfigService_GetNotificationConfigType_FullMethodName = "/ranging.DataNotificationConfigService/GetNotificationConfigType"
@@ -1921,2641 +4556,6 @@ var DataNotificationConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetProximityNearCm",
 			Handler:    _DataNotificationConfigBuilderService_SetProximityNearCm_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	ConfigService_GetRangingSessionType_FullMethodName = "/ranging.ConfigService/GetRangingSessionType"
-	ConfigService_ToString_FullMethodName              = "/ranging.ConfigService/ToString"
-)
-
-// ConfigServiceClient is the client API for ConfigService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConfigServiceClient interface {
-	GetRangingSessionType(ctx context.Context, in *GetRangingSessionTypeRequest, opts ...grpc.CallOption) (*GetRangingSessionTypeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type configServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewConfigServiceClient(cc grpc.ClientConnInterface) ConfigServiceClient {
-	return &configServiceClient{cc}
-}
-
-func (c *configServiceClient) GetRangingSessionType(ctx context.Context, in *GetRangingSessionTypeRequest, opts ...grpc.CallOption) (*GetRangingSessionTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRangingSessionTypeResponse)
-	err := c.cc.Invoke(ctx, ConfigService_GetRangingSessionType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ConfigService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ConfigServiceServer is the server API for ConfigService service.
-// All implementations must embed UnimplementedConfigServiceServer
-// for forward compatibility.
-type ConfigServiceServer interface {
-	GetRangingSessionType(context.Context, *GetRangingSessionTypeRequest) (*GetRangingSessionTypeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedConfigServiceServer()
-}
-
-// UnimplementedConfigServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedConfigServiceServer struct{}
-
-func (UnimplementedConfigServiceServer) GetRangingSessionType(context.Context, *GetRangingSessionTypeRequest) (*GetRangingSessionTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRangingSessionType not implemented")
-}
-func (UnimplementedConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedConfigServiceServer) mustEmbedUnimplementedConfigServiceServer() {}
-func (UnimplementedConfigServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConfigServiceServer will
-// result in compilation errors.
-type UnsafeConfigServiceServer interface {
-	mustEmbedUnimplementedConfigServiceServer()
-}
-
-func RegisterConfigServiceServer(s grpc.ServiceRegistrar, srv ConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedConfigServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ConfigService_ServiceDesc, srv)
-}
-
-func _ConfigService_GetRangingSessionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRangingSessionTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigServiceServer).GetRangingSessionType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigService_GetRangingSessionType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).GetRangingSessionType(ctx, req.(*GetRangingSessionTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ConfigService_ServiceDesc is the grpc.ServiceDesc for ConfigService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.ConfigService",
-	HandlerType: (*ConfigServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetRangingSessionType",
-			Handler:    _ConfigService_GetRangingSessionType_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ConfigService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	SessionService_AddDeviceToRangingSession_FullMethodName      = "/ranging.SessionService/AddDeviceToRangingSession"
-	SessionService_Close_FullMethodName                          = "/ranging.SessionService/Close"
-	SessionService_ReconfigureRangingInterval_FullMethodName     = "/ranging.SessionService/ReconfigureRangingInterval"
-	SessionService_RemoveDeviceFromRangingSession_FullMethodName = "/ranging.SessionService/RemoveDeviceFromRangingSession"
-	SessionService_Start_FullMethodName                          = "/ranging.SessionService/Start"
-	SessionService_Stop_FullMethodName                           = "/ranging.SessionService/Stop"
-	SessionService_ToString_FullMethodName                       = "/ranging.SessionService/ToString"
-)
-
-// SessionServiceClient is the client API for SessionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionServiceClient interface {
-	AddDeviceToRangingSession(ctx context.Context, in *AddDeviceToRangingSessionRequest, opts ...grpc.CallOption) (*AddDeviceToRangingSessionResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	ReconfigureRangingInterval(ctx context.Context, in *ReconfigureRangingIntervalRequest, opts ...grpc.CallOption) (*ReconfigureRangingIntervalResponse, error)
-	RemoveDeviceFromRangingSession(ctx context.Context, in *RemoveDeviceFromRangingSessionRequest, opts ...grpc.CallOption) (*RemoveDeviceFromRangingSessionResponse, error)
-	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
-	Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*StopResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type sessionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionServiceClient(cc grpc.ClientConnInterface) SessionServiceClient {
-	return &sessionServiceClient{cc}
-}
-
-func (c *sessionServiceClient) AddDeviceToRangingSession(ctx context.Context, in *AddDeviceToRangingSessionRequest, opts ...grpc.CallOption) (*AddDeviceToRangingSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddDeviceToRangingSessionResponse)
-	err := c.cc.Invoke(ctx, SessionService_AddDeviceToRangingSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, SessionService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) ReconfigureRangingInterval(ctx context.Context, in *ReconfigureRangingIntervalRequest, opts ...grpc.CallOption) (*ReconfigureRangingIntervalResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReconfigureRangingIntervalResponse)
-	err := c.cc.Invoke(ctx, SessionService_ReconfigureRangingInterval_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) RemoveDeviceFromRangingSession(ctx context.Context, in *RemoveDeviceFromRangingSessionRequest, opts ...grpc.CallOption) (*RemoveDeviceFromRangingSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveDeviceFromRangingSessionResponse)
-	err := c.cc.Invoke(ctx, SessionService_RemoveDeviceFromRangingSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartResponse)
-	err := c.cc.Invoke(ctx, SessionService_Start_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*StopResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopResponse)
-	err := c.cc.Invoke(ctx, SessionService_Stop_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SessionService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionServiceServer is the server API for SessionService service.
-// All implementations must embed UnimplementedSessionServiceServer
-// for forward compatibility.
-type SessionServiceServer interface {
-	AddDeviceToRangingSession(context.Context, *AddDeviceToRangingSessionRequest) (*AddDeviceToRangingSessionResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	ReconfigureRangingInterval(context.Context, *ReconfigureRangingIntervalRequest) (*ReconfigureRangingIntervalResponse, error)
-	RemoveDeviceFromRangingSession(context.Context, *RemoveDeviceFromRangingSessionRequest) (*RemoveDeviceFromRangingSessionResponse, error)
-	Start(context.Context, *StartRequest) (*StartResponse, error)
-	Stop(context.Context, *StopRequest) (*StopResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedSessionServiceServer()
-}
-
-// UnimplementedSessionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionServiceServer struct{}
-
-func (UnimplementedSessionServiceServer) AddDeviceToRangingSession(context.Context, *AddDeviceToRangingSessionRequest) (*AddDeviceToRangingSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddDeviceToRangingSession not implemented")
-}
-func (UnimplementedSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedSessionServiceServer) ReconfigureRangingInterval(context.Context, *ReconfigureRangingIntervalRequest) (*ReconfigureRangingIntervalResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReconfigureRangingInterval not implemented")
-}
-func (UnimplementedSessionServiceServer) RemoveDeviceFromRangingSession(context.Context, *RemoveDeviceFromRangingSessionRequest) (*RemoveDeviceFromRangingSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveDeviceFromRangingSession not implemented")
-}
-func (UnimplementedSessionServiceServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Start not implemented")
-}
-func (UnimplementedSessionServiceServer) Stop(context.Context, *StopRequest) (*StopResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Stop not implemented")
-}
-func (UnimplementedSessionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSessionServiceServer) mustEmbedUnimplementedSessionServiceServer() {}
-func (UnimplementedSessionServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeSessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionServiceServer will
-// result in compilation errors.
-type UnsafeSessionServiceServer interface {
-	mustEmbedUnimplementedSessionServiceServer()
-}
-
-func RegisterSessionServiceServer(s grpc.ServiceRegistrar, srv SessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionService_ServiceDesc, srv)
-}
-
-func _SessionService_AddDeviceToRangingSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddDeviceToRangingSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).AddDeviceToRangingSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_AddDeviceToRangingSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).AddDeviceToRangingSession(ctx, req.(*AddDeviceToRangingSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_ReconfigureRangingInterval_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReconfigureRangingIntervalRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).ReconfigureRangingInterval(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_ReconfigureRangingInterval_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).ReconfigureRangingInterval(ctx, req.(*ReconfigureRangingIntervalRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_RemoveDeviceFromRangingSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveDeviceFromRangingSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).RemoveDeviceFromRangingSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_RemoveDeviceFromRangingSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).RemoveDeviceFromRangingSession(ctx, req.(*RemoveDeviceFromRangingSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Start_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Start(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Start_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Start(ctx, req.(*StartRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Stop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Stop(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Stop_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Stop(ctx, req.(*StopRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionService_ServiceDesc is the grpc.ServiceDesc for SessionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.SessionService",
-	HandlerType: (*SessionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddDeviceToRangingSession",
-			Handler:    _SessionService_AddDeviceToRangingSession_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _SessionService_Close_Handler,
-		},
-		{
-			MethodName: "ReconfigureRangingInterval",
-			Handler:    _SessionService_ReconfigureRangingInterval_Handler,
-		},
-		{
-			MethodName: "RemoveDeviceFromRangingSession",
-			Handler:    _SessionService_RemoveDeviceFromRangingSession_Handler,
-		},
-		{
-			MethodName: "Start",
-			Handler:    _SessionService_Start_Handler,
-		},
-		{
-			MethodName: "Stop",
-			Handler:    _SessionService_Stop_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SessionService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	SessionCallbackService_OnClosed_FullMethodName     = "/ranging.SessionCallbackService/OnClosed"
-	SessionCallbackService_OnOpenFailed_FullMethodName = "/ranging.SessionCallbackService/OnOpenFailed"
-	SessionCallbackService_OnOpened_FullMethodName     = "/ranging.SessionCallbackService/OnOpened"
-	SessionCallbackService_OnResults_FullMethodName    = "/ranging.SessionCallbackService/OnResults"
-	SessionCallbackService_OnStarted_FullMethodName    = "/ranging.SessionCallbackService/OnStarted"
-	SessionCallbackService_OnStopped_FullMethodName    = "/ranging.SessionCallbackService/OnStopped"
-)
-
-// SessionCallbackServiceClient is the client API for SessionCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionCallbackServiceClient interface {
-	OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error)
-	OnOpenFailed(ctx context.Context, in *OnOpenFailedRequest, opts ...grpc.CallOption) (*OnOpenFailedResponse, error)
-	OnOpened(ctx context.Context, in *OnOpenedRequest, opts ...grpc.CallOption) (*OnOpenedResponse, error)
-	OnResults(ctx context.Context, in *OnResultsRequest, opts ...grpc.CallOption) (*OnResultsResponse, error)
-	OnStarted(ctx context.Context, in *OnStartedRequest, opts ...grpc.CallOption) (*OnStartedResponse, error)
-	OnStopped(ctx context.Context, in *OnStoppedRequest, opts ...grpc.CallOption) (*OnStoppedResponse, error)
-}
-
-type sessionCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionCallbackServiceClient(cc grpc.ClientConnInterface) SessionCallbackServiceClient {
-	return &sessionCallbackServiceClient{cc}
-}
-
-func (c *sessionCallbackServiceClient) OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClosedResponse)
-	err := c.cc.Invoke(ctx, SessionCallbackService_OnClosed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionCallbackServiceClient) OnOpenFailed(ctx context.Context, in *OnOpenFailedRequest, opts ...grpc.CallOption) (*OnOpenFailedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnOpenFailedResponse)
-	err := c.cc.Invoke(ctx, SessionCallbackService_OnOpenFailed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionCallbackServiceClient) OnOpened(ctx context.Context, in *OnOpenedRequest, opts ...grpc.CallOption) (*OnOpenedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnOpenedResponse)
-	err := c.cc.Invoke(ctx, SessionCallbackService_OnOpened_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionCallbackServiceClient) OnResults(ctx context.Context, in *OnResultsRequest, opts ...grpc.CallOption) (*OnResultsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnResultsResponse)
-	err := c.cc.Invoke(ctx, SessionCallbackService_OnResults_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionCallbackServiceClient) OnStarted(ctx context.Context, in *OnStartedRequest, opts ...grpc.CallOption) (*OnStartedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStartedResponse)
-	err := c.cc.Invoke(ctx, SessionCallbackService_OnStarted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionCallbackServiceClient) OnStopped(ctx context.Context, in *OnStoppedRequest, opts ...grpc.CallOption) (*OnStoppedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStoppedResponse)
-	err := c.cc.Invoke(ctx, SessionCallbackService_OnStopped_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionCallbackServiceServer is the server API for SessionCallbackService service.
-// All implementations must embed UnimplementedSessionCallbackServiceServer
-// for forward compatibility.
-type SessionCallbackServiceServer interface {
-	OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error)
-	OnOpenFailed(context.Context, *OnOpenFailedRequest) (*OnOpenFailedResponse, error)
-	OnOpened(context.Context, *OnOpenedRequest) (*OnOpenedResponse, error)
-	OnResults(context.Context, *OnResultsRequest) (*OnResultsResponse, error)
-	OnStarted(context.Context, *OnStartedRequest) (*OnStartedResponse, error)
-	OnStopped(context.Context, *OnStoppedRequest) (*OnStoppedResponse, error)
-	mustEmbedUnimplementedSessionCallbackServiceServer()
-}
-
-// UnimplementedSessionCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionCallbackServiceServer struct{}
-
-func (UnimplementedSessionCallbackServiceServer) OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClosed not implemented")
-}
-func (UnimplementedSessionCallbackServiceServer) OnOpenFailed(context.Context, *OnOpenFailedRequest) (*OnOpenFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnOpenFailed not implemented")
-}
-func (UnimplementedSessionCallbackServiceServer) OnOpened(context.Context, *OnOpenedRequest) (*OnOpenedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnOpened not implemented")
-}
-func (UnimplementedSessionCallbackServiceServer) OnResults(context.Context, *OnResultsRequest) (*OnResultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnResults not implemented")
-}
-func (UnimplementedSessionCallbackServiceServer) OnStarted(context.Context, *OnStartedRequest) (*OnStartedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStarted not implemented")
-}
-func (UnimplementedSessionCallbackServiceServer) OnStopped(context.Context, *OnStoppedRequest) (*OnStoppedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStopped not implemented")
-}
-func (UnimplementedSessionCallbackServiceServer) mustEmbedUnimplementedSessionCallbackServiceServer() {
-}
-func (UnimplementedSessionCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSessionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionCallbackServiceServer will
-// result in compilation errors.
-type UnsafeSessionCallbackServiceServer interface {
-	mustEmbedUnimplementedSessionCallbackServiceServer()
-}
-
-func RegisterSessionCallbackServiceServer(s grpc.ServiceRegistrar, srv SessionCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionCallbackService_ServiceDesc, srv)
-}
-
-func _SessionCallbackService_OnClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClosedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionCallbackServiceServer).OnClosed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionCallbackService_OnClosed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionCallbackServiceServer).OnClosed(ctx, req.(*OnClosedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionCallbackService_OnOpenFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnOpenFailedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionCallbackServiceServer).OnOpenFailed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionCallbackService_OnOpenFailed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionCallbackServiceServer).OnOpenFailed(ctx, req.(*OnOpenFailedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionCallbackService_OnOpened_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnOpenedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionCallbackServiceServer).OnOpened(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionCallbackService_OnOpened_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionCallbackServiceServer).OnOpened(ctx, req.(*OnOpenedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionCallbackService_OnResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnResultsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionCallbackServiceServer).OnResults(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionCallbackService_OnResults_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionCallbackServiceServer).OnResults(ctx, req.(*OnResultsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionCallbackService_OnStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStartedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionCallbackServiceServer).OnStarted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionCallbackService_OnStarted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionCallbackServiceServer).OnStarted(ctx, req.(*OnStartedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionCallbackService_OnStopped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStoppedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionCallbackServiceServer).OnStopped(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionCallbackService_OnStopped_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionCallbackServiceServer).OnStopped(ctx, req.(*OnStoppedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionCallbackService_ServiceDesc is the grpc.ServiceDesc for SessionCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.SessionCallbackService",
-	HandlerType: (*SessionCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnClosed",
-			Handler:    _SessionCallbackService_OnClosed_Handler,
-		},
-		{
-			MethodName: "OnOpenFailed",
-			Handler:    _SessionCallbackService_OnOpenFailed_Handler,
-		},
-		{
-			MethodName: "OnOpened",
-			Handler:    _SessionCallbackService_OnOpened_Handler,
-		},
-		{
-			MethodName: "OnResults",
-			Handler:    _SessionCallbackService_OnResults_Handler,
-		},
-		{
-			MethodName: "OnStarted",
-			Handler:    _SessionCallbackService_OnStarted_Handler,
-		},
-		{
-			MethodName: "OnStopped",
-			Handler:    _SessionCallbackService_OnStopped_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	SensorFusionParamsService_DescribeContents_FullMethodName      = "/ranging.SensorFusionParamsService/DescribeContents"
-	SensorFusionParamsService_Equals_FullMethodName                = "/ranging.SensorFusionParamsService/Equals"
-	SensorFusionParamsService_HashCode_FullMethodName              = "/ranging.SensorFusionParamsService/HashCode"
-	SensorFusionParamsService_IsSensorFusionEnabled_FullMethodName = "/ranging.SensorFusionParamsService/IsSensorFusionEnabled"
-	SensorFusionParamsService_ToString_FullMethodName              = "/ranging.SensorFusionParamsService/ToString"
-	SensorFusionParamsService_WriteToParcel_FullMethodName         = "/ranging.SensorFusionParamsService/WriteToParcel"
-)
-
-// SensorFusionParamsServiceClient is the client API for SensorFusionParamsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorFusionParamsServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsSensorFusionEnabled(ctx context.Context, in *IsSensorFusionEnabledRequest, opts ...grpc.CallOption) (*IsSensorFusionEnabledResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type sensorFusionParamsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorFusionParamsServiceClient(cc grpc.ClientConnInterface) SensorFusionParamsServiceClient {
-	return &sensorFusionParamsServiceClient{cc}
-}
-
-func (c *sensorFusionParamsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SensorFusionParamsService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorFusionParamsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SensorFusionParamsService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorFusionParamsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SensorFusionParamsService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorFusionParamsServiceClient) IsSensorFusionEnabled(ctx context.Context, in *IsSensorFusionEnabledRequest, opts ...grpc.CallOption) (*IsSensorFusionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSensorFusionEnabledResponse)
-	err := c.cc.Invoke(ctx, SensorFusionParamsService_IsSensorFusionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorFusionParamsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SensorFusionParamsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorFusionParamsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SensorFusionParamsService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorFusionParamsServiceServer is the server API for SensorFusionParamsService service.
-// All implementations must embed UnimplementedSensorFusionParamsServiceServer
-// for forward compatibility.
-type SensorFusionParamsServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsSensorFusionEnabled(context.Context, *IsSensorFusionEnabledRequest) (*IsSensorFusionEnabledResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSensorFusionParamsServiceServer()
-}
-
-// UnimplementedSensorFusionParamsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorFusionParamsServiceServer struct{}
-
-func (UnimplementedSensorFusionParamsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSensorFusionParamsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedSensorFusionParamsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedSensorFusionParamsServiceServer) IsSensorFusionEnabled(context.Context, *IsSensorFusionEnabledRequest) (*IsSensorFusionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSensorFusionEnabled not implemented")
-}
-func (UnimplementedSensorFusionParamsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSensorFusionParamsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSensorFusionParamsServiceServer) mustEmbedUnimplementedSensorFusionParamsServiceServer() {
-}
-func (UnimplementedSensorFusionParamsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSensorFusionParamsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorFusionParamsServiceServer will
-// result in compilation errors.
-type UnsafeSensorFusionParamsServiceServer interface {
-	mustEmbedUnimplementedSensorFusionParamsServiceServer()
-}
-
-func RegisterSensorFusionParamsServiceServer(s grpc.ServiceRegistrar, srv SensorFusionParamsServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorFusionParamsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorFusionParamsService_ServiceDesc, srv)
-}
-
-func _SensorFusionParamsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorFusionParamsServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorFusionParamsService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorFusionParamsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorFusionParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorFusionParamsServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorFusionParamsService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorFusionParamsServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorFusionParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorFusionParamsServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorFusionParamsService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorFusionParamsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorFusionParamsService_IsSensorFusionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSensorFusionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorFusionParamsServiceServer).IsSensorFusionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorFusionParamsService_IsSensorFusionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorFusionParamsServiceServer).IsSensorFusionEnabled(ctx, req.(*IsSensorFusionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorFusionParamsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorFusionParamsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorFusionParamsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorFusionParamsServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorFusionParamsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorFusionParamsServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorFusionParamsService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorFusionParamsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorFusionParamsService_ServiceDesc is the grpc.ServiceDesc for SensorFusionParamsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorFusionParamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.SensorFusionParamsService",
-	HandlerType: (*SensorFusionParamsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SensorFusionParamsService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _SensorFusionParamsService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _SensorFusionParamsService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsSensorFusionEnabled",
-			Handler:    _SensorFusionParamsService_IsSensorFusionEnabled_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SensorFusionParamsService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SensorFusionParamsService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	SensorFusionParamsBuilderService_Build_FullMethodName                  = "/ranging.SensorFusionParamsBuilderService/Build"
-	SensorFusionParamsBuilderService_SetSensorFusionEnabled_FullMethodName = "/ranging.SensorFusionParamsBuilderService/SetSensorFusionEnabled"
-)
-
-// SensorFusionParamsBuilderServiceClient is the client API for SensorFusionParamsBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SensorFusionParamsBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetSensorFusionEnabled(ctx context.Context, in *SetSensorFusionEnabledRequest, opts ...grpc.CallOption) (*SetSensorFusionEnabledResponse, error)
-}
-
-type sensorFusionParamsBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSensorFusionParamsBuilderServiceClient(cc grpc.ClientConnInterface) SensorFusionParamsBuilderServiceClient {
-	return &sensorFusionParamsBuilderServiceClient{cc}
-}
-
-func (c *sensorFusionParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SensorFusionParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sensorFusionParamsBuilderServiceClient) SetSensorFusionEnabled(ctx context.Context, in *SetSensorFusionEnabledRequest, opts ...grpc.CallOption) (*SetSensorFusionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSensorFusionEnabledResponse)
-	err := c.cc.Invoke(ctx, SensorFusionParamsBuilderService_SetSensorFusionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SensorFusionParamsBuilderServiceServer is the server API for SensorFusionParamsBuilderService service.
-// All implementations must embed UnimplementedSensorFusionParamsBuilderServiceServer
-// for forward compatibility.
-type SensorFusionParamsBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetSensorFusionEnabled(context.Context, *SetSensorFusionEnabledRequest) (*SetSensorFusionEnabledResponse, error)
-	mustEmbedUnimplementedSensorFusionParamsBuilderServiceServer()
-}
-
-// UnimplementedSensorFusionParamsBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSensorFusionParamsBuilderServiceServer struct{}
-
-func (UnimplementedSensorFusionParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedSensorFusionParamsBuilderServiceServer) SetSensorFusionEnabled(context.Context, *SetSensorFusionEnabledRequest) (*SetSensorFusionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSensorFusionEnabled not implemented")
-}
-func (UnimplementedSensorFusionParamsBuilderServiceServer) mustEmbedUnimplementedSensorFusionParamsBuilderServiceServer() {
-}
-func (UnimplementedSensorFusionParamsBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSensorFusionParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SensorFusionParamsBuilderServiceServer will
-// result in compilation errors.
-type UnsafeSensorFusionParamsBuilderServiceServer interface {
-	mustEmbedUnimplementedSensorFusionParamsBuilderServiceServer()
-}
-
-func RegisterSensorFusionParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv SensorFusionParamsBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSensorFusionParamsBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SensorFusionParamsBuilderService_ServiceDesc, srv)
-}
-
-func _SensorFusionParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorFusionParamsBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorFusionParamsBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorFusionParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SensorFusionParamsBuilderService_SetSensorFusionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSensorFusionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SensorFusionParamsBuilderServiceServer).SetSensorFusionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SensorFusionParamsBuilderService_SetSensorFusionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SensorFusionParamsBuilderServiceServer).SetSensorFusionEnabled(ctx, req.(*SetSensorFusionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SensorFusionParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for SensorFusionParamsBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SensorFusionParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.SensorFusionParamsBuilderService",
-	HandlerType: (*SensorFusionParamsBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _SensorFusionParamsBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetSensorFusionEnabled",
-			Handler:    _SensorFusionParamsBuilderService_SetSensorFusionEnabled_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	ManagerService_CreateRangingSession_FullMethodName           = "/ranging.ManagerService/CreateRangingSession"
-	ManagerService_RegisterCapabilitiesCallback_FullMethodName   = "/ranging.ManagerService/RegisterCapabilitiesCallback"
-	ManagerService_UnregisterCapabilitiesCallback_FullMethodName = "/ranging.ManagerService/UnregisterCapabilitiesCallback"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	CreateRangingSession(ctx context.Context, in *CreateRangingSessionRequest, opts ...grpc.CallOption) (*CreateRangingSessionResponse, error)
-	RegisterCapabilitiesCallback(ctx context.Context, in *RegisterCapabilitiesCallbackRequest, opts ...grpc.CallOption) (*RegisterCapabilitiesCallbackResponse, error)
-	UnregisterCapabilitiesCallback(ctx context.Context, in *UnregisterCapabilitiesCallbackRequest, opts ...grpc.CallOption) (*UnregisterCapabilitiesCallbackResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) CreateRangingSession(ctx context.Context, in *CreateRangingSessionRequest, opts ...grpc.CallOption) (*CreateRangingSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateRangingSessionResponse)
-	err := c.cc.Invoke(ctx, ManagerService_CreateRangingSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) RegisterCapabilitiesCallback(ctx context.Context, in *RegisterCapabilitiesCallbackRequest, opts ...grpc.CallOption) (*RegisterCapabilitiesCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterCapabilitiesCallbackResponse)
-	err := c.cc.Invoke(ctx, ManagerService_RegisterCapabilitiesCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) UnregisterCapabilitiesCallback(ctx context.Context, in *UnregisterCapabilitiesCallbackRequest, opts ...grpc.CallOption) (*UnregisterCapabilitiesCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterCapabilitiesCallbackResponse)
-	err := c.cc.Invoke(ctx, ManagerService_UnregisterCapabilitiesCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	CreateRangingSession(context.Context, *CreateRangingSessionRequest) (*CreateRangingSessionResponse, error)
-	RegisterCapabilitiesCallback(context.Context, *RegisterCapabilitiesCallbackRequest) (*RegisterCapabilitiesCallbackResponse, error)
-	UnregisterCapabilitiesCallback(context.Context, *UnregisterCapabilitiesCallbackRequest) (*UnregisterCapabilitiesCallbackResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) CreateRangingSession(context.Context, *CreateRangingSessionRequest) (*CreateRangingSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateRangingSession not implemented")
-}
-func (UnimplementedManagerServiceServer) RegisterCapabilitiesCallback(context.Context, *RegisterCapabilitiesCallbackRequest) (*RegisterCapabilitiesCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterCapabilitiesCallback not implemented")
-}
-func (UnimplementedManagerServiceServer) UnregisterCapabilitiesCallback(context.Context, *UnregisterCapabilitiesCallbackRequest) (*UnregisterCapabilitiesCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterCapabilitiesCallback not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_CreateRangingSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateRangingSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).CreateRangingSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_CreateRangingSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).CreateRangingSession(ctx, req.(*CreateRangingSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_RegisterCapabilitiesCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterCapabilitiesCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RegisterCapabilitiesCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RegisterCapabilitiesCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RegisterCapabilitiesCallback(ctx, req.(*RegisterCapabilitiesCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_UnregisterCapabilitiesCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterCapabilitiesCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UnregisterCapabilitiesCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UnregisterCapabilitiesCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UnregisterCapabilitiesCallback(ctx, req.(*UnregisterCapabilitiesCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreateRangingSession",
-			Handler:    _ManagerService_CreateRangingSession_Handler,
-		},
-		{
-			MethodName: "RegisterCapabilitiesCallback",
-			Handler:    _ManagerService_RegisterCapabilitiesCallback_Handler,
-		},
-		{
-			MethodName: "UnregisterCapabilitiesCallback",
-			Handler:    _ManagerService_UnregisterCapabilitiesCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_FullMethodName = "/ranging.ManagerRangingCapabilitiesCallbackService/OnRangingCapabilities"
-)
-
-// ManagerRangingCapabilitiesCallbackServiceClient is the client API for ManagerRangingCapabilitiesCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerRangingCapabilitiesCallbackServiceClient interface {
-	OnRangingCapabilities(ctx context.Context, in *OnRangingCapabilitiesRequest, opts ...grpc.CallOption) (*OnRangingCapabilitiesResponse, error)
-}
-
-type managerRangingCapabilitiesCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerRangingCapabilitiesCallbackServiceClient(cc grpc.ClientConnInterface) ManagerRangingCapabilitiesCallbackServiceClient {
-	return &managerRangingCapabilitiesCallbackServiceClient{cc}
-}
-
-func (c *managerRangingCapabilitiesCallbackServiceClient) OnRangingCapabilities(ctx context.Context, in *OnRangingCapabilitiesRequest, opts ...grpc.CallOption) (*OnRangingCapabilitiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRangingCapabilitiesResponse)
-	err := c.cc.Invoke(ctx, ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerRangingCapabilitiesCallbackServiceServer is the server API for ManagerRangingCapabilitiesCallbackService service.
-// All implementations must embed UnimplementedManagerRangingCapabilitiesCallbackServiceServer
-// for forward compatibility.
-type ManagerRangingCapabilitiesCallbackServiceServer interface {
-	OnRangingCapabilities(context.Context, *OnRangingCapabilitiesRequest) (*OnRangingCapabilitiesResponse, error)
-	mustEmbedUnimplementedManagerRangingCapabilitiesCallbackServiceServer()
-}
-
-// UnimplementedManagerRangingCapabilitiesCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerRangingCapabilitiesCallbackServiceServer struct{}
-
-func (UnimplementedManagerRangingCapabilitiesCallbackServiceServer) OnRangingCapabilities(context.Context, *OnRangingCapabilitiesRequest) (*OnRangingCapabilitiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRangingCapabilities not implemented")
-}
-func (UnimplementedManagerRangingCapabilitiesCallbackServiceServer) mustEmbedUnimplementedManagerRangingCapabilitiesCallbackServiceServer() {
-}
-func (UnimplementedManagerRangingCapabilitiesCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagerRangingCapabilitiesCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerRangingCapabilitiesCallbackServiceServer will
-// result in compilation errors.
-type UnsafeManagerRangingCapabilitiesCallbackServiceServer interface {
-	mustEmbedUnimplementedManagerRangingCapabilitiesCallbackServiceServer()
-}
-
-func RegisterManagerRangingCapabilitiesCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerRangingCapabilitiesCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerRangingCapabilitiesCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerRangingCapabilitiesCallbackService_ServiceDesc, srv)
-}
-
-func _ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRangingCapabilitiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerRangingCapabilitiesCallbackServiceServer).OnRangingCapabilities(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerRangingCapabilitiesCallbackServiceServer).OnRangingCapabilities(ctx, req.(*OnRangingCapabilitiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerRangingCapabilitiesCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerRangingCapabilitiesCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerRangingCapabilitiesCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.ManagerRangingCapabilitiesCallbackService",
-	HandlerType: (*ManagerRangingCapabilitiesCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnRangingCapabilities",
-			Handler:    _ManagerRangingCapabilitiesCallbackService_OnRangingCapabilities_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	DeviceService_DescribeContents_FullMethodName = "/ranging.DeviceService/DescribeContents"
-	DeviceService_Equals_FullMethodName           = "/ranging.DeviceService/Equals"
-	DeviceService_GetUuid_FullMethodName          = "/ranging.DeviceService/GetUuid"
-	DeviceService_HashCode_FullMethodName         = "/ranging.DeviceService/HashCode"
-	DeviceService_ToString_FullMethodName         = "/ranging.DeviceService/ToString"
-	DeviceService_WriteToParcel_FullMethodName    = "/ranging.DeviceService/WriteToParcel"
-)
-
-// DeviceServiceClient is the client API for DeviceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeviceServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetUuid(ctx context.Context, in *GetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type deviceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDeviceServiceClient(cc grpc.ClientConnInterface) DeviceServiceClient {
-	return &deviceServiceClient{cc}
-}
-
-func (c *deviceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, DeviceService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, DeviceService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetUuid(ctx context.Context, in *GetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUuidResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetUuid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, DeviceService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DeviceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, DeviceService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DeviceServiceServer is the server API for DeviceService service.
-// All implementations must embed UnimplementedDeviceServiceServer
-// for forward compatibility.
-type DeviceServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetUuid(context.Context, *GetUuidRequest) (*GetUuidResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedDeviceServiceServer()
-}
-
-// UnimplementedDeviceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDeviceServiceServer struct{}
-
-func (UnimplementedDeviceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedDeviceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetUuid(context.Context, *GetUuidRequest) (*GetUuidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUuid not implemented")
-}
-func (UnimplementedDeviceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDeviceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedDeviceServiceServer) mustEmbedUnimplementedDeviceServiceServer() {}
-func (UnimplementedDeviceServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeviceServiceServer will
-// result in compilation errors.
-type UnsafeDeviceServiceServer interface {
-	mustEmbedUnimplementedDeviceServiceServer()
-}
-
-func RegisterDeviceServiceServer(s grpc.ServiceRegistrar, srv DeviceServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeviceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DeviceService_ServiceDesc, srv)
-}
-
-func _DeviceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUuidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetUuid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetUuid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetUuid(ctx, req.(*GetUuidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DeviceService_ServiceDesc is the grpc.ServiceDesc for DeviceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DeviceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.DeviceService",
-	HandlerType: (*DeviceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _DeviceService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _DeviceService_Equals_Handler,
-		},
-		{
-			MethodName: "GetUuid",
-			Handler:    _DeviceService_GetUuid_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _DeviceService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DeviceService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _DeviceService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	DeviceBuilderService_Build_FullMethodName   = "/ranging.DeviceBuilderService/Build"
-	DeviceBuilderService_SetUuid_FullMethodName = "/ranging.DeviceBuilderService/SetUuid"
-)
-
-// DeviceBuilderServiceClient is the client API for DeviceBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeviceBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetUuid(ctx context.Context, in *SetUuidRequest, opts ...grpc.CallOption) (*SetUuidResponse, error)
-}
-
-type deviceBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDeviceBuilderServiceClient(cc grpc.ClientConnInterface) DeviceBuilderServiceClient {
-	return &deviceBuilderServiceClient{cc}
-}
-
-func (c *deviceBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, DeviceBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceBuilderServiceClient) SetUuid(ctx context.Context, in *SetUuidRequest, opts ...grpc.CallOption) (*SetUuidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUuidResponse)
-	err := c.cc.Invoke(ctx, DeviceBuilderService_SetUuid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DeviceBuilderServiceServer is the server API for DeviceBuilderService service.
-// All implementations must embed UnimplementedDeviceBuilderServiceServer
-// for forward compatibility.
-type DeviceBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetUuid(context.Context, *SetUuidRequest) (*SetUuidResponse, error)
-	mustEmbedUnimplementedDeviceBuilderServiceServer()
-}
-
-// UnimplementedDeviceBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDeviceBuilderServiceServer struct{}
-
-func (UnimplementedDeviceBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedDeviceBuilderServiceServer) SetUuid(context.Context, *SetUuidRequest) (*SetUuidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUuid not implemented")
-}
-func (UnimplementedDeviceBuilderServiceServer) mustEmbedUnimplementedDeviceBuilderServiceServer() {}
-func (UnimplementedDeviceBuilderServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeDeviceBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeviceBuilderServiceServer will
-// result in compilation errors.
-type UnsafeDeviceBuilderServiceServer interface {
-	mustEmbedUnimplementedDeviceBuilderServiceServer()
-}
-
-func RegisterDeviceBuilderServiceServer(s grpc.ServiceRegistrar, srv DeviceBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeviceBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DeviceBuilderService_ServiceDesc, srv)
-}
-
-func _DeviceBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceBuilderService_SetUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUuidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceBuilderServiceServer).SetUuid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceBuilderService_SetUuid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceBuilderServiceServer).SetUuid(ctx, req.(*SetUuidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DeviceBuilderService_ServiceDesc is the grpc.ServiceDesc for DeviceBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DeviceBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.DeviceBuilderService",
-	HandlerType: (*DeviceBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _DeviceBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetUuid",
-			Handler:    _DeviceBuilderService_SetUuid_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	PreferenceService_DescribeContents_FullMethodName = "/ranging.PreferenceService/DescribeContents"
-	PreferenceService_GetDeviceRole_FullMethodName    = "/ranging.PreferenceService/GetDeviceRole"
-	PreferenceService_GetRangingParams_FullMethodName = "/ranging.PreferenceService/GetRangingParams"
-	PreferenceService_GetSessionConfig_FullMethodName = "/ranging.PreferenceService/GetSessionConfig"
-	PreferenceService_ToString_FullMethodName         = "/ranging.PreferenceService/ToString"
-	PreferenceService_WriteToParcel_FullMethodName    = "/ranging.PreferenceService/WriteToParcel"
-)
-
-// PreferenceServiceClient is the client API for PreferenceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PreferenceServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetDeviceRole(ctx context.Context, in *GetDeviceRoleRequest, opts ...grpc.CallOption) (*GetDeviceRoleResponse, error)
-	GetRangingParams(ctx context.Context, in *GetRangingParamsRequest, opts ...grpc.CallOption) (*GetRangingParamsResponse, error)
-	GetSessionConfig(ctx context.Context, in *GetSessionConfigRequest, opts ...grpc.CallOption) (*GetSessionConfigResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type preferenceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPreferenceServiceClient(cc grpc.ClientConnInterface) PreferenceServiceClient {
-	return &preferenceServiceClient{cc}
-}
-
-func (c *preferenceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetDeviceRole(ctx context.Context, in *GetDeviceRoleRequest, opts ...grpc.CallOption) (*GetDeviceRoleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeviceRoleResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetDeviceRole_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetRangingParams(ctx context.Context, in *GetRangingParamsRequest, opts ...grpc.CallOption) (*GetRangingParamsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRangingParamsResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetRangingParams_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) GetSessionConfig(ctx context.Context, in *GetSessionConfigRequest, opts ...grpc.CallOption) (*GetSessionConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSessionConfigResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_GetSessionConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PreferenceService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PreferenceServiceServer is the server API for PreferenceService service.
-// All implementations must embed UnimplementedPreferenceServiceServer
-// for forward compatibility.
-type PreferenceServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetDeviceRole(context.Context, *GetDeviceRoleRequest) (*GetDeviceRoleResponse, error)
-	GetRangingParams(context.Context, *GetRangingParamsRequest) (*GetRangingParamsResponse, error)
-	GetSessionConfig(context.Context, *GetSessionConfigRequest) (*GetSessionConfigResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPreferenceServiceServer()
-}
-
-// UnimplementedPreferenceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPreferenceServiceServer struct{}
-
-func (UnimplementedPreferenceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetDeviceRole(context.Context, *GetDeviceRoleRequest) (*GetDeviceRoleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeviceRole not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetRangingParams(context.Context, *GetRangingParamsRequest) (*GetRangingParamsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRangingParams not implemented")
-}
-func (UnimplementedPreferenceServiceServer) GetSessionConfig(context.Context, *GetSessionConfigRequest) (*GetSessionConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSessionConfig not implemented")
-}
-func (UnimplementedPreferenceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPreferenceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPreferenceServiceServer) mustEmbedUnimplementedPreferenceServiceServer() {}
-func (UnimplementedPreferenceServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafePreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PreferenceServiceServer will
-// result in compilation errors.
-type UnsafePreferenceServiceServer interface {
-	mustEmbedUnimplementedPreferenceServiceServer()
-}
-
-func RegisterPreferenceServiceServer(s grpc.ServiceRegistrar, srv PreferenceServiceServer) {
-	// If the following call panics, it indicates UnimplementedPreferenceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PreferenceService_ServiceDesc, srv)
-}
-
-func _PreferenceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetDeviceRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeviceRoleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetDeviceRole(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetDeviceRole_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetDeviceRole(ctx, req.(*GetDeviceRoleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetRangingParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRangingParamsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetRangingParams(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetRangingParams_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetRangingParams(ctx, req.(*GetRangingParamsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_GetSessionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSessionConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).GetSessionConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_GetSessionConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).GetSessionConfig(ctx, req.(*GetSessionConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PreferenceService_ServiceDesc is the grpc.ServiceDesc for PreferenceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PreferenceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.PreferenceService",
-	HandlerType: (*PreferenceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _PreferenceService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetDeviceRole",
-			Handler:    _PreferenceService_GetDeviceRole_Handler,
-		},
-		{
-			MethodName: "GetRangingParams",
-			Handler:    _PreferenceService_GetRangingParams_Handler,
-		},
-		{
-			MethodName: "GetSessionConfig",
-			Handler:    _PreferenceService_GetSessionConfig_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PreferenceService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _PreferenceService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	PreferenceBuilderService_Build_FullMethodName            = "/ranging.PreferenceBuilderService/Build"
-	PreferenceBuilderService_SetSessionConfig_FullMethodName = "/ranging.PreferenceBuilderService/SetSessionConfig"
-)
-
-// PreferenceBuilderServiceClient is the client API for PreferenceBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PreferenceBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetSessionConfig(ctx context.Context, in *SetSessionConfigRequest, opts ...grpc.CallOption) (*SetSessionConfigResponse, error)
-}
-
-type preferenceBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPreferenceBuilderServiceClient(cc grpc.ClientConnInterface) PreferenceBuilderServiceClient {
-	return &preferenceBuilderServiceClient{cc}
-}
-
-func (c *preferenceBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, PreferenceBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferenceBuilderServiceClient) SetSessionConfig(ctx context.Context, in *SetSessionConfigRequest, opts ...grpc.CallOption) (*SetSessionConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSessionConfigResponse)
-	err := c.cc.Invoke(ctx, PreferenceBuilderService_SetSessionConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PreferenceBuilderServiceServer is the server API for PreferenceBuilderService service.
-// All implementations must embed UnimplementedPreferenceBuilderServiceServer
-// for forward compatibility.
-type PreferenceBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetSessionConfig(context.Context, *SetSessionConfigRequest) (*SetSessionConfigResponse, error)
-	mustEmbedUnimplementedPreferenceBuilderServiceServer()
-}
-
-// UnimplementedPreferenceBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPreferenceBuilderServiceServer struct{}
-
-func (UnimplementedPreferenceBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedPreferenceBuilderServiceServer) SetSessionConfig(context.Context, *SetSessionConfigRequest) (*SetSessionConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSessionConfig not implemented")
-}
-func (UnimplementedPreferenceBuilderServiceServer) mustEmbedUnimplementedPreferenceBuilderServiceServer() {
-}
-func (UnimplementedPreferenceBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafePreferenceBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PreferenceBuilderServiceServer will
-// result in compilation errors.
-type UnsafePreferenceBuilderServiceServer interface {
-	mustEmbedUnimplementedPreferenceBuilderServiceServer()
-}
-
-func RegisterPreferenceBuilderServiceServer(s grpc.ServiceRegistrar, srv PreferenceBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedPreferenceBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PreferenceBuilderService_ServiceDesc, srv)
-}
-
-func _PreferenceBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferenceBuilderService_SetSessionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSessionConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferenceBuilderServiceServer).SetSessionConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferenceBuilderService_SetSessionConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferenceBuilderServiceServer).SetSessionConfig(ctx, req.(*SetSessionConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PreferenceBuilderService_ServiceDesc is the grpc.ServiceDesc for PreferenceBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PreferenceBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.PreferenceBuilderService",
-	HandlerType: (*PreferenceBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _PreferenceBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetSessionConfig",
-			Handler:    _PreferenceBuilderService_SetSessionConfig_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ranging/ranging.proto",
-}
-
-const (
-	CapabilitiesService_DescribeContents_FullMethodName          = "/ranging.CapabilitiesService/DescribeContents"
-	CapabilitiesService_GetCsCapabilities_FullMethodName         = "/ranging.CapabilitiesService/GetCsCapabilities"
-	CapabilitiesService_GetRttRangingCapabilities_FullMethodName = "/ranging.CapabilitiesService/GetRttRangingCapabilities"
-	CapabilitiesService_GetUwbCapabilities_FullMethodName        = "/ranging.CapabilitiesService/GetUwbCapabilities"
-	CapabilitiesService_ToString_FullMethodName                  = "/ranging.CapabilitiesService/ToString"
-	CapabilitiesService_WriteToParcel_FullMethodName             = "/ranging.CapabilitiesService/WriteToParcel"
-)
-
-// CapabilitiesServiceClient is the client API for CapabilitiesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CapabilitiesServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCsCapabilities(ctx context.Context, in *GetCsCapabilitiesRequest, opts ...grpc.CallOption) (*GetCsCapabilitiesResponse, error)
-	GetRttRangingCapabilities(ctx context.Context, in *GetRttRangingCapabilitiesRequest, opts ...grpc.CallOption) (*GetRttRangingCapabilitiesResponse, error)
-	GetUwbCapabilities(ctx context.Context, in *GetUwbCapabilitiesRequest, opts ...grpc.CallOption) (*GetUwbCapabilitiesResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type capabilitiesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCapabilitiesServiceClient(cc grpc.ClientConnInterface) CapabilitiesServiceClient {
-	return &capabilitiesServiceClient{cc}
-}
-
-func (c *capabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilitiesServiceClient) GetCsCapabilities(ctx context.Context, in *GetCsCapabilitiesRequest, opts ...grpc.CallOption) (*GetCsCapabilitiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCsCapabilitiesResponse)
-	err := c.cc.Invoke(ctx, CapabilitiesService_GetCsCapabilities_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilitiesServiceClient) GetRttRangingCapabilities(ctx context.Context, in *GetRttRangingCapabilitiesRequest, opts ...grpc.CallOption) (*GetRttRangingCapabilitiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRttRangingCapabilitiesResponse)
-	err := c.cc.Invoke(ctx, CapabilitiesService_GetRttRangingCapabilities_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilitiesServiceClient) GetUwbCapabilities(ctx context.Context, in *GetUwbCapabilitiesRequest, opts ...grpc.CallOption) (*GetUwbCapabilitiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUwbCapabilitiesResponse)
-	err := c.cc.Invoke(ctx, CapabilitiesService_GetUwbCapabilities_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CapabilitiesServiceServer is the server API for CapabilitiesService service.
-// All implementations must embed UnimplementedCapabilitiesServiceServer
-// for forward compatibility.
-type CapabilitiesServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCsCapabilities(context.Context, *GetCsCapabilitiesRequest) (*GetCsCapabilitiesResponse, error)
-	GetRttRangingCapabilities(context.Context, *GetRttRangingCapabilitiesRequest) (*GetRttRangingCapabilitiesResponse, error)
-	GetUwbCapabilities(context.Context, *GetUwbCapabilitiesRequest) (*GetUwbCapabilitiesResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCapabilitiesServiceServer()
-}
-
-// UnimplementedCapabilitiesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCapabilitiesServiceServer struct{}
-
-func (UnimplementedCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCapabilitiesServiceServer) GetCsCapabilities(context.Context, *GetCsCapabilitiesRequest) (*GetCsCapabilitiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCsCapabilities not implemented")
-}
-func (UnimplementedCapabilitiesServiceServer) GetRttRangingCapabilities(context.Context, *GetRttRangingCapabilitiesRequest) (*GetRttRangingCapabilitiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRttRangingCapabilities not implemented")
-}
-func (UnimplementedCapabilitiesServiceServer) GetUwbCapabilities(context.Context, *GetUwbCapabilitiesRequest) (*GetUwbCapabilitiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUwbCapabilities not implemented")
-}
-func (UnimplementedCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCapabilitiesServiceServer) mustEmbedUnimplementedCapabilitiesServiceServer() {}
-func (UnimplementedCapabilitiesServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CapabilitiesServiceServer will
-// result in compilation errors.
-type UnsafeCapabilitiesServiceServer interface {
-	mustEmbedUnimplementedCapabilitiesServiceServer()
-}
-
-func RegisterCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv CapabilitiesServiceServer) {
-	// If the following call panics, it indicates UnimplementedCapabilitiesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CapabilitiesService_ServiceDesc, srv)
-}
-
-func _CapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilitiesServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilitiesService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilitiesService_GetCsCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCsCapabilitiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilitiesServiceServer).GetCsCapabilities(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilitiesService_GetCsCapabilities_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilitiesServiceServer).GetCsCapabilities(ctx, req.(*GetCsCapabilitiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilitiesService_GetRttRangingCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRttRangingCapabilitiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilitiesServiceServer).GetRttRangingCapabilities(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilitiesService_GetRttRangingCapabilities_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilitiesServiceServer).GetRttRangingCapabilities(ctx, req.(*GetRttRangingCapabilitiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilitiesService_GetUwbCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUwbCapabilitiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilitiesServiceServer).GetUwbCapabilities(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilitiesService_GetUwbCapabilities_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilitiesServiceServer).GetUwbCapabilities(ctx, req.(*GetUwbCapabilitiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilitiesServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilitiesService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilitiesServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilitiesService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CapabilitiesService_ServiceDesc is the grpc.ServiceDesc for CapabilitiesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CapabilitiesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ranging.CapabilitiesService",
-	HandlerType: (*CapabilitiesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CapabilitiesService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetCsCapabilities",
-			Handler:    _CapabilitiesService_GetCsCapabilities_Handler,
-		},
-		{
-			MethodName: "GetRttRangingCapabilities",
-			Handler:    _CapabilitiesService_GetRttRangingCapabilities_Handler,
-		},
-		{
-			MethodName: "GetUwbCapabilities",
-			Handler:    _CapabilitiesService_GetUwbCapabilities_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CapabilitiesService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CapabilitiesService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

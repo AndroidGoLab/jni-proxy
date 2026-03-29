@@ -13,13 +13,6 @@ message DescribeContentsResponse {
   int32 result = 1;
 }
 
-message GetPageSizeRequest {
-}
-
-message GetPageSizeResponse {
-  int32 result = 1;
-}
-
 message GetTokenRequest {
 }
 
@@ -35,26 +28,10 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
-message BuildRequest {
+message GetDeletedLogsRequest {
 }
 
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetPageSizeRequest {
-  int32 arg0 = 1;
-}
-
-message SetPageSizeResponse {
-  int64 result = 1;
-}
-
-message AddDataOriginFilterRequest {
-  int64 arg0 = 1;
-}
-
-message AddDataOriginFilterResponse {
+message GetDeletedLogsResponse {
   int64 result = 1;
 }
 
@@ -63,6 +40,13 @@ message GetNextChangesTokenRequest {
 
 message GetNextChangesTokenResponse {
   string result = 1;
+}
+
+message GetUpsertedRecordsRequest {
+}
+
+message GetUpsertedRecordsResponse {
+  int64 result = 1;
 }
 
 message HasMorePagesRequest {
@@ -86,6 +70,63 @@ message GetDeletedTimeResponse {
   int64 result = 1;
 }
 
+message GetPageSizeRequest {
+}
+
+message GetPageSizeResponse {
+  int32 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetPageSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetPageSizeResponse {
+  int64 result = 1;
+}
+
+message GetDataOriginFiltersRequest {
+}
+
+message GetDataOriginFiltersResponse {
+  int64 result = 1;
+}
+
+message AddDataOriginFilterRequest {
+  int64 arg0 = 1;
+}
+
+message AddDataOriginFilterResponse {
+  int64 result = 1;
+}
+
+service ChangeLogTokenResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetToken (GetTokenRequest) returns (GetTokenResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ChangeLogsResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDeletedLogs (GetDeletedLogsRequest) returns (GetDeletedLogsResponse);
+  rpc GetNextChangesToken (GetNextChangesTokenRequest) returns (GetNextChangesTokenResponse);
+  rpc GetUpsertedRecords (GetUpsertedRecordsRequest) returns (GetUpsertedRecordsResponse);
+  rpc HasMorePages (HasMorePagesRequest) returns (HasMorePagesResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ChangeLogsResponseDeletedLogService {
+  rpc GetDeletedRecordId (GetDeletedRecordIdRequest) returns (GetDeletedRecordIdResponse);
+  rpc GetDeletedTime (GetDeletedTimeRequest) returns (GetDeletedTimeResponse);
+}
+
 service ChangeLogsRequestService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetPageSize (GetPageSizeRequest) returns (GetPageSizeResponse);
@@ -100,28 +141,11 @@ service ChangeLogsRequestBuilderService {
 
 service ChangeLogTokenRequestService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDataOriginFilters (GetDataOriginFiltersRequest) returns (GetDataOriginFiltersResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service ChangeLogTokenRequestBuilderService {
   rpc AddDataOriginFilter (AddDataOriginFilterRequest) returns (AddDataOriginFilterResponse);
   rpc Build (BuildRequest) returns (BuildResponse);
-}
-
-service ChangeLogsResponseService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetNextChangesToken (GetNextChangesTokenRequest) returns (GetNextChangesTokenResponse);
-  rpc HasMorePages (HasMorePagesRequest) returns (HasMorePagesResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ChangeLogsResponseDeletedLogService {
-  rpc GetDeletedRecordId (GetDeletedRecordIdRequest) returns (GetDeletedRecordIdResponse);
-  rpc GetDeletedTime (GetDeletedTimeRequest) returns (GetDeletedTimeResponse);
-}
-
-service ChangeLogTokenResponseService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetToken (GetTokenRequest) returns (GetTokenResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

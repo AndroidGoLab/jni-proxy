@@ -27,36 +27,27 @@ message CreateQualifiedId4_1Response {
   string result = 1;
 }
 
-message NewGregorianCalendarRequest {
+message NewCurrencyAmountRequest {
+  double arg0 = 1;
+  int64 arg1 = 2;
 }
 
-message NewGregorianCalendarResponse {
+message NewCurrencyAmountResponse {
   int64 result = 1;
 }
 
-message GetActualMaximumRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetActualMaximumResponse {
-  int32 result = 1;
-}
-
-message GetActualMinimumRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetActualMinimumResponse {
-  int32 result = 1;
-}
-
-message GetGregorianChangeRequest {
+message GetCurrencyRequest {
   int64 handle = 1;
 }
 
-message GetGregorianChangeResponse {
+message GetCurrencyResponse {
+  int64 result = 1;
+}
+
+message NewIndianCalendarRequest {
+}
+
+message NewIndianCalendarResponse {
   int64 result = 1;
 }
 
@@ -68,47 +59,19 @@ message GetTypeResponse {
   string result = 1;
 }
 
-message HashCodeRequest {
+message NewOutputRequest {
+}
+
+message NewOutputResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
   int64 handle = 1;
 }
 
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message IsEquivalentToRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message IsEquivalentToResponse {
-  bool result = 1;
-}
-
-message IsLeapYearRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message IsLeapYearResponse {
-  bool result = 1;
-}
-
-message RollRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message RollResponse {
-}
-
-message SetGregorianChangeRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetGregorianChangeResponse {
+message ToStringResponse {
+  string result = 1;
 }
 
 message NewIllformedLocaleExceptionRequest {
@@ -124,6 +87,769 @@ message GetErrorIndexRequest {
 
 message GetErrorIndexResponse {
   int32 result = 1;
+}
+
+message CompareTo1Request {
+  int64 arg0 = 1;
+}
+
+message CompareTo1Response {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetMajorRequest {
+}
+
+message GetMajorResponse {
+  int32 result = 1;
+}
+
+message GetMicroRequest {
+}
+
+message GetMicroResponse {
+  int32 result = 1;
+}
+
+message GetMilliRequest {
+}
+
+message GetMilliResponse {
+  int32 result = 1;
+}
+
+message GetMinorRequest {
+}
+
+message GetMinorResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message VersionInfoToStringRequest {
+}
+
+message CompareTo1_1Request {
+  int64 arg0 = 1;
+}
+
+message CompareTo1_1Response {
+  int32 result = 1;
+}
+
+message GetInstance1Request {
+  int32 arg0 = 1;
+}
+
+message GetInstance1Response {
+  int64 result = 1;
+}
+
+message GetInstance2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetInstance2_1Response {
+  int64 result = 1;
+}
+
+message GetInstance3_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetInstance3_2Response {
+  int64 result = 1;
+}
+
+message GetInstance4_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message GetInstance4_3Response {
+  int64 result = 1;
+}
+
+message GetInstance1_4Request {
+  string arg0 = 1;
+}
+
+message GetInstance1_4Response {
+  int64 result = 1;
+}
+
+message AddRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddResponse {
+}
+
+message AfterRequest {
+  int64 arg0 = 1;
+}
+
+message AfterResponse {
+  bool result = 1;
+}
+
+message BeforeRequest {
+  int64 arg0 = 1;
+}
+
+message BeforeResponse {
+  bool result = 1;
+}
+
+message Clear0Request {
+}
+
+message Clear0Response {
+}
+
+message Clear1_1Request {
+  int32 arg0 = 1;
+}
+
+message Clear1_1Response {
+}
+
+message CloneRequest {
+}
+
+message CloneResponse {
+  int64 result = 1;
+}
+
+message FieldDifferenceRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message FieldDifferenceResponse {
+  int32 result = 1;
+}
+
+message GetRequest {
+  int32 arg0 = 1;
+}
+
+message GetResponse {
+  int32 result = 1;
+}
+
+message GetActualMaximumRequest {
+  int32 arg0 = 1;
+}
+
+message GetActualMaximumResponse {
+  int32 result = 1;
+}
+
+message GetActualMinimumRequest {
+  int32 arg0 = 1;
+}
+
+message GetActualMinimumResponse {
+  int32 result = 1;
+}
+
+message GetDateTimeFormat3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetDateTimeFormat3Response {
+  int64 result = 1;
+}
+
+message GetDateTimeFormat3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetDateTimeFormat3_1Response {
+  int64 result = 1;
+}
+
+message GetDisplayName1Request {
+  int64 arg0 = 1;
+}
+
+message GetDisplayName1Response {
+  string result = 1;
+}
+
+message GetDisplayName1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetDisplayName1_1Response {
+  string result = 1;
+}
+
+message GetFieldCountRequest {
+}
+
+message GetFieldCountResponse {
+  int32 result = 1;
+}
+
+message GetFirstDayOfWeekRequest {
+}
+
+message GetFirstDayOfWeekResponse {
+  int32 result = 1;
+}
+
+message GetGreatestMinimumRequest {
+  int32 arg0 = 1;
+}
+
+message GetGreatestMinimumResponse {
+  int32 result = 1;
+}
+
+message GetLeastMaximumRequest {
+  int32 arg0 = 1;
+}
+
+message GetLeastMaximumResponse {
+  int32 result = 1;
+}
+
+message GetMaximumRequest {
+  int32 arg0 = 1;
+}
+
+message GetMaximumResponse {
+  int32 result = 1;
+}
+
+message GetMinimalDaysInFirstWeekRequest {
+}
+
+message GetMinimalDaysInFirstWeekResponse {
+  int32 result = 1;
+}
+
+message GetMinimumRequest {
+  int32 arg0 = 1;
+}
+
+message GetMinimumResponse {
+  int32 result = 1;
+}
+
+message GetRepeatedWallTimeOptionRequest {
+}
+
+message GetRepeatedWallTimeOptionResponse {
+  int32 result = 1;
+}
+
+message GetSkippedWallTimeOptionRequest {
+}
+
+message GetSkippedWallTimeOptionResponse {
+  int32 result = 1;
+}
+
+message GetTemporalMonthCodeRequest {
+}
+
+message GetTemporalMonthCodeResponse {
+  string result = 1;
+}
+
+message GetTimeRequest {
+}
+
+message GetTimeResponse {
+  int64 result = 1;
+}
+
+message GetTimeInMillisRequest {
+}
+
+message GetTimeInMillisResponse {
+  int64 result = 1;
+}
+
+message GetTimeZoneRequest {
+}
+
+message GetTimeZoneResponse {
+  int64 result = 1;
+}
+
+message CalendarGetTypeRequest {
+}
+
+message GetWeekDataRequest {
+}
+
+message GetWeekDataResponse {
+  int64 result = 1;
+}
+
+message InTemporalLeapYearRequest {
+}
+
+message InTemporalLeapYearResponse {
+  bool result = 1;
+}
+
+message IsEquivalentToRequest {
+  int64 arg0 = 1;
+}
+
+message IsEquivalentToResponse {
+  bool result = 1;
+}
+
+message IsLenientRequest {
+}
+
+message IsLenientResponse {
+  bool result = 1;
+}
+
+message IsSetRequest {
+  int32 arg0 = 1;
+}
+
+message IsSetResponse {
+  bool result = 1;
+}
+
+message IsWeekend0Request {
+}
+
+message IsWeekend0Response {
+  bool result = 1;
+}
+
+message IsWeekend1_1Request {
+  int64 arg0 = 1;
+}
+
+message IsWeekend1_1Response {
+  bool result = 1;
+}
+
+message Roll2Request {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message Roll2Response {
+}
+
+message Roll2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Roll2_1Response {
+}
+
+message Set2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Set2Response {
+}
+
+message Set3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message Set3_1Response {
+}
+
+message Set5_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message Set5_2Response {
+}
+
+message Set6_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message Set6_3Response {
+}
+
+message SetFirstDayOfWeekRequest {
+  int32 arg0 = 1;
+}
+
+message SetFirstDayOfWeekResponse {
+}
+
+message SetLenientRequest {
+  bool arg0 = 1;
+}
+
+message SetLenientResponse {
+}
+
+message SetMinimalDaysInFirstWeekRequest {
+  int32 arg0 = 1;
+}
+
+message SetMinimalDaysInFirstWeekResponse {
+}
+
+message SetRepeatedWallTimeOptionRequest {
+  int32 arg0 = 1;
+}
+
+message SetRepeatedWallTimeOptionResponse {
+}
+
+message SetSkippedWallTimeOptionRequest {
+  int32 arg0 = 1;
+}
+
+message SetSkippedWallTimeOptionResponse {
+}
+
+message SetTemporalMonthCodeRequest {
+  string arg0 = 1;
+}
+
+message SetTemporalMonthCodeResponse {
+}
+
+message SetTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetTimeResponse {
+}
+
+message SetTimeInMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetTimeInMillisResponse {
+}
+
+message SetTimeZoneRequest {
+  int64 arg0 = 1;
+}
+
+message SetTimeZoneResponse {
+}
+
+message SetWeekDataRequest {
+  int64 arg0 = 1;
+}
+
+message SetWeekDataResponse {
+  int64 result = 1;
+}
+
+message CalendarToStringRequest {
+}
+
+message GetAvailableLocalesRequest {
+}
+
+message GetAvailableLocalesResponse {
+  int64 result = 1;
+}
+
+message GetInstance0Request {
+}
+
+message GetInstance0Response {
+  int64 result = 1;
+}
+
+message GetInstance1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetInstance1_1Response {
+  int64 result = 1;
+}
+
+message GetInstance2_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetInstance2_2Response {
+  int64 result = 1;
+}
+
+message GetInstance2_3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetInstance2_3Response {
+  int64 result = 1;
+}
+
+message CalendarGetInstance1_4Request {
+  int64 arg0 = 1;
+}
+
+message GetInstance1_5Request {
+  int64 arg0 = 1;
+}
+
+message GetInstance1_5Response {
+  int64 result = 1;
+}
+
+message GetKeywordValuesForLocaleRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message GetKeywordValuesForLocaleResponse {
+  int64 result = 1;
+}
+
+message GetWeekDataForRegionRequest {
+  string arg0 = 1;
+}
+
+message GetWeekDataForRegionResponse {
+  int64 result = 1;
+}
+
+message CalendarWeekDataToStringRequest {
+}
+
+message GetComplexityRequest {
+}
+
+message GetComplexityResponse {
+  int64 result = 1;
+}
+
+message GetDimensionalityRequest {
+}
+
+message GetDimensionalityResponse {
+  int32 result = 1;
+}
+
+message GetIdentifierRequest {
+}
+
+message GetIdentifierResponse {
+  string result = 1;
+}
+
+message GetPrefixRequest {
+}
+
+message GetPrefixResponse {
+  int64 result = 1;
+}
+
+message GetSubtypeRequest {
+}
+
+message GetSubtypeResponse {
+  string result = 1;
+}
+
+message MeasureUnitGetTypeRequest {
+}
+
+message ProductRequest {
+  int64 arg0 = 1;
+}
+
+message ProductResponse {
+  int64 result = 1;
+}
+
+message ReciprocalRequest {
+}
+
+message ReciprocalResponse {
+  int64 result = 1;
+}
+
+message SplitToSingleUnitsRequest {
+}
+
+message SplitToSingleUnitsResponse {
+  int64 result = 1;
+}
+
+message MeasureUnitToStringRequest {
+}
+
+message WithDimensionalityRequest {
+  int32 arg0 = 1;
+}
+
+message WithDimensionalityResponse {
+  int64 result = 1;
+}
+
+message WithPrefixRequest {
+  int64 arg0 = 1;
+}
+
+message WithPrefixResponse {
+  int64 result = 1;
+}
+
+message ForIdentifierRequest {
+  string arg0 = 1;
+}
+
+message ForIdentifierResponse {
+  int64 result = 1;
+}
+
+message GetAvailableRequest {
+  string arg0 = 1;
+}
+
+message GetAvailableResponse {
+  int64 result = 1;
+}
+
+message GetAvailableTypesRequest {
+}
+
+message GetAvailableTypesResponse {
+  int64 result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message GetBaseRequest {
+}
+
+message GetBaseResponse {
+  int32 result = 1;
+}
+
+message GetPowerRequest {
+}
+
+message GetPowerResponse {
+  int32 result = 1;
+}
+
+message NewCopticCalendarRequest {
+}
+
+message NewCopticCalendarResponse {
+  int64 result = 1;
+}
+
+message CopticCalendarGetTemporalMonthCodeRequest {
+  int64 handle = 1;
+}
+
+message CopticCalendarSetTemporalMonthCodeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message NewBuddhistCalendarRequest {
+}
+
+message NewBuddhistCalendarResponse {
+  int64 result = 1;
+}
+
+message NewChineseCalendarRequest {
+}
+
+message NewChineseCalendarResponse {
+  int64 result = 1;
+}
+
+message ChineseCalendarAddRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ChineseCalendarGetTemporalMonthCodeRequest {
+  int64 handle = 1;
+}
+
+message ChineseCalendarInTemporalLeapYearRequest {
+  int64 handle = 1;
+}
+
+message RollRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message RollResponse {
+}
+
+message ChineseCalendarSetTemporalMonthCodeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
 }
 
 message BigDecimalFrom2Request {
@@ -198,36 +924,6 @@ message ToLongResponse {
   int64 result = 1;
 }
 
-message NewCopticCalendarRequest {
-}
-
-message NewCopticCalendarResponse {
-  int64 result = 1;
-}
-
-message GetTemporalMonthCodeRequest {
-  int64 handle = 1;
-}
-
-message GetTemporalMonthCodeResponse {
-  string result = 1;
-}
-
-message SetTemporalMonthCodeRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetTemporalMonthCodeResponse {
-}
-
-message NewTaiwanCalendarRequest {
-}
-
-message NewTaiwanCalendarResponse {
-  int64 result = 1;
-}
-
 message NewJapaneseCalendarRequest {
 }
 
@@ -235,11 +931,105 @@ message NewJapaneseCalendarResponse {
   int64 result = 1;
 }
 
+message JapaneseCalendarGetActualMaximumRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDelimiterRequest {
+  int32 arg0 = 1;
+}
+
+message GetDelimiterResponse {
+  string result = 1;
+}
+
+message GetNoSubstituteRequest {
+}
+
+message GetNoSubstituteResponse {
+  bool result = 1;
+}
+
+message SetNoSubstituteRequest {
+  bool arg0 = 1;
+}
+
+message SetNoSubstituteResponse {
+}
+
+message GetCLDRVersionRequest {
+}
+
+message GetCLDRVersionResponse {
+  int64 result = 1;
+}
+
+message GetMeasurementSystemRequest {
+  int64 arg0 = 1;
+}
+
+message GetMeasurementSystemResponse {
+  int64 result = 1;
+}
+
+message GetPaperSizeRequest {
+  int64 arg0 = 1;
+}
+
+message GetPaperSizeResponse {
+  int64 result = 1;
+}
+
+message GetHeightRequest {
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message GetWidthRequest {
+}
+
+message GetWidthResponse {
+  int32 result = 1;
+}
+
+message NewHebrewCalendarRequest {
+}
+
+message NewHebrewCalendarResponse {
+  int64 result = 1;
+}
+
+message HebrewCalendarAddRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message HebrewCalendarGetTemporalMonthCodeRequest {
+  int64 handle = 1;
+}
+
+message HebrewCalendarInTemporalLeapYearRequest {
+  int64 handle = 1;
+}
+
+message HebrewCalendarSetTemporalMonthCodeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
 message NewEthiopicCalendarRequest {
 }
 
 message NewEthiopicCalendarResponse {
   int64 result = 1;
+}
+
+message EthiopicCalendarGetTemporalMonthCodeRequest {
+  int64 handle = 1;
 }
 
 message IsAmeteAlemEraRequest {
@@ -258,310 +1048,9 @@ message SetAmeteAlemEraRequest {
 message SetAmeteAlemEraResponse {
 }
 
-message GetCurrencyCodeRequest {
-}
-
-message GetCurrencyCodeResponse {
-  string result = 1;
-}
-
-message GetDefaultFractionDigits0Request {
-}
-
-message GetDefaultFractionDigits0Response {
-  int32 result = 1;
-}
-
-message GetDefaultFractionDigits1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetDefaultFractionDigits1_1Response {
-  int32 result = 1;
-}
-
-message GetDisplayName0Request {
-}
-
-message GetDisplayName0Response {
-  string result = 1;
-}
-
-message GetDisplayName1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetDisplayName1_1Response {
-  string result = 1;
-}
-
-message GetName3Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message GetName3Response {
-  string result = 1;
-}
-
-message GetName4_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message GetName4_1Response {
-  string result = 1;
-}
-
-message GetName3_2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message GetName3_2Response {
-  string result = 1;
-}
-
-message GetName4_3Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message GetName4_3Response {
-  string result = 1;
-}
-
-message GetNumericCodeRequest {
-}
-
-message GetNumericCodeResponse {
-  int32 result = 1;
-}
-
-message GetRoundingIncrement0Request {
-}
-
-message GetRoundingIncrement0Response {
-  double result = 1;
-}
-
-message GetRoundingIncrement1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetRoundingIncrement1_1Response {
-  double result = 1;
-}
-
-message GetSymbol0Request {
-}
-
-message GetSymbol0Response {
-  string result = 1;
-}
-
-message GetSymbol1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetSymbol1_1Response {
-  string result = 1;
-}
-
-message GetSymbol1_2Request {
-  int64 arg0 = 1;
-}
-
-message GetSymbol1_2Response {
-  string result = 1;
-}
-
-message ToJavaCurrencyRequest {
-}
-
-message ToJavaCurrencyResponse {
-  int64 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message FromJavaCurrencyRequest {
-  int64 arg0 = 1;
-}
-
-message FromJavaCurrencyResponse {
-  int64 result = 1;
-}
-
-message GetAvailableCurrencyCodes2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetAvailableCurrencyCodes2Response {
-  int64 result = 1;
-}
-
-message GetAvailableCurrencyCodes2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetAvailableCurrencyCodes2_1Response {
-  int64 result = 1;
-}
-
-message GetAvailableLocalesRequest {
-}
-
-message GetAvailableLocalesResponse {
-  int64 result = 1;
-}
-
-message GetAvailableULocalesRequest {
-}
-
-message GetAvailableULocalesResponse {
-  int64 result = 1;
-}
-
-message GetInstance1Request {
-  int64 arg0 = 1;
-}
-
-message GetInstance1Response {
-  int64 result = 1;
-}
-
-message GetInstance1_1Request {
-  string arg0 = 1;
-}
-
-message GetInstance1_1Response {
-  int64 result = 1;
-}
-
-message GetInstance1_2Request {
-  int64 arg0 = 1;
-}
-
-message GetInstance1_2Response {
-  int64 result = 1;
-}
-
-message GetKeywordValuesForLocaleRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  bool arg2 = 3;
-}
-
-message GetKeywordValuesForLocaleResponse {
-  int64 result = 1;
-}
-
-message IsAvailableRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message IsAvailableResponse {
-  bool result = 1;
-}
-
-message ValuesRequest {
-}
-
-message ValuesResponse {
-  int64 result = 1;
-}
-
-message ValueOfRequest {
-  string arg0 = 1;
-}
-
-message ValueOfResponse {
-  int64 result = 1;
-}
-
-message NewMeasureRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewMeasureResponse {
-  int64 result = 1;
-}
-
-message EqualsRequest {
+message EthiopicCalendarSetTemporalMonthCodeRequest {
   int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetNumberRequest {
-  int64 handle = 1;
-}
-
-message GetNumberResponse {
-  int64 result = 1;
-}
-
-message GetUnitRequest {
-  int64 handle = 1;
-}
-
-message GetUnitResponse {
-  int64 result = 1;
-}
-
-message MeasureToStringRequest {
-  int64 handle = 1;
-}
-
-message NewChineseCalendarRequest {
-}
-
-message NewChineseCalendarResponse {
-  int64 result = 1;
-}
-
-message AddRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message AddResponse {
-}
-
-message InTemporalLeapYearRequest {
-  int64 handle = 1;
-}
-
-message InTemporalLeapYearResponse {
-  bool result = 1;
-}
-
-message CloneRequest {
-}
-
-message CloneResponse {
-  int64 result = 1;
+  string arg0 = 2;
 }
 
 message CloneAsThawed0Request {
@@ -569,10 +1058,6 @@ message CloneAsThawed0Request {
 
 message CloneAsThawed0Response {
   int64 result = 1;
-}
-
-message TimeZoneEqualsRequest {
-  int64 arg0 = 1;
 }
 
 message Freeze0Request {
@@ -587,6 +1072,13 @@ message GetDSTSavingsRequest {
 
 message GetDSTSavingsResponse {
   int32 result = 1;
+}
+
+message GetDisplayName0Request {
+}
+
+message GetDisplayName0Response {
+  string result = 1;
 }
 
 message GetDisplayName2_2Request {
@@ -678,9 +1170,6 @@ message HasSameRulesResponse {
   bool result = 1;
 }
 
-message TimeZoneHashCodeRequest {
-}
-
 message InDaylightTimeRequest {
   int64 arg0 = 1;
 }
@@ -753,19 +1242,29 @@ message GetAvailableIDs0Response {
   int64 result = 1;
 }
 
-message GetAvailableIDs1_1Request {
-  int32 arg0 = 1;
+message GetAvailableIDs3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
 }
 
-message GetAvailableIDs1_1Response {
+message GetAvailableIDs3_1Response {
   int64 result = 1;
 }
 
 message GetAvailableIDs1_2Request {
-  string arg0 = 1;
+  int32 arg0 = 1;
 }
 
 message GetAvailableIDs1_2Response {
+  int64 result = 1;
+}
+
+message GetAvailableIDs1_3Request {
+  string arg0 = 1;
+}
+
+message GetAvailableIDs1_3Response {
   int64 result = 1;
 }
 
@@ -867,6 +1366,325 @@ message GetWindowsIDResponse {
   string result = 1;
 }
 
+message GetCurrencyCodeRequest {
+}
+
+message GetCurrencyCodeResponse {
+  string result = 1;
+}
+
+message GetDefaultFractionDigits0Request {
+}
+
+message GetDefaultFractionDigits0Response {
+  int32 result = 1;
+}
+
+message GetDefaultFractionDigits1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetDefaultFractionDigits1_1Response {
+  int32 result = 1;
+}
+
+message GetName3Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetName3Response {
+  string result = 1;
+}
+
+message GetName4_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message GetName4_1Response {
+  string result = 1;
+}
+
+message GetName3_2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetName3_2Response {
+  string result = 1;
+}
+
+message GetName4_3Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message GetName4_3Response {
+  string result = 1;
+}
+
+message GetNumericCodeRequest {
+}
+
+message GetNumericCodeResponse {
+  int32 result = 1;
+}
+
+message GetRoundingIncrement0Request {
+}
+
+message GetRoundingIncrement0Response {
+  double result = 1;
+}
+
+message GetRoundingIncrement1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetRoundingIncrement1_1Response {
+  double result = 1;
+}
+
+message GetSymbol0Request {
+}
+
+message GetSymbol0Response {
+  string result = 1;
+}
+
+message GetSymbol1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetSymbol1_1Response {
+  string result = 1;
+}
+
+message GetSymbol1_2Request {
+  int64 arg0 = 1;
+}
+
+message GetSymbol1_2Response {
+  string result = 1;
+}
+
+message ToJavaCurrencyRequest {
+}
+
+message ToJavaCurrencyResponse {
+  int64 result = 1;
+}
+
+message CurrencyToStringRequest {
+}
+
+message FromJavaCurrencyRequest {
+  int64 arg0 = 1;
+}
+
+message FromJavaCurrencyResponse {
+  int64 result = 1;
+}
+
+message GetAvailableCurrenciesRequest {
+}
+
+message GetAvailableCurrenciesResponse {
+  int64 result = 1;
+}
+
+message GetAvailableCurrencyCodes2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetAvailableCurrencyCodes2Response {
+  int64 result = 1;
+}
+
+message GetAvailableCurrencyCodes2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetAvailableCurrencyCodes2_1Response {
+  int64 result = 1;
+}
+
+message GetAvailableULocalesRequest {
+}
+
+message GetAvailableULocalesResponse {
+  int64 result = 1;
+}
+
+message CurrencyGetInstance1Request {
+  int64 arg0 = 1;
+}
+
+message CurrencyGetInstance1_1Request {
+  string arg0 = 1;
+}
+
+message GetInstance1_2Request {
+  int64 arg0 = 1;
+}
+
+message GetInstance1_2Response {
+  int64 result = 1;
+}
+
+message IsAvailableRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message IsAvailableResponse {
+  bool result = 1;
+}
+
+message NextRequest {
+  int64 arg0 = 1;
+}
+
+message NextResponse {
+  bool result = 1;
+}
+
+message ResetRequest {
+}
+
+message ResetResponse {
+}
+
+message SetRangeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetRangeResponse {
+}
+
+message NewIslamicCalendarRequest {
+}
+
+message NewIslamicCalendarResponse {
+  int64 result = 1;
+}
+
+message GetCalculationTypeRequest {
+  int64 handle = 1;
+}
+
+message GetCalculationTypeResponse {
+  int64 result = 1;
+}
+
+message IslamicCalendarInTemporalLeapYearRequest {
+  int64 handle = 1;
+}
+
+message SetCalculationTypeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCalculationTypeResponse {
+}
+
+message NewMeasureRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewMeasureResponse {
+  int64 result = 1;
+}
+
+message MeasureEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetNumberRequest {
+  int64 handle = 1;
+}
+
+message GetNumberResponse {
+  int64 result = 1;
+}
+
+message GetUnitRequest {
+  int64 handle = 1;
+}
+
+message GetUnitResponse {
+  int64 result = 1;
+}
+
+message MeasureHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NewGregorianCalendarRequest {
+}
+
+message NewGregorianCalendarResponse {
+  int64 result = 1;
+}
+
+message GregorianCalendarGetActualMaximumRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GregorianCalendarGetActualMinimumRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetGregorianChangeRequest {
+  int64 handle = 1;
+}
+
+message GetGregorianChangeResponse {
+  int64 result = 1;
+}
+
+message GregorianCalendarHashCodeRequest {
+  int64 handle = 1;
+}
+
+message GregorianCalendarIsEquivalentToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsLeapYearRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsLeapYearResponse {
+  bool result = 1;
+}
+
+message SetGregorianChangeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetGregorianChangeResponse {
+}
+
 message NewULocaleRequest {
   string arg0 = 1;
 }
@@ -879,13 +1697,14 @@ message ULocaleCloneRequest {
   int64 handle = 1;
 }
 
-message CompareTo1Request {
+message ULocaleCompareTo1Request {
   int64 handle = 1;
   int64 arg0 = 2;
 }
 
-message CompareTo1Response {
-  int32 result = 1;
+message ULocaleEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
 message GetBaseName0Request {
@@ -1051,6 +1870,14 @@ message GetExtensionResponse {
   string result = 1;
 }
 
+message GetExtensionKeysRequest {
+  int64 handle = 1;
+}
+
+message GetExtensionKeysResponse {
+  int64 result = 1;
+}
+
 message GetFallback0Request {
   int64 handle = 1;
 }
@@ -1082,6 +1909,14 @@ message GetKeywordValue1Request {
 
 message GetKeywordValue1Response {
   string result = 1;
+}
+
+message GetKeywords0Request {
+  int64 handle = 1;
+}
+
+message GetKeywords0Response {
+  int64 result = 1;
 }
 
 message GetLanguage0Request {
@@ -1116,6 +1951,22 @@ message GetScript0Response {
   string result = 1;
 }
 
+message GetUnicodeLocaleAttributesRequest {
+  int64 handle = 1;
+}
+
+message GetUnicodeLocaleAttributesResponse {
+  int64 result = 1;
+}
+
+message GetUnicodeLocaleKeysRequest {
+  int64 handle = 1;
+}
+
+message GetUnicodeLocaleKeysResponse {
+  int64 result = 1;
+}
+
 message GetUnicodeLocaleTypeRequest {
   int64 handle = 1;
   string arg0 = 2;
@@ -1131,6 +1982,10 @@ message GetVariant0Request {
 
 message GetVariant0Response {
   string result = 1;
+}
+
+message ULocaleHashCodeRequest {
+  int64 handle = 1;
 }
 
 message IsRightToLeftRequest {
@@ -1167,17 +2022,9 @@ message ToLocaleResponse {
   int64 result = 1;
 }
 
-message ULocaleToStringRequest {
-  int64 handle = 1;
-}
-
-message CompareTo1_1Request {
+message ULocaleCompareTo1_1Request {
   int64 handle = 1;
   int64 arg0 = 2;
-}
-
-message CompareTo1_1Response {
-  int32 result = 1;
 }
 
 message AcceptLanguage3Request {
@@ -1278,6 +2125,15 @@ message ForLocaleResponse {
 
 message ULocaleGetAvailableLocalesRequest {
   int64 handle = 1;
+}
+
+message GetAvailableLocalesByTypeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetAvailableLocalesByTypeResponse {
+  int64 result = 1;
 }
 
 message GetBaseName1_1Request {
@@ -1555,6 +2411,15 @@ message GetKeywordValue2_1Response {
   string result = 1;
 }
 
+message GetKeywords1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetKeywords1_1Response {
+  int64 result = 1;
+}
+
 message GetLanguage1_1Request {
   int64 handle = 1;
   string arg0 = 2;
@@ -1752,186 +2617,6 @@ message SetVariantResponse {
   int64 result = 1;
 }
 
-message VersionInfoCompareTo1Request {
-  int64 arg0 = 1;
-}
-
-message VersionInfoEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetMajorRequest {
-}
-
-message GetMajorResponse {
-  int32 result = 1;
-}
-
-message GetMicroRequest {
-}
-
-message GetMicroResponse {
-  int32 result = 1;
-}
-
-message GetMilliRequest {
-}
-
-message GetMilliResponse {
-  int32 result = 1;
-}
-
-message GetMinorRequest {
-}
-
-message GetMinorResponse {
-  int32 result = 1;
-}
-
-message VersionInfoHashCodeRequest {
-}
-
-message VersionInfoCompareTo1_1Request {
-  int64 arg0 = 1;
-}
-
-message VersionInfoGetInstance1Request {
-  int32 arg0 = 1;
-}
-
-message GetInstance2_1Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message GetInstance2_1Response {
-  int64 result = 1;
-}
-
-message GetInstance3_2Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message GetInstance3_2Response {
-  int64 result = 1;
-}
-
-message GetInstance4_3Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message GetInstance4_3Response {
-  int64 result = 1;
-}
-
-message GetInstance1_4Request {
-  string arg0 = 1;
-}
-
-message GetInstance1_4Response {
-  int64 result = 1;
-}
-
-message NextRequest {
-  int64 arg0 = 1;
-}
-
-message NextResponse {
-  bool result = 1;
-}
-
-message ResetRequest {
-}
-
-message ResetResponse {
-}
-
-message GetDelimiterRequest {
-  int32 arg0 = 1;
-}
-
-message GetDelimiterResponse {
-  string result = 1;
-}
-
-message GetNoSubstituteRequest {
-}
-
-message GetNoSubstituteResponse {
-  bool result = 1;
-}
-
-message SetNoSubstituteRequest {
-  bool arg0 = 1;
-}
-
-message SetNoSubstituteResponse {
-}
-
-message GetCLDRVersionRequest {
-}
-
-message GetCLDRVersionResponse {
-  int64 result = 1;
-}
-
-message GetInstance0Request {
-}
-
-message GetInstance0Response {
-  int64 result = 1;
-}
-
-message LocaleDataGetInstance1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetMeasurementSystemRequest {
-  int64 arg0 = 1;
-}
-
-message GetMeasurementSystemResponse {
-  int64 result = 1;
-}
-
-message GetPaperSizeRequest {
-  int64 arg0 = 1;
-}
-
-message GetPaperSizeResponse {
-  int64 result = 1;
-}
-
-message GetHeightRequest {
-}
-
-message GetHeightResponse {
-  int32 result = 1;
-}
-
-message GetWidthRequest {
-}
-
-message GetWidthResponse {
-  int32 result = 1;
-}
-
-message NewOutputRequest {
-}
-
-message NewOutputResponse {
-  int64 result = 1;
-}
-
-message OutputToStringRequest {
-  int64 handle = 1;
-}
-
 message NewDateIntervalRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -1939,6 +2624,11 @@ message NewDateIntervalRequest {
 
 message NewDateIntervalResponse {
   int64 result = 1;
+}
+
+message DateIntervalEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
 message GetFromDateRequest {
@@ -1957,588 +2647,15 @@ message GetToDateResponse {
   int64 result = 1;
 }
 
-message DateIntervalToStringRequest {
+message DateIntervalHashCodeRequest {
   int64 handle = 1;
 }
 
-message SetRangeRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
+message NewTaiwanCalendarRequest {
 }
 
-message SetRangeResponse {
-}
-
-message NewIndianCalendarRequest {
-}
-
-message NewIndianCalendarResponse {
+message NewTaiwanCalendarResponse {
   int64 result = 1;
-}
-
-message NewCurrencyAmountRequest {
-  double arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewCurrencyAmountResponse {
-  int64 result = 1;
-}
-
-message GetCurrencyRequest {
-  int64 handle = 1;
-}
-
-message GetCurrencyResponse {
-  int64 result = 1;
-}
-
-message NewHebrewCalendarRequest {
-}
-
-message NewHebrewCalendarResponse {
-  int64 result = 1;
-}
-
-message NewBuddhistCalendarRequest {
-}
-
-message NewBuddhistCalendarResponse {
-  int64 result = 1;
-}
-
-message NewIslamicCalendarRequest {
-}
-
-message NewIslamicCalendarResponse {
-  int64 result = 1;
-}
-
-message GetCalculationTypeRequest {
-  int64 handle = 1;
-}
-
-message GetCalculationTypeResponse {
-  int64 result = 1;
-}
-
-message SetCalculationTypeRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetCalculationTypeResponse {
-}
-
-message MeasureUnitEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetComplexityRequest {
-}
-
-message GetComplexityResponse {
-  int64 result = 1;
-}
-
-message GetDimensionalityRequest {
-}
-
-message GetDimensionalityResponse {
-  int32 result = 1;
-}
-
-message GetIdentifierRequest {
-}
-
-message GetIdentifierResponse {
-  string result = 1;
-}
-
-message GetPrefixRequest {
-}
-
-message GetPrefixResponse {
-  int64 result = 1;
-}
-
-message GetSubtypeRequest {
-}
-
-message GetSubtypeResponse {
-  string result = 1;
-}
-
-message MeasureUnitGetTypeRequest {
-}
-
-message MeasureUnitHashCodeRequest {
-}
-
-message ProductRequest {
-  int64 arg0 = 1;
-}
-
-message ProductResponse {
-  int64 result = 1;
-}
-
-message ReciprocalRequest {
-}
-
-message ReciprocalResponse {
-  int64 result = 1;
-}
-
-message WithDimensionalityRequest {
-  int32 arg0 = 1;
-}
-
-message WithDimensionalityResponse {
-  int64 result = 1;
-}
-
-message WithPrefixRequest {
-  int64 arg0 = 1;
-}
-
-message WithPrefixResponse {
-  int64 result = 1;
-}
-
-message ForIdentifierRequest {
-  string arg0 = 1;
-}
-
-message ForIdentifierResponse {
-  int64 result = 1;
-}
-
-message GetBaseRequest {
-}
-
-message GetBaseResponse {
-  int32 result = 1;
-}
-
-message GetPowerRequest {
-}
-
-message GetPowerResponse {
-  int32 result = 1;
-}
-
-message CalendarAddRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message AfterRequest {
-  int64 arg0 = 1;
-}
-
-message AfterResponse {
-  bool result = 1;
-}
-
-message BeforeRequest {
-  int64 arg0 = 1;
-}
-
-message BeforeResponse {
-  bool result = 1;
-}
-
-message Clear0Request {
-}
-
-message Clear0Response {
-}
-
-message Clear1_1Request {
-  int32 arg0 = 1;
-}
-
-message Clear1_1Response {
-}
-
-message CalendarCompareTo1Request {
-  int64 arg0 = 1;
-}
-
-message CalendarEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message FieldDifferenceRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message FieldDifferenceResponse {
-  int32 result = 1;
-}
-
-message GetRequest {
-  int32 arg0 = 1;
-}
-
-message GetResponse {
-  int32 result = 1;
-}
-
-message CalendarGetActualMaximumRequest {
-  int32 arg0 = 1;
-}
-
-message CalendarGetActualMinimumRequest {
-  int32 arg0 = 1;
-}
-
-message GetDateTimeFormat3Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message GetDateTimeFormat3Response {
-  int64 result = 1;
-}
-
-message GetDateTimeFormat3_1Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message GetDateTimeFormat3_1Response {
-  int64 result = 1;
-}
-
-message GetDisplayName1Request {
-  int64 arg0 = 1;
-}
-
-message GetDisplayName1Response {
-  string result = 1;
-}
-
-message GetFieldCountRequest {
-}
-
-message GetFieldCountResponse {
-  int32 result = 1;
-}
-
-message GetFirstDayOfWeekRequest {
-}
-
-message GetFirstDayOfWeekResponse {
-  int32 result = 1;
-}
-
-message GetGreatestMinimumRequest {
-  int32 arg0 = 1;
-}
-
-message GetGreatestMinimumResponse {
-  int32 result = 1;
-}
-
-message GetLeastMaximumRequest {
-  int32 arg0 = 1;
-}
-
-message GetLeastMaximumResponse {
-  int32 result = 1;
-}
-
-message GetMaximumRequest {
-  int32 arg0 = 1;
-}
-
-message GetMaximumResponse {
-  int32 result = 1;
-}
-
-message GetMinimalDaysInFirstWeekRequest {
-}
-
-message GetMinimalDaysInFirstWeekResponse {
-  int32 result = 1;
-}
-
-message GetMinimumRequest {
-  int32 arg0 = 1;
-}
-
-message GetMinimumResponse {
-  int32 result = 1;
-}
-
-message GetRepeatedWallTimeOptionRequest {
-}
-
-message GetRepeatedWallTimeOptionResponse {
-  int32 result = 1;
-}
-
-message GetSkippedWallTimeOptionRequest {
-}
-
-message GetSkippedWallTimeOptionResponse {
-  int32 result = 1;
-}
-
-message CalendarGetTemporalMonthCodeRequest {
-}
-
-message GetTimeRequest {
-}
-
-message GetTimeResponse {
-  int64 result = 1;
-}
-
-message GetTimeInMillisRequest {
-}
-
-message GetTimeInMillisResponse {
-  int64 result = 1;
-}
-
-message GetTimeZoneRequest {
-}
-
-message GetTimeZoneResponse {
-  int64 result = 1;
-}
-
-message CalendarGetTypeRequest {
-}
-
-message GetWeekDataRequest {
-}
-
-message GetWeekDataResponse {
-  int64 result = 1;
-}
-
-message CalendarHashCodeRequest {
-}
-
-message CalendarInTemporalLeapYearRequest {
-}
-
-message CalendarIsEquivalentToRequest {
-  int64 arg0 = 1;
-}
-
-message IsLenientRequest {
-}
-
-message IsLenientResponse {
-  bool result = 1;
-}
-
-message IsSetRequest {
-  int32 arg0 = 1;
-}
-
-message IsSetResponse {
-  bool result = 1;
-}
-
-message IsWeekend0Request {
-}
-
-message IsWeekend0Response {
-  bool result = 1;
-}
-
-message IsWeekend1_1Request {
-  int64 arg0 = 1;
-}
-
-message IsWeekend1_1Response {
-  bool result = 1;
-}
-
-message Roll2Request {
-  int32 arg0 = 1;
-  bool arg1 = 2;
-}
-
-message Roll2Response {
-}
-
-message Roll2_1Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message Roll2_1Response {
-}
-
-message Set2Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message Set2Response {
-}
-
-message Set3_1Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message Set3_1Response {
-}
-
-message Set5_2Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-}
-
-message Set5_2Response {
-}
-
-message Set6_3Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
-}
-
-message Set6_3Response {
-}
-
-message SetFirstDayOfWeekRequest {
-  int32 arg0 = 1;
-}
-
-message SetFirstDayOfWeekResponse {
-}
-
-message SetLenientRequest {
-  bool arg0 = 1;
-}
-
-message SetLenientResponse {
-}
-
-message SetMinimalDaysInFirstWeekRequest {
-  int32 arg0 = 1;
-}
-
-message SetMinimalDaysInFirstWeekResponse {
-}
-
-message SetRepeatedWallTimeOptionRequest {
-  int32 arg0 = 1;
-}
-
-message SetRepeatedWallTimeOptionResponse {
-}
-
-message SetSkippedWallTimeOptionRequest {
-  int32 arg0 = 1;
-}
-
-message SetSkippedWallTimeOptionResponse {
-}
-
-message CalendarSetTemporalMonthCodeRequest {
-  string arg0 = 1;
-}
-
-message SetTimeRequest {
-  int64 arg0 = 1;
-}
-
-message SetTimeResponse {
-}
-
-message SetTimeInMillisRequest {
-  int64 arg0 = 1;
-}
-
-message SetTimeInMillisResponse {
-}
-
-message SetTimeZoneRequest {
-  int64 arg0 = 1;
-}
-
-message SetTimeZoneResponse {
-}
-
-message SetWeekDataRequest {
-  int64 arg0 = 1;
-}
-
-message SetWeekDataResponse {
-  int64 result = 1;
-}
-
-message CalendarCompareTo1_1Request {
-  int64 arg0 = 1;
-}
-
-message CalendarGetInstance1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetInstance2_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetInstance2_2Response {
-  int64 result = 1;
-}
-
-message GetInstance2_3Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetInstance2_3Response {
-  int64 result = 1;
-}
-
-message CalendarGetInstance1_4Request {
-  int64 arg0 = 1;
-}
-
-message GetInstance1_5Request {
-  int64 arg0 = 1;
-}
-
-message GetInstance1_5Response {
-  int64 result = 1;
-}
-
-message GetWeekDataForRegionRequest {
-  string arg0 = 1;
-}
-
-message GetWeekDataForRegionResponse {
-  int64 result = 1;
-}
-
-message CalendarWeekDataEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message CalendarWeekDataHashCodeRequest {
 }
 
 message NewLinkifyRequest {
@@ -2670,6 +2787,11 @@ message NewRfc822TokenResponse {
   int64 result = 1;
 }
 
+message Rfc822TokenEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
 message GetAddressRequest {
   int64 handle = 1;
 }
@@ -2694,6 +2816,10 @@ message GetNameResponse {
   string result = 1;
 }
 
+message Rfc822TokenHashCodeRequest {
+  int64 handle = 1;
+}
+
 message SetAddressRequest {
   int64 handle = 1;
   string arg0 = 2;
@@ -2716,10 +2842,6 @@ message SetNameRequest {
 }
 
 message SetNameResponse {
-}
-
-message Rfc822TokenToStringRequest {
-  int64 handle = 1;
 }
 
 message QuoteCommentRequest {
@@ -2794,63 +2916,27 @@ message TokenizeResponse {
   int64 result = 1;
 }
 
-message LogBinaryPushStateChangedRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int64 arg4 = 5;
+message NewSparseBooleanArrayRequest {
 }
 
-message LogBinaryPushStateChangedResponse {
-  bool result = 1;
-}
-
-message LogEventRequest {
-  int32 arg0 = 1;
-}
-
-message LogEventResponse {
-  bool result = 1;
-}
-
-message LogStartRequest {
-  int32 arg0 = 1;
-}
-
-message LogStartResponse {
-  bool result = 1;
-}
-
-message LogStopRequest {
-  int32 arg0 = 1;
-}
-
-message LogStopResponse {
-  bool result = 1;
-}
-
-message NewSparseIntArrayRequest {
-}
-
-message NewSparseIntArrayResponse {
+message NewSparseBooleanArrayResponse {
   int64 result = 1;
 }
 
 message AppendRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-  int32 arg1 = 3;
+  bool arg1 = 3;
 }
 
 message AppendResponse {
 }
 
-message SparseIntArrayClearRequest {
+message SparseBooleanArrayClearRequest {
   int64 handle = 1;
 }
 
-message SparseIntArrayClearResponse {
+message SparseBooleanArrayClearResponse {
 }
 
 message Clone0Request {
@@ -2869,23 +2955,32 @@ message DeleteRequest {
 message DeleteResponse {
 }
 
+message SparseBooleanArrayEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
 message Get1Request {
   int64 handle = 1;
   int32 arg0 = 2;
 }
 
 message Get1Response {
-  int32 result = 1;
+  bool result = 1;
 }
 
 message Get2_1Request {
   int64 handle = 1;
   int32 arg0 = 2;
-  int32 arg1 = 3;
+  bool arg1 = 3;
 }
 
 message Get2_1Response {
-  int32 result = 1;
+  bool result = 1;
+}
+
+message SparseBooleanArrayHashCodeRequest {
+  int64 handle = 1;
 }
 
 message IndexOfKeyRequest {
@@ -2899,7 +2994,7 @@ message IndexOfKeyResponse {
 
 message IndexOfValueRequest {
   int64 handle = 1;
-  int32 arg0 = 2;
+  bool arg0 = 2;
 }
 
 message IndexOfValueResponse {
@@ -2918,7 +3013,7 @@ message KeyAtResponse {
 message PutRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-  int32 arg1 = 3;
+  bool arg1 = 3;
 }
 
 message PutResponse {
@@ -2935,7 +3030,7 @@ message RemoveAtResponse {
 message SetValueAtRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-  int32 arg1 = 3;
+  bool arg1 = 3;
 }
 
 message SetValueAtResponse {
@@ -2949,17 +3044,13 @@ message SizeResponse {
   int32 result = 1;
 }
 
-message SparseIntArrayToStringRequest {
-  int64 handle = 1;
-}
-
 message ValueAtRequest {
   int64 handle = 1;
   int32 arg0 = 2;
 }
 
 message ValueAtResponse {
-  int32 result = 1;
+  bool result = 1;
 }
 
 message Clone0_1Request {
@@ -2968,6 +3059,273 @@ message Clone0_1Request {
 
 message Clone0_1Response {
   int64 result = 1;
+}
+
+message NewAtomicFileRequest {
+  int64 arg0 = 1;
+}
+
+message NewAtomicFileResponse {
+  int64 result = 1;
+}
+
+message AtomicFileDeleteRequest {
+  int64 handle = 1;
+}
+
+message FailWriteRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message FailWriteResponse {
+}
+
+message FinishWriteRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message FinishWriteResponse {
+}
+
+message GetBaseFileRequest {
+  int64 handle = 1;
+}
+
+message GetBaseFileResponse {
+  int64 result = 1;
+}
+
+message GetLastModifiedTimeRequest {
+  int64 handle = 1;
+}
+
+message GetLastModifiedTimeResponse {
+  int64 result = 1;
+}
+
+message OpenReadRequest {
+  int64 handle = 1;
+}
+
+message OpenReadResponse {
+  int64 result = 1;
+}
+
+message ReadFullyRequest {
+  int64 handle = 1;
+}
+
+message ReadFullyResponse {
+  int64 result = 1;
+}
+
+message StartWriteRequest {
+  int64 handle = 1;
+}
+
+message StartWriteResponse {
+  int64 result = 1;
+}
+
+message NewTypedValueRequest {
+}
+
+message NewTypedValueResponse {
+  int64 result = 1;
+}
+
+message CoerceToString0Request {
+  int64 handle = 1;
+}
+
+message CoerceToString0Response {
+  int64 result = 1;
+}
+
+message GetComplexUnitRequest {
+  int64 handle = 1;
+}
+
+message GetComplexUnitResponse {
+  int32 result = 1;
+}
+
+message GetDimensionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDimensionResponse {
+  float result = 1;
+}
+
+message GetFloatRequest {
+  int64 handle = 1;
+}
+
+message GetFloatResponse {
+  float result = 1;
+}
+
+message GetFractionRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message GetFractionResponse {
+  float result = 1;
+}
+
+message IsColorTypeRequest {
+  int64 handle = 1;
+}
+
+message IsColorTypeResponse {
+  bool result = 1;
+}
+
+message SetToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetToResponse {
+}
+
+message ApplyDimensionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  float arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message ApplyDimensionResponse {
+  float result = 1;
+}
+
+message CoerceToString2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CoerceToString2_1Response {
+  string result = 1;
+}
+
+message ComplexToDimensionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ComplexToDimensionResponse {
+  float result = 1;
+}
+
+message ComplexToDimensionPixelOffsetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ComplexToDimensionPixelOffsetResponse {
+  int32 result = 1;
+}
+
+message ComplexToDimensionPixelSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ComplexToDimensionPixelSizeResponse {
+  int32 result = 1;
+}
+
+message ComplexToFloatRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ComplexToFloatResponse {
+  float result = 1;
+}
+
+message ComplexToFractionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message ComplexToFractionResponse {
+  float result = 1;
+}
+
+message ConvertDimensionToPixelsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  float arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message ConvertDimensionToPixelsResponse {
+  float result = 1;
+}
+
+message ConvertPixelsToDimensionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  float arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message ConvertPixelsToDimensionResponse {
+  float result = 1;
+}
+
+message DeriveDimensionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  float arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message DeriveDimensionResponse {
+  float result = 1;
+}
+
+message NewCloseGuardRequest {
+}
+
+message NewCloseGuardResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message OpenRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message OpenResponse {
+}
+
+message WarnIfOpenRequest {
+  int64 handle = 1;
+}
+
+message WarnIfOpenResponse {
 }
 
 message NewRangeRequest {
@@ -2979,668 +3337,113 @@ message NewRangeResponse {
   int64 result = 1;
 }
 
-message DumpRequest {
-  int64 arg0 = 1;
-}
-
-message DumpResponse {
-  string result = 1;
-}
-
-message IsWildCardRequest {
-  int64 arg0 = 1;
-}
-
-message IsWildCardResponse {
-  bool result = 1;
-}
-
-message StateSetMatches2Request {
+message Decode2Request {
   int64 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message StateSetMatches2Response {
-  bool result = 1;
+message Decode2Response {
+  int64 result = 1;
 }
 
-message StateSetMatches2_1Request {
+message Decode4_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message Decode4_1Response {
+  int64 result = 1;
+}
+
+message Decode2_2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Decode2_2Response {
+  int64 result = 1;
+}
+
+message Encode2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Encode2Response {
+  int64 result = 1;
+}
+
+message Encode4_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message Encode4_1Response {
+  int64 result = 1;
+}
+
+message EncodeToString2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message EncodeToString2Response {
+  string result = 1;
+}
+
+message EncodeToString4_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message EncodeToString4_1Response {
+  string result = 1;
+}
+
+message SetRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message StateSetMatches2_1Response {
-  bool result = 1;
+message SetResponse {
 }
 
-message TrimStateSetRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message TrimStateSetResponse {
-  int64 result = 1;
-}
-
-message NewSizeFRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-}
-
-message NewSizeFResponse {
-  int64 result = 1;
-}
-
-message DescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message SizeFGetHeightRequest {
-  int64 handle = 1;
-}
-
-message SizeFGetHeightResponse {
-  float result = 1;
-}
-
-message SizeFGetWidthRequest {
-  int64 handle = 1;
-}
-
-message SizeFGetWidthResponse {
-  float result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
-}
-
-message ParseSizeFRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message ParseSizeFResponse {
-  int64 result = 1;
-}
-
-message AsAttributeSetRequest {
-  int64 arg0 = 1;
-}
-
-message AsAttributeSetResponse {
-  int64 result = 1;
-}
-
-message FindEncodingByNameRequest {
-  string arg0 = 1;
-}
-
-message FindEncodingByNameResponse {
-  int64 result = 1;
-}
-
-message NewPullParserRequest {
-}
-
-message NewPullParserResponse {
-  int64 result = 1;
-}
-
-message NewSerializerRequest {
-}
-
-message NewSerializerResponse {
-  int64 result = 1;
-}
-
-message NewPrintStreamPrinterRequest {
-  int64 arg0 = 1;
-}
-
-message NewPrintStreamPrinterResponse {
-  int64 result = 1;
-}
-
-message PrintlnRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message PrintlnResponse {
-}
-
-message ConcatGroupsRequest {
-  int64 arg0 = 1;
-}
-
-message ConcatGroupsResponse {
-  string result = 1;
-}
-
-message DigitsAndPlusOnlyRequest {
-  int64 arg0 = 1;
-}
-
-message DigitsAndPlusOnlyResponse {
-  string result = 1;
-}
-
-message NewArrayMapRequest {
-}
-
-message NewArrayMapResponse {
-  int64 result = 1;
-}
-
-message ContainsKeyRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ContainsKeyResponse {
-  bool result = 1;
-}
-
-message ContainsValueRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ContainsValueResponse {
-  bool result = 1;
-}
-
-message EnsureCapacityRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message EnsureCapacityResponse {
-}
-
-message ArrayMapIndexOfKeyRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ArrayMapIndexOfValueRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message IsEmptyRequest {
-  int64 handle = 1;
-}
-
-message IsEmptyResponse {
-  bool result = 1;
-}
-
-message NewLruCacheRequest {
+message TimeUtilsGetTimeZoneRequest {
   int32 arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
 }
 
-message NewLruCacheResponse {
-  int64 result = 1;
+message GetTimeZoneDatabaseVersionRequest {
 }
 
-message EvictAllRequest {
-  int64 handle = 1;
-}
-
-message EvictAllResponse {
-}
-
-message ResizeRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message ResizeResponse {
-}
-
-message TrimToSizeRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message TrimToSizeResponse {
-}
-
-message IsObjectSelectedRequest {
-  int64 arg0 = 1;
-}
-
-message IsObjectSelectedResponse {
-  bool result = 1;
-}
-
-message NewMonthDisplayHelperRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message NewMonthDisplayHelperResponse {
-  int64 result = 1;
-}
-
-message GetColumnOfRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetColumnOfResponse {
-  int32 result = 1;
-}
-
-message GetDayAtRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetDayAtResponse {
-  int32 result = 1;
-}
-
-message GetDigitsForRowRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetDigitsForRowResponse {
-  int64 result = 1;
-}
-
-message GetFirstDayOfMonthRequest {
-  int64 handle = 1;
-}
-
-message GetFirstDayOfMonthResponse {
-  int32 result = 1;
-}
-
-message GetMonthRequest {
-  int64 handle = 1;
-}
-
-message GetMonthResponse {
-  int32 result = 1;
-}
-
-message GetNumberOfDaysInMonthRequest {
-  int64 handle = 1;
-}
-
-message GetNumberOfDaysInMonthResponse {
-  int32 result = 1;
-}
-
-message GetOffsetRequest {
-  int64 handle = 1;
-}
-
-message GetOffsetResponse {
-  int32 result = 1;
-}
-
-message GetRowOfRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetRowOfResponse {
-  int32 result = 1;
-}
-
-message GetWeekStartDayRequest {
-  int64 handle = 1;
-}
-
-message GetWeekStartDayResponse {
-  int32 result = 1;
-}
-
-message GetYearRequest {
-  int64 handle = 1;
-}
-
-message GetYearResponse {
-  int32 result = 1;
-}
-
-message IsWithinCurrentMonthRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message IsWithinCurrentMonthResponse {
-  bool result = 1;
-}
-
-message NextMonthRequest {
-  int64 handle = 1;
-}
-
-message NextMonthResponse {
-}
-
-message PreviousMonthRequest {
-  int64 handle = 1;
-}
-
-message PreviousMonthResponse {
-}
-
-message PrinterPrintlnRequest {
-  string arg0 = 1;
-}
-
-message NewTimingLoggerRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message NewTimingLoggerResponse {
-  int64 result = 1;
-}
-
-message AddSplitRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message AddSplitResponse {
-}
-
-message DumpToLogRequest {
-  int64 handle = 1;
-}
-
-message DumpToLogResponse {
-}
-
-message Reset0Request {
-  int64 handle = 1;
-}
-
-message Reset0Response {
-}
-
-message Reset2_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-  string arg1 = 3;
-}
-
-message Reset2_1Response {
-}
-
-message NewJsonReaderRequest {
-  int64 arg0 = 1;
-}
-
-message NewJsonReaderResponse {
-  int64 result = 1;
-}
-
-message BeginArrayRequest {
-  int64 handle = 1;
-}
-
-message BeginArrayResponse {
-}
-
-message BeginObjectRequest {
-  int64 handle = 1;
-}
-
-message BeginObjectResponse {
-}
-
-message CloseRequest {
-  int64 handle = 1;
-}
-
-message CloseResponse {
-}
-
-message EndArrayRequest {
-  int64 handle = 1;
-}
-
-message EndArrayResponse {
-}
-
-message EndObjectRequest {
-  int64 handle = 1;
-}
-
-message EndObjectResponse {
-}
-
-message HasNextRequest {
-  int64 handle = 1;
-}
-
-message HasNextResponse {
-  bool result = 1;
-}
-
-message JsonReaderIsLenientRequest {
-  int64 handle = 1;
-}
-
-message NextBooleanRequest {
-  int64 handle = 1;
-}
-
-message NextBooleanResponse {
-  bool result = 1;
-}
-
-message NextDoubleRequest {
-  int64 handle = 1;
-}
-
-message NextDoubleResponse {
-  double result = 1;
-}
-
-message NextIntRequest {
-  int64 handle = 1;
-}
-
-message NextIntResponse {
-  int32 result = 1;
-}
-
-message NextLongRequest {
-  int64 handle = 1;
-}
-
-message NextLongResponse {
-  int64 result = 1;
-}
-
-message NextNameRequest {
-  int64 handle = 1;
-}
-
-message NextNameResponse {
+message GetTimeZoneDatabaseVersionResponse {
   string result = 1;
 }
 
-message NextNullRequest {
-  int64 handle = 1;
+message GetTimeZoneIdsForCountryCodeRequest {
+  string arg0 = 1;
 }
 
-message NextNullResponse {
-}
-
-message NextStringRequest {
-  int64 handle = 1;
-}
-
-message NextStringResponse {
-  string result = 1;
-}
-
-message PeekRequest {
-  int64 handle = 1;
-}
-
-message PeekResponse {
+message GetTimeZoneIdsForCountryCodeResponse {
   int64 result = 1;
 }
 
-message JsonReaderSetLenientRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SkipValueRequest {
-  int64 handle = 1;
-}
-
-message SkipValueResponse {
-}
-
-message NewArraySetRequest {
-}
-
-message NewArraySetResponse {
-  int64 result = 1;
-}
-
-message ContainsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ContainsResponse {
-  bool result = 1;
-}
-
-message IndexOfRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message IndexOfResponse {
-  int32 result = 1;
-}
-
-message RemoveRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message RemoveResponse {
-  bool result = 1;
-}
-
-message ToArrayRequest {
-  int64 handle = 1;
-}
-
-message ToArrayResponse {
-  int64 result = 1;
-}
-
-message AddDumpableRequest {
+message IsTimeBetweenRequest {
   int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
 }
 
-message AddDumpableResponse {
+message IsTimeBetweenResponse {
   bool result = 1;
-}
-
-message RemoveDumpableRequest {
-  int64 arg0 = 1;
-}
-
-message RemoveDumpableResponse {
-  bool result = 1;
-}
-
-message NewBase64OutputStreamRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message NewBase64OutputStreamResponse {
-  int64 result = 1;
-}
-
-message Write3Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-}
-
-message Write3Response {
-}
-
-message Write1_1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message Write1_1Response {
-}
-
-message NewSparseArrayRequest {
-}
-
-message NewSparseArrayResponse {
-  int64 result = 1;
-}
-
-message SparseArrayContainsRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message ContentHashCodeRequest {
-  int64 handle = 1;
-}
-
-message ContentHashCodeResponse {
-  int32 result = 1;
-}
-
-message SparseArrayRemoveRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SparseArrayRemoveResponse {
-}
-
-message RemoveAtRangeRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message RemoveAtRangeResponse {
-}
-
-message SparseArrayCloneRequest {
-  int64 handle = 1;
 }
 
 message NewHalfRequest {
@@ -3657,6 +3460,11 @@ message ByteValueRequest {
 
 message ByteValueResponse {
   uint32 result = 1;
+}
+
+message HalfCompareTo1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
 message DoubleValueRequest {
@@ -3738,6 +3546,11 @@ message ToString0Request {
 
 message ToString0Response {
   string result = 1;
+}
+
+message HalfCompareTo1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
 message AbsRequest {
@@ -4046,576 +3859,21 @@ message ValueOf1_2Response {
   int64 result = 1;
 }
 
-message NewPairRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewPairResponse {
-  int64 result = 1;
-}
-
-message NewSizeRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message NewSizeResponse {
-  int64 result = 1;
-}
-
-message SizeGetHeightResponse {
-  int32 result = 1;
-}
-
-message SizeGetWidthResponse {
-  int32 result = 1;
-}
-
-message ParseSizeRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message ParseSizeResponse {
-  int64 result = 1;
-}
-
-message NewAtomicFileRequest {
-  int64 arg0 = 1;
-}
-
-message NewAtomicFileResponse {
-  int64 result = 1;
-}
-
-message AtomicFileDeleteRequest {
-  int64 handle = 1;
-}
-
-message FailWriteRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message FailWriteResponse {
-}
-
-message FinishWriteRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message FinishWriteResponse {
-}
-
-message GetBaseFileRequest {
-  int64 handle = 1;
-}
-
-message GetBaseFileResponse {
-  int64 result = 1;
-}
-
-message GetLastModifiedTimeRequest {
-  int64 handle = 1;
-}
-
-message GetLastModifiedTimeResponse {
-  int64 result = 1;
-}
-
-message OpenReadRequest {
-  int64 handle = 1;
-}
-
-message OpenReadResponse {
-  int64 result = 1;
-}
-
-message ReadFullyRequest {
-  int64 handle = 1;
-}
-
-message ReadFullyResponse {
-  int64 result = 1;
-}
-
-message StartWriteRequest {
-  int64 handle = 1;
-}
-
-message StartWriteResponse {
-  int64 result = 1;
-}
-
-message D2Request {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message D2Response {
-  int32 result = 1;
-}
-
-message D3_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message D3_1Response {
-  int32 result = 1;
-}
-
-message E2Request {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message E2Response {
-  int32 result = 1;
-}
-
-message E3_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message E3_1Response {
-  int32 result = 1;
-}
-
-message GetStackTraceStringRequest {
-  int64 arg0 = 1;
-}
-
-message GetStackTraceStringResponse {
-  string result = 1;
-}
-
-message I2Request {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message I2Response {
-  int32 result = 1;
-}
-
-message I3_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message I3_1Response {
-  int32 result = 1;
-}
-
-message IsLoggableRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message IsLoggableResponse {
-  bool result = 1;
-}
-
-message LogPrintlnRequest {
+message NewLogPrinterRequest {
   int32 arg0 = 1;
   string arg1 = 2;
-  string arg2 = 3;
 }
 
-message LogPrintlnResponse {
-  int32 result = 1;
-}
-
-message V2Request {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message V2Response {
-  int32 result = 1;
-}
-
-message V3_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message V3_1Response {
-  int32 result = 1;
-}
-
-message W2Request {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message W2Response {
-  int32 result = 1;
-}
-
-message W3_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message W3_1Response {
-  int32 result = 1;
-}
-
-message W2_2Request {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message W2_2Response {
-  int32 result = 1;
-}
-
-message Wtf2Request {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message Wtf2Response {
-  int32 result = 1;
-}
-
-message Wtf3_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message Wtf3_1Response {
-  int32 result = 1;
-}
-
-message Wtf2_2Request {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message Wtf2_2Response {
-  int32 result = 1;
-}
-
-message Decode2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message Decode2Response {
+message NewLogPrinterResponse {
   int64 result = 1;
 }
 
-message Decode4_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message Decode4_1Response {
-  int64 result = 1;
-}
-
-message Decode2_2Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message Decode2_2Response {
-  int64 result = 1;
-}
-
-message Encode2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message Encode2Response {
-  int64 result = 1;
-}
-
-message Encode4_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message Encode4_1Response {
-  int64 result = 1;
-}
-
-message EncodeToString2Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message EncodeToString2Response {
-  string result = 1;
-}
-
-message EncodeToString4_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message EncodeToString4_1Response {
-  string result = 1;
-}
-
-message DumpableDumpRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message DumpableDumpResponse {
-}
-
-message TimeUtilsGetTimeZoneRequest {
-  int32 arg0 = 1;
-  bool arg1 = 2;
-  int64 arg2 = 3;
-  string arg3 = 4;
-}
-
-message GetTimeZoneDatabaseVersionRequest {
-}
-
-message GetTimeZoneDatabaseVersionResponse {
-  string result = 1;
-}
-
-message IsTimeBetweenRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message IsTimeBetweenResponse {
-  bool result = 1;
-}
-
-message NewCloseGuardRequest {
-}
-
-message NewCloseGuardResponse {
-  int64 result = 1;
-}
-
-message OpenRequest {
+message PrintlnRequest {
   int64 handle = 1;
   string arg0 = 2;
 }
 
-message OpenResponse {
-}
-
-message WarnIfOpenRequest {
-  int64 handle = 1;
-}
-
-message WarnIfOpenResponse {
-}
-
-message NewSparseBooleanArrayRequest {
-}
-
-message NewSparseBooleanArrayResponse {
-  int64 result = 1;
-}
-
-message SparseBooleanArrayAppendRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  bool arg1 = 3;
-}
-
-message SparseBooleanArrayGet1Response {
-  bool result = 1;
-}
-
-message SparseBooleanArrayGet2_1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  bool arg1 = 3;
-}
-
-message SparseBooleanArrayGet2_1Response {
-  bool result = 1;
-}
-
-message SparseBooleanArrayIndexOfValueRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SparseBooleanArrayPutRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  bool arg1 = 3;
-}
-
-message SparseBooleanArraySetValueAtRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  bool arg1 = 3;
-}
-
-message SparseBooleanArrayValueAtResponse {
-  bool result = 1;
-}
-
-message SetRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetResponse {
-}
-
-message NewEventLogTagsRequest {
-}
-
-message NewEventLogTagsResponse {
-  int64 result = 1;
-}
-
-message EventLogTagsGet1Response {
-  int64 result = 1;
-}
-
-message Get1_1Request {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message Get1_1Response {
-  int64 result = 1;
-}
-
-message NewJsonWriterRequest {
-  int64 arg0 = 1;
-}
-
-message NewJsonWriterResponse {
-  int64 result = 1;
-}
-
-message JsonWriterBeginArrayResponse {
-  int64 result = 1;
-}
-
-message JsonWriterBeginObjectResponse {
-  int64 result = 1;
-}
-
-message JsonWriterEndArrayResponse {
-  int64 result = 1;
-}
-
-message JsonWriterEndObjectResponse {
-  int64 result = 1;
-}
-
-message FlushRequest {
-  int64 handle = 1;
-}
-
-message FlushResponse {
-}
-
-message NameRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message NameResponse {
-  int64 result = 1;
-}
-
-message NullValueRequest {
-  int64 handle = 1;
-}
-
-message NullValueResponse {
-  int64 result = 1;
-}
-
-message SetIndentRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetIndentResponse {
-}
-
-message Value1Request {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message Value1Response {
-  int64 result = 1;
-}
-
-message Value1_1Request {
-  int64 handle = 1;
-  double arg0 = 2;
-}
-
-message Value1_1Response {
-  int64 result = 1;
-}
-
-message Value1_2Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message Value1_2Response {
-  int64 result = 1;
-}
-
-message Value1_3Request {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message Value1_3Response {
-  int64 result = 1;
-}
-
-message Value1_4Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message Value1_4Response {
-  int64 result = 1;
-}
-
-message PropertyGetNameRequest {
-}
-
-message IsReadOnlyRequest {
-}
-
-message IsReadOnlyResponse {
-  bool result = 1;
+message PrintlnResponse {
 }
 
 message NewPrintWriterPrinterRequest {
@@ -4624,6 +3882,173 @@ message NewPrintWriterPrinterRequest {
 
 message NewPrintWriterPrinterResponse {
   int64 result = 1;
+}
+
+message NewTimingLoggerRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewTimingLoggerResponse {
+  int64 result = 1;
+}
+
+message AddSplitRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddSplitResponse {
+}
+
+message DumpToLogRequest {
+  int64 handle = 1;
+}
+
+message DumpToLogResponse {
+}
+
+message Reset0Request {
+  int64 handle = 1;
+}
+
+message Reset0Response {
+}
+
+message Reset2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message Reset2_1Response {
+}
+
+message NewJsonReaderRequest {
+  int64 arg0 = 1;
+}
+
+message NewJsonReaderResponse {
+  int64 result = 1;
+}
+
+message BeginArrayRequest {
+  int64 handle = 1;
+}
+
+message BeginArrayResponse {
+}
+
+message BeginObjectRequest {
+  int64 handle = 1;
+}
+
+message BeginObjectResponse {
+}
+
+message EndArrayRequest {
+  int64 handle = 1;
+}
+
+message EndArrayResponse {
+}
+
+message EndObjectRequest {
+  int64 handle = 1;
+}
+
+message EndObjectResponse {
+}
+
+message HasNextRequest {
+  int64 handle = 1;
+}
+
+message HasNextResponse {
+  bool result = 1;
+}
+
+message JsonReaderIsLenientRequest {
+  int64 handle = 1;
+}
+
+message NextBooleanRequest {
+  int64 handle = 1;
+}
+
+message NextBooleanResponse {
+  bool result = 1;
+}
+
+message NextDoubleRequest {
+  int64 handle = 1;
+}
+
+message NextDoubleResponse {
+  double result = 1;
+}
+
+message NextIntRequest {
+  int64 handle = 1;
+}
+
+message NextIntResponse {
+  int32 result = 1;
+}
+
+message NextLongRequest {
+  int64 handle = 1;
+}
+
+message NextLongResponse {
+  int64 result = 1;
+}
+
+message NextNameRequest {
+  int64 handle = 1;
+}
+
+message NextNameResponse {
+  string result = 1;
+}
+
+message NextNullRequest {
+  int64 handle = 1;
+}
+
+message NextNullResponse {
+}
+
+message NextStringRequest {
+  int64 handle = 1;
+}
+
+message NextStringResponse {
+  string result = 1;
+}
+
+message PeekRequest {
+  int64 handle = 1;
+}
+
+message PeekResponse {
+  int64 result = 1;
+}
+
+message JsonReaderSetLenientRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SkipValueRequest {
+  int64 handle = 1;
+}
+
+message SkipValueResponse {
+}
+
+message PrinterPrintlnRequest {
+  string arg0 = 1;
 }
 
 message GetTagCodeRequest {
@@ -4722,89 +4147,65 @@ message GetTimeNanosResponse {
 message EventLogEventHashCodeRequest {
 }
 
-message NewLongSparseArrayRequest {
+message NewSparseLongArrayRequest {
 }
 
-message NewLongSparseArrayResponse {
+message NewSparseLongArrayResponse {
   int64 result = 1;
 }
 
-message LongSparseArrayDeleteRequest {
+message SparseLongArrayAppendRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SparseLongArrayGet1Response {
+  int64 result = 1;
+}
+
+message SparseLongArrayGet2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SparseLongArrayGet2_1Response {
+  int64 result = 1;
+}
+
+message SparseLongArrayIndexOfValueRequest {
   int64 handle = 1;
   int64 arg0 = 2;
 }
 
-message LongSparseArrayIndexOfKeyRequest {
+message SparseLongArrayPutRequest {
   int64 handle = 1;
-  int64 arg0 = 2;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
 }
 
-message LongSparseArrayKeyAtResponse {
+message SparseLongArrayValueAtResponse {
   int64 result = 1;
 }
 
-message LongSparseArrayRemoveResponse {
+message NewEventLogTagsRequest {
 }
 
-message NewRationalRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message NewRationalResponse {
+message NewEventLogTagsResponse {
   int64 result = 1;
 }
 
-message GetDenominatorRequest {
-  int64 handle = 1;
+message EventLogTagsGet1Response {
+  int64 result = 1;
 }
 
-message GetDenominatorResponse {
-  int32 result = 1;
-}
-
-message GetNumeratorRequest {
-  int64 handle = 1;
-}
-
-message GetNumeratorResponse {
-  int32 result = 1;
-}
-
-message IsFiniteRequest {
-  int64 handle = 1;
-}
-
-message IsFiniteResponse {
-  bool result = 1;
-}
-
-message RationalIsInfiniteRequest {
-  int64 handle = 1;
-}
-
-message IsNaNRequest {
-  int64 handle = 1;
-}
-
-message IsNaNResponse {
-  bool result = 1;
-}
-
-message IsZeroRequest {
-  int64 handle = 1;
-}
-
-message IsZeroResponse {
-  bool result = 1;
-}
-
-message ParseRationalRequest {
+message Get1_1Request {
   int64 handle = 1;
   string arg0 = 2;
 }
 
-message ParseRationalResponse {
+message Get1_1Response {
   int64 result = 1;
 }
 
@@ -5000,174 +4401,787 @@ message GetStyleAttributeResponse {
   int32 result = 1;
 }
 
-message NewTypedValueRequest {
+message DumpRequest {
+  int64 arg0 = 1;
 }
 
-message NewTypedValueResponse {
-  int64 result = 1;
+message DumpResponse {
+  string result = 1;
 }
 
-message CoerceToString0Request {
-  int64 handle = 1;
+message IsWildCardRequest {
+  int64 arg0 = 1;
 }
 
-message CoerceToString0Response {
-  int64 result = 1;
-}
-
-message GetComplexUnitRequest {
-  int64 handle = 1;
-}
-
-message GetComplexUnitResponse {
-  int32 result = 1;
-}
-
-message GetDimensionRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetDimensionResponse {
-  float result = 1;
-}
-
-message GetFloatRequest {
-  int64 handle = 1;
-}
-
-message GetFloatResponse {
-  float result = 1;
-}
-
-message GetFractionRequest {
-  int64 handle = 1;
-  float arg0 = 2;
-  float arg1 = 3;
-}
-
-message GetFractionResponse {
-  float result = 1;
-}
-
-message IsColorTypeRequest {
-  int64 handle = 1;
-}
-
-message IsColorTypeResponse {
+message IsWildCardResponse {
   bool result = 1;
 }
 
-message SetToRequest {
+message StateSetMatches2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message StateSetMatches2Response {
+  bool result = 1;
+}
+
+message StateSetMatches2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message StateSetMatches2_1Response {
+  bool result = 1;
+}
+
+message TrimStateSetRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message TrimStateSetResponse {
+  int64 result = 1;
+}
+
+message DumpableDumpRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DumpableDumpResponse {
+}
+
+message AddDumpableRequest {
+  int64 arg0 = 1;
+}
+
+message AddDumpableResponse {
+  bool result = 1;
+}
+
+message RemoveDumpableRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveDumpableResponse {
+  bool result = 1;
+}
+
+message NewSizeFRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message NewSizeFResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
   int64 handle = 1;
-  int64 arg0 = 2;
 }
 
-message SetToResponse {
+message DescribeContentsResponse {
+  int32 result = 1;
 }
 
-message ApplyDimensionRequest {
+message SizeFGetHeightRequest {
   int64 handle = 1;
-  int32 arg0 = 2;
-  float arg1 = 3;
-  int64 arg2 = 4;
 }
 
-message ApplyDimensionResponse {
+message SizeFGetHeightResponse {
   float result = 1;
 }
 
-message CoerceToString2_1Request {
+message SizeFGetWidthRequest {
+  int64 handle = 1;
+}
+
+message SizeFGetWidthResponse {
+  float result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message ParseSizeFRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ParseSizeFResponse {
+  int64 result = 1;
+}
+
+message NewSparseArrayRequest {
+}
+
+message NewSparseArrayResponse {
+  int64 result = 1;
+}
+
+message ContainsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ContainsResponse {
+  bool result = 1;
+}
+
+message ContentHashCodeRequest {
+  int64 handle = 1;
+}
+
+message ContentHashCodeResponse {
+  int32 result = 1;
+}
+
+message RemoveRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RemoveResponse {
+}
+
+message RemoveAtRangeRequest {
   int64 handle = 1;
   int32 arg0 = 2;
   int32 arg1 = 3;
 }
 
-message CoerceToString2_1Response {
+message RemoveAtRangeResponse {
+}
+
+message ConcatGroupsRequest {
+  int64 arg0 = 1;
+}
+
+message ConcatGroupsResponse {
   string result = 1;
 }
 
-message ComplexToDimensionRequest {
+message DigitsAndPlusOnlyRequest {
+  int64 arg0 = 1;
+}
+
+message DigitsAndPlusOnlyResponse {
+  string result = 1;
+}
+
+message NewArraySetRequest {
+}
+
+message NewArraySetResponse {
+  int64 result = 1;
+}
+
+message ArraySetContainsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EnsureCapacityRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-  int64 arg1 = 3;
 }
 
-message ComplexToDimensionResponse {
-  float result = 1;
+message EnsureCapacityResponse {
 }
 
-message ComplexToDimensionPixelOffsetRequest {
+message IndexOfRequest {
   int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
+  int64 arg0 = 2;
 }
 
-message ComplexToDimensionPixelOffsetResponse {
+message IndexOfResponse {
   int32 result = 1;
 }
 
-message ComplexToDimensionPixelSizeRequest {
+message IsEmptyRequest {
   int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
 }
 
-message ComplexToDimensionPixelSizeResponse {
+message IsEmptyResponse {
+  bool result = 1;
+}
+
+message IteratorRequest {
+  int64 handle = 1;
+}
+
+message IteratorResponse {
+  int64 result = 1;
+}
+
+message ArraySetRemoveRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ArraySetRemoveResponse {
+  bool result = 1;
+}
+
+message ToArrayRequest {
+  int64 handle = 1;
+}
+
+message ToArrayResponse {
+  int64 result = 1;
+}
+
+message LogBinaryPushStateChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message LogBinaryPushStateChangedResponse {
+  bool result = 1;
+}
+
+message LogEventRequest {
+  int32 arg0 = 1;
+}
+
+message LogEventResponse {
+  bool result = 1;
+}
+
+message LogStartRequest {
+  int32 arg0 = 1;
+}
+
+message LogStartResponse {
+  bool result = 1;
+}
+
+message LogStopRequest {
+  int32 arg0 = 1;
+}
+
+message LogStopResponse {
+  bool result = 1;
+}
+
+message NewSparseIntArrayRequest {
+}
+
+message NewSparseIntArrayResponse {
+  int64 result = 1;
+}
+
+message SparseIntArrayAppendRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SparseIntArrayGet1Response {
   int32 result = 1;
 }
 
-message ComplexToFloatRequest {
+message SparseIntArrayGet2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SparseIntArrayGet2_1Response {
+  int32 result = 1;
+}
+
+message SparseIntArrayIndexOfValueRequest {
   int64 handle = 1;
   int32 arg0 = 2;
 }
 
-message ComplexToFloatResponse {
-  float result = 1;
-}
-
-message ComplexToFractionRequest {
+message SparseIntArrayPutRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-  float arg1 = 3;
-  float arg2 = 4;
+  int32 arg1 = 3;
 }
 
-message ComplexToFractionResponse {
-  float result = 1;
-}
-
-message ConvertDimensionToPixelsRequest {
+message SparseIntArraySetValueAtRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-  float arg1 = 3;
-  int64 arg2 = 4;
+  int32 arg1 = 3;
 }
 
-message ConvertDimensionToPixelsResponse {
-  float result = 1;
+message SparseIntArrayValueAtResponse {
+  int32 result = 1;
 }
 
-message ConvertPixelsToDimensionRequest {
+message NewPrintStreamPrinterRequest {
+  int64 arg0 = 1;
+}
+
+message NewPrintStreamPrinterResponse {
+  int64 result = 1;
+}
+
+message NewMonthDisplayHelperRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewMonthDisplayHelperResponse {
+  int64 result = 1;
+}
+
+message GetColumnOfRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-  float arg1 = 3;
-  int64 arg2 = 4;
 }
 
-message ConvertPixelsToDimensionResponse {
-  float result = 1;
+message GetColumnOfResponse {
+  int32 result = 1;
 }
 
-message DeriveDimensionRequest {
+message GetDayAtRequest {
   int64 handle = 1;
   int32 arg0 = 2;
-  float arg1 = 3;
-  int64 arg2 = 4;
+  int32 arg1 = 3;
 }
 
-message DeriveDimensionResponse {
-  float result = 1;
+message GetDayAtResponse {
+  int32 result = 1;
+}
+
+message GetDigitsForRowRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDigitsForRowResponse {
+  int64 result = 1;
+}
+
+message GetFirstDayOfMonthRequest {
+  int64 handle = 1;
+}
+
+message GetFirstDayOfMonthResponse {
+  int32 result = 1;
+}
+
+message GetMonthRequest {
+  int64 handle = 1;
+}
+
+message GetMonthResponse {
+  int32 result = 1;
+}
+
+message GetNumberOfDaysInMonthRequest {
+  int64 handle = 1;
+}
+
+message GetNumberOfDaysInMonthResponse {
+  int32 result = 1;
+}
+
+message GetOffsetRequest {
+  int64 handle = 1;
+}
+
+message GetOffsetResponse {
+  int32 result = 1;
+}
+
+message GetRowOfRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetRowOfResponse {
+  int32 result = 1;
+}
+
+message GetWeekStartDayRequest {
+  int64 handle = 1;
+}
+
+message GetWeekStartDayResponse {
+  int32 result = 1;
+}
+
+message GetYearRequest {
+  int64 handle = 1;
+}
+
+message GetYearResponse {
+  int32 result = 1;
+}
+
+message IsWithinCurrentMonthRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsWithinCurrentMonthResponse {
+  bool result = 1;
+}
+
+message NextMonthRequest {
+  int64 handle = 1;
+}
+
+message NextMonthResponse {
+}
+
+message PreviousMonthRequest {
+  int64 handle = 1;
+}
+
+message PreviousMonthResponse {
+}
+
+message AsAttributeSetRequest {
+  int64 arg0 = 1;
+}
+
+message AsAttributeSetResponse {
+  int64 result = 1;
+}
+
+message FindEncodingByNameRequest {
+  string arg0 = 1;
+}
+
+message FindEncodingByNameResponse {
+  int64 result = 1;
+}
+
+message NewPullParserRequest {
+}
+
+message NewPullParserResponse {
+  int64 result = 1;
+}
+
+message NewSerializerRequest {
+}
+
+message NewSerializerResponse {
+  int64 result = 1;
+}
+
+message NewRationalRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewRationalResponse {
+  int64 result = 1;
+}
+
+message GetDenominatorRequest {
+  int64 handle = 1;
+}
+
+message GetDenominatorResponse {
+  int32 result = 1;
+}
+
+message GetNumeratorRequest {
+  int64 handle = 1;
+}
+
+message GetNumeratorResponse {
+  int32 result = 1;
+}
+
+message IsFiniteRequest {
+  int64 handle = 1;
+}
+
+message IsFiniteResponse {
+  bool result = 1;
+}
+
+message RationalIsInfiniteRequest {
+  int64 handle = 1;
+}
+
+message IsNaNRequest {
+  int64 handle = 1;
+}
+
+message IsNaNResponse {
+  bool result = 1;
+}
+
+message IsZeroRequest {
+  int64 handle = 1;
+}
+
+message IsZeroResponse {
+  bool result = 1;
+}
+
+message ParseRationalRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ParseRationalResponse {
+  int64 result = 1;
+}
+
+message NewJsonWriterRequest {
+  int64 arg0 = 1;
+}
+
+message NewJsonWriterResponse {
+  int64 result = 1;
+}
+
+message JsonWriterBeginArrayResponse {
+  int64 result = 1;
+}
+
+message JsonWriterBeginObjectResponse {
+  int64 result = 1;
+}
+
+message JsonWriterEndArrayResponse {
+  int64 result = 1;
+}
+
+message JsonWriterEndObjectResponse {
+  int64 result = 1;
+}
+
+message FlushRequest {
+  int64 handle = 1;
+}
+
+message FlushResponse {
+}
+
+message NameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message NameResponse {
+  int64 result = 1;
+}
+
+message NullValueRequest {
+  int64 handle = 1;
+}
+
+message NullValueResponse {
+  int64 result = 1;
+}
+
+message SetIndentRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetIndentResponse {
+}
+
+message Value1Request {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message Value1Response {
+  int64 result = 1;
+}
+
+message Value1_1Request {
+  int64 handle = 1;
+  double arg0 = 2;
+}
+
+message Value1_1Response {
+  int64 result = 1;
+}
+
+message Value1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Value1_2Response {
+  int64 result = 1;
+}
+
+message Value1_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message Value1_3Response {
+  int64 result = 1;
+}
+
+message Value1_4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Value1_4Response {
+  int64 result = 1;
+}
+
+message NewBase64OutputStreamRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewBase64OutputStreamResponse {
+  int64 result = 1;
+}
+
+message Write3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message Write3Response {
+}
+
+message Write1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Write1_1Response {
+}
+
+message NewSizeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewSizeResponse {
+  int64 result = 1;
+}
+
+message SizeGetHeightResponse {
+  int32 result = 1;
+}
+
+message SizeGetWidthResponse {
+  int32 result = 1;
+}
+
+message ParseSizeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ParseSizeResponse {
+  int64 result = 1;
+}
+
+message NewArrayMapRequest {
+}
+
+message NewArrayMapResponse {
+  int64 result = 1;
+}
+
+message ContainsKeyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ContainsKeyResponse {
+  bool result = 1;
+}
+
+message ContainsValueRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ContainsValueResponse {
+  bool result = 1;
+}
+
+message ArrayMapIndexOfKeyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ArrayMapIndexOfValueRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message KeySetRequest {
+  int64 handle = 1;
+}
+
+message KeySetResponse {
+  int64 result = 1;
+}
+
+message ArrayMapValuesRequest {
+  int64 handle = 1;
+}
+
+message NewLongSparseArrayRequest {
+}
+
+message NewLongSparseArrayResponse {
+  int64 result = 1;
+}
+
+message LongSparseArrayDeleteRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LongSparseArrayIndexOfKeyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LongSparseArrayKeyAtResponse {
+  int64 result = 1;
+}
+
+message LongSparseArrayRemoveRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PropertyGetNameRequest {
+}
+
+message PropertyGetTypeRequest {
+}
+
+message PropertyGetTypeResponse {
+  int64 result = 1;
+}
+
+message IsReadOnlyRequest {
+}
+
+message IsReadOnlyResponse {
+  bool result = 1;
 }
 
 message NewBase64InputStreamRequest {
@@ -5243,54 +5257,210 @@ message NewStringBuilderPrinterResponse {
   int64 result = 1;
 }
 
-message NewSparseLongArrayRequest {
-}
-
-message NewSparseLongArrayResponse {
-  int64 result = 1;
-}
-
-message SparseLongArrayAppendRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message SparseLongArrayGet1Response {
-  int64 result = 1;
-}
-
-message SparseLongArrayGet2_1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message SparseLongArrayGet2_1Response {
-  int64 result = 1;
-}
-
-message SparseLongArrayIndexOfValueRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SparseLongArrayPutRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message SparseLongArrayValueAtResponse {
-  int64 result = 1;
-}
-
-message NewLogPrinterRequest {
-  int32 arg0 = 1;
+message D2Request {
+  string arg0 = 1;
   string arg1 = 2;
 }
 
-message NewLogPrinterResponse {
+message D2Response {
+  int32 result = 1;
+}
+
+message D3_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message D3_1Response {
+  int32 result = 1;
+}
+
+message E2Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message E2Response {
+  int32 result = 1;
+}
+
+message E3_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message E3_1Response {
+  int32 result = 1;
+}
+
+message GetStackTraceStringRequest {
+  int64 arg0 = 1;
+}
+
+message GetStackTraceStringResponse {
+  string result = 1;
+}
+
+message I2Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message I2Response {
+  int32 result = 1;
+}
+
+message I3_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message I3_1Response {
+  int32 result = 1;
+}
+
+message IsLoggableRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message IsLoggableResponse {
+  bool result = 1;
+}
+
+message LogPrintlnRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message LogPrintlnResponse {
+  int32 result = 1;
+}
+
+message V2Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message V2Response {
+  int32 result = 1;
+}
+
+message V3_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message V3_1Response {
+  int32 result = 1;
+}
+
+message W2Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message W2Response {
+  int32 result = 1;
+}
+
+message W3_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message W3_1Response {
+  int32 result = 1;
+}
+
+message W2_2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message W2_2Response {
+  int32 result = 1;
+}
+
+message Wtf2Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message Wtf2Response {
+  int32 result = 1;
+}
+
+message Wtf3_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Wtf3_1Response {
+  int32 result = 1;
+}
+
+message Wtf2_2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Wtf2_2Response {
+  int32 result = 1;
+}
+
+message NewLruCacheRequest {
+  int32 arg0 = 1;
+}
+
+message NewLruCacheResponse {
+  int64 result = 1;
+}
+
+message EvictAllRequest {
+  int64 handle = 1;
+}
+
+message EvictAllResponse {
+}
+
+message ResizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ResizeResponse {
+}
+
+message TrimToSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message TrimToSizeResponse {
+}
+
+message IsObjectSelectedRequest {
+  int64 arg0 = 1;
+}
+
+message IsObjectSelectedResponse {
+  bool result = 1;
+}
+
+message NewPairRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewPairResponse {
   int64 result = 1;
 }
 
@@ -5299,22 +5469,169 @@ service DocumentIdUtilService {
   rpc CreateQualifiedId4_1 (CreateQualifiedId4_1Request) returns (CreateQualifiedId4_1Response);
 }
 
-service GregorianCalendarService {
-  rpc NewGregorianCalendar (NewGregorianCalendarRequest) returns (NewGregorianCalendarResponse);
-  rpc GetActualMaximum (GetActualMaximumRequest) returns (GetActualMaximumResponse);
-  rpc GetActualMinimum (GetActualMinimumRequest) returns (GetActualMinimumResponse);
-  rpc GetGregorianChange (GetGregorianChangeRequest) returns (GetGregorianChangeResponse);
+service CurrencyAmountService {
+  rpc NewCurrencyAmount (NewCurrencyAmountRequest) returns (NewCurrencyAmountResponse);
+  rpc GetCurrency (GetCurrencyRequest) returns (GetCurrencyResponse);
+}
+
+service IndianCalendarService {
+  rpc NewIndianCalendar (NewIndianCalendarRequest) returns (NewIndianCalendarResponse);
   rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsEquivalentTo (IsEquivalentToRequest) returns (IsEquivalentToResponse);
-  rpc IsLeapYear (IsLeapYearRequest) returns (IsLeapYearResponse);
-  rpc Roll (RollRequest) returns (RollResponse);
-  rpc SetGregorianChange (SetGregorianChangeRequest) returns (SetGregorianChangeResponse);
+}
+
+service OutputService {
+  rpc NewOutput (NewOutputRequest) returns (NewOutputResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
 service IllformedLocaleExceptionService {
   rpc NewIllformedLocaleException (NewIllformedLocaleExceptionRequest) returns (NewIllformedLocaleExceptionResponse);
   rpc GetErrorIndex (GetErrorIndexRequest) returns (GetErrorIndexResponse);
+}
+
+service VersionInfoService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMajor (GetMajorRequest) returns (GetMajorResponse);
+  rpc GetMicro (GetMicroRequest) returns (GetMicroResponse);
+  rpc GetMilli (GetMilliRequest) returns (GetMilliResponse);
+  rpc GetMinor (GetMinorRequest) returns (GetMinorResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (VersionInfoToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc GetInstance1 (GetInstance1Request) returns (GetInstance1Response);
+  rpc GetInstance2_1 (GetInstance2_1Request) returns (GetInstance2_1Response);
+  rpc GetInstance3_2 (GetInstance3_2Request) returns (GetInstance3_2Response);
+  rpc GetInstance4_3 (GetInstance4_3Request) returns (GetInstance4_3Response);
+  rpc GetInstance1_4 (GetInstance1_4Request) returns (GetInstance1_4Response);
+}
+
+service CalendarService {
+  rpc Add (AddRequest) returns (AddResponse);
+  rpc After (AfterRequest) returns (AfterResponse);
+  rpc Before (BeforeRequest) returns (BeforeResponse);
+  rpc Clear0 (Clear0Request) returns (Clear0Response);
+  rpc Clear1_1 (Clear1_1Request) returns (Clear1_1Response);
+  rpc Clone (CloneRequest) returns (CloneResponse);
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc FieldDifference (FieldDifferenceRequest) returns (FieldDifferenceResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetActualMaximum (GetActualMaximumRequest) returns (GetActualMaximumResponse);
+  rpc GetActualMinimum (GetActualMinimumRequest) returns (GetActualMinimumResponse);
+  rpc GetDateTimeFormat3 (GetDateTimeFormat3Request) returns (GetDateTimeFormat3Response);
+  rpc GetDateTimeFormat3_1 (GetDateTimeFormat3_1Request) returns (GetDateTimeFormat3_1Response);
+  rpc GetDisplayName1 (GetDisplayName1Request) returns (GetDisplayName1Response);
+  rpc GetDisplayName1_1 (GetDisplayName1_1Request) returns (GetDisplayName1_1Response);
+  rpc GetFieldCount (GetFieldCountRequest) returns (GetFieldCountResponse);
+  rpc GetFirstDayOfWeek (GetFirstDayOfWeekRequest) returns (GetFirstDayOfWeekResponse);
+  rpc GetGreatestMinimum (GetGreatestMinimumRequest) returns (GetGreatestMinimumResponse);
+  rpc GetLeastMaximum (GetLeastMaximumRequest) returns (GetLeastMaximumResponse);
+  rpc GetMaximum (GetMaximumRequest) returns (GetMaximumResponse);
+  rpc GetMinimalDaysInFirstWeek (GetMinimalDaysInFirstWeekRequest) returns (GetMinimalDaysInFirstWeekResponse);
+  rpc GetMinimum (GetMinimumRequest) returns (GetMinimumResponse);
+  rpc GetRepeatedWallTimeOption (GetRepeatedWallTimeOptionRequest) returns (GetRepeatedWallTimeOptionResponse);
+  rpc GetSkippedWallTimeOption (GetSkippedWallTimeOptionRequest) returns (GetSkippedWallTimeOptionResponse);
+  rpc GetTemporalMonthCode (GetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc GetTimeInMillis (GetTimeInMillisRequest) returns (GetTimeInMillisResponse);
+  rpc GetTimeZone (GetTimeZoneRequest) returns (GetTimeZoneResponse);
+  rpc GetType (CalendarGetTypeRequest) returns (GetTypeResponse);
+  rpc GetWeekData (GetWeekDataRequest) returns (GetWeekDataResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc InTemporalLeapYear (InTemporalLeapYearRequest) returns (InTemporalLeapYearResponse);
+  rpc IsEquivalentTo (IsEquivalentToRequest) returns (IsEquivalentToResponse);
+  rpc IsLenient (IsLenientRequest) returns (IsLenientResponse);
+  rpc IsSet (IsSetRequest) returns (IsSetResponse);
+  rpc IsWeekend0 (IsWeekend0Request) returns (IsWeekend0Response);
+  rpc IsWeekend1_1 (IsWeekend1_1Request) returns (IsWeekend1_1Response);
+  rpc Roll2 (Roll2Request) returns (Roll2Response);
+  rpc Roll2_1 (Roll2_1Request) returns (Roll2_1Response);
+  rpc Set2 (Set2Request) returns (Set2Response);
+  rpc Set3_1 (Set3_1Request) returns (Set3_1Response);
+  rpc Set5_2 (Set5_2Request) returns (Set5_2Response);
+  rpc Set6_3 (Set6_3Request) returns (Set6_3Response);
+  rpc SetFirstDayOfWeek (SetFirstDayOfWeekRequest) returns (SetFirstDayOfWeekResponse);
+  rpc SetLenient (SetLenientRequest) returns (SetLenientResponse);
+  rpc SetMinimalDaysInFirstWeek (SetMinimalDaysInFirstWeekRequest) returns (SetMinimalDaysInFirstWeekResponse);
+  rpc SetRepeatedWallTimeOption (SetRepeatedWallTimeOptionRequest) returns (SetRepeatedWallTimeOptionResponse);
+  rpc SetSkippedWallTimeOption (SetSkippedWallTimeOptionRequest) returns (SetSkippedWallTimeOptionResponse);
+  rpc SetTemporalMonthCode (SetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
+  rpc SetTime (SetTimeRequest) returns (SetTimeResponse);
+  rpc SetTimeInMillis (SetTimeInMillisRequest) returns (SetTimeInMillisResponse);
+  rpc SetTimeZone (SetTimeZoneRequest) returns (SetTimeZoneResponse);
+  rpc SetWeekData (SetWeekDataRequest) returns (SetWeekDataResponse);
+  rpc ToString (CalendarToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc GetAvailableLocales (GetAvailableLocalesRequest) returns (GetAvailableLocalesResponse);
+  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
+  rpc GetInstance1_1 (GetInstance1_1Request) returns (GetInstance1_1Response);
+  rpc GetInstance2_2 (GetInstance2_2Request) returns (GetInstance2_2Response);
+  rpc GetInstance2_3 (GetInstance2_3Request) returns (GetInstance2_3Response);
+  rpc GetInstance1_4 (CalendarGetInstance1_4Request) returns (GetInstance1_4Response);
+  rpc GetInstance1_5 (GetInstance1_5Request) returns (GetInstance1_5Response);
+  rpc GetKeywordValuesForLocale (GetKeywordValuesForLocaleRequest) returns (GetKeywordValuesForLocaleResponse);
+  rpc GetWeekDataForRegion (GetWeekDataForRegionRequest) returns (GetWeekDataForRegionResponse);
+}
+
+service CalendarWeekDataService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (CalendarWeekDataToStringRequest) returns (ToStringResponse);
+}
+
+service MeasureUnitService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetComplexity (GetComplexityRequest) returns (GetComplexityResponse);
+  rpc GetDimensionality (GetDimensionalityRequest) returns (GetDimensionalityResponse);
+  rpc GetIdentifier (GetIdentifierRequest) returns (GetIdentifierResponse);
+  rpc GetPrefix (GetPrefixRequest) returns (GetPrefixResponse);
+  rpc GetSubtype (GetSubtypeRequest) returns (GetSubtypeResponse);
+  rpc GetType (MeasureUnitGetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Product (ProductRequest) returns (ProductResponse);
+  rpc Reciprocal (ReciprocalRequest) returns (ReciprocalResponse);
+  rpc SplitToSingleUnits (SplitToSingleUnitsRequest) returns (SplitToSingleUnitsResponse);
+  rpc ToString (MeasureUnitToStringRequest) returns (ToStringResponse);
+  rpc WithDimensionality (WithDimensionalityRequest) returns (WithDimensionalityResponse);
+  rpc WithPrefix (WithPrefixRequest) returns (WithPrefixResponse);
+  rpc ForIdentifier (ForIdentifierRequest) returns (ForIdentifierResponse);
+  rpc GetAvailable (GetAvailableRequest) returns (GetAvailableResponse);
+  rpc GetAvailableTypes (GetAvailableTypesRequest) returns (GetAvailableTypesResponse);
+}
+
+service MeasureUnitComplexityService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service MeasureUnitMeasurePrefixService {
+  rpc GetBase (GetBaseRequest) returns (GetBaseResponse);
+  rpc GetPower (GetPowerRequest) returns (GetPowerResponse);
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service CopticCalendarService {
+  rpc NewCopticCalendar (NewCopticCalendarRequest) returns (NewCopticCalendarResponse);
+  rpc GetTemporalMonthCode (CopticCalendarGetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc SetTemporalMonthCode (CopticCalendarSetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
+}
+
+service BuddhistCalendarService {
+  rpc NewBuddhistCalendar (NewBuddhistCalendarRequest) returns (NewBuddhistCalendarResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+}
+
+service ChineseCalendarService {
+  rpc NewChineseCalendar (NewChineseCalendarRequest) returns (NewChineseCalendarResponse);
+  rpc Add (ChineseCalendarAddRequest) returns (AddResponse);
+  rpc GetTemporalMonthCode (ChineseCalendarGetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc InTemporalLeapYear (ChineseCalendarInTemporalLeapYearRequest) returns (InTemporalLeapYearResponse);
+  rpc Roll (RollRequest) returns (RollResponse);
+  rpc SetTemporalMonthCode (ChineseCalendarSetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
 }
 
 service UniversalTimeScaleService {
@@ -5328,91 +5645,51 @@ service UniversalTimeScaleService {
   rpc ToLong (ToLongRequest) returns (ToLongResponse);
 }
 
-service CopticCalendarService {
-  rpc NewCopticCalendar (NewCopticCalendarRequest) returns (NewCopticCalendarResponse);
-  rpc GetTemporalMonthCode (GetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc SetTemporalMonthCode (SetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
-}
-
-service TaiwanCalendarService {
-  rpc NewTaiwanCalendar (NewTaiwanCalendarRequest) returns (NewTaiwanCalendarResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-}
-
 service JapaneseCalendarService {
   rpc NewJapaneseCalendar (NewJapaneseCalendarRequest) returns (NewJapaneseCalendarResponse);
-  rpc GetActualMaximum (GetActualMaximumRequest) returns (GetActualMaximumResponse);
+  rpc GetActualMaximum (JapaneseCalendarGetActualMaximumRequest) returns (GetActualMaximumResponse);
   rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+}
+
+service LocaleDataService {
+  rpc GetDelimiter (GetDelimiterRequest) returns (GetDelimiterResponse);
+  rpc GetNoSubstitute (GetNoSubstituteRequest) returns (GetNoSubstituteResponse);
+  rpc SetNoSubstitute (SetNoSubstituteRequest) returns (SetNoSubstituteResponse);
+  rpc GetCLDRVersion (GetCLDRVersionRequest) returns (GetCLDRVersionResponse);
+  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
+  rpc GetInstance1_1 (GetInstance1_1Request) returns (GetInstance1_1Response);
+  rpc GetMeasurementSystem (GetMeasurementSystemRequest) returns (GetMeasurementSystemResponse);
+  rpc GetPaperSize (GetPaperSizeRequest) returns (GetPaperSizeResponse);
+}
+
+service LocaleDataPaperSizeService {
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+}
+
+service HebrewCalendarService {
+  rpc NewHebrewCalendar (NewHebrewCalendarRequest) returns (NewHebrewCalendarResponse);
+  rpc Add (HebrewCalendarAddRequest) returns (AddResponse);
+  rpc GetTemporalMonthCode (HebrewCalendarGetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc InTemporalLeapYear (HebrewCalendarInTemporalLeapYearRequest) returns (InTemporalLeapYearResponse);
+  rpc Roll (RollRequest) returns (RollResponse);
+  rpc SetTemporalMonthCode (HebrewCalendarSetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
 }
 
 service EthiopicCalendarService {
   rpc NewEthiopicCalendar (NewEthiopicCalendarRequest) returns (NewEthiopicCalendarResponse);
-  rpc GetTemporalMonthCode (GetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
+  rpc GetTemporalMonthCode (EthiopicCalendarGetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
   rpc GetType (GetTypeRequest) returns (GetTypeResponse);
   rpc IsAmeteAlemEra (IsAmeteAlemEraRequest) returns (IsAmeteAlemEraResponse);
   rpc SetAmeteAlemEra (SetAmeteAlemEraRequest) returns (SetAmeteAlemEraResponse);
-  rpc SetTemporalMonthCode (SetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
-}
-
-service CurrencyService {
-  rpc GetCurrencyCode (GetCurrencyCodeRequest) returns (GetCurrencyCodeResponse);
-  rpc GetDefaultFractionDigits0 (GetDefaultFractionDigits0Request) returns (GetDefaultFractionDigits0Response);
-  rpc GetDefaultFractionDigits1_1 (GetDefaultFractionDigits1_1Request) returns (GetDefaultFractionDigits1_1Response);
-  rpc GetDisplayName0 (GetDisplayName0Request) returns (GetDisplayName0Response);
-  rpc GetDisplayName1_1 (GetDisplayName1_1Request) returns (GetDisplayName1_1Response);
-  rpc GetName3 (GetName3Request) returns (GetName3Response);
-  rpc GetName4_1 (GetName4_1Request) returns (GetName4_1Response);
-  rpc GetName3_2 (GetName3_2Request) returns (GetName3_2Response);
-  rpc GetName4_3 (GetName4_3Request) returns (GetName4_3Response);
-  rpc GetNumericCode (GetNumericCodeRequest) returns (GetNumericCodeResponse);
-  rpc GetRoundingIncrement0 (GetRoundingIncrement0Request) returns (GetRoundingIncrement0Response);
-  rpc GetRoundingIncrement1_1 (GetRoundingIncrement1_1Request) returns (GetRoundingIncrement1_1Response);
-  rpc GetSymbol0 (GetSymbol0Request) returns (GetSymbol0Response);
-  rpc GetSymbol1_1 (GetSymbol1_1Request) returns (GetSymbol1_1Response);
-  rpc GetSymbol1_2 (GetSymbol1_2Request) returns (GetSymbol1_2Response);
-  rpc ToJavaCurrency (ToJavaCurrencyRequest) returns (ToJavaCurrencyResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc FromJavaCurrency (FromJavaCurrencyRequest) returns (FromJavaCurrencyResponse);
-  rpc GetAvailableCurrencyCodes2 (GetAvailableCurrencyCodes2Request) returns (GetAvailableCurrencyCodes2Response);
-  rpc GetAvailableCurrencyCodes2_1 (GetAvailableCurrencyCodes2_1Request) returns (GetAvailableCurrencyCodes2_1Response);
-  rpc GetAvailableLocales (GetAvailableLocalesRequest) returns (GetAvailableLocalesResponse);
-  rpc GetAvailableULocales (GetAvailableULocalesRequest) returns (GetAvailableULocalesResponse);
-  rpc GetInstance1 (GetInstance1Request) returns (GetInstance1Response);
-  rpc GetInstance1_1 (GetInstance1_1Request) returns (GetInstance1_1Response);
-  rpc GetInstance1_2 (GetInstance1_2Request) returns (GetInstance1_2Response);
-  rpc GetKeywordValuesForLocale (GetKeywordValuesForLocaleRequest) returns (GetKeywordValuesForLocaleResponse);
-  rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
-}
-
-service CurrencyCurrencyUsageService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service MeasureService {
-  rpc NewMeasure (NewMeasureRequest) returns (NewMeasureResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetNumber (GetNumberRequest) returns (GetNumberResponse);
-  rpc GetUnit (GetUnitRequest) returns (GetUnitResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (MeasureToStringRequest) returns (ToStringResponse);
-}
-
-service ChineseCalendarService {
-  rpc NewChineseCalendar (NewChineseCalendarRequest) returns (NewChineseCalendarResponse);
-  rpc Add (AddRequest) returns (AddResponse);
-  rpc GetTemporalMonthCode (GetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc InTemporalLeapYear (InTemporalLeapYearRequest) returns (InTemporalLeapYearResponse);
-  rpc Roll (RollRequest) returns (RollResponse);
-  rpc SetTemporalMonthCode (SetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
+  rpc SetTemporalMonthCode (EthiopicCalendarSetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
 }
 
 service TimeZoneService {
   rpc Clone (CloneRequest) returns (CloneResponse);
   rpc CloneAsThawed0 (CloneAsThawed0Request) returns (CloneAsThawed0Response);
-  rpc Equals (TimeZoneEqualsRequest) returns (EqualsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc Freeze0 (Freeze0Request) returns (Freeze0Response);
   rpc GetDSTSavings (GetDSTSavingsRequest) returns (GetDSTSavingsResponse);
   rpc GetDisplayName0 (GetDisplayName0Request) returns (GetDisplayName0Response);
@@ -5427,7 +5704,7 @@ service TimeZoneService {
   rpc GetOffset3_2 (GetOffset3_2Request) returns (GetOffset3_2Response);
   rpc GetRawOffset (GetRawOffsetRequest) returns (GetRawOffsetResponse);
   rpc HasSameRules (HasSameRulesRequest) returns (HasSameRulesResponse);
-  rpc HashCode (TimeZoneHashCodeRequest) returns (HashCodeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc InDaylightTime (InDaylightTimeRequest) returns (InDaylightTimeResponse);
   rpc IsFrozen (IsFrozenRequest) returns (IsFrozenResponse);
   rpc ObservesDaylightTime (ObservesDaylightTimeRequest) returns (ObservesDaylightTimeResponse);
@@ -5438,8 +5715,9 @@ service TimeZoneService {
   rpc CloneAsThawed0_1 (CloneAsThawed0_1Request) returns (CloneAsThawed0_1Response);
   rpc CountEquivalentIDs (CountEquivalentIDsRequest) returns (CountEquivalentIDsResponse);
   rpc GetAvailableIDs0 (GetAvailableIDs0Request) returns (GetAvailableIDs0Response);
-  rpc GetAvailableIDs1_1 (GetAvailableIDs1_1Request) returns (GetAvailableIDs1_1Response);
+  rpc GetAvailableIDs3_1 (GetAvailableIDs3_1Request) returns (GetAvailableIDs3_1Response);
   rpc GetAvailableIDs1_2 (GetAvailableIDs1_2Request) returns (GetAvailableIDs1_2Response);
+  rpc GetAvailableIDs1_3 (GetAvailableIDs1_3Request) returns (GetAvailableIDs1_3Response);
   rpc GetCanonicalID1 (GetCanonicalID1Request) returns (GetCanonicalID1Response);
   rpc GetCanonicalID2_1 (GetCanonicalID2_1Request) returns (GetCanonicalID2_1Response);
   rpc GetDefault (GetDefaultRequest) returns (GetDefaultResponse);
@@ -5459,15 +5737,92 @@ service TimeZoneSystemTimeZoneTypeService {
   rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }
 
-service TimeUnitService {
+service FreezableService {
+  rpc IsFrozen (IsFrozenRequest) returns (IsFrozenResponse);
+}
+
+service CurrencyService {
+  rpc GetCurrencyCode (GetCurrencyCodeRequest) returns (GetCurrencyCodeResponse);
+  rpc GetDefaultFractionDigits0 (GetDefaultFractionDigits0Request) returns (GetDefaultFractionDigits0Response);
+  rpc GetDefaultFractionDigits1_1 (GetDefaultFractionDigits1_1Request) returns (GetDefaultFractionDigits1_1Response);
+  rpc GetDisplayName0 (GetDisplayName0Request) returns (GetDisplayName0Response);
+  rpc GetDisplayName1_1 (GetDisplayName1_1Request) returns (GetDisplayName1_1Response);
+  rpc GetName3 (GetName3Request) returns (GetName3Response);
+  rpc GetName4_1 (GetName4_1Request) returns (GetName4_1Response);
+  rpc GetName3_2 (GetName3_2Request) returns (GetName3_2Response);
+  rpc GetName4_3 (GetName4_3Request) returns (GetName4_3Response);
+  rpc GetNumericCode (GetNumericCodeRequest) returns (GetNumericCodeResponse);
+  rpc GetRoundingIncrement0 (GetRoundingIncrement0Request) returns (GetRoundingIncrement0Response);
+  rpc GetRoundingIncrement1_1 (GetRoundingIncrement1_1Request) returns (GetRoundingIncrement1_1Response);
+  rpc GetSymbol0 (GetSymbol0Request) returns (GetSymbol0Response);
+  rpc GetSymbol1_1 (GetSymbol1_1Request) returns (GetSymbol1_1Response);
+  rpc GetSymbol1_2 (GetSymbol1_2Request) returns (GetSymbol1_2Response);
+  rpc ToJavaCurrency (ToJavaCurrencyRequest) returns (ToJavaCurrencyResponse);
+  rpc ToString (CurrencyToStringRequest) returns (ToStringResponse);
+  rpc FromJavaCurrency (FromJavaCurrencyRequest) returns (FromJavaCurrencyResponse);
+  rpc GetAvailableCurrencies (GetAvailableCurrenciesRequest) returns (GetAvailableCurrenciesResponse);
+  rpc GetAvailableCurrencyCodes2 (GetAvailableCurrencyCodes2Request) returns (GetAvailableCurrencyCodes2Response);
+  rpc GetAvailableCurrencyCodes2_1 (GetAvailableCurrencyCodes2_1Request) returns (GetAvailableCurrencyCodes2_1Response);
+  rpc GetAvailableLocales (GetAvailableLocalesRequest) returns (GetAvailableLocalesResponse);
+  rpc GetAvailableULocales (GetAvailableULocalesRequest) returns (GetAvailableULocalesResponse);
+  rpc GetInstance1 (CurrencyGetInstance1Request) returns (GetInstance1Response);
+  rpc GetInstance1_1 (CurrencyGetInstance1_1Request) returns (GetInstance1_1Response);
+  rpc GetInstance1_2 (GetInstance1_2Request) returns (GetInstance1_2Response);
+  rpc GetKeywordValuesForLocale (GetKeywordValuesForLocaleRequest) returns (GetKeywordValuesForLocaleResponse);
+  rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
+}
+
+service CurrencyCurrencyUsageService {
   rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ValueIteratorService {
+  rpc Next (NextRequest) returns (NextResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc SetRange (SetRangeRequest) returns (SetRangeResponse);
+}
+
+service IslamicCalendarService {
+  rpc NewIslamicCalendar (NewIslamicCalendarRequest) returns (NewIslamicCalendarResponse);
+  rpc GetCalculationType (GetCalculationTypeRequest) returns (GetCalculationTypeResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc InTemporalLeapYear (IslamicCalendarInTemporalLeapYearRequest) returns (InTemporalLeapYearResponse);
+  rpc SetCalculationType (SetCalculationTypeRequest) returns (SetCalculationTypeResponse);
+}
+
+service IslamicCalendarCalculationTypeService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service MeasureService {
+  rpc NewMeasure (NewMeasureRequest) returns (NewMeasureResponse);
+  rpc Equals (MeasureEqualsRequest) returns (EqualsResponse);
+  rpc GetNumber (GetNumberRequest) returns (GetNumberResponse);
+  rpc GetUnit (GetUnitRequest) returns (GetUnitResponse);
+  rpc HashCode (MeasureHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service GregorianCalendarService {
+  rpc NewGregorianCalendar (NewGregorianCalendarRequest) returns (NewGregorianCalendarResponse);
+  rpc GetActualMaximum (GregorianCalendarGetActualMaximumRequest) returns (GetActualMaximumResponse);
+  rpc GetActualMinimum (GregorianCalendarGetActualMinimumRequest) returns (GetActualMinimumResponse);
+  rpc GetGregorianChange (GetGregorianChangeRequest) returns (GetGregorianChangeResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (GregorianCalendarHashCodeRequest) returns (HashCodeResponse);
+  rpc IsEquivalentTo (GregorianCalendarIsEquivalentToRequest) returns (IsEquivalentToResponse);
+  rpc IsLeapYear (IsLeapYearRequest) returns (IsLeapYearResponse);
+  rpc Roll (RollRequest) returns (RollResponse);
+  rpc SetGregorianChange (SetGregorianChangeRequest) returns (SetGregorianChangeResponse);
 }
 
 service ULocaleService {
   rpc NewULocale (NewULocaleRequest) returns (NewULocaleResponse);
   rpc Clone (ULocaleCloneRequest) returns (CloneResponse);
-  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc CompareTo1 (ULocaleCompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (ULocaleEqualsRequest) returns (EqualsResponse);
   rpc GetBaseName0 (GetBaseName0Request) returns (GetBaseName0Response);
   rpc GetCharacterOrientation (GetCharacterOrientationRequest) returns (GetCharacterOrientationResponse);
   rpc GetCountry0 (GetCountry0Request) returns (GetCountry0Response);
@@ -5488,23 +5843,27 @@ service ULocaleService {
   rpc GetDisplayVariant0 (GetDisplayVariant0Request) returns (GetDisplayVariant0Response);
   rpc GetDisplayVariant1_1 (GetDisplayVariant1_1Request) returns (GetDisplayVariant1_1Response);
   rpc GetExtension (GetExtensionRequest) returns (GetExtensionResponse);
+  rpc GetExtensionKeys (GetExtensionKeysRequest) returns (GetExtensionKeysResponse);
   rpc GetFallback0 (GetFallback0Request) returns (GetFallback0Response);
   rpc GetISO3Country0 (GetISO3Country0Request) returns (GetISO3Country0Response);
   rpc GetISO3Language0 (GetISO3Language0Request) returns (GetISO3Language0Response);
   rpc GetKeywordValue1 (GetKeywordValue1Request) returns (GetKeywordValue1Response);
+  rpc GetKeywords0 (GetKeywords0Request) returns (GetKeywords0Response);
   rpc GetLanguage0 (GetLanguage0Request) returns (GetLanguage0Response);
   rpc GetLineOrientation (GetLineOrientationRequest) returns (GetLineOrientationResponse);
   rpc GetName0 (GetName0Request) returns (GetName0Response);
   rpc GetScript0 (GetScript0Request) returns (GetScript0Response);
+  rpc GetUnicodeLocaleAttributes (GetUnicodeLocaleAttributesRequest) returns (GetUnicodeLocaleAttributesResponse);
+  rpc GetUnicodeLocaleKeys (GetUnicodeLocaleKeysRequest) returns (GetUnicodeLocaleKeysResponse);
   rpc GetUnicodeLocaleType (GetUnicodeLocaleTypeRequest) returns (GetUnicodeLocaleTypeResponse);
   rpc GetVariant0 (GetVariant0Request) returns (GetVariant0Response);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc HashCode (ULocaleHashCodeRequest) returns (HashCodeResponse);
   rpc IsRightToLeft (IsRightToLeftRequest) returns (IsRightToLeftResponse);
   rpc SetKeywordValue2 (SetKeywordValue2Request) returns (SetKeywordValue2Response);
   rpc ToLanguageTag (ToLanguageTagRequest) returns (ToLanguageTagResponse);
   rpc ToLocale (ToLocaleRequest) returns (ToLocaleResponse);
-  rpc ToString (ULocaleToStringRequest) returns (ToStringResponse);
-  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (ULocaleCompareTo1_1Request) returns (CompareTo1_1Response);
   rpc AcceptLanguage3 (AcceptLanguage3Request) returns (AcceptLanguage3Response);
   rpc AcceptLanguage2_1 (AcceptLanguage2_1Request) returns (AcceptLanguage2_1Response);
   rpc AcceptLanguage3_2 (AcceptLanguage3_2Request) returns (AcceptLanguage3_2Response);
@@ -5516,6 +5875,7 @@ service ULocaleService {
   rpc ForLanguageTag (ForLanguageTagRequest) returns (ForLanguageTagResponse);
   rpc ForLocale (ForLocaleRequest) returns (ForLocaleResponse);
   rpc GetAvailableLocales (ULocaleGetAvailableLocalesRequest) returns (GetAvailableLocalesResponse);
+  rpc GetAvailableLocalesByType (GetAvailableLocalesByTypeRequest) returns (GetAvailableLocalesByTypeResponse);
   rpc GetBaseName1_1 (GetBaseName1_1Request) returns (GetBaseName1_1Response);
   rpc GetCountry1_1 (GetCountry1_1Request) returns (GetCountry1_1Response);
   rpc GetDefault0 (GetDefault0Request) returns (GetDefault0Response);
@@ -5545,6 +5905,7 @@ service ULocaleService {
   rpc GetISOCountries (GetISOCountriesRequest) returns (GetISOCountriesResponse);
   rpc GetISOLanguages (GetISOLanguagesRequest) returns (GetISOLanguagesResponse);
   rpc GetKeywordValue2_1 (GetKeywordValue2_1Request) returns (GetKeywordValue2_1Response);
+  rpc GetKeywords1_1 (GetKeywords1_1Request) returns (GetKeywords1_1Response);
   rpc GetLanguage1_1 (GetLanguage1_1Request) returns (GetLanguage1_1Response);
   rpc GetName1_1 (GetName1_1Request) returns (GetName1_1Response);
   rpc GetScript1_1 (GetScript1_1Request) returns (GetScript1_1Response);
@@ -5583,21 +5944,18 @@ service ULocaleCategoryService {
   rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }
 
-service VersionInfoService {
-  rpc CompareTo1 (VersionInfoCompareTo1Request) returns (CompareTo1Response);
-  rpc Equals (VersionInfoEqualsRequest) returns (EqualsResponse);
-  rpc GetMajor (GetMajorRequest) returns (GetMajorResponse);
-  rpc GetMicro (GetMicroRequest) returns (GetMicroResponse);
-  rpc GetMilli (GetMilliRequest) returns (GetMilliResponse);
-  rpc GetMinor (GetMinorRequest) returns (GetMinorResponse);
-  rpc HashCode (VersionInfoHashCodeRequest) returns (HashCodeResponse);
+service DateIntervalService {
+  rpc NewDateInterval (NewDateIntervalRequest) returns (NewDateIntervalResponse);
+  rpc Equals (DateIntervalEqualsRequest) returns (EqualsResponse);
+  rpc GetFromDate (GetFromDateRequest) returns (GetFromDateResponse);
+  rpc GetToDate (GetToDateRequest) returns (GetToDateResponse);
+  rpc HashCode (DateIntervalHashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc CompareTo1_1 (VersionInfoCompareTo1_1Request) returns (CompareTo1_1Response);
-  rpc GetInstance1 (VersionInfoGetInstance1Request) returns (GetInstance1Response);
-  rpc GetInstance2_1 (GetInstance2_1Request) returns (GetInstance2_1Response);
-  rpc GetInstance3_2 (GetInstance3_2Request) returns (GetInstance3_2Response);
-  rpc GetInstance4_3 (GetInstance4_3Request) returns (GetInstance4_3Response);
-  rpc GetInstance1_4 (GetInstance1_4Request) returns (GetInstance1_4Response);
+}
+
+service TaiwanCalendarService {
+  rpc NewTaiwanCalendar (NewTaiwanCalendarRequest) returns (NewTaiwanCalendarResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
 }
 
 service RangeValueIteratorService {
@@ -5605,185 +5963,8 @@ service RangeValueIteratorService {
   rpc Reset (ResetRequest) returns (ResetResponse);
 }
 
-service LocaleDataService {
-  rpc GetDelimiter (GetDelimiterRequest) returns (GetDelimiterResponse);
-  rpc GetNoSubstitute (GetNoSubstituteRequest) returns (GetNoSubstituteResponse);
-  rpc SetNoSubstitute (SetNoSubstituteRequest) returns (SetNoSubstituteResponse);
-  rpc GetCLDRVersion (GetCLDRVersionRequest) returns (GetCLDRVersionResponse);
-  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
-  rpc GetInstance1_1 (LocaleDataGetInstance1_1Request) returns (GetInstance1_1Response);
-  rpc GetMeasurementSystem (GetMeasurementSystemRequest) returns (GetMeasurementSystemResponse);
-  rpc GetPaperSize (GetPaperSizeRequest) returns (GetPaperSizeResponse);
-}
-
-service LocaleDataPaperSizeService {
-  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
-  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
-}
-
-service OutputService {
-  rpc NewOutput (NewOutputRequest) returns (NewOutputResponse);
-  rpc ToString (OutputToStringRequest) returns (ToStringResponse);
-}
-
-service DateIntervalService {
-  rpc NewDateInterval (NewDateIntervalRequest) returns (NewDateIntervalResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetFromDate (GetFromDateRequest) returns (GetFromDateResponse);
-  rpc GetToDate (GetToDateRequest) returns (GetToDateResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (DateIntervalToStringRequest) returns (ToStringResponse);
-}
-
-service ValueIteratorService {
-  rpc Next (NextRequest) returns (NextResponse);
-  rpc Reset (ResetRequest) returns (ResetResponse);
-  rpc SetRange (SetRangeRequest) returns (SetRangeResponse);
-}
-
-service IndianCalendarService {
-  rpc NewIndianCalendar (NewIndianCalendarRequest) returns (NewIndianCalendarResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-}
-
-service CurrencyAmountService {
-  rpc NewCurrencyAmount (NewCurrencyAmountRequest) returns (NewCurrencyAmountResponse);
-  rpc GetCurrency (GetCurrencyRequest) returns (GetCurrencyResponse);
-}
-
-service HebrewCalendarService {
-  rpc NewHebrewCalendar (NewHebrewCalendarRequest) returns (NewHebrewCalendarResponse);
-  rpc Add (AddRequest) returns (AddResponse);
-  rpc GetTemporalMonthCode (GetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc InTemporalLeapYear (InTemporalLeapYearRequest) returns (InTemporalLeapYearResponse);
-  rpc Roll (RollRequest) returns (RollResponse);
-  rpc SetTemporalMonthCode (SetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
-}
-
-service BuddhistCalendarService {
-  rpc NewBuddhistCalendar (NewBuddhistCalendarRequest) returns (NewBuddhistCalendarResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-}
-
-service IslamicCalendarService {
-  rpc NewIslamicCalendar (NewIslamicCalendarRequest) returns (NewIslamicCalendarResponse);
-  rpc GetCalculationType (GetCalculationTypeRequest) returns (GetCalculationTypeResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc InTemporalLeapYear (InTemporalLeapYearRequest) returns (InTemporalLeapYearResponse);
-  rpc SetCalculationType (SetCalculationTypeRequest) returns (SetCalculationTypeResponse);
-}
-
-service IslamicCalendarCalculationTypeService {
+service TimeUnitService {
   rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service FreezableService {
-  rpc IsFrozen (IsFrozenRequest) returns (IsFrozenResponse);
-}
-
-service MeasureUnitService {
-  rpc Equals (MeasureUnitEqualsRequest) returns (EqualsResponse);
-  rpc GetComplexity (GetComplexityRequest) returns (GetComplexityResponse);
-  rpc GetDimensionality (GetDimensionalityRequest) returns (GetDimensionalityResponse);
-  rpc GetIdentifier (GetIdentifierRequest) returns (GetIdentifierResponse);
-  rpc GetPrefix (GetPrefixRequest) returns (GetPrefixResponse);
-  rpc GetSubtype (GetSubtypeRequest) returns (GetSubtypeResponse);
-  rpc GetType (MeasureUnitGetTypeRequest) returns (GetTypeResponse);
-  rpc HashCode (MeasureUnitHashCodeRequest) returns (HashCodeResponse);
-  rpc Product (ProductRequest) returns (ProductResponse);
-  rpc Reciprocal (ReciprocalRequest) returns (ReciprocalResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WithDimensionality (WithDimensionalityRequest) returns (WithDimensionalityResponse);
-  rpc WithPrefix (WithPrefixRequest) returns (WithPrefixResponse);
-  rpc ForIdentifier (ForIdentifierRequest) returns (ForIdentifierResponse);
-}
-
-service MeasureUnitComplexityService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service MeasureUnitMeasurePrefixService {
-  rpc GetBase (GetBaseRequest) returns (GetBaseResponse);
-  rpc GetPower (GetPowerRequest) returns (GetPowerResponse);
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service CalendarService {
-  rpc Add (CalendarAddRequest) returns (AddResponse);
-  rpc After (AfterRequest) returns (AfterResponse);
-  rpc Before (BeforeRequest) returns (BeforeResponse);
-  rpc Clear0 (Clear0Request) returns (Clear0Response);
-  rpc Clear1_1 (Clear1_1Request) returns (Clear1_1Response);
-  rpc Clone (CloneRequest) returns (CloneResponse);
-  rpc CompareTo1 (CalendarCompareTo1Request) returns (CompareTo1Response);
-  rpc Equals (CalendarEqualsRequest) returns (EqualsResponse);
-  rpc FieldDifference (FieldDifferenceRequest) returns (FieldDifferenceResponse);
-  rpc Get (GetRequest) returns (GetResponse);
-  rpc GetActualMaximum (CalendarGetActualMaximumRequest) returns (GetActualMaximumResponse);
-  rpc GetActualMinimum (CalendarGetActualMinimumRequest) returns (GetActualMinimumResponse);
-  rpc GetDateTimeFormat3 (GetDateTimeFormat3Request) returns (GetDateTimeFormat3Response);
-  rpc GetDateTimeFormat3_1 (GetDateTimeFormat3_1Request) returns (GetDateTimeFormat3_1Response);
-  rpc GetDisplayName1 (GetDisplayName1Request) returns (GetDisplayName1Response);
-  rpc GetDisplayName1_1 (GetDisplayName1_1Request) returns (GetDisplayName1_1Response);
-  rpc GetFieldCount (GetFieldCountRequest) returns (GetFieldCountResponse);
-  rpc GetFirstDayOfWeek (GetFirstDayOfWeekRequest) returns (GetFirstDayOfWeekResponse);
-  rpc GetGreatestMinimum (GetGreatestMinimumRequest) returns (GetGreatestMinimumResponse);
-  rpc GetLeastMaximum (GetLeastMaximumRequest) returns (GetLeastMaximumResponse);
-  rpc GetMaximum (GetMaximumRequest) returns (GetMaximumResponse);
-  rpc GetMinimalDaysInFirstWeek (GetMinimalDaysInFirstWeekRequest) returns (GetMinimalDaysInFirstWeekResponse);
-  rpc GetMinimum (GetMinimumRequest) returns (GetMinimumResponse);
-  rpc GetRepeatedWallTimeOption (GetRepeatedWallTimeOptionRequest) returns (GetRepeatedWallTimeOptionResponse);
-  rpc GetSkippedWallTimeOption (GetSkippedWallTimeOptionRequest) returns (GetSkippedWallTimeOptionResponse);
-  rpc GetTemporalMonthCode (CalendarGetTemporalMonthCodeRequest) returns (GetTemporalMonthCodeResponse);
-  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
-  rpc GetTimeInMillis (GetTimeInMillisRequest) returns (GetTimeInMillisResponse);
-  rpc GetTimeZone (GetTimeZoneRequest) returns (GetTimeZoneResponse);
-  rpc GetType (CalendarGetTypeRequest) returns (GetTypeResponse);
-  rpc GetWeekData (GetWeekDataRequest) returns (GetWeekDataResponse);
-  rpc HashCode (CalendarHashCodeRequest) returns (HashCodeResponse);
-  rpc InTemporalLeapYear (CalendarInTemporalLeapYearRequest) returns (InTemporalLeapYearResponse);
-  rpc IsEquivalentTo (CalendarIsEquivalentToRequest) returns (IsEquivalentToResponse);
-  rpc IsLenient (IsLenientRequest) returns (IsLenientResponse);
-  rpc IsSet (IsSetRequest) returns (IsSetResponse);
-  rpc IsWeekend0 (IsWeekend0Request) returns (IsWeekend0Response);
-  rpc IsWeekend1_1 (IsWeekend1_1Request) returns (IsWeekend1_1Response);
-  rpc Roll2 (Roll2Request) returns (Roll2Response);
-  rpc Roll2_1 (Roll2_1Request) returns (Roll2_1Response);
-  rpc Set2 (Set2Request) returns (Set2Response);
-  rpc Set3_1 (Set3_1Request) returns (Set3_1Response);
-  rpc Set5_2 (Set5_2Request) returns (Set5_2Response);
-  rpc Set6_3 (Set6_3Request) returns (Set6_3Response);
-  rpc SetFirstDayOfWeek (SetFirstDayOfWeekRequest) returns (SetFirstDayOfWeekResponse);
-  rpc SetLenient (SetLenientRequest) returns (SetLenientResponse);
-  rpc SetMinimalDaysInFirstWeek (SetMinimalDaysInFirstWeekRequest) returns (SetMinimalDaysInFirstWeekResponse);
-  rpc SetRepeatedWallTimeOption (SetRepeatedWallTimeOptionRequest) returns (SetRepeatedWallTimeOptionResponse);
-  rpc SetSkippedWallTimeOption (SetSkippedWallTimeOptionRequest) returns (SetSkippedWallTimeOptionResponse);
-  rpc SetTemporalMonthCode (CalendarSetTemporalMonthCodeRequest) returns (SetTemporalMonthCodeResponse);
-  rpc SetTime (SetTimeRequest) returns (SetTimeResponse);
-  rpc SetTimeInMillis (SetTimeInMillisRequest) returns (SetTimeInMillisResponse);
-  rpc SetTimeZone (SetTimeZoneRequest) returns (SetTimeZoneResponse);
-  rpc SetWeekData (SetWeekDataRequest) returns (SetWeekDataResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc CompareTo1_1 (CalendarCompareTo1_1Request) returns (CompareTo1_1Response);
-  rpc GetAvailableLocales (GetAvailableLocalesRequest) returns (GetAvailableLocalesResponse);
-  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
-  rpc GetInstance1_1 (CalendarGetInstance1_1Request) returns (GetInstance1_1Response);
-  rpc GetInstance2_2 (GetInstance2_2Request) returns (GetInstance2_2Response);
-  rpc GetInstance2_3 (GetInstance2_3Request) returns (GetInstance2_3Response);
-  rpc GetInstance1_4 (CalendarGetInstance1_4Request) returns (GetInstance1_4Response);
-  rpc GetInstance1_5 (GetInstance1_5Request) returns (GetInstance1_5Response);
-  rpc GetKeywordValuesForLocale (GetKeywordValuesForLocaleRequest) returns (GetKeywordValuesForLocaleResponse);
-  rpc GetWeekDataForRegion (GetWeekDataForRegionRequest) returns (GetWeekDataForRegionResponse);
-}
-
-service CalendarWeekDataService {
-  rpc Equals (CalendarWeekDataEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (CalendarWeekDataHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
 service LinkifyService {
@@ -5808,15 +5989,15 @@ service LinkifyTransformFilterService {
 
 service Rfc822TokenService {
   rpc NewRfc822Token (NewRfc822TokenRequest) returns (NewRfc822TokenResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc Equals (Rfc822TokenEqualsRequest) returns (EqualsResponse);
   rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
   rpc GetComment (GetCommentRequest) returns (GetCommentResponse);
   rpc GetName (GetNameRequest) returns (GetNameResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc HashCode (Rfc822TokenHashCodeRequest) returns (HashCodeResponse);
   rpc SetAddress (SetAddressRequest) returns (SetAddressResponse);
   rpc SetComment (SetCommentRequest) returns (SetCommentResponse);
   rpc SetName (SetNameRequest) returns (SetNameResponse);
-  rpc ToString (Rfc822TokenToStringRequest) returns (ToStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc QuoteComment (QuoteCommentRequest) returns (QuoteCommentResponse);
   rpc QuoteName (QuoteNameRequest) returns (QuoteNameResponse);
   rpc QuoteNameIfNecessary (QuoteNameIfNecessaryRequest) returns (QuoteNameIfNecessaryResponse);
@@ -5830,21 +6011,16 @@ service Rfc822TokenizerService {
   rpc Tokenize (TokenizeRequest) returns (TokenizeResponse);
 }
 
-service StatsLogService {
-  rpc LogBinaryPushStateChanged (LogBinaryPushStateChangedRequest) returns (LogBinaryPushStateChangedResponse);
-  rpc LogEvent (LogEventRequest) returns (LogEventResponse);
-  rpc LogStart (LogStartRequest) returns (LogStartResponse);
-  rpc LogStop (LogStopRequest) returns (LogStopResponse);
-}
-
-service SparseIntArrayService {
-  rpc NewSparseIntArray (NewSparseIntArrayRequest) returns (NewSparseIntArrayResponse);
+service SparseBooleanArrayService {
+  rpc NewSparseBooleanArray (NewSparseBooleanArrayRequest) returns (NewSparseBooleanArrayResponse);
   rpc Append (AppendRequest) returns (AppendResponse);
-  rpc Clear (SparseIntArrayClearRequest) returns (SparseIntArrayClearResponse);
+  rpc Clear (SparseBooleanArrayClearRequest) returns (SparseBooleanArrayClearResponse);
   rpc Clone0 (Clone0Request) returns (Clone0Response);
   rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc Equals (SparseBooleanArrayEqualsRequest) returns (EqualsResponse);
   rpc Get1 (Get1Request) returns (Get1Response);
   rpc Get2_1 (Get2_1Request) returns (Get2_1Response);
+  rpc HashCode (SparseBooleanArrayHashCodeRequest) returns (HashCodeResponse);
   rpc IndexOfKey (IndexOfKeyRequest) returns (IndexOfKeyResponse);
   rpc IndexOfValue (IndexOfValueRequest) returns (IndexOfValueResponse);
   rpc KeyAt (KeyAtRequest) returns (KeyAtResponse);
@@ -5852,9 +6028,58 @@ service SparseIntArrayService {
   rpc RemoveAt (RemoveAtRequest) returns (RemoveAtResponse);
   rpc SetValueAt (SetValueAtRequest) returns (SetValueAtResponse);
   rpc Size (SizeRequest) returns (SizeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc ValueAt (ValueAtRequest) returns (ValueAtResponse);
   rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+}
+
+service AtomicFileService {
+  rpc NewAtomicFile (NewAtomicFileRequest) returns (NewAtomicFileResponse);
+  rpc Delete (AtomicFileDeleteRequest) returns (DeleteResponse);
+  rpc FailWrite (FailWriteRequest) returns (FailWriteResponse);
+  rpc FinishWrite (FinishWriteRequest) returns (FinishWriteResponse);
+  rpc GetBaseFile (GetBaseFileRequest) returns (GetBaseFileResponse);
+  rpc GetLastModifiedTime (GetLastModifiedTimeRequest) returns (GetLastModifiedTimeResponse);
+  rpc OpenRead (OpenReadRequest) returns (OpenReadResponse);
+  rpc ReadFully (ReadFullyRequest) returns (ReadFullyResponse);
+  rpc StartWrite (StartWriteRequest) returns (StartWriteResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service TypedValueService {
+  rpc NewTypedValue (NewTypedValueRequest) returns (NewTypedValueResponse);
+  rpc CoerceToString0 (CoerceToString0Request) returns (CoerceToString0Response);
+  rpc GetComplexUnit (GetComplexUnitRequest) returns (GetComplexUnitResponse);
+  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetFraction (GetFractionRequest) returns (GetFractionResponse);
+  rpc IsColorType (IsColorTypeRequest) returns (IsColorTypeResponse);
+  rpc SetTo (SetToRequest) returns (SetToResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc ApplyDimension (ApplyDimensionRequest) returns (ApplyDimensionResponse);
+  rpc CoerceToString2_1 (CoerceToString2_1Request) returns (CoerceToString2_1Response);
+  rpc ComplexToDimension (ComplexToDimensionRequest) returns (ComplexToDimensionResponse);
+  rpc ComplexToDimensionPixelOffset (ComplexToDimensionPixelOffsetRequest) returns (ComplexToDimensionPixelOffsetResponse);
+  rpc ComplexToDimensionPixelSize (ComplexToDimensionPixelSizeRequest) returns (ComplexToDimensionPixelSizeResponse);
+  rpc ComplexToFloat (ComplexToFloatRequest) returns (ComplexToFloatResponse);
+  rpc ComplexToFraction (ComplexToFractionRequest) returns (ComplexToFractionResponse);
+  rpc ConvertDimensionToPixels (ConvertDimensionToPixelsRequest) returns (ConvertDimensionToPixelsResponse);
+  rpc ConvertPixelsToDimension (ConvertPixelsToDimensionRequest) returns (ConvertPixelsToDimensionResponse);
+  rpc DeriveDimension (DeriveDimensionRequest) returns (DeriveDimensionResponse);
+}
+
+service CloseGuardService {
+  rpc NewCloseGuard (NewCloseGuardRequest) returns (NewCloseGuardResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Open (OpenRequest) returns (OpenResponse);
+  rpc WarnIfOpen (WarnIfOpenRequest) returns (WarnIfOpenResponse);
+}
+
+service RangeService {
+  rpc NewRange (NewRangeRequest) returns (NewRangeResponse);
+  rpc Equals (SparseBooleanArrayEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (SparseBooleanArrayHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
 service JsonTokenService {
@@ -5862,179 +6087,31 @@ service JsonTokenService {
   rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
 }
 
-service RangeService {
-  rpc NewRange (NewRangeRequest) returns (NewRangeResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
+service Base64Service {
+  rpc Decode2 (Decode2Request) returns (Decode2Response);
+  rpc Decode4_1 (Decode4_1Request) returns (Decode4_1Response);
+  rpc Decode2_2 (Decode2_2Request) returns (Decode2_2Response);
+  rpc Encode2 (Encode2Request) returns (Encode2Response);
+  rpc Encode4_1 (Encode4_1Request) returns (Encode4_1Response);
+  rpc EncodeToString2 (EncodeToString2Request) returns (EncodeToString2Response);
+  rpc EncodeToString4_1 (EncodeToString4_1Request) returns (EncodeToString4_1Response);
 }
 
-service StateSetService {
-  rpc Dump (DumpRequest) returns (DumpResponse);
-  rpc IsWildCard (IsWildCardRequest) returns (IsWildCardResponse);
-  rpc StateSetMatches2 (StateSetMatches2Request) returns (StateSetMatches2Response);
-  rpc StateSetMatches2_1 (StateSetMatches2_1Request) returns (StateSetMatches2_1Response);
-  rpc TrimStateSet (TrimStateSetRequest) returns (TrimStateSetResponse);
+service FloatPropertyService {
+  rpc Set (SetRequest) returns (SetResponse);
 }
 
-service SizeFService {
-  rpc NewSizeF (NewSizeFRequest) returns (NewSizeFResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetHeight (SizeFGetHeightRequest) returns (SizeFGetHeightResponse);
-  rpc GetWidth (SizeFGetWidthRequest) returns (SizeFGetWidthResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc ParseSizeF (ParseSizeFRequest) returns (ParseSizeFResponse);
-}
-
-service XmlService {
-  rpc AsAttributeSet (AsAttributeSetRequest) returns (AsAttributeSetResponse);
-  rpc FindEncodingByName (FindEncodingByNameRequest) returns (FindEncodingByNameResponse);
-  rpc NewPullParser (NewPullParserRequest) returns (NewPullParserResponse);
-  rpc NewSerializer (NewSerializerRequest) returns (NewSerializerResponse);
-}
-
-service XmlEncodingService {
-  rpc Values (ValuesRequest) returns (ValuesResponse);
-  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
-}
-
-service PrintStreamPrinterService {
-  rpc NewPrintStreamPrinter (NewPrintStreamPrinterRequest) returns (NewPrintStreamPrinterResponse);
-  rpc Println (PrintlnRequest) returns (PrintlnResponse);
-}
-
-service PatternsService {
-  rpc ConcatGroups (ConcatGroupsRequest) returns (ConcatGroupsResponse);
-  rpc DigitsAndPlusOnly (DigitsAndPlusOnlyRequest) returns (DigitsAndPlusOnlyResponse);
-}
-
-service ArrayMapService {
-  rpc NewArrayMap (NewArrayMapRequest) returns (NewArrayMapResponse);
-  rpc Clear (SparseIntArrayClearRequest) returns (SparseIntArrayClearResponse);
-  rpc ContainsKey (ContainsKeyRequest) returns (ContainsKeyResponse);
-  rpc ContainsValue (ContainsValueRequest) returns (ContainsValueResponse);
-  rpc EnsureCapacity (EnsureCapacityRequest) returns (EnsureCapacityResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IndexOfKey (ArrayMapIndexOfKeyRequest) returns (IndexOfKeyResponse);
-  rpc IndexOfValue (ArrayMapIndexOfValueRequest) returns (IndexOfValueResponse);
-  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
-  rpc Size (SizeRequest) returns (SizeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-}
-
-service LruCacheService {
-  rpc NewLruCache (NewLruCacheRequest) returns (NewLruCacheResponse);
-  rpc EvictAll (EvictAllRequest) returns (EvictAllResponse);
-  rpc Resize (ResizeRequest) returns (ResizeResponse);
-  rpc TrimToSize (TrimToSizeRequest) returns (TrimToSizeResponse);
-}
-
-service DebugUtilsService {
-  rpc IsObjectSelected (IsObjectSelectedRequest) returns (IsObjectSelectedResponse);
-}
-
-service MonthDisplayHelperService {
-  rpc NewMonthDisplayHelper (NewMonthDisplayHelperRequest) returns (NewMonthDisplayHelperResponse);
-  rpc GetColumnOf (GetColumnOfRequest) returns (GetColumnOfResponse);
-  rpc GetDayAt (GetDayAtRequest) returns (GetDayAtResponse);
-  rpc GetDigitsForRow (GetDigitsForRowRequest) returns (GetDigitsForRowResponse);
-  rpc GetFirstDayOfMonth (GetFirstDayOfMonthRequest) returns (GetFirstDayOfMonthResponse);
-  rpc GetMonth (GetMonthRequest) returns (GetMonthResponse);
-  rpc GetNumberOfDaysInMonth (GetNumberOfDaysInMonthRequest) returns (GetNumberOfDaysInMonthResponse);
-  rpc GetOffset (GetOffsetRequest) returns (GetOffsetResponse);
-  rpc GetRowOf (GetRowOfRequest) returns (GetRowOfResponse);
-  rpc GetWeekStartDay (GetWeekStartDayRequest) returns (GetWeekStartDayResponse);
-  rpc GetYear (GetYearRequest) returns (GetYearResponse);
-  rpc IsWithinCurrentMonth (IsWithinCurrentMonthRequest) returns (IsWithinCurrentMonthResponse);
-  rpc NextMonth (NextMonthRequest) returns (NextMonthResponse);
-  rpc PreviousMonth (PreviousMonthRequest) returns (PreviousMonthResponse);
-}
-
-service PrinterService {
-  rpc Println (PrinterPrintlnRequest) returns (PrintlnResponse);
-}
-
-service TimingLoggerService {
-  rpc NewTimingLogger (NewTimingLoggerRequest) returns (NewTimingLoggerResponse);
-  rpc AddSplit (AddSplitRequest) returns (AddSplitResponse);
-  rpc DumpToLog (DumpToLogRequest) returns (DumpToLogResponse);
-  rpc Reset0 (Reset0Request) returns (Reset0Response);
-  rpc Reset2_1 (Reset2_1Request) returns (Reset2_1Response);
-}
-
-service JsonReaderService {
-  rpc NewJsonReader (NewJsonReaderRequest) returns (NewJsonReaderResponse);
-  rpc BeginArray (BeginArrayRequest) returns (BeginArrayResponse);
-  rpc BeginObject (BeginObjectRequest) returns (BeginObjectResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc EndArray (EndArrayRequest) returns (EndArrayResponse);
-  rpc EndObject (EndObjectRequest) returns (EndObjectResponse);
-  rpc HasNext (HasNextRequest) returns (HasNextResponse);
-  rpc IsLenient (JsonReaderIsLenientRequest) returns (IsLenientResponse);
-  rpc NextBoolean (NextBooleanRequest) returns (NextBooleanResponse);
-  rpc NextDouble (NextDoubleRequest) returns (NextDoubleResponse);
-  rpc NextInt (NextIntRequest) returns (NextIntResponse);
-  rpc NextLong (NextLongRequest) returns (NextLongResponse);
-  rpc NextName (NextNameRequest) returns (NextNameResponse);
-  rpc NextNull (NextNullRequest) returns (NextNullResponse);
-  rpc NextString (NextStringRequest) returns (NextStringResponse);
-  rpc Peek (PeekRequest) returns (PeekResponse);
-  rpc SetLenient (JsonReaderSetLenientRequest) returns (SetLenientResponse);
-  rpc SkipValue (SkipValueRequest) returns (SkipValueResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-}
-
-service ArraySetService {
-  rpc NewArraySet (NewArraySetRequest) returns (NewArraySetResponse);
-  rpc Clear (SparseIntArrayClearRequest) returns (SparseIntArrayClearResponse);
-  rpc Contains (ContainsRequest) returns (ContainsResponse);
-  rpc EnsureCapacity (EnsureCapacityRequest) returns (EnsureCapacityResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IndexOf (IndexOfRequest) returns (IndexOfResponse);
-  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
-  rpc Remove (RemoveRequest) returns (RemoveResponse);
-  rpc Size (SizeRequest) returns (SizeResponse);
-  rpc ToArray (ToArrayRequest) returns (ToArrayResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-}
-
-service DumpableContainerService {
-  rpc AddDumpable (AddDumpableRequest) returns (AddDumpableResponse);
-  rpc RemoveDumpable (RemoveDumpableRequest) returns (RemoveDumpableResponse);
-}
-
-service Base64OutputStreamService {
-  rpc NewBase64OutputStream (NewBase64OutputStreamRequest) returns (NewBase64OutputStreamResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc Write3 (Write3Request) returns (Write3Response);
-  rpc Write1_1 (Write1_1Request) returns (Write1_1Response);
-}
-
-service SparseArrayService {
-  rpc NewSparseArray (NewSparseArrayRequest) returns (NewSparseArrayResponse);
-  rpc Clear (SparseIntArrayClearRequest) returns (SparseIntArrayClearResponse);
-  rpc Contains (SparseArrayContainsRequest) returns (ContainsResponse);
-  rpc ContentHashCode (ContentHashCodeRequest) returns (ContentHashCodeResponse);
-  rpc Delete (DeleteRequest) returns (DeleteResponse);
-  rpc IndexOfKey (IndexOfKeyRequest) returns (IndexOfKeyResponse);
-  rpc KeyAt (KeyAtRequest) returns (KeyAtResponse);
-  rpc Remove (SparseArrayRemoveRequest) returns (SparseArrayRemoveResponse);
-  rpc RemoveAt (RemoveAtRequest) returns (RemoveAtResponse);
-  rpc RemoveAtRange (RemoveAtRangeRequest) returns (RemoveAtRangeResponse);
-  rpc Size (SizeRequest) returns (SizeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-  rpc Clone (SparseArrayCloneRequest) returns (CloneResponse);
+service TimeUtilsService {
+  rpc GetTimeZone (TimeUtilsGetTimeZoneRequest) returns (GetTimeZoneResponse);
+  rpc GetTimeZoneDatabaseVersion (GetTimeZoneDatabaseVersionRequest) returns (GetTimeZoneDatabaseVersionResponse);
+  rpc GetTimeZoneIdsForCountryCode (GetTimeZoneIdsForCountryCodeRequest) returns (GetTimeZoneIdsForCountryCodeResponse);
+  rpc IsTimeBetween (IsTimeBetweenRequest) returns (IsTimeBetweenResponse);
 }
 
 service HalfService {
   rpc NewHalf (NewHalfRequest) returns (NewHalfResponse);
   rpc ByteValue (ByteValueRequest) returns (ByteValueResponse);
-  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc CompareTo1 (HalfCompareTo1Request) returns (CompareTo1Response);
   rpc DoubleValue (DoubleValueRequest) returns (DoubleValueResponse);
   rpc Equals1 (Equals1Request) returns (Equals1Response);
   rpc FloatValue (FloatValueRequest) returns (FloatValueResponse);
@@ -6045,7 +6122,7 @@ service HalfService {
   rpc LongValue (LongValueRequest) returns (LongValueResponse);
   rpc ShortValue (ShortValueRequest) returns (ShortValueResponse);
   rpc ToString0 (ToString0Request) returns (ToString0Response);
-  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc CompareTo1_1 (HalfCompareTo1_1Request) returns (CompareTo1_1Response);
   rpc Abs (AbsRequest) returns (AbsResponse);
   rpc Ceil (CeilRequest) returns (CeilResponse);
   rpc Compare (CompareRequest) returns (CompareResponse);
@@ -6081,143 +6158,48 @@ service HalfService {
   rpc ValueOf1_2 (ValueOf1_2Request) returns (ValueOf1_2Response);
 }
 
-service PairService {
-  rpc NewPair (NewPairRequest) returns (NewPairResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-}
-
-service SizeService {
-  rpc NewSize (NewSizeRequest) returns (NewSizeResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetHeight (SizeFGetHeightRequest) returns (SizeGetHeightResponse);
-  rpc GetWidth (SizeFGetWidthRequest) returns (SizeGetWidthResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-  rpc ParseSize (ParseSizeRequest) returns (ParseSizeResponse);
-}
-
-service AtomicFileService {
-  rpc NewAtomicFile (NewAtomicFileRequest) returns (NewAtomicFileResponse);
-  rpc Delete (AtomicFileDeleteRequest) returns (DeleteResponse);
-  rpc FailWrite (FailWriteRequest) returns (FailWriteResponse);
-  rpc FinishWrite (FinishWriteRequest) returns (FinishWriteResponse);
-  rpc GetBaseFile (GetBaseFileRequest) returns (GetBaseFileResponse);
-  rpc GetLastModifiedTime (GetLastModifiedTimeRequest) returns (GetLastModifiedTimeResponse);
-  rpc OpenRead (OpenReadRequest) returns (OpenReadResponse);
-  rpc ReadFully (ReadFullyRequest) returns (ReadFullyResponse);
-  rpc StartWrite (StartWriteRequest) returns (StartWriteResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-}
-
-service LogService {
-  rpc D2 (D2Request) returns (D2Response);
-  rpc D3_1 (D3_1Request) returns (D3_1Response);
-  rpc E2 (E2Request) returns (E2Response);
-  rpc E3_1 (E3_1Request) returns (E3_1Response);
-  rpc GetStackTraceString (GetStackTraceStringRequest) returns (GetStackTraceStringResponse);
-  rpc I2 (I2Request) returns (I2Response);
-  rpc I3_1 (I3_1Request) returns (I3_1Response);
-  rpc IsLoggable (IsLoggableRequest) returns (IsLoggableResponse);
-  rpc Println (LogPrintlnRequest) returns (LogPrintlnResponse);
-  rpc V2 (V2Request) returns (V2Response);
-  rpc V3_1 (V3_1Request) returns (V3_1Response);
-  rpc W2 (W2Request) returns (W2Response);
-  rpc W3_1 (W3_1Request) returns (W3_1Response);
-  rpc W2_2 (W2_2Request) returns (W2_2Response);
-  rpc Wtf2 (Wtf2Request) returns (Wtf2Response);
-  rpc Wtf3_1 (Wtf3_1Request) returns (Wtf3_1Response);
-  rpc Wtf2_2 (Wtf2_2Request) returns (Wtf2_2Response);
-}
-
-service Base64Service {
-  rpc Decode2 (Decode2Request) returns (Decode2Response);
-  rpc Decode4_1 (Decode4_1Request) returns (Decode4_1Response);
-  rpc Decode2_2 (Decode2_2Request) returns (Decode2_2Response);
-  rpc Encode2 (Encode2Request) returns (Encode2Response);
-  rpc Encode4_1 (Encode4_1Request) returns (Encode4_1Response);
-  rpc EncodeToString2 (EncodeToString2Request) returns (EncodeToString2Response);
-  rpc EncodeToString4_1 (EncodeToString4_1Request) returns (EncodeToString4_1Response);
-}
-
-service DumpableService {
-  rpc Dump (DumpableDumpRequest) returns (DumpableDumpResponse);
-}
-
-service TimeUtilsService {
-  rpc GetTimeZone (TimeUtilsGetTimeZoneRequest) returns (GetTimeZoneResponse);
-  rpc GetTimeZoneDatabaseVersion (GetTimeZoneDatabaseVersionRequest) returns (GetTimeZoneDatabaseVersionResponse);
-  rpc IsTimeBetween (IsTimeBetweenRequest) returns (IsTimeBetweenResponse);
-}
-
-service CloseGuardService {
-  rpc NewCloseGuard (NewCloseGuardRequest) returns (NewCloseGuardResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc Open (OpenRequest) returns (OpenResponse);
-  rpc WarnIfOpen (WarnIfOpenRequest) returns (WarnIfOpenResponse);
-}
-
-service SparseBooleanArrayService {
-  rpc NewSparseBooleanArray (NewSparseBooleanArrayRequest) returns (NewSparseBooleanArrayResponse);
-  rpc Append (SparseBooleanArrayAppendRequest) returns (AppendResponse);
-  rpc Clear (SparseIntArrayClearRequest) returns (SparseIntArrayClearResponse);
-  rpc Clone0 (Clone0Request) returns (Clone0Response);
-  rpc Delete (DeleteRequest) returns (DeleteResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc Get1 (Get1Request) returns (SparseBooleanArrayGet1Response);
-  rpc Get2_1 (SparseBooleanArrayGet2_1Request) returns (SparseBooleanArrayGet2_1Response);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IndexOfKey (IndexOfKeyRequest) returns (IndexOfKeyResponse);
-  rpc IndexOfValue (SparseBooleanArrayIndexOfValueRequest) returns (IndexOfValueResponse);
-  rpc KeyAt (KeyAtRequest) returns (KeyAtResponse);
-  rpc Put (SparseBooleanArrayPutRequest) returns (PutResponse);
-  rpc RemoveAt (RemoveAtRequest) returns (RemoveAtResponse);
-  rpc SetValueAt (SparseBooleanArraySetValueAtRequest) returns (SetValueAtResponse);
-  rpc Size (SizeRequest) returns (SizeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-  rpc ValueAt (ValueAtRequest) returns (SparseBooleanArrayValueAtResponse);
-  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
-}
-
-service FloatPropertyService {
-  rpc Set (SetRequest) returns (SetResponse);
-}
-
-service EventLogTagsService {
-  rpc NewEventLogTags (NewEventLogTagsRequest) returns (NewEventLogTagsResponse);
-  rpc Get1 (Get1Request) returns (EventLogTagsGet1Response);
-  rpc Get1_1 (Get1_1Request) returns (Get1_1Response);
-}
-
-service JsonWriterService {
-  rpc NewJsonWriter (NewJsonWriterRequest) returns (NewJsonWriterResponse);
-  rpc BeginArray (BeginArrayRequest) returns (JsonWriterBeginArrayResponse);
-  rpc BeginObject (BeginObjectRequest) returns (JsonWriterBeginObjectResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc EndArray (EndArrayRequest) returns (JsonWriterEndArrayResponse);
-  rpc EndObject (EndObjectRequest) returns (JsonWriterEndObjectResponse);
-  rpc Flush (FlushRequest) returns (FlushResponse);
-  rpc IsLenient (JsonReaderIsLenientRequest) returns (IsLenientResponse);
-  rpc Name (NameRequest) returns (NameResponse);
-  rpc NullValue (NullValueRequest) returns (NullValueResponse);
-  rpc SetIndent (SetIndentRequest) returns (SetIndentResponse);
-  rpc SetLenient (JsonReaderSetLenientRequest) returns (SetLenientResponse);
-  rpc Value1 (Value1Request) returns (Value1Response);
-  rpc Value1_1 (Value1_1Request) returns (Value1_1Response);
-  rpc Value1_2 (Value1_2Request) returns (Value1_2Response);
-  rpc Value1_3 (Value1_3Request) returns (Value1_3Response);
-  rpc Value1_4 (Value1_4Request) returns (Value1_4Response);
-}
-
-service PropertyService {
-  rpc GetName (PropertyGetNameRequest) returns (GetNameResponse);
-  rpc IsReadOnly (IsReadOnlyRequest) returns (IsReadOnlyResponse);
+service LogPrinterService {
+  rpc NewLogPrinter (NewLogPrinterRequest) returns (NewLogPrinterResponse);
+  rpc Println (PrintlnRequest) returns (PrintlnResponse);
 }
 
 service PrintWriterPrinterService {
   rpc NewPrintWriterPrinter (NewPrintWriterPrinterRequest) returns (NewPrintWriterPrinterResponse);
   rpc Println (PrintlnRequest) returns (PrintlnResponse);
+}
+
+service TimingLoggerService {
+  rpc NewTimingLogger (NewTimingLoggerRequest) returns (NewTimingLoggerResponse);
+  rpc AddSplit (AddSplitRequest) returns (AddSplitResponse);
+  rpc DumpToLog (DumpToLogRequest) returns (DumpToLogResponse);
+  rpc Reset0 (Reset0Request) returns (Reset0Response);
+  rpc Reset2_1 (Reset2_1Request) returns (Reset2_1Response);
+}
+
+service JsonReaderService {
+  rpc NewJsonReader (NewJsonReaderRequest) returns (NewJsonReaderResponse);
+  rpc BeginArray (BeginArrayRequest) returns (BeginArrayResponse);
+  rpc BeginObject (BeginObjectRequest) returns (BeginObjectResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc EndArray (EndArrayRequest) returns (EndArrayResponse);
+  rpc EndObject (EndObjectRequest) returns (EndObjectResponse);
+  rpc HasNext (HasNextRequest) returns (HasNextResponse);
+  rpc IsLenient (JsonReaderIsLenientRequest) returns (IsLenientResponse);
+  rpc NextBoolean (NextBooleanRequest) returns (NextBooleanResponse);
+  rpc NextDouble (NextDoubleRequest) returns (NextDoubleResponse);
+  rpc NextInt (NextIntRequest) returns (NextIntResponse);
+  rpc NextLong (NextLongRequest) returns (NextLongResponse);
+  rpc NextName (NextNameRequest) returns (NextNameResponse);
+  rpc NextNull (NextNullRequest) returns (NextNullResponse);
+  rpc NextString (NextStringRequest) returns (NextStringResponse);
+  rpc Peek (PeekRequest) returns (PeekResponse);
+  rpc SetLenient (JsonReaderSetLenientRequest) returns (SetLenientResponse);
+  rpc SkipValue (SkipValueRequest) returns (SkipValueResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service PrinterService {
+  rpc Println (PrinterPrintlnRequest) returns (PrintlnResponse);
 }
 
 service EventLogService {
@@ -6239,38 +6221,29 @@ service EventLogEventService {
   rpc HashCode (EventLogEventHashCodeRequest) returns (HashCodeResponse);
 }
 
-service LongSparseArrayService {
-  rpc NewLongSparseArray (NewLongSparseArrayRequest) returns (NewLongSparseArrayResponse);
-  rpc Clear (SparseIntArrayClearRequest) returns (SparseIntArrayClearResponse);
-  rpc Delete (LongSparseArrayDeleteRequest) returns (DeleteResponse);
-  rpc IndexOfKey (LongSparseArrayIndexOfKeyRequest) returns (IndexOfKeyResponse);
-  rpc KeyAt (KeyAtRequest) returns (LongSparseArrayKeyAtResponse);
-  rpc Remove (RemoveRequest) returns (LongSparseArrayRemoveResponse);
+service SparseLongArrayService {
+  rpc NewSparseLongArray (NewSparseLongArrayRequest) returns (NewSparseLongArrayResponse);
+  rpc Append (SparseLongArrayAppendRequest) returns (AppendResponse);
+  rpc Clear (SparseBooleanArrayClearRequest) returns (SparseBooleanArrayClearResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc Get1 (Get1Request) returns (SparseLongArrayGet1Response);
+  rpc Get2_1 (SparseLongArrayGet2_1Request) returns (SparseLongArrayGet2_1Response);
+  rpc IndexOfKey (IndexOfKeyRequest) returns (IndexOfKeyResponse);
+  rpc IndexOfValue (SparseLongArrayIndexOfValueRequest) returns (IndexOfValueResponse);
+  rpc KeyAt (KeyAtRequest) returns (KeyAtResponse);
+  rpc Put (SparseLongArrayPutRequest) returns (PutResponse);
   rpc RemoveAt (RemoveAtRequest) returns (RemoveAtResponse);
   rpc Size (SizeRequest) returns (SizeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-  rpc Clone (SparseArrayCloneRequest) returns (CloneResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc ValueAt (ValueAtRequest) returns (SparseLongArrayValueAtResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
 }
 
-service RationalService {
-  rpc NewRational (NewRationalRequest) returns (NewRationalResponse);
-  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
-  rpc DoubleValue (DoubleValueRequest) returns (DoubleValueResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc FloatValue (FloatValueRequest) returns (FloatValueResponse);
-  rpc GetDenominator (GetDenominatorRequest) returns (GetDenominatorResponse);
-  rpc GetNumerator (GetNumeratorRequest) returns (GetNumeratorResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IntValue (IntValueRequest) returns (IntValueResponse);
-  rpc IsFinite (IsFiniteRequest) returns (IsFiniteResponse);
-  rpc IsInfinite (RationalIsInfiniteRequest) returns (IsInfiniteResponse);
-  rpc IsNaN (IsNaNRequest) returns (IsNaNResponse);
-  rpc IsZero (IsZeroRequest) returns (IsZeroResponse);
-  rpc LongValue (LongValueRequest) returns (LongValueResponse);
-  rpc ShortValue (ShortValueRequest) returns (ShortValueResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
-  rpc ParseRational (ParseRationalRequest) returns (ParseRationalResponse);
+service EventLogTagsService {
+  rpc NewEventLogTags (NewEventLogTagsRequest) returns (NewEventLogTagsResponse);
+  rpc Get1 (Get1Request) returns (EventLogTagsGet1Response);
+  rpc Get1_1 (Get1_1Request) returns (Get1_1Response);
 }
 
 service AttributeSetService {
@@ -6298,26 +6271,231 @@ service AttributeSetService {
   rpc GetStyleAttribute (GetStyleAttributeRequest) returns (GetStyleAttributeResponse);
 }
 
-service TypedValueService {
-  rpc NewTypedValue (NewTypedValueRequest) returns (NewTypedValueResponse);
-  rpc CoerceToString0 (CoerceToString0Request) returns (CoerceToString0Response);
-  rpc GetComplexUnit (GetComplexUnitRequest) returns (GetComplexUnitResponse);
-  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
-  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
-  rpc GetFraction (GetFractionRequest) returns (GetFractionResponse);
-  rpc IsColorType (IsColorTypeRequest) returns (IsColorTypeResponse);
-  rpc SetTo (SetToRequest) returns (SetToResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-  rpc ApplyDimension (ApplyDimensionRequest) returns (ApplyDimensionResponse);
-  rpc CoerceToString2_1 (CoerceToString2_1Request) returns (CoerceToString2_1Response);
-  rpc ComplexToDimension (ComplexToDimensionRequest) returns (ComplexToDimensionResponse);
-  rpc ComplexToDimensionPixelOffset (ComplexToDimensionPixelOffsetRequest) returns (ComplexToDimensionPixelOffsetResponse);
-  rpc ComplexToDimensionPixelSize (ComplexToDimensionPixelSizeRequest) returns (ComplexToDimensionPixelSizeResponse);
-  rpc ComplexToFloat (ComplexToFloatRequest) returns (ComplexToFloatResponse);
-  rpc ComplexToFraction (ComplexToFractionRequest) returns (ComplexToFractionResponse);
-  rpc ConvertDimensionToPixels (ConvertDimensionToPixelsRequest) returns (ConvertDimensionToPixelsResponse);
-  rpc ConvertPixelsToDimension (ConvertPixelsToDimensionRequest) returns (ConvertPixelsToDimensionResponse);
-  rpc DeriveDimension (DeriveDimensionRequest) returns (DeriveDimensionResponse);
+service StateSetService {
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc IsWildCard (IsWildCardRequest) returns (IsWildCardResponse);
+  rpc StateSetMatches2 (StateSetMatches2Request) returns (StateSetMatches2Response);
+  rpc StateSetMatches2_1 (StateSetMatches2_1Request) returns (StateSetMatches2_1Response);
+  rpc TrimStateSet (TrimStateSetRequest) returns (TrimStateSetResponse);
+}
+
+service DumpableService {
+  rpc Dump (DumpableDumpRequest) returns (DumpableDumpResponse);
+}
+
+service DumpableContainerService {
+  rpc AddDumpable (AddDumpableRequest) returns (AddDumpableResponse);
+  rpc RemoveDumpable (RemoveDumpableRequest) returns (RemoveDumpableResponse);
+}
+
+service SizeFService {
+  rpc NewSizeF (NewSizeFRequest) returns (NewSizeFResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (SparseBooleanArrayEqualsRequest) returns (EqualsResponse);
+  rpc GetHeight (SizeFGetHeightRequest) returns (SizeFGetHeightResponse);
+  rpc GetWidth (SizeFGetWidthRequest) returns (SizeFGetWidthResponse);
+  rpc HashCode (SparseBooleanArrayHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ParseSizeF (ParseSizeFRequest) returns (ParseSizeFResponse);
+}
+
+service SparseArrayService {
+  rpc NewSparseArray (NewSparseArrayRequest) returns (NewSparseArrayResponse);
+  rpc Clear (SparseBooleanArrayClearRequest) returns (SparseBooleanArrayClearResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Contains (ContainsRequest) returns (ContainsResponse);
+  rpc ContentHashCode (ContentHashCodeRequest) returns (ContentHashCodeResponse);
+  rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc IndexOfKey (IndexOfKeyRequest) returns (IndexOfKeyResponse);
+  rpc KeyAt (KeyAtRequest) returns (KeyAtResponse);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc RemoveAt (RemoveAtRequest) returns (RemoveAtResponse);
+  rpc RemoveAtRange (RemoveAtRangeRequest) returns (RemoveAtRangeResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+}
+
+service PatternsService {
+  rpc ConcatGroups (ConcatGroupsRequest) returns (ConcatGroupsResponse);
+  rpc DigitsAndPlusOnly (DigitsAndPlusOnlyRequest) returns (DigitsAndPlusOnlyResponse);
+}
+
+service ArraySetService {
+  rpc NewArraySet (NewArraySetRequest) returns (NewArraySetResponse);
+  rpc Clear (SparseBooleanArrayClearRequest) returns (SparseBooleanArrayClearResponse);
+  rpc Contains (ArraySetContainsRequest) returns (ContainsResponse);
+  rpc EnsureCapacity (EnsureCapacityRequest) returns (EnsureCapacityResponse);
+  rpc Equals (SparseBooleanArrayEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (SparseBooleanArrayHashCodeRequest) returns (HashCodeResponse);
+  rpc IndexOf (IndexOfRequest) returns (IndexOfResponse);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc Iterator (IteratorRequest) returns (IteratorResponse);
+  rpc Remove (ArraySetRemoveRequest) returns (ArraySetRemoveResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc ToArray (ToArrayRequest) returns (ToArrayResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service StatsLogService {
+  rpc LogBinaryPushStateChanged (LogBinaryPushStateChangedRequest) returns (LogBinaryPushStateChangedResponse);
+  rpc LogEvent (LogEventRequest) returns (LogEventResponse);
+  rpc LogStart (LogStartRequest) returns (LogStartResponse);
+  rpc LogStop (LogStopRequest) returns (LogStopResponse);
+}
+
+service SparseIntArrayService {
+  rpc NewSparseIntArray (NewSparseIntArrayRequest) returns (NewSparseIntArrayResponse);
+  rpc Append (SparseIntArrayAppendRequest) returns (AppendResponse);
+  rpc Clear (SparseBooleanArrayClearRequest) returns (SparseBooleanArrayClearResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc Get1 (Get1Request) returns (SparseIntArrayGet1Response);
+  rpc Get2_1 (SparseIntArrayGet2_1Request) returns (SparseIntArrayGet2_1Response);
+  rpc IndexOfKey (IndexOfKeyRequest) returns (IndexOfKeyResponse);
+  rpc IndexOfValue (SparseIntArrayIndexOfValueRequest) returns (IndexOfValueResponse);
+  rpc KeyAt (KeyAtRequest) returns (KeyAtResponse);
+  rpc Put (SparseIntArrayPutRequest) returns (PutResponse);
+  rpc RemoveAt (RemoveAtRequest) returns (RemoveAtResponse);
+  rpc SetValueAt (SparseIntArraySetValueAtRequest) returns (SetValueAtResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc ValueAt (ValueAtRequest) returns (SparseIntArrayValueAtResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+}
+
+service PrintStreamPrinterService {
+  rpc NewPrintStreamPrinter (NewPrintStreamPrinterRequest) returns (NewPrintStreamPrinterResponse);
+  rpc Println (PrintlnRequest) returns (PrintlnResponse);
+}
+
+service MonthDisplayHelperService {
+  rpc NewMonthDisplayHelper (NewMonthDisplayHelperRequest) returns (NewMonthDisplayHelperResponse);
+  rpc GetColumnOf (GetColumnOfRequest) returns (GetColumnOfResponse);
+  rpc GetDayAt (GetDayAtRequest) returns (GetDayAtResponse);
+  rpc GetDigitsForRow (GetDigitsForRowRequest) returns (GetDigitsForRowResponse);
+  rpc GetFirstDayOfMonth (GetFirstDayOfMonthRequest) returns (GetFirstDayOfMonthResponse);
+  rpc GetMonth (GetMonthRequest) returns (GetMonthResponse);
+  rpc GetNumberOfDaysInMonth (GetNumberOfDaysInMonthRequest) returns (GetNumberOfDaysInMonthResponse);
+  rpc GetOffset (GetOffsetRequest) returns (GetOffsetResponse);
+  rpc GetRowOf (GetRowOfRequest) returns (GetRowOfResponse);
+  rpc GetWeekStartDay (GetWeekStartDayRequest) returns (GetWeekStartDayResponse);
+  rpc GetYear (GetYearRequest) returns (GetYearResponse);
+  rpc IsWithinCurrentMonth (IsWithinCurrentMonthRequest) returns (IsWithinCurrentMonthResponse);
+  rpc NextMonth (NextMonthRequest) returns (NextMonthResponse);
+  rpc PreviousMonth (PreviousMonthRequest) returns (PreviousMonthResponse);
+}
+
+service XmlService {
+  rpc AsAttributeSet (AsAttributeSetRequest) returns (AsAttributeSetResponse);
+  rpc FindEncodingByName (FindEncodingByNameRequest) returns (FindEncodingByNameResponse);
+  rpc NewPullParser (NewPullParserRequest) returns (NewPullParserResponse);
+  rpc NewSerializer (NewSerializerRequest) returns (NewSerializerResponse);
+}
+
+service XmlEncodingService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RationalService {
+  rpc NewRational (NewRationalRequest) returns (NewRationalResponse);
+  rpc CompareTo1 (HalfCompareTo1Request) returns (CompareTo1Response);
+  rpc DoubleValue (DoubleValueRequest) returns (DoubleValueResponse);
+  rpc Equals (SparseBooleanArrayEqualsRequest) returns (EqualsResponse);
+  rpc FloatValue (FloatValueRequest) returns (FloatValueResponse);
+  rpc GetDenominator (GetDenominatorRequest) returns (GetDenominatorResponse);
+  rpc GetNumerator (GetNumeratorRequest) returns (GetNumeratorResponse);
+  rpc HashCode (SparseBooleanArrayHashCodeRequest) returns (HashCodeResponse);
+  rpc IntValue (IntValueRequest) returns (IntValueResponse);
+  rpc IsFinite (IsFiniteRequest) returns (IsFiniteResponse);
+  rpc IsInfinite (RationalIsInfiniteRequest) returns (IsInfiniteResponse);
+  rpc IsNaN (IsNaNRequest) returns (IsNaNResponse);
+  rpc IsZero (IsZeroRequest) returns (IsZeroResponse);
+  rpc LongValue (LongValueRequest) returns (LongValueResponse);
+  rpc ShortValue (ShortValueRequest) returns (ShortValueResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (HalfCompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc ParseRational (ParseRationalRequest) returns (ParseRationalResponse);
+}
+
+service IntPropertyService {
+  rpc Set (SetRequest) returns (SetResponse);
+}
+
+service JsonWriterService {
+  rpc NewJsonWriter (NewJsonWriterRequest) returns (NewJsonWriterResponse);
+  rpc BeginArray (BeginArrayRequest) returns (JsonWriterBeginArrayResponse);
+  rpc BeginObject (BeginObjectRequest) returns (JsonWriterBeginObjectResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc EndArray (EndArrayRequest) returns (JsonWriterEndArrayResponse);
+  rpc EndObject (EndObjectRequest) returns (JsonWriterEndObjectResponse);
+  rpc Flush (FlushRequest) returns (FlushResponse);
+  rpc IsLenient (JsonReaderIsLenientRequest) returns (IsLenientResponse);
+  rpc Name (NameRequest) returns (NameResponse);
+  rpc NullValue (NullValueRequest) returns (NullValueResponse);
+  rpc SetIndent (SetIndentRequest) returns (SetIndentResponse);
+  rpc SetLenient (JsonReaderSetLenientRequest) returns (SetLenientResponse);
+  rpc Value1 (Value1Request) returns (Value1Response);
+  rpc Value1_1 (Value1_1Request) returns (Value1_1Response);
+  rpc Value1_2 (Value1_2Request) returns (Value1_2Response);
+  rpc Value1_3 (Value1_3Request) returns (Value1_3Response);
+  rpc Value1_4 (Value1_4Request) returns (Value1_4Response);
+}
+
+service Base64OutputStreamService {
+  rpc NewBase64OutputStream (NewBase64OutputStreamRequest) returns (NewBase64OutputStreamResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Write3 (Write3Request) returns (Write3Response);
+  rpc Write1_1 (Write1_1Request) returns (Write1_1Response);
+}
+
+service SizeService {
+  rpc NewSize (NewSizeRequest) returns (NewSizeResponse);
+  rpc Equals (SparseBooleanArrayEqualsRequest) returns (EqualsResponse);
+  rpc GetHeight (SizeFGetHeightRequest) returns (SizeGetHeightResponse);
+  rpc GetWidth (SizeFGetWidthRequest) returns (SizeGetWidthResponse);
+  rpc HashCode (SparseBooleanArrayHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc ParseSize (ParseSizeRequest) returns (ParseSizeResponse);
+}
+
+service ArrayMapService {
+  rpc NewArrayMap (NewArrayMapRequest) returns (NewArrayMapResponse);
+  rpc Clear (SparseBooleanArrayClearRequest) returns (SparseBooleanArrayClearResponse);
+  rpc ContainsKey (ContainsKeyRequest) returns (ContainsKeyResponse);
+  rpc ContainsValue (ContainsValueRequest) returns (ContainsValueResponse);
+  rpc EnsureCapacity (EnsureCapacityRequest) returns (EnsureCapacityResponse);
+  rpc Equals (SparseBooleanArrayEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (SparseBooleanArrayHashCodeRequest) returns (HashCodeResponse);
+  rpc IndexOfKey (ArrayMapIndexOfKeyRequest) returns (IndexOfKeyResponse);
+  rpc IndexOfValue (ArrayMapIndexOfValueRequest) returns (IndexOfValueResponse);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc KeySet (KeySetRequest) returns (KeySetResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Values (ArrayMapValuesRequest) returns (ValuesResponse);
+}
+
+service LongSparseArrayService {
+  rpc NewLongSparseArray (NewLongSparseArrayRequest) returns (NewLongSparseArrayResponse);
+  rpc Clear (SparseBooleanArrayClearRequest) returns (SparseBooleanArrayClearResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Delete (LongSparseArrayDeleteRequest) returns (DeleteResponse);
+  rpc IndexOfKey (LongSparseArrayIndexOfKeyRequest) returns (IndexOfKeyResponse);
+  rpc KeyAt (KeyAtRequest) returns (LongSparseArrayKeyAtResponse);
+  rpc Remove (LongSparseArrayRemoveRequest) returns (RemoveResponse);
+  rpc RemoveAt (RemoveAtRequest) returns (RemoveAtResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+}
+
+service PropertyService {
+  rpc GetName (PropertyGetNameRequest) returns (GetNameResponse);
+  rpc GetType (PropertyGetTypeRequest) returns (PropertyGetTypeResponse);
+  rpc IsReadOnly (IsReadOnlyRequest) returns (IsReadOnlyResponse);
 }
 
 service Base64InputStreamService {
@@ -6337,30 +6515,40 @@ service StringBuilderPrinterService {
   rpc Println (PrintlnRequest) returns (PrintlnResponse);
 }
 
-service SparseLongArrayService {
-  rpc NewSparseLongArray (NewSparseLongArrayRequest) returns (NewSparseLongArrayResponse);
-  rpc Append (SparseLongArrayAppendRequest) returns (AppendResponse);
-  rpc Clear (SparseIntArrayClearRequest) returns (SparseIntArrayClearResponse);
-  rpc Clone0 (Clone0Request) returns (Clone0Response);
-  rpc Delete (DeleteRequest) returns (DeleteResponse);
-  rpc Get1 (Get1Request) returns (SparseLongArrayGet1Response);
-  rpc Get2_1 (SparseLongArrayGet2_1Request) returns (SparseLongArrayGet2_1Response);
-  rpc IndexOfKey (IndexOfKeyRequest) returns (IndexOfKeyResponse);
-  rpc IndexOfValue (SparseLongArrayIndexOfValueRequest) returns (IndexOfValueResponse);
-  rpc KeyAt (KeyAtRequest) returns (KeyAtResponse);
-  rpc Put (SparseLongArrayPutRequest) returns (PutResponse);
-  rpc RemoveAt (RemoveAtRequest) returns (RemoveAtResponse);
-  rpc Size (SizeRequest) returns (SizeResponse);
-  rpc ToString (SparseIntArrayToStringRequest) returns (ToStringResponse);
-  rpc ValueAt (ValueAtRequest) returns (SparseLongArrayValueAtResponse);
-  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+service LogService {
+  rpc D2 (D2Request) returns (D2Response);
+  rpc D3_1 (D3_1Request) returns (D3_1Response);
+  rpc E2 (E2Request) returns (E2Response);
+  rpc E3_1 (E3_1Request) returns (E3_1Response);
+  rpc GetStackTraceString (GetStackTraceStringRequest) returns (GetStackTraceStringResponse);
+  rpc I2 (I2Request) returns (I2Response);
+  rpc I3_1 (I3_1Request) returns (I3_1Response);
+  rpc IsLoggable (IsLoggableRequest) returns (IsLoggableResponse);
+  rpc Println (LogPrintlnRequest) returns (LogPrintlnResponse);
+  rpc V2 (V2Request) returns (V2Response);
+  rpc V3_1 (V3_1Request) returns (V3_1Response);
+  rpc W2 (W2Request) returns (W2Response);
+  rpc W3_1 (W3_1Request) returns (W3_1Response);
+  rpc W2_2 (W2_2Request) returns (W2_2Response);
+  rpc Wtf2 (Wtf2Request) returns (Wtf2Response);
+  rpc Wtf3_1 (Wtf3_1Request) returns (Wtf3_1Response);
+  rpc Wtf2_2 (Wtf2_2Request) returns (Wtf2_2Response);
 }
 
-service LogPrinterService {
-  rpc NewLogPrinter (NewLogPrinterRequest) returns (NewLogPrinterResponse);
-  rpc Println (PrintlnRequest) returns (PrintlnResponse);
+service LruCacheService {
+  rpc NewLruCache (NewLruCacheRequest) returns (NewLruCacheResponse);
+  rpc EvictAll (EvictAllRequest) returns (EvictAllResponse);
+  rpc Resize (ResizeRequest) returns (ResizeResponse);
+  rpc TrimToSize (TrimToSizeRequest) returns (TrimToSizeResponse);
 }
 
-service IntPropertyService {
-  rpc Set (SetRequest) returns (SetResponse);
+service DebugUtilsService {
+  rpc IsObjectSelected (IsObjectSelectedRequest) returns (IsObjectSelectedResponse);
+}
+
+service PairService {
+  rpc NewPair (NewPairRequest) returns (NewPairResponse);
+  rpc Equals (SparseBooleanArrayEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (SparseBooleanArrayHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }

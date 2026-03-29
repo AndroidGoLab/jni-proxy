@@ -33,6 +33,25 @@ var buildBuildNewBuildCmd = &cobra.Command{
 	},
 }
 
+var buildBuildGetFingerprintedPartitionsCmd = &cobra.Command{
+	Use:   "get-fingerprinted-partitions",
+	Short: "GetFingerprintedPartitions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuildServiceClient(grpcConn)
+		req := &pb.GetFingerprintedPartitionsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFingerprintedPartitions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var buildBuildGetMajorSdkVersionCmd = &cobra.Command{
 	Use:   "get-major-sdk-version",
 	Short: "GetMajorSdkVersion RPC",
@@ -205,6 +224,8 @@ var buildPartitionHashCodeCmd = &cobra.Command{
 
 func init() {
 	buildBuildCmd.AddCommand(buildBuildNewBuildCmd)
+	buildBuildGetFingerprintedPartitionsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	buildBuildCmd.AddCommand(buildBuildGetFingerprintedPartitionsCmd)
 	buildBuildGetMajorSdkVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
 	buildBuildGetMajorSdkVersionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	buildBuildCmd.AddCommand(buildBuildGetMajorSdkVersionCmd)

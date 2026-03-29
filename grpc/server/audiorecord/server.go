@@ -37,6 +37,29 @@ func (s *AudioRecordServer) NewAudioRecord(_ context.Context, req *pb.NewAudioRe
 	return &pb.NewAudioRecordResponse{Result: handle}, nil
 }
 
+func (s *AudioRecordServer) GetActiveMicrophones(_ context.Context, req *pb.GetActiveMicrophonesRequest) (*pb.GetActiveMicrophonesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AudioRecord{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActiveMicrophones()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetActiveMicrophonesResponse{Result: handle}, nil
+}
+
 func (s *AudioRecordServer) GetActiveRecordingConfiguration(_ context.Context, req *pb.GetActiveRecordingConfigurationRequest) (*pb.GetActiveRecordingConfigurationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -299,6 +322,29 @@ func (s *AudioRecordServer) GetRoutedDevice(_ context.Context, req *pb.GetRouted
 		}
 	}
 	return &pb.GetRoutedDeviceResponse{Result: handle}, nil
+}
+
+func (s *AudioRecordServer) GetRoutedDevices(_ context.Context, req *pb.GetRoutedDevicesRequest) (*pb.GetRoutedDevicesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AudioRecord{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRoutedDevices()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRoutedDevicesResponse{Result: handle}, nil
 }
 
 func (s *AudioRecordServer) GetSampleRate(_ context.Context, req *pb.GetSampleRateRequest) (*pb.GetSampleRateResponse, error) {

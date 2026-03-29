@@ -439,6 +439,246 @@ func (x *GetEmergencyCallRoutingResponse) GetResult() int32 {
 	return 0
 }
 
+type GetEmergencyNumberSourcesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEmergencyNumberSourcesRequest) Reset() {
+	*x = GetEmergencyNumberSourcesRequest{}
+	mi := &file_proto_emergency_emergency_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEmergencyNumberSourcesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmergencyNumberSourcesRequest) ProtoMessage() {}
+
+func (x *GetEmergencyNumberSourcesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_emergency_emergency_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmergencyNumberSourcesRequest.ProtoReflect.Descriptor instead.
+func (*GetEmergencyNumberSourcesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{10}
+}
+
+type GetEmergencyNumberSourcesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEmergencyNumberSourcesResponse) Reset() {
+	*x = GetEmergencyNumberSourcesResponse{}
+	mi := &file_proto_emergency_emergency_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEmergencyNumberSourcesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmergencyNumberSourcesResponse) ProtoMessage() {}
+
+func (x *GetEmergencyNumberSourcesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_emergency_emergency_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmergencyNumberSourcesResponse.ProtoReflect.Descriptor instead.
+func (*GetEmergencyNumberSourcesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetEmergencyNumberSourcesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEmergencyServiceCategoriesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEmergencyServiceCategoriesRequest) Reset() {
+	*x = GetEmergencyServiceCategoriesRequest{}
+	mi := &file_proto_emergency_emergency_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEmergencyServiceCategoriesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmergencyServiceCategoriesRequest) ProtoMessage() {}
+
+func (x *GetEmergencyServiceCategoriesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_emergency_emergency_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmergencyServiceCategoriesRequest.ProtoReflect.Descriptor instead.
+func (*GetEmergencyServiceCategoriesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{12}
+}
+
+type GetEmergencyServiceCategoriesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEmergencyServiceCategoriesResponse) Reset() {
+	*x = GetEmergencyServiceCategoriesResponse{}
+	mi := &file_proto_emergency_emergency_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEmergencyServiceCategoriesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmergencyServiceCategoriesResponse) ProtoMessage() {}
+
+func (x *GetEmergencyServiceCategoriesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_emergency_emergency_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmergencyServiceCategoriesResponse.ProtoReflect.Descriptor instead.
+func (*GetEmergencyServiceCategoriesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetEmergencyServiceCategoriesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEmergencyUrnsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEmergencyUrnsRequest) Reset() {
+	*x = GetEmergencyUrnsRequest{}
+	mi := &file_proto_emergency_emergency_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEmergencyUrnsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmergencyUrnsRequest) ProtoMessage() {}
+
+func (x *GetEmergencyUrnsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_emergency_emergency_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmergencyUrnsRequest.ProtoReflect.Descriptor instead.
+func (*GetEmergencyUrnsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{14}
+}
+
+type GetEmergencyUrnsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEmergencyUrnsResponse) Reset() {
+	*x = GetEmergencyUrnsResponse{}
+	mi := &file_proto_emergency_emergency_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEmergencyUrnsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmergencyUrnsResponse) ProtoMessage() {}
+
+func (x *GetEmergencyUrnsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_emergency_emergency_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmergencyUrnsResponse.ProtoReflect.Descriptor instead.
+func (*GetEmergencyUrnsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetEmergencyUrnsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetMncRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -447,7 +687,7 @@ type GetMncRequest struct {
 
 func (x *GetMncRequest) Reset() {
 	*x = GetMncRequest{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[10]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -459,7 +699,7 @@ func (x *GetMncRequest) String() string {
 func (*GetMncRequest) ProtoMessage() {}
 
 func (x *GetMncRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[10]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -472,7 +712,7 @@ func (x *GetMncRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMncRequest.ProtoReflect.Descriptor instead.
 func (*GetMncRequest) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{10}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{16}
 }
 
 type GetMncResponse struct {
@@ -484,7 +724,7 @@ type GetMncResponse struct {
 
 func (x *GetMncResponse) Reset() {
 	*x = GetMncResponse{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[11]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -496,7 +736,7 @@ func (x *GetMncResponse) String() string {
 func (*GetMncResponse) ProtoMessage() {}
 
 func (x *GetMncResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[11]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -509,7 +749,7 @@ func (x *GetMncResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMncResponse.ProtoReflect.Descriptor instead.
 func (*GetMncResponse) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{11}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetMncResponse) GetResult() string {
@@ -527,7 +767,7 @@ type GetNumberRequest struct {
 
 func (x *GetNumberRequest) Reset() {
 	*x = GetNumberRequest{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[12]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -539,7 +779,7 @@ func (x *GetNumberRequest) String() string {
 func (*GetNumberRequest) ProtoMessage() {}
 
 func (x *GetNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[12]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -552,7 +792,7 @@ func (x *GetNumberRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNumberRequest.ProtoReflect.Descriptor instead.
 func (*GetNumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{12}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{18}
 }
 
 type GetNumberResponse struct {
@@ -564,7 +804,7 @@ type GetNumberResponse struct {
 
 func (x *GetNumberResponse) Reset() {
 	*x = GetNumberResponse{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[13]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -576,7 +816,7 @@ func (x *GetNumberResponse) String() string {
 func (*GetNumberResponse) ProtoMessage() {}
 
 func (x *GetNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[13]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -589,7 +829,7 @@ func (x *GetNumberResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNumberResponse.ProtoReflect.Descriptor instead.
 func (*GetNumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{13}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetNumberResponse) GetResult() string {
@@ -607,7 +847,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[14]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -619,7 +859,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[14]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -632,7 +872,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{14}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{20}
 }
 
 type HashCodeResponse struct {
@@ -644,7 +884,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[15]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -656,7 +896,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[15]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -669,7 +909,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{15}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -688,7 +928,7 @@ type IsFromSourcesRequest struct {
 
 func (x *IsFromSourcesRequest) Reset() {
 	*x = IsFromSourcesRequest{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[16]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -700,7 +940,7 @@ func (x *IsFromSourcesRequest) String() string {
 func (*IsFromSourcesRequest) ProtoMessage() {}
 
 func (x *IsFromSourcesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[16]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -713,7 +953,7 @@ func (x *IsFromSourcesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsFromSourcesRequest.ProtoReflect.Descriptor instead.
 func (*IsFromSourcesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{16}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *IsFromSourcesRequest) GetArg0() int32 {
@@ -732,7 +972,7 @@ type IsFromSourcesResponse struct {
 
 func (x *IsFromSourcesResponse) Reset() {
 	*x = IsFromSourcesResponse{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[17]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -744,7 +984,7 @@ func (x *IsFromSourcesResponse) String() string {
 func (*IsFromSourcesResponse) ProtoMessage() {}
 
 func (x *IsFromSourcesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[17]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -757,7 +997,7 @@ func (x *IsFromSourcesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsFromSourcesResponse.ProtoReflect.Descriptor instead.
 func (*IsFromSourcesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{17}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *IsFromSourcesResponse) GetResult() bool {
@@ -776,7 +1016,7 @@ type IsInEmergencyServiceCategoriesRequest struct {
 
 func (x *IsInEmergencyServiceCategoriesRequest) Reset() {
 	*x = IsInEmergencyServiceCategoriesRequest{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[18]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -788,7 +1028,7 @@ func (x *IsInEmergencyServiceCategoriesRequest) String() string {
 func (*IsInEmergencyServiceCategoriesRequest) ProtoMessage() {}
 
 func (x *IsInEmergencyServiceCategoriesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[18]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -801,7 +1041,7 @@ func (x *IsInEmergencyServiceCategoriesRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use IsInEmergencyServiceCategoriesRequest.ProtoReflect.Descriptor instead.
 func (*IsInEmergencyServiceCategoriesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{18}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *IsInEmergencyServiceCategoriesRequest) GetArg0() int32 {
@@ -820,7 +1060,7 @@ type IsInEmergencyServiceCategoriesResponse struct {
 
 func (x *IsInEmergencyServiceCategoriesResponse) Reset() {
 	*x = IsInEmergencyServiceCategoriesResponse{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[19]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -832,7 +1072,7 @@ func (x *IsInEmergencyServiceCategoriesResponse) String() string {
 func (*IsInEmergencyServiceCategoriesResponse) ProtoMessage() {}
 
 func (x *IsInEmergencyServiceCategoriesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[19]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -845,7 +1085,7 @@ func (x *IsInEmergencyServiceCategoriesResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use IsInEmergencyServiceCategoriesResponse.ProtoReflect.Descriptor instead.
 func (*IsInEmergencyServiceCategoriesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{19}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *IsInEmergencyServiceCategoriesResponse) GetResult() bool {
@@ -863,7 +1103,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[20]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -875,7 +1115,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[20]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -888,7 +1128,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{20}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{26}
 }
 
 type ToStringResponse struct {
@@ -900,7 +1140,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[21]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -912,7 +1152,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[21]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -925,7 +1165,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{21}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -945,7 +1185,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[22]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -957,7 +1197,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[22]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -970,7 +1210,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{22}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -995,7 +1235,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[23]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1007,7 +1247,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[23]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1020,7 +1260,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{23}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{29}
 }
 
 type CompareTo1_1Request struct {
@@ -1032,7 +1272,7 @@ type CompareTo1_1Request struct {
 
 func (x *CompareTo1_1Request) Reset() {
 	*x = CompareTo1_1Request{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[24]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1044,7 +1284,7 @@ func (x *CompareTo1_1Request) String() string {
 func (*CompareTo1_1Request) ProtoMessage() {}
 
 func (x *CompareTo1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[24]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1057,7 +1297,7 @@ func (x *CompareTo1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompareTo1_1Request.ProtoReflect.Descriptor instead.
 func (*CompareTo1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{24}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CompareTo1_1Request) GetArg0() int64 {
@@ -1076,7 +1316,7 @@ type CompareTo1_1Response struct {
 
 func (x *CompareTo1_1Response) Reset() {
 	*x = CompareTo1_1Response{}
-	mi := &file_proto_emergency_emergency_proto_msgTypes[25]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1088,7 +1328,7 @@ func (x *CompareTo1_1Response) String() string {
 func (*CompareTo1_1Response) ProtoMessage() {}
 
 func (x *CompareTo1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_emergency_emergency_proto_msgTypes[25]
+	mi := &file_proto_emergency_emergency_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1101,7 +1341,7 @@ func (x *CompareTo1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompareTo1_1Response.ProtoReflect.Descriptor instead.
 func (*CompareTo1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{25}
+	return file_proto_emergency_emergency_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CompareTo1_1Response) GetResult() int32 {
@@ -1132,7 +1372,16 @@ const file_proto_emergency_emergency_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
 	"\x1eGetEmergencyCallRoutingRequest\"9\n" +
 	"\x1fGetEmergencyCallRoutingResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\"\n" +
+	" GetEmergencyNumberSourcesRequest\";\n" +
+	"!GetEmergencyNumberSourcesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"$GetEmergencyServiceCategoriesRequest\"?\n" +
+	"%GetEmergencyServiceCategoriesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetEmergencyUrnsRequest\"2\n" +
+	"\x18GetEmergencyUrnsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
 	"\rGetMncRequest\"(\n" +
 	"\x0eGetMncResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x12\n" +
@@ -1160,14 +1409,17 @@ const file_proto_emergency_emergency_proto_rawDesc = "" +
 	"\x13CompareTo1_1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
 	"\x14CompareTo1_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result2\xce\b\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\xa8\v\n" +
 	"\rNumberService\x12I\n" +
 	"\n" +
 	"CompareTo1\x12\x1c.emergency.CompareTo1Request\x1a\x1d.emergency.CompareTo1Response\x12[\n" +
 	"\x10DescribeContents\x12\".emergency.DescribeContentsRequest\x1a#.emergency.DescribeContentsResponse\x12=\n" +
 	"\x06Equals\x12\x18.emergency.EqualsRequest\x1a\x19.emergency.EqualsResponse\x12R\n" +
 	"\rGetCountryIso\x12\x1f.emergency.GetCountryIsoRequest\x1a .emergency.GetCountryIsoResponse\x12p\n" +
-	"\x17GetEmergencyCallRouting\x12).emergency.GetEmergencyCallRoutingRequest\x1a*.emergency.GetEmergencyCallRoutingResponse\x12=\n" +
+	"\x17GetEmergencyCallRouting\x12).emergency.GetEmergencyCallRoutingRequest\x1a*.emergency.GetEmergencyCallRoutingResponse\x12v\n" +
+	"\x19GetEmergencyNumberSources\x12+.emergency.GetEmergencyNumberSourcesRequest\x1a,.emergency.GetEmergencyNumberSourcesResponse\x12\x82\x01\n" +
+	"\x1dGetEmergencyServiceCategories\x12/.emergency.GetEmergencyServiceCategoriesRequest\x1a0.emergency.GetEmergencyServiceCategoriesResponse\x12[\n" +
+	"\x10GetEmergencyUrns\x12\".emergency.GetEmergencyUrnsRequest\x1a#.emergency.GetEmergencyUrnsResponse\x12=\n" +
 	"\x06GetMnc\x12\x18.emergency.GetMncRequest\x1a\x19.emergency.GetMncResponse\x12F\n" +
 	"\tGetNumber\x12\x1b.emergency.GetNumberRequest\x1a\x1c.emergency.GetNumberResponse\x12C\n" +
 	"\bHashCode\x12\x1a.emergency.HashCodeRequest\x1a\x1b.emergency.HashCodeResponse\x12R\n" +
@@ -1189,7 +1441,7 @@ func file_proto_emergency_emergency_proto_rawDescGZIP() []byte {
 	return file_proto_emergency_emergency_proto_rawDescData
 }
 
-var file_proto_emergency_emergency_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_proto_emergency_emergency_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
 var file_proto_emergency_emergency_proto_goTypes = []any{
 	(*CompareTo1Request)(nil),                      // 0: emergency.CompareTo1Request
 	(*CompareTo1Response)(nil),                     // 1: emergency.CompareTo1Response
@@ -1201,22 +1453,28 @@ var file_proto_emergency_emergency_proto_goTypes = []any{
 	(*GetCountryIsoResponse)(nil),                  // 7: emergency.GetCountryIsoResponse
 	(*GetEmergencyCallRoutingRequest)(nil),         // 8: emergency.GetEmergencyCallRoutingRequest
 	(*GetEmergencyCallRoutingResponse)(nil),        // 9: emergency.GetEmergencyCallRoutingResponse
-	(*GetMncRequest)(nil),                          // 10: emergency.GetMncRequest
-	(*GetMncResponse)(nil),                         // 11: emergency.GetMncResponse
-	(*GetNumberRequest)(nil),                       // 12: emergency.GetNumberRequest
-	(*GetNumberResponse)(nil),                      // 13: emergency.GetNumberResponse
-	(*HashCodeRequest)(nil),                        // 14: emergency.HashCodeRequest
-	(*HashCodeResponse)(nil),                       // 15: emergency.HashCodeResponse
-	(*IsFromSourcesRequest)(nil),                   // 16: emergency.IsFromSourcesRequest
-	(*IsFromSourcesResponse)(nil),                  // 17: emergency.IsFromSourcesResponse
-	(*IsInEmergencyServiceCategoriesRequest)(nil),  // 18: emergency.IsInEmergencyServiceCategoriesRequest
-	(*IsInEmergencyServiceCategoriesResponse)(nil), // 19: emergency.IsInEmergencyServiceCategoriesResponse
-	(*ToStringRequest)(nil),                        // 20: emergency.ToStringRequest
-	(*ToStringResponse)(nil),                       // 21: emergency.ToStringResponse
-	(*WriteToParcelRequest)(nil),                   // 22: emergency.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                  // 23: emergency.WriteToParcelResponse
-	(*CompareTo1_1Request)(nil),                    // 24: emergency.CompareTo1_1Request
-	(*CompareTo1_1Response)(nil),                   // 25: emergency.CompareTo1_1Response
+	(*GetEmergencyNumberSourcesRequest)(nil),       // 10: emergency.GetEmergencyNumberSourcesRequest
+	(*GetEmergencyNumberSourcesResponse)(nil),      // 11: emergency.GetEmergencyNumberSourcesResponse
+	(*GetEmergencyServiceCategoriesRequest)(nil),   // 12: emergency.GetEmergencyServiceCategoriesRequest
+	(*GetEmergencyServiceCategoriesResponse)(nil),  // 13: emergency.GetEmergencyServiceCategoriesResponse
+	(*GetEmergencyUrnsRequest)(nil),                // 14: emergency.GetEmergencyUrnsRequest
+	(*GetEmergencyUrnsResponse)(nil),               // 15: emergency.GetEmergencyUrnsResponse
+	(*GetMncRequest)(nil),                          // 16: emergency.GetMncRequest
+	(*GetMncResponse)(nil),                         // 17: emergency.GetMncResponse
+	(*GetNumberRequest)(nil),                       // 18: emergency.GetNumberRequest
+	(*GetNumberResponse)(nil),                      // 19: emergency.GetNumberResponse
+	(*HashCodeRequest)(nil),                        // 20: emergency.HashCodeRequest
+	(*HashCodeResponse)(nil),                       // 21: emergency.HashCodeResponse
+	(*IsFromSourcesRequest)(nil),                   // 22: emergency.IsFromSourcesRequest
+	(*IsFromSourcesResponse)(nil),                  // 23: emergency.IsFromSourcesResponse
+	(*IsInEmergencyServiceCategoriesRequest)(nil),  // 24: emergency.IsInEmergencyServiceCategoriesRequest
+	(*IsInEmergencyServiceCategoriesResponse)(nil), // 25: emergency.IsInEmergencyServiceCategoriesResponse
+	(*ToStringRequest)(nil),                        // 26: emergency.ToStringRequest
+	(*ToStringResponse)(nil),                       // 27: emergency.ToStringResponse
+	(*WriteToParcelRequest)(nil),                   // 28: emergency.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                  // 29: emergency.WriteToParcelResponse
+	(*CompareTo1_1Request)(nil),                    // 30: emergency.CompareTo1_1Request
+	(*CompareTo1_1Response)(nil),                   // 31: emergency.CompareTo1_1Response
 }
 var file_proto_emergency_emergency_proto_depIdxs = []int32{
 	0,  // 0: emergency.NumberService.CompareTo1:input_type -> emergency.CompareTo1Request
@@ -1224,29 +1482,35 @@ var file_proto_emergency_emergency_proto_depIdxs = []int32{
 	4,  // 2: emergency.NumberService.Equals:input_type -> emergency.EqualsRequest
 	6,  // 3: emergency.NumberService.GetCountryIso:input_type -> emergency.GetCountryIsoRequest
 	8,  // 4: emergency.NumberService.GetEmergencyCallRouting:input_type -> emergency.GetEmergencyCallRoutingRequest
-	10, // 5: emergency.NumberService.GetMnc:input_type -> emergency.GetMncRequest
-	12, // 6: emergency.NumberService.GetNumber:input_type -> emergency.GetNumberRequest
-	14, // 7: emergency.NumberService.HashCode:input_type -> emergency.HashCodeRequest
-	16, // 8: emergency.NumberService.IsFromSources:input_type -> emergency.IsFromSourcesRequest
-	18, // 9: emergency.NumberService.IsInEmergencyServiceCategories:input_type -> emergency.IsInEmergencyServiceCategoriesRequest
-	20, // 10: emergency.NumberService.ToString:input_type -> emergency.ToStringRequest
-	22, // 11: emergency.NumberService.WriteToParcel:input_type -> emergency.WriteToParcelRequest
-	24, // 12: emergency.NumberService.CompareTo1_1:input_type -> emergency.CompareTo1_1Request
-	1,  // 13: emergency.NumberService.CompareTo1:output_type -> emergency.CompareTo1Response
-	3,  // 14: emergency.NumberService.DescribeContents:output_type -> emergency.DescribeContentsResponse
-	5,  // 15: emergency.NumberService.Equals:output_type -> emergency.EqualsResponse
-	7,  // 16: emergency.NumberService.GetCountryIso:output_type -> emergency.GetCountryIsoResponse
-	9,  // 17: emergency.NumberService.GetEmergencyCallRouting:output_type -> emergency.GetEmergencyCallRoutingResponse
-	11, // 18: emergency.NumberService.GetMnc:output_type -> emergency.GetMncResponse
-	13, // 19: emergency.NumberService.GetNumber:output_type -> emergency.GetNumberResponse
-	15, // 20: emergency.NumberService.HashCode:output_type -> emergency.HashCodeResponse
-	17, // 21: emergency.NumberService.IsFromSources:output_type -> emergency.IsFromSourcesResponse
-	19, // 22: emergency.NumberService.IsInEmergencyServiceCategories:output_type -> emergency.IsInEmergencyServiceCategoriesResponse
-	21, // 23: emergency.NumberService.ToString:output_type -> emergency.ToStringResponse
-	23, // 24: emergency.NumberService.WriteToParcel:output_type -> emergency.WriteToParcelResponse
-	25, // 25: emergency.NumberService.CompareTo1_1:output_type -> emergency.CompareTo1_1Response
-	13, // [13:26] is the sub-list for method output_type
-	0,  // [0:13] is the sub-list for method input_type
+	10, // 5: emergency.NumberService.GetEmergencyNumberSources:input_type -> emergency.GetEmergencyNumberSourcesRequest
+	12, // 6: emergency.NumberService.GetEmergencyServiceCategories:input_type -> emergency.GetEmergencyServiceCategoriesRequest
+	14, // 7: emergency.NumberService.GetEmergencyUrns:input_type -> emergency.GetEmergencyUrnsRequest
+	16, // 8: emergency.NumberService.GetMnc:input_type -> emergency.GetMncRequest
+	18, // 9: emergency.NumberService.GetNumber:input_type -> emergency.GetNumberRequest
+	20, // 10: emergency.NumberService.HashCode:input_type -> emergency.HashCodeRequest
+	22, // 11: emergency.NumberService.IsFromSources:input_type -> emergency.IsFromSourcesRequest
+	24, // 12: emergency.NumberService.IsInEmergencyServiceCategories:input_type -> emergency.IsInEmergencyServiceCategoriesRequest
+	26, // 13: emergency.NumberService.ToString:input_type -> emergency.ToStringRequest
+	28, // 14: emergency.NumberService.WriteToParcel:input_type -> emergency.WriteToParcelRequest
+	30, // 15: emergency.NumberService.CompareTo1_1:input_type -> emergency.CompareTo1_1Request
+	1,  // 16: emergency.NumberService.CompareTo1:output_type -> emergency.CompareTo1Response
+	3,  // 17: emergency.NumberService.DescribeContents:output_type -> emergency.DescribeContentsResponse
+	5,  // 18: emergency.NumberService.Equals:output_type -> emergency.EqualsResponse
+	7,  // 19: emergency.NumberService.GetCountryIso:output_type -> emergency.GetCountryIsoResponse
+	9,  // 20: emergency.NumberService.GetEmergencyCallRouting:output_type -> emergency.GetEmergencyCallRoutingResponse
+	11, // 21: emergency.NumberService.GetEmergencyNumberSources:output_type -> emergency.GetEmergencyNumberSourcesResponse
+	13, // 22: emergency.NumberService.GetEmergencyServiceCategories:output_type -> emergency.GetEmergencyServiceCategoriesResponse
+	15, // 23: emergency.NumberService.GetEmergencyUrns:output_type -> emergency.GetEmergencyUrnsResponse
+	17, // 24: emergency.NumberService.GetMnc:output_type -> emergency.GetMncResponse
+	19, // 25: emergency.NumberService.GetNumber:output_type -> emergency.GetNumberResponse
+	21, // 26: emergency.NumberService.HashCode:output_type -> emergency.HashCodeResponse
+	23, // 27: emergency.NumberService.IsFromSources:output_type -> emergency.IsFromSourcesResponse
+	25, // 28: emergency.NumberService.IsInEmergencyServiceCategories:output_type -> emergency.IsInEmergencyServiceCategoriesResponse
+	27, // 29: emergency.NumberService.ToString:output_type -> emergency.ToStringResponse
+	29, // 30: emergency.NumberService.WriteToParcel:output_type -> emergency.WriteToParcelResponse
+	31, // 31: emergency.NumberService.CompareTo1_1:output_type -> emergency.CompareTo1_1Response
+	16, // [16:32] is the sub-list for method output_type
+	0,  // [0:16] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1263,7 +1527,7 @@ func file_proto_emergency_emergency_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_emergency_emergency_proto_rawDesc), len(file_proto_emergency_emergency_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   26,
+			NumMessages:   32,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -28,18 +28,18 @@ message GetPrecedenceResponse {
   int32 result = 1;
 }
 
-message GetSessionTypeRequest {
+message GetRouteSelectionDescriptorRequest {
 }
 
-message GetSessionTypeResponse {
-  int32 result = 1;
+message GetRouteSelectionDescriptorResponse {
+  int64 result = 1;
 }
 
-message GetSscModeRequest {
+message GetTrafficDescriptorsRequest {
 }
 
-message GetSscModeResponse {
-  int32 result = 1;
+message GetTrafficDescriptorsResponse {
+  int64 result = 1;
 }
 
 message HashCodeRequest {
@@ -62,148 +62,6 @@ message WriteToParcelRequest {
 }
 
 message WriteToParcelResponse {
-}
-
-message NewNetworkSlicingConfigRequest {
-}
-
-message NewNetworkSlicingConfigResponse {
-  int64 result = 1;
-}
-
-message NetworkSlicingConfigDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message NetworkSlicingConfigEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message NetworkSlicingConfigHashCodeRequest {
-  int64 handle = 1;
-}
-
-message NetworkSlicingConfigToStringRequest {
-  int64 handle = 1;
-}
-
-message NetworkSlicingConfigWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message GetDataNetworkNameRequest {
-}
-
-message GetDataNetworkNameResponse {
-  string result = 1;
-}
-
-message GetOsAppIdRequest {
-}
-
-message GetOsAppIdResponse {
-  int64 result = 1;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetDataNetworkNameRequest {
-  string arg0 = 1;
-}
-
-message SetDataNetworkNameResponse {
-  int64 result = 1;
-}
-
-message SetOsAppIdRequest {
-  int64 arg0 = 1;
-}
-
-message SetOsAppIdResponse {
-  int64 result = 1;
-}
-
-message GetMappedHplmnSliceDifferentiatorRequest {
-}
-
-message GetMappedHplmnSliceDifferentiatorResponse {
-  int32 result = 1;
-}
-
-message GetMappedHplmnSliceServiceTypeRequest {
-}
-
-message GetMappedHplmnSliceServiceTypeResponse {
-  int32 result = 1;
-}
-
-message GetSliceDifferentiatorRequest {
-}
-
-message GetSliceDifferentiatorResponse {
-  int32 result = 1;
-}
-
-message GetSliceServiceTypeRequest {
-}
-
-message GetSliceServiceTypeResponse {
-  int32 result = 1;
-}
-
-message GetStatusRequest {
-}
-
-message GetStatusResponse {
-  int32 result = 1;
-}
-
-message SetMappedHplmnSliceDifferentiatorRequest {
-  int32 arg0 = 1;
-}
-
-message SetMappedHplmnSliceDifferentiatorResponse {
-  int64 result = 1;
-}
-
-message SetMappedHplmnSliceServiceTypeRequest {
-  int32 arg0 = 1;
-}
-
-message SetMappedHplmnSliceServiceTypeResponse {
-  int64 result = 1;
-}
-
-message SetSliceDifferentiatorRequest {
-  int32 arg0 = 1;
-}
-
-message SetSliceDifferentiatorResponse {
-  int64 result = 1;
-}
-
-message SetSliceServiceTypeRequest {
-  int32 arg0 = 1;
-}
-
-message SetSliceServiceTypeResponse {
-  int64 result = 1;
-}
-
-message SetStatusRequest {
-  int32 arg0 = 1;
-}
-
-message SetStatusResponse {
-  int64 result = 1;
 }
 
 message GetApnNameRequest {
@@ -386,6 +244,13 @@ message IsPersistentRequest {
 
 message IsPersistentResponse {
   bool result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
 }
 
 message SetAlwaysOnRequest {
@@ -588,68 +453,184 @@ message SetUserResponse {
   int64 result = 1;
 }
 
-service RouteSelectionDescriptorService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetPrecedence (GetPrecedenceRequest) returns (GetPrecedenceResponse);
-  rpc GetSessionType (GetSessionTypeRequest) returns (GetSessionTypeResponse);
-  rpc GetSscMode (GetSscModeRequest) returns (GetSscModeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message GetDataNetworkNameRequest {
 }
 
-service NetworkSlicingConfigService {
-  rpc NewNetworkSlicingConfig (NewNetworkSlicingConfigRequest) returns (NewNetworkSlicingConfigResponse);
-  rpc DescribeContents (NetworkSlicingConfigDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (NetworkSlicingConfigEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (NetworkSlicingConfigHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (NetworkSlicingConfigToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (NetworkSlicingConfigWriteToParcelRequest) returns (WriteToParcelResponse);
+message GetDataNetworkNameResponse {
+  int64 result = 1;
 }
 
-service TrafficDescriptorService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetDataNetworkName (GetDataNetworkNameRequest) returns (GetDataNetworkNameResponse);
-  rpc GetOsAppId (GetOsAppIdRequest) returns (GetOsAppIdResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message GetSessionTypeRequest {
 }
 
-service TrafficDescriptorBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetDataNetworkName (SetDataNetworkNameRequest) returns (SetDataNetworkNameResponse);
-  rpc SetOsAppId (SetOsAppIdRequest) returns (SetOsAppIdResponse);
+message GetSessionTypeResponse {
+  int32 result = 1;
 }
 
-service NetworkSliceInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetMappedHplmnSliceDifferentiator (GetMappedHplmnSliceDifferentiatorRequest) returns (GetMappedHplmnSliceDifferentiatorResponse);
-  rpc GetMappedHplmnSliceServiceType (GetMappedHplmnSliceServiceTypeRequest) returns (GetMappedHplmnSliceServiceTypeResponse);
-  rpc GetSliceDifferentiator (GetSliceDifferentiatorRequest) returns (GetSliceDifferentiatorResponse);
-  rpc GetSliceServiceType (GetSliceServiceTypeRequest) returns (GetSliceServiceTypeResponse);
-  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message GetSliceInfoRequest {
 }
 
-service NetworkSliceInfoBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetMappedHplmnSliceDifferentiator (SetMappedHplmnSliceDifferentiatorRequest) returns (SetMappedHplmnSliceDifferentiatorResponse);
-  rpc SetMappedHplmnSliceServiceType (SetMappedHplmnSliceServiceTypeRequest) returns (SetMappedHplmnSliceServiceTypeResponse);
-  rpc SetSliceDifferentiator (SetSliceDifferentiatorRequest) returns (SetSliceDifferentiatorResponse);
-  rpc SetSliceServiceType (SetSliceServiceTypeRequest) returns (SetSliceServiceTypeResponse);
-  rpc SetStatus (SetStatusRequest) returns (SetStatusResponse);
+message GetSliceInfoResponse {
+  int64 result = 1;
+}
+
+message GetSscModeRequest {
+}
+
+message GetSscModeResponse {
+  int32 result = 1;
+}
+
+message TrafficDescriptorGetDataNetworkNameResponse {
+  string result = 1;
+}
+
+message GetOsAppIdRequest {
+}
+
+message GetOsAppIdResponse {
+  int64 result = 1;
+}
+
+message SetDataNetworkNameRequest {
+  string arg0 = 1;
+}
+
+message SetDataNetworkNameResponse {
+  int64 result = 1;
+}
+
+message SetOsAppIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetOsAppIdResponse {
+  int64 result = 1;
+}
+
+message GetMappedHplmnSliceDifferentiatorRequest {
+}
+
+message GetMappedHplmnSliceDifferentiatorResponse {
+  int32 result = 1;
+}
+
+message GetMappedHplmnSliceServiceTypeRequest {
+}
+
+message GetMappedHplmnSliceServiceTypeResponse {
+  int32 result = 1;
+}
+
+message GetSliceDifferentiatorRequest {
+}
+
+message GetSliceDifferentiatorResponse {
+  int32 result = 1;
+}
+
+message GetSliceServiceTypeRequest {
+}
+
+message GetSliceServiceTypeResponse {
+  int32 result = 1;
+}
+
+message GetStatusRequest {
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message SetMappedHplmnSliceDifferentiatorRequest {
+  int32 arg0 = 1;
+}
+
+message SetMappedHplmnSliceDifferentiatorResponse {
+  int64 result = 1;
+}
+
+message SetMappedHplmnSliceServiceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMappedHplmnSliceServiceTypeResponse {
+  int64 result = 1;
+}
+
+message SetSliceDifferentiatorRequest {
+  int32 arg0 = 1;
+}
+
+message SetSliceDifferentiatorResponse {
+  int64 result = 1;
+}
+
+message SetSliceServiceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSliceServiceTypeResponse {
+  int64 result = 1;
+}
+
+message SetStatusRequest {
+  int32 arg0 = 1;
+}
+
+message SetStatusResponse {
+  int64 result = 1;
+}
+
+message NewNetworkSlicingConfigRequest {
+}
+
+message NewNetworkSlicingConfigResponse {
+  int64 result = 1;
+}
+
+message NetworkSlicingConfigDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message NetworkSlicingConfigEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NetworkSlicingConfigGetSliceInfoRequest {
+  int64 handle = 1;
+}
+
+message GetUrspRulesRequest {
+  int64 handle = 1;
+}
+
+message GetUrspRulesResponse {
+  int64 result = 1;
+}
+
+message NetworkSlicingConfigHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NetworkSlicingConfigToStringRequest {
+  int64 handle = 1;
+}
+
+message NetworkSlicingConfigWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
 }
 
 service UrspRuleService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetPrecedence (GetPrecedenceRequest) returns (GetPrecedenceResponse);
+  rpc GetRouteSelectionDescriptor (GetRouteSelectionDescriptorRequest) returns (GetRouteSelectionDescriptorResponse);
+  rpc GetTrafficDescriptors (GetTrafficDescriptorsRequest) returns (GetTrafficDescriptorsResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
@@ -716,4 +697,66 @@ service ApnSettingBuilderService {
   rpc SetProxyPort (SetProxyPortRequest) returns (SetProxyPortResponse);
   rpc SetRoamingProtocol (SetRoamingProtocolRequest) returns (SetRoamingProtocolResponse);
   rpc SetUser (SetUserRequest) returns (SetUserResponse);
+}
+
+service RouteSelectionDescriptorService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDataNetworkName (GetDataNetworkNameRequest) returns (GetDataNetworkNameResponse);
+  rpc GetPrecedence (GetPrecedenceRequest) returns (GetPrecedenceResponse);
+  rpc GetSessionType (GetSessionTypeRequest) returns (GetSessionTypeResponse);
+  rpc GetSliceInfo (GetSliceInfoRequest) returns (GetSliceInfoResponse);
+  rpc GetSscMode (GetSscModeRequest) returns (GetSscModeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TrafficDescriptorService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDataNetworkName (GetDataNetworkNameRequest) returns (TrafficDescriptorGetDataNetworkNameResponse);
+  rpc GetOsAppId (GetOsAppIdRequest) returns (GetOsAppIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TrafficDescriptorBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDataNetworkName (SetDataNetworkNameRequest) returns (SetDataNetworkNameResponse);
+  rpc SetOsAppId (SetOsAppIdRequest) returns (SetOsAppIdResponse);
+}
+
+service NetworkSliceInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMappedHplmnSliceDifferentiator (GetMappedHplmnSliceDifferentiatorRequest) returns (GetMappedHplmnSliceDifferentiatorResponse);
+  rpc GetMappedHplmnSliceServiceType (GetMappedHplmnSliceServiceTypeRequest) returns (GetMappedHplmnSliceServiceTypeResponse);
+  rpc GetSliceDifferentiator (GetSliceDifferentiatorRequest) returns (GetSliceDifferentiatorResponse);
+  rpc GetSliceServiceType (GetSliceServiceTypeRequest) returns (GetSliceServiceTypeResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NetworkSliceInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMappedHplmnSliceDifferentiator (SetMappedHplmnSliceDifferentiatorRequest) returns (SetMappedHplmnSliceDifferentiatorResponse);
+  rpc SetMappedHplmnSliceServiceType (SetMappedHplmnSliceServiceTypeRequest) returns (SetMappedHplmnSliceServiceTypeResponse);
+  rpc SetSliceDifferentiator (SetSliceDifferentiatorRequest) returns (SetSliceDifferentiatorResponse);
+  rpc SetSliceServiceType (SetSliceServiceTypeRequest) returns (SetSliceServiceTypeResponse);
+  rpc SetStatus (SetStatusRequest) returns (SetStatusResponse);
+}
+
+service NetworkSlicingConfigService {
+  rpc NewNetworkSlicingConfig (NewNetworkSlicingConfigRequest) returns (NewNetworkSlicingConfigResponse);
+  rpc DescribeContents (NetworkSlicingConfigDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (NetworkSlicingConfigEqualsRequest) returns (EqualsResponse);
+  rpc GetSliceInfo (NetworkSlicingConfigGetSliceInfoRequest) returns (GetSliceInfoResponse);
+  rpc GetUrspRules (GetUrspRulesRequest) returns (GetUrspRulesResponse);
+  rpc HashCode (NetworkSlicingConfigHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (NetworkSlicingConfigToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (NetworkSlicingConfigWriteToParcelRequest) returns (WriteToParcelResponse);
 }

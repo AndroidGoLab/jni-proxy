@@ -18,24 +18,10 @@ message ConnectRequest {
 message ConnectResponse {
 }
 
-message GetManufacturerRequest {
+message GetBarcodeRequest {
 }
 
-message GetManufacturerResponse {
-  int64 result = 1;
-}
-
-message GetMaxTransceiveLengthRequest {
-}
-
-message GetMaxTransceiveLengthResponse {
-  int32 result = 1;
-}
-
-message GetSystemCodeRequest {
-}
-
-message GetSystemCodeResponse {
+message GetBarcodeResponse {
   int64 result = 1;
 }
 
@@ -46,10 +32,10 @@ message GetTagResponse {
   int64 result = 1;
 }
 
-message GetTimeoutRequest {
+message GetTypeRequest {
 }
 
-message GetTimeoutResponse {
+message GetTypeResponse {
   int32 result = 1;
 }
 
@@ -58,6 +44,50 @@ message IsConnectedRequest {
 
 message IsConnectedResponse {
   bool result = 1;
+}
+
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message FormatRequest {
+  int64 arg0 = 1;
+}
+
+message FormatResponse {
+}
+
+message FormatReadOnlyRequest {
+  int64 arg0 = 1;
+}
+
+message FormatReadOnlyResponse {
+}
+
+message GetMaxTransceiveLengthRequest {
+}
+
+message GetMaxTransceiveLengthResponse {
+  int32 result = 1;
+}
+
+message GetTimeoutRequest {
+}
+
+message GetTimeoutResponse {
+  int32 result = 1;
+}
+
+message ReadPagesRequest {
+  int32 arg0 = 1;
+}
+
+message ReadPagesResponse {
+  int64 result = 1;
 }
 
 message SetTimeoutRequest {
@@ -75,29 +105,6 @@ message TransceiveResponse {
   int64 result = 1;
 }
 
-message GetRequest {
-  int64 arg0 = 1;
-}
-
-message GetResponse {
-  int64 result = 1;
-}
-
-message GetTypeRequest {
-}
-
-message GetTypeResponse {
-  int32 result = 1;
-}
-
-message ReadPagesRequest {
-  int32 arg0 = 1;
-}
-
-message ReadPagesResponse {
-  int64 result = 1;
-}
-
 message WritePageRequest {
   int32 arg0 = 1;
   int64 arg1 = 2;
@@ -106,32 +113,18 @@ message WritePageRequest {
 message WritePageResponse {
 }
 
-message GetApplicationDataRequest {
+message GetAtqaRequest {
 }
 
-message GetApplicationDataResponse {
+message GetAtqaResponse {
   int64 result = 1;
 }
 
-message GetProtocolInfoRequest {
+message GetSakRequest {
 }
 
-message GetProtocolInfoResponse {
-  int64 result = 1;
-}
-
-message GetDsfIdRequest {
-}
-
-message GetDsfIdResponse {
-  uint32 result = 1;
-}
-
-message GetResponseFlagsRequest {
-}
-
-message GetResponseFlagsResponse {
-  uint32 result = 1;
+message GetSakResponse {
+  int32 result = 1;
 }
 
 message AuthenticateSectorWithKeyARequest {
@@ -243,52 +236,65 @@ message WriteBlockRequest {
 message WriteBlockResponse {
 }
 
-message FormatRequest {
-  int64 arg0 = 1;
+message GetDsfIdRequest {
 }
 
-message FormatResponse {
+message GetDsfIdResponse {
+  uint32 result = 1;
 }
 
-message FormatReadOnlyRequest {
-  int64 arg0 = 1;
+message GetResponseFlagsRequest {
 }
 
-message FormatReadOnlyResponse {
+message GetResponseFlagsResponse {
+  uint32 result = 1;
 }
 
-message GetAtqaRequest {
+message GetApplicationDataRequest {
 }
 
-message GetAtqaResponse {
+message GetApplicationDataResponse {
   int64 result = 1;
 }
 
-message GetSakRequest {
+message GetProtocolInfoRequest {
 }
 
-message GetSakResponse {
-  int32 result = 1;
-}
-
-message GetBarcodeRequest {
-}
-
-message GetBarcodeResponse {
+message GetProtocolInfoResponse {
   int64 result = 1;
 }
 
-service NfcFService {
+message GetManufacturerRequest {
+}
+
+message GetManufacturerResponse {
+  int64 result = 1;
+}
+
+message GetSystemCodeRequest {
+}
+
+message GetSystemCodeResponse {
+  int64 result = 1;
+}
+
+service NfcBarcodeService {
   rpc Close (CloseRequest) returns (CloseResponse);
   rpc Connect (ConnectRequest) returns (ConnectResponse);
-  rpc GetManufacturer (GetManufacturerRequest) returns (GetManufacturerResponse);
-  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
-  rpc GetSystemCode (GetSystemCodeRequest) returns (GetSystemCodeResponse);
+  rpc GetBarcode (GetBarcodeRequest) returns (GetBarcodeResponse);
   rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
   rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
-  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
-  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service NdefFormatableService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc Format (FormatRequest) returns (FormatResponse);
+  rpc FormatReadOnly (FormatReadOnlyRequest) returns (FormatReadOnlyResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
   rpc Get (GetRequest) returns (GetResponse);
 }
 
@@ -307,26 +313,16 @@ service MifareUltralightService {
   rpc Get (GetRequest) returns (GetResponse);
 }
 
-service NfcBService {
+service NfcAService {
   rpc Close (CloseRequest) returns (CloseResponse);
   rpc Connect (ConnectRequest) returns (ConnectResponse);
-  rpc GetApplicationData (GetApplicationDataRequest) returns (GetApplicationDataResponse);
+  rpc GetAtqa (GetAtqaRequest) returns (GetAtqaResponse);
   rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
-  rpc GetProtocolInfo (GetProtocolInfoRequest) returns (GetProtocolInfoResponse);
+  rpc GetSak (GetSakRequest) returns (GetSakResponse);
   rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
   rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
-  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
-  rpc Get (GetRequest) returns (GetResponse);
-}
-
-service NfcVService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc Connect (ConnectRequest) returns (ConnectResponse);
-  rpc GetDsfId (GetDsfIdRequest) returns (GetDsfIdResponse);
-  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
-  rpc GetResponseFlags (GetResponseFlagsRequest) returns (GetResponseFlagsResponse);
-  rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
   rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
   rpc Get (GetRequest) returns (GetResponse);
 }
@@ -358,37 +354,27 @@ service MifareClassicService {
   rpc Get (GetRequest) returns (GetResponse);
 }
 
-service NdefFormatableService {
+service NfcVService {
   rpc Close (CloseRequest) returns (CloseResponse);
   rpc Connect (ConnectRequest) returns (ConnectResponse);
-  rpc Format (FormatRequest) returns (FormatResponse);
-  rpc FormatReadOnly (FormatReadOnlyRequest) returns (FormatReadOnlyResponse);
-  rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
-  rpc Get (GetRequest) returns (GetResponse);
-}
-
-service NfcAService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc Connect (ConnectRequest) returns (ConnectResponse);
-  rpc GetAtqa (GetAtqaRequest) returns (GetAtqaResponse);
+  rpc GetDsfId (GetDsfIdRequest) returns (GetDsfIdResponse);
   rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
-  rpc GetSak (GetSakRequest) returns (GetSakResponse);
+  rpc GetResponseFlags (GetResponseFlagsRequest) returns (GetResponseFlagsResponse);
   rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
   rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
-  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
   rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
   rpc Get (GetRequest) returns (GetResponse);
 }
 
-service NfcBarcodeService {
+service NfcBService {
   rpc Close (CloseRequest) returns (CloseResponse);
   rpc Connect (ConnectRequest) returns (ConnectResponse);
-  rpc GetBarcode (GetBarcodeRequest) returns (GetBarcodeResponse);
+  rpc GetApplicationData (GetApplicationDataRequest) returns (GetApplicationDataResponse);
+  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
+  rpc GetProtocolInfo (GetProtocolInfoRequest) returns (GetProtocolInfoResponse);
   rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
   rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
   rpc Get (GetRequest) returns (GetResponse);
 }
 
@@ -397,4 +383,18 @@ service TagTechnologyService {
   rpc Connect (ConnectRequest) returns (ConnectResponse);
   rpc GetTag (GetTagRequest) returns (GetTagResponse);
   rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+}
+
+service NfcFService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetManufacturer (GetManufacturerRequest) returns (GetManufacturerResponse);
+  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
+  rpc GetSystemCode (GetSystemCodeRequest) returns (GetSystemCodeResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
+  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
+  rpc Get (GetRequest) returns (GetResponse);
 }

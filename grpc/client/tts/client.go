@@ -97,6 +97,139 @@ func (c *SynthesisCallbackClient) Start(ctx context.Context, arg0 int32, arg1 in
 	return resp.GetResult(), nil
 }
 
+// VoiceClient wraps the gRPC VoiceService client.
+type VoiceClient struct {
+	svc pb.VoiceServiceClient
+}
+
+// NewVoiceClient creates a new Voice client.
+func NewVoiceClient(cc grpc.ClientConnInterface) *VoiceClient {
+	return &VoiceClient{
+		svc: pb.NewVoiceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VoiceClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *VoiceClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFeatures calls the GetFeatures RPC.
+func (c *VoiceClient) GetFeatures(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFeatures(ctx, &pb.GetFeaturesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLatency calls the GetLatency RPC.
+func (c *VoiceClient) GetLatency(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLatency(ctx, &pb.GetLatencyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *VoiceClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *VoiceClient) GetName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQuality calls the GetQuality RPC.
+func (c *VoiceClient) GetQuality(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetQuality(ctx, &pb.GetQualityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *VoiceClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNetworkConnectionRequired calls the IsNetworkConnectionRequired RPC.
+func (c *VoiceClient) IsNetworkConnectionRequired(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsNetworkConnectionRequired(ctx, &pb.IsNetworkConnectionRequiredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VoiceClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VoiceClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // SynthesisRequestClient wraps the gRPC SynthesisRequestService client.
 type SynthesisRequestClient struct {
 	svc pb.SynthesisRequestServiceClient
@@ -352,6 +485,15 @@ func (c *TextToSpeechServiceClient) OnGetDefaultVoiceNameFor(ctx context.Context
 	return resp.GetResult(), nil
 }
 
+// OnGetVoices calls the OnGetVoices RPC.
+func (c *TextToSpeechServiceClient) OnGetVoices(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OnGetVoices(ctx, &pb.OnGetVoicesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // OnIsValidVoiceName calls the OnIsValidVoiceName RPC.
 func (c *TextToSpeechServiceClient) OnIsValidVoiceName(ctx context.Context, arg0 string) (int32, error) {
 	resp, err := c.svc.OnIsValidVoiceName(ctx, &pb.OnIsValidVoiceNameRequest{
@@ -372,126 +514,4 @@ func (c *TextToSpeechServiceClient) OnLoadVoice(ctx context.Context, arg0 string
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// VoiceClient wraps the gRPC VoiceService client.
-type VoiceClient struct {
-	svc pb.VoiceServiceClient
-}
-
-// NewVoiceClient creates a new Voice client.
-func NewVoiceClient(cc grpc.ClientConnInterface) *VoiceClient {
-	return &VoiceClient{
-		svc: pb.NewVoiceServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *VoiceClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *VoiceClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLatency calls the GetLatency RPC.
-func (c *VoiceClient) GetLatency(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLatency(ctx, &pb.GetLatencyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocale calls the GetLocale RPC.
-func (c *VoiceClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *VoiceClient) GetName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetQuality calls the GetQuality RPC.
-func (c *VoiceClient) GetQuality(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetQuality(ctx, &pb.GetQualityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *VoiceClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNetworkConnectionRequired calls the IsNetworkConnectionRequired RPC.
-func (c *VoiceClient) IsNetworkConnectionRequired(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsNetworkConnectionRequired(ctx, &pb.IsNetworkConnectionRequiredRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *VoiceClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *VoiceClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
 }

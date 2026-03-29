@@ -713,6 +713,22 @@ var documentsContractPathEqualsCmd = &cobra.Command{
 	},
 }
 
+var documentsContractPathGetPathCmd = &cobra.Command{
+	Use:   "get-path",
+	Short: "GetPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContractPathServiceClient(grpcConn)
+		req := &pb.GetPathRequest{}
+		resp, err := client.GetPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var documentsContractPathGetRootIdCmd = &cobra.Command{
 	Use:   "get-root-id",
 	Short: "GetRootId RPC",
@@ -881,6 +897,7 @@ func init() {
 	documentsContractPathCmd.AddCommand(documentsContractPathDescribeContentsCmd)
 	documentsContractPathEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	documentsContractPathCmd.AddCommand(documentsContractPathEqualsCmd)
+	documentsContractPathCmd.AddCommand(documentsContractPathGetPathCmd)
 	documentsContractPathCmd.AddCommand(documentsContractPathGetRootIdCmd)
 	documentsContractPathCmd.AddCommand(documentsContractPathHashCodeCmd)
 	documentsContractPathCmd.AddCommand(documentsContractPathToStringCmd)

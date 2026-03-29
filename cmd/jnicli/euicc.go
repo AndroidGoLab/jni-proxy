@@ -165,6 +165,93 @@ var euiccDownloadableSubscriptionBuilderSetEncodedActivationCodeCmd = &cobra.Com
 	},
 }
 
+var euiccInfoCmd = &cobra.Command{
+	Use:   "info",
+	Short: "InfoService operations",
+}
+
+var euiccInfoNewInfoCmd = &cobra.Command{
+	Use:   "new-info",
+	Short: "NewInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.NewInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var euiccInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.InfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var euiccInfoGetOsVersionCmd = &cobra.Command{
+	Use:   "get-os-version",
+	Short: "GetOsVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.GetOsVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOsVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var euiccInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.InfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var euiccManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -419,93 +506,6 @@ var euiccManagerUpdateSubscriptionNicknameCmd = &cobra.Command{
 	},
 }
 
-var euiccInfoCmd = &cobra.Command{
-	Use:   "info",
-	Short: "InfoService operations",
-}
-
-var euiccInfoNewInfoCmd = &cobra.Command{
-	Use:   "new-info",
-	Short: "NewInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.NewInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var euiccInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.InfoDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var euiccInfoGetOsVersionCmd = &cobra.Command{
-	Use:   "get-os-version",
-	Short: "GetOsVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.GetOsVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOsVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var euiccInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.InfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
 	euiccDownloadableSubscriptionCmd.AddCommand(euiccDownloadableSubscriptionDescribeContentsCmd)
 	euiccDownloadableSubscriptionCmd.AddCommand(euiccDownloadableSubscriptionGetConfirmationCodeCmd)
@@ -522,6 +522,17 @@ func init() {
 	euiccDownloadableSubscriptionBuilderSetEncodedActivationCodeCmd.Flags().String("arg0", "", "arg0 (string)")
 	euiccDownloadableSubscriptionBuilderCmd.AddCommand(euiccDownloadableSubscriptionBuilderSetEncodedActivationCodeCmd)
 	euiccCmd.AddCommand(euiccDownloadableSubscriptionBuilderCmd)
+	euiccInfoNewInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	euiccInfoCmd.AddCommand(euiccInfoNewInfoCmd)
+	euiccInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	euiccInfoCmd.AddCommand(euiccInfoDescribeContentsCmd)
+	euiccInfoGetOsVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	euiccInfoCmd.AddCommand(euiccInfoGetOsVersionCmd)
+	euiccInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	euiccInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	euiccInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	euiccInfoCmd.AddCommand(euiccInfoWriteToParcelCmd)
+	euiccCmd.AddCommand(euiccInfoCmd)
 	euiccManagerCreateForCardIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	euiccManagerCmd.AddCommand(euiccManagerCreateForCardIdCmd)
 	euiccManagerDeleteSubscriptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -554,16 +565,5 @@ func init() {
 	euiccManagerUpdateSubscriptionNicknameCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	euiccManagerCmd.AddCommand(euiccManagerUpdateSubscriptionNicknameCmd)
 	euiccCmd.AddCommand(euiccManagerCmd)
-	euiccInfoNewInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	euiccInfoCmd.AddCommand(euiccInfoNewInfoCmd)
-	euiccInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	euiccInfoCmd.AddCommand(euiccInfoDescribeContentsCmd)
-	euiccInfoGetOsVersionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	euiccInfoCmd.AddCommand(euiccInfoGetOsVersionCmd)
-	euiccInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	euiccInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	euiccInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	euiccInfoCmd.AddCommand(euiccInfoWriteToParcelCmd)
-	euiccCmd.AddCommand(euiccInfoCmd)
 	rootCmd.AddCommand(euiccCmd)
 }

@@ -21,12 +21,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PageSelectionService_NewPageSelection_FullMethodName = "/selection.PageSelectionService/NewPageSelection"
-	PageSelectionService_DescribeContents_FullMethodName = "/selection.PageSelectionService/DescribeContents"
-	PageSelectionService_GetPage_FullMethodName          = "/selection.PageSelectionService/GetPage"
-	PageSelectionService_GetStart_FullMethodName         = "/selection.PageSelectionService/GetStart"
-	PageSelectionService_GetStop_FullMethodName          = "/selection.PageSelectionService/GetStop"
-	PageSelectionService_WriteToParcel_FullMethodName    = "/selection.PageSelectionService/WriteToParcel"
+	PageSelectionService_NewPageSelection_FullMethodName        = "/selection.PageSelectionService/NewPageSelection"
+	PageSelectionService_DescribeContents_FullMethodName        = "/selection.PageSelectionService/DescribeContents"
+	PageSelectionService_GetPage_FullMethodName                 = "/selection.PageSelectionService/GetPage"
+	PageSelectionService_GetSelectedTextContents_FullMethodName = "/selection.PageSelectionService/GetSelectedTextContents"
+	PageSelectionService_GetStart_FullMethodName                = "/selection.PageSelectionService/GetStart"
+	PageSelectionService_GetStop_FullMethodName                 = "/selection.PageSelectionService/GetStop"
+	PageSelectionService_WriteToParcel_FullMethodName           = "/selection.PageSelectionService/WriteToParcel"
 )
 
 // PageSelectionServiceClient is the client API for PageSelectionService service.
@@ -36,6 +37,7 @@ type PageSelectionServiceClient interface {
 	NewPageSelection(ctx context.Context, in *NewPageSelectionRequest, opts ...grpc.CallOption) (*NewPageSelectionResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetPage(ctx context.Context, in *GetPageRequest, opts ...grpc.CallOption) (*GetPageResponse, error)
+	GetSelectedTextContents(ctx context.Context, in *GetSelectedTextContentsRequest, opts ...grpc.CallOption) (*GetSelectedTextContentsResponse, error)
 	GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error)
 	GetStop(ctx context.Context, in *GetStopRequest, opts ...grpc.CallOption) (*GetStopResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
@@ -79,6 +81,16 @@ func (c *pageSelectionServiceClient) GetPage(ctx context.Context, in *GetPageReq
 	return out, nil
 }
 
+func (c *pageSelectionServiceClient) GetSelectedTextContents(ctx context.Context, in *GetSelectedTextContentsRequest, opts ...grpc.CallOption) (*GetSelectedTextContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectedTextContentsResponse)
+	err := c.cc.Invoke(ctx, PageSelectionService_GetSelectedTextContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *pageSelectionServiceClient) GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStartResponse)
@@ -116,6 +128,7 @@ type PageSelectionServiceServer interface {
 	NewPageSelection(context.Context, *NewPageSelectionRequest) (*NewPageSelectionResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetPage(context.Context, *GetPageRequest) (*GetPageResponse, error)
+	GetSelectedTextContents(context.Context, *GetSelectedTextContentsRequest) (*GetSelectedTextContentsResponse, error)
 	GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error)
 	GetStop(context.Context, *GetStopRequest) (*GetStopResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
@@ -137,6 +150,9 @@ func (UnimplementedPageSelectionServiceServer) DescribeContents(context.Context,
 }
 func (UnimplementedPageSelectionServiceServer) GetPage(context.Context, *GetPageRequest) (*GetPageResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPage not implemented")
+}
+func (UnimplementedPageSelectionServiceServer) GetSelectedTextContents(context.Context, *GetSelectedTextContentsRequest) (*GetSelectedTextContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectedTextContents not implemented")
 }
 func (UnimplementedPageSelectionServiceServer) GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStart not implemented")
@@ -222,6 +238,24 @@ func _PageSelectionService_GetPage_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PageSelectionService_GetSelectedTextContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectedTextContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PageSelectionServiceServer).GetSelectedTextContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PageSelectionService_GetSelectedTextContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PageSelectionServiceServer).GetSelectedTextContents(ctx, req.(*GetSelectedTextContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _PageSelectionService_GetStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStartRequest)
 	if err := dec(in); err != nil {
@@ -294,6 +328,10 @@ var PageSelectionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPage",
 			Handler:    _PageSelectionService_GetPage_Handler,
+		},
+		{
+			MethodName: "GetSelectedTextContents",
+			Handler:    _PageSelectionService_GetSelectedTextContents_Handler,
 		},
 		{
 			MethodName: "GetStart",

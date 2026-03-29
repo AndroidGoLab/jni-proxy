@@ -313,448 +313,6 @@ var jobWorkItemBuilderSetMinimumNetworkChunkBytesCmd = &cobra.Command{
 	},
 }
 
-var jobSchedulerCmd = &cobra.Command{
-	Use:   "scheduler",
-	Short: "SchedulerService operations",
-}
-
-var jobSchedulerCanRunUserInitiatedJobsCmd = &cobra.Command{
-	Use:   "can-run-user-initiated-jobs",
-	Short: "CanRunUserInitiatedJobs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.CanRunUserInitiatedJobsRequest{}
-		resp, err := client.CanRunUserInitiatedJobs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerCancelAllCmd = &cobra.Command{
-	Use:   "cancel-all",
-	Short: "CancelAll RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.CancelAllRequest{}
-		resp, err := client.CancelAll(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerCancelInAllNamespacesCmd = &cobra.Command{
-	Use:   "cancel-in-all-namespaces",
-	Short: "CancelInAllNamespaces RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.CancelInAllNamespacesRequest{}
-		resp, err := client.CancelInAllNamespaces(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerEnqueueCmd = &cobra.Command{
-	Use:   "enqueue",
-	Short: "Enqueue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.EnqueueRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Enqueue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerForNamespaceCmd = &cobra.Command{
-	Use:   "for-namespace",
-	Short: "ForNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.ForNamespaceRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerGetNamespaceCmd = &cobra.Command{
-	Use:   "get-namespace",
-	Short: "GetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.GetNamespaceRequest{}
-		resp, err := client.GetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerGetPendingJobCmd = &cobra.Command{
-	Use:   "get-pending-job",
-	Short: "GetPendingJob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.GetPendingJobRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPendingJob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerGetPendingJobReasonCmd = &cobra.Command{
-	Use:   "get-pending-job-reason",
-	Short: "GetPendingJobReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.GetPendingJobReasonRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPendingJobReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerGetPendingJobReasonsCmd = &cobra.Command{
-	Use:   "get-pending-job-reasons",
-	Short: "GetPendingJobReasons RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.GetPendingJobReasonsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPendingJobReasons(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobSchedulerScheduleCmd = &cobra.Command{
-	Use:   "schedule",
-	Short: "Schedule RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSchedulerServiceClient(grpcConn)
-		req := &pb.ScheduleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Schedule(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceCmd = &cobra.Command{
-	Use:   "service",
-	Short: "ServiceService operations",
-}
-
-var jobServiceJobFinishedCmd = &cobra.Command{
-	Use:   "job-finished",
-	Short: "JobFinished RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.JobFinishedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.JobFinished(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceOnNetworkChangedCmd = &cobra.Command{
-	Use:   "on-network-changed",
-	Short: "OnNetworkChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.OnNetworkChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnNetworkChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceOnStartJobCmd = &cobra.Command{
-	Use:   "on-start-job",
-	Short: "OnStartJob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.OnStartJobRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnStartJob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceOnStopJobCmd = &cobra.Command{
-	Use:   "on-stop-job",
-	Short: "OnStopJob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.OnStopJobRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnStopJob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceSetNotificationCmd = &cobra.Command{
-	Use:   "set-notification",
-	Short: "SetNotification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.SetNotificationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetNotification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceUpdateEstimatedNetworkBytes4Cmd = &cobra.Command{
-	Use:   "update-estimated-network-bytes4",
-	Short: "UpdateEstimatedNetworkBytes4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.UpdateEstimatedNetworkBytes4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.UpdateEstimatedNetworkBytes4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceUpdateEstimatedNetworkBytes3_1Cmd = &cobra.Command{
-	Use:   "update-estimated-network-bytes3_1",
-	Short: "UpdateEstimatedNetworkBytes3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.UpdateEstimatedNetworkBytes3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.UpdateEstimatedNetworkBytes3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceUpdateTransferredNetworkBytes4Cmd = &cobra.Command{
-	Use:   "update-transferred-network-bytes4",
-	Short: "UpdateTransferredNetworkBytes4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.UpdateTransferredNetworkBytes4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.UpdateTransferredNetworkBytes4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceUpdateTransferredNetworkBytes3_1Cmd = &cobra.Command{
-	Use:   "update-transferred-network-bytes3_1",
-	Short: "UpdateTransferredNetworkBytes3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceServiceClient(grpcConn)
-		req := &pb.UpdateTransferredNetworkBytes3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.UpdateTransferredNetworkBytes3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var jobPendingJobReasonsInfoCmd = &cobra.Command{
 	Use:   "pending-job-reasons-info",
 	Short: "PendingJobReasonsInfoService operations",
@@ -808,7 +366,7 @@ var jobPendingJobReasonsInfoGetPendingJobReasonsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPendingJobReasonsInfoServiceClient(grpcConn)
-		req := &pb.PendingJobReasonsInfoGetPendingJobReasonsRequest{}
+		req := &pb.GetPendingJobReasonsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -857,190 +415,6 @@ var jobPendingJobReasonsInfoWriteToParcelCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceEngineCmd = &cobra.Command{
-	Use:   "service-engine",
-	Short: "ServiceEngineService operations",
-}
-
-var jobServiceEngineGetBinderCmd = &cobra.Command{
-	Use:   "get-binder",
-	Short: "GetBinder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceEngineServiceClient(grpcConn)
-		req := &pb.GetBinderRequest{}
-		resp, err := client.GetBinder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceEngineJobFinishedCmd = &cobra.Command{
-	Use:   "job-finished",
-	Short: "JobFinished RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceEngineServiceClient(grpcConn)
-		req := &pb.JobFinishedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.JobFinished(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceEngineOnNetworkChangedCmd = &cobra.Command{
-	Use:   "on-network-changed",
-	Short: "OnNetworkChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceEngineServiceClient(grpcConn)
-		req := &pb.OnNetworkChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnNetworkChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceEngineOnStartJobCmd = &cobra.Command{
-	Use:   "on-start-job",
-	Short: "OnStartJob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceEngineServiceClient(grpcConn)
-		req := &pb.OnStartJobRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnStartJob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceEngineOnStopJobCmd = &cobra.Command{
-	Use:   "on-stop-job",
-	Short: "OnStopJob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceEngineServiceClient(grpcConn)
-		req := &pb.OnStopJobRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnStopJob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceEngineSetNotificationCmd = &cobra.Command{
-	Use:   "set-notification",
-	Short: "SetNotification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceEngineServiceClient(grpcConn)
-		req := &pb.SetNotificationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetNotification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceEngineUpdateEstimatedNetworkBytesCmd = &cobra.Command{
-	Use:   "update-estimated-network-bytes",
-	Short: "UpdateEstimatedNetworkBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceEngineServiceClient(grpcConn)
-		req := &pb.UpdateEstimatedNetworkBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.UpdateEstimatedNetworkBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobServiceEngineUpdateTransferredNetworkBytesCmd = &cobra.Command{
-	Use:   "update-transferred-network-bytes",
-	Short: "UpdateTransferredNetworkBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceEngineServiceClient(grpcConn)
-		req := &pb.UpdateTransferredNetworkBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.UpdateTransferredNetworkBytes(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1129,6 +503,22 @@ var jobInfoGetClipGrantFlagsCmd = &cobra.Command{
 		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetClipGrantFlagsRequest{}
 		resp, err := client.GetClipGrantFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobInfoGetDebugTagsCmd = &cobra.Command{
+	Use:   "get-debug-tags",
+	Short: "GetDebugTags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.GetDebugTagsRequest{}
+		resp, err := client.GetDebugTags(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2361,6 +1751,483 @@ var jobInfoTriggerContentUriWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var jobServiceCmd = &cobra.Command{
+	Use:   "service",
+	Short: "ServiceService operations",
+}
+
+var jobServiceJobFinishedCmd = &cobra.Command{
+	Use:   "job-finished",
+	Short: "JobFinished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.JobFinishedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.JobFinished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceOnNetworkChangedCmd = &cobra.Command{
+	Use:   "on-network-changed",
+	Short: "OnNetworkChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.OnNetworkChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnNetworkChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceOnStartJobCmd = &cobra.Command{
+	Use:   "on-start-job",
+	Short: "OnStartJob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.OnStartJobRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStartJob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceOnStopJobCmd = &cobra.Command{
+	Use:   "on-stop-job",
+	Short: "OnStopJob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.OnStopJobRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStopJob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceSetNotificationCmd = &cobra.Command{
+	Use:   "set-notification",
+	Short: "SetNotification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.SetNotificationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetNotification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceUpdateEstimatedNetworkBytes4Cmd = &cobra.Command{
+	Use:   "update-estimated-network-bytes4",
+	Short: "UpdateEstimatedNetworkBytes4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.UpdateEstimatedNetworkBytes4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.UpdateEstimatedNetworkBytes4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceUpdateEstimatedNetworkBytes3_1Cmd = &cobra.Command{
+	Use:   "update-estimated-network-bytes3_1",
+	Short: "UpdateEstimatedNetworkBytes3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.UpdateEstimatedNetworkBytes3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.UpdateEstimatedNetworkBytes3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceUpdateTransferredNetworkBytes4Cmd = &cobra.Command{
+	Use:   "update-transferred-network-bytes4",
+	Short: "UpdateTransferredNetworkBytes4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.UpdateTransferredNetworkBytes4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.UpdateTransferredNetworkBytes4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceUpdateTransferredNetworkBytes3_1Cmd = &cobra.Command{
+	Use:   "update-transferred-network-bytes3_1",
+	Short: "UpdateTransferredNetworkBytes3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.UpdateTransferredNetworkBytes3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.UpdateTransferredNetworkBytes3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerCmd = &cobra.Command{
+	Use:   "scheduler",
+	Short: "SchedulerService operations",
+}
+
+var jobSchedulerCanRunUserInitiatedJobsCmd = &cobra.Command{
+	Use:   "can-run-user-initiated-jobs",
+	Short: "CanRunUserInitiatedJobs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.CanRunUserInitiatedJobsRequest{}
+		resp, err := client.CanRunUserInitiatedJobs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerCancelAllCmd = &cobra.Command{
+	Use:   "cancel-all",
+	Short: "CancelAll RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.CancelAllRequest{}
+		resp, err := client.CancelAll(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerCancelInAllNamespacesCmd = &cobra.Command{
+	Use:   "cancel-in-all-namespaces",
+	Short: "CancelInAllNamespaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.CancelInAllNamespacesRequest{}
+		resp, err := client.CancelInAllNamespaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerEnqueueCmd = &cobra.Command{
+	Use:   "enqueue",
+	Short: "Enqueue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.EnqueueRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Enqueue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerForNamespaceCmd = &cobra.Command{
+	Use:   "for-namespace",
+	Short: "ForNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.ForNamespaceRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetAllPendingJobsCmd = &cobra.Command{
+	Use:   "get-all-pending-jobs",
+	Short: "GetAllPendingJobs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetAllPendingJobsRequest{}
+		resp, err := client.GetAllPendingJobs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetNamespaceCmd = &cobra.Command{
+	Use:   "get-namespace",
+	Short: "GetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetNamespaceRequest{}
+		resp, err := client.GetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetPendingJobCmd = &cobra.Command{
+	Use:   "get-pending-job",
+	Short: "GetPendingJob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetPendingJobRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPendingJob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetPendingJobReasonCmd = &cobra.Command{
+	Use:   "get-pending-job-reason",
+	Short: "GetPendingJobReason RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetPendingJobReasonRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPendingJobReason(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetPendingJobReasonsCmd = &cobra.Command{
+	Use:   "get-pending-job-reasons",
+	Short: "GetPendingJobReasons RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.SchedulerGetPendingJobReasonsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPendingJobReasons(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetPendingJobReasonsHistoryCmd = &cobra.Command{
+	Use:   "get-pending-job-reasons-history",
+	Short: "GetPendingJobReasonsHistory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetPendingJobReasonsHistoryRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPendingJobReasonsHistory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerScheduleCmd = &cobra.Command{
+	Use:   "schedule",
+	Short: "Schedule RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.ScheduleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Schedule(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var jobParametersCmd = &cobra.Command{
 	Use:   "parameters",
 	Short: "ParametersService operations",
@@ -2647,6 +2514,190 @@ var jobParametersWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var jobServiceEngineCmd = &cobra.Command{
+	Use:   "service-engine",
+	Short: "ServiceEngineService operations",
+}
+
+var jobServiceEngineGetBinderCmd = &cobra.Command{
+	Use:   "get-binder",
+	Short: "GetBinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceEngineServiceClient(grpcConn)
+		req := &pb.GetBinderRequest{}
+		resp, err := client.GetBinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceEngineJobFinishedCmd = &cobra.Command{
+	Use:   "job-finished",
+	Short: "JobFinished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceEngineServiceClient(grpcConn)
+		req := &pb.JobFinishedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.JobFinished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceEngineOnNetworkChangedCmd = &cobra.Command{
+	Use:   "on-network-changed",
+	Short: "OnNetworkChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceEngineServiceClient(grpcConn)
+		req := &pb.OnNetworkChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnNetworkChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceEngineOnStartJobCmd = &cobra.Command{
+	Use:   "on-start-job",
+	Short: "OnStartJob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceEngineServiceClient(grpcConn)
+		req := &pb.OnStartJobRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStartJob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceEngineOnStopJobCmd = &cobra.Command{
+	Use:   "on-stop-job",
+	Short: "OnStopJob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceEngineServiceClient(grpcConn)
+		req := &pb.OnStopJobRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStopJob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceEngineSetNotificationCmd = &cobra.Command{
+	Use:   "set-notification",
+	Short: "SetNotification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceEngineServiceClient(grpcConn)
+		req := &pb.SetNotificationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetNotification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceEngineUpdateEstimatedNetworkBytesCmd = &cobra.Command{
+	Use:   "update-estimated-network-bytes",
+	Short: "UpdateEstimatedNetworkBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceEngineServiceClient(grpcConn)
+		req := &pb.UpdateEstimatedNetworkBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.UpdateEstimatedNetworkBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobServiceEngineUpdateTransferredNetworkBytesCmd = &cobra.Command{
+	Use:   "update-transferred-network-bytes",
+	Short: "UpdateTransferredNetworkBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceEngineServiceClient(grpcConn)
+		req := &pb.UpdateTransferredNetworkBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.UpdateTransferredNetworkBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	jobWorkItemNewWorkItemCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	jobWorkItemCmd.AddCommand(jobWorkItemNewWorkItemCmd)
@@ -2682,61 +2733,6 @@ func init() {
 	jobWorkItemBuilderSetMinimumNetworkChunkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	jobWorkItemBuilderCmd.AddCommand(jobWorkItemBuilderSetMinimumNetworkChunkBytesCmd)
 	jobCmd.AddCommand(jobWorkItemBuilderCmd)
-	jobSchedulerCmd.AddCommand(jobSchedulerCanRunUserInitiatedJobsCmd)
-	jobSchedulerCancelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobSchedulerCmd.AddCommand(jobSchedulerCancelCmd)
-	jobSchedulerCmd.AddCommand(jobSchedulerCancelAllCmd)
-	jobSchedulerCmd.AddCommand(jobSchedulerCancelInAllNamespacesCmd)
-	jobSchedulerEnqueueCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobSchedulerEnqueueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobSchedulerCmd.AddCommand(jobSchedulerEnqueueCmd)
-	jobSchedulerForNamespaceCmd.Flags().String("arg0", "", "arg0 (string)")
-	jobSchedulerCmd.AddCommand(jobSchedulerForNamespaceCmd)
-	jobSchedulerCmd.AddCommand(jobSchedulerGetNamespaceCmd)
-	jobSchedulerGetPendingJobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobCmd)
-	jobSchedulerGetPendingJobReasonCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobReasonCmd)
-	jobSchedulerGetPendingJobReasonsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobReasonsCmd)
-	jobSchedulerScheduleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobSchedulerCmd.AddCommand(jobSchedulerScheduleCmd)
-	jobCmd.AddCommand(jobSchedulerCmd)
-	jobServiceJobFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceJobFinishedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	jobServiceCmd.AddCommand(jobServiceJobFinishedCmd)
-	jobServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceCmd.AddCommand(jobServiceOnBindCmd)
-	jobServiceOnNetworkChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceCmd.AddCommand(jobServiceOnNetworkChangedCmd)
-	jobServiceOnStartJobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceCmd.AddCommand(jobServiceOnStartJobCmd)
-	jobServiceOnStopJobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceCmd.AddCommand(jobServiceOnStopJobCmd)
-	jobServiceSetNotificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceSetNotificationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	jobServiceSetNotificationCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	jobServiceSetNotificationCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	jobServiceCmd.AddCommand(jobServiceSetNotificationCmd)
-	jobServiceUpdateEstimatedNetworkBytes4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceUpdateEstimatedNetworkBytes4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobServiceUpdateEstimatedNetworkBytes4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	jobServiceUpdateEstimatedNetworkBytes4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	jobServiceCmd.AddCommand(jobServiceUpdateEstimatedNetworkBytes4Cmd)
-	jobServiceUpdateEstimatedNetworkBytes3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceUpdateEstimatedNetworkBytes3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobServiceUpdateEstimatedNetworkBytes3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	jobServiceCmd.AddCommand(jobServiceUpdateEstimatedNetworkBytes3_1Cmd)
-	jobServiceUpdateTransferredNetworkBytes4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceUpdateTransferredNetworkBytes4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobServiceUpdateTransferredNetworkBytes4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	jobServiceUpdateTransferredNetworkBytes4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	jobServiceCmd.AddCommand(jobServiceUpdateTransferredNetworkBytes4Cmd)
-	jobServiceUpdateTransferredNetworkBytes3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceUpdateTransferredNetworkBytes3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobServiceUpdateTransferredNetworkBytes3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	jobServiceCmd.AddCommand(jobServiceUpdateTransferredNetworkBytes3_1Cmd)
-	jobCmd.AddCommand(jobServiceCmd)
 	jobPendingJobReasonsInfoNewPendingJobReasonsInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	jobPendingJobReasonsInfoNewPendingJobReasonsInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	jobPendingJobReasonsInfoCmd.AddCommand(jobPendingJobReasonsInfoNewPendingJobReasonsInfoCmd)
@@ -2751,38 +2747,13 @@ func init() {
 	jobPendingJobReasonsInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	jobPendingJobReasonsInfoCmd.AddCommand(jobPendingJobReasonsInfoWriteToParcelCmd)
 	jobCmd.AddCommand(jobPendingJobReasonsInfoCmd)
-	jobServiceEngineCmd.AddCommand(jobServiceEngineGetBinderCmd)
-	jobServiceEngineJobFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceEngineJobFinishedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	jobServiceEngineCmd.AddCommand(jobServiceEngineJobFinishedCmd)
-	jobServiceEngineOnNetworkChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceEngineCmd.AddCommand(jobServiceEngineOnNetworkChangedCmd)
-	jobServiceEngineOnStartJobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceEngineCmd.AddCommand(jobServiceEngineOnStartJobCmd)
-	jobServiceEngineOnStopJobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceEngineCmd.AddCommand(jobServiceEngineOnStopJobCmd)
-	jobServiceEngineSetNotificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceEngineSetNotificationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	jobServiceEngineSetNotificationCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	jobServiceEngineSetNotificationCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	jobServiceEngineCmd.AddCommand(jobServiceEngineSetNotificationCmd)
-	jobServiceEngineUpdateEstimatedNetworkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceEngineUpdateEstimatedNetworkBytesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobServiceEngineUpdateEstimatedNetworkBytesCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	jobServiceEngineUpdateEstimatedNetworkBytesCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	jobServiceEngineCmd.AddCommand(jobServiceEngineUpdateEstimatedNetworkBytesCmd)
-	jobServiceEngineUpdateTransferredNetworkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobServiceEngineUpdateTransferredNetworkBytesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobServiceEngineUpdateTransferredNetworkBytesCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	jobServiceEngineUpdateTransferredNetworkBytesCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	jobServiceEngineCmd.AddCommand(jobServiceEngineUpdateTransferredNetworkBytesCmd)
-	jobCmd.AddCommand(jobServiceEngineCmd)
 	jobInfoCmd.AddCommand(jobInfoDescribeContentsCmd)
 	jobInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	jobInfoCmd.AddCommand(jobInfoEqualsCmd)
 	jobInfoCmd.AddCommand(jobInfoGetBackoffPolicyCmd)
 	jobInfoCmd.AddCommand(jobInfoGetClipDataCmd)
 	jobInfoCmd.AddCommand(jobInfoGetClipGrantFlagsCmd)
+	jobInfoCmd.AddCommand(jobInfoGetDebugTagsCmd)
 	jobInfoCmd.AddCommand(jobInfoGetEstimatedNetworkDownloadBytesCmd)
 	jobInfoCmd.AddCommand(jobInfoGetEstimatedNetworkUploadBytesCmd)
 	jobInfoCmd.AddCommand(jobInfoGetExtrasCmd)
@@ -2892,6 +2863,64 @@ func init() {
 	jobInfoTriggerContentUriWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	jobInfoTriggerContentUriCmd.AddCommand(jobInfoTriggerContentUriWriteToParcelCmd)
 	jobCmd.AddCommand(jobInfoTriggerContentUriCmd)
+	jobServiceJobFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceJobFinishedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	jobServiceCmd.AddCommand(jobServiceJobFinishedCmd)
+	jobServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceCmd.AddCommand(jobServiceOnBindCmd)
+	jobServiceOnNetworkChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceCmd.AddCommand(jobServiceOnNetworkChangedCmd)
+	jobServiceOnStartJobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceCmd.AddCommand(jobServiceOnStartJobCmd)
+	jobServiceOnStopJobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceCmd.AddCommand(jobServiceOnStopJobCmd)
+	jobServiceSetNotificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceSetNotificationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	jobServiceSetNotificationCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	jobServiceSetNotificationCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	jobServiceCmd.AddCommand(jobServiceSetNotificationCmd)
+	jobServiceUpdateEstimatedNetworkBytes4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceUpdateEstimatedNetworkBytes4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobServiceUpdateEstimatedNetworkBytes4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	jobServiceUpdateEstimatedNetworkBytes4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	jobServiceCmd.AddCommand(jobServiceUpdateEstimatedNetworkBytes4Cmd)
+	jobServiceUpdateEstimatedNetworkBytes3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceUpdateEstimatedNetworkBytes3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobServiceUpdateEstimatedNetworkBytes3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	jobServiceCmd.AddCommand(jobServiceUpdateEstimatedNetworkBytes3_1Cmd)
+	jobServiceUpdateTransferredNetworkBytes4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceUpdateTransferredNetworkBytes4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobServiceUpdateTransferredNetworkBytes4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	jobServiceUpdateTransferredNetworkBytes4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	jobServiceCmd.AddCommand(jobServiceUpdateTransferredNetworkBytes4Cmd)
+	jobServiceUpdateTransferredNetworkBytes3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceUpdateTransferredNetworkBytes3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobServiceUpdateTransferredNetworkBytes3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	jobServiceCmd.AddCommand(jobServiceUpdateTransferredNetworkBytes3_1Cmd)
+	jobCmd.AddCommand(jobServiceCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerCanRunUserInitiatedJobsCmd)
+	jobSchedulerCancelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerCancelCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerCancelAllCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerCancelInAllNamespacesCmd)
+	jobSchedulerEnqueueCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobSchedulerEnqueueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobSchedulerCmd.AddCommand(jobSchedulerEnqueueCmd)
+	jobSchedulerForNamespaceCmd.Flags().String("arg0", "", "arg0 (string)")
+	jobSchedulerCmd.AddCommand(jobSchedulerForNamespaceCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerGetAllPendingJobsCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerGetNamespaceCmd)
+	jobSchedulerGetPendingJobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobCmd)
+	jobSchedulerGetPendingJobReasonCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobReasonCmd)
+	jobSchedulerGetPendingJobReasonsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobReasonsCmd)
+	jobSchedulerGetPendingJobReasonsHistoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobReasonsHistoryCmd)
+	jobSchedulerScheduleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobSchedulerCmd.AddCommand(jobSchedulerScheduleCmd)
+	jobCmd.AddCommand(jobSchedulerCmd)
 	jobParametersCompleteWorkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	jobParametersCmd.AddCommand(jobParametersCompleteWorkCmd)
 	jobParametersCmd.AddCommand(jobParametersDequeueWorkCmd)
@@ -2913,5 +2942,31 @@ func init() {
 	jobParametersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	jobParametersCmd.AddCommand(jobParametersWriteToParcelCmd)
 	jobCmd.AddCommand(jobParametersCmd)
+	jobServiceEngineCmd.AddCommand(jobServiceEngineGetBinderCmd)
+	jobServiceEngineJobFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceEngineJobFinishedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	jobServiceEngineCmd.AddCommand(jobServiceEngineJobFinishedCmd)
+	jobServiceEngineOnNetworkChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceEngineCmd.AddCommand(jobServiceEngineOnNetworkChangedCmd)
+	jobServiceEngineOnStartJobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceEngineCmd.AddCommand(jobServiceEngineOnStartJobCmd)
+	jobServiceEngineOnStopJobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceEngineCmd.AddCommand(jobServiceEngineOnStopJobCmd)
+	jobServiceEngineSetNotificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceEngineSetNotificationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	jobServiceEngineSetNotificationCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	jobServiceEngineSetNotificationCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	jobServiceEngineCmd.AddCommand(jobServiceEngineSetNotificationCmd)
+	jobServiceEngineUpdateEstimatedNetworkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceEngineUpdateEstimatedNetworkBytesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobServiceEngineUpdateEstimatedNetworkBytesCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	jobServiceEngineUpdateEstimatedNetworkBytesCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	jobServiceEngineCmd.AddCommand(jobServiceEngineUpdateEstimatedNetworkBytesCmd)
+	jobServiceEngineUpdateTransferredNetworkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobServiceEngineUpdateTransferredNetworkBytesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobServiceEngineUpdateTransferredNetworkBytesCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	jobServiceEngineUpdateTransferredNetworkBytesCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	jobServiceEngineCmd.AddCommand(jobServiceEngineUpdateTransferredNetworkBytesCmd)
+	jobCmd.AddCommand(jobServiceEngineCmd)
 	rootCmd.AddCommand(jobCmd)
 }

@@ -714,6 +714,25 @@ var gsmSmsManagerCmd = &cobra.Command{
 	Short: "SmsManagerService operations",
 }
 
+var gsmSmsManagerDivideMessageCmd = &cobra.Command{
+	Use:   "divide-message",
+	Short: "DivideMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.DivideMessageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DivideMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var gsmSmsManagerSendDataMessageCmd = &cobra.Command{
 	Use:   "send-data-message",
 	Short: "SendDataMessage RPC",
@@ -1083,6 +1102,8 @@ func init() {
 	gsmCmd.AddCommand(gsmSmsMessageMessageClassCmd)
 	gsmSmsMessageSubmitPduCmd.AddCommand(gsmSmsMessageSubmitPduToStringCmd)
 	gsmCmd.AddCommand(gsmSmsMessageSubmitPduCmd)
+	gsmSmsManagerDivideMessageCmd.Flags().String("arg0", "", "arg0 (string)")
+	gsmSmsManagerCmd.AddCommand(gsmSmsManagerDivideMessageCmd)
 	gsmSmsManagerSendDataMessageCmd.Flags().String("arg0", "", "arg0 (string)")
 	gsmSmsManagerSendDataMessageCmd.Flags().String("arg1", "", "arg1 (string)")
 	gsmSmsManagerSendDataMessageCmd.Flags().Int32("arg2", 0, "arg2 (int32)")

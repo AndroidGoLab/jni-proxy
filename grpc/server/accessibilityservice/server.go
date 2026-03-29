@@ -15,111 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// AccessibilityGestureEventServer implements pb.AccessibilityGestureEventServiceServer.
-type AccessibilityGestureEventServer struct {
-	pb.UnimplementedAccessibilityGestureEventServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AccessibilityGestureEventServer) NewAccessibilityGestureEvent(_ context.Context, req *pb.NewAccessibilityGestureEventRequest) (*pb.NewAccessibilityGestureEventResponse, error) {
-	obj, err := jnipkg.NewAccessibilityGestureEvent(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAccessibilityGestureEventResponse{Result: handle}, nil
-}
-
-func (s *AccessibilityGestureEventServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *AccessibilityGestureEventServer) GetDisplayId(_ context.Context, req *pb.AccessibilityGestureEventGetDisplayIdRequest) (*pb.GetDisplayIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDisplayId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDisplayIdResponse{Result: result}, nil
-}
-
-func (s *AccessibilityGestureEventServer) GetGestureId(_ context.Context, req *pb.GetGestureIdRequest) (*pb.GetGestureIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetGestureId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetGestureIdResponse{Result: result}, nil
-}
-
-func (s *AccessibilityGestureEventServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *AccessibilityGestureEventServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-func (s *AccessibilityGestureEventServer) GestureIdToString(_ context.Context, req *pb.GestureIdToStringRequest) (*pb.GestureIdToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GestureIdToString(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GestureIdToStringResponse{Result: result}, nil
-}
-
 // AccessibilityServiceInfoServer implements pb.AccessibilityServiceInfoServiceServer.
 type AccessibilityServiceInfoServer struct {
 	pb.UnimplementedAccessibilityServiceInfoServiceServer
@@ -634,4 +529,132 @@ func (s *InputMethodServer) OnUpdateSelection(_ context.Context, req *pb.OnUpdat
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.OnUpdateSelectionResponse{}, nil
+}
+
+// AccessibilityGestureEventServer implements pb.AccessibilityGestureEventServiceServer.
+type AccessibilityGestureEventServer struct {
+	pb.UnimplementedAccessibilityGestureEventServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AccessibilityGestureEventServer) NewAccessibilityGestureEvent(_ context.Context, req *pb.NewAccessibilityGestureEventRequest) (*pb.NewAccessibilityGestureEventResponse, error) {
+	obj, err := jnipkg.NewAccessibilityGestureEvent(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAccessibilityGestureEventResponse{Result: handle}, nil
+}
+
+func (s *AccessibilityGestureEventServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *AccessibilityGestureEventServer) GetDisplayId(_ context.Context, req *pb.AccessibilityGestureEventGetDisplayIdRequest) (*pb.GetDisplayIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDisplayId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDisplayIdResponse{Result: result}, nil
+}
+
+func (s *AccessibilityGestureEventServer) GetGestureId(_ context.Context, req *pb.GetGestureIdRequest) (*pb.GetGestureIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGestureId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGestureIdResponse{Result: result}, nil
+}
+
+func (s *AccessibilityGestureEventServer) GetMotionEvents(_ context.Context, req *pb.GetMotionEventsRequest) (*pb.GetMotionEventsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMotionEvents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMotionEventsResponse{Result: handle}, nil
+}
+
+func (s *AccessibilityGestureEventServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *AccessibilityGestureEventServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *AccessibilityGestureEventServer) GestureIdToString(_ context.Context, req *pb.GestureIdToStringRequest) (*pb.GestureIdToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AccessibilityGestureEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GestureIdToString(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GestureIdToStringResponse{Result: result}, nil
 }

@@ -149,6 +149,22 @@ var blobStoreManagerCreateSessionCmd = &cobra.Command{
 	},
 }
 
+var blobStoreManagerGetLeasedBlobsCmd = &cobra.Command{
+	Use:   "get-leased-blobs",
+	Short: "GetLeasedBlobs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerServiceClient(grpcConn)
+		req := &pb.GetLeasedBlobsRequest{}
+		resp, err := client.GetLeasedBlobs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var blobStoreManagerGetRemainingLeaseQuotaBytesCmd = &cobra.Command{
 	Use:   "get-remaining-lease-quota-bytes",
 	Short: "GetRemainingLeaseQuotaBytes RPC",
@@ -626,6 +642,7 @@ func init() {
 	blobStoreManagerCmd.AddCommand(blobStoreManagerAcquireLease3_3Cmd)
 	blobStoreManagerCreateSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	blobStoreManagerCmd.AddCommand(blobStoreManagerCreateSessionCmd)
+	blobStoreManagerCmd.AddCommand(blobStoreManagerGetLeasedBlobsCmd)
 	blobStoreManagerCmd.AddCommand(blobStoreManagerGetRemainingLeaseQuotaBytesCmd)
 	blobStoreManagerOpenBlobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	blobStoreManagerCmd.AddCommand(blobStoreManagerOpenBlobCmd)

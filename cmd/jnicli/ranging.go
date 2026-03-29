@@ -12,6 +12,156 @@ var rangingCmd = &cobra.Command{
 	Short: "ranging service operations",
 }
 
+var rangingDeviceCmd = &cobra.Command{
+	Use:   "device",
+	Short: "DeviceService operations",
+}
+
+var rangingDeviceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDeviceEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDeviceGetUuidCmd = &cobra.Command{
+	Use:   "get-uuid",
+	Short: "GetUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetUuidRequest{}
+		resp, err := client.GetUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDeviceHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDeviceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDeviceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDeviceBuilderCmd = &cobra.Command{
+	Use:   "device-builder",
+	Short: "DeviceBuilderService operations",
+}
+
+var rangingDeviceBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDeviceBuilderSetUuidCmd = &cobra.Command{
+	Use:   "set-uuid",
+	Short: "SetUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceBuilderServiceClient(grpcConn)
+		req := &pb.SetUuidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var rangingSessionConfigCmd = &cobra.Command{
 	Use:   "session-config",
 	Short: "SessionConfigService operations",
@@ -267,18 +417,18 @@ var rangingSessionConfigBuilderSetSensorFusionParamsCmd = &cobra.Command{
 	},
 }
 
-var rangingMeasurementCmd = &cobra.Command{
-	Use:   "measurement",
-	Short: "MeasurementService operations",
+var rangingPreferenceCmd = &cobra.Command{
+	Use:   "preference",
+	Short: "PreferenceService operations",
 }
 
-var rangingMeasurementDescribeContentsCmd = &cobra.Command{
+var rangingPreferenceDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMeasurementServiceClient(grpcConn)
+		client := pb.NewPreferenceServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -288,15 +438,15 @@ var rangingMeasurementDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var rangingMeasurementGetConfidenceCmd = &cobra.Command{
-	Use:   "get-confidence",
-	Short: "GetConfidence RPC",
+var rangingPreferenceGetDeviceRoleCmd = &cobra.Command{
+	Use:   "get-device-role",
+	Short: "GetDeviceRole RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMeasurementServiceClient(grpcConn)
-		req := &pb.GetConfidenceRequest{}
-		resp, err := client.GetConfidence(ctx, req)
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetDeviceRoleRequest{}
+		resp, err := client.GetDeviceRole(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -304,15 +454,15 @@ var rangingMeasurementGetConfidenceCmd = &cobra.Command{
 	},
 }
 
-var rangingMeasurementGetMeasurementCmd = &cobra.Command{
-	Use:   "get-measurement",
-	Short: "GetMeasurement RPC",
+var rangingPreferenceGetRangingParamsCmd = &cobra.Command{
+	Use:   "get-ranging-params",
+	Short: "GetRangingParams RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMeasurementServiceClient(grpcConn)
-		req := &pb.GetMeasurementRequest{}
-		resp, err := client.GetMeasurement(ctx, req)
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetRangingParamsRequest{}
+		resp, err := client.GetRangingParams(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -320,13 +470,29 @@ var rangingMeasurementGetMeasurementCmd = &cobra.Command{
 	},
 }
 
-var rangingMeasurementToStringCmd = &cobra.Command{
+var rangingPreferenceGetSessionConfigCmd = &cobra.Command{
+	Use:   "get-session-config",
+	Short: "GetSessionConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferenceServiceClient(grpcConn)
+		req := &pb.GetSessionConfigRequest{}
+		resp, err := client.GetSessionConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingPreferenceToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMeasurementServiceClient(grpcConn)
+		client := pb.NewPreferenceServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -336,13 +502,13 @@ var rangingMeasurementToStringCmd = &cobra.Command{
 	},
 }
 
-var rangingMeasurementWriteToParcelCmd = &cobra.Command{
+var rangingPreferenceWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMeasurementServiceClient(grpcConn)
+		client := pb.NewPreferenceServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -358,20 +524,20 @@ var rangingMeasurementWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var rangingDataCmd = &cobra.Command{
-	Use:   "data",
-	Short: "DataService operations",
+var rangingPreferenceBuilderCmd = &cobra.Command{
+	Use:   "preference-builder",
+	Short: "PreferenceBuilderService operations",
 }
 
-var rangingDataDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var rangingPreferenceBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
+		client := pb.NewPreferenceBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -379,133 +545,18 @@ var rangingDataDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var rangingDataGetAzimuthCmd = &cobra.Command{
-	Use:   "get-azimuth",
-	Short: "GetAzimuth RPC",
+var rangingPreferenceBuilderSetSessionConfigCmd = &cobra.Command{
+	Use:   "set-session-config",
+	Short: "SetSessionConfig RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.GetAzimuthRequest{}
-		resp, err := client.GetAzimuth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataGetDistanceCmd = &cobra.Command{
-	Use:   "get-distance",
-	Short: "GetDistance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.GetDistanceRequest{}
-		resp, err := client.GetDistance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataGetElevationCmd = &cobra.Command{
-	Use:   "get-elevation",
-	Short: "GetElevation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.GetElevationRequest{}
-		resp, err := client.GetElevation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataGetRangingTechnologyCmd = &cobra.Command{
-	Use:   "get-ranging-technology",
-	Short: "GetRangingTechnology RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.GetRangingTechnologyRequest{}
-		resp, err := client.GetRangingTechnology(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataGetRssiCmd = &cobra.Command{
-	Use:   "get-rssi",
-	Short: "GetRssi RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.GetRssiRequest{}
-		resp, err := client.GetRssi(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataGetTimestampMillisCmd = &cobra.Command{
-	Use:   "get-timestamp-millis",
-	Short: "GetTimestampMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.GetTimestampMillisRequest{}
-		resp, err := client.GetTimestampMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataHasRssiCmd = &cobra.Command{
-	Use:   "has-rssi",
-	Short: "HasRssi RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.HasRssiRequest{}
-		resp, err := client.HasRssi(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewPreferenceBuilderServiceClient(grpcConn)
+		req := &pb.SetSessionConfigRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.SetSessionConfig(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -513,18 +564,18 @@ var rangingDataWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var rangingDataNotificationConfigCmd = &cobra.Command{
-	Use:   "data-notification-config",
-	Short: "DataNotificationConfigService operations",
+var rangingSensorFusionParamsCmd = &cobra.Command{
+	Use:   "sensor-fusion-params",
+	Short: "SensorFusionParamsService operations",
 }
 
-var rangingDataNotificationConfigDescribeContentsCmd = &cobra.Command{
+var rangingSensorFusionParamsDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -534,13 +585,13 @@ var rangingDataNotificationConfigDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var rangingDataNotificationConfigEqualsCmd = &cobra.Command{
+var rangingSensorFusionParamsEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -553,61 +604,13 @@ var rangingDataNotificationConfigEqualsCmd = &cobra.Command{
 	},
 }
 
-var rangingDataNotificationConfigGetNotificationConfigTypeCmd = &cobra.Command{
-	Use:   "get-notification-config-type",
-	Short: "GetNotificationConfigType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
-		req := &pb.GetNotificationConfigTypeRequest{}
-		resp, err := client.GetNotificationConfigType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataNotificationConfigGetProximityFarCmCmd = &cobra.Command{
-	Use:   "get-proximity-far-cm",
-	Short: "GetProximityFarCm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
-		req := &pb.GetProximityFarCmRequest{}
-		resp, err := client.GetProximityFarCm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataNotificationConfigGetProximityNearCmCmd = &cobra.Command{
-	Use:   "get-proximity-near-cm",
-	Short: "GetProximityNearCm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
-		req := &pb.GetProximityNearCmRequest{}
-		resp, err := client.GetProximityNearCm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataNotificationConfigHashCodeCmd = &cobra.Command{
+var rangingSensorFusionParamsHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -617,13 +620,29 @@ var rangingDataNotificationConfigHashCodeCmd = &cobra.Command{
 	},
 }
 
-var rangingDataNotificationConfigToStringCmd = &cobra.Command{
+var rangingSensorFusionParamsIsSensorFusionEnabledCmd = &cobra.Command{
+	Use:   "is-sensor-fusion-enabled",
+	Short: "IsSensorFusionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
+		req := &pb.IsSensorFusionEnabledRequest{}
+		resp, err := client.IsSensorFusionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingSensorFusionParamsToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -633,13 +652,13 @@ var rangingDataNotificationConfigToStringCmd = &cobra.Command{
 	},
 }
 
-var rangingDataNotificationConfigWriteToParcelCmd = &cobra.Command{
+var rangingSensorFusionParamsWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -655,18 +674,18 @@ var rangingDataNotificationConfigWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var rangingDataNotificationConfigBuilderCmd = &cobra.Command{
-	Use:   "data-notification-config-builder",
-	Short: "DataNotificationConfigBuilderService operations",
+var rangingSensorFusionParamsBuilderCmd = &cobra.Command{
+	Use:   "sensor-fusion-params-builder",
+	Short: "SensorFusionParamsBuilderService operations",
 }
 
-var rangingDataNotificationConfigBuilderBuildCmd = &cobra.Command{
+var rangingSensorFusionParamsBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataNotificationConfigBuilderServiceClient(grpcConn)
+		client := pb.NewSensorFusionParamsBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -676,93 +695,18 @@ var rangingDataNotificationConfigBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var rangingDataNotificationConfigBuilderSetNotificationConfigTypeCmd = &cobra.Command{
-	Use:   "set-notification-config-type",
-	Short: "SetNotificationConfigType RPC",
+var rangingSensorFusionParamsBuilderSetSensorFusionEnabledCmd = &cobra.Command{
+	Use:   "set-sensor-fusion-enabled",
+	Short: "SetSensorFusionEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataNotificationConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetNotificationConfigTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewSensorFusionParamsBuilderServiceClient(grpcConn)
+		req := &pb.SetSensorFusionEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetNotificationConfigType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataNotificationConfigBuilderSetProximityFarCmCmd = &cobra.Command{
-	Use:   "set-proximity-far-cm",
-	Short: "SetProximityFarCm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataNotificationConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetProximityFarCmRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetProximityFarCm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDataNotificationConfigBuilderSetProximityNearCmCmd = &cobra.Command{
-	Use:   "set-proximity-near-cm",
-	Short: "SetProximityNearCm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataNotificationConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetProximityNearCmRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetProximityNearCm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingConfigCmd = &cobra.Command{
-	Use:   "config",
-	Short: "ConfigService operations",
-}
-
-var rangingConfigGetRangingSessionTypeCmd = &cobra.Command{
-	Use:   "get-ranging-session-type",
-	Short: "GetRangingSessionType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigServiceClient(grpcConn)
-		req := &pb.GetRangingSessionTypeRequest{}
-		resp, err := client.GetRangingSessionType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingConfigToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConfigServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
+		resp, err := client.SetSensorFusionEnabled(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1024,545 +968,6 @@ var rangingSessionCallbackOnStoppedCmd = &cobra.Command{
 	},
 }
 
-var rangingSensorFusionParamsCmd = &cobra.Command{
-	Use:   "sensor-fusion-params",
-	Short: "SensorFusionParamsService operations",
-}
-
-var rangingSensorFusionParamsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingSensorFusionParamsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingSensorFusionParamsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingSensorFusionParamsIsSensorFusionEnabledCmd = &cobra.Command{
-	Use:   "is-sensor-fusion-enabled",
-	Short: "IsSensorFusionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
-		req := &pb.IsSensorFusionEnabledRequest{}
-		resp, err := client.IsSensorFusionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingSensorFusionParamsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingSensorFusionParamsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorFusionParamsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingSensorFusionParamsBuilderCmd = &cobra.Command{
-	Use:   "sensor-fusion-params-builder",
-	Short: "SensorFusionParamsBuilderService operations",
-}
-
-var rangingSensorFusionParamsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorFusionParamsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingSensorFusionParamsBuilderSetSensorFusionEnabledCmd = &cobra.Command{
-	Use:   "set-sensor-fusion-enabled",
-	Short: "SetSensorFusionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorFusionParamsBuilderServiceClient(grpcConn)
-		req := &pb.SetSensorFusionEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSensorFusionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var rangingManagerCreateRangingSessionCmd = &cobra.Command{
-	Use:   "create-ranging-session",
-	Short: "CreateRangingSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CreateRangingSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateRangingSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingManagerRegisterCapabilitiesCallbackCmd = &cobra.Command{
-	Use:   "register-capabilities-callback",
-	Short: "RegisterCapabilitiesCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.RegisterCapabilitiesCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RegisterCapabilitiesCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingManagerUnregisterCapabilitiesCallbackCmd = &cobra.Command{
-	Use:   "unregister-capabilities-callback",
-	Short: "UnregisterCapabilitiesCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.UnregisterCapabilitiesCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterCapabilitiesCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingManagerRangingCapabilitiesCallbackCmd = &cobra.Command{
-	Use:   "manager-ranging-capabilities-callback",
-	Short: "ManagerRangingCapabilitiesCallbackService operations",
-}
-
-var rangingManagerRangingCapabilitiesCallbackOnRangingCapabilitiesCmd = &cobra.Command{
-	Use:   "on-ranging-capabilities",
-	Short: "OnRangingCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerRangingCapabilitiesCallbackServiceClient(grpcConn)
-		req := &pb.OnRangingCapabilitiesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRangingCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDeviceCmd = &cobra.Command{
-	Use:   "device",
-	Short: "DeviceService operations",
-}
-
-var rangingDeviceDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDeviceEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDeviceGetUuidCmd = &cobra.Command{
-	Use:   "get-uuid",
-	Short: "GetUuid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetUuidRequest{}
-		resp, err := client.GetUuid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDeviceHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDeviceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDeviceWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDeviceBuilderCmd = &cobra.Command{
-	Use:   "device-builder",
-	Short: "DeviceBuilderService operations",
-}
-
-var rangingDeviceBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingDeviceBuilderSetUuidCmd = &cobra.Command{
-	Use:   "set-uuid",
-	Short: "SetUuid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceBuilderServiceClient(grpcConn)
-		req := &pb.SetUuidRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUuid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingPreferenceCmd = &cobra.Command{
-	Use:   "preference",
-	Short: "PreferenceService operations",
-}
-
-var rangingPreferenceDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingPreferenceGetDeviceRoleCmd = &cobra.Command{
-	Use:   "get-device-role",
-	Short: "GetDeviceRole RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetDeviceRoleRequest{}
-		resp, err := client.GetDeviceRole(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingPreferenceGetRangingParamsCmd = &cobra.Command{
-	Use:   "get-ranging-params",
-	Short: "GetRangingParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetRangingParamsRequest{}
-		resp, err := client.GetRangingParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingPreferenceGetSessionConfigCmd = &cobra.Command{
-	Use:   "get-session-config",
-	Short: "GetSessionConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.GetSessionConfigRequest{}
-		resp, err := client.GetSessionConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingPreferenceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingPreferenceWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingPreferenceBuilderCmd = &cobra.Command{
-	Use:   "preference-builder",
-	Short: "PreferenceBuilderService operations",
-}
-
-var rangingPreferenceBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rangingPreferenceBuilderSetSessionConfigCmd = &cobra.Command{
-	Use:   "set-session-config",
-	Short: "SetSessionConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPreferenceBuilderServiceClient(grpcConn)
-		req := &pb.SetSessionConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSessionConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var rangingCapabilitiesCmd = &cobra.Command{
 	Use:   "capabilities",
 	Short: "CapabilitiesService operations",
@@ -1670,7 +1075,616 @@ var rangingCapabilitiesWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var rangingConfigCmd = &cobra.Command{
+	Use:   "config",
+	Short: "ConfigService operations",
+}
+
+var rangingConfigGetRangingSessionTypeCmd = &cobra.Command{
+	Use:   "get-ranging-session-type",
+	Short: "GetRangingSessionType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigServiceClient(grpcConn)
+		req := &pb.GetRangingSessionTypeRequest{}
+		resp, err := client.GetRangingSessionType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingMeasurementCmd = &cobra.Command{
+	Use:   "measurement",
+	Short: "MeasurementService operations",
+}
+
+var rangingMeasurementDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeasurementServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingMeasurementGetConfidenceCmd = &cobra.Command{
+	Use:   "get-confidence",
+	Short: "GetConfidence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeasurementServiceClient(grpcConn)
+		req := &pb.GetConfidenceRequest{}
+		resp, err := client.GetConfidence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingMeasurementGetMeasurementCmd = &cobra.Command{
+	Use:   "get-measurement",
+	Short: "GetMeasurement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeasurementServiceClient(grpcConn)
+		req := &pb.GetMeasurementRequest{}
+		resp, err := client.GetMeasurement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingMeasurementToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeasurementServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingMeasurementWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMeasurementServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataCmd = &cobra.Command{
+	Use:   "data",
+	Short: "DataService operations",
+}
+
+var rangingDataDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataGetAzimuthCmd = &cobra.Command{
+	Use:   "get-azimuth",
+	Short: "GetAzimuth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.GetAzimuthRequest{}
+		resp, err := client.GetAzimuth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataGetDistanceCmd = &cobra.Command{
+	Use:   "get-distance",
+	Short: "GetDistance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.GetDistanceRequest{}
+		resp, err := client.GetDistance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataGetElevationCmd = &cobra.Command{
+	Use:   "get-elevation",
+	Short: "GetElevation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.GetElevationRequest{}
+		resp, err := client.GetElevation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataGetRangingTechnologyCmd = &cobra.Command{
+	Use:   "get-ranging-technology",
+	Short: "GetRangingTechnology RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.GetRangingTechnologyRequest{}
+		resp, err := client.GetRangingTechnology(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataGetRssiCmd = &cobra.Command{
+	Use:   "get-rssi",
+	Short: "GetRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.GetRssiRequest{}
+		resp, err := client.GetRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataGetTimestampMillisCmd = &cobra.Command{
+	Use:   "get-timestamp-millis",
+	Short: "GetTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.GetTimestampMillisRequest{}
+		resp, err := client.GetTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataHasRssiCmd = &cobra.Command{
+	Use:   "has-rssi",
+	Short: "HasRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.HasRssiRequest{}
+		resp, err := client.HasRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var rangingManagerCreateRangingSessionCmd = &cobra.Command{
+	Use:   "create-ranging-session",
+	Short: "CreateRangingSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateRangingSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateRangingSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingManagerRegisterCapabilitiesCallbackCmd = &cobra.Command{
+	Use:   "register-capabilities-callback",
+	Short: "RegisterCapabilitiesCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.RegisterCapabilitiesCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterCapabilitiesCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingManagerUnregisterCapabilitiesCallbackCmd = &cobra.Command{
+	Use:   "unregister-capabilities-callback",
+	Short: "UnregisterCapabilitiesCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.UnregisterCapabilitiesCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterCapabilitiesCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingManagerRangingCapabilitiesCallbackCmd = &cobra.Command{
+	Use:   "manager-ranging-capabilities-callback",
+	Short: "ManagerRangingCapabilitiesCallbackService operations",
+}
+
+var rangingManagerRangingCapabilitiesCallbackOnRangingCapabilitiesCmd = &cobra.Command{
+	Use:   "on-ranging-capabilities",
+	Short: "OnRangingCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRangingCapabilitiesCallbackServiceClient(grpcConn)
+		req := &pb.OnRangingCapabilitiesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRangingCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigCmd = &cobra.Command{
+	Use:   "data-notification-config",
+	Short: "DataNotificationConfigService operations",
+}
+
+var rangingDataNotificationConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigGetNotificationConfigTypeCmd = &cobra.Command{
+	Use:   "get-notification-config-type",
+	Short: "GetNotificationConfigType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		req := &pb.GetNotificationConfigTypeRequest{}
+		resp, err := client.GetNotificationConfigType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigGetProximityFarCmCmd = &cobra.Command{
+	Use:   "get-proximity-far-cm",
+	Short: "GetProximityFarCm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		req := &pb.GetProximityFarCmRequest{}
+		resp, err := client.GetProximityFarCm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigGetProximityNearCmCmd = &cobra.Command{
+	Use:   "get-proximity-near-cm",
+	Short: "GetProximityNearCm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		req := &pb.GetProximityNearCmRequest{}
+		resp, err := client.GetProximityNearCm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigBuilderCmd = &cobra.Command{
+	Use:   "data-notification-config-builder",
+	Short: "DataNotificationConfigBuilderService operations",
+}
+
+var rangingDataNotificationConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigBuilderSetNotificationConfigTypeCmd = &cobra.Command{
+	Use:   "set-notification-config-type",
+	Short: "SetNotificationConfigType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetNotificationConfigTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNotificationConfigType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigBuilderSetProximityFarCmCmd = &cobra.Command{
+	Use:   "set-proximity-far-cm",
+	Short: "SetProximityFarCm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetProximityFarCmRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProximityFarCm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rangingDataNotificationConfigBuilderSetProximityNearCmCmd = &cobra.Command{
+	Use:   "set-proximity-near-cm",
+	Short: "SetProximityNearCm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataNotificationConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetProximityNearCmRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProximityNearCm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	rangingDeviceCmd.AddCommand(rangingDeviceDescribeContentsCmd)
+	rangingDeviceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingDeviceCmd.AddCommand(rangingDeviceEqualsCmd)
+	rangingDeviceCmd.AddCommand(rangingDeviceGetUuidCmd)
+	rangingDeviceCmd.AddCommand(rangingDeviceHashCodeCmd)
+	rangingDeviceCmd.AddCommand(rangingDeviceToStringCmd)
+	rangingDeviceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingDeviceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rangingDeviceCmd.AddCommand(rangingDeviceWriteToParcelCmd)
+	rangingCmd.AddCommand(rangingDeviceCmd)
+	rangingDeviceBuilderCmd.AddCommand(rangingDeviceBuilderBuildCmd)
+	rangingDeviceBuilderSetUuidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingDeviceBuilderCmd.AddCommand(rangingDeviceBuilderSetUuidCmd)
+	rangingCmd.AddCommand(rangingDeviceBuilderCmd)
 	rangingSessionConfigCmd.AddCommand(rangingSessionConfigDescribeContentsCmd)
 	rangingSessionConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	rangingSessionConfigCmd.AddCommand(rangingSessionConfigEqualsCmd)
@@ -1694,49 +1708,33 @@ func init() {
 	rangingSessionConfigBuilderSetSensorFusionParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	rangingSessionConfigBuilderCmd.AddCommand(rangingSessionConfigBuilderSetSensorFusionParamsCmd)
 	rangingCmd.AddCommand(rangingSessionConfigBuilderCmd)
-	rangingMeasurementCmd.AddCommand(rangingMeasurementDescribeContentsCmd)
-	rangingMeasurementCmd.AddCommand(rangingMeasurementGetConfidenceCmd)
-	rangingMeasurementCmd.AddCommand(rangingMeasurementGetMeasurementCmd)
-	rangingMeasurementCmd.AddCommand(rangingMeasurementToStringCmd)
-	rangingMeasurementWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingMeasurementWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rangingMeasurementCmd.AddCommand(rangingMeasurementWriteToParcelCmd)
-	rangingCmd.AddCommand(rangingMeasurementCmd)
-	rangingDataCmd.AddCommand(rangingDataDescribeContentsCmd)
-	rangingDataCmd.AddCommand(rangingDataGetAzimuthCmd)
-	rangingDataCmd.AddCommand(rangingDataGetDistanceCmd)
-	rangingDataCmd.AddCommand(rangingDataGetElevationCmd)
-	rangingDataCmd.AddCommand(rangingDataGetRangingTechnologyCmd)
-	rangingDataCmd.AddCommand(rangingDataGetRssiCmd)
-	rangingDataCmd.AddCommand(rangingDataGetTimestampMillisCmd)
-	rangingDataCmd.AddCommand(rangingDataHasRssiCmd)
-	rangingDataWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingDataWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rangingDataCmd.AddCommand(rangingDataWriteToParcelCmd)
-	rangingCmd.AddCommand(rangingDataCmd)
-	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigDescribeContentsCmd)
-	rangingDataNotificationConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigEqualsCmd)
-	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigGetNotificationConfigTypeCmd)
-	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigGetProximityFarCmCmd)
-	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigGetProximityNearCmCmd)
-	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigHashCodeCmd)
-	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigToStringCmd)
-	rangingDataNotificationConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingDataNotificationConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigWriteToParcelCmd)
-	rangingCmd.AddCommand(rangingDataNotificationConfigCmd)
-	rangingDataNotificationConfigBuilderCmd.AddCommand(rangingDataNotificationConfigBuilderBuildCmd)
-	rangingDataNotificationConfigBuilderSetNotificationConfigTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	rangingDataNotificationConfigBuilderCmd.AddCommand(rangingDataNotificationConfigBuilderSetNotificationConfigTypeCmd)
-	rangingDataNotificationConfigBuilderSetProximityFarCmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	rangingDataNotificationConfigBuilderCmd.AddCommand(rangingDataNotificationConfigBuilderSetProximityFarCmCmd)
-	rangingDataNotificationConfigBuilderSetProximityNearCmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	rangingDataNotificationConfigBuilderCmd.AddCommand(rangingDataNotificationConfigBuilderSetProximityNearCmCmd)
-	rangingCmd.AddCommand(rangingDataNotificationConfigBuilderCmd)
-	rangingConfigCmd.AddCommand(rangingConfigGetRangingSessionTypeCmd)
-	rangingConfigCmd.AddCommand(rangingConfigToStringCmd)
-	rangingCmd.AddCommand(rangingConfigCmd)
+	rangingPreferenceCmd.AddCommand(rangingPreferenceDescribeContentsCmd)
+	rangingPreferenceCmd.AddCommand(rangingPreferenceGetDeviceRoleCmd)
+	rangingPreferenceCmd.AddCommand(rangingPreferenceGetRangingParamsCmd)
+	rangingPreferenceCmd.AddCommand(rangingPreferenceGetSessionConfigCmd)
+	rangingPreferenceCmd.AddCommand(rangingPreferenceToStringCmd)
+	rangingPreferenceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingPreferenceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rangingPreferenceCmd.AddCommand(rangingPreferenceWriteToParcelCmd)
+	rangingCmd.AddCommand(rangingPreferenceCmd)
+	rangingPreferenceBuilderCmd.AddCommand(rangingPreferenceBuilderBuildCmd)
+	rangingPreferenceBuilderSetSessionConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingPreferenceBuilderCmd.AddCommand(rangingPreferenceBuilderSetSessionConfigCmd)
+	rangingCmd.AddCommand(rangingPreferenceBuilderCmd)
+	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsDescribeContentsCmd)
+	rangingSensorFusionParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsEqualsCmd)
+	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsHashCodeCmd)
+	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsIsSensorFusionEnabledCmd)
+	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsToStringCmd)
+	rangingSensorFusionParamsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingSensorFusionParamsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsWriteToParcelCmd)
+	rangingCmd.AddCommand(rangingSensorFusionParamsCmd)
+	rangingSensorFusionParamsBuilderCmd.AddCommand(rangingSensorFusionParamsBuilderBuildCmd)
+	rangingSensorFusionParamsBuilderSetSensorFusionEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	rangingSensorFusionParamsBuilderCmd.AddCommand(rangingSensorFusionParamsBuilderSetSensorFusionEnabledCmd)
+	rangingCmd.AddCommand(rangingSensorFusionParamsBuilderCmd)
 	rangingSessionAddDeviceToRangingSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	rangingSessionCmd.AddCommand(rangingSessionAddDeviceToRangingSessionCmd)
 	rangingSessionCmd.AddCommand(rangingSessionCloseCmd)
@@ -1764,20 +1762,38 @@ func init() {
 	rangingSessionCallbackOnStoppedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	rangingSessionCallbackCmd.AddCommand(rangingSessionCallbackOnStoppedCmd)
 	rangingCmd.AddCommand(rangingSessionCallbackCmd)
-	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsDescribeContentsCmd)
-	rangingSensorFusionParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsEqualsCmd)
-	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsHashCodeCmd)
-	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsIsSensorFusionEnabledCmd)
-	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsToStringCmd)
-	rangingSensorFusionParamsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingSensorFusionParamsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rangingSensorFusionParamsCmd.AddCommand(rangingSensorFusionParamsWriteToParcelCmd)
-	rangingCmd.AddCommand(rangingSensorFusionParamsCmd)
-	rangingSensorFusionParamsBuilderCmd.AddCommand(rangingSensorFusionParamsBuilderBuildCmd)
-	rangingSensorFusionParamsBuilderSetSensorFusionEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	rangingSensorFusionParamsBuilderCmd.AddCommand(rangingSensorFusionParamsBuilderSetSensorFusionEnabledCmd)
-	rangingCmd.AddCommand(rangingSensorFusionParamsBuilderCmd)
+	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesDescribeContentsCmd)
+	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesGetCsCapabilitiesCmd)
+	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesGetRttRangingCapabilitiesCmd)
+	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesGetUwbCapabilitiesCmd)
+	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesToStringCmd)
+	rangingCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesWriteToParcelCmd)
+	rangingCmd.AddCommand(rangingCapabilitiesCmd)
+	rangingConfigCmd.AddCommand(rangingConfigGetRangingSessionTypeCmd)
+	rangingConfigCmd.AddCommand(rangingConfigToStringCmd)
+	rangingCmd.AddCommand(rangingConfigCmd)
+	rangingMeasurementCmd.AddCommand(rangingMeasurementDescribeContentsCmd)
+	rangingMeasurementCmd.AddCommand(rangingMeasurementGetConfidenceCmd)
+	rangingMeasurementCmd.AddCommand(rangingMeasurementGetMeasurementCmd)
+	rangingMeasurementCmd.AddCommand(rangingMeasurementToStringCmd)
+	rangingMeasurementWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingMeasurementWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rangingMeasurementCmd.AddCommand(rangingMeasurementWriteToParcelCmd)
+	rangingCmd.AddCommand(rangingMeasurementCmd)
+	rangingDataCmd.AddCommand(rangingDataDescribeContentsCmd)
+	rangingDataCmd.AddCommand(rangingDataGetAzimuthCmd)
+	rangingDataCmd.AddCommand(rangingDataGetDistanceCmd)
+	rangingDataCmd.AddCommand(rangingDataGetElevationCmd)
+	rangingDataCmd.AddCommand(rangingDataGetRangingTechnologyCmd)
+	rangingDataCmd.AddCommand(rangingDataGetRssiCmd)
+	rangingDataCmd.AddCommand(rangingDataGetTimestampMillisCmd)
+	rangingDataCmd.AddCommand(rangingDataHasRssiCmd)
+	rangingDataWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingDataWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rangingDataCmd.AddCommand(rangingDataWriteToParcelCmd)
+	rangingCmd.AddCommand(rangingDataCmd)
 	rangingManagerCreateRangingSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	rangingManagerCreateRangingSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	rangingManagerCmd.AddCommand(rangingManagerCreateRangingSessionCmd)
@@ -1790,41 +1806,25 @@ func init() {
 	rangingManagerRangingCapabilitiesCallbackOnRangingCapabilitiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	rangingManagerRangingCapabilitiesCallbackCmd.AddCommand(rangingManagerRangingCapabilitiesCallbackOnRangingCapabilitiesCmd)
 	rangingCmd.AddCommand(rangingManagerRangingCapabilitiesCallbackCmd)
-	rangingDeviceCmd.AddCommand(rangingDeviceDescribeContentsCmd)
-	rangingDeviceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingDeviceCmd.AddCommand(rangingDeviceEqualsCmd)
-	rangingDeviceCmd.AddCommand(rangingDeviceGetUuidCmd)
-	rangingDeviceCmd.AddCommand(rangingDeviceHashCodeCmd)
-	rangingDeviceCmd.AddCommand(rangingDeviceToStringCmd)
-	rangingDeviceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingDeviceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rangingDeviceCmd.AddCommand(rangingDeviceWriteToParcelCmd)
-	rangingCmd.AddCommand(rangingDeviceCmd)
-	rangingDeviceBuilderCmd.AddCommand(rangingDeviceBuilderBuildCmd)
-	rangingDeviceBuilderSetUuidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingDeviceBuilderCmd.AddCommand(rangingDeviceBuilderSetUuidCmd)
-	rangingCmd.AddCommand(rangingDeviceBuilderCmd)
-	rangingPreferenceCmd.AddCommand(rangingPreferenceDescribeContentsCmd)
-	rangingPreferenceCmd.AddCommand(rangingPreferenceGetDeviceRoleCmd)
-	rangingPreferenceCmd.AddCommand(rangingPreferenceGetRangingParamsCmd)
-	rangingPreferenceCmd.AddCommand(rangingPreferenceGetSessionConfigCmd)
-	rangingPreferenceCmd.AddCommand(rangingPreferenceToStringCmd)
-	rangingPreferenceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingPreferenceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rangingPreferenceCmd.AddCommand(rangingPreferenceWriteToParcelCmd)
-	rangingCmd.AddCommand(rangingPreferenceCmd)
-	rangingPreferenceBuilderCmd.AddCommand(rangingPreferenceBuilderBuildCmd)
-	rangingPreferenceBuilderSetSessionConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingPreferenceBuilderCmd.AddCommand(rangingPreferenceBuilderSetSessionConfigCmd)
-	rangingCmd.AddCommand(rangingPreferenceBuilderCmd)
-	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesDescribeContentsCmd)
-	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesGetCsCapabilitiesCmd)
-	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesGetRttRangingCapabilitiesCmd)
-	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesGetUwbCapabilitiesCmd)
-	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesToStringCmd)
-	rangingCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rangingCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rangingCapabilitiesCmd.AddCommand(rangingCapabilitiesWriteToParcelCmd)
-	rangingCmd.AddCommand(rangingCapabilitiesCmd)
+	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigDescribeContentsCmd)
+	rangingDataNotificationConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigEqualsCmd)
+	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigGetNotificationConfigTypeCmd)
+	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigGetProximityFarCmCmd)
+	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigGetProximityNearCmCmd)
+	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigHashCodeCmd)
+	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigToStringCmd)
+	rangingDataNotificationConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rangingDataNotificationConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rangingDataNotificationConfigCmd.AddCommand(rangingDataNotificationConfigWriteToParcelCmd)
+	rangingCmd.AddCommand(rangingDataNotificationConfigCmd)
+	rangingDataNotificationConfigBuilderCmd.AddCommand(rangingDataNotificationConfigBuilderBuildCmd)
+	rangingDataNotificationConfigBuilderSetNotificationConfigTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	rangingDataNotificationConfigBuilderCmd.AddCommand(rangingDataNotificationConfigBuilderSetNotificationConfigTypeCmd)
+	rangingDataNotificationConfigBuilderSetProximityFarCmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	rangingDataNotificationConfigBuilderCmd.AddCommand(rangingDataNotificationConfigBuilderSetProximityFarCmCmd)
+	rangingDataNotificationConfigBuilderSetProximityNearCmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	rangingDataNotificationConfigBuilderCmd.AddCommand(rangingDataNotificationConfigBuilderSetProximityNearCmCmd)
+	rangingCmd.AddCommand(rangingDataNotificationConfigBuilderCmd)
 	rootCmd.AddCommand(rangingCmd)
 }

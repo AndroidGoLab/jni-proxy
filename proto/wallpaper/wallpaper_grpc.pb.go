@@ -27,6 +27,7 @@ const (
 	DescriptionService_GetContent_FullMethodName            = "/wallpaper.DescriptionService/GetContent"
 	DescriptionService_GetContextDescription_FullMethodName = "/wallpaper.DescriptionService/GetContextDescription"
 	DescriptionService_GetContextUri_FullMethodName         = "/wallpaper.DescriptionService/GetContextUri"
+	DescriptionService_GetDescription_FullMethodName        = "/wallpaper.DescriptionService/GetDescription"
 	DescriptionService_GetId_FullMethodName                 = "/wallpaper.DescriptionService/GetId"
 	DescriptionService_GetThumbnail_FullMethodName          = "/wallpaper.DescriptionService/GetThumbnail"
 	DescriptionService_GetTitle_FullMethodName              = "/wallpaper.DescriptionService/GetTitle"
@@ -46,6 +47,7 @@ type DescriptionServiceClient interface {
 	GetContent(ctx context.Context, in *GetContentRequest, opts ...grpc.CallOption) (*GetContentResponse, error)
 	GetContextDescription(ctx context.Context, in *GetContextDescriptionRequest, opts ...grpc.CallOption) (*GetContextDescriptionResponse, error)
 	GetContextUri(ctx context.Context, in *GetContextUriRequest, opts ...grpc.CallOption) (*GetContextUriResponse, error)
+	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
 	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
 	GetThumbnail(ctx context.Context, in *GetThumbnailRequest, opts ...grpc.CallOption) (*GetThumbnailResponse, error)
 	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
@@ -117,6 +119,16 @@ func (c *descriptionServiceClient) GetContextUri(ctx context.Context, in *GetCon
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetContextUriResponse)
 	err := c.cc.Invoke(ctx, DescriptionService_GetContextUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *descriptionServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDescriptionResponse)
+	err := c.cc.Invoke(ctx, DescriptionService_GetDescription_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -203,6 +215,7 @@ type DescriptionServiceServer interface {
 	GetContent(context.Context, *GetContentRequest) (*GetContentResponse, error)
 	GetContextDescription(context.Context, *GetContextDescriptionRequest) (*GetContextDescriptionResponse, error)
 	GetContextUri(context.Context, *GetContextUriRequest) (*GetContextUriResponse, error)
+	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
 	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
 	GetThumbnail(context.Context, *GetThumbnailRequest) (*GetThumbnailResponse, error)
 	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
@@ -237,6 +250,9 @@ func (UnimplementedDescriptionServiceServer) GetContextDescription(context.Conte
 }
 func (UnimplementedDescriptionServiceServer) GetContextUri(context.Context, *GetContextUriRequest) (*GetContextUriResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetContextUri not implemented")
+}
+func (UnimplementedDescriptionServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
 }
 func (UnimplementedDescriptionServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
@@ -384,6 +400,24 @@ func _DescriptionService_GetContextUri_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DescriptionServiceServer).GetContextUri(ctx, req.(*GetContextUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DescriptionService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DescriptionServiceServer).GetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DescriptionService_GetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DescriptionServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -544,6 +578,10 @@ var DescriptionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetContextUri",
 			Handler:    _DescriptionService_GetContextUri_Handler,
+		},
+		{
+			MethodName: "GetDescription",
+			Handler:    _DescriptionService_GetDescription_Handler,
 		},
 		{
 			MethodName: "GetId",
@@ -927,7 +965,7 @@ type InstanceServiceClient interface {
 	NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error)
 	DescribeContents(ctx context.Context, in *InstanceDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *InstanceEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
+	GetDescription(ctx context.Context, in *InstanceGetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
 	GetId(ctx context.Context, in *InstanceGetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
 	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
 	HashCode(ctx context.Context, in *InstanceHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
@@ -972,7 +1010,7 @@ func (c *instanceServiceClient) Equals(ctx context.Context, in *InstanceEqualsRe
 	return out, nil
 }
 
-func (c *instanceServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
+func (c *instanceServiceClient) GetDescription(ctx context.Context, in *InstanceGetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDescriptionResponse)
 	err := c.cc.Invoke(ctx, InstanceService_GetDescription_FullMethodName, in, out, cOpts...)
@@ -1029,7 +1067,7 @@ type InstanceServiceServer interface {
 	NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error)
 	DescribeContents(context.Context, *InstanceDescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *InstanceEqualsRequest) (*EqualsResponse, error)
-	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
+	GetDescription(context.Context, *InstanceGetDescriptionRequest) (*GetDescriptionResponse, error)
 	GetId(context.Context, *InstanceGetIdRequest) (*GetIdResponse, error)
 	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
 	HashCode(context.Context, *InstanceHashCodeRequest) (*HashCodeResponse, error)
@@ -1053,7 +1091,7 @@ func (UnimplementedInstanceServiceServer) DescribeContents(context.Context, *Ins
 func (UnimplementedInstanceServiceServer) Equals(context.Context, *InstanceEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedInstanceServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
+func (UnimplementedInstanceServiceServer) GetDescription(context.Context, *InstanceGetDescriptionRequest) (*GetDescriptionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
 }
 func (UnimplementedInstanceServiceServer) GetId(context.Context, *InstanceGetIdRequest) (*GetIdResponse, error) {
@@ -1144,7 +1182,7 @@ func _InstanceService_Equals_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _InstanceService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDescriptionRequest)
+	in := new(InstanceGetDescriptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1156,7 +1194,7 @@ func _InstanceService_GetDescription_Handler(srv interface{}, ctx context.Contex
 		FullMethod: InstanceService_GetDescription_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InstanceServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
+		return srv.(InstanceServiceServer).GetDescription(ctx, req.(*InstanceGetDescriptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -43,6 +43,17 @@ func (c *FieldClassificationClient) GetAutofillId(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
+// GetHints calls the GetHints RPC.
+func (c *FieldClassificationClient) GetHints(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetHints(ctx, &pb.GetHintsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ToString calls the ToString RPC.
 func (c *FieldClassificationClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{

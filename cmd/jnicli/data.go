@@ -12,748 +12,6 @@ var dataCmd = &cobra.Command{
 	Short: "data service operations",
 }
 
-var dataRouteSelectionDescriptorCmd = &cobra.Command{
-	Use:   "route-selection-descriptor",
-	Short: "RouteSelectionDescriptorService operations",
-}
-
-var dataRouteSelectionDescriptorDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataRouteSelectionDescriptorEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataRouteSelectionDescriptorGetPrecedenceCmd = &cobra.Command{
-	Use:   "get-precedence",
-	Short: "GetPrecedence RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
-		req := &pb.GetPrecedenceRequest{}
-		resp, err := client.GetPrecedence(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataRouteSelectionDescriptorGetSessionTypeCmd = &cobra.Command{
-	Use:   "get-session-type",
-	Short: "GetSessionType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
-		req := &pb.GetSessionTypeRequest{}
-		resp, err := client.GetSessionType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataRouteSelectionDescriptorGetSscModeCmd = &cobra.Command{
-	Use:   "get-ssc-mode",
-	Short: "GetSscMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
-		req := &pb.GetSscModeRequest{}
-		resp, err := client.GetSscMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataRouteSelectionDescriptorHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataRouteSelectionDescriptorToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataRouteSelectionDescriptorWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSlicingConfigCmd = &cobra.Command{
-	Use:   "network-slicing-config",
-	Short: "NetworkSlicingConfigService operations",
-}
-
-var dataNetworkSlicingConfigNewNetworkSlicingConfigCmd = &cobra.Command{
-	Use:   "new-network-slicing-config",
-	Short: "NewNetworkSlicingConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
-		req := &pb.NewNetworkSlicingConfigRequest{}
-		resp, err := client.NewNetworkSlicingConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSlicingConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
-		req := &pb.NetworkSlicingConfigDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSlicingConfigEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
-		req := &pb.NetworkSlicingConfigEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSlicingConfigHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
-		req := &pb.NetworkSlicingConfigHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSlicingConfigToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
-		req := &pb.NetworkSlicingConfigToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSlicingConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
-		req := &pb.NetworkSlicingConfigWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorCmd = &cobra.Command{
-	Use:   "traffic-descriptor",
-	Short: "TrafficDescriptorService operations",
-}
-
-var dataTrafficDescriptorDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorGetDataNetworkNameCmd = &cobra.Command{
-	Use:   "get-data-network-name",
-	Short: "GetDataNetworkName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
-		req := &pb.GetDataNetworkNameRequest{}
-		resp, err := client.GetDataNetworkName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorGetOsAppIdCmd = &cobra.Command{
-	Use:   "get-os-app-id",
-	Short: "GetOsAppId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
-		req := &pb.GetOsAppIdRequest{}
-		resp, err := client.GetOsAppId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorBuilderCmd = &cobra.Command{
-	Use:   "traffic-descriptor-builder",
-	Short: "TrafficDescriptorBuilderService operations",
-}
-
-var dataTrafficDescriptorBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorBuilderSetDataNetworkNameCmd = &cobra.Command{
-	Use:   "set-data-network-name",
-	Short: "SetDataNetworkName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorBuilderServiceClient(grpcConn)
-		req := &pb.SetDataNetworkNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDataNetworkName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataTrafficDescriptorBuilderSetOsAppIdCmd = &cobra.Command{
-	Use:   "set-os-app-id",
-	Short: "SetOsAppId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficDescriptorBuilderServiceClient(grpcConn)
-		req := &pb.SetOsAppIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOsAppId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoCmd = &cobra.Command{
-	Use:   "network-slice-info",
-	Short: "NetworkSliceInfoService operations",
-}
-
-var dataNetworkSliceInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoGetMappedHplmnSliceDifferentiatorCmd = &cobra.Command{
-	Use:   "get-mapped-hplmn-slice-differentiator",
-	Short: "GetMappedHplmnSliceDifferentiator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.GetMappedHplmnSliceDifferentiatorRequest{}
-		resp, err := client.GetMappedHplmnSliceDifferentiator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoGetMappedHplmnSliceServiceTypeCmd = &cobra.Command{
-	Use:   "get-mapped-hplmn-slice-service-type",
-	Short: "GetMappedHplmnSliceServiceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.GetMappedHplmnSliceServiceTypeRequest{}
-		resp, err := client.GetMappedHplmnSliceServiceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoGetSliceDifferentiatorCmd = &cobra.Command{
-	Use:   "get-slice-differentiator",
-	Short: "GetSliceDifferentiator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.GetSliceDifferentiatorRequest{}
-		resp, err := client.GetSliceDifferentiator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoGetSliceServiceTypeCmd = &cobra.Command{
-	Use:   "get-slice-service-type",
-	Short: "GetSliceServiceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.GetSliceServiceTypeRequest{}
-		resp, err := client.GetSliceServiceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoGetStatusCmd = &cobra.Command{
-	Use:   "get-status",
-	Short: "GetStatus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.GetStatusRequest{}
-		resp, err := client.GetStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoBuilderCmd = &cobra.Command{
-	Use:   "network-slice-info-builder",
-	Short: "NetworkSliceInfoBuilderService operations",
-}
-
-var dataNetworkSliceInfoBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoBuilderSetMappedHplmnSliceDifferentiatorCmd = &cobra.Command{
-	Use:   "set-mapped-hplmn-slice-differentiator",
-	Short: "SetMappedHplmnSliceDifferentiator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetMappedHplmnSliceDifferentiatorRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMappedHplmnSliceDifferentiator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoBuilderSetMappedHplmnSliceServiceTypeCmd = &cobra.Command{
-	Use:   "set-mapped-hplmn-slice-service-type",
-	Short: "SetMappedHplmnSliceServiceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetMappedHplmnSliceServiceTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMappedHplmnSliceServiceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoBuilderSetSliceDifferentiatorCmd = &cobra.Command{
-	Use:   "set-slice-differentiator",
-	Short: "SetSliceDifferentiator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetSliceDifferentiatorRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSliceDifferentiator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoBuilderSetSliceServiceTypeCmd = &cobra.Command{
-	Use:   "set-slice-service-type",
-	Short: "SetSliceServiceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetSliceServiceTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSliceServiceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var dataNetworkSliceInfoBuilderSetStatusCmd = &cobra.Command{
-	Use:   "set-status",
-	Short: "SetStatus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetStatusRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var dataUrspRuleCmd = &cobra.Command{
 	Use:   "ursp-rule",
 	Short: "UrspRuleService operations",
@@ -803,6 +61,38 @@ var dataUrspRuleGetPrecedenceCmd = &cobra.Command{
 		client := pb.NewUrspRuleServiceClient(grpcConn)
 		req := &pb.GetPrecedenceRequest{}
 		resp, err := client.GetPrecedence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataUrspRuleGetRouteSelectionDescriptorCmd = &cobra.Command{
+	Use:   "get-route-selection-descriptor",
+	Short: "GetRouteSelectionDescriptor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrspRuleServiceClient(grpcConn)
+		req := &pb.GetRouteSelectionDescriptorRequest{}
+		resp, err := client.GetRouteSelectionDescriptor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataUrspRuleGetTrafficDescriptorsCmd = &cobra.Command{
+	Use:   "get-traffic-descriptors",
+	Short: "GetTrafficDescriptors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrspRuleServiceClient(grpcConn)
+		req := &pb.GetTrafficDescriptorsRequest{}
+		resp, err := client.GetTrafficDescriptors(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1870,81 +1160,825 @@ var dataApnSettingBuilderSetUserCmd = &cobra.Command{
 	},
 }
 
+var dataRouteSelectionDescriptorCmd = &cobra.Command{
+	Use:   "route-selection-descriptor",
+	Short: "RouteSelectionDescriptorService operations",
+}
+
+var dataRouteSelectionDescriptorDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorGetDataNetworkNameCmd = &cobra.Command{
+	Use:   "get-data-network-name",
+	Short: "GetDataNetworkName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.GetDataNetworkNameRequest{}
+		resp, err := client.GetDataNetworkName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorGetPrecedenceCmd = &cobra.Command{
+	Use:   "get-precedence",
+	Short: "GetPrecedence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.GetPrecedenceRequest{}
+		resp, err := client.GetPrecedence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorGetSessionTypeCmd = &cobra.Command{
+	Use:   "get-session-type",
+	Short: "GetSessionType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.GetSessionTypeRequest{}
+		resp, err := client.GetSessionType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorGetSliceInfoCmd = &cobra.Command{
+	Use:   "get-slice-info",
+	Short: "GetSliceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.GetSliceInfoRequest{}
+		resp, err := client.GetSliceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorGetSscModeCmd = &cobra.Command{
+	Use:   "get-ssc-mode",
+	Short: "GetSscMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.GetSscModeRequest{}
+		resp, err := client.GetSscMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataRouteSelectionDescriptorWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRouteSelectionDescriptorServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorCmd = &cobra.Command{
+	Use:   "traffic-descriptor",
+	Short: "TrafficDescriptorService operations",
+}
+
+var dataTrafficDescriptorDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorGetDataNetworkNameCmd = &cobra.Command{
+	Use:   "get-data-network-name",
+	Short: "GetDataNetworkName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
+		req := &pb.GetDataNetworkNameRequest{}
+		resp, err := client.GetDataNetworkName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorGetOsAppIdCmd = &cobra.Command{
+	Use:   "get-os-app-id",
+	Short: "GetOsAppId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
+		req := &pb.GetOsAppIdRequest{}
+		resp, err := client.GetOsAppId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorBuilderCmd = &cobra.Command{
+	Use:   "traffic-descriptor-builder",
+	Short: "TrafficDescriptorBuilderService operations",
+}
+
+var dataTrafficDescriptorBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorBuilderSetDataNetworkNameCmd = &cobra.Command{
+	Use:   "set-data-network-name",
+	Short: "SetDataNetworkName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorBuilderServiceClient(grpcConn)
+		req := &pb.SetDataNetworkNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDataNetworkName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataTrafficDescriptorBuilderSetOsAppIdCmd = &cobra.Command{
+	Use:   "set-os-app-id",
+	Short: "SetOsAppId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficDescriptorBuilderServiceClient(grpcConn)
+		req := &pb.SetOsAppIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOsAppId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoCmd = &cobra.Command{
+	Use:   "network-slice-info",
+	Short: "NetworkSliceInfoService operations",
+}
+
+var dataNetworkSliceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoGetMappedHplmnSliceDifferentiatorCmd = &cobra.Command{
+	Use:   "get-mapped-hplmn-slice-differentiator",
+	Short: "GetMappedHplmnSliceDifferentiator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.GetMappedHplmnSliceDifferentiatorRequest{}
+		resp, err := client.GetMappedHplmnSliceDifferentiator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoGetMappedHplmnSliceServiceTypeCmd = &cobra.Command{
+	Use:   "get-mapped-hplmn-slice-service-type",
+	Short: "GetMappedHplmnSliceServiceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.GetMappedHplmnSliceServiceTypeRequest{}
+		resp, err := client.GetMappedHplmnSliceServiceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoGetSliceDifferentiatorCmd = &cobra.Command{
+	Use:   "get-slice-differentiator",
+	Short: "GetSliceDifferentiator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.GetSliceDifferentiatorRequest{}
+		resp, err := client.GetSliceDifferentiator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoGetSliceServiceTypeCmd = &cobra.Command{
+	Use:   "get-slice-service-type",
+	Short: "GetSliceServiceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.GetSliceServiceTypeRequest{}
+		resp, err := client.GetSliceServiceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoGetStatusCmd = &cobra.Command{
+	Use:   "get-status",
+	Short: "GetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.GetStatusRequest{}
+		resp, err := client.GetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoBuilderCmd = &cobra.Command{
+	Use:   "network-slice-info-builder",
+	Short: "NetworkSliceInfoBuilderService operations",
+}
+
+var dataNetworkSliceInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoBuilderSetMappedHplmnSliceDifferentiatorCmd = &cobra.Command{
+	Use:   "set-mapped-hplmn-slice-differentiator",
+	Short: "SetMappedHplmnSliceDifferentiator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetMappedHplmnSliceDifferentiatorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMappedHplmnSliceDifferentiator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoBuilderSetMappedHplmnSliceServiceTypeCmd = &cobra.Command{
+	Use:   "set-mapped-hplmn-slice-service-type",
+	Short: "SetMappedHplmnSliceServiceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetMappedHplmnSliceServiceTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMappedHplmnSliceServiceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoBuilderSetSliceDifferentiatorCmd = &cobra.Command{
+	Use:   "set-slice-differentiator",
+	Short: "SetSliceDifferentiator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetSliceDifferentiatorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSliceDifferentiator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoBuilderSetSliceServiceTypeCmd = &cobra.Command{
+	Use:   "set-slice-service-type",
+	Short: "SetSliceServiceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetSliceServiceTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSliceServiceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSliceInfoBuilderSetStatusCmd = &cobra.Command{
+	Use:   "set-status",
+	Short: "SetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSliceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetStatusRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSlicingConfigCmd = &cobra.Command{
+	Use:   "network-slicing-config",
+	Short: "NetworkSlicingConfigService operations",
+}
+
+var dataNetworkSlicingConfigNewNetworkSlicingConfigCmd = &cobra.Command{
+	Use:   "new-network-slicing-config",
+	Short: "NewNetworkSlicingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
+		req := &pb.NewNetworkSlicingConfigRequest{}
+		resp, err := client.NewNetworkSlicingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSlicingConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
+		req := &pb.NetworkSlicingConfigDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSlicingConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
+		req := &pb.NetworkSlicingConfigEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSlicingConfigGetSliceInfoCmd = &cobra.Command{
+	Use:   "get-slice-info",
+	Short: "GetSliceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
+		req := &pb.NetworkSlicingConfigGetSliceInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSliceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSlicingConfigGetUrspRulesCmd = &cobra.Command{
+	Use:   "get-ursp-rules",
+	Short: "GetUrspRules RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
+		req := &pb.GetUrspRulesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUrspRules(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSlicingConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
+		req := &pb.NetworkSlicingConfigHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSlicingConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
+		req := &pb.NetworkSlicingConfigToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var dataNetworkSlicingConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSlicingConfigServiceClient(grpcConn)
+		req := &pb.NetworkSlicingConfigWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorDescribeContentsCmd)
-	dataRouteSelectionDescriptorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorEqualsCmd)
-	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorGetPrecedenceCmd)
-	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorGetSessionTypeCmd)
-	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorGetSscModeCmd)
-	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorHashCodeCmd)
-	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorToStringCmd)
-	dataRouteSelectionDescriptorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataRouteSelectionDescriptorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorWriteToParcelCmd)
-	dataCmd.AddCommand(dataRouteSelectionDescriptorCmd)
-	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigNewNetworkSlicingConfigCmd)
-	dataNetworkSlicingConfigDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigDescribeContentsCmd)
-	dataNetworkSlicingConfigEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	dataNetworkSlicingConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigEqualsCmd)
-	dataNetworkSlicingConfigHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigHashCodeCmd)
-	dataNetworkSlicingConfigToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigToStringCmd)
-	dataNetworkSlicingConfigWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	dataNetworkSlicingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataNetworkSlicingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigWriteToParcelCmd)
-	dataCmd.AddCommand(dataNetworkSlicingConfigCmd)
-	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorDescribeContentsCmd)
-	dataTrafficDescriptorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorEqualsCmd)
-	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorGetDataNetworkNameCmd)
-	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorGetOsAppIdCmd)
-	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorHashCodeCmd)
-	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorToStringCmd)
-	dataTrafficDescriptorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataTrafficDescriptorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorWriteToParcelCmd)
-	dataCmd.AddCommand(dataTrafficDescriptorCmd)
-	dataTrafficDescriptorBuilderCmd.AddCommand(dataTrafficDescriptorBuilderBuildCmd)
-	dataTrafficDescriptorBuilderSetDataNetworkNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	dataTrafficDescriptorBuilderCmd.AddCommand(dataTrafficDescriptorBuilderSetDataNetworkNameCmd)
-	dataTrafficDescriptorBuilderSetOsAppIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataTrafficDescriptorBuilderCmd.AddCommand(dataTrafficDescriptorBuilderSetOsAppIdCmd)
-	dataCmd.AddCommand(dataTrafficDescriptorBuilderCmd)
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoDescribeContentsCmd)
-	dataNetworkSliceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoEqualsCmd)
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetMappedHplmnSliceDifferentiatorCmd)
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetMappedHplmnSliceServiceTypeCmd)
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetSliceDifferentiatorCmd)
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetSliceServiceTypeCmd)
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetStatusCmd)
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoHashCodeCmd)
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoToStringCmd)
-	dataNetworkSliceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	dataNetworkSliceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoWriteToParcelCmd)
-	dataCmd.AddCommand(dataNetworkSliceInfoCmd)
-	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderBuildCmd)
-	dataNetworkSliceInfoBuilderSetMappedHplmnSliceDifferentiatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetMappedHplmnSliceDifferentiatorCmd)
-	dataNetworkSliceInfoBuilderSetMappedHplmnSliceServiceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetMappedHplmnSliceServiceTypeCmd)
-	dataNetworkSliceInfoBuilderSetSliceDifferentiatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetSliceDifferentiatorCmd)
-	dataNetworkSliceInfoBuilderSetSliceServiceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetSliceServiceTypeCmd)
-	dataNetworkSliceInfoBuilderSetStatusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetStatusCmd)
-	dataCmd.AddCommand(dataNetworkSliceInfoBuilderCmd)
 	dataUrspRuleCmd.AddCommand(dataUrspRuleDescribeContentsCmd)
 	dataUrspRuleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	dataUrspRuleCmd.AddCommand(dataUrspRuleEqualsCmd)
 	dataUrspRuleCmd.AddCommand(dataUrspRuleGetPrecedenceCmd)
+	dataUrspRuleCmd.AddCommand(dataUrspRuleGetRouteSelectionDescriptorCmd)
+	dataUrspRuleCmd.AddCommand(dataUrspRuleGetTrafficDescriptorsCmd)
 	dataUrspRuleCmd.AddCommand(dataUrspRuleHashCodeCmd)
 	dataUrspRuleCmd.AddCommand(dataUrspRuleToStringCmd)
 	dataUrspRuleWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -2038,5 +2072,81 @@ func init() {
 	dataApnSettingBuilderSetUserCmd.Flags().String("arg0", "", "arg0 (string)")
 	dataApnSettingBuilderCmd.AddCommand(dataApnSettingBuilderSetUserCmd)
 	dataCmd.AddCommand(dataApnSettingBuilderCmd)
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorDescribeContentsCmd)
+	dataRouteSelectionDescriptorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorEqualsCmd)
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorGetDataNetworkNameCmd)
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorGetPrecedenceCmd)
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorGetSessionTypeCmd)
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorGetSliceInfoCmd)
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorGetSscModeCmd)
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorHashCodeCmd)
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorToStringCmd)
+	dataRouteSelectionDescriptorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataRouteSelectionDescriptorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	dataRouteSelectionDescriptorCmd.AddCommand(dataRouteSelectionDescriptorWriteToParcelCmd)
+	dataCmd.AddCommand(dataRouteSelectionDescriptorCmd)
+	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorDescribeContentsCmd)
+	dataTrafficDescriptorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorEqualsCmd)
+	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorGetDataNetworkNameCmd)
+	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorGetOsAppIdCmd)
+	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorHashCodeCmd)
+	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorToStringCmd)
+	dataTrafficDescriptorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataTrafficDescriptorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	dataTrafficDescriptorCmd.AddCommand(dataTrafficDescriptorWriteToParcelCmd)
+	dataCmd.AddCommand(dataTrafficDescriptorCmd)
+	dataTrafficDescriptorBuilderCmd.AddCommand(dataTrafficDescriptorBuilderBuildCmd)
+	dataTrafficDescriptorBuilderSetDataNetworkNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	dataTrafficDescriptorBuilderCmd.AddCommand(dataTrafficDescriptorBuilderSetDataNetworkNameCmd)
+	dataTrafficDescriptorBuilderSetOsAppIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataTrafficDescriptorBuilderCmd.AddCommand(dataTrafficDescriptorBuilderSetOsAppIdCmd)
+	dataCmd.AddCommand(dataTrafficDescriptorBuilderCmd)
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoDescribeContentsCmd)
+	dataNetworkSliceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoEqualsCmd)
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetMappedHplmnSliceDifferentiatorCmd)
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetMappedHplmnSliceServiceTypeCmd)
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetSliceDifferentiatorCmd)
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetSliceServiceTypeCmd)
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoGetStatusCmd)
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoHashCodeCmd)
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoToStringCmd)
+	dataNetworkSliceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataNetworkSliceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	dataNetworkSliceInfoCmd.AddCommand(dataNetworkSliceInfoWriteToParcelCmd)
+	dataCmd.AddCommand(dataNetworkSliceInfoCmd)
+	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderBuildCmd)
+	dataNetworkSliceInfoBuilderSetMappedHplmnSliceDifferentiatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetMappedHplmnSliceDifferentiatorCmd)
+	dataNetworkSliceInfoBuilderSetMappedHplmnSliceServiceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetMappedHplmnSliceServiceTypeCmd)
+	dataNetworkSliceInfoBuilderSetSliceDifferentiatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetSliceDifferentiatorCmd)
+	dataNetworkSliceInfoBuilderSetSliceServiceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetSliceServiceTypeCmd)
+	dataNetworkSliceInfoBuilderSetStatusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	dataNetworkSliceInfoBuilderCmd.AddCommand(dataNetworkSliceInfoBuilderSetStatusCmd)
+	dataCmd.AddCommand(dataNetworkSliceInfoBuilderCmd)
+	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigNewNetworkSlicingConfigCmd)
+	dataNetworkSlicingConfigDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigDescribeContentsCmd)
+	dataNetworkSlicingConfigEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	dataNetworkSlicingConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigEqualsCmd)
+	dataNetworkSlicingConfigGetSliceInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigGetSliceInfoCmd)
+	dataNetworkSlicingConfigGetUrspRulesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigGetUrspRulesCmd)
+	dataNetworkSlicingConfigHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigHashCodeCmd)
+	dataNetworkSlicingConfigToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigToStringCmd)
+	dataNetworkSlicingConfigWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	dataNetworkSlicingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	dataNetworkSlicingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	dataNetworkSlicingConfigCmd.AddCommand(dataNetworkSlicingConfigWriteToParcelCmd)
+	dataCmd.AddCommand(dataNetworkSlicingConfigCmd)
 	rootCmd.AddCommand(dataCmd)
 }

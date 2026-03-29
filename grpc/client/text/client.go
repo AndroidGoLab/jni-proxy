@@ -9,20 +9,29 @@ import (
 	"google.golang.org/grpc"
 )
 
-// PositionedGlyphsClient wraps the gRPC PositionedGlyphsService client.
-type PositionedGlyphsClient struct {
-	svc pb.PositionedGlyphsServiceClient
+// LineBreakConfigClient wraps the gRPC LineBreakConfigService client.
+type LineBreakConfigClient struct {
+	svc pb.LineBreakConfigServiceClient
 }
 
-// NewPositionedGlyphsClient creates a new PositionedGlyphs client.
-func NewPositionedGlyphsClient(cc grpc.ClientConnInterface) *PositionedGlyphsClient {
-	return &PositionedGlyphsClient{
-		svc: pb.NewPositionedGlyphsServiceClient(cc),
+// NewLineBreakConfigClient creates a new LineBreakConfig client.
+func NewLineBreakConfigClient(cc grpc.ClientConnInterface) *LineBreakConfigClient {
+	return &LineBreakConfigClient{
+		svc: pb.NewLineBreakConfigServiceClient(cc),
 	}
 }
 
+// DescribeContents calls the DescribeContents RPC.
+func (c *LineBreakConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Equals calls the Equals RPC.
-func (c *PositionedGlyphsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *LineBreakConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -32,142 +41,27 @@ func (c *PositionedGlyphsClient) Equals(ctx context.Context, arg0 int64) (bool, 
 	return resp.GetResult(), nil
 }
 
-// GetAdvance calls the GetAdvance RPC.
-func (c *PositionedGlyphsClient) GetAdvance(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetAdvance(ctx, &pb.GetAdvanceRequest{})
+// GetHyphenation calls the GetHyphenation RPC.
+func (c *LineBreakConfigClient) GetHyphenation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHyphenation(ctx, &pb.GetHyphenationRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetAscent calls the GetAscent RPC.
-func (c *PositionedGlyphsClient) GetAscent(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetAscent(ctx, &pb.GetAscentRequest{})
+// GetLineBreakStyle calls the GetLineBreakStyle RPC.
+func (c *LineBreakConfigClient) GetLineBreakStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLineBreakStyle(ctx, &pb.GetLineBreakStyleRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetDescent calls the GetDescent RPC.
-func (c *PositionedGlyphsClient) GetDescent(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetDescent(ctx, &pb.GetDescentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFakeBold calls the GetFakeBold RPC.
-func (c *PositionedGlyphsClient) GetFakeBold(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.GetFakeBold(ctx, &pb.GetFakeBoldRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFakeItalic calls the GetFakeItalic RPC.
-func (c *PositionedGlyphsClient) GetFakeItalic(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.GetFakeItalic(ctx, &pb.GetFakeItalicRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFont calls the GetFont RPC.
-func (c *PositionedGlyphsClient) GetFont(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetFont(ctx, &pb.GetFontRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGlyphId calls the GetGlyphId RPC.
-func (c *PositionedGlyphsClient) GetGlyphId(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetGlyphId(ctx, &pb.GetGlyphIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGlyphX calls the GetGlyphX RPC.
-func (c *PositionedGlyphsClient) GetGlyphX(ctx context.Context, arg0 int32) (float32, error) {
-	resp, err := c.svc.GetGlyphX(ctx, &pb.GetGlyphXRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGlyphY calls the GetGlyphY RPC.
-func (c *PositionedGlyphsClient) GetGlyphY(ctx context.Context, arg0 int32) (float32, error) {
-	resp, err := c.svc.GetGlyphY(ctx, &pb.GetGlyphYRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetItalicOverride calls the GetItalicOverride RPC.
-func (c *PositionedGlyphsClient) GetItalicOverride(ctx context.Context, arg0 int32) (float32, error) {
-	resp, err := c.svc.GetItalicOverride(ctx, &pb.GetItalicOverrideRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOffsetX calls the GetOffsetX RPC.
-func (c *PositionedGlyphsClient) GetOffsetX(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetOffsetX(ctx, &pb.GetOffsetXRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOffsetY calls the GetOffsetY RPC.
-func (c *PositionedGlyphsClient) GetOffsetY(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetOffsetY(ctx, &pb.GetOffsetYRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWeightOverride calls the GetWeightOverride RPC.
-func (c *PositionedGlyphsClient) GetWeightOverride(ctx context.Context, arg0 int32) (float32, error) {
-	resp, err := c.svc.GetWeightOverride(ctx, &pb.GetWeightOverrideRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlyphCount calls the GlyphCount RPC.
-func (c *PositionedGlyphsClient) GlyphCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GlyphCount(ctx, &pb.GlyphCountRequest{})
+// GetLineBreakWordStyle calls the GetLineBreakWordStyle RPC.
+func (c *LineBreakConfigClient) GetLineBreakWordStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLineBreakWordStyle(ctx, &pb.GetLineBreakWordStyleRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -175,7 +69,7 @@ func (c *PositionedGlyphsClient) GlyphCount(ctx context.Context) (int32, error) 
 }
 
 // HashCode calls the HashCode RPC.
-func (c *PositionedGlyphsClient) HashCode(ctx context.Context) (int32, error) {
+func (c *LineBreakConfigClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -183,11 +77,96 @@ func (c *PositionedGlyphsClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
+// Merge calls the Merge RPC.
+func (c *LineBreakConfigClient) Merge(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Merge(ctx, &pb.MergeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ToString calls the ToString RPC.
-func (c *PositionedGlyphsClient) ToString(ctx context.Context) (string, error) {
+func (c *LineBreakConfigClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LineBreakConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// LineBreakConfigBuilderClient wraps the gRPC LineBreakConfigBuilderService client.
+type LineBreakConfigBuilderClient struct {
+	svc pb.LineBreakConfigBuilderServiceClient
+}
+
+// NewLineBreakConfigBuilderClient creates a new LineBreakConfigBuilder client.
+func NewLineBreakConfigBuilderClient(cc grpc.ClientConnInterface) *LineBreakConfigBuilderClient {
+	return &LineBreakConfigBuilderClient{
+		svc: pb.NewLineBreakConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *LineBreakConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Merge calls the Merge RPC.
+func (c *LineBreakConfigBuilderClient) Merge(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Merge(ctx, &pb.MergeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHyphenation calls the SetHyphenation RPC.
+func (c *LineBreakConfigBuilderClient) SetHyphenation(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetHyphenation(ctx, &pb.SetHyphenationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLineBreakStyle calls the SetLineBreakStyle RPC.
+func (c *LineBreakConfigBuilderClient) SetLineBreakStyle(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetLineBreakStyle(ctx, &pb.SetLineBreakStyleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLineBreakWordStyle calls the SetLineBreakWordStyle RPC.
+func (c *LineBreakConfigBuilderClient) SetLineBreakWordStyle(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetLineBreakWordStyle(ctx, &pb.SetLineBreakWordStyleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -391,29 +370,20 @@ func (c *RunShaperClient) ShapeTextRun9_1(ctx context.Context, arg0 string, arg1
 	return resp.GetResult(), nil
 }
 
-// LineBreakConfigClient wraps the gRPC LineBreakConfigService client.
-type LineBreakConfigClient struct {
-	svc pb.LineBreakConfigServiceClient
+// PositionedGlyphsClient wraps the gRPC PositionedGlyphsService client.
+type PositionedGlyphsClient struct {
+	svc pb.PositionedGlyphsServiceClient
 }
 
-// NewLineBreakConfigClient creates a new LineBreakConfig client.
-func NewLineBreakConfigClient(cc grpc.ClientConnInterface) *LineBreakConfigClient {
-	return &LineBreakConfigClient{
-		svc: pb.NewLineBreakConfigServiceClient(cc),
+// NewPositionedGlyphsClient creates a new PositionedGlyphs client.
+func NewPositionedGlyphsClient(cc grpc.ClientConnInterface) *PositionedGlyphsClient {
+	return &PositionedGlyphsClient{
+		svc: pb.NewPositionedGlyphsServiceClient(cc),
 	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *LineBreakConfigClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // Equals calls the Equals RPC.
-func (c *LineBreakConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *PositionedGlyphsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -423,27 +393,142 @@ func (c *LineBreakConfigClient) Equals(ctx context.Context, arg0 int64) (bool, e
 	return resp.GetResult(), nil
 }
 
-// GetHyphenation calls the GetHyphenation RPC.
-func (c *LineBreakConfigClient) GetHyphenation(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHyphenation(ctx, &pb.GetHyphenationRequest{})
+// GetAdvance calls the GetAdvance RPC.
+func (c *PositionedGlyphsClient) GetAdvance(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetAdvance(ctx, &pb.GetAdvanceRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetLineBreakStyle calls the GetLineBreakStyle RPC.
-func (c *LineBreakConfigClient) GetLineBreakStyle(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLineBreakStyle(ctx, &pb.GetLineBreakStyleRequest{})
+// GetAscent calls the GetAscent RPC.
+func (c *PositionedGlyphsClient) GetAscent(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetAscent(ctx, &pb.GetAscentRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetLineBreakWordStyle calls the GetLineBreakWordStyle RPC.
-func (c *LineBreakConfigClient) GetLineBreakWordStyle(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLineBreakWordStyle(ctx, &pb.GetLineBreakWordStyleRequest{})
+// GetDescent calls the GetDescent RPC.
+func (c *PositionedGlyphsClient) GetDescent(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetDescent(ctx, &pb.GetDescentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFakeBold calls the GetFakeBold RPC.
+func (c *PositionedGlyphsClient) GetFakeBold(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.GetFakeBold(ctx, &pb.GetFakeBoldRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFakeItalic calls the GetFakeItalic RPC.
+func (c *PositionedGlyphsClient) GetFakeItalic(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.GetFakeItalic(ctx, &pb.GetFakeItalicRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFont calls the GetFont RPC.
+func (c *PositionedGlyphsClient) GetFont(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetFont(ctx, &pb.GetFontRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGlyphId calls the GetGlyphId RPC.
+func (c *PositionedGlyphsClient) GetGlyphId(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetGlyphId(ctx, &pb.GetGlyphIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGlyphX calls the GetGlyphX RPC.
+func (c *PositionedGlyphsClient) GetGlyphX(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetGlyphX(ctx, &pb.GetGlyphXRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGlyphY calls the GetGlyphY RPC.
+func (c *PositionedGlyphsClient) GetGlyphY(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetGlyphY(ctx, &pb.GetGlyphYRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetItalicOverride calls the GetItalicOverride RPC.
+func (c *PositionedGlyphsClient) GetItalicOverride(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetItalicOverride(ctx, &pb.GetItalicOverrideRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffsetX calls the GetOffsetX RPC.
+func (c *PositionedGlyphsClient) GetOffsetX(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetOffsetX(ctx, &pb.GetOffsetXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffsetY calls the GetOffsetY RPC.
+func (c *PositionedGlyphsClient) GetOffsetY(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetOffsetY(ctx, &pb.GetOffsetYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWeightOverride calls the GetWeightOverride RPC.
+func (c *PositionedGlyphsClient) GetWeightOverride(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetWeightOverride(ctx, &pb.GetWeightOverrideRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlyphCount calls the GlyphCount RPC.
+func (c *PositionedGlyphsClient) GlyphCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GlyphCount(ctx, &pb.GlyphCountRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -451,7 +536,7 @@ func (c *LineBreakConfigClient) GetLineBreakWordStyle(ctx context.Context) (int3
 }
 
 // HashCode calls the HashCode RPC.
-func (c *LineBreakConfigClient) HashCode(ctx context.Context) (int32, error) {
+func (c *PositionedGlyphsClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -459,96 +544,11 @@ func (c *LineBreakConfigClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// Merge calls the Merge RPC.
-func (c *LineBreakConfigClient) Merge(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Merge(ctx, &pb.MergeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // ToString calls the ToString RPC.
-func (c *LineBreakConfigClient) ToString(ctx context.Context) (string, error) {
+func (c *PositionedGlyphsClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *LineBreakConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// LineBreakConfigBuilderClient wraps the gRPC LineBreakConfigBuilderService client.
-type LineBreakConfigBuilderClient struct {
-	svc pb.LineBreakConfigBuilderServiceClient
-}
-
-// NewLineBreakConfigBuilderClient creates a new LineBreakConfigBuilder client.
-func NewLineBreakConfigBuilderClient(cc grpc.ClientConnInterface) *LineBreakConfigBuilderClient {
-	return &LineBreakConfigBuilderClient{
-		svc: pb.NewLineBreakConfigBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *LineBreakConfigBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Merge calls the Merge RPC.
-func (c *LineBreakConfigBuilderClient) Merge(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Merge(ctx, &pb.MergeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetHyphenation calls the SetHyphenation RPC.
-func (c *LineBreakConfigBuilderClient) SetHyphenation(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetHyphenation(ctx, &pb.SetHyphenationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLineBreakStyle calls the SetLineBreakStyle RPC.
-func (c *LineBreakConfigBuilderClient) SetLineBreakStyle(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetLineBreakStyle(ctx, &pb.SetLineBreakStyleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLineBreakWordStyle calls the SetLineBreakWordStyle RPC.
-func (c *LineBreakConfigBuilderClient) SetLineBreakWordStyle(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetLineBreakWordStyle(ctx, &pb.SetLineBreakWordStyleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -831,6 +831,8003 @@ func (c *LineBreakerResultClient) HasLineTab(ctx context.Context, arg0 int32) (b
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeSetIteratorClient wraps the gRPC UnicodeSetIteratorService client.
+type UnicodeSetIteratorClient struct {
+	svc pb.UnicodeSetIteratorServiceClient
+}
+
+// NewUnicodeSetIteratorClient creates a new UnicodeSetIterator client.
+func NewUnicodeSetIteratorClient(cc grpc.ClientConnInterface) *UnicodeSetIteratorClient {
+	return &UnicodeSetIteratorClient{
+		svc: pb.NewUnicodeSetIteratorServiceClient(cc),
+	}
+}
+
+// GetString calls the GetString RPC.
+func (c *UnicodeSetIteratorClient) GetString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetString(ctx, &pb.GetStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Next calls the Next RPC.
+func (c *UnicodeSetIteratorClient) Next(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.Next(ctx, &pb.NextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextRange calls the NextRange RPC.
+func (c *UnicodeSetIteratorClient) NextRange(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.NextRange(ctx, &pb.NextRangeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset0 calls the Reset0 RPC.
+func (c *UnicodeSetIteratorClient) Reset0(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset0(ctx, &pb.Reset0Request{
+		Handle: handle,
+	})
+	return err
+}
+
+// Reset1_1 calls the Reset1_1 RPC.
+func (c *UnicodeSetIteratorClient) Reset1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Reset1_1(ctx, &pb.Reset1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SkipToStrings calls the SkipToStrings RPC.
+func (c *UnicodeSetIteratorClient) SkipToStrings(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SkipToStrings(ctx, &pb.SkipToStringsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BidiClient wraps the gRPC BidiService client.
+type BidiClient struct {
+	svc pb.BidiServiceClient
+}
+
+// NewBidiClient creates a new Bidi client.
+func NewBidiClient(cc grpc.ClientConnInterface) *BidiClient {
+	return &BidiClient{
+		svc: pb.NewBidiServiceClient(cc),
+	}
+}
+
+// BaseIsLeftToRight calls the BaseIsLeftToRight RPC.
+func (c *BidiClient) BaseIsLeftToRight(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.BaseIsLeftToRight(ctx, &pb.BaseIsLeftToRightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountParagraphs calls the CountParagraphs RPC.
+func (c *BidiClient) CountParagraphs(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountParagraphs(ctx, &pb.CountParagraphsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountRuns calls the CountRuns RPC.
+func (c *BidiClient) CountRuns(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountRuns(ctx, &pb.CountRunsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateLineBidi calls the CreateLineBidi RPC.
+func (c *BidiClient) CreateLineBidi(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateLineBidi(ctx, &pb.CreateLineBidiRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBaseLevel calls the GetBaseLevel RPC.
+func (c *BidiClient) GetBaseLevel(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBaseLevel(ctx, &pb.GetBaseLevelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCustomClassifier calls the GetCustomClassifier RPC.
+func (c *BidiClient) GetCustomClassifier(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCustomClassifier(ctx, &pb.GetCustomClassifierRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCustomizedClass calls the GetCustomizedClass RPC.
+func (c *BidiClient) GetCustomizedClass(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCustomizedClass(ctx, &pb.GetCustomizedClassRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDirection calls the GetDirection RPC.
+func (c *BidiClient) GetDirection(ctx context.Context, handle int64) (int8, error) {
+	resp, err := c.svc.GetDirection(ctx, &pb.GetDirectionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int8(resp.GetResult()), nil
+}
+
+// GetLength calls the GetLength RPC.
+func (c *BidiClient) GetLength(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLevelAt calls the GetLevelAt RPC.
+func (c *BidiClient) GetLevelAt(ctx context.Context, handle int64, arg0 int32) (int8, error) {
+	resp, err := c.svc.GetLevelAt(ctx, &pb.GetLevelAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int8(resp.GetResult()), nil
+}
+
+// GetLevels calls the GetLevels RPC.
+func (c *BidiClient) GetLevels(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLevels(ctx, &pb.GetLevelsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogicalIndex calls the GetLogicalIndex RPC.
+func (c *BidiClient) GetLogicalIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLogicalIndex(ctx, &pb.GetLogicalIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogicalMap calls the GetLogicalMap RPC.
+func (c *BidiClient) GetLogicalMap(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLogicalMap(ctx, &pb.GetLogicalMapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogicalRun calls the GetLogicalRun RPC.
+func (c *BidiClient) GetLogicalRun(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetLogicalRun(ctx, &pb.GetLogicalRunRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParaLevel calls the GetParaLevel RPC.
+func (c *BidiClient) GetParaLevel(ctx context.Context, handle int64) (int8, error) {
+	resp, err := c.svc.GetParaLevel(ctx, &pb.GetParaLevelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int8(resp.GetResult()), nil
+}
+
+// GetParagraph calls the GetParagraph RPC.
+func (c *BidiClient) GetParagraph(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetParagraph(ctx, &pb.GetParagraphRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParagraphByIndex calls the GetParagraphByIndex RPC.
+func (c *BidiClient) GetParagraphByIndex(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetParagraphByIndex(ctx, &pb.GetParagraphByIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParagraphIndex calls the GetParagraphIndex RPC.
+func (c *BidiClient) GetParagraphIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetParagraphIndex(ctx, &pb.GetParagraphIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProcessedLength calls the GetProcessedLength RPC.
+func (c *BidiClient) GetProcessedLength(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetProcessedLength(ctx, &pb.GetProcessedLengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReorderingMode calls the GetReorderingMode RPC.
+func (c *BidiClient) GetReorderingMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetReorderingMode(ctx, &pb.GetReorderingModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReorderingOptions calls the GetReorderingOptions RPC.
+func (c *BidiClient) GetReorderingOptions(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetReorderingOptions(ctx, &pb.GetReorderingOptionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultLength calls the GetResultLength RPC.
+func (c *BidiClient) GetResultLength(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetResultLength(ctx, &pb.GetResultLengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunCount calls the GetRunCount RPC.
+func (c *BidiClient) GetRunCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRunCount(ctx, &pb.GetRunCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunLevel calls the GetRunLevel RPC.
+func (c *BidiClient) GetRunLevel(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetRunLevel(ctx, &pb.GetRunLevelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunLimit calls the GetRunLimit RPC.
+func (c *BidiClient) GetRunLimit(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetRunLimit(ctx, &pb.GetRunLimitRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunStart calls the GetRunStart RPC.
+func (c *BidiClient) GetRunStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetRunStart(ctx, &pb.GetRunStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *BidiClient) GetText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextAsString calls the GetTextAsString RPC.
+func (c *BidiClient) GetTextAsString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetTextAsString(ctx, &pb.GetTextAsStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualIndex calls the GetVisualIndex RPC.
+func (c *BidiClient) GetVisualIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetVisualIndex(ctx, &pb.GetVisualIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualMap calls the GetVisualMap RPC.
+func (c *BidiClient) GetVisualMap(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetVisualMap(ctx, &pb.GetVisualMapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualRun calls the GetVisualRun RPC.
+func (c *BidiClient) GetVisualRun(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetVisualRun(ctx, &pb.GetVisualRunRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInverse calls the IsInverse RPC.
+func (c *BidiClient) IsInverse(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsInverse(ctx, &pb.IsInverseRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLeftToRight calls the IsLeftToRight RPC.
+func (c *BidiClient) IsLeftToRight(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsLeftToRight(ctx, &pb.IsLeftToRightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMixed calls the IsMixed RPC.
+func (c *BidiClient) IsMixed(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsMixed(ctx, &pb.IsMixedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOrderParagraphsLTR calls the IsOrderParagraphsLTR RPC.
+func (c *BidiClient) IsOrderParagraphsLTR(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsOrderParagraphsLTR(ctx, &pb.IsOrderParagraphsLTRRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRightToLeft calls the IsRightToLeft RPC.
+func (c *BidiClient) IsRightToLeft(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsRightToLeft(ctx, &pb.IsRightToLeftRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OrderParagraphsLTR calls the OrderParagraphsLTR RPC.
+func (c *BidiClient) OrderParagraphsLTR(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.OrderParagraphsLTR(ctx, &pb.OrderParagraphsLTRRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetContext calls the SetContext RPC.
+func (c *BidiClient) SetContext(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.SetContext(ctx, &pb.SetContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetCustomClassifier calls the SetCustomClassifier RPC.
+func (c *BidiClient) SetCustomClassifier(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetCustomClassifier(ctx, &pb.SetCustomClassifierRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetInverse calls the SetInverse RPC.
+func (c *BidiClient) SetInverse(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetInverse(ctx, &pb.SetInverseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLine calls the SetLine RPC.
+func (c *BidiClient) SetLine(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetLine(ctx, &pb.SetLineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPara3 calls the SetPara3 RPC.
+func (c *BidiClient) SetPara3(ctx context.Context, handle int64, arg0 int64, arg1 int8, arg2 int64) error {
+	_, err := c.svc.SetPara3(ctx, &pb.SetPara3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   int64(arg1),
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetPara3_1 calls the SetPara3_1 RPC.
+func (c *BidiClient) SetPara3_1(ctx context.Context, handle int64, arg0 string, arg1 int8, arg2 int64) error {
+	_, err := c.svc.SetPara3_1(ctx, &pb.SetPara3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   int64(arg1),
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetPara1_2 calls the SetPara1_2 RPC.
+func (c *BidiClient) SetPara1_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPara1_2(ctx, &pb.SetPara1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetReorderingMode calls the SetReorderingMode RPC.
+func (c *BidiClient) SetReorderingMode(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetReorderingMode(ctx, &pb.SetReorderingModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetReorderingOptions calls the SetReorderingOptions RPC.
+func (c *BidiClient) SetReorderingOptions(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetReorderingOptions(ctx, &pb.SetReorderingOptionsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteReordered calls the WriteReordered RPC.
+func (c *BidiClient) WriteReordered(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.WriteReordered(ctx, &pb.WriteReorderedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBaseDirection calls the GetBaseDirection RPC.
+func (c *BidiClient) GetBaseDirection(ctx context.Context, handle int64, arg0 string) (int8, error) {
+	resp, err := c.svc.GetBaseDirection(ctx, &pb.GetBaseDirectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int8(resp.GetResult()), nil
+}
+
+// InvertMap calls the InvertMap RPC.
+func (c *BidiClient) InvertMap(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.InvertMap(ctx, &pb.InvertMapRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReorderLogical calls the ReorderLogical RPC.
+func (c *BidiClient) ReorderLogical(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.ReorderLogical(ctx, &pb.ReorderLogicalRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReorderVisual calls the ReorderVisual RPC.
+func (c *BidiClient) ReorderVisual(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.ReorderVisual(ctx, &pb.ReorderVisualRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReorderVisually calls the ReorderVisually RPC.
+func (c *BidiClient) ReorderVisually(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int32) error {
+	_, err := c.svc.ReorderVisually(ctx, &pb.ReorderVisuallyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// RequiresBidi calls the RequiresBidi RPC.
+func (c *BidiClient) RequiresBidi(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (bool, error) {
+	resp, err := c.svc.RequiresBidi(ctx, &pb.RequiresBidiRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteReverse calls the WriteReverse RPC.
+func (c *BidiClient) WriteReverse(ctx context.Context, handle int64, arg0 string, arg1 int32) (string, error) {
+	resp, err := c.svc.WriteReverse(ctx, &pb.WriteReverseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeZoneNamesClient wraps the gRPC TimeZoneNamesService client.
+type TimeZoneNamesClient struct {
+	svc pb.TimeZoneNamesServiceClient
+}
+
+// NewTimeZoneNamesClient creates a new TimeZoneNames client.
+func NewTimeZoneNamesClient(cc grpc.ClientConnInterface) *TimeZoneNamesClient {
+	return &TimeZoneNamesClient{
+		svc: pb.NewTimeZoneNamesServiceClient(cc),
+	}
+}
+
+// GetAvailableMetaZoneIDs0 calls the GetAvailableMetaZoneIDs0 RPC.
+func (c *TimeZoneNamesClient) GetAvailableMetaZoneIDs0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableMetaZoneIDs0(ctx, &pb.GetAvailableMetaZoneIDs0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableMetaZoneIDs1_1 calls the GetAvailableMetaZoneIDs1_1 RPC.
+func (c *TimeZoneNamesClient) GetAvailableMetaZoneIDs1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAvailableMetaZoneIDs1_1(ctx, &pb.GetAvailableMetaZoneIDs1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName calls the GetDisplayName RPC.
+func (c *TimeZoneNamesClient) GetDisplayName(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (string, error) {
+	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExemplarLocationName calls the GetExemplarLocationName RPC.
+func (c *TimeZoneNamesClient) GetExemplarLocationName(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetExemplarLocationName(ctx, &pb.GetExemplarLocationNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetaZoneDisplayName calls the GetMetaZoneDisplayName RPC.
+func (c *TimeZoneNamesClient) GetMetaZoneDisplayName(ctx context.Context, arg0 string, arg1 int64) (string, error) {
+	resp, err := c.svc.GetMetaZoneDisplayName(ctx, &pb.GetMetaZoneDisplayNameRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetaZoneID calls the GetMetaZoneID RPC.
+func (c *TimeZoneNamesClient) GetMetaZoneID(ctx context.Context, arg0 string, arg1 int64) (string, error) {
+	resp, err := c.svc.GetMetaZoneID(ctx, &pb.GetMetaZoneIDRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReferenceZoneID calls the GetReferenceZoneID RPC.
+func (c *TimeZoneNamesClient) GetReferenceZoneID(ctx context.Context, arg0 string, arg1 string) (string, error) {
+	resp, err := c.svc.GetReferenceZoneID(ctx, &pb.GetReferenceZoneIDRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeZoneDisplayName calls the GetTimeZoneDisplayName RPC.
+func (c *TimeZoneNamesClient) GetTimeZoneDisplayName(ctx context.Context, arg0 string, arg1 int64) (string, error) {
+	resp, err := c.svc.GetTimeZoneDisplayName(ctx, &pb.GetTimeZoneDisplayNameRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1 calls the GetInstance1 RPC.
+func (c *TimeZoneNamesClient) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *TimeZoneNamesClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTZDBInstance calls the GetTZDBInstance RPC.
+func (c *TimeZoneNamesClient) GetTZDBInstance(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetTZDBInstance(ctx, &pb.GetTZDBInstanceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeZoneNamesNameTypeClient wraps the gRPC TimeZoneNamesNameTypeService client.
+type TimeZoneNamesNameTypeClient struct {
+	svc pb.TimeZoneNamesNameTypeServiceClient
+}
+
+// NewTimeZoneNamesNameTypeClient creates a new TimeZoneNamesNameType client.
+func NewTimeZoneNamesNameTypeClient(cc grpc.ClientConnInterface) *TimeZoneNamesNameTypeClient {
+	return &TimeZoneNamesNameTypeClient{
+		svc: pb.NewTimeZoneNamesNameTypeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *TimeZoneNamesNameTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *TimeZoneNamesNameTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NormalizerClient wraps the gRPC NormalizerService client.
+type NormalizerClient struct {
+	svc pb.NormalizerServiceClient
+}
+
+// NewNormalizerClient creates a new Normalizer client.
+func NewNormalizerClient(cc grpc.ClientConnInterface) *NormalizerClient {
+	return &NormalizerClient{
+		svc: pb.NewNormalizerServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *NormalizerClient) Clone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare3 calls the Compare3 RPC.
+func (c *NormalizerClient) Compare3(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int32, error) {
+	resp, err := c.svc.Compare3(ctx, &pb.Compare3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare7_1 calls the Compare7_1 RPC.
+func (c *NormalizerClient) Compare7_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32, arg6 int32) (int32, error) {
+	resp, err := c.svc.Compare7_1(ctx, &pb.Compare7_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare3_2 calls the Compare3_2 RPC.
+func (c *NormalizerClient) Compare3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Compare3_2(ctx, &pb.Compare3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare3_3 calls the Compare3_3 RPC.
+func (c *NormalizerClient) Compare3_3(ctx context.Context, arg0 int32, arg1 string, arg2 int32) (int32, error) {
+	resp, err := c.svc.Compare3_3(ctx, &pb.Compare3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare3_4 calls the Compare3_4 RPC.
+func (c *NormalizerClient) Compare3_4(ctx context.Context, arg0 string, arg1 string, arg2 int32) (int32, error) {
+	resp, err := c.svc.Compare3_4(ctx, &pb.Compare3_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelativeDateTimeFormatterClient wraps the gRPC RelativeDateTimeFormatterService client.
+type RelativeDateTimeFormatterClient struct {
+	svc pb.RelativeDateTimeFormatterServiceClient
+}
+
+// NewRelativeDateTimeFormatterClient creates a new RelativeDateTimeFormatter client.
+func NewRelativeDateTimeFormatterClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterClient {
+	return &RelativeDateTimeFormatterClient{
+		svc: pb.NewRelativeDateTimeFormatterServiceClient(cc),
+	}
+}
+
+// CombineDateAndTime calls the CombineDateAndTime RPC.
+func (c *RelativeDateTimeFormatterClient) CombineDateAndTime(ctx context.Context, arg0 string, arg1 string) (string, error) {
+	resp, err := c.svc.CombineDateAndTime(ctx, &pb.CombineDateAndTimeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format2 calls the Format2 RPC.
+func (c *RelativeDateTimeFormatterClient) Format2(ctx context.Context, arg0 int64, arg1 int64) (string, error) {
+	resp, err := c.svc.Format2(ctx, &pb.Format2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_1 calls the Format3_1 RPC.
+func (c *RelativeDateTimeFormatterClient) Format3_1(ctx context.Context, arg0 float64, arg1 int64, arg2 int64) (string, error) {
+	resp, err := c.svc.Format3_1(ctx, &pb.Format3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format2_2 calls the Format2_2 RPC.
+func (c *RelativeDateTimeFormatterClient) Format2_2(ctx context.Context, arg0 float64, arg1 int64) (string, error) {
+	resp, err := c.svc.Format2_2(ctx, &pb.Format2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatNumeric calls the FormatNumeric RPC.
+func (c *RelativeDateTimeFormatterClient) FormatNumeric(ctx context.Context, arg0 float64, arg1 int64) (string, error) {
+	resp, err := c.svc.FormatNumeric(ctx, &pb.FormatNumericRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatNumericToValue calls the FormatNumericToValue RPC.
+func (c *RelativeDateTimeFormatterClient) FormatNumericToValue(ctx context.Context, arg0 float64, arg1 int64) (int64, error) {
+	resp, err := c.svc.FormatNumericToValue(ctx, &pb.FormatNumericToValueRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToValue2 calls the FormatToValue2 RPC.
+func (c *RelativeDateTimeFormatterClient) FormatToValue2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.FormatToValue2(ctx, &pb.FormatToValue2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToValue3_1 calls the FormatToValue3_1 RPC.
+func (c *RelativeDateTimeFormatterClient) FormatToValue3_1(ctx context.Context, arg0 float64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.FormatToValue3_1(ctx, &pb.FormatToValue3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToValue2_2 calls the FormatToValue2_2 RPC.
+func (c *RelativeDateTimeFormatterClient) FormatToValue2_2(ctx context.Context, arg0 float64, arg1 int64) (int64, error) {
+	resp, err := c.svc.FormatToValue2_2(ctx, &pb.FormatToValue2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCapitalizationContext calls the GetCapitalizationContext RPC.
+func (c *RelativeDateTimeFormatterClient) GetCapitalizationContext(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCapitalizationContext(ctx, &pb.GetCapitalizationContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormatStyle calls the GetFormatStyle RPC.
+func (c *RelativeDateTimeFormatterClient) GetFormatStyle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFormatStyle(ctx, &pb.GetFormatStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumberFormat calls the GetNumberFormat RPC.
+func (c *RelativeDateTimeFormatterClient) GetNumberFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNumberFormat(ctx, &pb.GetNumberFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *RelativeDateTimeFormatterClient) GetInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *RelativeDateTimeFormatterClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_2 calls the GetInstance2_2 RPC.
+func (c *RelativeDateTimeFormatterClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_2(ctx, &pb.GetInstance2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance4_3 calls the GetInstance4_3 RPC.
+func (c *RelativeDateTimeFormatterClient) GetInstance4_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetInstance4_3(ctx, &pb.GetInstance4_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_4 calls the GetInstance1_4 RPC.
+func (c *RelativeDateTimeFormatterClient) GetInstance1_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_4(ctx, &pb.GetInstance1_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_5 calls the GetInstance2_5 RPC.
+func (c *RelativeDateTimeFormatterClient) GetInstance2_5(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_5(ctx, &pb.GetInstance2_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelativeDateTimeFormatterAbsoluteUnitClient wraps the gRPC RelativeDateTimeFormatterAbsoluteUnitService client.
+type RelativeDateTimeFormatterAbsoluteUnitClient struct {
+	svc pb.RelativeDateTimeFormatterAbsoluteUnitServiceClient
+}
+
+// NewRelativeDateTimeFormatterAbsoluteUnitClient creates a new RelativeDateTimeFormatterAbsoluteUnit client.
+func NewRelativeDateTimeFormatterAbsoluteUnitClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterAbsoluteUnitClient {
+	return &RelativeDateTimeFormatterAbsoluteUnitClient{
+		svc: pb.NewRelativeDateTimeFormatterAbsoluteUnitServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *RelativeDateTimeFormatterAbsoluteUnitClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *RelativeDateTimeFormatterAbsoluteUnitClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelativeDateTimeFormatterDirectionClient wraps the gRPC RelativeDateTimeFormatterDirectionService client.
+type RelativeDateTimeFormatterDirectionClient struct {
+	svc pb.RelativeDateTimeFormatterDirectionServiceClient
+}
+
+// NewRelativeDateTimeFormatterDirectionClient creates a new RelativeDateTimeFormatterDirection client.
+func NewRelativeDateTimeFormatterDirectionClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterDirectionClient {
+	return &RelativeDateTimeFormatterDirectionClient{
+		svc: pb.NewRelativeDateTimeFormatterDirectionServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *RelativeDateTimeFormatterDirectionClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *RelativeDateTimeFormatterDirectionClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelativeDateTimeFormatterFormattedRelativeDateTimeClient wraps the gRPC RelativeDateTimeFormatterFormattedRelativeDateTimeService client.
+type RelativeDateTimeFormatterFormattedRelativeDateTimeClient struct {
+	svc pb.RelativeDateTimeFormatterFormattedRelativeDateTimeServiceClient
+}
+
+// NewRelativeDateTimeFormatterFormattedRelativeDateTimeClient creates a new RelativeDateTimeFormatterFormattedRelativeDateTime client.
+func NewRelativeDateTimeFormatterFormattedRelativeDateTimeClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterFormattedRelativeDateTimeClient {
+	return &RelativeDateTimeFormatterFormattedRelativeDateTimeClient{
+		svc: pb.NewRelativeDateTimeFormatterFormattedRelativeDateTimeServiceClient(cc),
+	}
+}
+
+// CharAt calls the CharAt RPC.
+func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return uint16(resp.GetResult()), nil
+}
+
+// Length calls the Length RPC.
+func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) Length(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextPosition calls the NextPosition RPC.
+func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubSequence calls the SubSequence RPC.
+func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToCharacterIterator calls the ToCharacterIterator RPC.
+func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) ToCharacterIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelativeDateTimeFormatterRelativeDateTimeUnitClient wraps the gRPC RelativeDateTimeFormatterRelativeDateTimeUnitService client.
+type RelativeDateTimeFormatterRelativeDateTimeUnitClient struct {
+	svc pb.RelativeDateTimeFormatterRelativeDateTimeUnitServiceClient
+}
+
+// NewRelativeDateTimeFormatterRelativeDateTimeUnitClient creates a new RelativeDateTimeFormatterRelativeDateTimeUnit client.
+func NewRelativeDateTimeFormatterRelativeDateTimeUnitClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterRelativeDateTimeUnitClient {
+	return &RelativeDateTimeFormatterRelativeDateTimeUnitClient{
+		svc: pb.NewRelativeDateTimeFormatterRelativeDateTimeUnitServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *RelativeDateTimeFormatterRelativeDateTimeUnitClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *RelativeDateTimeFormatterRelativeDateTimeUnitClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelativeDateTimeFormatterRelativeUnitClient wraps the gRPC RelativeDateTimeFormatterRelativeUnitService client.
+type RelativeDateTimeFormatterRelativeUnitClient struct {
+	svc pb.RelativeDateTimeFormatterRelativeUnitServiceClient
+}
+
+// NewRelativeDateTimeFormatterRelativeUnitClient creates a new RelativeDateTimeFormatterRelativeUnit client.
+func NewRelativeDateTimeFormatterRelativeUnitClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterRelativeUnitClient {
+	return &RelativeDateTimeFormatterRelativeUnitClient{
+		svc: pb.NewRelativeDateTimeFormatterRelativeUnitServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *RelativeDateTimeFormatterRelativeUnitClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *RelativeDateTimeFormatterRelativeUnitClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelativeDateTimeFormatterStyleClient wraps the gRPC RelativeDateTimeFormatterStyleService client.
+type RelativeDateTimeFormatterStyleClient struct {
+	svc pb.RelativeDateTimeFormatterStyleServiceClient
+}
+
+// NewRelativeDateTimeFormatterStyleClient creates a new RelativeDateTimeFormatterStyle client.
+func NewRelativeDateTimeFormatterStyleClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterStyleClient {
+	return &RelativeDateTimeFormatterStyleClient{
+		svc: pb.NewRelativeDateTimeFormatterStyleServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *RelativeDateTimeFormatterStyleClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *RelativeDateTimeFormatterStyleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DateFormatClient wraps the gRPC DateFormatService client.
+type DateFormatClient struct {
+	svc pb.DateFormatServiceClient
+}
+
+// NewDateFormatClient creates a new DateFormat client.
+func NewDateFormatClient(cc grpc.ClientConnInterface) *DateFormatClient {
+	return &DateFormatClient{
+		svc: pb.NewDateFormatServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *DateFormatClient) Clone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DateFormatClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3 calls the Format3 RPC.
+func (c *DateFormatClient) Format3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3(ctx, &pb.Format3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_1 calls the Format3_1 RPC.
+func (c *DateFormatClient) Format3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_1(ctx, &pb.DateFormatFormat3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_2 calls the Format1_2 RPC.
+func (c *DateFormatClient) Format1_2(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Format1_2(ctx, &pb.Format1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_3 calls the Format3_3 RPC.
+func (c *DateFormatClient) Format3_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_3(ctx, &pb.Format3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBooleanAttribute calls the GetBooleanAttribute RPC.
+func (c *DateFormatClient) GetBooleanAttribute(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetBooleanAttribute(ctx, &pb.GetBooleanAttributeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCalendar calls the GetCalendar RPC.
+func (c *DateFormatClient) GetCalendar(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCalendar(ctx, &pb.GetCalendarRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContext calls the GetContext RPC.
+func (c *DateFormatClient) GetContext(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumberFormat calls the GetNumberFormat RPC.
+func (c *DateFormatClient) GetNumberFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNumberFormat(ctx, &pb.GetNumberFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeZone calls the GetTimeZone RPC.
+func (c *DateFormatClient) GetTimeZone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeZone(ctx, &pb.GetTimeZoneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DateFormatClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCalendarLenient calls the IsCalendarLenient RPC.
+func (c *DateFormatClient) IsCalendarLenient(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCalendarLenient(ctx, &pb.IsCalendarLenientRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLenient calls the IsLenient RPC.
+func (c *DateFormatClient) IsLenient(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLenient(ctx, &pb.IsLenientRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse1 calls the Parse1 RPC.
+func (c *DateFormatClient) Parse1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.Parse1(ctx, &pb.Parse1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse3_1 calls the Parse3_1 RPC.
+func (c *DateFormatClient) Parse3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
+	_, err := c.svc.Parse3_1(ctx, &pb.Parse3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Parse2_2 calls the Parse2_2 RPC.
+func (c *DateFormatClient) Parse2_2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Parse2_2(ctx, &pb.Parse2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseObject calls the ParseObject RPC.
+func (c *DateFormatClient) ParseObject(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject(ctx, &pb.ParseObjectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBooleanAttribute calls the SetBooleanAttribute RPC.
+func (c *DateFormatClient) SetBooleanAttribute(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.SetBooleanAttribute(ctx, &pb.SetBooleanAttributeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCalendar calls the SetCalendar RPC.
+func (c *DateFormatClient) SetCalendar(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetCalendar(ctx, &pb.SetCalendarRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCalendarLenient calls the SetCalendarLenient RPC.
+func (c *DateFormatClient) SetCalendarLenient(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetCalendarLenient(ctx, &pb.SetCalendarLenientRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetContext calls the SetContext RPC.
+func (c *DateFormatClient) SetContext(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetContext(ctx, &pb.DateFormatSetContextRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLenient calls the SetLenient RPC.
+func (c *DateFormatClient) SetLenient(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetLenient(ctx, &pb.SetLenientRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNumberFormat calls the SetNumberFormat RPC.
+func (c *DateFormatClient) SetNumberFormat(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetNumberFormat(ctx, &pb.SetNumberFormatRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTimeZone calls the SetTimeZone RPC.
+func (c *DateFormatClient) SetTimeZone(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTimeZone(ctx, &pb.SetTimeZoneRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetAvailableLocales calls the GetAvailableLocales RPC.
+func (c *DateFormatClient) GetAvailableLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableLocales(ctx, &pb.GetAvailableLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateInstance0 calls the GetDateInstance0 RPC.
+func (c *DateFormatClient) GetDateInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDateInstance0(ctx, &pb.GetDateInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateInstance2_1 calls the GetDateInstance2_1 RPC.
+func (c *DateFormatClient) GetDateInstance2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetDateInstance2_1(ctx, &pb.GetDateInstance2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateInstance3_2 calls the GetDateInstance3_2 RPC.
+func (c *DateFormatClient) GetDateInstance3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDateInstance3_2(ctx, &pb.GetDateInstance3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateInstance3_3 calls the GetDateInstance3_3 RPC.
+func (c *DateFormatClient) GetDateInstance3_3(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDateInstance3_3(ctx, &pb.GetDateInstance3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateInstance1_4 calls the GetDateInstance1_4 RPC.
+func (c *DateFormatClient) GetDateInstance1_4(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDateInstance1_4(ctx, &pb.GetDateInstance1_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateInstance2_5 calls the GetDateInstance2_5 RPC.
+func (c *DateFormatClient) GetDateInstance2_5(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetDateInstance2_5(ctx, &pb.GetDateInstance2_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateInstance2_6 calls the GetDateInstance2_6 RPC.
+func (c *DateFormatClient) GetDateInstance2_6(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetDateInstance2_6(ctx, &pb.GetDateInstance2_6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeInstance0 calls the GetDateTimeInstance0 RPC.
+func (c *DateFormatClient) GetDateTimeInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDateTimeInstance0(ctx, &pb.GetDateTimeInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeInstance3_1 calls the GetDateTimeInstance3_1 RPC.
+func (c *DateFormatClient) GetDateTimeInstance3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetDateTimeInstance3_1(ctx, &pb.GetDateTimeInstance3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeInstance4_2 calls the GetDateTimeInstance4_2 RPC.
+func (c *DateFormatClient) GetDateTimeInstance4_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetDateTimeInstance4_2(ctx, &pb.GetDateTimeInstance4_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeInstance4_3 calls the GetDateTimeInstance4_3 RPC.
+func (c *DateFormatClient) GetDateTimeInstance4_3(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetDateTimeInstance4_3(ctx, &pb.GetDateTimeInstance4_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeInstance2_4 calls the GetDateTimeInstance2_4 RPC.
+func (c *DateFormatClient) GetDateTimeInstance2_4(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetDateTimeInstance2_4(ctx, &pb.GetDateTimeInstance2_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeInstance3_5 calls the GetDateTimeInstance3_5 RPC.
+func (c *DateFormatClient) GetDateTimeInstance3_5(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDateTimeInstance3_5(ctx, &pb.GetDateTimeInstance3_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeInstance3_6 calls the GetDateTimeInstance3_6 RPC.
+func (c *DateFormatClient) GetDateTimeInstance3_6(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDateTimeInstance3_6(ctx, &pb.GetDateTimeInstance3_6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *DateFormatClient) GetInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *DateFormatClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_2 calls the GetInstance2_2 RPC.
+func (c *DateFormatClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_2(ctx, &pb.GetInstance2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_3 calls the GetInstance2_3 RPC.
+func (c *DateFormatClient) GetInstance2_3(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_3(ctx, &pb.GetInstance2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstanceForSkeleton3 calls the GetInstanceForSkeleton3 RPC.
+func (c *DateFormatClient) GetInstanceForSkeleton3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstanceForSkeleton3(ctx, &pb.GetInstanceForSkeleton3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstanceForSkeleton3_1 calls the GetInstanceForSkeleton3_1 RPC.
+func (c *DateFormatClient) GetInstanceForSkeleton3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstanceForSkeleton3_1(ctx, &pb.GetInstanceForSkeleton3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstanceForSkeleton1_2 calls the GetInstanceForSkeleton1_2 RPC.
+func (c *DateFormatClient) GetInstanceForSkeleton1_2(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetInstanceForSkeleton1_2(ctx, &pb.GetInstanceForSkeleton1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstanceForSkeleton2_3 calls the GetInstanceForSkeleton2_3 RPC.
+func (c *DateFormatClient) GetInstanceForSkeleton2_3(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstanceForSkeleton2_3(ctx, &pb.GetInstanceForSkeleton2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstanceForSkeleton2_4 calls the GetInstanceForSkeleton2_4 RPC.
+func (c *DateFormatClient) GetInstanceForSkeleton2_4(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstanceForSkeleton2_4(ctx, &pb.GetInstanceForSkeleton2_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternInstance3 calls the GetPatternInstance3 RPC.
+func (c *DateFormatClient) GetPatternInstance3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetPatternInstance3(ctx, &pb.GetPatternInstance3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternInstance3_1 calls the GetPatternInstance3_1 RPC.
+func (c *DateFormatClient) GetPatternInstance3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetPatternInstance3_1(ctx, &pb.GetPatternInstance3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternInstance1_2 calls the GetPatternInstance1_2 RPC.
+func (c *DateFormatClient) GetPatternInstance1_2(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPatternInstance1_2(ctx, &pb.GetPatternInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternInstance2_3 calls the GetPatternInstance2_3 RPC.
+func (c *DateFormatClient) GetPatternInstance2_3(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetPatternInstance2_3(ctx, &pb.GetPatternInstance2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternInstance2_4 calls the GetPatternInstance2_4 RPC.
+func (c *DateFormatClient) GetPatternInstance2_4(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetPatternInstance2_4(ctx, &pb.GetPatternInstance2_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeInstance0 calls the GetTimeInstance0 RPC.
+func (c *DateFormatClient) GetTimeInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeInstance0(ctx, &pb.GetTimeInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeInstance2_1 calls the GetTimeInstance2_1 RPC.
+func (c *DateFormatClient) GetTimeInstance2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetTimeInstance2_1(ctx, &pb.GetTimeInstance2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeInstance3_2 calls the GetTimeInstance3_2 RPC.
+func (c *DateFormatClient) GetTimeInstance3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetTimeInstance3_2(ctx, &pb.GetTimeInstance3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeInstance3_3 calls the GetTimeInstance3_3 RPC.
+func (c *DateFormatClient) GetTimeInstance3_3(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetTimeInstance3_3(ctx, &pb.GetTimeInstance3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeInstance1_4 calls the GetTimeInstance1_4 RPC.
+func (c *DateFormatClient) GetTimeInstance1_4(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetTimeInstance1_4(ctx, &pb.GetTimeInstance1_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeInstance2_5 calls the GetTimeInstance2_5 RPC.
+func (c *DateFormatClient) GetTimeInstance2_5(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetTimeInstance2_5(ctx, &pb.GetTimeInstance2_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeInstance2_6 calls the GetTimeInstance2_6 RPC.
+func (c *DateFormatClient) GetTimeInstance2_6(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetTimeInstance2_6(ctx, &pb.GetTimeInstance2_6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DateFormatBooleanAttributeClient wraps the gRPC DateFormatBooleanAttributeService client.
+type DateFormatBooleanAttributeClient struct {
+	svc pb.DateFormatBooleanAttributeServiceClient
+}
+
+// NewDateFormatBooleanAttributeClient creates a new DateFormatBooleanAttribute client.
+func NewDateFormatBooleanAttributeClient(cc grpc.ClientConnInterface) *DateFormatBooleanAttributeClient {
+	return &DateFormatBooleanAttributeClient{
+		svc: pb.NewDateFormatBooleanAttributeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *DateFormatBooleanAttributeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *DateFormatBooleanAttributeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DateFormatFieldClient wraps the gRPC DateFormatFieldService client.
+type DateFormatFieldClient struct {
+	svc pb.DateFormatFieldServiceClient
+}
+
+// NewDateFormatFieldClient creates a new DateFormatField client.
+func NewDateFormatFieldClient(cc grpc.ClientConnInterface) *DateFormatFieldClient {
+	return &DateFormatFieldClient{
+		svc: pb.NewDateFormatFieldServiceClient(cc),
+	}
+}
+
+// GetCalendarField calls the GetCalendarField RPC.
+func (c *DateFormatFieldClient) GetCalendarField(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCalendarField(ctx, &pb.GetCalendarFieldRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfCalendarField calls the OfCalendarField RPC.
+func (c *DateFormatFieldClient) OfCalendarField(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.OfCalendarField(ctx, &pb.OfCalendarFieldRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DateFormatHourCycleClient wraps the gRPC DateFormatHourCycleService client.
+type DateFormatHourCycleClient struct {
+	svc pb.DateFormatHourCycleServiceClient
+}
+
+// NewDateFormatHourCycleClient creates a new DateFormatHourCycle client.
+func NewDateFormatHourCycleClient(cc grpc.ClientConnInterface) *DateFormatHourCycleClient {
+	return &DateFormatHourCycleClient{
+		svc: pb.NewDateFormatHourCycleServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *DateFormatHourCycleClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *DateFormatHourCycleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NumberFormatClient wraps the gRPC NumberFormatService client.
+type NumberFormatClient struct {
+	svc pb.NumberFormatServiceClient
+}
+
+// NewNumberFormatClient creates a new NumberFormat client.
+func NewNumberFormatClient(cc grpc.ClientConnInterface) *NumberFormatClient {
+	return &NumberFormatClient{
+		svc: pb.NewNumberFormatServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *NumberFormatClient) Clone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *NumberFormatClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1 calls the Format1 RPC.
+func (c *NumberFormatClient) Format1(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Format1(ctx, &pb.Format1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_1 calls the Format3_1 RPC.
+func (c *NumberFormatClient) Format3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_1(ctx, &pb.NumberFormatFormat3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_2 calls the Format1_2 RPC.
+func (c *NumberFormatClient) Format1_2(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Format1_2(ctx, &pb.Format1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_3 calls the Format3_3 RPC.
+func (c *NumberFormatClient) Format3_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_3(ctx, &pb.Format3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_4 calls the Format1_4 RPC.
+func (c *NumberFormatClient) Format1_4(ctx context.Context, arg0 float64) (string, error) {
+	resp, err := c.svc.Format1_4(ctx, &pb.Format1_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_5 calls the Format3_5 RPC.
+func (c *NumberFormatClient) Format3_5(ctx context.Context, arg0 float64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_5(ctx, &pb.Format3_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_6 calls the Format3_6 RPC.
+func (c *NumberFormatClient) Format3_6(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_6(ctx, &pb.Format3_6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_7 calls the Format1_7 RPC.
+func (c *NumberFormatClient) Format1_7(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Format1_7(ctx, &pb.Format1_7Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_8 calls the Format3_8 RPC.
+func (c *NumberFormatClient) Format3_8(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_8(ctx, &pb.Format3_8Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_9 calls the Format1_9 RPC.
+func (c *NumberFormatClient) Format1_9(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Format1_9(ctx, &pb.Format1_9Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_10 calls the Format3_10 RPC.
+func (c *NumberFormatClient) Format3_10(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_10(ctx, &pb.Format3_10Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_11 calls the Format1_11 RPC.
+func (c *NumberFormatClient) Format1_11(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Format1_11(ctx, &pb.Format1_11Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_12 calls the Format3_12 RPC.
+func (c *NumberFormatClient) Format3_12(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_12(ctx, &pb.Format3_12Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContext calls the GetContext RPC.
+func (c *NumberFormatClient) GetContext(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrency calls the GetCurrency RPC.
+func (c *NumberFormatClient) GetCurrency(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrency(ctx, &pb.GetCurrencyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaximumFractionDigits calls the GetMaximumFractionDigits RPC.
+func (c *NumberFormatClient) GetMaximumFractionDigits(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaximumFractionDigits(ctx, &pb.GetMaximumFractionDigitsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaximumIntegerDigits calls the GetMaximumIntegerDigits RPC.
+func (c *NumberFormatClient) GetMaximumIntegerDigits(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaximumIntegerDigits(ctx, &pb.GetMaximumIntegerDigitsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumFractionDigits calls the GetMinimumFractionDigits RPC.
+func (c *NumberFormatClient) GetMinimumFractionDigits(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinimumFractionDigits(ctx, &pb.GetMinimumFractionDigitsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumIntegerDigits calls the GetMinimumIntegerDigits RPC.
+func (c *NumberFormatClient) GetMinimumIntegerDigits(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinimumIntegerDigits(ctx, &pb.GetMinimumIntegerDigitsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoundingMode calls the GetRoundingMode RPC.
+func (c *NumberFormatClient) GetRoundingMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRoundingMode(ctx, &pb.GetRoundingModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *NumberFormatClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGroupingUsed calls the IsGroupingUsed RPC.
+func (c *NumberFormatClient) IsGroupingUsed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsGroupingUsed(ctx, &pb.IsGroupingUsedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsParseIntegerOnly calls the IsParseIntegerOnly RPC.
+func (c *NumberFormatClient) IsParseIntegerOnly(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsParseIntegerOnly(ctx, &pb.IsParseIntegerOnlyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsParseStrict calls the IsParseStrict RPC.
+func (c *NumberFormatClient) IsParseStrict(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsParseStrict(ctx, &pb.IsParseStrictRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse1 calls the Parse1 RPC.
+func (c *NumberFormatClient) Parse1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.Parse1(ctx, &pb.Parse1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse2_1 calls the Parse2_1 RPC.
+func (c *NumberFormatClient) Parse2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Parse2_1(ctx, &pb.Parse2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseCurrency calls the ParseCurrency RPC.
+func (c *NumberFormatClient) ParseCurrency(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseCurrency(ctx, &pb.ParseCurrencyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseObject calls the ParseObject RPC.
+func (c *NumberFormatClient) ParseObject(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject(ctx, &pb.ParseObjectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContext calls the SetContext RPC.
+func (c *NumberFormatClient) SetContext(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetContext(ctx, &pb.NumberFormatSetContextRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCurrency calls the SetCurrency RPC.
+func (c *NumberFormatClient) SetCurrency(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetCurrency(ctx, &pb.SetCurrencyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGroupingUsed calls the SetGroupingUsed RPC.
+func (c *NumberFormatClient) SetGroupingUsed(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetGroupingUsed(ctx, &pb.SetGroupingUsedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMaximumFractionDigits calls the SetMaximumFractionDigits RPC.
+func (c *NumberFormatClient) SetMaximumFractionDigits(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMaximumFractionDigits(ctx, &pb.SetMaximumFractionDigitsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMaximumIntegerDigits calls the SetMaximumIntegerDigits RPC.
+func (c *NumberFormatClient) SetMaximumIntegerDigits(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMaximumIntegerDigits(ctx, &pb.SetMaximumIntegerDigitsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMinimumFractionDigits calls the SetMinimumFractionDigits RPC.
+func (c *NumberFormatClient) SetMinimumFractionDigits(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMinimumFractionDigits(ctx, &pb.SetMinimumFractionDigitsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMinimumIntegerDigits calls the SetMinimumIntegerDigits RPC.
+func (c *NumberFormatClient) SetMinimumIntegerDigits(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMinimumIntegerDigits(ctx, &pb.SetMinimumIntegerDigitsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetParseIntegerOnly calls the SetParseIntegerOnly RPC.
+func (c *NumberFormatClient) SetParseIntegerOnly(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetParseIntegerOnly(ctx, &pb.SetParseIntegerOnlyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetParseStrict calls the SetParseStrict RPC.
+func (c *NumberFormatClient) SetParseStrict(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetParseStrict(ctx, &pb.SetParseStrictRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRoundingMode calls the SetRoundingMode RPC.
+func (c *NumberFormatClient) SetRoundingMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRoundingMode(ctx, &pb.SetRoundingModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetAvailableLocales calls the GetAvailableLocales RPC.
+func (c *NumberFormatClient) GetAvailableLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableLocales(ctx, &pb.GetAvailableLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrencyInstance0 calls the GetCurrencyInstance0 RPC.
+func (c *NumberFormatClient) GetCurrencyInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrencyInstance0(ctx, &pb.GetCurrencyInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrencyInstance1_1 calls the GetCurrencyInstance1_1 RPC.
+func (c *NumberFormatClient) GetCurrencyInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCurrencyInstance1_1(ctx, &pb.GetCurrencyInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrencyInstance1_2 calls the GetCurrencyInstance1_2 RPC.
+func (c *NumberFormatClient) GetCurrencyInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCurrencyInstance1_2(ctx, &pb.GetCurrencyInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *NumberFormatClient) GetInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *NumberFormatClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_2 calls the GetInstance2_2 RPC.
+func (c *NumberFormatClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetInstance2_2(ctx, &pb.NumberFormatGetInstance2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_3 calls the GetInstance1_3 RPC.
+func (c *NumberFormatClient) GetInstance1_3(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInstance1_3(ctx, &pb.GetInstance1_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_4 calls the GetInstance1_4 RPC.
+func (c *NumberFormatClient) GetInstance1_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_4(ctx, &pb.GetInstance1_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_5 calls the GetInstance2_5 RPC.
+func (c *NumberFormatClient) GetInstance2_5(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetInstance2_5(ctx, &pb.NumberFormatGetInstance2_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntegerInstance0 calls the GetIntegerInstance0 RPC.
+func (c *NumberFormatClient) GetIntegerInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntegerInstance0(ctx, &pb.GetIntegerInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntegerInstance1_1 calls the GetIntegerInstance1_1 RPC.
+func (c *NumberFormatClient) GetIntegerInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetIntegerInstance1_1(ctx, &pb.GetIntegerInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntegerInstance1_2 calls the GetIntegerInstance1_2 RPC.
+func (c *NumberFormatClient) GetIntegerInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetIntegerInstance1_2(ctx, &pb.GetIntegerInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumberInstance0 calls the GetNumberInstance0 RPC.
+func (c *NumberFormatClient) GetNumberInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNumberInstance0(ctx, &pb.GetNumberInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumberInstance1_1 calls the GetNumberInstance1_1 RPC.
+func (c *NumberFormatClient) GetNumberInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetNumberInstance1_1(ctx, &pb.GetNumberInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumberInstance1_2 calls the GetNumberInstance1_2 RPC.
+func (c *NumberFormatClient) GetNumberInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetNumberInstance1_2(ctx, &pb.GetNumberInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPercentInstance0 calls the GetPercentInstance0 RPC.
+func (c *NumberFormatClient) GetPercentInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPercentInstance0(ctx, &pb.GetPercentInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPercentInstance1_1 calls the GetPercentInstance1_1 RPC.
+func (c *NumberFormatClient) GetPercentInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetPercentInstance1_1(ctx, &pb.GetPercentInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPercentInstance1_2 calls the GetPercentInstance1_2 RPC.
+func (c *NumberFormatClient) GetPercentInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetPercentInstance1_2(ctx, &pb.GetPercentInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScientificInstance0 calls the GetScientificInstance0 RPC.
+func (c *NumberFormatClient) GetScientificInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetScientificInstance0(ctx, &pb.GetScientificInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScientificInstance1_1 calls the GetScientificInstance1_1 RPC.
+func (c *NumberFormatClient) GetScientificInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetScientificInstance1_1(ctx, &pb.GetScientificInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScientificInstance1_2 calls the GetScientificInstance1_2 RPC.
+func (c *NumberFormatClient) GetScientificInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetScientificInstance1_2(ctx, &pb.GetScientificInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeFilterClient wraps the gRPC UnicodeFilterService client.
+type UnicodeFilterClient struct {
+	svc pb.UnicodeFilterServiceClient
+}
+
+// NewUnicodeFilterClient creates a new UnicodeFilter client.
+func NewUnicodeFilterClient(cc grpc.ClientConnInterface) *UnicodeFilterClient {
+	return &UnicodeFilterClient{
+		svc: pb.NewUnicodeFilterServiceClient(cc),
+	}
+}
+
+// Contains calls the Contains RPC.
+func (c *UnicodeFilterClient) Contains(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.Contains(ctx, &pb.ContainsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Matches calls the Matches RPC.
+func (c *UnicodeFilterClient) Matches(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 bool) (int32, error) {
+	resp, err := c.svc.Matches(ctx, &pb.MatchesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeSetClient wraps the gRPC UnicodeSetService client.
+type UnicodeSetClient struct {
+	svc pb.UnicodeSetServiceClient
+}
+
+// NewUnicodeSetClient creates a new UnicodeSet client.
+func NewUnicodeSetClient(cc grpc.ClientConnInterface) *UnicodeSetClient {
+	return &UnicodeSetClient{
+		svc: pb.NewUnicodeSetServiceClient(cc),
+	}
+}
+
+// Add1 calls the Add1 RPC.
+func (c *UnicodeSetClient) Add1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.Add1(ctx, &pb.Add1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Add2_1 calls the Add2_1 RPC.
+func (c *UnicodeSetClient) Add2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.Add2_1(ctx, &pb.Add2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Add1_2 calls the Add1_2 RPC.
+func (c *UnicodeSetClient) Add1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Add1_2(ctx, &pb.Add1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddAll1 calls the AddAll1 RPC.
+func (c *UnicodeSetClient) AddAll1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddAll1(ctx, &pb.AddAll1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddAll2_1 calls the AddAll2_1 RPC.
+func (c *UnicodeSetClient) AddAll2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.AddAll2_1(ctx, &pb.AddAll2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddAll1_2 calls the AddAll1_2 RPC.
+func (c *UnicodeSetClient) AddAll1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.AddAll1_2(ctx, &pb.AddAll1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMatchSetTo calls the AddMatchSetTo RPC.
+func (c *UnicodeSetClient) AddMatchSetTo(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddMatchSetTo(ctx, &pb.AddMatchSetToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ApplyIntPropertyValue calls the ApplyIntPropertyValue RPC.
+func (c *UnicodeSetClient) ApplyIntPropertyValue(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.ApplyIntPropertyValue(ctx, &pb.ApplyIntPropertyValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplyPattern1 calls the ApplyPattern1 RPC.
+func (c *UnicodeSetClient) ApplyPattern1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.ApplyPattern1(ctx, &pb.ApplyPattern1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplyPattern2_1 calls the ApplyPattern2_1 RPC.
+func (c *UnicodeSetClient) ApplyPattern2_1(ctx context.Context, handle int64, arg0 string, arg1 bool) (int64, error) {
+	resp, err := c.svc.ApplyPattern2_1(ctx, &pb.ApplyPattern2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplyPattern2_2 calls the ApplyPattern2_2 RPC.
+func (c *UnicodeSetClient) ApplyPattern2_2(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.ApplyPattern2_2(ctx, &pb.ApplyPattern2_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplyPropertyAlias2 calls the ApplyPropertyAlias2 RPC.
+func (c *UnicodeSetClient) ApplyPropertyAlias2(ctx context.Context, handle int64, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.ApplyPropertyAlias2(ctx, &pb.ApplyPropertyAlias2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplyPropertyAlias3_1 calls the ApplyPropertyAlias3_1 RPC.
+func (c *UnicodeSetClient) ApplyPropertyAlias3_1(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.ApplyPropertyAlias3_1(ctx, &pb.ApplyPropertyAlias3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CharAt calls the CharAt RPC.
+func (c *UnicodeSetClient) CharAt(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.UnicodeSetCharAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clear calls the Clear RPC.
+func (c *UnicodeSetClient) Clear(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clear(ctx, &pb.ClearRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone calls the Clone RPC.
+func (c *UnicodeSetClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.UnicodeSetCloneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloneAsThawed0 calls the CloneAsThawed0 RPC.
+func (c *UnicodeSetClient) CloneAsThawed0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0(ctx, &pb.CloneAsThawed0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloseOver calls the CloseOver RPC.
+func (c *UnicodeSetClient) CloseOver(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.CloseOver(ctx, &pb.CloseOverRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compact calls the Compact RPC.
+func (c *UnicodeSetClient) Compact(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Compact(ctx, &pb.CompactRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *UnicodeSetClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo2_1 calls the CompareTo2_1 RPC.
+func (c *UnicodeSetClient) CompareTo2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.CompareTo2_1(ctx, &pb.CompareTo2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Complement0 calls the Complement0 RPC.
+func (c *UnicodeSetClient) Complement0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Complement0(ctx, &pb.Complement0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Complement1_1 calls the Complement1_1 RPC.
+func (c *UnicodeSetClient) Complement1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.Complement1_1(ctx, &pb.Complement1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Complement2_2 calls the Complement2_2 RPC.
+func (c *UnicodeSetClient) Complement2_2(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.Complement2_2(ctx, &pb.Complement2_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Complement1_3 calls the Complement1_3 RPC.
+func (c *UnicodeSetClient) Complement1_3(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Complement1_3(ctx, &pb.Complement1_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ComplementAll1 calls the ComplementAll1 RPC.
+func (c *UnicodeSetClient) ComplementAll1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.ComplementAll1(ctx, &pb.ComplementAll1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ComplementAll1_1 calls the ComplementAll1_1 RPC.
+func (c *UnicodeSetClient) ComplementAll1_1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.ComplementAll1_1(ctx, &pb.ComplementAll1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Contains1 calls the Contains1 RPC.
+func (c *UnicodeSetClient) Contains1(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.Contains1(ctx, &pb.Contains1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Contains2_1 calls the Contains2_1 RPC.
+func (c *UnicodeSetClient) Contains2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.Contains2_1(ctx, &pb.Contains2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Contains1_2 calls the Contains1_2 RPC.
+func (c *UnicodeSetClient) Contains1_2(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.Contains1_2(ctx, &pb.Contains1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsAll1 calls the ContainsAll1 RPC.
+func (c *UnicodeSetClient) ContainsAll1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.ContainsAll1(ctx, &pb.ContainsAll1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsAll1_1 calls the ContainsAll1_1 RPC.
+func (c *UnicodeSetClient) ContainsAll1_1(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsAll1_1(ctx, &pb.ContainsAll1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsNone1 calls the ContainsNone1 RPC.
+func (c *UnicodeSetClient) ContainsNone1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.ContainsNone1(ctx, &pb.ContainsNone1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsNone2_1 calls the ContainsNone2_1 RPC.
+func (c *UnicodeSetClient) ContainsNone2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.ContainsNone2_1(ctx, &pb.ContainsNone2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsNone1_2 calls the ContainsNone1_2 RPC.
+func (c *UnicodeSetClient) ContainsNone1_2(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsNone1_2(ctx, &pb.ContainsNone1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsSome1 calls the ContainsSome1 RPC.
+func (c *UnicodeSetClient) ContainsSome1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.ContainsSome1(ctx, &pb.ContainsSome1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsSome2_1 calls the ContainsSome2_1 RPC.
+func (c *UnicodeSetClient) ContainsSome2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.ContainsSome2_1(ctx, &pb.ContainsSome2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsSome1_2 calls the ContainsSome1_2 RPC.
+func (c *UnicodeSetClient) ContainsSome1_2(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsSome1_2(ctx, &pb.ContainsSome1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *UnicodeSetClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.UnicodeSetEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Freeze0 calls the Freeze0 RPC.
+func (c *UnicodeSetClient) Freeze0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Freeze0(ctx, &pb.Freeze0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRangeCount calls the GetRangeCount RPC.
+func (c *UnicodeSetClient) GetRangeCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRangeCount(ctx, &pb.GetRangeCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRangeEnd calls the GetRangeEnd RPC.
+func (c *UnicodeSetClient) GetRangeEnd(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetRangeEnd(ctx, &pb.GetRangeEndRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRangeStart calls the GetRangeStart RPC.
+func (c *UnicodeSetClient) GetRangeStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetRangeStart(ctx, &pb.GetRangeStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasStrings calls the HasStrings RPC.
+func (c *UnicodeSetClient) HasStrings(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasStrings(ctx, &pb.HasStringsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *UnicodeSetClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.UnicodeSetHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IndexOf calls the IndexOf RPC.
+func (c *UnicodeSetClient) IndexOf(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.IndexOf(ctx, &pb.IndexOfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEmpty calls the IsEmpty RPC.
+func (c *UnicodeSetClient) IsEmpty(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsEmpty(ctx, &pb.IsEmptyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFrozen calls the IsFrozen RPC.
+func (c *UnicodeSetClient) IsFrozen(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFrozen(ctx, &pb.IsFrozenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *UnicodeSetClient) Iterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.IteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Matches calls the Matches RPC.
+func (c *UnicodeSetClient) Matches(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 bool) (int32, error) {
+	resp, err := c.svc.Matches(ctx, &pb.UnicodeSetMatchesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchesIndexValue calls the MatchesIndexValue RPC.
+func (c *UnicodeSetClient) MatchesIndexValue(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.MatchesIndexValue(ctx, &pb.MatchesIndexValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Ranges calls the Ranges RPC.
+func (c *UnicodeSetClient) Ranges(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Ranges(ctx, &pb.RangesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Remove1 calls the Remove1 RPC.
+func (c *UnicodeSetClient) Remove1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.Remove1(ctx, &pb.Remove1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Remove2_1 calls the Remove2_1 RPC.
+func (c *UnicodeSetClient) Remove2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.Remove2_1(ctx, &pb.Remove2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Remove1_2 calls the Remove1_2 RPC.
+func (c *UnicodeSetClient) Remove1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Remove1_2(ctx, &pb.Remove1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveAll1 calls the RemoveAll1 RPC.
+func (c *UnicodeSetClient) RemoveAll1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.RemoveAll1(ctx, &pb.RemoveAll1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveAll1_1 calls the RemoveAll1_1 RPC.
+func (c *UnicodeSetClient) RemoveAll1_1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.RemoveAll1_1(ctx, &pb.RemoveAll1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveAllStrings calls the RemoveAllStrings RPC.
+func (c *UnicodeSetClient) RemoveAllStrings(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.RemoveAllStrings(ctx, &pb.RemoveAllStringsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Retain1 calls the Retain1 RPC.
+func (c *UnicodeSetClient) Retain1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.Retain1(ctx, &pb.Retain1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Retain2_1 calls the Retain2_1 RPC.
+func (c *UnicodeSetClient) Retain2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.Retain2_1(ctx, &pb.Retain2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Retain1_2 calls the Retain1_2 RPC.
+func (c *UnicodeSetClient) Retain1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Retain1_2(ctx, &pb.Retain1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RetainAll1 calls the RetainAll1 RPC.
+func (c *UnicodeSetClient) RetainAll1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.RetainAll1(ctx, &pb.RetainAll1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RetainAll1_1 calls the RetainAll1_1 RPC.
+func (c *UnicodeSetClient) RetainAll1_1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.RetainAll1_1(ctx, &pb.RetainAll1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set1 calls the Set1 RPC.
+func (c *UnicodeSetClient) Set1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.Set1(ctx, &pb.Set1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set2_1 calls the Set2_1 RPC.
+func (c *UnicodeSetClient) Set2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.Set2_1(ctx, &pb.Set2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Size calls the Size RPC.
+func (c *UnicodeSetClient) Size(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.Size(ctx, &pb.SizeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Span2 calls the Span2 RPC.
+func (c *UnicodeSetClient) Span2(ctx context.Context, handle int64, arg0 string, arg1 int64) (int32, error) {
+	resp, err := c.svc.Span2(ctx, &pb.Span2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Span3_1 calls the Span3_1 RPC.
+func (c *UnicodeSetClient) Span3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) (int32, error) {
+	resp, err := c.svc.Span3_1(ctx, &pb.Span3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpanBack2 calls the SpanBack2 RPC.
+func (c *UnicodeSetClient) SpanBack2(ctx context.Context, handle int64, arg0 string, arg1 int64) (int32, error) {
+	resp, err := c.svc.SpanBack2(ctx, &pb.SpanBack2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpanBack3_1 calls the SpanBack3_1 RPC.
+func (c *UnicodeSetClient) SpanBack3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) (int32, error) {
+	resp, err := c.svc.SpanBack3_1(ctx, &pb.SpanBack3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Strings calls the Strings RPC.
+func (c *UnicodeSetClient) Strings(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Strings(ctx, &pb.StringsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToPattern calls the ToPattern RPC.
+func (c *UnicodeSetClient) ToPattern(ctx context.Context, handle int64, arg0 bool) (string, error) {
+	resp, err := c.svc.ToPattern(ctx, &pb.ToPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *UnicodeSetClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.UnicodeSetToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1_2 calls the CompareTo1_2 RPC.
+func (c *UnicodeSetClient) CompareTo1_2(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_2(ctx, &pb.CompareTo1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Freeze0_1 calls the Freeze0_1 RPC.
+func (c *UnicodeSetClient) Freeze0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Freeze0_1(ctx, &pb.Freeze0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
+func (c *UnicodeSetClient) CloneAsThawed0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.CloneAsThawed0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// From calls the From RPC.
+func (c *UnicodeSetClient) From(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.From(ctx, &pb.FromRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FromAll calls the FromAll RPC.
+func (c *UnicodeSetClient) FromAll(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.FromAll(ctx, &pb.FromAllRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeSetComparisonStyleClient wraps the gRPC UnicodeSetComparisonStyleService client.
+type UnicodeSetComparisonStyleClient struct {
+	svc pb.UnicodeSetComparisonStyleServiceClient
+}
+
+// NewUnicodeSetComparisonStyleClient creates a new UnicodeSetComparisonStyle client.
+func NewUnicodeSetComparisonStyleClient(cc grpc.ClientConnInterface) *UnicodeSetComparisonStyleClient {
+	return &UnicodeSetComparisonStyleClient{
+		svc: pb.NewUnicodeSetComparisonStyleServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *UnicodeSetComparisonStyleClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *UnicodeSetComparisonStyleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeSetEntryRangeClient wraps the gRPC UnicodeSetEntryRangeService client.
+type UnicodeSetEntryRangeClient struct {
+	svc pb.UnicodeSetEntryRangeServiceClient
+}
+
+// NewUnicodeSetEntryRangeClient creates a new UnicodeSetEntryRange client.
+func NewUnicodeSetEntryRangeClient(cc grpc.ClientConnInterface) *UnicodeSetEntryRangeClient {
+	return &UnicodeSetEntryRangeClient{
+		svc: pb.NewUnicodeSetEntryRangeServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *UnicodeSetEntryRangeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeSetSpanConditionClient wraps the gRPC UnicodeSetSpanConditionService client.
+type UnicodeSetSpanConditionClient struct {
+	svc pb.UnicodeSetSpanConditionServiceClient
+}
+
+// NewUnicodeSetSpanConditionClient creates a new UnicodeSetSpanCondition client.
+func NewUnicodeSetSpanConditionClient(cc grpc.ClientConnInterface) *UnicodeSetSpanConditionClient {
+	return &UnicodeSetSpanConditionClient{
+		svc: pb.NewUnicodeSetSpanConditionServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *UnicodeSetSpanConditionClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *UnicodeSetSpanConditionClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NumberingSystemClient wraps the gRPC NumberingSystemService client.
+type NumberingSystemClient struct {
+	svc pb.NumberingSystemServiceClient
+}
+
+// NewNumberingSystemClient creates a new NumberingSystem client.
+func NewNumberingSystemClient(cc grpc.ClientConnInterface) *NumberingSystemClient {
+	return &NumberingSystemClient{
+		svc: pb.NewNumberingSystemServiceClient(cc),
+	}
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *NumberingSystemClient) GetDescription(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *NumberingSystemClient) GetName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRadix calls the GetRadix RPC.
+func (c *NumberingSystemClient) GetRadix(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRadix(ctx, &pb.GetRadixRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAlgorithmic calls the IsAlgorithmic RPC.
+func (c *NumberingSystemClient) IsAlgorithmic(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAlgorithmic(ctx, &pb.IsAlgorithmicRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableNames calls the GetAvailableNames RPC.
+func (c *NumberingSystemClient) GetAvailableNames(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAvailableNames(ctx, &pb.GetAvailableNamesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *NumberingSystemClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.NumberingSystemGetInstance0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *NumberingSystemClient) GetInstance1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.NumberingSystemGetInstance1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance3_2 calls the GetInstance3_2 RPC.
+func (c *NumberingSystemClient) GetInstance3_2(ctx context.Context, handle int64, arg0 int32, arg1 bool, arg2 string) (int64, error) {
+	resp, err := c.svc.GetInstance3_2(ctx, &pb.GetInstance3_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_3 calls the GetInstance1_3 RPC.
+func (c *NumberingSystemClient) GetInstance1_3(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_3(ctx, &pb.NumberingSystemGetInstance1_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstanceByName calls the GetInstanceByName RPC.
+func (c *NumberingSystemClient) GetInstanceByName(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetInstanceByName(ctx, &pb.GetInstanceByNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValidDigitString calls the IsValidDigitString RPC.
+func (c *NumberingSystemClient) IsValidDigitString(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsValidDigitString(ctx, &pb.IsValidDigitStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeZoneFormatClient wraps the gRPC TimeZoneFormatService client.
+type TimeZoneFormatClient struct {
+	svc pb.TimeZoneFormatServiceClient
+}
+
+// NewTimeZoneFormatClient creates a new TimeZoneFormat client.
+func NewTimeZoneFormatClient(cc grpc.ClientConnInterface) *TimeZoneFormatClient {
+	return &TimeZoneFormatClient{
+		svc: pb.NewTimeZoneFormatServiceClient(cc),
+	}
+}
+
+// CloneAsThawed0 calls the CloneAsThawed0 RPC.
+func (c *TimeZoneFormatClient) CloneAsThawed0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0(ctx, &pb.TimeZoneFormatCloneAsThawed0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3 calls the Format3 RPC.
+func (c *TimeZoneFormatClient) Format3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (string, error) {
+	resp, err := c.svc.Format3(ctx, &pb.Format3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_1 calls the Format3_1 RPC.
+func (c *TimeZoneFormatClient) Format3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_1(ctx, &pb.TimeZoneFormatFormat3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatOffsetISO8601Basic calls the FormatOffsetISO8601Basic RPC.
+func (c *TimeZoneFormatClient) FormatOffsetISO8601Basic(ctx context.Context, arg0 int32, arg1 bool, arg2 bool, arg3 bool) (string, error) {
+	resp, err := c.svc.FormatOffsetISO8601Basic(ctx, &pb.FormatOffsetISO8601BasicRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatOffsetISO8601Extended calls the FormatOffsetISO8601Extended RPC.
+func (c *TimeZoneFormatClient) FormatOffsetISO8601Extended(ctx context.Context, arg0 int32, arg1 bool, arg2 bool, arg3 bool) (string, error) {
+	resp, err := c.svc.FormatOffsetISO8601Extended(ctx, &pb.FormatOffsetISO8601ExtendedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatOffsetLocalizedGMT calls the FormatOffsetLocalizedGMT RPC.
+func (c *TimeZoneFormatClient) FormatOffsetLocalizedGMT(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.FormatOffsetLocalizedGMT(ctx, &pb.FormatOffsetLocalizedGMTRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatOffsetShortLocalizedGMT calls the FormatOffsetShortLocalizedGMT RPC.
+func (c *TimeZoneFormatClient) FormatOffsetShortLocalizedGMT(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.FormatOffsetShortLocalizedGMT(ctx, &pb.FormatOffsetShortLocalizedGMTRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToCharacterIterator calls the FormatToCharacterIterator RPC.
+func (c *TimeZoneFormatClient) FormatToCharacterIterator(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FormatToCharacterIterator(ctx, &pb.FormatToCharacterIteratorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Freeze0 calls the Freeze0 RPC.
+func (c *TimeZoneFormatClient) Freeze0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Freeze0(ctx, &pb.TimeZoneFormatFreeze0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultParseOptions calls the GetDefaultParseOptions RPC.
+func (c *TimeZoneFormatClient) GetDefaultParseOptions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDefaultParseOptions(ctx, &pb.GetDefaultParseOptionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGMTOffsetDigits calls the GetGMTOffsetDigits RPC.
+func (c *TimeZoneFormatClient) GetGMTOffsetDigits(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetGMTOffsetDigits(ctx, &pb.GetGMTOffsetDigitsRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGMTOffsetPattern calls the GetGMTOffsetPattern RPC.
+func (c *TimeZoneFormatClient) GetGMTOffsetPattern(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetGMTOffsetPattern(ctx, &pb.GetGMTOffsetPatternRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGMTPattern calls the GetGMTPattern RPC.
+func (c *TimeZoneFormatClient) GetGMTPattern(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetGMTPattern(ctx, &pb.GetGMTPatternRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGMTZeroFormat calls the GetGMTZeroFormat RPC.
+func (c *TimeZoneFormatClient) GetGMTZeroFormat(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetGMTZeroFormat(ctx, &pb.GetGMTZeroFormatRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeZoneNames calls the GetTimeZoneNames RPC.
+func (c *TimeZoneFormatClient) GetTimeZoneNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeZoneNames(ctx, &pb.GetTimeZoneNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFrozen calls the IsFrozen RPC.
+func (c *TimeZoneFormatClient) IsFrozen(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFrozen(ctx, &pb.TimeZoneFormatIsFrozenRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse1 calls the Parse1 RPC.
+func (c *TimeZoneFormatClient) Parse1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.Parse1(ctx, &pb.Parse1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse2_1 calls the Parse2_1 RPC.
+func (c *TimeZoneFormatClient) Parse2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Parse2_1(ctx, &pb.Parse2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseObject calls the ParseObject RPC.
+func (c *TimeZoneFormatClient) ParseObject(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject(ctx, &pb.ParseObjectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseOffsetISO8601 calls the ParseOffsetISO8601 RPC.
+func (c *TimeZoneFormatClient) ParseOffsetISO8601(ctx context.Context, arg0 string, arg1 int64) (int32, error) {
+	resp, err := c.svc.ParseOffsetISO8601(ctx, &pb.ParseOffsetISO8601Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseOffsetLocalizedGMT calls the ParseOffsetLocalizedGMT RPC.
+func (c *TimeZoneFormatClient) ParseOffsetLocalizedGMT(ctx context.Context, arg0 string, arg1 int64) (int32, error) {
+	resp, err := c.svc.ParseOffsetLocalizedGMT(ctx, &pb.ParseOffsetLocalizedGMTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseOffsetShortLocalizedGMT calls the ParseOffsetShortLocalizedGMT RPC.
+func (c *TimeZoneFormatClient) ParseOffsetShortLocalizedGMT(ctx context.Context, arg0 string, arg1 int64) (int32, error) {
+	resp, err := c.svc.ParseOffsetShortLocalizedGMT(ctx, &pb.ParseOffsetShortLocalizedGMTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGMTOffsetDigits calls the SetGMTOffsetDigits RPC.
+func (c *TimeZoneFormatClient) SetGMTOffsetDigits(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetGMTOffsetDigits(ctx, &pb.SetGMTOffsetDigitsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGMTOffsetPattern calls the SetGMTOffsetPattern RPC.
+func (c *TimeZoneFormatClient) SetGMTOffsetPattern(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.SetGMTOffsetPattern(ctx, &pb.SetGMTOffsetPatternRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGMTPattern calls the SetGMTPattern RPC.
+func (c *TimeZoneFormatClient) SetGMTPattern(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetGMTPattern(ctx, &pb.SetGMTPatternRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGMTZeroFormat calls the SetGMTZeroFormat RPC.
+func (c *TimeZoneFormatClient) SetGMTZeroFormat(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetGMTZeroFormat(ctx, &pb.SetGMTZeroFormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTimeZoneNames calls the SetTimeZoneNames RPC.
+func (c *TimeZoneFormatClient) SetTimeZoneNames(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTimeZoneNames(ctx, &pb.SetTimeZoneNamesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Freeze0_1 calls the Freeze0_1 RPC.
+func (c *TimeZoneFormatClient) Freeze0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Freeze0_1(ctx, &pb.TimeZoneFormatFreeze0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
+func (c *TimeZoneFormatClient) CloneAsThawed0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.TimeZoneFormatCloneAsThawed0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1 calls the GetInstance1 RPC.
+func (c *TimeZoneFormatClient) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *TimeZoneFormatClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeZoneFormatGMTOffsetPatternTypeClient wraps the gRPC TimeZoneFormatGMTOffsetPatternTypeService client.
+type TimeZoneFormatGMTOffsetPatternTypeClient struct {
+	svc pb.TimeZoneFormatGMTOffsetPatternTypeServiceClient
+}
+
+// NewTimeZoneFormatGMTOffsetPatternTypeClient creates a new TimeZoneFormatGMTOffsetPatternType client.
+func NewTimeZoneFormatGMTOffsetPatternTypeClient(cc grpc.ClientConnInterface) *TimeZoneFormatGMTOffsetPatternTypeClient {
+	return &TimeZoneFormatGMTOffsetPatternTypeClient{
+		svc: pb.NewTimeZoneFormatGMTOffsetPatternTypeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *TimeZoneFormatGMTOffsetPatternTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *TimeZoneFormatGMTOffsetPatternTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeZoneFormatParseOptionClient wraps the gRPC TimeZoneFormatParseOptionService client.
+type TimeZoneFormatParseOptionClient struct {
+	svc pb.TimeZoneFormatParseOptionServiceClient
+}
+
+// NewTimeZoneFormatParseOptionClient creates a new TimeZoneFormatParseOption client.
+func NewTimeZoneFormatParseOptionClient(cc grpc.ClientConnInterface) *TimeZoneFormatParseOptionClient {
+	return &TimeZoneFormatParseOptionClient{
+		svc: pb.NewTimeZoneFormatParseOptionServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *TimeZoneFormatParseOptionClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *TimeZoneFormatParseOptionClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeZoneFormatStyleClient wraps the gRPC TimeZoneFormatStyleService client.
+type TimeZoneFormatStyleClient struct {
+	svc pb.TimeZoneFormatStyleServiceClient
+}
+
+// NewTimeZoneFormatStyleClient creates a new TimeZoneFormatStyle client.
+func NewTimeZoneFormatStyleClient(cc grpc.ClientConnInterface) *TimeZoneFormatStyleClient {
+	return &TimeZoneFormatStyleClient{
+		svc: pb.NewTimeZoneFormatStyleServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *TimeZoneFormatStyleClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *TimeZoneFormatStyleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeZoneFormatTimeTypeClient wraps the gRPC TimeZoneFormatTimeTypeService client.
+type TimeZoneFormatTimeTypeClient struct {
+	svc pb.TimeZoneFormatTimeTypeServiceClient
+}
+
+// NewTimeZoneFormatTimeTypeClient creates a new TimeZoneFormatTimeType client.
+func NewTimeZoneFormatTimeTypeClient(cc grpc.ClientConnInterface) *TimeZoneFormatTimeTypeClient {
+	return &TimeZoneFormatTimeTypeClient{
+		svc: pb.NewTimeZoneFormatTimeTypeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *TimeZoneFormatTimeTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *TimeZoneFormatTimeTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BreakIteratorClient wraps the gRPC BreakIteratorService client.
+type BreakIteratorClient struct {
+	svc pb.BreakIteratorServiceClient
+}
+
+// NewBreakIteratorClient creates a new BreakIterator client.
+func NewBreakIteratorClient(cc grpc.ClientConnInterface) *BreakIteratorClient {
+	return &BreakIteratorClient{
+		svc: pb.NewBreakIteratorServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *BreakIteratorClient) Clone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Current calls the Current RPC.
+func (c *BreakIteratorClient) Current(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Current(ctx, &pb.CurrentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// First calls the First RPC.
+func (c *BreakIteratorClient) First(ctx context.Context) (int32, error) {
+	resp, err := c.svc.First(ctx, &pb.FirstRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Following calls the Following RPC.
+func (c *BreakIteratorClient) Following(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.Following(ctx, &pb.FollowingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRuleStatus calls the GetRuleStatus RPC.
+func (c *BreakIteratorClient) GetRuleStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRuleStatus(ctx, &pb.GetRuleStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRuleStatusVec calls the GetRuleStatusVec RPC.
+func (c *BreakIteratorClient) GetRuleStatusVec(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetRuleStatusVec(ctx, &pb.GetRuleStatusVecRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *BreakIteratorClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.BreakIteratorGetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBoundary calls the IsBoundary RPC.
+func (c *BreakIteratorClient) IsBoundary(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsBoundary(ctx, &pb.IsBoundaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Last calls the Last RPC.
+func (c *BreakIteratorClient) Last(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Last(ctx, &pb.LastRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Next0 calls the Next0 RPC.
+func (c *BreakIteratorClient) Next0(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Next0(ctx, &pb.Next0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Next1_1 calls the Next1_1 RPC.
+func (c *BreakIteratorClient) Next1_1(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.Next1_1(ctx, &pb.Next1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Preceding calls the Preceding RPC.
+func (c *BreakIteratorClient) Preceding(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.Preceding(ctx, &pb.PrecedingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Previous calls the Previous RPC.
+func (c *BreakIteratorClient) Previous(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Previous(ctx, &pb.PreviousRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetText1 calls the SetText1 RPC.
+func (c *BreakIteratorClient) SetText1(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetText1(ctx, &pb.SetText1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetText1_1 calls the SetText1_1 RPC.
+func (c *BreakIteratorClient) SetText1_1(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetText1_1(ctx, &pb.SetText1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetText1_2 calls the SetText1_2 RPC.
+func (c *BreakIteratorClient) SetText1_2(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetText1_2(ctx, &pb.SetText1_2Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetCharacterInstance0 calls the GetCharacterInstance0 RPC.
+func (c *BreakIteratorClient) GetCharacterInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCharacterInstance0(ctx, &pb.GetCharacterInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCharacterInstance1_1 calls the GetCharacterInstance1_1 RPC.
+func (c *BreakIteratorClient) GetCharacterInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCharacterInstance1_1(ctx, &pb.GetCharacterInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCharacterInstance1_2 calls the GetCharacterInstance1_2 RPC.
+func (c *BreakIteratorClient) GetCharacterInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCharacterInstance1_2(ctx, &pb.GetCharacterInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineInstance0 calls the GetLineInstance0 RPC.
+func (c *BreakIteratorClient) GetLineInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLineInstance0(ctx, &pb.GetLineInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineInstance1_1 calls the GetLineInstance1_1 RPC.
+func (c *BreakIteratorClient) GetLineInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetLineInstance1_1(ctx, &pb.GetLineInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineInstance1_2 calls the GetLineInstance1_2 RPC.
+func (c *BreakIteratorClient) GetLineInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetLineInstance1_2(ctx, &pb.GetLineInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSentenceInstance0 calls the GetSentenceInstance0 RPC.
+func (c *BreakIteratorClient) GetSentenceInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSentenceInstance0(ctx, &pb.GetSentenceInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSentenceInstance1_1 calls the GetSentenceInstance1_1 RPC.
+func (c *BreakIteratorClient) GetSentenceInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSentenceInstance1_1(ctx, &pb.GetSentenceInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSentenceInstance1_2 calls the GetSentenceInstance1_2 RPC.
+func (c *BreakIteratorClient) GetSentenceInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSentenceInstance1_2(ctx, &pb.GetSentenceInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitleInstance0 calls the GetTitleInstance0 RPC.
+func (c *BreakIteratorClient) GetTitleInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitleInstance0(ctx, &pb.GetTitleInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitleInstance1_1 calls the GetTitleInstance1_1 RPC.
+func (c *BreakIteratorClient) GetTitleInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetTitleInstance1_1(ctx, &pb.GetTitleInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitleInstance1_2 calls the GetTitleInstance1_2 RPC.
+func (c *BreakIteratorClient) GetTitleInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetTitleInstance1_2(ctx, &pb.GetTitleInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWordInstance0 calls the GetWordInstance0 RPC.
+func (c *BreakIteratorClient) GetWordInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWordInstance0(ctx, &pb.GetWordInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWordInstance1_1 calls the GetWordInstance1_1 RPC.
+func (c *BreakIteratorClient) GetWordInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetWordInstance1_1(ctx, &pb.GetWordInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWordInstance1_2 calls the GetWordInstance1_2 RPC.
+func (c *BreakIteratorClient) GetWordInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetWordInstance1_2(ctx, &pb.GetWordInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SymbolTableClient wraps the gRPC SymbolTableService client.
+type SymbolTableClient struct {
+	svc pb.SymbolTableServiceClient
+}
+
+// NewSymbolTableClient creates a new SymbolTable client.
+func NewSymbolTableClient(cc grpc.ClientConnInterface) *SymbolTableClient {
+	return &SymbolTableClient{
+		svc: pb.NewSymbolTableServiceClient(cc),
+	}
+}
+
+// Lookup calls the Lookup RPC.
+func (c *SymbolTableClient) Lookup(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.Lookup(ctx, &pb.LookupRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LookupMatcher calls the LookupMatcher RPC.
+func (c *SymbolTableClient) LookupMatcher(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.LookupMatcher(ctx, &pb.LookupMatcherRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseReference calls the ParseReference RPC.
+func (c *SymbolTableClient) ParseReference(ctx context.Context, arg0 string, arg1 int64, arg2 int32) (string, error) {
+	resp, err := c.svc.ParseReference(ctx, &pb.ParseReferenceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormattedValueClient wraps the gRPC FormattedValueService client.
+type FormattedValueClient struct {
+	svc pb.FormattedValueServiceClient
+}
+
+// NewFormattedValueClient creates a new FormattedValue client.
+func NewFormattedValueClient(cc grpc.ClientConnInterface) *FormattedValueClient {
+	return &FormattedValueClient{
+		svc: pb.NewFormattedValueServiceClient(cc),
+	}
+}
+
+// NextPosition calls the NextPosition RPC.
+func (c *FormattedValueClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToCharacterIterator calls the ToCharacterIterator RPC.
+func (c *FormattedValueClient) ToCharacterIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FormattedValueClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UCharacterIteratorClient wraps the gRPC UCharacterIteratorService client.
+type UCharacterIteratorClient struct {
+	svc pb.UCharacterIteratorServiceClient
+}
+
+// NewUCharacterIteratorClient creates a new UCharacterIterator client.
+func NewUCharacterIteratorClient(cc grpc.ClientConnInterface) *UCharacterIteratorClient {
+	return &UCharacterIteratorClient{
+		svc: pb.NewUCharacterIteratorServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *UCharacterIteratorClient) Clone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Current calls the Current RPC.
+func (c *UCharacterIteratorClient) Current(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Current(ctx, &pb.CurrentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CurrentCodePoint calls the CurrentCodePoint RPC.
+func (c *UCharacterIteratorClient) CurrentCodePoint(ctx context.Context) (int32, error) {
+	resp, err := c.svc.CurrentCodePoint(ctx, &pb.CurrentCodePointRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCharacterIterator calls the GetCharacterIterator RPC.
+func (c *UCharacterIteratorClient) GetCharacterIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCharacterIterator(ctx, &pb.GetCharacterIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIndex calls the GetIndex RPC.
+func (c *UCharacterIteratorClient) GetIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLength calls the GetLength RPC.
+func (c *UCharacterIteratorClient) GetLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.UCharacterIteratorGetLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText0 calls the GetText0 RPC.
+func (c *UCharacterIteratorClient) GetText0(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetText0(ctx, &pb.GetText0Request{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText1_1 calls the GetText1_1 RPC.
+func (c *UCharacterIteratorClient) GetText1_1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetText1_1(ctx, &pb.GetText1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText2_2 calls the GetText2_2 RPC.
+func (c *UCharacterIteratorClient) GetText2_2(ctx context.Context, arg0 int64, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetText2_2(ctx, &pb.GetText2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveCodePointIndex calls the MoveCodePointIndex RPC.
+func (c *UCharacterIteratorClient) MoveCodePointIndex(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.MoveCodePointIndex(ctx, &pb.MoveCodePointIndexRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveIndex calls the MoveIndex RPC.
+func (c *UCharacterIteratorClient) MoveIndex(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.MoveIndex(ctx, &pb.MoveIndexRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Next calls the Next RPC.
+func (c *UCharacterIteratorClient) Next(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Next(ctx, &pb.UCharacterIteratorNextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextCodePoint calls the NextCodePoint RPC.
+func (c *UCharacterIteratorClient) NextCodePoint(ctx context.Context) (int32, error) {
+	resp, err := c.svc.NextCodePoint(ctx, &pb.NextCodePointRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Previous calls the Previous RPC.
+func (c *UCharacterIteratorClient) Previous(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Previous(ctx, &pb.PreviousRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousCodePoint calls the PreviousCodePoint RPC.
+func (c *UCharacterIteratorClient) PreviousCodePoint(ctx context.Context) (int32, error) {
+	resp, err := c.svc.PreviousCodePoint(ctx, &pb.PreviousCodePointRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIndex calls the SetIndex RPC.
+func (c *UCharacterIteratorClient) SetIndex(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetIndex(ctx, &pb.SetIndexRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetToLimit calls the SetToLimit RPC.
+func (c *UCharacterIteratorClient) SetToLimit(ctx context.Context) error {
+	_, err := c.svc.SetToLimit(ctx, &pb.SetToLimitRequest{})
+	return err
+}
+
+// SetToStart calls the SetToStart RPC.
+func (c *UCharacterIteratorClient) SetToStart(ctx context.Context) error {
+	_, err := c.svc.SetToStart(ctx, &pb.SetToStartRequest{})
+	return err
+}
+
+// GetInstance1 calls the GetInstance1 RPC.
+func (c *UCharacterIteratorClient) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *UCharacterIteratorClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance3_2 calls the GetInstance3_2 RPC.
+func (c *UCharacterIteratorClient) GetInstance3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetInstance3_2(ctx, &pb.UCharacterIteratorGetInstance3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_3 calls the GetInstance1_3 RPC.
+func (c *UCharacterIteratorClient) GetInstance1_3(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetInstance1_3(ctx, &pb.UCharacterIteratorGetInstance1_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_4 calls the GetInstance1_4 RPC.
+func (c *UCharacterIteratorClient) GetInstance1_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_4(ctx, &pb.GetInstance1_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_5 calls the GetInstance1_5 RPC.
+func (c *UCharacterIteratorClient) GetInstance1_5(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_5(ctx, &pb.GetInstance1_5Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScientificNumberFormatterClient wraps the gRPC ScientificNumberFormatterService client.
+type ScientificNumberFormatterClient struct {
+	svc pb.ScientificNumberFormatterServiceClient
+}
+
+// NewScientificNumberFormatterClient creates a new ScientificNumberFormatter client.
+func NewScientificNumberFormatterClient(cc grpc.ClientConnInterface) *ScientificNumberFormatterClient {
+	return &ScientificNumberFormatterClient{
+		svc: pb.NewScientificNumberFormatterServiceClient(cc),
+	}
+}
+
+// Format calls the Format RPC.
+func (c *ScientificNumberFormatterClient) Format(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Format(ctx, &pb.FormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMarkupInstance3 calls the GetMarkupInstance3 RPC.
+func (c *ScientificNumberFormatterClient) GetMarkupInstance3(ctx context.Context, arg0 int64, arg1 string, arg2 string) (int64, error) {
+	resp, err := c.svc.GetMarkupInstance3(ctx, &pb.GetMarkupInstance3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMarkupInstance3_1 calls the GetMarkupInstance3_1 RPC.
+func (c *ScientificNumberFormatterClient) GetMarkupInstance3_1(ctx context.Context, arg0 int64, arg1 string, arg2 string) (int64, error) {
+	resp, err := c.svc.GetMarkupInstance3_1(ctx, &pb.GetMarkupInstance3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuperscriptInstance1 calls the GetSuperscriptInstance1 RPC.
+func (c *ScientificNumberFormatterClient) GetSuperscriptInstance1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSuperscriptInstance1(ctx, &pb.GetSuperscriptInstance1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuperscriptInstance1_1 calls the GetSuperscriptInstance1_1 RPC.
+func (c *ScientificNumberFormatterClient) GetSuperscriptInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSuperscriptInstance1_1(ctx, &pb.GetSuperscriptInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LocaleDisplayNamesClient wraps the gRPC LocaleDisplayNamesService client.
+type LocaleDisplayNamesClient struct {
+	svc pb.LocaleDisplayNamesServiceClient
+}
+
+// NewLocaleDisplayNamesClient creates a new LocaleDisplayNames client.
+func NewLocaleDisplayNamesClient(cc grpc.ClientConnInterface) *LocaleDisplayNamesClient {
+	return &LocaleDisplayNamesClient{
+		svc: pb.NewLocaleDisplayNamesServiceClient(cc),
+	}
+}
+
+// GetContext calls the GetContext RPC.
+func (c *LocaleDisplayNamesClient) GetContext(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDialectHandling calls the GetDialectHandling RPC.
+func (c *LocaleDisplayNamesClient) GetDialectHandling(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDialectHandling(ctx, &pb.GetDialectHandlingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *LocaleDisplayNamesClient) GetLocale(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyDisplayName calls the KeyDisplayName RPC.
+func (c *LocaleDisplayNamesClient) KeyDisplayName(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.KeyDisplayName(ctx, &pb.KeyDisplayNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyValueDisplayName calls the KeyValueDisplayName RPC.
+func (c *LocaleDisplayNamesClient) KeyValueDisplayName(ctx context.Context, arg0 string, arg1 string) (string, error) {
+	resp, err := c.svc.KeyValueDisplayName(ctx, &pb.KeyValueDisplayNameRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LanguageDisplayName calls the LanguageDisplayName RPC.
+func (c *LocaleDisplayNamesClient) LanguageDisplayName(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.LanguageDisplayName(ctx, &pb.LanguageDisplayNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LocaleDisplayName1 calls the LocaleDisplayName1 RPC.
+func (c *LocaleDisplayNamesClient) LocaleDisplayName1(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.LocaleDisplayName1(ctx, &pb.LocaleDisplayName1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LocaleDisplayName1_1 calls the LocaleDisplayName1_1 RPC.
+func (c *LocaleDisplayNamesClient) LocaleDisplayName1_1(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.LocaleDisplayName1_1(ctx, &pb.LocaleDisplayName1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LocaleDisplayName1_2 calls the LocaleDisplayName1_2 RPC.
+func (c *LocaleDisplayNamesClient) LocaleDisplayName1_2(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.LocaleDisplayName1_2(ctx, &pb.LocaleDisplayName1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegionDisplayName calls the RegionDisplayName RPC.
+func (c *LocaleDisplayNamesClient) RegionDisplayName(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.RegionDisplayName(ctx, &pb.RegionDisplayNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScriptDisplayName1 calls the ScriptDisplayName1 RPC.
+func (c *LocaleDisplayNamesClient) ScriptDisplayName1(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.ScriptDisplayName1(ctx, &pb.ScriptDisplayName1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScriptDisplayName1_1 calls the ScriptDisplayName1_1 RPC.
+func (c *LocaleDisplayNamesClient) ScriptDisplayName1_1(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.ScriptDisplayName1_1(ctx, &pb.ScriptDisplayName1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// VariantDisplayName calls the VariantDisplayName RPC.
+func (c *LocaleDisplayNamesClient) VariantDisplayName(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.VariantDisplayName(ctx, &pb.VariantDisplayNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1 calls the GetInstance1 RPC.
+func (c *LocaleDisplayNamesClient) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_1 calls the GetInstance2_1 RPC.
+func (c *LocaleDisplayNamesClient) GetInstance2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_1(ctx, &pb.GetInstance2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_2 calls the GetInstance2_2 RPC.
+func (c *LocaleDisplayNamesClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_2(ctx, &pb.GetInstance2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_3 calls the GetInstance1_3 RPC.
+func (c *LocaleDisplayNamesClient) GetInstance1_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_3(ctx, &pb.LocaleDisplayNamesGetInstance1_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_4 calls the GetInstance2_4 RPC.
+func (c *LocaleDisplayNamesClient) GetInstance2_4(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_4(ctx, &pb.GetInstance2_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LocaleDisplayNamesDialectHandlingClient wraps the gRPC LocaleDisplayNamesDialectHandlingService client.
+type LocaleDisplayNamesDialectHandlingClient struct {
+	svc pb.LocaleDisplayNamesDialectHandlingServiceClient
+}
+
+// NewLocaleDisplayNamesDialectHandlingClient creates a new LocaleDisplayNamesDialectHandling client.
+func NewLocaleDisplayNamesDialectHandlingClient(cc grpc.ClientConnInterface) *LocaleDisplayNamesDialectHandlingClient {
+	return &LocaleDisplayNamesDialectHandlingClient{
+		svc: pb.NewLocaleDisplayNamesDialectHandlingServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *LocaleDisplayNamesDialectHandlingClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *LocaleDisplayNamesDialectHandlingClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LocaleDisplayNamesUiListItemClient wraps the gRPC LocaleDisplayNamesUiListItemService client.
+type LocaleDisplayNamesUiListItemClient struct {
+	svc pb.LocaleDisplayNamesUiListItemServiceClient
+}
+
+// NewLocaleDisplayNamesUiListItemClient creates a new LocaleDisplayNamesUiListItem client.
+func NewLocaleDisplayNamesUiListItemClient(cc grpc.ClientConnInterface) *LocaleDisplayNamesUiListItemClient {
+	return &LocaleDisplayNamesUiListItemClient{
+		svc: pb.NewLocaleDisplayNamesUiListItemServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *LocaleDisplayNamesUiListItemClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *LocaleDisplayNamesUiListItemClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *LocaleDisplayNamesUiListItemClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeSetSpannerClient wraps the gRPC UnicodeSetSpannerService client.
+type UnicodeSetSpannerClient struct {
+	svc pb.UnicodeSetSpannerServiceClient
+}
+
+// NewUnicodeSetSpannerClient creates a new UnicodeSetSpanner client.
+func NewUnicodeSetSpannerClient(cc grpc.ClientConnInterface) *UnicodeSetSpannerClient {
+	return &UnicodeSetSpannerClient{
+		svc: pb.NewUnicodeSetSpannerServiceClient(cc),
+	}
+}
+
+// CountIn1 calls the CountIn1 RPC.
+func (c *UnicodeSetSpannerClient) CountIn1(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.CountIn1(ctx, &pb.CountIn1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountIn2_1 calls the CountIn2_1 RPC.
+func (c *UnicodeSetSpannerClient) CountIn2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (int32, error) {
+	resp, err := c.svc.CountIn2_1(ctx, &pb.CountIn2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountIn3_2 calls the CountIn3_2 RPC.
+func (c *UnicodeSetSpannerClient) CountIn3_2(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64) (int32, error) {
+	resp, err := c.svc.CountIn3_2(ctx, &pb.CountIn3_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteFrom1 calls the DeleteFrom1 RPC.
+func (c *UnicodeSetSpannerClient) DeleteFrom1(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.DeleteFrom1(ctx, &pb.DeleteFrom1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteFrom2_1 calls the DeleteFrom2_1 RPC.
+func (c *UnicodeSetSpannerClient) DeleteFrom2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (string, error) {
+	resp, err := c.svc.DeleteFrom2_1(ctx, &pb.DeleteFrom2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *UnicodeSetSpannerClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.UnicodeSetSpannerEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnicodeSet calls the GetUnicodeSet RPC.
+func (c *UnicodeSetSpannerClient) GetUnicodeSet(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetUnicodeSet(ctx, &pb.GetUnicodeSetRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *UnicodeSetSpannerClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.UnicodeSetSpannerHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReplaceFrom2 calls the ReplaceFrom2 RPC.
+func (c *UnicodeSetSpannerClient) ReplaceFrom2(ctx context.Context, handle int64, arg0 string, arg1 string) (string, error) {
+	resp, err := c.svc.ReplaceFrom2(ctx, &pb.ReplaceFrom2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReplaceFrom3_1 calls the ReplaceFrom3_1 RPC.
+func (c *UnicodeSetSpannerClient) ReplaceFrom3_1(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64) (string, error) {
+	resp, err := c.svc.ReplaceFrom3_1(ctx, &pb.ReplaceFrom3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReplaceFrom4_2 calls the ReplaceFrom4_2 RPC.
+func (c *UnicodeSetSpannerClient) ReplaceFrom4_2(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64, arg3 int64) (string, error) {
+	resp, err := c.svc.ReplaceFrom4_2(ctx, &pb.ReplaceFrom4_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Trim1 calls the Trim1 RPC.
+func (c *UnicodeSetSpannerClient) Trim1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Trim1(ctx, &pb.Trim1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Trim2_1 calls the Trim2_1 RPC.
+func (c *UnicodeSetSpannerClient) Trim2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Trim2_1(ctx, &pb.Trim2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Trim3_2 calls the Trim3_2 RPC.
+func (c *UnicodeSetSpannerClient) Trim3_2(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Trim3_2(ctx, &pb.Trim3_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeSetSpannerCountMethodClient wraps the gRPC UnicodeSetSpannerCountMethodService client.
+type UnicodeSetSpannerCountMethodClient struct {
+	svc pb.UnicodeSetSpannerCountMethodServiceClient
+}
+
+// NewUnicodeSetSpannerCountMethodClient creates a new UnicodeSetSpannerCountMethod client.
+func NewUnicodeSetSpannerCountMethodClient(cc grpc.ClientConnInterface) *UnicodeSetSpannerCountMethodClient {
+	return &UnicodeSetSpannerCountMethodClient{
+		svc: pb.NewUnicodeSetSpannerCountMethodServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *UnicodeSetSpannerCountMethodClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *UnicodeSetSpannerCountMethodClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeSetSpannerTrimOptionClient wraps the gRPC UnicodeSetSpannerTrimOptionService client.
+type UnicodeSetSpannerTrimOptionClient struct {
+	svc pb.UnicodeSetSpannerTrimOptionServiceClient
+}
+
+// NewUnicodeSetSpannerTrimOptionClient creates a new UnicodeSetSpannerTrimOption client.
+func NewUnicodeSetSpannerTrimOptionClient(cc grpc.ClientConnInterface) *UnicodeSetSpannerTrimOptionClient {
+	return &UnicodeSetSpannerTrimOptionClient{
+		svc: pb.NewUnicodeSetSpannerTrimOptionServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *UnicodeSetSpannerTrimOptionClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *UnicodeSetSpannerTrimOptionClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AlphabeticIndexClient wraps the gRPC AlphabeticIndexService client.
+type AlphabeticIndexClient struct {
+	svc pb.AlphabeticIndexServiceClient
+}
+
+// NewAlphabeticIndexClient creates a new AlphabeticIndex client.
+func NewAlphabeticIndexClient(cc grpc.ClientConnInterface) *AlphabeticIndexClient {
+	return &AlphabeticIndexClient{
+		svc: pb.NewAlphabeticIndexServiceClient(cc),
+	}
+}
+
+// AddLabels1 calls the AddLabels1 RPC.
+func (c *AlphabeticIndexClient) AddLabels1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddLabels1(ctx, &pb.AddLabels1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddLabels1_1 calls the AddLabels1_1 RPC.
+func (c *AlphabeticIndexClient) AddLabels1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddLabels1_1(ctx, &pb.AddLabels1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddLabels1_2 calls the AddLabels1_2 RPC.
+func (c *AlphabeticIndexClient) AddLabels1_2(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddLabels1_2(ctx, &pb.AddLabels1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BuildImmutableIndex calls the BuildImmutableIndex RPC.
+func (c *AlphabeticIndexClient) BuildImmutableIndex(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.BuildImmutableIndex(ctx, &pb.BuildImmutableIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearRecords calls the ClearRecords RPC.
+func (c *AlphabeticIndexClient) ClearRecords(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.ClearRecords(ctx, &pb.ClearRecordsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBucketCount calls the GetBucketCount RPC.
+func (c *AlphabeticIndexClient) GetBucketCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBucketCount(ctx, &pb.GetBucketCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBucketIndex calls the GetBucketIndex RPC.
+func (c *AlphabeticIndexClient) GetBucketIndex(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.GetBucketIndex(ctx, &pb.GetBucketIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBucketLabels calls the GetBucketLabels RPC.
+func (c *AlphabeticIndexClient) GetBucketLabels(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBucketLabels(ctx, &pb.GetBucketLabelsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCollator calls the GetCollator RPC.
+func (c *AlphabeticIndexClient) GetCollator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCollator(ctx, &pb.GetCollatorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInflowLabel calls the GetInflowLabel RPC.
+func (c *AlphabeticIndexClient) GetInflowLabel(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetInflowLabel(ctx, &pb.GetInflowLabelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxLabelCount calls the GetMaxLabelCount RPC.
+func (c *AlphabeticIndexClient) GetMaxLabelCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxLabelCount(ctx, &pb.GetMaxLabelCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverflowLabel calls the GetOverflowLabel RPC.
+func (c *AlphabeticIndexClient) GetOverflowLabel(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOverflowLabel(ctx, &pb.GetOverflowLabelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRecordCount calls the GetRecordCount RPC.
+func (c *AlphabeticIndexClient) GetRecordCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRecordCount(ctx, &pb.GetRecordCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnderflowLabel calls the GetUnderflowLabel RPC.
+func (c *AlphabeticIndexClient) GetUnderflowLabel(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetUnderflowLabel(ctx, &pb.GetUnderflowLabelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *AlphabeticIndexClient) Iterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.IteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInflowLabel calls the SetInflowLabel RPC.
+func (c *AlphabeticIndexClient) SetInflowLabel(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetInflowLabel(ctx, &pb.SetInflowLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxLabelCount calls the SetMaxLabelCount RPC.
+func (c *AlphabeticIndexClient) SetMaxLabelCount(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxLabelCount(ctx, &pb.SetMaxLabelCountRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOverflowLabel calls the SetOverflowLabel RPC.
+func (c *AlphabeticIndexClient) SetOverflowLabel(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetOverflowLabel(ctx, &pb.SetOverflowLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUnderflowLabel calls the SetUnderflowLabel RPC.
+func (c *AlphabeticIndexClient) SetUnderflowLabel(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetUnderflowLabel(ctx, &pb.SetUnderflowLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AlphabeticIndexBucketClient wraps the gRPC AlphabeticIndexBucketService client.
+type AlphabeticIndexBucketClient struct {
+	svc pb.AlphabeticIndexBucketServiceClient
+}
+
+// NewAlphabeticIndexBucketClient creates a new AlphabeticIndexBucket client.
+func NewAlphabeticIndexBucketClient(cc grpc.ClientConnInterface) *AlphabeticIndexBucketClient {
+	return &AlphabeticIndexBucketClient{
+		svc: pb.NewAlphabeticIndexBucketServiceClient(cc),
+	}
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *AlphabeticIndexBucketClient) GetLabel(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabelType calls the GetLabelType RPC.
+func (c *AlphabeticIndexBucketClient) GetLabelType(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLabelType(ctx, &pb.GetLabelTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *AlphabeticIndexBucketClient) Iterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.AlphabeticIndexBucketIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Size calls the Size RPC.
+func (c *AlphabeticIndexBucketClient) Size(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Size(ctx, &pb.AlphabeticIndexBucketSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AlphabeticIndexBucketClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AlphabeticIndexImmutableIndexClient wraps the gRPC AlphabeticIndexImmutableIndexService client.
+type AlphabeticIndexImmutableIndexClient struct {
+	svc pb.AlphabeticIndexImmutableIndexServiceClient
+}
+
+// NewAlphabeticIndexImmutableIndexClient creates a new AlphabeticIndexImmutableIndex client.
+func NewAlphabeticIndexImmutableIndexClient(cc grpc.ClientConnInterface) *AlphabeticIndexImmutableIndexClient {
+	return &AlphabeticIndexImmutableIndexClient{
+		svc: pb.NewAlphabeticIndexImmutableIndexServiceClient(cc),
+	}
+}
+
+// GetBucket calls the GetBucket RPC.
+func (c *AlphabeticIndexImmutableIndexClient) GetBucket(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetBucket(ctx, &pb.GetBucketRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBucketCount calls the GetBucketCount RPC.
+func (c *AlphabeticIndexImmutableIndexClient) GetBucketCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBucketCount(ctx, &pb.AlphabeticIndexImmutableIndexGetBucketCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBucketIndex calls the GetBucketIndex RPC.
+func (c *AlphabeticIndexImmutableIndexClient) GetBucketIndex(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetBucketIndex(ctx, &pb.AlphabeticIndexImmutableIndexGetBucketIndexRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *AlphabeticIndexImmutableIndexClient) Iterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.AlphabeticIndexImmutableIndexIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AlphabeticIndexRecordClient wraps the gRPC AlphabeticIndexRecordService client.
+type AlphabeticIndexRecordClient struct {
+	svc pb.AlphabeticIndexRecordServiceClient
+}
+
+// NewAlphabeticIndexRecordClient creates a new AlphabeticIndexRecord client.
+func NewAlphabeticIndexRecordClient(cc grpc.ClientConnInterface) *AlphabeticIndexRecordClient {
+	return &AlphabeticIndexRecordClient{
+		svc: pb.NewAlphabeticIndexRecordServiceClient(cc),
+	}
+}
+
+// GetName calls the GetName RPC.
+func (c *AlphabeticIndexRecordClient) GetName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetName(ctx, &pb.AlphabeticIndexRecordGetNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AlphabeticIndexRecordClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// PluralRulesClient wraps the gRPC PluralRulesService client.
+type PluralRulesClient struct {
+	svc pb.PluralRulesServiceClient
+}
+
+// NewPluralRulesClient creates a new PluralRules client.
+func NewPluralRulesClient(cc grpc.ClientConnInterface) *PluralRulesClient {
+	return &PluralRulesClient{
+		svc: pb.NewPluralRulesServiceClient(cc),
+	}
+}
+
+// Equals1 calls the Equals1 RPC.
+func (c *PluralRulesClient) Equals1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1(ctx, &pb.Equals1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals1_1 calls the Equals1_1 RPC.
+func (c *PluralRulesClient) Equals1_1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1_1(ctx, &pb.Equals1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllKeywordValues calls the GetAllKeywordValues RPC.
+func (c *PluralRulesClient) GetAllKeywordValues(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAllKeywordValues(ctx, &pb.GetAllKeywordValuesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeywords calls the GetKeywords RPC.
+func (c *PluralRulesClient) GetKeywords(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeywords(ctx, &pb.GetKeywordsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSamples calls the GetSamples RPC.
+func (c *PluralRulesClient) GetSamples(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetSamples(ctx, &pb.GetSamplesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUniqueKeywordValue calls the GetUniqueKeywordValue RPC.
+func (c *PluralRulesClient) GetUniqueKeywordValue(ctx context.Context, arg0 string) (float64, error) {
+	resp, err := c.svc.GetUniqueKeywordValue(ctx, &pb.GetUniqueKeywordValueRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PluralRulesClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Select1 calls the Select1 RPC.
+func (c *PluralRulesClient) Select1(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Select1(ctx, &pb.Select1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Select1_1 calls the Select1_1 RPC.
+func (c *PluralRulesClient) Select1_1(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Select1_1(ctx, &pb.Select1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Select1_2 calls the Select1_2 RPC.
+func (c *PluralRulesClient) Select1_2(ctx context.Context, arg0 float64) (string, error) {
+	resp, err := c.svc.Select1_2(ctx, &pb.Select1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PluralRulesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateRules calls the CreateRules RPC.
+func (c *PluralRulesClient) CreateRules(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateRules(ctx, &pb.CreateRulesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForLocale1 calls the ForLocale1 RPC.
+func (c *PluralRulesClient) ForLocale1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ForLocale1(ctx, &pb.ForLocale1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForLocale2_1 calls the ForLocale2_1 RPC.
+func (c *PluralRulesClient) ForLocale2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ForLocale2_1(ctx, &pb.ForLocale2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForLocale1_2 calls the ForLocale1_2 RPC.
+func (c *PluralRulesClient) ForLocale1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ForLocale1_2(ctx, &pb.ForLocale1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForLocale2_3 calls the ForLocale2_3 RPC.
+func (c *PluralRulesClient) ForLocale2_3(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ForLocale2_3(ctx, &pb.ForLocale2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseDescription calls the ParseDescription RPC.
+func (c *PluralRulesClient) ParseDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ParseDescription(ctx, &pb.ParseDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PluralRulesPluralTypeClient wraps the gRPC PluralRulesPluralTypeService client.
+type PluralRulesPluralTypeClient struct {
+	svc pb.PluralRulesPluralTypeServiceClient
+}
+
+// NewPluralRulesPluralTypeClient creates a new PluralRulesPluralType client.
+func NewPluralRulesPluralTypeClient(cc grpc.ClientConnInterface) *PluralRulesPluralTypeClient {
+	return &PluralRulesPluralTypeClient{
+		svc: pb.NewPluralRulesPluralTypeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *PluralRulesPluralTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *PluralRulesPluralTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DisplayContextClient wraps the gRPC DisplayContextService client.
+type DisplayContextClient struct {
+	svc pb.DisplayContextServiceClient
+}
+
+// NewDisplayContextClient creates a new DisplayContext client.
+func NewDisplayContextClient(cc grpc.ClientConnInterface) *DisplayContextClient {
+	return &DisplayContextClient{
+		svc: pb.NewDisplayContextServiceClient(cc),
+	}
+}
+
+// Type calls the Type RPC.
+func (c *DisplayContextClient) Type(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Type(ctx, &pb.TypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Value calls the Value RPC.
+func (c *DisplayContextClient) Value(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Value(ctx, &pb.ValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Values calls the Values RPC.
+func (c *DisplayContextClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *DisplayContextClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DisplayContextTypeClient wraps the gRPC DisplayContextTypeService client.
+type DisplayContextTypeClient struct {
+	svc pb.DisplayContextTypeServiceClient
+}
+
+// NewDisplayContextTypeClient creates a new DisplayContextType client.
+func NewDisplayContextTypeClient(cc grpc.ClientConnInterface) *DisplayContextTypeClient {
+	return &DisplayContextTypeClient{
+		svc: pb.NewDisplayContextTypeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *DisplayContextTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *DisplayContextTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StringPrepParseExceptionClient wraps the gRPC StringPrepParseExceptionService client.
+type StringPrepParseExceptionClient struct {
+	svc pb.StringPrepParseExceptionServiceClient
+}
+
+// NewStringPrepParseExceptionClient creates a new StringPrepParseException client.
+func NewStringPrepParseExceptionClient(cc grpc.ClientConnInterface) *StringPrepParseExceptionClient {
+	return &StringPrepParseExceptionClient{
+		svc: pb.NewStringPrepParseExceptionServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *StringPrepParseExceptionClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.StringPrepParseExceptionEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetError calls the GetError RPC.
+func (c *StringPrepParseExceptionClient) GetError(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetError(ctx, &pb.GetErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *StringPrepParseExceptionClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.StringPrepParseExceptionHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *StringPrepParseExceptionClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.StringPrepParseExceptionToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SimpleDateFormatClient wraps the gRPC SimpleDateFormatService client.
+type SimpleDateFormatClient struct {
+	svc pb.SimpleDateFormatServiceClient
+}
+
+// NewSimpleDateFormatClient creates a new SimpleDateFormat client.
+func NewSimpleDateFormatClient(cc grpc.ClientConnInterface) *SimpleDateFormatClient {
+	return &SimpleDateFormatClient{
+		svc: pb.NewSimpleDateFormatServiceClient(cc),
+	}
+}
+
+// ApplyLocalizedPattern calls the ApplyLocalizedPattern RPC.
+func (c *SimpleDateFormatClient) ApplyLocalizedPattern(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.ApplyLocalizedPattern(ctx, &pb.ApplyLocalizedPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ApplyPattern calls the ApplyPattern RPC.
+func (c *SimpleDateFormatClient) ApplyPattern(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.ApplyPattern(ctx, &pb.ApplyPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Clone calls the Clone RPC.
+func (c *SimpleDateFormatClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.SimpleDateFormatCloneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SimpleDateFormatClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.SimpleDateFormatEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format calls the Format RPC.
+func (c *SimpleDateFormatClient) Format(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format(ctx, &pb.SimpleDateFormatFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToCharacterIterator calls the FormatToCharacterIterator RPC.
+func (c *SimpleDateFormatClient) FormatToCharacterIterator(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.FormatToCharacterIterator(ctx, &pb.SimpleDateFormatFormatToCharacterIteratorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get2DigitYearStart calls the Get2DigitYearStart RPC.
+func (c *SimpleDateFormatClient) Get2DigitYearStart(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Get2DigitYearStart(ctx, &pb.Get2DigitYearStartRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateFormatSymbols calls the GetDateFormatSymbols RPC.
+func (c *SimpleDateFormatClient) GetDateFormatSymbols(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDateFormatSymbols(ctx, &pb.GetDateFormatSymbolsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumberFormat calls the GetNumberFormat RPC.
+func (c *SimpleDateFormatClient) GetNumberFormat(ctx context.Context, handle int64, arg0 uint16) (int64, error) {
+	resp, err := c.svc.GetNumberFormat(ctx, &pb.SimpleDateFormatGetNumberFormatRequest{
+		Handle: handle,
+		Arg0:   uint32(arg0),
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeZoneFormat calls the GetTimeZoneFormat RPC.
+func (c *SimpleDateFormatClient) GetTimeZoneFormat(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimeZoneFormat(ctx, &pb.GetTimeZoneFormatRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SimpleDateFormatClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.SimpleDateFormatHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse calls the Parse RPC.
+func (c *SimpleDateFormatClient) Parse(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64) error {
+	_, err := c.svc.Parse(ctx, &pb.ParseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Set2DigitYearStart calls the Set2DigitYearStart RPC.
+func (c *SimpleDateFormatClient) Set2DigitYearStart(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Set2DigitYearStart(ctx, &pb.Set2DigitYearStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetContext calls the SetContext RPC.
+func (c *SimpleDateFormatClient) SetContext(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetContext(ctx, &pb.SimpleDateFormatSetContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDateFormatSymbols calls the SetDateFormatSymbols RPC.
+func (c *SimpleDateFormatClient) SetDateFormatSymbols(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDateFormatSymbols(ctx, &pb.SetDateFormatSymbolsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetNumberFormat1 calls the SetNumberFormat1 RPC.
+func (c *SimpleDateFormatClient) SetNumberFormat1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetNumberFormat1(ctx, &pb.SetNumberFormat1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetNumberFormat2_1 calls the SetNumberFormat2_1 RPC.
+func (c *SimpleDateFormatClient) SetNumberFormat2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.SetNumberFormat2_1(ctx, &pb.SetNumberFormat2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetTimeZoneFormat calls the SetTimeZoneFormat RPC.
+func (c *SimpleDateFormatClient) SetTimeZoneFormat(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTimeZoneFormat(ctx, &pb.SetTimeZoneFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToLocalizedPattern calls the ToLocalizedPattern RPC.
+func (c *SimpleDateFormatClient) ToLocalizedPattern(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToLocalizedPattern(ctx, &pb.ToLocalizedPatternRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToPattern calls the ToPattern RPC.
+func (c *SimpleDateFormatClient) ToPattern(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToPattern(ctx, &pb.SimpleDateFormatToPatternRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DateIntervalFormatClient wraps the gRPC DateIntervalFormatService client.
+type DateIntervalFormatClient struct {
+	svc pb.DateIntervalFormatServiceClient
+}
+
+// NewDateIntervalFormatClient creates a new DateIntervalFormat client.
+func NewDateIntervalFormatClient(cc grpc.ClientConnInterface) *DateIntervalFormatClient {
+	return &DateIntervalFormatClient{
+		svc: pb.NewDateIntervalFormatServiceClient(cc),
+	}
+}
+
+// Format4 calls the Format4 RPC.
+func (c *DateIntervalFormatClient) Format4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.Format4(ctx, &pb.Format4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_1 calls the Format3_1 RPC.
+func (c *DateIntervalFormatClient) Format3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_1(ctx, &pb.DateIntervalFormatFormat3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_2 calls the Format3_2 RPC.
+func (c *DateIntervalFormatClient) Format3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_2(ctx, &pb.Format3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToValue2 calls the FormatToValue2 RPC.
+func (c *DateIntervalFormatClient) FormatToValue2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.FormatToValue2(ctx, &pb.FormatToValue2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToValue1_1 calls the FormatToValue1_1 RPC.
+func (c *DateIntervalFormatClient) FormatToValue1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FormatToValue1_1(ctx, &pb.FormatToValue1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContext calls the GetContext RPC.
+func (c *DateIntervalFormatClient) GetContext(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateIntervalInfo calls the GetDateIntervalInfo RPC.
+func (c *DateIntervalFormatClient) GetDateIntervalInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDateIntervalInfo(ctx, &pb.GetDateIntervalInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeZone calls the GetTimeZone RPC.
+func (c *DateIntervalFormatClient) GetTimeZone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeZone(ctx, &pb.GetTimeZoneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseObject calls the ParseObject RPC.
+func (c *DateIntervalFormatClient) ParseObject(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject(ctx, &pb.ParseObjectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContext calls the SetContext RPC.
+func (c *DateIntervalFormatClient) SetContext(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetContext(ctx, &pb.DateIntervalFormatSetContextRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDateIntervalInfo calls the SetDateIntervalInfo RPC.
+func (c *DateIntervalFormatClient) SetDateIntervalInfo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetDateIntervalInfo(ctx, &pb.SetDateIntervalInfoRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTimeZone calls the SetTimeZone RPC.
+func (c *DateIntervalFormatClient) SetTimeZone(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTimeZone(ctx, &pb.SetTimeZoneRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetInstance1 calls the GetInstance1 RPC.
+func (c *DateIntervalFormatClient) GetInstance1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetInstance1(ctx, &pb.DateIntervalFormatGetInstance1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_1 calls the GetInstance2_1 RPC.
+func (c *DateIntervalFormatClient) GetInstance2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_1(ctx, &pb.DateIntervalFormatGetInstance2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_2 calls the GetInstance2_2 RPC.
+func (c *DateIntervalFormatClient) GetInstance2_2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_2(ctx, &pb.DateIntervalFormatGetInstance2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance3_3 calls the GetInstance3_3 RPC.
+func (c *DateIntervalFormatClient) GetInstance3_3(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstance3_3(ctx, &pb.GetInstance3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_4 calls the GetInstance2_4 RPC.
+func (c *DateIntervalFormatClient) GetInstance2_4(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_4(ctx, &pb.DateIntervalFormatGetInstance2_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance3_5 calls the GetInstance3_5 RPC.
+func (c *DateIntervalFormatClient) GetInstance3_5(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstance3_5(ctx, &pb.GetInstance3_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DateIntervalFormatFormattedDateIntervalClient wraps the gRPC DateIntervalFormatFormattedDateIntervalService client.
+type DateIntervalFormatFormattedDateIntervalClient struct {
+	svc pb.DateIntervalFormatFormattedDateIntervalServiceClient
+}
+
+// NewDateIntervalFormatFormattedDateIntervalClient creates a new DateIntervalFormatFormattedDateInterval client.
+func NewDateIntervalFormatFormattedDateIntervalClient(cc grpc.ClientConnInterface) *DateIntervalFormatFormattedDateIntervalClient {
+	return &DateIntervalFormatFormattedDateIntervalClient{
+		svc: pb.NewDateIntervalFormatFormattedDateIntervalServiceClient(cc),
+	}
+}
+
+// CharAt calls the CharAt RPC.
+func (c *DateIntervalFormatFormattedDateIntervalClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return uint16(resp.GetResult()), nil
+}
+
+// Length calls the Length RPC.
+func (c *DateIntervalFormatFormattedDateIntervalClient) Length(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextPosition calls the NextPosition RPC.
+func (c *DateIntervalFormatFormattedDateIntervalClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubSequence calls the SubSequence RPC.
+func (c *DateIntervalFormatFormattedDateIntervalClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToCharacterIterator calls the ToCharacterIterator RPC.
+func (c *DateIntervalFormatFormattedDateIntervalClient) ToCharacterIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DateIntervalFormatFormattedDateIntervalClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// BidiClassifierClient wraps the gRPC BidiClassifierService client.
+type BidiClassifierClient struct {
+	svc pb.BidiClassifierServiceClient
+}
+
+// NewBidiClassifierClient creates a new BidiClassifier client.
+func NewBidiClassifierClient(cc grpc.ClientConnInterface) *BidiClassifierClient {
+	return &BidiClassifierClient{
+		svc: pb.NewBidiClassifierServiceClient(cc),
+	}
+}
+
+// Classify calls the Classify RPC.
+func (c *BidiClassifierClient) Classify(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.Classify(ctx, &pb.ClassifyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContext calls the GetContext RPC.
+func (c *BidiClassifierClient) GetContext(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.BidiClassifierGetContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContext calls the SetContext RPC.
+func (c *BidiClassifierClient) SetContext(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetContext(ctx, &pb.BidiClassifierSetContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CollatorClient wraps the gRPC CollatorService client.
+type CollatorClient struct {
+	svc pb.CollatorServiceClient
+}
+
+// NewCollatorClient creates a new Collator client.
+func NewCollatorClient(cc grpc.ClientConnInterface) *CollatorClient {
+	return &CollatorClient{
+		svc: pb.NewCollatorServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *CollatorClient) Clone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloneAsThawed0 calls the CloneAsThawed0 RPC.
+func (c *CollatorClient) CloneAsThawed0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0(ctx, &pb.CollatorCloneAsThawed0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare2 calls the Compare2 RPC.
+func (c *CollatorClient) Compare2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Compare2(ctx, &pb.Compare2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare2_1 calls the Compare2_1 RPC.
+func (c *CollatorClient) Compare2_1(ctx context.Context, arg0 string, arg1 string) (int32, error) {
+	resp, err := c.svc.Compare2_1(ctx, &pb.Compare2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals1 calls the Equals1 RPC.
+func (c *CollatorClient) Equals1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1(ctx, &pb.Equals1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals2_1 calls the Equals2_1 RPC.
+func (c *CollatorClient) Equals2_1(ctx context.Context, arg0 string, arg1 string) (bool, error) {
+	resp, err := c.svc.Equals2_1(ctx, &pb.Equals2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Freeze0 calls the Freeze0 RPC.
+func (c *CollatorClient) Freeze0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Freeze0(ctx, &pb.CollatorFreeze0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCollationKey calls the GetCollationKey RPC.
+func (c *CollatorClient) GetCollationKey(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetCollationKey(ctx, &pb.GetCollationKeyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDecomposition calls the GetDecomposition RPC.
+func (c *CollatorClient) GetDecomposition(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDecomposition(ctx, &pb.GetDecompositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxVariable calls the GetMaxVariable RPC.
+func (c *CollatorClient) GetMaxVariable(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxVariable(ctx, &pb.GetMaxVariableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReorderCodes calls the GetReorderCodes RPC.
+func (c *CollatorClient) GetReorderCodes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReorderCodes(ctx, &pb.GetReorderCodesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStrength calls the GetStrength RPC.
+func (c *CollatorClient) GetStrength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStrength(ctx, &pb.GetStrengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTailoredSet calls the GetTailoredSet RPC.
+func (c *CollatorClient) GetTailoredSet(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTailoredSet(ctx, &pb.GetTailoredSetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUCAVersion calls the GetUCAVersion RPC.
+func (c *CollatorClient) GetUCAVersion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUCAVersion(ctx, &pb.GetUCAVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVariableTop calls the GetVariableTop RPC.
+func (c *CollatorClient) GetVariableTop(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVariableTop(ctx, &pb.GetVariableTopRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *CollatorClient) GetVersion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CollatorClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFrozen calls the IsFrozen RPC.
+func (c *CollatorClient) IsFrozen(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFrozen(ctx, &pb.CollatorIsFrozenRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDecomposition calls the SetDecomposition RPC.
+func (c *CollatorClient) SetDecomposition(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDecomposition(ctx, &pb.SetDecompositionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMaxVariable calls the SetMaxVariable RPC.
+func (c *CollatorClient) SetMaxVariable(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxVariable(ctx, &pb.SetMaxVariableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetReorderCodes calls the SetReorderCodes RPC.
+func (c *CollatorClient) SetReorderCodes(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetReorderCodes(ctx, &pb.SetReorderCodesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStrength calls the SetStrength RPC.
+func (c *CollatorClient) SetStrength(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetStrength(ctx, &pb.SetStrengthRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Freeze0_1 calls the Freeze0_1 RPC.
+func (c *CollatorClient) Freeze0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Freeze0_1(ctx, &pb.CollatorFreeze0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
+func (c *CollatorClient) CloneAsThawed0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.CollatorCloneAsThawed0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableLocales calls the GetAvailableLocales RPC.
+func (c *CollatorClient) GetAvailableLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableLocales(ctx, &pb.GetAvailableLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableULocales calls the GetAvailableULocales RPC.
+func (c *CollatorClient) GetAvailableULocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableULocales(ctx, &pb.GetAvailableULocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName1 calls the GetDisplayName1 RPC.
+func (c *CollatorClient) GetDisplayName1(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetDisplayName1(ctx, &pb.GetDisplayName1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName2_1 calls the GetDisplayName2_1 RPC.
+func (c *CollatorClient) GetDisplayName2_1(ctx context.Context, arg0 int64, arg1 int64) (string, error) {
+	resp, err := c.svc.GetDisplayName2_1(ctx, &pb.GetDisplayName2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName1_2 calls the GetDisplayName1_2 RPC.
+func (c *CollatorClient) GetDisplayName1_2(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetDisplayName1_2(ctx, &pb.GetDisplayName1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName2_3 calls the GetDisplayName2_3 RPC.
+func (c *CollatorClient) GetDisplayName2_3(ctx context.Context, arg0 int64, arg1 int64) (string, error) {
+	resp, err := c.svc.GetDisplayName2_3(ctx, &pb.GetDisplayName2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEquivalentReorderCodes calls the GetEquivalentReorderCodes RPC.
+func (c *CollatorClient) GetEquivalentReorderCodes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetEquivalentReorderCodes(ctx, &pb.GetEquivalentReorderCodesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFunctionalEquivalent2 calls the GetFunctionalEquivalent2 RPC.
+func (c *CollatorClient) GetFunctionalEquivalent2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetFunctionalEquivalent2(ctx, &pb.GetFunctionalEquivalent2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFunctionalEquivalent3_1 calls the GetFunctionalEquivalent3_1 RPC.
+func (c *CollatorClient) GetFunctionalEquivalent3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetFunctionalEquivalent3_1(ctx, &pb.GetFunctionalEquivalent3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *CollatorClient) GetInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *CollatorClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_2 calls the GetInstance1_2 RPC.
+func (c *CollatorClient) GetInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_2(ctx, &pb.GetInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeywordValues calls the GetKeywordValues RPC.
+func (c *CollatorClient) GetKeywordValues(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetKeywordValues(ctx, &pb.GetKeywordValuesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeywordValuesForLocale calls the GetKeywordValuesForLocale RPC.
+func (c *CollatorClient) GetKeywordValuesForLocale(ctx context.Context, arg0 string, arg1 int64, arg2 bool) (int64, error) {
+	resp, err := c.svc.GetKeywordValuesForLocale(ctx, &pb.GetKeywordValuesForLocaleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeywords calls the GetKeywords RPC.
+func (c *CollatorClient) GetKeywords(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeywords(ctx, &pb.GetKeywordsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MessagePatternClient wraps the gRPC MessagePatternService client.
+type MessagePatternClient struct {
+	svc pb.MessagePatternServiceClient
+}
+
+// NewMessagePatternClient creates a new MessagePattern client.
+func NewMessagePatternClient(cc grpc.ClientConnInterface) *MessagePatternClient {
+	return &MessagePatternClient{
+		svc: pb.NewMessagePatternServiceClient(cc),
+	}
+}
+
+// AutoQuoteApostropheDeep calls the AutoQuoteApostropheDeep RPC.
+func (c *MessagePatternClient) AutoQuoteApostropheDeep(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.AutoQuoteApostropheDeep(ctx, &pb.AutoQuoteApostropheDeepRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clear calls the Clear RPC.
+func (c *MessagePatternClient) Clear(ctx context.Context, handle int64) error {
+	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ClearPatternAndSetApostropheMode calls the ClearPatternAndSetApostropheMode RPC.
+func (c *MessagePatternClient) ClearPatternAndSetApostropheMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ClearPatternAndSetApostropheMode(ctx, &pb.ClearPatternAndSetApostropheModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Clone calls the Clone RPC.
+func (c *MessagePatternClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.MessagePatternCloneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloneAsThawed0 calls the CloneAsThawed0 RPC.
+func (c *MessagePatternClient) CloneAsThawed0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0(ctx, &pb.CloneAsThawed0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountParts calls the CountParts RPC.
+func (c *MessagePatternClient) CountParts(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountParts(ctx, &pb.CountPartsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *MessagePatternClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.MessagePatternEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Freeze0 calls the Freeze0 RPC.
+func (c *MessagePatternClient) Freeze0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Freeze0(ctx, &pb.Freeze0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApostropheMode calls the GetApostropheMode RPC.
+func (c *MessagePatternClient) GetApostropheMode(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetApostropheMode(ctx, &pb.GetApostropheModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLimitPartIndex calls the GetLimitPartIndex RPC.
+func (c *MessagePatternClient) GetLimitPartIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLimitPartIndex(ctx, &pb.GetLimitPartIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumericValue calls the GetNumericValue RPC.
+func (c *MessagePatternClient) GetNumericValue(ctx context.Context, handle int64, arg0 int64) (float64, error) {
+	resp, err := c.svc.GetNumericValue(ctx, &pb.GetNumericValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPart calls the GetPart RPC.
+func (c *MessagePatternClient) GetPart(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPart(ctx, &pb.GetPartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPartType calls the GetPartType RPC.
+func (c *MessagePatternClient) GetPartType(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPartType(ctx, &pb.GetPartTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternIndex calls the GetPatternIndex RPC.
+func (c *MessagePatternClient) GetPatternIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetPatternIndex(ctx, &pb.GetPatternIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternString calls the GetPatternString RPC.
+func (c *MessagePatternClient) GetPatternString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPatternString(ctx, &pb.GetPatternStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPluralOffset calls the GetPluralOffset RPC.
+func (c *MessagePatternClient) GetPluralOffset(ctx context.Context, handle int64, arg0 int32) (float64, error) {
+	resp, err := c.svc.GetPluralOffset(ctx, &pb.GetPluralOffsetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubstring calls the GetSubstring RPC.
+func (c *MessagePatternClient) GetSubstring(ctx context.Context, handle int64, arg0 int64) (string, error) {
+	resp, err := c.svc.GetSubstring(ctx, &pb.GetSubstringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasNamedArguments calls the HasNamedArguments RPC.
+func (c *MessagePatternClient) HasNamedArguments(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasNamedArguments(ctx, &pb.HasNamedArgumentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasNumberedArguments calls the HasNumberedArguments RPC.
+func (c *MessagePatternClient) HasNumberedArguments(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasNumberedArguments(ctx, &pb.HasNumberedArgumentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MessagePatternClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.MessagePatternHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFrozen calls the IsFrozen RPC.
+func (c *MessagePatternClient) IsFrozen(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFrozen(ctx, &pb.IsFrozenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse calls the Parse RPC.
+func (c *MessagePatternClient) Parse(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Parse(ctx, &pb.MessagePatternParseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseChoiceStyle calls the ParseChoiceStyle RPC.
+func (c *MessagePatternClient) ParseChoiceStyle(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.ParseChoiceStyle(ctx, &pb.ParseChoiceStyleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParsePluralStyle calls the ParsePluralStyle RPC.
+func (c *MessagePatternClient) ParsePluralStyle(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.ParsePluralStyle(ctx, &pb.ParsePluralStyleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseSelectStyle calls the ParseSelectStyle RPC.
+func (c *MessagePatternClient) ParseSelectStyle(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.ParseSelectStyle(ctx, &pb.ParseSelectStyleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PartSubstringMatches calls the PartSubstringMatches RPC.
+func (c *MessagePatternClient) PartSubstringMatches(ctx context.Context, handle int64, arg0 int64, arg1 string) (bool, error) {
+	resp, err := c.svc.PartSubstringMatches(ctx, &pb.PartSubstringMatchesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MessagePatternClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.MessagePatternToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Freeze0_1 calls the Freeze0_1 RPC.
+func (c *MessagePatternClient) Freeze0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Freeze0_1(ctx, &pb.Freeze0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
+func (c *MessagePatternClient) CloneAsThawed0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.CloneAsThawed0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValidateArgumentName calls the ValidateArgumentName RPC.
+func (c *MessagePatternClient) ValidateArgumentName(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.ValidateArgumentName(ctx, &pb.ValidateArgumentNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MessagePatternApostropheModeClient wraps the gRPC MessagePatternApostropheModeService client.
+type MessagePatternApostropheModeClient struct {
+	svc pb.MessagePatternApostropheModeServiceClient
+}
+
+// NewMessagePatternApostropheModeClient creates a new MessagePatternApostropheMode client.
+func NewMessagePatternApostropheModeClient(cc grpc.ClientConnInterface) *MessagePatternApostropheModeClient {
+	return &MessagePatternApostropheModeClient{
+		svc: pb.NewMessagePatternApostropheModeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *MessagePatternApostropheModeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *MessagePatternApostropheModeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MessagePatternArgTypeClient wraps the gRPC MessagePatternArgTypeService client.
+type MessagePatternArgTypeClient struct {
+	svc pb.MessagePatternArgTypeServiceClient
+}
+
+// NewMessagePatternArgTypeClient creates a new MessagePatternArgType client.
+func NewMessagePatternArgTypeClient(cc grpc.ClientConnInterface) *MessagePatternArgTypeClient {
+	return &MessagePatternArgTypeClient{
+		svc: pb.NewMessagePatternArgTypeServiceClient(cc),
+	}
+}
+
+// HasPluralStyle calls the HasPluralStyle RPC.
+func (c *MessagePatternArgTypeClient) HasPluralStyle(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPluralStyle(ctx, &pb.HasPluralStyleRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Values calls the Values RPC.
+func (c *MessagePatternArgTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *MessagePatternArgTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MessagePatternPartClient wraps the gRPC MessagePatternPartService client.
+type MessagePatternPartClient struct {
+	svc pb.MessagePatternPartServiceClient
+}
+
+// NewMessagePatternPartClient creates a new MessagePatternPart client.
+func NewMessagePatternPartClient(cc grpc.ClientConnInterface) *MessagePatternPartClient {
+	return &MessagePatternPartClient{
+		svc: pb.NewMessagePatternPartServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MessagePatternPartClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetArgType calls the GetArgType RPC.
+func (c *MessagePatternPartClient) GetArgType(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetArgType(ctx, &pb.GetArgTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIndex calls the GetIndex RPC.
+func (c *MessagePatternPartClient) GetIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLength calls the GetLength RPC.
+func (c *MessagePatternPartClient) GetLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.MessagePatternPartGetLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLimit calls the GetLimit RPC.
+func (c *MessagePatternPartClient) GetLimit(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLimit(ctx, &pb.GetLimitRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *MessagePatternPartClient) GetType(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue calls the GetValue RPC.
+func (c *MessagePatternPartClient) GetValue(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.GetValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MessagePatternPartClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MessagePatternPartClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
@@ -1310,21 +9307,21 @@ func (c *DisplayOptionsSubstituteHandlingClient) ValueOf(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// FormattedValueClient wraps the gRPC FormattedValueService client.
-type FormattedValueClient struct {
-	svc pb.FormattedValueServiceClient
+// MeasureFormatClient wraps the gRPC MeasureFormatService client.
+type MeasureFormatClient struct {
+	svc pb.MeasureFormatServiceClient
 }
 
-// NewFormattedValueClient creates a new FormattedValue client.
-func NewFormattedValueClient(cc grpc.ClientConnInterface) *FormattedValueClient {
-	return &FormattedValueClient{
-		svc: pb.NewFormattedValueServiceClient(cc),
+// NewMeasureFormatClient creates a new MeasureFormat client.
+func NewMeasureFormatClient(cc grpc.ClientConnInterface) *MeasureFormatClient {
+	return &MeasureFormatClient{
+		svc: pb.NewMeasureFormatServiceClient(cc),
 	}
 }
 
-// NextPosition calls the NextPosition RPC.
-func (c *FormattedValueClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
+// Equals calls the Equals RPC.
+func (c *MeasureFormatClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1333,67 +9330,50 @@ func (c *FormattedValueClient) NextPosition(ctx context.Context, arg0 int64) (bo
 	return resp.GetResult(), nil
 }
 
-// ToCharacterIterator calls the ToCharacterIterator RPC.
-func (c *FormattedValueClient) ToCharacterIterator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
+// Format calls the Format RPC.
+func (c *MeasureFormatClient) Format(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format(ctx, &pb.MeasureFormatFormatRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ToString calls the ToString RPC.
-func (c *FormattedValueClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+// FormatMeasurePerUnit calls the FormatMeasurePerUnit RPC.
+func (c *MeasureFormatClient) FormatMeasurePerUnit(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.FormatMeasurePerUnit(ctx, &pb.FormatMeasurePerUnitRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatMeasures1 calls the FormatMeasures1 RPC.
+func (c *MeasureFormatClient) FormatMeasures1(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.FormatMeasures1(ctx, &pb.FormatMeasures1Request{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// DisplayContextClient wraps the gRPC DisplayContextService client.
-type DisplayContextClient struct {
-	svc pb.DisplayContextServiceClient
-}
-
-// NewDisplayContextClient creates a new DisplayContext client.
-func NewDisplayContextClient(cc grpc.ClientConnInterface) *DisplayContextClient {
-	return &DisplayContextClient{
-		svc: pb.NewDisplayContextServiceClient(cc),
-	}
-}
-
-// Type calls the Type RPC.
-func (c *DisplayContextClient) Type(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Type(ctx, &pb.TypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Value calls the Value RPC.
-func (c *DisplayContextClient) Value(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Value(ctx, &pb.ValueRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Values calls the Values RPC.
-func (c *DisplayContextClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *DisplayContextClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+// FormatMeasures3_1 calls the FormatMeasures3_1 RPC.
+func (c *MeasureFormatClient) FormatMeasures3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.FormatMeasures3_1(ctx, &pb.FormatMeasures3_1Request{
 		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -1401,71 +9381,56 @@ func (c *DisplayContextClient) ValueOf(ctx context.Context, arg0 string) (int64,
 	return resp.GetResult(), nil
 }
 
-// DisplayContextTypeClient wraps the gRPC DisplayContextTypeService client.
-type DisplayContextTypeClient struct {
-	svc pb.DisplayContextTypeServiceClient
-}
-
-// NewDisplayContextTypeClient creates a new DisplayContextType client.
-func NewDisplayContextTypeClient(cc grpc.ClientConnInterface) *DisplayContextTypeClient {
-	return &DisplayContextTypeClient{
-		svc: pb.NewDisplayContextTypeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *DisplayContextTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+// GetLocale calls the GetLocale RPC.
+func (c *MeasureFormatClient) GetLocale(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ValueOf calls the ValueOf RPC.
-func (c *DisplayContextTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+// GetNumberFormat calls the GetNumberFormat RPC.
+func (c *MeasureFormatClient) GetNumberFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNumberFormat(ctx, &pb.GetNumberFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnitDisplayName calls the GetUnitDisplayName RPC.
+func (c *MeasureFormatClient) GetUnitDisplayName(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetUnitDisplayName(ctx, &pb.GetUnitDisplayNameRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// CollatorClient wraps the gRPC CollatorService client.
-type CollatorClient struct {
-	svc pb.CollatorServiceClient
-}
-
-// NewCollatorClient creates a new Collator client.
-func NewCollatorClient(cc grpc.ClientConnInterface) *CollatorClient {
-	return &CollatorClient{
-		svc: pb.NewCollatorServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *CollatorClient) Clone(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+// GetWidth calls the GetWidth RPC.
+func (c *MeasureFormatClient) GetWidth(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.MeasureFormatGetWidthRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// CloneAsThawed0 calls the CloneAsThawed0 RPC.
-func (c *CollatorClient) CloneAsThawed0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0(ctx, &pb.CloneAsThawed0Request{})
+// HashCode calls the HashCode RPC.
+func (c *MeasureFormatClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Compare2 calls the Compare2 RPC.
-func (c *CollatorClient) Compare2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
-	resp, err := c.svc.Compare2(ctx, &pb.Compare2Request{
+// ParseObject2 calls the ParseObject2 RPC.
+func (c *MeasureFormatClient) ParseObject2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject2(ctx, &pb.ParseObject2Request{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -1475,11 +9440,362 @@ func (c *CollatorClient) Compare2(ctx context.Context, arg0 int64, arg1 int64) (
 	return resp.GetResult(), nil
 }
 
-// Compare2_1 calls the Compare2_1 RPC.
-func (c *CollatorClient) Compare2_1(ctx context.Context, arg0 string, arg1 string) (int32, error) {
-	resp, err := c.svc.Compare2_1(ctx, &pb.Compare2_1Request{
+// ParseObject2_1 calls the ParseObject2_1 RPC.
+func (c *MeasureFormatClient) ParseObject2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject2_1(ctx, &pb.ParseObject2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrencyFormat0 calls the GetCurrencyFormat0 RPC.
+func (c *MeasureFormatClient) GetCurrencyFormat0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrencyFormat0(ctx, &pb.GetCurrencyFormat0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrencyFormat1_1 calls the GetCurrencyFormat1_1 RPC.
+func (c *MeasureFormatClient) GetCurrencyFormat1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCurrencyFormat1_1(ctx, &pb.GetCurrencyFormat1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrencyFormat1_2 calls the GetCurrencyFormat1_2 RPC.
+func (c *MeasureFormatClient) GetCurrencyFormat1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCurrencyFormat1_2(ctx, &pb.GetCurrencyFormat1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2 calls the GetInstance2 RPC.
+func (c *MeasureFormatClient) GetInstance2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2(ctx, &pb.GetInstance2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance3_1 calls the GetInstance3_1 RPC.
+func (c *MeasureFormatClient) GetInstance3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstance3_1(ctx, &pb.GetInstance3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_2 calls the GetInstance2_2 RPC.
+func (c *MeasureFormatClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance2_2(ctx, &pb.GetInstance2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance3_3 calls the GetInstance3_3 RPC.
+func (c *MeasureFormatClient) GetInstance3_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstance3_3(ctx, &pb.MeasureFormatGetInstance3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MeasureFormatFormatWidthClient wraps the gRPC MeasureFormatFormatWidthService client.
+type MeasureFormatFormatWidthClient struct {
+	svc pb.MeasureFormatFormatWidthServiceClient
+}
+
+// NewMeasureFormatFormatWidthClient creates a new MeasureFormatFormatWidth client.
+func NewMeasureFormatFormatWidthClient(cc grpc.ClientConnInterface) *MeasureFormatFormatWidthClient {
+	return &MeasureFormatFormatWidthClient{
+		svc: pb.NewMeasureFormatFormatWidthServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *MeasureFormatFormatWidthClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *MeasureFormatFormatWidthClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StringSearchClient wraps the gRPC StringSearchService client.
+type StringSearchClient struct {
+	svc pb.StringSearchServiceClient
+}
+
+// NewStringSearchClient creates a new StringSearch client.
+func NewStringSearchClient(cc grpc.ClientConnInterface) *StringSearchClient {
+	return &StringSearchClient{
+		svc: pb.NewStringSearchServiceClient(cc),
+	}
+}
+
+// GetCollator calls the GetCollator RPC.
+func (c *StringSearchClient) GetCollator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCollator(ctx, &pb.GetCollatorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIndex calls the GetIndex RPC.
+func (c *StringSearchClient) GetIndex(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIndex(ctx, &pb.StringSearchGetIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPattern calls the GetPattern RPC.
+func (c *StringSearchClient) GetPattern(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPattern(ctx, &pb.GetPatternRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCanonical calls the IsCanonical RPC.
+func (c *StringSearchClient) IsCanonical(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsCanonical(ctx, &pb.IsCanonicalRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset calls the Reset RPC.
+func (c *StringSearchClient) Reset(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetCanonical calls the SetCanonical RPC.
+func (c *StringSearchClient) SetCanonical(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetCanonical(ctx, &pb.SetCanonicalRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCollator calls the SetCollator RPC.
+func (c *StringSearchClient) SetCollator(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetCollator(ctx, &pb.SetCollatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIndex calls the SetIndex RPC.
+func (c *StringSearchClient) SetIndex(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetIndex(ctx, &pb.StringSearchSetIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPattern calls the SetPattern RPC.
+func (c *StringSearchClient) SetPattern(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetPattern(ctx, &pb.SetPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTarget calls the SetTarget RPC.
+func (c *StringSearchClient) SetTarget(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTarget(ctx, &pb.SetTargetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SelectFormatClient wraps the gRPC SelectFormatService client.
+type SelectFormatClient struct {
+	svc pb.SelectFormatServiceClient
+}
+
+// NewSelectFormatClient creates a new SelectFormat client.
+func NewSelectFormatClient(cc grpc.ClientConnInterface) *SelectFormatClient {
+	return &SelectFormatClient{
+		svc: pb.NewSelectFormatServiceClient(cc),
+	}
+}
+
+// ApplyPattern calls the ApplyPattern RPC.
+func (c *SelectFormatClient) ApplyPattern(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.ApplyPattern(ctx, &pb.ApplyPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *SelectFormatClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.SelectFormatEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3 calls the Format3 RPC.
+func (c *SelectFormatClient) Format3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3(ctx, &pb.SelectFormatFormat3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1_1 calls the Format1_1 RPC.
+func (c *SelectFormatClient) Format1_1(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.Format1_1(ctx, &pb.Format1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SelectFormatClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.SelectFormatHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseObject calls the ParseObject RPC.
+func (c *SelectFormatClient) ParseObject(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject(ctx, &pb.SelectFormatParseObjectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToPattern calls the ToPattern RPC.
+func (c *SelectFormatClient) ToPattern(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToPattern(ctx, &pb.SelectFormatToPatternRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SelectFormatClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SelectFormatToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CollationKeyClient wraps the gRPC CollationKeyService client.
+type CollationKeyClient struct {
+	svc pb.CollationKeyServiceClient
+}
+
+// NewCollationKeyClient creates a new CollationKey client.
+func NewCollationKeyClient(cc grpc.ClientConnInterface) *CollationKeyClient {
+	return &CollationKeyClient{
+		svc: pb.NewCollationKeyServiceClient(cc),
+	}
+}
+
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *CollationKeyClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1488,9 +9804,10 @@ func (c *CollatorClient) Compare2_1(ctx context.Context, arg0 string, arg1 strin
 }
 
 // Equals1 calls the Equals1 RPC.
-func (c *CollatorClient) Equals1(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1(ctx, &pb.Equals1Request{
-		Arg0: arg0,
+func (c *CollationKeyClient) Equals1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1(ctx, &pb.CollationKeyEquals1Request{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -1498,11 +9815,140 @@ func (c *CollatorClient) Equals1(ctx context.Context, arg0 int64) (bool, error) 
 	return resp.GetResult(), nil
 }
 
-// Equals2_1 calls the Equals2_1 RPC.
-func (c *CollatorClient) Equals2_1(ctx context.Context, arg0 string, arg1 string) (bool, error) {
-	resp, err := c.svc.Equals2_1(ctx, &pb.Equals2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
+// Equals1_1 calls the Equals1_1 RPC.
+func (c *CollationKeyClient) Equals1_1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1_1(ctx, &pb.CollationKeyEquals1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBound calls the GetBound RPC.
+func (c *CollationKeyClient) GetBound(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetBound(ctx, &pb.GetBoundRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSourceString calls the GetSourceString RPC.
+func (c *CollationKeyClient) GetSourceString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSourceString(ctx, &pb.GetSourceStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CollationKeyClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.CollationKeyHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Merge calls the Merge RPC.
+func (c *CollationKeyClient) Merge(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.Merge(ctx, &pb.CollationKeyMergeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToByteArray calls the ToByteArray RPC.
+func (c *CollationKeyClient) ToByteArray(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.ToByteArray(ctx, &pb.ToByteArrayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1_1 calls the CompareTo1_1 RPC.
+func (c *CollationKeyClient) CompareTo1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RuleBasedCollatorClient wraps the gRPC RuleBasedCollatorService client.
+type RuleBasedCollatorClient struct {
+	svc pb.RuleBasedCollatorServiceClient
+}
+
+// NewRuleBasedCollatorClient creates a new RuleBasedCollator client.
+func NewRuleBasedCollatorClient(cc grpc.ClientConnInterface) *RuleBasedCollatorClient {
+	return &RuleBasedCollatorClient{
+		svc: pb.NewRuleBasedCollatorServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *RuleBasedCollatorClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.RuleBasedCollatorCloneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloneAsThawed0 calls the CloneAsThawed0 RPC.
+func (c *RuleBasedCollatorClient) CloneAsThawed0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0(ctx, &pb.CloneAsThawed0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare calls the Compare RPC.
+func (c *RuleBasedCollatorClient) Compare(ctx context.Context, handle int64, arg0 string, arg1 string) (int32, error) {
+	resp, err := c.svc.Compare(ctx, &pb.CompareRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RuleBasedCollatorClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.RuleBasedCollatorEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -1511,8 +9957,46 @@ func (c *CollatorClient) Equals2_1(ctx context.Context, arg0 string, arg1 string
 }
 
 // Freeze0 calls the Freeze0 RPC.
-func (c *CollatorClient) Freeze0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Freeze0(ctx, &pb.Freeze0Request{})
+func (c *RuleBasedCollatorClient) Freeze0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Freeze0(ctx, &pb.Freeze0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCollationElementIterator1 calls the GetCollationElementIterator1 RPC.
+func (c *RuleBasedCollatorClient) GetCollationElementIterator1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCollationElementIterator1(ctx, &pb.GetCollationElementIterator1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCollationElementIterator1_1 calls the GetCollationElementIterator1_1 RPC.
+func (c *RuleBasedCollatorClient) GetCollationElementIterator1_1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetCollationElementIterator1_1(ctx, &pb.GetCollationElementIterator1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCollationElementIterator1_2 calls the GetCollationElementIterator1_2 RPC.
+func (c *RuleBasedCollatorClient) GetCollationElementIterator1_2(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCollationElementIterator1_2(ctx, &pb.GetCollationElementIterator1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1520,9 +10004,10 @@ func (c *CollatorClient) Freeze0(ctx context.Context) (int64, error) {
 }
 
 // GetCollationKey calls the GetCollationKey RPC.
-func (c *CollatorClient) GetCollationKey(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetCollationKey(ctx, &pb.GetCollationKeyRequest{
-		Arg0: arg0,
+func (c *RuleBasedCollatorClient) GetCollationKey(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetCollationKey(ctx, &pb.RuleBasedCollatorGetCollationKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1530,9 +10015,22 @@ func (c *CollatorClient) GetCollationKey(ctx context.Context, arg0 string) (int6
 	return resp.GetResult(), nil
 }
 
+// GetContractionsAndExpansions calls the GetContractionsAndExpansions RPC.
+func (c *RuleBasedCollatorClient) GetContractionsAndExpansions(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 bool) error {
+	_, err := c.svc.GetContractionsAndExpansions(ctx, &pb.GetContractionsAndExpansionsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
 // GetDecomposition calls the GetDecomposition RPC.
-func (c *CollatorClient) GetDecomposition(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDecomposition(ctx, &pb.GetDecompositionRequest{})
+func (c *RuleBasedCollatorClient) GetDecomposition(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDecomposition(ctx, &pb.RuleBasedCollatorGetDecompositionRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1540,26 +10038,66 @@ func (c *CollatorClient) GetDecomposition(ctx context.Context) (int32, error) {
 }
 
 // GetMaxVariable calls the GetMaxVariable RPC.
-func (c *CollatorClient) GetMaxVariable(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxVariable(ctx, &pb.GetMaxVariableRequest{})
+func (c *RuleBasedCollatorClient) GetMaxVariable(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxVariable(ctx, &pb.RuleBasedCollatorGetMaxVariableRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumericCollation calls the GetNumericCollation RPC.
+func (c *RuleBasedCollatorClient) GetNumericCollation(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetNumericCollation(ctx, &pb.GetNumericCollationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
 // GetReorderCodes calls the GetReorderCodes RPC.
-func (c *CollatorClient) GetReorderCodes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetReorderCodes(ctx, &pb.GetReorderCodesRequest{})
+func (c *RuleBasedCollatorClient) GetReorderCodes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetReorderCodes(ctx, &pb.RuleBasedCollatorGetReorderCodesRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
+// GetRules0 calls the GetRules0 RPC.
+func (c *RuleBasedCollatorClient) GetRules0(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetRules0(ctx, &pb.GetRules0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRules1_1 calls the GetRules1_1 RPC.
+func (c *RuleBasedCollatorClient) GetRules1_1(ctx context.Context, handle int64, arg0 bool) (string, error) {
+	resp, err := c.svc.GetRules1_1(ctx, &pb.GetRules1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetStrength calls the GetStrength RPC.
-func (c *CollatorClient) GetStrength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetStrength(ctx, &pb.GetStrengthRequest{})
+func (c *RuleBasedCollatorClient) GetStrength(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStrength(ctx, &pb.RuleBasedCollatorGetStrengthRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1567,8 +10105,10 @@ func (c *CollatorClient) GetStrength(ctx context.Context) (int32, error) {
 }
 
 // GetTailoredSet calls the GetTailoredSet RPC.
-func (c *CollatorClient) GetTailoredSet(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTailoredSet(ctx, &pb.GetTailoredSetRequest{})
+func (c *RuleBasedCollatorClient) GetTailoredSet(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTailoredSet(ctx, &pb.RuleBasedCollatorGetTailoredSetRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1576,8 +10116,10 @@ func (c *CollatorClient) GetTailoredSet(ctx context.Context) (int64, error) {
 }
 
 // GetUCAVersion calls the GetUCAVersion RPC.
-func (c *CollatorClient) GetUCAVersion(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUCAVersion(ctx, &pb.GetUCAVersionRequest{})
+func (c *RuleBasedCollatorClient) GetUCAVersion(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetUCAVersion(ctx, &pb.RuleBasedCollatorGetUCAVersionRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1585,8 +10127,10 @@ func (c *CollatorClient) GetUCAVersion(ctx context.Context) (int64, error) {
 }
 
 // GetVariableTop calls the GetVariableTop RPC.
-func (c *CollatorClient) GetVariableTop(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVariableTop(ctx, &pb.GetVariableTopRequest{})
+func (c *RuleBasedCollatorClient) GetVariableTop(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVariableTop(ctx, &pb.RuleBasedCollatorGetVariableTopRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1594,8 +10138,10 @@ func (c *CollatorClient) GetVariableTop(ctx context.Context) (int32, error) {
 }
 
 // GetVersion calls the GetVersion RPC.
-func (c *CollatorClient) GetVersion(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+func (c *RuleBasedCollatorClient) GetVersion(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.RuleBasedCollatorGetVersionRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1603,35 +10149,172 @@ func (c *CollatorClient) GetVersion(ctx context.Context) (int64, error) {
 }
 
 // HashCode calls the HashCode RPC.
-func (c *CollatorClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+func (c *RuleBasedCollatorClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.RuleBasedCollatorHashCodeRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsFrozen calls the IsFrozen RPC.
-func (c *CollatorClient) IsFrozen(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFrozen(ctx, &pb.IsFrozenRequest{})
+// IsAlternateHandlingShifted calls the IsAlternateHandlingShifted RPC.
+func (c *RuleBasedCollatorClient) IsAlternateHandlingShifted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAlternateHandlingShifted(ctx, &pb.IsAlternateHandlingShiftedRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetDecomposition calls the SetDecomposition RPC.
-func (c *CollatorClient) SetDecomposition(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetDecomposition(ctx, &pb.SetDecompositionRequest{
-		Arg0: arg0,
+// IsCaseLevel calls the IsCaseLevel RPC.
+func (c *RuleBasedCollatorClient) IsCaseLevel(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsCaseLevel(ctx, &pb.IsCaseLevelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFrenchCollation calls the IsFrenchCollation RPC.
+func (c *RuleBasedCollatorClient) IsFrenchCollation(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFrenchCollation(ctx, &pb.IsFrenchCollationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFrozen calls the IsFrozen RPC.
+func (c *RuleBasedCollatorClient) IsFrozen(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFrozen(ctx, &pb.IsFrozenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLowerCaseFirst calls the IsLowerCaseFirst RPC.
+func (c *RuleBasedCollatorClient) IsLowerCaseFirst(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsLowerCaseFirst(ctx, &pb.IsLowerCaseFirstRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUpperCaseFirst calls the IsUpperCaseFirst RPC.
+func (c *RuleBasedCollatorClient) IsUpperCaseFirst(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsUpperCaseFirst(ctx, &pb.IsUpperCaseFirstRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlternateHandlingDefault calls the SetAlternateHandlingDefault RPC.
+func (c *RuleBasedCollatorClient) SetAlternateHandlingDefault(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetAlternateHandlingDefault(ctx, &pb.SetAlternateHandlingDefaultRequest{
+		Handle: handle,
 	})
 	return err
 }
 
-// SetMaxVariable calls the SetMaxVariable RPC.
-func (c *CollatorClient) SetMaxVariable(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMaxVariable(ctx, &pb.SetMaxVariableRequest{
-		Arg0: arg0,
+// SetAlternateHandlingShifted calls the SetAlternateHandlingShifted RPC.
+func (c *RuleBasedCollatorClient) SetAlternateHandlingShifted(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAlternateHandlingShifted(ctx, &pb.SetAlternateHandlingShiftedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCaseFirstDefault calls the SetCaseFirstDefault RPC.
+func (c *RuleBasedCollatorClient) SetCaseFirstDefault(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetCaseFirstDefault(ctx, &pb.SetCaseFirstDefaultRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetCaseLevel calls the SetCaseLevel RPC.
+func (c *RuleBasedCollatorClient) SetCaseLevel(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetCaseLevel(ctx, &pb.SetCaseLevelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCaseLevelDefault calls the SetCaseLevelDefault RPC.
+func (c *RuleBasedCollatorClient) SetCaseLevelDefault(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetCaseLevelDefault(ctx, &pb.SetCaseLevelDefaultRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetDecomposition calls the SetDecomposition RPC.
+func (c *RuleBasedCollatorClient) SetDecomposition(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetDecomposition(ctx, &pb.RuleBasedCollatorSetDecompositionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDecompositionDefault calls the SetDecompositionDefault RPC.
+func (c *RuleBasedCollatorClient) SetDecompositionDefault(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetDecompositionDefault(ctx, &pb.SetDecompositionDefaultRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetFrenchCollation calls the SetFrenchCollation RPC.
+func (c *RuleBasedCollatorClient) SetFrenchCollation(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFrenchCollation(ctx, &pb.SetFrenchCollationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFrenchCollationDefault calls the SetFrenchCollationDefault RPC.
+func (c *RuleBasedCollatorClient) SetFrenchCollationDefault(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetFrenchCollationDefault(ctx, &pb.SetFrenchCollationDefaultRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetLowerCaseFirst calls the SetLowerCaseFirst RPC.
+func (c *RuleBasedCollatorClient) SetLowerCaseFirst(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetLowerCaseFirst(ctx, &pb.SetLowerCaseFirstRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMaxVariable1 calls the SetMaxVariable1 RPC.
+func (c *RuleBasedCollatorClient) SetMaxVariable1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxVariable1(ctx, &pb.SetMaxVariable1Request{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1639,25 +10322,64 @@ func (c *CollatorClient) SetMaxVariable(ctx context.Context, arg0 int32) (int64,
 	return resp.GetResult(), nil
 }
 
+// SetNumericCollation calls the SetNumericCollation RPC.
+func (c *RuleBasedCollatorClient) SetNumericCollation(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetNumericCollation(ctx, &pb.SetNumericCollationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetNumericCollationDefault calls the SetNumericCollationDefault RPC.
+func (c *RuleBasedCollatorClient) SetNumericCollationDefault(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetNumericCollationDefault(ctx, &pb.SetNumericCollationDefaultRequest{
+		Handle: handle,
+	})
+	return err
+}
+
 // SetReorderCodes calls the SetReorderCodes RPC.
-func (c *CollatorClient) SetReorderCodes(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetReorderCodes(ctx, &pb.SetReorderCodesRequest{
-		Arg0: arg0,
+func (c *RuleBasedCollatorClient) SetReorderCodes(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetReorderCodes(ctx, &pb.RuleBasedCollatorSetReorderCodesRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
 // SetStrength calls the SetStrength RPC.
-func (c *CollatorClient) SetStrength(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetStrength(ctx, &pb.SetStrengthRequest{
-		Arg0: arg0,
+func (c *RuleBasedCollatorClient) SetStrength(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetStrength(ctx, &pb.RuleBasedCollatorSetStrengthRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// Freeze0_1 calls the Freeze0_1 RPC.
-func (c *CollatorClient) Freeze0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Freeze0_1(ctx, &pb.Freeze0_1Request{})
+// SetStrengthDefault calls the SetStrengthDefault RPC.
+func (c *RuleBasedCollatorClient) SetStrengthDefault(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetStrengthDefault(ctx, &pb.SetStrengthDefaultRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetUpperCaseFirst calls the SetUpperCaseFirst RPC.
+func (c *RuleBasedCollatorClient) SetUpperCaseFirst(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetUpperCaseFirst(ctx, &pb.SetUpperCaseFirstRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMaxVariable1_1 calls the SetMaxVariable1_1 RPC.
+func (c *RuleBasedCollatorClient) SetMaxVariable1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxVariable1_1(ctx, &pb.SetMaxVariable1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1665,36 +10387,207 @@ func (c *CollatorClient) Freeze0_1(ctx context.Context) (int64, error) {
 }
 
 // CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
-func (c *CollatorClient) CloneAsThawed0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.CloneAsThawed0_1Request{})
+func (c *RuleBasedCollatorClient) CloneAsThawed0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.CloneAsThawed0_1Request{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetAvailableLocales calls the GetAvailableLocales RPC.
-func (c *CollatorClient) GetAvailableLocales(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAvailableLocales(ctx, &pb.GetAvailableLocalesRequest{})
+// Freeze0_1 calls the Freeze0_1 RPC.
+func (c *RuleBasedCollatorClient) Freeze0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Freeze0_1(ctx, &pb.Freeze0_1Request{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetAvailableULocales calls the GetAvailableULocales RPC.
-func (c *CollatorClient) GetAvailableULocales(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAvailableULocales(ctx, &pb.GetAvailableULocalesRequest{})
+// CloneAsThawed0_2 calls the CloneAsThawed0_2 RPC.
+func (c *RuleBasedCollatorClient) CloneAsThawed0_2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0_2(ctx, &pb.CloneAsThawed0_2Request{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetDisplayName1 calls the GetDisplayName1 RPC.
-func (c *CollatorClient) GetDisplayName1(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetDisplayName1(ctx, &pb.GetDisplayName1Request{
-		Arg0: arg0,
+// DecimalFormatClient wraps the gRPC DecimalFormatService client.
+type DecimalFormatClient struct {
+	svc pb.DecimalFormatServiceClient
+}
+
+// NewDecimalFormatClient creates a new DecimalFormat client.
+func NewDecimalFormatClient(cc grpc.ClientConnInterface) *DecimalFormatClient {
+	return &DecimalFormatClient{
+		svc: pb.NewDecimalFormatServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *DecimalFormatClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.DecimalFormatCloneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3 calls the Format3 RPC.
+func (c *DecimalFormatClient) Format3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3(ctx, &pb.DecimalFormatFormat3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_1 calls the Format3_1 RPC.
+func (c *DecimalFormatClient) Format3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_1(ctx, &pb.DecimalFormatFormat3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_2 calls the Format3_2 RPC.
+func (c *DecimalFormatClient) Format3_2(ctx context.Context, handle int64, arg0 float64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_2(ctx, &pb.DecimalFormatFormat3_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_3 calls the Format3_3 RPC.
+func (c *DecimalFormatClient) Format3_3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_3(ctx, &pb.DecimalFormatFormat3_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_4 calls the Format3_4 RPC.
+func (c *DecimalFormatClient) Format3_4(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_4(ctx, &pb.Format3_4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format3_5 calls the Format3_5 RPC.
+func (c *DecimalFormatClient) Format3_5(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_5(ctx, &pb.DecimalFormatFormat3_5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToCharacterIterator calls the FormatToCharacterIterator RPC.
+func (c *DecimalFormatClient) FormatToCharacterIterator(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.FormatToCharacterIterator(ctx, &pb.DecimalFormatFormatToCharacterIteratorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParseMaxDigits calls the GetParseMaxDigits RPC.
+func (c *DecimalFormatClient) GetParseMaxDigits(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetParseMaxDigits(ctx, &pb.GetParseMaxDigitsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse calls the Parse RPC.
+func (c *DecimalFormatClient) Parse(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Parse(ctx, &pb.DecimalFormatParseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseCurrency calls the ParseCurrency RPC.
+func (c *DecimalFormatClient) ParseCurrency(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseCurrency(ctx, &pb.DecimalFormatParseCurrencyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetParseMaxDigits calls the SetParseMaxDigits RPC.
+func (c *DecimalFormatClient) SetParseMaxDigits(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetParseMaxDigits(ctx, &pb.SetParseMaxDigitsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *DecimalFormatClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DecimalFormatToStringRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return "", err
@@ -1702,11 +10595,56 @@ func (c *CollatorClient) GetDisplayName1(ctx context.Context, arg0 int64) (strin
 	return resp.GetResult(), nil
 }
 
-// GetDisplayName2_1 calls the GetDisplayName2_1 RPC.
-func (c *CollatorClient) GetDisplayName2_1(ctx context.Context, arg0 int64, arg1 int64) (string, error) {
-	resp, err := c.svc.GetDisplayName2_1(ctx, &pb.GetDisplayName2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
+// PluralFormatClient wraps the gRPC PluralFormatService client.
+type PluralFormatClient struct {
+	svc pb.PluralFormatServiceClient
+}
+
+// NewPluralFormatClient creates a new PluralFormat client.
+func NewPluralFormatClient(cc grpc.ClientConnInterface) *PluralFormatClient {
+	return &PluralFormatClient{
+		svc: pb.NewPluralFormatServiceClient(cc),
+	}
+}
+
+// ApplyPattern calls the ApplyPattern RPC.
+func (c *PluralFormatClient) ApplyPattern(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.ApplyPattern(ctx, &pb.ApplyPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Equals1 calls the Equals1 RPC.
+func (c *PluralFormatClient) Equals1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1(ctx, &pb.PluralFormatEquals1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals1_1 calls the Equals1_1 RPC.
+func (c *PluralFormatClient) Equals1_1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1_1(ctx, &pb.PluralFormatEquals1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format1 calls the Format1 RPC.
+func (c *PluralFormatClient) Format1(ctx context.Context, handle int64, arg0 float64) (string, error) {
+	resp, err := c.svc.Format1(ctx, &pb.PluralFormatFormat1Request{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return "", err
@@ -1714,10 +10652,70 @@ func (c *CollatorClient) GetDisplayName2_1(ctx context.Context, arg0 int64, arg1
 	return resp.GetResult(), nil
 }
 
-// GetDisplayName1_2 calls the GetDisplayName1_2 RPC.
-func (c *CollatorClient) GetDisplayName1_2(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetDisplayName1_2(ctx, &pb.GetDisplayName1_2Request{
-		Arg0: arg0,
+// Format3_1 calls the Format3_1 RPC.
+func (c *PluralFormatClient) Format3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_1(ctx, &pb.PluralFormatFormat3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PluralFormatClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.PluralFormatHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse calls the Parse RPC.
+func (c *PluralFormatClient) Parse(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Parse(ctx, &pb.PluralFormatParseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseObject calls the ParseObject RPC.
+func (c *PluralFormatClient) ParseObject(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject(ctx, &pb.PluralFormatParseObjectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNumberFormat calls the SetNumberFormat RPC.
+func (c *PluralFormatClient) SetNumberFormat(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetNumberFormat(ctx, &pb.PluralFormatSetNumberFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToPattern calls the ToPattern RPC.
+func (c *PluralFormatClient) ToPattern(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToPattern(ctx, &pb.PluralFormatToPatternRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return "", err
@@ -1725,11 +10723,10 @@ func (c *CollatorClient) GetDisplayName1_2(ctx context.Context, arg0 int64) (str
 	return resp.GetResult(), nil
 }
 
-// GetDisplayName2_3 calls the GetDisplayName2_3 RPC.
-func (c *CollatorClient) GetDisplayName2_3(ctx context.Context, arg0 int64, arg1 int64) (string, error) {
-	resp, err := c.svc.GetDisplayName2_3(ctx, &pb.GetDisplayName2_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
+// ToString calls the ToString RPC.
+func (c *PluralFormatClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.PluralFormatToStringRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return "", err
@@ -1737,9 +10734,21 @@ func (c *CollatorClient) GetDisplayName2_3(ctx context.Context, arg0 int64, arg1
 	return resp.GetResult(), nil
 }
 
-// GetEquivalentReorderCodes calls the GetEquivalentReorderCodes RPC.
-func (c *CollatorClient) GetEquivalentReorderCodes(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetEquivalentReorderCodes(ctx, &pb.GetEquivalentReorderCodesRequest{
+// ReplaceableClient wraps the gRPC ReplaceableService client.
+type ReplaceableClient struct {
+	svc pb.ReplaceableServiceClient
+}
+
+// NewReplaceableClient creates a new Replaceable client.
+func NewReplaceableClient(cc grpc.ClientConnInterface) *ReplaceableClient {
+	return &ReplaceableClient{
+		svc: pb.NewReplaceableServiceClient(cc),
+	}
+}
+
+// Char32At calls the Char32At RPC.
+func (c *ReplaceableClient) Char32At(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.Char32At(ctx, &pb.Char32AtRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1748,89 +10757,292 @@ func (c *CollatorClient) GetEquivalentReorderCodes(ctx context.Context, arg0 int
 	return resp.GetResult(), nil
 }
 
-// GetFunctionalEquivalent2 calls the GetFunctionalEquivalent2 RPC.
-func (c *CollatorClient) GetFunctionalEquivalent2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetFunctionalEquivalent2(ctx, &pb.GetFunctionalEquivalent2Request{
+// CharAt calls the CharAt RPC.
+func (c *ReplaceableClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
 	if err != nil {
 		return 0, err
 	}
-	return resp.GetResult(), nil
+	return uint16(resp.GetResult()), nil
 }
 
-// GetFunctionalEquivalent3_1 calls the GetFunctionalEquivalent3_1 RPC.
-func (c *CollatorClient) GetFunctionalEquivalent3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetFunctionalEquivalent3_1(ctx, &pb.GetFunctionalEquivalent3_1Request{
+// Copy calls the Copy RPC.
+func (c *ReplaceableClient) Copy(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.Copy(ctx, &pb.CopyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *CollatorClient) GetInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *CollatorClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+// GetChars calls the GetChars RPC.
+func (c *ReplaceableClient) GetChars(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GetChars(ctx, &pb.GetCharsRequest{
 		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
+	return err
+}
+
+// HasMetaData calls the HasMetaData RPC.
+func (c *ReplaceableClient) HasMetaData(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMetaData(ctx, &pb.HasMetaDataRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Length calls the Length RPC.
+func (c *ReplaceableClient) Length(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetInstance1_2 calls the GetInstance1_2 RPC.
-func (c *CollatorClient) GetInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_2(ctx, &pb.GetInstance1_2Request{
+// Replace5 calls the Replace5 RPC.
+func (c *ReplaceableClient) Replace5(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32, arg4 int32) error {
+	_, err := c.svc.Replace5(ctx, &pb.Replace5Request{
 		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// GetKeywordValues calls the GetKeywordValues RPC.
-func (c *CollatorClient) GetKeywordValues(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetKeywordValues(ctx, &pb.GetKeywordValuesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKeywordValuesForLocale calls the GetKeywordValuesForLocale RPC.
-func (c *CollatorClient) GetKeywordValuesForLocale(ctx context.Context, arg0 string, arg1 int64, arg2 bool) (int64, error) {
-	resp, err := c.svc.GetKeywordValuesForLocale(ctx, &pb.GetKeywordValuesForLocaleRequest{
+// Replace3_1 calls the Replace3_1 RPC.
+func (c *ReplaceableClient) Replace3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 string) error {
+	_, err := c.svc.Replace3_1(ctx, &pb.Replace3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 	})
+	return err
+}
+
+// SearchIteratorClient wraps the gRPC SearchIteratorService client.
+type SearchIteratorClient struct {
+	svc pb.SearchIteratorServiceClient
+}
+
+// NewSearchIteratorClient creates a new SearchIterator client.
+func NewSearchIteratorClient(cc grpc.ClientConnInterface) *SearchIteratorClient {
+	return &SearchIteratorClient{
+		svc: pb.NewSearchIteratorServiceClient(cc),
+	}
+}
+
+// First calls the First RPC.
+func (c *SearchIteratorClient) First(ctx context.Context) (int32, error) {
+	resp, err := c.svc.First(ctx, &pb.FirstRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetKeywords calls the GetKeywords RPC.
-func (c *CollatorClient) GetKeywords(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKeywords(ctx, &pb.GetKeywordsRequest{})
+// Following calls the Following RPC.
+func (c *SearchIteratorClient) Following(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.Following(ctx, &pb.FollowingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBreakIterator calls the GetBreakIterator RPC.
+func (c *SearchIteratorClient) GetBreakIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBreakIterator(ctx, &pb.GetBreakIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElementComparisonType calls the GetElementComparisonType RPC.
+func (c *SearchIteratorClient) GetElementComparisonType(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetElementComparisonType(ctx, &pb.GetElementComparisonTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIndex calls the GetIndex RPC.
+func (c *SearchIteratorClient) GetIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatchLength calls the GetMatchLength RPC.
+func (c *SearchIteratorClient) GetMatchLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMatchLength(ctx, &pb.GetMatchLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatchStart calls the GetMatchStart RPC.
+func (c *SearchIteratorClient) GetMatchStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMatchStart(ctx, &pb.GetMatchStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatchedText calls the GetMatchedText RPC.
+func (c *SearchIteratorClient) GetMatchedText(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMatchedText(ctx, &pb.GetMatchedTextRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTarget calls the GetTarget RPC.
+func (c *SearchIteratorClient) GetTarget(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTarget(ctx, &pb.GetTargetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOverlapping calls the IsOverlapping RPC.
+func (c *SearchIteratorClient) IsOverlapping(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOverlapping(ctx, &pb.IsOverlappingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Last calls the Last RPC.
+func (c *SearchIteratorClient) Last(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Last(ctx, &pb.LastRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Next calls the Next RPC.
+func (c *SearchIteratorClient) Next(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Next(ctx, &pb.SearchIteratorNextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Preceding calls the Preceding RPC.
+func (c *SearchIteratorClient) Preceding(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.Preceding(ctx, &pb.PrecedingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Previous calls the Previous RPC.
+func (c *SearchIteratorClient) Previous(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Previous(ctx, &pb.PreviousRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset calls the Reset RPC.
+func (c *SearchIteratorClient) Reset(ctx context.Context) error {
+	_, err := c.svc.Reset(ctx, &pb.SearchIteratorResetRequest{})
+	return err
+}
+
+// SetBreakIterator calls the SetBreakIterator RPC.
+func (c *SearchIteratorClient) SetBreakIterator(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBreakIterator(ctx, &pb.SetBreakIteratorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetElementComparisonType calls the SetElementComparisonType RPC.
+func (c *SearchIteratorClient) SetElementComparisonType(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetElementComparisonType(ctx, &pb.SetElementComparisonTypeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetIndex calls the SetIndex RPC.
+func (c *SearchIteratorClient) SetIndex(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetIndex(ctx, &pb.SetIndexRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOverlapping calls the SetOverlapping RPC.
+func (c *SearchIteratorClient) SetOverlapping(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetOverlapping(ctx, &pb.SetOverlappingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTarget calls the SetTarget RPC.
+func (c *SearchIteratorClient) SetTarget(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTarget(ctx, &pb.SearchIteratorSetTargetRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SearchIteratorElementComparisonTypeClient wraps the gRPC SearchIteratorElementComparisonTypeService client.
+type SearchIteratorElementComparisonTypeClient struct {
+	svc pb.SearchIteratorElementComparisonTypeServiceClient
+}
+
+// NewSearchIteratorElementComparisonTypeClient creates a new SearchIteratorElementComparisonType client.
+func NewSearchIteratorElementComparisonTypeClient(cc grpc.ClientConnInterface) *SearchIteratorElementComparisonTypeClient {
+	return &SearchIteratorElementComparisonTypeClient{
+		svc: pb.NewSearchIteratorElementComparisonTypeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *SearchIteratorElementComparisonTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *SearchIteratorElementComparisonTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -2249,84 +11461,32 @@ func (c *DateFormatSymbolsClient) GetInstance1_2(ctx context.Context, handle int
 	return resp.GetResult(), nil
 }
 
-// UCharacterIteratorClient wraps the gRPC UCharacterIteratorService client.
-type UCharacterIteratorClient struct {
-	svc pb.UCharacterIteratorServiceClient
+// CollationElementIteratorClient wraps the gRPC CollationElementIteratorService client.
+type CollationElementIteratorClient struct {
+	svc pb.CollationElementIteratorServiceClient
 }
 
-// NewUCharacterIteratorClient creates a new UCharacterIterator client.
-func NewUCharacterIteratorClient(cc grpc.ClientConnInterface) *UCharacterIteratorClient {
-	return &UCharacterIteratorClient{
-		svc: pb.NewUCharacterIteratorServiceClient(cc),
+// NewCollationElementIteratorClient creates a new CollationElementIterator client.
+func NewCollationElementIteratorClient(cc grpc.ClientConnInterface) *CollationElementIteratorClient {
+	return &CollationElementIteratorClient{
+		svc: pb.NewCollationElementIteratorServiceClient(cc),
 	}
 }
 
-// Clone calls the Clone RPC.
-func (c *UCharacterIteratorClient) Clone(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+// Equals calls the Equals RPC.
+func (c *CollationElementIteratorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Current calls the Current RPC.
-func (c *UCharacterIteratorClient) Current(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Current(ctx, &pb.CurrentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CurrentCodePoint calls the CurrentCodePoint RPC.
-func (c *UCharacterIteratorClient) CurrentCodePoint(ctx context.Context) (int32, error) {
-	resp, err := c.svc.CurrentCodePoint(ctx, &pb.CurrentCodePointRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCharacterIterator calls the GetCharacterIterator RPC.
-func (c *UCharacterIteratorClient) GetCharacterIterator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCharacterIterator(ctx, &pb.GetCharacterIteratorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIndex calls the GetIndex RPC.
-func (c *UCharacterIteratorClient) GetIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLength calls the GetLength RPC.
-func (c *UCharacterIteratorClient) GetLength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetText0 calls the GetText0 RPC.
-func (c *UCharacterIteratorClient) GetText0(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetText0(ctx, &pb.GetText0Request{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetText1_1 calls the GetText1_1 RPC.
-func (c *UCharacterIteratorClient) GetText1_1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetText1_1(ctx, &pb.GetText1_1Request{
+// GetMaxExpansion calls the GetMaxExpansion RPC.
+func (c *CollationElementIteratorClient) GetMaxExpansion(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetMaxExpansion(ctx, &pb.GetMaxExpansionRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2335,34 +11495,18 @@ func (c *UCharacterIteratorClient) GetText1_1(ctx context.Context, arg0 int64) (
 	return resp.GetResult(), nil
 }
 
-// GetText2_2 calls the GetText2_2 RPC.
-func (c *UCharacterIteratorClient) GetText2_2(ctx context.Context, arg0 int64, arg1 int32) (int32, error) {
-	resp, err := c.svc.GetText2_2(ctx, &pb.GetText2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
+// GetOffset calls the GetOffset RPC.
+func (c *CollationElementIteratorClient) GetOffset(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOffset(ctx, &pb.GetOffsetRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// MoveCodePointIndex calls the MoveCodePointIndex RPC.
-func (c *UCharacterIteratorClient) MoveCodePointIndex(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.MoveCodePointIndex(ctx, &pb.MoveCodePointIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveIndex calls the MoveIndex RPC.
-func (c *UCharacterIteratorClient) MoveIndex(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.MoveIndex(ctx, &pb.MoveIndexRequest{
-		Arg0: arg0,
-	})
+// HashCode calls the HashCode RPC.
+func (c *CollationElementIteratorClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2370,17 +11514,8 @@ func (c *UCharacterIteratorClient) MoveIndex(ctx context.Context, arg0 int32) (i
 }
 
 // Next calls the Next RPC.
-func (c *UCharacterIteratorClient) Next(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Next(ctx, &pb.NextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextCodePoint calls the NextCodePoint RPC.
-func (c *UCharacterIteratorClient) NextCodePoint(ctx context.Context) (int32, error) {
-	resp, err := c.svc.NextCodePoint(ctx, &pb.NextCodePointRequest{})
+func (c *CollationElementIteratorClient) Next(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Next(ctx, &pb.CollationElementIteratorNextRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2388,7 +11523,7 @@ func (c *UCharacterIteratorClient) NextCodePoint(ctx context.Context) (int32, er
 }
 
 // Previous calls the Previous RPC.
-func (c *UCharacterIteratorClient) Previous(ctx context.Context) (int32, error) {
+func (c *CollationElementIteratorClient) Previous(ctx context.Context) (int32, error) {
 	resp, err := c.svc.Previous(ctx, &pb.PreviousRequest{})
 	if err != nil {
 		return 0, err
@@ -2396,40 +11531,488 @@ func (c *UCharacterIteratorClient) Previous(ctx context.Context) (int32, error) 
 	return resp.GetResult(), nil
 }
 
-// PreviousCodePoint calls the PreviousCodePoint RPC.
-func (c *UCharacterIteratorClient) PreviousCodePoint(ctx context.Context) (int32, error) {
-	resp, err := c.svc.PreviousCodePoint(ctx, &pb.PreviousCodePointRequest{})
+// Reset calls the Reset RPC.
+func (c *CollationElementIteratorClient) Reset(ctx context.Context) error {
+	_, err := c.svc.Reset(ctx, &pb.CollationElementIteratorResetRequest{})
+	return err
+}
+
+// SetOffset calls the SetOffset RPC.
+func (c *CollationElementIteratorClient) SetOffset(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetOffset(ctx, &pb.SetOffsetRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetText1 calls the SetText1 RPC.
+func (c *CollationElementIteratorClient) SetText1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetText1(ctx, &pb.CollationElementIteratorSetText1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetText1_1 calls the SetText1_1 RPC.
+func (c *CollationElementIteratorClient) SetText1_1(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetText1_1(ctx, &pb.SetText1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetText1_2 calls the SetText1_2 RPC.
+func (c *CollationElementIteratorClient) SetText1_2(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetText1_2(ctx, &pb.SetText1_2Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PrimaryOrder calls the PrimaryOrder RPC.
+func (c *CollationElementIteratorClient) PrimaryOrder(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.PrimaryOrder(ctx, &pb.PrimaryOrderRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetIndex calls the SetIndex RPC.
-func (c *UCharacterIteratorClient) SetIndex(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetIndex(ctx, &pb.SetIndexRequest{
+// SecondaryOrder calls the SecondaryOrder RPC.
+func (c *CollationElementIteratorClient) SecondaryOrder(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.SecondaryOrder(ctx, &pb.SecondaryOrderRequest{
 		Arg0: arg0,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// SetToLimit calls the SetToLimit RPC.
-func (c *UCharacterIteratorClient) SetToLimit(ctx context.Context) error {
-	_, err := c.svc.SetToLimit(ctx, &pb.SetToLimitRequest{})
-	return err
-}
-
-// SetToStart calls the SetToStart RPC.
-func (c *UCharacterIteratorClient) SetToStart(ctx context.Context) error {
-	_, err := c.svc.SetToStart(ctx, &pb.SetToStartRequest{})
-	return err
-}
-
-// GetInstance1 calls the GetInstance1 RPC.
-func (c *UCharacterIteratorClient) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
+// TertiaryOrder calls the TertiaryOrder RPC.
+func (c *CollationElementIteratorClient) TertiaryOrder(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.TertiaryOrder(ctx, &pb.TertiaryOrderRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BidiRunClient wraps the gRPC BidiRunService client.
+type BidiRunClient struct {
+	svc pb.BidiRunServiceClient
+}
+
+// NewBidiRunClient creates a new BidiRun client.
+func NewBidiRunClient(cc grpc.ClientConnInterface) *BidiRunClient {
+	return &BidiRunClient{
+		svc: pb.NewBidiRunServiceClient(cc),
+	}
+}
+
+// GetDirection calls the GetDirection RPC.
+func (c *BidiRunClient) GetDirection(ctx context.Context) (int8, error) {
+	resp, err := c.svc.GetDirection(ctx, &pb.BidiRunGetDirectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return int8(resp.GetResult()), nil
+}
+
+// GetEmbeddingLevel calls the GetEmbeddingLevel RPC.
+func (c *BidiRunClient) GetEmbeddingLevel(ctx context.Context) (int8, error) {
+	resp, err := c.svc.GetEmbeddingLevel(ctx, &pb.GetEmbeddingLevelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return int8(resp.GetResult()), nil
+}
+
+// GetLength calls the GetLength RPC.
+func (c *BidiRunClient) GetLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.BidiRunGetLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLimit calls the GetLimit RPC.
+func (c *BidiRunClient) GetLimit(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLimit(ctx, &pb.GetLimitRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStart calls the GetStart RPC.
+func (c *BidiRunClient) GetStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStart(ctx, &pb.GetStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEvenRun calls the IsEvenRun RPC.
+func (c *BidiRunClient) IsEvenRun(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEvenRun(ctx, &pb.IsEvenRunRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOddRun calls the IsOddRun RPC.
+func (c *BidiRunClient) IsOddRun(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOddRun(ctx, &pb.IsOddRunRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *BidiRunClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CaseMapClient wraps the gRPC CaseMapService client.
+type CaseMapClient struct {
+	svc pb.CaseMapServiceClient
+}
+
+// NewCaseMapClient creates a new CaseMap client.
+func NewCaseMapClient(cc grpc.ClientConnInterface) *CaseMapClient {
+	return &CaseMapClient{
+		svc: pb.NewCaseMapServiceClient(cc),
+	}
+}
+
+// OmitUnchangedText calls the OmitUnchangedText RPC.
+func (c *CaseMapClient) OmitUnchangedText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText(ctx, &pb.OmitUnchangedTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Fold calls the Fold RPC.
+func (c *CaseMapClient) Fold(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Fold(ctx, &pb.FoldRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToLower calls the ToLower RPC.
+func (c *CaseMapClient) ToLower(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToLower(ctx, &pb.ToLowerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToTitle calls the ToTitle RPC.
+func (c *CaseMapClient) ToTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToTitle(ctx, &pb.ToTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToUpper calls the ToUpper RPC.
+func (c *CaseMapClient) ToUpper(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToUpper(ctx, &pb.ToUpperRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CaseMapFoldClient wraps the gRPC CaseMapFoldService client.
+type CaseMapFoldClient struct {
+	svc pb.CaseMapFoldServiceClient
+}
+
+// NewCaseMapFoldClient creates a new CaseMapFold client.
+func NewCaseMapFoldClient(cc grpc.ClientConnInterface) *CaseMapFoldClient {
+	return &CaseMapFoldClient{
+		svc: pb.NewCaseMapFoldServiceClient(cc),
+	}
+}
+
+// Apply calls the Apply RPC.
+func (c *CaseMapFoldClient) Apply(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.Apply(ctx, &pb.ApplyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// OmitUnchangedText0 calls the OmitUnchangedText0 RPC.
+func (c *CaseMapFoldClient) OmitUnchangedText0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText0(ctx, &pb.OmitUnchangedText0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Turkic calls the Turkic RPC.
+func (c *CaseMapFoldClient) Turkic(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Turkic(ctx, &pb.TurkicRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OmitUnchangedText0_1 calls the OmitUnchangedText0_1 RPC.
+func (c *CaseMapFoldClient) OmitUnchangedText0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText0_1(ctx, &pb.OmitUnchangedText0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CaseMapLowerClient wraps the gRPC CaseMapLowerService client.
+type CaseMapLowerClient struct {
+	svc pb.CaseMapLowerServiceClient
+}
+
+// NewCaseMapLowerClient creates a new CaseMapLower client.
+func NewCaseMapLowerClient(cc grpc.ClientConnInterface) *CaseMapLowerClient {
+	return &CaseMapLowerClient{
+		svc: pb.NewCaseMapLowerServiceClient(cc),
+	}
+}
+
+// Apply calls the Apply RPC.
+func (c *CaseMapLowerClient) Apply(ctx context.Context, arg0 int64, arg1 string) (string, error) {
+	resp, err := c.svc.Apply(ctx, &pb.CaseMapLowerApplyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// OmitUnchangedText0 calls the OmitUnchangedText0 RPC.
+func (c *CaseMapLowerClient) OmitUnchangedText0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText0(ctx, &pb.OmitUnchangedText0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OmitUnchangedText0_1 calls the OmitUnchangedText0_1 RPC.
+func (c *CaseMapLowerClient) OmitUnchangedText0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText0_1(ctx, &pb.OmitUnchangedText0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CaseMapTitleClient wraps the gRPC CaseMapTitleService client.
+type CaseMapTitleClient struct {
+	svc pb.CaseMapTitleServiceClient
+}
+
+// NewCaseMapTitleClient creates a new CaseMapTitle client.
+func NewCaseMapTitleClient(cc grpc.ClientConnInterface) *CaseMapTitleClient {
+	return &CaseMapTitleClient{
+		svc: pb.NewCaseMapTitleServiceClient(cc),
+	}
+}
+
+// AdjustToCased calls the AdjustToCased RPC.
+func (c *CaseMapTitleClient) AdjustToCased(ctx context.Context) (int64, error) {
+	resp, err := c.svc.AdjustToCased(ctx, &pb.AdjustToCasedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Apply calls the Apply RPC.
+func (c *CaseMapTitleClient) Apply(ctx context.Context, arg0 int64, arg1 int64, arg2 string) (string, error) {
+	resp, err := c.svc.Apply(ctx, &pb.CaseMapTitleApplyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// NoBreakAdjustment calls the NoBreakAdjustment RPC.
+func (c *CaseMapTitleClient) NoBreakAdjustment(ctx context.Context) (int64, error) {
+	resp, err := c.svc.NoBreakAdjustment(ctx, &pb.NoBreakAdjustmentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NoLowercase calls the NoLowercase RPC.
+func (c *CaseMapTitleClient) NoLowercase(ctx context.Context) (int64, error) {
+	resp, err := c.svc.NoLowercase(ctx, &pb.NoLowercaseRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OmitUnchangedText0 calls the OmitUnchangedText0 RPC.
+func (c *CaseMapTitleClient) OmitUnchangedText0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText0(ctx, &pb.OmitUnchangedText0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Sentences calls the Sentences RPC.
+func (c *CaseMapTitleClient) Sentences(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Sentences(ctx, &pb.SentencesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WholeString calls the WholeString RPC.
+func (c *CaseMapTitleClient) WholeString(ctx context.Context) (int64, error) {
+	resp, err := c.svc.WholeString(ctx, &pb.WholeStringRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OmitUnchangedText0_1 calls the OmitUnchangedText0_1 RPC.
+func (c *CaseMapTitleClient) OmitUnchangedText0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText0_1(ctx, &pb.OmitUnchangedText0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CaseMapUpperClient wraps the gRPC CaseMapUpperService client.
+type CaseMapUpperClient struct {
+	svc pb.CaseMapUpperServiceClient
+}
+
+// NewCaseMapUpperClient creates a new CaseMapUpper client.
+func NewCaseMapUpperClient(cc grpc.ClientConnInterface) *CaseMapUpperClient {
+	return &CaseMapUpperClient{
+		svc: pb.NewCaseMapUpperServiceClient(cc),
+	}
+}
+
+// Apply calls the Apply RPC.
+func (c *CaseMapUpperClient) Apply(ctx context.Context, arg0 int64, arg1 string) (string, error) {
+	resp, err := c.svc.Apply(ctx, &pb.CaseMapUpperApplyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// OmitUnchangedText0 calls the OmitUnchangedText0 RPC.
+func (c *CaseMapUpperClient) OmitUnchangedText0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText0(ctx, &pb.OmitUnchangedText0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OmitUnchangedText0_1 calls the OmitUnchangedText0_1 RPC.
+func (c *CaseMapUpperClient) OmitUnchangedText0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OmitUnchangedText0_1(ctx, &pb.OmitUnchangedText0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ListFormatterClient wraps the gRPC ListFormatterService client.
+type ListFormatterClient struct {
+	svc pb.ListFormatterServiceClient
+}
+
+// NewListFormatterClient creates a new ListFormatter client.
+func NewListFormatterClient(cc grpc.ClientConnInterface) *ListFormatterClient {
+	return &ListFormatterClient{
+		svc: pb.NewListFormatterServiceClient(cc),
+	}
+}
+
+// Format calls the Format RPC.
+func (c *ListFormatterClient) Format(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.Format(ctx, &pb.FormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToValue calls the FormatToValue RPC.
+func (c *ListFormatterClient) FormatToValue(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FormatToValue(ctx, &pb.FormatToValueRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternForNumItems calls the GetPatternForNumItems RPC.
+func (c *ListFormatterClient) GetPatternForNumItems(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetPatternForNumItems(ctx, &pb.GetPatternForNumItemsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *ListFormatterClient) GetInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -2437,7 +12020,7 @@ func (c *UCharacterIteratorClient) GetInstance1(ctx context.Context, arg0 int64)
 }
 
 // GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *UCharacterIteratorClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ListFormatterClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
 		Arg0: arg0,
 	})
@@ -2448,8 +12031,8 @@ func (c *UCharacterIteratorClient) GetInstance1_1(ctx context.Context, arg0 int6
 }
 
 // GetInstance3_2 calls the GetInstance3_2 RPC.
-func (c *UCharacterIteratorClient) GetInstance3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.GetInstance3_2(ctx, &pb.GetInstance3_2Request{
+func (c *ListFormatterClient) GetInstance3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstance3_2(ctx, &pb.ListFormatterGetInstance3_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -2461,8 +12044,8 @@ func (c *UCharacterIteratorClient) GetInstance3_2(ctx context.Context, arg0 int6
 }
 
 // GetInstance1_3 calls the GetInstance1_3 RPC.
-func (c *UCharacterIteratorClient) GetInstance1_3(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetInstance1_3(ctx, &pb.GetInstance1_3Request{
+func (c *ListFormatterClient) GetInstance1_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_3(ctx, &pb.ListFormatterGetInstance1_3Request{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2471,10 +12054,12 @@ func (c *UCharacterIteratorClient) GetInstance1_3(ctx context.Context, arg0 stri
 	return resp.GetResult(), nil
 }
 
-// GetInstance1_4 calls the GetInstance1_4 RPC.
-func (c *UCharacterIteratorClient) GetInstance1_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_4(ctx, &pb.GetInstance1_4Request{
+// GetInstance3_4 calls the GetInstance3_4 RPC.
+func (c *ListFormatterClient) GetInstance3_4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstance3_4(ctx, &pb.GetInstance3_4Request{
 		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -2482,43 +12067,42 @@ func (c *UCharacterIteratorClient) GetInstance1_4(ctx context.Context, arg0 int6
 	return resp.GetResult(), nil
 }
 
-// GetInstance1_5 calls the GetInstance1_5 RPC.
-func (c *UCharacterIteratorClient) GetInstance1_5(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_5(ctx, &pb.GetInstance1_5Request{
+// ListFormatterFormattedListClient wraps the gRPC ListFormatterFormattedListService client.
+type ListFormatterFormattedListClient struct {
+	svc pb.ListFormatterFormattedListServiceClient
+}
+
+// NewListFormatterFormattedListClient creates a new ListFormatterFormattedList client.
+func NewListFormatterFormattedListClient(cc grpc.ClientConnInterface) *ListFormatterFormattedListClient {
+	return &ListFormatterFormattedListClient{
+		svc: pb.NewListFormatterFormattedListServiceClient(cc),
+	}
+}
+
+// CharAt calls the CharAt RPC.
+func (c *ListFormatterFormattedListClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return uint16(resp.GetResult()), nil
+}
+
+// Length calls the Length RPC.
+func (c *ListFormatterFormattedListClient) Length(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SelectFormatClient wraps the gRPC SelectFormatService client.
-type SelectFormatClient struct {
-	svc pb.SelectFormatServiceClient
-}
-
-// NewSelectFormatClient creates a new SelectFormat client.
-func NewSelectFormatClient(cc grpc.ClientConnInterface) *SelectFormatClient {
-	return &SelectFormatClient{
-		svc: pb.NewSelectFormatServiceClient(cc),
-	}
-}
-
-// ApplyPattern calls the ApplyPattern RPC.
-func (c *SelectFormatClient) ApplyPattern(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.ApplyPattern(ctx, &pb.ApplyPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *SelectFormatClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// NextPosition calls the NextPosition RPC.
+func (c *ListFormatterFormattedListClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return false, err
@@ -2526,13 +12110,11 @@ func (c *SelectFormatClient) Equals(ctx context.Context, handle int64, arg0 int6
 	return resp.GetResult(), nil
 }
 
-// Format3 calls the Format3 RPC.
-func (c *SelectFormatClient) Format3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3(ctx, &pb.Format3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
+// SubSequence calls the SubSequence RPC.
+func (c *ListFormatterFormattedListClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -2540,60 +12122,230 @@ func (c *SelectFormatClient) Format3(ctx context.Context, handle int64, arg0 int
 	return resp.GetResult(), nil
 }
 
-// Format1_1 calls the Format1_1 RPC.
-func (c *SelectFormatClient) Format1_1(ctx context.Context, handle int64, arg0 string) (string, error) {
-	resp, err := c.svc.Format1_1(ctx, &pb.Format1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SelectFormatClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SelectFormatHashCodeRequest{
-		Handle: handle,
-	})
+// ToCharacterIterator calls the ToCharacterIterator RPC.
+func (c *ListFormatterFormattedListClient) ToCharacterIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject calls the ParseObject RPC.
-func (c *SelectFormatClient) ParseObject(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject(ctx, &pb.ParseObjectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToPattern calls the ToPattern RPC.
-func (c *SelectFormatClient) ToPattern(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToPattern(ctx, &pb.ToPatternRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
 // ToString calls the ToString RPC.
-func (c *SelectFormatClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.SelectFormatToStringRequest{
-		Handle: handle,
-	})
+func (c *ListFormatterFormattedListClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ListFormatterTypeClient wraps the gRPC ListFormatterTypeService client.
+type ListFormatterTypeClient struct {
+	svc pb.ListFormatterTypeServiceClient
+}
+
+// NewListFormatterTypeClient creates a new ListFormatterType client.
+func NewListFormatterTypeClient(cc grpc.ClientConnInterface) *ListFormatterTypeClient {
+	return &ListFormatterTypeClient{
+		svc: pb.NewListFormatterTypeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *ListFormatterTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *ListFormatterTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ListFormatterWidthClient wraps the gRPC ListFormatterWidthService client.
+type ListFormatterWidthClient struct {
+	svc pb.ListFormatterWidthServiceClient
+}
+
+// NewListFormatterWidthClient creates a new ListFormatterWidth client.
+func NewListFormatterWidthClient(cc grpc.ClientConnInterface) *ListFormatterWidthClient {
+	return &ListFormatterWidthClient{
+		svc: pb.NewListFormatterWidthServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *ListFormatterWidthClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *ListFormatterWidthClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IDNAClient wraps the gRPC IDNAService client.
+type IDNAClient struct {
+	svc pb.IDNAServiceClient
+}
+
+// NewIDNAClient creates a new IDNA client.
+func NewIDNAClient(cc grpc.ClientConnInterface) *IDNAClient {
+	return &IDNAClient{
+		svc: pb.NewIDNAServiceClient(cc),
+	}
+}
+
+// LabelToASCII calls the LabelToASCII RPC.
+func (c *IDNAClient) LabelToASCII(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.LabelToASCII(ctx, &pb.LabelToASCIIRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LabelToUnicode calls the LabelToUnicode RPC.
+func (c *IDNAClient) LabelToUnicode(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.LabelToUnicode(ctx, &pb.LabelToUnicodeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NameToASCII calls the NameToASCII RPC.
+func (c *IDNAClient) NameToASCII(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.NameToASCII(ctx, &pb.NameToASCIIRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NameToUnicode calls the NameToUnicode RPC.
+func (c *IDNAClient) NameToUnicode(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.NameToUnicode(ctx, &pb.NameToUnicodeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUTS46Instance calls the GetUTS46Instance RPC.
+func (c *IDNAClient) GetUTS46Instance(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetUTS46Instance(ctx, &pb.GetUTS46InstanceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IDNAErrorClient wraps the gRPC IDNAErrorService client.
+type IDNAErrorClient struct {
+	svc pb.IDNAErrorServiceClient
+}
+
+// NewIDNAErrorClient creates a new IDNAError client.
+func NewIDNAErrorClient(cc grpc.ClientConnInterface) *IDNAErrorClient {
+	return &IDNAErrorClient{
+		svc: pb.NewIDNAErrorServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *IDNAErrorClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *IDNAErrorClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IDNAInfoClient wraps the gRPC IDNAInfoService client.
+type IDNAInfoClient struct {
+	svc pb.IDNAInfoServiceClient
+}
+
+// NewIDNAInfoClient creates a new IDNAInfo client.
+func NewIDNAInfoClient(cc grpc.ClientConnInterface) *IDNAInfoClient {
+	return &IDNAInfoClient{
+		svc: pb.NewIDNAInfoServiceClient(cc),
+	}
+}
+
+// GetErrors calls the GetErrors RPC.
+func (c *IDNAInfoClient) GetErrors(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetErrors(ctx, &pb.GetErrorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasErrors calls the HasErrors RPC.
+func (c *IDNAInfoClient) HasErrors(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasErrors(ctx, &pb.HasErrorsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransitionalDifferent calls the IsTransitionalDifferent RPC.
+func (c *IDNAInfoClient) IsTransitionalDifferent(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTransitionalDifferent(ctx, &pb.IsTransitionalDifferentRequest{})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
@@ -2634,7 +12386,7 @@ func (c *DateTimePatternGeneratorClient) Clone(ctx context.Context) (int64, erro
 
 // CloneAsThawed0 calls the CloneAsThawed0 RPC.
 func (c *DateTimePatternGeneratorClient) CloneAsThawed0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0(ctx, &pb.CloneAsThawed0Request{})
+	resp, err := c.svc.CloneAsThawed0(ctx, &pb.DateTimePatternGeneratorCloneAsThawed0Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -2643,7 +12395,7 @@ func (c *DateTimePatternGeneratorClient) CloneAsThawed0(ctx context.Context) (in
 
 // Freeze0 calls the Freeze0 RPC.
 func (c *DateTimePatternGeneratorClient) Freeze0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Freeze0(ctx, &pb.Freeze0Request{})
+	resp, err := c.svc.Freeze0(ctx, &pb.DateTimePatternGeneratorFreeze0Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -2769,7 +12521,7 @@ func (c *DateTimePatternGeneratorClient) GetSkeleton(ctx context.Context, arg0 s
 
 // IsFrozen calls the IsFrozen RPC.
 func (c *DateTimePatternGeneratorClient) IsFrozen(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFrozen(ctx, &pb.IsFrozenRequest{})
+	resp, err := c.svc.IsFrozen(ctx, &pb.DateTimePatternGeneratorIsFrozenRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2846,7 +12598,7 @@ func (c *DateTimePatternGeneratorClient) SetDecimal(ctx context.Context, arg0 st
 
 // Freeze0_1 calls the Freeze0_1 RPC.
 func (c *DateTimePatternGeneratorClient) Freeze0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Freeze0_1(ctx, &pb.Freeze0_1Request{})
+	resp, err := c.svc.Freeze0_1(ctx, &pb.DateTimePatternGeneratorFreeze0_1Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -2855,7 +12607,7 @@ func (c *DateTimePatternGeneratorClient) Freeze0_1(ctx context.Context) (int64, 
 
 // CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
 func (c *DateTimePatternGeneratorClient) CloneAsThawed0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.CloneAsThawed0_1Request{})
+	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.DateTimePatternGeneratorCloneAsThawed0_1Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -2934,43 +12686,40 @@ func (c *DateTimePatternGeneratorDisplayWidthClient) ValueOf(ctx context.Context
 	return resp.GetResult(), nil
 }
 
-// NumberingSystemClient wraps the gRPC NumberingSystemService client.
-type NumberingSystemClient struct {
-	svc pb.NumberingSystemServiceClient
+// MessageFormatClient wraps the gRPC MessageFormatService client.
+type MessageFormatClient struct {
+	svc pb.MessageFormatServiceClient
 }
 
-// NewNumberingSystemClient creates a new NumberingSystem client.
-func NewNumberingSystemClient(cc grpc.ClientConnInterface) *NumberingSystemClient {
-	return &NumberingSystemClient{
-		svc: pb.NewNumberingSystemServiceClient(cc),
+// NewMessageFormatClient creates a new MessageFormat client.
+func NewMessageFormatClient(cc grpc.ClientConnInterface) *MessageFormatClient {
+	return &MessageFormatClient{
+		svc: pb.NewMessageFormatServiceClient(cc),
 	}
 }
 
-// GetDescription calls the GetDescription RPC.
-func (c *NumberingSystemClient) GetDescription(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+// ApplyPattern1 calls the ApplyPattern1 RPC.
+func (c *MessageFormatClient) ApplyPattern1(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.ApplyPattern1(ctx, &pb.ApplyPattern1Request{
 		Handle: handle,
+		Arg0:   arg0,
 	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// GetName calls the GetName RPC.
-func (c *NumberingSystemClient) GetName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
+// ApplyPattern2_1 calls the ApplyPattern2_1 RPC.
+func (c *MessageFormatClient) ApplyPattern2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.ApplyPattern2_1(ctx, &pb.MessageFormatApplyPattern2_1Request{
 		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// GetRadix calls the GetRadix RPC.
-func (c *NumberingSystemClient) GetRadix(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRadix(ctx, &pb.GetRadixRequest{
+// Clone calls the Clone RPC.
+func (c *MessageFormatClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.MessageFormatCloneRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -2979,10 +12728,11 @@ func (c *NumberingSystemClient) GetRadix(ctx context.Context, handle int64) (int
 	return resp.GetResult(), nil
 }
 
-// IsAlgorithmic calls the IsAlgorithmic RPC.
-func (c *NumberingSystemClient) IsAlgorithmic(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAlgorithmic(ctx, &pb.IsAlgorithmicRequest{
+// Equals calls the Equals RPC.
+func (c *MessageFormatClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.MessageFormatEqualsRequest{
 		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -2990,43 +12740,9 @@ func (c *NumberingSystemClient) IsAlgorithmic(ctx context.Context, handle int64)
 	return resp.GetResult(), nil
 }
 
-// GetAvailableNames calls the GetAvailableNames RPC.
-func (c *NumberingSystemClient) GetAvailableNames(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAvailableNames(ctx, &pb.GetAvailableNamesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *NumberingSystemClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.NumberingSystemGetInstance0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *NumberingSystemClient) GetInstance1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.NumberingSystemGetInstance1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance3_2 calls the GetInstance3_2 RPC.
-func (c *NumberingSystemClient) GetInstance3_2(ctx context.Context, handle int64, arg0 int32, arg1 bool, arg2 string) (int64, error) {
-	resp, err := c.svc.GetInstance3_2(ctx, &pb.NumberingSystemGetInstance3_2Request{
+// Format3 calls the Format3 RPC.
+func (c *MessageFormatClient) Format3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3(ctx, &pb.MessageFormatFormat3Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -3038,9 +12754,23 @@ func (c *NumberingSystemClient) GetInstance3_2(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// GetInstance1_3 calls the GetInstance1_3 RPC.
-func (c *NumberingSystemClient) GetInstance1_3(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_3(ctx, &pb.NumberingSystemGetInstance1_3Request{
+// Format3_1 calls the Format3_1 RPC.
+func (c *MessageFormatClient) Format3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Format3_1(ctx, &pb.MessageFormatFormat3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatToCharacterIterator calls the FormatToCharacterIterator RPC.
+func (c *MessageFormatClient) FormatToCharacterIterator(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.FormatToCharacterIterator(ctx, &pb.MessageFormatFormatToCharacterIteratorRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -3050,9 +12780,31 @@ func (c *NumberingSystemClient) GetInstance1_3(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// GetInstanceByName calls the GetInstanceByName RPC.
-func (c *NumberingSystemClient) GetInstanceByName(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.GetInstanceByName(ctx, &pb.GetInstanceByNameRequest{
+// GetApostropheMode calls the GetApostropheMode RPC.
+func (c *MessageFormatClient) GetApostropheMode(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetApostropheMode(ctx, &pb.GetApostropheModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetArgumentNames calls the GetArgumentNames RPC.
+func (c *MessageFormatClient) GetArgumentNames(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetArgumentNames(ctx, &pb.GetArgumentNamesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormatByArgumentName calls the GetFormatByArgumentName RPC.
+func (c *MessageFormatClient) GetFormatByArgumentName(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetFormatByArgumentName(ctx, &pb.GetFormatByArgumentNameRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -3062,14 +12814,688 @@ func (c *NumberingSystemClient) GetInstanceByName(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
-// IsValidDigitString calls the IsValidDigitString RPC.
-func (c *NumberingSystemClient) IsValidDigitString(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsValidDigitString(ctx, &pb.IsValidDigitStringRequest{
+// GetFormats calls the GetFormats RPC.
+func (c *MessageFormatClient) GetFormats(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFormats(ctx, &pb.GetFormatsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormatsByArgumentIndex calls the GetFormatsByArgumentIndex RPC.
+func (c *MessageFormatClient) GetFormatsByArgumentIndex(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFormatsByArgumentIndex(ctx, &pb.GetFormatsByArgumentIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *MessageFormatClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.MessageFormatGetLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetULocale calls the GetULocale RPC.
+func (c *MessageFormatClient) GetULocale(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetULocale(ctx, &pb.GetULocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MessageFormatClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.MessageFormatHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse1 calls the Parse1 RPC.
+func (c *MessageFormatClient) Parse1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Parse1(ctx, &pb.MessageFormatParse1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Parse2_1 calls the Parse2_1 RPC.
+func (c *MessageFormatClient) Parse2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Parse2_1(ctx, &pb.MessageFormatParse2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseObject calls the ParseObject RPC.
+func (c *MessageFormatClient) ParseObject(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseObject(ctx, &pb.MessageFormatParseObjectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFormat calls the SetFormat RPC.
+func (c *MessageFormatClient) SetFormat(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetFormat(ctx, &pb.SetFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetFormatByArgumentIndex calls the SetFormatByArgumentIndex RPC.
+func (c *MessageFormatClient) SetFormatByArgumentIndex(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetFormatByArgumentIndex(ctx, &pb.SetFormatByArgumentIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetFormatByArgumentName calls the SetFormatByArgumentName RPC.
+func (c *MessageFormatClient) SetFormatByArgumentName(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.SetFormatByArgumentName(ctx, &pb.SetFormatByArgumentNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetFormats calls the SetFormats RPC.
+func (c *MessageFormatClient) SetFormats(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetFormats(ctx, &pb.SetFormatsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFormatsByArgumentIndex calls the SetFormatsByArgumentIndex RPC.
+func (c *MessageFormatClient) SetFormatsByArgumentIndex(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetFormatsByArgumentIndex(ctx, &pb.SetFormatsByArgumentIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLocale1 calls the SetLocale1 RPC.
+func (c *MessageFormatClient) SetLocale1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetLocale1(ctx, &pb.SetLocale1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLocale1_1 calls the SetLocale1_1 RPC.
+func (c *MessageFormatClient) SetLocale1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetLocale1_1(ctx, &pb.SetLocale1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToPattern calls the ToPattern RPC.
+func (c *MessageFormatClient) ToPattern(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToPattern(ctx, &pb.MessageFormatToPatternRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UsesNamedArguments calls the UsesNamedArguments RPC.
+func (c *MessageFormatClient) UsesNamedArguments(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.UsesNamedArguments(ctx, &pb.UsesNamedArgumentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AutoQuoteApostrophe calls the AutoQuoteApostrophe RPC.
+func (c *MessageFormatClient) AutoQuoteApostrophe(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.AutoQuoteApostrophe(ctx, &pb.AutoQuoteApostropheRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Format2_2 calls the Format2_2 RPC.
+func (c *MessageFormatClient) Format2_2(ctx context.Context, handle int64, arg0 string, arg1 int64) (string, error) {
+	resp, err := c.svc.Format2_2(ctx, &pb.MessageFormatFormat2_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeMatcherClient wraps the gRPC UnicodeMatcherService client.
+type UnicodeMatcherClient struct {
+	svc pb.UnicodeMatcherServiceClient
+}
+
+// NewUnicodeMatcherClient creates a new UnicodeMatcher client.
+func NewUnicodeMatcherClient(cc grpc.ClientConnInterface) *UnicodeMatcherClient {
+	return &UnicodeMatcherClient{
+		svc: pb.NewUnicodeMatcherServiceClient(cc),
+	}
+}
+
+// AddMatchSetTo calls the AddMatchSetTo RPC.
+func (c *UnicodeMatcherClient) AddMatchSetTo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddMatchSetTo(ctx, &pb.UnicodeMatcherAddMatchSetToRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Matches calls the Matches RPC.
+func (c *UnicodeMatcherClient) Matches(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 bool) (int32, error) {
+	resp, err := c.svc.Matches(ctx, &pb.MatchesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchesIndexValue calls the MatchesIndexValue RPC.
+func (c *UnicodeMatcherClient) MatchesIndexValue(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.MatchesIndexValue(ctx, &pb.UnicodeMatcherMatchesIndexValueRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToPattern calls the ToPattern RPC.
+func (c *UnicodeMatcherClient) ToPattern(ctx context.Context, arg0 bool) (string, error) {
+	resp, err := c.svc.ToPattern(ctx, &pb.UnicodeMatcherToPatternRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CurrencyPluralInfoClient wraps the gRPC CurrencyPluralInfoService client.
+type CurrencyPluralInfoClient struct {
+	svc pb.CurrencyPluralInfoServiceClient
+}
+
+// NewCurrencyPluralInfoClient creates a new CurrencyPluralInfo client.
+func NewCurrencyPluralInfoClient(cc grpc.ClientConnInterface) *CurrencyPluralInfoClient {
+	return &CurrencyPluralInfoClient{
+		svc: pb.NewCurrencyPluralInfoServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *CurrencyPluralInfoClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CurrencyPluralInfoCloneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *CurrencyPluralInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.CurrencyPluralInfoEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrencyPluralPattern calls the GetCurrencyPluralPattern RPC.
+func (c *CurrencyPluralInfoClient) GetCurrencyPluralPattern(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.GetCurrencyPluralPattern(ctx, &pb.GetCurrencyPluralPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *CurrencyPluralInfoClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.CurrencyPluralInfoGetLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPluralRules calls the GetPluralRules RPC.
+func (c *CurrencyPluralInfoClient) GetPluralRules(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPluralRules(ctx, &pb.GetPluralRulesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CurrencyPluralInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.CurrencyPluralInfoHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCurrencyPluralPattern calls the SetCurrencyPluralPattern RPC.
+func (c *CurrencyPluralInfoClient) SetCurrencyPluralPattern(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.SetCurrencyPluralPattern(ctx, &pb.SetCurrencyPluralPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLocale calls the SetLocale RPC.
+func (c *CurrencyPluralInfoClient) SetLocale(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetLocale(ctx, &pb.SetLocaleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPluralRules calls the SetPluralRules RPC.
+func (c *CurrencyPluralInfoClient) SetPluralRules(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetPluralRules(ctx, &pb.SetPluralRulesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *CurrencyPluralInfoClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.CurrencyPluralInfoGetInstance0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *CurrencyPluralInfoClient) GetInstance1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.CurrencyPluralInfoGetInstance1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_2 calls the GetInstance1_2 RPC.
+func (c *CurrencyPluralInfoClient) GetInstance1_2(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_2(ctx, &pb.CurrencyPluralInfoGetInstance1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Normalizer2Client wraps the gRPC Normalizer2Service client.
+type Normalizer2Client struct {
+	svc pb.Normalizer2ServiceClient
+}
+
+// NewNormalizer2Client creates a new Normalizer2 client.
+func NewNormalizer2Client(cc grpc.ClientConnInterface) *Normalizer2Client {
+	return &Normalizer2Client{
+		svc: pb.NewNormalizer2ServiceClient(cc),
+	}
+}
+
+// Append calls the Append RPC.
+func (c *Normalizer2Client) Append(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.Append(ctx, &pb.AppendRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ComposePair calls the ComposePair RPC.
+func (c *Normalizer2Client) ComposePair(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.ComposePair(ctx, &pb.ComposePairRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCombiningClass calls the GetCombiningClass RPC.
+func (c *Normalizer2Client) GetCombiningClass(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCombiningClass(ctx, &pb.GetCombiningClassRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDecomposition calls the GetDecomposition RPC.
+func (c *Normalizer2Client) GetDecomposition(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetDecomposition(ctx, &pb.Normalizer2GetDecompositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRawDecomposition calls the GetRawDecomposition RPC.
+func (c *Normalizer2Client) GetRawDecomposition(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetRawDecomposition(ctx, &pb.GetRawDecompositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasBoundaryAfter calls the HasBoundaryAfter RPC.
+func (c *Normalizer2Client) HasBoundaryAfter(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasBoundaryAfter(ctx, &pb.HasBoundaryAfterRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasBoundaryBefore calls the HasBoundaryBefore RPC.
+func (c *Normalizer2Client) HasBoundaryBefore(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasBoundaryBefore(ctx, &pb.HasBoundaryBeforeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInert calls the IsInert RPC.
+func (c *Normalizer2Client) IsInert(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsInert(ctx, &pb.IsInertRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNormalized calls the IsNormalized RPC.
+func (c *Normalizer2Client) IsNormalized(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsNormalized(ctx, &pb.IsNormalizedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Normalize1 calls the Normalize1 RPC.
+func (c *Normalizer2Client) Normalize1(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.Normalize1(ctx, &pb.Normalize1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Normalize2_1 calls the Normalize2_1 RPC.
+func (c *Normalizer2Client) Normalize2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Normalize2_1(ctx, &pb.Normalize2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Normalize2_2 calls the Normalize2_2 RPC.
+func (c *Normalizer2Client) Normalize2_2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Normalize2_2(ctx, &pb.Normalize2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NormalizeSecondAndAppend calls the NormalizeSecondAndAppend RPC.
+func (c *Normalizer2Client) NormalizeSecondAndAppend(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.NormalizeSecondAndAppend(ctx, &pb.NormalizeSecondAndAppendRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuickCheck calls the QuickCheck RPC.
+func (c *Normalizer2Client) QuickCheck(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.QuickCheck(ctx, &pb.QuickCheckRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpanQuickCheckYes calls the SpanQuickCheckYes RPC.
+func (c *Normalizer2Client) SpanQuickCheckYes(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.SpanQuickCheckYes(ctx, &pb.SpanQuickCheckYesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *Normalizer2Client) GetInstance(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNFCInstance calls the GetNFCInstance RPC.
+func (c *Normalizer2Client) GetNFCInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNFCInstance(ctx, &pb.GetNFCInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNFDInstance calls the GetNFDInstance RPC.
+func (c *Normalizer2Client) GetNFDInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNFDInstance(ctx, &pb.GetNFDInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNFKCCasefoldInstance calls the GetNFKCCasefoldInstance RPC.
+func (c *Normalizer2Client) GetNFKCCasefoldInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNFKCCasefoldInstance(ctx, &pb.GetNFKCCasefoldInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNFKCInstance calls the GetNFKCInstance RPC.
+func (c *Normalizer2Client) GetNFKCInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNFKCInstance(ctx, &pb.GetNFKCInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNFKCSimpleCasefoldInstance calls the GetNFKCSimpleCasefoldInstance RPC.
+func (c *Normalizer2Client) GetNFKCSimpleCasefoldInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNFKCSimpleCasefoldInstance(ctx, &pb.GetNFKCSimpleCasefoldInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNFKDInstance calls the GetNFKDInstance RPC.
+func (c *Normalizer2Client) GetNFKDInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNFKDInstance(ctx, &pb.GetNFKDInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Normalizer2ModeClient wraps the gRPC Normalizer2ModeService client.
+type Normalizer2ModeClient struct {
+	svc pb.Normalizer2ModeServiceClient
+}
+
+// NewNormalizer2ModeClient creates a new Normalizer2Mode client.
+func NewNormalizer2ModeClient(cc grpc.ClientConnInterface) *Normalizer2ModeClient {
+	return &Normalizer2ModeClient{
+		svc: pb.NewNormalizer2ModeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *Normalizer2ModeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *Normalizer2ModeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -3088,7 +13514,7 @@ func NewCompactDecimalFormatClient(cc grpc.ClientConnInterface) *CompactDecimalF
 
 // Parse calls the Parse RPC.
 func (c *CompactDecimalFormatClient) Parse(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Parse(ctx, &pb.ParseRequest{
+	resp, err := c.svc.Parse(ctx, &pb.CompactDecimalFormatParseRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -3166,21 +13592,21 @@ func (c *CompactDecimalFormatCompactStyleClient) ValueOf(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// AlphabeticIndexClient wraps the gRPC AlphabeticIndexService client.
-type AlphabeticIndexClient struct {
-	svc pb.AlphabeticIndexServiceClient
+// DateIntervalInfoClient wraps the gRPC DateIntervalInfoService client.
+type DateIntervalInfoClient struct {
+	svc pb.DateIntervalInfoServiceClient
 }
 
-// NewAlphabeticIndexClient creates a new AlphabeticIndex client.
-func NewAlphabeticIndexClient(cc grpc.ClientConnInterface) *AlphabeticIndexClient {
-	return &AlphabeticIndexClient{
-		svc: pb.NewAlphabeticIndexServiceClient(cc),
+// NewDateIntervalInfoClient creates a new DateIntervalInfo client.
+func NewDateIntervalInfoClient(cc grpc.ClientConnInterface) *DateIntervalInfoClient {
+	return &DateIntervalInfoClient{
+		svc: pb.NewDateIntervalInfoServiceClient(cc),
 	}
 }
 
-// GetBucketCount calls the GetBucketCount RPC.
-func (c *AlphabeticIndexClient) GetBucketCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetBucketCount(ctx, &pb.GetBucketCountRequest{
+// Clone calls the Clone RPC.
+func (c *DateIntervalInfoClient) Clone(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.DateIntervalInfoCloneRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3189,21 +13615,32 @@ func (c *AlphabeticIndexClient) GetBucketCount(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// GetBucketIndex calls the GetBucketIndex RPC.
-func (c *AlphabeticIndexClient) GetBucketIndex(ctx context.Context, handle int64, arg0 string) (int32, error) {
-	resp, err := c.svc.GetBucketIndex(ctx, &pb.GetBucketIndexRequest{
+// CloneAsThawed0 calls the CloneAsThawed0 RPC.
+func (c *DateIntervalInfoClient) CloneAsThawed0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0(ctx, &pb.CloneAsThawed0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DateIntervalInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.DateIntervalInfoEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetCollator calls the GetCollator RPC.
-func (c *AlphabeticIndexClient) GetCollator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCollator(ctx, &pb.GetCollatorRequest{
+// Freeze0 calls the Freeze0 RPC.
+func (c *DateIntervalInfoClient) Freeze0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Freeze0(ctx, &pb.Freeze0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3212,9 +13649,20 @@ func (c *AlphabeticIndexClient) GetCollator(ctx context.Context, handle int64) (
 	return resp.GetResult(), nil
 }
 
-// GetInflowLabel calls the GetInflowLabel RPC.
-func (c *AlphabeticIndexClient) GetInflowLabel(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetInflowLabel(ctx, &pb.GetInflowLabelRequest{
+// GetDefaultOrder calls the GetDefaultOrder RPC.
+func (c *DateIntervalInfoClient) GetDefaultOrder(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetDefaultOrder(ctx, &pb.GetDefaultOrderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFallbackIntervalPattern calls the GetFallbackIntervalPattern RPC.
+func (c *DateIntervalInfoClient) GetFallbackIntervalPattern(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetFallbackIntervalPattern(ctx, &pb.GetFallbackIntervalPatternRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3223,9 +13671,22 @@ func (c *AlphabeticIndexClient) GetInflowLabel(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// GetMaxLabelCount calls the GetMaxLabelCount RPC.
-func (c *AlphabeticIndexClient) GetMaxLabelCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMaxLabelCount(ctx, &pb.GetMaxLabelCountRequest{
+// GetIntervalPattern calls the GetIntervalPattern RPC.
+func (c *DateIntervalInfoClient) GetIntervalPattern(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetIntervalPattern(ctx, &pb.GetIntervalPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DateIntervalInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.DateIntervalInfoHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3234,20 +13695,40 @@ func (c *AlphabeticIndexClient) GetMaxLabelCount(ctx context.Context, handle int
 	return resp.GetResult(), nil
 }
 
-// GetOverflowLabel calls the GetOverflowLabel RPC.
-func (c *AlphabeticIndexClient) GetOverflowLabel(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetOverflowLabel(ctx, &pb.GetOverflowLabelRequest{
+// IsFrozen calls the IsFrozen RPC.
+func (c *DateIntervalInfoClient) IsFrozen(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFrozen(ctx, &pb.IsFrozenRequest{
 		Handle: handle,
 	})
 	if err != nil {
-		return "", err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetRecordCount calls the GetRecordCount RPC.
-func (c *AlphabeticIndexClient) GetRecordCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRecordCount(ctx, &pb.GetRecordCountRequest{
+// SetFallbackIntervalPattern calls the SetFallbackIntervalPattern RPC.
+func (c *DateIntervalInfoClient) SetFallbackIntervalPattern(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetFallbackIntervalPattern(ctx, &pb.SetFallbackIntervalPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIntervalPattern calls the SetIntervalPattern RPC.
+func (c *DateIntervalInfoClient) SetIntervalPattern(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 string) error {
+	_, err := c.svc.SetIntervalPattern(ctx, &pb.SetIntervalPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Freeze0_1 calls the Freeze0_1 RPC.
+func (c *DateIntervalInfoClient) Freeze0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Freeze0_1(ctx, &pb.Freeze0_1Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3256,50 +13737,70 @@ func (c *AlphabeticIndexClient) GetRecordCount(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// GetUnderflowLabel calls the GetUnderflowLabel RPC.
-func (c *AlphabeticIndexClient) GetUnderflowLabel(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetUnderflowLabel(ctx, &pb.GetUnderflowLabelRequest{
+// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
+func (c *DateIntervalInfoClient) CloneAsThawed0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.CloneAsThawed0_1Request{
 		Handle: handle,
 	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// AlphabeticIndexBucketClient wraps the gRPC AlphabeticIndexBucketService client.
-type AlphabeticIndexBucketClient struct {
-	svc pb.AlphabeticIndexBucketServiceClient
-}
-
-// NewAlphabeticIndexBucketClient creates a new AlphabeticIndexBucket client.
-func NewAlphabeticIndexBucketClient(cc grpc.ClientConnInterface) *AlphabeticIndexBucketClient {
-	return &AlphabeticIndexBucketClient{
-		svc: pb.NewAlphabeticIndexBucketServiceClient(cc),
-	}
-}
-
-// GetLabel calls the GetLabel RPC.
-func (c *AlphabeticIndexBucketClient) GetLabel(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLabelType calls the GetLabelType RPC.
-func (c *AlphabeticIndexBucketClient) GetLabelType(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLabelType(ctx, &pb.GetLabelTypeRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Size calls the Size RPC.
-func (c *AlphabeticIndexBucketClient) Size(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Size(ctx, &pb.SizeRequest{})
+// DateIntervalInfoPatternInfoClient wraps the gRPC DateIntervalInfoPatternInfoService client.
+type DateIntervalInfoPatternInfoClient struct {
+	svc pb.DateIntervalInfoPatternInfoServiceClient
+}
+
+// NewDateIntervalInfoPatternInfoClient creates a new DateIntervalInfoPatternInfo client.
+func NewDateIntervalInfoPatternInfoClient(cc grpc.ClientConnInterface) *DateIntervalInfoPatternInfoClient {
+	return &DateIntervalInfoPatternInfoClient{
+		svc: pb.NewDateIntervalInfoPatternInfoServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *DateIntervalInfoPatternInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FirstDateInPtnIsLaterDate calls the FirstDateInPtnIsLaterDate RPC.
+func (c *DateIntervalInfoPatternInfoClient) FirstDateInPtnIsLaterDate(ctx context.Context) (bool, error) {
+	resp, err := c.svc.FirstDateInPtnIsLaterDate(ctx, &pb.FirstDateInPtnIsLaterDateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFirstPart calls the GetFirstPart RPC.
+func (c *DateIntervalInfoPatternInfoClient) GetFirstPart(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFirstPart(ctx, &pb.GetFirstPartRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecondPart calls the GetSecondPart RPC.
+func (c *DateIntervalInfoPatternInfoClient) GetSecondPart(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSecondPart(ctx, &pb.GetSecondPartRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DateIntervalInfoPatternInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -3307,7 +13808,7 @@ func (c *AlphabeticIndexBucketClient) Size(ctx context.Context) (int32, error) {
 }
 
 // ToString calls the ToString RPC.
-func (c *AlphabeticIndexBucketClient) ToString(ctx context.Context) (string, error) {
+func (c *DateIntervalInfoPatternInfoClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
@@ -3315,30 +13816,159 @@ func (c *AlphabeticIndexBucketClient) ToString(ctx context.Context) (string, err
 	return resp.GetResult(), nil
 }
 
-// AlphabeticIndexImmutableIndexClient wraps the gRPC AlphabeticIndexImmutableIndexService client.
-type AlphabeticIndexImmutableIndexClient struct {
-	svc pb.AlphabeticIndexImmutableIndexServiceClient
+// EditsClient wraps the gRPC EditsService client.
+type EditsClient struct {
+	svc pb.EditsServiceClient
 }
 
-// NewAlphabeticIndexImmutableIndexClient creates a new AlphabeticIndexImmutableIndex client.
-func NewAlphabeticIndexImmutableIndexClient(cc grpc.ClientConnInterface) *AlphabeticIndexImmutableIndexClient {
-	return &AlphabeticIndexImmutableIndexClient{
-		svc: pb.NewAlphabeticIndexImmutableIndexServiceClient(cc),
+// NewEditsClient creates a new Edits client.
+func NewEditsClient(cc grpc.ClientConnInterface) *EditsClient {
+	return &EditsClient{
+		svc: pb.NewEditsServiceClient(cc),
 	}
 }
 
-// GetBucketCount calls the GetBucketCount RPC.
-func (c *AlphabeticIndexImmutableIndexClient) GetBucketCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBucketCount(ctx, &pb.AlphabeticIndexImmutableIndexGetBucketCountRequest{})
+// AddReplace calls the AddReplace RPC.
+func (c *EditsClient) AddReplace(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.AddReplace(ctx, &pb.AddReplaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AddUnchanged calls the AddUnchanged RPC.
+func (c *EditsClient) AddUnchanged(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.AddUnchanged(ctx, &pb.AddUnchangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetCoarseChangesIterator calls the GetCoarseChangesIterator RPC.
+func (c *EditsClient) GetCoarseChangesIterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCoarseChangesIterator(ctx, &pb.GetCoarseChangesIteratorRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetBucketIndex calls the GetBucketIndex RPC.
-func (c *AlphabeticIndexImmutableIndexClient) GetBucketIndex(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.GetBucketIndex(ctx, &pb.AlphabeticIndexImmutableIndexGetBucketIndexRequest{
+// GetCoarseIterator calls the GetCoarseIterator RPC.
+func (c *EditsClient) GetCoarseIterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCoarseIterator(ctx, &pb.GetCoarseIteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFineChangesIterator calls the GetFineChangesIterator RPC.
+func (c *EditsClient) GetFineChangesIterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFineChangesIterator(ctx, &pb.GetFineChangesIteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFineIterator calls the GetFineIterator RPC.
+func (c *EditsClient) GetFineIterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFineIterator(ctx, &pb.GetFineIteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasChanges calls the HasChanges RPC.
+func (c *EditsClient) HasChanges(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasChanges(ctx, &pb.HasChangesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LengthDelta calls the LengthDelta RPC.
+func (c *EditsClient) LengthDelta(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.LengthDelta(ctx, &pb.LengthDeltaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MergeAndAppend calls the MergeAndAppend RPC.
+func (c *EditsClient) MergeAndAppend(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.MergeAndAppend(ctx, &pb.MergeAndAppendRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NumberOfChanges calls the NumberOfChanges RPC.
+func (c *EditsClient) NumberOfChanges(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.NumberOfChanges(ctx, &pb.NumberOfChangesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset calls the Reset RPC.
+func (c *EditsClient) Reset(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// EditsIteratorClient wraps the gRPC EditsIteratorService client.
+type EditsIteratorClient struct {
+	svc pb.EditsIteratorServiceClient
+}
+
+// NewEditsIteratorClient creates a new EditsIterator client.
+func NewEditsIteratorClient(cc grpc.ClientConnInterface) *EditsIteratorClient {
+	return &EditsIteratorClient{
+		svc: pb.NewEditsIteratorServiceClient(cc),
+	}
+}
+
+// DestinationIndex calls the DestinationIndex RPC.
+func (c *EditsIteratorClient) DestinationIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DestinationIndex(ctx, &pb.DestinationIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DestinationIndexFromSourceIndex calls the DestinationIndexFromSourceIndex RPC.
+func (c *EditsIteratorClient) DestinationIndexFromSourceIndex(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.DestinationIndexFromSourceIndex(ctx, &pb.DestinationIndexFromSourceIndexRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -3347,21 +13977,87 @@ func (c *AlphabeticIndexImmutableIndexClient) GetBucketIndex(ctx context.Context
 	return resp.GetResult(), nil
 }
 
-// AlphabeticIndexRecordClient wraps the gRPC AlphabeticIndexRecordService client.
-type AlphabeticIndexRecordClient struct {
-	svc pb.AlphabeticIndexRecordServiceClient
-}
-
-// NewAlphabeticIndexRecordClient creates a new AlphabeticIndexRecord client.
-func NewAlphabeticIndexRecordClient(cc grpc.ClientConnInterface) *AlphabeticIndexRecordClient {
-	return &AlphabeticIndexRecordClient{
-		svc: pb.NewAlphabeticIndexRecordServiceClient(cc),
+// FindDestinationIndex calls the FindDestinationIndex RPC.
+func (c *EditsIteratorClient) FindDestinationIndex(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.FindDestinationIndex(ctx, &pb.FindDestinationIndexRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
 	}
+	return resp.GetResult(), nil
 }
 
-// GetName calls the GetName RPC.
-func (c *AlphabeticIndexRecordClient) GetName(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetName(ctx, &pb.AlphabeticIndexRecordGetNameRequest{})
+// FindSourceIndex calls the FindSourceIndex RPC.
+func (c *EditsIteratorClient) FindSourceIndex(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.FindSourceIndex(ctx, &pb.FindSourceIndexRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasChange calls the HasChange RPC.
+func (c *EditsIteratorClient) HasChange(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasChange(ctx, &pb.HasChangeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewLength calls the NewLength RPC.
+func (c *EditsIteratorClient) NewLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.NewLength(ctx, &pb.NewLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Next calls the Next RPC.
+func (c *EditsIteratorClient) Next(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Next(ctx, &pb.EditsIteratorNextRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OldLength calls the OldLength RPC.
+func (c *EditsIteratorClient) OldLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.OldLength(ctx, &pb.OldLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReplacementIndex calls the ReplacementIndex RPC.
+func (c *EditsIteratorClient) ReplacementIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.ReplacementIndex(ctx, &pb.ReplacementIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SourceIndex calls the SourceIndex RPC.
+func (c *EditsIteratorClient) SourceIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.SourceIndex(ctx, &pb.SourceIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SourceIndexFromDestinationIndex calls the SourceIndexFromDestinationIndex RPC.
+func (c *EditsIteratorClient) SourceIndexFromDestinationIndex(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.SourceIndexFromDestinationIndex(ctx, &pb.SourceIndexFromDestinationIndexRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -3369,294 +14065,10 @@ func (c *AlphabeticIndexRecordClient) GetName(ctx context.Context) (int64, error
 }
 
 // ToString calls the ToString RPC.
-func (c *AlphabeticIndexRecordClient) ToString(ctx context.Context) (string, error) {
+func (c *EditsIteratorClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// BidiClassifierClient wraps the gRPC BidiClassifierService client.
-type BidiClassifierClient struct {
-	svc pb.BidiClassifierServiceClient
-}
-
-// NewBidiClassifierClient creates a new BidiClassifier client.
-func NewBidiClassifierClient(cc grpc.ClientConnInterface) *BidiClassifierClient {
-	return &BidiClassifierClient{
-		svc: pb.NewBidiClassifierServiceClient(cc),
-	}
-}
-
-// Classify calls the Classify RPC.
-func (c *BidiClassifierClient) Classify(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.Classify(ctx, &pb.ClassifyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetContext calls the GetContext RPC.
-func (c *BidiClassifierClient) GetContext(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetContext calls the SetContext RPC.
-func (c *BidiClassifierClient) SetContext(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetContext(ctx, &pb.SetContextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UnicodeMatcherClient wraps the gRPC UnicodeMatcherService client.
-type UnicodeMatcherClient struct {
-	svc pb.UnicodeMatcherServiceClient
-}
-
-// NewUnicodeMatcherClient creates a new UnicodeMatcher client.
-func NewUnicodeMatcherClient(cc grpc.ClientConnInterface) *UnicodeMatcherClient {
-	return &UnicodeMatcherClient{
-		svc: pb.NewUnicodeMatcherServiceClient(cc),
-	}
-}
-
-// AddMatchSetTo calls the AddMatchSetTo RPC.
-func (c *UnicodeMatcherClient) AddMatchSetTo(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AddMatchSetTo(ctx, &pb.AddMatchSetToRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Matches calls the Matches RPC.
-func (c *UnicodeMatcherClient) Matches(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 bool) (int32, error) {
-	resp, err := c.svc.Matches(ctx, &pb.MatchesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MatchesIndexValue calls the MatchesIndexValue RPC.
-func (c *UnicodeMatcherClient) MatchesIndexValue(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.MatchesIndexValue(ctx, &pb.MatchesIndexValueRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToPattern calls the ToPattern RPC.
-func (c *UnicodeMatcherClient) ToPattern(ctx context.Context, arg0 bool) (string, error) {
-	resp, err := c.svc.ToPattern(ctx, &pb.UnicodeMatcherToPatternRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SymbolTableClient wraps the gRPC SymbolTableService client.
-type SymbolTableClient struct {
-	svc pb.SymbolTableServiceClient
-}
-
-// NewSymbolTableClient creates a new SymbolTable client.
-func NewSymbolTableClient(cc grpc.ClientConnInterface) *SymbolTableClient {
-	return &SymbolTableClient{
-		svc: pb.NewSymbolTableServiceClient(cc),
-	}
-}
-
-// Lookup calls the Lookup RPC.
-func (c *SymbolTableClient) Lookup(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.Lookup(ctx, &pb.LookupRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LookupMatcher calls the LookupMatcher RPC.
-func (c *SymbolTableClient) LookupMatcher(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.LookupMatcher(ctx, &pb.LookupMatcherRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseReference calls the ParseReference RPC.
-func (c *SymbolTableClient) ParseReference(ctx context.Context, arg0 string, arg1 int64, arg2 int32) (string, error) {
-	resp, err := c.svc.ParseReference(ctx, &pb.ParseReferenceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IDNAClient wraps the gRPC IDNAService client.
-type IDNAClient struct {
-	svc pb.IDNAServiceClient
-}
-
-// NewIDNAClient creates a new IDNA client.
-func NewIDNAClient(cc grpc.ClientConnInterface) *IDNAClient {
-	return &IDNAClient{
-		svc: pb.NewIDNAServiceClient(cc),
-	}
-}
-
-// LabelToASCII calls the LabelToASCII RPC.
-func (c *IDNAClient) LabelToASCII(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.LabelToASCII(ctx, &pb.LabelToASCIIRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LabelToUnicode calls the LabelToUnicode RPC.
-func (c *IDNAClient) LabelToUnicode(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.LabelToUnicode(ctx, &pb.LabelToUnicodeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NameToASCII calls the NameToASCII RPC.
-func (c *IDNAClient) NameToASCII(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.NameToASCII(ctx, &pb.NameToASCIIRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NameToUnicode calls the NameToUnicode RPC.
-func (c *IDNAClient) NameToUnicode(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.NameToUnicode(ctx, &pb.NameToUnicodeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUTS46Instance calls the GetUTS46Instance RPC.
-func (c *IDNAClient) GetUTS46Instance(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetUTS46Instance(ctx, &pb.GetUTS46InstanceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IDNAErrorClient wraps the gRPC IDNAErrorService client.
-type IDNAErrorClient struct {
-	svc pb.IDNAErrorServiceClient
-}
-
-// NewIDNAErrorClient creates a new IDNAError client.
-func NewIDNAErrorClient(cc grpc.ClientConnInterface) *IDNAErrorClient {
-	return &IDNAErrorClient{
-		svc: pb.NewIDNAErrorServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *IDNAErrorClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *IDNAErrorClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IDNAInfoClient wraps the gRPC IDNAInfoService client.
-type IDNAInfoClient struct {
-	svc pb.IDNAInfoServiceClient
-}
-
-// NewIDNAInfoClient creates a new IDNAInfo client.
-func NewIDNAInfoClient(cc grpc.ClientConnInterface) *IDNAInfoClient {
-	return &IDNAInfoClient{
-		svc: pb.NewIDNAInfoServiceClient(cc),
-	}
-}
-
-// HasErrors calls the HasErrors RPC.
-func (c *IDNAInfoClient) HasErrors(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasErrors(ctx, &pb.HasErrorsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsTransitionalDifferent calls the IsTransitionalDifferent RPC.
-func (c *IDNAInfoClient) IsTransitionalDifferent(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsTransitionalDifferent(ctx, &pb.IsTransitionalDifferentRequest{})
-	if err != nil {
-		return false, err
 	}
 	return resp.GetResult(), nil
 }
@@ -3686,7 +14098,7 @@ func (c *DecimalFormatSymbolsClient) Clone(ctx context.Context, handle int64) (i
 
 // Equals calls the Equals RPC.
 func (c *DecimalFormatSymbolsClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.DecimalFormatSymbolsEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -3698,7 +14110,7 @@ func (c *DecimalFormatSymbolsClient) Equals(ctx context.Context, handle int64, a
 
 // GetCurrency calls the GetCurrency RPC.
 func (c *DecimalFormatSymbolsClient) GetCurrency(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCurrency(ctx, &pb.GetCurrencyRequest{
+	resp, err := c.svc.GetCurrency(ctx, &pb.DecimalFormatSymbolsGetCurrencyRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3841,7 +14253,7 @@ func (c *DecimalFormatSymbolsClient) GetInternationalCurrencySymbol(ctx context.
 
 // GetLocale calls the GetLocale RPC.
 func (c *DecimalFormatSymbolsClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
+	resp, err := c.svc.GetLocale(ctx, &pb.DecimalFormatSymbolsGetLocaleRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -4074,7 +14486,7 @@ func (c *DecimalFormatSymbolsClient) HashCode(ctx context.Context, handle int64)
 
 // SetCurrency calls the SetCurrency RPC.
 func (c *DecimalFormatSymbolsClient) SetCurrency(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetCurrency(ctx, &pb.SetCurrencyRequest{
+	_, err := c.svc.SetCurrency(ctx, &pb.DecimalFormatSymbolsSetCurrencyRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -4483,7 +14895,7 @@ func (c *ConstrainedFieldPositionClient) GetInt64IterationContext(ctx context.Co
 
 // GetLimit calls the GetLimit RPC.
 func (c *ConstrainedFieldPositionClient) GetLimit(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLimit(ctx, &pb.GetLimitRequest{
+	resp, err := c.svc.GetLimit(ctx, &pb.ConstrainedFieldPositionGetLimitRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -4494,7 +14906,7 @@ func (c *ConstrainedFieldPositionClient) GetLimit(ctx context.Context, handle in
 
 // GetStart calls the GetStart RPC.
 func (c *ConstrainedFieldPositionClient) GetStart(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStart(ctx, &pb.GetStartRequest{
+	resp, err := c.svc.GetStart(ctx, &pb.ConstrainedFieldPositionGetStartRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -4552,3914 +14964,6 @@ func (c *ConstrainedFieldPositionClient) ToString(ctx context.Context, handle in
 	})
 	if err != nil {
 		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// PluralRulesClient wraps the gRPC PluralRulesService client.
-type PluralRulesClient struct {
-	svc pb.PluralRulesServiceClient
-}
-
-// NewPluralRulesClient creates a new PluralRules client.
-func NewPluralRulesClient(cc grpc.ClientConnInterface) *PluralRulesClient {
-	return &PluralRulesClient{
-		svc: pb.NewPluralRulesServiceClient(cc),
-	}
-}
-
-// Equals1 calls the Equals1 RPC.
-func (c *PluralRulesClient) Equals1(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1(ctx, &pb.Equals1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals1_1 calls the Equals1_1 RPC.
-func (c *PluralRulesClient) Equals1_1(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1_1(ctx, &pb.Equals1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUniqueKeywordValue calls the GetUniqueKeywordValue RPC.
-func (c *PluralRulesClient) GetUniqueKeywordValue(ctx context.Context, arg0 string) (float64, error) {
-	resp, err := c.svc.GetUniqueKeywordValue(ctx, &pb.GetUniqueKeywordValueRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PluralRulesClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Select1 calls the Select1 RPC.
-func (c *PluralRulesClient) Select1(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Select1(ctx, &pb.Select1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Select1_1 calls the Select1_1 RPC.
-func (c *PluralRulesClient) Select1_1(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Select1_1(ctx, &pb.Select1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Select1_2 calls the Select1_2 RPC.
-func (c *PluralRulesClient) Select1_2(ctx context.Context, arg0 float64) (string, error) {
-	resp, err := c.svc.Select1_2(ctx, &pb.Select1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PluralRulesClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateRules calls the CreateRules RPC.
-func (c *PluralRulesClient) CreateRules(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.CreateRules(ctx, &pb.CreateRulesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ForLocale1 calls the ForLocale1 RPC.
-func (c *PluralRulesClient) ForLocale1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.ForLocale1(ctx, &pb.ForLocale1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ForLocale2_1 calls the ForLocale2_1 RPC.
-func (c *PluralRulesClient) ForLocale2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.ForLocale2_1(ctx, &pb.ForLocale2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ForLocale1_2 calls the ForLocale1_2 RPC.
-func (c *PluralRulesClient) ForLocale1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.ForLocale1_2(ctx, &pb.ForLocale1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ForLocale2_3 calls the ForLocale2_3 RPC.
-func (c *PluralRulesClient) ForLocale2_3(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.ForLocale2_3(ctx, &pb.ForLocale2_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseDescription calls the ParseDescription RPC.
-func (c *PluralRulesClient) ParseDescription(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ParseDescription(ctx, &pb.ParseDescriptionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PluralRulesPluralTypeClient wraps the gRPC PluralRulesPluralTypeService client.
-type PluralRulesPluralTypeClient struct {
-	svc pb.PluralRulesPluralTypeServiceClient
-}
-
-// NewPluralRulesPluralTypeClient creates a new PluralRulesPluralType client.
-func NewPluralRulesPluralTypeClient(cc grpc.ClientConnInterface) *PluralRulesPluralTypeClient {
-	return &PluralRulesPluralTypeClient{
-		svc: pb.NewPluralRulesPluralTypeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *PluralRulesPluralTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *PluralRulesPluralTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DecimalFormatClient wraps the gRPC DecimalFormatService client.
-type DecimalFormatClient struct {
-	svc pb.DecimalFormatServiceClient
-}
-
-// NewDecimalFormatClient creates a new DecimalFormat client.
-func NewDecimalFormatClient(cc grpc.ClientConnInterface) *DecimalFormatClient {
-	return &DecimalFormatClient{
-		svc: pb.NewDecimalFormatServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *DecimalFormatClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.DecimalFormatCloneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3 calls the Format3 RPC.
-func (c *DecimalFormatClient) Format3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3(ctx, &pb.Format3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_1 calls the Format3_1 RPC.
-func (c *DecimalFormatClient) Format3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_1(ctx, &pb.Format3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_2 calls the Format3_2 RPC.
-func (c *DecimalFormatClient) Format3_2(ctx context.Context, handle int64, arg0 float64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_2(ctx, &pb.Format3_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_3 calls the Format3_3 RPC.
-func (c *DecimalFormatClient) Format3_3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_3(ctx, &pb.Format3_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_4 calls the Format3_4 RPC.
-func (c *DecimalFormatClient) Format3_4(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_4(ctx, &pb.Format3_4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_5 calls the Format3_5 RPC.
-func (c *DecimalFormatClient) Format3_5(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_5(ctx, &pb.Format3_5Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToCharacterIterator calls the FormatToCharacterIterator RPC.
-func (c *DecimalFormatClient) FormatToCharacterIterator(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.FormatToCharacterIterator(ctx, &pb.FormatToCharacterIteratorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParseMaxDigits calls the GetParseMaxDigits RPC.
-func (c *DecimalFormatClient) GetParseMaxDigits(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetParseMaxDigits(ctx, &pb.GetParseMaxDigitsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse calls the Parse RPC.
-func (c *DecimalFormatClient) Parse(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Parse(ctx, &pb.DecimalFormatParseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseCurrency calls the ParseCurrency RPC.
-func (c *DecimalFormatClient) ParseCurrency(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseCurrency(ctx, &pb.DecimalFormatParseCurrencyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetParseMaxDigits calls the SetParseMaxDigits RPC.
-func (c *DecimalFormatClient) SetParseMaxDigits(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetParseMaxDigits(ctx, &pb.SetParseMaxDigitsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *DecimalFormatClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.DecimalFormatToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// BreakIteratorClient wraps the gRPC BreakIteratorService client.
-type BreakIteratorClient struct {
-	svc pb.BreakIteratorServiceClient
-}
-
-// NewBreakIteratorClient creates a new BreakIterator client.
-func NewBreakIteratorClient(cc grpc.ClientConnInterface) *BreakIteratorClient {
-	return &BreakIteratorClient{
-		svc: pb.NewBreakIteratorServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *BreakIteratorClient) Clone(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Current calls the Current RPC.
-func (c *BreakIteratorClient) Current(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Current(ctx, &pb.CurrentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// First calls the First RPC.
-func (c *BreakIteratorClient) First(ctx context.Context) (int32, error) {
-	resp, err := c.svc.First(ctx, &pb.FirstRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Following calls the Following RPC.
-func (c *BreakIteratorClient) Following(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.Following(ctx, &pb.FollowingRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRuleStatus calls the GetRuleStatus RPC.
-func (c *BreakIteratorClient) GetRuleStatus(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRuleStatus(ctx, &pb.GetRuleStatusRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRuleStatusVec calls the GetRuleStatusVec RPC.
-func (c *BreakIteratorClient) GetRuleStatusVec(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetRuleStatusVec(ctx, &pb.GetRuleStatusVecRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetText calls the GetText RPC.
-func (c *BreakIteratorClient) GetText(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsBoundary calls the IsBoundary RPC.
-func (c *BreakIteratorClient) IsBoundary(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsBoundary(ctx, &pb.IsBoundaryRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Last calls the Last RPC.
-func (c *BreakIteratorClient) Last(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Last(ctx, &pb.LastRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Next0 calls the Next0 RPC.
-func (c *BreakIteratorClient) Next0(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Next0(ctx, &pb.Next0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Next1_1 calls the Next1_1 RPC.
-func (c *BreakIteratorClient) Next1_1(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.Next1_1(ctx, &pb.Next1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Preceding calls the Preceding RPC.
-func (c *BreakIteratorClient) Preceding(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.Preceding(ctx, &pb.PrecedingRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Previous calls the Previous RPC.
-func (c *BreakIteratorClient) Previous(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Previous(ctx, &pb.PreviousRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetText1 calls the SetText1 RPC.
-func (c *BreakIteratorClient) SetText1(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetText1(ctx, &pb.SetText1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetText1_1 calls the SetText1_1 RPC.
-func (c *BreakIteratorClient) SetText1_1(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetText1_1(ctx, &pb.SetText1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetText1_2 calls the SetText1_2 RPC.
-func (c *BreakIteratorClient) SetText1_2(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetText1_2(ctx, &pb.SetText1_2Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetCharacterInstance0 calls the GetCharacterInstance0 RPC.
-func (c *BreakIteratorClient) GetCharacterInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCharacterInstance0(ctx, &pb.GetCharacterInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCharacterInstance1_1 calls the GetCharacterInstance1_1 RPC.
-func (c *BreakIteratorClient) GetCharacterInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCharacterInstance1_1(ctx, &pb.GetCharacterInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCharacterInstance1_2 calls the GetCharacterInstance1_2 RPC.
-func (c *BreakIteratorClient) GetCharacterInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCharacterInstance1_2(ctx, &pb.GetCharacterInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineInstance0 calls the GetLineInstance0 RPC.
-func (c *BreakIteratorClient) GetLineInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLineInstance0(ctx, &pb.GetLineInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineInstance1_1 calls the GetLineInstance1_1 RPC.
-func (c *BreakIteratorClient) GetLineInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetLineInstance1_1(ctx, &pb.GetLineInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineInstance1_2 calls the GetLineInstance1_2 RPC.
-func (c *BreakIteratorClient) GetLineInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetLineInstance1_2(ctx, &pb.GetLineInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSentenceInstance0 calls the GetSentenceInstance0 RPC.
-func (c *BreakIteratorClient) GetSentenceInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSentenceInstance0(ctx, &pb.GetSentenceInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSentenceInstance1_1 calls the GetSentenceInstance1_1 RPC.
-func (c *BreakIteratorClient) GetSentenceInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetSentenceInstance1_1(ctx, &pb.GetSentenceInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSentenceInstance1_2 calls the GetSentenceInstance1_2 RPC.
-func (c *BreakIteratorClient) GetSentenceInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetSentenceInstance1_2(ctx, &pb.GetSentenceInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitleInstance0 calls the GetTitleInstance0 RPC.
-func (c *BreakIteratorClient) GetTitleInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTitleInstance0(ctx, &pb.GetTitleInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitleInstance1_1 calls the GetTitleInstance1_1 RPC.
-func (c *BreakIteratorClient) GetTitleInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetTitleInstance1_1(ctx, &pb.GetTitleInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitleInstance1_2 calls the GetTitleInstance1_2 RPC.
-func (c *BreakIteratorClient) GetTitleInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetTitleInstance1_2(ctx, &pb.GetTitleInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWordInstance0 calls the GetWordInstance0 RPC.
-func (c *BreakIteratorClient) GetWordInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWordInstance0(ctx, &pb.GetWordInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWordInstance1_1 calls the GetWordInstance1_1 RPC.
-func (c *BreakIteratorClient) GetWordInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetWordInstance1_1(ctx, &pb.GetWordInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWordInstance1_2 calls the GetWordInstance1_2 RPC.
-func (c *BreakIteratorClient) GetWordInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetWordInstance1_2(ctx, &pb.GetWordInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CurrencyPluralInfoClient wraps the gRPC CurrencyPluralInfoService client.
-type CurrencyPluralInfoClient struct {
-	svc pb.CurrencyPluralInfoServiceClient
-}
-
-// NewCurrencyPluralInfoClient creates a new CurrencyPluralInfo client.
-func NewCurrencyPluralInfoClient(cc grpc.ClientConnInterface) *CurrencyPluralInfoClient {
-	return &CurrencyPluralInfoClient{
-		svc: pb.NewCurrencyPluralInfoServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *CurrencyPluralInfoClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.CurrencyPluralInfoCloneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *CurrencyPluralInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrencyPluralPattern calls the GetCurrencyPluralPattern RPC.
-func (c *CurrencyPluralInfoClient) GetCurrencyPluralPattern(ctx context.Context, handle int64, arg0 string) (string, error) {
-	resp, err := c.svc.GetCurrencyPluralPattern(ctx, &pb.GetCurrencyPluralPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocale calls the GetLocale RPC.
-func (c *CurrencyPluralInfoClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPluralRules calls the GetPluralRules RPC.
-func (c *CurrencyPluralInfoClient) GetPluralRules(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPluralRules(ctx, &pb.GetPluralRulesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *CurrencyPluralInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.CurrencyPluralInfoHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCurrencyPluralPattern calls the SetCurrencyPluralPattern RPC.
-func (c *CurrencyPluralInfoClient) SetCurrencyPluralPattern(ctx context.Context, handle int64, arg0 string, arg1 string) error {
-	_, err := c.svc.SetCurrencyPluralPattern(ctx, &pb.SetCurrencyPluralPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLocale calls the SetLocale RPC.
-func (c *CurrencyPluralInfoClient) SetLocale(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetLocale(ctx, &pb.SetLocaleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPluralRules calls the SetPluralRules RPC.
-func (c *CurrencyPluralInfoClient) SetPluralRules(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetPluralRules(ctx, &pb.SetPluralRulesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *CurrencyPluralInfoClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.CurrencyPluralInfoGetInstance0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *CurrencyPluralInfoClient) GetInstance1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.CurrencyPluralInfoGetInstance1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_2 calls the GetInstance1_2 RPC.
-func (c *CurrencyPluralInfoClient) GetInstance1_2(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_2(ctx, &pb.CurrencyPluralInfoGetInstance1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CollationElementIteratorClient wraps the gRPC CollationElementIteratorService client.
-type CollationElementIteratorClient struct {
-	svc pb.CollationElementIteratorServiceClient
-}
-
-// NewCollationElementIteratorClient creates a new CollationElementIterator client.
-func NewCollationElementIteratorClient(cc grpc.ClientConnInterface) *CollationElementIteratorClient {
-	return &CollationElementIteratorClient{
-		svc: pb.NewCollationElementIteratorServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *CollationElementIteratorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.CollationElementIteratorEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxExpansion calls the GetMaxExpansion RPC.
-func (c *CollationElementIteratorClient) GetMaxExpansion(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetMaxExpansion(ctx, &pb.GetMaxExpansionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOffset calls the GetOffset RPC.
-func (c *CollationElementIteratorClient) GetOffset(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetOffset(ctx, &pb.GetOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *CollationElementIteratorClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Next calls the Next RPC.
-func (c *CollationElementIteratorClient) Next(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Next(ctx, &pb.NextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Previous calls the Previous RPC.
-func (c *CollationElementIteratorClient) Previous(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Previous(ctx, &pb.PreviousRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset calls the Reset RPC.
-func (c *CollationElementIteratorClient) Reset(ctx context.Context) error {
-	_, err := c.svc.Reset(ctx, &pb.CollationElementIteratorResetRequest{})
-	return err
-}
-
-// SetOffset calls the SetOffset RPC.
-func (c *CollationElementIteratorClient) SetOffset(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetOffset(ctx, &pb.SetOffsetRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetText1 calls the SetText1 RPC.
-func (c *CollationElementIteratorClient) SetText1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetText1(ctx, &pb.CollationElementIteratorSetText1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetText1_1 calls the SetText1_1 RPC.
-func (c *CollationElementIteratorClient) SetText1_1(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetText1_1(ctx, &pb.SetText1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetText1_2 calls the SetText1_2 RPC.
-func (c *CollationElementIteratorClient) SetText1_2(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetText1_2(ctx, &pb.SetText1_2Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// PrimaryOrder calls the PrimaryOrder RPC.
-func (c *CollationElementIteratorClient) PrimaryOrder(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.PrimaryOrder(ctx, &pb.PrimaryOrderRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SecondaryOrder calls the SecondaryOrder RPC.
-func (c *CollationElementIteratorClient) SecondaryOrder(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.SecondaryOrder(ctx, &pb.SecondaryOrderRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TertiaryOrder calls the TertiaryOrder RPC.
-func (c *CollationElementIteratorClient) TertiaryOrder(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.TertiaryOrder(ctx, &pb.TertiaryOrderRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateIntervalFormatClient wraps the gRPC DateIntervalFormatService client.
-type DateIntervalFormatClient struct {
-	svc pb.DateIntervalFormatServiceClient
-}
-
-// NewDateIntervalFormatClient creates a new DateIntervalFormat client.
-func NewDateIntervalFormatClient(cc grpc.ClientConnInterface) *DateIntervalFormatClient {
-	return &DateIntervalFormatClient{
-		svc: pb.NewDateIntervalFormatServiceClient(cc),
-	}
-}
-
-// Format4 calls the Format4 RPC.
-func (c *DateIntervalFormatClient) Format4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.Format4(ctx, &pb.Format4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_1 calls the Format3_1 RPC.
-func (c *DateIntervalFormatClient) Format3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_1(ctx, &pb.DateIntervalFormatFormat3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_2 calls the Format3_2 RPC.
-func (c *DateIntervalFormatClient) Format3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_2(ctx, &pb.DateIntervalFormatFormat3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToValue2 calls the FormatToValue2 RPC.
-func (c *DateIntervalFormatClient) FormatToValue2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.FormatToValue2(ctx, &pb.FormatToValue2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToValue1_1 calls the FormatToValue1_1 RPC.
-func (c *DateIntervalFormatClient) FormatToValue1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.FormatToValue1_1(ctx, &pb.FormatToValue1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetContext calls the GetContext RPC.
-func (c *DateIntervalFormatClient) GetContext(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetContext(ctx, &pb.DateIntervalFormatGetContextRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateIntervalInfo calls the GetDateIntervalInfo RPC.
-func (c *DateIntervalFormatClient) GetDateIntervalInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDateIntervalInfo(ctx, &pb.GetDateIntervalInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeZone calls the GetTimeZone RPC.
-func (c *DateIntervalFormatClient) GetTimeZone(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeZone(ctx, &pb.GetTimeZoneRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject calls the ParseObject RPC.
-func (c *DateIntervalFormatClient) ParseObject(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject(ctx, &pb.DateIntervalFormatParseObjectRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetContext calls the SetContext RPC.
-func (c *DateIntervalFormatClient) SetContext(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetContext(ctx, &pb.DateIntervalFormatSetContextRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDateIntervalInfo calls the SetDateIntervalInfo RPC.
-func (c *DateIntervalFormatClient) SetDateIntervalInfo(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetDateIntervalInfo(ctx, &pb.SetDateIntervalInfoRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTimeZone calls the SetTimeZone RPC.
-func (c *DateIntervalFormatClient) SetTimeZone(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTimeZone(ctx, &pb.SetTimeZoneRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetInstance1 calls the GetInstance1 RPC.
-func (c *DateIntervalFormatClient) GetInstance1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetInstance1(ctx, &pb.DateIntervalFormatGetInstance1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_1 calls the GetInstance2_1 RPC.
-func (c *DateIntervalFormatClient) GetInstance2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_1(ctx, &pb.DateIntervalFormatGetInstance2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_2 calls the GetInstance2_2 RPC.
-func (c *DateIntervalFormatClient) GetInstance2_2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_2(ctx, &pb.GetInstance2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance3_3 calls the GetInstance3_3 RPC.
-func (c *DateIntervalFormatClient) GetInstance3_3(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstance3_3(ctx, &pb.GetInstance3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_4 calls the GetInstance2_4 RPC.
-func (c *DateIntervalFormatClient) GetInstance2_4(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_4(ctx, &pb.GetInstance2_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance3_5 calls the GetInstance3_5 RPC.
-func (c *DateIntervalFormatClient) GetInstance3_5(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstance3_5(ctx, &pb.GetInstance3_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateIntervalFormatFormattedDateIntervalClient wraps the gRPC DateIntervalFormatFormattedDateIntervalService client.
-type DateIntervalFormatFormattedDateIntervalClient struct {
-	svc pb.DateIntervalFormatFormattedDateIntervalServiceClient
-}
-
-// NewDateIntervalFormatFormattedDateIntervalClient creates a new DateIntervalFormatFormattedDateInterval client.
-func NewDateIntervalFormatFormattedDateIntervalClient(cc grpc.ClientConnInterface) *DateIntervalFormatFormattedDateIntervalClient {
-	return &DateIntervalFormatFormattedDateIntervalClient{
-		svc: pb.NewDateIntervalFormatFormattedDateIntervalServiceClient(cc),
-	}
-}
-
-// CharAt calls the CharAt RPC.
-func (c *DateIntervalFormatFormattedDateIntervalClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return uint16(resp.GetResult()), nil
-}
-
-// Length calls the Length RPC.
-func (c *DateIntervalFormatFormattedDateIntervalClient) Length(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextPosition calls the NextPosition RPC.
-func (c *DateIntervalFormatFormattedDateIntervalClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubSequence calls the SubSequence RPC.
-func (c *DateIntervalFormatFormattedDateIntervalClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToCharacterIterator calls the ToCharacterIterator RPC.
-func (c *DateIntervalFormatFormattedDateIntervalClient) ToCharacterIterator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DateIntervalFormatFormattedDateIntervalClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SimpleDateFormatClient wraps the gRPC SimpleDateFormatService client.
-type SimpleDateFormatClient struct {
-	svc pb.SimpleDateFormatServiceClient
-}
-
-// NewSimpleDateFormatClient creates a new SimpleDateFormat client.
-func NewSimpleDateFormatClient(cc grpc.ClientConnInterface) *SimpleDateFormatClient {
-	return &SimpleDateFormatClient{
-		svc: pb.NewSimpleDateFormatServiceClient(cc),
-	}
-}
-
-// ApplyLocalizedPattern calls the ApplyLocalizedPattern RPC.
-func (c *SimpleDateFormatClient) ApplyLocalizedPattern(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.ApplyLocalizedPattern(ctx, &pb.ApplyLocalizedPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ApplyPattern calls the ApplyPattern RPC.
-func (c *SimpleDateFormatClient) ApplyPattern(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.ApplyPattern(ctx, &pb.ApplyPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Clone calls the Clone RPC.
-func (c *SimpleDateFormatClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.SimpleDateFormatCloneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *SimpleDateFormatClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format calls the Format RPC.
-func (c *SimpleDateFormatClient) Format(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format(ctx, &pb.FormatRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToCharacterIterator calls the FormatToCharacterIterator RPC.
-func (c *SimpleDateFormatClient) FormatToCharacterIterator(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.FormatToCharacterIterator(ctx, &pb.FormatToCharacterIteratorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Get2DigitYearStart calls the Get2DigitYearStart RPC.
-func (c *SimpleDateFormatClient) Get2DigitYearStart(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Get2DigitYearStart(ctx, &pb.Get2DigitYearStartRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateFormatSymbols calls the GetDateFormatSymbols RPC.
-func (c *SimpleDateFormatClient) GetDateFormatSymbols(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDateFormatSymbols(ctx, &pb.GetDateFormatSymbolsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberFormat calls the GetNumberFormat RPC.
-func (c *SimpleDateFormatClient) GetNumberFormat(ctx context.Context, handle int64, arg0 uint16) (int64, error) {
-	resp, err := c.svc.GetNumberFormat(ctx, &pb.GetNumberFormatRequest{
-		Handle: handle,
-		Arg0:   uint32(arg0),
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeZoneFormat calls the GetTimeZoneFormat RPC.
-func (c *SimpleDateFormatClient) GetTimeZoneFormat(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTimeZoneFormat(ctx, &pb.GetTimeZoneFormatRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SimpleDateFormatClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SimpleDateFormatHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse calls the Parse RPC.
-func (c *SimpleDateFormatClient) Parse(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64) error {
-	_, err := c.svc.Parse(ctx, &pb.SimpleDateFormatParseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Set2DigitYearStart calls the Set2DigitYearStart RPC.
-func (c *SimpleDateFormatClient) Set2DigitYearStart(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Set2DigitYearStart(ctx, &pb.Set2DigitYearStartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetContext calls the SetContext RPC.
-func (c *SimpleDateFormatClient) SetContext(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetContext(ctx, &pb.SetContextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDateFormatSymbols calls the SetDateFormatSymbols RPC.
-func (c *SimpleDateFormatClient) SetDateFormatSymbols(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetDateFormatSymbols(ctx, &pb.SetDateFormatSymbolsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetNumberFormat1 calls the SetNumberFormat1 RPC.
-func (c *SimpleDateFormatClient) SetNumberFormat1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetNumberFormat1(ctx, &pb.SetNumberFormat1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetNumberFormat2_1 calls the SetNumberFormat2_1 RPC.
-func (c *SimpleDateFormatClient) SetNumberFormat2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.SetNumberFormat2_1(ctx, &pb.SetNumberFormat2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetTimeZoneFormat calls the SetTimeZoneFormat RPC.
-func (c *SimpleDateFormatClient) SetTimeZoneFormat(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTimeZoneFormat(ctx, &pb.SetTimeZoneFormatRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToLocalizedPattern calls the ToLocalizedPattern RPC.
-func (c *SimpleDateFormatClient) ToLocalizedPattern(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToLocalizedPattern(ctx, &pb.ToLocalizedPatternRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToPattern calls the ToPattern RPC.
-func (c *SimpleDateFormatClient) ToPattern(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToPattern(ctx, &pb.ToPatternRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateFormatClient wraps the gRPC DateFormatService client.
-type DateFormatClient struct {
-	svc pb.DateFormatServiceClient
-}
-
-// NewDateFormatClient creates a new DateFormat client.
-func NewDateFormatClient(cc grpc.ClientConnInterface) *DateFormatClient {
-	return &DateFormatClient{
-		svc: pb.NewDateFormatServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *DateFormatClient) Clone(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *DateFormatClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3 calls the Format3 RPC.
-func (c *DateFormatClient) Format3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3(ctx, &pb.DateFormatFormat3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_1 calls the Format3_1 RPC.
-func (c *DateFormatClient) Format3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_1(ctx, &pb.DateFormatFormat3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1_2 calls the Format1_2 RPC.
-func (c *DateFormatClient) Format1_2(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Format1_2(ctx, &pb.Format1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_3 calls the Format3_3 RPC.
-func (c *DateFormatClient) Format3_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_3(ctx, &pb.DateFormatFormat3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBooleanAttribute calls the GetBooleanAttribute RPC.
-func (c *DateFormatClient) GetBooleanAttribute(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetBooleanAttribute(ctx, &pb.GetBooleanAttributeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCalendar calls the GetCalendar RPC.
-func (c *DateFormatClient) GetCalendar(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCalendar(ctx, &pb.GetCalendarRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetContext calls the GetContext RPC.
-func (c *DateFormatClient) GetContext(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetContext(ctx, &pb.DateFormatGetContextRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberFormat calls the GetNumberFormat RPC.
-func (c *DateFormatClient) GetNumberFormat(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNumberFormat(ctx, &pb.DateFormatGetNumberFormatRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeZone calls the GetTimeZone RPC.
-func (c *DateFormatClient) GetTimeZone(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeZone(ctx, &pb.GetTimeZoneRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *DateFormatClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCalendarLenient calls the IsCalendarLenient RPC.
-func (c *DateFormatClient) IsCalendarLenient(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsCalendarLenient(ctx, &pb.IsCalendarLenientRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLenient calls the IsLenient RPC.
-func (c *DateFormatClient) IsLenient(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsLenient(ctx, &pb.IsLenientRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse1 calls the Parse1 RPC.
-func (c *DateFormatClient) Parse1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.Parse1(ctx, &pb.Parse1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse3_1 calls the Parse3_1 RPC.
-func (c *DateFormatClient) Parse3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
-	_, err := c.svc.Parse3_1(ctx, &pb.Parse3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Parse2_2 calls the Parse2_2 RPC.
-func (c *DateFormatClient) Parse2_2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Parse2_2(ctx, &pb.Parse2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject calls the ParseObject RPC.
-func (c *DateFormatClient) ParseObject(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject(ctx, &pb.DateFormatParseObjectRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBooleanAttribute calls the SetBooleanAttribute RPC.
-func (c *DateFormatClient) SetBooleanAttribute(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.SetBooleanAttribute(ctx, &pb.SetBooleanAttributeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCalendar calls the SetCalendar RPC.
-func (c *DateFormatClient) SetCalendar(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetCalendar(ctx, &pb.SetCalendarRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetCalendarLenient calls the SetCalendarLenient RPC.
-func (c *DateFormatClient) SetCalendarLenient(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetCalendarLenient(ctx, &pb.SetCalendarLenientRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetContext calls the SetContext RPC.
-func (c *DateFormatClient) SetContext(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetContext(ctx, &pb.DateFormatSetContextRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetLenient calls the SetLenient RPC.
-func (c *DateFormatClient) SetLenient(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetLenient(ctx, &pb.SetLenientRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetNumberFormat calls the SetNumberFormat RPC.
-func (c *DateFormatClient) SetNumberFormat(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetNumberFormat(ctx, &pb.SetNumberFormatRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTimeZone calls the SetTimeZone RPC.
-func (c *DateFormatClient) SetTimeZone(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTimeZone(ctx, &pb.SetTimeZoneRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetAvailableLocales calls the GetAvailableLocales RPC.
-func (c *DateFormatClient) GetAvailableLocales(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAvailableLocales(ctx, &pb.GetAvailableLocalesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateInstance0 calls the GetDateInstance0 RPC.
-func (c *DateFormatClient) GetDateInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDateInstance0(ctx, &pb.GetDateInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateInstance2_1 calls the GetDateInstance2_1 RPC.
-func (c *DateFormatClient) GetDateInstance2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetDateInstance2_1(ctx, &pb.GetDateInstance2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateInstance3_2 calls the GetDateInstance3_2 RPC.
-func (c *DateFormatClient) GetDateInstance3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetDateInstance3_2(ctx, &pb.GetDateInstance3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateInstance3_3 calls the GetDateInstance3_3 RPC.
-func (c *DateFormatClient) GetDateInstance3_3(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetDateInstance3_3(ctx, &pb.GetDateInstance3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateInstance1_4 calls the GetDateInstance1_4 RPC.
-func (c *DateFormatClient) GetDateInstance1_4(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetDateInstance1_4(ctx, &pb.GetDateInstance1_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateInstance2_5 calls the GetDateInstance2_5 RPC.
-func (c *DateFormatClient) GetDateInstance2_5(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetDateInstance2_5(ctx, &pb.GetDateInstance2_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateInstance2_6 calls the GetDateInstance2_6 RPC.
-func (c *DateFormatClient) GetDateInstance2_6(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetDateInstance2_6(ctx, &pb.GetDateInstance2_6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateTimeInstance0 calls the GetDateTimeInstance0 RPC.
-func (c *DateFormatClient) GetDateTimeInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDateTimeInstance0(ctx, &pb.GetDateTimeInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateTimeInstance3_1 calls the GetDateTimeInstance3_1 RPC.
-func (c *DateFormatClient) GetDateTimeInstance3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.GetDateTimeInstance3_1(ctx, &pb.GetDateTimeInstance3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateTimeInstance4_2 calls the GetDateTimeInstance4_2 RPC.
-func (c *DateFormatClient) GetDateTimeInstance4_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetDateTimeInstance4_2(ctx, &pb.GetDateTimeInstance4_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateTimeInstance4_3 calls the GetDateTimeInstance4_3 RPC.
-func (c *DateFormatClient) GetDateTimeInstance4_3(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetDateTimeInstance4_3(ctx, &pb.GetDateTimeInstance4_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateTimeInstance2_4 calls the GetDateTimeInstance2_4 RPC.
-func (c *DateFormatClient) GetDateTimeInstance2_4(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetDateTimeInstance2_4(ctx, &pb.GetDateTimeInstance2_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateTimeInstance3_5 calls the GetDateTimeInstance3_5 RPC.
-func (c *DateFormatClient) GetDateTimeInstance3_5(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetDateTimeInstance3_5(ctx, &pb.GetDateTimeInstance3_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDateTimeInstance3_6 calls the GetDateTimeInstance3_6 RPC.
-func (c *DateFormatClient) GetDateTimeInstance3_6(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetDateTimeInstance3_6(ctx, &pb.GetDateTimeInstance3_6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *DateFormatClient) GetInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *DateFormatClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_2 calls the GetInstance2_2 RPC.
-func (c *DateFormatClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_2(ctx, &pb.DateFormatGetInstance2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_3 calls the GetInstance2_3 RPC.
-func (c *DateFormatClient) GetInstance2_3(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_3(ctx, &pb.GetInstance2_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstanceForSkeleton3 calls the GetInstanceForSkeleton3 RPC.
-func (c *DateFormatClient) GetInstanceForSkeleton3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstanceForSkeleton3(ctx, &pb.GetInstanceForSkeleton3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstanceForSkeleton3_1 calls the GetInstanceForSkeleton3_1 RPC.
-func (c *DateFormatClient) GetInstanceForSkeleton3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstanceForSkeleton3_1(ctx, &pb.GetInstanceForSkeleton3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstanceForSkeleton1_2 calls the GetInstanceForSkeleton1_2 RPC.
-func (c *DateFormatClient) GetInstanceForSkeleton1_2(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetInstanceForSkeleton1_2(ctx, &pb.GetInstanceForSkeleton1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstanceForSkeleton2_3 calls the GetInstanceForSkeleton2_3 RPC.
-func (c *DateFormatClient) GetInstanceForSkeleton2_3(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstanceForSkeleton2_3(ctx, &pb.GetInstanceForSkeleton2_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstanceForSkeleton2_4 calls the GetInstanceForSkeleton2_4 RPC.
-func (c *DateFormatClient) GetInstanceForSkeleton2_4(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstanceForSkeleton2_4(ctx, &pb.GetInstanceForSkeleton2_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPatternInstance3 calls the GetPatternInstance3 RPC.
-func (c *DateFormatClient) GetPatternInstance3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetPatternInstance3(ctx, &pb.GetPatternInstance3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPatternInstance3_1 calls the GetPatternInstance3_1 RPC.
-func (c *DateFormatClient) GetPatternInstance3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetPatternInstance3_1(ctx, &pb.GetPatternInstance3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPatternInstance1_2 calls the GetPatternInstance1_2 RPC.
-func (c *DateFormatClient) GetPatternInstance1_2(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPatternInstance1_2(ctx, &pb.GetPatternInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPatternInstance2_3 calls the GetPatternInstance2_3 RPC.
-func (c *DateFormatClient) GetPatternInstance2_3(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetPatternInstance2_3(ctx, &pb.GetPatternInstance2_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPatternInstance2_4 calls the GetPatternInstance2_4 RPC.
-func (c *DateFormatClient) GetPatternInstance2_4(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetPatternInstance2_4(ctx, &pb.GetPatternInstance2_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeInstance0 calls the GetTimeInstance0 RPC.
-func (c *DateFormatClient) GetTimeInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeInstance0(ctx, &pb.GetTimeInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeInstance2_1 calls the GetTimeInstance2_1 RPC.
-func (c *DateFormatClient) GetTimeInstance2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetTimeInstance2_1(ctx, &pb.GetTimeInstance2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeInstance3_2 calls the GetTimeInstance3_2 RPC.
-func (c *DateFormatClient) GetTimeInstance3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetTimeInstance3_2(ctx, &pb.GetTimeInstance3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeInstance3_3 calls the GetTimeInstance3_3 RPC.
-func (c *DateFormatClient) GetTimeInstance3_3(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetTimeInstance3_3(ctx, &pb.GetTimeInstance3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeInstance1_4 calls the GetTimeInstance1_4 RPC.
-func (c *DateFormatClient) GetTimeInstance1_4(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetTimeInstance1_4(ctx, &pb.GetTimeInstance1_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeInstance2_5 calls the GetTimeInstance2_5 RPC.
-func (c *DateFormatClient) GetTimeInstance2_5(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetTimeInstance2_5(ctx, &pb.GetTimeInstance2_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeInstance2_6 calls the GetTimeInstance2_6 RPC.
-func (c *DateFormatClient) GetTimeInstance2_6(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetTimeInstance2_6(ctx, &pb.GetTimeInstance2_6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateFormatBooleanAttributeClient wraps the gRPC DateFormatBooleanAttributeService client.
-type DateFormatBooleanAttributeClient struct {
-	svc pb.DateFormatBooleanAttributeServiceClient
-}
-
-// NewDateFormatBooleanAttributeClient creates a new DateFormatBooleanAttribute client.
-func NewDateFormatBooleanAttributeClient(cc grpc.ClientConnInterface) *DateFormatBooleanAttributeClient {
-	return &DateFormatBooleanAttributeClient{
-		svc: pb.NewDateFormatBooleanAttributeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *DateFormatBooleanAttributeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *DateFormatBooleanAttributeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateFormatFieldClient wraps the gRPC DateFormatFieldService client.
-type DateFormatFieldClient struct {
-	svc pb.DateFormatFieldServiceClient
-}
-
-// NewDateFormatFieldClient creates a new DateFormatField client.
-func NewDateFormatFieldClient(cc grpc.ClientConnInterface) *DateFormatFieldClient {
-	return &DateFormatFieldClient{
-		svc: pb.NewDateFormatFieldServiceClient(cc),
-	}
-}
-
-// GetCalendarField calls the GetCalendarField RPC.
-func (c *DateFormatFieldClient) GetCalendarField(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCalendarField(ctx, &pb.GetCalendarFieldRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfCalendarField calls the OfCalendarField RPC.
-func (c *DateFormatFieldClient) OfCalendarField(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.OfCalendarField(ctx, &pb.OfCalendarFieldRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateFormatHourCycleClient wraps the gRPC DateFormatHourCycleService client.
-type DateFormatHourCycleClient struct {
-	svc pb.DateFormatHourCycleServiceClient
-}
-
-// NewDateFormatHourCycleClient creates a new DateFormatHourCycle client.
-func NewDateFormatHourCycleClient(cc grpc.ClientConnInterface) *DateFormatHourCycleClient {
-	return &DateFormatHourCycleClient{
-		svc: pb.NewDateFormatHourCycleServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *DateFormatHourCycleClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *DateFormatHourCycleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateIntervalInfoClient wraps the gRPC DateIntervalInfoService client.
-type DateIntervalInfoClient struct {
-	svc pb.DateIntervalInfoServiceClient
-}
-
-// NewDateIntervalInfoClient creates a new DateIntervalInfo client.
-func NewDateIntervalInfoClient(cc grpc.ClientConnInterface) *DateIntervalInfoClient {
-	return &DateIntervalInfoClient{
-		svc: pb.NewDateIntervalInfoServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *DateIntervalInfoClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.DateIntervalInfoCloneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0 calls the CloneAsThawed0 RPC.
-func (c *DateIntervalInfoClient) CloneAsThawed0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0(ctx, &pb.DateIntervalInfoCloneAsThawed0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *DateIntervalInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0 calls the Freeze0 RPC.
-func (c *DateIntervalInfoClient) Freeze0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Freeze0(ctx, &pb.DateIntervalInfoFreeze0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDefaultOrder calls the GetDefaultOrder RPC.
-func (c *DateIntervalInfoClient) GetDefaultOrder(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetDefaultOrder(ctx, &pb.GetDefaultOrderRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFallbackIntervalPattern calls the GetFallbackIntervalPattern RPC.
-func (c *DateIntervalInfoClient) GetFallbackIntervalPattern(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetFallbackIntervalPattern(ctx, &pb.GetFallbackIntervalPatternRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntervalPattern calls the GetIntervalPattern RPC.
-func (c *DateIntervalInfoClient) GetIntervalPattern(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetIntervalPattern(ctx, &pb.GetIntervalPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *DateIntervalInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.DateIntervalInfoHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFrozen calls the IsFrozen RPC.
-func (c *DateIntervalInfoClient) IsFrozen(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFrozen(ctx, &pb.DateIntervalInfoIsFrozenRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFallbackIntervalPattern calls the SetFallbackIntervalPattern RPC.
-func (c *DateIntervalInfoClient) SetFallbackIntervalPattern(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetFallbackIntervalPattern(ctx, &pb.SetFallbackIntervalPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIntervalPattern calls the SetIntervalPattern RPC.
-func (c *DateIntervalInfoClient) SetIntervalPattern(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 string) error {
-	_, err := c.svc.SetIntervalPattern(ctx, &pb.SetIntervalPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Freeze0_1 calls the Freeze0_1 RPC.
-func (c *DateIntervalInfoClient) Freeze0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Freeze0_1(ctx, &pb.DateIntervalInfoFreeze0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
-func (c *DateIntervalInfoClient) CloneAsThawed0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.DateIntervalInfoCloneAsThawed0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateIntervalInfoPatternInfoClient wraps the gRPC DateIntervalInfoPatternInfoService client.
-type DateIntervalInfoPatternInfoClient struct {
-	svc pb.DateIntervalInfoPatternInfoServiceClient
-}
-
-// NewDateIntervalInfoPatternInfoClient creates a new DateIntervalInfoPatternInfo client.
-func NewDateIntervalInfoPatternInfoClient(cc grpc.ClientConnInterface) *DateIntervalInfoPatternInfoClient {
-	return &DateIntervalInfoPatternInfoClient{
-		svc: pb.NewDateIntervalInfoPatternInfoServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *DateIntervalInfoPatternInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateIntervalInfoPatternInfoEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FirstDateInPtnIsLaterDate calls the FirstDateInPtnIsLaterDate RPC.
-func (c *DateIntervalInfoPatternInfoClient) FirstDateInPtnIsLaterDate(ctx context.Context) (bool, error) {
-	resp, err := c.svc.FirstDateInPtnIsLaterDate(ctx, &pb.FirstDateInPtnIsLaterDateRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFirstPart calls the GetFirstPart RPC.
-func (c *DateIntervalInfoPatternInfoClient) GetFirstPart(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetFirstPart(ctx, &pb.GetFirstPartRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSecondPart calls the GetSecondPart RPC.
-func (c *DateIntervalInfoPatternInfoClient) GetSecondPart(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSecondPart(ctx, &pb.GetSecondPartRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *DateIntervalInfoPatternInfoClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DateIntervalInfoPatternInfoClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeZoneFormatClient wraps the gRPC TimeZoneFormatService client.
-type TimeZoneFormatClient struct {
-	svc pb.TimeZoneFormatServiceClient
-}
-
-// NewTimeZoneFormatClient creates a new TimeZoneFormat client.
-func NewTimeZoneFormatClient(cc grpc.ClientConnInterface) *TimeZoneFormatClient {
-	return &TimeZoneFormatClient{
-		svc: pb.NewTimeZoneFormatServiceClient(cc),
-	}
-}
-
-// CloneAsThawed0 calls the CloneAsThawed0 RPC.
-func (c *TimeZoneFormatClient) CloneAsThawed0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0(ctx, &pb.CloneAsThawed0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3 calls the Format3 RPC.
-func (c *TimeZoneFormatClient) Format3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (string, error) {
-	resp, err := c.svc.Format3(ctx, &pb.TimeZoneFormatFormat3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_1 calls the Format3_1 RPC.
-func (c *TimeZoneFormatClient) Format3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_1(ctx, &pb.TimeZoneFormatFormat3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatOffsetISO8601Basic calls the FormatOffsetISO8601Basic RPC.
-func (c *TimeZoneFormatClient) FormatOffsetISO8601Basic(ctx context.Context, arg0 int32, arg1 bool, arg2 bool, arg3 bool) (string, error) {
-	resp, err := c.svc.FormatOffsetISO8601Basic(ctx, &pb.FormatOffsetISO8601BasicRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatOffsetISO8601Extended calls the FormatOffsetISO8601Extended RPC.
-func (c *TimeZoneFormatClient) FormatOffsetISO8601Extended(ctx context.Context, arg0 int32, arg1 bool, arg2 bool, arg3 bool) (string, error) {
-	resp, err := c.svc.FormatOffsetISO8601Extended(ctx, &pb.FormatOffsetISO8601ExtendedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatOffsetLocalizedGMT calls the FormatOffsetLocalizedGMT RPC.
-func (c *TimeZoneFormatClient) FormatOffsetLocalizedGMT(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.FormatOffsetLocalizedGMT(ctx, &pb.FormatOffsetLocalizedGMTRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatOffsetShortLocalizedGMT calls the FormatOffsetShortLocalizedGMT RPC.
-func (c *TimeZoneFormatClient) FormatOffsetShortLocalizedGMT(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.FormatOffsetShortLocalizedGMT(ctx, &pb.FormatOffsetShortLocalizedGMTRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToCharacterIterator calls the FormatToCharacterIterator RPC.
-func (c *TimeZoneFormatClient) FormatToCharacterIterator(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.FormatToCharacterIterator(ctx, &pb.TimeZoneFormatFormatToCharacterIteratorRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0 calls the Freeze0 RPC.
-func (c *TimeZoneFormatClient) Freeze0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Freeze0(ctx, &pb.Freeze0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGMTOffsetDigits calls the GetGMTOffsetDigits RPC.
-func (c *TimeZoneFormatClient) GetGMTOffsetDigits(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetGMTOffsetDigits(ctx, &pb.GetGMTOffsetDigitsRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGMTOffsetPattern calls the GetGMTOffsetPattern RPC.
-func (c *TimeZoneFormatClient) GetGMTOffsetPattern(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetGMTOffsetPattern(ctx, &pb.GetGMTOffsetPatternRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGMTPattern calls the GetGMTPattern RPC.
-func (c *TimeZoneFormatClient) GetGMTPattern(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetGMTPattern(ctx, &pb.GetGMTPatternRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGMTZeroFormat calls the GetGMTZeroFormat RPC.
-func (c *TimeZoneFormatClient) GetGMTZeroFormat(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetGMTZeroFormat(ctx, &pb.GetGMTZeroFormatRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeZoneNames calls the GetTimeZoneNames RPC.
-func (c *TimeZoneFormatClient) GetTimeZoneNames(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeZoneNames(ctx, &pb.GetTimeZoneNamesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFrozen calls the IsFrozen RPC.
-func (c *TimeZoneFormatClient) IsFrozen(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFrozen(ctx, &pb.IsFrozenRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse1 calls the Parse1 RPC.
-func (c *TimeZoneFormatClient) Parse1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.Parse1(ctx, &pb.Parse1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse2_1 calls the Parse2_1 RPC.
-func (c *TimeZoneFormatClient) Parse2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Parse2_1(ctx, &pb.Parse2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject calls the ParseObject RPC.
-func (c *TimeZoneFormatClient) ParseObject(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject(ctx, &pb.TimeZoneFormatParseObjectRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseOffsetISO8601 calls the ParseOffsetISO8601 RPC.
-func (c *TimeZoneFormatClient) ParseOffsetISO8601(ctx context.Context, arg0 string, arg1 int64) (int32, error) {
-	resp, err := c.svc.ParseOffsetISO8601(ctx, &pb.ParseOffsetISO8601Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseOffsetLocalizedGMT calls the ParseOffsetLocalizedGMT RPC.
-func (c *TimeZoneFormatClient) ParseOffsetLocalizedGMT(ctx context.Context, arg0 string, arg1 int64) (int32, error) {
-	resp, err := c.svc.ParseOffsetLocalizedGMT(ctx, &pb.ParseOffsetLocalizedGMTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseOffsetShortLocalizedGMT calls the ParseOffsetShortLocalizedGMT RPC.
-func (c *TimeZoneFormatClient) ParseOffsetShortLocalizedGMT(ctx context.Context, arg0 string, arg1 int64) (int32, error) {
-	resp, err := c.svc.ParseOffsetShortLocalizedGMT(ctx, &pb.ParseOffsetShortLocalizedGMTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetGMTOffsetDigits calls the SetGMTOffsetDigits RPC.
-func (c *TimeZoneFormatClient) SetGMTOffsetDigits(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetGMTOffsetDigits(ctx, &pb.SetGMTOffsetDigitsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetGMTOffsetPattern calls the SetGMTOffsetPattern RPC.
-func (c *TimeZoneFormatClient) SetGMTOffsetPattern(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.SetGMTOffsetPattern(ctx, &pb.SetGMTOffsetPatternRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetGMTPattern calls the SetGMTPattern RPC.
-func (c *TimeZoneFormatClient) SetGMTPattern(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetGMTPattern(ctx, &pb.SetGMTPatternRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetGMTZeroFormat calls the SetGMTZeroFormat RPC.
-func (c *TimeZoneFormatClient) SetGMTZeroFormat(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetGMTZeroFormat(ctx, &pb.SetGMTZeroFormatRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTimeZoneNames calls the SetTimeZoneNames RPC.
-func (c *TimeZoneFormatClient) SetTimeZoneNames(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTimeZoneNames(ctx, &pb.SetTimeZoneNamesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0_1 calls the Freeze0_1 RPC.
-func (c *TimeZoneFormatClient) Freeze0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Freeze0_1(ctx, &pb.Freeze0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
-func (c *TimeZoneFormatClient) CloneAsThawed0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.CloneAsThawed0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1 calls the GetInstance1 RPC.
-func (c *TimeZoneFormatClient) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *TimeZoneFormatClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeZoneFormatGMTOffsetPatternTypeClient wraps the gRPC TimeZoneFormatGMTOffsetPatternTypeService client.
-type TimeZoneFormatGMTOffsetPatternTypeClient struct {
-	svc pb.TimeZoneFormatGMTOffsetPatternTypeServiceClient
-}
-
-// NewTimeZoneFormatGMTOffsetPatternTypeClient creates a new TimeZoneFormatGMTOffsetPatternType client.
-func NewTimeZoneFormatGMTOffsetPatternTypeClient(cc grpc.ClientConnInterface) *TimeZoneFormatGMTOffsetPatternTypeClient {
-	return &TimeZoneFormatGMTOffsetPatternTypeClient{
-		svc: pb.NewTimeZoneFormatGMTOffsetPatternTypeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *TimeZoneFormatGMTOffsetPatternTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *TimeZoneFormatGMTOffsetPatternTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeZoneFormatParseOptionClient wraps the gRPC TimeZoneFormatParseOptionService client.
-type TimeZoneFormatParseOptionClient struct {
-	svc pb.TimeZoneFormatParseOptionServiceClient
-}
-
-// NewTimeZoneFormatParseOptionClient creates a new TimeZoneFormatParseOption client.
-func NewTimeZoneFormatParseOptionClient(cc grpc.ClientConnInterface) *TimeZoneFormatParseOptionClient {
-	return &TimeZoneFormatParseOptionClient{
-		svc: pb.NewTimeZoneFormatParseOptionServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *TimeZoneFormatParseOptionClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *TimeZoneFormatParseOptionClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeZoneFormatStyleClient wraps the gRPC TimeZoneFormatStyleService client.
-type TimeZoneFormatStyleClient struct {
-	svc pb.TimeZoneFormatStyleServiceClient
-}
-
-// NewTimeZoneFormatStyleClient creates a new TimeZoneFormatStyle client.
-func NewTimeZoneFormatStyleClient(cc grpc.ClientConnInterface) *TimeZoneFormatStyleClient {
-	return &TimeZoneFormatStyleClient{
-		svc: pb.NewTimeZoneFormatStyleServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *TimeZoneFormatStyleClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *TimeZoneFormatStyleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeZoneFormatTimeTypeClient wraps the gRPC TimeZoneFormatTimeTypeService client.
-type TimeZoneFormatTimeTypeClient struct {
-	svc pb.TimeZoneFormatTimeTypeServiceClient
-}
-
-// NewTimeZoneFormatTimeTypeClient creates a new TimeZoneFormatTimeType client.
-func NewTimeZoneFormatTimeTypeClient(cc grpc.ClientConnInterface) *TimeZoneFormatTimeTypeClient {
-	return &TimeZoneFormatTimeTypeClient{
-		svc: pb.NewTimeZoneFormatTimeTypeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *TimeZoneFormatTimeTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *TimeZoneFormatTimeTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeFilterClient wraps the gRPC UnicodeFilterService client.
-type UnicodeFilterClient struct {
-	svc pb.UnicodeFilterServiceClient
-}
-
-// NewUnicodeFilterClient creates a new UnicodeFilter client.
-func NewUnicodeFilterClient(cc grpc.ClientConnInterface) *UnicodeFilterClient {
-	return &UnicodeFilterClient{
-		svc: pb.NewUnicodeFilterServiceClient(cc),
-	}
-}
-
-// Contains calls the Contains RPC.
-func (c *UnicodeFilterClient) Contains(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.Contains(ctx, &pb.ContainsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Matches calls the Matches RPC.
-func (c *UnicodeFilterClient) Matches(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 bool) (int32, error) {
-	resp, err := c.svc.Matches(ctx, &pb.MatchesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PluralFormatClient wraps the gRPC PluralFormatService client.
-type PluralFormatClient struct {
-	svc pb.PluralFormatServiceClient
-}
-
-// NewPluralFormatClient creates a new PluralFormat client.
-func NewPluralFormatClient(cc grpc.ClientConnInterface) *PluralFormatClient {
-	return &PluralFormatClient{
-		svc: pb.NewPluralFormatServiceClient(cc),
-	}
-}
-
-// ApplyPattern calls the ApplyPattern RPC.
-func (c *PluralFormatClient) ApplyPattern(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.ApplyPattern(ctx, &pb.ApplyPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Equals1 calls the Equals1 RPC.
-func (c *PluralFormatClient) Equals1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1(ctx, &pb.PluralFormatEquals1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals1_1 calls the Equals1_1 RPC.
-func (c *PluralFormatClient) Equals1_1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1_1(ctx, &pb.PluralFormatEquals1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1 calls the Format1 RPC.
-func (c *PluralFormatClient) Format1(ctx context.Context, handle int64, arg0 float64) (string, error) {
-	resp, err := c.svc.Format1(ctx, &pb.Format1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_1 calls the Format3_1 RPC.
-func (c *PluralFormatClient) Format3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_1(ctx, &pb.Format3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PluralFormatClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.PluralFormatHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse calls the Parse RPC.
-func (c *PluralFormatClient) Parse(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Parse(ctx, &pb.PluralFormatParseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject calls the ParseObject RPC.
-func (c *PluralFormatClient) ParseObject(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject(ctx, &pb.ParseObjectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNumberFormat calls the SetNumberFormat RPC.
-func (c *PluralFormatClient) SetNumberFormat(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetNumberFormat(ctx, &pb.PluralFormatSetNumberFormatRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToPattern calls the ToPattern RPC.
-func (c *PluralFormatClient) ToPattern(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToPattern(ctx, &pb.ToPatternRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PluralFormatClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.PluralFormatToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeZoneNamesClient wraps the gRPC TimeZoneNamesService client.
-type TimeZoneNamesClient struct {
-	svc pb.TimeZoneNamesServiceClient
-}
-
-// NewTimeZoneNamesClient creates a new TimeZoneNames client.
-func NewTimeZoneNamesClient(cc grpc.ClientConnInterface) *TimeZoneNamesClient {
-	return &TimeZoneNamesClient{
-		svc: pb.NewTimeZoneNamesServiceClient(cc),
-	}
-}
-
-// GetDisplayName calls the GetDisplayName RPC.
-func (c *TimeZoneNamesClient) GetDisplayName(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (string, error) {
-	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExemplarLocationName calls the GetExemplarLocationName RPC.
-func (c *TimeZoneNamesClient) GetExemplarLocationName(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.GetExemplarLocationName(ctx, &pb.GetExemplarLocationNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMetaZoneDisplayName calls the GetMetaZoneDisplayName RPC.
-func (c *TimeZoneNamesClient) GetMetaZoneDisplayName(ctx context.Context, arg0 string, arg1 int64) (string, error) {
-	resp, err := c.svc.GetMetaZoneDisplayName(ctx, &pb.GetMetaZoneDisplayNameRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMetaZoneID calls the GetMetaZoneID RPC.
-func (c *TimeZoneNamesClient) GetMetaZoneID(ctx context.Context, arg0 string, arg1 int64) (string, error) {
-	resp, err := c.svc.GetMetaZoneID(ctx, &pb.GetMetaZoneIDRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReferenceZoneID calls the GetReferenceZoneID RPC.
-func (c *TimeZoneNamesClient) GetReferenceZoneID(ctx context.Context, arg0 string, arg1 string) (string, error) {
-	resp, err := c.svc.GetReferenceZoneID(ctx, &pb.GetReferenceZoneIDRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeZoneDisplayName calls the GetTimeZoneDisplayName RPC.
-func (c *TimeZoneNamesClient) GetTimeZoneDisplayName(ctx context.Context, arg0 string, arg1 int64) (string, error) {
-	resp, err := c.svc.GetTimeZoneDisplayName(ctx, &pb.GetTimeZoneDisplayNameRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1 calls the GetInstance1 RPC.
-func (c *TimeZoneNamesClient) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *TimeZoneNamesClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTZDBInstance calls the GetTZDBInstance RPC.
-func (c *TimeZoneNamesClient) GetTZDBInstance(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetTZDBInstance(ctx, &pb.GetTZDBInstanceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeZoneNamesNameTypeClient wraps the gRPC TimeZoneNamesNameTypeService client.
-type TimeZoneNamesNameTypeClient struct {
-	svc pb.TimeZoneNamesNameTypeServiceClient
-}
-
-// NewTimeZoneNamesNameTypeClient creates a new TimeZoneNamesNameType client.
-func NewTimeZoneNamesNameTypeClient(cc grpc.ClientConnInterface) *TimeZoneNamesNameTypeClient {
-	return &TimeZoneNamesNameTypeClient{
-		svc: pb.NewTimeZoneNamesNameTypeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *TimeZoneNamesNameTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *TimeZoneNamesNameTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StringSearchClient wraps the gRPC StringSearchService client.
-type StringSearchClient struct {
-	svc pb.StringSearchServiceClient
-}
-
-// NewStringSearchClient creates a new StringSearch client.
-func NewStringSearchClient(cc grpc.ClientConnInterface) *StringSearchClient {
-	return &StringSearchClient{
-		svc: pb.NewStringSearchServiceClient(cc),
-	}
-}
-
-// GetCollator calls the GetCollator RPC.
-func (c *StringSearchClient) GetCollator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCollator(ctx, &pb.GetCollatorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIndex calls the GetIndex RPC.
-func (c *StringSearchClient) GetIndex(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIndex(ctx, &pb.StringSearchGetIndexRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPattern calls the GetPattern RPC.
-func (c *StringSearchClient) GetPattern(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPattern(ctx, &pb.GetPatternRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCanonical calls the IsCanonical RPC.
-func (c *StringSearchClient) IsCanonical(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsCanonical(ctx, &pb.IsCanonicalRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset calls the Reset RPC.
-func (c *StringSearchClient) Reset(ctx context.Context, handle int64) error {
-	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetCanonical calls the SetCanonical RPC.
-func (c *StringSearchClient) SetCanonical(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetCanonical(ctx, &pb.SetCanonicalRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCollator calls the SetCollator RPC.
-func (c *StringSearchClient) SetCollator(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetCollator(ctx, &pb.SetCollatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIndex calls the SetIndex RPC.
-func (c *StringSearchClient) SetIndex(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetIndex(ctx, &pb.StringSearchSetIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPattern calls the SetPattern RPC.
-func (c *StringSearchClient) SetPattern(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetPattern(ctx, &pb.SetPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTarget calls the SetTarget RPC.
-func (c *StringSearchClient) SetTarget(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTarget(ctx, &pb.SetTargetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// MeasureFormatClient wraps the gRPC MeasureFormatService client.
-type MeasureFormatClient struct {
-	svc pb.MeasureFormatServiceClient
-}
-
-// NewMeasureFormatClient creates a new MeasureFormat client.
-func NewMeasureFormatClient(cc grpc.ClientConnInterface) *MeasureFormatClient {
-	return &MeasureFormatClient{
-		svc: pb.NewMeasureFormatServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *MeasureFormatClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.MeasureFormatEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format calls the Format RPC.
-func (c *MeasureFormatClient) Format(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format(ctx, &pb.MeasureFormatFormatRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatMeasurePerUnit calls the FormatMeasurePerUnit RPC.
-func (c *MeasureFormatClient) FormatMeasurePerUnit(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.FormatMeasurePerUnit(ctx, &pb.FormatMeasurePerUnitRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatMeasures1 calls the FormatMeasures1 RPC.
-func (c *MeasureFormatClient) FormatMeasures1(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.FormatMeasures1(ctx, &pb.FormatMeasures1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatMeasures3_1 calls the FormatMeasures3_1 RPC.
-func (c *MeasureFormatClient) FormatMeasures3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.FormatMeasures3_1(ctx, &pb.FormatMeasures3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocale calls the GetLocale RPC.
-func (c *MeasureFormatClient) GetLocale(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.MeasureFormatGetLocaleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberFormat calls the GetNumberFormat RPC.
-func (c *MeasureFormatClient) GetNumberFormat(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNumberFormat(ctx, &pb.MeasureFormatGetNumberFormatRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUnitDisplayName calls the GetUnitDisplayName RPC.
-func (c *MeasureFormatClient) GetUnitDisplayName(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetUnitDisplayName(ctx, &pb.GetUnitDisplayNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWidth calls the GetWidth RPC.
-func (c *MeasureFormatClient) GetWidth(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.MeasureFormatGetWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MeasureFormatClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject2 calls the ParseObject2 RPC.
-func (c *MeasureFormatClient) ParseObject2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject2(ctx, &pb.ParseObject2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject2_1 calls the ParseObject2_1 RPC.
-func (c *MeasureFormatClient) ParseObject2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject2_1(ctx, &pb.ParseObject2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrencyFormat0 calls the GetCurrencyFormat0 RPC.
-func (c *MeasureFormatClient) GetCurrencyFormat0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCurrencyFormat0(ctx, &pb.GetCurrencyFormat0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrencyFormat1_1 calls the GetCurrencyFormat1_1 RPC.
-func (c *MeasureFormatClient) GetCurrencyFormat1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCurrencyFormat1_1(ctx, &pb.GetCurrencyFormat1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrencyFormat1_2 calls the GetCurrencyFormat1_2 RPC.
-func (c *MeasureFormatClient) GetCurrencyFormat1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCurrencyFormat1_2(ctx, &pb.GetCurrencyFormat1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2 calls the GetInstance2 RPC.
-func (c *MeasureFormatClient) GetInstance2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2(ctx, &pb.GetInstance2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance3_1 calls the GetInstance3_1 RPC.
-func (c *MeasureFormatClient) GetInstance3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstance3_1(ctx, &pb.GetInstance3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_2 calls the GetInstance2_2 RPC.
-func (c *MeasureFormatClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_2(ctx, &pb.MeasureFormatGetInstance2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance3_3 calls the GetInstance3_3 RPC.
-func (c *MeasureFormatClient) GetInstance3_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstance3_3(ctx, &pb.MeasureFormatGetInstance3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MeasureFormatFormatWidthClient wraps the gRPC MeasureFormatFormatWidthService client.
-type MeasureFormatFormatWidthClient struct {
-	svc pb.MeasureFormatFormatWidthServiceClient
-}
-
-// NewMeasureFormatFormatWidthClient creates a new MeasureFormatFormatWidth client.
-func NewMeasureFormatFormatWidthClient(cc grpc.ClientConnInterface) *MeasureFormatFormatWidthClient {
-	return &MeasureFormatFormatWidthClient{
-		svc: pb.NewMeasureFormatFormatWidthServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *MeasureFormatFormatWidthClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *MeasureFormatFormatWidthClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeSetSpannerClient wraps the gRPC UnicodeSetSpannerService client.
-type UnicodeSetSpannerClient struct {
-	svc pb.UnicodeSetSpannerServiceClient
-}
-
-// NewUnicodeSetSpannerClient creates a new UnicodeSetSpanner client.
-func NewUnicodeSetSpannerClient(cc grpc.ClientConnInterface) *UnicodeSetSpannerClient {
-	return &UnicodeSetSpannerClient{
-		svc: pb.NewUnicodeSetSpannerServiceClient(cc),
-	}
-}
-
-// CountIn1 calls the CountIn1 RPC.
-func (c *UnicodeSetSpannerClient) CountIn1(ctx context.Context, handle int64, arg0 string) (int32, error) {
-	resp, err := c.svc.CountIn1(ctx, &pb.CountIn1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CountIn2_1 calls the CountIn2_1 RPC.
-func (c *UnicodeSetSpannerClient) CountIn2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (int32, error) {
-	resp, err := c.svc.CountIn2_1(ctx, &pb.CountIn2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CountIn3_2 calls the CountIn3_2 RPC.
-func (c *UnicodeSetSpannerClient) CountIn3_2(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64) (int32, error) {
-	resp, err := c.svc.CountIn3_2(ctx, &pb.CountIn3_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DeleteFrom1 calls the DeleteFrom1 RPC.
-func (c *UnicodeSetSpannerClient) DeleteFrom1(ctx context.Context, handle int64, arg0 string) (string, error) {
-	resp, err := c.svc.DeleteFrom1(ctx, &pb.DeleteFrom1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// DeleteFrom2_1 calls the DeleteFrom2_1 RPC.
-func (c *UnicodeSetSpannerClient) DeleteFrom2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (string, error) {
-	resp, err := c.svc.DeleteFrom2_1(ctx, &pb.DeleteFrom2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *UnicodeSetSpannerClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUnicodeSet calls the GetUnicodeSet RPC.
-func (c *UnicodeSetSpannerClient) GetUnicodeSet(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetUnicodeSet(ctx, &pb.GetUnicodeSetRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *UnicodeSetSpannerClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.UnicodeSetSpannerHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReplaceFrom2 calls the ReplaceFrom2 RPC.
-func (c *UnicodeSetSpannerClient) ReplaceFrom2(ctx context.Context, handle int64, arg0 string, arg1 string) (string, error) {
-	resp, err := c.svc.ReplaceFrom2(ctx, &pb.ReplaceFrom2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReplaceFrom3_1 calls the ReplaceFrom3_1 RPC.
-func (c *UnicodeSetSpannerClient) ReplaceFrom3_1(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64) (string, error) {
-	resp, err := c.svc.ReplaceFrom3_1(ctx, &pb.ReplaceFrom3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReplaceFrom4_2 calls the ReplaceFrom4_2 RPC.
-func (c *UnicodeSetSpannerClient) ReplaceFrom4_2(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64, arg3 int64) (string, error) {
-	resp, err := c.svc.ReplaceFrom4_2(ctx, &pb.ReplaceFrom4_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Trim1 calls the Trim1 RPC.
-func (c *UnicodeSetSpannerClient) Trim1(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Trim1(ctx, &pb.Trim1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Trim2_1 calls the Trim2_1 RPC.
-func (c *UnicodeSetSpannerClient) Trim2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Trim2_1(ctx, &pb.Trim2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Trim3_2 calls the Trim3_2 RPC.
-func (c *UnicodeSetSpannerClient) Trim3_2(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Trim3_2(ctx, &pb.Trim3_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeSetSpannerCountMethodClient wraps the gRPC UnicodeSetSpannerCountMethodService client.
-type UnicodeSetSpannerCountMethodClient struct {
-	svc pb.UnicodeSetSpannerCountMethodServiceClient
-}
-
-// NewUnicodeSetSpannerCountMethodClient creates a new UnicodeSetSpannerCountMethod client.
-func NewUnicodeSetSpannerCountMethodClient(cc grpc.ClientConnInterface) *UnicodeSetSpannerCountMethodClient {
-	return &UnicodeSetSpannerCountMethodClient{
-		svc: pb.NewUnicodeSetSpannerCountMethodServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *UnicodeSetSpannerCountMethodClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *UnicodeSetSpannerCountMethodClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeSetSpannerTrimOptionClient wraps the gRPC UnicodeSetSpannerTrimOptionService client.
-type UnicodeSetSpannerTrimOptionClient struct {
-	svc pb.UnicodeSetSpannerTrimOptionServiceClient
-}
-
-// NewUnicodeSetSpannerTrimOptionClient creates a new UnicodeSetSpannerTrimOption client.
-func NewUnicodeSetSpannerTrimOptionClient(cc grpc.ClientConnInterface) *UnicodeSetSpannerTrimOptionClient {
-	return &UnicodeSetSpannerTrimOptionClient{
-		svc: pb.NewUnicodeSetSpannerTrimOptionServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *UnicodeSetSpannerTrimOptionClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *UnicodeSetSpannerTrimOptionClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -8651,6 +15155,47 @@ func (c *TransliteratorClient) CreateFromRules(ctx context.Context, arg0 string,
 	return resp.GetResult(), nil
 }
 
+// GetAvailableIDs calls the GetAvailableIDs RPC.
+func (c *TransliteratorClient) GetAvailableIDs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableIDs(ctx, &pb.GetAvailableIDsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableSources calls the GetAvailableSources RPC.
+func (c *TransliteratorClient) GetAvailableSources(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableSources(ctx, &pb.GetAvailableSourcesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableTargets calls the GetAvailableTargets RPC.
+func (c *TransliteratorClient) GetAvailableTargets(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAvailableTargets(ctx, &pb.GetAvailableTargetsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableVariants calls the GetAvailableVariants RPC.
+func (c *TransliteratorClient) GetAvailableVariants(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.GetAvailableVariants(ctx, &pb.GetAvailableVariantsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetDisplayName1 calls the GetDisplayName1 RPC.
 func (c *TransliteratorClient) GetDisplayName1(ctx context.Context, arg0 string) (string, error) {
 	resp, err := c.svc.GetDisplayName1(ctx, &pb.TransliteratorGetDisplayName1Request{
@@ -8723,7 +15268,7 @@ func NewTransliteratorPositionClient(cc grpc.ClientConnInterface) *Transliterato
 
 // Equals calls the Equals RPC.
 func (c *TransliteratorPositionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.TransliteratorPositionEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -8762,6739 +15307,6 @@ func (c *TransliteratorPositionClient) ToString(ctx context.Context) (string, er
 func (c *TransliteratorPositionClient) Validate(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.Validate(ctx, &pb.ValidateRequest{
 		Arg0: arg0,
-	})
-	return err
-}
-
-// EditsClient wraps the gRPC EditsService client.
-type EditsClient struct {
-	svc pb.EditsServiceClient
-}
-
-// NewEditsClient creates a new Edits client.
-func NewEditsClient(cc grpc.ClientConnInterface) *EditsClient {
-	return &EditsClient{
-		svc: pb.NewEditsServiceClient(cc),
-	}
-}
-
-// AddReplace calls the AddReplace RPC.
-func (c *EditsClient) AddReplace(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.AddReplace(ctx, &pb.AddReplaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// AddUnchanged calls the AddUnchanged RPC.
-func (c *EditsClient) AddUnchanged(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.AddUnchanged(ctx, &pb.AddUnchangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetCoarseChangesIterator calls the GetCoarseChangesIterator RPC.
-func (c *EditsClient) GetCoarseChangesIterator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCoarseChangesIterator(ctx, &pb.GetCoarseChangesIteratorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCoarseIterator calls the GetCoarseIterator RPC.
-func (c *EditsClient) GetCoarseIterator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCoarseIterator(ctx, &pb.GetCoarseIteratorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFineChangesIterator calls the GetFineChangesIterator RPC.
-func (c *EditsClient) GetFineChangesIterator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFineChangesIterator(ctx, &pb.GetFineChangesIteratorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFineIterator calls the GetFineIterator RPC.
-func (c *EditsClient) GetFineIterator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFineIterator(ctx, &pb.GetFineIteratorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasChanges calls the HasChanges RPC.
-func (c *EditsClient) HasChanges(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasChanges(ctx, &pb.HasChangesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LengthDelta calls the LengthDelta RPC.
-func (c *EditsClient) LengthDelta(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.LengthDelta(ctx, &pb.LengthDeltaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MergeAndAppend calls the MergeAndAppend RPC.
-func (c *EditsClient) MergeAndAppend(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.MergeAndAppend(ctx, &pb.MergeAndAppendRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NumberOfChanges calls the NumberOfChanges RPC.
-func (c *EditsClient) NumberOfChanges(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.NumberOfChanges(ctx, &pb.NumberOfChangesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset calls the Reset RPC.
-func (c *EditsClient) Reset(ctx context.Context, handle int64) error {
-	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// EditsIteratorClient wraps the gRPC EditsIteratorService client.
-type EditsIteratorClient struct {
-	svc pb.EditsIteratorServiceClient
-}
-
-// NewEditsIteratorClient creates a new EditsIterator client.
-func NewEditsIteratorClient(cc grpc.ClientConnInterface) *EditsIteratorClient {
-	return &EditsIteratorClient{
-		svc: pb.NewEditsIteratorServiceClient(cc),
-	}
-}
-
-// DestinationIndex calls the DestinationIndex RPC.
-func (c *EditsIteratorClient) DestinationIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DestinationIndex(ctx, &pb.DestinationIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DestinationIndexFromSourceIndex calls the DestinationIndexFromSourceIndex RPC.
-func (c *EditsIteratorClient) DestinationIndexFromSourceIndex(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.DestinationIndexFromSourceIndex(ctx, &pb.DestinationIndexFromSourceIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FindDestinationIndex calls the FindDestinationIndex RPC.
-func (c *EditsIteratorClient) FindDestinationIndex(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.FindDestinationIndex(ctx, &pb.FindDestinationIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FindSourceIndex calls the FindSourceIndex RPC.
-func (c *EditsIteratorClient) FindSourceIndex(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.FindSourceIndex(ctx, &pb.FindSourceIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasChange calls the HasChange RPC.
-func (c *EditsIteratorClient) HasChange(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasChange(ctx, &pb.HasChangeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewLength calls the NewLength RPC.
-func (c *EditsIteratorClient) NewLength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.NewLength(ctx, &pb.NewLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Next calls the Next RPC.
-func (c *EditsIteratorClient) Next(ctx context.Context) (bool, error) {
-	resp, err := c.svc.Next(ctx, &pb.NextRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OldLength calls the OldLength RPC.
-func (c *EditsIteratorClient) OldLength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.OldLength(ctx, &pb.OldLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReplacementIndex calls the ReplacementIndex RPC.
-func (c *EditsIteratorClient) ReplacementIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.ReplacementIndex(ctx, &pb.ReplacementIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SourceIndex calls the SourceIndex RPC.
-func (c *EditsIteratorClient) SourceIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.SourceIndex(ctx, &pb.SourceIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SourceIndexFromDestinationIndex calls the SourceIndexFromDestinationIndex RPC.
-func (c *EditsIteratorClient) SourceIndexFromDestinationIndex(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.SourceIndexFromDestinationIndex(ctx, &pb.SourceIndexFromDestinationIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *EditsIteratorClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// NormalizerClient wraps the gRPC NormalizerService client.
-type NormalizerClient struct {
-	svc pb.NormalizerServiceClient
-}
-
-// NewNormalizerClient creates a new Normalizer client.
-func NewNormalizerClient(cc grpc.ClientConnInterface) *NormalizerClient {
-	return &NormalizerClient{
-		svc: pb.NewNormalizerServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *NormalizerClient) Clone(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Compare3 calls the Compare3 RPC.
-func (c *NormalizerClient) Compare3(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int32, error) {
-	resp, err := c.svc.Compare3(ctx, &pb.Compare3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Compare7_1 calls the Compare7_1 RPC.
-func (c *NormalizerClient) Compare7_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32, arg6 int32) (int32, error) {
-	resp, err := c.svc.Compare7_1(ctx, &pb.Compare7_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Compare3_2 calls the Compare3_2 RPC.
-func (c *NormalizerClient) Compare3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
-	resp, err := c.svc.Compare3_2(ctx, &pb.Compare3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Compare3_3 calls the Compare3_3 RPC.
-func (c *NormalizerClient) Compare3_3(ctx context.Context, arg0 int32, arg1 string, arg2 int32) (int32, error) {
-	resp, err := c.svc.Compare3_3(ctx, &pb.Compare3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Compare3_4 calls the Compare3_4 RPC.
-func (c *NormalizerClient) Compare3_4(ctx context.Context, arg0 string, arg1 string, arg2 int32) (int32, error) {
-	resp, err := c.svc.Compare3_4(ctx, &pb.Compare3_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeSetClient wraps the gRPC UnicodeSetService client.
-type UnicodeSetClient struct {
-	svc pb.UnicodeSetServiceClient
-}
-
-// NewUnicodeSetClient creates a new UnicodeSet client.
-func NewUnicodeSetClient(cc grpc.ClientConnInterface) *UnicodeSetClient {
-	return &UnicodeSetClient{
-		svc: pb.NewUnicodeSetServiceClient(cc),
-	}
-}
-
-// Add1 calls the Add1 RPC.
-func (c *UnicodeSetClient) Add1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.Add1(ctx, &pb.Add1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Add2_1 calls the Add2_1 RPC.
-func (c *UnicodeSetClient) Add2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.Add2_1(ctx, &pb.Add2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Add1_2 calls the Add1_2 RPC.
-func (c *UnicodeSetClient) Add1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Add1_2(ctx, &pb.Add1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddAll1 calls the AddAll1 RPC.
-func (c *UnicodeSetClient) AddAll1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddAll1(ctx, &pb.AddAll1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddAll2_1 calls the AddAll2_1 RPC.
-func (c *UnicodeSetClient) AddAll2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.AddAll2_1(ctx, &pb.AddAll2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddAll1_2 calls the AddAll1_2 RPC.
-func (c *UnicodeSetClient) AddAll1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.AddAll1_2(ctx, &pb.AddAll1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddMatchSetTo calls the AddMatchSetTo RPC.
-func (c *UnicodeSetClient) AddMatchSetTo(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddMatchSetTo(ctx, &pb.UnicodeSetAddMatchSetToRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ApplyIntPropertyValue calls the ApplyIntPropertyValue RPC.
-func (c *UnicodeSetClient) ApplyIntPropertyValue(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.ApplyIntPropertyValue(ctx, &pb.ApplyIntPropertyValueRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ApplyPattern1 calls the ApplyPattern1 RPC.
-func (c *UnicodeSetClient) ApplyPattern1(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.ApplyPattern1(ctx, &pb.ApplyPattern1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ApplyPattern2_1 calls the ApplyPattern2_1 RPC.
-func (c *UnicodeSetClient) ApplyPattern2_1(ctx context.Context, handle int64, arg0 string, arg1 bool) (int64, error) {
-	resp, err := c.svc.ApplyPattern2_1(ctx, &pb.ApplyPattern2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ApplyPattern2_2 calls the ApplyPattern2_2 RPC.
-func (c *UnicodeSetClient) ApplyPattern2_2(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
-	resp, err := c.svc.ApplyPattern2_2(ctx, &pb.ApplyPattern2_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ApplyPropertyAlias2 calls the ApplyPropertyAlias2 RPC.
-func (c *UnicodeSetClient) ApplyPropertyAlias2(ctx context.Context, handle int64, arg0 string, arg1 string) (int64, error) {
-	resp, err := c.svc.ApplyPropertyAlias2(ctx, &pb.ApplyPropertyAlias2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ApplyPropertyAlias3_1 calls the ApplyPropertyAlias3_1 RPC.
-func (c *UnicodeSetClient) ApplyPropertyAlias3_1(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.ApplyPropertyAlias3_1(ctx, &pb.ApplyPropertyAlias3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CharAt calls the CharAt RPC.
-func (c *UnicodeSetClient) CharAt(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.UnicodeSetCharAtRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clear calls the Clear RPC.
-func (c *UnicodeSetClient) Clear(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clear(ctx, &pb.ClearRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone calls the Clone RPC.
-func (c *UnicodeSetClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.UnicodeSetCloneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0 calls the CloneAsThawed0 RPC.
-func (c *UnicodeSetClient) CloneAsThawed0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0(ctx, &pb.UnicodeSetCloneAsThawed0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloseOver calls the CloseOver RPC.
-func (c *UnicodeSetClient) CloseOver(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.CloseOver(ctx, &pb.CloseOverRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Compact calls the Compact RPC.
-func (c *UnicodeSetClient) Compact(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Compact(ctx, &pb.CompactRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1 calls the CompareTo1 RPC.
-func (c *UnicodeSetClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo2_1 calls the CompareTo2_1 RPC.
-func (c *UnicodeSetClient) CompareTo2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
-	resp, err := c.svc.CompareTo2_1(ctx, &pb.CompareTo2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Complement0 calls the Complement0 RPC.
-func (c *UnicodeSetClient) Complement0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Complement0(ctx, &pb.Complement0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Complement1_1 calls the Complement1_1 RPC.
-func (c *UnicodeSetClient) Complement1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.Complement1_1(ctx, &pb.Complement1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Complement2_2 calls the Complement2_2 RPC.
-func (c *UnicodeSetClient) Complement2_2(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.Complement2_2(ctx, &pb.Complement2_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Complement1_3 calls the Complement1_3 RPC.
-func (c *UnicodeSetClient) Complement1_3(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Complement1_3(ctx, &pb.Complement1_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ComplementAll1 calls the ComplementAll1 RPC.
-func (c *UnicodeSetClient) ComplementAll1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.ComplementAll1(ctx, &pb.ComplementAll1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ComplementAll1_1 calls the ComplementAll1_1 RPC.
-func (c *UnicodeSetClient) ComplementAll1_1(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.ComplementAll1_1(ctx, &pb.ComplementAll1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Contains1 calls the Contains1 RPC.
-func (c *UnicodeSetClient) Contains1(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.Contains1(ctx, &pb.Contains1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Contains2_1 calls the Contains2_1 RPC.
-func (c *UnicodeSetClient) Contains2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.Contains2_1(ctx, &pb.Contains2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Contains1_2 calls the Contains1_2 RPC.
-func (c *UnicodeSetClient) Contains1_2(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.Contains1_2(ctx, &pb.Contains1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContainsAll1 calls the ContainsAll1 RPC.
-func (c *UnicodeSetClient) ContainsAll1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.ContainsAll1(ctx, &pb.ContainsAll1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContainsAll1_1 calls the ContainsAll1_1 RPC.
-func (c *UnicodeSetClient) ContainsAll1_1(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.ContainsAll1_1(ctx, &pb.ContainsAll1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContainsNone1 calls the ContainsNone1 RPC.
-func (c *UnicodeSetClient) ContainsNone1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.ContainsNone1(ctx, &pb.ContainsNone1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContainsNone2_1 calls the ContainsNone2_1 RPC.
-func (c *UnicodeSetClient) ContainsNone2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.ContainsNone2_1(ctx, &pb.ContainsNone2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContainsNone1_2 calls the ContainsNone1_2 RPC.
-func (c *UnicodeSetClient) ContainsNone1_2(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.ContainsNone1_2(ctx, &pb.ContainsNone1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContainsSome1 calls the ContainsSome1 RPC.
-func (c *UnicodeSetClient) ContainsSome1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.ContainsSome1(ctx, &pb.ContainsSome1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContainsSome2_1 calls the ContainsSome2_1 RPC.
-func (c *UnicodeSetClient) ContainsSome2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.ContainsSome2_1(ctx, &pb.ContainsSome2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ContainsSome1_2 calls the ContainsSome1_2 RPC.
-func (c *UnicodeSetClient) ContainsSome1_2(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.ContainsSome1_2(ctx, &pb.ContainsSome1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *UnicodeSetClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0 calls the Freeze0 RPC.
-func (c *UnicodeSetClient) Freeze0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Freeze0(ctx, &pb.UnicodeSetFreeze0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRangeCount calls the GetRangeCount RPC.
-func (c *UnicodeSetClient) GetRangeCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRangeCount(ctx, &pb.GetRangeCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRangeEnd calls the GetRangeEnd RPC.
-func (c *UnicodeSetClient) GetRangeEnd(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetRangeEnd(ctx, &pb.GetRangeEndRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRangeStart calls the GetRangeStart RPC.
-func (c *UnicodeSetClient) GetRangeStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetRangeStart(ctx, &pb.GetRangeStartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasStrings calls the HasStrings RPC.
-func (c *UnicodeSetClient) HasStrings(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasStrings(ctx, &pb.HasStringsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *UnicodeSetClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.UnicodeSetHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IndexOf calls the IndexOf RPC.
-func (c *UnicodeSetClient) IndexOf(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.IndexOf(ctx, &pb.IndexOfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEmpty calls the IsEmpty RPC.
-func (c *UnicodeSetClient) IsEmpty(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsEmpty(ctx, &pb.IsEmptyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFrozen calls the IsFrozen RPC.
-func (c *UnicodeSetClient) IsFrozen(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFrozen(ctx, &pb.UnicodeSetIsFrozenRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Matches calls the Matches RPC.
-func (c *UnicodeSetClient) Matches(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 bool) (int32, error) {
-	resp, err := c.svc.Matches(ctx, &pb.UnicodeSetMatchesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MatchesIndexValue calls the MatchesIndexValue RPC.
-func (c *UnicodeSetClient) MatchesIndexValue(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.MatchesIndexValue(ctx, &pb.UnicodeSetMatchesIndexValueRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Remove1 calls the Remove1 RPC.
-func (c *UnicodeSetClient) Remove1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.Remove1(ctx, &pb.Remove1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Remove2_1 calls the Remove2_1 RPC.
-func (c *UnicodeSetClient) Remove2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.Remove2_1(ctx, &pb.Remove2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Remove1_2 calls the Remove1_2 RPC.
-func (c *UnicodeSetClient) Remove1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Remove1_2(ctx, &pb.Remove1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveAll1 calls the RemoveAll1 RPC.
-func (c *UnicodeSetClient) RemoveAll1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.RemoveAll1(ctx, &pb.RemoveAll1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveAll1_1 calls the RemoveAll1_1 RPC.
-func (c *UnicodeSetClient) RemoveAll1_1(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.RemoveAll1_1(ctx, &pb.RemoveAll1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveAllStrings calls the RemoveAllStrings RPC.
-func (c *UnicodeSetClient) RemoveAllStrings(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.RemoveAllStrings(ctx, &pb.RemoveAllStringsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Retain1 calls the Retain1 RPC.
-func (c *UnicodeSetClient) Retain1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.Retain1(ctx, &pb.Retain1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Retain2_1 calls the Retain2_1 RPC.
-func (c *UnicodeSetClient) Retain2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.Retain2_1(ctx, &pb.Retain2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Retain1_2 calls the Retain1_2 RPC.
-func (c *UnicodeSetClient) Retain1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Retain1_2(ctx, &pb.Retain1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RetainAll1 calls the RetainAll1 RPC.
-func (c *UnicodeSetClient) RetainAll1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.RetainAll1(ctx, &pb.RetainAll1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RetainAll1_1 calls the RetainAll1_1 RPC.
-func (c *UnicodeSetClient) RetainAll1_1(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.RetainAll1_1(ctx, &pb.RetainAll1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Set1 calls the Set1 RPC.
-func (c *UnicodeSetClient) Set1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.Set1(ctx, &pb.Set1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Set2_1 calls the Set2_1 RPC.
-func (c *UnicodeSetClient) Set2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.Set2_1(ctx, &pb.Set2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Size calls the Size RPC.
-func (c *UnicodeSetClient) Size(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.Size(ctx, &pb.UnicodeSetSizeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Span2 calls the Span2 RPC.
-func (c *UnicodeSetClient) Span2(ctx context.Context, handle int64, arg0 string, arg1 int64) (int32, error) {
-	resp, err := c.svc.Span2(ctx, &pb.Span2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Span3_1 calls the Span3_1 RPC.
-func (c *UnicodeSetClient) Span3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) (int32, error) {
-	resp, err := c.svc.Span3_1(ctx, &pb.Span3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SpanBack2 calls the SpanBack2 RPC.
-func (c *UnicodeSetClient) SpanBack2(ctx context.Context, handle int64, arg0 string, arg1 int64) (int32, error) {
-	resp, err := c.svc.SpanBack2(ctx, &pb.SpanBack2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SpanBack3_1 calls the SpanBack3_1 RPC.
-func (c *UnicodeSetClient) SpanBack3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) (int32, error) {
-	resp, err := c.svc.SpanBack3_1(ctx, &pb.SpanBack3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToPattern calls the ToPattern RPC.
-func (c *UnicodeSetClient) ToPattern(ctx context.Context, handle int64, arg0 bool) (string, error) {
-	resp, err := c.svc.ToPattern(ctx, &pb.UnicodeSetToPatternRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *UnicodeSetClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.UnicodeSetToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1_2 calls the CompareTo1_2 RPC.
-func (c *UnicodeSetClient) CompareTo1_2(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1_2(ctx, &pb.CompareTo1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0_1 calls the Freeze0_1 RPC.
-func (c *UnicodeSetClient) Freeze0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Freeze0_1(ctx, &pb.UnicodeSetFreeze0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
-func (c *UnicodeSetClient) CloneAsThawed0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.UnicodeSetCloneAsThawed0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// From calls the From RPC.
-func (c *UnicodeSetClient) From(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.From(ctx, &pb.FromRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromAll calls the FromAll RPC.
-func (c *UnicodeSetClient) FromAll(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.FromAll(ctx, &pb.FromAllRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeSetComparisonStyleClient wraps the gRPC UnicodeSetComparisonStyleService client.
-type UnicodeSetComparisonStyleClient struct {
-	svc pb.UnicodeSetComparisonStyleServiceClient
-}
-
-// NewUnicodeSetComparisonStyleClient creates a new UnicodeSetComparisonStyle client.
-func NewUnicodeSetComparisonStyleClient(cc grpc.ClientConnInterface) *UnicodeSetComparisonStyleClient {
-	return &UnicodeSetComparisonStyleClient{
-		svc: pb.NewUnicodeSetComparisonStyleServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *UnicodeSetComparisonStyleClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *UnicodeSetComparisonStyleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeSetEntryRangeClient wraps the gRPC UnicodeSetEntryRangeService client.
-type UnicodeSetEntryRangeClient struct {
-	svc pb.UnicodeSetEntryRangeServiceClient
-}
-
-// NewUnicodeSetEntryRangeClient creates a new UnicodeSetEntryRange client.
-func NewUnicodeSetEntryRangeClient(cc grpc.ClientConnInterface) *UnicodeSetEntryRangeClient {
-	return &UnicodeSetEntryRangeClient{
-		svc: pb.NewUnicodeSetEntryRangeServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *UnicodeSetEntryRangeClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeSetSpanConditionClient wraps the gRPC UnicodeSetSpanConditionService client.
-type UnicodeSetSpanConditionClient struct {
-	svc pb.UnicodeSetSpanConditionServiceClient
-}
-
-// NewUnicodeSetSpanConditionClient creates a new UnicodeSetSpanCondition client.
-func NewUnicodeSetSpanConditionClient(cc grpc.ClientConnInterface) *UnicodeSetSpanConditionClient {
-	return &UnicodeSetSpanConditionClient{
-		svc: pb.NewUnicodeSetSpanConditionServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *UnicodeSetSpanConditionClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *UnicodeSetSpanConditionClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RelativeDateTimeFormatterClient wraps the gRPC RelativeDateTimeFormatterService client.
-type RelativeDateTimeFormatterClient struct {
-	svc pb.RelativeDateTimeFormatterServiceClient
-}
-
-// NewRelativeDateTimeFormatterClient creates a new RelativeDateTimeFormatter client.
-func NewRelativeDateTimeFormatterClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterClient {
-	return &RelativeDateTimeFormatterClient{
-		svc: pb.NewRelativeDateTimeFormatterServiceClient(cc),
-	}
-}
-
-// CombineDateAndTime calls the CombineDateAndTime RPC.
-func (c *RelativeDateTimeFormatterClient) CombineDateAndTime(ctx context.Context, arg0 string, arg1 string) (string, error) {
-	resp, err := c.svc.CombineDateAndTime(ctx, &pb.CombineDateAndTimeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format2 calls the Format2 RPC.
-func (c *RelativeDateTimeFormatterClient) Format2(ctx context.Context, arg0 int64, arg1 int64) (string, error) {
-	resp, err := c.svc.Format2(ctx, &pb.Format2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_1 calls the Format3_1 RPC.
-func (c *RelativeDateTimeFormatterClient) Format3_1(ctx context.Context, arg0 float64, arg1 int64, arg2 int64) (string, error) {
-	resp, err := c.svc.Format3_1(ctx, &pb.RelativeDateTimeFormatterFormat3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format2_2 calls the Format2_2 RPC.
-func (c *RelativeDateTimeFormatterClient) Format2_2(ctx context.Context, arg0 float64, arg1 int64) (string, error) {
-	resp, err := c.svc.Format2_2(ctx, &pb.Format2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatNumeric calls the FormatNumeric RPC.
-func (c *RelativeDateTimeFormatterClient) FormatNumeric(ctx context.Context, arg0 float64, arg1 int64) (string, error) {
-	resp, err := c.svc.FormatNumeric(ctx, &pb.FormatNumericRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatNumericToValue calls the FormatNumericToValue RPC.
-func (c *RelativeDateTimeFormatterClient) FormatNumericToValue(ctx context.Context, arg0 float64, arg1 int64) (int64, error) {
-	resp, err := c.svc.FormatNumericToValue(ctx, &pb.FormatNumericToValueRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToValue2 calls the FormatToValue2 RPC.
-func (c *RelativeDateTimeFormatterClient) FormatToValue2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.FormatToValue2(ctx, &pb.FormatToValue2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToValue3_1 calls the FormatToValue3_1 RPC.
-func (c *RelativeDateTimeFormatterClient) FormatToValue3_1(ctx context.Context, arg0 float64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.FormatToValue3_1(ctx, &pb.FormatToValue3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToValue2_2 calls the FormatToValue2_2 RPC.
-func (c *RelativeDateTimeFormatterClient) FormatToValue2_2(ctx context.Context, arg0 float64, arg1 int64) (int64, error) {
-	resp, err := c.svc.FormatToValue2_2(ctx, &pb.FormatToValue2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCapitalizationContext calls the GetCapitalizationContext RPC.
-func (c *RelativeDateTimeFormatterClient) GetCapitalizationContext(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCapitalizationContext(ctx, &pb.GetCapitalizationContextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFormatStyle calls the GetFormatStyle RPC.
-func (c *RelativeDateTimeFormatterClient) GetFormatStyle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFormatStyle(ctx, &pb.GetFormatStyleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberFormat calls the GetNumberFormat RPC.
-func (c *RelativeDateTimeFormatterClient) GetNumberFormat(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNumberFormat(ctx, &pb.RelativeDateTimeFormatterGetNumberFormatRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *RelativeDateTimeFormatterClient) GetInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *RelativeDateTimeFormatterClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_2 calls the GetInstance2_2 RPC.
-func (c *RelativeDateTimeFormatterClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_2(ctx, &pb.RelativeDateTimeFormatterGetInstance2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance4_3 calls the GetInstance4_3 RPC.
-func (c *RelativeDateTimeFormatterClient) GetInstance4_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetInstance4_3(ctx, &pb.GetInstance4_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_4 calls the GetInstance1_4 RPC.
-func (c *RelativeDateTimeFormatterClient) GetInstance1_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_4(ctx, &pb.GetInstance1_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_5 calls the GetInstance2_5 RPC.
-func (c *RelativeDateTimeFormatterClient) GetInstance2_5(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_5(ctx, &pb.GetInstance2_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RelativeDateTimeFormatterAbsoluteUnitClient wraps the gRPC RelativeDateTimeFormatterAbsoluteUnitService client.
-type RelativeDateTimeFormatterAbsoluteUnitClient struct {
-	svc pb.RelativeDateTimeFormatterAbsoluteUnitServiceClient
-}
-
-// NewRelativeDateTimeFormatterAbsoluteUnitClient creates a new RelativeDateTimeFormatterAbsoluteUnit client.
-func NewRelativeDateTimeFormatterAbsoluteUnitClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterAbsoluteUnitClient {
-	return &RelativeDateTimeFormatterAbsoluteUnitClient{
-		svc: pb.NewRelativeDateTimeFormatterAbsoluteUnitServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *RelativeDateTimeFormatterAbsoluteUnitClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *RelativeDateTimeFormatterAbsoluteUnitClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RelativeDateTimeFormatterDirectionClient wraps the gRPC RelativeDateTimeFormatterDirectionService client.
-type RelativeDateTimeFormatterDirectionClient struct {
-	svc pb.RelativeDateTimeFormatterDirectionServiceClient
-}
-
-// NewRelativeDateTimeFormatterDirectionClient creates a new RelativeDateTimeFormatterDirection client.
-func NewRelativeDateTimeFormatterDirectionClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterDirectionClient {
-	return &RelativeDateTimeFormatterDirectionClient{
-		svc: pb.NewRelativeDateTimeFormatterDirectionServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *RelativeDateTimeFormatterDirectionClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *RelativeDateTimeFormatterDirectionClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RelativeDateTimeFormatterFormattedRelativeDateTimeClient wraps the gRPC RelativeDateTimeFormatterFormattedRelativeDateTimeService client.
-type RelativeDateTimeFormatterFormattedRelativeDateTimeClient struct {
-	svc pb.RelativeDateTimeFormatterFormattedRelativeDateTimeServiceClient
-}
-
-// NewRelativeDateTimeFormatterFormattedRelativeDateTimeClient creates a new RelativeDateTimeFormatterFormattedRelativeDateTime client.
-func NewRelativeDateTimeFormatterFormattedRelativeDateTimeClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterFormattedRelativeDateTimeClient {
-	return &RelativeDateTimeFormatterFormattedRelativeDateTimeClient{
-		svc: pb.NewRelativeDateTimeFormatterFormattedRelativeDateTimeServiceClient(cc),
-	}
-}
-
-// CharAt calls the CharAt RPC.
-func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return uint16(resp.GetResult()), nil
-}
-
-// Length calls the Length RPC.
-func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) Length(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextPosition calls the NextPosition RPC.
-func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubSequence calls the SubSequence RPC.
-func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToCharacterIterator calls the ToCharacterIterator RPC.
-func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) ToCharacterIterator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *RelativeDateTimeFormatterFormattedRelativeDateTimeClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// RelativeDateTimeFormatterRelativeDateTimeUnitClient wraps the gRPC RelativeDateTimeFormatterRelativeDateTimeUnitService client.
-type RelativeDateTimeFormatterRelativeDateTimeUnitClient struct {
-	svc pb.RelativeDateTimeFormatterRelativeDateTimeUnitServiceClient
-}
-
-// NewRelativeDateTimeFormatterRelativeDateTimeUnitClient creates a new RelativeDateTimeFormatterRelativeDateTimeUnit client.
-func NewRelativeDateTimeFormatterRelativeDateTimeUnitClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterRelativeDateTimeUnitClient {
-	return &RelativeDateTimeFormatterRelativeDateTimeUnitClient{
-		svc: pb.NewRelativeDateTimeFormatterRelativeDateTimeUnitServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *RelativeDateTimeFormatterRelativeDateTimeUnitClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *RelativeDateTimeFormatterRelativeDateTimeUnitClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RelativeDateTimeFormatterRelativeUnitClient wraps the gRPC RelativeDateTimeFormatterRelativeUnitService client.
-type RelativeDateTimeFormatterRelativeUnitClient struct {
-	svc pb.RelativeDateTimeFormatterRelativeUnitServiceClient
-}
-
-// NewRelativeDateTimeFormatterRelativeUnitClient creates a new RelativeDateTimeFormatterRelativeUnit client.
-func NewRelativeDateTimeFormatterRelativeUnitClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterRelativeUnitClient {
-	return &RelativeDateTimeFormatterRelativeUnitClient{
-		svc: pb.NewRelativeDateTimeFormatterRelativeUnitServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *RelativeDateTimeFormatterRelativeUnitClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *RelativeDateTimeFormatterRelativeUnitClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RelativeDateTimeFormatterStyleClient wraps the gRPC RelativeDateTimeFormatterStyleService client.
-type RelativeDateTimeFormatterStyleClient struct {
-	svc pb.RelativeDateTimeFormatterStyleServiceClient
-}
-
-// NewRelativeDateTimeFormatterStyleClient creates a new RelativeDateTimeFormatterStyle client.
-func NewRelativeDateTimeFormatterStyleClient(cc grpc.ClientConnInterface) *RelativeDateTimeFormatterStyleClient {
-	return &RelativeDateTimeFormatterStyleClient{
-		svc: pb.NewRelativeDateTimeFormatterStyleServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *RelativeDateTimeFormatterStyleClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *RelativeDateTimeFormatterStyleClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MessagePatternClient wraps the gRPC MessagePatternService client.
-type MessagePatternClient struct {
-	svc pb.MessagePatternServiceClient
-}
-
-// NewMessagePatternClient creates a new MessagePattern client.
-func NewMessagePatternClient(cc grpc.ClientConnInterface) *MessagePatternClient {
-	return &MessagePatternClient{
-		svc: pb.NewMessagePatternServiceClient(cc),
-	}
-}
-
-// AutoQuoteApostropheDeep calls the AutoQuoteApostropheDeep RPC.
-func (c *MessagePatternClient) AutoQuoteApostropheDeep(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.AutoQuoteApostropheDeep(ctx, &pb.AutoQuoteApostropheDeepRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clear calls the Clear RPC.
-func (c *MessagePatternClient) Clear(ctx context.Context, handle int64) error {
-	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// ClearPatternAndSetApostropheMode calls the ClearPatternAndSetApostropheMode RPC.
-func (c *MessagePatternClient) ClearPatternAndSetApostropheMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ClearPatternAndSetApostropheMode(ctx, &pb.ClearPatternAndSetApostropheModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Clone calls the Clone RPC.
-func (c *MessagePatternClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.MessagePatternCloneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0 calls the CloneAsThawed0 RPC.
-func (c *MessagePatternClient) CloneAsThawed0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0(ctx, &pb.MessagePatternCloneAsThawed0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CountParts calls the CountParts RPC.
-func (c *MessagePatternClient) CountParts(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.CountParts(ctx, &pb.CountPartsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *MessagePatternClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0 calls the Freeze0 RPC.
-func (c *MessagePatternClient) Freeze0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Freeze0(ctx, &pb.MessagePatternFreeze0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetApostropheMode calls the GetApostropheMode RPC.
-func (c *MessagePatternClient) GetApostropheMode(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetApostropheMode(ctx, &pb.GetApostropheModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLimitPartIndex calls the GetLimitPartIndex RPC.
-func (c *MessagePatternClient) GetLimitPartIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLimitPartIndex(ctx, &pb.GetLimitPartIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumericValue calls the GetNumericValue RPC.
-func (c *MessagePatternClient) GetNumericValue(ctx context.Context, handle int64, arg0 int64) (float64, error) {
-	resp, err := c.svc.GetNumericValue(ctx, &pb.GetNumericValueRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPart calls the GetPart RPC.
-func (c *MessagePatternClient) GetPart(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetPart(ctx, &pb.GetPartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPartType calls the GetPartType RPC.
-func (c *MessagePatternClient) GetPartType(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetPartType(ctx, &pb.GetPartTypeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPatternIndex calls the GetPatternIndex RPC.
-func (c *MessagePatternClient) GetPatternIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetPatternIndex(ctx, &pb.GetPatternIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPatternString calls the GetPatternString RPC.
-func (c *MessagePatternClient) GetPatternString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPatternString(ctx, &pb.GetPatternStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPluralOffset calls the GetPluralOffset RPC.
-func (c *MessagePatternClient) GetPluralOffset(ctx context.Context, handle int64, arg0 int32) (float64, error) {
-	resp, err := c.svc.GetPluralOffset(ctx, &pb.GetPluralOffsetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubstring calls the GetSubstring RPC.
-func (c *MessagePatternClient) GetSubstring(ctx context.Context, handle int64, arg0 int64) (string, error) {
-	resp, err := c.svc.GetSubstring(ctx, &pb.GetSubstringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasNamedArguments calls the HasNamedArguments RPC.
-func (c *MessagePatternClient) HasNamedArguments(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasNamedArguments(ctx, &pb.HasNamedArgumentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasNumberedArguments calls the HasNumberedArguments RPC.
-func (c *MessagePatternClient) HasNumberedArguments(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasNumberedArguments(ctx, &pb.HasNumberedArgumentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MessagePatternClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.MessagePatternHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFrozen calls the IsFrozen RPC.
-func (c *MessagePatternClient) IsFrozen(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFrozen(ctx, &pb.MessagePatternIsFrozenRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse calls the Parse RPC.
-func (c *MessagePatternClient) Parse(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Parse(ctx, &pb.MessagePatternParseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseChoiceStyle calls the ParseChoiceStyle RPC.
-func (c *MessagePatternClient) ParseChoiceStyle(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.ParseChoiceStyle(ctx, &pb.ParseChoiceStyleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParsePluralStyle calls the ParsePluralStyle RPC.
-func (c *MessagePatternClient) ParsePluralStyle(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.ParsePluralStyle(ctx, &pb.ParsePluralStyleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseSelectStyle calls the ParseSelectStyle RPC.
-func (c *MessagePatternClient) ParseSelectStyle(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.ParseSelectStyle(ctx, &pb.ParseSelectStyleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PartSubstringMatches calls the PartSubstringMatches RPC.
-func (c *MessagePatternClient) PartSubstringMatches(ctx context.Context, handle int64, arg0 int64, arg1 string) (bool, error) {
-	resp, err := c.svc.PartSubstringMatches(ctx, &pb.PartSubstringMatchesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *MessagePatternClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.MessagePatternToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0_1 calls the Freeze0_1 RPC.
-func (c *MessagePatternClient) Freeze0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Freeze0_1(ctx, &pb.MessagePatternFreeze0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
-func (c *MessagePatternClient) CloneAsThawed0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.MessagePatternCloneAsThawed0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValidateArgumentName calls the ValidateArgumentName RPC.
-func (c *MessagePatternClient) ValidateArgumentName(ctx context.Context, handle int64, arg0 string) (int32, error) {
-	resp, err := c.svc.ValidateArgumentName(ctx, &pb.ValidateArgumentNameRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MessagePatternApostropheModeClient wraps the gRPC MessagePatternApostropheModeService client.
-type MessagePatternApostropheModeClient struct {
-	svc pb.MessagePatternApostropheModeServiceClient
-}
-
-// NewMessagePatternApostropheModeClient creates a new MessagePatternApostropheMode client.
-func NewMessagePatternApostropheModeClient(cc grpc.ClientConnInterface) *MessagePatternApostropheModeClient {
-	return &MessagePatternApostropheModeClient{
-		svc: pb.NewMessagePatternApostropheModeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *MessagePatternApostropheModeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *MessagePatternApostropheModeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MessagePatternArgTypeClient wraps the gRPC MessagePatternArgTypeService client.
-type MessagePatternArgTypeClient struct {
-	svc pb.MessagePatternArgTypeServiceClient
-}
-
-// NewMessagePatternArgTypeClient creates a new MessagePatternArgType client.
-func NewMessagePatternArgTypeClient(cc grpc.ClientConnInterface) *MessagePatternArgTypeClient {
-	return &MessagePatternArgTypeClient{
-		svc: pb.NewMessagePatternArgTypeServiceClient(cc),
-	}
-}
-
-// HasPluralStyle calls the HasPluralStyle RPC.
-func (c *MessagePatternArgTypeClient) HasPluralStyle(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasPluralStyle(ctx, &pb.HasPluralStyleRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Values calls the Values RPC.
-func (c *MessagePatternArgTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *MessagePatternArgTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MessagePatternPartClient wraps the gRPC MessagePatternPartService client.
-type MessagePatternPartClient struct {
-	svc pb.MessagePatternPartServiceClient
-}
-
-// NewMessagePatternPartClient creates a new MessagePatternPart client.
-func NewMessagePatternPartClient(cc grpc.ClientConnInterface) *MessagePatternPartClient {
-	return &MessagePatternPartClient{
-		svc: pb.NewMessagePatternPartServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *MessagePatternPartClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.MessagePatternPartEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetArgType calls the GetArgType RPC.
-func (c *MessagePatternPartClient) GetArgType(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetArgType(ctx, &pb.GetArgTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIndex calls the GetIndex RPC.
-func (c *MessagePatternPartClient) GetIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLength calls the GetLength RPC.
-func (c *MessagePatternPartClient) GetLength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLimit calls the GetLimit RPC.
-func (c *MessagePatternPartClient) GetLimit(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLimit(ctx, &pb.MessagePatternPartGetLimitRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *MessagePatternPartClient) GetType(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValue calls the GetValue RPC.
-func (c *MessagePatternPartClient) GetValue(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetValue(ctx, &pb.GetValueRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MessagePatternPartClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *MessagePatternPartClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// StringPrepParseExceptionClient wraps the gRPC StringPrepParseExceptionService client.
-type StringPrepParseExceptionClient struct {
-	svc pb.StringPrepParseExceptionServiceClient
-}
-
-// NewStringPrepParseExceptionClient creates a new StringPrepParseException client.
-func NewStringPrepParseExceptionClient(cc grpc.ClientConnInterface) *StringPrepParseExceptionClient {
-	return &StringPrepParseExceptionClient{
-		svc: pb.NewStringPrepParseExceptionServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *StringPrepParseExceptionClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetError calls the GetError RPC.
-func (c *StringPrepParseExceptionClient) GetError(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetError(ctx, &pb.GetErrorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *StringPrepParseExceptionClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.StringPrepParseExceptionHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *StringPrepParseExceptionClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.StringPrepParseExceptionToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScientificNumberFormatterClient wraps the gRPC ScientificNumberFormatterService client.
-type ScientificNumberFormatterClient struct {
-	svc pb.ScientificNumberFormatterServiceClient
-}
-
-// NewScientificNumberFormatterClient creates a new ScientificNumberFormatter client.
-func NewScientificNumberFormatterClient(cc grpc.ClientConnInterface) *ScientificNumberFormatterClient {
-	return &ScientificNumberFormatterClient{
-		svc: pb.NewScientificNumberFormatterServiceClient(cc),
-	}
-}
-
-// Format calls the Format RPC.
-func (c *ScientificNumberFormatterClient) Format(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Format(ctx, &pb.ScientificNumberFormatterFormatRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMarkupInstance3 calls the GetMarkupInstance3 RPC.
-func (c *ScientificNumberFormatterClient) GetMarkupInstance3(ctx context.Context, arg0 int64, arg1 string, arg2 string) (int64, error) {
-	resp, err := c.svc.GetMarkupInstance3(ctx, &pb.GetMarkupInstance3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMarkupInstance3_1 calls the GetMarkupInstance3_1 RPC.
-func (c *ScientificNumberFormatterClient) GetMarkupInstance3_1(ctx context.Context, arg0 int64, arg1 string, arg2 string) (int64, error) {
-	resp, err := c.svc.GetMarkupInstance3_1(ctx, &pb.GetMarkupInstance3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSuperscriptInstance1 calls the GetSuperscriptInstance1 RPC.
-func (c *ScientificNumberFormatterClient) GetSuperscriptInstance1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetSuperscriptInstance1(ctx, &pb.GetSuperscriptInstance1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSuperscriptInstance1_1 calls the GetSuperscriptInstance1_1 RPC.
-func (c *ScientificNumberFormatterClient) GetSuperscriptInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetSuperscriptInstance1_1(ctx, &pb.GetSuperscriptInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeSetIteratorClient wraps the gRPC UnicodeSetIteratorService client.
-type UnicodeSetIteratorClient struct {
-	svc pb.UnicodeSetIteratorServiceClient
-}
-
-// NewUnicodeSetIteratorClient creates a new UnicodeSetIterator client.
-func NewUnicodeSetIteratorClient(cc grpc.ClientConnInterface) *UnicodeSetIteratorClient {
-	return &UnicodeSetIteratorClient{
-		svc: pb.NewUnicodeSetIteratorServiceClient(cc),
-	}
-}
-
-// GetString calls the GetString RPC.
-func (c *UnicodeSetIteratorClient) GetString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetString(ctx, &pb.GetStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Next calls the Next RPC.
-func (c *UnicodeSetIteratorClient) Next(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.Next(ctx, &pb.UnicodeSetIteratorNextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextRange calls the NextRange RPC.
-func (c *UnicodeSetIteratorClient) NextRange(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.NextRange(ctx, &pb.NextRangeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset0 calls the Reset0 RPC.
-func (c *UnicodeSetIteratorClient) Reset0(ctx context.Context, handle int64) error {
-	_, err := c.svc.Reset0(ctx, &pb.Reset0Request{
-		Handle: handle,
-	})
-	return err
-}
-
-// Reset1_1 calls the Reset1_1 RPC.
-func (c *UnicodeSetIteratorClient) Reset1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Reset1_1(ctx, &pb.Reset1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SkipToStrings calls the SkipToStrings RPC.
-func (c *UnicodeSetIteratorClient) SkipToStrings(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SkipToStrings(ctx, &pb.SkipToStringsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RuleBasedCollatorClient wraps the gRPC RuleBasedCollatorService client.
-type RuleBasedCollatorClient struct {
-	svc pb.RuleBasedCollatorServiceClient
-}
-
-// NewRuleBasedCollatorClient creates a new RuleBasedCollator client.
-func NewRuleBasedCollatorClient(cc grpc.ClientConnInterface) *RuleBasedCollatorClient {
-	return &RuleBasedCollatorClient{
-		svc: pb.NewRuleBasedCollatorServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *RuleBasedCollatorClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.RuleBasedCollatorCloneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0 calls the CloneAsThawed0 RPC.
-func (c *RuleBasedCollatorClient) CloneAsThawed0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0(ctx, &pb.RuleBasedCollatorCloneAsThawed0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Compare calls the Compare RPC.
-func (c *RuleBasedCollatorClient) Compare(ctx context.Context, handle int64, arg0 string, arg1 string) (int32, error) {
-	resp, err := c.svc.Compare(ctx, &pb.CompareRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *RuleBasedCollatorClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0 calls the Freeze0 RPC.
-func (c *RuleBasedCollatorClient) Freeze0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Freeze0(ctx, &pb.RuleBasedCollatorFreeze0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCollationElementIterator1 calls the GetCollationElementIterator1 RPC.
-func (c *RuleBasedCollatorClient) GetCollationElementIterator1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCollationElementIterator1(ctx, &pb.GetCollationElementIterator1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCollationElementIterator1_1 calls the GetCollationElementIterator1_1 RPC.
-func (c *RuleBasedCollatorClient) GetCollationElementIterator1_1(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.GetCollationElementIterator1_1(ctx, &pb.GetCollationElementIterator1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCollationElementIterator1_2 calls the GetCollationElementIterator1_2 RPC.
-func (c *RuleBasedCollatorClient) GetCollationElementIterator1_2(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCollationElementIterator1_2(ctx, &pb.GetCollationElementIterator1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCollationKey calls the GetCollationKey RPC.
-func (c *RuleBasedCollatorClient) GetCollationKey(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.GetCollationKey(ctx, &pb.RuleBasedCollatorGetCollationKeyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetContractionsAndExpansions calls the GetContractionsAndExpansions RPC.
-func (c *RuleBasedCollatorClient) GetContractionsAndExpansions(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 bool) error {
-	_, err := c.svc.GetContractionsAndExpansions(ctx, &pb.GetContractionsAndExpansionsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GetDecomposition calls the GetDecomposition RPC.
-func (c *RuleBasedCollatorClient) GetDecomposition(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDecomposition(ctx, &pb.RuleBasedCollatorGetDecompositionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxVariable calls the GetMaxVariable RPC.
-func (c *RuleBasedCollatorClient) GetMaxVariable(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMaxVariable(ctx, &pb.RuleBasedCollatorGetMaxVariableRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumericCollation calls the GetNumericCollation RPC.
-func (c *RuleBasedCollatorClient) GetNumericCollation(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetNumericCollation(ctx, &pb.GetNumericCollationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReorderCodes calls the GetReorderCodes RPC.
-func (c *RuleBasedCollatorClient) GetReorderCodes(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetReorderCodes(ctx, &pb.RuleBasedCollatorGetReorderCodesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRules0 calls the GetRules0 RPC.
-func (c *RuleBasedCollatorClient) GetRules0(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetRules0(ctx, &pb.GetRules0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRules1_1 calls the GetRules1_1 RPC.
-func (c *RuleBasedCollatorClient) GetRules1_1(ctx context.Context, handle int64, arg0 bool) (string, error) {
-	resp, err := c.svc.GetRules1_1(ctx, &pb.GetRules1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStrength calls the GetStrength RPC.
-func (c *RuleBasedCollatorClient) GetStrength(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStrength(ctx, &pb.RuleBasedCollatorGetStrengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTailoredSet calls the GetTailoredSet RPC.
-func (c *RuleBasedCollatorClient) GetTailoredSet(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTailoredSet(ctx, &pb.RuleBasedCollatorGetTailoredSetRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUCAVersion calls the GetUCAVersion RPC.
-func (c *RuleBasedCollatorClient) GetUCAVersion(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetUCAVersion(ctx, &pb.RuleBasedCollatorGetUCAVersionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVariableTop calls the GetVariableTop RPC.
-func (c *RuleBasedCollatorClient) GetVariableTop(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetVariableTop(ctx, &pb.RuleBasedCollatorGetVariableTopRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVersion calls the GetVersion RPC.
-func (c *RuleBasedCollatorClient) GetVersion(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetVersion(ctx, &pb.RuleBasedCollatorGetVersionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RuleBasedCollatorClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.RuleBasedCollatorHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAlternateHandlingShifted calls the IsAlternateHandlingShifted RPC.
-func (c *RuleBasedCollatorClient) IsAlternateHandlingShifted(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAlternateHandlingShifted(ctx, &pb.IsAlternateHandlingShiftedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCaseLevel calls the IsCaseLevel RPC.
-func (c *RuleBasedCollatorClient) IsCaseLevel(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsCaseLevel(ctx, &pb.IsCaseLevelRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFrenchCollation calls the IsFrenchCollation RPC.
-func (c *RuleBasedCollatorClient) IsFrenchCollation(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFrenchCollation(ctx, &pb.IsFrenchCollationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFrozen calls the IsFrozen RPC.
-func (c *RuleBasedCollatorClient) IsFrozen(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFrozen(ctx, &pb.RuleBasedCollatorIsFrozenRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLowerCaseFirst calls the IsLowerCaseFirst RPC.
-func (c *RuleBasedCollatorClient) IsLowerCaseFirst(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsLowerCaseFirst(ctx, &pb.IsLowerCaseFirstRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUpperCaseFirst calls the IsUpperCaseFirst RPC.
-func (c *RuleBasedCollatorClient) IsUpperCaseFirst(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsUpperCaseFirst(ctx, &pb.IsUpperCaseFirstRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlternateHandlingDefault calls the SetAlternateHandlingDefault RPC.
-func (c *RuleBasedCollatorClient) SetAlternateHandlingDefault(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetAlternateHandlingDefault(ctx, &pb.SetAlternateHandlingDefaultRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetAlternateHandlingShifted calls the SetAlternateHandlingShifted RPC.
-func (c *RuleBasedCollatorClient) SetAlternateHandlingShifted(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAlternateHandlingShifted(ctx, &pb.SetAlternateHandlingShiftedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCaseFirstDefault calls the SetCaseFirstDefault RPC.
-func (c *RuleBasedCollatorClient) SetCaseFirstDefault(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetCaseFirstDefault(ctx, &pb.SetCaseFirstDefaultRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetCaseLevel calls the SetCaseLevel RPC.
-func (c *RuleBasedCollatorClient) SetCaseLevel(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetCaseLevel(ctx, &pb.SetCaseLevelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCaseLevelDefault calls the SetCaseLevelDefault RPC.
-func (c *RuleBasedCollatorClient) SetCaseLevelDefault(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetCaseLevelDefault(ctx, &pb.SetCaseLevelDefaultRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetDecomposition calls the SetDecomposition RPC.
-func (c *RuleBasedCollatorClient) SetDecomposition(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetDecomposition(ctx, &pb.RuleBasedCollatorSetDecompositionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDecompositionDefault calls the SetDecompositionDefault RPC.
-func (c *RuleBasedCollatorClient) SetDecompositionDefault(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetDecompositionDefault(ctx, &pb.SetDecompositionDefaultRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetFrenchCollation calls the SetFrenchCollation RPC.
-func (c *RuleBasedCollatorClient) SetFrenchCollation(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFrenchCollation(ctx, &pb.SetFrenchCollationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFrenchCollationDefault calls the SetFrenchCollationDefault RPC.
-func (c *RuleBasedCollatorClient) SetFrenchCollationDefault(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetFrenchCollationDefault(ctx, &pb.SetFrenchCollationDefaultRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetLowerCaseFirst calls the SetLowerCaseFirst RPC.
-func (c *RuleBasedCollatorClient) SetLowerCaseFirst(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetLowerCaseFirst(ctx, &pb.SetLowerCaseFirstRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMaxVariable1 calls the SetMaxVariable1 RPC.
-func (c *RuleBasedCollatorClient) SetMaxVariable1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMaxVariable1(ctx, &pb.SetMaxVariable1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNumericCollation calls the SetNumericCollation RPC.
-func (c *RuleBasedCollatorClient) SetNumericCollation(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetNumericCollation(ctx, &pb.SetNumericCollationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetNumericCollationDefault calls the SetNumericCollationDefault RPC.
-func (c *RuleBasedCollatorClient) SetNumericCollationDefault(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetNumericCollationDefault(ctx, &pb.SetNumericCollationDefaultRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetReorderCodes calls the SetReorderCodes RPC.
-func (c *RuleBasedCollatorClient) SetReorderCodes(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetReorderCodes(ctx, &pb.RuleBasedCollatorSetReorderCodesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStrength calls the SetStrength RPC.
-func (c *RuleBasedCollatorClient) SetStrength(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetStrength(ctx, &pb.RuleBasedCollatorSetStrengthRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStrengthDefault calls the SetStrengthDefault RPC.
-func (c *RuleBasedCollatorClient) SetStrengthDefault(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetStrengthDefault(ctx, &pb.SetStrengthDefaultRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetUpperCaseFirst calls the SetUpperCaseFirst RPC.
-func (c *RuleBasedCollatorClient) SetUpperCaseFirst(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetUpperCaseFirst(ctx, &pb.SetUpperCaseFirstRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMaxVariable1_1 calls the SetMaxVariable1_1 RPC.
-func (c *RuleBasedCollatorClient) SetMaxVariable1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMaxVariable1_1(ctx, &pb.SetMaxVariable1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0_1 calls the CloneAsThawed0_1 RPC.
-func (c *RuleBasedCollatorClient) CloneAsThawed0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0_1(ctx, &pb.RuleBasedCollatorCloneAsThawed0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Freeze0_1 calls the Freeze0_1 RPC.
-func (c *RuleBasedCollatorClient) Freeze0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Freeze0_1(ctx, &pb.RuleBasedCollatorFreeze0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CloneAsThawed0_2 calls the CloneAsThawed0_2 RPC.
-func (c *RuleBasedCollatorClient) CloneAsThawed0_2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CloneAsThawed0_2(ctx, &pb.CloneAsThawed0_2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReplaceableClient wraps the gRPC ReplaceableService client.
-type ReplaceableClient struct {
-	svc pb.ReplaceableServiceClient
-}
-
-// NewReplaceableClient creates a new Replaceable client.
-func NewReplaceableClient(cc grpc.ClientConnInterface) *ReplaceableClient {
-	return &ReplaceableClient{
-		svc: pb.NewReplaceableServiceClient(cc),
-	}
-}
-
-// Char32At calls the Char32At RPC.
-func (c *ReplaceableClient) Char32At(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.Char32At(ctx, &pb.Char32AtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CharAt calls the CharAt RPC.
-func (c *ReplaceableClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return uint16(resp.GetResult()), nil
-}
-
-// Copy calls the Copy RPC.
-func (c *ReplaceableClient) Copy(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.Copy(ctx, &pb.CopyRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GetChars calls the GetChars RPC.
-func (c *ReplaceableClient) GetChars(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GetChars(ctx, &pb.GetCharsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// HasMetaData calls the HasMetaData RPC.
-func (c *ReplaceableClient) HasMetaData(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasMetaData(ctx, &pb.HasMetaDataRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Length calls the Length RPC.
-func (c *ReplaceableClient) Length(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Replace5 calls the Replace5 RPC.
-func (c *ReplaceableClient) Replace5(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32, arg4 int32) error {
-	_, err := c.svc.Replace5(ctx, &pb.Replace5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Replace3_1 calls the Replace3_1 RPC.
-func (c *ReplaceableClient) Replace3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 string) error {
-	_, err := c.svc.Replace3_1(ctx, &pb.Replace3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// BidiRunClient wraps the gRPC BidiRunService client.
-type BidiRunClient struct {
-	svc pb.BidiRunServiceClient
-}
-
-// NewBidiRunClient creates a new BidiRun client.
-func NewBidiRunClient(cc grpc.ClientConnInterface) *BidiRunClient {
-	return &BidiRunClient{
-		svc: pb.NewBidiRunServiceClient(cc),
-	}
-}
-
-// GetDirection calls the GetDirection RPC.
-func (c *BidiRunClient) GetDirection(ctx context.Context) (int8, error) {
-	resp, err := c.svc.GetDirection(ctx, &pb.GetDirectionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// GetEmbeddingLevel calls the GetEmbeddingLevel RPC.
-func (c *BidiRunClient) GetEmbeddingLevel(ctx context.Context) (int8, error) {
-	resp, err := c.svc.GetEmbeddingLevel(ctx, &pb.GetEmbeddingLevelRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// GetLength calls the GetLength RPC.
-func (c *BidiRunClient) GetLength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLimit calls the GetLimit RPC.
-func (c *BidiRunClient) GetLimit(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLimit(ctx, &pb.BidiRunGetLimitRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStart calls the GetStart RPC.
-func (c *BidiRunClient) GetStart(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetStart(ctx, &pb.BidiRunGetStartRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEvenRun calls the IsEvenRun RPC.
-func (c *BidiRunClient) IsEvenRun(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsEvenRun(ctx, &pb.IsEvenRunRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOddRun calls the IsOddRun RPC.
-func (c *BidiRunClient) IsOddRun(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsOddRun(ctx, &pb.IsOddRunRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *BidiRunClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// MessageFormatClient wraps the gRPC MessageFormatService client.
-type MessageFormatClient struct {
-	svc pb.MessageFormatServiceClient
-}
-
-// NewMessageFormatClient creates a new MessageFormat client.
-func NewMessageFormatClient(cc grpc.ClientConnInterface) *MessageFormatClient {
-	return &MessageFormatClient{
-		svc: pb.NewMessageFormatServiceClient(cc),
-	}
-}
-
-// ApplyPattern1 calls the ApplyPattern1 RPC.
-func (c *MessageFormatClient) ApplyPattern1(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.ApplyPattern1(ctx, &pb.ApplyPattern1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ApplyPattern2_1 calls the ApplyPattern2_1 RPC.
-func (c *MessageFormatClient) ApplyPattern2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.ApplyPattern2_1(ctx, &pb.MessageFormatApplyPattern2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Clone calls the Clone RPC.
-func (c *MessageFormatClient) Clone(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.MessageFormatCloneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *MessageFormatClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.DateFormatSymbolsEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3 calls the Format3 RPC.
-func (c *MessageFormatClient) Format3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3(ctx, &pb.Format3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_1 calls the Format3_1 RPC.
-func (c *MessageFormatClient) Format3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_1(ctx, &pb.Format3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToCharacterIterator calls the FormatToCharacterIterator RPC.
-func (c *MessageFormatClient) FormatToCharacterIterator(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.FormatToCharacterIterator(ctx, &pb.FormatToCharacterIteratorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetApostropheMode calls the GetApostropheMode RPC.
-func (c *MessageFormatClient) GetApostropheMode(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetApostropheMode(ctx, &pb.GetApostropheModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFormatByArgumentName calls the GetFormatByArgumentName RPC.
-func (c *MessageFormatClient) GetFormatByArgumentName(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.GetFormatByArgumentName(ctx, &pb.GetFormatByArgumentNameRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFormats calls the GetFormats RPC.
-func (c *MessageFormatClient) GetFormats(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFormats(ctx, &pb.GetFormatsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFormatsByArgumentIndex calls the GetFormatsByArgumentIndex RPC.
-func (c *MessageFormatClient) GetFormatsByArgumentIndex(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFormatsByArgumentIndex(ctx, &pb.GetFormatsByArgumentIndexRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocale calls the GetLocale RPC.
-func (c *MessageFormatClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetULocale calls the GetULocale RPC.
-func (c *MessageFormatClient) GetULocale(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetULocale(ctx, &pb.GetULocaleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MessageFormatClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.MessageFormatHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse1 calls the Parse1 RPC.
-func (c *MessageFormatClient) Parse1(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Parse1(ctx, &pb.MessageFormatParse1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse2_1 calls the Parse2_1 RPC.
-func (c *MessageFormatClient) Parse2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Parse2_1(ctx, &pb.MessageFormatParse2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject calls the ParseObject RPC.
-func (c *MessageFormatClient) ParseObject(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject(ctx, &pb.ParseObjectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFormat calls the SetFormat RPC.
-func (c *MessageFormatClient) SetFormat(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetFormat(ctx, &pb.SetFormatRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetFormatByArgumentIndex calls the SetFormatByArgumentIndex RPC.
-func (c *MessageFormatClient) SetFormatByArgumentIndex(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetFormatByArgumentIndex(ctx, &pb.SetFormatByArgumentIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetFormatByArgumentName calls the SetFormatByArgumentName RPC.
-func (c *MessageFormatClient) SetFormatByArgumentName(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.SetFormatByArgumentName(ctx, &pb.SetFormatByArgumentNameRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetFormats calls the SetFormats RPC.
-func (c *MessageFormatClient) SetFormats(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetFormats(ctx, &pb.SetFormatsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFormatsByArgumentIndex calls the SetFormatsByArgumentIndex RPC.
-func (c *MessageFormatClient) SetFormatsByArgumentIndex(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetFormatsByArgumentIndex(ctx, &pb.SetFormatsByArgumentIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetLocale1 calls the SetLocale1 RPC.
-func (c *MessageFormatClient) SetLocale1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetLocale1(ctx, &pb.SetLocale1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetLocale1_1 calls the SetLocale1_1 RPC.
-func (c *MessageFormatClient) SetLocale1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetLocale1_1(ctx, &pb.SetLocale1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToPattern calls the ToPattern RPC.
-func (c *MessageFormatClient) ToPattern(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToPattern(ctx, &pb.ToPatternRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UsesNamedArguments calls the UsesNamedArguments RPC.
-func (c *MessageFormatClient) UsesNamedArguments(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.UsesNamedArguments(ctx, &pb.UsesNamedArgumentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AutoQuoteApostrophe calls the AutoQuoteApostrophe RPC.
-func (c *MessageFormatClient) AutoQuoteApostrophe(ctx context.Context, handle int64, arg0 string) (string, error) {
-	resp, err := c.svc.AutoQuoteApostrophe(ctx, &pb.AutoQuoteApostropheRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format2_2 calls the Format2_2 RPC.
-func (c *MessageFormatClient) Format2_2(ctx context.Context, handle int64, arg0 string, arg1 int64) (string, error) {
-	resp, err := c.svc.Format2_2(ctx, &pb.MessageFormatFormat2_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LocaleDisplayNamesClient wraps the gRPC LocaleDisplayNamesService client.
-type LocaleDisplayNamesClient struct {
-	svc pb.LocaleDisplayNamesServiceClient
-}
-
-// NewLocaleDisplayNamesClient creates a new LocaleDisplayNames client.
-func NewLocaleDisplayNamesClient(cc grpc.ClientConnInterface) *LocaleDisplayNamesClient {
-	return &LocaleDisplayNamesClient{
-		svc: pb.NewLocaleDisplayNamesServiceClient(cc),
-	}
-}
-
-// GetContext calls the GetContext RPC.
-func (c *LocaleDisplayNamesClient) GetContext(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetContext(ctx, &pb.LocaleDisplayNamesGetContextRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDialectHandling calls the GetDialectHandling RPC.
-func (c *LocaleDisplayNamesClient) GetDialectHandling(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDialectHandling(ctx, &pb.GetDialectHandlingRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocale calls the GetLocale RPC.
-func (c *LocaleDisplayNamesClient) GetLocale(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.LocaleDisplayNamesGetLocaleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyDisplayName calls the KeyDisplayName RPC.
-func (c *LocaleDisplayNamesClient) KeyDisplayName(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.KeyDisplayName(ctx, &pb.KeyDisplayNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyValueDisplayName calls the KeyValueDisplayName RPC.
-func (c *LocaleDisplayNamesClient) KeyValueDisplayName(ctx context.Context, arg0 string, arg1 string) (string, error) {
-	resp, err := c.svc.KeyValueDisplayName(ctx, &pb.KeyValueDisplayNameRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LanguageDisplayName calls the LanguageDisplayName RPC.
-func (c *LocaleDisplayNamesClient) LanguageDisplayName(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.LanguageDisplayName(ctx, &pb.LanguageDisplayNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LocaleDisplayName1 calls the LocaleDisplayName1 RPC.
-func (c *LocaleDisplayNamesClient) LocaleDisplayName1(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.LocaleDisplayName1(ctx, &pb.LocaleDisplayName1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LocaleDisplayName1_1 calls the LocaleDisplayName1_1 RPC.
-func (c *LocaleDisplayNamesClient) LocaleDisplayName1_1(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.LocaleDisplayName1_1(ctx, &pb.LocaleDisplayName1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LocaleDisplayName1_2 calls the LocaleDisplayName1_2 RPC.
-func (c *LocaleDisplayNamesClient) LocaleDisplayName1_2(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.LocaleDisplayName1_2(ctx, &pb.LocaleDisplayName1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegionDisplayName calls the RegionDisplayName RPC.
-func (c *LocaleDisplayNamesClient) RegionDisplayName(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.RegionDisplayName(ctx, &pb.RegionDisplayNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScriptDisplayName1 calls the ScriptDisplayName1 RPC.
-func (c *LocaleDisplayNamesClient) ScriptDisplayName1(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.ScriptDisplayName1(ctx, &pb.ScriptDisplayName1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScriptDisplayName1_1 calls the ScriptDisplayName1_1 RPC.
-func (c *LocaleDisplayNamesClient) ScriptDisplayName1_1(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.ScriptDisplayName1_1(ctx, &pb.ScriptDisplayName1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// VariantDisplayName calls the VariantDisplayName RPC.
-func (c *LocaleDisplayNamesClient) VariantDisplayName(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.VariantDisplayName(ctx, &pb.VariantDisplayNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1 calls the GetInstance1 RPC.
-func (c *LocaleDisplayNamesClient) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_1 calls the GetInstance2_1 RPC.
-func (c *LocaleDisplayNamesClient) GetInstance2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_1(ctx, &pb.GetInstance2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_2 calls the GetInstance2_2 RPC.
-func (c *LocaleDisplayNamesClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_2(ctx, &pb.LocaleDisplayNamesGetInstance2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_3 calls the GetInstance1_3 RPC.
-func (c *LocaleDisplayNamesClient) GetInstance1_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_3(ctx, &pb.LocaleDisplayNamesGetInstance1_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_4 calls the GetInstance2_4 RPC.
-func (c *LocaleDisplayNamesClient) GetInstance2_4(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_4(ctx, &pb.LocaleDisplayNamesGetInstance2_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LocaleDisplayNamesDialectHandlingClient wraps the gRPC LocaleDisplayNamesDialectHandlingService client.
-type LocaleDisplayNamesDialectHandlingClient struct {
-	svc pb.LocaleDisplayNamesDialectHandlingServiceClient
-}
-
-// NewLocaleDisplayNamesDialectHandlingClient creates a new LocaleDisplayNamesDialectHandling client.
-func NewLocaleDisplayNamesDialectHandlingClient(cc grpc.ClientConnInterface) *LocaleDisplayNamesDialectHandlingClient {
-	return &LocaleDisplayNamesDialectHandlingClient{
-		svc: pb.NewLocaleDisplayNamesDialectHandlingServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *LocaleDisplayNamesDialectHandlingClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *LocaleDisplayNamesDialectHandlingClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LocaleDisplayNamesUiListItemClient wraps the gRPC LocaleDisplayNamesUiListItemService client.
-type LocaleDisplayNamesUiListItemClient struct {
-	svc pb.LocaleDisplayNamesUiListItemServiceClient
-}
-
-// NewLocaleDisplayNamesUiListItemClient creates a new LocaleDisplayNamesUiListItem client.
-func NewLocaleDisplayNamesUiListItemClient(cc grpc.ClientConnInterface) *LocaleDisplayNamesUiListItemClient {
-	return &LocaleDisplayNamesUiListItemClient{
-		svc: pb.NewLocaleDisplayNamesUiListItemServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *LocaleDisplayNamesUiListItemClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.LocaleDisplayNamesUiListItemEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *LocaleDisplayNamesUiListItemClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *LocaleDisplayNamesUiListItemClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// NumberFormatClient wraps the gRPC NumberFormatService client.
-type NumberFormatClient struct {
-	svc pb.NumberFormatServiceClient
-}
-
-// NewNumberFormatClient creates a new NumberFormat client.
-func NewNumberFormatClient(cc grpc.ClientConnInterface) *NumberFormatClient {
-	return &NumberFormatClient{
-		svc: pb.NewNumberFormatServiceClient(cc),
-	}
-}
-
-// Clone calls the Clone RPC.
-func (c *NumberFormatClient) Clone(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *NumberFormatClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.NumberFormatEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1 calls the Format1 RPC.
-func (c *NumberFormatClient) Format1(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Format1(ctx, &pb.NumberFormatFormat1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_1 calls the Format3_1 RPC.
-func (c *NumberFormatClient) Format3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_1(ctx, &pb.NumberFormatFormat3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1_2 calls the Format1_2 RPC.
-func (c *NumberFormatClient) Format1_2(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Format1_2(ctx, &pb.Format1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_3 calls the Format3_3 RPC.
-func (c *NumberFormatClient) Format3_3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_3(ctx, &pb.NumberFormatFormat3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1_4 calls the Format1_4 RPC.
-func (c *NumberFormatClient) Format1_4(ctx context.Context, arg0 float64) (string, error) {
-	resp, err := c.svc.Format1_4(ctx, &pb.Format1_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_5 calls the Format3_5 RPC.
-func (c *NumberFormatClient) Format3_5(ctx context.Context, arg0 float64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_5(ctx, &pb.NumberFormatFormat3_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_6 calls the Format3_6 RPC.
-func (c *NumberFormatClient) Format3_6(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_6(ctx, &pb.Format3_6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1_7 calls the Format1_7 RPC.
-func (c *NumberFormatClient) Format1_7(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Format1_7(ctx, &pb.Format1_7Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_8 calls the Format3_8 RPC.
-func (c *NumberFormatClient) Format3_8(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_8(ctx, &pb.Format3_8Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1_9 calls the Format1_9 RPC.
-func (c *NumberFormatClient) Format1_9(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Format1_9(ctx, &pb.Format1_9Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_10 calls the Format3_10 RPC.
-func (c *NumberFormatClient) Format3_10(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_10(ctx, &pb.Format3_10Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format1_11 calls the Format1_11 RPC.
-func (c *NumberFormatClient) Format1_11(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Format1_11(ctx, &pb.Format1_11Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Format3_12 calls the Format3_12 RPC.
-func (c *NumberFormatClient) Format3_12(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Format3_12(ctx, &pb.Format3_12Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetContext calls the GetContext RPC.
-func (c *NumberFormatClient) GetContext(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetContext(ctx, &pb.NumberFormatGetContextRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrency calls the GetCurrency RPC.
-func (c *NumberFormatClient) GetCurrency(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCurrency(ctx, &pb.NumberFormatGetCurrencyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaximumFractionDigits calls the GetMaximumFractionDigits RPC.
-func (c *NumberFormatClient) GetMaximumFractionDigits(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaximumFractionDigits(ctx, &pb.GetMaximumFractionDigitsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaximumIntegerDigits calls the GetMaximumIntegerDigits RPC.
-func (c *NumberFormatClient) GetMaximumIntegerDigits(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaximumIntegerDigits(ctx, &pb.GetMaximumIntegerDigitsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumFractionDigits calls the GetMinimumFractionDigits RPC.
-func (c *NumberFormatClient) GetMinimumFractionDigits(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMinimumFractionDigits(ctx, &pb.GetMinimumFractionDigitsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumIntegerDigits calls the GetMinimumIntegerDigits RPC.
-func (c *NumberFormatClient) GetMinimumIntegerDigits(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMinimumIntegerDigits(ctx, &pb.GetMinimumIntegerDigitsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRoundingMode calls the GetRoundingMode RPC.
-func (c *NumberFormatClient) GetRoundingMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRoundingMode(ctx, &pb.GetRoundingModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *NumberFormatClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsGroupingUsed calls the IsGroupingUsed RPC.
-func (c *NumberFormatClient) IsGroupingUsed(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsGroupingUsed(ctx, &pb.IsGroupingUsedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsParseIntegerOnly calls the IsParseIntegerOnly RPC.
-func (c *NumberFormatClient) IsParseIntegerOnly(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsParseIntegerOnly(ctx, &pb.IsParseIntegerOnlyRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsParseStrict calls the IsParseStrict RPC.
-func (c *NumberFormatClient) IsParseStrict(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsParseStrict(ctx, &pb.IsParseStrictRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse1 calls the Parse1 RPC.
-func (c *NumberFormatClient) Parse1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.Parse1(ctx, &pb.Parse1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Parse2_1 calls the Parse2_1 RPC.
-func (c *NumberFormatClient) Parse2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Parse2_1(ctx, &pb.Parse2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseCurrency calls the ParseCurrency RPC.
-func (c *NumberFormatClient) ParseCurrency(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseCurrency(ctx, &pb.ParseCurrencyRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseObject calls the ParseObject RPC.
-func (c *NumberFormatClient) ParseObject(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseObject(ctx, &pb.NumberFormatParseObjectRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetContext calls the SetContext RPC.
-func (c *NumberFormatClient) SetContext(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetContext(ctx, &pb.NumberFormatSetContextRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetCurrency calls the SetCurrency RPC.
-func (c *NumberFormatClient) SetCurrency(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetCurrency(ctx, &pb.NumberFormatSetCurrencyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetGroupingUsed calls the SetGroupingUsed RPC.
-func (c *NumberFormatClient) SetGroupingUsed(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetGroupingUsed(ctx, &pb.SetGroupingUsedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMaximumFractionDigits calls the SetMaximumFractionDigits RPC.
-func (c *NumberFormatClient) SetMaximumFractionDigits(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMaximumFractionDigits(ctx, &pb.SetMaximumFractionDigitsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMaximumIntegerDigits calls the SetMaximumIntegerDigits RPC.
-func (c *NumberFormatClient) SetMaximumIntegerDigits(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMaximumIntegerDigits(ctx, &pb.SetMaximumIntegerDigitsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMinimumFractionDigits calls the SetMinimumFractionDigits RPC.
-func (c *NumberFormatClient) SetMinimumFractionDigits(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMinimumFractionDigits(ctx, &pb.SetMinimumFractionDigitsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMinimumIntegerDigits calls the SetMinimumIntegerDigits RPC.
-func (c *NumberFormatClient) SetMinimumIntegerDigits(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMinimumIntegerDigits(ctx, &pb.SetMinimumIntegerDigitsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetParseIntegerOnly calls the SetParseIntegerOnly RPC.
-func (c *NumberFormatClient) SetParseIntegerOnly(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetParseIntegerOnly(ctx, &pb.SetParseIntegerOnlyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetParseStrict calls the SetParseStrict RPC.
-func (c *NumberFormatClient) SetParseStrict(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetParseStrict(ctx, &pb.SetParseStrictRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetRoundingMode calls the SetRoundingMode RPC.
-func (c *NumberFormatClient) SetRoundingMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetRoundingMode(ctx, &pb.SetRoundingModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetAvailableLocales calls the GetAvailableLocales RPC.
-func (c *NumberFormatClient) GetAvailableLocales(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAvailableLocales(ctx, &pb.GetAvailableLocalesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrencyInstance0 calls the GetCurrencyInstance0 RPC.
-func (c *NumberFormatClient) GetCurrencyInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCurrencyInstance0(ctx, &pb.GetCurrencyInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrencyInstance1_1 calls the GetCurrencyInstance1_1 RPC.
-func (c *NumberFormatClient) GetCurrencyInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCurrencyInstance1_1(ctx, &pb.GetCurrencyInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrencyInstance1_2 calls the GetCurrencyInstance1_2 RPC.
-func (c *NumberFormatClient) GetCurrencyInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCurrencyInstance1_2(ctx, &pb.GetCurrencyInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *NumberFormatClient) GetInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *NumberFormatClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_2 calls the GetInstance2_2 RPC.
-func (c *NumberFormatClient) GetInstance2_2(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetInstance2_2(ctx, &pb.NumberFormatGetInstance2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_3 calls the GetInstance1_3 RPC.
-func (c *NumberFormatClient) GetInstance1_3(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetInstance1_3(ctx, &pb.NumberFormatGetInstance1_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_4 calls the GetInstance1_4 RPC.
-func (c *NumberFormatClient) GetInstance1_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_4(ctx, &pb.GetInstance1_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_5 calls the GetInstance2_5 RPC.
-func (c *NumberFormatClient) GetInstance2_5(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetInstance2_5(ctx, &pb.NumberFormatGetInstance2_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntegerInstance0 calls the GetIntegerInstance0 RPC.
-func (c *NumberFormatClient) GetIntegerInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIntegerInstance0(ctx, &pb.GetIntegerInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntegerInstance1_1 calls the GetIntegerInstance1_1 RPC.
-func (c *NumberFormatClient) GetIntegerInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetIntegerInstance1_1(ctx, &pb.GetIntegerInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntegerInstance1_2 calls the GetIntegerInstance1_2 RPC.
-func (c *NumberFormatClient) GetIntegerInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetIntegerInstance1_2(ctx, &pb.GetIntegerInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberInstance0 calls the GetNumberInstance0 RPC.
-func (c *NumberFormatClient) GetNumberInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNumberInstance0(ctx, &pb.GetNumberInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberInstance1_1 calls the GetNumberInstance1_1 RPC.
-func (c *NumberFormatClient) GetNumberInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetNumberInstance1_1(ctx, &pb.GetNumberInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberInstance1_2 calls the GetNumberInstance1_2 RPC.
-func (c *NumberFormatClient) GetNumberInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetNumberInstance1_2(ctx, &pb.GetNumberInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPercentInstance0 calls the GetPercentInstance0 RPC.
-func (c *NumberFormatClient) GetPercentInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPercentInstance0(ctx, &pb.GetPercentInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPercentInstance1_1 calls the GetPercentInstance1_1 RPC.
-func (c *NumberFormatClient) GetPercentInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetPercentInstance1_1(ctx, &pb.GetPercentInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPercentInstance1_2 calls the GetPercentInstance1_2 RPC.
-func (c *NumberFormatClient) GetPercentInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetPercentInstance1_2(ctx, &pb.GetPercentInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScientificInstance0 calls the GetScientificInstance0 RPC.
-func (c *NumberFormatClient) GetScientificInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetScientificInstance0(ctx, &pb.GetScientificInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScientificInstance1_1 calls the GetScientificInstance1_1 RPC.
-func (c *NumberFormatClient) GetScientificInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetScientificInstance1_1(ctx, &pb.GetScientificInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScientificInstance1_2 calls the GetScientificInstance1_2 RPC.
-func (c *NumberFormatClient) GetScientificInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetScientificInstance1_2(ctx, &pb.GetScientificInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ListFormatterClient wraps the gRPC ListFormatterService client.
-type ListFormatterClient struct {
-	svc pb.ListFormatterServiceClient
-}
-
-// NewListFormatterClient creates a new ListFormatter client.
-func NewListFormatterClient(cc grpc.ClientConnInterface) *ListFormatterClient {
-	return &ListFormatterClient{
-		svc: pb.NewListFormatterServiceClient(cc),
-	}
-}
-
-// Format calls the Format RPC.
-func (c *ListFormatterClient) Format(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.Format(ctx, &pb.ListFormatterFormatRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FormatToValue calls the FormatToValue RPC.
-func (c *ListFormatterClient) FormatToValue(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.FormatToValue(ctx, &pb.FormatToValueRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPatternForNumItems calls the GetPatternForNumItems RPC.
-func (c *ListFormatterClient) GetPatternForNumItems(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetPatternForNumItems(ctx, &pb.GetPatternForNumItemsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *ListFormatterClient) GetInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *ListFormatterClient) GetInstance1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance3_2 calls the GetInstance3_2 RPC.
-func (c *ListFormatterClient) GetInstance3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstance3_2(ctx, &pb.ListFormatterGetInstance3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_3 calls the GetInstance1_3 RPC.
-func (c *ListFormatterClient) GetInstance1_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_3(ctx, &pb.ListFormatterGetInstance1_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance3_4 calls the GetInstance3_4 RPC.
-func (c *ListFormatterClient) GetInstance3_4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstance3_4(ctx, &pb.GetInstance3_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ListFormatterFormattedListClient wraps the gRPC ListFormatterFormattedListService client.
-type ListFormatterFormattedListClient struct {
-	svc pb.ListFormatterFormattedListServiceClient
-}
-
-// NewListFormatterFormattedListClient creates a new ListFormatterFormattedList client.
-func NewListFormatterFormattedListClient(cc grpc.ClientConnInterface) *ListFormatterFormattedListClient {
-	return &ListFormatterFormattedListClient{
-		svc: pb.NewListFormatterFormattedListServiceClient(cc),
-	}
-}
-
-// CharAt calls the CharAt RPC.
-func (c *ListFormatterFormattedListClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.CharAtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return uint16(resp.GetResult()), nil
-}
-
-// Length calls the Length RPC.
-func (c *ListFormatterFormattedListClient) Length(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.LengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextPosition calls the NextPosition RPC.
-func (c *ListFormatterFormattedListClient) NextPosition(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.NextPosition(ctx, &pb.NextPositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubSequence calls the SubSequence RPC.
-func (c *ListFormatterFormattedListClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.SubSequenceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToCharacterIterator calls the ToCharacterIterator RPC.
-func (c *ListFormatterFormattedListClient) ToCharacterIterator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToCharacterIterator(ctx, &pb.ToCharacterIteratorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ListFormatterFormattedListClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ListFormatterTypeClient wraps the gRPC ListFormatterTypeService client.
-type ListFormatterTypeClient struct {
-	svc pb.ListFormatterTypeServiceClient
-}
-
-// NewListFormatterTypeClient creates a new ListFormatterType client.
-func NewListFormatterTypeClient(cc grpc.ClientConnInterface) *ListFormatterTypeClient {
-	return &ListFormatterTypeClient{
-		svc: pb.NewListFormatterTypeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *ListFormatterTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *ListFormatterTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ListFormatterWidthClient wraps the gRPC ListFormatterWidthService client.
-type ListFormatterWidthClient struct {
-	svc pb.ListFormatterWidthServiceClient
-}
-
-// NewListFormatterWidthClient creates a new ListFormatterWidth client.
-func NewListFormatterWidthClient(cc grpc.ClientConnInterface) *ListFormatterWidthClient {
-	return &ListFormatterWidthClient{
-		svc: pb.NewListFormatterWidthServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *ListFormatterWidthClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *ListFormatterWidthClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Normalizer2Client wraps the gRPC Normalizer2Service client.
-type Normalizer2Client struct {
-	svc pb.Normalizer2ServiceClient
-}
-
-// NewNormalizer2Client creates a new Normalizer2 client.
-func NewNormalizer2Client(cc grpc.ClientConnInterface) *Normalizer2Client {
-	return &Normalizer2Client{
-		svc: pb.NewNormalizer2ServiceClient(cc),
-	}
-}
-
-// Append calls the Append RPC.
-func (c *Normalizer2Client) Append(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.Append(ctx, &pb.AppendRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ComposePair calls the ComposePair RPC.
-func (c *Normalizer2Client) ComposePair(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
-	resp, err := c.svc.ComposePair(ctx, &pb.ComposePairRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCombiningClass calls the GetCombiningClass RPC.
-func (c *Normalizer2Client) GetCombiningClass(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetCombiningClass(ctx, &pb.GetCombiningClassRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDecomposition calls the GetDecomposition RPC.
-func (c *Normalizer2Client) GetDecomposition(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetDecomposition(ctx, &pb.Normalizer2GetDecompositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRawDecomposition calls the GetRawDecomposition RPC.
-func (c *Normalizer2Client) GetRawDecomposition(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetRawDecomposition(ctx, &pb.GetRawDecompositionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasBoundaryAfter calls the HasBoundaryAfter RPC.
-func (c *Normalizer2Client) HasBoundaryAfter(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.HasBoundaryAfter(ctx, &pb.HasBoundaryAfterRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasBoundaryBefore calls the HasBoundaryBefore RPC.
-func (c *Normalizer2Client) HasBoundaryBefore(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.HasBoundaryBefore(ctx, &pb.HasBoundaryBeforeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInert calls the IsInert RPC.
-func (c *Normalizer2Client) IsInert(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsInert(ctx, &pb.IsInertRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNormalized calls the IsNormalized RPC.
-func (c *Normalizer2Client) IsNormalized(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsNormalized(ctx, &pb.IsNormalizedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Normalize1 calls the Normalize1 RPC.
-func (c *Normalizer2Client) Normalize1(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.Normalize1(ctx, &pb.Normalize1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Normalize2_1 calls the Normalize2_1 RPC.
-func (c *Normalizer2Client) Normalize2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Normalize2_1(ctx, &pb.Normalize2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Normalize2_2 calls the Normalize2_2 RPC.
-func (c *Normalizer2Client) Normalize2_2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Normalize2_2(ctx, &pb.Normalize2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NormalizeSecondAndAppend calls the NormalizeSecondAndAppend RPC.
-func (c *Normalizer2Client) NormalizeSecondAndAppend(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.NormalizeSecondAndAppend(ctx, &pb.NormalizeSecondAndAppendRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QuickCheck calls the QuickCheck RPC.
-func (c *Normalizer2Client) QuickCheck(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.QuickCheck(ctx, &pb.QuickCheckRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SpanQuickCheckYes calls the SpanQuickCheckYes RPC.
-func (c *Normalizer2Client) SpanQuickCheckYes(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.SpanQuickCheckYes(ctx, &pb.SpanQuickCheckYesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *Normalizer2Client) GetInstance(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNFCInstance calls the GetNFCInstance RPC.
-func (c *Normalizer2Client) GetNFCInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNFCInstance(ctx, &pb.GetNFCInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNFDInstance calls the GetNFDInstance RPC.
-func (c *Normalizer2Client) GetNFDInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNFDInstance(ctx, &pb.GetNFDInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNFKCCasefoldInstance calls the GetNFKCCasefoldInstance RPC.
-func (c *Normalizer2Client) GetNFKCCasefoldInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNFKCCasefoldInstance(ctx, &pb.GetNFKCCasefoldInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNFKCInstance calls the GetNFKCInstance RPC.
-func (c *Normalizer2Client) GetNFKCInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNFKCInstance(ctx, &pb.GetNFKCInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNFKCSimpleCasefoldInstance calls the GetNFKCSimpleCasefoldInstance RPC.
-func (c *Normalizer2Client) GetNFKCSimpleCasefoldInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNFKCSimpleCasefoldInstance(ctx, &pb.GetNFKCSimpleCasefoldInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNFKDInstance calls the GetNFKDInstance RPC.
-func (c *Normalizer2Client) GetNFKDInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNFKDInstance(ctx, &pb.GetNFKDInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Normalizer2ModeClient wraps the gRPC Normalizer2ModeService client.
-type Normalizer2ModeClient struct {
-	svc pb.Normalizer2ModeServiceClient
-}
-
-// NewNormalizer2ModeClient creates a new Normalizer2Mode client.
-func NewNormalizer2ModeClient(cc grpc.ClientConnInterface) *Normalizer2ModeClient {
-	return &Normalizer2ModeClient{
-		svc: pb.NewNormalizer2ModeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *Normalizer2ModeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *Normalizer2ModeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BidiClient wraps the gRPC BidiService client.
-type BidiClient struct {
-	svc pb.BidiServiceClient
-}
-
-// NewBidiClient creates a new Bidi client.
-func NewBidiClient(cc grpc.ClientConnInterface) *BidiClient {
-	return &BidiClient{
-		svc: pb.NewBidiServiceClient(cc),
-	}
-}
-
-// BaseIsLeftToRight calls the BaseIsLeftToRight RPC.
-func (c *BidiClient) BaseIsLeftToRight(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.BaseIsLeftToRight(ctx, &pb.BaseIsLeftToRightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CountParagraphs calls the CountParagraphs RPC.
-func (c *BidiClient) CountParagraphs(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.CountParagraphs(ctx, &pb.CountParagraphsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CountRuns calls the CountRuns RPC.
-func (c *BidiClient) CountRuns(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.CountRuns(ctx, &pb.CountRunsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateLineBidi calls the CreateLineBidi RPC.
-func (c *BidiClient) CreateLineBidi(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.CreateLineBidi(ctx, &pb.CreateLineBidiRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBaseLevel calls the GetBaseLevel RPC.
-func (c *BidiClient) GetBaseLevel(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetBaseLevel(ctx, &pb.GetBaseLevelRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCustomClassifier calls the GetCustomClassifier RPC.
-func (c *BidiClient) GetCustomClassifier(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCustomClassifier(ctx, &pb.GetCustomClassifierRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCustomizedClass calls the GetCustomizedClass RPC.
-func (c *BidiClient) GetCustomizedClass(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetCustomizedClass(ctx, &pb.GetCustomizedClassRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDirection calls the GetDirection RPC.
-func (c *BidiClient) GetDirection(ctx context.Context, handle int64) (int8, error) {
-	resp, err := c.svc.GetDirection(ctx, &pb.BidiGetDirectionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// GetLength calls the GetLength RPC.
-func (c *BidiClient) GetLength(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLength(ctx, &pb.BidiGetLengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLevelAt calls the GetLevelAt RPC.
-func (c *BidiClient) GetLevelAt(ctx context.Context, handle int64, arg0 int32) (int8, error) {
-	resp, err := c.svc.GetLevelAt(ctx, &pb.GetLevelAtRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// GetLevels calls the GetLevels RPC.
-func (c *BidiClient) GetLevels(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLevels(ctx, &pb.GetLevelsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLogicalIndex calls the GetLogicalIndex RPC.
-func (c *BidiClient) GetLogicalIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLogicalIndex(ctx, &pb.GetLogicalIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLogicalMap calls the GetLogicalMap RPC.
-func (c *BidiClient) GetLogicalMap(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLogicalMap(ctx, &pb.GetLogicalMapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLogicalRun calls the GetLogicalRun RPC.
-func (c *BidiClient) GetLogicalRun(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetLogicalRun(ctx, &pb.GetLogicalRunRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParaLevel calls the GetParaLevel RPC.
-func (c *BidiClient) GetParaLevel(ctx context.Context, handle int64) (int8, error) {
-	resp, err := c.svc.GetParaLevel(ctx, &pb.GetParaLevelRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// GetParagraph calls the GetParagraph RPC.
-func (c *BidiClient) GetParagraph(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetParagraph(ctx, &pb.GetParagraphRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParagraphByIndex calls the GetParagraphByIndex RPC.
-func (c *BidiClient) GetParagraphByIndex(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetParagraphByIndex(ctx, &pb.GetParagraphByIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParagraphIndex calls the GetParagraphIndex RPC.
-func (c *BidiClient) GetParagraphIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetParagraphIndex(ctx, &pb.GetParagraphIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProcessedLength calls the GetProcessedLength RPC.
-func (c *BidiClient) GetProcessedLength(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetProcessedLength(ctx, &pb.GetProcessedLengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReorderingMode calls the GetReorderingMode RPC.
-func (c *BidiClient) GetReorderingMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetReorderingMode(ctx, &pb.GetReorderingModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReorderingOptions calls the GetReorderingOptions RPC.
-func (c *BidiClient) GetReorderingOptions(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetReorderingOptions(ctx, &pb.GetReorderingOptionsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResultLength calls the GetResultLength RPC.
-func (c *BidiClient) GetResultLength(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetResultLength(ctx, &pb.GetResultLengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRunCount calls the GetRunCount RPC.
-func (c *BidiClient) GetRunCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRunCount(ctx, &pb.GetRunCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRunLevel calls the GetRunLevel RPC.
-func (c *BidiClient) GetRunLevel(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetRunLevel(ctx, &pb.GetRunLevelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRunLimit calls the GetRunLimit RPC.
-func (c *BidiClient) GetRunLimit(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetRunLimit(ctx, &pb.GetRunLimitRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRunStart calls the GetRunStart RPC.
-func (c *BidiClient) GetRunStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetRunStart(ctx, &pb.GetRunStartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetText calls the GetText RPC.
-func (c *BidiClient) GetText(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetText(ctx, &pb.BidiGetTextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextAsString calls the GetTextAsString RPC.
-func (c *BidiClient) GetTextAsString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetTextAsString(ctx, &pb.GetTextAsStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVisualIndex calls the GetVisualIndex RPC.
-func (c *BidiClient) GetVisualIndex(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetVisualIndex(ctx, &pb.GetVisualIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVisualMap calls the GetVisualMap RPC.
-func (c *BidiClient) GetVisualMap(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetVisualMap(ctx, &pb.GetVisualMapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVisualRun calls the GetVisualRun RPC.
-func (c *BidiClient) GetVisualRun(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetVisualRun(ctx, &pb.GetVisualRunRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInverse calls the IsInverse RPC.
-func (c *BidiClient) IsInverse(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsInverse(ctx, &pb.IsInverseRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLeftToRight calls the IsLeftToRight RPC.
-func (c *BidiClient) IsLeftToRight(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsLeftToRight(ctx, &pb.IsLeftToRightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsMixed calls the IsMixed RPC.
-func (c *BidiClient) IsMixed(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsMixed(ctx, &pb.IsMixedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOrderParagraphsLTR calls the IsOrderParagraphsLTR RPC.
-func (c *BidiClient) IsOrderParagraphsLTR(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsOrderParagraphsLTR(ctx, &pb.IsOrderParagraphsLTRRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRightToLeft calls the IsRightToLeft RPC.
-func (c *BidiClient) IsRightToLeft(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsRightToLeft(ctx, &pb.IsRightToLeftRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OrderParagraphsLTR calls the OrderParagraphsLTR RPC.
-func (c *BidiClient) OrderParagraphsLTR(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.OrderParagraphsLTR(ctx, &pb.OrderParagraphsLTRRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetContext calls the SetContext RPC.
-func (c *BidiClient) SetContext(ctx context.Context, handle int64, arg0 string, arg1 string) error {
-	_, err := c.svc.SetContext(ctx, &pb.BidiSetContextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetCustomClassifier calls the SetCustomClassifier RPC.
-func (c *BidiClient) SetCustomClassifier(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetCustomClassifier(ctx, &pb.SetCustomClassifierRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetInverse calls the SetInverse RPC.
-func (c *BidiClient) SetInverse(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetInverse(ctx, &pb.SetInverseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetLine calls the SetLine RPC.
-func (c *BidiClient) SetLine(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetLine(ctx, &pb.SetLineRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPara3 calls the SetPara3 RPC.
-func (c *BidiClient) SetPara3(ctx context.Context, handle int64, arg0 int64, arg1 int8, arg2 int64) error {
-	_, err := c.svc.SetPara3(ctx, &pb.SetPara3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   int64(arg1),
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// SetPara3_1 calls the SetPara3_1 RPC.
-func (c *BidiClient) SetPara3_1(ctx context.Context, handle int64, arg0 string, arg1 int8, arg2 int64) error {
-	_, err := c.svc.SetPara3_1(ctx, &pb.SetPara3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   int64(arg1),
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// SetPara1_2 calls the SetPara1_2 RPC.
-func (c *BidiClient) SetPara1_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPara1_2(ctx, &pb.SetPara1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetReorderingMode calls the SetReorderingMode RPC.
-func (c *BidiClient) SetReorderingMode(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetReorderingMode(ctx, &pb.SetReorderingModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetReorderingOptions calls the SetReorderingOptions RPC.
-func (c *BidiClient) SetReorderingOptions(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetReorderingOptions(ctx, &pb.SetReorderingOptionsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteReordered calls the WriteReordered RPC.
-func (c *BidiClient) WriteReordered(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.WriteReordered(ctx, &pb.WriteReorderedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBaseDirection calls the GetBaseDirection RPC.
-func (c *BidiClient) GetBaseDirection(ctx context.Context, handle int64, arg0 string) (int8, error) {
-	resp, err := c.svc.GetBaseDirection(ctx, &pb.GetBaseDirectionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// InvertMap calls the InvertMap RPC.
-func (c *BidiClient) InvertMap(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.InvertMap(ctx, &pb.InvertMapRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReorderLogical calls the ReorderLogical RPC.
-func (c *BidiClient) ReorderLogical(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.ReorderLogical(ctx, &pb.ReorderLogicalRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReorderVisual calls the ReorderVisual RPC.
-func (c *BidiClient) ReorderVisual(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.ReorderVisual(ctx, &pb.ReorderVisualRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReorderVisually calls the ReorderVisually RPC.
-func (c *BidiClient) ReorderVisually(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int32) error {
-	_, err := c.svc.ReorderVisually(ctx, &pb.ReorderVisuallyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// RequiresBidi calls the RequiresBidi RPC.
-func (c *BidiClient) RequiresBidi(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (bool, error) {
-	resp, err := c.svc.RequiresBidi(ctx, &pb.RequiresBidiRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteReverse calls the WriteReverse RPC.
-func (c *BidiClient) WriteReverse(ctx context.Context, handle int64, arg0 string, arg1 int32) (string, error) {
-	resp, err := c.svc.WriteReverse(ctx, &pb.WriteReverseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CaseMapClient wraps the gRPC CaseMapService client.
-type CaseMapClient struct {
-	svc pb.CaseMapServiceClient
-}
-
-// NewCaseMapClient creates a new CaseMap client.
-func NewCaseMapClient(cc grpc.ClientConnInterface) *CaseMapClient {
-	return &CaseMapClient{
-		svc: pb.NewCaseMapServiceClient(cc),
-	}
-}
-
-// OmitUnchangedText calls the OmitUnchangedText RPC.
-func (c *CaseMapClient) OmitUnchangedText(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText(ctx, &pb.OmitUnchangedTextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Fold calls the Fold RPC.
-func (c *CaseMapClient) Fold(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Fold(ctx, &pb.FoldRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToLower calls the ToLower RPC.
-func (c *CaseMapClient) ToLower(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToLower(ctx, &pb.ToLowerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToTitle calls the ToTitle RPC.
-func (c *CaseMapClient) ToTitle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToTitle(ctx, &pb.ToTitleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToUpper calls the ToUpper RPC.
-func (c *CaseMapClient) ToUpper(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ToUpper(ctx, &pb.ToUpperRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CaseMapFoldClient wraps the gRPC CaseMapFoldService client.
-type CaseMapFoldClient struct {
-	svc pb.CaseMapFoldServiceClient
-}
-
-// NewCaseMapFoldClient creates a new CaseMapFold client.
-func NewCaseMapFoldClient(cc grpc.ClientConnInterface) *CaseMapFoldClient {
-	return &CaseMapFoldClient{
-		svc: pb.NewCaseMapFoldServiceClient(cc),
-	}
-}
-
-// Apply calls the Apply RPC.
-func (c *CaseMapFoldClient) Apply(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.Apply(ctx, &pb.ApplyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// OmitUnchangedText0 calls the OmitUnchangedText0 RPC.
-func (c *CaseMapFoldClient) OmitUnchangedText0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText0(ctx, &pb.OmitUnchangedText0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Turkic calls the Turkic RPC.
-func (c *CaseMapFoldClient) Turkic(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Turkic(ctx, &pb.TurkicRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OmitUnchangedText0_1 calls the OmitUnchangedText0_1 RPC.
-func (c *CaseMapFoldClient) OmitUnchangedText0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText0_1(ctx, &pb.OmitUnchangedText0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CaseMapLowerClient wraps the gRPC CaseMapLowerService client.
-type CaseMapLowerClient struct {
-	svc pb.CaseMapLowerServiceClient
-}
-
-// NewCaseMapLowerClient creates a new CaseMapLower client.
-func NewCaseMapLowerClient(cc grpc.ClientConnInterface) *CaseMapLowerClient {
-	return &CaseMapLowerClient{
-		svc: pb.NewCaseMapLowerServiceClient(cc),
-	}
-}
-
-// Apply calls the Apply RPC.
-func (c *CaseMapLowerClient) Apply(ctx context.Context, arg0 int64, arg1 string) (string, error) {
-	resp, err := c.svc.Apply(ctx, &pb.CaseMapLowerApplyRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// OmitUnchangedText0 calls the OmitUnchangedText0 RPC.
-func (c *CaseMapLowerClient) OmitUnchangedText0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText0(ctx, &pb.OmitUnchangedText0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OmitUnchangedText0_1 calls the OmitUnchangedText0_1 RPC.
-func (c *CaseMapLowerClient) OmitUnchangedText0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText0_1(ctx, &pb.OmitUnchangedText0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CaseMapTitleClient wraps the gRPC CaseMapTitleService client.
-type CaseMapTitleClient struct {
-	svc pb.CaseMapTitleServiceClient
-}
-
-// NewCaseMapTitleClient creates a new CaseMapTitle client.
-func NewCaseMapTitleClient(cc grpc.ClientConnInterface) *CaseMapTitleClient {
-	return &CaseMapTitleClient{
-		svc: pb.NewCaseMapTitleServiceClient(cc),
-	}
-}
-
-// AdjustToCased calls the AdjustToCased RPC.
-func (c *CaseMapTitleClient) AdjustToCased(ctx context.Context) (int64, error) {
-	resp, err := c.svc.AdjustToCased(ctx, &pb.AdjustToCasedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Apply calls the Apply RPC.
-func (c *CaseMapTitleClient) Apply(ctx context.Context, arg0 int64, arg1 int64, arg2 string) (string, error) {
-	resp, err := c.svc.Apply(ctx, &pb.CaseMapTitleApplyRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// NoBreakAdjustment calls the NoBreakAdjustment RPC.
-func (c *CaseMapTitleClient) NoBreakAdjustment(ctx context.Context) (int64, error) {
-	resp, err := c.svc.NoBreakAdjustment(ctx, &pb.NoBreakAdjustmentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NoLowercase calls the NoLowercase RPC.
-func (c *CaseMapTitleClient) NoLowercase(ctx context.Context) (int64, error) {
-	resp, err := c.svc.NoLowercase(ctx, &pb.NoLowercaseRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OmitUnchangedText0 calls the OmitUnchangedText0 RPC.
-func (c *CaseMapTitleClient) OmitUnchangedText0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText0(ctx, &pb.OmitUnchangedText0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Sentences calls the Sentences RPC.
-func (c *CaseMapTitleClient) Sentences(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Sentences(ctx, &pb.SentencesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WholeString calls the WholeString RPC.
-func (c *CaseMapTitleClient) WholeString(ctx context.Context) (int64, error) {
-	resp, err := c.svc.WholeString(ctx, &pb.WholeStringRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OmitUnchangedText0_1 calls the OmitUnchangedText0_1 RPC.
-func (c *CaseMapTitleClient) OmitUnchangedText0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText0_1(ctx, &pb.OmitUnchangedText0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CaseMapUpperClient wraps the gRPC CaseMapUpperService client.
-type CaseMapUpperClient struct {
-	svc pb.CaseMapUpperServiceClient
-}
-
-// NewCaseMapUpperClient creates a new CaseMapUpper client.
-func NewCaseMapUpperClient(cc grpc.ClientConnInterface) *CaseMapUpperClient {
-	return &CaseMapUpperClient{
-		svc: pb.NewCaseMapUpperServiceClient(cc),
-	}
-}
-
-// Apply calls the Apply RPC.
-func (c *CaseMapUpperClient) Apply(ctx context.Context, arg0 int64, arg1 string) (string, error) {
-	resp, err := c.svc.Apply(ctx, &pb.CaseMapUpperApplyRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// OmitUnchangedText0 calls the OmitUnchangedText0 RPC.
-func (c *CaseMapUpperClient) OmitUnchangedText0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText0(ctx, &pb.OmitUnchangedText0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OmitUnchangedText0_1 calls the OmitUnchangedText0_1 RPC.
-func (c *CaseMapUpperClient) OmitUnchangedText0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.OmitUnchangedText0_1(ctx, &pb.OmitUnchangedText0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SearchIteratorClient wraps the gRPC SearchIteratorService client.
-type SearchIteratorClient struct {
-	svc pb.SearchIteratorServiceClient
-}
-
-// NewSearchIteratorClient creates a new SearchIterator client.
-func NewSearchIteratorClient(cc grpc.ClientConnInterface) *SearchIteratorClient {
-	return &SearchIteratorClient{
-		svc: pb.NewSearchIteratorServiceClient(cc),
-	}
-}
-
-// First calls the First RPC.
-func (c *SearchIteratorClient) First(ctx context.Context) (int32, error) {
-	resp, err := c.svc.First(ctx, &pb.FirstRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Following calls the Following RPC.
-func (c *SearchIteratorClient) Following(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.Following(ctx, &pb.FollowingRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBreakIterator calls the GetBreakIterator RPC.
-func (c *SearchIteratorClient) GetBreakIterator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBreakIterator(ctx, &pb.GetBreakIteratorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetElementComparisonType calls the GetElementComparisonType RPC.
-func (c *SearchIteratorClient) GetElementComparisonType(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetElementComparisonType(ctx, &pb.GetElementComparisonTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIndex calls the GetIndex RPC.
-func (c *SearchIteratorClient) GetIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMatchLength calls the GetMatchLength RPC.
-func (c *SearchIteratorClient) GetMatchLength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMatchLength(ctx, &pb.GetMatchLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMatchStart calls the GetMatchStart RPC.
-func (c *SearchIteratorClient) GetMatchStart(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMatchStart(ctx, &pb.GetMatchStartRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMatchedText calls the GetMatchedText RPC.
-func (c *SearchIteratorClient) GetMatchedText(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetMatchedText(ctx, &pb.GetMatchedTextRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTarget calls the GetTarget RPC.
-func (c *SearchIteratorClient) GetTarget(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTarget(ctx, &pb.GetTargetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOverlapping calls the IsOverlapping RPC.
-func (c *SearchIteratorClient) IsOverlapping(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsOverlapping(ctx, &pb.IsOverlappingRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Last calls the Last RPC.
-func (c *SearchIteratorClient) Last(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Last(ctx, &pb.LastRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Next calls the Next RPC.
-func (c *SearchIteratorClient) Next(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Next(ctx, &pb.NextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Preceding calls the Preceding RPC.
-func (c *SearchIteratorClient) Preceding(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.Preceding(ctx, &pb.PrecedingRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Previous calls the Previous RPC.
-func (c *SearchIteratorClient) Previous(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Previous(ctx, &pb.PreviousRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset calls the Reset RPC.
-func (c *SearchIteratorClient) Reset(ctx context.Context) error {
-	_, err := c.svc.Reset(ctx, &pb.SearchIteratorResetRequest{})
-	return err
-}
-
-// SetBreakIterator calls the SetBreakIterator RPC.
-func (c *SearchIteratorClient) SetBreakIterator(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetBreakIterator(ctx, &pb.SetBreakIteratorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetElementComparisonType calls the SetElementComparisonType RPC.
-func (c *SearchIteratorClient) SetElementComparisonType(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetElementComparisonType(ctx, &pb.SetElementComparisonTypeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetIndex calls the SetIndex RPC.
-func (c *SearchIteratorClient) SetIndex(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetIndex(ctx, &pb.SetIndexRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetOverlapping calls the SetOverlapping RPC.
-func (c *SearchIteratorClient) SetOverlapping(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetOverlapping(ctx, &pb.SetOverlappingRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTarget calls the SetTarget RPC.
-func (c *SearchIteratorClient) SetTarget(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTarget(ctx, &pb.SearchIteratorSetTargetRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SearchIteratorElementComparisonTypeClient wraps the gRPC SearchIteratorElementComparisonTypeService client.
-type SearchIteratorElementComparisonTypeClient struct {
-	svc pb.SearchIteratorElementComparisonTypeServiceClient
-}
-
-// NewSearchIteratorElementComparisonTypeClient creates a new SearchIteratorElementComparisonType client.
-func NewSearchIteratorElementComparisonTypeClient(cc grpc.ClientConnInterface) *SearchIteratorElementComparisonTypeClient {
-	return &SearchIteratorElementComparisonTypeClient{
-		svc: pb.NewSearchIteratorElementComparisonTypeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *SearchIteratorElementComparisonTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *SearchIteratorElementComparisonTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CollationKeyClient wraps the gRPC CollationKeyService client.
-type CollationKeyClient struct {
-	svc pb.CollationKeyServiceClient
-}
-
-// NewCollationKeyClient creates a new CollationKey client.
-func NewCollationKeyClient(cc grpc.ClientConnInterface) *CollationKeyClient {
-	return &CollationKeyClient{
-		svc: pb.NewCollationKeyServiceClient(cc),
-	}
-}
-
-// CompareTo1 calls the CompareTo1 RPC.
-func (c *CollationKeyClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals1 calls the Equals1 RPC.
-func (c *CollationKeyClient) Equals1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1(ctx, &pb.CollationKeyEquals1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals1_1 calls the Equals1_1 RPC.
-func (c *CollationKeyClient) Equals1_1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals1_1(ctx, &pb.CollationKeyEquals1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBound calls the GetBound RPC.
-func (c *CollationKeyClient) GetBound(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetBound(ctx, &pb.GetBoundRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSourceString calls the GetSourceString RPC.
-func (c *CollationKeyClient) GetSourceString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetSourceString(ctx, &pb.GetSourceStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *CollationKeyClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.CollationKeyHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Merge calls the Merge RPC.
-func (c *CollationKeyClient) Merge(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.Merge(ctx, &pb.CollationKeyMergeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToByteArray calls the ToByteArray RPC.
-func (c *CollationKeyClient) ToByteArray(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.ToByteArray(ctx, &pb.ToByteArrayRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1_1 calls the CompareTo1_1 RPC.
-func (c *CollationKeyClient) CompareTo1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DirectionHeuristicClient wraps the gRPC DirectionHeuristicService client.
-type DirectionHeuristicClient struct {
-	svc pb.DirectionHeuristicServiceClient
-}
-
-// NewDirectionHeuristicClient creates a new DirectionHeuristic client.
-func NewDirectionHeuristicClient(cc grpc.ClientConnInterface) *DirectionHeuristicClient {
-	return &DirectionHeuristicClient{
-		svc: pb.NewDirectionHeuristicServiceClient(cc),
-	}
-}
-
-// IsRtl3 calls the IsRtl3 RPC.
-func (c *DirectionHeuristicClient) IsRtl3(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (bool, error) {
-	resp, err := c.svc.IsRtl3(ctx, &pb.IsRtl3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRtl3_1 calls the IsRtl3_1 RPC.
-func (c *DirectionHeuristicClient) IsRtl3_1(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (bool, error) {
-	resp, err := c.svc.IsRtl3_1(ctx, &pb.IsRtl3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DynamicLayoutClient wraps the gRPC DynamicLayoutService client.
-type DynamicLayoutClient struct {
-	svc pb.DynamicLayoutServiceClient
-}
-
-// NewDynamicLayoutClient creates a new DynamicLayout client.
-func NewDynamicLayoutClient(cc grpc.ClientConnInterface) *DynamicLayoutClient {
-	return &DynamicLayoutClient{
-		svc: pb.NewDynamicLayoutServiceClient(cc),
-	}
-}
-
-// GetBottomPadding calls the GetBottomPadding RPC.
-func (c *DynamicLayoutClient) GetBottomPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetBottomPadding(ctx, &pb.GetBottomPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEllipsisCount calls the GetEllipsisCount RPC.
-func (c *DynamicLayoutClient) GetEllipsisCount(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetEllipsisCount(ctx, &pb.GetEllipsisCountRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEllipsisStart calls the GetEllipsisStart RPC.
-func (c *DynamicLayoutClient) GetEllipsisStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetEllipsisStart(ctx, &pb.GetEllipsisStartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEllipsizedWidth calls the GetEllipsizedWidth RPC.
-func (c *DynamicLayoutClient) GetEllipsizedWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetEllipsizedWidth(ctx, &pb.GetEllipsizedWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineBreakConfig calls the GetLineBreakConfig RPC.
-func (c *DynamicLayoutClient) GetLineBreakConfig(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLineBreakConfig(ctx, &pb.GetLineBreakConfigRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineContainsTab calls the GetLineContainsTab RPC.
-func (c *DynamicLayoutClient) GetLineContainsTab(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.GetLineContainsTab(ctx, &pb.GetLineContainsTabRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineCount calls the GetLineCount RPC.
-func (c *DynamicLayoutClient) GetLineCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLineCount(ctx, &pb.DynamicLayoutGetLineCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineDescent calls the GetLineDescent RPC.
-func (c *DynamicLayoutClient) GetLineDescent(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLineDescent(ctx, &pb.DynamicLayoutGetLineDescentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineDirections calls the GetLineDirections RPC.
-func (c *DynamicLayoutClient) GetLineDirections(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetLineDirections(ctx, &pb.GetLineDirectionsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineStart calls the GetLineStart RPC.
-func (c *DynamicLayoutClient) GetLineStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLineStart(ctx, &pb.GetLineStartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineTop calls the GetLineTop RPC.
-func (c *DynamicLayoutClient) GetLineTop(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLineTop(ctx, &pb.GetLineTopRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParagraphDirection calls the GetParagraphDirection RPC.
-func (c *DynamicLayoutClient) GetParagraphDirection(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetParagraphDirection(ctx, &pb.GetParagraphDirectionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTopPadding calls the GetTopPadding RPC.
-func (c *DynamicLayoutClient) GetTopPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTopPadding(ctx, &pb.GetTopPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DynamicLayoutBuilderClient wraps the gRPC DynamicLayoutBuilderService client.
-type DynamicLayoutBuilderClient struct {
-	svc pb.DynamicLayoutBuilderServiceClient
-}
-
-// NewDynamicLayoutBuilderClient creates a new DynamicLayoutBuilder client.
-func NewDynamicLayoutBuilderClient(cc grpc.ClientConnInterface) *DynamicLayoutBuilderClient {
-	return &DynamicLayoutBuilderClient{
-		svc: pb.NewDynamicLayoutBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *DynamicLayoutBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlignment calls the SetAlignment RPC.
-func (c *DynamicLayoutBuilderClient) SetAlignment(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetAlignment(ctx, &pb.SetAlignmentRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBreakStrategy calls the SetBreakStrategy RPC.
-func (c *DynamicLayoutBuilderClient) SetBreakStrategy(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetBreakStrategy(ctx, &pb.SetBreakStrategyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDisplayText calls the SetDisplayText RPC.
-func (c *DynamicLayoutBuilderClient) SetDisplayText(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDisplayText(ctx, &pb.SetDisplayTextRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEllipsize calls the SetEllipsize RPC.
-func (c *DynamicLayoutBuilderClient) SetEllipsize(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEllipsize(ctx, &pb.SetEllipsizeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEllipsizedWidth calls the SetEllipsizedWidth RPC.
-func (c *DynamicLayoutBuilderClient) SetEllipsizedWidth(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetEllipsizedWidth(ctx, &pb.SetEllipsizedWidthRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetHyphenationFrequency calls the SetHyphenationFrequency RPC.
-func (c *DynamicLayoutBuilderClient) SetHyphenationFrequency(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetHyphenationFrequency(ctx, &pb.SetHyphenationFrequencyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIncludePad calls the SetIncludePad RPC.
-func (c *DynamicLayoutBuilderClient) SetIncludePad(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIncludePad(ctx, &pb.SetIncludePadRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetJustificationMode calls the SetJustificationMode RPC.
-func (c *DynamicLayoutBuilderClient) SetJustificationMode(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetJustificationMode(ctx, &pb.SetJustificationModeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLineBreakConfig calls the SetLineBreakConfig RPC.
-func (c *DynamicLayoutBuilderClient) SetLineBreakConfig(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetLineBreakConfig(ctx, &pb.SetLineBreakConfigRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLineSpacing calls the SetLineSpacing RPC.
-func (c *DynamicLayoutBuilderClient) SetLineSpacing(ctx context.Context, arg0 float32, arg1 float32) (int64, error) {
-	resp, err := c.svc.SetLineSpacing(ctx, &pb.SetLineSpacingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMinimumFontMetrics calls the SetMinimumFontMetrics RPC.
-func (c *DynamicLayoutBuilderClient) SetMinimumFontMetrics(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMinimumFontMetrics(ctx, &pb.SetMinimumFontMetricsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShiftDrawingOffsetForStartOverhang calls the SetShiftDrawingOffsetForStartOverhang RPC.
-func (c *DynamicLayoutBuilderClient) SetShiftDrawingOffsetForStartOverhang(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetShiftDrawingOffsetForStartOverhang(ctx, &pb.SetShiftDrawingOffsetForStartOverhangRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTextDirection calls the SetTextDirection RPC.
-func (c *DynamicLayoutBuilderClient) SetTextDirection(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTextDirection(ctx, &pb.SetTextDirectionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUseBoundsForWidth calls the SetUseBoundsForWidth RPC.
-func (c *DynamicLayoutBuilderClient) SetUseBoundsForWidth(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetUseBoundsForWidth(ctx, &pb.SetUseBoundsForWidthRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUseLineSpacingFromFallbacks calls the SetUseLineSpacingFromFallbacks RPC.
-func (c *DynamicLayoutBuilderClient) SetUseLineSpacingFromFallbacks(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetUseLineSpacingFromFallbacks(ctx, &pb.SetUseLineSpacingFromFallbacksRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Obtain calls the Obtain RPC.
-func (c *DynamicLayoutBuilderClient) Obtain(ctx context.Context, arg0 string, arg1 int64, arg2 int32) (int64, error) {
-	resp, err := c.svc.Obtain(ctx, &pb.ObtainRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnnotationClient wraps the gRPC AnnotationService client.
-type AnnotationClient struct {
-	svc pb.AnnotationServiceClient
-}
-
-// NewAnnotationClient creates a new Annotation client.
-func NewAnnotationClient(cc grpc.ClientConnInterface) *AnnotationClient {
-	return &AnnotationClient{
-		svc: pb.NewAnnotationServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AnnotationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.AnnotationDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKey calls the GetKey RPC.
-func (c *AnnotationClient) GetKey(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *AnnotationClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValue calls the GetValue RPC.
-func (c *AnnotationClient) GetValue(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetValue(ctx, &pb.AnnotationGetValueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AnnotationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.AnnotationWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// PaintClient wraps the gRPC PaintService client.
-type PaintClient struct {
-	svc pb.PaintServiceClient
-}
-
-// NewPaintClient creates a new Paint client.
-func NewPaintClient(cc grpc.ClientConnInterface) *PaintClient {
-	return &PaintClient{
-		svc: pb.NewPaintServiceClient(cc),
-	}
-}
-
-// GetUnderlineThickness calls the GetUnderlineThickness RPC.
-func (c *PaintClient) GetUnderlineThickness(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetUnderlineThickness(ctx, &pb.GetUnderlineThicknessRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Set calls the Set RPC.
-func (c *PaintClient) Set(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Set(ctx, &pb.PaintSetRequest{
-		Handle: handle,
-		Arg0:   arg0,
 	})
 	return err
 }
@@ -15615,7 +15427,7 @@ func (c *BoringLayoutClient) GetLineContainsTab(ctx context.Context, handle int6
 
 // GetLineCount calls the GetLineCount RPC.
 func (c *BoringLayoutClient) GetLineCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLineCount(ctx, &pb.DynamicLayoutGetLineCountRequest{
+	resp, err := c.svc.GetLineCount(ctx, &pb.BoringLayoutGetLineCountRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -15626,7 +15438,7 @@ func (c *BoringLayoutClient) GetLineCount(ctx context.Context, handle int64) (in
 
 // GetLineDescent calls the GetLineDescent RPC.
 func (c *BoringLayoutClient) GetLineDescent(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLineDescent(ctx, &pb.DynamicLayoutGetLineDescentRequest{
+	resp, err := c.svc.GetLineDescent(ctx, &pb.BoringLayoutGetLineDescentRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -15923,33 +15735,78 @@ func (c *BoringLayoutMetricsClient) ToString(ctx context.Context) (string, error
 	return resp.GetResult(), nil
 }
 
-// SpannableStringClient wraps the gRPC SpannableStringService client.
-type SpannableStringClient struct {
-	svc pb.SpannableStringServiceClient
+// DynamicLayoutClient wraps the gRPC DynamicLayoutService client.
+type DynamicLayoutClient struct {
+	svc pb.DynamicLayoutServiceClient
 }
 
-// NewSpannableStringClient creates a new SpannableString client.
-func NewSpannableStringClient(cc grpc.ClientConnInterface) *SpannableStringClient {
-	return &SpannableStringClient{
-		svc: pb.NewSpannableStringServiceClient(cc),
+// NewDynamicLayoutClient creates a new DynamicLayout client.
+func NewDynamicLayoutClient(cc grpc.ClientConnInterface) *DynamicLayoutClient {
+	return &DynamicLayoutClient{
+		svc: pb.NewDynamicLayoutServiceClient(cc),
 	}
 }
 
-// CharAt calls the CharAt RPC.
-func (c *SpannableStringClient) CharAt(ctx context.Context, handle int64, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.SpannableStringCharAtRequest{
+// GetBottomPadding calls the GetBottomPadding RPC.
+func (c *DynamicLayoutClient) GetBottomPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBottomPadding(ctx, &pb.GetBottomPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEllipsisCount calls the GetEllipsisCount RPC.
+func (c *DynamicLayoutClient) GetEllipsisCount(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetEllipsisCount(ctx, &pb.GetEllipsisCountRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
 	}
-	return uint16(resp.GetResult()), nil
+	return resp.GetResult(), nil
 }
 
-// Equals calls the Equals RPC.
-func (c *SpannableStringClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SpannableStringEqualsRequest{
+// GetEllipsisStart calls the GetEllipsisStart RPC.
+func (c *DynamicLayoutClient) GetEllipsisStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetEllipsisStart(ctx, &pb.GetEllipsisStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEllipsizedWidth calls the GetEllipsizedWidth RPC.
+func (c *DynamicLayoutClient) GetEllipsizedWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetEllipsizedWidth(ctx, &pb.GetEllipsizedWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineBreakConfig calls the GetLineBreakConfig RPC.
+func (c *DynamicLayoutClient) GetLineBreakConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLineBreakConfig(ctx, &pb.GetLineBreakConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineContainsTab calls the GetLineContainsTab RPC.
+func (c *DynamicLayoutClient) GetLineContainsTab(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.GetLineContainsTab(ctx, &pb.GetLineContainsTabRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -15959,128 +15816,346 @@ func (c *SpannableStringClient) Equals(ctx context.Context, handle int64, arg0 i
 	return resp.GetResult(), nil
 }
 
-// GetChars calls the GetChars RPC.
-func (c *SpannableStringClient) GetChars(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GetChars(ctx, &pb.SpannableStringGetCharsRequest{
+// GetLineCount calls the GetLineCount RPC.
+func (c *DynamicLayoutClient) GetLineCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLineCount(ctx, &pb.BoringLayoutGetLineCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineDescent calls the GetLineDescent RPC.
+func (c *DynamicLayoutClient) GetLineDescent(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLineDescent(ctx, &pb.BoringLayoutGetLineDescentRequest{
 		Handle: handle,
 		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineDirections calls the GetLineDirections RPC.
+func (c *DynamicLayoutClient) GetLineDirections(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetLineDirections(ctx, &pb.GetLineDirectionsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineStart calls the GetLineStart RPC.
+func (c *DynamicLayoutClient) GetLineStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLineStart(ctx, &pb.GetLineStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineTop calls the GetLineTop RPC.
+func (c *DynamicLayoutClient) GetLineTop(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLineTop(ctx, &pb.GetLineTopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParagraphDirection calls the GetParagraphDirection RPC.
+func (c *DynamicLayoutClient) GetParagraphDirection(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetParagraphDirection(ctx, &pb.GetParagraphDirectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTopPadding calls the GetTopPadding RPC.
+func (c *DynamicLayoutClient) GetTopPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTopPadding(ctx, &pb.GetTopPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DynamicLayoutBuilderClient wraps the gRPC DynamicLayoutBuilderService client.
+type DynamicLayoutBuilderClient struct {
+	svc pb.DynamicLayoutBuilderServiceClient
+}
+
+// NewDynamicLayoutBuilderClient creates a new DynamicLayoutBuilder client.
+func NewDynamicLayoutBuilderClient(cc grpc.ClientConnInterface) *DynamicLayoutBuilderClient {
+	return &DynamicLayoutBuilderClient{
+		svc: pb.NewDynamicLayoutBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DynamicLayoutBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlignment calls the SetAlignment RPC.
+func (c *DynamicLayoutBuilderClient) SetAlignment(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAlignment(ctx, &pb.SetAlignmentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBreakStrategy calls the SetBreakStrategy RPC.
+func (c *DynamicLayoutBuilderClient) SetBreakStrategy(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetBreakStrategy(ctx, &pb.SetBreakStrategyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDisplayText calls the SetDisplayText RPC.
+func (c *DynamicLayoutBuilderClient) SetDisplayText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDisplayText(ctx, &pb.SetDisplayTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEllipsize calls the SetEllipsize RPC.
+func (c *DynamicLayoutBuilderClient) SetEllipsize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEllipsize(ctx, &pb.SetEllipsizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEllipsizedWidth calls the SetEllipsizedWidth RPC.
+func (c *DynamicLayoutBuilderClient) SetEllipsizedWidth(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetEllipsizedWidth(ctx, &pb.SetEllipsizedWidthRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHyphenationFrequency calls the SetHyphenationFrequency RPC.
+func (c *DynamicLayoutBuilderClient) SetHyphenationFrequency(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetHyphenationFrequency(ctx, &pb.SetHyphenationFrequencyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIncludePad calls the SetIncludePad RPC.
+func (c *DynamicLayoutBuilderClient) SetIncludePad(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIncludePad(ctx, &pb.SetIncludePadRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetJustificationMode calls the SetJustificationMode RPC.
+func (c *DynamicLayoutBuilderClient) SetJustificationMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetJustificationMode(ctx, &pb.SetJustificationModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLineBreakConfig calls the SetLineBreakConfig RPC.
+func (c *DynamicLayoutBuilderClient) SetLineBreakConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLineBreakConfig(ctx, &pb.SetLineBreakConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLineSpacing calls the SetLineSpacing RPC.
+func (c *DynamicLayoutBuilderClient) SetLineSpacing(ctx context.Context, arg0 float32, arg1 float32) (int64, error) {
+	resp, err := c.svc.SetLineSpacing(ctx, &pb.SetLineSpacingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinimumFontMetrics calls the SetMinimumFontMetrics RPC.
+func (c *DynamicLayoutBuilderClient) SetMinimumFontMetrics(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinimumFontMetrics(ctx, &pb.SetMinimumFontMetricsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShiftDrawingOffsetForStartOverhang calls the SetShiftDrawingOffsetForStartOverhang RPC.
+func (c *DynamicLayoutBuilderClient) SetShiftDrawingOffsetForStartOverhang(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShiftDrawingOffsetForStartOverhang(ctx, &pb.SetShiftDrawingOffsetForStartOverhangRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextDirection calls the SetTextDirection RPC.
+func (c *DynamicLayoutBuilderClient) SetTextDirection(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTextDirection(ctx, &pb.SetTextDirectionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUseBoundsForWidth calls the SetUseBoundsForWidth RPC.
+func (c *DynamicLayoutBuilderClient) SetUseBoundsForWidth(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUseBoundsForWidth(ctx, &pb.SetUseBoundsForWidthRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUseLineSpacingFromFallbacks calls the SetUseLineSpacingFromFallbacks RPC.
+func (c *DynamicLayoutBuilderClient) SetUseLineSpacingFromFallbacks(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUseLineSpacingFromFallbacks(ctx, &pb.SetUseLineSpacingFromFallbacksRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Obtain calls the Obtain RPC.
+func (c *DynamicLayoutBuilderClient) Obtain(ctx context.Context, arg0 string, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.Obtain(ctx, &pb.ObtainRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WatcherClient wraps the gRPC WatcherService client.
+type WatcherClient struct {
+	svc pb.WatcherServiceClient
+}
+
+// NewWatcherClient creates a new Watcher client.
+func NewWatcherClient(cc grpc.ClientConnInterface) *WatcherClient {
+	return &WatcherClient{
+		svc: pb.NewWatcherServiceClient(cc),
+	}
+}
+
+// AfterTextChanged calls the AfterTextChanged RPC.
+func (c *WatcherClient) AfterTextChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AfterTextChanged(ctx, &pb.AfterTextChangedRequest{
+		Arg0: arg0,
 	})
 	return err
 }
 
-// GetSpanEnd calls the GetSpanEnd RPC.
-func (c *SpannableStringClient) GetSpanEnd(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetSpanEnd(ctx, &pb.GetSpanEndRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanFlags calls the GetSpanFlags RPC.
-func (c *SpannableStringClient) GetSpanFlags(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetSpanFlags(ctx, &pb.GetSpanFlagsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanStart calls the GetSpanStart RPC.
-func (c *SpannableStringClient) GetSpanStart(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetSpanStart(ctx, &pb.GetSpanStartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SpannableStringClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SpannableStringHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Length calls the Length RPC.
-func (c *SpannableStringClient) Length(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.SpannableStringLengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextSpanTransition calls the NextSpanTransition RPC.
-func (c *SpannableStringClient) NextSpanTransition(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (int32, error) {
-	resp, err := c.svc.NextSpanTransition(ctx, &pb.NextSpanTransitionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveSpan calls the RemoveSpan RPC.
-func (c *SpannableStringClient) RemoveSpan(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RemoveSpan(ctx, &pb.RemoveSpanRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// BeforeTextChanged calls the BeforeTextChanged RPC.
+func (c *WatcherClient) BeforeTextChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.BeforeTextChanged(ctx, &pb.BeforeTextChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
 	return err
 }
 
-// SetSpan calls the SetSpan RPC.
-func (c *SpannableStringClient) SetSpan(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetSpan(ctx, &pb.SetSpanRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
+// OnTextChanged calls the OnTextChanged RPC.
+func (c *WatcherClient) OnTextChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnTextChanged(ctx, &pb.OnTextChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
 	return err
 }
 
-// SubSequence calls the SubSequence RPC.
-func (c *SpannableStringClient) SubSequence(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.SpannableStringSubSequenceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// HtmlClient wraps the gRPC HtmlService client.
+type HtmlClient struct {
+	svc pb.HtmlServiceClient
 }
 
-// ToString calls the ToString RPC.
-func (c *SpannableStringClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.SpannableStringToStringRequest{
-		Handle: handle,
+// NewHtmlClient creates a new Html client.
+func NewHtmlClient(cc grpc.ClientConnInterface) *HtmlClient {
+	return &HtmlClient{
+		svc: pb.NewHtmlServiceClient(cc),
+	}
+}
+
+// EscapeHtml calls the EscapeHtml RPC.
+func (c *HtmlClient) EscapeHtml(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.EscapeHtml(ctx, &pb.EscapeHtmlRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return "", err
@@ -16088,9 +16163,151 @@ func (c *SpannableStringClient) ToString(ctx context.Context, handle int64) (str
 	return resp.GetResult(), nil
 }
 
-// ValueOf calls the ValueOf RPC.
-func (c *SpannableStringClient) ValueOf(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.SpannableStringValueOfRequest{
+// FromHtml1 calls the FromHtml1 RPC.
+func (c *HtmlClient) FromHtml1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.FromHtml1(ctx, &pb.FromHtml1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FromHtml2_1 calls the FromHtml2_1 RPC.
+func (c *HtmlClient) FromHtml2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.FromHtml2_1(ctx, &pb.FromHtml2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToHtml1 calls the ToHtml1 RPC.
+func (c *HtmlClient) ToHtml1(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.ToHtml1(ctx, &pb.ToHtml1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToHtml2_1 calls the ToHtml2_1 RPC.
+func (c *HtmlClient) ToHtml2_1(ctx context.Context, arg0 int64, arg1 int32) (string, error) {
+	resp, err := c.svc.ToHtml2_1(ctx, &pb.ToHtml2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HtmlImageGetterClient wraps the gRPC HtmlImageGetterService client.
+type HtmlImageGetterClient struct {
+	svc pb.HtmlImageGetterServiceClient
+}
+
+// NewHtmlImageGetterClient creates a new HtmlImageGetter client.
+func NewHtmlImageGetterClient(cc grpc.ClientConnInterface) *HtmlImageGetterClient {
+	return &HtmlImageGetterClient{
+		svc: pb.NewHtmlImageGetterServiceClient(cc),
+	}
+}
+
+// GetDrawable calls the GetDrawable RPC.
+func (c *HtmlImageGetterClient) GetDrawable(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HtmlTagHandlerClient wraps the gRPC HtmlTagHandlerService client.
+type HtmlTagHandlerClient struct {
+	svc pb.HtmlTagHandlerServiceClient
+}
+
+// NewHtmlTagHandlerClient creates a new HtmlTagHandler client.
+func NewHtmlTagHandlerClient(cc grpc.ClientConnInterface) *HtmlTagHandlerClient {
+	return &HtmlTagHandlerClient{
+		svc: pb.NewHtmlTagHandlerServiceClient(cc),
+	}
+}
+
+// HandleTag calls the HandleTag RPC.
+func (c *HtmlTagHandlerClient) HandleTag(ctx context.Context, arg0 bool, arg1 string, arg2 int64, arg3 int64) error {
+	_, err := c.svc.HandleTag(ctx, &pb.HandleTagRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// DirectionHeuristicClient wraps the gRPC DirectionHeuristicService client.
+type DirectionHeuristicClient struct {
+	svc pb.DirectionHeuristicServiceClient
+}
+
+// NewDirectionHeuristicClient creates a new DirectionHeuristic client.
+func NewDirectionHeuristicClient(cc grpc.ClientConnInterface) *DirectionHeuristicClient {
+	return &DirectionHeuristicClient{
+		svc: pb.NewDirectionHeuristicServiceClient(cc),
+	}
+}
+
+// IsRtl3 calls the IsRtl3 RPC.
+func (c *DirectionHeuristicClient) IsRtl3(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (bool, error) {
+	resp, err := c.svc.IsRtl3(ctx, &pb.IsRtl3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRtl3_1 calls the IsRtl3_1 RPC.
+func (c *DirectionHeuristicClient) IsRtl3_1(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (bool, error) {
+	resp, err := c.svc.IsRtl3_1(ctx, &pb.IsRtl3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WordSegmentFinderClient wraps the gRPC WordSegmentFinderService client.
+type WordSegmentFinderClient struct {
+	svc pb.WordSegmentFinderServiceClient
+}
+
+// NewWordSegmentFinderClient creates a new WordSegmentFinder client.
+func NewWordSegmentFinderClient(cc grpc.ClientConnInterface) *WordSegmentFinderClient {
+	return &WordSegmentFinderClient{
+		svc: pb.NewWordSegmentFinderServiceClient(cc),
+	}
+}
+
+// NextEndBoundary calls the NextEndBoundary RPC.
+func (c *WordSegmentFinderClient) NextEndBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.NextEndBoundary(ctx, &pb.NextEndBoundaryRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -16100,27 +16317,40 @@ func (c *SpannableStringClient) ValueOf(ctx context.Context, handle int64, arg0 
 	return resp.GetResult(), nil
 }
 
-// GetCharsClient wraps the gRPC GetCharsService client.
-type GetCharsClient struct {
-	svc pb.GetCharsServiceClient
-}
-
-// NewGetCharsClient creates a new GetChars client.
-func NewGetCharsClient(cc grpc.ClientConnInterface) *GetCharsClient {
-	return &GetCharsClient{
-		svc: pb.NewGetCharsServiceClient(cc),
-	}
-}
-
-// GetChars calls the GetChars RPC.
-func (c *GetCharsClient) GetChars(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GetChars(ctx, &pb.GetCharsGetCharsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// NextStartBoundary calls the NextStartBoundary RPC.
+func (c *WordSegmentFinderClient) NextStartBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.NextStartBoundary(ctx, &pb.NextStartBoundaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousEndBoundary calls the PreviousEndBoundary RPC.
+func (c *WordSegmentFinderClient) PreviousEndBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.PreviousEndBoundary(ctx, &pb.PreviousEndBoundaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousStartBoundary calls the PreviousStartBoundary RPC.
+func (c *WordSegmentFinderClient) PreviousStartBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.PreviousStartBoundary(ctx, &pb.PreviousStartBoundaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // StaticLayoutClient wraps the gRPC StaticLayoutService client.
@@ -16195,7 +16425,7 @@ func (c *StaticLayoutClient) GetLineContainsTab(ctx context.Context, handle int6
 
 // GetLineCount calls the GetLineCount RPC.
 func (c *StaticLayoutClient) GetLineCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLineCount(ctx, &pb.DynamicLayoutGetLineCountRequest{
+	resp, err := c.svc.GetLineCount(ctx, &pb.BoringLayoutGetLineCountRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -16206,7 +16436,7 @@ func (c *StaticLayoutClient) GetLineCount(ctx context.Context, handle int64) (in
 
 // GetLineDescent calls the GetLineDescent RPC.
 func (c *StaticLayoutClient) GetLineDescent(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLineDescent(ctx, &pb.DynamicLayoutGetLineDescentRequest{
+	resp, err := c.svc.GetLineDescent(ctx, &pb.BoringLayoutGetLineDescentRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -16512,1311 +16742,6 @@ func (c *StaticLayoutBuilderClient) Obtain(ctx context.Context, arg0 string, arg
 	return resp.GetResult(), nil
 }
 
-// PrecomputedTextClient wraps the gRPC PrecomputedTextService client.
-type PrecomputedTextClient struct {
-	svc pb.PrecomputedTextServiceClient
-}
-
-// NewPrecomputedTextClient creates a new PrecomputedText client.
-func NewPrecomputedTextClient(cc grpc.ClientConnInterface) *PrecomputedTextClient {
-	return &PrecomputedTextClient{
-		svc: pb.NewPrecomputedTextServiceClient(cc),
-	}
-}
-
-// CharAt calls the CharAt RPC.
-func (c *PrecomputedTextClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.PrecomputedTextCharAtRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return uint16(resp.GetResult()), nil
-}
-
-// GetBounds calls the GetBounds RPC.
-func (c *PrecomputedTextClient) GetBounds(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GetBounds(ctx, &pb.GetBoundsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GetFontMetricsInt calls the GetFontMetricsInt RPC.
-func (c *PrecomputedTextClient) GetFontMetricsInt(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GetFontMetricsInt(ctx, &pb.GetFontMetricsIntRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GetParagraphCount calls the GetParagraphCount RPC.
-func (c *PrecomputedTextClient) GetParagraphCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetParagraphCount(ctx, &pb.GetParagraphCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParagraphEnd calls the GetParagraphEnd RPC.
-func (c *PrecomputedTextClient) GetParagraphEnd(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetParagraphEnd(ctx, &pb.GetParagraphEndRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParagraphStart calls the GetParagraphStart RPC.
-func (c *PrecomputedTextClient) GetParagraphStart(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetParagraphStart(ctx, &pb.GetParagraphStartRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParams calls the GetParams RPC.
-func (c *PrecomputedTextClient) GetParams(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetParams(ctx, &pb.GetParamsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanEnd calls the GetSpanEnd RPC.
-func (c *PrecomputedTextClient) GetSpanEnd(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetSpanEnd(ctx, &pb.PrecomputedTextGetSpanEndRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanFlags calls the GetSpanFlags RPC.
-func (c *PrecomputedTextClient) GetSpanFlags(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetSpanFlags(ctx, &pb.PrecomputedTextGetSpanFlagsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanStart calls the GetSpanStart RPC.
-func (c *PrecomputedTextClient) GetSpanStart(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetSpanStart(ctx, &pb.PrecomputedTextGetSpanStartRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWidth calls the GetWidth RPC.
-func (c *PrecomputedTextClient) GetWidth(ctx context.Context, arg0 int32, arg1 int32) (float32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Length calls the Length RPC.
-func (c *PrecomputedTextClient) Length(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.PrecomputedTextLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextSpanTransition calls the NextSpanTransition RPC.
-func (c *PrecomputedTextClient) NextSpanTransition(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int32, error) {
-	resp, err := c.svc.NextSpanTransition(ctx, &pb.PrecomputedTextNextSpanTransitionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveSpan calls the RemoveSpan RPC.
-func (c *PrecomputedTextClient) RemoveSpan(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveSpan(ctx, &pb.PrecomputedTextRemoveSpanRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSpan calls the SetSpan RPC.
-func (c *PrecomputedTextClient) SetSpan(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetSpan(ctx, &pb.PrecomputedTextSetSpanRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SubSequence calls the SubSequence RPC.
-func (c *PrecomputedTextClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.PrecomputedTextSubSequenceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PrecomputedTextClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Create calls the Create RPC.
-func (c *PrecomputedTextClient) Create(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PrecomputedTextParamsClient wraps the gRPC PrecomputedTextParamsService client.
-type PrecomputedTextParamsClient struct {
-	svc pb.PrecomputedTextParamsServiceClient
-}
-
-// NewPrecomputedTextParamsClient creates a new PrecomputedTextParams client.
-func NewPrecomputedTextParamsClient(cc grpc.ClientConnInterface) *PrecomputedTextParamsClient {
-	return &PrecomputedTextParamsClient{
-		svc: pb.NewPrecomputedTextParamsServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *PrecomputedTextParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.PrecomputedTextParamsEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBreakStrategy calls the GetBreakStrategy RPC.
-func (c *PrecomputedTextParamsClient) GetBreakStrategy(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBreakStrategy(ctx, &pb.GetBreakStrategyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHyphenationFrequency calls the GetHyphenationFrequency RPC.
-func (c *PrecomputedTextParamsClient) GetHyphenationFrequency(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHyphenationFrequency(ctx, &pb.GetHyphenationFrequencyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLineBreakConfig calls the GetLineBreakConfig RPC.
-func (c *PrecomputedTextParamsClient) GetLineBreakConfig(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLineBreakConfig(ctx, &pb.PrecomputedTextParamsGetLineBreakConfigRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextDirection calls the GetTextDirection RPC.
-func (c *PrecomputedTextParamsClient) GetTextDirection(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTextDirection(ctx, &pb.GetTextDirectionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextPaint calls the GetTextPaint RPC.
-func (c *PrecomputedTextParamsClient) GetTextPaint(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTextPaint(ctx, &pb.GetTextPaintRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PrecomputedTextParamsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.PrecomputedTextParamsHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PrecomputedTextParamsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoginFilterClient wraps the gRPC LoginFilterService client.
-type LoginFilterClient struct {
-	svc pb.LoginFilterServiceClient
-}
-
-// NewLoginFilterClient creates a new LoginFilter client.
-func NewLoginFilterClient(cc grpc.ClientConnInterface) *LoginFilterClient {
-	return &LoginFilterClient{
-		svc: pb.NewLoginFilterServiceClient(cc),
-	}
-}
-
-// Filter calls the Filter RPC.
-func (c *LoginFilterClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
-	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAllowed calls the IsAllowed RPC.
-func (c *LoginFilterClient) IsAllowed(ctx context.Context, arg0 uint16) (bool, error) {
-	resp, err := c.svc.IsAllowed(ctx, &pb.IsAllowedRequest{
-		Arg0: uint32(arg0),
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnInvalidCharacter calls the OnInvalidCharacter RPC.
-func (c *LoginFilterClient) OnInvalidCharacter(ctx context.Context, arg0 uint16) error {
-	_, err := c.svc.OnInvalidCharacter(ctx, &pb.OnInvalidCharacterRequest{
-		Arg0: uint32(arg0),
-	})
-	return err
-}
-
-// OnStart calls the OnStart RPC.
-func (c *LoginFilterClient) OnStart(ctx context.Context) error {
-	_, err := c.svc.OnStart(ctx, &pb.OnStartRequest{})
-	return err
-}
-
-// OnStop calls the OnStop RPC.
-func (c *LoginFilterClient) OnStop(ctx context.Context) error {
-	_, err := c.svc.OnStop(ctx, &pb.OnStopRequest{})
-	return err
-}
-
-// LoginFilterPasswordFilterGMailClient wraps the gRPC LoginFilterPasswordFilterGMailService client.
-type LoginFilterPasswordFilterGMailClient struct {
-	svc pb.LoginFilterPasswordFilterGMailServiceClient
-}
-
-// NewLoginFilterPasswordFilterGMailClient creates a new LoginFilterPasswordFilterGMail client.
-func NewLoginFilterPasswordFilterGMailClient(cc grpc.ClientConnInterface) *LoginFilterPasswordFilterGMailClient {
-	return &LoginFilterPasswordFilterGMailClient{
-		svc: pb.NewLoginFilterPasswordFilterGMailServiceClient(cc),
-	}
-}
-
-// IsAllowed calls the IsAllowed RPC.
-func (c *LoginFilterPasswordFilterGMailClient) IsAllowed(ctx context.Context, arg0 uint16) (bool, error) {
-	resp, err := c.svc.IsAllowed(ctx, &pb.IsAllowedRequest{
-		Arg0: uint32(arg0),
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoginFilterUsernameFilterGMailClient wraps the gRPC LoginFilterUsernameFilterGMailService client.
-type LoginFilterUsernameFilterGMailClient struct {
-	svc pb.LoginFilterUsernameFilterGMailServiceClient
-}
-
-// NewLoginFilterUsernameFilterGMailClient creates a new LoginFilterUsernameFilterGMail client.
-func NewLoginFilterUsernameFilterGMailClient(cc grpc.ClientConnInterface) *LoginFilterUsernameFilterGMailClient {
-	return &LoginFilterUsernameFilterGMailClient{
-		svc: pb.NewLoginFilterUsernameFilterGMailServiceClient(cc),
-	}
-}
-
-// IsAllowed calls the IsAllowed RPC.
-func (c *LoginFilterUsernameFilterGMailClient) IsAllowed(ctx context.Context, arg0 uint16) (bool, error) {
-	resp, err := c.svc.IsAllowed(ctx, &pb.IsAllowedRequest{
-		Arg0: uint32(arg0),
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoginFilterUsernameFilterGenericClient wraps the gRPC LoginFilterUsernameFilterGenericService client.
-type LoginFilterUsernameFilterGenericClient struct {
-	svc pb.LoginFilterUsernameFilterGenericServiceClient
-}
-
-// NewLoginFilterUsernameFilterGenericClient creates a new LoginFilterUsernameFilterGeneric client.
-func NewLoginFilterUsernameFilterGenericClient(cc grpc.ClientConnInterface) *LoginFilterUsernameFilterGenericClient {
-	return &LoginFilterUsernameFilterGenericClient{
-		svc: pb.NewLoginFilterUsernameFilterGenericServiceClient(cc),
-	}
-}
-
-// IsAllowed calls the IsAllowed RPC.
-func (c *LoginFilterUsernameFilterGenericClient) IsAllowed(ctx context.Context, arg0 uint16) (bool, error) {
-	resp, err := c.svc.IsAllowed(ctx, &pb.IsAllowedRequest{
-		Arg0: uint32(arg0),
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UtilsClient wraps the gRPC UtilsService client.
-type UtilsClient struct {
-	svc pb.UtilsServiceClient
-}
-
-// NewUtilsClient creates a new Utils client.
-func NewUtilsClient(cc grpc.ClientConnInterface) *UtilsClient {
-	return &UtilsClient{
-		svc: pb.NewUtilsServiceClient(cc),
-	}
-}
-
-// CommaEllipsize calls the CommaEllipsize RPC.
-func (c *UtilsClient) CommaEllipsize(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 string, arg4 string) (int64, error) {
-	resp, err := c.svc.CommaEllipsize(ctx, &pb.CommaEllipsizeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Concat calls the Concat RPC.
-func (c *UtilsClient) Concat(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Concat(ctx, &pb.ConcatRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CopySpansFrom calls the CopySpansFrom RPC.
-func (c *UtilsClient) CopySpansFrom(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64, arg4 int64, arg5 int32) error {
-	_, err := c.svc.CopySpansFrom(ctx, &pb.CopySpansFromRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// DumpSpans calls the DumpSpans RPC.
-func (c *UtilsClient) DumpSpans(ctx context.Context, arg0 string, arg1 int64, arg2 string) error {
-	_, err := c.svc.DumpSpans(ctx, &pb.DumpSpansRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Ellipsize4 calls the Ellipsize4 RPC.
-func (c *UtilsClient) Ellipsize4(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64) (int64, error) {
-	resp, err := c.svc.Ellipsize4(ctx, &pb.Ellipsize4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Ellipsize6_1 calls the Ellipsize6_1 RPC.
-func (c *UtilsClient) Ellipsize6_1(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64, arg4 bool, arg5 int64) (int64, error) {
-	resp, err := c.svc.Ellipsize6_1(ctx, &pb.Ellipsize6_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *UtilsClient) Equals(ctx context.Context, arg0 string, arg1 string) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.UtilsEqualsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExpandTemplate calls the ExpandTemplate RPC.
-func (c *UtilsClient) ExpandTemplate(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.ExpandTemplate(ctx, &pb.ExpandTemplateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCapsMode calls the GetCapsMode RPC.
-func (c *UtilsClient) GetCapsMode(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (int32, error) {
-	resp, err := c.svc.GetCapsMode(ctx, &pb.GetCapsModeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChars calls the GetChars RPC.
-func (c *UtilsClient) GetChars(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GetChars(ctx, &pb.UtilsGetCharsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GetLayoutDirectionFromLocale calls the GetLayoutDirectionFromLocale RPC.
-func (c *UtilsClient) GetLayoutDirectionFromLocale(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetLayoutDirectionFromLocale(ctx, &pb.GetLayoutDirectionFromLocaleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOffsetAfter calls the GetOffsetAfter RPC.
-func (c *UtilsClient) GetOffsetAfter(ctx context.Context, arg0 string, arg1 int32) (int32, error) {
-	resp, err := c.svc.GetOffsetAfter(ctx, &pb.GetOffsetAfterRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOffsetBefore calls the GetOffsetBefore RPC.
-func (c *UtilsClient) GetOffsetBefore(ctx context.Context, arg0 string, arg1 int32) (int32, error) {
-	resp, err := c.svc.GetOffsetBefore(ctx, &pb.GetOffsetBeforeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReverse calls the GetReverse RPC.
-func (c *UtilsClient) GetReverse(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.GetReverse(ctx, &pb.GetReverseRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTrimmedLength calls the GetTrimmedLength RPC.
-func (c *UtilsClient) GetTrimmedLength(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.GetTrimmedLength(ctx, &pb.GetTrimmedLengthRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HtmlEncode calls the HtmlEncode RPC.
-func (c *UtilsClient) HtmlEncode(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.HtmlEncode(ctx, &pb.HtmlEncodeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IndexOf2 calls the IndexOf2 RPC.
-func (c *UtilsClient) IndexOf2(ctx context.Context, arg0 string, arg1 uint16) (int32, error) {
-	resp, err := c.svc.IndexOf2(ctx, &pb.IndexOf2Request{
-		Arg0: arg0,
-		Arg1: uint32(arg1),
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IndexOf3_1 calls the IndexOf3_1 RPC.
-func (c *UtilsClient) IndexOf3_1(ctx context.Context, arg0 string, arg1 uint16, arg2 int32) (int32, error) {
-	resp, err := c.svc.IndexOf3_1(ctx, &pb.IndexOf3_1Request{
-		Arg0: arg0,
-		Arg1: uint32(arg1),
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IndexOf4_2 calls the IndexOf4_2 RPC.
-func (c *UtilsClient) IndexOf4_2(ctx context.Context, arg0 string, arg1 uint16, arg2 int32, arg3 int32) (int32, error) {
-	resp, err := c.svc.IndexOf4_2(ctx, &pb.IndexOf4_2Request{
-		Arg0: arg0,
-		Arg1: uint32(arg1),
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IndexOf2_3 calls the IndexOf2_3 RPC.
-func (c *UtilsClient) IndexOf2_3(ctx context.Context, arg0 string, arg1 string) (int32, error) {
-	resp, err := c.svc.IndexOf2_3(ctx, &pb.IndexOf2_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IndexOf3_4 calls the IndexOf3_4 RPC.
-func (c *UtilsClient) IndexOf3_4(ctx context.Context, arg0 string, arg1 string, arg2 int32) (int32, error) {
-	resp, err := c.svc.IndexOf3_4(ctx, &pb.IndexOf3_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IndexOf4_5 calls the IndexOf4_5 RPC.
-func (c *UtilsClient) IndexOf4_5(ctx context.Context, arg0 string, arg1 string, arg2 int32, arg3 int32) (int32, error) {
-	resp, err := c.svc.IndexOf4_5(ctx, &pb.IndexOf4_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDigitsOnly calls the IsDigitsOnly RPC.
-func (c *UtilsClient) IsDigitsOnly(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsDigitsOnly(ctx, &pb.IsDigitsOnlyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEmpty calls the IsEmpty RPC.
-func (c *UtilsClient) IsEmpty(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsEmpty(ctx, &pb.UtilsIsEmptyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsGraphic1 calls the IsGraphic1 RPC.
-func (c *UtilsClient) IsGraphic1(ctx context.Context, arg0 uint16) (bool, error) {
-	resp, err := c.svc.IsGraphic1(ctx, &pb.IsGraphic1Request{
-		Arg0: uint32(arg0),
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsGraphic1_1 calls the IsGraphic1_1 RPC.
-func (c *UtilsClient) IsGraphic1_1(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsGraphic1_1(ctx, &pb.IsGraphic1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Join2 calls the Join2 RPC.
-func (c *UtilsClient) Join2(ctx context.Context, arg0 string, arg1 int64) (string, error) {
-	resp, err := c.svc.Join2(ctx, &pb.Join2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Join2_1 calls the Join2_1 RPC.
-func (c *UtilsClient) Join2_1(ctx context.Context, arg0 string, arg1 int64) (string, error) {
-	resp, err := c.svc.Join2_1(ctx, &pb.Join2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LastIndexOf2 calls the LastIndexOf2 RPC.
-func (c *UtilsClient) LastIndexOf2(ctx context.Context, arg0 string, arg1 uint16) (int32, error) {
-	resp, err := c.svc.LastIndexOf2(ctx, &pb.LastIndexOf2Request{
-		Arg0: arg0,
-		Arg1: uint32(arg1),
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LastIndexOf3_1 calls the LastIndexOf3_1 RPC.
-func (c *UtilsClient) LastIndexOf3_1(ctx context.Context, arg0 string, arg1 uint16, arg2 int32) (int32, error) {
-	resp, err := c.svc.LastIndexOf3_1(ctx, &pb.LastIndexOf3_1Request{
-		Arg0: arg0,
-		Arg1: uint32(arg1),
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LastIndexOf4_2 calls the LastIndexOf4_2 RPC.
-func (c *UtilsClient) LastIndexOf4_2(ctx context.Context, arg0 string, arg1 uint16, arg2 int32, arg3 int32) (int32, error) {
-	resp, err := c.svc.LastIndexOf4_2(ctx, &pb.LastIndexOf4_2Request{
-		Arg0: arg0,
-		Arg1: uint32(arg1),
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MakeSafeForPresentation calls the MakeSafeForPresentation RPC.
-func (c *UtilsClient) MakeSafeForPresentation(ctx context.Context, arg0 string, arg1 int32, arg2 float32, arg3 int32) (int64, error) {
-	resp, err := c.svc.MakeSafeForPresentation(ctx, &pb.MakeSafeForPresentationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegionMatches calls the RegionMatches RPC.
-func (c *UtilsClient) RegionMatches(ctx context.Context, arg0 string, arg1 int32, arg2 string, arg3 int32, arg4 int32) (bool, error) {
-	resp, err := c.svc.RegionMatches(ctx, &pb.RegionMatchesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Replace calls the Replace RPC.
-func (c *UtilsClient) Replace(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Replace(ctx, &pb.ReplaceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Split2 calls the Split2 RPC.
-func (c *UtilsClient) Split2(ctx context.Context, arg0 string, arg1 string) (int64, error) {
-	resp, err := c.svc.Split2(ctx, &pb.Split2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Split2_1 calls the Split2_1 RPC.
-func (c *UtilsClient) Split2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Split2_1(ctx, &pb.Split2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StringOrSpannedString calls the StringOrSpannedString RPC.
-func (c *UtilsClient) StringOrSpannedString(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.StringOrSpannedString(ctx, &pb.StringOrSpannedStringRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Substring calls the Substring RPC.
-func (c *UtilsClient) Substring(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (string, error) {
-	resp, err := c.svc.Substring(ctx, &pb.SubstringRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *UtilsClient) WriteToParcel(ctx context.Context, arg0 string, arg1 int64, arg2 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.UtilsWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// UtilsEllipsizeCallbackClient wraps the gRPC UtilsEllipsizeCallbackService client.
-type UtilsEllipsizeCallbackClient struct {
-	svc pb.UtilsEllipsizeCallbackServiceClient
-}
-
-// NewUtilsEllipsizeCallbackClient creates a new UtilsEllipsizeCallback client.
-func NewUtilsEllipsizeCallbackClient(cc grpc.ClientConnInterface) *UtilsEllipsizeCallbackClient {
-	return &UtilsEllipsizeCallbackClient{
-		svc: pb.NewUtilsEllipsizeCallbackServiceClient(cc),
-	}
-}
-
-// Ellipsized calls the Ellipsized RPC.
-func (c *UtilsEllipsizeCallbackClient) Ellipsized(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.Ellipsized(ctx, &pb.UtilsEllipsizeCallbackEllipsizedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UtilsSimpleStringSplitterClient wraps the gRPC UtilsSimpleStringSplitterService client.
-type UtilsSimpleStringSplitterClient struct {
-	svc pb.UtilsSimpleStringSplitterServiceClient
-}
-
-// NewUtilsSimpleStringSplitterClient creates a new UtilsSimpleStringSplitter client.
-func NewUtilsSimpleStringSplitterClient(cc grpc.ClientConnInterface) *UtilsSimpleStringSplitterClient {
-	return &UtilsSimpleStringSplitterClient{
-		svc: pb.NewUtilsSimpleStringSplitterServiceClient(cc),
-	}
-}
-
-// HasNext calls the HasNext RPC.
-func (c *UtilsSimpleStringSplitterClient) HasNext(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasNext(ctx, &pb.HasNextRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Next0 calls the Next0 RPC.
-func (c *UtilsSimpleStringSplitterClient) Next0(ctx context.Context) (string, error) {
-	resp, err := c.svc.Next0(ctx, &pb.Next0Request{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Remove calls the Remove RPC.
-func (c *UtilsSimpleStringSplitterClient) Remove(ctx context.Context) error {
-	_, err := c.svc.Remove(ctx, &pb.RemoveRequest{})
-	return err
-}
-
-// SetString calls the SetString RPC.
-func (c *UtilsSimpleStringSplitterClient) SetString(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetString(ctx, &pb.SetStringRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Next0_1 calls the Next0_1 RPC.
-func (c *UtilsSimpleStringSplitterClient) Next0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Next0_1(ctx, &pb.Next0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UtilsStringSplitterClient wraps the gRPC UtilsStringSplitterService client.
-type UtilsStringSplitterClient struct {
-	svc pb.UtilsStringSplitterServiceClient
-}
-
-// NewUtilsStringSplitterClient creates a new UtilsStringSplitter client.
-func NewUtilsStringSplitterClient(cc grpc.ClientConnInterface) *UtilsStringSplitterClient {
-	return &UtilsStringSplitterClient{
-		svc: pb.NewUtilsStringSplitterServiceClient(cc),
-	}
-}
-
-// SetString calls the SetString RPC.
-func (c *UtilsStringSplitterClient) SetString(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetString(ctx, &pb.SetStringRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// UtilsTruncateAtClient wraps the gRPC UtilsTruncateAtService client.
-type UtilsTruncateAtClient struct {
-	svc pb.UtilsTruncateAtServiceClient
-}
-
-// NewUtilsTruncateAtClient creates a new UtilsTruncateAt client.
-func NewUtilsTruncateAtClient(cc grpc.ClientConnInterface) *UtilsTruncateAtClient {
-	return &UtilsTruncateAtClient{
-		svc: pb.NewUtilsTruncateAtServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *UtilsTruncateAtClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *UtilsTruncateAtClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.UtilsTruncateAtValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SelectionClient wraps the gRPC SelectionService client.
-type SelectionClient struct {
-	svc pb.SelectionServiceClient
-}
-
-// NewSelectionClient creates a new Selection client.
-func NewSelectionClient(cc grpc.ClientConnInterface) *SelectionClient {
-	return &SelectionClient{
-		svc: pb.NewSelectionServiceClient(cc),
-	}
-}
-
-// ExtendDown calls the ExtendDown RPC.
-func (c *SelectionClient) ExtendDown(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.ExtendDown(ctx, &pb.ExtendDownRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExtendLeft calls the ExtendLeft RPC.
-func (c *SelectionClient) ExtendLeft(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.ExtendLeft(ctx, &pb.ExtendLeftRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExtendRight calls the ExtendRight RPC.
-func (c *SelectionClient) ExtendRight(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.ExtendRight(ctx, &pb.ExtendRightRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExtendSelection calls the ExtendSelection RPC.
-func (c *SelectionClient) ExtendSelection(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.ExtendSelection(ctx, &pb.ExtendSelectionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ExtendToLeftEdge calls the ExtendToLeftEdge RPC.
-func (c *SelectionClient) ExtendToLeftEdge(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.ExtendToLeftEdge(ctx, &pb.ExtendToLeftEdgeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExtendToParagraphEnd calls the ExtendToParagraphEnd RPC.
-func (c *SelectionClient) ExtendToParagraphEnd(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.ExtendToParagraphEnd(ctx, &pb.ExtendToParagraphEndRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExtendToParagraphStart calls the ExtendToParagraphStart RPC.
-func (c *SelectionClient) ExtendToParagraphStart(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.ExtendToParagraphStart(ctx, &pb.ExtendToParagraphStartRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExtendToRightEdge calls the ExtendToRightEdge RPC.
-func (c *SelectionClient) ExtendToRightEdge(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.ExtendToRightEdge(ctx, &pb.ExtendToRightEdgeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExtendUp calls the ExtendUp RPC.
-func (c *SelectionClient) ExtendUp(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.ExtendUp(ctx, &pb.ExtendUpRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSelectionEnd calls the GetSelectionEnd RPC.
-func (c *SelectionClient) GetSelectionEnd(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.GetSelectionEnd(ctx, &pb.GetSelectionEndRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSelectionStart calls the GetSelectionStart RPC.
-func (c *SelectionClient) GetSelectionStart(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.GetSelectionStart(ctx, &pb.GetSelectionStartRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveDown calls the MoveDown RPC.
-func (c *SelectionClient) MoveDown(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.MoveDown(ctx, &pb.MoveDownRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveLeft calls the MoveLeft RPC.
-func (c *SelectionClient) MoveLeft(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.MoveLeft(ctx, &pb.MoveLeftRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveRight calls the MoveRight RPC.
-func (c *SelectionClient) MoveRight(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.MoveRight(ctx, &pb.MoveRightRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToLeftEdge calls the MoveToLeftEdge RPC.
-func (c *SelectionClient) MoveToLeftEdge(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.MoveToLeftEdge(ctx, &pb.MoveToLeftEdgeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToParagraphEnd calls the MoveToParagraphEnd RPC.
-func (c *SelectionClient) MoveToParagraphEnd(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.MoveToParagraphEnd(ctx, &pb.MoveToParagraphEndRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToParagraphStart calls the MoveToParagraphStart RPC.
-func (c *SelectionClient) MoveToParagraphStart(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.MoveToParagraphStart(ctx, &pb.MoveToParagraphStartRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToRightEdge calls the MoveToRightEdge RPC.
-func (c *SelectionClient) MoveToRightEdge(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.MoveToRightEdge(ctx, &pb.MoveToRightEdgeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveUp calls the MoveUp RPC.
-func (c *SelectionClient) MoveUp(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.MoveUp(ctx, &pb.MoveUpRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveSelection calls the RemoveSelection RPC.
-func (c *SelectionClient) RemoveSelection(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveSelection(ctx, &pb.RemoveSelectionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SelectAll calls the SelectAll RPC.
-func (c *SelectionClient) SelectAll(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SelectAll(ctx, &pb.SelectAllRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSelection2 calls the SetSelection2 RPC.
-func (c *SelectionClient) SetSelection2(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.SetSelection2(ctx, &pb.SetSelection2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetSelection3_1 calls the SetSelection3_1 RPC.
-func (c *SelectionClient) SetSelection3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
-	_, err := c.svc.SetSelection3_1(ctx, &pb.SetSelection3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
 // AutoTextClient wraps the gRPC AutoTextService client.
 type AutoTextClient struct {
 	svc pb.AutoTextServiceClient
@@ -18028,27 +16953,59 @@ func (c *EditableFactoryClient) GetInstance(ctx context.Context) (int64, error) 
 	return resp.GetResult(), nil
 }
 
-// InputFilterClient wraps the gRPC InputFilterService client.
-type InputFilterClient struct {
-	svc pb.InputFilterServiceClient
+// SpannedStringClient wraps the gRPC SpannedStringService client.
+type SpannedStringClient struct {
+	svc pb.SpannedStringServiceClient
 }
 
-// NewInputFilterClient creates a new InputFilter client.
-func NewInputFilterClient(cc grpc.ClientConnInterface) *InputFilterClient {
-	return &InputFilterClient{
-		svc: pb.NewInputFilterServiceClient(cc),
+// NewSpannedStringClient creates a new SpannedString client.
+func NewSpannedStringClient(cc grpc.ClientConnInterface) *SpannedStringClient {
+	return &SpannedStringClient{
+		svc: pb.NewSpannedStringServiceClient(cc),
 	}
 }
 
-// Filter calls the Filter RPC.
-func (c *InputFilterClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
-	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// CharAt calls the CharAt RPC.
+func (c *SpannedStringClient) CharAt(ctx context.Context, handle int64, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.SpannedStringCharAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return uint16(resp.GetResult()), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SpannedStringClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.SpannedStringEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChars calls the GetChars RPC.
+func (c *SpannedStringClient) GetChars(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GetChars(ctx, &pb.SpannedStringGetCharsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetSpanEnd calls the GetSpanEnd RPC.
+func (c *SpannedStringClient) GetSpanEnd(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetSpanEnd(ctx, &pb.GetSpanEndRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -18056,27 +17013,11 @@ func (c *InputFilterClient) Filter(ctx context.Context, arg0 string, arg1 int32,
 	return resp.GetResult(), nil
 }
 
-// InputFilterAllCapsClient wraps the gRPC InputFilterAllCapsService client.
-type InputFilterAllCapsClient struct {
-	svc pb.InputFilterAllCapsServiceClient
-}
-
-// NewInputFilterAllCapsClient creates a new InputFilterAllCaps client.
-func NewInputFilterAllCapsClient(cc grpc.ClientConnInterface) *InputFilterAllCapsClient {
-	return &InputFilterAllCapsClient{
-		svc: pb.NewInputFilterAllCapsServiceClient(cc),
-	}
-}
-
-// Filter calls the Filter RPC.
-func (c *InputFilterAllCapsClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
-	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GetSpanFlags calls the GetSpanFlags RPC.
+func (c *SpannedStringClient) GetSpanFlags(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetSpanFlags(ctx, &pb.GetSpanFlagsRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -18084,27 +17025,11 @@ func (c *InputFilterAllCapsClient) Filter(ctx context.Context, arg0 string, arg1
 	return resp.GetResult(), nil
 }
 
-// InputFilterLengthFilterClient wraps the gRPC InputFilterLengthFilterService client.
-type InputFilterLengthFilterClient struct {
-	svc pb.InputFilterLengthFilterServiceClient
-}
-
-// NewInputFilterLengthFilterClient creates a new InputFilterLengthFilter client.
-func NewInputFilterLengthFilterClient(cc grpc.ClientConnInterface) *InputFilterLengthFilterClient {
-	return &InputFilterLengthFilterClient{
-		svc: pb.NewInputFilterLengthFilterServiceClient(cc),
-	}
-}
-
-// Filter calls the Filter RPC.
-func (c *InputFilterLengthFilterClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
-	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GetSpanStart calls the GetSpanStart RPC.
+func (c *SpannedStringClient) GetSpanStart(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetSpanStart(ctx, &pb.GetSpanStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -18112,9 +17037,72 @@ func (c *InputFilterLengthFilterClient) Filter(ctx context.Context, arg0 string,
 	return resp.GetResult(), nil
 }
 
-// GetMax calls the GetMax RPC.
-func (c *InputFilterLengthFilterClient) GetMax(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMax(ctx, &pb.GetMaxRequest{})
+// HashCode calls the HashCode RPC.
+func (c *SpannedStringClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.SpannedStringHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Length calls the Length RPC.
+func (c *SpannedStringClient) Length(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.SpannedStringLengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextSpanTransition calls the NextSpanTransition RPC.
+func (c *SpannedStringClient) NextSpanTransition(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (int32, error) {
+	resp, err := c.svc.NextSpanTransition(ctx, &pb.NextSpanTransitionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubSequence calls the SubSequence RPC.
+func (c *SpannedStringClient) SubSequence(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SubSequence(ctx, &pb.SpannedStringSubSequenceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SpannedStringClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SpannedStringToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *SpannedStringClient) ValueOf(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.SpannedStringValueOfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -18179,157 +17167,650 @@ func (c *SpannedClient) NextSpanTransition(ctx context.Context, arg0 int32, arg1
 	return resp.GetResult(), nil
 }
 
-// ClipboardManagerClient wraps the gRPC ClipboardManagerService client.
-type ClipboardManagerClient struct {
-	svc pb.ClipboardManagerServiceClient
+// SegmentFinderClient wraps the gRPC SegmentFinderService client.
+type SegmentFinderClient struct {
+	svc pb.SegmentFinderServiceClient
 }
 
-// NewClipboardManagerClient creates a new ClipboardManager client.
-func NewClipboardManagerClient(cc grpc.ClientConnInterface) *ClipboardManagerClient {
-	return &ClipboardManagerClient{
-		svc: pb.NewClipboardManagerServiceClient(cc),
+// NewSegmentFinderClient creates a new SegmentFinder client.
+func NewSegmentFinderClient(cc grpc.ClientConnInterface) *SegmentFinderClient {
+	return &SegmentFinderClient{
+		svc: pb.NewSegmentFinderServiceClient(cc),
 	}
 }
 
-// GetText calls the GetText RPC.
-func (c *ClipboardManagerClient) GetText(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+// NextEndBoundary calls the NextEndBoundary RPC.
+func (c *SegmentFinderClient) NextEndBoundary(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.NextEndBoundary(ctx, &pb.SegmentFinderNextEndBoundaryRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// HasText calls the HasText RPC.
-func (c *ClipboardManagerClient) HasText(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasText(ctx, &pb.HasTextRequest{})
+// NextStartBoundary calls the NextStartBoundary RPC.
+func (c *SegmentFinderClient) NextStartBoundary(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.NextStartBoundary(ctx, &pb.SegmentFinderNextStartBoundaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousEndBoundary calls the PreviousEndBoundary RPC.
+func (c *SegmentFinderClient) PreviousEndBoundary(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.PreviousEndBoundary(ctx, &pb.SegmentFinderPreviousEndBoundaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousStartBoundary calls the PreviousStartBoundary RPC.
+func (c *SegmentFinderClient) PreviousStartBoundary(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.PreviousStartBoundary(ctx, &pb.SegmentFinderPreviousStartBoundaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SegmentFinderPrescribedSegmentFinderClient wraps the gRPC SegmentFinderPrescribedSegmentFinderService client.
+type SegmentFinderPrescribedSegmentFinderClient struct {
+	svc pb.SegmentFinderPrescribedSegmentFinderServiceClient
+}
+
+// NewSegmentFinderPrescribedSegmentFinderClient creates a new SegmentFinderPrescribedSegmentFinder client.
+func NewSegmentFinderPrescribedSegmentFinderClient(cc grpc.ClientConnInterface) *SegmentFinderPrescribedSegmentFinderClient {
+	return &SegmentFinderPrescribedSegmentFinderClient{
+		svc: pb.NewSegmentFinderPrescribedSegmentFinderServiceClient(cc),
+	}
+}
+
+// NextEndBoundary calls the NextEndBoundary RPC.
+func (c *SegmentFinderPrescribedSegmentFinderClient) NextEndBoundary(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.NextEndBoundary(ctx, &pb.SegmentFinderPrescribedSegmentFinderNextEndBoundaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextStartBoundary calls the NextStartBoundary RPC.
+func (c *SegmentFinderPrescribedSegmentFinderClient) NextStartBoundary(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.NextStartBoundary(ctx, &pb.SegmentFinderPrescribedSegmentFinderNextStartBoundaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousEndBoundary calls the PreviousEndBoundary RPC.
+func (c *SegmentFinderPrescribedSegmentFinderClient) PreviousEndBoundary(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.PreviousEndBoundary(ctx, &pb.SegmentFinderPrescribedSegmentFinderPreviousEndBoundaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousStartBoundary calls the PreviousStartBoundary RPC.
+func (c *SegmentFinderPrescribedSegmentFinderClient) PreviousStartBoundary(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.PreviousStartBoundary(ctx, &pb.SegmentFinderPrescribedSegmentFinderPreviousStartBoundaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BidiFormatterClient wraps the gRPC BidiFormatterService client.
+type BidiFormatterClient struct {
+	svc pb.BidiFormatterServiceClient
+}
+
+// NewBidiFormatterClient creates a new BidiFormatter client.
+func NewBidiFormatterClient(cc grpc.ClientConnInterface) *BidiFormatterClient {
+	return &BidiFormatterClient{
+		svc: pb.NewBidiFormatterServiceClient(cc),
+	}
+}
+
+// GetStereoReset calls the GetStereoReset RPC.
+func (c *BidiFormatterClient) GetStereoReset(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetStereoReset(ctx, &pb.GetStereoResetRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetText calls the SetText RPC.
-func (c *ClipboardManagerClient) SetText(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetText(ctx, &pb.SetTextRequest{
+// IsRtl1 calls the IsRtl1 RPC.
+func (c *BidiFormatterClient) IsRtl1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsRtl1(ctx, &pb.IsRtl1Request{
 		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRtl1_1 calls the IsRtl1_1 RPC.
+func (c *BidiFormatterClient) IsRtl1_1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsRtl1_1(ctx, &pb.IsRtl1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRtlContext calls the IsRtlContext RPC.
+func (c *BidiFormatterClient) IsRtlContext(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRtlContext(ctx, &pb.IsRtlContextRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeWrap1 calls the UnicodeWrap1 RPC.
+func (c *BidiFormatterClient) UnicodeWrap1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.UnicodeWrap1(ctx, &pb.UnicodeWrap1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeWrap2_1 calls the UnicodeWrap2_1 RPC.
+func (c *BidiFormatterClient) UnicodeWrap2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.UnicodeWrap2_1(ctx, &pb.UnicodeWrap2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeWrap3_2 calls the UnicodeWrap3_2 RPC.
+func (c *BidiFormatterClient) UnicodeWrap3_2(ctx context.Context, arg0 string, arg1 int64, arg2 bool) (int64, error) {
+	resp, err := c.svc.UnicodeWrap3_2(ctx, &pb.UnicodeWrap3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeWrap2_3 calls the UnicodeWrap2_3 RPC.
+func (c *BidiFormatterClient) UnicodeWrap2_3(ctx context.Context, arg0 string, arg1 bool) (int64, error) {
+	resp, err := c.svc.UnicodeWrap2_3(ctx, &pb.UnicodeWrap2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeWrap1_4 calls the UnicodeWrap1_4 RPC.
+func (c *BidiFormatterClient) UnicodeWrap1_4(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.UnicodeWrap1_4(ctx, &pb.UnicodeWrap1_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeWrap2_5 calls the UnicodeWrap2_5 RPC.
+func (c *BidiFormatterClient) UnicodeWrap2_5(ctx context.Context, arg0 string, arg1 int64) (string, error) {
+	resp, err := c.svc.UnicodeWrap2_5(ctx, &pb.UnicodeWrap2_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeWrap3_6 calls the UnicodeWrap3_6 RPC.
+func (c *BidiFormatterClient) UnicodeWrap3_6(ctx context.Context, arg0 string, arg1 int64, arg2 bool) (string, error) {
+	resp, err := c.svc.UnicodeWrap3_6(ctx, &pb.UnicodeWrap3_6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnicodeWrap2_7 calls the UnicodeWrap2_7 RPC.
+func (c *BidiFormatterClient) UnicodeWrap2_7(ctx context.Context, arg0 string, arg1 bool) (string, error) {
+	resp, err := c.svc.UnicodeWrap2_7(ctx, &pb.UnicodeWrap2_7Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *BidiFormatterClient) GetInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *BidiFormatterClient) GetInstance1_1(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.BidiFormatterGetInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_2 calls the GetInstance1_2 RPC.
+func (c *BidiFormatterClient) GetInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_2(ctx, &pb.GetInstance1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BidiFormatterBuilderClient wraps the gRPC BidiFormatterBuilderService client.
+type BidiFormatterBuilderClient struct {
+	svc pb.BidiFormatterBuilderServiceClient
+}
+
+// NewBidiFormatterBuilderClient creates a new BidiFormatterBuilder client.
+func NewBidiFormatterBuilderClient(cc grpc.ClientConnInterface) *BidiFormatterBuilderClient {
+	return &BidiFormatterBuilderClient{
+		svc: pb.NewBidiFormatterBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *BidiFormatterBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextDirectionHeuristic calls the SetTextDirectionHeuristic RPC.
+func (c *BidiFormatterBuilderClient) SetTextDirectionHeuristic(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTextDirectionHeuristic(ctx, &pb.SetTextDirectionHeuristicRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StereoReset calls the StereoReset RPC.
+func (c *BidiFormatterBuilderClient) StereoReset(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.StereoReset(ctx, &pb.StereoResetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoginFilterClient wraps the gRPC LoginFilterService client.
+type LoginFilterClient struct {
+	svc pb.LoginFilterServiceClient
+}
+
+// NewLoginFilterClient creates a new LoginFilter client.
+func NewLoginFilterClient(cc grpc.ClientConnInterface) *LoginFilterClient {
+	return &LoginFilterClient{
+		svc: pb.NewLoginFilterServiceClient(cc),
+	}
+}
+
+// Filter calls the Filter RPC.
+func (c *LoginFilterClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
+	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAllowed calls the IsAllowed RPC.
+func (c *LoginFilterClient) IsAllowed(ctx context.Context, arg0 uint16) (bool, error) {
+	resp, err := c.svc.IsAllowed(ctx, &pb.IsAllowedRequest{
+		Arg0: uint32(arg0),
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnInvalidCharacter calls the OnInvalidCharacter RPC.
+func (c *LoginFilterClient) OnInvalidCharacter(ctx context.Context, arg0 uint16) error {
+	_, err := c.svc.OnInvalidCharacter(ctx, &pb.OnInvalidCharacterRequest{
+		Arg0: uint32(arg0),
 	})
 	return err
 }
 
-// HtmlClient wraps the gRPC HtmlService client.
-type HtmlClient struct {
-	svc pb.HtmlServiceClient
+// OnStart calls the OnStart RPC.
+func (c *LoginFilterClient) OnStart(ctx context.Context) error {
+	_, err := c.svc.OnStart(ctx, &pb.OnStartRequest{})
+	return err
 }
 
-// NewHtmlClient creates a new Html client.
-func NewHtmlClient(cc grpc.ClientConnInterface) *HtmlClient {
-	return &HtmlClient{
-		svc: pb.NewHtmlServiceClient(cc),
+// OnStop calls the OnStop RPC.
+func (c *LoginFilterClient) OnStop(ctx context.Context) error {
+	_, err := c.svc.OnStop(ctx, &pb.OnStopRequest{})
+	return err
+}
+
+// LoginFilterPasswordFilterGMailClient wraps the gRPC LoginFilterPasswordFilterGMailService client.
+type LoginFilterPasswordFilterGMailClient struct {
+	svc pb.LoginFilterPasswordFilterGMailServiceClient
+}
+
+// NewLoginFilterPasswordFilterGMailClient creates a new LoginFilterPasswordFilterGMail client.
+func NewLoginFilterPasswordFilterGMailClient(cc grpc.ClientConnInterface) *LoginFilterPasswordFilterGMailClient {
+	return &LoginFilterPasswordFilterGMailClient{
+		svc: pb.NewLoginFilterPasswordFilterGMailServiceClient(cc),
 	}
 }
 
-// EscapeHtml calls the EscapeHtml RPC.
-func (c *HtmlClient) EscapeHtml(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.EscapeHtml(ctx, &pb.EscapeHtmlRequest{
-		Arg0: arg0,
+// IsAllowed calls the IsAllowed RPC.
+func (c *LoginFilterPasswordFilterGMailClient) IsAllowed(ctx context.Context, arg0 uint16) (bool, error) {
+	resp, err := c.svc.IsAllowed(ctx, &pb.IsAllowedRequest{
+		Arg0: uint32(arg0),
 	})
 	if err != nil {
-		return "", err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// FromHtml1 calls the FromHtml1 RPC.
-func (c *HtmlClient) FromHtml1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.FromHtml1(ctx, &pb.FromHtml1Request{
-		Arg0: arg0,
+// LoginFilterUsernameFilterGMailClient wraps the gRPC LoginFilterUsernameFilterGMailService client.
+type LoginFilterUsernameFilterGMailClient struct {
+	svc pb.LoginFilterUsernameFilterGMailServiceClient
+}
+
+// NewLoginFilterUsernameFilterGMailClient creates a new LoginFilterUsernameFilterGMail client.
+func NewLoginFilterUsernameFilterGMailClient(cc grpc.ClientConnInterface) *LoginFilterUsernameFilterGMailClient {
+	return &LoginFilterUsernameFilterGMailClient{
+		svc: pb.NewLoginFilterUsernameFilterGMailServiceClient(cc),
+	}
+}
+
+// IsAllowed calls the IsAllowed RPC.
+func (c *LoginFilterUsernameFilterGMailClient) IsAllowed(ctx context.Context, arg0 uint16) (bool, error) {
+	resp, err := c.svc.IsAllowed(ctx, &pb.IsAllowedRequest{
+		Arg0: uint32(arg0),
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// FromHtml2_1 calls the FromHtml2_1 RPC.
-func (c *HtmlClient) FromHtml2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
-	resp, err := c.svc.FromHtml2_1(ctx, &pb.FromHtml2_1Request{
+// LoginFilterUsernameFilterGenericClient wraps the gRPC LoginFilterUsernameFilterGenericService client.
+type LoginFilterUsernameFilterGenericClient struct {
+	svc pb.LoginFilterUsernameFilterGenericServiceClient
+}
+
+// NewLoginFilterUsernameFilterGenericClient creates a new LoginFilterUsernameFilterGeneric client.
+func NewLoginFilterUsernameFilterGenericClient(cc grpc.ClientConnInterface) *LoginFilterUsernameFilterGenericClient {
+	return &LoginFilterUsernameFilterGenericClient{
+		svc: pb.NewLoginFilterUsernameFilterGenericServiceClient(cc),
+	}
+}
+
+// IsAllowed calls the IsAllowed RPC.
+func (c *LoginFilterUsernameFilterGenericClient) IsAllowed(ctx context.Context, arg0 uint16) (bool, error) {
+	resp, err := c.svc.IsAllowed(ctx, &pb.IsAllowedRequest{
+		Arg0: uint32(arg0),
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShaperClient wraps the gRPC ShaperService client.
+type ShaperClient struct {
+	svc pb.ShaperServiceClient
+}
+
+// NewShaperClient creates a new Shaper client.
+func NewShaperClient(cc grpc.ClientConnInterface) *ShaperClient {
+	return &ShaperClient{
+		svc: pb.NewShaperServiceClient(cc),
+	}
+}
+
+// ShapeText calls the ShapeText RPC.
+func (c *ShaperClient) ShapeText(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int64, arg5 int64) error {
+	_, err := c.svc.ShapeText(ctx, &pb.ShapeTextRequest{
 		Arg0: arg0,
 		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// ToHtml1 calls the ToHtml1 RPC.
-func (c *HtmlClient) ToHtml1(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.ToHtml1(ctx, &pb.ToHtml1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
+// ShaperGlyphsConsumerClient wraps the gRPC ShaperGlyphsConsumerService client.
+type ShaperGlyphsConsumerClient struct {
+	svc pb.ShaperGlyphsConsumerServiceClient
 }
 
-// ToHtml2_1 calls the ToHtml2_1 RPC.
-func (c *HtmlClient) ToHtml2_1(ctx context.Context, arg0 int64, arg1 int32) (string, error) {
-	resp, err := c.svc.ToHtml2_1(ctx, &pb.ToHtml2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HtmlImageGetterClient wraps the gRPC HtmlImageGetterService client.
-type HtmlImageGetterClient struct {
-	svc pb.HtmlImageGetterServiceClient
-}
-
-// NewHtmlImageGetterClient creates a new HtmlImageGetter client.
-func NewHtmlImageGetterClient(cc grpc.ClientConnInterface) *HtmlImageGetterClient {
-	return &HtmlImageGetterClient{
-		svc: pb.NewHtmlImageGetterServiceClient(cc),
+// NewShaperGlyphsConsumerClient creates a new ShaperGlyphsConsumer client.
+func NewShaperGlyphsConsumerClient(cc grpc.ClientConnInterface) *ShaperGlyphsConsumerClient {
+	return &ShaperGlyphsConsumerClient{
+		svc: pb.NewShaperGlyphsConsumerServiceClient(cc),
 	}
 }
 
-// GetDrawable calls the GetDrawable RPC.
-func (c *HtmlImageGetterClient) GetDrawable(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HtmlTagHandlerClient wraps the gRPC HtmlTagHandlerService client.
-type HtmlTagHandlerClient struct {
-	svc pb.HtmlTagHandlerServiceClient
-}
-
-// NewHtmlTagHandlerClient creates a new HtmlTagHandler client.
-func NewHtmlTagHandlerClient(cc grpc.ClientConnInterface) *HtmlTagHandlerClient {
-	return &HtmlTagHandlerClient{
-		svc: pb.NewHtmlTagHandlerServiceClient(cc),
-	}
-}
-
-// HandleTag calls the HandleTag RPC.
-func (c *HtmlTagHandlerClient) HandleTag(ctx context.Context, arg0 bool, arg1 string, arg2 int64, arg3 int64) error {
-	_, err := c.svc.HandleTag(ctx, &pb.HandleTagRequest{
+// Accept calls the Accept RPC.
+func (c *ShaperGlyphsConsumerClient) Accept(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Accept(ctx, &pb.AcceptRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 		Arg3: arg3,
 	})
 	return err
+}
+
+// AndroidCharacterClient wraps the gRPC AndroidCharacterService client.
+type AndroidCharacterClient struct {
+	svc pb.AndroidCharacterServiceClient
+}
+
+// NewAndroidCharacterClient creates a new AndroidCharacter client.
+func NewAndroidCharacterClient(cc grpc.ClientConnInterface) *AndroidCharacterClient {
+	return &AndroidCharacterClient{
+		svc: pb.NewAndroidCharacterServiceClient(cc),
+	}
+}
+
+// GetDirectionalities calls the GetDirectionalities RPC.
+func (c *AndroidCharacterClient) GetDirectionalities(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GetDirectionalities(ctx, &pb.GetDirectionalitiesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GetEastAsianWidth calls the GetEastAsianWidth RPC.
+func (c *AndroidCharacterClient) GetEastAsianWidth(ctx context.Context, handle int64, arg0 uint16) (int32, error) {
+	resp, err := c.svc.GetEastAsianWidth(ctx, &pb.GetEastAsianWidthRequest{
+		Handle: handle,
+		Arg0:   uint32(arg0),
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEastAsianWidths calls the GetEastAsianWidths RPC.
+func (c *AndroidCharacterClient) GetEastAsianWidths(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GetEastAsianWidths(ctx, &pb.GetEastAsianWidthsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetMirror calls the GetMirror RPC.
+func (c *AndroidCharacterClient) GetMirror(ctx context.Context, handle int64, arg0 uint16) (uint16, error) {
+	resp, err := c.svc.GetMirror(ctx, &pb.GetMirrorRequest{
+		Handle: handle,
+		Arg0:   uint32(arg0),
+	})
+	if err != nil {
+		return 0, err
+	}
+	return uint16(resp.GetResult()), nil
+}
+
+// Mirror calls the Mirror RPC.
+func (c *AndroidCharacterClient) Mirror(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (bool, error) {
+	resp, err := c.svc.Mirror(ctx, &pb.MirrorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpannableClient wraps the gRPC SpannableService client.
+type SpannableClient struct {
+	svc pb.SpannableServiceClient
+}
+
+// NewSpannableClient creates a new Spannable client.
+func NewSpannableClient(cc grpc.ClientConnInterface) *SpannableClient {
+	return &SpannableClient{
+		svc: pb.NewSpannableServiceClient(cc),
+	}
+}
+
+// RemoveSpan calls the RemoveSpan RPC.
+func (c *SpannableClient) RemoveSpan(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveSpan(ctx, &pb.RemoveSpanRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSpan calls the SetSpan RPC.
+func (c *SpannableClient) SetSpan(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetSpan(ctx, &pb.SetSpanRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SpannableFactoryClient wraps the gRPC SpannableFactoryService client.
+type SpannableFactoryClient struct {
+	svc pb.SpannableFactoryServiceClient
+}
+
+// NewSpannableFactoryClient creates a new SpannableFactory client.
+func NewSpannableFactoryClient(cc grpc.ClientConnInterface) *SpannableFactoryClient {
+	return &SpannableFactoryClient{
+		svc: pb.NewSpannableFactoryServiceClient(cc),
+	}
+}
+
+// NewSpannable calls the NewSpannable RPC.
+func (c *SpannableFactoryClient) NewSpannable(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.NewSpannable(ctx, &pb.NewSpannableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *SpannableFactoryClient) GetInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.EditableFactoryGetInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // LayoutClient wraps the gRPC LayoutService client.
@@ -18948,7 +18429,7 @@ func (c *LayoutClient) GetSpacingMultiplier(ctx context.Context) (float32, error
 
 // GetText calls the GetText RPC.
 func (c *LayoutClient) GetText(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	resp, err := c.svc.GetText(ctx, &pb.LayoutGetTextRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -19329,102 +18810,124 @@ func (c *LayoutTextInclusionStrategyClient) IsSegmentInside(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
-// GraphemeClusterSegmentFinderClient wraps the gRPC GraphemeClusterSegmentFinderService client.
-type GraphemeClusterSegmentFinderClient struct {
-	svc pb.GraphemeClusterSegmentFinderServiceClient
+// SelectionClient wraps the gRPC SelectionService client.
+type SelectionClient struct {
+	svc pb.SelectionServiceClient
 }
 
-// NewGraphemeClusterSegmentFinderClient creates a new GraphemeClusterSegmentFinder client.
-func NewGraphemeClusterSegmentFinderClient(cc grpc.ClientConnInterface) *GraphemeClusterSegmentFinderClient {
-	return &GraphemeClusterSegmentFinderClient{
-		svc: pb.NewGraphemeClusterSegmentFinderServiceClient(cc),
+// NewSelectionClient creates a new Selection client.
+func NewSelectionClient(cc grpc.ClientConnInterface) *SelectionClient {
+	return &SelectionClient{
+		svc: pb.NewSelectionServiceClient(cc),
 	}
 }
 
-// NextEndBoundary calls the NextEndBoundary RPC.
-func (c *GraphemeClusterSegmentFinderClient) NextEndBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.NextEndBoundary(ctx, &pb.NextEndBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// ExtendDown calls the ExtendDown RPC.
+func (c *SelectionClient) ExtendDown(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.ExtendDown(ctx, &pb.ExtendDownRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// NextStartBoundary calls the NextStartBoundary RPC.
-func (c *GraphemeClusterSegmentFinderClient) NextStartBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.NextStartBoundary(ctx, &pb.NextStartBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// ExtendLeft calls the ExtendLeft RPC.
+func (c *SelectionClient) ExtendLeft(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.ExtendLeft(ctx, &pb.ExtendLeftRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// PreviousEndBoundary calls the PreviousEndBoundary RPC.
-func (c *GraphemeClusterSegmentFinderClient) PreviousEndBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.PreviousEndBoundary(ctx, &pb.PreviousEndBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// ExtendRight calls the ExtendRight RPC.
+func (c *SelectionClient) ExtendRight(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.ExtendRight(ctx, &pb.ExtendRightRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// PreviousStartBoundary calls the PreviousStartBoundary RPC.
-func (c *GraphemeClusterSegmentFinderClient) PreviousStartBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.PreviousStartBoundary(ctx, &pb.PreviousStartBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// ExtendSelection calls the ExtendSelection RPC.
+func (c *SelectionClient) ExtendSelection(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.ExtendSelection(ctx, &pb.ExtendSelectionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ExtendToLeftEdge calls the ExtendToLeftEdge RPC.
+func (c *SelectionClient) ExtendToLeftEdge(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.ExtendToLeftEdge(ctx, &pb.ExtendToLeftEdgeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ParcelableSpanClient wraps the gRPC ParcelableSpanService client.
-type ParcelableSpanClient struct {
-	svc pb.ParcelableSpanServiceClient
-}
-
-// NewParcelableSpanClient creates a new ParcelableSpan client.
-func NewParcelableSpanClient(cc grpc.ClientConnInterface) *ParcelableSpanClient {
-	return &ParcelableSpanClient{
-		svc: pb.NewParcelableSpanServiceClient(cc),
-	}
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *ParcelableSpanClient) GetSpanTypeId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.ParcelableSpanGetSpanTypeIdRequest{})
+// ExtendToParagraphEnd calls the ExtendToParagraphEnd RPC.
+func (c *SelectionClient) ExtendToParagraphEnd(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.ExtendToParagraphEnd(ctx, &pb.ExtendToParagraphEndRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SegmentFinderClient wraps the gRPC SegmentFinderService client.
-type SegmentFinderClient struct {
-	svc pb.SegmentFinderServiceClient
-}
-
-// NewSegmentFinderClient creates a new SegmentFinder client.
-func NewSegmentFinderClient(cc grpc.ClientConnInterface) *SegmentFinderClient {
-	return &SegmentFinderClient{
-		svc: pb.NewSegmentFinderServiceClient(cc),
+// ExtendToParagraphStart calls the ExtendToParagraphStart RPC.
+func (c *SelectionClient) ExtendToParagraphStart(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.ExtendToParagraphStart(ctx, &pb.ExtendToParagraphStartRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
 	}
+	return resp.GetResult(), nil
 }
 
-// NextEndBoundary calls the NextEndBoundary RPC.
-func (c *SegmentFinderClient) NextEndBoundary(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.NextEndBoundary(ctx, &pb.SegmentFinderNextEndBoundaryRequest{
+// ExtendToRightEdge calls the ExtendToRightEdge RPC.
+func (c *SelectionClient) ExtendToRightEdge(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.ExtendToRightEdge(ctx, &pb.ExtendToRightEdgeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExtendUp calls the ExtendUp RPC.
+func (c *SelectionClient) ExtendUp(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.ExtendUp(ctx, &pb.ExtendUpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionEnd calls the GetSelectionEnd RPC.
+func (c *SelectionClient) GetSelectionEnd(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetSelectionEnd(ctx, &pb.GetSelectionEndRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -19433,9 +18936,9 @@ func (c *SegmentFinderClient) NextEndBoundary(ctx context.Context, arg0 int32) (
 	return resp.GetResult(), nil
 }
 
-// NextStartBoundary calls the NextStartBoundary RPC.
-func (c *SegmentFinderClient) NextStartBoundary(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.NextStartBoundary(ctx, &pb.SegmentFinderNextStartBoundaryRequest{
+// GetSelectionStart calls the GetSelectionStart RPC.
+func (c *SelectionClient) GetSelectionStart(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetSelectionStart(ctx, &pb.GetSelectionStartRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -19444,99 +18947,152 @@ func (c *SegmentFinderClient) NextStartBoundary(ctx context.Context, arg0 int32)
 	return resp.GetResult(), nil
 }
 
-// PreviousEndBoundary calls the PreviousEndBoundary RPC.
-func (c *SegmentFinderClient) PreviousEndBoundary(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.PreviousEndBoundary(ctx, &pb.SegmentFinderPreviousEndBoundaryRequest{
+// MoveDown calls the MoveDown RPC.
+func (c *SelectionClient) MoveDown(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.MoveDown(ctx, &pb.MoveDownRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// PreviousStartBoundary calls the PreviousStartBoundary RPC.
-func (c *SegmentFinderClient) PreviousStartBoundary(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.PreviousStartBoundary(ctx, &pb.SegmentFinderPreviousStartBoundaryRequest{
+// MoveLeft calls the MoveLeft RPC.
+func (c *SelectionClient) MoveLeft(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.MoveLeft(ctx, &pb.MoveLeftRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SegmentFinderPrescribedSegmentFinderClient wraps the gRPC SegmentFinderPrescribedSegmentFinderService client.
-type SegmentFinderPrescribedSegmentFinderClient struct {
-	svc pb.SegmentFinderPrescribedSegmentFinderServiceClient
-}
-
-// NewSegmentFinderPrescribedSegmentFinderClient creates a new SegmentFinderPrescribedSegmentFinder client.
-func NewSegmentFinderPrescribedSegmentFinderClient(cc grpc.ClientConnInterface) *SegmentFinderPrescribedSegmentFinderClient {
-	return &SegmentFinderPrescribedSegmentFinderClient{
-		svc: pb.NewSegmentFinderPrescribedSegmentFinderServiceClient(cc),
-	}
-}
-
-// NextEndBoundary calls the NextEndBoundary RPC.
-func (c *SegmentFinderPrescribedSegmentFinderClient) NextEndBoundary(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.NextEndBoundary(ctx, &pb.SegmentFinderPrescribedSegmentFinderNextEndBoundaryRequest{
+// MoveRight calls the MoveRight RPC.
+func (c *SelectionClient) MoveRight(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.MoveRight(ctx, &pb.MoveRightRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// NextStartBoundary calls the NextStartBoundary RPC.
-func (c *SegmentFinderPrescribedSegmentFinderClient) NextStartBoundary(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.NextStartBoundary(ctx, &pb.SegmentFinderPrescribedSegmentFinderNextStartBoundaryRequest{
+// MoveToLeftEdge calls the MoveToLeftEdge RPC.
+func (c *SelectionClient) MoveToLeftEdge(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.MoveToLeftEdge(ctx, &pb.MoveToLeftEdgeRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// PreviousEndBoundary calls the PreviousEndBoundary RPC.
-func (c *SegmentFinderPrescribedSegmentFinderClient) PreviousEndBoundary(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.PreviousEndBoundary(ctx, &pb.SegmentFinderPrescribedSegmentFinderPreviousEndBoundaryRequest{
+// MoveToParagraphEnd calls the MoveToParagraphEnd RPC.
+func (c *SelectionClient) MoveToParagraphEnd(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.MoveToParagraphEnd(ctx, &pb.MoveToParagraphEndRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// PreviousStartBoundary calls the PreviousStartBoundary RPC.
-func (c *SegmentFinderPrescribedSegmentFinderClient) PreviousStartBoundary(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.PreviousStartBoundary(ctx, &pb.SegmentFinderPrescribedSegmentFinderPreviousStartBoundaryRequest{
+// MoveToParagraphStart calls the MoveToParagraphStart RPC.
+func (c *SelectionClient) MoveToParagraphStart(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.MoveToParagraphStart(ctx, &pb.MoveToParagraphStartRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SpannedStringClient wraps the gRPC SpannedStringService client.
-type SpannedStringClient struct {
-	svc pb.SpannedStringServiceClient
+// MoveToRightEdge calls the MoveToRightEdge RPC.
+func (c *SelectionClient) MoveToRightEdge(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.MoveToRightEdge(ctx, &pb.MoveToRightEdgeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewSpannedStringClient creates a new SpannedString client.
-func NewSpannedStringClient(cc grpc.ClientConnInterface) *SpannedStringClient {
-	return &SpannedStringClient{
-		svc: pb.NewSpannedStringServiceClient(cc),
+// MoveUp calls the MoveUp RPC.
+func (c *SelectionClient) MoveUp(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.MoveUp(ctx, &pb.MoveUpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveSelection calls the RemoveSelection RPC.
+func (c *SelectionClient) RemoveSelection(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveSelection(ctx, &pb.RemoveSelectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SelectAll calls the SelectAll RPC.
+func (c *SelectionClient) SelectAll(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SelectAll(ctx, &pb.SelectAllRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSelection2 calls the SetSelection2 RPC.
+func (c *SelectionClient) SetSelection2(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetSelection2(ctx, &pb.SetSelection2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetSelection3_1 calls the SetSelection3_1 RPC.
+func (c *SelectionClient) SetSelection3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.SetSelection3_1(ctx, &pb.SetSelection3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SpannableStringClient wraps the gRPC SpannableStringService client.
+type SpannableStringClient struct {
+	svc pb.SpannableStringServiceClient
+}
+
+// NewSpannableStringClient creates a new SpannableString client.
+func NewSpannableStringClient(cc grpc.ClientConnInterface) *SpannableStringClient {
+	return &SpannableStringClient{
+		svc: pb.NewSpannableStringServiceClient(cc),
 	}
 }
 
 // CharAt calls the CharAt RPC.
-func (c *SpannedStringClient) CharAt(ctx context.Context, handle int64, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.SpannableStringCharAtRequest{
+func (c *SpannableStringClient) CharAt(ctx context.Context, handle int64, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.SpannedStringCharAtRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -19547,8 +19103,8 @@ func (c *SpannedStringClient) CharAt(ctx context.Context, handle int64, arg0 int
 }
 
 // Equals calls the Equals RPC.
-func (c *SpannedStringClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SpannableStringEqualsRequest{
+func (c *SpannableStringClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.SpannedStringEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -19559,8 +19115,8 @@ func (c *SpannedStringClient) Equals(ctx context.Context, handle int64, arg0 int
 }
 
 // GetChars calls the GetChars RPC.
-func (c *SpannedStringClient) GetChars(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GetChars(ctx, &pb.SpannableStringGetCharsRequest{
+func (c *SpannableStringClient) GetChars(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GetChars(ctx, &pb.SpannedStringGetCharsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -19571,7 +19127,7 @@ func (c *SpannedStringClient) GetChars(ctx context.Context, handle int64, arg0 i
 }
 
 // GetSpanEnd calls the GetSpanEnd RPC.
-func (c *SpannedStringClient) GetSpanEnd(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+func (c *SpannableStringClient) GetSpanEnd(ctx context.Context, handle int64, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetSpanEnd(ctx, &pb.GetSpanEndRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -19583,7 +19139,7 @@ func (c *SpannedStringClient) GetSpanEnd(ctx context.Context, handle int64, arg0
 }
 
 // GetSpanFlags calls the GetSpanFlags RPC.
-func (c *SpannedStringClient) GetSpanFlags(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+func (c *SpannableStringClient) GetSpanFlags(ctx context.Context, handle int64, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetSpanFlags(ctx, &pb.GetSpanFlagsRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -19595,7 +19151,7 @@ func (c *SpannedStringClient) GetSpanFlags(ctx context.Context, handle int64, ar
 }
 
 // GetSpanStart calls the GetSpanStart RPC.
-func (c *SpannedStringClient) GetSpanStart(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+func (c *SpannableStringClient) GetSpanStart(ctx context.Context, handle int64, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetSpanStart(ctx, &pb.GetSpanStartRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -19607,8 +19163,8 @@ func (c *SpannedStringClient) GetSpanStart(ctx context.Context, handle int64, ar
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SpannedStringClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SpannableStringHashCodeRequest{
+func (c *SpannableStringClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.SpannedStringHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -19618,8 +19174,8 @@ func (c *SpannedStringClient) HashCode(ctx context.Context, handle int64) (int32
 }
 
 // Length calls the Length RPC.
-func (c *SpannedStringClient) Length(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.SpannableStringLengthRequest{
+func (c *SpannableStringClient) Length(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.SpannedStringLengthRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -19629,7 +19185,7 @@ func (c *SpannedStringClient) Length(ctx context.Context, handle int64) (int32, 
 }
 
 // NextSpanTransition calls the NextSpanTransition RPC.
-func (c *SpannedStringClient) NextSpanTransition(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (int32, error) {
+func (c *SpannableStringClient) NextSpanTransition(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (int32, error) {
 	resp, err := c.svc.NextSpanTransition(ctx, &pb.NextSpanTransitionRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -19642,9 +19198,30 @@ func (c *SpannedStringClient) NextSpanTransition(ctx context.Context, handle int
 	return resp.GetResult(), nil
 }
 
+// RemoveSpan calls the RemoveSpan RPC.
+func (c *SpannableStringClient) RemoveSpan(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveSpan(ctx, &pb.SpannableStringRemoveSpanRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSpan calls the SetSpan RPC.
+func (c *SpannableStringClient) SetSpan(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetSpan(ctx, &pb.SpannableStringSetSpanRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
 // SubSequence calls the SubSequence RPC.
-func (c *SpannedStringClient) SubSequence(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.SpannableStringSubSequenceRequest{
+func (c *SpannableStringClient) SubSequence(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SubSequence(ctx, &pb.SpannedStringSubSequenceRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -19656,8 +19233,8 @@ func (c *SpannedStringClient) SubSequence(ctx context.Context, handle int64, arg
 }
 
 // ToString calls the ToString RPC.
-func (c *SpannedStringClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.SpannedStringToStringRequest{
+func (c *SpannableStringClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SpannableStringToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -19667,8 +19244,8 @@ func (c *SpannedStringClient) ToString(ctx context.Context, handle int64) (strin
 }
 
 // ValueOf calls the ValueOf RPC.
-func (c *SpannedStringClient) ValueOf(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.SpannableStringValueOfRequest{
+func (c *SpannableStringClient) ValueOf(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.SpannedStringValueOfRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -19678,21 +19255,36 @@ func (c *SpannedStringClient) ValueOf(ctx context.Context, handle int64, arg0 st
 	return resp.GetResult(), nil
 }
 
-// HighlightsClient wraps the gRPC HighlightsService client.
-type HighlightsClient struct {
-	svc pb.HighlightsServiceClient
+// UtilsClient wraps the gRPC UtilsService client.
+type UtilsClient struct {
+	svc pb.UtilsServiceClient
 }
 
-// NewHighlightsClient creates a new Highlights client.
-func NewHighlightsClient(cc grpc.ClientConnInterface) *HighlightsClient {
-	return &HighlightsClient{
-		svc: pb.NewHighlightsServiceClient(cc),
+// NewUtilsClient creates a new Utils client.
+func NewUtilsClient(cc grpc.ClientConnInterface) *UtilsClient {
+	return &UtilsClient{
+		svc: pb.NewUtilsServiceClient(cc),
 	}
 }
 
-// GetPaint calls the GetPaint RPC.
-func (c *HighlightsClient) GetPaint(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetPaint(ctx, &pb.HighlightsGetPaintRequest{
+// CommaEllipsize calls the CommaEllipsize RPC.
+func (c *UtilsClient) CommaEllipsize(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 string, arg4 string) (int64, error) {
+	resp, err := c.svc.CommaEllipsize(ctx, &pb.CommaEllipsizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Concat calls the Concat RPC.
+func (c *UtilsClient) Concat(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Concat(ctx, &pb.ConcatRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -19701,10 +19293,36 @@ func (c *HighlightsClient) GetPaint(ctx context.Context, arg0 int32) (int64, err
 	return resp.GetResult(), nil
 }
 
-// GetRanges calls the GetRanges RPC.
-func (c *HighlightsClient) GetRanges(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetRanges(ctx, &pb.GetRangesRequest{
+// CopySpansFrom calls the CopySpansFrom RPC.
+func (c *UtilsClient) CopySpansFrom(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64, arg4 int64, arg5 int32) error {
+	_, err := c.svc.CopySpansFrom(ctx, &pb.CopySpansFromRequest{
 		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// DumpSpans calls the DumpSpans RPC.
+func (c *UtilsClient) DumpSpans(ctx context.Context, arg0 string, arg1 int64, arg2 string) error {
+	_, err := c.svc.DumpSpans(ctx, &pb.DumpSpansRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Ellipsize4 calls the Ellipsize4 RPC.
+func (c *UtilsClient) Ellipsize4(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64) (int64, error) {
+	resp, err := c.svc.Ellipsize4(ctx, &pb.Ellipsize4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
 	if err != nil {
 		return 0, err
@@ -19712,30 +19330,49 @@ func (c *HighlightsClient) GetRanges(ctx context.Context, arg0 int32) (int64, er
 	return resp.GetResult(), nil
 }
 
-// GetSize calls the GetSize RPC.
-func (c *HighlightsClient) GetSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSize(ctx, &pb.HighlightsGetSizeRequest{})
+// Ellipsize6_1 calls the Ellipsize6_1 RPC.
+func (c *UtilsClient) Ellipsize6_1(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64, arg4 bool, arg5 int64) (int64, error) {
+	resp, err := c.svc.Ellipsize6_1(ctx, &pb.Ellipsize6_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// HighlightsBuilderClient wraps the gRPC HighlightsBuilderService client.
-type HighlightsBuilderClient struct {
-	svc pb.HighlightsBuilderServiceClient
-}
-
-// NewHighlightsBuilderClient creates a new HighlightsBuilder client.
-func NewHighlightsBuilderClient(cc grpc.ClientConnInterface) *HighlightsBuilderClient {
-	return &HighlightsBuilderClient{
-		svc: pb.NewHighlightsBuilderServiceClient(cc),
+// Equals calls the Equals RPC.
+func (c *UtilsClient) Equals(ctx context.Context, arg0 string, arg1 string) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.UtilsEqualsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
 	}
+	return resp.GetResult(), nil
 }
 
-// AddRange calls the AddRange RPC.
-func (c *HighlightsBuilderClient) AddRange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.AddRange(ctx, &pb.AddRangeRequest{
+// ExpandTemplate calls the ExpandTemplate RPC.
+func (c *UtilsClient) ExpandTemplate(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ExpandTemplate(ctx, &pb.ExpandTemplateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCapsMode calls the GetCapsMode RPC.
+func (c *UtilsClient) GetCapsMode(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.GetCapsMode(ctx, &pb.GetCapsModeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -19746,9 +19383,32 @@ func (c *HighlightsBuilderClient) AddRange(ctx context.Context, arg0 int64, arg1
 	return resp.GetResult(), nil
 }
 
-// AddRanges calls the AddRanges RPC.
-func (c *HighlightsBuilderClient) AddRanges(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddRanges(ctx, &pb.AddRangesRequest{
+// GetChars calls the GetChars RPC.
+func (c *UtilsClient) GetChars(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GetChars(ctx, &pb.UtilsGetCharsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GetLayoutDirectionFromLocale calls the GetLayoutDirectionFromLocale RPC.
+func (c *UtilsClient) GetLayoutDirectionFromLocale(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetLayoutDirectionFromLocale(ctx, &pb.GetLayoutDirectionFromLocaleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffsetAfter calls the GetOffsetAfter RPC.
+func (c *UtilsClient) GetOffsetAfter(ctx context.Context, arg0 string, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetOffsetAfter(ctx, &pb.GetOffsetAfterRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -19758,13 +19418,503 @@ func (c *HighlightsBuilderClient) AddRanges(ctx context.Context, arg0 int64, arg
 	return resp.GetResult(), nil
 }
 
-// Build calls the Build RPC.
-func (c *HighlightsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+// GetOffsetBefore calls the GetOffsetBefore RPC.
+func (c *UtilsClient) GetOffsetBefore(ctx context.Context, arg0 string, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetOffsetBefore(ctx, &pb.GetOffsetBeforeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// GetReverse calls the GetReverse RPC.
+func (c *UtilsClient) GetReverse(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetReverse(ctx, &pb.GetReverseRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrimmedLength calls the GetTrimmedLength RPC.
+func (c *UtilsClient) GetTrimmedLength(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetTrimmedLength(ctx, &pb.GetTrimmedLengthRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HtmlEncode calls the HtmlEncode RPC.
+func (c *UtilsClient) HtmlEncode(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.HtmlEncode(ctx, &pb.HtmlEncodeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IndexOf2 calls the IndexOf2 RPC.
+func (c *UtilsClient) IndexOf2(ctx context.Context, arg0 string, arg1 uint16) (int32, error) {
+	resp, err := c.svc.IndexOf2(ctx, &pb.IndexOf2Request{
+		Arg0: arg0,
+		Arg1: uint32(arg1),
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IndexOf3_1 calls the IndexOf3_1 RPC.
+func (c *UtilsClient) IndexOf3_1(ctx context.Context, arg0 string, arg1 uint16, arg2 int32) (int32, error) {
+	resp, err := c.svc.IndexOf3_1(ctx, &pb.IndexOf3_1Request{
+		Arg0: arg0,
+		Arg1: uint32(arg1),
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IndexOf4_2 calls the IndexOf4_2 RPC.
+func (c *UtilsClient) IndexOf4_2(ctx context.Context, arg0 string, arg1 uint16, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.IndexOf4_2(ctx, &pb.IndexOf4_2Request{
+		Arg0: arg0,
+		Arg1: uint32(arg1),
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IndexOf2_3 calls the IndexOf2_3 RPC.
+func (c *UtilsClient) IndexOf2_3(ctx context.Context, arg0 string, arg1 string) (int32, error) {
+	resp, err := c.svc.IndexOf2_3(ctx, &pb.IndexOf2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IndexOf3_4 calls the IndexOf3_4 RPC.
+func (c *UtilsClient) IndexOf3_4(ctx context.Context, arg0 string, arg1 string, arg2 int32) (int32, error) {
+	resp, err := c.svc.IndexOf3_4(ctx, &pb.IndexOf3_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IndexOf4_5 calls the IndexOf4_5 RPC.
+func (c *UtilsClient) IndexOf4_5(ctx context.Context, arg0 string, arg1 string, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.IndexOf4_5(ctx, &pb.IndexOf4_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDigitsOnly calls the IsDigitsOnly RPC.
+func (c *UtilsClient) IsDigitsOnly(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsDigitsOnly(ctx, &pb.IsDigitsOnlyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEmpty calls the IsEmpty RPC.
+func (c *UtilsClient) IsEmpty(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsEmpty(ctx, &pb.UtilsIsEmptyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGraphic1 calls the IsGraphic1 RPC.
+func (c *UtilsClient) IsGraphic1(ctx context.Context, arg0 uint16) (bool, error) {
+	resp, err := c.svc.IsGraphic1(ctx, &pb.IsGraphic1Request{
+		Arg0: uint32(arg0),
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGraphic1_1 calls the IsGraphic1_1 RPC.
+func (c *UtilsClient) IsGraphic1_1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsGraphic1_1(ctx, &pb.IsGraphic1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Join2 calls the Join2 RPC.
+func (c *UtilsClient) Join2(ctx context.Context, arg0 string, arg1 int64) (string, error) {
+	resp, err := c.svc.Join2(ctx, &pb.Join2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Join2_1 calls the Join2_1 RPC.
+func (c *UtilsClient) Join2_1(ctx context.Context, arg0 string, arg1 int64) (string, error) {
+	resp, err := c.svc.Join2_1(ctx, &pb.Join2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LastIndexOf2 calls the LastIndexOf2 RPC.
+func (c *UtilsClient) LastIndexOf2(ctx context.Context, arg0 string, arg1 uint16) (int32, error) {
+	resp, err := c.svc.LastIndexOf2(ctx, &pb.LastIndexOf2Request{
+		Arg0: arg0,
+		Arg1: uint32(arg1),
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LastIndexOf3_1 calls the LastIndexOf3_1 RPC.
+func (c *UtilsClient) LastIndexOf3_1(ctx context.Context, arg0 string, arg1 uint16, arg2 int32) (int32, error) {
+	resp, err := c.svc.LastIndexOf3_1(ctx, &pb.LastIndexOf3_1Request{
+		Arg0: arg0,
+		Arg1: uint32(arg1),
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LastIndexOf4_2 calls the LastIndexOf4_2 RPC.
+func (c *UtilsClient) LastIndexOf4_2(ctx context.Context, arg0 string, arg1 uint16, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.LastIndexOf4_2(ctx, &pb.LastIndexOf4_2Request{
+		Arg0: arg0,
+		Arg1: uint32(arg1),
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MakeSafeForPresentation calls the MakeSafeForPresentation RPC.
+func (c *UtilsClient) MakeSafeForPresentation(ctx context.Context, arg0 string, arg1 int32, arg2 float32, arg3 int32) (int64, error) {
+	resp, err := c.svc.MakeSafeForPresentation(ctx, &pb.MakeSafeForPresentationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegionMatches calls the RegionMatches RPC.
+func (c *UtilsClient) RegionMatches(ctx context.Context, arg0 string, arg1 int32, arg2 string, arg3 int32, arg4 int32) (bool, error) {
+	resp, err := c.svc.RegionMatches(ctx, &pb.RegionMatchesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Replace calls the Replace RPC.
+func (c *UtilsClient) Replace(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Replace(ctx, &pb.ReplaceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Split2 calls the Split2 RPC.
+func (c *UtilsClient) Split2(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.Split2(ctx, &pb.Split2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Split2_1 calls the Split2_1 RPC.
+func (c *UtilsClient) Split2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Split2_1(ctx, &pb.Split2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StringOrSpannedString calls the StringOrSpannedString RPC.
+func (c *UtilsClient) StringOrSpannedString(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.StringOrSpannedString(ctx, &pb.StringOrSpannedStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Substring calls the Substring RPC.
+func (c *UtilsClient) Substring(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (string, error) {
+	resp, err := c.svc.Substring(ctx, &pb.SubstringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *UtilsClient) WriteToParcel(ctx context.Context, arg0 string, arg1 int64, arg2 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.UtilsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UtilsEllipsizeCallbackClient wraps the gRPC UtilsEllipsizeCallbackService client.
+type UtilsEllipsizeCallbackClient struct {
+	svc pb.UtilsEllipsizeCallbackServiceClient
+}
+
+// NewUtilsEllipsizeCallbackClient creates a new UtilsEllipsizeCallback client.
+func NewUtilsEllipsizeCallbackClient(cc grpc.ClientConnInterface) *UtilsEllipsizeCallbackClient {
+	return &UtilsEllipsizeCallbackClient{
+		svc: pb.NewUtilsEllipsizeCallbackServiceClient(cc),
+	}
+}
+
+// Ellipsized calls the Ellipsized RPC.
+func (c *UtilsEllipsizeCallbackClient) Ellipsized(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.Ellipsized(ctx, &pb.UtilsEllipsizeCallbackEllipsizedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UtilsSimpleStringSplitterClient wraps the gRPC UtilsSimpleStringSplitterService client.
+type UtilsSimpleStringSplitterClient struct {
+	svc pb.UtilsSimpleStringSplitterServiceClient
+}
+
+// NewUtilsSimpleStringSplitterClient creates a new UtilsSimpleStringSplitter client.
+func NewUtilsSimpleStringSplitterClient(cc grpc.ClientConnInterface) *UtilsSimpleStringSplitterClient {
+	return &UtilsSimpleStringSplitterClient{
+		svc: pb.NewUtilsSimpleStringSplitterServiceClient(cc),
+	}
+}
+
+// HasNext calls the HasNext RPC.
+func (c *UtilsSimpleStringSplitterClient) HasNext(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasNext(ctx, &pb.HasNextRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *UtilsSimpleStringSplitterClient) Iterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.UtilsSimpleStringSplitterIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Next0 calls the Next0 RPC.
+func (c *UtilsSimpleStringSplitterClient) Next0(ctx context.Context) (string, error) {
+	resp, err := c.svc.Next0(ctx, &pb.Next0Request{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Remove calls the Remove RPC.
+func (c *UtilsSimpleStringSplitterClient) Remove(ctx context.Context) error {
+	_, err := c.svc.Remove(ctx, &pb.RemoveRequest{})
+	return err
+}
+
+// SetString calls the SetString RPC.
+func (c *UtilsSimpleStringSplitterClient) SetString(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetString(ctx, &pb.SetStringRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Next0_1 calls the Next0_1 RPC.
+func (c *UtilsSimpleStringSplitterClient) Next0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Next0_1(ctx, &pb.Next0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UtilsStringSplitterClient wraps the gRPC UtilsStringSplitterService client.
+type UtilsStringSplitterClient struct {
+	svc pb.UtilsStringSplitterServiceClient
+}
+
+// NewUtilsStringSplitterClient creates a new UtilsStringSplitter client.
+func NewUtilsStringSplitterClient(cc grpc.ClientConnInterface) *UtilsStringSplitterClient {
+	return &UtilsStringSplitterClient{
+		svc: pb.NewUtilsStringSplitterServiceClient(cc),
+	}
+}
+
+// SetString calls the SetString RPC.
+func (c *UtilsStringSplitterClient) SetString(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetString(ctx, &pb.SetStringRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UtilsTruncateAtClient wraps the gRPC UtilsTruncateAtService client.
+type UtilsTruncateAtClient struct {
+	svc pb.UtilsTruncateAtServiceClient
+}
+
+// NewUtilsTruncateAtClient creates a new UtilsTruncateAt client.
+func NewUtilsTruncateAtClient(cc grpc.ClientConnInterface) *UtilsTruncateAtClient {
+	return &UtilsTruncateAtClient{
+		svc: pb.NewUtilsTruncateAtServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *UtilsTruncateAtClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *UtilsTruncateAtClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.UtilsTruncateAtValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PaintClient wraps the gRPC PaintService client.
+type PaintClient struct {
+	svc pb.PaintServiceClient
+}
+
+// NewPaintClient creates a new Paint client.
+func NewPaintClient(cc grpc.ClientConnInterface) *PaintClient {
+	return &PaintClient{
+		svc: pb.NewPaintServiceClient(cc),
+	}
+}
+
+// GetUnderlineThickness calls the GetUnderlineThickness RPC.
+func (c *PaintClient) GetUnderlineThickness(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetUnderlineThickness(ctx, &pb.GetUnderlineThicknessRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set calls the Set RPC.
+func (c *PaintClient) Set(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Set(ctx, &pb.PaintSetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
 }
 
 // AlteredCharSequenceClient wraps the gRPC AlteredCharSequenceService client.
@@ -19845,106 +19995,21 @@ func (c *AlteredCharSequenceClient) Make(ctx context.Context, arg0 string, arg1 
 	return resp.GetResult(), nil
 }
 
-// WordSegmentFinderClient wraps the gRPC WordSegmentFinderService client.
-type WordSegmentFinderClient struct {
-	svc pb.WordSegmentFinderServiceClient
+// GetCharsClient wraps the gRPC GetCharsService client.
+type GetCharsClient struct {
+	svc pb.GetCharsServiceClient
 }
 
-// NewWordSegmentFinderClient creates a new WordSegmentFinder client.
-func NewWordSegmentFinderClient(cc grpc.ClientConnInterface) *WordSegmentFinderClient {
-	return &WordSegmentFinderClient{
-		svc: pb.NewWordSegmentFinderServiceClient(cc),
+// NewGetCharsClient creates a new GetChars client.
+func NewGetCharsClient(cc grpc.ClientConnInterface) *GetCharsClient {
+	return &GetCharsClient{
+		svc: pb.NewGetCharsServiceClient(cc),
 	}
 }
 
-// NextEndBoundary calls the NextEndBoundary RPC.
-func (c *WordSegmentFinderClient) NextEndBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.NextEndBoundary(ctx, &pb.NextEndBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NextStartBoundary calls the NextStartBoundary RPC.
-func (c *WordSegmentFinderClient) NextStartBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.NextStartBoundary(ctx, &pb.NextStartBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PreviousEndBoundary calls the PreviousEndBoundary RPC.
-func (c *WordSegmentFinderClient) PreviousEndBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.PreviousEndBoundary(ctx, &pb.PreviousEndBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PreviousStartBoundary calls the PreviousStartBoundary RPC.
-func (c *WordSegmentFinderClient) PreviousStartBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.PreviousStartBoundary(ctx, &pb.PreviousStartBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShaperClient wraps the gRPC ShaperService client.
-type ShaperClient struct {
-	svc pb.ShaperServiceClient
-}
-
-// NewShaperClient creates a new Shaper client.
-func NewShaperClient(cc grpc.ClientConnInterface) *ShaperClient {
-	return &ShaperClient{
-		svc: pb.NewShaperServiceClient(cc),
-	}
-}
-
-// ShapeText calls the ShapeText RPC.
-func (c *ShaperClient) ShapeText(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int64, arg5 int64) error {
-	_, err := c.svc.ShapeText(ctx, &pb.ShapeTextRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// ShaperGlyphsConsumerClient wraps the gRPC ShaperGlyphsConsumerService client.
-type ShaperGlyphsConsumerClient struct {
-	svc pb.ShaperGlyphsConsumerServiceClient
-}
-
-// NewShaperGlyphsConsumerClient creates a new ShaperGlyphsConsumer client.
-func NewShaperGlyphsConsumerClient(cc grpc.ClientConnInterface) *ShaperGlyphsConsumerClient {
-	return &ShaperGlyphsConsumerClient{
-		svc: pb.NewShaperGlyphsConsumerServiceClient(cc),
-	}
-}
-
-// Accept calls the Accept RPC.
-func (c *ShaperGlyphsConsumerClient) Accept(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Accept(ctx, &pb.AcceptRequest{
+// GetChars calls the GetChars RPC.
+func (c *GetCharsClient) GetChars(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GetChars(ctx, &pb.GetCharsGetCharsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -19953,409 +20018,42 @@ func (c *ShaperGlyphsConsumerClient) Accept(ctx context.Context, arg0 int32, arg
 	return err
 }
 
-// AndroidCharacterClient wraps the gRPC AndroidCharacterService client.
-type AndroidCharacterClient struct {
-	svc pb.AndroidCharacterServiceClient
+// ClipboardManagerClient wraps the gRPC ClipboardManagerService client.
+type ClipboardManagerClient struct {
+	svc pb.ClipboardManagerServiceClient
 }
 
-// NewAndroidCharacterClient creates a new AndroidCharacter client.
-func NewAndroidCharacterClient(cc grpc.ClientConnInterface) *AndroidCharacterClient {
-	return &AndroidCharacterClient{
-		svc: pb.NewAndroidCharacterServiceClient(cc),
+// NewClipboardManagerClient creates a new ClipboardManager client.
+func NewClipboardManagerClient(cc grpc.ClientConnInterface) *ClipboardManagerClient {
+	return &ClipboardManagerClient{
+		svc: pb.NewClipboardManagerServiceClient(cc),
 	}
 }
 
-// GetDirectionalities calls the GetDirectionalities RPC.
-func (c *AndroidCharacterClient) GetDirectionalities(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GetDirectionalities(ctx, &pb.GetDirectionalitiesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GetEastAsianWidth calls the GetEastAsianWidth RPC.
-func (c *AndroidCharacterClient) GetEastAsianWidth(ctx context.Context, handle int64, arg0 uint16) (int32, error) {
-	resp, err := c.svc.GetEastAsianWidth(ctx, &pb.GetEastAsianWidthRequest{
-		Handle: handle,
-		Arg0:   uint32(arg0),
-	})
+// GetText calls the GetText RPC.
+func (c *ClipboardManagerClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.LayoutGetTextRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetEastAsianWidths calls the GetEastAsianWidths RPC.
-func (c *AndroidCharacterClient) GetEastAsianWidths(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GetEastAsianWidths(ctx, &pb.GetEastAsianWidthsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GetMirror calls the GetMirror RPC.
-func (c *AndroidCharacterClient) GetMirror(ctx context.Context, handle int64, arg0 uint16) (uint16, error) {
-	resp, err := c.svc.GetMirror(ctx, &pb.GetMirrorRequest{
-		Handle: handle,
-		Arg0:   uint32(arg0),
-	})
-	if err != nil {
-		return 0, err
-	}
-	return uint16(resp.GetResult()), nil
-}
-
-// Mirror calls the Mirror RPC.
-func (c *AndroidCharacterClient) Mirror(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (bool, error) {
-	resp, err := c.svc.Mirror(ctx, &pb.MirrorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
+// HasText calls the HasText RPC.
+func (c *ClipboardManagerClient) HasText(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasText(ctx, &pb.HasTextRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// BidiFormatterClient wraps the gRPC BidiFormatterService client.
-type BidiFormatterClient struct {
-	svc pb.BidiFormatterServiceClient
-}
-
-// NewBidiFormatterClient creates a new BidiFormatter client.
-func NewBidiFormatterClient(cc grpc.ClientConnInterface) *BidiFormatterClient {
-	return &BidiFormatterClient{
-		svc: pb.NewBidiFormatterServiceClient(cc),
-	}
-}
-
-// GetStereoReset calls the GetStereoReset RPC.
-func (c *BidiFormatterClient) GetStereoReset(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetStereoReset(ctx, &pb.GetStereoResetRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRtl1 calls the IsRtl1 RPC.
-func (c *BidiFormatterClient) IsRtl1(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsRtl1(ctx, &pb.IsRtl1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRtl1_1 calls the IsRtl1_1 RPC.
-func (c *BidiFormatterClient) IsRtl1_1(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsRtl1_1(ctx, &pb.IsRtl1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRtlContext calls the IsRtlContext RPC.
-func (c *BidiFormatterClient) IsRtlContext(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRtlContext(ctx, &pb.IsRtlContextRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeWrap1 calls the UnicodeWrap1 RPC.
-func (c *BidiFormatterClient) UnicodeWrap1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.UnicodeWrap1(ctx, &pb.UnicodeWrap1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeWrap2_1 calls the UnicodeWrap2_1 RPC.
-func (c *BidiFormatterClient) UnicodeWrap2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.UnicodeWrap2_1(ctx, &pb.UnicodeWrap2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeWrap3_2 calls the UnicodeWrap3_2 RPC.
-func (c *BidiFormatterClient) UnicodeWrap3_2(ctx context.Context, arg0 string, arg1 int64, arg2 bool) (int64, error) {
-	resp, err := c.svc.UnicodeWrap3_2(ctx, &pb.UnicodeWrap3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeWrap2_3 calls the UnicodeWrap2_3 RPC.
-func (c *BidiFormatterClient) UnicodeWrap2_3(ctx context.Context, arg0 string, arg1 bool) (int64, error) {
-	resp, err := c.svc.UnicodeWrap2_3(ctx, &pb.UnicodeWrap2_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeWrap1_4 calls the UnicodeWrap1_4 RPC.
-func (c *BidiFormatterClient) UnicodeWrap1_4(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.UnicodeWrap1_4(ctx, &pb.UnicodeWrap1_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeWrap2_5 calls the UnicodeWrap2_5 RPC.
-func (c *BidiFormatterClient) UnicodeWrap2_5(ctx context.Context, arg0 string, arg1 int64) (string, error) {
-	resp, err := c.svc.UnicodeWrap2_5(ctx, &pb.UnicodeWrap2_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeWrap3_6 calls the UnicodeWrap3_6 RPC.
-func (c *BidiFormatterClient) UnicodeWrap3_6(ctx context.Context, arg0 string, arg1 int64, arg2 bool) (string, error) {
-	resp, err := c.svc.UnicodeWrap3_6(ctx, &pb.UnicodeWrap3_6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnicodeWrap2_7 calls the UnicodeWrap2_7 RPC.
-func (c *BidiFormatterClient) UnicodeWrap2_7(ctx context.Context, arg0 string, arg1 bool) (string, error) {
-	resp, err := c.svc.UnicodeWrap2_7(ctx, &pb.UnicodeWrap2_7Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *BidiFormatterClient) GetInstance0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *BidiFormatterClient) GetInstance1_1(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.BidiFormatterGetInstance1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_2 calls the GetInstance1_2 RPC.
-func (c *BidiFormatterClient) GetInstance1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_2(ctx, &pb.GetInstance1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BidiFormatterBuilderClient wraps the gRPC BidiFormatterBuilderService client.
-type BidiFormatterBuilderClient struct {
-	svc pb.BidiFormatterBuilderServiceClient
-}
-
-// NewBidiFormatterBuilderClient creates a new BidiFormatterBuilder client.
-func NewBidiFormatterBuilderClient(cc grpc.ClientConnInterface) *BidiFormatterBuilderClient {
-	return &BidiFormatterBuilderClient{
-		svc: pb.NewBidiFormatterBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *BidiFormatterBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTextDirectionHeuristic calls the SetTextDirectionHeuristic RPC.
-func (c *BidiFormatterBuilderClient) SetTextDirectionHeuristic(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTextDirectionHeuristic(ctx, &pb.SetTextDirectionHeuristicRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StereoReset calls the StereoReset RPC.
-func (c *BidiFormatterBuilderClient) StereoReset(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.StereoReset(ctx, &pb.StereoResetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SpanWatcherClient wraps the gRPC SpanWatcherService client.
-type SpanWatcherClient struct {
-	svc pb.SpanWatcherServiceClient
-}
-
-// NewSpanWatcherClient creates a new SpanWatcher client.
-func NewSpanWatcherClient(cc grpc.ClientConnInterface) *SpanWatcherClient {
-	return &SpanWatcherClient{
-		svc: pb.NewSpanWatcherServiceClient(cc),
-	}
-}
-
-// OnSpanAdded calls the OnSpanAdded RPC.
-func (c *SpanWatcherClient) OnSpanAdded(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnSpanAdded(ctx, &pb.OnSpanAddedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// OnSpanChanged calls the OnSpanChanged RPC.
-func (c *SpanWatcherClient) OnSpanChanged(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.OnSpanChanged(ctx, &pb.OnSpanChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// OnSpanRemoved calls the OnSpanRemoved RPC.
-func (c *SpanWatcherClient) OnSpanRemoved(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnSpanRemoved(ctx, &pb.OnSpanRemovedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SpannableClient wraps the gRPC SpannableService client.
-type SpannableClient struct {
-	svc pb.SpannableServiceClient
-}
-
-// NewSpannableClient creates a new Spannable client.
-func NewSpannableClient(cc grpc.ClientConnInterface) *SpannableClient {
-	return &SpannableClient{
-		svc: pb.NewSpannableServiceClient(cc),
-	}
-}
-
-// RemoveSpan calls the RemoveSpan RPC.
-func (c *SpannableClient) RemoveSpan(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveSpan(ctx, &pb.SpannableRemoveSpanRequest{
+// SetText calls the SetText RPC.
+func (c *ClipboardManagerClient) SetText(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetText(ctx, &pb.SetTextRequest{
 		Arg0: arg0,
 	})
 	return err
-}
-
-// SetSpan calls the SetSpan RPC.
-func (c *SpannableClient) SetSpan(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetSpan(ctx, &pb.SpannableSetSpanRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SpannableFactoryClient wraps the gRPC SpannableFactoryService client.
-type SpannableFactoryClient struct {
-	svc pb.SpannableFactoryServiceClient
-}
-
-// NewSpannableFactoryClient creates a new SpannableFactory client.
-func NewSpannableFactoryClient(cc grpc.ClientConnInterface) *SpannableFactoryClient {
-	return &SpannableFactoryClient{
-		svc: pb.NewSpannableFactoryServiceClient(cc),
-	}
-}
-
-// NewSpannable calls the NewSpannable RPC.
-func (c *SpannableFactoryClient) NewSpannable(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.NewSpannable(ctx, &pb.NewSpannableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *SpannableFactoryClient) GetInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.EditableFactoryGetInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // SpannableStringBuilderClient wraps the gRPC SpannableStringBuilderService client.
@@ -20424,7 +20122,7 @@ func (c *SpannableStringBuilderClient) Append3_3(ctx context.Context, handle int
 
 // CharAt calls the CharAt RPC.
 func (c *SpannableStringBuilderClient) CharAt(ctx context.Context, handle int64, arg0 int32) (uint16, error) {
-	resp, err := c.svc.CharAt(ctx, &pb.SpannableStringCharAtRequest{
+	resp, err := c.svc.CharAt(ctx, &pb.SpannedStringCharAtRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -20465,7 +20163,7 @@ func (c *SpannableStringBuilderClient) Delete2(ctx context.Context, handle int64
 
 // Equals calls the Equals RPC.
 func (c *SpannableStringBuilderClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SpannableStringEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.SpannedStringEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -20477,7 +20175,7 @@ func (c *SpannableStringBuilderClient) Equals(ctx context.Context, handle int64,
 
 // GetChars calls the GetChars RPC.
 func (c *SpannableStringBuilderClient) GetChars(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GetChars(ctx, &pb.SpannableStringGetCharsRequest{
+	_, err := c.svc.GetChars(ctx, &pb.SpannedStringGetCharsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -20564,7 +20262,7 @@ func (c *SpannableStringBuilderClient) GetTextWatcherDepth(ctx context.Context, 
 
 // HashCode calls the HashCode RPC.
 func (c *SpannableStringBuilderClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SpannableStringHashCodeRequest{
+	resp, err := c.svc.HashCode(ctx, &pb.SpannedStringHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -20603,7 +20301,7 @@ func (c *SpannableStringBuilderClient) Insert4_1(ctx context.Context, handle int
 
 // Length calls the Length RPC.
 func (c *SpannableStringBuilderClient) Length(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.Length(ctx, &pb.SpannableStringLengthRequest{
+	resp, err := c.svc.Length(ctx, &pb.SpannedStringLengthRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -20628,7 +20326,7 @@ func (c *SpannableStringBuilderClient) NextSpanTransition(ctx context.Context, h
 
 // RemoveSpan calls the RemoveSpan RPC.
 func (c *SpannableStringBuilderClient) RemoveSpan(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RemoveSpan(ctx, &pb.RemoveSpanRequest{
+	_, err := c.svc.RemoveSpan(ctx, &pb.SpannableStringBuilderRemoveSpanRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -20676,7 +20374,7 @@ func (c *SpannableStringBuilderClient) SetFilters(ctx context.Context, handle in
 
 // SetSpan calls the SetSpan RPC.
 func (c *SpannableStringBuilderClient) SetSpan(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetSpan(ctx, &pb.SetSpanRequest{
+	_, err := c.svc.SetSpan(ctx, &pb.SpannableStringBuilderSetSpanRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -20688,7 +20386,7 @@ func (c *SpannableStringBuilderClient) SetSpan(ctx context.Context, handle int64
 
 // SubSequence calls the SubSequence RPC.
 func (c *SpannableStringBuilderClient) SubSequence(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SubSequence(ctx, &pb.SpannableStringSubSequenceRequest{
+	resp, err := c.svc.SubSequence(ctx, &pb.SpannedStringSubSequenceRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -20859,7 +20557,7 @@ func (c *SpannableStringBuilderClient) Append1_9(ctx context.Context, handle int
 
 // ValueOf calls the ValueOf RPC.
 func (c *SpannableStringBuilderClient) ValueOf(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.SpannableStringValueOfRequest{
+	resp, err := c.svc.ValueOf(ctx, &pb.SpannedStringValueOfRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -20869,29 +20567,167 @@ func (c *SpannableStringBuilderClient) ValueOf(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// WatcherClient wraps the gRPC WatcherService client.
-type WatcherClient struct {
-	svc pb.WatcherServiceClient
+// PrecomputedTextClient wraps the gRPC PrecomputedTextService client.
+type PrecomputedTextClient struct {
+	svc pb.PrecomputedTextServiceClient
 }
 
-// NewWatcherClient creates a new Watcher client.
-func NewWatcherClient(cc grpc.ClientConnInterface) *WatcherClient {
-	return &WatcherClient{
-		svc: pb.NewWatcherServiceClient(cc),
+// NewPrecomputedTextClient creates a new PrecomputedText client.
+func NewPrecomputedTextClient(cc grpc.ClientConnInterface) *PrecomputedTextClient {
+	return &PrecomputedTextClient{
+		svc: pb.NewPrecomputedTextServiceClient(cc),
 	}
 }
 
-// AfterTextChanged calls the AfterTextChanged RPC.
-func (c *WatcherClient) AfterTextChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AfterTextChanged(ctx, &pb.AfterTextChangedRequest{
+// CharAt calls the CharAt RPC.
+func (c *PrecomputedTextClient) CharAt(ctx context.Context, arg0 int32) (uint16, error) {
+	resp, err := c.svc.CharAt(ctx, &pb.PrecomputedTextCharAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return uint16(resp.GetResult()), nil
+}
+
+// GetBounds calls the GetBounds RPC.
+func (c *PrecomputedTextClient) GetBounds(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GetBounds(ctx, &pb.GetBoundsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetFontMetricsInt calls the GetFontMetricsInt RPC.
+func (c *PrecomputedTextClient) GetFontMetricsInt(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GetFontMetricsInt(ctx, &pb.GetFontMetricsIntRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetParagraphCount calls the GetParagraphCount RPC.
+func (c *PrecomputedTextClient) GetParagraphCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetParagraphCount(ctx, &pb.GetParagraphCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParagraphEnd calls the GetParagraphEnd RPC.
+func (c *PrecomputedTextClient) GetParagraphEnd(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetParagraphEnd(ctx, &pb.GetParagraphEndRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParagraphStart calls the GetParagraphStart RPC.
+func (c *PrecomputedTextClient) GetParagraphStart(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetParagraphStart(ctx, &pb.GetParagraphStartRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParams calls the GetParams RPC.
+func (c *PrecomputedTextClient) GetParams(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetParams(ctx, &pb.GetParamsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanEnd calls the GetSpanEnd RPC.
+func (c *PrecomputedTextClient) GetSpanEnd(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetSpanEnd(ctx, &pb.PrecomputedTextGetSpanEndRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanFlags calls the GetSpanFlags RPC.
+func (c *PrecomputedTextClient) GetSpanFlags(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetSpanFlags(ctx, &pb.PrecomputedTextGetSpanFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanStart calls the GetSpanStart RPC.
+func (c *PrecomputedTextClient) GetSpanStart(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetSpanStart(ctx, &pb.PrecomputedTextGetSpanStartRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *PrecomputedTextClient) GetWidth(ctx context.Context, arg0 int32, arg1 int32) (float32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.PrecomputedTextGetWidthRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Length calls the Length RPC.
+func (c *PrecomputedTextClient) Length(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Length(ctx, &pb.PrecomputedTextLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextSpanTransition calls the NextSpanTransition RPC.
+func (c *PrecomputedTextClient) NextSpanTransition(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int32, error) {
+	resp, err := c.svc.NextSpanTransition(ctx, &pb.PrecomputedTextNextSpanTransitionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveSpan calls the RemoveSpan RPC.
+func (c *PrecomputedTextClient) RemoveSpan(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveSpan(ctx, &pb.RemoveSpanRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// BeforeTextChanged calls the BeforeTextChanged RPC.
-func (c *WatcherClient) BeforeTextChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.BeforeTextChanged(ctx, &pb.BeforeTextChangedRequest{
+// SetSpan calls the SetSpan RPC.
+func (c *PrecomputedTextClient) SetSpan(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetSpan(ctx, &pb.SetSpanRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -20900,13 +20736,518 @@ func (c *WatcherClient) BeforeTextChanged(ctx context.Context, arg0 string, arg1
 	return err
 }
 
-// OnTextChanged calls the OnTextChanged RPC.
-func (c *WatcherClient) OnTextChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnTextChanged(ctx, &pb.OnTextChangedRequest{
+// SubSequence calls the SubSequence RPC.
+func (c *PrecomputedTextClient) SubSequence(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SubSequence(ctx, &pb.PrecomputedTextSubSequenceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PrecomputedTextClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Create calls the Create RPC.
+func (c *PrecomputedTextClient) Create(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PrecomputedTextParamsClient wraps the gRPC PrecomputedTextParamsService client.
+type PrecomputedTextParamsClient struct {
+	svc pb.PrecomputedTextParamsServiceClient
+}
+
+// NewPrecomputedTextParamsClient creates a new PrecomputedTextParams client.
+func NewPrecomputedTextParamsClient(cc grpc.ClientConnInterface) *PrecomputedTextParamsClient {
+	return &PrecomputedTextParamsClient{
+		svc: pb.NewPrecomputedTextParamsServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *PrecomputedTextParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.PrecomputedTextParamsEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBreakStrategy calls the GetBreakStrategy RPC.
+func (c *PrecomputedTextParamsClient) GetBreakStrategy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBreakStrategy(ctx, &pb.GetBreakStrategyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHyphenationFrequency calls the GetHyphenationFrequency RPC.
+func (c *PrecomputedTextParamsClient) GetHyphenationFrequency(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHyphenationFrequency(ctx, &pb.GetHyphenationFrequencyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineBreakConfig calls the GetLineBreakConfig RPC.
+func (c *PrecomputedTextParamsClient) GetLineBreakConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLineBreakConfig(ctx, &pb.PrecomputedTextParamsGetLineBreakConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextDirection calls the GetTextDirection RPC.
+func (c *PrecomputedTextParamsClient) GetTextDirection(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextDirection(ctx, &pb.GetTextDirectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextPaint calls the GetTextPaint RPC.
+func (c *PrecomputedTextParamsClient) GetTextPaint(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextPaint(ctx, &pb.GetTextPaintRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PrecomputedTextParamsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.PrecomputedTextParamsHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PrecomputedTextParamsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GraphemeClusterSegmentFinderClient wraps the gRPC GraphemeClusterSegmentFinderService client.
+type GraphemeClusterSegmentFinderClient struct {
+	svc pb.GraphemeClusterSegmentFinderServiceClient
+}
+
+// NewGraphemeClusterSegmentFinderClient creates a new GraphemeClusterSegmentFinder client.
+func NewGraphemeClusterSegmentFinderClient(cc grpc.ClientConnInterface) *GraphemeClusterSegmentFinderClient {
+	return &GraphemeClusterSegmentFinderClient{
+		svc: pb.NewGraphemeClusterSegmentFinderServiceClient(cc),
+	}
+}
+
+// NextEndBoundary calls the NextEndBoundary RPC.
+func (c *GraphemeClusterSegmentFinderClient) NextEndBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.NextEndBoundary(ctx, &pb.NextEndBoundaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NextStartBoundary calls the NextStartBoundary RPC.
+func (c *GraphemeClusterSegmentFinderClient) NextStartBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.NextStartBoundary(ctx, &pb.NextStartBoundaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousEndBoundary calls the PreviousEndBoundary RPC.
+func (c *GraphemeClusterSegmentFinderClient) PreviousEndBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.PreviousEndBoundary(ctx, &pb.PreviousEndBoundaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousStartBoundary calls the PreviousStartBoundary RPC.
+func (c *GraphemeClusterSegmentFinderClient) PreviousStartBoundary(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.PreviousStartBoundary(ctx, &pb.PreviousStartBoundaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InputFilterClient wraps the gRPC InputFilterService client.
+type InputFilterClient struct {
+	svc pb.InputFilterServiceClient
+}
+
+// NewInputFilterClient creates a new InputFilter client.
+func NewInputFilterClient(cc grpc.ClientConnInterface) *InputFilterClient {
+	return &InputFilterClient{
+		svc: pb.NewInputFilterServiceClient(cc),
+	}
+}
+
+// Filter calls the Filter RPC.
+func (c *InputFilterClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
+	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InputFilterAllCapsClient wraps the gRPC InputFilterAllCapsService client.
+type InputFilterAllCapsClient struct {
+	svc pb.InputFilterAllCapsServiceClient
+}
+
+// NewInputFilterAllCapsClient creates a new InputFilterAllCaps client.
+func NewInputFilterAllCapsClient(cc grpc.ClientConnInterface) *InputFilterAllCapsClient {
+	return &InputFilterAllCapsClient{
+		svc: pb.NewInputFilterAllCapsServiceClient(cc),
+	}
+}
+
+// Filter calls the Filter RPC.
+func (c *InputFilterAllCapsClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
+	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InputFilterLengthFilterClient wraps the gRPC InputFilterLengthFilterService client.
+type InputFilterLengthFilterClient struct {
+	svc pb.InputFilterLengthFilterServiceClient
+}
+
+// NewInputFilterLengthFilterClient creates a new InputFilterLengthFilter client.
+func NewInputFilterLengthFilterClient(cc grpc.ClientConnInterface) *InputFilterLengthFilterClient {
+	return &InputFilterLengthFilterClient{
+		svc: pb.NewInputFilterLengthFilterServiceClient(cc),
+	}
+}
+
+// Filter calls the Filter RPC.
+func (c *InputFilterLengthFilterClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
+	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMax calls the GetMax RPC.
+func (c *InputFilterLengthFilterClient) GetMax(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMax(ctx, &pb.GetMaxRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpanWatcherClient wraps the gRPC SpanWatcherService client.
+type SpanWatcherClient struct {
+	svc pb.SpanWatcherServiceClient
+}
+
+// NewSpanWatcherClient creates a new SpanWatcher client.
+func NewSpanWatcherClient(cc grpc.ClientConnInterface) *SpanWatcherClient {
+	return &SpanWatcherClient{
+		svc: pb.NewSpanWatcherServiceClient(cc),
+	}
+}
+
+// OnSpanAdded calls the OnSpanAdded RPC.
+func (c *SpanWatcherClient) OnSpanAdded(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnSpanAdded(ctx, &pb.OnSpanAddedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnSpanChanged calls the OnSpanChanged RPC.
+func (c *SpanWatcherClient) OnSpanChanged(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.OnSpanChanged(ctx, &pb.OnSpanChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// OnSpanRemoved calls the OnSpanRemoved RPC.
+func (c *SpanWatcherClient) OnSpanRemoved(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnSpanRemoved(ctx, &pb.OnSpanRemovedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// HighlightsClient wraps the gRPC HighlightsService client.
+type HighlightsClient struct {
+	svc pb.HighlightsServiceClient
+}
+
+// NewHighlightsClient creates a new Highlights client.
+func NewHighlightsClient(cc grpc.ClientConnInterface) *HighlightsClient {
+	return &HighlightsClient{
+		svc: pb.NewHighlightsServiceClient(cc),
+	}
+}
+
+// GetPaint calls the GetPaint RPC.
+func (c *HighlightsClient) GetPaint(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPaint(ctx, &pb.HighlightsGetPaintRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRanges calls the GetRanges RPC.
+func (c *HighlightsClient) GetRanges(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetRanges(ctx, &pb.GetRangesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *HighlightsClient) GetSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.HighlightsGetSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HighlightsBuilderClient wraps the gRPC HighlightsBuilderService client.
+type HighlightsBuilderClient struct {
+	svc pb.HighlightsBuilderServiceClient
+}
+
+// NewHighlightsBuilderClient creates a new HighlightsBuilder client.
+func NewHighlightsBuilderClient(cc grpc.ClientConnInterface) *HighlightsBuilderClient {
+	return &HighlightsBuilderClient{
+		svc: pb.NewHighlightsBuilderServiceClient(cc),
+	}
+}
+
+// AddRange calls the AddRange RPC.
+func (c *HighlightsBuilderClient) AddRange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.AddRange(ctx, &pb.AddRangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddRanges calls the AddRanges RPC.
+func (c *HighlightsBuilderClient) AddRanges(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddRanges(ctx, &pb.AddRangesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *HighlightsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EmojiConsistencyClient wraps the gRPC EmojiConsistencyService client.
+type EmojiConsistencyClient struct {
+	svc pb.EmojiConsistencyServiceClient
+}
+
+// NewEmojiConsistencyClient creates a new EmojiConsistency client.
+func NewEmojiConsistencyClient(cc grpc.ClientConnInterface) *EmojiConsistencyClient {
+	return &EmojiConsistencyClient{
+		svc: pb.NewEmojiConsistencyServiceClient(cc),
+	}
+}
+
+// GetEmojiConsistencySet calls the GetEmojiConsistencySet RPC.
+func (c *EmojiConsistencyClient) GetEmojiConsistencySet(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEmojiConsistencySet(ctx, &pb.GetEmojiConsistencySetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParcelableSpanClient wraps the gRPC ParcelableSpanService client.
+type ParcelableSpanClient struct {
+	svc pb.ParcelableSpanServiceClient
+}
+
+// NewParcelableSpanClient creates a new ParcelableSpan client.
+func NewParcelableSpanClient(cc grpc.ClientConnInterface) *ParcelableSpanClient {
+	return &ParcelableSpanClient{
+		svc: pb.NewParcelableSpanServiceClient(cc),
+	}
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *ParcelableSpanClient) GetSpanTypeId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnnotationClient wraps the gRPC AnnotationService client.
+type AnnotationClient struct {
+	svc pb.AnnotationServiceClient
+}
+
+// NewAnnotationClient creates a new Annotation client.
+func NewAnnotationClient(cc grpc.ClientConnInterface) *AnnotationClient {
+	return &AnnotationClient{
+		svc: pb.NewAnnotationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AnnotationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.AnnotationDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKey calls the GetKey RPC.
+func (c *AnnotationClient) GetKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *AnnotationClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.AnnotationGetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue calls the GetValue RPC.
+func (c *AnnotationClient) GetValue(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.AnnotationGetValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AnnotationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.AnnotationWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }

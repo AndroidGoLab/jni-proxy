@@ -15,643 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// CharacterPickerDialogServer implements pb.CharacterPickerDialogServiceServer.
-type CharacterPickerDialogServer struct {
-	pb.UnimplementedCharacterPickerDialogServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *CharacterPickerDialogServer) NewCharacterPickerDialog(_ context.Context, req *pb.NewCharacterPickerDialogRequest) (*pb.NewCharacterPickerDialogResponse, error) {
-	obj, err := jnipkg.NewCharacterPickerDialog(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewCharacterPickerDialogResponse{Result: handle}, nil
-}
-
-func (s *CharacterPickerDialogServer) OnClick(_ context.Context, req *pb.OnClickRequest) (*pb.OnClickResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CharacterPickerDialog{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnClick(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnClickResponse{}, nil
-}
-
-func (s *CharacterPickerDialogServer) OnItemClick(_ context.Context, req *pb.OnItemClickRequest) (*pb.OnItemClickResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.CharacterPickerDialog{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnItemClick(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnItemClickResponse{}, nil
-}
-
-// SingleLineTransformationMethodServer implements pb.SingleLineTransformationMethodServiceServer.
-type SingleLineTransformationMethodServer struct {
-	pb.UnimplementedSingleLineTransformationMethodServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SingleLineTransformationMethodServer) NewSingleLineTransformationMethod(_ context.Context, req *pb.NewSingleLineTransformationMethodRequest) (*pb.NewSingleLineTransformationMethodResponse, error) {
-	obj, err := jnipkg.NewSingleLineTransformationMethod(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSingleLineTransformationMethodResponse{Result: handle}, nil
-}
-
-func (s *SingleLineTransformationMethodServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SingleLineTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstanceResponse{Result: handle}, nil
-}
-
-// ScrollingMovementMethodServer implements pb.ScrollingMovementMethodServiceServer.
-type ScrollingMovementMethodServer struct {
-	pb.UnimplementedScrollingMovementMethodServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ScrollingMovementMethodServer) NewScrollingMovementMethod(_ context.Context, req *pb.NewScrollingMovementMethodRequest) (*pb.NewScrollingMovementMethodResponse, error) {
-	obj, err := jnipkg.NewScrollingMovementMethod(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewScrollingMovementMethodResponse{Result: handle}, nil
-}
-
-func (s *ScrollingMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.ScrollingMovementMethodOnTakeFocusRequest) (*pb.OnTakeFocusResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScrollingMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnTakeFocus(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnTakeFocusResponse{}, nil
-}
-
-func (s *ScrollingMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.ScrollingMovementMethodOnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScrollingMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnTouchEvent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnTouchEventResponse{Result: result}, nil
-}
-
-func (s *ScrollingMovementMethodServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ScrollingMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstanceResponse{Result: handle}, nil
-}
-
-// HideReturnsTransformationMethodServer implements pb.HideReturnsTransformationMethodServiceServer.
-type HideReturnsTransformationMethodServer struct {
-	pb.UnimplementedHideReturnsTransformationMethodServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *HideReturnsTransformationMethodServer) NewHideReturnsTransformationMethod(_ context.Context, req *pb.NewHideReturnsTransformationMethodRequest) (*pb.NewHideReturnsTransformationMethodResponse, error) {
-	obj, err := jnipkg.NewHideReturnsTransformationMethod(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewHideReturnsTransformationMethodResponse{Result: handle}, nil
-}
-
-func (s *HideReturnsTransformationMethodServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.HideReturnsTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstanceResponse{Result: handle}, nil
-}
-
-// MultiTapKeyListenerServer implements pb.MultiTapKeyListenerServiceServer.
-type MultiTapKeyListenerServer struct {
-	pb.UnimplementedMultiTapKeyListenerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MultiTapKeyListenerServer) NewMultiTapKeyListener(_ context.Context, req *pb.NewMultiTapKeyListenerRequest) (*pb.NewMultiTapKeyListenerResponse, error) {
-	obj, err := jnipkg.NewMultiTapKeyListener(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMultiTapKeyListenerResponse{Result: handle}, nil
-}
-
-func (s *MultiTapKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInputType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInputTypeResponse{Result: result}, nil
-}
-
-func (s *MultiTapKeyListenerServer) OnKeyDown(_ context.Context, req *pb.MultiTapKeyListenerOnKeyDownRequest) (*pb.OnKeyDownResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnKeyDown(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnKeyDownResponse{Result: result}, nil
-}
-
-func (s *MultiTapKeyListenerServer) OnSpanAdded(_ context.Context, req *pb.OnSpanAddedRequest) (*pb.OnSpanAddedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnSpanAdded(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnSpanAddedResponse{}, nil
-}
-
-func (s *MultiTapKeyListenerServer) OnSpanChanged(_ context.Context, req *pb.OnSpanChangedRequest) (*pb.OnSpanChangedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnSpanChanged(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnSpanChangedResponse{}, nil
-}
-
-func (s *MultiTapKeyListenerServer) OnSpanRemoved(_ context.Context, req *pb.OnSpanRemovedRequest) (*pb.OnSpanRemovedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnSpanRemoved(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnSpanRemovedResponse{}, nil
-}
-
-func (s *MultiTapKeyListenerServer) GetInstance(_ context.Context, req *pb.MultiTapKeyListenerGetInstanceRequest) (*pb.GetInstanceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance(req.GetArg0(), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstanceResponse{Result: handle}, nil
-}
-
-// DigitsKeyListenerServer implements pb.DigitsKeyListenerServiceServer.
-type DigitsKeyListenerServer struct {
-	pb.UnimplementedDigitsKeyListenerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DigitsKeyListenerServer) NewDigitsKeyListener(_ context.Context, req *pb.NewDigitsKeyListenerRequest) (*pb.NewDigitsKeyListenerResponse, error) {
-	obj, err := jnipkg.NewDigitsKeyListener(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDigitsKeyListenerResponse{Result: handle}, nil
-}
-
-func (s *DigitsKeyListenerServer) Filter(_ context.Context, req *pb.DigitsKeyListenerFilterRequest) (*pb.FilterResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Filter(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4(), req.GetArg5())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.FilterResponse{Result: handle}, nil
-}
-
-func (s *DigitsKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInputType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInputTypeResponse{Result: result}, nil
-}
-
-func (s *DigitsKeyListenerServer) GetInstance0(_ context.Context, req *pb.GetInstance0Request) (*pb.GetInstance0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstance0Response{Result: handle}, nil
-}
-
-func (s *DigitsKeyListenerServer) GetInstance2_1(_ context.Context, req *pb.GetInstance2_1Request) (*pb.GetInstance2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance2_1(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstance2_1Response{Result: handle}, nil
-}
-
-func (s *DigitsKeyListenerServer) GetInstance1_2(_ context.Context, req *pb.GetInstance1_2Request) (*pb.GetInstance1_2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance1_2(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstance1_2Response{Result: handle}, nil
-}
-
-func (s *DigitsKeyListenerServer) GetInstance1_3(_ context.Context, req *pb.GetInstance1_3Request) (*pb.GetInstance1_3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance1_3(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstance1_3Response{Result: handle}, nil
-}
-
-func (s *DigitsKeyListenerServer) GetInstance3_4(_ context.Context, req *pb.GetInstance3_4Request) (*pb.GetInstance3_4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance3_4(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstance3_4Response{Result: handle}, nil
-}
-
-// DialerKeyListenerServer implements pb.DialerKeyListenerServiceServer.
-type DialerKeyListenerServer struct {
-	pb.UnimplementedDialerKeyListenerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DialerKeyListenerServer) NewDialerKeyListener(_ context.Context, req *pb.NewDialerKeyListenerRequest) (*pb.NewDialerKeyListenerResponse, error) {
-	obj, err := jnipkg.NewDialerKeyListener(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDialerKeyListenerResponse{Result: handle}, nil
-}
-
-func (s *DialerKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DialerKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInputType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInputTypeResponse{Result: result}, nil
-}
-
-func (s *DialerKeyListenerServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DialerKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstanceResponse{Result: handle}, nil
-}
-
-// TimeKeyListenerServer implements pb.TimeKeyListenerServiceServer.
-type TimeKeyListenerServer struct {
-	pb.UnimplementedTimeKeyListenerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TimeKeyListenerServer) NewTimeKeyListener(_ context.Context, req *pb.NewTimeKeyListenerRequest) (*pb.NewTimeKeyListenerResponse, error) {
-	obj, err := jnipkg.NewTimeKeyListener(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewTimeKeyListenerResponse{Result: handle}, nil
-}
-
-func (s *TimeKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TimeKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInputType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInputTypeResponse{Result: result}, nil
-}
-
-func (s *TimeKeyListenerServer) GetInstance0(_ context.Context, req *pb.GetInstance0Request) (*pb.GetInstance0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TimeKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstance0Response{Result: handle}, nil
-}
-
-func (s *TimeKeyListenerServer) GetInstance1_1(_ context.Context, req *pb.GetInstance1_1Request) (*pb.GetInstance1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TimeKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance1_1(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstance1_1Response{Result: handle}, nil
-}
-
 // QwertyKeyListenerServer implements pb.QwertyKeyListenerServiceServer.
 type QwertyKeyListenerServer struct {
 	pb.UnimplementedQwertyKeyListenerServiceServer
@@ -688,7 +51,7 @@ func (s *QwertyKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInp
 	return &pb.GetInputTypeResponse{Result: result}, nil
 }
 
-func (s *QwertyKeyListenerServer) OnKeyDown(_ context.Context, req *pb.QwertyKeyListenerOnKeyDownRequest) (*pb.OnKeyDownResponse, error) {
+func (s *QwertyKeyListenerServer) OnKeyDown(_ context.Context, req *pb.OnKeyDownRequest) (*pb.OnKeyDownResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -702,7 +65,7 @@ func (s *QwertyKeyListenerServer) OnKeyDown(_ context.Context, req *pb.QwertyKey
 	return &pb.OnKeyDownResponse{Result: result}, nil
 }
 
-func (s *QwertyKeyListenerServer) GetInstance(_ context.Context, req *pb.QwertyKeyListenerGetInstanceRequest) (*pb.GetInstanceResponse, error) {
+func (s *QwertyKeyListenerServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -761,15 +124,15 @@ func (s *QwertyKeyListenerServer) MarkAsReplaced(_ context.Context, req *pb.Mark
 	return &pb.MarkAsReplacedResponse{}, nil
 }
 
-// TextKeyListenerServer implements pb.TextKeyListenerServiceServer.
-type TextKeyListenerServer struct {
-	pb.UnimplementedTextKeyListenerServiceServer
+// BaseMovementMethodServer implements pb.BaseMovementMethodServiceServer.
+type BaseMovementMethodServer struct {
+	pb.UnimplementedBaseMovementMethodServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TextKeyListenerServer) NewTextKeyListener(_ context.Context, req *pb.NewTextKeyListenerRequest) (*pb.NewTextKeyListenerResponse, error) {
-	obj, err := jnipkg.NewTextKeyListener(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+func (s *BaseMovementMethodServer) NewBaseMovementMethod(_ context.Context, req *pb.NewBaseMovementMethodRequest) (*pb.NewBaseMovementMethodResponse, error) {
+	obj, err := jnipkg.NewBaseMovementMethod(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -780,29 +143,70 @@ func (s *TextKeyListenerServer) NewTextKeyListener(_ context.Context, req *pb.Ne
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewTextKeyListenerResponse{Result: handle}, nil
+	return &pb.NewBaseMovementMethodResponse{Result: handle}, nil
 }
 
-func (s *TextKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
+func (s *BaseMovementMethodServer) CanSelectArbitrarily(_ context.Context, req *pb.CanSelectArbitrarilyRequest) (*pb.CanSelectArbitrarilyResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetInputType()
+	result, err := mgr.CanSelectArbitrarily()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetInputTypeResponse{Result: result}, nil
+	return &pb.CanSelectArbitrarilyResponse{Result: result}, nil
 }
 
-func (s *TextKeyListenerServer) OnKeyDown(_ context.Context, req *pb.TextKeyListenerOnKeyDownRequest) (*pb.OnKeyDownResponse, error) {
+func (s *BaseMovementMethodServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Initialize(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InitializeResponse{}, nil
+}
+
+func (s *BaseMovementMethodServer) NextParagraph(_ context.Context, req *pb.NextParagraphRequest) (*pb.NextParagraphResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NextParagraph(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NextParagraphResponse{Result: result}, nil
+}
+
+func (s *BaseMovementMethodServer) OnGenericMotionEvent(_ context.Context, req *pb.OnGenericMotionEventRequest) (*pb.OnGenericMotionEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnGenericMotionEvent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnGenericMotionEventResponse{Result: result}, nil
+}
+
+func (s *BaseMovementMethodServer) OnKeyDown(_ context.Context, req *pb.OnKeyDownRequest) (*pb.OnKeyDownResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.OnKeyDown(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
 	if err != nil {
@@ -811,12 +215,12 @@ func (s *TextKeyListenerServer) OnKeyDown(_ context.Context, req *pb.TextKeyList
 	return &pb.OnKeyDownResponse{Result: result}, nil
 }
 
-func (s *TextKeyListenerServer) OnKeyOther(_ context.Context, req *pb.TextKeyListenerOnKeyOtherRequest) (*pb.OnKeyOtherResponse, error) {
+func (s *BaseMovementMethodServer) OnKeyOther(_ context.Context, req *pb.OnKeyOtherRequest) (*pb.OnKeyOtherResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.OnKeyOther(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
 	if err != nil {
@@ -825,12 +229,12 @@ func (s *TextKeyListenerServer) OnKeyOther(_ context.Context, req *pb.TextKeyLis
 	return &pb.OnKeyOtherResponse{Result: result}, nil
 }
 
-func (s *TextKeyListenerServer) OnKeyUp(_ context.Context, req *pb.TextKeyListenerOnKeyUpRequest) (*pb.OnKeyUpResponse, error) {
+func (s *BaseMovementMethodServer) OnKeyUp(_ context.Context, req *pb.OnKeyUpRequest) (*pb.OnKeyUpResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.OnKeyUp(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
 	if err != nil {
@@ -839,79 +243,91 @@ func (s *TextKeyListenerServer) OnKeyUp(_ context.Context, req *pb.TextKeyListen
 	return &pb.OnKeyUpResponse{Result: result}, nil
 }
 
-func (s *TextKeyListenerServer) OnSpanAdded(_ context.Context, req *pb.OnSpanAddedRequest) (*pb.OnSpanAddedResponse, error) {
+func (s *BaseMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.OnTakeFocusRequest) (*pb.OnTakeFocusResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.OnSpanAdded(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
+	if err := mgr.OnTakeFocus(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.OnSpanAddedResponse{}, nil
+	return &pb.OnTakeFocusResponse{}, nil
 }
 
-func (s *TextKeyListenerServer) OnSpanChanged(_ context.Context, req *pb.OnSpanChangedRequest) (*pb.OnSpanChangedResponse, error) {
+func (s *BaseMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.OnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.OnSpanChanged(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+	result, err := mgr.OnTouchEvent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.OnSpanChangedResponse{}, nil
+	return &pb.OnTouchEventResponse{Result: result}, nil
 }
 
-func (s *TextKeyListenerServer) OnSpanRemoved(_ context.Context, req *pb.OnSpanRemovedRequest) (*pb.OnSpanRemovedResponse, error) {
+func (s *BaseMovementMethodServer) OnTrackballEvent(_ context.Context, req *pb.OnTrackballEventRequest) (*pb.OnTrackballEventResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.OnSpanRemoved(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
+	result, err := mgr.OnTrackballEvent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.OnSpanRemovedResponse{}, nil
+	return &pb.OnTrackballEventResponse{Result: result}, nil
 }
 
-func (s *TextKeyListenerServer) Release(_ context.Context, req *pb.ReleaseRequest) (*pb.ReleaseResponse, error) {
+func (s *BaseMovementMethodServer) PreviousParagraph(_ context.Context, req *pb.PreviousParagraphRequest) (*pb.PreviousParagraphResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Release(); err != nil {
+	result, err := mgr.PreviousParagraph(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.ReleaseResponse{}, nil
+	return &pb.PreviousParagraphResponse{Result: result}, nil
 }
 
-func (s *TextKeyListenerServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
+// SingleLineTransformationMethodServer implements pb.SingleLineTransformationMethodServiceServer.
+type SingleLineTransformationMethodServer struct {
+	pb.UnimplementedSingleLineTransformationMethodServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SingleLineTransformationMethodServer) NewSingleLineTransformationMethod(_ context.Context, req *pb.NewSingleLineTransformationMethodRequest) (*pb.NewSingleLineTransformationMethodResponse, error) {
+	obj, err := jnipkg.NewSingleLineTransformationMethod(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSingleLineTransformationMethodResponse{Result: handle}, nil
+}
+
+func (s *SingleLineTransformationMethodServer) GetInstance(_ context.Context, req *pb.SingleLineTransformationMethodGetInstanceRequest) (*pb.GetInstanceResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.SingleLineTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Clear(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearResponse{}, nil
-}
-
-func (s *TextKeyListenerServer) GetInstance0(_ context.Context, req *pb.GetInstance0Request) (*pb.GetInstance0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInstance0()
+	result, err := mgr.GetInstance()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -924,17 +340,65 @@ func (s *TextKeyListenerServer) GetInstance0(_ context.Context, req *pb.GetInsta
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.GetInstance0Response{Result: handle}, nil
+	return &pb.GetInstanceResponse{Result: handle}, nil
 }
 
-func (s *TextKeyListenerServer) GetInstance2_1(_ context.Context, req *pb.TextKeyListenerGetInstance2_1Request) (*pb.GetInstance2_1Response, error) {
+// PasswordTransformationMethodServer implements pb.PasswordTransformationMethodServiceServer.
+type PasswordTransformationMethodServer struct {
+	pb.UnimplementedPasswordTransformationMethodServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PasswordTransformationMethodServer) NewPasswordTransformationMethod(_ context.Context, req *pb.NewPasswordTransformationMethodRequest) (*pb.NewPasswordTransformationMethodResponse, error) {
+	obj, err := jnipkg.NewPasswordTransformationMethod(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPasswordTransformationMethodResponse{Result: handle}, nil
+}
+
+func (s *PasswordTransformationMethodServer) AfterTextChanged(_ context.Context, req *pb.AfterTextChangedRequest) (*pb.AfterTextChangedResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetInstance2_1(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err := mgr.AfterTextChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AfterTextChangedResponse{}, nil
+}
+
+func (s *PasswordTransformationMethodServer) BeforeTextChanged(_ context.Context, req *pb.BeforeTextChangedRequest) (*pb.BeforeTextChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.BeforeTextChanged(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.BeforeTextChangedResponse{}, nil
+}
+
+func (s *PasswordTransformationMethodServer) GetTransformation(_ context.Context, req *pb.PasswordTransformationMethodGetTransformationRequest) (*pb.GetTransformationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTransformation(req.GetArg0(), s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -947,21 +411,56 @@ func (s *TextKeyListenerServer) GetInstance2_1(_ context.Context, req *pb.TextKe
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.GetInstance2_1Response{Result: handle}, nil
+	return &pb.GetTransformationResponse{Result: handle}, nil
 }
 
-func (s *TextKeyListenerServer) ShouldCap(_ context.Context, req *pb.ShouldCapRequest) (*pb.ShouldCapResponse, error) {
+func (s *PasswordTransformationMethodServer) OnFocusChanged(_ context.Context, req *pb.PasswordTransformationMethodOnFocusChangedRequest) (*pb.OnFocusChangedResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.ShouldCap(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
+	if err := mgr.OnFocusChanged(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnFocusChangedResponse{}, nil
+}
+
+func (s *PasswordTransformationMethodServer) OnTextChanged(_ context.Context, req *pb.OnTextChangedRequest) (*pb.OnTextChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnTextChanged(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnTextChangedResponse{}, nil
+}
+
+func (s *PasswordTransformationMethodServer) GetInstance(_ context.Context, req *pb.PasswordTransformationMethodGetInstanceRequest) (*pb.GetInstanceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.ShouldCapResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstanceResponse{Result: handle}, nil
 }
 
 // ArrowKeyMovementMethodServer implements pb.ArrowKeyMovementMethodServiceServer.
@@ -986,7 +485,7 @@ func (s *ArrowKeyMovementMethodServer) NewArrowKeyMovementMethod(_ context.Conte
 	return &pb.NewArrowKeyMovementMethodResponse{Result: handle}, nil
 }
 
-func (s *ArrowKeyMovementMethodServer) CanSelectArbitrarily(_ context.Context, req *pb.ArrowKeyMovementMethodCanSelectArbitrarilyRequest) (*pb.CanSelectArbitrarilyResponse, error) {
+func (s *ArrowKeyMovementMethodServer) CanSelectArbitrarily(_ context.Context, req *pb.CanSelectArbitrarilyRequest) (*pb.CanSelectArbitrarilyResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1000,7 +499,7 @@ func (s *ArrowKeyMovementMethodServer) CanSelectArbitrarily(_ context.Context, r
 	return &pb.CanSelectArbitrarilyResponse{Result: result}, nil
 }
 
-func (s *ArrowKeyMovementMethodServer) Initialize(_ context.Context, req *pb.ArrowKeyMovementMethodInitializeRequest) (*pb.InitializeResponse, error) {
+func (s *ArrowKeyMovementMethodServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1027,7 +526,7 @@ func (s *ArrowKeyMovementMethodServer) NextParagraph(_ context.Context, req *pb.
 	return &pb.NextParagraphResponse{Result: result}, nil
 }
 
-func (s *ArrowKeyMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.ArrowKeyMovementMethodOnTakeFocusRequest) (*pb.OnTakeFocusResponse, error) {
+func (s *ArrowKeyMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.OnTakeFocusRequest) (*pb.OnTakeFocusResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1040,7 +539,7 @@ func (s *ArrowKeyMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.Ar
 	return &pb.OnTakeFocusResponse{}, nil
 }
 
-func (s *ArrowKeyMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.ArrowKeyMovementMethodOnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
+func (s *ArrowKeyMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.OnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1068,7 +567,7 @@ func (s *ArrowKeyMovementMethodServer) PreviousParagraph(_ context.Context, req 
 	return &pb.PreviousParagraphResponse{Result: result}, nil
 }
 
-func (s *ArrowKeyMovementMethodServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
+func (s *ArrowKeyMovementMethodServer) GetInstance(_ context.Context, req *pb.ArrowKeyMovementMethodGetInstanceRequest) (*pb.GetInstanceResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1173,6 +672,411 @@ func (s *DateTimeKeyListenerServer) GetInstance1_1(_ context.Context, req *pb.Ge
 	return &pb.GetInstance1_1Response{Result: handle}, nil
 }
 
+// ScrollingMovementMethodServer implements pb.ScrollingMovementMethodServiceServer.
+type ScrollingMovementMethodServer struct {
+	pb.UnimplementedScrollingMovementMethodServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ScrollingMovementMethodServer) NewScrollingMovementMethod(_ context.Context, req *pb.NewScrollingMovementMethodRequest) (*pb.NewScrollingMovementMethodResponse, error) {
+	obj, err := jnipkg.NewScrollingMovementMethod(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewScrollingMovementMethodResponse{Result: handle}, nil
+}
+
+func (s *ScrollingMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.OnTakeFocusRequest) (*pb.OnTakeFocusResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScrollingMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnTakeFocus(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnTakeFocusResponse{}, nil
+}
+
+func (s *ScrollingMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.OnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScrollingMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnTouchEvent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnTouchEventResponse{Result: result}, nil
+}
+
+func (s *ScrollingMovementMethodServer) GetInstance(_ context.Context, req *pb.ScrollingMovementMethodGetInstanceRequest) (*pb.GetInstanceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScrollingMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstanceResponse{Result: handle}, nil
+}
+
+// TimeKeyListenerServer implements pb.TimeKeyListenerServiceServer.
+type TimeKeyListenerServer struct {
+	pb.UnimplementedTimeKeyListenerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TimeKeyListenerServer) NewTimeKeyListener(_ context.Context, req *pb.NewTimeKeyListenerRequest) (*pb.NewTimeKeyListenerResponse, error) {
+	obj, err := jnipkg.NewTimeKeyListener(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTimeKeyListenerResponse{Result: handle}, nil
+}
+
+func (s *TimeKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimeKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInputType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInputTypeResponse{Result: result}, nil
+}
+
+func (s *TimeKeyListenerServer) GetInstance0(_ context.Context, req *pb.GetInstance0Request) (*pb.GetInstance0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimeKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance0Response{Result: handle}, nil
+}
+
+func (s *TimeKeyListenerServer) GetInstance1_1(_ context.Context, req *pb.GetInstance1_1Request) (*pb.GetInstance1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimeKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance1_1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance1_1Response{Result: handle}, nil
+}
+
+// CharacterPickerDialogServer implements pb.CharacterPickerDialogServiceServer.
+type CharacterPickerDialogServer struct {
+	pb.UnimplementedCharacterPickerDialogServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *CharacterPickerDialogServer) NewCharacterPickerDialog(_ context.Context, req *pb.NewCharacterPickerDialogRequest) (*pb.NewCharacterPickerDialogResponse, error) {
+	obj, err := jnipkg.NewCharacterPickerDialog(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewCharacterPickerDialogResponse{Result: handle}, nil
+}
+
+func (s *CharacterPickerDialogServer) OnClick(_ context.Context, req *pb.OnClickRequest) (*pb.OnClickResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CharacterPickerDialog{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnClick(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnClickResponse{}, nil
+}
+
+func (s *CharacterPickerDialogServer) OnItemClick(_ context.Context, req *pb.OnItemClickRequest) (*pb.OnItemClickResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.CharacterPickerDialog{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnItemClick(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnItemClickResponse{}, nil
+}
+
+// TextKeyListenerServer implements pb.TextKeyListenerServiceServer.
+type TextKeyListenerServer struct {
+	pb.UnimplementedTextKeyListenerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TextKeyListenerServer) NewTextKeyListener(_ context.Context, req *pb.NewTextKeyListenerRequest) (*pb.NewTextKeyListenerResponse, error) {
+	obj, err := jnipkg.NewTextKeyListener(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTextKeyListenerResponse{Result: handle}, nil
+}
+
+func (s *TextKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInputType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInputTypeResponse{Result: result}, nil
+}
+
+func (s *TextKeyListenerServer) OnKeyDown(_ context.Context, req *pb.OnKeyDownRequest) (*pb.OnKeyDownResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnKeyDown(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnKeyDownResponse{Result: result}, nil
+}
+
+func (s *TextKeyListenerServer) OnKeyOther(_ context.Context, req *pb.OnKeyOtherRequest) (*pb.OnKeyOtherResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnKeyOther(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnKeyOtherResponse{Result: result}, nil
+}
+
+func (s *TextKeyListenerServer) OnKeyUp(_ context.Context, req *pb.OnKeyUpRequest) (*pb.OnKeyUpResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnKeyUp(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnKeyUpResponse{Result: result}, nil
+}
+
+func (s *TextKeyListenerServer) OnSpanAdded(_ context.Context, req *pb.OnSpanAddedRequest) (*pb.OnSpanAddedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSpanAdded(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSpanAddedResponse{}, nil
+}
+
+func (s *TextKeyListenerServer) OnSpanChanged(_ context.Context, req *pb.OnSpanChangedRequest) (*pb.OnSpanChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSpanChanged(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSpanChangedResponse{}, nil
+}
+
+func (s *TextKeyListenerServer) OnSpanRemoved(_ context.Context, req *pb.OnSpanRemovedRequest) (*pb.OnSpanRemovedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSpanRemoved(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSpanRemovedResponse{}, nil
+}
+
+func (s *TextKeyListenerServer) Release(_ context.Context, req *pb.ReleaseRequest) (*pb.ReleaseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Release(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ReleaseResponse{}, nil
+}
+
+func (s *TextKeyListenerServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearResponse{}, nil
+}
+
+func (s *TextKeyListenerServer) GetInstance0(_ context.Context, req *pb.GetInstance0Request) (*pb.GetInstance0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance0Response{Result: handle}, nil
+}
+
+func (s *TextKeyListenerServer) GetInstance2_1(_ context.Context, req *pb.GetInstance2_1Request) (*pb.GetInstance2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance2_1(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance2_1Response{Result: handle}, nil
+}
+
+func (s *TextKeyListenerServer) ShouldCap(_ context.Context, req *pb.ShouldCapRequest) (*pb.ShouldCapResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ShouldCap(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShouldCapResponse{Result: result}, nil
+}
+
 // DateKeyListenerServer implements pb.DateKeyListenerServiceServer.
 type DateKeyListenerServer struct {
 	pb.UnimplementedDateKeyListenerServiceServer
@@ -1255,15 +1159,15 @@ func (s *DateKeyListenerServer) GetInstance1_1(_ context.Context, req *pb.GetIns
 	return &pb.GetInstance1_1Response{Result: handle}, nil
 }
 
-// PasswordTransformationMethodServer implements pb.PasswordTransformationMethodServiceServer.
-type PasswordTransformationMethodServer struct {
-	pb.UnimplementedPasswordTransformationMethodServiceServer
+// DialerKeyListenerServer implements pb.DialerKeyListenerServiceServer.
+type DialerKeyListenerServer struct {
+	pb.UnimplementedDialerKeyListenerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *PasswordTransformationMethodServer) NewPasswordTransformationMethod(_ context.Context, req *pb.NewPasswordTransformationMethodRequest) (*pb.NewPasswordTransformationMethodResponse, error) {
-	obj, err := jnipkg.NewPasswordTransformationMethod(s.Ctx.VM)
+func (s *DialerKeyListenerServer) NewDialerKeyListener(_ context.Context, req *pb.NewDialerKeyListenerRequest) (*pb.NewDialerKeyListenerResponse, error) {
+	obj, err := jnipkg.NewDialerKeyListener(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -1274,90 +1178,29 @@ func (s *PasswordTransformationMethodServer) NewPasswordTransformationMethod(_ c
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewPasswordTransformationMethodResponse{Result: handle}, nil
+	return &pb.NewDialerKeyListenerResponse{Result: handle}, nil
 }
 
-func (s *PasswordTransformationMethodServer) AfterTextChanged(_ context.Context, req *pb.AfterTextChangedRequest) (*pb.AfterTextChangedResponse, error) {
+func (s *DialerKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.DialerKeyListener{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.AfterTextChanged(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AfterTextChangedResponse{}, nil
-}
-
-func (s *PasswordTransformationMethodServer) BeforeTextChanged(_ context.Context, req *pb.BeforeTextChangedRequest) (*pb.BeforeTextChangedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.BeforeTextChanged(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.BeforeTextChangedResponse{}, nil
-}
-
-func (s *PasswordTransformationMethodServer) GetTransformation(_ context.Context, req *pb.PasswordTransformationMethodGetTransformationRequest) (*pb.GetTransformationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTransformation(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	result, err := mgr.GetInputType()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetTransformationResponse{Result: handle}, nil
+	return &pb.GetInputTypeResponse{Result: result}, nil
 }
 
-func (s *PasswordTransformationMethodServer) OnFocusChanged(_ context.Context, req *pb.PasswordTransformationMethodOnFocusChangedRequest) (*pb.OnFocusChangedResponse, error) {
+func (s *DialerKeyListenerServer) GetInstance(_ context.Context, req *pb.DialerKeyListenerGetInstanceRequest) (*pb.GetInstanceResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnFocusChanged(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnFocusChangedResponse{}, nil
-}
-
-func (s *PasswordTransformationMethodServer) OnTextChanged(_ context.Context, req *pb.OnTextChangedRequest) (*pb.OnTextChangedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnTextChanged(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnTextChangedResponse{}, nil
-}
-
-func (s *PasswordTransformationMethodServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PasswordTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.DialerKeyListener{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetInstance()
 	if err != nil {
@@ -1373,6 +1216,292 @@ func (s *PasswordTransformationMethodServer) GetInstance(_ context.Context, req 
 		}
 	}
 	return &pb.GetInstanceResponse{Result: handle}, nil
+}
+
+// MultiTapKeyListenerServer implements pb.MultiTapKeyListenerServiceServer.
+type MultiTapKeyListenerServer struct {
+	pb.UnimplementedMultiTapKeyListenerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MultiTapKeyListenerServer) NewMultiTapKeyListener(_ context.Context, req *pb.NewMultiTapKeyListenerRequest) (*pb.NewMultiTapKeyListenerResponse, error) {
+	obj, err := jnipkg.NewMultiTapKeyListener(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMultiTapKeyListenerResponse{Result: handle}, nil
+}
+
+func (s *MultiTapKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInputType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInputTypeResponse{Result: result}, nil
+}
+
+func (s *MultiTapKeyListenerServer) OnKeyDown(_ context.Context, req *pb.OnKeyDownRequest) (*pb.OnKeyDownResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnKeyDown(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnKeyDownResponse{Result: result}, nil
+}
+
+func (s *MultiTapKeyListenerServer) OnSpanAdded(_ context.Context, req *pb.OnSpanAddedRequest) (*pb.OnSpanAddedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSpanAdded(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSpanAddedResponse{}, nil
+}
+
+func (s *MultiTapKeyListenerServer) OnSpanChanged(_ context.Context, req *pb.OnSpanChangedRequest) (*pb.OnSpanChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSpanChanged(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSpanChangedResponse{}, nil
+}
+
+func (s *MultiTapKeyListenerServer) OnSpanRemoved(_ context.Context, req *pb.OnSpanRemovedRequest) (*pb.OnSpanRemovedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSpanRemoved(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSpanRemovedResponse{}, nil
+}
+
+func (s *MultiTapKeyListenerServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiTapKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstanceResponse{Result: handle}, nil
+}
+
+// DigitsKeyListenerServer implements pb.DigitsKeyListenerServiceServer.
+type DigitsKeyListenerServer struct {
+	pb.UnimplementedDigitsKeyListenerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DigitsKeyListenerServer) NewDigitsKeyListener(_ context.Context, req *pb.NewDigitsKeyListenerRequest) (*pb.NewDigitsKeyListenerResponse, error) {
+	obj, err := jnipkg.NewDigitsKeyListener(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDigitsKeyListenerResponse{Result: handle}, nil
+}
+
+func (s *DigitsKeyListenerServer) Filter(_ context.Context, req *pb.DigitsKeyListenerFilterRequest) (*pb.FilterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Filter(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4(), req.GetArg5())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.FilterResponse{Result: handle}, nil
+}
+
+func (s *DigitsKeyListenerServer) GetInputType(_ context.Context, req *pb.GetInputTypeRequest) (*pb.GetInputTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInputType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInputTypeResponse{Result: result}, nil
+}
+
+func (s *DigitsKeyListenerServer) GetInstance0(_ context.Context, req *pb.GetInstance0Request) (*pb.GetInstance0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance0Response{Result: handle}, nil
+}
+
+func (s *DigitsKeyListenerServer) GetInstance2_1(_ context.Context, req *pb.DigitsKeyListenerGetInstance2_1Request) (*pb.GetInstance2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance2_1(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance2_1Response{Result: handle}, nil
+}
+
+func (s *DigitsKeyListenerServer) GetInstance1_2(_ context.Context, req *pb.GetInstance1_2Request) (*pb.GetInstance1_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance1_2(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance1_2Response{Result: handle}, nil
+}
+
+func (s *DigitsKeyListenerServer) GetInstance1_3(_ context.Context, req *pb.GetInstance1_3Request) (*pb.GetInstance1_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance1_3(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance1_3Response{Result: handle}, nil
+}
+
+func (s *DigitsKeyListenerServer) GetInstance3_4(_ context.Context, req *pb.GetInstance3_4Request) (*pb.GetInstance3_4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DigitsKeyListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInstance3_4(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInstance3_4Response{Result: handle}, nil
 }
 
 // LinkMovementMethodServer implements pb.LinkMovementMethodServiceServer.
@@ -1397,7 +1526,7 @@ func (s *LinkMovementMethodServer) NewLinkMovementMethod(_ context.Context, req 
 	return &pb.NewLinkMovementMethodResponse{Result: handle}, nil
 }
 
-func (s *LinkMovementMethodServer) CanSelectArbitrarily(_ context.Context, req *pb.LinkMovementMethodCanSelectArbitrarilyRequest) (*pb.CanSelectArbitrarilyResponse, error) {
+func (s *LinkMovementMethodServer) CanSelectArbitrarily(_ context.Context, req *pb.CanSelectArbitrarilyRequest) (*pb.CanSelectArbitrarilyResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1411,7 +1540,7 @@ func (s *LinkMovementMethodServer) CanSelectArbitrarily(_ context.Context, req *
 	return &pb.CanSelectArbitrarilyResponse{Result: result}, nil
 }
 
-func (s *LinkMovementMethodServer) Initialize(_ context.Context, req *pb.LinkMovementMethodInitializeRequest) (*pb.InitializeResponse, error) {
+func (s *LinkMovementMethodServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1424,7 +1553,7 @@ func (s *LinkMovementMethodServer) Initialize(_ context.Context, req *pb.LinkMov
 	return &pb.InitializeResponse{}, nil
 }
 
-func (s *LinkMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.LinkMovementMethodOnTakeFocusRequest) (*pb.OnTakeFocusResponse, error) {
+func (s *LinkMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.OnTakeFocusRequest) (*pb.OnTakeFocusResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1437,7 +1566,7 @@ func (s *LinkMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.LinkMo
 	return &pb.OnTakeFocusResponse{}, nil
 }
 
-func (s *LinkMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.LinkMovementMethodOnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
+func (s *LinkMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.OnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1451,7 +1580,7 @@ func (s *LinkMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.LinkM
 	return &pb.OnTouchEventResponse{Result: result}, nil
 }
 
-func (s *LinkMovementMethodServer) GetInstance(_ context.Context, req *pb.GetInstanceRequest) (*pb.GetInstanceResponse, error) {
+func (s *LinkMovementMethodServer) GetInstance(_ context.Context, req *pb.LinkMovementMethodGetInstanceRequest) (*pb.GetInstanceResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1474,15 +1603,15 @@ func (s *LinkMovementMethodServer) GetInstance(_ context.Context, req *pb.GetIns
 	return &pb.GetInstanceResponse{Result: handle}, nil
 }
 
-// BaseMovementMethodServer implements pb.BaseMovementMethodServiceServer.
-type BaseMovementMethodServer struct {
-	pb.UnimplementedBaseMovementMethodServiceServer
+// HideReturnsTransformationMethodServer implements pb.HideReturnsTransformationMethodServiceServer.
+type HideReturnsTransformationMethodServer struct {
+	pb.UnimplementedHideReturnsTransformationMethodServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *BaseMovementMethodServer) NewBaseMovementMethod(_ context.Context, req *pb.NewBaseMovementMethodRequest) (*pb.NewBaseMovementMethodResponse, error) {
-	obj, err := jnipkg.NewBaseMovementMethod(s.Ctx.VM)
+func (s *HideReturnsTransformationMethodServer) NewHideReturnsTransformationMethod(_ context.Context, req *pb.NewHideReturnsTransformationMethodRequest) (*pb.NewHideReturnsTransformationMethodResponse, error) {
+	obj, err := jnipkg.NewHideReturnsTransformationMethod(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -1493,157 +1622,28 @@ func (s *BaseMovementMethodServer) NewBaseMovementMethod(_ context.Context, req 
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewBaseMovementMethodResponse{Result: handle}, nil
+	return &pb.NewHideReturnsTransformationMethodResponse{Result: handle}, nil
 }
 
-func (s *BaseMovementMethodServer) CanSelectArbitrarily(_ context.Context, req *pb.BaseMovementMethodCanSelectArbitrarilyRequest) (*pb.CanSelectArbitrarilyResponse, error) {
+func (s *HideReturnsTransformationMethodServer) GetInstance(_ context.Context, req *pb.HideReturnsTransformationMethodGetInstanceRequest) (*pb.GetInstanceResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.HideReturnsTransformationMethod{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.CanSelectArbitrarily()
+	result, err := mgr.GetInstance()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.CanSelectArbitrarilyResponse{Result: result}, nil
-}
-
-func (s *BaseMovementMethodServer) Initialize(_ context.Context, req *pb.BaseMovementMethodInitializeRequest) (*pb.InitializeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
 	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Initialize(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.InitializeResponse{}, nil
-}
-
-func (s *BaseMovementMethodServer) NextParagraph(_ context.Context, req *pb.NextParagraphRequest) (*pb.NextParagraphResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.NextParagraph(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NextParagraphResponse{Result: result}, nil
-}
-
-func (s *BaseMovementMethodServer) OnGenericMotionEvent(_ context.Context, req *pb.BaseMovementMethodOnGenericMotionEventRequest) (*pb.OnGenericMotionEventResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnGenericMotionEvent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnGenericMotionEventResponse{Result: result}, nil
-}
-
-func (s *BaseMovementMethodServer) OnKeyDown(_ context.Context, req *pb.BaseMovementMethodOnKeyDownRequest) (*pb.OnKeyDownResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnKeyDown(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnKeyDownResponse{Result: result}, nil
-}
-
-func (s *BaseMovementMethodServer) OnKeyOther(_ context.Context, req *pb.BaseMovementMethodOnKeyOtherRequest) (*pb.OnKeyOtherResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnKeyOther(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnKeyOtherResponse{Result: result}, nil
-}
-
-func (s *BaseMovementMethodServer) OnKeyUp(_ context.Context, req *pb.BaseMovementMethodOnKeyUpRequest) (*pb.OnKeyUpResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnKeyUp(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnKeyUpResponse{Result: result}, nil
-}
-
-func (s *BaseMovementMethodServer) OnTakeFocus(_ context.Context, req *pb.BaseMovementMethodOnTakeFocusRequest) (*pb.OnTakeFocusResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnTakeFocus(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnTakeFocusResponse{}, nil
-}
-
-func (s *BaseMovementMethodServer) OnTouchEvent(_ context.Context, req *pb.BaseMovementMethodOnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnTouchEvent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnTouchEventResponse{Result: result}, nil
-}
-
-func (s *BaseMovementMethodServer) OnTrackballEvent(_ context.Context, req *pb.BaseMovementMethodOnTrackballEventRequest) (*pb.OnTrackballEventResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnTrackballEvent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnTrackballEventResponse{Result: result}, nil
-}
-
-func (s *BaseMovementMethodServer) PreviousParagraph(_ context.Context, req *pb.PreviousParagraphRequest) (*pb.PreviousParagraphResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BaseMovementMethod{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.PreviousParagraph(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PreviousParagraphResponse{Result: result}, nil
+	return &pb.GetInstanceResponse{Result: handle}, nil
 }

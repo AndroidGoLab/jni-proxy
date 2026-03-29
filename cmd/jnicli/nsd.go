@@ -12,19 +12,38 @@ var nsdCmd = &cobra.Command{
 	Short: "nsd service operations",
 }
 
-var nsdDiscoveryRequestCmd = &cobra.Command{
-	Use:   "discovery-request",
-	Short: "DiscoveryRequestService operations",
+var nsdServiceInfoCmd = &cobra.Command{
+	Use:   "service-info",
+	Short: "ServiceInfoService operations",
 }
 
-var nsdDiscoveryRequestDescribeContentsCmd = &cobra.Command{
+var nsdServiceInfoNewServiceInfoCmd = &cobra.Command{
+	Use:   "new-service-info",
+	Short: "NewServiceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.NewServiceInfoRequest{}
+		resp, err := client.NewServiceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -33,18 +52,18 @@ var nsdDiscoveryRequestDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var nsdServiceInfoGetHostCmd = &cobra.Command{
+	Use:   "get-host",
+	Short: "GetHost RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetHostRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.GetHost(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -52,14 +71,55 @@ var nsdDiscoveryRequestEqualsCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestGetNetworkCmd = &cobra.Command{
+var nsdServiceInfoGetHostAddressesCmd = &cobra.Command{
+	Use:   "get-host-addresses",
+	Short: "GetHostAddresses RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetHostAddressesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHostAddresses(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoGetHostnameCmd = &cobra.Command{
+	Use:   "get-hostname",
+	Short: "GetHostname RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetHostnameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHostname(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoGetNetworkCmd = &cobra.Command{
 	Use:   "get-network",
 	Short: "GetNetwork RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetNetworkRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.GetNetwork(ctx, req)
 		if err != nil {
 			return err
@@ -68,14 +128,55 @@ var nsdDiscoveryRequestGetNetworkCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestGetServiceTypeCmd = &cobra.Command{
+var nsdServiceInfoGetPortCmd = &cobra.Command{
+	Use:   "get-port",
+	Short: "GetPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetPortRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoGetServiceNameCmd = &cobra.Command{
+	Use:   "get-service-name",
+	Short: "GetServiceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetServiceNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetServiceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoGetServiceTypeCmd = &cobra.Command{
 	Use:   "get-service-type",
 	Short: "GetServiceType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetServiceTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.GetServiceType(ctx, req)
 		if err != nil {
 			return err
@@ -84,15 +185,18 @@ var nsdDiscoveryRequestGetServiceTypeCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestGetSubtypeCmd = &cobra.Command{
-	Use:   "get-subtype",
-	Short: "GetSubtype RPC",
+var nsdServiceInfoGetSubtypesCmd = &cobra.Command{
+	Use:   "get-subtypes",
+	Short: "GetSubtypes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
-		req := &pb.GetSubtypeRequest{}
-		resp, err := client.GetSubtype(ctx, req)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.GetSubtypesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSubtypes(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -100,15 +204,21 @@ var nsdDiscoveryRequestGetSubtypeCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
+var nsdServiceInfoRemoveAttributeCmd = &cobra.Command{
+	Use:   "remove-attribute",
+	Short: "RemoveAttribute RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.RemoveAttributeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveAttribute(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -116,14 +226,152 @@ var nsdDiscoveryRequestHashCodeCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestToStringCmd = &cobra.Command{
+var nsdServiceInfoSetAttributeCmd = &cobra.Command{
+	Use:   "set-attribute",
+	Short: "SetAttribute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.SetAttributeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetAttribute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoSetHostCmd = &cobra.Command{
+	Use:   "set-host",
+	Short: "SetHost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.SetHostRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoSetNetworkCmd = &cobra.Command{
+	Use:   "set-network",
+	Short: "SetNetwork RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.SetNetworkRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNetwork(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoSetPortCmd = &cobra.Command{
+	Use:   "set-port",
+	Short: "SetPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.SetPortRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoSetServiceNameCmd = &cobra.Command{
+	Use:   "set-service-name",
+	Short: "SetServiceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.SetServiceNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetServiceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoSetServiceTypeCmd = &cobra.Command{
+	Use:   "set-service-type",
+	Short: "SetServiceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.SetServiceTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetServiceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdServiceInfoToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -132,14 +380,17 @@ var nsdDiscoveryRequestToStringCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestWriteToParcelCmd = &cobra.Command{
+var nsdServiceInfoWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -154,39 +405,18 @@ var nsdDiscoveryRequestWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestBuilderCmd = &cobra.Command{
-	Use:   "discovery-request-builder",
-	Short: "DiscoveryRequestBuilderService operations",
-}
-
-var nsdDiscoveryRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
+var nsdServiceInfoSetHostAddressesCmd = &cobra.Command{
+	Use:   "set-host-addresses",
+	Short: "SetHostAddresses RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdDiscoveryRequestBuilderSetNetworkCmd = &cobra.Command{
-	Use:   "set-network",
-	Short: "SetNetwork RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoveryRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetNetworkRequest{}
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.SetHostAddressesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetNetwork(ctx, req)
+		resp, err := client.SetHostAddresses(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -194,18 +424,18 @@ var nsdDiscoveryRequestBuilderSetNetworkCmd = &cobra.Command{
 	},
 }
 
-var nsdDiscoveryRequestBuilderSetSubtypeCmd = &cobra.Command{
-	Use:   "set-subtype",
-	Short: "SetSubtype RPC",
+var nsdServiceInfoSetSubtypesCmd = &cobra.Command{
+	Use:   "set-subtypes",
+	Short: "SetSubtypes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDiscoveryRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetSubtypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+		client := pb.NewServiceInfoServiceClient(grpcConn)
+		req := &pb.SetSubtypesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetSubtype(ctx, req)
+		resp, err := client.SetSubtypes(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -864,38 +1094,19 @@ var nsdManagerServiceInfoCallbackOnServiceUpdatedCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoCmd = &cobra.Command{
-	Use:   "service-info",
-	Short: "ServiceInfoService operations",
+var nsdDiscoveryRequestCmd = &cobra.Command{
+	Use:   "discovery-request",
+	Short: "DiscoveryRequestService operations",
 }
 
-var nsdServiceInfoNewServiceInfoCmd = &cobra.Command{
-	Use:   "new-service-info",
-	Short: "NewServiceInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.NewServiceInfoRequest{}
-		resp, err := client.NewServiceInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoDescribeContentsCmd = &cobra.Command{
+var nsdDiscoveryRequestDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.ServiceInfoDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		req := &pb.DiscoveryRequestDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -904,18 +1115,18 @@ var nsdServiceInfoDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoGetHostCmd = &cobra.Command{
-	Use:   "get-host",
-	Short: "GetHost RPC",
+var nsdDiscoveryRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetHostRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
 		}
-		resp, err := client.GetHost(ctx, req)
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -923,36 +1134,14 @@ var nsdServiceInfoGetHostCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoGetHostnameCmd = &cobra.Command{
-	Use:   "get-hostname",
-	Short: "GetHostname RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetHostnameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetHostname(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoGetNetworkCmd = &cobra.Command{
+var nsdDiscoveryRequestGetNetworkCmd = &cobra.Command{
 	Use:   "get-network",
 	Short: "GetNetwork RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.ServiceInfoGetNetworkRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		req := &pb.DiscoveryRequestGetNetworkRequest{}
 		resp, err := client.GetNetwork(ctx, req)
 		if err != nil {
 			return err
@@ -961,55 +1150,14 @@ var nsdServiceInfoGetNetworkCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoGetPortCmd = &cobra.Command{
-	Use:   "get-port",
-	Short: "GetPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetPortRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoGetServiceNameCmd = &cobra.Command{
-	Use:   "get-service-name",
-	Short: "GetServiceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetServiceNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetServiceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoGetServiceTypeCmd = &cobra.Command{
+var nsdDiscoveryRequestGetServiceTypeCmd = &cobra.Command{
 	Use:   "get-service-type",
 	Short: "GetServiceType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.ServiceInfoGetServiceTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		req := &pb.DiscoveryRequestGetServiceTypeRequest{}
 		resp, err := client.GetServiceType(ctx, req)
 		if err != nil {
 			return err
@@ -1018,21 +1166,15 @@ var nsdServiceInfoGetServiceTypeCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoRemoveAttributeCmd = &cobra.Command{
-	Use:   "remove-attribute",
-	Short: "RemoveAttribute RPC",
+var nsdDiscoveryRequestGetSubtypeCmd = &cobra.Command{
+	Use:   "get-subtype",
+	Short: "GetSubtype RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.RemoveAttributeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveAttribute(ctx, req)
+		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		req := &pb.GetSubtypeRequest{}
+		resp, err := client.GetSubtype(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1040,24 +1182,15 @@ var nsdServiceInfoRemoveAttributeCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoSetAttributeCmd = &cobra.Command{
-	Use:   "set-attribute",
-	Short: "SetAttribute RPC",
+var nsdDiscoveryRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.SetAttributeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetAttribute(ctx, req)
+		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1065,127 +1198,14 @@ var nsdServiceInfoSetAttributeCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoSetHostCmd = &cobra.Command{
-	Use:   "set-host",
-	Short: "SetHost RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.SetHostRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetHost(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoSetNetworkCmd = &cobra.Command{
-	Use:   "set-network",
-	Short: "SetNetwork RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.ServiceInfoSetNetworkRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNetwork(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoSetPortCmd = &cobra.Command{
-	Use:   "set-port",
-	Short: "SetPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.SetPortRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoSetServiceNameCmd = &cobra.Command{
-	Use:   "set-service-name",
-	Short: "SetServiceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.SetServiceNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetServiceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoSetServiceTypeCmd = &cobra.Command{
-	Use:   "set-service-type",
-	Short: "SetServiceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.SetServiceTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetServiceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoToStringCmd = &cobra.Command{
+var nsdDiscoveryRequestToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.ServiceInfoToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		req := &pb.DiscoveryRequestToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -1194,17 +1214,14 @@ var nsdServiceInfoToStringCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoWriteToParcelCmd = &cobra.Command{
+var nsdDiscoveryRequestWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.ServiceInfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewDiscoveryRequestServiceClient(grpcConn)
+		req := &pb.DiscoveryRequestWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1219,15 +1236,20 @@ var nsdServiceInfoWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoGetHostAddressesCmd = &cobra.Command{
-	Use:   "get-host-addresses",
-	Short: "GetHostAddresses RPC",
+var nsdDiscoveryRequestBuilderCmd = &cobra.Command{
+	Use:   "discovery-request-builder",
+	Short: "DiscoveryRequestBuilderService operations",
+}
+
+var nsdDiscoveryRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetHostAddressesRequest{}
-		resp, err := client.GetHostAddresses(ctx, req)
+		client := pb.NewDiscoveryRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1235,34 +1257,18 @@ var nsdServiceInfoGetHostAddressesCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoGetSubtypesCmd = &cobra.Command{
-	Use:   "get-subtypes",
-	Short: "GetSubtypes RPC",
+var nsdDiscoveryRequestBuilderSetNetworkCmd = &cobra.Command{
+	Use:   "set-network",
+	Short: "SetNetwork RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.GetSubtypesRequest{}
-		resp, err := client.GetSubtypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdServiceInfoSetHostAddressesCmd = &cobra.Command{
-	Use:   "set-host-addresses",
-	Short: "SetHostAddresses RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.SetHostAddressesRequest{}
+		client := pb.NewDiscoveryRequestBuilderServiceClient(grpcConn)
+		req := &pb.DiscoveryRequestBuilderSetNetworkRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetHostAddresses(ctx, req)
+		resp, err := client.SetNetwork(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1270,18 +1276,18 @@ var nsdServiceInfoSetHostAddressesCmd = &cobra.Command{
 	},
 }
 
-var nsdServiceInfoSetSubtypesCmd = &cobra.Command{
-	Use:   "set-subtypes",
-	Short: "SetSubtypes RPC",
+var nsdDiscoveryRequestBuilderSetSubtypeCmd = &cobra.Command{
+	Use:   "set-subtype",
+	Short: "SetSubtype RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewServiceInfoServiceClient(grpcConn)
-		req := &pb.SetSubtypesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewDiscoveryRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSubtypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetSubtypes(ctx, req)
+		resp, err := client.SetSubtype(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1301,7 +1307,7 @@ var nsdAdvertisingRequestDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAdvertisingRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.AdvertisingRequestDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -1400,7 +1406,7 @@ var nsdAdvertisingRequestToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAdvertisingRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.AdvertisingRequestToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -1416,7 +1422,7 @@ var nsdAdvertisingRequestWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAdvertisingRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.AdvertisingRequestWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1483,225 +1489,6 @@ var nsdAdvertisingRequestBuilderSetProtocolTypeCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.SetProtocolType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pServiceInfoCmd = &cobra.Command{
-	Use:   "wifi-p2p-service-info",
-	Short: "WifiP2pServiceInfoService operations",
-}
-
-var nsdWifiP2pServiceInfoNewWifiP2pServiceInfoCmd = &cobra.Command{
-	Use:   "new-wifi-p2p-service-info",
-	Short: "NewWifiP2pServiceInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
-		req := &pb.NewWifiP2PServiceInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewWifiP2PServiceInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pServiceInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pServiceInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pServiceInfoGetWifiP2pUsdBasedServiceConfigCmd = &cobra.Command{
-	Use:   "get-wifi-p2p-usd-based-service-config",
-	Short: "GetWifiP2pUsdBasedServiceConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
-		req := &pb.GetWifiP2PUsdBasedServiceConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWifiP2PUsdBasedServiceConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pServiceInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pServiceInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pUsdBasedServiceResponseCmd = &cobra.Command{
-	Use:   "wifi-p2p-usd-based-service-response",
-	Short: "WifiP2pUsdBasedServiceResponseService operations",
-}
-
-var nsdWifiP2pUsdBasedServiceResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
-		req := &pb.WifiP2PUsdBasedServiceResponseDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pUsdBasedServiceResponseGetServiceProtocolTypeCmd = &cobra.Command{
-	Use:   "get-service-protocol-type",
-	Short: "GetServiceProtocolType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
-		req := &pb.GetServiceProtocolTypeRequest{}
-		resp, err := client.GetServiceProtocolType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pUsdBasedServiceResponseGetServiceSpecificInfoCmd = &cobra.Command{
-	Use:   "get-service-specific-info",
-	Short: "GetServiceSpecificInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
-		req := &pb.GetServiceSpecificInfoRequest{}
-		resp, err := client.GetServiceSpecificInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pUsdBasedServiceResponseToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var nsdWifiP2pUsdBasedServiceResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
-		req := &pb.WifiP2PUsdBasedServiceResponseWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1780,7 +1567,7 @@ var nsdWifiP2pServiceRequestDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiP2PServiceRequestServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1799,7 +1586,7 @@ var nsdWifiP2pServiceRequestEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiP2PServiceRequestServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoEqualsRequest{}
+		req := &pb.WifiP2PServiceRequestEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1840,7 +1627,7 @@ var nsdWifiP2pServiceRequestHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiP2PServiceRequestServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoHashCodeRequest{}
+		req := &pb.WifiP2PServiceRequestHashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1859,7 +1646,7 @@ var nsdWifiP2pServiceRequestWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiP2PServiceRequestServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1924,20 +1711,20 @@ var nsdWifiP2pServiceRequestNewInstance2_1Cmd = &cobra.Command{
 	},
 }
 
-var nsdWifiP2pDnsSdServiceRequestCmd = &cobra.Command{
-	Use:   "wifi-p2p-dns-sd-service-request",
-	Short: "WifiP2pDnsSdServiceRequestService operations",
+var nsdWifiP2pUsdBasedServiceResponseCmd = &cobra.Command{
+	Use:   "wifi-p2p-usd-based-service-response",
+	Short: "WifiP2pUsdBasedServiceResponseService operations",
 }
 
-var nsdWifiP2pDnsSdServiceRequestNewInstance0Cmd = &cobra.Command{
-	Use:   "new-instance0",
-	Short: "NewInstance0 RPC",
+var nsdWifiP2pUsdBasedServiceResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiP2PDnsSdServiceRequestServiceClient(grpcConn)
-		req := &pb.NewInstance0Request{}
-		resp, err := client.NewInstance0(ctx, req)
+		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
+		req := &pb.WifiP2PUsdBasedServiceResponseDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1945,18 +1732,15 @@ var nsdWifiP2pDnsSdServiceRequestNewInstance0Cmd = &cobra.Command{
 	},
 }
 
-var nsdWifiP2pDnsSdServiceRequestNewInstance1_1Cmd = &cobra.Command{
-	Use:   "new-instance1_1",
-	Short: "NewInstance1_1 RPC",
+var nsdWifiP2pUsdBasedServiceResponseGetServiceProtocolTypeCmd = &cobra.Command{
+	Use:   "get-service-protocol-type",
+	Short: "GetServiceProtocolType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiP2PDnsSdServiceRequestServiceClient(grpcConn)
-		req := &pb.NewInstance1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewInstance1_1(ctx, req)
+		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
+		req := &pb.GetServiceProtocolTypeRequest{}
+		resp, err := client.GetServiceProtocolType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1964,21 +1748,181 @@ var nsdWifiP2pDnsSdServiceRequestNewInstance1_1Cmd = &cobra.Command{
 	},
 }
 
-var nsdWifiP2pDnsSdServiceRequestNewInstance2_2Cmd = &cobra.Command{
-	Use:   "new-instance2_2",
-	Short: "NewInstance2_2 RPC",
+var nsdWifiP2pUsdBasedServiceResponseGetServiceSpecificInfoCmd = &cobra.Command{
+	Use:   "get-service-specific-info",
+	Short: "GetServiceSpecificInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiP2PDnsSdServiceRequestServiceClient(grpcConn)
-		req := &pb.NewInstance2_2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
+		req := &pb.GetServiceSpecificInfoRequest{}
+		resp, err := client.GetServiceSpecificInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pUsdBasedServiceResponseToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
+		req := &pb.WifiP2PUsdBasedServiceResponseToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pUsdBasedServiceResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PUsdBasedServiceResponseServiceClient(grpcConn)
+		req := &pb.WifiP2PUsdBasedServiceResponseWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewInstance2_2(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pServiceInfoCmd = &cobra.Command{
+	Use:   "wifi-p2p-service-info",
+	Short: "WifiP2pServiceInfoService operations",
+}
+
+var nsdWifiP2pServiceInfoNewWifiP2pServiceInfoCmd = &cobra.Command{
+	Use:   "new-wifi-p2p-service-info",
+	Short: "NewWifiP2pServiceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
+		req := &pb.NewWifiP2PServiceInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewWifiP2PServiceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pServiceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pServiceInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
+		req := &pb.WifiP2PServiceRequestEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pServiceInfoGetWifiP2pUsdBasedServiceConfigCmd = &cobra.Command{
+	Use:   "get-wifi-p2p-usd-based-service-config",
+	Short: "GetWifiP2pUsdBasedServiceConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
+		req := &pb.GetWifiP2PUsdBasedServiceConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWifiP2PUsdBasedServiceConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pServiceInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
+		req := &pb.WifiP2PServiceRequestHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pServiceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PServiceInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2014,7 +1958,7 @@ var nsdWifiP2pUsdBasedServiceConfigDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiP2PUsdBasedServiceConfigServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2109,7 +2053,7 @@ var nsdWifiP2pUsdBasedServiceConfigWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiP2PUsdBasedServiceConfigServiceClient(grpcConn)
-		req := &pb.WifiP2PServiceInfoWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2205,25 +2149,121 @@ var nsdWifiP2pUsdBasedServiceConfigBuilderSetServiceSpecificInfoCmd = &cobra.Com
 	},
 }
 
+var nsdWifiP2pDnsSdServiceRequestCmd = &cobra.Command{
+	Use:   "wifi-p2p-dns-sd-service-request",
+	Short: "WifiP2pDnsSdServiceRequestService operations",
+}
+
+var nsdWifiP2pDnsSdServiceRequestNewInstance0Cmd = &cobra.Command{
+	Use:   "new-instance0",
+	Short: "NewInstance0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PDnsSdServiceRequestServiceClient(grpcConn)
+		req := &pb.NewInstance0Request{}
+		resp, err := client.NewInstance0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pDnsSdServiceRequestNewInstance1_1Cmd = &cobra.Command{
+	Use:   "new-instance1_1",
+	Short: "NewInstance1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PDnsSdServiceRequestServiceClient(grpcConn)
+		req := &pb.NewInstance1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewInstance1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nsdWifiP2pDnsSdServiceRequestNewInstance2_2Cmd = &cobra.Command{
+	Use:   "new-instance2_2",
+	Short: "NewInstance2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiP2PDnsSdServiceRequestServiceClient(grpcConn)
+		req := &pb.NewInstance2_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewInstance2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestDescribeContentsCmd)
-	nsdDiscoveryRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestEqualsCmd)
-	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestGetNetworkCmd)
-	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestGetServiceTypeCmd)
-	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestGetSubtypeCmd)
-	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestHashCodeCmd)
-	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestToStringCmd)
-	nsdDiscoveryRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdDiscoveryRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestWriteToParcelCmd)
-	nsdCmd.AddCommand(nsdDiscoveryRequestCmd)
-	nsdDiscoveryRequestBuilderCmd.AddCommand(nsdDiscoveryRequestBuilderBuildCmd)
-	nsdDiscoveryRequestBuilderSetNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdDiscoveryRequestBuilderCmd.AddCommand(nsdDiscoveryRequestBuilderSetNetworkCmd)
-	nsdDiscoveryRequestBuilderSetSubtypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdDiscoveryRequestBuilderCmd.AddCommand(nsdDiscoveryRequestBuilderSetSubtypeCmd)
-	nsdCmd.AddCommand(nsdDiscoveryRequestBuilderCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoNewServiceInfoCmd)
+	nsdServiceInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoDescribeContentsCmd)
+	nsdServiceInfoGetHostCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostCmd)
+	nsdServiceInfoGetHostAddressesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostAddressesCmd)
+	nsdServiceInfoGetHostnameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostnameCmd)
+	nsdServiceInfoGetNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetNetworkCmd)
+	nsdServiceInfoGetPortCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetPortCmd)
+	nsdServiceInfoGetServiceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetServiceNameCmd)
+	nsdServiceInfoGetServiceTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetServiceTypeCmd)
+	nsdServiceInfoGetSubtypesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetSubtypesCmd)
+	nsdServiceInfoRemoveAttributeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoRemoveAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoRemoveAttributeCmd)
+	nsdServiceInfoSetAttributeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoSetAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdServiceInfoSetAttributeCmd.Flags().String("arg1", "", "arg1 (string)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetAttributeCmd)
+	nsdServiceInfoSetHostCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoSetHostCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetHostCmd)
+	nsdServiceInfoSetNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoSetNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetNetworkCmd)
+	nsdServiceInfoSetPortCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoSetPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetPortCmd)
+	nsdServiceInfoSetServiceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoSetServiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetServiceNameCmd)
+	nsdServiceInfoSetServiceTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoSetServiceTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetServiceTypeCmd)
+	nsdServiceInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoToStringCmd)
+	nsdServiceInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoWriteToParcelCmd)
+	nsdServiceInfoSetHostAddressesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetHostAddressesCmd)
+	nsdServiceInfoSetSubtypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetSubtypesCmd)
+	nsdCmd.AddCommand(nsdServiceInfoCmd)
 	nsdManagerDiscoverServices3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	nsdManagerDiscoverServices3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	nsdManagerDiscoverServices3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -2312,56 +2352,24 @@ func init() {
 	nsdManagerServiceInfoCallbackOnServiceUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	nsdManagerServiceInfoCallbackCmd.AddCommand(nsdManagerServiceInfoCallbackOnServiceUpdatedCmd)
 	nsdCmd.AddCommand(nsdManagerServiceInfoCallbackCmd)
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoNewServiceInfoCmd)
-	nsdServiceInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoDescribeContentsCmd)
-	nsdServiceInfoGetHostCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostCmd)
-	nsdServiceInfoGetHostnameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostnameCmd)
-	nsdServiceInfoGetNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetNetworkCmd)
-	nsdServiceInfoGetPortCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetPortCmd)
-	nsdServiceInfoGetServiceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetServiceNameCmd)
-	nsdServiceInfoGetServiceTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetServiceTypeCmd)
-	nsdServiceInfoRemoveAttributeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoRemoveAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoRemoveAttributeCmd)
-	nsdServiceInfoSetAttributeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoSetAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdServiceInfoSetAttributeCmd.Flags().String("arg1", "", "arg1 (string)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetAttributeCmd)
-	nsdServiceInfoSetHostCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoSetHostCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetHostCmd)
-	nsdServiceInfoSetNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoSetNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetNetworkCmd)
-	nsdServiceInfoSetPortCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoSetPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetPortCmd)
-	nsdServiceInfoSetServiceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoSetServiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetServiceNameCmd)
-	nsdServiceInfoSetServiceTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoSetServiceTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetServiceTypeCmd)
-	nsdServiceInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoToStringCmd)
-	nsdServiceInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoWriteToParcelCmd)
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostAddressesCmd)
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetSubtypesCmd)
-	nsdServiceInfoSetHostAddressesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetHostAddressesCmd)
-	nsdServiceInfoSetSubtypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetSubtypesCmd)
-	nsdCmd.AddCommand(nsdServiceInfoCmd)
+	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestDescribeContentsCmd)
+	nsdDiscoveryRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestEqualsCmd)
+	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestGetNetworkCmd)
+	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestGetServiceTypeCmd)
+	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestGetSubtypeCmd)
+	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestHashCodeCmd)
+	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestToStringCmd)
+	nsdDiscoveryRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdDiscoveryRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdDiscoveryRequestCmd.AddCommand(nsdDiscoveryRequestWriteToParcelCmd)
+	nsdCmd.AddCommand(nsdDiscoveryRequestCmd)
+	nsdDiscoveryRequestBuilderCmd.AddCommand(nsdDiscoveryRequestBuilderBuildCmd)
+	nsdDiscoveryRequestBuilderSetNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdDiscoveryRequestBuilderCmd.AddCommand(nsdDiscoveryRequestBuilderSetNetworkCmd)
+	nsdDiscoveryRequestBuilderSetSubtypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdDiscoveryRequestBuilderCmd.AddCommand(nsdDiscoveryRequestBuilderSetSubtypeCmd)
+	nsdCmd.AddCommand(nsdDiscoveryRequestBuilderCmd)
 	nsdAdvertisingRequestCmd.AddCommand(nsdAdvertisingRequestDescribeContentsCmd)
 	nsdAdvertisingRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	nsdAdvertisingRequestCmd.AddCommand(nsdAdvertisingRequestEqualsCmd)
@@ -2380,30 +2388,6 @@ func init() {
 	nsdAdvertisingRequestBuilderSetProtocolTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	nsdAdvertisingRequestBuilderCmd.AddCommand(nsdAdvertisingRequestBuilderSetProtocolTypeCmd)
 	nsdCmd.AddCommand(nsdAdvertisingRequestBuilderCmd)
-	nsdWifiP2pServiceInfoNewWifiP2pServiceInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoNewWifiP2pServiceInfoCmd)
-	nsdWifiP2pServiceInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoDescribeContentsCmd)
-	nsdWifiP2pServiceInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdWifiP2pServiceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoEqualsCmd)
-	nsdWifiP2pServiceInfoGetWifiP2pUsdBasedServiceConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoGetWifiP2pUsdBasedServiceConfigCmd)
-	nsdWifiP2pServiceInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoHashCodeCmd)
-	nsdWifiP2pServiceInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	nsdWifiP2pServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdWifiP2pServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoWriteToParcelCmd)
-	nsdCmd.AddCommand(nsdWifiP2pServiceInfoCmd)
-	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseDescribeContentsCmd)
-	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseGetServiceProtocolTypeCmd)
-	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseGetServiceSpecificInfoCmd)
-	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseToStringCmd)
-	nsdWifiP2pUsdBasedServiceResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdWifiP2pUsdBasedServiceResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseWriteToParcelCmd)
-	nsdCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseCmd)
 	nsdWifiP2pUpnpServiceRequestCmd.AddCommand(nsdWifiP2pUpnpServiceRequestNewInstance0Cmd)
 	nsdWifiP2pUpnpServiceRequestNewInstance1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
 	nsdWifiP2pUpnpServiceRequestCmd.AddCommand(nsdWifiP2pUpnpServiceRequestNewInstance1_1Cmd)
@@ -2431,13 +2415,30 @@ func init() {
 	nsdWifiP2pServiceRequestNewInstance2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
 	nsdWifiP2pServiceRequestCmd.AddCommand(nsdWifiP2pServiceRequestNewInstance2_1Cmd)
 	nsdCmd.AddCommand(nsdWifiP2pServiceRequestCmd)
-	nsdWifiP2pDnsSdServiceRequestCmd.AddCommand(nsdWifiP2pDnsSdServiceRequestNewInstance0Cmd)
-	nsdWifiP2pDnsSdServiceRequestNewInstance1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdWifiP2pDnsSdServiceRequestCmd.AddCommand(nsdWifiP2pDnsSdServiceRequestNewInstance1_1Cmd)
-	nsdWifiP2pDnsSdServiceRequestNewInstance2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdWifiP2pDnsSdServiceRequestNewInstance2_2Cmd.Flags().String("arg1", "", "arg1 (string)")
-	nsdWifiP2pDnsSdServiceRequestCmd.AddCommand(nsdWifiP2pDnsSdServiceRequestNewInstance2_2Cmd)
-	nsdCmd.AddCommand(nsdWifiP2pDnsSdServiceRequestCmd)
+	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseDescribeContentsCmd)
+	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseGetServiceProtocolTypeCmd)
+	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseGetServiceSpecificInfoCmd)
+	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseToStringCmd)
+	nsdWifiP2pUsdBasedServiceResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdWifiP2pUsdBasedServiceResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdWifiP2pUsdBasedServiceResponseCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseWriteToParcelCmd)
+	nsdCmd.AddCommand(nsdWifiP2pUsdBasedServiceResponseCmd)
+	nsdWifiP2pServiceInfoNewWifiP2pServiceInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoNewWifiP2pServiceInfoCmd)
+	nsdWifiP2pServiceInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoDescribeContentsCmd)
+	nsdWifiP2pServiceInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdWifiP2pServiceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoEqualsCmd)
+	nsdWifiP2pServiceInfoGetWifiP2pUsdBasedServiceConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoGetWifiP2pUsdBasedServiceConfigCmd)
+	nsdWifiP2pServiceInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoHashCodeCmd)
+	nsdWifiP2pServiceInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nsdWifiP2pServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdWifiP2pServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdWifiP2pServiceInfoCmd.AddCommand(nsdWifiP2pServiceInfoWriteToParcelCmd)
+	nsdCmd.AddCommand(nsdWifiP2pServiceInfoCmd)
 	nsdWifiP2pUsdBasedServiceConfigCmd.AddCommand(nsdWifiP2pUsdBasedServiceConfigNewWifiP2pUsdBasedServiceConfigCmd)
 	nsdWifiP2pUsdBasedServiceConfigDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	nsdWifiP2pUsdBasedServiceConfigCmd.AddCommand(nsdWifiP2pUsdBasedServiceConfigDescribeContentsCmd)
@@ -2462,5 +2463,12 @@ func init() {
 	nsdWifiP2pUsdBasedServiceConfigBuilderSetServiceSpecificInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	nsdWifiP2pUsdBasedServiceConfigBuilderCmd.AddCommand(nsdWifiP2pUsdBasedServiceConfigBuilderSetServiceSpecificInfoCmd)
 	nsdCmd.AddCommand(nsdWifiP2pUsdBasedServiceConfigBuilderCmd)
+	nsdWifiP2pDnsSdServiceRequestCmd.AddCommand(nsdWifiP2pDnsSdServiceRequestNewInstance0Cmd)
+	nsdWifiP2pDnsSdServiceRequestNewInstance1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdWifiP2pDnsSdServiceRequestCmd.AddCommand(nsdWifiP2pDnsSdServiceRequestNewInstance1_1Cmd)
+	nsdWifiP2pDnsSdServiceRequestNewInstance2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdWifiP2pDnsSdServiceRequestNewInstance2_2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	nsdWifiP2pDnsSdServiceRequestCmd.AddCommand(nsdWifiP2pDnsSdServiceRequestNewInstance2_2Cmd)
+	nsdCmd.AddCommand(nsdWifiP2pDnsSdServiceRequestCmd)
 	rootCmd.AddCommand(nsdCmd)
 }

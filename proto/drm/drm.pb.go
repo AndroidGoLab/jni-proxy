@@ -1279,6 +1279,94 @@ func (x *GetAvailableDrmEnginesResponse) GetResult() int64 {
 	return 0
 }
 
+type GetAvailableDrmSupportInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableDrmSupportInfoRequest) Reset() {
+	*x = GetAvailableDrmSupportInfoRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableDrmSupportInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableDrmSupportInfoRequest) ProtoMessage() {}
+
+func (x *GetAvailableDrmSupportInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableDrmSupportInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableDrmSupportInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetAvailableDrmSupportInfoRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAvailableDrmSupportInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableDrmSupportInfoResponse) Reset() {
+	*x = GetAvailableDrmSupportInfoResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableDrmSupportInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableDrmSupportInfoResponse) ProtoMessage() {}
+
+func (x *GetAvailableDrmSupportInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableDrmSupportInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableDrmSupportInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetAvailableDrmSupportInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetConstraints2Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -1290,7 +1378,7 @@ type GetConstraints2Request struct {
 
 func (x *GetConstraints2Request) Reset() {
 	*x = GetConstraints2Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[26]
+	mi := &file_proto_drm_drm_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1302,7 +1390,7 @@ func (x *GetConstraints2Request) String() string {
 func (*GetConstraints2Request) ProtoMessage() {}
 
 func (x *GetConstraints2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[26]
+	mi := &file_proto_drm_drm_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1315,7 +1403,7 @@ func (x *GetConstraints2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetConstraints2Request.ProtoReflect.Descriptor instead.
 func (*GetConstraints2Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{26}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *GetConstraints2Request) GetHandle() int64 {
@@ -1348,7 +1436,7 @@ type GetConstraints2Response struct {
 
 func (x *GetConstraints2Response) Reset() {
 	*x = GetConstraints2Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[27]
+	mi := &file_proto_drm_drm_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1360,7 +1448,7 @@ func (x *GetConstraints2Response) String() string {
 func (*GetConstraints2Response) ProtoMessage() {}
 
 func (x *GetConstraints2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[27]
+	mi := &file_proto_drm_drm_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1373,7 +1461,7 @@ func (x *GetConstraints2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetConstraints2Response.ProtoReflect.Descriptor instead.
 func (*GetConstraints2Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{27}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetConstraints2Response) GetResult() int64 {
@@ -1394,7 +1482,7 @@ type GetConstraints2_1Request struct {
 
 func (x *GetConstraints2_1Request) Reset() {
 	*x = GetConstraints2_1Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[28]
+	mi := &file_proto_drm_drm_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1406,7 +1494,7 @@ func (x *GetConstraints2_1Request) String() string {
 func (*GetConstraints2_1Request) ProtoMessage() {}
 
 func (x *GetConstraints2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[28]
+	mi := &file_proto_drm_drm_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1419,7 +1507,7 @@ func (x *GetConstraints2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetConstraints2_1Request.ProtoReflect.Descriptor instead.
 func (*GetConstraints2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{28}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *GetConstraints2_1Request) GetHandle() int64 {
@@ -1452,7 +1540,7 @@ type GetConstraints2_1Response struct {
 
 func (x *GetConstraints2_1Response) Reset() {
 	*x = GetConstraints2_1Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[29]
+	mi := &file_proto_drm_drm_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1464,7 +1552,7 @@ func (x *GetConstraints2_1Response) String() string {
 func (*GetConstraints2_1Response) ProtoMessage() {}
 
 func (x *GetConstraints2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[29]
+	mi := &file_proto_drm_drm_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1477,7 +1565,7 @@ func (x *GetConstraints2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetConstraints2_1Response.ProtoReflect.Descriptor instead.
 func (*GetConstraints2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{29}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetConstraints2_1Response) GetResult() int64 {
@@ -1498,7 +1586,7 @@ type GetDrmObjectType2Request struct {
 
 func (x *GetDrmObjectType2Request) Reset() {
 	*x = GetDrmObjectType2Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[30]
+	mi := &file_proto_drm_drm_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1510,7 +1598,7 @@ func (x *GetDrmObjectType2Request) String() string {
 func (*GetDrmObjectType2Request) ProtoMessage() {}
 
 func (x *GetDrmObjectType2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[30]
+	mi := &file_proto_drm_drm_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1523,7 +1611,7 @@ func (x *GetDrmObjectType2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDrmObjectType2Request.ProtoReflect.Descriptor instead.
 func (*GetDrmObjectType2Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{30}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *GetDrmObjectType2Request) GetHandle() int64 {
@@ -1556,7 +1644,7 @@ type GetDrmObjectType2Response struct {
 
 func (x *GetDrmObjectType2Response) Reset() {
 	*x = GetDrmObjectType2Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[31]
+	mi := &file_proto_drm_drm_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1568,7 +1656,7 @@ func (x *GetDrmObjectType2Response) String() string {
 func (*GetDrmObjectType2Response) ProtoMessage() {}
 
 func (x *GetDrmObjectType2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[31]
+	mi := &file_proto_drm_drm_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1581,7 +1669,7 @@ func (x *GetDrmObjectType2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDrmObjectType2Response.ProtoReflect.Descriptor instead.
 func (*GetDrmObjectType2Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{31}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetDrmObjectType2Response) GetResult() int32 {
@@ -1602,7 +1690,7 @@ type GetDrmObjectType2_1Request struct {
 
 func (x *GetDrmObjectType2_1Request) Reset() {
 	*x = GetDrmObjectType2_1Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[32]
+	mi := &file_proto_drm_drm_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1614,7 +1702,7 @@ func (x *GetDrmObjectType2_1Request) String() string {
 func (*GetDrmObjectType2_1Request) ProtoMessage() {}
 
 func (x *GetDrmObjectType2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[32]
+	mi := &file_proto_drm_drm_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1627,7 +1715,7 @@ func (x *GetDrmObjectType2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDrmObjectType2_1Request.ProtoReflect.Descriptor instead.
 func (*GetDrmObjectType2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{32}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *GetDrmObjectType2_1Request) GetHandle() int64 {
@@ -1660,7 +1748,7 @@ type GetDrmObjectType2_1Response struct {
 
 func (x *GetDrmObjectType2_1Response) Reset() {
 	*x = GetDrmObjectType2_1Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[33]
+	mi := &file_proto_drm_drm_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1672,7 +1760,7 @@ func (x *GetDrmObjectType2_1Response) String() string {
 func (*GetDrmObjectType2_1Response) ProtoMessage() {}
 
 func (x *GetDrmObjectType2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[33]
+	mi := &file_proto_drm_drm_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1685,7 +1773,7 @@ func (x *GetDrmObjectType2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDrmObjectType2_1Response.ProtoReflect.Descriptor instead.
 func (*GetDrmObjectType2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{33}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetDrmObjectType2_1Response) GetResult() int32 {
@@ -1705,7 +1793,7 @@ type GetMetadata1Request struct {
 
 func (x *GetMetadata1Request) Reset() {
 	*x = GetMetadata1Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[34]
+	mi := &file_proto_drm_drm_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1717,7 +1805,7 @@ func (x *GetMetadata1Request) String() string {
 func (*GetMetadata1Request) ProtoMessage() {}
 
 func (x *GetMetadata1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[34]
+	mi := &file_proto_drm_drm_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1730,7 +1818,7 @@ func (x *GetMetadata1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetadata1Request.ProtoReflect.Descriptor instead.
 func (*GetMetadata1Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{34}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetMetadata1Request) GetHandle() int64 {
@@ -1756,7 +1844,7 @@ type GetMetadata1Response struct {
 
 func (x *GetMetadata1Response) Reset() {
 	*x = GetMetadata1Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[35]
+	mi := &file_proto_drm_drm_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1768,7 +1856,7 @@ func (x *GetMetadata1Response) String() string {
 func (*GetMetadata1Response) ProtoMessage() {}
 
 func (x *GetMetadata1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[35]
+	mi := &file_proto_drm_drm_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1781,7 +1869,7 @@ func (x *GetMetadata1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetadata1Response.ProtoReflect.Descriptor instead.
 func (*GetMetadata1Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{35}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetMetadata1Response) GetResult() int64 {
@@ -1801,7 +1889,7 @@ type GetMetadata1_1Request struct {
 
 func (x *GetMetadata1_1Request) Reset() {
 	*x = GetMetadata1_1Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[36]
+	mi := &file_proto_drm_drm_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1813,7 +1901,7 @@ func (x *GetMetadata1_1Request) String() string {
 func (*GetMetadata1_1Request) ProtoMessage() {}
 
 func (x *GetMetadata1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[36]
+	mi := &file_proto_drm_drm_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1826,7 +1914,7 @@ func (x *GetMetadata1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetadata1_1Request.ProtoReflect.Descriptor instead.
 func (*GetMetadata1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{36}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetMetadata1_1Request) GetHandle() int64 {
@@ -1852,7 +1940,7 @@ type GetMetadata1_1Response struct {
 
 func (x *GetMetadata1_1Response) Reset() {
 	*x = GetMetadata1_1Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[37]
+	mi := &file_proto_drm_drm_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1864,7 +1952,7 @@ func (x *GetMetadata1_1Response) String() string {
 func (*GetMetadata1_1Response) ProtoMessage() {}
 
 func (x *GetMetadata1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[37]
+	mi := &file_proto_drm_drm_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1877,7 +1965,7 @@ func (x *GetMetadata1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetadata1_1Response.ProtoReflect.Descriptor instead.
 func (*GetMetadata1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{37}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetMetadata1_1Response) GetResult() int64 {
@@ -1897,7 +1985,7 @@ type GetOriginalMimeType1Request struct {
 
 func (x *GetOriginalMimeType1Request) Reset() {
 	*x = GetOriginalMimeType1Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[38]
+	mi := &file_proto_drm_drm_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1909,7 +1997,7 @@ func (x *GetOriginalMimeType1Request) String() string {
 func (*GetOriginalMimeType1Request) ProtoMessage() {}
 
 func (x *GetOriginalMimeType1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[38]
+	mi := &file_proto_drm_drm_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1922,7 +2010,7 @@ func (x *GetOriginalMimeType1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOriginalMimeType1Request.ProtoReflect.Descriptor instead.
 func (*GetOriginalMimeType1Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{38}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *GetOriginalMimeType1Request) GetHandle() int64 {
@@ -1948,7 +2036,7 @@ type GetOriginalMimeType1Response struct {
 
 func (x *GetOriginalMimeType1Response) Reset() {
 	*x = GetOriginalMimeType1Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[39]
+	mi := &file_proto_drm_drm_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1960,7 +2048,7 @@ func (x *GetOriginalMimeType1Response) String() string {
 func (*GetOriginalMimeType1Response) ProtoMessage() {}
 
 func (x *GetOriginalMimeType1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[39]
+	mi := &file_proto_drm_drm_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1973,7 +2061,7 @@ func (x *GetOriginalMimeType1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOriginalMimeType1Response.ProtoReflect.Descriptor instead.
 func (*GetOriginalMimeType1Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{39}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetOriginalMimeType1Response) GetResult() string {
@@ -1993,7 +2081,7 @@ type GetOriginalMimeType1_1Request struct {
 
 func (x *GetOriginalMimeType1_1Request) Reset() {
 	*x = GetOriginalMimeType1_1Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[40]
+	mi := &file_proto_drm_drm_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2005,7 +2093,7 @@ func (x *GetOriginalMimeType1_1Request) String() string {
 func (*GetOriginalMimeType1_1Request) ProtoMessage() {}
 
 func (x *GetOriginalMimeType1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[40]
+	mi := &file_proto_drm_drm_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2018,7 +2106,7 @@ func (x *GetOriginalMimeType1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOriginalMimeType1_1Request.ProtoReflect.Descriptor instead.
 func (*GetOriginalMimeType1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{40}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *GetOriginalMimeType1_1Request) GetHandle() int64 {
@@ -2044,7 +2132,7 @@ type GetOriginalMimeType1_1Response struct {
 
 func (x *GetOriginalMimeType1_1Response) Reset() {
 	*x = GetOriginalMimeType1_1Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[41]
+	mi := &file_proto_drm_drm_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2056,7 +2144,7 @@ func (x *GetOriginalMimeType1_1Response) String() string {
 func (*GetOriginalMimeType1_1Response) ProtoMessage() {}
 
 func (x *GetOriginalMimeType1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[41]
+	mi := &file_proto_drm_drm_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2069,7 +2157,7 @@ func (x *GetOriginalMimeType1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOriginalMimeType1_1Response.ProtoReflect.Descriptor instead.
 func (*GetOriginalMimeType1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{41}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetOriginalMimeType1_1Response) GetResult() string {
@@ -2089,7 +2177,7 @@ type OpenConvertSessionRequest struct {
 
 func (x *OpenConvertSessionRequest) Reset() {
 	*x = OpenConvertSessionRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[42]
+	mi := &file_proto_drm_drm_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2101,7 +2189,7 @@ func (x *OpenConvertSessionRequest) String() string {
 func (*OpenConvertSessionRequest) ProtoMessage() {}
 
 func (x *OpenConvertSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[42]
+	mi := &file_proto_drm_drm_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2114,7 +2202,7 @@ func (x *OpenConvertSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenConvertSessionRequest.ProtoReflect.Descriptor instead.
 func (*OpenConvertSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{42}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *OpenConvertSessionRequest) GetHandle() int64 {
@@ -2140,7 +2228,7 @@ type OpenConvertSessionResponse struct {
 
 func (x *OpenConvertSessionResponse) Reset() {
 	*x = OpenConvertSessionResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[43]
+	mi := &file_proto_drm_drm_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2152,7 +2240,7 @@ func (x *OpenConvertSessionResponse) String() string {
 func (*OpenConvertSessionResponse) ProtoMessage() {}
 
 func (x *OpenConvertSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[43]
+	mi := &file_proto_drm_drm_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2165,7 +2253,7 @@ func (x *OpenConvertSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenConvertSessionResponse.ProtoReflect.Descriptor instead.
 func (*OpenConvertSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{43}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *OpenConvertSessionResponse) GetResult() int32 {
@@ -2185,7 +2273,7 @@ type ProcessDrmInfoRequest struct {
 
 func (x *ProcessDrmInfoRequest) Reset() {
 	*x = ProcessDrmInfoRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[44]
+	mi := &file_proto_drm_drm_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2197,7 +2285,7 @@ func (x *ProcessDrmInfoRequest) String() string {
 func (*ProcessDrmInfoRequest) ProtoMessage() {}
 
 func (x *ProcessDrmInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[44]
+	mi := &file_proto_drm_drm_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2210,7 +2298,7 @@ func (x *ProcessDrmInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProcessDrmInfoRequest.ProtoReflect.Descriptor instead.
 func (*ProcessDrmInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{44}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *ProcessDrmInfoRequest) GetHandle() int64 {
@@ -2236,7 +2324,7 @@ type ProcessDrmInfoResponse struct {
 
 func (x *ProcessDrmInfoResponse) Reset() {
 	*x = ProcessDrmInfoResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[45]
+	mi := &file_proto_drm_drm_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2248,7 +2336,7 @@ func (x *ProcessDrmInfoResponse) String() string {
 func (*ProcessDrmInfoResponse) ProtoMessage() {}
 
 func (x *ProcessDrmInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[45]
+	mi := &file_proto_drm_drm_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2261,7 +2349,7 @@ func (x *ProcessDrmInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProcessDrmInfoResponse.ProtoReflect.Descriptor instead.
 func (*ProcessDrmInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{45}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *ProcessDrmInfoResponse) GetResult() int32 {
@@ -2280,7 +2368,7 @@ type ReleaseRequest struct {
 
 func (x *ReleaseRequest) Reset() {
 	*x = ReleaseRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[46]
+	mi := &file_proto_drm_drm_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2292,7 +2380,7 @@ func (x *ReleaseRequest) String() string {
 func (*ReleaseRequest) ProtoMessage() {}
 
 func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[46]
+	mi := &file_proto_drm_drm_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2305,7 +2393,7 @@ func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{46}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *ReleaseRequest) GetHandle() int64 {
@@ -2323,7 +2411,7 @@ type ReleaseResponse struct {
 
 func (x *ReleaseResponse) Reset() {
 	*x = ReleaseResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[47]
+	mi := &file_proto_drm_drm_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2335,7 +2423,7 @@ func (x *ReleaseResponse) String() string {
 func (*ReleaseResponse) ProtoMessage() {}
 
 func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[47]
+	mi := &file_proto_drm_drm_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2348,7 +2436,7 @@ func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
 func (*ReleaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{47}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{49}
 }
 
 type RemoveAllRightsRequest struct {
@@ -2360,7 +2448,7 @@ type RemoveAllRightsRequest struct {
 
 func (x *RemoveAllRightsRequest) Reset() {
 	*x = RemoveAllRightsRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[48]
+	mi := &file_proto_drm_drm_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2372,7 +2460,7 @@ func (x *RemoveAllRightsRequest) String() string {
 func (*RemoveAllRightsRequest) ProtoMessage() {}
 
 func (x *RemoveAllRightsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[48]
+	mi := &file_proto_drm_drm_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2385,7 +2473,7 @@ func (x *RemoveAllRightsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveAllRightsRequest.ProtoReflect.Descriptor instead.
 func (*RemoveAllRightsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{48}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *RemoveAllRightsRequest) GetHandle() int64 {
@@ -2404,7 +2492,7 @@ type RemoveAllRightsResponse struct {
 
 func (x *RemoveAllRightsResponse) Reset() {
 	*x = RemoveAllRightsResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[49]
+	mi := &file_proto_drm_drm_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2416,7 +2504,7 @@ func (x *RemoveAllRightsResponse) String() string {
 func (*RemoveAllRightsResponse) ProtoMessage() {}
 
 func (x *RemoveAllRightsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[49]
+	mi := &file_proto_drm_drm_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2429,7 +2517,7 @@ func (x *RemoveAllRightsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveAllRightsResponse.ProtoReflect.Descriptor instead.
 func (*RemoveAllRightsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{49}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *RemoveAllRightsResponse) GetResult() int32 {
@@ -2449,7 +2537,7 @@ type RemoveRights1Request struct {
 
 func (x *RemoveRights1Request) Reset() {
 	*x = RemoveRights1Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[50]
+	mi := &file_proto_drm_drm_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2461,7 +2549,7 @@ func (x *RemoveRights1Request) String() string {
 func (*RemoveRights1Request) ProtoMessage() {}
 
 func (x *RemoveRights1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[50]
+	mi := &file_proto_drm_drm_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2474,7 +2562,7 @@ func (x *RemoveRights1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveRights1Request.ProtoReflect.Descriptor instead.
 func (*RemoveRights1Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{50}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *RemoveRights1Request) GetHandle() int64 {
@@ -2500,7 +2588,7 @@ type RemoveRights1Response struct {
 
 func (x *RemoveRights1Response) Reset() {
 	*x = RemoveRights1Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[51]
+	mi := &file_proto_drm_drm_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2512,7 +2600,7 @@ func (x *RemoveRights1Response) String() string {
 func (*RemoveRights1Response) ProtoMessage() {}
 
 func (x *RemoveRights1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[51]
+	mi := &file_proto_drm_drm_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2525,7 +2613,7 @@ func (x *RemoveRights1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveRights1Response.ProtoReflect.Descriptor instead.
 func (*RemoveRights1Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{51}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *RemoveRights1Response) GetResult() int32 {
@@ -2545,7 +2633,7 @@ type RemoveRights1_1Request struct {
 
 func (x *RemoveRights1_1Request) Reset() {
 	*x = RemoveRights1_1Request{}
-	mi := &file_proto_drm_drm_proto_msgTypes[52]
+	mi := &file_proto_drm_drm_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2557,7 +2645,7 @@ func (x *RemoveRights1_1Request) String() string {
 func (*RemoveRights1_1Request) ProtoMessage() {}
 
 func (x *RemoveRights1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[52]
+	mi := &file_proto_drm_drm_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2570,7 +2658,7 @@ func (x *RemoveRights1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveRights1_1Request.ProtoReflect.Descriptor instead.
 func (*RemoveRights1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{52}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RemoveRights1_1Request) GetHandle() int64 {
@@ -2596,7 +2684,7 @@ type RemoveRights1_1Response struct {
 
 func (x *RemoveRights1_1Response) Reset() {
 	*x = RemoveRights1_1Response{}
-	mi := &file_proto_drm_drm_proto_msgTypes[53]
+	mi := &file_proto_drm_drm_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2608,7 +2696,7 @@ func (x *RemoveRights1_1Response) String() string {
 func (*RemoveRights1_1Response) ProtoMessage() {}
 
 func (x *RemoveRights1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[53]
+	mi := &file_proto_drm_drm_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2621,7 +2709,7 @@ func (x *RemoveRights1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveRights1_1Response.ProtoReflect.Descriptor instead.
 func (*RemoveRights1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{53}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *RemoveRights1_1Response) GetResult() int32 {
@@ -2643,7 +2731,7 @@ type SaveRightsRequest struct {
 
 func (x *SaveRightsRequest) Reset() {
 	*x = SaveRightsRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[54]
+	mi := &file_proto_drm_drm_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2655,7 +2743,7 @@ func (x *SaveRightsRequest) String() string {
 func (*SaveRightsRequest) ProtoMessage() {}
 
 func (x *SaveRightsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[54]
+	mi := &file_proto_drm_drm_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2668,7 +2756,7 @@ func (x *SaveRightsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SaveRightsRequest.ProtoReflect.Descriptor instead.
 func (*SaveRightsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{54}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SaveRightsRequest) GetHandle() int64 {
@@ -2708,7 +2796,7 @@ type SaveRightsResponse struct {
 
 func (x *SaveRightsResponse) Reset() {
 	*x = SaveRightsResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[55]
+	mi := &file_proto_drm_drm_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2720,7 +2808,7 @@ func (x *SaveRightsResponse) String() string {
 func (*SaveRightsResponse) ProtoMessage() {}
 
 func (x *SaveRightsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[55]
+	mi := &file_proto_drm_drm_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2733,7 +2821,7 @@ func (x *SaveRightsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SaveRightsResponse.ProtoReflect.Descriptor instead.
 func (*SaveRightsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{55}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *SaveRightsResponse) GetResult() int32 {
@@ -2753,7 +2841,7 @@ type OnErrorRequest struct {
 
 func (x *OnErrorRequest) Reset() {
 	*x = OnErrorRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[56]
+	mi := &file_proto_drm_drm_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2765,7 +2853,7 @@ func (x *OnErrorRequest) String() string {
 func (*OnErrorRequest) ProtoMessage() {}
 
 func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[56]
+	mi := &file_proto_drm_drm_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2778,7 +2866,7 @@ func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
 func (*OnErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{56}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *OnErrorRequest) GetArg0() int64 {
@@ -2803,7 +2891,7 @@ type OnErrorResponse struct {
 
 func (x *OnErrorResponse) Reset() {
 	*x = OnErrorResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[57]
+	mi := &file_proto_drm_drm_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2815,7 +2903,7 @@ func (x *OnErrorResponse) String() string {
 func (*OnErrorResponse) ProtoMessage() {}
 
 func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[57]
+	mi := &file_proto_drm_drm_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2828,7 +2916,7 @@ func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
 func (*OnErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{57}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{59}
 }
 
 type OnEventRequest struct {
@@ -2841,7 +2929,7 @@ type OnEventRequest struct {
 
 func (x *OnEventRequest) Reset() {
 	*x = OnEventRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[58]
+	mi := &file_proto_drm_drm_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2853,7 +2941,7 @@ func (x *OnEventRequest) String() string {
 func (*OnEventRequest) ProtoMessage() {}
 
 func (x *OnEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[58]
+	mi := &file_proto_drm_drm_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2866,7 +2954,7 @@ func (x *OnEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEventRequest.ProtoReflect.Descriptor instead.
 func (*OnEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{58}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *OnEventRequest) GetArg0() int64 {
@@ -2891,7 +2979,7 @@ type OnEventResponse struct {
 
 func (x *OnEventResponse) Reset() {
 	*x = OnEventResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[59]
+	mi := &file_proto_drm_drm_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2903,7 +2991,7 @@ func (x *OnEventResponse) String() string {
 func (*OnEventResponse) ProtoMessage() {}
 
 func (x *OnEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[59]
+	mi := &file_proto_drm_drm_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2916,7 +3004,7 @@ func (x *OnEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEventResponse.ProtoReflect.Descriptor instead.
 func (*OnEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{59}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{61}
 }
 
 type OnInfoRequest struct {
@@ -2929,7 +3017,7 @@ type OnInfoRequest struct {
 
 func (x *OnInfoRequest) Reset() {
 	*x = OnInfoRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[60]
+	mi := &file_proto_drm_drm_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2941,7 +3029,7 @@ func (x *OnInfoRequest) String() string {
 func (*OnInfoRequest) ProtoMessage() {}
 
 func (x *OnInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[60]
+	mi := &file_proto_drm_drm_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2954,7 +3042,7 @@ func (x *OnInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnInfoRequest.ProtoReflect.Descriptor instead.
 func (*OnInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{60}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *OnInfoRequest) GetArg0() int64 {
@@ -2979,7 +3067,7 @@ type OnInfoResponse struct {
 
 func (x *OnInfoResponse) Reset() {
 	*x = OnInfoResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[61]
+	mi := &file_proto_drm_drm_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2991,7 +3079,7 @@ func (x *OnInfoResponse) String() string {
 func (*OnInfoResponse) ProtoMessage() {}
 
 func (x *OnInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[61]
+	mi := &file_proto_drm_drm_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3004,111 +3092,29 @@ func (x *OnInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnInfoResponse.ProtoReflect.Descriptor instead.
 func (*OnInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{61}
-}
-
-type NewUtilsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewUtilsRequest) Reset() {
-	*x = NewUtilsRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewUtilsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewUtilsRequest) ProtoMessage() {}
-
-func (x *NewUtilsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewUtilsRequest.ProtoReflect.Descriptor instead.
-func (*NewUtilsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{62}
-}
-
-type NewUtilsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewUtilsResponse) Reset() {
-	*x = NewUtilsResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewUtilsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewUtilsResponse) ProtoMessage() {}
-
-func (x *NewUtilsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewUtilsResponse.ProtoReflect.Descriptor instead.
-func (*NewUtilsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_drm_drm_proto_rawDescGZIP(), []int{63}
 }
 
-func (x *NewUtilsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetExtendedMetadataParserRequest struct {
+type GetAccountIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetExtendedMetadataParserRequest) Reset() {
-	*x = GetExtendedMetadataParserRequest{}
+func (x *GetAccountIdRequest) Reset() {
+	*x = GetAccountIdRequest{}
 	mi := &file_proto_drm_drm_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetExtendedMetadataParserRequest) String() string {
+func (x *GetAccountIdRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetExtendedMetadataParserRequest) ProtoMessage() {}
+func (*GetAccountIdRequest) ProtoMessage() {}
 
-func (x *GetExtendedMetadataParserRequest) ProtoReflect() protoreflect.Message {
+func (x *GetAccountIdRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_drm_drm_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3120,134 +3126,112 @@ func (x *GetExtendedMetadataParserRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetExtendedMetadataParserRequest.ProtoReflect.Descriptor instead.
-func (*GetExtendedMetadataParserRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAccountIdRequest.ProtoReflect.Descriptor instead.
+func (*GetAccountIdRequest) Descriptor() ([]byte, []int) {
 	return file_proto_drm_drm_proto_rawDescGZIP(), []int{64}
 }
 
-func (x *GetExtendedMetadataParserRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *GetExtendedMetadataParserRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetExtendedMetadataParserResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtendedMetadataParserResponse) Reset() {
-	*x = GetExtendedMetadataParserResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtendedMetadataParserResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtendedMetadataParserResponse) ProtoMessage() {}
-
-func (x *GetExtendedMetadataParserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtendedMetadataParserResponse.ProtoReflect.Descriptor instead.
-func (*GetExtendedMetadataParserResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{65}
-}
-
-func (x *GetExtendedMetadataParserResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequest) Reset() {
-	*x = GetRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequest) ProtoMessage() {}
-
-func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
-func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *GetRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type GetResponse struct {
+type GetAccountIdResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetResponse) Reset() {
-	*x = GetResponse{}
+func (x *GetAccountIdResponse) Reset() {
+	*x = GetAccountIdResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountIdResponse) ProtoMessage() {}
+
+func (x *GetAccountIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountIdResponse.ProtoReflect.Descriptor instead.
+func (*GetAccountIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetAccountIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataRequest) Reset() {
+	*x = GetDataRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataRequest) ProtoMessage() {}
+
+func (x *GetDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataRequest.ProtoReflect.Descriptor instead.
+func (*GetDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{66}
+}
+
+type GetDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataResponse) Reset() {
+	*x = GetDataResponse{}
 	mi := &file_proto_drm_drm_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetResponse) String() string {
+func (x *GetDataResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetResponse) ProtoMessage() {}
+func (*GetDataResponse) ProtoMessage() {}
 
-func (x *GetResponse) ProtoReflect() protoreflect.Message {
+func (x *GetDataResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_drm_drm_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3259,16 +3243,424 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
-func (*GetResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetDataResponse.ProtoReflect.Descriptor instead.
+func (*GetDataResponse) Descriptor() ([]byte, []int) {
 	return file_proto_drm_drm_proto_rawDescGZIP(), []int{67}
 }
 
-func (x *GetResponse) GetResult() string {
+func (x *GetDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSubscriptionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubscriptionIdRequest) Reset() {
+	*x = GetSubscriptionIdRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubscriptionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubscriptionIdRequest) ProtoMessage() {}
+
+func (x *GetSubscriptionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubscriptionIdRequest.ProtoReflect.Descriptor instead.
+func (*GetSubscriptionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{68}
+}
+
+type GetSubscriptionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubscriptionIdResponse) Reset() {
+	*x = GetSubscriptionIdResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubscriptionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubscriptionIdResponse) ProtoMessage() {}
+
+func (x *GetSubscriptionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubscriptionIdResponse.ProtoReflect.Descriptor instead.
+func (*GetSubscriptionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetSubscriptionIdResponse) GetResult() string {
 	if x != nil {
 		return x.Result
 	}
 	return ""
+}
+
+type GetAttributeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAttributeRequest) Reset() {
+	*x = GetAttributeRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAttributeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAttributeRequest) ProtoMessage() {}
+
+func (x *GetAttributeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAttributeRequest.ProtoReflect.Descriptor instead.
+func (*GetAttributeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetAttributeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetAttributeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAttributeResponse) Reset() {
+	*x = GetAttributeResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAttributeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAttributeResponse) ProtoMessage() {}
+
+func (x *GetAttributeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAttributeResponse.ProtoReflect.Descriptor instead.
+func (*GetAttributeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *GetAttributeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMessageRequest) Reset() {
+	*x = GetMessageRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMessageRequest) ProtoMessage() {}
+
+func (x *GetMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMessageRequest.ProtoReflect.Descriptor instead.
+func (*GetMessageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{72}
+}
+
+type GetMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMessageResponse) Reset() {
+	*x = GetMessageResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMessageResponse) ProtoMessage() {}
+
+func (x *GetMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMessageResponse.ProtoReflect.Descriptor instead.
+func (*GetMessageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetMessageResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeRequest) ProtoMessage() {}
+
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{74}
+}
+
+type GetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeResponse) ProtoMessage() {}
+
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUniqueIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUniqueIdRequest) Reset() {
+	*x = GetUniqueIdRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUniqueIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUniqueIdRequest) ProtoMessage() {}
+
+func (x *GetUniqueIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUniqueIdRequest.ProtoReflect.Descriptor instead.
+func (*GetUniqueIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{76}
+}
+
+type GetUniqueIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUniqueIdResponse) Reset() {
+	*x = GetUniqueIdResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUniqueIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUniqueIdResponse) ProtoMessage() {}
+
+func (x *GetUniqueIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUniqueIdResponse.ProtoReflect.Descriptor instead.
+func (*GetUniqueIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetUniqueIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type NewSupportInfoRequest struct {
@@ -3279,7 +3671,7 @@ type NewSupportInfoRequest struct {
 
 func (x *NewSupportInfoRequest) Reset() {
 	*x = NewSupportInfoRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[68]
+	mi := &file_proto_drm_drm_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3291,7 +3683,7 @@ func (x *NewSupportInfoRequest) String() string {
 func (*NewSupportInfoRequest) ProtoMessage() {}
 
 func (x *NewSupportInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[68]
+	mi := &file_proto_drm_drm_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3304,7 +3696,7 @@ func (x *NewSupportInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSupportInfoRequest.ProtoReflect.Descriptor instead.
 func (*NewSupportInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{68}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{78}
 }
 
 type NewSupportInfoResponse struct {
@@ -3316,7 +3708,7 @@ type NewSupportInfoResponse struct {
 
 func (x *NewSupportInfoResponse) Reset() {
 	*x = NewSupportInfoResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[69]
+	mi := &file_proto_drm_drm_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3328,7 +3720,7 @@ func (x *NewSupportInfoResponse) String() string {
 func (*NewSupportInfoResponse) ProtoMessage() {}
 
 func (x *NewSupportInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[69]
+	mi := &file_proto_drm_drm_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3341,7 +3733,7 @@ func (x *NewSupportInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSupportInfoResponse.ProtoReflect.Descriptor instead.
 func (*NewSupportInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{69}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *NewSupportInfoResponse) GetResult() int64 {
@@ -3361,7 +3753,7 @@ type AddFileSuffixRequest struct {
 
 func (x *AddFileSuffixRequest) Reset() {
 	*x = AddFileSuffixRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[70]
+	mi := &file_proto_drm_drm_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3373,7 +3765,7 @@ func (x *AddFileSuffixRequest) String() string {
 func (*AddFileSuffixRequest) ProtoMessage() {}
 
 func (x *AddFileSuffixRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[70]
+	mi := &file_proto_drm_drm_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3386,7 +3778,7 @@ func (x *AddFileSuffixRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddFileSuffixRequest.ProtoReflect.Descriptor instead.
 func (*AddFileSuffixRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{70}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *AddFileSuffixRequest) GetHandle() int64 {
@@ -3411,7 +3803,7 @@ type AddFileSuffixResponse struct {
 
 func (x *AddFileSuffixResponse) Reset() {
 	*x = AddFileSuffixResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[71]
+	mi := &file_proto_drm_drm_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3423,7 +3815,7 @@ func (x *AddFileSuffixResponse) String() string {
 func (*AddFileSuffixResponse) ProtoMessage() {}
 
 func (x *AddFileSuffixResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[71]
+	mi := &file_proto_drm_drm_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3436,7 +3828,7 @@ func (x *AddFileSuffixResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddFileSuffixResponse.ProtoReflect.Descriptor instead.
 func (*AddFileSuffixResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{71}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{81}
 }
 
 type AddMimeTypeRequest struct {
@@ -3449,7 +3841,7 @@ type AddMimeTypeRequest struct {
 
 func (x *AddMimeTypeRequest) Reset() {
 	*x = AddMimeTypeRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[72]
+	mi := &file_proto_drm_drm_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3461,7 +3853,7 @@ func (x *AddMimeTypeRequest) String() string {
 func (*AddMimeTypeRequest) ProtoMessage() {}
 
 func (x *AddMimeTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[72]
+	mi := &file_proto_drm_drm_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3474,7 +3866,7 @@ func (x *AddMimeTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddMimeTypeRequest.ProtoReflect.Descriptor instead.
 func (*AddMimeTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{72}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *AddMimeTypeRequest) GetHandle() int64 {
@@ -3499,7 +3891,7 @@ type AddMimeTypeResponse struct {
 
 func (x *AddMimeTypeResponse) Reset() {
 	*x = AddMimeTypeResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[73]
+	mi := &file_proto_drm_drm_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3511,7 +3903,7 @@ func (x *AddMimeTypeResponse) String() string {
 func (*AddMimeTypeResponse) ProtoMessage() {}
 
 func (x *AddMimeTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[73]
+	mi := &file_proto_drm_drm_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3524,7 +3916,7 @@ func (x *AddMimeTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddMimeTypeResponse.ProtoReflect.Descriptor instead.
 func (*AddMimeTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{73}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{83}
 }
 
 type EqualsRequest struct {
@@ -3537,7 +3929,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[74]
+	mi := &file_proto_drm_drm_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3549,7 +3941,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[74]
+	mi := &file_proto_drm_drm_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3562,7 +3954,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{74}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *EqualsRequest) GetHandle() int64 {
@@ -3588,7 +3980,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[75]
+	mi := &file_proto_drm_drm_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3600,7 +3992,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[75]
+	mi := &file_proto_drm_drm_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3613,7 +4005,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{75}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -3632,7 +4024,7 @@ type GetDescripritionRequest struct {
 
 func (x *GetDescripritionRequest) Reset() {
 	*x = GetDescripritionRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[76]
+	mi := &file_proto_drm_drm_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3644,7 +4036,7 @@ func (x *GetDescripritionRequest) String() string {
 func (*GetDescripritionRequest) ProtoMessage() {}
 
 func (x *GetDescripritionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[76]
+	mi := &file_proto_drm_drm_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3657,7 +4049,7 @@ func (x *GetDescripritionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDescripritionRequest.ProtoReflect.Descriptor instead.
 func (*GetDescripritionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{76}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *GetDescripritionRequest) GetHandle() int64 {
@@ -3676,7 +4068,7 @@ type GetDescripritionResponse struct {
 
 func (x *GetDescripritionResponse) Reset() {
 	*x = GetDescripritionResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[77]
+	mi := &file_proto_drm_drm_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3688,7 +4080,7 @@ func (x *GetDescripritionResponse) String() string {
 func (*GetDescripritionResponse) ProtoMessage() {}
 
 func (x *GetDescripritionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[77]
+	mi := &file_proto_drm_drm_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3701,7 +4093,7 @@ func (x *GetDescripritionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDescripritionResponse.ProtoReflect.Descriptor instead.
 func (*GetDescripritionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{77}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *GetDescripritionResponse) GetResult() string {
@@ -3720,7 +4112,7 @@ type GetDescriptionRequest struct {
 
 func (x *GetDescriptionRequest) Reset() {
 	*x = GetDescriptionRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[78]
+	mi := &file_proto_drm_drm_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3732,7 +4124,7 @@ func (x *GetDescriptionRequest) String() string {
 func (*GetDescriptionRequest) ProtoMessage() {}
 
 func (x *GetDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[78]
+	mi := &file_proto_drm_drm_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3745,7 +4137,7 @@ func (x *GetDescriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDescriptionRequest.ProtoReflect.Descriptor instead.
 func (*GetDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{78}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *GetDescriptionRequest) GetHandle() int64 {
@@ -3764,7 +4156,7 @@ type GetDescriptionResponse struct {
 
 func (x *GetDescriptionResponse) Reset() {
 	*x = GetDescriptionResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[79]
+	mi := &file_proto_drm_drm_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3776,7 +4168,7 @@ func (x *GetDescriptionResponse) String() string {
 func (*GetDescriptionResponse) ProtoMessage() {}
 
 func (x *GetDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[79]
+	mi := &file_proto_drm_drm_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3789,7 +4181,7 @@ func (x *GetDescriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDescriptionResponse.ProtoReflect.Descriptor instead.
 func (*GetDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{79}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *GetDescriptionResponse) GetResult() string {
@@ -3797,6 +4189,182 @@ func (x *GetDescriptionResponse) GetResult() string {
 		return x.Result
 	}
 	return ""
+}
+
+type GetFileSuffixIteratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFileSuffixIteratorRequest) Reset() {
+	*x = GetFileSuffixIteratorRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFileSuffixIteratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFileSuffixIteratorRequest) ProtoMessage() {}
+
+func (x *GetFileSuffixIteratorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFileSuffixIteratorRequest.ProtoReflect.Descriptor instead.
+func (*GetFileSuffixIteratorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *GetFileSuffixIteratorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetFileSuffixIteratorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFileSuffixIteratorResponse) Reset() {
+	*x = GetFileSuffixIteratorResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFileSuffixIteratorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFileSuffixIteratorResponse) ProtoMessage() {}
+
+func (x *GetFileSuffixIteratorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFileSuffixIteratorResponse.ProtoReflect.Descriptor instead.
+func (*GetFileSuffixIteratorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *GetFileSuffixIteratorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMimeTypeIteratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMimeTypeIteratorRequest) Reset() {
+	*x = GetMimeTypeIteratorRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMimeTypeIteratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMimeTypeIteratorRequest) ProtoMessage() {}
+
+func (x *GetMimeTypeIteratorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMimeTypeIteratorRequest.ProtoReflect.Descriptor instead.
+func (*GetMimeTypeIteratorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *GetMimeTypeIteratorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMimeTypeIteratorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMimeTypeIteratorResponse) Reset() {
+	*x = GetMimeTypeIteratorResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMimeTypeIteratorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMimeTypeIteratorResponse) ProtoMessage() {}
+
+func (x *GetMimeTypeIteratorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMimeTypeIteratorResponse.ProtoReflect.Descriptor instead.
+func (*GetMimeTypeIteratorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *GetMimeTypeIteratorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type HashCodeRequest struct {
@@ -3808,7 +4376,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[80]
+	mi := &file_proto_drm_drm_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3820,7 +4388,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[80]
+	mi := &file_proto_drm_drm_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3833,7 +4401,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{80}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *HashCodeRequest) GetHandle() int64 {
@@ -3852,7 +4420,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[81]
+	mi := &file_proto_drm_drm_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3864,7 +4432,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[81]
+	mi := &file_proto_drm_drm_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3877,7 +4445,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{81}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -3897,7 +4465,7 @@ type SetDescriptionRequest struct {
 
 func (x *SetDescriptionRequest) Reset() {
 	*x = SetDescriptionRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[82]
+	mi := &file_proto_drm_drm_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3909,7 +4477,7 @@ func (x *SetDescriptionRequest) String() string {
 func (*SetDescriptionRequest) ProtoMessage() {}
 
 func (x *SetDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[82]
+	mi := &file_proto_drm_drm_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3922,7 +4490,7 @@ func (x *SetDescriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDescriptionRequest.ProtoReflect.Descriptor instead.
 func (*SetDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{82}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *SetDescriptionRequest) GetHandle() int64 {
@@ -3947,7 +4515,7 @@ type SetDescriptionResponse struct {
 
 func (x *SetDescriptionResponse) Reset() {
 	*x = SetDescriptionResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[83]
+	mi := &file_proto_drm_drm_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3959,7 +4527,7 @@ func (x *SetDescriptionResponse) String() string {
 func (*SetDescriptionResponse) ProtoMessage() {}
 
 func (x *SetDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[83]
+	mi := &file_proto_drm_drm_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3972,799 +4540,7 @@ func (x *SetDescriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDescriptionResponse.ProtoReflect.Descriptor instead.
 func (*SetDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{83}
-}
-
-type NewInfoRequestRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewInfoRequestRequest) Reset() {
-	*x = NewInfoRequestRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewInfoRequestRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewInfoRequestRequest) ProtoMessage() {}
-
-func (x *NewInfoRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewInfoRequestRequest.ProtoReflect.Descriptor instead.
-func (*NewInfoRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *NewInfoRequestRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewInfoRequestRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-type NewInfoRequestResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewInfoRequestResponse) Reset() {
-	*x = NewInfoRequestResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewInfoRequestResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewInfoRequestResponse) ProtoMessage() {}
-
-func (x *NewInfoRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewInfoRequestResponse.ProtoReflect.Descriptor instead.
-func (*NewInfoRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{85}
-}
-
-func (x *NewInfoRequestResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type InfoRequestGetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoRequestGetRequest) Reset() {
-	*x = InfoRequestGetRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoRequestGetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoRequestGetRequest) ProtoMessage() {}
-
-func (x *InfoRequestGetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoRequestGetRequest.ProtoReflect.Descriptor instead.
-func (*InfoRequestGetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *InfoRequestGetRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *InfoRequestGetRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type InfoRequestGetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoRequestGetResponse) Reset() {
-	*x = InfoRequestGetResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoRequestGetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoRequestGetResponse) ProtoMessage() {}
-
-func (x *InfoRequestGetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoRequestGetResponse.ProtoReflect.Descriptor instead.
-func (*InfoRequestGetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{87}
-}
-
-func (x *InfoRequestGetResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInfoTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInfoTypeRequest) Reset() {
-	*x = GetInfoTypeRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInfoTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInfoTypeRequest) ProtoMessage() {}
-
-func (x *GetInfoTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInfoTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetInfoTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *GetInfoTypeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetInfoTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInfoTypeResponse) Reset() {
-	*x = GetInfoTypeResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInfoTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInfoTypeResponse) ProtoMessage() {}
-
-func (x *GetInfoTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInfoTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetInfoTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{89}
-}
-
-func (x *GetInfoTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMimeTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMimeTypeRequest) Reset() {
-	*x = GetMimeTypeRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMimeTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMimeTypeRequest) ProtoMessage() {}
-
-func (x *GetMimeTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMimeTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetMimeTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *GetMimeTypeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetMimeTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMimeTypeResponse) Reset() {
-	*x = GetMimeTypeResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMimeTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMimeTypeResponse) ProtoMessage() {}
-
-func (x *GetMimeTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMimeTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetMimeTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *GetMimeTypeResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type PutRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PutRequest) Reset() {
-	*x = PutRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PutRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PutRequest) ProtoMessage() {}
-
-func (x *PutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PutRequest.ProtoReflect.Descriptor instead.
-func (*PutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *PutRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *PutRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *PutRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type PutResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PutResponse) Reset() {
-	*x = PutResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PutResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PutResponse) ProtoMessage() {}
-
-func (x *PutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PutResponse.ProtoReflect.Descriptor instead.
-func (*PutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{93}
-}
-
-type GetAttributeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAttributeRequest) Reset() {
-	*x = GetAttributeRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAttributeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAttributeRequest) ProtoMessage() {}
-
-func (x *GetAttributeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAttributeRequest.ProtoReflect.Descriptor instead.
-func (*GetAttributeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *GetAttributeRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type GetAttributeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAttributeResponse) Reset() {
-	*x = GetAttributeResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAttributeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAttributeResponse) ProtoMessage() {}
-
-func (x *GetAttributeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAttributeResponse.ProtoReflect.Descriptor instead.
-func (*GetAttributeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{95}
-}
-
-func (x *GetAttributeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMessageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMessageRequest) Reset() {
-	*x = GetMessageRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMessageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMessageRequest) ProtoMessage() {}
-
-func (x *GetMessageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMessageRequest.ProtoReflect.Descriptor instead.
-func (*GetMessageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{96}
-}
-
-type GetMessageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMessageResponse) Reset() {
-	*x = GetMessageResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMessageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMessageResponse) ProtoMessage() {}
-
-func (x *GetMessageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMessageResponse.ProtoReflect.Descriptor instead.
-func (*GetMessageResponse) Descriptor() ([]byte, []int) {
 	return file_proto_drm_drm_proto_rawDescGZIP(), []int{97}
-}
-
-func (x *GetMessageResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTypeRequest) Reset() {
-	*x = GetTypeRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTypeRequest) ProtoMessage() {}
-
-func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{98}
-}
-
-type GetTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTypeResponse) Reset() {
-	*x = GetTypeResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTypeResponse) ProtoMessage() {}
-
-func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{99}
-}
-
-func (x *GetTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetUniqueIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUniqueIdRequest) Reset() {
-	*x = GetUniqueIdRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUniqueIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUniqueIdRequest) ProtoMessage() {}
-
-func (x *GetUniqueIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUniqueIdRequest.ProtoReflect.Descriptor instead.
-func (*GetUniqueIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{100}
-}
-
-type GetUniqueIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUniqueIdResponse) Reset() {
-	*x = GetUniqueIdResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUniqueIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUniqueIdResponse) ProtoMessage() {}
-
-func (x *GetUniqueIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUniqueIdResponse.ProtoReflect.Descriptor instead.
-func (*GetUniqueIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{101}
-}
-
-func (x *GetUniqueIdResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type NewRightsRequest struct {
@@ -4777,7 +4553,7 @@ type NewRightsRequest struct {
 
 func (x *NewRightsRequest) Reset() {
 	*x = NewRightsRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[102]
+	mi := &file_proto_drm_drm_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4789,7 +4565,7 @@ func (x *NewRightsRequest) String() string {
 func (*NewRightsRequest) ProtoMessage() {}
 
 func (x *NewRightsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[102]
+	mi := &file_proto_drm_drm_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4802,7 +4578,7 @@ func (x *NewRightsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewRightsRequest.ProtoReflect.Descriptor instead.
 func (*NewRightsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{102}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *NewRightsRequest) GetArg0() int64 {
@@ -4828,7 +4604,7 @@ type NewRightsResponse struct {
 
 func (x *NewRightsResponse) Reset() {
 	*x = NewRightsResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[103]
+	mi := &file_proto_drm_drm_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4840,7 +4616,7 @@ func (x *NewRightsResponse) String() string {
 func (*NewRightsResponse) ProtoMessage() {}
 
 func (x *NewRightsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[103]
+	mi := &file_proto_drm_drm_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4853,7 +4629,7 @@ func (x *NewRightsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewRightsResponse.ProtoReflect.Descriptor instead.
 func (*NewRightsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{103}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *NewRightsResponse) GetResult() int64 {
@@ -4863,27 +4639,203 @@ func (x *NewRightsResponse) GetResult() int64 {
 	return 0
 }
 
-type GetAccountIdRequest struct {
+type RightsGetAccountIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAccountIdRequest) Reset() {
-	*x = GetAccountIdRequest{}
+func (x *RightsGetAccountIdRequest) Reset() {
+	*x = RightsGetAccountIdRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RightsGetAccountIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RightsGetAccountIdRequest) ProtoMessage() {}
+
+func (x *RightsGetAccountIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RightsGetAccountIdRequest.ProtoReflect.Descriptor instead.
+func (*RightsGetAccountIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *RightsGetAccountIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RightsGetDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RightsGetDataRequest) Reset() {
+	*x = RightsGetDataRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RightsGetDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RightsGetDataRequest) ProtoMessage() {}
+
+func (x *RightsGetDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RightsGetDataRequest.ProtoReflect.Descriptor instead.
+func (*RightsGetDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *RightsGetDataRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMimeTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMimeTypeRequest) Reset() {
+	*x = GetMimeTypeRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMimeTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMimeTypeRequest) ProtoMessage() {}
+
+func (x *GetMimeTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMimeTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetMimeTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *GetMimeTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMimeTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMimeTypeResponse) Reset() {
+	*x = GetMimeTypeResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMimeTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMimeTypeResponse) ProtoMessage() {}
+
+func (x *GetMimeTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMimeTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetMimeTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *GetMimeTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type RightsGetSubscriptionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RightsGetSubscriptionIdRequest) Reset() {
+	*x = RightsGetSubscriptionIdRequest{}
 	mi := &file_proto_drm_drm_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAccountIdRequest) String() string {
+func (x *RightsGetSubscriptionIdRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAccountIdRequest) ProtoMessage() {}
+func (*RightsGetSubscriptionIdRequest) ProtoMessage() {}
 
-func (x *GetAccountIdRequest) ProtoReflect() protoreflect.Message {
+func (x *RightsGetSubscriptionIdRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_drm_drm_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4895,236 +4847,16 @@ func (x *GetAccountIdRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAccountIdRequest.ProtoReflect.Descriptor instead.
-func (*GetAccountIdRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use RightsGetSubscriptionIdRequest.ProtoReflect.Descriptor instead.
+func (*RightsGetSubscriptionIdRequest) Descriptor() ([]byte, []int) {
 	return file_proto_drm_drm_proto_rawDescGZIP(), []int{104}
 }
 
-func (x *GetAccountIdRequest) GetHandle() int64 {
+func (x *RightsGetSubscriptionIdRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
-}
-
-type GetAccountIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAccountIdResponse) Reset() {
-	*x = GetAccountIdResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAccountIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAccountIdResponse) ProtoMessage() {}
-
-func (x *GetAccountIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAccountIdResponse.ProtoReflect.Descriptor instead.
-func (*GetAccountIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{105}
-}
-
-func (x *GetAccountIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDataRequest) Reset() {
-	*x = GetDataRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDataRequest) ProtoMessage() {}
-
-func (x *GetDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDataRequest.ProtoReflect.Descriptor instead.
-func (*GetDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *GetDataRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDataResponse) Reset() {
-	*x = GetDataResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDataResponse) ProtoMessage() {}
-
-func (x *GetDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDataResponse.ProtoReflect.Descriptor instead.
-func (*GetDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{107}
-}
-
-func (x *GetDataResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSubscriptionIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSubscriptionIdRequest) Reset() {
-	*x = GetSubscriptionIdRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSubscriptionIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSubscriptionIdRequest) ProtoMessage() {}
-
-func (x *GetSubscriptionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSubscriptionIdRequest.ProtoReflect.Descriptor instead.
-func (*GetSubscriptionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{108}
-}
-
-func (x *GetSubscriptionIdRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetSubscriptionIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSubscriptionIdResponse) Reset() {
-	*x = GetSubscriptionIdResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSubscriptionIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSubscriptionIdResponse) ProtoMessage() {}
-
-func (x *GetSubscriptionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSubscriptionIdResponse.ProtoReflect.Descriptor instead.
-func (*GetSubscriptionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{109}
-}
-
-func (x *GetSubscriptionIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
 }
 
 type NewInfoRequest struct {
@@ -5138,7 +4870,7 @@ type NewInfoRequest struct {
 
 func (x *NewInfoRequest) Reset() {
 	*x = NewInfoRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[110]
+	mi := &file_proto_drm_drm_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5150,7 +4882,7 @@ func (x *NewInfoRequest) String() string {
 func (*NewInfoRequest) ProtoMessage() {}
 
 func (x *NewInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[110]
+	mi := &file_proto_drm_drm_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5163,7 +4895,7 @@ func (x *NewInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInfoRequest.ProtoReflect.Descriptor instead.
 func (*NewInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{110}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *NewInfoRequest) GetArg0() int32 {
@@ -5196,7 +4928,7 @@ type NewInfoResponse struct {
 
 func (x *NewInfoResponse) Reset() {
 	*x = NewInfoResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[111]
+	mi := &file_proto_drm_drm_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5208,7 +4940,7 @@ func (x *NewInfoResponse) String() string {
 func (*NewInfoResponse) ProtoMessage() {}
 
 func (x *NewInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[111]
+	mi := &file_proto_drm_drm_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5221,7 +4953,7 @@ func (x *NewInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInfoResponse.ProtoReflect.Descriptor instead.
 func (*NewInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{111}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *NewInfoResponse) GetResult() int64 {
@@ -5231,7 +4963,7 @@ func (x *NewInfoResponse) GetResult() int64 {
 	return 0
 }
 
-type InfoGetRequest struct {
+type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -5239,21 +4971,21 @@ type InfoGetRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *InfoGetRequest) Reset() {
-	*x = InfoGetRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[112]
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *InfoGetRequest) String() string {
+func (x *GetRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*InfoGetRequest) ProtoMessage() {}
+func (*GetRequest) ProtoMessage() {}
 
-func (x *InfoGetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[112]
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5264,47 +4996,47 @@ func (x *InfoGetRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use InfoGetRequest.ProtoReflect.Descriptor instead.
-func (*InfoGetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{112}
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{107}
 }
 
-func (x *InfoGetRequest) GetHandle() int64 {
+func (x *GetRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-func (x *InfoGetRequest) GetArg0() string {
+func (x *GetRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
 	return ""
 }
 
-type InfoGetResponse struct {
+type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *InfoGetResponse) Reset() {
-	*x = InfoGetResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[113]
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *InfoGetResponse) String() string {
+func (x *GetResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*InfoGetResponse) ProtoMessage() {}
+func (*GetResponse) ProtoMessage() {}
 
-func (x *InfoGetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[113]
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5315,38 +5047,259 @@ func (x *InfoGetResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use InfoGetResponse.ProtoReflect.Descriptor instead.
-func (*InfoGetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{113}
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{108}
 }
 
-func (x *InfoGetResponse) GetResult() int64 {
+func (x *GetResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type ProcessedDataGetAccountIdRequest struct {
+type InfoGetDataRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ProcessedDataGetAccountIdRequest) Reset() {
-	*x = ProcessedDataGetAccountIdRequest{}
+func (x *InfoGetDataRequest) Reset() {
+	*x = InfoGetDataRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoGetDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoGetDataRequest) ProtoMessage() {}
+
+func (x *InfoGetDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoGetDataRequest.ProtoReflect.Descriptor instead.
+func (*InfoGetDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *InfoGetDataRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetInfoTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInfoTypeRequest) Reset() {
+	*x = GetInfoTypeRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInfoTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInfoTypeRequest) ProtoMessage() {}
+
+func (x *GetInfoTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInfoTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetInfoTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *GetInfoTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetInfoTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInfoTypeResponse) Reset() {
+	*x = GetInfoTypeResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInfoTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInfoTypeResponse) ProtoMessage() {}
+
+func (x *GetInfoTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInfoTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetInfoTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *GetInfoTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IteratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IteratorRequest) Reset() {
+	*x = IteratorRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IteratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IteratorRequest) ProtoMessage() {}
+
+func (x *IteratorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IteratorRequest.ProtoReflect.Descriptor instead.
+func (*IteratorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *IteratorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IteratorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IteratorResponse) Reset() {
+	*x = IteratorResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IteratorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IteratorResponse) ProtoMessage() {}
+
+func (x *IteratorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IteratorResponse.ProtoReflect.Descriptor instead.
+func (*IteratorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *IteratorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type KeyIteratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KeyIteratorRequest) Reset() {
+	*x = KeyIteratorRequest{}
 	mi := &file_proto_drm_drm_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ProcessedDataGetAccountIdRequest) String() string {
+func (x *KeyIteratorRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ProcessedDataGetAccountIdRequest) ProtoMessage() {}
+func (*KeyIteratorRequest) ProtoMessage() {}
 
-func (x *ProcessedDataGetAccountIdRequest) ProtoReflect() protoreflect.Message {
+func (x *KeyIteratorRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_drm_drm_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -5358,31 +5311,39 @@ func (x *ProcessedDataGetAccountIdRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ProcessedDataGetAccountIdRequest.ProtoReflect.Descriptor instead.
-func (*ProcessedDataGetAccountIdRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use KeyIteratorRequest.ProtoReflect.Descriptor instead.
+func (*KeyIteratorRequest) Descriptor() ([]byte, []int) {
 	return file_proto_drm_drm_proto_rawDescGZIP(), []int{114}
 }
 
-type ProcessedDataGetDataRequest struct {
+func (x *KeyIteratorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type KeyIteratorResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ProcessedDataGetDataRequest) Reset() {
-	*x = ProcessedDataGetDataRequest{}
+func (x *KeyIteratorResponse) Reset() {
+	*x = KeyIteratorResponse{}
 	mi := &file_proto_drm_drm_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ProcessedDataGetDataRequest) String() string {
+func (x *KeyIteratorResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ProcessedDataGetDataRequest) ProtoMessage() {}
+func (*KeyIteratorResponse) ProtoMessage() {}
 
-func (x *ProcessedDataGetDataRequest) ProtoReflect() protoreflect.Message {
+func (x *KeyIteratorResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_drm_drm_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -5394,31 +5355,41 @@ func (x *ProcessedDataGetDataRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ProcessedDataGetDataRequest.ProtoReflect.Descriptor instead.
-func (*ProcessedDataGetDataRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use KeyIteratorResponse.ProtoReflect.Descriptor instead.
+func (*KeyIteratorResponse) Descriptor() ([]byte, []int) {
 	return file_proto_drm_drm_proto_rawDescGZIP(), []int{115}
 }
 
-type ProcessedDataGetSubscriptionIdRequest struct {
+func (x *KeyIteratorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PutRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ProcessedDataGetSubscriptionIdRequest) Reset() {
-	*x = ProcessedDataGetSubscriptionIdRequest{}
+func (x *PutRequest) Reset() {
+	*x = PutRequest{}
 	mi := &file_proto_drm_drm_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ProcessedDataGetSubscriptionIdRequest) String() string {
+func (x *PutRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ProcessedDataGetSubscriptionIdRequest) ProtoMessage() {}
+func (*PutRequest) ProtoMessage() {}
 
-func (x *ProcessedDataGetSubscriptionIdRequest) ProtoReflect() protoreflect.Message {
+func (x *PutRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_drm_drm_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -5430,9 +5401,498 @@ func (x *ProcessedDataGetSubscriptionIdRequest) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ProcessedDataGetSubscriptionIdRequest.ProtoReflect.Descriptor instead.
-func (*ProcessedDataGetSubscriptionIdRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use PutRequest.ProtoReflect.Descriptor instead.
+func (*PutRequest) Descriptor() ([]byte, []int) {
 	return file_proto_drm_drm_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *PutRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PutRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *PutRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type PutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutResponse) Reset() {
+	*x = PutResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutResponse) ProtoMessage() {}
+
+func (x *PutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutResponse.ProtoReflect.Descriptor instead.
+func (*PutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{117}
+}
+
+type NewUtilsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUtilsRequest) Reset() {
+	*x = NewUtilsRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUtilsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUtilsRequest) ProtoMessage() {}
+
+func (x *NewUtilsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUtilsRequest.ProtoReflect.Descriptor instead.
+func (*NewUtilsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{118}
+}
+
+type NewUtilsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUtilsResponse) Reset() {
+	*x = NewUtilsResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUtilsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUtilsResponse) ProtoMessage() {}
+
+func (x *NewUtilsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUtilsResponse.ProtoReflect.Descriptor instead.
+func (*NewUtilsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *NewUtilsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExtendedMetadataParserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtendedMetadataParserRequest) Reset() {
+	*x = GetExtendedMetadataParserRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtendedMetadataParserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtendedMetadataParserRequest) ProtoMessage() {}
+
+func (x *GetExtendedMetadataParserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtendedMetadataParserRequest.ProtoReflect.Descriptor instead.
+func (*GetExtendedMetadataParserRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *GetExtendedMetadataParserRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetExtendedMetadataParserRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetExtendedMetadataParserResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtendedMetadataParserResponse) Reset() {
+	*x = GetExtendedMetadataParserResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtendedMetadataParserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtendedMetadataParserResponse) ProtoMessage() {}
+
+func (x *GetExtendedMetadataParserResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtendedMetadataParserResponse.ProtoReflect.Descriptor instead.
+func (*GetExtendedMetadataParserResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *GetExtendedMetadataParserResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type UtilsExtendedMetadataParserGetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UtilsExtendedMetadataParserGetRequest) Reset() {
+	*x = UtilsExtendedMetadataParserGetRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UtilsExtendedMetadataParserGetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UtilsExtendedMetadataParserGetRequest) ProtoMessage() {}
+
+func (x *UtilsExtendedMetadataParserGetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UtilsExtendedMetadataParserGetRequest.ProtoReflect.Descriptor instead.
+func (*UtilsExtendedMetadataParserGetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *UtilsExtendedMetadataParserGetRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type UtilsExtendedMetadataParserGetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UtilsExtendedMetadataParserGetResponse) Reset() {
+	*x = UtilsExtendedMetadataParserGetResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UtilsExtendedMetadataParserGetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UtilsExtendedMetadataParserGetResponse) ProtoMessage() {}
+
+func (x *UtilsExtendedMetadataParserGetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UtilsExtendedMetadataParserGetResponse.ProtoReflect.Descriptor instead.
+func (*UtilsExtendedMetadataParserGetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *UtilsExtendedMetadataParserGetResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type UtilsExtendedMetadataParserIteratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UtilsExtendedMetadataParserIteratorRequest) Reset() {
+	*x = UtilsExtendedMetadataParserIteratorRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UtilsExtendedMetadataParserIteratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UtilsExtendedMetadataParserIteratorRequest) ProtoMessage() {}
+
+func (x *UtilsExtendedMetadataParserIteratorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UtilsExtendedMetadataParserIteratorRequest.ProtoReflect.Descriptor instead.
+func (*UtilsExtendedMetadataParserIteratorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{124}
+}
+
+type UtilsExtendedMetadataParserKeyIteratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UtilsExtendedMetadataParserKeyIteratorRequest) Reset() {
+	*x = UtilsExtendedMetadataParserKeyIteratorRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UtilsExtendedMetadataParserKeyIteratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UtilsExtendedMetadataParserKeyIteratorRequest) ProtoMessage() {}
+
+func (x *UtilsExtendedMetadataParserKeyIteratorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UtilsExtendedMetadataParserKeyIteratorRequest.ProtoReflect.Descriptor instead.
+func (*UtilsExtendedMetadataParserKeyIteratorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{125}
+}
+
+type NewInfoRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewInfoRequestRequest) Reset() {
+	*x = NewInfoRequestRequest{}
+	mi := &file_proto_drm_drm_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewInfoRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewInfoRequestRequest) ProtoMessage() {}
+
+func (x *NewInfoRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewInfoRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewInfoRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *NewInfoRequestRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewInfoRequestRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type NewInfoRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewInfoRequestResponse) Reset() {
+	*x = NewInfoRequestResponse{}
+	mi := &file_proto_drm_drm_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewInfoRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewInfoRequestResponse) ProtoMessage() {}
+
+func (x *NewInfoRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_drm_drm_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewInfoRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewInfoRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *NewInfoRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type NewInfoRequestOpRequest struct {
@@ -5445,7 +5905,7 @@ type NewInfoRequestOpRequest struct {
 
 func (x *NewInfoRequestOpRequest) Reset() {
 	*x = NewInfoRequestOpRequest{}
-	mi := &file_proto_drm_drm_proto_msgTypes[117]
+	mi := &file_proto_drm_drm_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5457,7 +5917,7 @@ func (x *NewInfoRequestOpRequest) String() string {
 func (*NewInfoRequestOpRequest) ProtoMessage() {}
 
 func (x *NewInfoRequestOpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[117]
+	mi := &file_proto_drm_drm_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5470,7 +5930,7 @@ func (x *NewInfoRequestOpRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInfoRequestOpRequest.ProtoReflect.Descriptor instead.
 func (*NewInfoRequestOpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{117}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *NewInfoRequestOpRequest) GetArg0() int32 {
@@ -5496,7 +5956,7 @@ type NewInfoRequestOpResponse struct {
 
 func (x *NewInfoRequestOpResponse) Reset() {
 	*x = NewInfoRequestOpResponse{}
-	mi := &file_proto_drm_drm_proto_msgTypes[118]
+	mi := &file_proto_drm_drm_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5508,7 +5968,7 @@ func (x *NewInfoRequestOpResponse) String() string {
 func (*NewInfoRequestOpResponse) ProtoMessage() {}
 
 func (x *NewInfoRequestOpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_drm_drm_proto_msgTypes[118]
+	mi := &file_proto_drm_drm_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5521,7 +5981,7 @@ func (x *NewInfoRequestOpResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInfoRequestOpResponse.ProtoReflect.Descriptor instead.
 func (*NewInfoRequestOpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_drm_drm_proto_rawDescGZIP(), []int{118}
+	return file_proto_drm_drm_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *NewInfoRequestOpResponse) GetResult() int64 {
@@ -5601,6 +6061,10 @@ const file_proto_drm_drm_proto_rawDesc = "" +
 	"\x1dGetAvailableDrmEnginesRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"8\n" +
 	"\x1eGetAvailableDrmEnginesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"!GetAvailableDrmSupportInfoRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"<\n" +
+	"\"GetAvailableDrmSupportInfoResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"X\n" +
 	"\x16GetConstraints2Request\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
@@ -5691,20 +6155,29 @@ const file_proto_drm_drm_proto_rawDesc = "" +
 	"\rOnInfoRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x10\n" +
-	"\x0eOnInfoResponse\"\x11\n" +
-	"\x0fNewUtilsRequest\"*\n" +
-	"\x10NewUtilsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
-	" GetExtendedMetadataParserRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\";\n" +
-	"!GetExtendedMetadataParserResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\n" +
-	"GetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"%\n" +
-	"\vGetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x0eOnInfoResponse\"\x15\n" +
+	"\x13GetAccountIdRequest\".\n" +
+	"\x14GetAccountIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
+	"\x0eGetDataRequest\")\n" +
+	"\x0fGetDataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetSubscriptionIdRequest\"3\n" +
+	"\x19GetSubscriptionIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"\x13GetAttributeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
+	"\x14GetAttributeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11GetMessageRequest\",\n" +
+	"\x12GetMessageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
+	"\x0eGetTypeRequest\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetUniqueIdRequest\"-\n" +
+	"\x13GetUniqueIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
 	"\x15NewSupportInfoRequest\"0\n" +
 	"\x16NewSupportInfoResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
@@ -5728,7 +6201,15 @@ const file_proto_drm_drm_proto_rawDesc = "" +
 	"\x15GetDescriptionRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
 	"\x16GetDescriptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"6\n" +
+	"\x1cGetFileSuffixIteratorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetFileSuffixIteratorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1aGetMimeTypeIteratorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetMimeTypeIteratorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
 	"\x0fHashCodeRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10HashCodeResponse\x12\x16\n" +
@@ -5736,80 +6217,78 @@ const file_proto_drm_drm_proto_rawDesc = "" +
 	"\x15SetDescriptionRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x18\n" +
-	"\x16SetDescriptionResponse\"?\n" +
-	"\x15NewInfoRequestRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
-	"\x16NewInfoRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"\x15InfoRequestGetRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"0\n" +
-	"\x16InfoRequestGetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x12GetInfoTypeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
-	"\x13GetInfoTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
-	"\x12GetMimeTypeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
-	"\x13GetMimeTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"L\n" +
-	"\n" +
-	"PutRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\r\n" +
-	"\vPutResponse\")\n" +
-	"\x13GetAttributeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
-	"\x14GetAttributeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
-	"\x11GetMessageRequest\",\n" +
-	"\x12GetMessageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
-	"\x0eGetTypeRequest\")\n" +
-	"\x0fGetTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
-	"\x12GetUniqueIdRequest\"-\n" +
-	"\x13GetUniqueIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\":\n" +
+	"\x16SetDescriptionResponse\":\n" +
 	"\x10NewRightsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"+\n" +
 	"\x11NewRightsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x13GetAccountIdRequest\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x19RightsGetAccountIdRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
-	"\x14GetAccountIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"(\n" +
-	"\x0eGetDataRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
-	"\x0fGetDataResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x18GetSubscriptionIdRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
-	"\x19GetSubscriptionIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"L\n" +
+	"\x14RightsGetDataRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetMimeTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetMimeTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"8\n" +
+	"\x1eRightsGetSubscriptionIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"L\n" +
 	"\x0eNewInfoRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\tR\x04arg2\")\n" +
 	"\x0fNewInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
-	"\x0eInfoGetRequest\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\n" +
+	"GetRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\")\n" +
-	"\x0fInfoGetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" ProcessedDataGetAccountIdRequest\"\x1d\n" +
-	"\x1bProcessedDataGetDataRequest\"'\n" +
-	"%ProcessedDataGetSubscriptionIdRequest\"A\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12InfoGetDataRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetInfoTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetInfoTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fIteratorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10IteratorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12KeyIteratorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13KeyIteratorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"\n" +
+	"PutRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\r\n" +
+	"\vPutResponse\"\x11\n" +
+	"\x0fNewUtilsRequest\"*\n" +
+	"\x10NewUtilsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	" GetExtendedMetadataParserRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\";\n" +
+	"!GetExtendedMetadataParserResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"%UtilsExtendedMetadataParserGetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"@\n" +
+	"&UtilsExtendedMetadataParserGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\",\n" +
+	"*UtilsExtendedMetadataParserIteratorRequest\"/\n" +
+	"-UtilsExtendedMetadataParserKeyIteratorRequest\"?\n" +
+	"\x15NewInfoRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
+	"\x16NewInfoRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
 	"\x17NewInfoRequestOpRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"2\n" +
 	"\x18NewInfoRequestOpResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xb6\x11\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xa5\x12\n" +
 	"\x14ManagerClientService\x12O\n" +
 	"\x10NewManagerClient\x12\x1c.drm.NewManagerClientRequest\x1a\x1d.drm.NewManagerClientResponse\x12I\n" +
 	"\x0eAcquireDrmInfo\x12\x1a.drm.AcquireDrmInfoRequest\x1a\x1b.drm.AcquireDrmInfoResponse\x12F\n" +
@@ -5824,7 +6303,8 @@ const file_proto_drm_drm_proto_rawDesc = "" +
 	"\x05Close\x12\x11.drm.CloseRequest\x1a\x12.drm.CloseResponse\x12X\n" +
 	"\x13CloseConvertSession\x12\x1f.drm.CloseConvertSessionRequest\x1a .drm.CloseConvertSessionResponse\x12@\n" +
 	"\vConvertData\x12\x17.drm.ConvertDataRequest\x1a\x18.drm.ConvertDataResponse\x12a\n" +
-	"\x16GetAvailableDrmEngines\x12\".drm.GetAvailableDrmEnginesRequest\x1a#.drm.GetAvailableDrmEnginesResponse\x12L\n" +
+	"\x16GetAvailableDrmEngines\x12\".drm.GetAvailableDrmEnginesRequest\x1a#.drm.GetAvailableDrmEnginesResponse\x12m\n" +
+	"\x1aGetAvailableDrmSupportInfo\x12&.drm.GetAvailableDrmSupportInfoRequest\x1a'.drm.GetAvailableDrmSupportInfoResponse\x12L\n" +
 	"\x0fGetConstraints2\x12\x1b.drm.GetConstraints2Request\x1a\x1c.drm.GetConstraints2Response\x12R\n" +
 	"\x11GetConstraints2_1\x12\x1d.drm.GetConstraints2_1Request\x1a\x1e.drm.GetConstraints2_1Response\x12R\n" +
 	"\x11GetDrmObjectType2\x12\x1d.drm.GetDrmObjectType2Request\x1a\x1e.drm.GetDrmObjectType2Response\x12X\n" +
@@ -5846,50 +6326,58 @@ const file_proto_drm_drm_proto_rawDesc = "" +
 	"#ManagerClientOnEventListenerService\x124\n" +
 	"\aOnEvent\x12\x13.drm.OnEventRequest\x1a\x14.drm.OnEventResponse2W\n" +
 	"\"ManagerClientOnInfoListenerService\x121\n" +
-	"\x06OnInfo\x12\x12.drm.OnInfoRequest\x1a\x13.drm.OnInfoResponse2\xb3\x01\n" +
-	"\fUtilsService\x127\n" +
-	"\bNewUtils\x12\x14.drm.NewUtilsRequest\x1a\x15.drm.NewUtilsResponse\x12j\n" +
-	"\x19GetExtendedMetadataParser\x12%.drm.GetExtendedMetadataParserRequest\x1a&.drm.GetExtendedMetadataParserResponse2N\n" +
-	"\"UtilsExtendedMetadataParserService\x12(\n" +
-	"\x03Get\x12\x0f.drm.GetRequest\x1a\x10.drm.GetResponse2\xbc\x04\n" +
+	"\x06OnInfo\x12\x12.drm.OnInfoRequest\x1a\x13.drm.OnInfoResponse2\xe5\x01\n" +
+	"\x14ProcessedDataService\x12C\n" +
+	"\fGetAccountId\x12\x18.drm.GetAccountIdRequest\x1a\x19.drm.GetAccountIdResponse\x124\n" +
+	"\aGetData\x12\x13.drm.GetDataRequest\x1a\x14.drm.GetDataResponse\x12R\n" +
+	"\x11GetSubscriptionId\x12\x1d.drm.GetSubscriptionIdRequest\x1a\x1e.drm.GetSubscriptionIdResponse2\x8a\x02\n" +
+	"\fEventService\x12C\n" +
+	"\fGetAttribute\x12\x18.drm.GetAttributeRequest\x1a\x19.drm.GetAttributeResponse\x12=\n" +
+	"\n" +
+	"GetMessage\x12\x16.drm.GetMessageRequest\x1a\x17.drm.GetMessageResponse\x124\n" +
+	"\aGetType\x12\x13.drm.GetTypeRequest\x1a\x14.drm.GetTypeResponse\x12@\n" +
+	"\vGetUniqueId\x12\x17.drm.GetUniqueIdRequest\x1a\x18.drm.GetUniqueIdResponse2\xf6\x05\n" +
 	"\x12SupportInfoService\x12I\n" +
 	"\x0eNewSupportInfo\x12\x1a.drm.NewSupportInfoRequest\x1a\x1b.drm.NewSupportInfoResponse\x12F\n" +
 	"\rAddFileSuffix\x12\x19.drm.AddFileSuffixRequest\x1a\x1a.drm.AddFileSuffixResponse\x12@\n" +
 	"\vAddMimeType\x12\x17.drm.AddMimeTypeRequest\x1a\x18.drm.AddMimeTypeResponse\x121\n" +
 	"\x06Equals\x12\x12.drm.EqualsRequest\x1a\x13.drm.EqualsResponse\x12O\n" +
 	"\x10GetDescriprition\x12\x1c.drm.GetDescripritionRequest\x1a\x1d.drm.GetDescripritionResponse\x12I\n" +
-	"\x0eGetDescription\x12\x1a.drm.GetDescriptionRequest\x1a\x1b.drm.GetDescriptionResponse\x127\n" +
+	"\x0eGetDescription\x12\x1a.drm.GetDescriptionRequest\x1a\x1b.drm.GetDescriptionResponse\x12^\n" +
+	"\x15GetFileSuffixIterator\x12!.drm.GetFileSuffixIteratorRequest\x1a\".drm.GetFileSuffixIteratorResponse\x12X\n" +
+	"\x13GetMimeTypeIterator\x12\x1f.drm.GetMimeTypeIteratorRequest\x1a .drm.GetMimeTypeIteratorResponse\x127\n" +
 	"\bHashCode\x12\x14.drm.HashCodeRequest\x1a\x15.drm.HashCodeResponse\x12I\n" +
-	"\x0eSetDescription\x12\x1a.drm.SetDescriptionRequest\x1a\x1b.drm.SetDescriptionResponse2\xd3\x02\n" +
-	"\x12InfoRequestService\x12O\n" +
-	"\x10NewInfoRequestOp\x12\x1c.drm.NewInfoRequestOpRequest\x1a\x1d.drm.NewInfoRequestOpResponse\x12>\n" +
-	"\x03Get\x12\x1a.drm.InfoRequestGetRequest\x1a\x1b.drm.InfoRequestGetResponse\x12@\n" +
-	"\vGetInfoType\x12\x17.drm.GetInfoTypeRequest\x1a\x18.drm.GetInfoTypeResponse\x12@\n" +
-	"\vGetMimeType\x12\x17.drm.GetMimeTypeRequest\x1a\x18.drm.GetMimeTypeResponse\x12(\n" +
-	"\x03Put\x12\x0f.drm.PutRequest\x1a\x10.drm.PutResponse2\x8a\x02\n" +
-	"\fEventService\x12C\n" +
-	"\fGetAttribute\x12\x18.drm.GetAttributeRequest\x1a\x19.drm.GetAttributeResponse\x12=\n" +
-	"\n" +
-	"GetMessage\x12\x16.drm.GetMessageRequest\x1a\x17.drm.GetMessageResponse\x124\n" +
-	"\aGetType\x12\x13.drm.GetTypeRequest\x1a\x14.drm.GetTypeResponse\x12@\n" +
-	"\vGetUniqueId\x12\x17.drm.GetUniqueIdRequest\x1a\x18.drm.GetUniqueIdResponse2\xdc\x02\n" +
+	"\x0eSetDescription\x12\x1a.drm.SetDescriptionRequest\x1a\x1b.drm.SetDescriptionResponse2\xee\x02\n" +
 	"\rRightsService\x12:\n" +
-	"\tNewRights\x12\x15.drm.NewRightsRequest\x1a\x16.drm.NewRightsResponse\x12C\n" +
-	"\fGetAccountId\x12\x18.drm.GetAccountIdRequest\x1a\x19.drm.GetAccountIdResponse\x124\n" +
-	"\aGetData\x12\x13.drm.GetDataRequest\x1a\x14.drm.GetDataResponse\x12@\n" +
-	"\vGetMimeType\x12\x17.drm.GetMimeTypeRequest\x1a\x18.drm.GetMimeTypeResponse\x12R\n" +
-	"\x11GetSubscriptionId\x12\x1d.drm.GetSubscriptionIdRequest\x1a\x1e.drm.GetSubscriptionIdResponse2\xd9\x02\n" +
+	"\tNewRights\x12\x15.drm.NewRightsRequest\x1a\x16.drm.NewRightsResponse\x12I\n" +
+	"\fGetAccountId\x12\x1e.drm.RightsGetAccountIdRequest\x1a\x19.drm.GetAccountIdResponse\x12:\n" +
+	"\aGetData\x12\x19.drm.RightsGetDataRequest\x1a\x14.drm.GetDataResponse\x12@\n" +
+	"\vGetMimeType\x12\x17.drm.GetMimeTypeRequest\x1a\x18.drm.GetMimeTypeResponse\x12X\n" +
+	"\x11GetSubscriptionId\x12#.drm.RightsGetSubscriptionIdRequest\x1a\x1e.drm.GetSubscriptionIdResponse2\xd0\x03\n" +
 	"\vInfoService\x124\n" +
-	"\aNewInfo\x12\x13.drm.NewInfoRequest\x1a\x14.drm.NewInfoResponse\x120\n" +
-	"\x03Get\x12\x13.drm.InfoGetRequest\x1a\x14.drm.InfoGetResponse\x124\n" +
-	"\aGetData\x12\x13.drm.GetDataRequest\x1a\x14.drm.GetDataResponse\x12@\n" +
+	"\aNewInfo\x12\x13.drm.NewInfoRequest\x1a\x14.drm.NewInfoResponse\x12(\n" +
+	"\x03Get\x12\x0f.drm.GetRequest\x1a\x10.drm.GetResponse\x128\n" +
+	"\aGetData\x12\x17.drm.InfoGetDataRequest\x1a\x14.drm.GetDataResponse\x12@\n" +
 	"\vGetInfoType\x12\x17.drm.GetInfoTypeRequest\x1a\x18.drm.GetInfoTypeResponse\x12@\n" +
-	"\vGetMimeType\x12\x17.drm.GetMimeTypeRequest\x1a\x18.drm.GetMimeTypeResponse\x12(\n" +
-	"\x03Put\x12\x0f.drm.PutRequest\x1a\x10.drm.PutResponse2\x8c\x02\n" +
-	"\x14ProcessedDataService\x12P\n" +
-	"\fGetAccountId\x12%.drm.ProcessedDataGetAccountIdRequest\x1a\x19.drm.GetAccountIdResponse\x12A\n" +
-	"\aGetData\x12 .drm.ProcessedDataGetDataRequest\x1a\x14.drm.GetDataResponse\x12_\n" +
-	"\x11GetSubscriptionId\x12*.drm.ProcessedDataGetSubscriptionIdRequest\x1a\x1e.drm.GetSubscriptionIdResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/drmb\x06proto3"
+	"\vGetMimeType\x12\x17.drm.GetMimeTypeRequest\x1a\x18.drm.GetMimeTypeResponse\x127\n" +
+	"\bIterator\x12\x14.drm.IteratorRequest\x1a\x15.drm.IteratorResponse\x12@\n" +
+	"\vKeyIterator\x12\x17.drm.KeyIteratorRequest\x1a\x18.drm.KeyIteratorResponse\x12(\n" +
+	"\x03Put\x12\x0f.drm.PutRequest\x1a\x10.drm.PutResponse2\xb3\x01\n" +
+	"\fUtilsService\x127\n" +
+	"\bNewUtils\x12\x14.drm.NewUtilsRequest\x1a\x15.drm.NewUtilsResponse\x12j\n" +
+	"\x19GetExtendedMetadataParser\x12%.drm.GetExtendedMetadataParserRequest\x1a&.drm.GetExtendedMetadataParserResponse2\xb5\x02\n" +
+	"\"UtilsExtendedMetadataParserService\x12^\n" +
+	"\x03Get\x12*.drm.UtilsExtendedMetadataParserGetRequest\x1a+.drm.UtilsExtendedMetadataParserGetResponse\x12R\n" +
+	"\bIterator\x12/.drm.UtilsExtendedMetadataParserIteratorRequest\x1a\x15.drm.IteratorResponse\x12[\n" +
+	"\vKeyIterator\x122.drm.UtilsExtendedMetadataParserKeyIteratorRequest\x1a\x18.drm.KeyIteratorResponse2\xb8\x03\n" +
+	"\x12InfoRequestService\x12O\n" +
+	"\x10NewInfoRequestOp\x12\x1c.drm.NewInfoRequestOpRequest\x1a\x1d.drm.NewInfoRequestOpResponse\x12(\n" +
+	"\x03Get\x12\x0f.drm.GetRequest\x1a\x10.drm.GetResponse\x12@\n" +
+	"\vGetInfoType\x12\x17.drm.GetInfoTypeRequest\x1a\x18.drm.GetInfoTypeResponse\x12@\n" +
+	"\vGetMimeType\x12\x17.drm.GetMimeTypeRequest\x1a\x18.drm.GetMimeTypeResponse\x127\n" +
+	"\bIterator\x12\x14.drm.IteratorRequest\x1a\x15.drm.IteratorResponse\x12@\n" +
+	"\vKeyIterator\x12\x17.drm.KeyIteratorRequest\x1a\x18.drm.KeyIteratorResponse\x12(\n" +
+	"\x03Put\x12\x0f.drm.PutRequest\x1a\x10.drm.PutResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/drmb\x06proto3"
 
 var (
 	file_proto_drm_drm_proto_rawDescOnce sync.Once
@@ -5903,127 +6391,138 @@ func file_proto_drm_drm_proto_rawDescGZIP() []byte {
 	return file_proto_drm_drm_proto_rawDescData
 }
 
-var file_proto_drm_drm_proto_msgTypes = make([]protoimpl.MessageInfo, 119)
+var file_proto_drm_drm_proto_msgTypes = make([]protoimpl.MessageInfo, 130)
 var file_proto_drm_drm_proto_goTypes = []any{
-	(*NewManagerClientRequest)(nil),               // 0: drm.NewManagerClientRequest
-	(*NewManagerClientResponse)(nil),              // 1: drm.NewManagerClientResponse
-	(*AcquireDrmInfoRequest)(nil),                 // 2: drm.AcquireDrmInfoRequest
-	(*AcquireDrmInfoResponse)(nil),                // 3: drm.AcquireDrmInfoResponse
-	(*AcquireRightsRequest)(nil),                  // 4: drm.AcquireRightsRequest
-	(*AcquireRightsResponse)(nil),                 // 5: drm.AcquireRightsResponse
-	(*CanHandle2Request)(nil),                     // 6: drm.CanHandle2Request
-	(*CanHandle2Response)(nil),                    // 7: drm.CanHandle2Response
-	(*CanHandle2_1Request)(nil),                   // 8: drm.CanHandle2_1Request
-	(*CanHandle2_1Response)(nil),                  // 9: drm.CanHandle2_1Response
-	(*CheckRightsStatus1Request)(nil),             // 10: drm.CheckRightsStatus1Request
-	(*CheckRightsStatus1Response)(nil),            // 11: drm.CheckRightsStatus1Response
-	(*CheckRightsStatus2_1Request)(nil),           // 12: drm.CheckRightsStatus2_1Request
-	(*CheckRightsStatus2_1Response)(nil),          // 13: drm.CheckRightsStatus2_1Response
-	(*CheckRightsStatus1_2Request)(nil),           // 14: drm.CheckRightsStatus1_2Request
-	(*CheckRightsStatus1_2Response)(nil),          // 15: drm.CheckRightsStatus1_2Response
-	(*CheckRightsStatus2_3Request)(nil),           // 16: drm.CheckRightsStatus2_3Request
-	(*CheckRightsStatus2_3Response)(nil),          // 17: drm.CheckRightsStatus2_3Response
-	(*CloseRequest)(nil),                          // 18: drm.CloseRequest
-	(*CloseResponse)(nil),                         // 19: drm.CloseResponse
-	(*CloseConvertSessionRequest)(nil),            // 20: drm.CloseConvertSessionRequest
-	(*CloseConvertSessionResponse)(nil),           // 21: drm.CloseConvertSessionResponse
-	(*ConvertDataRequest)(nil),                    // 22: drm.ConvertDataRequest
-	(*ConvertDataResponse)(nil),                   // 23: drm.ConvertDataResponse
-	(*GetAvailableDrmEnginesRequest)(nil),         // 24: drm.GetAvailableDrmEnginesRequest
-	(*GetAvailableDrmEnginesResponse)(nil),        // 25: drm.GetAvailableDrmEnginesResponse
-	(*GetConstraints2Request)(nil),                // 26: drm.GetConstraints2Request
-	(*GetConstraints2Response)(nil),               // 27: drm.GetConstraints2Response
-	(*GetConstraints2_1Request)(nil),              // 28: drm.GetConstraints2_1Request
-	(*GetConstraints2_1Response)(nil),             // 29: drm.GetConstraints2_1Response
-	(*GetDrmObjectType2Request)(nil),              // 30: drm.GetDrmObjectType2Request
-	(*GetDrmObjectType2Response)(nil),             // 31: drm.GetDrmObjectType2Response
-	(*GetDrmObjectType2_1Request)(nil),            // 32: drm.GetDrmObjectType2_1Request
-	(*GetDrmObjectType2_1Response)(nil),           // 33: drm.GetDrmObjectType2_1Response
-	(*GetMetadata1Request)(nil),                   // 34: drm.GetMetadata1Request
-	(*GetMetadata1Response)(nil),                  // 35: drm.GetMetadata1Response
-	(*GetMetadata1_1Request)(nil),                 // 36: drm.GetMetadata1_1Request
-	(*GetMetadata1_1Response)(nil),                // 37: drm.GetMetadata1_1Response
-	(*GetOriginalMimeType1Request)(nil),           // 38: drm.GetOriginalMimeType1Request
-	(*GetOriginalMimeType1Response)(nil),          // 39: drm.GetOriginalMimeType1Response
-	(*GetOriginalMimeType1_1Request)(nil),         // 40: drm.GetOriginalMimeType1_1Request
-	(*GetOriginalMimeType1_1Response)(nil),        // 41: drm.GetOriginalMimeType1_1Response
-	(*OpenConvertSessionRequest)(nil),             // 42: drm.OpenConvertSessionRequest
-	(*OpenConvertSessionResponse)(nil),            // 43: drm.OpenConvertSessionResponse
-	(*ProcessDrmInfoRequest)(nil),                 // 44: drm.ProcessDrmInfoRequest
-	(*ProcessDrmInfoResponse)(nil),                // 45: drm.ProcessDrmInfoResponse
-	(*ReleaseRequest)(nil),                        // 46: drm.ReleaseRequest
-	(*ReleaseResponse)(nil),                       // 47: drm.ReleaseResponse
-	(*RemoveAllRightsRequest)(nil),                // 48: drm.RemoveAllRightsRequest
-	(*RemoveAllRightsResponse)(nil),               // 49: drm.RemoveAllRightsResponse
-	(*RemoveRights1Request)(nil),                  // 50: drm.RemoveRights1Request
-	(*RemoveRights1Response)(nil),                 // 51: drm.RemoveRights1Response
-	(*RemoveRights1_1Request)(nil),                // 52: drm.RemoveRights1_1Request
-	(*RemoveRights1_1Response)(nil),               // 53: drm.RemoveRights1_1Response
-	(*SaveRightsRequest)(nil),                     // 54: drm.SaveRightsRequest
-	(*SaveRightsResponse)(nil),                    // 55: drm.SaveRightsResponse
-	(*OnErrorRequest)(nil),                        // 56: drm.OnErrorRequest
-	(*OnErrorResponse)(nil),                       // 57: drm.OnErrorResponse
-	(*OnEventRequest)(nil),                        // 58: drm.OnEventRequest
-	(*OnEventResponse)(nil),                       // 59: drm.OnEventResponse
-	(*OnInfoRequest)(nil),                         // 60: drm.OnInfoRequest
-	(*OnInfoResponse)(nil),                        // 61: drm.OnInfoResponse
-	(*NewUtilsRequest)(nil),                       // 62: drm.NewUtilsRequest
-	(*NewUtilsResponse)(nil),                      // 63: drm.NewUtilsResponse
-	(*GetExtendedMetadataParserRequest)(nil),      // 64: drm.GetExtendedMetadataParserRequest
-	(*GetExtendedMetadataParserResponse)(nil),     // 65: drm.GetExtendedMetadataParserResponse
-	(*GetRequest)(nil),                            // 66: drm.GetRequest
-	(*GetResponse)(nil),                           // 67: drm.GetResponse
-	(*NewSupportInfoRequest)(nil),                 // 68: drm.NewSupportInfoRequest
-	(*NewSupportInfoResponse)(nil),                // 69: drm.NewSupportInfoResponse
-	(*AddFileSuffixRequest)(nil),                  // 70: drm.AddFileSuffixRequest
-	(*AddFileSuffixResponse)(nil),                 // 71: drm.AddFileSuffixResponse
-	(*AddMimeTypeRequest)(nil),                    // 72: drm.AddMimeTypeRequest
-	(*AddMimeTypeResponse)(nil),                   // 73: drm.AddMimeTypeResponse
-	(*EqualsRequest)(nil),                         // 74: drm.EqualsRequest
-	(*EqualsResponse)(nil),                        // 75: drm.EqualsResponse
-	(*GetDescripritionRequest)(nil),               // 76: drm.GetDescripritionRequest
-	(*GetDescripritionResponse)(nil),              // 77: drm.GetDescripritionResponse
-	(*GetDescriptionRequest)(nil),                 // 78: drm.GetDescriptionRequest
-	(*GetDescriptionResponse)(nil),                // 79: drm.GetDescriptionResponse
-	(*HashCodeRequest)(nil),                       // 80: drm.HashCodeRequest
-	(*HashCodeResponse)(nil),                      // 81: drm.HashCodeResponse
-	(*SetDescriptionRequest)(nil),                 // 82: drm.SetDescriptionRequest
-	(*SetDescriptionResponse)(nil),                // 83: drm.SetDescriptionResponse
-	(*NewInfoRequestRequest)(nil),                 // 84: drm.NewInfoRequestRequest
-	(*NewInfoRequestResponse)(nil),                // 85: drm.NewInfoRequestResponse
-	(*InfoRequestGetRequest)(nil),                 // 86: drm.InfoRequestGetRequest
-	(*InfoRequestGetResponse)(nil),                // 87: drm.InfoRequestGetResponse
-	(*GetInfoTypeRequest)(nil),                    // 88: drm.GetInfoTypeRequest
-	(*GetInfoTypeResponse)(nil),                   // 89: drm.GetInfoTypeResponse
-	(*GetMimeTypeRequest)(nil),                    // 90: drm.GetMimeTypeRequest
-	(*GetMimeTypeResponse)(nil),                   // 91: drm.GetMimeTypeResponse
-	(*PutRequest)(nil),                            // 92: drm.PutRequest
-	(*PutResponse)(nil),                           // 93: drm.PutResponse
-	(*GetAttributeRequest)(nil),                   // 94: drm.GetAttributeRequest
-	(*GetAttributeResponse)(nil),                  // 95: drm.GetAttributeResponse
-	(*GetMessageRequest)(nil),                     // 96: drm.GetMessageRequest
-	(*GetMessageResponse)(nil),                    // 97: drm.GetMessageResponse
-	(*GetTypeRequest)(nil),                        // 98: drm.GetTypeRequest
-	(*GetTypeResponse)(nil),                       // 99: drm.GetTypeResponse
-	(*GetUniqueIdRequest)(nil),                    // 100: drm.GetUniqueIdRequest
-	(*GetUniqueIdResponse)(nil),                   // 101: drm.GetUniqueIdResponse
-	(*NewRightsRequest)(nil),                      // 102: drm.NewRightsRequest
-	(*NewRightsResponse)(nil),                     // 103: drm.NewRightsResponse
-	(*GetAccountIdRequest)(nil),                   // 104: drm.GetAccountIdRequest
-	(*GetAccountIdResponse)(nil),                  // 105: drm.GetAccountIdResponse
-	(*GetDataRequest)(nil),                        // 106: drm.GetDataRequest
-	(*GetDataResponse)(nil),                       // 107: drm.GetDataResponse
-	(*GetSubscriptionIdRequest)(nil),              // 108: drm.GetSubscriptionIdRequest
-	(*GetSubscriptionIdResponse)(nil),             // 109: drm.GetSubscriptionIdResponse
-	(*NewInfoRequest)(nil),                        // 110: drm.NewInfoRequest
-	(*NewInfoResponse)(nil),                       // 111: drm.NewInfoResponse
-	(*InfoGetRequest)(nil),                        // 112: drm.InfoGetRequest
-	(*InfoGetResponse)(nil),                       // 113: drm.InfoGetResponse
-	(*ProcessedDataGetAccountIdRequest)(nil),      // 114: drm.ProcessedDataGetAccountIdRequest
-	(*ProcessedDataGetDataRequest)(nil),           // 115: drm.ProcessedDataGetDataRequest
-	(*ProcessedDataGetSubscriptionIdRequest)(nil), // 116: drm.ProcessedDataGetSubscriptionIdRequest
-	(*NewInfoRequestOpRequest)(nil),               // 117: drm.NewInfoRequestOpRequest
-	(*NewInfoRequestOpResponse)(nil),              // 118: drm.NewInfoRequestOpResponse
+	(*NewManagerClientRequest)(nil),                       // 0: drm.NewManagerClientRequest
+	(*NewManagerClientResponse)(nil),                      // 1: drm.NewManagerClientResponse
+	(*AcquireDrmInfoRequest)(nil),                         // 2: drm.AcquireDrmInfoRequest
+	(*AcquireDrmInfoResponse)(nil),                        // 3: drm.AcquireDrmInfoResponse
+	(*AcquireRightsRequest)(nil),                          // 4: drm.AcquireRightsRequest
+	(*AcquireRightsResponse)(nil),                         // 5: drm.AcquireRightsResponse
+	(*CanHandle2Request)(nil),                             // 6: drm.CanHandle2Request
+	(*CanHandle2Response)(nil),                            // 7: drm.CanHandle2Response
+	(*CanHandle2_1Request)(nil),                           // 8: drm.CanHandle2_1Request
+	(*CanHandle2_1Response)(nil),                          // 9: drm.CanHandle2_1Response
+	(*CheckRightsStatus1Request)(nil),                     // 10: drm.CheckRightsStatus1Request
+	(*CheckRightsStatus1Response)(nil),                    // 11: drm.CheckRightsStatus1Response
+	(*CheckRightsStatus2_1Request)(nil),                   // 12: drm.CheckRightsStatus2_1Request
+	(*CheckRightsStatus2_1Response)(nil),                  // 13: drm.CheckRightsStatus2_1Response
+	(*CheckRightsStatus1_2Request)(nil),                   // 14: drm.CheckRightsStatus1_2Request
+	(*CheckRightsStatus1_2Response)(nil),                  // 15: drm.CheckRightsStatus1_2Response
+	(*CheckRightsStatus2_3Request)(nil),                   // 16: drm.CheckRightsStatus2_3Request
+	(*CheckRightsStatus2_3Response)(nil),                  // 17: drm.CheckRightsStatus2_3Response
+	(*CloseRequest)(nil),                                  // 18: drm.CloseRequest
+	(*CloseResponse)(nil),                                 // 19: drm.CloseResponse
+	(*CloseConvertSessionRequest)(nil),                    // 20: drm.CloseConvertSessionRequest
+	(*CloseConvertSessionResponse)(nil),                   // 21: drm.CloseConvertSessionResponse
+	(*ConvertDataRequest)(nil),                            // 22: drm.ConvertDataRequest
+	(*ConvertDataResponse)(nil),                           // 23: drm.ConvertDataResponse
+	(*GetAvailableDrmEnginesRequest)(nil),                 // 24: drm.GetAvailableDrmEnginesRequest
+	(*GetAvailableDrmEnginesResponse)(nil),                // 25: drm.GetAvailableDrmEnginesResponse
+	(*GetAvailableDrmSupportInfoRequest)(nil),             // 26: drm.GetAvailableDrmSupportInfoRequest
+	(*GetAvailableDrmSupportInfoResponse)(nil),            // 27: drm.GetAvailableDrmSupportInfoResponse
+	(*GetConstraints2Request)(nil),                        // 28: drm.GetConstraints2Request
+	(*GetConstraints2Response)(nil),                       // 29: drm.GetConstraints2Response
+	(*GetConstraints2_1Request)(nil),                      // 30: drm.GetConstraints2_1Request
+	(*GetConstraints2_1Response)(nil),                     // 31: drm.GetConstraints2_1Response
+	(*GetDrmObjectType2Request)(nil),                      // 32: drm.GetDrmObjectType2Request
+	(*GetDrmObjectType2Response)(nil),                     // 33: drm.GetDrmObjectType2Response
+	(*GetDrmObjectType2_1Request)(nil),                    // 34: drm.GetDrmObjectType2_1Request
+	(*GetDrmObjectType2_1Response)(nil),                   // 35: drm.GetDrmObjectType2_1Response
+	(*GetMetadata1Request)(nil),                           // 36: drm.GetMetadata1Request
+	(*GetMetadata1Response)(nil),                          // 37: drm.GetMetadata1Response
+	(*GetMetadata1_1Request)(nil),                         // 38: drm.GetMetadata1_1Request
+	(*GetMetadata1_1Response)(nil),                        // 39: drm.GetMetadata1_1Response
+	(*GetOriginalMimeType1Request)(nil),                   // 40: drm.GetOriginalMimeType1Request
+	(*GetOriginalMimeType1Response)(nil),                  // 41: drm.GetOriginalMimeType1Response
+	(*GetOriginalMimeType1_1Request)(nil),                 // 42: drm.GetOriginalMimeType1_1Request
+	(*GetOriginalMimeType1_1Response)(nil),                // 43: drm.GetOriginalMimeType1_1Response
+	(*OpenConvertSessionRequest)(nil),                     // 44: drm.OpenConvertSessionRequest
+	(*OpenConvertSessionResponse)(nil),                    // 45: drm.OpenConvertSessionResponse
+	(*ProcessDrmInfoRequest)(nil),                         // 46: drm.ProcessDrmInfoRequest
+	(*ProcessDrmInfoResponse)(nil),                        // 47: drm.ProcessDrmInfoResponse
+	(*ReleaseRequest)(nil),                                // 48: drm.ReleaseRequest
+	(*ReleaseResponse)(nil),                               // 49: drm.ReleaseResponse
+	(*RemoveAllRightsRequest)(nil),                        // 50: drm.RemoveAllRightsRequest
+	(*RemoveAllRightsResponse)(nil),                       // 51: drm.RemoveAllRightsResponse
+	(*RemoveRights1Request)(nil),                          // 52: drm.RemoveRights1Request
+	(*RemoveRights1Response)(nil),                         // 53: drm.RemoveRights1Response
+	(*RemoveRights1_1Request)(nil),                        // 54: drm.RemoveRights1_1Request
+	(*RemoveRights1_1Response)(nil),                       // 55: drm.RemoveRights1_1Response
+	(*SaveRightsRequest)(nil),                             // 56: drm.SaveRightsRequest
+	(*SaveRightsResponse)(nil),                            // 57: drm.SaveRightsResponse
+	(*OnErrorRequest)(nil),                                // 58: drm.OnErrorRequest
+	(*OnErrorResponse)(nil),                               // 59: drm.OnErrorResponse
+	(*OnEventRequest)(nil),                                // 60: drm.OnEventRequest
+	(*OnEventResponse)(nil),                               // 61: drm.OnEventResponse
+	(*OnInfoRequest)(nil),                                 // 62: drm.OnInfoRequest
+	(*OnInfoResponse)(nil),                                // 63: drm.OnInfoResponse
+	(*GetAccountIdRequest)(nil),                           // 64: drm.GetAccountIdRequest
+	(*GetAccountIdResponse)(nil),                          // 65: drm.GetAccountIdResponse
+	(*GetDataRequest)(nil),                                // 66: drm.GetDataRequest
+	(*GetDataResponse)(nil),                               // 67: drm.GetDataResponse
+	(*GetSubscriptionIdRequest)(nil),                      // 68: drm.GetSubscriptionIdRequest
+	(*GetSubscriptionIdResponse)(nil),                     // 69: drm.GetSubscriptionIdResponse
+	(*GetAttributeRequest)(nil),                           // 70: drm.GetAttributeRequest
+	(*GetAttributeResponse)(nil),                          // 71: drm.GetAttributeResponse
+	(*GetMessageRequest)(nil),                             // 72: drm.GetMessageRequest
+	(*GetMessageResponse)(nil),                            // 73: drm.GetMessageResponse
+	(*GetTypeRequest)(nil),                                // 74: drm.GetTypeRequest
+	(*GetTypeResponse)(nil),                               // 75: drm.GetTypeResponse
+	(*GetUniqueIdRequest)(nil),                            // 76: drm.GetUniqueIdRequest
+	(*GetUniqueIdResponse)(nil),                           // 77: drm.GetUniqueIdResponse
+	(*NewSupportInfoRequest)(nil),                         // 78: drm.NewSupportInfoRequest
+	(*NewSupportInfoResponse)(nil),                        // 79: drm.NewSupportInfoResponse
+	(*AddFileSuffixRequest)(nil),                          // 80: drm.AddFileSuffixRequest
+	(*AddFileSuffixResponse)(nil),                         // 81: drm.AddFileSuffixResponse
+	(*AddMimeTypeRequest)(nil),                            // 82: drm.AddMimeTypeRequest
+	(*AddMimeTypeResponse)(nil),                           // 83: drm.AddMimeTypeResponse
+	(*EqualsRequest)(nil),                                 // 84: drm.EqualsRequest
+	(*EqualsResponse)(nil),                                // 85: drm.EqualsResponse
+	(*GetDescripritionRequest)(nil),                       // 86: drm.GetDescripritionRequest
+	(*GetDescripritionResponse)(nil),                      // 87: drm.GetDescripritionResponse
+	(*GetDescriptionRequest)(nil),                         // 88: drm.GetDescriptionRequest
+	(*GetDescriptionResponse)(nil),                        // 89: drm.GetDescriptionResponse
+	(*GetFileSuffixIteratorRequest)(nil),                  // 90: drm.GetFileSuffixIteratorRequest
+	(*GetFileSuffixIteratorResponse)(nil),                 // 91: drm.GetFileSuffixIteratorResponse
+	(*GetMimeTypeIteratorRequest)(nil),                    // 92: drm.GetMimeTypeIteratorRequest
+	(*GetMimeTypeIteratorResponse)(nil),                   // 93: drm.GetMimeTypeIteratorResponse
+	(*HashCodeRequest)(nil),                               // 94: drm.HashCodeRequest
+	(*HashCodeResponse)(nil),                              // 95: drm.HashCodeResponse
+	(*SetDescriptionRequest)(nil),                         // 96: drm.SetDescriptionRequest
+	(*SetDescriptionResponse)(nil),                        // 97: drm.SetDescriptionResponse
+	(*NewRightsRequest)(nil),                              // 98: drm.NewRightsRequest
+	(*NewRightsResponse)(nil),                             // 99: drm.NewRightsResponse
+	(*RightsGetAccountIdRequest)(nil),                     // 100: drm.RightsGetAccountIdRequest
+	(*RightsGetDataRequest)(nil),                          // 101: drm.RightsGetDataRequest
+	(*GetMimeTypeRequest)(nil),                            // 102: drm.GetMimeTypeRequest
+	(*GetMimeTypeResponse)(nil),                           // 103: drm.GetMimeTypeResponse
+	(*RightsGetSubscriptionIdRequest)(nil),                // 104: drm.RightsGetSubscriptionIdRequest
+	(*NewInfoRequest)(nil),                                // 105: drm.NewInfoRequest
+	(*NewInfoResponse)(nil),                               // 106: drm.NewInfoResponse
+	(*GetRequest)(nil),                                    // 107: drm.GetRequest
+	(*GetResponse)(nil),                                   // 108: drm.GetResponse
+	(*InfoGetDataRequest)(nil),                            // 109: drm.InfoGetDataRequest
+	(*GetInfoTypeRequest)(nil),                            // 110: drm.GetInfoTypeRequest
+	(*GetInfoTypeResponse)(nil),                           // 111: drm.GetInfoTypeResponse
+	(*IteratorRequest)(nil),                               // 112: drm.IteratorRequest
+	(*IteratorResponse)(nil),                              // 113: drm.IteratorResponse
+	(*KeyIteratorRequest)(nil),                            // 114: drm.KeyIteratorRequest
+	(*KeyIteratorResponse)(nil),                           // 115: drm.KeyIteratorResponse
+	(*PutRequest)(nil),                                    // 116: drm.PutRequest
+	(*PutResponse)(nil),                                   // 117: drm.PutResponse
+	(*NewUtilsRequest)(nil),                               // 118: drm.NewUtilsRequest
+	(*NewUtilsResponse)(nil),                              // 119: drm.NewUtilsResponse
+	(*GetExtendedMetadataParserRequest)(nil),              // 120: drm.GetExtendedMetadataParserRequest
+	(*GetExtendedMetadataParserResponse)(nil),             // 121: drm.GetExtendedMetadataParserResponse
+	(*UtilsExtendedMetadataParserGetRequest)(nil),         // 122: drm.UtilsExtendedMetadataParserGetRequest
+	(*UtilsExtendedMetadataParserGetResponse)(nil),        // 123: drm.UtilsExtendedMetadataParserGetResponse
+	(*UtilsExtendedMetadataParserIteratorRequest)(nil),    // 124: drm.UtilsExtendedMetadataParserIteratorRequest
+	(*UtilsExtendedMetadataParserKeyIteratorRequest)(nil), // 125: drm.UtilsExtendedMetadataParserKeyIteratorRequest
+	(*NewInfoRequestRequest)(nil),                         // 126: drm.NewInfoRequestRequest
+	(*NewInfoRequestResponse)(nil),                        // 127: drm.NewInfoRequestResponse
+	(*NewInfoRequestOpRequest)(nil),                       // 128: drm.NewInfoRequestOpRequest
+	(*NewInfoRequestOpResponse)(nil),                      // 129: drm.NewInfoRequestOpResponse
 }
 var file_proto_drm_drm_proto_depIdxs = []int32{
 	0,   // 0: drm.ManagerClientService.NewManagerClient:input_type -> drm.NewManagerClientRequest
@@ -6039,125 +6538,143 @@ var file_proto_drm_drm_proto_depIdxs = []int32{
 	20,  // 10: drm.ManagerClientService.CloseConvertSession:input_type -> drm.CloseConvertSessionRequest
 	22,  // 11: drm.ManagerClientService.ConvertData:input_type -> drm.ConvertDataRequest
 	24,  // 12: drm.ManagerClientService.GetAvailableDrmEngines:input_type -> drm.GetAvailableDrmEnginesRequest
-	26,  // 13: drm.ManagerClientService.GetConstraints2:input_type -> drm.GetConstraints2Request
-	28,  // 14: drm.ManagerClientService.GetConstraints2_1:input_type -> drm.GetConstraints2_1Request
-	30,  // 15: drm.ManagerClientService.GetDrmObjectType2:input_type -> drm.GetDrmObjectType2Request
-	32,  // 16: drm.ManagerClientService.GetDrmObjectType2_1:input_type -> drm.GetDrmObjectType2_1Request
-	34,  // 17: drm.ManagerClientService.GetMetadata1:input_type -> drm.GetMetadata1Request
-	36,  // 18: drm.ManagerClientService.GetMetadata1_1:input_type -> drm.GetMetadata1_1Request
-	38,  // 19: drm.ManagerClientService.GetOriginalMimeType1:input_type -> drm.GetOriginalMimeType1Request
-	40,  // 20: drm.ManagerClientService.GetOriginalMimeType1_1:input_type -> drm.GetOriginalMimeType1_1Request
-	42,  // 21: drm.ManagerClientService.OpenConvertSession:input_type -> drm.OpenConvertSessionRequest
-	44,  // 22: drm.ManagerClientService.ProcessDrmInfo:input_type -> drm.ProcessDrmInfoRequest
-	46,  // 23: drm.ManagerClientService.Release:input_type -> drm.ReleaseRequest
-	48,  // 24: drm.ManagerClientService.RemoveAllRights:input_type -> drm.RemoveAllRightsRequest
-	50,  // 25: drm.ManagerClientService.RemoveRights1:input_type -> drm.RemoveRights1Request
-	52,  // 26: drm.ManagerClientService.RemoveRights1_1:input_type -> drm.RemoveRights1_1Request
-	54,  // 27: drm.ManagerClientService.SaveRights:input_type -> drm.SaveRightsRequest
-	56,  // 28: drm.ManagerClientOnErrorListenerService.OnError:input_type -> drm.OnErrorRequest
-	58,  // 29: drm.ManagerClientOnEventListenerService.OnEvent:input_type -> drm.OnEventRequest
-	60,  // 30: drm.ManagerClientOnInfoListenerService.OnInfo:input_type -> drm.OnInfoRequest
-	62,  // 31: drm.UtilsService.NewUtils:input_type -> drm.NewUtilsRequest
-	64,  // 32: drm.UtilsService.GetExtendedMetadataParser:input_type -> drm.GetExtendedMetadataParserRequest
-	66,  // 33: drm.UtilsExtendedMetadataParserService.Get:input_type -> drm.GetRequest
-	68,  // 34: drm.SupportInfoService.NewSupportInfo:input_type -> drm.NewSupportInfoRequest
-	70,  // 35: drm.SupportInfoService.AddFileSuffix:input_type -> drm.AddFileSuffixRequest
-	72,  // 36: drm.SupportInfoService.AddMimeType:input_type -> drm.AddMimeTypeRequest
-	74,  // 37: drm.SupportInfoService.Equals:input_type -> drm.EqualsRequest
-	76,  // 38: drm.SupportInfoService.GetDescriprition:input_type -> drm.GetDescripritionRequest
-	78,  // 39: drm.SupportInfoService.GetDescription:input_type -> drm.GetDescriptionRequest
-	80,  // 40: drm.SupportInfoService.HashCode:input_type -> drm.HashCodeRequest
-	82,  // 41: drm.SupportInfoService.SetDescription:input_type -> drm.SetDescriptionRequest
-	117, // 42: drm.InfoRequestService.NewInfoRequestOp:input_type -> drm.NewInfoRequestOpRequest
-	86,  // 43: drm.InfoRequestService.Get:input_type -> drm.InfoRequestGetRequest
-	88,  // 44: drm.InfoRequestService.GetInfoType:input_type -> drm.GetInfoTypeRequest
-	90,  // 45: drm.InfoRequestService.GetMimeType:input_type -> drm.GetMimeTypeRequest
-	92,  // 46: drm.InfoRequestService.Put:input_type -> drm.PutRequest
-	94,  // 47: drm.EventService.GetAttribute:input_type -> drm.GetAttributeRequest
-	96,  // 48: drm.EventService.GetMessage:input_type -> drm.GetMessageRequest
-	98,  // 49: drm.EventService.GetType:input_type -> drm.GetTypeRequest
-	100, // 50: drm.EventService.GetUniqueId:input_type -> drm.GetUniqueIdRequest
-	102, // 51: drm.RightsService.NewRights:input_type -> drm.NewRightsRequest
-	104, // 52: drm.RightsService.GetAccountId:input_type -> drm.GetAccountIdRequest
-	106, // 53: drm.RightsService.GetData:input_type -> drm.GetDataRequest
-	90,  // 54: drm.RightsService.GetMimeType:input_type -> drm.GetMimeTypeRequest
-	108, // 55: drm.RightsService.GetSubscriptionId:input_type -> drm.GetSubscriptionIdRequest
-	110, // 56: drm.InfoService.NewInfo:input_type -> drm.NewInfoRequest
-	112, // 57: drm.InfoService.Get:input_type -> drm.InfoGetRequest
-	106, // 58: drm.InfoService.GetData:input_type -> drm.GetDataRequest
-	88,  // 59: drm.InfoService.GetInfoType:input_type -> drm.GetInfoTypeRequest
-	90,  // 60: drm.InfoService.GetMimeType:input_type -> drm.GetMimeTypeRequest
-	92,  // 61: drm.InfoService.Put:input_type -> drm.PutRequest
-	114, // 62: drm.ProcessedDataService.GetAccountId:input_type -> drm.ProcessedDataGetAccountIdRequest
-	115, // 63: drm.ProcessedDataService.GetData:input_type -> drm.ProcessedDataGetDataRequest
-	116, // 64: drm.ProcessedDataService.GetSubscriptionId:input_type -> drm.ProcessedDataGetSubscriptionIdRequest
-	1,   // 65: drm.ManagerClientService.NewManagerClient:output_type -> drm.NewManagerClientResponse
-	3,   // 66: drm.ManagerClientService.AcquireDrmInfo:output_type -> drm.AcquireDrmInfoResponse
-	5,   // 67: drm.ManagerClientService.AcquireRights:output_type -> drm.AcquireRightsResponse
-	7,   // 68: drm.ManagerClientService.CanHandle2:output_type -> drm.CanHandle2Response
-	9,   // 69: drm.ManagerClientService.CanHandle2_1:output_type -> drm.CanHandle2_1Response
-	11,  // 70: drm.ManagerClientService.CheckRightsStatus1:output_type -> drm.CheckRightsStatus1Response
-	13,  // 71: drm.ManagerClientService.CheckRightsStatus2_1:output_type -> drm.CheckRightsStatus2_1Response
-	15,  // 72: drm.ManagerClientService.CheckRightsStatus1_2:output_type -> drm.CheckRightsStatus1_2Response
-	17,  // 73: drm.ManagerClientService.CheckRightsStatus2_3:output_type -> drm.CheckRightsStatus2_3Response
-	19,  // 74: drm.ManagerClientService.Close:output_type -> drm.CloseResponse
-	21,  // 75: drm.ManagerClientService.CloseConvertSession:output_type -> drm.CloseConvertSessionResponse
-	23,  // 76: drm.ManagerClientService.ConvertData:output_type -> drm.ConvertDataResponse
-	25,  // 77: drm.ManagerClientService.GetAvailableDrmEngines:output_type -> drm.GetAvailableDrmEnginesResponse
-	27,  // 78: drm.ManagerClientService.GetConstraints2:output_type -> drm.GetConstraints2Response
-	29,  // 79: drm.ManagerClientService.GetConstraints2_1:output_type -> drm.GetConstraints2_1Response
-	31,  // 80: drm.ManagerClientService.GetDrmObjectType2:output_type -> drm.GetDrmObjectType2Response
-	33,  // 81: drm.ManagerClientService.GetDrmObjectType2_1:output_type -> drm.GetDrmObjectType2_1Response
-	35,  // 82: drm.ManagerClientService.GetMetadata1:output_type -> drm.GetMetadata1Response
-	37,  // 83: drm.ManagerClientService.GetMetadata1_1:output_type -> drm.GetMetadata1_1Response
-	39,  // 84: drm.ManagerClientService.GetOriginalMimeType1:output_type -> drm.GetOriginalMimeType1Response
-	41,  // 85: drm.ManagerClientService.GetOriginalMimeType1_1:output_type -> drm.GetOriginalMimeType1_1Response
-	43,  // 86: drm.ManagerClientService.OpenConvertSession:output_type -> drm.OpenConvertSessionResponse
-	45,  // 87: drm.ManagerClientService.ProcessDrmInfo:output_type -> drm.ProcessDrmInfoResponse
-	47,  // 88: drm.ManagerClientService.Release:output_type -> drm.ReleaseResponse
-	49,  // 89: drm.ManagerClientService.RemoveAllRights:output_type -> drm.RemoveAllRightsResponse
-	51,  // 90: drm.ManagerClientService.RemoveRights1:output_type -> drm.RemoveRights1Response
-	53,  // 91: drm.ManagerClientService.RemoveRights1_1:output_type -> drm.RemoveRights1_1Response
-	55,  // 92: drm.ManagerClientService.SaveRights:output_type -> drm.SaveRightsResponse
-	57,  // 93: drm.ManagerClientOnErrorListenerService.OnError:output_type -> drm.OnErrorResponse
-	59,  // 94: drm.ManagerClientOnEventListenerService.OnEvent:output_type -> drm.OnEventResponse
-	61,  // 95: drm.ManagerClientOnInfoListenerService.OnInfo:output_type -> drm.OnInfoResponse
-	63,  // 96: drm.UtilsService.NewUtils:output_type -> drm.NewUtilsResponse
-	65,  // 97: drm.UtilsService.GetExtendedMetadataParser:output_type -> drm.GetExtendedMetadataParserResponse
-	67,  // 98: drm.UtilsExtendedMetadataParserService.Get:output_type -> drm.GetResponse
-	69,  // 99: drm.SupportInfoService.NewSupportInfo:output_type -> drm.NewSupportInfoResponse
-	71,  // 100: drm.SupportInfoService.AddFileSuffix:output_type -> drm.AddFileSuffixResponse
-	73,  // 101: drm.SupportInfoService.AddMimeType:output_type -> drm.AddMimeTypeResponse
-	75,  // 102: drm.SupportInfoService.Equals:output_type -> drm.EqualsResponse
-	77,  // 103: drm.SupportInfoService.GetDescriprition:output_type -> drm.GetDescripritionResponse
-	79,  // 104: drm.SupportInfoService.GetDescription:output_type -> drm.GetDescriptionResponse
-	81,  // 105: drm.SupportInfoService.HashCode:output_type -> drm.HashCodeResponse
-	83,  // 106: drm.SupportInfoService.SetDescription:output_type -> drm.SetDescriptionResponse
-	118, // 107: drm.InfoRequestService.NewInfoRequestOp:output_type -> drm.NewInfoRequestOpResponse
-	87,  // 108: drm.InfoRequestService.Get:output_type -> drm.InfoRequestGetResponse
-	89,  // 109: drm.InfoRequestService.GetInfoType:output_type -> drm.GetInfoTypeResponse
-	91,  // 110: drm.InfoRequestService.GetMimeType:output_type -> drm.GetMimeTypeResponse
-	93,  // 111: drm.InfoRequestService.Put:output_type -> drm.PutResponse
-	95,  // 112: drm.EventService.GetAttribute:output_type -> drm.GetAttributeResponse
-	97,  // 113: drm.EventService.GetMessage:output_type -> drm.GetMessageResponse
-	99,  // 114: drm.EventService.GetType:output_type -> drm.GetTypeResponse
-	101, // 115: drm.EventService.GetUniqueId:output_type -> drm.GetUniqueIdResponse
-	103, // 116: drm.RightsService.NewRights:output_type -> drm.NewRightsResponse
-	105, // 117: drm.RightsService.GetAccountId:output_type -> drm.GetAccountIdResponse
-	107, // 118: drm.RightsService.GetData:output_type -> drm.GetDataResponse
-	91,  // 119: drm.RightsService.GetMimeType:output_type -> drm.GetMimeTypeResponse
-	109, // 120: drm.RightsService.GetSubscriptionId:output_type -> drm.GetSubscriptionIdResponse
-	111, // 121: drm.InfoService.NewInfo:output_type -> drm.NewInfoResponse
-	113, // 122: drm.InfoService.Get:output_type -> drm.InfoGetResponse
-	107, // 123: drm.InfoService.GetData:output_type -> drm.GetDataResponse
-	89,  // 124: drm.InfoService.GetInfoType:output_type -> drm.GetInfoTypeResponse
-	91,  // 125: drm.InfoService.GetMimeType:output_type -> drm.GetMimeTypeResponse
-	93,  // 126: drm.InfoService.Put:output_type -> drm.PutResponse
-	105, // 127: drm.ProcessedDataService.GetAccountId:output_type -> drm.GetAccountIdResponse
-	107, // 128: drm.ProcessedDataService.GetData:output_type -> drm.GetDataResponse
-	109, // 129: drm.ProcessedDataService.GetSubscriptionId:output_type -> drm.GetSubscriptionIdResponse
-	65,  // [65:130] is the sub-list for method output_type
-	0,   // [0:65] is the sub-list for method input_type
+	26,  // 13: drm.ManagerClientService.GetAvailableDrmSupportInfo:input_type -> drm.GetAvailableDrmSupportInfoRequest
+	28,  // 14: drm.ManagerClientService.GetConstraints2:input_type -> drm.GetConstraints2Request
+	30,  // 15: drm.ManagerClientService.GetConstraints2_1:input_type -> drm.GetConstraints2_1Request
+	32,  // 16: drm.ManagerClientService.GetDrmObjectType2:input_type -> drm.GetDrmObjectType2Request
+	34,  // 17: drm.ManagerClientService.GetDrmObjectType2_1:input_type -> drm.GetDrmObjectType2_1Request
+	36,  // 18: drm.ManagerClientService.GetMetadata1:input_type -> drm.GetMetadata1Request
+	38,  // 19: drm.ManagerClientService.GetMetadata1_1:input_type -> drm.GetMetadata1_1Request
+	40,  // 20: drm.ManagerClientService.GetOriginalMimeType1:input_type -> drm.GetOriginalMimeType1Request
+	42,  // 21: drm.ManagerClientService.GetOriginalMimeType1_1:input_type -> drm.GetOriginalMimeType1_1Request
+	44,  // 22: drm.ManagerClientService.OpenConvertSession:input_type -> drm.OpenConvertSessionRequest
+	46,  // 23: drm.ManagerClientService.ProcessDrmInfo:input_type -> drm.ProcessDrmInfoRequest
+	48,  // 24: drm.ManagerClientService.Release:input_type -> drm.ReleaseRequest
+	50,  // 25: drm.ManagerClientService.RemoveAllRights:input_type -> drm.RemoveAllRightsRequest
+	52,  // 26: drm.ManagerClientService.RemoveRights1:input_type -> drm.RemoveRights1Request
+	54,  // 27: drm.ManagerClientService.RemoveRights1_1:input_type -> drm.RemoveRights1_1Request
+	56,  // 28: drm.ManagerClientService.SaveRights:input_type -> drm.SaveRightsRequest
+	58,  // 29: drm.ManagerClientOnErrorListenerService.OnError:input_type -> drm.OnErrorRequest
+	60,  // 30: drm.ManagerClientOnEventListenerService.OnEvent:input_type -> drm.OnEventRequest
+	62,  // 31: drm.ManagerClientOnInfoListenerService.OnInfo:input_type -> drm.OnInfoRequest
+	64,  // 32: drm.ProcessedDataService.GetAccountId:input_type -> drm.GetAccountIdRequest
+	66,  // 33: drm.ProcessedDataService.GetData:input_type -> drm.GetDataRequest
+	68,  // 34: drm.ProcessedDataService.GetSubscriptionId:input_type -> drm.GetSubscriptionIdRequest
+	70,  // 35: drm.EventService.GetAttribute:input_type -> drm.GetAttributeRequest
+	72,  // 36: drm.EventService.GetMessage:input_type -> drm.GetMessageRequest
+	74,  // 37: drm.EventService.GetType:input_type -> drm.GetTypeRequest
+	76,  // 38: drm.EventService.GetUniqueId:input_type -> drm.GetUniqueIdRequest
+	78,  // 39: drm.SupportInfoService.NewSupportInfo:input_type -> drm.NewSupportInfoRequest
+	80,  // 40: drm.SupportInfoService.AddFileSuffix:input_type -> drm.AddFileSuffixRequest
+	82,  // 41: drm.SupportInfoService.AddMimeType:input_type -> drm.AddMimeTypeRequest
+	84,  // 42: drm.SupportInfoService.Equals:input_type -> drm.EqualsRequest
+	86,  // 43: drm.SupportInfoService.GetDescriprition:input_type -> drm.GetDescripritionRequest
+	88,  // 44: drm.SupportInfoService.GetDescription:input_type -> drm.GetDescriptionRequest
+	90,  // 45: drm.SupportInfoService.GetFileSuffixIterator:input_type -> drm.GetFileSuffixIteratorRequest
+	92,  // 46: drm.SupportInfoService.GetMimeTypeIterator:input_type -> drm.GetMimeTypeIteratorRequest
+	94,  // 47: drm.SupportInfoService.HashCode:input_type -> drm.HashCodeRequest
+	96,  // 48: drm.SupportInfoService.SetDescription:input_type -> drm.SetDescriptionRequest
+	98,  // 49: drm.RightsService.NewRights:input_type -> drm.NewRightsRequest
+	100, // 50: drm.RightsService.GetAccountId:input_type -> drm.RightsGetAccountIdRequest
+	101, // 51: drm.RightsService.GetData:input_type -> drm.RightsGetDataRequest
+	102, // 52: drm.RightsService.GetMimeType:input_type -> drm.GetMimeTypeRequest
+	104, // 53: drm.RightsService.GetSubscriptionId:input_type -> drm.RightsGetSubscriptionIdRequest
+	105, // 54: drm.InfoService.NewInfo:input_type -> drm.NewInfoRequest
+	107, // 55: drm.InfoService.Get:input_type -> drm.GetRequest
+	109, // 56: drm.InfoService.GetData:input_type -> drm.InfoGetDataRequest
+	110, // 57: drm.InfoService.GetInfoType:input_type -> drm.GetInfoTypeRequest
+	102, // 58: drm.InfoService.GetMimeType:input_type -> drm.GetMimeTypeRequest
+	112, // 59: drm.InfoService.Iterator:input_type -> drm.IteratorRequest
+	114, // 60: drm.InfoService.KeyIterator:input_type -> drm.KeyIteratorRequest
+	116, // 61: drm.InfoService.Put:input_type -> drm.PutRequest
+	118, // 62: drm.UtilsService.NewUtils:input_type -> drm.NewUtilsRequest
+	120, // 63: drm.UtilsService.GetExtendedMetadataParser:input_type -> drm.GetExtendedMetadataParserRequest
+	122, // 64: drm.UtilsExtendedMetadataParserService.Get:input_type -> drm.UtilsExtendedMetadataParserGetRequest
+	124, // 65: drm.UtilsExtendedMetadataParserService.Iterator:input_type -> drm.UtilsExtendedMetadataParserIteratorRequest
+	125, // 66: drm.UtilsExtendedMetadataParserService.KeyIterator:input_type -> drm.UtilsExtendedMetadataParserKeyIteratorRequest
+	128, // 67: drm.InfoRequestService.NewInfoRequestOp:input_type -> drm.NewInfoRequestOpRequest
+	107, // 68: drm.InfoRequestService.Get:input_type -> drm.GetRequest
+	110, // 69: drm.InfoRequestService.GetInfoType:input_type -> drm.GetInfoTypeRequest
+	102, // 70: drm.InfoRequestService.GetMimeType:input_type -> drm.GetMimeTypeRequest
+	112, // 71: drm.InfoRequestService.Iterator:input_type -> drm.IteratorRequest
+	114, // 72: drm.InfoRequestService.KeyIterator:input_type -> drm.KeyIteratorRequest
+	116, // 73: drm.InfoRequestService.Put:input_type -> drm.PutRequest
+	1,   // 74: drm.ManagerClientService.NewManagerClient:output_type -> drm.NewManagerClientResponse
+	3,   // 75: drm.ManagerClientService.AcquireDrmInfo:output_type -> drm.AcquireDrmInfoResponse
+	5,   // 76: drm.ManagerClientService.AcquireRights:output_type -> drm.AcquireRightsResponse
+	7,   // 77: drm.ManagerClientService.CanHandle2:output_type -> drm.CanHandle2Response
+	9,   // 78: drm.ManagerClientService.CanHandle2_1:output_type -> drm.CanHandle2_1Response
+	11,  // 79: drm.ManagerClientService.CheckRightsStatus1:output_type -> drm.CheckRightsStatus1Response
+	13,  // 80: drm.ManagerClientService.CheckRightsStatus2_1:output_type -> drm.CheckRightsStatus2_1Response
+	15,  // 81: drm.ManagerClientService.CheckRightsStatus1_2:output_type -> drm.CheckRightsStatus1_2Response
+	17,  // 82: drm.ManagerClientService.CheckRightsStatus2_3:output_type -> drm.CheckRightsStatus2_3Response
+	19,  // 83: drm.ManagerClientService.Close:output_type -> drm.CloseResponse
+	21,  // 84: drm.ManagerClientService.CloseConvertSession:output_type -> drm.CloseConvertSessionResponse
+	23,  // 85: drm.ManagerClientService.ConvertData:output_type -> drm.ConvertDataResponse
+	25,  // 86: drm.ManagerClientService.GetAvailableDrmEngines:output_type -> drm.GetAvailableDrmEnginesResponse
+	27,  // 87: drm.ManagerClientService.GetAvailableDrmSupportInfo:output_type -> drm.GetAvailableDrmSupportInfoResponse
+	29,  // 88: drm.ManagerClientService.GetConstraints2:output_type -> drm.GetConstraints2Response
+	31,  // 89: drm.ManagerClientService.GetConstraints2_1:output_type -> drm.GetConstraints2_1Response
+	33,  // 90: drm.ManagerClientService.GetDrmObjectType2:output_type -> drm.GetDrmObjectType2Response
+	35,  // 91: drm.ManagerClientService.GetDrmObjectType2_1:output_type -> drm.GetDrmObjectType2_1Response
+	37,  // 92: drm.ManagerClientService.GetMetadata1:output_type -> drm.GetMetadata1Response
+	39,  // 93: drm.ManagerClientService.GetMetadata1_1:output_type -> drm.GetMetadata1_1Response
+	41,  // 94: drm.ManagerClientService.GetOriginalMimeType1:output_type -> drm.GetOriginalMimeType1Response
+	43,  // 95: drm.ManagerClientService.GetOriginalMimeType1_1:output_type -> drm.GetOriginalMimeType1_1Response
+	45,  // 96: drm.ManagerClientService.OpenConvertSession:output_type -> drm.OpenConvertSessionResponse
+	47,  // 97: drm.ManagerClientService.ProcessDrmInfo:output_type -> drm.ProcessDrmInfoResponse
+	49,  // 98: drm.ManagerClientService.Release:output_type -> drm.ReleaseResponse
+	51,  // 99: drm.ManagerClientService.RemoveAllRights:output_type -> drm.RemoveAllRightsResponse
+	53,  // 100: drm.ManagerClientService.RemoveRights1:output_type -> drm.RemoveRights1Response
+	55,  // 101: drm.ManagerClientService.RemoveRights1_1:output_type -> drm.RemoveRights1_1Response
+	57,  // 102: drm.ManagerClientService.SaveRights:output_type -> drm.SaveRightsResponse
+	59,  // 103: drm.ManagerClientOnErrorListenerService.OnError:output_type -> drm.OnErrorResponse
+	61,  // 104: drm.ManagerClientOnEventListenerService.OnEvent:output_type -> drm.OnEventResponse
+	63,  // 105: drm.ManagerClientOnInfoListenerService.OnInfo:output_type -> drm.OnInfoResponse
+	65,  // 106: drm.ProcessedDataService.GetAccountId:output_type -> drm.GetAccountIdResponse
+	67,  // 107: drm.ProcessedDataService.GetData:output_type -> drm.GetDataResponse
+	69,  // 108: drm.ProcessedDataService.GetSubscriptionId:output_type -> drm.GetSubscriptionIdResponse
+	71,  // 109: drm.EventService.GetAttribute:output_type -> drm.GetAttributeResponse
+	73,  // 110: drm.EventService.GetMessage:output_type -> drm.GetMessageResponse
+	75,  // 111: drm.EventService.GetType:output_type -> drm.GetTypeResponse
+	77,  // 112: drm.EventService.GetUniqueId:output_type -> drm.GetUniqueIdResponse
+	79,  // 113: drm.SupportInfoService.NewSupportInfo:output_type -> drm.NewSupportInfoResponse
+	81,  // 114: drm.SupportInfoService.AddFileSuffix:output_type -> drm.AddFileSuffixResponse
+	83,  // 115: drm.SupportInfoService.AddMimeType:output_type -> drm.AddMimeTypeResponse
+	85,  // 116: drm.SupportInfoService.Equals:output_type -> drm.EqualsResponse
+	87,  // 117: drm.SupportInfoService.GetDescriprition:output_type -> drm.GetDescripritionResponse
+	89,  // 118: drm.SupportInfoService.GetDescription:output_type -> drm.GetDescriptionResponse
+	91,  // 119: drm.SupportInfoService.GetFileSuffixIterator:output_type -> drm.GetFileSuffixIteratorResponse
+	93,  // 120: drm.SupportInfoService.GetMimeTypeIterator:output_type -> drm.GetMimeTypeIteratorResponse
+	95,  // 121: drm.SupportInfoService.HashCode:output_type -> drm.HashCodeResponse
+	97,  // 122: drm.SupportInfoService.SetDescription:output_type -> drm.SetDescriptionResponse
+	99,  // 123: drm.RightsService.NewRights:output_type -> drm.NewRightsResponse
+	65,  // 124: drm.RightsService.GetAccountId:output_type -> drm.GetAccountIdResponse
+	67,  // 125: drm.RightsService.GetData:output_type -> drm.GetDataResponse
+	103, // 126: drm.RightsService.GetMimeType:output_type -> drm.GetMimeTypeResponse
+	69,  // 127: drm.RightsService.GetSubscriptionId:output_type -> drm.GetSubscriptionIdResponse
+	106, // 128: drm.InfoService.NewInfo:output_type -> drm.NewInfoResponse
+	108, // 129: drm.InfoService.Get:output_type -> drm.GetResponse
+	67,  // 130: drm.InfoService.GetData:output_type -> drm.GetDataResponse
+	111, // 131: drm.InfoService.GetInfoType:output_type -> drm.GetInfoTypeResponse
+	103, // 132: drm.InfoService.GetMimeType:output_type -> drm.GetMimeTypeResponse
+	113, // 133: drm.InfoService.Iterator:output_type -> drm.IteratorResponse
+	115, // 134: drm.InfoService.KeyIterator:output_type -> drm.KeyIteratorResponse
+	117, // 135: drm.InfoService.Put:output_type -> drm.PutResponse
+	119, // 136: drm.UtilsService.NewUtils:output_type -> drm.NewUtilsResponse
+	121, // 137: drm.UtilsService.GetExtendedMetadataParser:output_type -> drm.GetExtendedMetadataParserResponse
+	123, // 138: drm.UtilsExtendedMetadataParserService.Get:output_type -> drm.UtilsExtendedMetadataParserGetResponse
+	113, // 139: drm.UtilsExtendedMetadataParserService.Iterator:output_type -> drm.IteratorResponse
+	115, // 140: drm.UtilsExtendedMetadataParserService.KeyIterator:output_type -> drm.KeyIteratorResponse
+	129, // 141: drm.InfoRequestService.NewInfoRequestOp:output_type -> drm.NewInfoRequestOpResponse
+	108, // 142: drm.InfoRequestService.Get:output_type -> drm.GetResponse
+	111, // 143: drm.InfoRequestService.GetInfoType:output_type -> drm.GetInfoTypeResponse
+	103, // 144: drm.InfoRequestService.GetMimeType:output_type -> drm.GetMimeTypeResponse
+	113, // 145: drm.InfoRequestService.Iterator:output_type -> drm.IteratorResponse
+	115, // 146: drm.InfoRequestService.KeyIterator:output_type -> drm.KeyIteratorResponse
+	117, // 147: drm.InfoRequestService.Put:output_type -> drm.PutResponse
+	74,  // [74:148] is the sub-list for method output_type
+	0,   // [0:74] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -6174,7 +6691,7 @@ func file_proto_drm_drm_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_drm_drm_proto_rawDesc), len(file_proto_drm_drm_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   119,
+			NumMessages:   130,
 			NumExtensions: 0,
 			NumServices:   12,
 		},

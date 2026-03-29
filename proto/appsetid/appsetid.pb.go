@@ -23,6 +23,94 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type NewAppSetIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -33,7 +121,7 @@ type NewAppSetIdRequest struct {
 
 func (x *NewAppSetIdRequest) Reset() {
 	*x = NewAppSetIdRequest{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[0]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +133,7 @@ func (x *NewAppSetIdRequest) String() string {
 func (*NewAppSetIdRequest) ProtoMessage() {}
 
 func (x *NewAppSetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[0]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +146,7 @@ func (x *NewAppSetIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewAppSetIdRequest.ProtoReflect.Descriptor instead.
 func (*NewAppSetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{0}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *NewAppSetIdRequest) GetArg0() string {
@@ -84,7 +172,7 @@ type NewAppSetIdResponse struct {
 
 func (x *NewAppSetIdResponse) Reset() {
 	*x = NewAppSetIdResponse{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[1]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -96,7 +184,7 @@ func (x *NewAppSetIdResponse) String() string {
 func (*NewAppSetIdResponse) ProtoMessage() {}
 
 func (x *NewAppSetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[1]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -109,7 +197,7 @@ func (x *NewAppSetIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewAppSetIdResponse.ProtoReflect.Descriptor instead.
 func (*NewAppSetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{1}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *NewAppSetIdResponse) GetResult() int64 {
@@ -129,7 +217,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[2]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -141,7 +229,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[2]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -154,7 +242,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{2}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *EqualsRequest) GetHandle() int64 {
@@ -180,7 +268,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[3]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -192,7 +280,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[3]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -205,7 +293,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{3}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -224,7 +312,7 @@ type GetIdRequest struct {
 
 func (x *GetIdRequest) Reset() {
 	*x = GetIdRequest{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[4]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -236,7 +324,7 @@ func (x *GetIdRequest) String() string {
 func (*GetIdRequest) ProtoMessage() {}
 
 func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[4]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -249,7 +337,7 @@ func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
 func (*GetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{4}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetIdRequest) GetHandle() int64 {
@@ -268,7 +356,7 @@ type GetIdResponse struct {
 
 func (x *GetIdResponse) Reset() {
 	*x = GetIdResponse{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[5]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -280,7 +368,7 @@ func (x *GetIdResponse) String() string {
 func (*GetIdResponse) ProtoMessage() {}
 
 func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[5]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -293,7 +381,7 @@ func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
 func (*GetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{5}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetIdResponse) GetResult() string {
@@ -312,7 +400,7 @@ type GetScopeRequest struct {
 
 func (x *GetScopeRequest) Reset() {
 	*x = GetScopeRequest{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[6]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -324,7 +412,7 @@ func (x *GetScopeRequest) String() string {
 func (*GetScopeRequest) ProtoMessage() {}
 
 func (x *GetScopeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[6]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -337,7 +425,7 @@ func (x *GetScopeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetScopeRequest.ProtoReflect.Descriptor instead.
 func (*GetScopeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{6}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetScopeRequest) GetHandle() int64 {
@@ -356,7 +444,7 @@ type GetScopeResponse struct {
 
 func (x *GetScopeResponse) Reset() {
 	*x = GetScopeResponse{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[7]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -368,7 +456,7 @@ func (x *GetScopeResponse) String() string {
 func (*GetScopeResponse) ProtoMessage() {}
 
 func (x *GetScopeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[7]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -381,7 +469,7 @@ func (x *GetScopeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetScopeResponse.ProtoReflect.Descriptor instead.
 func (*GetScopeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{7}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetScopeResponse) GetResult() int32 {
@@ -400,7 +488,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[8]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -412,7 +500,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[8]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -425,7 +513,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{8}
+	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *HashCodeRequest) GetHandle() int64 {
@@ -444,7 +532,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[9]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -456,7 +544,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[9]
+	mi := &file_proto_appsetid_appsetid_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -469,98 +557,10 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *HashCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequest) Reset() {
-	*x = GetRequest{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequest) ProtoMessage() {}
-
-func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
-func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *GetRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResponse) Reset() {
-	*x = GetResponse{}
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResponse) ProtoMessage() {}
-
-func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_appsetid_appsetid_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
-func (*GetResponse) Descriptor() ([]byte, []int) {
 	return file_proto_appsetid_appsetid_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *GetResponse) GetResult() int64 {
+func (x *HashCodeResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -571,7 +571,12 @@ var File_proto_appsetid_appsetid_proto protoreflect.FileDescriptor
 
 const file_proto_appsetid_appsetid_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/appsetid/appsetid.proto\x12\bappsetid\"<\n" +
+	"\x1dproto/appsetid/appsetid.proto\x12\bappsetid\" \n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
 	"\x12NewAppSetIdRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"-\n" +
@@ -593,20 +598,15 @@ const file_proto_appsetid_appsetid_proto_rawDesc = "" +
 	"\x0fHashCodeRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\" \n" +
-	"\n" +
-	"GetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"\vGetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xda\x02\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2L\n" +
+	"\x16AppSetIdManagerService\x122\n" +
+	"\x03Get\x12\x14.appsetid.GetRequest\x1a\x15.appsetid.GetResponse2\xda\x02\n" +
 	"\x0fAppSetIdService\x12J\n" +
 	"\vNewAppSetId\x12\x1c.appsetid.NewAppSetIdRequest\x1a\x1d.appsetid.NewAppSetIdResponse\x12;\n" +
 	"\x06Equals\x12\x17.appsetid.EqualsRequest\x1a\x18.appsetid.EqualsResponse\x128\n" +
 	"\x05GetId\x12\x16.appsetid.GetIdRequest\x1a\x17.appsetid.GetIdResponse\x12A\n" +
 	"\bGetScope\x12\x19.appsetid.GetScopeRequest\x1a\x1a.appsetid.GetScopeResponse\x12A\n" +
-	"\bHashCode\x12\x19.appsetid.HashCodeRequest\x1a\x1a.appsetid.HashCodeResponse2L\n" +
-	"\x16AppSetIdManagerService\x122\n" +
-	"\x03Get\x12\x14.appsetid.GetRequest\x1a\x15.appsetid.GetResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/appsetidb\x06proto3"
+	"\bHashCode\x12\x19.appsetid.HashCodeRequest\x1a\x1a.appsetid.HashCodeResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/appsetidb\x06proto3"
 
 var (
 	file_proto_appsetid_appsetid_proto_rawDescOnce sync.Once
@@ -622,32 +622,32 @@ func file_proto_appsetid_appsetid_proto_rawDescGZIP() []byte {
 
 var file_proto_appsetid_appsetid_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_proto_appsetid_appsetid_proto_goTypes = []any{
-	(*NewAppSetIdRequest)(nil),  // 0: appsetid.NewAppSetIdRequest
-	(*NewAppSetIdResponse)(nil), // 1: appsetid.NewAppSetIdResponse
-	(*EqualsRequest)(nil),       // 2: appsetid.EqualsRequest
-	(*EqualsResponse)(nil),      // 3: appsetid.EqualsResponse
-	(*GetIdRequest)(nil),        // 4: appsetid.GetIdRequest
-	(*GetIdResponse)(nil),       // 5: appsetid.GetIdResponse
-	(*GetScopeRequest)(nil),     // 6: appsetid.GetScopeRequest
-	(*GetScopeResponse)(nil),    // 7: appsetid.GetScopeResponse
-	(*HashCodeRequest)(nil),     // 8: appsetid.HashCodeRequest
-	(*HashCodeResponse)(nil),    // 9: appsetid.HashCodeResponse
-	(*GetRequest)(nil),          // 10: appsetid.GetRequest
-	(*GetResponse)(nil),         // 11: appsetid.GetResponse
+	(*GetRequest)(nil),          // 0: appsetid.GetRequest
+	(*GetResponse)(nil),         // 1: appsetid.GetResponse
+	(*NewAppSetIdRequest)(nil),  // 2: appsetid.NewAppSetIdRequest
+	(*NewAppSetIdResponse)(nil), // 3: appsetid.NewAppSetIdResponse
+	(*EqualsRequest)(nil),       // 4: appsetid.EqualsRequest
+	(*EqualsResponse)(nil),      // 5: appsetid.EqualsResponse
+	(*GetIdRequest)(nil),        // 6: appsetid.GetIdRequest
+	(*GetIdResponse)(nil),       // 7: appsetid.GetIdResponse
+	(*GetScopeRequest)(nil),     // 8: appsetid.GetScopeRequest
+	(*GetScopeResponse)(nil),    // 9: appsetid.GetScopeResponse
+	(*HashCodeRequest)(nil),     // 10: appsetid.HashCodeRequest
+	(*HashCodeResponse)(nil),    // 11: appsetid.HashCodeResponse
 }
 var file_proto_appsetid_appsetid_proto_depIdxs = []int32{
-	0,  // 0: appsetid.AppSetIdService.NewAppSetId:input_type -> appsetid.NewAppSetIdRequest
-	2,  // 1: appsetid.AppSetIdService.Equals:input_type -> appsetid.EqualsRequest
-	4,  // 2: appsetid.AppSetIdService.GetId:input_type -> appsetid.GetIdRequest
-	6,  // 3: appsetid.AppSetIdService.GetScope:input_type -> appsetid.GetScopeRequest
-	8,  // 4: appsetid.AppSetIdService.HashCode:input_type -> appsetid.HashCodeRequest
-	10, // 5: appsetid.AppSetIdManagerService.Get:input_type -> appsetid.GetRequest
-	1,  // 6: appsetid.AppSetIdService.NewAppSetId:output_type -> appsetid.NewAppSetIdResponse
-	3,  // 7: appsetid.AppSetIdService.Equals:output_type -> appsetid.EqualsResponse
-	5,  // 8: appsetid.AppSetIdService.GetId:output_type -> appsetid.GetIdResponse
-	7,  // 9: appsetid.AppSetIdService.GetScope:output_type -> appsetid.GetScopeResponse
-	9,  // 10: appsetid.AppSetIdService.HashCode:output_type -> appsetid.HashCodeResponse
-	11, // 11: appsetid.AppSetIdManagerService.Get:output_type -> appsetid.GetResponse
+	0,  // 0: appsetid.AppSetIdManagerService.Get:input_type -> appsetid.GetRequest
+	2,  // 1: appsetid.AppSetIdService.NewAppSetId:input_type -> appsetid.NewAppSetIdRequest
+	4,  // 2: appsetid.AppSetIdService.Equals:input_type -> appsetid.EqualsRequest
+	6,  // 3: appsetid.AppSetIdService.GetId:input_type -> appsetid.GetIdRequest
+	8,  // 4: appsetid.AppSetIdService.GetScope:input_type -> appsetid.GetScopeRequest
+	10, // 5: appsetid.AppSetIdService.HashCode:input_type -> appsetid.HashCodeRequest
+	1,  // 6: appsetid.AppSetIdManagerService.Get:output_type -> appsetid.GetResponse
+	3,  // 7: appsetid.AppSetIdService.NewAppSetId:output_type -> appsetid.NewAppSetIdResponse
+	5,  // 8: appsetid.AppSetIdService.Equals:output_type -> appsetid.EqualsResponse
+	7,  // 9: appsetid.AppSetIdService.GetId:output_type -> appsetid.GetIdResponse
+	9,  // 10: appsetid.AppSetIdService.GetScope:output_type -> appsetid.GetScopeResponse
+	11, // 11: appsetid.AppSetIdService.HashCode:output_type -> appsetid.HashCodeResponse
 	6,  // [6:12] is the sub-list for method output_type
 	0,  // [0:6] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

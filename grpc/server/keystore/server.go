@@ -22,6 +22,29 @@ type KeyStoreManagerServer struct {
 	Handles *handlestore.HandleStore
 }
 
+func (s *KeyStoreManagerServer) GetGrantedCertificateChainFromId(_ context.Context, req *pb.GetGrantedCertificateChainFromIdRequest) (*pb.GetGrantedCertificateChainFromIdResponse, error) {
+	mgr, err := jnipkg.NewKeyStoreManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetGrantedCertificateChainFromId(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetGrantedCertificateChainFromIdResponse{Result: handle}, nil
+}
+
 func (s *KeyStoreManagerServer) GetGrantedKeyFromId(_ context.Context, req *pb.GetGrantedKeyFromIdRequest) (*pb.GetGrantedKeyFromIdResponse, error) {
 	mgr, err := jnipkg.NewKeyStoreManager(s.Ctx)
 	if err != nil {
@@ -118,42 +141,6 @@ func (s *KeyStoreManagerServer) RevokeKeyAccess(_ context.Context, req *pb.Revok
 	return &pb.RevokeKeyAccessResponse{}, nil
 }
 
-// BackendBusyExceptionServer implements pb.BackendBusyExceptionServiceServer.
-type BackendBusyExceptionServer struct {
-	pb.UnimplementedBackendBusyExceptionServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *BackendBusyExceptionServer) NewBackendBusyException(_ context.Context, req *pb.NewBackendBusyExceptionRequest) (*pb.NewBackendBusyExceptionResponse, error) {
-	obj, err := jnipkg.NewBackendBusyException(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewBackendBusyExceptionResponse{Result: handle}, nil
-}
-
-func (s *BackendBusyExceptionServer) GetBackOffHintMillis(_ context.Context, req *pb.GetBackOffHintMillisRequest) (*pb.GetBackOffHintMillisResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BackendBusyException{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBackOffHintMillis()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetBackOffHintMillisResponse{Result: result}, nil
-}
-
 // WrappedKeyEntryServer implements pb.WrappedKeyEntryServiceServer.
 type WrappedKeyEntryServer struct {
 	pb.UnimplementedWrappedKeyEntryServiceServer
@@ -248,4 +235,40 @@ func (s *WrappedKeyEntryServer) GetWrappingKeyAlias(_ context.Context, req *pb.G
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetWrappingKeyAliasResponse{Result: result}, nil
+}
+
+// BackendBusyExceptionServer implements pb.BackendBusyExceptionServiceServer.
+type BackendBusyExceptionServer struct {
+	pb.UnimplementedBackendBusyExceptionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *BackendBusyExceptionServer) NewBackendBusyException(_ context.Context, req *pb.NewBackendBusyExceptionRequest) (*pb.NewBackendBusyExceptionResponse, error) {
+	obj, err := jnipkg.NewBackendBusyException(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewBackendBusyExceptionResponse{Result: handle}, nil
+}
+
+func (s *BackendBusyExceptionServer) GetBackOffHintMillis(_ context.Context, req *pb.GetBackOffHintMillisRequest) (*pb.GetBackOffHintMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BackendBusyException{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBackOffHintMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBackOffHintMillisResponse{Result: result}, nil
 }

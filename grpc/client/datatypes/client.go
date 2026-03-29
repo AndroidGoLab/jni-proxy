@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// SleepSessionRecordClient wraps the gRPC SleepSessionRecordService client.
-type SleepSessionRecordClient struct {
-	svc pb.SleepSessionRecordServiceClient
+// PowerRecordClient wraps the gRPC PowerRecordService client.
+type PowerRecordClient struct {
+	svc pb.PowerRecordServiceClient
 }
 
-// NewSleepSessionRecordClient creates a new SleepSessionRecord client.
-func NewSleepSessionRecordClient(cc grpc.ClientConnInterface) *SleepSessionRecordClient {
-	return &SleepSessionRecordClient{
-		svc: pb.NewSleepSessionRecordServiceClient(cc),
+// NewPowerRecordClient creates a new PowerRecord client.
+func NewPowerRecordClient(cc grpc.ClientConnInterface) *PowerRecordClient {
+	return &PowerRecordClient{
+		svc: pb.NewPowerRecordServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *SleepSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *PowerRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -32,18 +32,9 @@ func (c *SleepSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool
 	return resp.GetResult(), nil
 }
 
-// GetNotes calls the GetNotes RPC.
-func (c *SleepSessionRecordClient) GetNotes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotes(ctx, &pb.GetNotesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *SleepSessionRecordClient) GetTitle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+// GetSamples calls the GetSamples RPC.
+func (c *PowerRecordClient) GetSamples(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSamples(ctx, &pb.GetSamplesRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -51,7 +42,7 @@ func (c *SleepSessionRecordClient) GetTitle(ctx context.Context) (int64, error) 
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SleepSessionRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *PowerRecordClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -59,20 +50,20 @@ func (c *SleepSessionRecordClient) HashCode(ctx context.Context) (int32, error) 
 	return resp.GetResult(), nil
 }
 
-// SleepSessionRecordBuilderClient wraps the gRPC SleepSessionRecordBuilderService client.
-type SleepSessionRecordBuilderClient struct {
-	svc pb.SleepSessionRecordBuilderServiceClient
+// PowerRecordBuilderClient wraps the gRPC PowerRecordBuilderService client.
+type PowerRecordBuilderClient struct {
+	svc pb.PowerRecordBuilderServiceClient
 }
 
-// NewSleepSessionRecordBuilderClient creates a new SleepSessionRecordBuilder client.
-func NewSleepSessionRecordBuilderClient(cc grpc.ClientConnInterface) *SleepSessionRecordBuilderClient {
-	return &SleepSessionRecordBuilderClient{
-		svc: pb.NewSleepSessionRecordBuilderServiceClient(cc),
+// NewPowerRecordBuilderClient creates a new PowerRecordBuilder client.
+func NewPowerRecordBuilderClient(cc grpc.ClientConnInterface) *PowerRecordBuilderClient {
+	return &PowerRecordBuilderClient{
+		svc: pb.NewPowerRecordBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *SleepSessionRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *PowerRecordBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -81,7 +72,7 @@ func (c *SleepSessionRecordBuilderClient) Build(ctx context.Context) (int64, err
 }
 
 // ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *SleepSessionRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+func (c *PowerRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
 	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
@@ -90,7 +81,7 @@ func (c *SleepSessionRecordBuilderClient) ClearEndZoneOffset(ctx context.Context
 }
 
 // ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *SleepSessionRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+func (c *PowerRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
 	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
@@ -99,7 +90,7 @@ func (c *SleepSessionRecordBuilderClient) ClearStartZoneOffset(ctx context.Conte
 }
 
 // SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *SleepSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *PowerRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
 		Arg0: arg0,
 	})
@@ -109,19 +100,8 @@ func (c *SleepSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// SetNotes calls the SetNotes RPC.
-func (c *SleepSessionRecordBuilderClient) SetNotes(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetNotes(ctx, &pb.SetNotesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *SleepSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *PowerRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
 		Arg0: arg0,
 	})
@@ -131,31 +111,20 @@ func (c *SleepSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context
 	return resp.GetResult(), nil
 }
 
-// SetTitle calls the SetTitle RPC.
-func (c *SleepSessionRecordBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// PowerRecordPowerRecordSampleClient wraps the gRPC PowerRecordPowerRecordSampleService client.
+type PowerRecordPowerRecordSampleClient struct {
+	svc pb.PowerRecordPowerRecordSampleServiceClient
 }
 
-// SleepSessionRecordStageClient wraps the gRPC SleepSessionRecordStageService client.
-type SleepSessionRecordStageClient struct {
-	svc pb.SleepSessionRecordStageServiceClient
-}
-
-// NewSleepSessionRecordStageClient creates a new SleepSessionRecordStage client.
-func NewSleepSessionRecordStageClient(cc grpc.ClientConnInterface) *SleepSessionRecordStageClient {
-	return &SleepSessionRecordStageClient{
-		svc: pb.NewSleepSessionRecordStageServiceClient(cc),
+// NewPowerRecordPowerRecordSampleClient creates a new PowerRecordPowerRecordSample client.
+func NewPowerRecordPowerRecordSampleClient(cc grpc.ClientConnInterface) *PowerRecordPowerRecordSampleClient {
+	return &PowerRecordPowerRecordSampleClient{
+		svc: pb.NewPowerRecordPowerRecordSampleServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *SleepSessionRecordStageClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *PowerRecordPowerRecordSampleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -165,26 +134,85 @@ func (c *SleepSessionRecordStageClient) Equals(ctx context.Context, arg0 int64) 
 	return resp.GetResult(), nil
 }
 
-// GetEndTime calls the GetEndTime RPC.
-func (c *SleepSessionRecordStageClient) GetEndTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
+// GetPower calls the GetPower RPC.
+func (c *PowerRecordPowerRecordSampleClient) GetPower(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPower(ctx, &pb.GetPowerRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetStartTime calls the GetStartTime RPC.
-func (c *SleepSessionRecordStageClient) GetStartTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
+// GetTime calls the GetTime RPC.
+func (c *PowerRecordPowerRecordSampleClient) GetTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PowerRecordPowerRecordSampleClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FhirResourceClient wraps the gRPC FhirResourceService client.
+type FhirResourceClient struct {
+	svc pb.FhirResourceServiceClient
+}
+
+// NewFhirResourceClient creates a new FhirResource client.
+func NewFhirResourceClient(cc grpc.ClientConnInterface) *FhirResourceClient {
+	return &FhirResourceClient{
+		svc: pb.NewFhirResourceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *FhirResourceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *FhirResourceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *FhirResourceClient) GetData(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *FhirResourceClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
 // GetType calls the GetType RPC.
-func (c *SleepSessionRecordStageClient) GetType(ctx context.Context) (int32, error) {
+func (c *FhirResourceClient) GetType(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
 	if err != nil {
 		return 0, err
@@ -193,7 +221,7 @@ func (c *SleepSessionRecordStageClient) GetType(ctx context.Context) (int32, err
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SleepSessionRecordStageClient) HashCode(ctx context.Context) (int32, error) {
+func (c *FhirResourceClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -201,61 +229,38 @@ func (c *SleepSessionRecordStageClient) HashCode(ctx context.Context) (int32, er
 	return resp.GetResult(), nil
 }
 
-// BodyWaterMassRecordClient wraps the gRPC BodyWaterMassRecordService client.
-type BodyWaterMassRecordClient struct {
-	svc pb.BodyWaterMassRecordServiceClient
-}
-
-// NewBodyWaterMassRecordClient creates a new BodyWaterMassRecord client.
-func NewBodyWaterMassRecordClient(cc grpc.ClientConnInterface) *BodyWaterMassRecordClient {
-	return &BodyWaterMassRecordClient{
-		svc: pb.NewBodyWaterMassRecordServiceClient(cc),
+// ToString calls the ToString RPC.
+func (c *FhirResourceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
 	}
+	return resp.GetResult(), nil
 }
 
-// Equals calls the Equals RPC.
-func (c *BodyWaterMassRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *FhirResourceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// GetBodyWaterMass calls the GetBodyWaterMass RPC.
-func (c *BodyWaterMassRecordClient) GetBodyWaterMass(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBodyWaterMass(ctx, &pb.GetBodyWaterMassRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// FhirResourceBuilderClient wraps the gRPC FhirResourceBuilderService client.
+type FhirResourceBuilderClient struct {
+	svc pb.FhirResourceBuilderServiceClient
 }
 
-// HashCode calls the HashCode RPC.
-func (c *BodyWaterMassRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BodyWaterMassRecordBuilderClient wraps the gRPC BodyWaterMassRecordBuilderService client.
-type BodyWaterMassRecordBuilderClient struct {
-	svc pb.BodyWaterMassRecordBuilderServiceClient
-}
-
-// NewBodyWaterMassRecordBuilderClient creates a new BodyWaterMassRecordBuilder client.
-func NewBodyWaterMassRecordBuilderClient(cc grpc.ClientConnInterface) *BodyWaterMassRecordBuilderClient {
-	return &BodyWaterMassRecordBuilderClient{
-		svc: pb.NewBodyWaterMassRecordBuilderServiceClient(cc),
+// NewFhirResourceBuilderClient creates a new FhirResourceBuilder client.
+func NewFhirResourceBuilderClient(cc grpc.ClientConnInterface) *FhirResourceBuilderClient {
+	return &FhirResourceBuilderClient{
+		svc: pb.NewFhirResourceBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *BodyWaterMassRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *FhirResourceBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -263,18 +268,9 @@ func (c *BodyWaterMassRecordBuilderClient) Build(ctx context.Context) (int64, er
 	return resp.GetResult(), nil
 }
 
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *BodyWaterMassRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *BodyWaterMassRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+// SetData calls the SetData RPC.
+func (c *FhirResourceBuilderClient) SetData(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetData(ctx, &pb.SetDataRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -283,20 +279,42 @@ func (c *BodyWaterMassRecordBuilderClient) SetZoneOffset(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// ExerciseSegmentClient wraps the gRPC ExerciseSegmentService client.
-type ExerciseSegmentClient struct {
-	svc pb.ExerciseSegmentServiceClient
+// SetId calls the SetId RPC.
+func (c *FhirResourceBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewExerciseSegmentClient creates a new ExerciseSegment client.
-func NewExerciseSegmentClient(cc grpc.ClientConnInterface) *ExerciseSegmentClient {
-	return &ExerciseSegmentClient{
-		svc: pb.NewExerciseSegmentServiceClient(cc),
+// SetType calls the SetType RPC.
+func (c *FhirResourceBuilderClient) SetType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IntervalRecordClient wraps the gRPC IntervalRecordService client.
+type IntervalRecordClient struct {
+	svc pb.IntervalRecordServiceClient
+}
+
+// NewIntervalRecordClient creates a new IntervalRecord client.
+func NewIntervalRecordClient(cc grpc.ClientConnInterface) *IntervalRecordClient {
+	return &IntervalRecordClient{
+		svc: pb.NewIntervalRecordServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *ExerciseSegmentClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *IntervalRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -307,7 +325,7 @@ func (c *ExerciseSegmentClient) Equals(ctx context.Context, arg0 int64) (bool, e
 }
 
 // GetEndTime calls the GetEndTime RPC.
-func (c *ExerciseSegmentClient) GetEndTime(ctx context.Context) (int64, error) {
+func (c *IntervalRecordClient) GetEndTime(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
 	if err != nil {
 		return 0, err
@@ -315,18 +333,9 @@ func (c *ExerciseSegmentClient) GetEndTime(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetRepetitionsCount calls the GetRepetitionsCount RPC.
-func (c *ExerciseSegmentClient) GetRepetitionsCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRepetitionsCount(ctx, &pb.GetRepetitionsCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSegmentType calls the GetSegmentType RPC.
-func (c *ExerciseSegmentClient) GetSegmentType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSegmentType(ctx, &pb.GetSegmentTypeRequest{})
+// GetEndZoneOffset calls the GetEndZoneOffset RPC.
+func (c *IntervalRecordClient) GetEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndZoneOffset(ctx, &pb.GetEndZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -334,7 +343,7 @@ func (c *ExerciseSegmentClient) GetSegmentType(ctx context.Context) (int32, erro
 }
 
 // GetStartTime calls the GetStartTime RPC.
-func (c *ExerciseSegmentClient) GetStartTime(ctx context.Context) (int64, error) {
+func (c *IntervalRecordClient) GetStartTime(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
 	if err != nil {
 		return 0, err
@@ -342,73 +351,9 @@ func (c *ExerciseSegmentClient) GetStartTime(ctx context.Context) (int64, error)
 	return resp.GetResult(), nil
 }
 
-// HashCode calls the HashCode RPC.
-func (c *ExerciseSegmentClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExerciseSegmentBuilderClient wraps the gRPC ExerciseSegmentBuilderService client.
-type ExerciseSegmentBuilderClient struct {
-	svc pb.ExerciseSegmentBuilderServiceClient
-}
-
-// NewExerciseSegmentBuilderClient creates a new ExerciseSegmentBuilder client.
-func NewExerciseSegmentBuilderClient(cc grpc.ClientConnInterface) *ExerciseSegmentBuilderClient {
-	return &ExerciseSegmentBuilderClient{
-		svc: pb.NewExerciseSegmentBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ExerciseSegmentBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRepetitionsCount calls the SetRepetitionsCount RPC.
-func (c *ExerciseSegmentBuilderClient) SetRepetitionsCount(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetRepetitionsCount(ctx, &pb.SetRepetitionsCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DistanceRecordClient wraps the gRPC DistanceRecordService client.
-type DistanceRecordClient struct {
-	svc pb.DistanceRecordServiceClient
-}
-
-// NewDistanceRecordClient creates a new DistanceRecord client.
-func NewDistanceRecordClient(cc grpc.ClientConnInterface) *DistanceRecordClient {
-	return &DistanceRecordClient{
-		svc: pb.NewDistanceRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *DistanceRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDistance calls the GetDistance RPC.
-func (c *DistanceRecordClient) GetDistance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDistance(ctx, &pb.GetDistanceRequest{})
+// GetStartZoneOffset calls the GetStartZoneOffset RPC.
+func (c *IntervalRecordClient) GetStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartZoneOffset(ctx, &pb.GetStartZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -416,608 +361,8 @@ func (c *DistanceRecordClient) GetDistance(ctx context.Context) (int64, error) {
 }
 
 // HashCode calls the HashCode RPC.
-func (c *DistanceRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *IntervalRecordClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DistanceRecordBuilderClient wraps the gRPC DistanceRecordBuilderService client.
-type DistanceRecordBuilderClient struct {
-	svc pb.DistanceRecordBuilderServiceClient
-}
-
-// NewDistanceRecordBuilderClient creates a new DistanceRecordBuilder client.
-func NewDistanceRecordBuilderClient(cc grpc.ClientConnInterface) *DistanceRecordBuilderClient {
-	return &DistanceRecordBuilderClient{
-		svc: pb.NewDistanceRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *DistanceRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *DistanceRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *DistanceRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *DistanceRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *DistanceRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BodyTemperatureRecordClient wraps the gRPC BodyTemperatureRecordService client.
-type BodyTemperatureRecordClient struct {
-	svc pb.BodyTemperatureRecordServiceClient
-}
-
-// NewBodyTemperatureRecordClient creates a new BodyTemperatureRecord client.
-func NewBodyTemperatureRecordClient(cc grpc.ClientConnInterface) *BodyTemperatureRecordClient {
-	return &BodyTemperatureRecordClient{
-		svc: pb.NewBodyTemperatureRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *BodyTemperatureRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMeasurementLocation calls the GetMeasurementLocation RPC.
-func (c *BodyTemperatureRecordClient) GetMeasurementLocation(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMeasurementLocation(ctx, &pb.GetMeasurementLocationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTemperature calls the GetTemperature RPC.
-func (c *BodyTemperatureRecordClient) GetTemperature(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTemperature(ctx, &pb.GetTemperatureRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *BodyTemperatureRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BodyTemperatureRecordBuilderClient wraps the gRPC BodyTemperatureRecordBuilderService client.
-type BodyTemperatureRecordBuilderClient struct {
-	svc pb.BodyTemperatureRecordBuilderServiceClient
-}
-
-// NewBodyTemperatureRecordBuilderClient creates a new BodyTemperatureRecordBuilder client.
-func NewBodyTemperatureRecordBuilderClient(cc grpc.ClientConnInterface) *BodyTemperatureRecordBuilderClient {
-	return &BodyTemperatureRecordBuilderClient{
-		svc: pb.NewBodyTemperatureRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *BodyTemperatureRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *BodyTemperatureRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *BodyTemperatureRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ActiveCaloriesBurnedRecordClient wraps the gRPC ActiveCaloriesBurnedRecordService client.
-type ActiveCaloriesBurnedRecordClient struct {
-	svc pb.ActiveCaloriesBurnedRecordServiceClient
-}
-
-// NewActiveCaloriesBurnedRecordClient creates a new ActiveCaloriesBurnedRecord client.
-func NewActiveCaloriesBurnedRecordClient(cc grpc.ClientConnInterface) *ActiveCaloriesBurnedRecordClient {
-	return &ActiveCaloriesBurnedRecordClient{
-		svc: pb.NewActiveCaloriesBurnedRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ActiveCaloriesBurnedRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEnergy calls the GetEnergy RPC.
-func (c *ActiveCaloriesBurnedRecordClient) GetEnergy(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEnergy(ctx, &pb.GetEnergyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ActiveCaloriesBurnedRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ActiveCaloriesBurnedRecordBuilderClient wraps the gRPC ActiveCaloriesBurnedRecordBuilderService client.
-type ActiveCaloriesBurnedRecordBuilderClient struct {
-	svc pb.ActiveCaloriesBurnedRecordBuilderServiceClient
-}
-
-// NewActiveCaloriesBurnedRecordBuilderClient creates a new ActiveCaloriesBurnedRecordBuilder client.
-func NewActiveCaloriesBurnedRecordBuilderClient(cc grpc.ClientConnInterface) *ActiveCaloriesBurnedRecordBuilderClient {
-	return &ActiveCaloriesBurnedRecordBuilderClient{
-		svc: pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ActiveCaloriesBurnedRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *ActiveCaloriesBurnedRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *ActiveCaloriesBurnedRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *ActiveCaloriesBurnedRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *ActiveCaloriesBurnedRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SexualActivityRecordClient wraps the gRPC SexualActivityRecordService client.
-type SexualActivityRecordClient struct {
-	svc pb.SexualActivityRecordServiceClient
-}
-
-// NewSexualActivityRecordClient creates a new SexualActivityRecord client.
-func NewSexualActivityRecordClient(cc grpc.ClientConnInterface) *SexualActivityRecordClient {
-	return &SexualActivityRecordClient{
-		svc: pb.NewSexualActivityRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *SexualActivityRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProtectionUsed calls the GetProtectionUsed RPC.
-func (c *SexualActivityRecordClient) GetProtectionUsed(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetProtectionUsed(ctx, &pb.GetProtectionUsedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SexualActivityRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SexualActivityRecordBuilderClient wraps the gRPC SexualActivityRecordBuilderService client.
-type SexualActivityRecordBuilderClient struct {
-	svc pb.SexualActivityRecordBuilderServiceClient
-}
-
-// NewSexualActivityRecordBuilderClient creates a new SexualActivityRecordBuilder client.
-func NewSexualActivityRecordBuilderClient(cc grpc.ClientConnInterface) *SexualActivityRecordBuilderClient {
-	return &SexualActivityRecordBuilderClient{
-		svc: pb.NewSexualActivityRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *SexualActivityRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *SexualActivityRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *SexualActivityRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WeightRecordClient wraps the gRPC WeightRecordService client.
-type WeightRecordClient struct {
-	svc pb.WeightRecordServiceClient
-}
-
-// NewWeightRecordClient creates a new WeightRecord client.
-func NewWeightRecordClient(cc grpc.ClientConnInterface) *WeightRecordClient {
-	return &WeightRecordClient{
-		svc: pb.NewWeightRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *WeightRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWeight calls the GetWeight RPC.
-func (c *WeightRecordClient) GetWeight(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWeight(ctx, &pb.GetWeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *WeightRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WeightRecordBuilderClient wraps the gRPC WeightRecordBuilderService client.
-type WeightRecordBuilderClient struct {
-	svc pb.WeightRecordBuilderServiceClient
-}
-
-// NewWeightRecordBuilderClient creates a new WeightRecordBuilder client.
-func NewWeightRecordBuilderClient(cc grpc.ClientConnInterface) *WeightRecordBuilderClient {
-	return &WeightRecordBuilderClient{
-		svc: pb.NewWeightRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *WeightRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *WeightRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *WeightRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BloodPressureRecordClient wraps the gRPC BloodPressureRecordService client.
-type BloodPressureRecordClient struct {
-	svc pb.BloodPressureRecordServiceClient
-}
-
-// NewBloodPressureRecordClient creates a new BloodPressureRecord client.
-func NewBloodPressureRecordClient(cc grpc.ClientConnInterface) *BloodPressureRecordClient {
-	return &BloodPressureRecordClient{
-		svc: pb.NewBloodPressureRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *BloodPressureRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBodyPosition calls the GetBodyPosition RPC.
-func (c *BloodPressureRecordClient) GetBodyPosition(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBodyPosition(ctx, &pb.GetBodyPositionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDiastolic calls the GetDiastolic RPC.
-func (c *BloodPressureRecordClient) GetDiastolic(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDiastolic(ctx, &pb.GetDiastolicRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMeasurementLocation calls the GetMeasurementLocation RPC.
-func (c *BloodPressureRecordClient) GetMeasurementLocation(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMeasurementLocation(ctx, &pb.GetMeasurementLocationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSystolic calls the GetSystolic RPC.
-func (c *BloodPressureRecordClient) GetSystolic(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSystolic(ctx, &pb.GetSystolicRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *BloodPressureRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BloodPressureRecordBuilderClient wraps the gRPC BloodPressureRecordBuilderService client.
-type BloodPressureRecordBuilderClient struct {
-	svc pb.BloodPressureRecordBuilderServiceClient
-}
-
-// NewBloodPressureRecordBuilderClient creates a new BloodPressureRecordBuilder client.
-func NewBloodPressureRecordBuilderClient(cc grpc.ClientConnInterface) *BloodPressureRecordBuilderClient {
-	return &BloodPressureRecordBuilderClient{
-		svc: pb.NewBloodPressureRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *BloodPressureRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *BloodPressureRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *BloodPressureRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IntermenstrualBleedingRecordClient wraps the gRPC IntermenstrualBleedingRecordService client.
-type IntermenstrualBleedingRecordClient struct {
-	svc pb.IntermenstrualBleedingRecordServiceClient
-}
-
-// NewIntermenstrualBleedingRecordClient creates a new IntermenstrualBleedingRecord client.
-func NewIntermenstrualBleedingRecordClient(cc grpc.ClientConnInterface) *IntermenstrualBleedingRecordClient {
-	return &IntermenstrualBleedingRecordClient{
-		svc: pb.NewIntermenstrualBleedingRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *IntermenstrualBleedingRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *IntermenstrualBleedingRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IntermenstrualBleedingRecordBuilderClient wraps the gRPC IntermenstrualBleedingRecordBuilderService client.
-type IntermenstrualBleedingRecordBuilderClient struct {
-	svc pb.IntermenstrualBleedingRecordBuilderServiceClient
-}
-
-// NewIntermenstrualBleedingRecordBuilderClient creates a new IntermenstrualBleedingRecordBuilder client.
-func NewIntermenstrualBleedingRecordBuilderClient(cc grpc.ClientConnInterface) *IntermenstrualBleedingRecordBuilderClient {
-	return &IntermenstrualBleedingRecordBuilderClient{
-		svc: pb.NewIntermenstrualBleedingRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *IntermenstrualBleedingRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *IntermenstrualBleedingRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *IntermenstrualBleedingRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
 	if err != nil {
 		return 0, err
 	}
@@ -1133,6 +478,955 @@ func (c *BloodGlucoseRecordBuilderClient) SetZoneOffset(ctx context.Context, arg
 	return resp.GetResult(), nil
 }
 
+// MedicalResourceClient wraps the gRPC MedicalResourceService client.
+type MedicalResourceClient struct {
+	svc pb.MedicalResourceServiceClient
+}
+
+// NewMedicalResourceClient creates a new MedicalResource client.
+func NewMedicalResourceClient(cc grpc.ClientConnInterface) *MedicalResourceClient {
+	return &MedicalResourceClient{
+		svc: pb.NewMedicalResourceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MedicalResourceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *MedicalResourceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataSourceId calls the GetDataSourceId RPC.
+func (c *MedicalResourceClient) GetDataSourceId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDataSourceId(ctx, &pb.GetDataSourceIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFhirResource calls the GetFhirResource RPC.
+func (c *MedicalResourceClient) GetFhirResource(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFhirResource(ctx, &pb.GetFhirResourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFhirVersion calls the GetFhirVersion RPC.
+func (c *MedicalResourceClient) GetFhirVersion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFhirVersion(ctx, &pb.GetFhirVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *MedicalResourceClient) GetId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *MedicalResourceClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MedicalResourceClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MedicalResourceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MedicalResourceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MedicalResourceBuilderClient wraps the gRPC MedicalResourceBuilderService client.
+type MedicalResourceBuilderClient struct {
+	svc pb.MedicalResourceBuilderServiceClient
+}
+
+// NewMedicalResourceBuilderClient creates a new MedicalResourceBuilder client.
+func NewMedicalResourceBuilderClient(cc grpc.ClientConnInterface) *MedicalResourceBuilderClient {
+	return &MedicalResourceBuilderClient{
+		svc: pb.NewMedicalResourceBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *MedicalResourceBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDataSourceId calls the SetDataSourceId RPC.
+func (c *MedicalResourceBuilderClient) SetDataSourceId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDataSourceId(ctx, &pb.SetDataSourceIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFhirResource calls the SetFhirResource RPC.
+func (c *MedicalResourceBuilderClient) SetFhirResource(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFhirResource(ctx, &pb.SetFhirResourceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFhirVersion calls the SetFhirVersion RPC.
+func (c *MedicalResourceBuilderClient) SetFhirVersion(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFhirVersion(ctx, &pb.SetFhirVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetType calls the SetType RPC.
+func (c *MedicalResourceBuilderClient) SetType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WheelchairPushesRecordClient wraps the gRPC WheelchairPushesRecordService client.
+type WheelchairPushesRecordClient struct {
+	svc pb.WheelchairPushesRecordServiceClient
+}
+
+// NewWheelchairPushesRecordClient creates a new WheelchairPushesRecord client.
+func NewWheelchairPushesRecordClient(cc grpc.ClientConnInterface) *WheelchairPushesRecordClient {
+	return &WheelchairPushesRecordClient{
+		svc: pb.NewWheelchairPushesRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *WheelchairPushesRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCount calls the GetCount RPC.
+func (c *WheelchairPushesRecordClient) GetCount(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *WheelchairPushesRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WheelchairPushesRecordBuilderClient wraps the gRPC WheelchairPushesRecordBuilderService client.
+type WheelchairPushesRecordBuilderClient struct {
+	svc pb.WheelchairPushesRecordBuilderServiceClient
+}
+
+// NewWheelchairPushesRecordBuilderClient creates a new WheelchairPushesRecordBuilder client.
+func NewWheelchairPushesRecordBuilderClient(cc grpc.ClientConnInterface) *WheelchairPushesRecordBuilderClient {
+	return &WheelchairPushesRecordBuilderClient{
+		svc: pb.NewWheelchairPushesRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *WheelchairPushesRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *WheelchairPushesRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *WheelchairPushesRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *WheelchairPushesRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *WheelchairPushesRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExerciseRouteClient wraps the gRPC ExerciseRouteService client.
+type ExerciseRouteClient struct {
+	svc pb.ExerciseRouteServiceClient
+}
+
+// NewExerciseRouteClient creates a new ExerciseRoute client.
+func NewExerciseRouteClient(cc grpc.ClientConnInterface) *ExerciseRouteClient {
+	return &ExerciseRouteClient{
+		svc: pb.NewExerciseRouteServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ExerciseRouteClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ExerciseRouteDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ExerciseRouteClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ExerciseRouteEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRouteLocations calls the GetRouteLocations RPC.
+func (c *ExerciseRouteClient) GetRouteLocations(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRouteLocations(ctx, &pb.GetRouteLocationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExerciseRouteClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ExerciseRouteHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ExerciseRouteClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ExerciseRouteWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ExerciseRouteLocationClient wraps the gRPC ExerciseRouteLocationService client.
+type ExerciseRouteLocationClient struct {
+	svc pb.ExerciseRouteLocationServiceClient
+}
+
+// NewExerciseRouteLocationClient creates a new ExerciseRouteLocation client.
+func NewExerciseRouteLocationClient(cc grpc.ClientConnInterface) *ExerciseRouteLocationClient {
+	return &ExerciseRouteLocationClient{
+		svc: pb.NewExerciseRouteLocationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ExerciseRouteLocationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ExerciseRouteLocationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAltitude calls the GetAltitude RPC.
+func (c *ExerciseRouteLocationClient) GetAltitude(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAltitude(ctx, &pb.GetAltitudeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalAccuracy calls the GetHorizontalAccuracy RPC.
+func (c *ExerciseRouteLocationClient) GetHorizontalAccuracy(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHorizontalAccuracy(ctx, &pb.GetHorizontalAccuracyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLatitude calls the GetLatitude RPC.
+func (c *ExerciseRouteLocationClient) GetLatitude(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetLatitude(ctx, &pb.GetLatitudeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongitude calls the GetLongitude RPC.
+func (c *ExerciseRouteLocationClient) GetLongitude(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetLongitude(ctx, &pb.GetLongitudeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTime calls the GetTime RPC.
+func (c *ExerciseRouteLocationClient) GetTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalAccuracy calls the GetVerticalAccuracy RPC.
+func (c *ExerciseRouteLocationClient) GetVerticalAccuracy(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVerticalAccuracy(ctx, &pb.GetVerticalAccuracyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExerciseRouteLocationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ExerciseRouteLocationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MenstruationFlowRecordClient wraps the gRPC MenstruationFlowRecordService client.
+type MenstruationFlowRecordClient struct {
+	svc pb.MenstruationFlowRecordServiceClient
+}
+
+// NewMenstruationFlowRecordClient creates a new MenstruationFlowRecord client.
+func NewMenstruationFlowRecordClient(cc grpc.ClientConnInterface) *MenstruationFlowRecordClient {
+	return &MenstruationFlowRecordClient{
+		svc: pb.NewMenstruationFlowRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MenstruationFlowRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlow calls the GetFlow RPC.
+func (c *MenstruationFlowRecordClient) GetFlow(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFlow(ctx, &pb.GetFlowRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MenstruationFlowRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MenstruationFlowRecordBuilderClient wraps the gRPC MenstruationFlowRecordBuilderService client.
+type MenstruationFlowRecordBuilderClient struct {
+	svc pb.MenstruationFlowRecordBuilderServiceClient
+}
+
+// NewMenstruationFlowRecordBuilderClient creates a new MenstruationFlowRecordBuilder client.
+func NewMenstruationFlowRecordBuilderClient(cc grpc.ClientConnInterface) *MenstruationFlowRecordBuilderClient {
+	return &MenstruationFlowRecordBuilderClient{
+		svc: pb.NewMenstruationFlowRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *MenstruationFlowRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *MenstruationFlowRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *MenstruationFlowRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DistanceRecordClient wraps the gRPC DistanceRecordService client.
+type DistanceRecordClient struct {
+	svc pb.DistanceRecordServiceClient
+}
+
+// NewDistanceRecordClient creates a new DistanceRecord client.
+func NewDistanceRecordClient(cc grpc.ClientConnInterface) *DistanceRecordClient {
+	return &DistanceRecordClient{
+		svc: pb.NewDistanceRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *DistanceRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDistance calls the GetDistance RPC.
+func (c *DistanceRecordClient) GetDistance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDistance(ctx, &pb.GetDistanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DistanceRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DistanceRecordBuilderClient wraps the gRPC DistanceRecordBuilderService client.
+type DistanceRecordBuilderClient struct {
+	svc pb.DistanceRecordBuilderServiceClient
+}
+
+// NewDistanceRecordBuilderClient creates a new DistanceRecordBuilder client.
+func NewDistanceRecordBuilderClient(cc grpc.ClientConnInterface) *DistanceRecordBuilderClient {
+	return &DistanceRecordBuilderClient{
+		svc: pb.NewDistanceRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DistanceRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *DistanceRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *DistanceRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *DistanceRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *DistanceRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppInfoClient wraps the gRPC AppInfoService client.
+type AppInfoClient struct {
+	svc pb.AppInfoServiceClient
+}
+
+// NewAppInfoClient creates a new AppInfo client.
+func NewAppInfoClient(cc grpc.ClientConnInterface) *AppInfoClient {
+	return &AppInfoClient{
+		svc: pb.NewAppInfoServiceClient(cc),
+	}
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *AppInfoClient) GetIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *AppInfoClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *AppInfoClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RespiratoryRateRecordClient wraps the gRPC RespiratoryRateRecordService client.
+type RespiratoryRateRecordClient struct {
+	svc pb.RespiratoryRateRecordServiceClient
+}
+
+// NewRespiratoryRateRecordClient creates a new RespiratoryRateRecord client.
+func NewRespiratoryRateRecordClient(cc grpc.ClientConnInterface) *RespiratoryRateRecordClient {
+	return &RespiratoryRateRecordClient{
+		svc: pb.NewRespiratoryRateRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *RespiratoryRateRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRate calls the GetRate RPC.
+func (c *RespiratoryRateRecordClient) GetRate(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetRate(ctx, &pb.GetRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RespiratoryRateRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RespiratoryRateRecordBuilderClient wraps the gRPC RespiratoryRateRecordBuilderService client.
+type RespiratoryRateRecordBuilderClient struct {
+	svc pb.RespiratoryRateRecordBuilderServiceClient
+}
+
+// NewRespiratoryRateRecordBuilderClient creates a new RespiratoryRateRecordBuilder client.
+func NewRespiratoryRateRecordBuilderClient(cc grpc.ClientConnInterface) *RespiratoryRateRecordBuilderClient {
+	return &RespiratoryRateRecordBuilderClient{
+		svc: pb.NewRespiratoryRateRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RespiratoryRateRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *RespiratoryRateRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *RespiratoryRateRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CyclingPedalingCadenceRecordClient wraps the gRPC CyclingPedalingCadenceRecordService client.
+type CyclingPedalingCadenceRecordClient struct {
+	svc pb.CyclingPedalingCadenceRecordServiceClient
+}
+
+// NewCyclingPedalingCadenceRecordClient creates a new CyclingPedalingCadenceRecord client.
+func NewCyclingPedalingCadenceRecordClient(cc grpc.ClientConnInterface) *CyclingPedalingCadenceRecordClient {
+	return &CyclingPedalingCadenceRecordClient{
+		svc: pb.NewCyclingPedalingCadenceRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CyclingPedalingCadenceRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSamples calls the GetSamples RPC.
+func (c *CyclingPedalingCadenceRecordClient) GetSamples(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSamples(ctx, &pb.GetSamplesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CyclingPedalingCadenceRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CyclingPedalingCadenceRecordBuilderClient wraps the gRPC CyclingPedalingCadenceRecordBuilderService client.
+type CyclingPedalingCadenceRecordBuilderClient struct {
+	svc pb.CyclingPedalingCadenceRecordBuilderServiceClient
+}
+
+// NewCyclingPedalingCadenceRecordBuilderClient creates a new CyclingPedalingCadenceRecordBuilder client.
+func NewCyclingPedalingCadenceRecordBuilderClient(cc grpc.ClientConnInterface) *CyclingPedalingCadenceRecordBuilderClient {
+	return &CyclingPedalingCadenceRecordBuilderClient{
+		svc: pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *CyclingPedalingCadenceRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *CyclingPedalingCadenceRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *CyclingPedalingCadenceRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *CyclingPedalingCadenceRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *CyclingPedalingCadenceRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient wraps the gRPC CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleService client.
+type CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient struct {
+	svc pb.CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient
+}
+
+// NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient creates a new CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSample client.
+func NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient(cc grpc.ClientConnInterface) *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient {
+	return &CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient{
+		svc: pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRevolutionsPerMinute calls the GetRevolutionsPerMinute RPC.
+func (c *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient) GetRevolutionsPerMinute(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetRevolutionsPerMinute(ctx, &pb.GetRevolutionsPerMinuteRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTime calls the GetTime RPC.
+func (c *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient) GetTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InstantRecordClient wraps the gRPC InstantRecordService client.
+type InstantRecordClient struct {
+	svc pb.InstantRecordServiceClient
+}
+
+// NewInstantRecordClient creates a new InstantRecord client.
+func NewInstantRecordClient(cc grpc.ClientConnInterface) *InstantRecordClient {
+	return &InstantRecordClient{
+		svc: pb.NewInstantRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *InstantRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTime calls the GetTime RPC.
+func (c *InstantRecordClient) GetTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZoneOffset calls the GetZoneOffset RPC.
+func (c *InstantRecordClient) GetZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetZoneOffset(ctx, &pb.GetZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InstantRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // BoneMassRecordClient wraps the gRPC BoneMassRecordService client.
 type BoneMassRecordClient struct {
 	svc pb.BoneMassRecordServiceClient
@@ -1215,20 +1509,20 @@ func (c *BoneMassRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 in
 	return resp.GetResult(), nil
 }
 
-// CervicalMucusRecordClient wraps the gRPC CervicalMucusRecordService client.
-type CervicalMucusRecordClient struct {
-	svc pb.CervicalMucusRecordServiceClient
+// HydrationRecordClient wraps the gRPC HydrationRecordService client.
+type HydrationRecordClient struct {
+	svc pb.HydrationRecordServiceClient
 }
 
-// NewCervicalMucusRecordClient creates a new CervicalMucusRecord client.
-func NewCervicalMucusRecordClient(cc grpc.ClientConnInterface) *CervicalMucusRecordClient {
-	return &CervicalMucusRecordClient{
-		svc: pb.NewCervicalMucusRecordServiceClient(cc),
+// NewHydrationRecordClient creates a new HydrationRecord client.
+func NewHydrationRecordClient(cc grpc.ClientConnInterface) *HydrationRecordClient {
+	return &HydrationRecordClient{
+		svc: pb.NewHydrationRecordServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *CervicalMucusRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *HydrationRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -1238,18 +1532,9 @@ func (c *CervicalMucusRecordClient) Equals(ctx context.Context, arg0 int64) (boo
 	return resp.GetResult(), nil
 }
 
-// GetAppearance calls the GetAppearance RPC.
-func (c *CervicalMucusRecordClient) GetAppearance(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAppearance(ctx, &pb.GetAppearanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSensation calls the GetSensation RPC.
-func (c *CervicalMucusRecordClient) GetSensation(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSensation(ctx, &pb.GetSensationRequest{})
+// GetVolume calls the GetVolume RPC.
+func (c *HydrationRecordClient) GetVolume(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVolume(ctx, &pb.GetVolumeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1257,7 +1542,7 @@ func (c *CervicalMucusRecordClient) GetSensation(ctx context.Context) (int32, er
 }
 
 // HashCode calls the HashCode RPC.
-func (c *CervicalMucusRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *HydrationRecordClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -1265,20 +1550,20 @@ func (c *CervicalMucusRecordClient) HashCode(ctx context.Context) (int32, error)
 	return resp.GetResult(), nil
 }
 
-// CervicalMucusRecordBuilderClient wraps the gRPC CervicalMucusRecordBuilderService client.
-type CervicalMucusRecordBuilderClient struct {
-	svc pb.CervicalMucusRecordBuilderServiceClient
+// HydrationRecordBuilderClient wraps the gRPC HydrationRecordBuilderService client.
+type HydrationRecordBuilderClient struct {
+	svc pb.HydrationRecordBuilderServiceClient
 }
 
-// NewCervicalMucusRecordBuilderClient creates a new CervicalMucusRecordBuilder client.
-func NewCervicalMucusRecordBuilderClient(cc grpc.ClientConnInterface) *CervicalMucusRecordBuilderClient {
-	return &CervicalMucusRecordBuilderClient{
-		svc: pb.NewCervicalMucusRecordBuilderServiceClient(cc),
+// NewHydrationRecordBuilderClient creates a new HydrationRecordBuilder client.
+func NewHydrationRecordBuilderClient(cc grpc.ClientConnInterface) *HydrationRecordBuilderClient {
+	return &HydrationRecordBuilderClient{
+		svc: pb.NewHydrationRecordBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *CervicalMucusRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *HydrationRecordBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -1286,18 +1571,27 @@ func (c *CervicalMucusRecordBuilderClient) Build(ctx context.Context) (int64, er
 	return resp.GetResult(), nil
 }
 
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *CervicalMucusRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *HydrationRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *CervicalMucusRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *HydrationRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *HydrationRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1306,80 +1600,9 @@ func (c *CervicalMucusRecordBuilderClient) SetZoneOffset(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// MenstruationFlowRecordClient wraps the gRPC MenstruationFlowRecordService client.
-type MenstruationFlowRecordClient struct {
-	svc pb.MenstruationFlowRecordServiceClient
-}
-
-// NewMenstruationFlowRecordClient creates a new MenstruationFlowRecord client.
-func NewMenstruationFlowRecordClient(cc grpc.ClientConnInterface) *MenstruationFlowRecordClient {
-	return &MenstruationFlowRecordClient{
-		svc: pb.NewMenstruationFlowRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *MenstruationFlowRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFlow calls the GetFlow RPC.
-func (c *MenstruationFlowRecordClient) GetFlow(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetFlow(ctx, &pb.GetFlowRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MenstruationFlowRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MenstruationFlowRecordBuilderClient wraps the gRPC MenstruationFlowRecordBuilderService client.
-type MenstruationFlowRecordBuilderClient struct {
-	svc pb.MenstruationFlowRecordBuilderServiceClient
-}
-
-// NewMenstruationFlowRecordBuilderClient creates a new MenstruationFlowRecordBuilder client.
-func NewMenstruationFlowRecordBuilderClient(cc grpc.ClientConnInterface) *MenstruationFlowRecordBuilderClient {
-	return &MenstruationFlowRecordBuilderClient{
-		svc: pb.NewMenstruationFlowRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *MenstruationFlowRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *MenstruationFlowRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *MenstruationFlowRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *HydrationRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1573,3506 +1796,6 @@ func (c *MetadataBuilderClient) SetLastModifiedTime(ctx context.Context, arg0 in
 // SetRecordingMethod calls the SetRecordingMethod RPC.
 func (c *MetadataBuilderClient) SetRecordingMethod(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.SetRecordingMethod(ctx, &pb.SetRecordingMethodRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PowerRecordClient wraps the gRPC PowerRecordService client.
-type PowerRecordClient struct {
-	svc pb.PowerRecordServiceClient
-}
-
-// NewPowerRecordClient creates a new PowerRecord client.
-func NewPowerRecordClient(cc grpc.ClientConnInterface) *PowerRecordClient {
-	return &PowerRecordClient{
-		svc: pb.NewPowerRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *PowerRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PowerRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PowerRecordBuilderClient wraps the gRPC PowerRecordBuilderService client.
-type PowerRecordBuilderClient struct {
-	svc pb.PowerRecordBuilderServiceClient
-}
-
-// NewPowerRecordBuilderClient creates a new PowerRecordBuilder client.
-func NewPowerRecordBuilderClient(cc grpc.ClientConnInterface) *PowerRecordBuilderClient {
-	return &PowerRecordBuilderClient{
-		svc: pb.NewPowerRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *PowerRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *PowerRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *PowerRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *PowerRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *PowerRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PowerRecordPowerRecordSampleClient wraps the gRPC PowerRecordPowerRecordSampleService client.
-type PowerRecordPowerRecordSampleClient struct {
-	svc pb.PowerRecordPowerRecordSampleServiceClient
-}
-
-// NewPowerRecordPowerRecordSampleClient creates a new PowerRecordPowerRecordSample client.
-func NewPowerRecordPowerRecordSampleClient(cc grpc.ClientConnInterface) *PowerRecordPowerRecordSampleClient {
-	return &PowerRecordPowerRecordSampleClient{
-		svc: pb.NewPowerRecordPowerRecordSampleServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *PowerRecordPowerRecordSampleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPower calls the GetPower RPC.
-func (c *PowerRecordPowerRecordSampleClient) GetPower(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPower(ctx, &pb.GetPowerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTime calls the GetTime RPC.
-func (c *PowerRecordPowerRecordSampleClient) GetTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PowerRecordPowerRecordSampleClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExerciseRouteClient wraps the gRPC ExerciseRouteService client.
-type ExerciseRouteClient struct {
-	svc pb.ExerciseRouteServiceClient
-}
-
-// NewExerciseRouteClient creates a new ExerciseRoute client.
-func NewExerciseRouteClient(cc grpc.ClientConnInterface) *ExerciseRouteClient {
-	return &ExerciseRouteClient{
-		svc: pb.NewExerciseRouteServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ExerciseRouteClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ExerciseRouteClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ExerciseRouteEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExerciseRouteClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ExerciseRouteHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ExerciseRouteClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ExerciseRouteLocationClient wraps the gRPC ExerciseRouteLocationService client.
-type ExerciseRouteLocationClient struct {
-	svc pb.ExerciseRouteLocationServiceClient
-}
-
-// NewExerciseRouteLocationClient creates a new ExerciseRouteLocation client.
-func NewExerciseRouteLocationClient(cc grpc.ClientConnInterface) *ExerciseRouteLocationClient {
-	return &ExerciseRouteLocationClient{
-		svc: pb.NewExerciseRouteLocationServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ExerciseRouteLocationClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ExerciseRouteLocationDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ExerciseRouteLocationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAltitude calls the GetAltitude RPC.
-func (c *ExerciseRouteLocationClient) GetAltitude(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAltitude(ctx, &pb.GetAltitudeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHorizontalAccuracy calls the GetHorizontalAccuracy RPC.
-func (c *ExerciseRouteLocationClient) GetHorizontalAccuracy(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetHorizontalAccuracy(ctx, &pb.GetHorizontalAccuracyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLatitude calls the GetLatitude RPC.
-func (c *ExerciseRouteLocationClient) GetLatitude(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetLatitude(ctx, &pb.GetLatitudeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLongitude calls the GetLongitude RPC.
-func (c *ExerciseRouteLocationClient) GetLongitude(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetLongitude(ctx, &pb.GetLongitudeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTime calls the GetTime RPC.
-func (c *ExerciseRouteLocationClient) GetTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVerticalAccuracy calls the GetVerticalAccuracy RPC.
-func (c *ExerciseRouteLocationClient) GetVerticalAccuracy(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetVerticalAccuracy(ctx, &pb.GetVerticalAccuracyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExerciseRouteLocationClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ExerciseRouteLocationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ExerciseRouteLocationWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// PlannedExerciseSessionRecordClient wraps the gRPC PlannedExerciseSessionRecordService client.
-type PlannedExerciseSessionRecordClient struct {
-	svc pb.PlannedExerciseSessionRecordServiceClient
-}
-
-// NewPlannedExerciseSessionRecordClient creates a new PlannedExerciseSessionRecord client.
-func NewPlannedExerciseSessionRecordClient(cc grpc.ClientConnInterface) *PlannedExerciseSessionRecordClient {
-	return &PlannedExerciseSessionRecordClient{
-		svc: pb.NewPlannedExerciseSessionRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *PlannedExerciseSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCompletedExerciseSessionId calls the GetCompletedExerciseSessionId RPC.
-func (c *PlannedExerciseSessionRecordClient) GetCompletedExerciseSessionId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetCompletedExerciseSessionId(ctx, &pb.GetCompletedExerciseSessionIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDuration calls the GetDuration RPC.
-func (c *PlannedExerciseSessionRecordClient) GetDuration(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExerciseType calls the GetExerciseType RPC.
-func (c *PlannedExerciseSessionRecordClient) GetExerciseType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetExerciseType(ctx, &pb.GetExerciseTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotes calls the GetNotes RPC.
-func (c *PlannedExerciseSessionRecordClient) GetNotes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotes(ctx, &pb.GetNotesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartDate calls the GetStartDate RPC.
-func (c *PlannedExerciseSessionRecordClient) GetStartDate(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartDate(ctx, &pb.GetStartDateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *PlannedExerciseSessionRecordClient) GetTitle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasExplicitTime calls the HasExplicitTime RPC.
-func (c *PlannedExerciseSessionRecordClient) HasExplicitTime(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasExplicitTime(ctx, &pb.HasExplicitTimeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PlannedExerciseSessionRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PlannedExerciseSessionRecordBuilderClient wraps the gRPC PlannedExerciseSessionRecordBuilderService client.
-type PlannedExerciseSessionRecordBuilderClient struct {
-	svc pb.PlannedExerciseSessionRecordBuilderServiceClient
-}
-
-// NewPlannedExerciseSessionRecordBuilderClient creates a new PlannedExerciseSessionRecordBuilder client.
-func NewPlannedExerciseSessionRecordBuilderClient(cc grpc.ClientConnInterface) *PlannedExerciseSessionRecordBuilderClient {
-	return &PlannedExerciseSessionRecordBuilderClient{
-		svc: pb.NewPlannedExerciseSessionRecordBuilderServiceClient(cc),
-	}
-}
-
-// AddBlock calls the AddBlock RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) AddBlock(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddBlock(ctx, &pb.AddBlockRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearBlocks calls the ClearBlocks RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) ClearBlocks(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearBlocks(ctx, &pb.ClearBlocksRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndTime calls the SetEndTime RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) SetEndTime(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndTime(ctx, &pb.SetEndTimeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetExerciseType calls the SetExerciseType RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) SetExerciseType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetExerciseType(ctx, &pb.SetExerciseTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMetadata calls the SetMetadata RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) SetMetadata(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMetadata(ctx, &pb.SetMetadataRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNotes calls the SetNotes RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) SetNotes(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetNotes(ctx, &pb.SetNotesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartTime calls the SetStartTime RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) SetStartTime(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartTime(ctx, &pb.SetStartTimeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTitle calls the SetTitle RPC.
-func (c *PlannedExerciseSessionRecordBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MedicalResourceClient wraps the gRPC MedicalResourceService client.
-type MedicalResourceClient struct {
-	svc pb.MedicalResourceServiceClient
-}
-
-// NewMedicalResourceClient creates a new MedicalResource client.
-func NewMedicalResourceClient(cc grpc.ClientConnInterface) *MedicalResourceClient {
-	return &MedicalResourceClient{
-		svc: pb.NewMedicalResourceServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *MedicalResourceClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.MedicalResourceDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *MedicalResourceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDataSourceId calls the GetDataSourceId RPC.
-func (c *MedicalResourceClient) GetDataSourceId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDataSourceId(ctx, &pb.GetDataSourceIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFhirResource calls the GetFhirResource RPC.
-func (c *MedicalResourceClient) GetFhirResource(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFhirResource(ctx, &pb.GetFhirResourceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFhirVersion calls the GetFhirVersion RPC.
-func (c *MedicalResourceClient) GetFhirVersion(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFhirVersion(ctx, &pb.GetFhirVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *MedicalResourceClient) GetId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *MedicalResourceClient) GetType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MedicalResourceClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *MedicalResourceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *MedicalResourceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.MedicalResourceWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// MedicalResourceBuilderClient wraps the gRPC MedicalResourceBuilderService client.
-type MedicalResourceBuilderClient struct {
-	svc pb.MedicalResourceBuilderServiceClient
-}
-
-// NewMedicalResourceBuilderClient creates a new MedicalResourceBuilder client.
-func NewMedicalResourceBuilderClient(cc grpc.ClientConnInterface) *MedicalResourceBuilderClient {
-	return &MedicalResourceBuilderClient{
-		svc: pb.NewMedicalResourceBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *MedicalResourceBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDataSourceId calls the SetDataSourceId RPC.
-func (c *MedicalResourceBuilderClient) SetDataSourceId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDataSourceId(ctx, &pb.SetDataSourceIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFhirResource calls the SetFhirResource RPC.
-func (c *MedicalResourceBuilderClient) SetFhirResource(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetFhirResource(ctx, &pb.SetFhirResourceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFhirVersion calls the SetFhirVersion RPC.
-func (c *MedicalResourceBuilderClient) SetFhirVersion(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetFhirVersion(ctx, &pb.SetFhirVersionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetType calls the SetType RPC.
-func (c *MedicalResourceBuilderClient) SetType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MedicalDataSourceClient wraps the gRPC MedicalDataSourceService client.
-type MedicalDataSourceClient struct {
-	svc pb.MedicalDataSourceServiceClient
-}
-
-// NewMedicalDataSourceClient creates a new MedicalDataSource client.
-func NewMedicalDataSourceClient(cc grpc.ClientConnInterface) *MedicalDataSourceClient {
-	return &MedicalDataSourceClient{
-		svc: pb.NewMedicalDataSourceServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *MedicalDataSourceClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.MedicalDataSourceDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *MedicalDataSourceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplayName calls the GetDisplayName RPC.
-func (c *MedicalDataSourceClient) GetDisplayName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFhirBaseUri calls the GetFhirBaseUri RPC.
-func (c *MedicalDataSourceClient) GetFhirBaseUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFhirBaseUri(ctx, &pb.GetFhirBaseUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFhirVersion calls the GetFhirVersion RPC.
-func (c *MedicalDataSourceClient) GetFhirVersion(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFhirVersion(ctx, &pb.GetFhirVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *MedicalDataSourceClient) GetId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLastDataUpdateTime calls the GetLastDataUpdateTime RPC.
-func (c *MedicalDataSourceClient) GetLastDataUpdateTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLastDataUpdateTime(ctx, &pb.GetLastDataUpdateTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *MedicalDataSourceClient) GetPackageName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MedicalDataSourceClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *MedicalDataSourceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *MedicalDataSourceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.MedicalDataSourceWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// MedicalDataSourceBuilderClient wraps the gRPC MedicalDataSourceBuilderService client.
-type MedicalDataSourceBuilderClient struct {
-	svc pb.MedicalDataSourceBuilderServiceClient
-}
-
-// NewMedicalDataSourceBuilderClient creates a new MedicalDataSourceBuilder client.
-func NewMedicalDataSourceBuilderClient(cc grpc.ClientConnInterface) *MedicalDataSourceBuilderClient {
-	return &MedicalDataSourceBuilderClient{
-		svc: pb.NewMedicalDataSourceBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *MedicalDataSourceBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDisplayName calls the SetDisplayName RPC.
-func (c *MedicalDataSourceBuilderClient) SetDisplayName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDisplayName(ctx, &pb.SetDisplayNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFhirBaseUri calls the SetFhirBaseUri RPC.
-func (c *MedicalDataSourceBuilderClient) SetFhirBaseUri(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetFhirBaseUri(ctx, &pb.SetFhirBaseUriRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFhirVersion calls the SetFhirVersion RPC.
-func (c *MedicalDataSourceBuilderClient) SetFhirVersion(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetFhirVersion(ctx, &pb.SetFhirVersionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetId calls the SetId RPC.
-func (c *MedicalDataSourceBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLastDataUpdateTime calls the SetLastDataUpdateTime RPC.
-func (c *MedicalDataSourceBuilderClient) SetLastDataUpdateTime(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetLastDataUpdateTime(ctx, &pb.SetLastDataUpdateTimeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPackageName calls the SetPackageName RPC.
-func (c *MedicalDataSourceBuilderClient) SetPackageName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetPackageName(ctx, &pb.SetPackageNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PlannedExerciseStepClient wraps the gRPC PlannedExerciseStepService client.
-type PlannedExerciseStepClient struct {
-	svc pb.PlannedExerciseStepServiceClient
-}
-
-// NewPlannedExerciseStepClient creates a new PlannedExerciseStep client.
-func NewPlannedExerciseStepClient(cc grpc.ClientConnInterface) *PlannedExerciseStepClient {
-	return &PlannedExerciseStepClient{
-		svc: pb.NewPlannedExerciseStepServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *PlannedExerciseStepClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCompletionGoal calls the GetCompletionGoal RPC.
-func (c *PlannedExerciseStepClient) GetCompletionGoal(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCompletionGoal(ctx, &pb.GetCompletionGoalRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDescription calls the GetDescription RPC.
-func (c *PlannedExerciseStepClient) GetDescription(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExerciseCategory calls the GetExerciseCategory RPC.
-func (c *PlannedExerciseStepClient) GetExerciseCategory(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetExerciseCategory(ctx, &pb.GetExerciseCategoryRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExerciseType calls the GetExerciseType RPC.
-func (c *PlannedExerciseStepClient) GetExerciseType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetExerciseType(ctx, &pb.GetExerciseTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PlannedExerciseStepClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PlannedExerciseStepBuilderClient wraps the gRPC PlannedExerciseStepBuilderService client.
-type PlannedExerciseStepBuilderClient struct {
-	svc pb.PlannedExerciseStepBuilderServiceClient
-}
-
-// NewPlannedExerciseStepBuilderClient creates a new PlannedExerciseStepBuilder client.
-func NewPlannedExerciseStepBuilderClient(cc grpc.ClientConnInterface) *PlannedExerciseStepBuilderClient {
-	return &PlannedExerciseStepBuilderClient{
-		svc: pb.NewPlannedExerciseStepBuilderServiceClient(cc),
-	}
-}
-
-// AddPerformanceGoal calls the AddPerformanceGoal RPC.
-func (c *PlannedExerciseStepBuilderClient) AddPerformanceGoal(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddPerformanceGoal(ctx, &pb.AddPerformanceGoalRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *PlannedExerciseStepBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearPerformanceGoals calls the ClearPerformanceGoals RPC.
-func (c *PlannedExerciseStepBuilderClient) ClearPerformanceGoals(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearPerformanceGoals(ctx, &pb.ClearPerformanceGoalsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCompletionGoal calls the SetCompletionGoal RPC.
-func (c *PlannedExerciseStepBuilderClient) SetCompletionGoal(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetCompletionGoal(ctx, &pb.SetCompletionGoalRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDescription calls the SetDescription RPC.
-func (c *PlannedExerciseStepBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetExerciseCategory calls the SetExerciseCategory RPC.
-func (c *PlannedExerciseStepBuilderClient) SetExerciseCategory(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetExerciseCategory(ctx, &pb.SetExerciseCategoryRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetExerciseType calls the SetExerciseType RPC.
-func (c *PlannedExerciseStepBuilderClient) SetExerciseType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetExerciseType(ctx, &pb.SetExerciseTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MenstruationPeriodRecordClient wraps the gRPC MenstruationPeriodRecordService client.
-type MenstruationPeriodRecordClient struct {
-	svc pb.MenstruationPeriodRecordServiceClient
-}
-
-// NewMenstruationPeriodRecordClient creates a new MenstruationPeriodRecord client.
-func NewMenstruationPeriodRecordClient(cc grpc.ClientConnInterface) *MenstruationPeriodRecordClient {
-	return &MenstruationPeriodRecordClient{
-		svc: pb.NewMenstruationPeriodRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *MenstruationPeriodRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MenstruationPeriodRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MenstruationPeriodRecordBuilderClient wraps the gRPC MenstruationPeriodRecordBuilderService client.
-type MenstruationPeriodRecordBuilderClient struct {
-	svc pb.MenstruationPeriodRecordBuilderServiceClient
-}
-
-// NewMenstruationPeriodRecordBuilderClient creates a new MenstruationPeriodRecordBuilder client.
-func NewMenstruationPeriodRecordBuilderClient(cc grpc.ClientConnInterface) *MenstruationPeriodRecordBuilderClient {
-	return &MenstruationPeriodRecordBuilderClient{
-		svc: pb.NewMenstruationPeriodRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *MenstruationPeriodRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *MenstruationPeriodRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *MenstruationPeriodRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *MenstruationPeriodRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *MenstruationPeriodRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ActivityIntensityRecordClient wraps the gRPC ActivityIntensityRecordService client.
-type ActivityIntensityRecordClient struct {
-	svc pb.ActivityIntensityRecordServiceClient
-}
-
-// NewActivityIntensityRecordClient creates a new ActivityIntensityRecord client.
-func NewActivityIntensityRecordClient(cc grpc.ClientConnInterface) *ActivityIntensityRecordClient {
-	return &ActivityIntensityRecordClient{
-		svc: pb.NewActivityIntensityRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ActivityIntensityRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActivityIntensityType calls the GetActivityIntensityType RPC.
-func (c *ActivityIntensityRecordClient) GetActivityIntensityType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetActivityIntensityType(ctx, &pb.GetActivityIntensityTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ActivityIntensityRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ActivityIntensityRecordBuilderClient wraps the gRPC ActivityIntensityRecordBuilderService client.
-type ActivityIntensityRecordBuilderClient struct {
-	svc pb.ActivityIntensityRecordBuilderServiceClient
-}
-
-// NewActivityIntensityRecordBuilderClient creates a new ActivityIntensityRecordBuilder client.
-func NewActivityIntensityRecordBuilderClient(cc grpc.ClientConnInterface) *ActivityIntensityRecordBuilderClient {
-	return &ActivityIntensityRecordBuilderClient{
-		svc: pb.NewActivityIntensityRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ActivityIntensityRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *ActivityIntensityRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *ActivityIntensityRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExerciseLapClient wraps the gRPC ExerciseLapService client.
-type ExerciseLapClient struct {
-	svc pb.ExerciseLapServiceClient
-}
-
-// NewExerciseLapClient creates a new ExerciseLap client.
-func NewExerciseLapClient(cc grpc.ClientConnInterface) *ExerciseLapClient {
-	return &ExerciseLapClient{
-		svc: pb.NewExerciseLapServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ExerciseLapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEndTime calls the GetEndTime RPC.
-func (c *ExerciseLapClient) GetEndTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLength calls the GetLength RPC.
-func (c *ExerciseLapClient) GetLength(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartTime calls the GetStartTime RPC.
-func (c *ExerciseLapClient) GetStartTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExerciseLapClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExerciseLapBuilderClient wraps the gRPC ExerciseLapBuilderService client.
-type ExerciseLapBuilderClient struct {
-	svc pb.ExerciseLapBuilderServiceClient
-}
-
-// NewExerciseLapBuilderClient creates a new ExerciseLapBuilder client.
-func NewExerciseLapBuilderClient(cc grpc.ClientConnInterface) *ExerciseLapBuilderClient {
-	return &ExerciseLapBuilderClient{
-		svc: pb.NewExerciseLapBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ExerciseLapBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLength calls the SetLength RPC.
-func (c *ExerciseLapBuilderClient) SetLength(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetLength(ctx, &pb.SetLengthRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DataOriginClient wraps the gRPC DataOriginService client.
-type DataOriginClient struct {
-	svc pb.DataOriginServiceClient
-}
-
-// NewDataOriginClient creates a new DataOrigin client.
-func NewDataOriginClient(cc grpc.ClientConnInterface) *DataOriginClient {
-	return &DataOriginClient{
-		svc: pb.NewDataOriginServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *DataOriginClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *DataOriginClient) GetPackageName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *DataOriginClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DataOriginBuilderClient wraps the gRPC DataOriginBuilderService client.
-type DataOriginBuilderClient struct {
-	svc pb.DataOriginBuilderServiceClient
-}
-
-// NewDataOriginBuilderClient creates a new DataOriginBuilder client.
-func NewDataOriginBuilderClient(cc grpc.ClientConnInterface) *DataOriginBuilderClient {
-	return &DataOriginBuilderClient{
-		svc: pb.NewDataOriginBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *DataOriginBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPackageName calls the SetPackageName RPC.
-func (c *DataOriginBuilderClient) SetPackageName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetPackageName(ctx, &pb.SetPackageNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExerciseSessionRecordClient wraps the gRPC ExerciseSessionRecordService client.
-type ExerciseSessionRecordClient struct {
-	svc pb.ExerciseSessionRecordServiceClient
-}
-
-// NewExerciseSessionRecordClient creates a new ExerciseSessionRecord client.
-func NewExerciseSessionRecordClient(cc grpc.ClientConnInterface) *ExerciseSessionRecordClient {
-	return &ExerciseSessionRecordClient{
-		svc: pb.NewExerciseSessionRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ExerciseSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExerciseType calls the GetExerciseType RPC.
-func (c *ExerciseSessionRecordClient) GetExerciseType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetExerciseType(ctx, &pb.GetExerciseTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotes calls the GetNotes RPC.
-func (c *ExerciseSessionRecordClient) GetNotes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotes(ctx, &pb.GetNotesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPlannedExerciseSessionId calls the GetPlannedExerciseSessionId RPC.
-func (c *ExerciseSessionRecordClient) GetPlannedExerciseSessionId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPlannedExerciseSessionId(ctx, &pb.GetPlannedExerciseSessionIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRoute calls the GetRoute RPC.
-func (c *ExerciseSessionRecordClient) GetRoute(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRoute(ctx, &pb.GetRouteRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *ExerciseSessionRecordClient) GetTitle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasRoute calls the HasRoute RPC.
-func (c *ExerciseSessionRecordClient) HasRoute(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasRoute(ctx, &pb.HasRouteRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExerciseSessionRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExerciseSessionRecordBuilderClient wraps the gRPC ExerciseSessionRecordBuilderService client.
-type ExerciseSessionRecordBuilderClient struct {
-	svc pb.ExerciseSessionRecordBuilderServiceClient
-}
-
-// NewExerciseSessionRecordBuilderClient creates a new ExerciseSessionRecordBuilder client.
-func NewExerciseSessionRecordBuilderClient(cc grpc.ClientConnInterface) *ExerciseSessionRecordBuilderClient {
-	return &ExerciseSessionRecordBuilderClient{
-		svc: pb.NewExerciseSessionRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ExerciseSessionRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *ExerciseSessionRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *ExerciseSessionRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *ExerciseSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNotes calls the SetNotes RPC.
-func (c *ExerciseSessionRecordBuilderClient) SetNotes(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetNotes(ctx, &pb.SetNotesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPlannedExerciseSessionId calls the SetPlannedExerciseSessionId RPC.
-func (c *ExerciseSessionRecordBuilderClient) SetPlannedExerciseSessionId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetPlannedExerciseSessionId(ctx, &pb.SetPlannedExerciseSessionIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRoute calls the SetRoute RPC.
-func (c *ExerciseSessionRecordBuilderClient) SetRoute(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetRoute(ctx, &pb.SetRouteRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *ExerciseSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTitle calls the SetTitle RPC.
-func (c *ExerciseSessionRecordBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MindfulnessSessionRecordClient wraps the gRPC MindfulnessSessionRecordService client.
-type MindfulnessSessionRecordClient struct {
-	svc pb.MindfulnessSessionRecordServiceClient
-}
-
-// NewMindfulnessSessionRecordClient creates a new MindfulnessSessionRecord client.
-func NewMindfulnessSessionRecordClient(cc grpc.ClientConnInterface) *MindfulnessSessionRecordClient {
-	return &MindfulnessSessionRecordClient{
-		svc: pb.NewMindfulnessSessionRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *MindfulnessSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMindfulnessSessionType calls the GetMindfulnessSessionType RPC.
-func (c *MindfulnessSessionRecordClient) GetMindfulnessSessionType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMindfulnessSessionType(ctx, &pb.GetMindfulnessSessionTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotes calls the GetNotes RPC.
-func (c *MindfulnessSessionRecordClient) GetNotes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotes(ctx, &pb.GetNotesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *MindfulnessSessionRecordClient) GetTitle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MindfulnessSessionRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MindfulnessSessionRecordBuilderClient wraps the gRPC MindfulnessSessionRecordBuilderService client.
-type MindfulnessSessionRecordBuilderClient struct {
-	svc pb.MindfulnessSessionRecordBuilderServiceClient
-}
-
-// NewMindfulnessSessionRecordBuilderClient creates a new MindfulnessSessionRecordBuilder client.
-func NewMindfulnessSessionRecordBuilderClient(cc grpc.ClientConnInterface) *MindfulnessSessionRecordBuilderClient {
-	return &MindfulnessSessionRecordBuilderClient{
-		svc: pb.NewMindfulnessSessionRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *MindfulnessSessionRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *MindfulnessSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNotes calls the SetNotes RPC.
-func (c *MindfulnessSessionRecordBuilderClient) SetNotes(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetNotes(ctx, &pb.SetNotesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *MindfulnessSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTitle calls the SetTitle RPC.
-func (c *MindfulnessSessionRecordBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ElevationGainedRecordClient wraps the gRPC ElevationGainedRecordService client.
-type ElevationGainedRecordClient struct {
-	svc pb.ElevationGainedRecordServiceClient
-}
-
-// NewElevationGainedRecordClient creates a new ElevationGainedRecord client.
-func NewElevationGainedRecordClient(cc grpc.ClientConnInterface) *ElevationGainedRecordClient {
-	return &ElevationGainedRecordClient{
-		svc: pb.NewElevationGainedRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ElevationGainedRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetElevation calls the GetElevation RPC.
-func (c *ElevationGainedRecordClient) GetElevation(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetElevation(ctx, &pb.GetElevationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ElevationGainedRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ElevationGainedRecordBuilderClient wraps the gRPC ElevationGainedRecordBuilderService client.
-type ElevationGainedRecordBuilderClient struct {
-	svc pb.ElevationGainedRecordBuilderServiceClient
-}
-
-// NewElevationGainedRecordBuilderClient creates a new ElevationGainedRecordBuilder client.
-func NewElevationGainedRecordBuilderClient(cc grpc.ClientConnInterface) *ElevationGainedRecordBuilderClient {
-	return &ElevationGainedRecordBuilderClient{
-		svc: pb.NewElevationGainedRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ElevationGainedRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *ElevationGainedRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *ElevationGainedRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *ElevationGainedRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *ElevationGainedRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HeightRecordClient wraps the gRPC HeightRecordService client.
-type HeightRecordClient struct {
-	svc pb.HeightRecordServiceClient
-}
-
-// NewHeightRecordClient creates a new HeightRecord client.
-func NewHeightRecordClient(cc grpc.ClientConnInterface) *HeightRecordClient {
-	return &HeightRecordClient{
-		svc: pb.NewHeightRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *HeightRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *HeightRecordClient) GetHeight(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *HeightRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HeightRecordBuilderClient wraps the gRPC HeightRecordBuilderService client.
-type HeightRecordBuilderClient struct {
-	svc pb.HeightRecordBuilderServiceClient
-}
-
-// NewHeightRecordBuilderClient creates a new HeightRecordBuilder client.
-func NewHeightRecordBuilderClient(cc grpc.ClientConnInterface) *HeightRecordBuilderClient {
-	return &HeightRecordBuilderClient{
-		svc: pb.NewHeightRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *HeightRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *HeightRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *HeightRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SpeedRecordClient wraps the gRPC SpeedRecordService client.
-type SpeedRecordClient struct {
-	svc pb.SpeedRecordServiceClient
-}
-
-// NewSpeedRecordClient creates a new SpeedRecord client.
-func NewSpeedRecordClient(cc grpc.ClientConnInterface) *SpeedRecordClient {
-	return &SpeedRecordClient{
-		svc: pb.NewSpeedRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *SpeedRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SpeedRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SpeedRecordBuilderClient wraps the gRPC SpeedRecordBuilderService client.
-type SpeedRecordBuilderClient struct {
-	svc pb.SpeedRecordBuilderServiceClient
-}
-
-// NewSpeedRecordBuilderClient creates a new SpeedRecordBuilder client.
-func NewSpeedRecordBuilderClient(cc grpc.ClientConnInterface) *SpeedRecordBuilderClient {
-	return &SpeedRecordBuilderClient{
-		svc: pb.NewSpeedRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *SpeedRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *SpeedRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *SpeedRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *SpeedRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *SpeedRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SpeedRecordSpeedRecordSampleClient wraps the gRPC SpeedRecordSpeedRecordSampleService client.
-type SpeedRecordSpeedRecordSampleClient struct {
-	svc pb.SpeedRecordSpeedRecordSampleServiceClient
-}
-
-// NewSpeedRecordSpeedRecordSampleClient creates a new SpeedRecordSpeedRecordSample client.
-func NewSpeedRecordSpeedRecordSampleClient(cc grpc.ClientConnInterface) *SpeedRecordSpeedRecordSampleClient {
-	return &SpeedRecordSpeedRecordSampleClient{
-		svc: pb.NewSpeedRecordSpeedRecordSampleServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *SpeedRecordSpeedRecordSampleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpeed calls the GetSpeed RPC.
-func (c *SpeedRecordSpeedRecordSampleClient) GetSpeed(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSpeed(ctx, &pb.GetSpeedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTime calls the GetTime RPC.
-func (c *SpeedRecordSpeedRecordSampleClient) GetTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SpeedRecordSpeedRecordSampleClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// InstantRecordClient wraps the gRPC InstantRecordService client.
-type InstantRecordClient struct {
-	svc pb.InstantRecordServiceClient
-}
-
-// NewInstantRecordClient creates a new InstantRecord client.
-func NewInstantRecordClient(cc grpc.ClientConnInterface) *InstantRecordClient {
-	return &InstantRecordClient{
-		svc: pb.NewInstantRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *InstantRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTime calls the GetTime RPC.
-func (c *InstantRecordClient) GetTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetZoneOffset calls the GetZoneOffset RPC.
-func (c *InstantRecordClient) GetZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetZoneOffset(ctx, &pb.GetZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *InstantRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppInfoClient wraps the gRPC AppInfoService client.
-type AppInfoClient struct {
-	svc pb.AppInfoServiceClient
-}
-
-// NewAppInfoClient creates a new AppInfo client.
-func NewAppInfoClient(cc grpc.ClientConnInterface) *AppInfoClient {
-	return &AppInfoClient{
-		svc: pb.NewAppInfoServiceClient(cc),
-	}
-}
-
-// GetIcon calls the GetIcon RPC.
-func (c *AppInfoClient) GetIcon(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *AppInfoClient) GetName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *AppInfoClient) GetPackageName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Vo2MaxRecordClient wraps the gRPC Vo2MaxRecordService client.
-type Vo2MaxRecordClient struct {
-	svc pb.Vo2MaxRecordServiceClient
-}
-
-// NewVo2MaxRecordClient creates a new Vo2MaxRecord client.
-func NewVo2MaxRecordClient(cc grpc.ClientConnInterface) *Vo2MaxRecordClient {
-	return &Vo2MaxRecordClient{
-		svc: pb.NewVo2MaxRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *Vo2MaxRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMeasurementMethod calls the GetMeasurementMethod RPC.
-func (c *Vo2MaxRecordClient) GetMeasurementMethod(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMeasurementMethod(ctx, &pb.GetMeasurementMethodRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVo2MillilitersPerMinuteKilogram calls the GetVo2MillilitersPerMinuteKilogram RPC.
-func (c *Vo2MaxRecordClient) GetVo2MillilitersPerMinuteKilogram(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetVo2MillilitersPerMinuteKilogram(ctx, &pb.GetVo2MillilitersPerMinuteKilogramRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *Vo2MaxRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Vo2MaxRecordBuilderClient wraps the gRPC Vo2MaxRecordBuilderService client.
-type Vo2MaxRecordBuilderClient struct {
-	svc pb.Vo2MaxRecordBuilderServiceClient
-}
-
-// NewVo2MaxRecordBuilderClient creates a new Vo2MaxRecordBuilder client.
-func NewVo2MaxRecordBuilderClient(cc grpc.ClientConnInterface) *Vo2MaxRecordBuilderClient {
-	return &Vo2MaxRecordBuilderClient{
-		svc: pb.NewVo2MaxRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *Vo2MaxRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *Vo2MaxRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *Vo2MaxRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FloorsClimbedRecordClient wraps the gRPC FloorsClimbedRecordService client.
-type FloorsClimbedRecordClient struct {
-	svc pb.FloorsClimbedRecordServiceClient
-}
-
-// NewFloorsClimbedRecordClient creates a new FloorsClimbedRecord client.
-func NewFloorsClimbedRecordClient(cc grpc.ClientConnInterface) *FloorsClimbedRecordClient {
-	return &FloorsClimbedRecordClient{
-		svc: pb.NewFloorsClimbedRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *FloorsClimbedRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFloors calls the GetFloors RPC.
-func (c *FloorsClimbedRecordClient) GetFloors(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetFloors(ctx, &pb.GetFloorsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FloorsClimbedRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FloorsClimbedRecordBuilderClient wraps the gRPC FloorsClimbedRecordBuilderService client.
-type FloorsClimbedRecordBuilderClient struct {
-	svc pb.FloorsClimbedRecordBuilderServiceClient
-}
-
-// NewFloorsClimbedRecordBuilderClient creates a new FloorsClimbedRecordBuilder client.
-func NewFloorsClimbedRecordBuilderClient(cc grpc.ClientConnInterface) *FloorsClimbedRecordBuilderClient {
-	return &FloorsClimbedRecordBuilderClient{
-		svc: pb.NewFloorsClimbedRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *FloorsClimbedRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *FloorsClimbedRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *FloorsClimbedRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *FloorsClimbedRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *FloorsClimbedRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StepsCadenceRecordClient wraps the gRPC StepsCadenceRecordService client.
-type StepsCadenceRecordClient struct {
-	svc pb.StepsCadenceRecordServiceClient
-}
-
-// NewStepsCadenceRecordClient creates a new StepsCadenceRecord client.
-func NewStepsCadenceRecordClient(cc grpc.ClientConnInterface) *StepsCadenceRecordClient {
-	return &StepsCadenceRecordClient{
-		svc: pb.NewStepsCadenceRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *StepsCadenceRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *StepsCadenceRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StepsCadenceRecordBuilderClient wraps the gRPC StepsCadenceRecordBuilderService client.
-type StepsCadenceRecordBuilderClient struct {
-	svc pb.StepsCadenceRecordBuilderServiceClient
-}
-
-// NewStepsCadenceRecordBuilderClient creates a new StepsCadenceRecordBuilder client.
-func NewStepsCadenceRecordBuilderClient(cc grpc.ClientConnInterface) *StepsCadenceRecordBuilderClient {
-	return &StepsCadenceRecordBuilderClient{
-		svc: pb.NewStepsCadenceRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *StepsCadenceRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *StepsCadenceRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *StepsCadenceRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *StepsCadenceRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *StepsCadenceRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StepsCadenceRecordStepsCadenceRecordSampleClient wraps the gRPC StepsCadenceRecordStepsCadenceRecordSampleService client.
-type StepsCadenceRecordStepsCadenceRecordSampleClient struct {
-	svc pb.StepsCadenceRecordStepsCadenceRecordSampleServiceClient
-}
-
-// NewStepsCadenceRecordStepsCadenceRecordSampleClient creates a new StepsCadenceRecordStepsCadenceRecordSample client.
-func NewStepsCadenceRecordStepsCadenceRecordSampleClient(cc grpc.ClientConnInterface) *StepsCadenceRecordStepsCadenceRecordSampleClient {
-	return &StepsCadenceRecordStepsCadenceRecordSampleClient{
-		svc: pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *StepsCadenceRecordStepsCadenceRecordSampleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRate calls the GetRate RPC.
-func (c *StepsCadenceRecordStepsCadenceRecordSampleClient) GetRate(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetRate(ctx, &pb.GetRateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTime calls the GetTime RPC.
-func (c *StepsCadenceRecordStepsCadenceRecordSampleClient) GetTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *StepsCadenceRecordStepsCadenceRecordSampleClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FhirResourceClient wraps the gRPC FhirResourceService client.
-type FhirResourceClient struct {
-	svc pb.FhirResourceServiceClient
-}
-
-// NewFhirResourceClient creates a new FhirResource client.
-func NewFhirResourceClient(cc grpc.ClientConnInterface) *FhirResourceClient {
-	return &FhirResourceClient{
-		svc: pb.NewFhirResourceServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *FhirResourceClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.FhirResourceDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *FhirResourceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetData calls the GetData RPC.
-func (c *FhirResourceClient) GetData(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *FhirResourceClient) GetId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *FhirResourceClient) GetType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FhirResourceClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FhirResourceClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *FhirResourceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.FhirResourceWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// FhirResourceBuilderClient wraps the gRPC FhirResourceBuilderService client.
-type FhirResourceBuilderClient struct {
-	svc pb.FhirResourceBuilderServiceClient
-}
-
-// NewFhirResourceBuilderClient creates a new FhirResourceBuilder client.
-func NewFhirResourceBuilderClient(cc grpc.ClientConnInterface) *FhirResourceBuilderClient {
-	return &FhirResourceBuilderClient{
-		svc: pb.NewFhirResourceBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *FhirResourceBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetData calls the SetData RPC.
-func (c *FhirResourceBuilderClient) SetData(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetData(ctx, &pb.SetDataRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetId calls the SetId RPC.
-func (c *FhirResourceBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetType calls the SetType RPC.
-func (c *FhirResourceBuilderClient) SetType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HeartRateVariabilityRmssdRecordClient wraps the gRPC HeartRateVariabilityRmssdRecordService client.
-type HeartRateVariabilityRmssdRecordClient struct {
-	svc pb.HeartRateVariabilityRmssdRecordServiceClient
-}
-
-// NewHeartRateVariabilityRmssdRecordClient creates a new HeartRateVariabilityRmssdRecord client.
-func NewHeartRateVariabilityRmssdRecordClient(cc grpc.ClientConnInterface) *HeartRateVariabilityRmssdRecordClient {
-	return &HeartRateVariabilityRmssdRecordClient{
-		svc: pb.NewHeartRateVariabilityRmssdRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *HeartRateVariabilityRmssdRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeartRateVariabilityMillis calls the GetHeartRateVariabilityMillis RPC.
-func (c *HeartRateVariabilityRmssdRecordClient) GetHeartRateVariabilityMillis(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetHeartRateVariabilityMillis(ctx, &pb.GetHeartRateVariabilityMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *HeartRateVariabilityRmssdRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HeartRateVariabilityRmssdRecordBuilderClient wraps the gRPC HeartRateVariabilityRmssdRecordBuilderService client.
-type HeartRateVariabilityRmssdRecordBuilderClient struct {
-	svc pb.HeartRateVariabilityRmssdRecordBuilderServiceClient
-}
-
-// NewHeartRateVariabilityRmssdRecordBuilderClient creates a new HeartRateVariabilityRmssdRecordBuilder client.
-func NewHeartRateVariabilityRmssdRecordBuilderClient(cc grpc.ClientConnInterface) *HeartRateVariabilityRmssdRecordBuilderClient {
-	return &HeartRateVariabilityRmssdRecordBuilderClient{
-		svc: pb.NewHeartRateVariabilityRmssdRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *HeartRateVariabilityRmssdRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *HeartRateVariabilityRmssdRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *HeartRateVariabilityRmssdRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RespiratoryRateRecordClient wraps the gRPC RespiratoryRateRecordService client.
-type RespiratoryRateRecordClient struct {
-	svc pb.RespiratoryRateRecordServiceClient
-}
-
-// NewRespiratoryRateRecordClient creates a new RespiratoryRateRecord client.
-func NewRespiratoryRateRecordClient(cc grpc.ClientConnInterface) *RespiratoryRateRecordClient {
-	return &RespiratoryRateRecordClient{
-		svc: pb.NewRespiratoryRateRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *RespiratoryRateRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRate calls the GetRate RPC.
-func (c *RespiratoryRateRecordClient) GetRate(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetRate(ctx, &pb.GetRateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RespiratoryRateRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RespiratoryRateRecordBuilderClient wraps the gRPC RespiratoryRateRecordBuilderService client.
-type RespiratoryRateRecordBuilderClient struct {
-	svc pb.RespiratoryRateRecordBuilderServiceClient
-}
-
-// NewRespiratoryRateRecordBuilderClient creates a new RespiratoryRateRecordBuilder client.
-func NewRespiratoryRateRecordBuilderClient(cc grpc.ClientConnInterface) *RespiratoryRateRecordBuilderClient {
-	return &RespiratoryRateRecordBuilderClient{
-		svc: pb.NewRespiratoryRateRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *RespiratoryRateRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *RespiratoryRateRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *RespiratoryRateRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RecordClient wraps the gRPC RecordService client.
-type RecordClient struct {
-	svc pb.RecordServiceClient
-}
-
-// NewRecordClient creates a new Record client.
-func NewRecordClient(cc grpc.ClientConnInterface) *RecordClient {
-	return &RecordClient{
-		svc: pb.NewRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *RecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMetadata calls the GetMetadata RPC.
-func (c *RecordClient) GetMetadata(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMetadata(ctx, &pb.GetMetadataRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BasalBodyTemperatureRecordClient wraps the gRPC BasalBodyTemperatureRecordService client.
-type BasalBodyTemperatureRecordClient struct {
-	svc pb.BasalBodyTemperatureRecordServiceClient
-}
-
-// NewBasalBodyTemperatureRecordClient creates a new BasalBodyTemperatureRecord client.
-func NewBasalBodyTemperatureRecordClient(cc grpc.ClientConnInterface) *BasalBodyTemperatureRecordClient {
-	return &BasalBodyTemperatureRecordClient{
-		svc: pb.NewBasalBodyTemperatureRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *BasalBodyTemperatureRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMeasurementLocation calls the GetMeasurementLocation RPC.
-func (c *BasalBodyTemperatureRecordClient) GetMeasurementLocation(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMeasurementLocation(ctx, &pb.GetMeasurementLocationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTemperature calls the GetTemperature RPC.
-func (c *BasalBodyTemperatureRecordClient) GetTemperature(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTemperature(ctx, &pb.GetTemperatureRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *BasalBodyTemperatureRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BasalBodyTemperatureRecordBuilderClient wraps the gRPC BasalBodyTemperatureRecordBuilderService client.
-type BasalBodyTemperatureRecordBuilderClient struct {
-	svc pb.BasalBodyTemperatureRecordBuilderServiceClient
-}
-
-// NewBasalBodyTemperatureRecordBuilderClient creates a new BasalBodyTemperatureRecordBuilder client.
-func NewBasalBodyTemperatureRecordBuilderClient(cc grpc.ClientConnInterface) *BasalBodyTemperatureRecordBuilderClient {
-	return &BasalBodyTemperatureRecordBuilderClient{
-		svc: pb.NewBasalBodyTemperatureRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *BasalBodyTemperatureRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *BasalBodyTemperatureRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *BasalBodyTemperatureRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExercisePerformanceGoalCadenceGoalClient wraps the gRPC ExercisePerformanceGoalCadenceGoalService client.
-type ExercisePerformanceGoalCadenceGoalClient struct {
-	svc pb.ExercisePerformanceGoalCadenceGoalServiceClient
-}
-
-// NewExercisePerformanceGoalCadenceGoalClient creates a new ExercisePerformanceGoalCadenceGoal client.
-func NewExercisePerformanceGoalCadenceGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalCadenceGoalClient {
-	return &ExercisePerformanceGoalCadenceGoalClient{
-		svc: pb.NewExercisePerformanceGoalCadenceGoalServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ExercisePerformanceGoalCadenceGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxRpm calls the GetMaxRpm RPC.
-func (c *ExercisePerformanceGoalCadenceGoalClient) GetMaxRpm(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetMaxRpm(ctx, &pb.GetMaxRpmRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinRpm calls the GetMinRpm RPC.
-func (c *ExercisePerformanceGoalCadenceGoalClient) GetMinRpm(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetMinRpm(ctx, &pb.GetMinRpmRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExercisePerformanceGoalCadenceGoalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExercisePerformanceGoalHeartRateGoalClient wraps the gRPC ExercisePerformanceGoalHeartRateGoalService client.
-type ExercisePerformanceGoalHeartRateGoalClient struct {
-	svc pb.ExercisePerformanceGoalHeartRateGoalServiceClient
-}
-
-// NewExercisePerformanceGoalHeartRateGoalClient creates a new ExercisePerformanceGoalHeartRateGoal client.
-func NewExercisePerformanceGoalHeartRateGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalHeartRateGoalClient {
-	return &ExercisePerformanceGoalHeartRateGoalClient{
-		svc: pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ExercisePerformanceGoalHeartRateGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxBpm calls the GetMaxBpm RPC.
-func (c *ExercisePerformanceGoalHeartRateGoalClient) GetMaxBpm(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxBpm(ctx, &pb.GetMaxBpmRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinBpm calls the GetMinBpm RPC.
-func (c *ExercisePerformanceGoalHeartRateGoalClient) GetMinBpm(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMinBpm(ctx, &pb.GetMinBpmRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExercisePerformanceGoalHeartRateGoalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExercisePerformanceGoalPowerGoalClient wraps the gRPC ExercisePerformanceGoalPowerGoalService client.
-type ExercisePerformanceGoalPowerGoalClient struct {
-	svc pb.ExercisePerformanceGoalPowerGoalServiceClient
-}
-
-// NewExercisePerformanceGoalPowerGoalClient creates a new ExercisePerformanceGoalPowerGoal client.
-func NewExercisePerformanceGoalPowerGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalPowerGoalClient {
-	return &ExercisePerformanceGoalPowerGoalClient{
-		svc: pb.NewExercisePerformanceGoalPowerGoalServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ExercisePerformanceGoalPowerGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxPower calls the GetMaxPower RPC.
-func (c *ExercisePerformanceGoalPowerGoalClient) GetMaxPower(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMaxPower(ctx, &pb.GetMaxPowerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinPower calls the GetMinPower RPC.
-func (c *ExercisePerformanceGoalPowerGoalClient) GetMinPower(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMinPower(ctx, &pb.GetMinPowerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExercisePerformanceGoalPowerGoalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExercisePerformanceGoalRateOfPerceivedExertionGoalClient wraps the gRPC ExercisePerformanceGoalRateOfPerceivedExertionGoalService client.
-type ExercisePerformanceGoalRateOfPerceivedExertionGoalClient struct {
-	svc pb.ExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient
-}
-
-// NewExercisePerformanceGoalRateOfPerceivedExertionGoalClient creates a new ExercisePerformanceGoalRateOfPerceivedExertionGoal client.
-func NewExercisePerformanceGoalRateOfPerceivedExertionGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalRateOfPerceivedExertionGoalClient {
-	return &ExercisePerformanceGoalRateOfPerceivedExertionGoalClient{
-		svc: pb.NewExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ExercisePerformanceGoalRateOfPerceivedExertionGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRpe calls the GetRpe RPC.
-func (c *ExercisePerformanceGoalRateOfPerceivedExertionGoalClient) GetRpe(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRpe(ctx, &pb.GetRpeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExercisePerformanceGoalRateOfPerceivedExertionGoalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExercisePerformanceGoalSpeedGoalClient wraps the gRPC ExercisePerformanceGoalSpeedGoalService client.
-type ExercisePerformanceGoalSpeedGoalClient struct {
-	svc pb.ExercisePerformanceGoalSpeedGoalServiceClient
-}
-
-// NewExercisePerformanceGoalSpeedGoalClient creates a new ExercisePerformanceGoalSpeedGoal client.
-func NewExercisePerformanceGoalSpeedGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalSpeedGoalClient {
-	return &ExercisePerformanceGoalSpeedGoalClient{
-		svc: pb.NewExercisePerformanceGoalSpeedGoalServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ExercisePerformanceGoalSpeedGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxSpeed calls the GetMaxSpeed RPC.
-func (c *ExercisePerformanceGoalSpeedGoalClient) GetMaxSpeed(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMaxSpeed(ctx, &pb.GetMaxSpeedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinSpeed calls the GetMinSpeed RPC.
-func (c *ExercisePerformanceGoalSpeedGoalClient) GetMinSpeed(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMinSpeed(ctx, &pb.GetMinSpeedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExercisePerformanceGoalSpeedGoalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExercisePerformanceGoalWeightGoalClient wraps the gRPC ExercisePerformanceGoalWeightGoalService client.
-type ExercisePerformanceGoalWeightGoalClient struct {
-	svc pb.ExercisePerformanceGoalWeightGoalServiceClient
-}
-
-// NewExercisePerformanceGoalWeightGoalClient creates a new ExercisePerformanceGoalWeightGoal client.
-func NewExercisePerformanceGoalWeightGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalWeightGoalClient {
-	return &ExercisePerformanceGoalWeightGoalClient{
-		svc: pb.NewExercisePerformanceGoalWeightGoalServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ExercisePerformanceGoalWeightGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMass calls the GetMass RPC.
-func (c *ExercisePerformanceGoalWeightGoalClient) GetMass(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMass(ctx, &pb.GetMassRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ExercisePerformanceGoalWeightGoalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CyclingPedalingCadenceRecordClient wraps the gRPC CyclingPedalingCadenceRecordService client.
-type CyclingPedalingCadenceRecordClient struct {
-	svc pb.CyclingPedalingCadenceRecordServiceClient
-}
-
-// NewCyclingPedalingCadenceRecordClient creates a new CyclingPedalingCadenceRecord client.
-func NewCyclingPedalingCadenceRecordClient(cc grpc.ClientConnInterface) *CyclingPedalingCadenceRecordClient {
-	return &CyclingPedalingCadenceRecordClient{
-		svc: pb.NewCyclingPedalingCadenceRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *CyclingPedalingCadenceRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *CyclingPedalingCadenceRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CyclingPedalingCadenceRecordBuilderClient wraps the gRPC CyclingPedalingCadenceRecordBuilderService client.
-type CyclingPedalingCadenceRecordBuilderClient struct {
-	svc pb.CyclingPedalingCadenceRecordBuilderServiceClient
-}
-
-// NewCyclingPedalingCadenceRecordBuilderClient creates a new CyclingPedalingCadenceRecordBuilder client.
-func NewCyclingPedalingCadenceRecordBuilderClient(cc grpc.ClientConnInterface) *CyclingPedalingCadenceRecordBuilderClient {
-	return &CyclingPedalingCadenceRecordBuilderClient{
-		svc: pb.NewCyclingPedalingCadenceRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *CyclingPedalingCadenceRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *CyclingPedalingCadenceRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *CyclingPedalingCadenceRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *CyclingPedalingCadenceRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *CyclingPedalingCadenceRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient wraps the gRPC CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleService client.
-type CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient struct {
-	svc pb.CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient
-}
-
-// NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient creates a new CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSample client.
-func NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient(cc grpc.ClientConnInterface) *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient {
-	return &CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient{
-		svc: pb.NewCyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRevolutionsPerMinute calls the GetRevolutionsPerMinute RPC.
-func (c *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient) GetRevolutionsPerMinute(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetRevolutionsPerMinute(ctx, &pb.GetRevolutionsPerMinuteRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTime calls the GetTime RPC.
-func (c *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient) GetTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BasalMetabolicRateRecordClient wraps the gRPC BasalMetabolicRateRecordService client.
-type BasalMetabolicRateRecordClient struct {
-	svc pb.BasalMetabolicRateRecordServiceClient
-}
-
-// NewBasalMetabolicRateRecordClient creates a new BasalMetabolicRateRecord client.
-func NewBasalMetabolicRateRecordClient(cc grpc.ClientConnInterface) *BasalMetabolicRateRecordClient {
-	return &BasalMetabolicRateRecordClient{
-		svc: pb.NewBasalMetabolicRateRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *BasalMetabolicRateRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBasalMetabolicRate calls the GetBasalMetabolicRate RPC.
-func (c *BasalMetabolicRateRecordClient) GetBasalMetabolicRate(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBasalMetabolicRate(ctx, &pb.GetBasalMetabolicRateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *BasalMetabolicRateRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BasalMetabolicRateRecordBuilderClient wraps the gRPC BasalMetabolicRateRecordBuilderService client.
-type BasalMetabolicRateRecordBuilderClient struct {
-	svc pb.BasalMetabolicRateRecordBuilderServiceClient
-}
-
-// NewBasalMetabolicRateRecordBuilderClient creates a new BasalMetabolicRateRecordBuilder client.
-func NewBasalMetabolicRateRecordBuilderClient(cc grpc.ClientConnInterface) *BasalMetabolicRateRecordBuilderClient {
-	return &BasalMetabolicRateRecordBuilderClient{
-		svc: pb.NewBasalMetabolicRateRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *BasalMetabolicRateRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *BasalMetabolicRateRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *BasalMetabolicRateRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BodyFatRecordClient wraps the gRPC BodyFatRecordService client.
-type BodyFatRecordClient struct {
-	svc pb.BodyFatRecordServiceClient
-}
-
-// NewBodyFatRecordClient creates a new BodyFatRecord client.
-func NewBodyFatRecordClient(cc grpc.ClientConnInterface) *BodyFatRecordClient {
-	return &BodyFatRecordClient{
-		svc: pb.NewBodyFatRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *BodyFatRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPercentage calls the GetPercentage RPC.
-func (c *BodyFatRecordClient) GetPercentage(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPercentage(ctx, &pb.GetPercentageRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *BodyFatRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BodyFatRecordBuilderClient wraps the gRPC BodyFatRecordBuilderService client.
-type BodyFatRecordBuilderClient struct {
-	svc pb.BodyFatRecordBuilderServiceClient
-}
-
-// NewBodyFatRecordBuilderClient creates a new BodyFatRecordBuilder client.
-func NewBodyFatRecordBuilderClient(cc grpc.ClientConnInterface) *BodyFatRecordBuilderClient {
-	return &BodyFatRecordBuilderClient{
-		svc: pb.NewBodyFatRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *BodyFatRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *BodyFatRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *BodyFatRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -5377,6 +2100,192 @@ func (c *ExerciseCompletionGoalTotalCaloriesBurnedGoalClient) HashCode(ctx conte
 	return resp.GetResult(), nil
 }
 
+// ActivityIntensityRecordClient wraps the gRPC ActivityIntensityRecordService client.
+type ActivityIntensityRecordClient struct {
+	svc pb.ActivityIntensityRecordServiceClient
+}
+
+// NewActivityIntensityRecordClient creates a new ActivityIntensityRecord client.
+func NewActivityIntensityRecordClient(cc grpc.ClientConnInterface) *ActivityIntensityRecordClient {
+	return &ActivityIntensityRecordClient{
+		svc: pb.NewActivityIntensityRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ActivityIntensityRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityIntensityType calls the GetActivityIntensityType RPC.
+func (c *ActivityIntensityRecordClient) GetActivityIntensityType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetActivityIntensityType(ctx, &pb.GetActivityIntensityTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ActivityIntensityRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ActivityIntensityRecordBuilderClient wraps the gRPC ActivityIntensityRecordBuilderService client.
+type ActivityIntensityRecordBuilderClient struct {
+	svc pb.ActivityIntensityRecordBuilderServiceClient
+}
+
+// NewActivityIntensityRecordBuilderClient creates a new ActivityIntensityRecordBuilder client.
+func NewActivityIntensityRecordBuilderClient(cc grpc.ClientConnInterface) *ActivityIntensityRecordBuilderClient {
+	return &ActivityIntensityRecordBuilderClient{
+		svc: pb.NewActivityIntensityRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ActivityIntensityRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *ActivityIntensityRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *ActivityIntensityRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StepsRecordClient wraps the gRPC StepsRecordService client.
+type StepsRecordClient struct {
+	svc pb.StepsRecordServiceClient
+}
+
+// NewStepsRecordClient creates a new StepsRecord client.
+func NewStepsRecordClient(cc grpc.ClientConnInterface) *StepsRecordClient {
+	return &StepsRecordClient{
+		svc: pb.NewStepsRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *StepsRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCount calls the GetCount RPC.
+func (c *StepsRecordClient) GetCount(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *StepsRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StepsRecordBuilderClient wraps the gRPC StepsRecordBuilderService client.
+type StepsRecordBuilderClient struct {
+	svc pb.StepsRecordBuilderServiceClient
+}
+
+// NewStepsRecordBuilderClient creates a new StepsRecordBuilder client.
+func NewStepsRecordBuilderClient(cc grpc.ClientConnInterface) *StepsRecordBuilderClient {
+	return &StepsRecordBuilderClient{
+		svc: pb.NewStepsRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *StepsRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *StepsRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *StepsRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *StepsRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *StepsRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HeartRateRecordClient wraps the gRPC HeartRateRecordService client.
 type HeartRateRecordClient struct {
 	svc pb.HeartRateRecordServiceClient
@@ -5396,6 +2305,15 @@ func (c *HeartRateRecordClient) Equals(ctx context.Context, arg0 int64) (bool, e
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSamples calls the GetSamples RPC.
+func (c *HeartRateRecordClient) GetSamples(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSamples(ctx, &pb.GetSamplesRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -5520,102 +2438,20 @@ func (c *HeartRateRecordHeartRateSampleClient) HashCode(ctx context.Context) (in
 	return resp.GetResult(), nil
 }
 
-// LeanBodyMassRecordClient wraps the gRPC LeanBodyMassRecordService client.
-type LeanBodyMassRecordClient struct {
-	svc pb.LeanBodyMassRecordServiceClient
+// BodyFatRecordClient wraps the gRPC BodyFatRecordService client.
+type BodyFatRecordClient struct {
+	svc pb.BodyFatRecordServiceClient
 }
 
-// NewLeanBodyMassRecordClient creates a new LeanBodyMassRecord client.
-func NewLeanBodyMassRecordClient(cc grpc.ClientConnInterface) *LeanBodyMassRecordClient {
-	return &LeanBodyMassRecordClient{
-		svc: pb.NewLeanBodyMassRecordServiceClient(cc),
+// NewBodyFatRecordClient creates a new BodyFatRecord client.
+func NewBodyFatRecordClient(cc grpc.ClientConnInterface) *BodyFatRecordClient {
+	return &BodyFatRecordClient{
+		svc: pb.NewBodyFatRecordServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *LeanBodyMassRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMass calls the GetMass RPC.
-func (c *LeanBodyMassRecordClient) GetMass(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMass(ctx, &pb.GetMassRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *LeanBodyMassRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LeanBodyMassRecordBuilderClient wraps the gRPC LeanBodyMassRecordBuilderService client.
-type LeanBodyMassRecordBuilderClient struct {
-	svc pb.LeanBodyMassRecordBuilderServiceClient
-}
-
-// NewLeanBodyMassRecordBuilderClient creates a new LeanBodyMassRecordBuilder client.
-func NewLeanBodyMassRecordBuilderClient(cc grpc.ClientConnInterface) *LeanBodyMassRecordBuilderClient {
-	return &LeanBodyMassRecordBuilderClient{
-		svc: pb.NewLeanBodyMassRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *LeanBodyMassRecordBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *LeanBodyMassRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZoneOffset calls the SetZoneOffset RPC.
-func (c *LeanBodyMassRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OxygenSaturationRecordClient wraps the gRPC OxygenSaturationRecordService client.
-type OxygenSaturationRecordClient struct {
-	svc pb.OxygenSaturationRecordServiceClient
-}
-
-// NewOxygenSaturationRecordClient creates a new OxygenSaturationRecord client.
-func NewOxygenSaturationRecordClient(cc grpc.ClientConnInterface) *OxygenSaturationRecordClient {
-	return &OxygenSaturationRecordClient{
-		svc: pb.NewOxygenSaturationRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *OxygenSaturationRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *BodyFatRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -5626,7 +2462,7 @@ func (c *OxygenSaturationRecordClient) Equals(ctx context.Context, arg0 int64) (
 }
 
 // GetPercentage calls the GetPercentage RPC.
-func (c *OxygenSaturationRecordClient) GetPercentage(ctx context.Context) (int64, error) {
+func (c *BodyFatRecordClient) GetPercentage(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetPercentage(ctx, &pb.GetPercentageRequest{})
 	if err != nil {
 		return 0, err
@@ -5635,7 +2471,7 @@ func (c *OxygenSaturationRecordClient) GetPercentage(ctx context.Context) (int64
 }
 
 // HashCode calls the HashCode RPC.
-func (c *OxygenSaturationRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *BodyFatRecordClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -5643,20 +2479,20 @@ func (c *OxygenSaturationRecordClient) HashCode(ctx context.Context) (int32, err
 	return resp.GetResult(), nil
 }
 
-// OxygenSaturationRecordBuilderClient wraps the gRPC OxygenSaturationRecordBuilderService client.
-type OxygenSaturationRecordBuilderClient struct {
-	svc pb.OxygenSaturationRecordBuilderServiceClient
+// BodyFatRecordBuilderClient wraps the gRPC BodyFatRecordBuilderService client.
+type BodyFatRecordBuilderClient struct {
+	svc pb.BodyFatRecordBuilderServiceClient
 }
 
-// NewOxygenSaturationRecordBuilderClient creates a new OxygenSaturationRecordBuilder client.
-func NewOxygenSaturationRecordBuilderClient(cc grpc.ClientConnInterface) *OxygenSaturationRecordBuilderClient {
-	return &OxygenSaturationRecordBuilderClient{
-		svc: pb.NewOxygenSaturationRecordBuilderServiceClient(cc),
+// NewBodyFatRecordBuilderClient creates a new BodyFatRecordBuilder client.
+func NewBodyFatRecordBuilderClient(cc grpc.ClientConnInterface) *BodyFatRecordBuilderClient {
+	return &BodyFatRecordBuilderClient{
+		svc: pb.NewBodyFatRecordBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *OxygenSaturationRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *BodyFatRecordBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -5665,7 +2501,7 @@ func (c *OxygenSaturationRecordBuilderClient) Build(ctx context.Context) (int64,
 }
 
 // ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *OxygenSaturationRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+func (c *BodyFatRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
 	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
@@ -5674,7 +2510,7 @@ func (c *OxygenSaturationRecordBuilderClient) ClearZoneOffset(ctx context.Contex
 }
 
 // SetZoneOffset calls the SetZoneOffset RPC.
-func (c *OxygenSaturationRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *BodyFatRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
 		Arg0: arg0,
 	})
@@ -5684,20 +2520,691 @@ func (c *OxygenSaturationRecordBuilderClient) SetZoneOffset(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
-// IntervalRecordClient wraps the gRPC IntervalRecordService client.
-type IntervalRecordClient struct {
-	svc pb.IntervalRecordServiceClient
+// PlannedExerciseStepClient wraps the gRPC PlannedExerciseStepService client.
+type PlannedExerciseStepClient struct {
+	svc pb.PlannedExerciseStepServiceClient
 }
 
-// NewIntervalRecordClient creates a new IntervalRecord client.
-func NewIntervalRecordClient(cc grpc.ClientConnInterface) *IntervalRecordClient {
-	return &IntervalRecordClient{
-		svc: pb.NewIntervalRecordServiceClient(cc),
+// NewPlannedExerciseStepClient creates a new PlannedExerciseStep client.
+func NewPlannedExerciseStepClient(cc grpc.ClientConnInterface) *PlannedExerciseStepClient {
+	return &PlannedExerciseStepClient{
+		svc: pb.NewPlannedExerciseStepServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *IntervalRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *PlannedExerciseStepClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCompletionGoal calls the GetCompletionGoal RPC.
+func (c *PlannedExerciseStepClient) GetCompletionGoal(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCompletionGoal(ctx, &pb.GetCompletionGoalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *PlannedExerciseStepClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExerciseCategory calls the GetExerciseCategory RPC.
+func (c *PlannedExerciseStepClient) GetExerciseCategory(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExerciseCategory(ctx, &pb.GetExerciseCategoryRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExerciseType calls the GetExerciseType RPC.
+func (c *PlannedExerciseStepClient) GetExerciseType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExerciseType(ctx, &pb.GetExerciseTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPerformanceGoals calls the GetPerformanceGoals RPC.
+func (c *PlannedExerciseStepClient) GetPerformanceGoals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPerformanceGoals(ctx, &pb.GetPerformanceGoalsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PlannedExerciseStepClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PlannedExerciseStepBuilderClient wraps the gRPC PlannedExerciseStepBuilderService client.
+type PlannedExerciseStepBuilderClient struct {
+	svc pb.PlannedExerciseStepBuilderServiceClient
+}
+
+// NewPlannedExerciseStepBuilderClient creates a new PlannedExerciseStepBuilder client.
+func NewPlannedExerciseStepBuilderClient(cc grpc.ClientConnInterface) *PlannedExerciseStepBuilderClient {
+	return &PlannedExerciseStepBuilderClient{
+		svc: pb.NewPlannedExerciseStepBuilderServiceClient(cc),
+	}
+}
+
+// AddPerformanceGoal calls the AddPerformanceGoal RPC.
+func (c *PlannedExerciseStepBuilderClient) AddPerformanceGoal(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddPerformanceGoal(ctx, &pb.AddPerformanceGoalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *PlannedExerciseStepBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearPerformanceGoals calls the ClearPerformanceGoals RPC.
+func (c *PlannedExerciseStepBuilderClient) ClearPerformanceGoals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearPerformanceGoals(ctx, &pb.ClearPerformanceGoalsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCompletionGoal calls the SetCompletionGoal RPC.
+func (c *PlannedExerciseStepBuilderClient) SetCompletionGoal(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCompletionGoal(ctx, &pb.SetCompletionGoalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *PlannedExerciseStepBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExerciseCategory calls the SetExerciseCategory RPC.
+func (c *PlannedExerciseStepBuilderClient) SetExerciseCategory(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetExerciseCategory(ctx, &pb.SetExerciseCategoryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExerciseType calls the SetExerciseType RPC.
+func (c *PlannedExerciseStepBuilderClient) SetExerciseType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetExerciseType(ctx, &pb.SetExerciseTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BasalMetabolicRateRecordClient wraps the gRPC BasalMetabolicRateRecordService client.
+type BasalMetabolicRateRecordClient struct {
+	svc pb.BasalMetabolicRateRecordServiceClient
+}
+
+// NewBasalMetabolicRateRecordClient creates a new BasalMetabolicRateRecord client.
+func NewBasalMetabolicRateRecordClient(cc grpc.ClientConnInterface) *BasalMetabolicRateRecordClient {
+	return &BasalMetabolicRateRecordClient{
+		svc: pb.NewBasalMetabolicRateRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *BasalMetabolicRateRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBasalMetabolicRate calls the GetBasalMetabolicRate RPC.
+func (c *BasalMetabolicRateRecordClient) GetBasalMetabolicRate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBasalMetabolicRate(ctx, &pb.GetBasalMetabolicRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *BasalMetabolicRateRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BasalMetabolicRateRecordBuilderClient wraps the gRPC BasalMetabolicRateRecordBuilderService client.
+type BasalMetabolicRateRecordBuilderClient struct {
+	svc pb.BasalMetabolicRateRecordBuilderServiceClient
+}
+
+// NewBasalMetabolicRateRecordBuilderClient creates a new BasalMetabolicRateRecordBuilder client.
+func NewBasalMetabolicRateRecordBuilderClient(cc grpc.ClientConnInterface) *BasalMetabolicRateRecordBuilderClient {
+	return &BasalMetabolicRateRecordBuilderClient{
+		svc: pb.NewBasalMetabolicRateRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *BasalMetabolicRateRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *BasalMetabolicRateRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *BasalMetabolicRateRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HeightRecordClient wraps the gRPC HeightRecordService client.
+type HeightRecordClient struct {
+	svc pb.HeightRecordServiceClient
+}
+
+// NewHeightRecordClient creates a new HeightRecord client.
+func NewHeightRecordClient(cc grpc.ClientConnInterface) *HeightRecordClient {
+	return &HeightRecordClient{
+		svc: pb.NewHeightRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *HeightRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *HeightRecordClient) GetHeight(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *HeightRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HeightRecordBuilderClient wraps the gRPC HeightRecordBuilderService client.
+type HeightRecordBuilderClient struct {
+	svc pb.HeightRecordBuilderServiceClient
+}
+
+// NewHeightRecordBuilderClient creates a new HeightRecordBuilder client.
+func NewHeightRecordBuilderClient(cc grpc.ClientConnInterface) *HeightRecordBuilderClient {
+	return &HeightRecordBuilderClient{
+		svc: pb.NewHeightRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *HeightRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *HeightRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *HeightRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ElevationGainedRecordClient wraps the gRPC ElevationGainedRecordService client.
+type ElevationGainedRecordClient struct {
+	svc pb.ElevationGainedRecordServiceClient
+}
+
+// NewElevationGainedRecordClient creates a new ElevationGainedRecord client.
+func NewElevationGainedRecordClient(cc grpc.ClientConnInterface) *ElevationGainedRecordClient {
+	return &ElevationGainedRecordClient{
+		svc: pb.NewElevationGainedRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ElevationGainedRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElevation calls the GetElevation RPC.
+func (c *ElevationGainedRecordClient) GetElevation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetElevation(ctx, &pb.GetElevationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ElevationGainedRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ElevationGainedRecordBuilderClient wraps the gRPC ElevationGainedRecordBuilderService client.
+type ElevationGainedRecordBuilderClient struct {
+	svc pb.ElevationGainedRecordBuilderServiceClient
+}
+
+// NewElevationGainedRecordBuilderClient creates a new ElevationGainedRecordBuilder client.
+func NewElevationGainedRecordBuilderClient(cc grpc.ClientConnInterface) *ElevationGainedRecordBuilderClient {
+	return &ElevationGainedRecordBuilderClient{
+		svc: pb.NewElevationGainedRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ElevationGainedRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *ElevationGainedRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *ElevationGainedRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *ElevationGainedRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *ElevationGainedRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpeedRecordClient wraps the gRPC SpeedRecordService client.
+type SpeedRecordClient struct {
+	svc pb.SpeedRecordServiceClient
+}
+
+// NewSpeedRecordClient creates a new SpeedRecord client.
+func NewSpeedRecordClient(cc grpc.ClientConnInterface) *SpeedRecordClient {
+	return &SpeedRecordClient{
+		svc: pb.NewSpeedRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SpeedRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSamples calls the GetSamples RPC.
+func (c *SpeedRecordClient) GetSamples(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSamples(ctx, &pb.GetSamplesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SpeedRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpeedRecordBuilderClient wraps the gRPC SpeedRecordBuilderService client.
+type SpeedRecordBuilderClient struct {
+	svc pb.SpeedRecordBuilderServiceClient
+}
+
+// NewSpeedRecordBuilderClient creates a new SpeedRecordBuilder client.
+func NewSpeedRecordBuilderClient(cc grpc.ClientConnInterface) *SpeedRecordBuilderClient {
+	return &SpeedRecordBuilderClient{
+		svc: pb.NewSpeedRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SpeedRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *SpeedRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *SpeedRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *SpeedRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *SpeedRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpeedRecordSpeedRecordSampleClient wraps the gRPC SpeedRecordSpeedRecordSampleService client.
+type SpeedRecordSpeedRecordSampleClient struct {
+	svc pb.SpeedRecordSpeedRecordSampleServiceClient
+}
+
+// NewSpeedRecordSpeedRecordSampleClient creates a new SpeedRecordSpeedRecordSample client.
+func NewSpeedRecordSpeedRecordSampleClient(cc grpc.ClientConnInterface) *SpeedRecordSpeedRecordSampleClient {
+	return &SpeedRecordSpeedRecordSampleClient{
+		svc: pb.NewSpeedRecordSpeedRecordSampleServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SpeedRecordSpeedRecordSampleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpeed calls the GetSpeed RPC.
+func (c *SpeedRecordSpeedRecordSampleClient) GetSpeed(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSpeed(ctx, &pb.GetSpeedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTime calls the GetTime RPC.
+func (c *SpeedRecordSpeedRecordSampleClient) GetTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SpeedRecordSpeedRecordSampleClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BasalBodyTemperatureRecordClient wraps the gRPC BasalBodyTemperatureRecordService client.
+type BasalBodyTemperatureRecordClient struct {
+	svc pb.BasalBodyTemperatureRecordServiceClient
+}
+
+// NewBasalBodyTemperatureRecordClient creates a new BasalBodyTemperatureRecord client.
+func NewBasalBodyTemperatureRecordClient(cc grpc.ClientConnInterface) *BasalBodyTemperatureRecordClient {
+	return &BasalBodyTemperatureRecordClient{
+		svc: pb.NewBasalBodyTemperatureRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *BasalBodyTemperatureRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementLocation calls the GetMeasurementLocation RPC.
+func (c *BasalBodyTemperatureRecordClient) GetMeasurementLocation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementLocation(ctx, &pb.GetMeasurementLocationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTemperature calls the GetTemperature RPC.
+func (c *BasalBodyTemperatureRecordClient) GetTemperature(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTemperature(ctx, &pb.GetTemperatureRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *BasalBodyTemperatureRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BasalBodyTemperatureRecordBuilderClient wraps the gRPC BasalBodyTemperatureRecordBuilderService client.
+type BasalBodyTemperatureRecordBuilderClient struct {
+	svc pb.BasalBodyTemperatureRecordBuilderServiceClient
+}
+
+// NewBasalBodyTemperatureRecordBuilderClient creates a new BasalBodyTemperatureRecordBuilder client.
+func NewBasalBodyTemperatureRecordBuilderClient(cc grpc.ClientConnInterface) *BasalBodyTemperatureRecordBuilderClient {
+	return &BasalBodyTemperatureRecordBuilderClient{
+		svc: pb.NewBasalBodyTemperatureRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *BasalBodyTemperatureRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *BasalBodyTemperatureRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *BasalBodyTemperatureRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExerciseSegmentClient wraps the gRPC ExerciseSegmentService client.
+type ExerciseSegmentClient struct {
+	svc pb.ExerciseSegmentServiceClient
+}
+
+// NewExerciseSegmentClient creates a new ExerciseSegment client.
+func NewExerciseSegmentClient(cc grpc.ClientConnInterface) *ExerciseSegmentClient {
+	return &ExerciseSegmentClient{
+		svc: pb.NewExerciseSegmentServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ExerciseSegmentClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -5708,7 +3215,7 @@ func (c *IntervalRecordClient) Equals(ctx context.Context, arg0 int64) (bool, er
 }
 
 // GetEndTime calls the GetEndTime RPC.
-func (c *IntervalRecordClient) GetEndTime(ctx context.Context) (int64, error) {
+func (c *ExerciseSegmentClient) GetEndTime(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
 	if err != nil {
 		return 0, err
@@ -5716,9 +3223,18 @@ func (c *IntervalRecordClient) GetEndTime(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetEndZoneOffset calls the GetEndZoneOffset RPC.
-func (c *IntervalRecordClient) GetEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEndZoneOffset(ctx, &pb.GetEndZoneOffsetRequest{})
+// GetRepetitionsCount calls the GetRepetitionsCount RPC.
+func (c *ExerciseSegmentClient) GetRepetitionsCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRepetitionsCount(ctx, &pb.GetRepetitionsCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSegmentType calls the GetSegmentType RPC.
+func (c *ExerciseSegmentClient) GetSegmentType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSegmentType(ctx, &pb.GetSegmentTypeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -5726,7 +3242,7 @@ func (c *IntervalRecordClient) GetEndZoneOffset(ctx context.Context) (int64, err
 }
 
 // GetStartTime calls the GetStartTime RPC.
-func (c *IntervalRecordClient) GetStartTime(ctx context.Context) (int64, error) {
+func (c *ExerciseSegmentClient) GetStartTime(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
 	if err != nil {
 		return 0, err
@@ -5734,17 +3250,8 @@ func (c *IntervalRecordClient) GetStartTime(ctx context.Context) (int64, error) 
 	return resp.GetResult(), nil
 }
 
-// GetStartZoneOffset calls the GetStartZoneOffset RPC.
-func (c *IntervalRecordClient) GetStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartZoneOffset(ctx, &pb.GetStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // HashCode calls the HashCode RPC.
-func (c *IntervalRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *ExerciseSegmentClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -5752,20 +3259,61 @@ func (c *IntervalRecordClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// SkinTemperatureRecordClient wraps the gRPC SkinTemperatureRecordService client.
-type SkinTemperatureRecordClient struct {
-	svc pb.SkinTemperatureRecordServiceClient
+// ExerciseSegmentBuilderClient wraps the gRPC ExerciseSegmentBuilderService client.
+type ExerciseSegmentBuilderClient struct {
+	svc pb.ExerciseSegmentBuilderServiceClient
 }
 
-// NewSkinTemperatureRecordClient creates a new SkinTemperatureRecord client.
-func NewSkinTemperatureRecordClient(cc grpc.ClientConnInterface) *SkinTemperatureRecordClient {
-	return &SkinTemperatureRecordClient{
-		svc: pb.NewSkinTemperatureRecordServiceClient(cc),
+// NewExerciseSegmentBuilderClient creates a new ExerciseSegmentBuilder client.
+func NewExerciseSegmentBuilderClient(cc grpc.ClientConnInterface) *ExerciseSegmentBuilderClient {
+	return &ExerciseSegmentBuilderClient{
+		svc: pb.NewExerciseSegmentBuilderServiceClient(cc),
 	}
 }
 
+// Build calls the Build RPC.
+func (c *ExerciseSegmentBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRepetitionsCount calls the SetRepetitionsCount RPC.
+func (c *ExerciseSegmentBuilderClient) SetRepetitionsCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRepetitionsCount(ctx, &pb.SetRepetitionsCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MedicalDataSourceClient wraps the gRPC MedicalDataSourceService client.
+type MedicalDataSourceClient struct {
+	svc pb.MedicalDataSourceServiceClient
+}
+
+// NewMedicalDataSourceClient creates a new MedicalDataSource client.
+func NewMedicalDataSourceClient(cc grpc.ClientConnInterface) *MedicalDataSourceClient {
+	return &MedicalDataSourceClient{
+		svc: pb.NewMedicalDataSourceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MedicalDataSourceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Equals calls the Equals RPC.
-func (c *SkinTemperatureRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *MedicalDataSourceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -5775,26 +3323,62 @@ func (c *SkinTemperatureRecordClient) Equals(ctx context.Context, arg0 int64) (b
 	return resp.GetResult(), nil
 }
 
-// GetBaseline calls the GetBaseline RPC.
-func (c *SkinTemperatureRecordClient) GetBaseline(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBaseline(ctx, &pb.GetBaselineRequest{})
+// GetDisplayName calls the GetDisplayName RPC.
+func (c *MedicalDataSourceClient) GetDisplayName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFhirBaseUri calls the GetFhirBaseUri RPC.
+func (c *MedicalDataSourceClient) GetFhirBaseUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFhirBaseUri(ctx, &pb.GetFhirBaseUriRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetMeasurementLocation calls the GetMeasurementLocation RPC.
-func (c *SkinTemperatureRecordClient) GetMeasurementLocation(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMeasurementLocation(ctx, &pb.GetMeasurementLocationRequest{})
+// GetFhirVersion calls the GetFhirVersion RPC.
+func (c *MedicalDataSourceClient) GetFhirVersion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFhirVersion(ctx, &pb.GetFhirVersionRequest{})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *MedicalDataSourceClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastDataUpdateTime calls the GetLastDataUpdateTime RPC.
+func (c *MedicalDataSourceClient) GetLastDataUpdateTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLastDataUpdateTime(ctx, &pb.GetLastDataUpdateTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *MedicalDataSourceClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SkinTemperatureRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *MedicalDataSourceClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -5802,20 +3386,38 @@ func (c *SkinTemperatureRecordClient) HashCode(ctx context.Context) (int32, erro
 	return resp.GetResult(), nil
 }
 
-// SkinTemperatureRecordBuilderClient wraps the gRPC SkinTemperatureRecordBuilderService client.
-type SkinTemperatureRecordBuilderClient struct {
-	svc pb.SkinTemperatureRecordBuilderServiceClient
+// ToString calls the ToString RPC.
+func (c *MedicalDataSourceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewSkinTemperatureRecordBuilderClient creates a new SkinTemperatureRecordBuilder client.
-func NewSkinTemperatureRecordBuilderClient(cc grpc.ClientConnInterface) *SkinTemperatureRecordBuilderClient {
-	return &SkinTemperatureRecordBuilderClient{
-		svc: pb.NewSkinTemperatureRecordBuilderServiceClient(cc),
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MedicalDataSourceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MedicalDataSourceBuilderClient wraps the gRPC MedicalDataSourceBuilderService client.
+type MedicalDataSourceBuilderClient struct {
+	svc pb.MedicalDataSourceBuilderServiceClient
+}
+
+// NewMedicalDataSourceBuilderClient creates a new MedicalDataSourceBuilder client.
+func NewMedicalDataSourceBuilderClient(cc grpc.ClientConnInterface) *MedicalDataSourceBuilderClient {
+	return &MedicalDataSourceBuilderClient{
+		svc: pb.NewMedicalDataSourceBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *SkinTemperatureRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *MedicalDataSourceBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -5823,27 +3425,9 @@ func (c *SkinTemperatureRecordBuilderClient) Build(ctx context.Context) (int64, 
 	return resp.GetResult(), nil
 }
 
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *SkinTemperatureRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *SkinTemperatureRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBaseline calls the SetBaseline RPC.
-func (c *SkinTemperatureRecordBuilderClient) SetBaseline(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBaseline(ctx, &pb.SetBaselineRequest{
+// SetDisplayName calls the SetDisplayName RPC.
+func (c *MedicalDataSourceBuilderClient) SetDisplayName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDisplayName(ctx, &pb.SetDisplayNameRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -5852,8 +3436,134 @@ func (c *SkinTemperatureRecordBuilderClient) SetBaseline(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
+// SetFhirBaseUri calls the SetFhirBaseUri RPC.
+func (c *MedicalDataSourceBuilderClient) SetFhirBaseUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFhirBaseUri(ctx, &pb.SetFhirBaseUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFhirVersion calls the SetFhirVersion RPC.
+func (c *MedicalDataSourceBuilderClient) SetFhirVersion(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFhirVersion(ctx, &pb.SetFhirVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetId calls the SetId RPC.
+func (c *MedicalDataSourceBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLastDataUpdateTime calls the SetLastDataUpdateTime RPC.
+func (c *MedicalDataSourceBuilderClient) SetLastDataUpdateTime(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLastDataUpdateTime(ctx, &pb.SetLastDataUpdateTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPackageName calls the SetPackageName RPC.
+func (c *MedicalDataSourceBuilderClient) SetPackageName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPackageName(ctx, &pb.SetPackageNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MenstruationPeriodRecordClient wraps the gRPC MenstruationPeriodRecordService client.
+type MenstruationPeriodRecordClient struct {
+	svc pb.MenstruationPeriodRecordServiceClient
+}
+
+// NewMenstruationPeriodRecordClient creates a new MenstruationPeriodRecord client.
+func NewMenstruationPeriodRecordClient(cc grpc.ClientConnInterface) *MenstruationPeriodRecordClient {
+	return &MenstruationPeriodRecordClient{
+		svc: pb.NewMenstruationPeriodRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MenstruationPeriodRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MenstruationPeriodRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MenstruationPeriodRecordBuilderClient wraps the gRPC MenstruationPeriodRecordBuilderService client.
+type MenstruationPeriodRecordBuilderClient struct {
+	svc pb.MenstruationPeriodRecordBuilderServiceClient
+}
+
+// NewMenstruationPeriodRecordBuilderClient creates a new MenstruationPeriodRecordBuilder client.
+func NewMenstruationPeriodRecordBuilderClient(cc grpc.ClientConnInterface) *MenstruationPeriodRecordBuilderClient {
+	return &MenstruationPeriodRecordBuilderClient{
+		svc: pb.NewMenstruationPeriodRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *MenstruationPeriodRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *MenstruationPeriodRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *MenstruationPeriodRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *SkinTemperatureRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *MenstruationPeriodRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
 		Arg0: arg0,
 	})
@@ -5863,19 +3573,8 @@ func (c *SkinTemperatureRecordBuilderClient) SetEndZoneOffset(ctx context.Contex
 	return resp.GetResult(), nil
 }
 
-// SetMeasurementLocation calls the SetMeasurementLocation RPC.
-func (c *SkinTemperatureRecordBuilderClient) SetMeasurementLocation(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMeasurementLocation(ctx, &pb.SetMeasurementLocationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *SkinTemperatureRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *MenstruationPeriodRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
 		Arg0: arg0,
 	})
@@ -5885,20 +3584,20 @@ func (c *SkinTemperatureRecordBuilderClient) SetStartZoneOffset(ctx context.Cont
 	return resp.GetResult(), nil
 }
 
-// SkinTemperatureRecordDeltaClient wraps the gRPC SkinTemperatureRecordDeltaService client.
-type SkinTemperatureRecordDeltaClient struct {
-	svc pb.SkinTemperatureRecordDeltaServiceClient
+// PlannedExerciseSessionRecordClient wraps the gRPC PlannedExerciseSessionRecordService client.
+type PlannedExerciseSessionRecordClient struct {
+	svc pb.PlannedExerciseSessionRecordServiceClient
 }
 
-// NewSkinTemperatureRecordDeltaClient creates a new SkinTemperatureRecordDelta client.
-func NewSkinTemperatureRecordDeltaClient(cc grpc.ClientConnInterface) *SkinTemperatureRecordDeltaClient {
-	return &SkinTemperatureRecordDeltaClient{
-		svc: pb.NewSkinTemperatureRecordDeltaServiceClient(cc),
+// NewPlannedExerciseSessionRecordClient creates a new PlannedExerciseSessionRecord client.
+func NewPlannedExerciseSessionRecordClient(cc grpc.ClientConnInterface) *PlannedExerciseSessionRecordClient {
+	return &PlannedExerciseSessionRecordClient{
+		svc: pb.NewPlannedExerciseSessionRecordServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *SkinTemperatureRecordDeltaClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *PlannedExerciseSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -5908,26 +3607,80 @@ func (c *SkinTemperatureRecordDeltaClient) Equals(ctx context.Context, arg0 int6
 	return resp.GetResult(), nil
 }
 
-// GetDelta calls the GetDelta RPC.
-func (c *SkinTemperatureRecordDeltaClient) GetDelta(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDelta(ctx, &pb.GetDeltaRequest{})
+// GetBlocks calls the GetBlocks RPC.
+func (c *PlannedExerciseSessionRecordClient) GetBlocks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBlocks(ctx, &pb.GetBlocksRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetTime calls the GetTime RPC.
-func (c *SkinTemperatureRecordDeltaClient) GetTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
+// GetCompletedExerciseSessionId calls the GetCompletedExerciseSessionId RPC.
+func (c *PlannedExerciseSessionRecordClient) GetCompletedExerciseSessionId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCompletedExerciseSessionId(ctx, &pb.GetCompletedExerciseSessionIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuration calls the GetDuration RPC.
+func (c *PlannedExerciseSessionRecordClient) GetDuration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExerciseType calls the GetExerciseType RPC.
+func (c *PlannedExerciseSessionRecordClient) GetExerciseType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExerciseType(ctx, &pb.GetExerciseTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotes calls the GetNotes RPC.
+func (c *PlannedExerciseSessionRecordClient) GetNotes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotes(ctx, &pb.GetNotesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartDate calls the GetStartDate RPC.
+func (c *PlannedExerciseSessionRecordClient) GetStartDate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartDate(ctx, &pb.GetStartDateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *PlannedExerciseSessionRecordClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasExplicitTime calls the HasExplicitTime RPC.
+func (c *PlannedExerciseSessionRecordClient) HasExplicitTime(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasExplicitTime(ctx, &pb.HasExplicitTimeRequest{})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SkinTemperatureRecordDeltaClient) HashCode(ctx context.Context) (int32, error) {
+func (c *PlannedExerciseSessionRecordClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -5935,20 +3688,167 @@ func (c *SkinTemperatureRecordDeltaClient) HashCode(ctx context.Context) (int32,
 	return resp.GetResult(), nil
 }
 
-// RestingHeartRateRecordClient wraps the gRPC RestingHeartRateRecordService client.
-type RestingHeartRateRecordClient struct {
-	svc pb.RestingHeartRateRecordServiceClient
+// PlannedExerciseSessionRecordBuilderClient wraps the gRPC PlannedExerciseSessionRecordBuilderService client.
+type PlannedExerciseSessionRecordBuilderClient struct {
+	svc pb.PlannedExerciseSessionRecordBuilderServiceClient
 }
 
-// NewRestingHeartRateRecordClient creates a new RestingHeartRateRecord client.
-func NewRestingHeartRateRecordClient(cc grpc.ClientConnInterface) *RestingHeartRateRecordClient {
-	return &RestingHeartRateRecordClient{
-		svc: pb.NewRestingHeartRateRecordServiceClient(cc),
+// NewPlannedExerciseSessionRecordBuilderClient creates a new PlannedExerciseSessionRecordBuilder client.
+func NewPlannedExerciseSessionRecordBuilderClient(cc grpc.ClientConnInterface) *PlannedExerciseSessionRecordBuilderClient {
+	return &PlannedExerciseSessionRecordBuilderClient{
+		svc: pb.NewPlannedExerciseSessionRecordBuilderServiceClient(cc),
+	}
+}
+
+// AddBlock calls the AddBlock RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) AddBlock(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddBlock(ctx, &pb.AddBlockRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearBlocks calls the ClearBlocks RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) ClearBlocks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearBlocks(ctx, &pb.ClearBlocksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndTime calls the SetEndTime RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) SetEndTime(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndTime(ctx, &pb.SetEndTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExerciseType calls the SetExerciseType RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) SetExerciseType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetExerciseType(ctx, &pb.SetExerciseTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMetadata calls the SetMetadata RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) SetMetadata(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMetadata(ctx, &pb.SetMetadataRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotes calls the SetNotes RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) SetNotes(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetNotes(ctx, &pb.SetNotesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartTime calls the SetStartTime RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) SetStartTime(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartTime(ctx, &pb.SetStartTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *PlannedExerciseSessionRecordBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HeartRateVariabilityRmssdRecordClient wraps the gRPC HeartRateVariabilityRmssdRecordService client.
+type HeartRateVariabilityRmssdRecordClient struct {
+	svc pb.HeartRateVariabilityRmssdRecordServiceClient
+}
+
+// NewHeartRateVariabilityRmssdRecordClient creates a new HeartRateVariabilityRmssdRecord client.
+func NewHeartRateVariabilityRmssdRecordClient(cc grpc.ClientConnInterface) *HeartRateVariabilityRmssdRecordClient {
+	return &HeartRateVariabilityRmssdRecordClient{
+		svc: pb.NewHeartRateVariabilityRmssdRecordServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *RestingHeartRateRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *HeartRateVariabilityRmssdRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -5958,9 +3858,9 @@ func (c *RestingHeartRateRecordClient) Equals(ctx context.Context, arg0 int64) (
 	return resp.GetResult(), nil
 }
 
-// GetBeatsPerMinute calls the GetBeatsPerMinute RPC.
-func (c *RestingHeartRateRecordClient) GetBeatsPerMinute(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBeatsPerMinute(ctx, &pb.GetBeatsPerMinuteRequest{})
+// GetHeartRateVariabilityMillis calls the GetHeartRateVariabilityMillis RPC.
+func (c *HeartRateVariabilityRmssdRecordClient) GetHeartRateVariabilityMillis(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetHeartRateVariabilityMillis(ctx, &pb.GetHeartRateVariabilityMillisRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -5968,7 +3868,7 @@ func (c *RestingHeartRateRecordClient) GetBeatsPerMinute(ctx context.Context) (i
 }
 
 // HashCode calls the HashCode RPC.
-func (c *RestingHeartRateRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *HeartRateVariabilityRmssdRecordClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -5976,20 +3876,20 @@ func (c *RestingHeartRateRecordClient) HashCode(ctx context.Context) (int32, err
 	return resp.GetResult(), nil
 }
 
-// RestingHeartRateRecordBuilderClient wraps the gRPC RestingHeartRateRecordBuilderService client.
-type RestingHeartRateRecordBuilderClient struct {
-	svc pb.RestingHeartRateRecordBuilderServiceClient
+// HeartRateVariabilityRmssdRecordBuilderClient wraps the gRPC HeartRateVariabilityRmssdRecordBuilderService client.
+type HeartRateVariabilityRmssdRecordBuilderClient struct {
+	svc pb.HeartRateVariabilityRmssdRecordBuilderServiceClient
 }
 
-// NewRestingHeartRateRecordBuilderClient creates a new RestingHeartRateRecordBuilder client.
-func NewRestingHeartRateRecordBuilderClient(cc grpc.ClientConnInterface) *RestingHeartRateRecordBuilderClient {
-	return &RestingHeartRateRecordBuilderClient{
-		svc: pb.NewRestingHeartRateRecordBuilderServiceClient(cc),
+// NewHeartRateVariabilityRmssdRecordBuilderClient creates a new HeartRateVariabilityRmssdRecordBuilder client.
+func NewHeartRateVariabilityRmssdRecordBuilderClient(cc grpc.ClientConnInterface) *HeartRateVariabilityRmssdRecordBuilderClient {
+	return &HeartRateVariabilityRmssdRecordBuilderClient{
+		svc: pb.NewHeartRateVariabilityRmssdRecordBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *RestingHeartRateRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *HeartRateVariabilityRmssdRecordBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -5998,7 +3898,7 @@ func (c *RestingHeartRateRecordBuilderClient) Build(ctx context.Context) (int64,
 }
 
 // ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *RestingHeartRateRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+func (c *HeartRateVariabilityRmssdRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
 	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
@@ -6007,7 +3907,7 @@ func (c *RestingHeartRateRecordBuilderClient) ClearZoneOffset(ctx context.Contex
 }
 
 // SetZoneOffset calls the SetZoneOffset RPC.
-func (c *RestingHeartRateRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *HeartRateVariabilityRmssdRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
 		Arg0: arg0,
 	})
@@ -6017,20 +3917,20 @@ func (c *RestingHeartRateRecordBuilderClient) SetZoneOffset(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
-// StepsRecordClient wraps the gRPC StepsRecordService client.
-type StepsRecordClient struct {
-	svc pb.StepsRecordServiceClient
+// ExerciseLapClient wraps the gRPC ExerciseLapService client.
+type ExerciseLapClient struct {
+	svc pb.ExerciseLapServiceClient
 }
 
-// NewStepsRecordClient creates a new StepsRecord client.
-func NewStepsRecordClient(cc grpc.ClientConnInterface) *StepsRecordClient {
-	return &StepsRecordClient{
-		svc: pb.NewStepsRecordServiceClient(cc),
+// NewExerciseLapClient creates a new ExerciseLap client.
+func NewExerciseLapClient(cc grpc.ClientConnInterface) *ExerciseLapClient {
+	return &ExerciseLapClient{
+		svc: pb.NewExerciseLapServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *StepsRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ExerciseLapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -6040,9 +3940,27 @@ func (c *StepsRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error
 	return resp.GetResult(), nil
 }
 
-// GetCount calls the GetCount RPC.
-func (c *StepsRecordClient) GetCount(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{})
+// GetEndTime calls the GetEndTime RPC.
+func (c *ExerciseLapClient) GetEndTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLength calls the GetLength RPC.
+func (c *ExerciseLapClient) GetLength(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTime calls the GetStartTime RPC.
+func (c *ExerciseLapClient) GetStartTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -6050,7 +3968,7 @@ func (c *StepsRecordClient) GetCount(ctx context.Context) (int64, error) {
 }
 
 // HashCode calls the HashCode RPC.
-func (c *StepsRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *ExerciseLapClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -6058,20 +3976,20 @@ func (c *StepsRecordClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// StepsRecordBuilderClient wraps the gRPC StepsRecordBuilderService client.
-type StepsRecordBuilderClient struct {
-	svc pb.StepsRecordBuilderServiceClient
+// ExerciseLapBuilderClient wraps the gRPC ExerciseLapBuilderService client.
+type ExerciseLapBuilderClient struct {
+	svc pb.ExerciseLapBuilderServiceClient
 }
 
-// NewStepsRecordBuilderClient creates a new StepsRecordBuilder client.
-func NewStepsRecordBuilderClient(cc grpc.ClientConnInterface) *StepsRecordBuilderClient {
-	return &StepsRecordBuilderClient{
-		svc: pb.NewStepsRecordBuilderServiceClient(cc),
+// NewExerciseLapBuilderClient creates a new ExerciseLapBuilder client.
+func NewExerciseLapBuilderClient(cc grpc.ClientConnInterface) *ExerciseLapBuilderClient {
+	return &ExerciseLapBuilderClient{
+		svc: pb.NewExerciseLapBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *StepsRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *ExerciseLapBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -6079,27 +3997,9 @@ func (c *StepsRecordBuilderClient) Build(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *StepsRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *StepsRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *StepsRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+// SetLength calls the SetLength RPC.
+func (c *ExerciseLapBuilderClient) SetLength(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLength(ctx, &pb.SetLengthRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -6108,31 +4008,20 @@ func (c *StepsRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 in
 	return resp.GetResult(), nil
 }
 
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *StepsRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// DataOriginClient wraps the gRPC DataOriginService client.
+type DataOriginClient struct {
+	svc pb.DataOriginServiceClient
 }
 
-// HydrationRecordClient wraps the gRPC HydrationRecordService client.
-type HydrationRecordClient struct {
-	svc pb.HydrationRecordServiceClient
-}
-
-// NewHydrationRecordClient creates a new HydrationRecord client.
-func NewHydrationRecordClient(cc grpc.ClientConnInterface) *HydrationRecordClient {
-	return &HydrationRecordClient{
-		svc: pb.NewHydrationRecordServiceClient(cc),
+// NewDataOriginClient creates a new DataOrigin client.
+func NewDataOriginClient(cc grpc.ClientConnInterface) *DataOriginClient {
+	return &DataOriginClient{
+		svc: pb.NewDataOriginServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *HydrationRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DataOriginClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -6142,17 +4031,17 @@ func (c *HydrationRecordClient) Equals(ctx context.Context, arg0 int64) (bool, e
 	return resp.GetResult(), nil
 }
 
-// GetVolume calls the GetVolume RPC.
-func (c *HydrationRecordClient) GetVolume(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetVolume(ctx, &pb.GetVolumeRequest{})
+// GetPackageName calls the GetPackageName RPC.
+func (c *DataOriginClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
 // HashCode calls the HashCode RPC.
-func (c *HydrationRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *DataOriginClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -6160,20 +4049,20 @@ func (c *HydrationRecordClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// HydrationRecordBuilderClient wraps the gRPC HydrationRecordBuilderService client.
-type HydrationRecordBuilderClient struct {
-	svc pb.HydrationRecordBuilderServiceClient
+// DataOriginBuilderClient wraps the gRPC DataOriginBuilderService client.
+type DataOriginBuilderClient struct {
+	svc pb.DataOriginBuilderServiceClient
 }
 
-// NewHydrationRecordBuilderClient creates a new HydrationRecordBuilder client.
-func NewHydrationRecordBuilderClient(cc grpc.ClientConnInterface) *HydrationRecordBuilderClient {
-	return &HydrationRecordBuilderClient{
-		svc: pb.NewHydrationRecordBuilderServiceClient(cc),
+// NewDataOriginBuilderClient creates a new DataOriginBuilder client.
+func NewDataOriginBuilderClient(cc grpc.ClientConnInterface) *DataOriginBuilderClient {
+	return &DataOriginBuilderClient{
+		svc: pb.NewDataOriginBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *HydrationRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *DataOriginBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -6181,27 +4070,9 @@ func (c *HydrationRecordBuilderClient) Build(ctx context.Context) (int64, error)
 	return resp.GetResult(), nil
 }
 
-// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *HydrationRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *HydrationRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *HydrationRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+// SetPackageName calls the SetPackageName RPC.
+func (c *DataOriginBuilderClient) SetPackageName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPackageName(ctx, &pb.SetPackageNameRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -6210,9 +4081,180 @@ func (c *HydrationRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg
 	return resp.GetResult(), nil
 }
 
-// SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *HydrationRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+// BodyTemperatureRecordClient wraps the gRPC BodyTemperatureRecordService client.
+type BodyTemperatureRecordClient struct {
+	svc pb.BodyTemperatureRecordServiceClient
+}
+
+// NewBodyTemperatureRecordClient creates a new BodyTemperatureRecord client.
+func NewBodyTemperatureRecordClient(cc grpc.ClientConnInterface) *BodyTemperatureRecordClient {
+	return &BodyTemperatureRecordClient{
+		svc: pb.NewBodyTemperatureRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *BodyTemperatureRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementLocation calls the GetMeasurementLocation RPC.
+func (c *BodyTemperatureRecordClient) GetMeasurementLocation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementLocation(ctx, &pb.GetMeasurementLocationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTemperature calls the GetTemperature RPC.
+func (c *BodyTemperatureRecordClient) GetTemperature(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTemperature(ctx, &pb.GetTemperatureRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *BodyTemperatureRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BodyTemperatureRecordBuilderClient wraps the gRPC BodyTemperatureRecordBuilderService client.
+type BodyTemperatureRecordBuilderClient struct {
+	svc pb.BodyTemperatureRecordBuilderServiceClient
+}
+
+// NewBodyTemperatureRecordBuilderClient creates a new BodyTemperatureRecordBuilder client.
+func NewBodyTemperatureRecordBuilderClient(cc grpc.ClientConnInterface) *BodyTemperatureRecordBuilderClient {
+	return &BodyTemperatureRecordBuilderClient{
+		svc: pb.NewBodyTemperatureRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *BodyTemperatureRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *BodyTemperatureRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *BodyTemperatureRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CervicalMucusRecordClient wraps the gRPC CervicalMucusRecordService client.
+type CervicalMucusRecordClient struct {
+	svc pb.CervicalMucusRecordServiceClient
+}
+
+// NewCervicalMucusRecordClient creates a new CervicalMucusRecord client.
+func NewCervicalMucusRecordClient(cc grpc.ClientConnInterface) *CervicalMucusRecordClient {
+	return &CervicalMucusRecordClient{
+		svc: pb.NewCervicalMucusRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CervicalMucusRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppearance calls the GetAppearance RPC.
+func (c *CervicalMucusRecordClient) GetAppearance(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAppearance(ctx, &pb.GetAppearanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSensation calls the GetSensation RPC.
+func (c *CervicalMucusRecordClient) GetSensation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSensation(ctx, &pb.GetSensationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CervicalMucusRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CervicalMucusRecordBuilderClient wraps the gRPC CervicalMucusRecordBuilderService client.
+type CervicalMucusRecordBuilderClient struct {
+	svc pb.CervicalMucusRecordBuilderServiceClient
+}
+
+// NewCervicalMucusRecordBuilderClient creates a new CervicalMucusRecordBuilder client.
+func NewCervicalMucusRecordBuilderClient(cc grpc.ClientConnInterface) *CervicalMucusRecordBuilderClient {
+	return &CervicalMucusRecordBuilderClient{
+		svc: pb.NewCervicalMucusRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *CervicalMucusRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *CervicalMucusRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *CervicalMucusRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -7194,20 +5236,20 @@ func (c *NutritionRecordBuilderClient) SetZinc(ctx context.Context, arg0 int64) 
 	return resp.GetResult(), nil
 }
 
-// OvulationTestRecordClient wraps the gRPC OvulationTestRecordService client.
-type OvulationTestRecordClient struct {
-	svc pb.OvulationTestRecordServiceClient
+// DeviceClient wraps the gRPC DeviceService client.
+type DeviceClient struct {
+	svc pb.DeviceServiceClient
 }
 
-// NewOvulationTestRecordClient creates a new OvulationTestRecord client.
-func NewOvulationTestRecordClient(cc grpc.ClientConnInterface) *OvulationTestRecordClient {
-	return &OvulationTestRecordClient{
-		svc: pb.NewOvulationTestRecordServiceClient(cc),
+// NewDeviceClient creates a new Device client.
+func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
+	return &DeviceClient{
+		svc: pb.NewDeviceServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *OvulationTestRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DeviceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -7217,9 +5259,27 @@ func (c *OvulationTestRecordClient) Equals(ctx context.Context, arg0 int64) (boo
 	return resp.GetResult(), nil
 }
 
-// GetResult calls the GetResult RPC.
-func (c *OvulationTestRecordClient) GetResult(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetResult(ctx, &pb.GetResultRequest{})
+// GetManufacturer calls the GetManufacturer RPC.
+func (c *DeviceClient) GetManufacturer(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetManufacturer(ctx, &pb.GetManufacturerRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModel calls the GetModel RPC.
+func (c *DeviceClient) GetModel(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetModel(ctx, &pb.GetModelRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *DeviceClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -7227,7 +5287,7 @@ func (c *OvulationTestRecordClient) GetResult(ctx context.Context) (int32, error
 }
 
 // HashCode calls the HashCode RPC.
-func (c *OvulationTestRecordClient) HashCode(ctx context.Context) (int32, error) {
+func (c *DeviceClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -7235,20 +5295,708 @@ func (c *OvulationTestRecordClient) HashCode(ctx context.Context) (int32, error)
 	return resp.GetResult(), nil
 }
 
-// OvulationTestRecordBuilderClient wraps the gRPC OvulationTestRecordBuilderService client.
-type OvulationTestRecordBuilderClient struct {
-	svc pb.OvulationTestRecordBuilderServiceClient
+// DeviceBuilderClient wraps the gRPC DeviceBuilderService client.
+type DeviceBuilderClient struct {
+	svc pb.DeviceBuilderServiceClient
 }
 
-// NewOvulationTestRecordBuilderClient creates a new OvulationTestRecordBuilder client.
-func NewOvulationTestRecordBuilderClient(cc grpc.ClientConnInterface) *OvulationTestRecordBuilderClient {
-	return &OvulationTestRecordBuilderClient{
-		svc: pb.NewOvulationTestRecordBuilderServiceClient(cc),
+// NewDeviceBuilderClient creates a new DeviceBuilder client.
+func NewDeviceBuilderClient(cc grpc.ClientConnInterface) *DeviceBuilderClient {
+	return &DeviceBuilderClient{
+		svc: pb.NewDeviceBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *OvulationTestRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *DeviceBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetManufacturer calls the SetManufacturer RPC.
+func (c *DeviceBuilderClient) SetManufacturer(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetManufacturer(ctx, &pb.SetManufacturerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetModel calls the SetModel RPC.
+func (c *DeviceBuilderClient) SetModel(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetModel(ctx, &pb.SetModelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetType calls the SetType RPC.
+func (c *DeviceBuilderClient) SetType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExerciseSessionRecordClient wraps the gRPC ExerciseSessionRecordService client.
+type ExerciseSessionRecordClient struct {
+	svc pb.ExerciseSessionRecordServiceClient
+}
+
+// NewExerciseSessionRecordClient creates a new ExerciseSessionRecord client.
+func NewExerciseSessionRecordClient(cc grpc.ClientConnInterface) *ExerciseSessionRecordClient {
+	return &ExerciseSessionRecordClient{
+		svc: pb.NewExerciseSessionRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ExerciseSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExerciseType calls the GetExerciseType RPC.
+func (c *ExerciseSessionRecordClient) GetExerciseType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExerciseType(ctx, &pb.GetExerciseTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLaps calls the GetLaps RPC.
+func (c *ExerciseSessionRecordClient) GetLaps(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLaps(ctx, &pb.GetLapsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotes calls the GetNotes RPC.
+func (c *ExerciseSessionRecordClient) GetNotes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotes(ctx, &pb.GetNotesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlannedExerciseSessionId calls the GetPlannedExerciseSessionId RPC.
+func (c *ExerciseSessionRecordClient) GetPlannedExerciseSessionId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPlannedExerciseSessionId(ctx, &pb.GetPlannedExerciseSessionIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoute calls the GetRoute RPC.
+func (c *ExerciseSessionRecordClient) GetRoute(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRoute(ctx, &pb.GetRouteRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSegments calls the GetSegments RPC.
+func (c *ExerciseSessionRecordClient) GetSegments(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSegments(ctx, &pb.GetSegmentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *ExerciseSessionRecordClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasRoute calls the HasRoute RPC.
+func (c *ExerciseSessionRecordClient) HasRoute(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasRoute(ctx, &pb.HasRouteRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExerciseSessionRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExerciseSessionRecordBuilderClient wraps the gRPC ExerciseSessionRecordBuilderService client.
+type ExerciseSessionRecordBuilderClient struct {
+	svc pb.ExerciseSessionRecordBuilderServiceClient
+}
+
+// NewExerciseSessionRecordBuilderClient creates a new ExerciseSessionRecordBuilder client.
+func NewExerciseSessionRecordBuilderClient(cc grpc.ClientConnInterface) *ExerciseSessionRecordBuilderClient {
+	return &ExerciseSessionRecordBuilderClient{
+		svc: pb.NewExerciseSessionRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ExerciseSessionRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *ExerciseSessionRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *ExerciseSessionRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *ExerciseSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotes calls the SetNotes RPC.
+func (c *ExerciseSessionRecordBuilderClient) SetNotes(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetNotes(ctx, &pb.SetNotesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPlannedExerciseSessionId calls the SetPlannedExerciseSessionId RPC.
+func (c *ExerciseSessionRecordBuilderClient) SetPlannedExerciseSessionId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPlannedExerciseSessionId(ctx, &pb.SetPlannedExerciseSessionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRoute calls the SetRoute RPC.
+func (c *ExerciseSessionRecordBuilderClient) SetRoute(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetRoute(ctx, &pb.SetRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *ExerciseSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *ExerciseSessionRecordBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExercisePerformanceGoalCadenceGoalClient wraps the gRPC ExercisePerformanceGoalCadenceGoalService client.
+type ExercisePerformanceGoalCadenceGoalClient struct {
+	svc pb.ExercisePerformanceGoalCadenceGoalServiceClient
+}
+
+// NewExercisePerformanceGoalCadenceGoalClient creates a new ExercisePerformanceGoalCadenceGoal client.
+func NewExercisePerformanceGoalCadenceGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalCadenceGoalClient {
+	return &ExercisePerformanceGoalCadenceGoalClient{
+		svc: pb.NewExercisePerformanceGoalCadenceGoalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ExercisePerformanceGoalCadenceGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxRpm calls the GetMaxRpm RPC.
+func (c *ExercisePerformanceGoalCadenceGoalClient) GetMaxRpm(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetMaxRpm(ctx, &pb.GetMaxRpmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinRpm calls the GetMinRpm RPC.
+func (c *ExercisePerformanceGoalCadenceGoalClient) GetMinRpm(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetMinRpm(ctx, &pb.GetMinRpmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExercisePerformanceGoalCadenceGoalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExercisePerformanceGoalHeartRateGoalClient wraps the gRPC ExercisePerformanceGoalHeartRateGoalService client.
+type ExercisePerformanceGoalHeartRateGoalClient struct {
+	svc pb.ExercisePerformanceGoalHeartRateGoalServiceClient
+}
+
+// NewExercisePerformanceGoalHeartRateGoalClient creates a new ExercisePerformanceGoalHeartRateGoal client.
+func NewExercisePerformanceGoalHeartRateGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalHeartRateGoalClient {
+	return &ExercisePerformanceGoalHeartRateGoalClient{
+		svc: pb.NewExercisePerformanceGoalHeartRateGoalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ExercisePerformanceGoalHeartRateGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxBpm calls the GetMaxBpm RPC.
+func (c *ExercisePerformanceGoalHeartRateGoalClient) GetMaxBpm(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxBpm(ctx, &pb.GetMaxBpmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinBpm calls the GetMinBpm RPC.
+func (c *ExercisePerformanceGoalHeartRateGoalClient) GetMinBpm(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinBpm(ctx, &pb.GetMinBpmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExercisePerformanceGoalHeartRateGoalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExercisePerformanceGoalPowerGoalClient wraps the gRPC ExercisePerformanceGoalPowerGoalService client.
+type ExercisePerformanceGoalPowerGoalClient struct {
+	svc pb.ExercisePerformanceGoalPowerGoalServiceClient
+}
+
+// NewExercisePerformanceGoalPowerGoalClient creates a new ExercisePerformanceGoalPowerGoal client.
+func NewExercisePerformanceGoalPowerGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalPowerGoalClient {
+	return &ExercisePerformanceGoalPowerGoalClient{
+		svc: pb.NewExercisePerformanceGoalPowerGoalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ExercisePerformanceGoalPowerGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxPower calls the GetMaxPower RPC.
+func (c *ExercisePerformanceGoalPowerGoalClient) GetMaxPower(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMaxPower(ctx, &pb.GetMaxPowerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinPower calls the GetMinPower RPC.
+func (c *ExercisePerformanceGoalPowerGoalClient) GetMinPower(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinPower(ctx, &pb.GetMinPowerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExercisePerformanceGoalPowerGoalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExercisePerformanceGoalRateOfPerceivedExertionGoalClient wraps the gRPC ExercisePerformanceGoalRateOfPerceivedExertionGoalService client.
+type ExercisePerformanceGoalRateOfPerceivedExertionGoalClient struct {
+	svc pb.ExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient
+}
+
+// NewExercisePerformanceGoalRateOfPerceivedExertionGoalClient creates a new ExercisePerformanceGoalRateOfPerceivedExertionGoal client.
+func NewExercisePerformanceGoalRateOfPerceivedExertionGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalRateOfPerceivedExertionGoalClient {
+	return &ExercisePerformanceGoalRateOfPerceivedExertionGoalClient{
+		svc: pb.NewExercisePerformanceGoalRateOfPerceivedExertionGoalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ExercisePerformanceGoalRateOfPerceivedExertionGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRpe calls the GetRpe RPC.
+func (c *ExercisePerformanceGoalRateOfPerceivedExertionGoalClient) GetRpe(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRpe(ctx, &pb.GetRpeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExercisePerformanceGoalRateOfPerceivedExertionGoalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExercisePerformanceGoalSpeedGoalClient wraps the gRPC ExercisePerformanceGoalSpeedGoalService client.
+type ExercisePerformanceGoalSpeedGoalClient struct {
+	svc pb.ExercisePerformanceGoalSpeedGoalServiceClient
+}
+
+// NewExercisePerformanceGoalSpeedGoalClient creates a new ExercisePerformanceGoalSpeedGoal client.
+func NewExercisePerformanceGoalSpeedGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalSpeedGoalClient {
+	return &ExercisePerformanceGoalSpeedGoalClient{
+		svc: pb.NewExercisePerformanceGoalSpeedGoalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ExercisePerformanceGoalSpeedGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSpeed calls the GetMaxSpeed RPC.
+func (c *ExercisePerformanceGoalSpeedGoalClient) GetMaxSpeed(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMaxSpeed(ctx, &pb.GetMaxSpeedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinSpeed calls the GetMinSpeed RPC.
+func (c *ExercisePerformanceGoalSpeedGoalClient) GetMinSpeed(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinSpeed(ctx, &pb.GetMinSpeedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExercisePerformanceGoalSpeedGoalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExercisePerformanceGoalWeightGoalClient wraps the gRPC ExercisePerformanceGoalWeightGoalService client.
+type ExercisePerformanceGoalWeightGoalClient struct {
+	svc pb.ExercisePerformanceGoalWeightGoalServiceClient
+}
+
+// NewExercisePerformanceGoalWeightGoalClient creates a new ExercisePerformanceGoalWeightGoal client.
+func NewExercisePerformanceGoalWeightGoalClient(cc grpc.ClientConnInterface) *ExercisePerformanceGoalWeightGoalClient {
+	return &ExercisePerformanceGoalWeightGoalClient{
+		svc: pb.NewExercisePerformanceGoalWeightGoalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ExercisePerformanceGoalWeightGoalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMass calls the GetMass RPC.
+func (c *ExercisePerformanceGoalWeightGoalClient) GetMass(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMass(ctx, &pb.GetMassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ExercisePerformanceGoalWeightGoalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FloorsClimbedRecordClient wraps the gRPC FloorsClimbedRecordService client.
+type FloorsClimbedRecordClient struct {
+	svc pb.FloorsClimbedRecordServiceClient
+}
+
+// NewFloorsClimbedRecordClient creates a new FloorsClimbedRecord client.
+func NewFloorsClimbedRecordClient(cc grpc.ClientConnInterface) *FloorsClimbedRecordClient {
+	return &FloorsClimbedRecordClient{
+		svc: pb.NewFloorsClimbedRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *FloorsClimbedRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloors calls the GetFloors RPC.
+func (c *FloorsClimbedRecordClient) GetFloors(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetFloors(ctx, &pb.GetFloorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *FloorsClimbedRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FloorsClimbedRecordBuilderClient wraps the gRPC FloorsClimbedRecordBuilderService client.
+type FloorsClimbedRecordBuilderClient struct {
+	svc pb.FloorsClimbedRecordBuilderServiceClient
+}
+
+// NewFloorsClimbedRecordBuilderClient creates a new FloorsClimbedRecordBuilder client.
+func NewFloorsClimbedRecordBuilderClient(cc grpc.ClientConnInterface) *FloorsClimbedRecordBuilderClient {
+	return &FloorsClimbedRecordBuilderClient{
+		svc: pb.NewFloorsClimbedRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *FloorsClimbedRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *FloorsClimbedRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *FloorsClimbedRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *FloorsClimbedRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *FloorsClimbedRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OxygenSaturationRecordClient wraps the gRPC OxygenSaturationRecordService client.
+type OxygenSaturationRecordClient struct {
+	svc pb.OxygenSaturationRecordServiceClient
+}
+
+// NewOxygenSaturationRecordClient creates a new OxygenSaturationRecord client.
+func NewOxygenSaturationRecordClient(cc grpc.ClientConnInterface) *OxygenSaturationRecordClient {
+	return &OxygenSaturationRecordClient{
+		svc: pb.NewOxygenSaturationRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *OxygenSaturationRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPercentage calls the GetPercentage RPC.
+func (c *OxygenSaturationRecordClient) GetPercentage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPercentage(ctx, &pb.GetPercentageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *OxygenSaturationRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OxygenSaturationRecordBuilderClient wraps the gRPC OxygenSaturationRecordBuilderService client.
+type OxygenSaturationRecordBuilderClient struct {
+	svc pb.OxygenSaturationRecordBuilderServiceClient
+}
+
+// NewOxygenSaturationRecordBuilderClient creates a new OxygenSaturationRecordBuilder client.
+func NewOxygenSaturationRecordBuilderClient(cc grpc.ClientConnInterface) *OxygenSaturationRecordBuilderClient {
+	return &OxygenSaturationRecordBuilderClient{
+		svc: pb.NewOxygenSaturationRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *OxygenSaturationRecordBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -7257,7 +6005,7 @@ func (c *OvulationTestRecordBuilderClient) Build(ctx context.Context) (int64, er
 }
 
 // ClearZoneOffset calls the ClearZoneOffset RPC.
-func (c *OvulationTestRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+func (c *OxygenSaturationRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
 	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
@@ -7266,8 +6014,801 @@ func (c *OvulationTestRecordBuilderClient) ClearZoneOffset(ctx context.Context) 
 }
 
 // SetZoneOffset calls the SetZoneOffset RPC.
-func (c *OvulationTestRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *OxygenSaturationRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IntermenstrualBleedingRecordClient wraps the gRPC IntermenstrualBleedingRecordService client.
+type IntermenstrualBleedingRecordClient struct {
+	svc pb.IntermenstrualBleedingRecordServiceClient
+}
+
+// NewIntermenstrualBleedingRecordClient creates a new IntermenstrualBleedingRecord client.
+func NewIntermenstrualBleedingRecordClient(cc grpc.ClientConnInterface) *IntermenstrualBleedingRecordClient {
+	return &IntermenstrualBleedingRecordClient{
+		svc: pb.NewIntermenstrualBleedingRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *IntermenstrualBleedingRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *IntermenstrualBleedingRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IntermenstrualBleedingRecordBuilderClient wraps the gRPC IntermenstrualBleedingRecordBuilderService client.
+type IntermenstrualBleedingRecordBuilderClient struct {
+	svc pb.IntermenstrualBleedingRecordBuilderServiceClient
+}
+
+// NewIntermenstrualBleedingRecordBuilderClient creates a new IntermenstrualBleedingRecordBuilder client.
+func NewIntermenstrualBleedingRecordBuilderClient(cc grpc.ClientConnInterface) *IntermenstrualBleedingRecordBuilderClient {
+	return &IntermenstrualBleedingRecordBuilderClient{
+		svc: pb.NewIntermenstrualBleedingRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *IntermenstrualBleedingRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *IntermenstrualBleedingRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *IntermenstrualBleedingRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RecordClient wraps the gRPC RecordService client.
+type RecordClient struct {
+	svc pb.RecordServiceClient
+}
+
+// NewRecordClient creates a new Record client.
+func NewRecordClient(cc grpc.ClientConnInterface) *RecordClient {
+	return &RecordClient{
+		svc: pb.NewRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *RecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetadata calls the GetMetadata RPC.
+func (c *RecordClient) GetMetadata(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMetadata(ctx, &pb.GetMetadataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LeanBodyMassRecordClient wraps the gRPC LeanBodyMassRecordService client.
+type LeanBodyMassRecordClient struct {
+	svc pb.LeanBodyMassRecordServiceClient
+}
+
+// NewLeanBodyMassRecordClient creates a new LeanBodyMassRecord client.
+func NewLeanBodyMassRecordClient(cc grpc.ClientConnInterface) *LeanBodyMassRecordClient {
+	return &LeanBodyMassRecordClient{
+		svc: pb.NewLeanBodyMassRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *LeanBodyMassRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMass calls the GetMass RPC.
+func (c *LeanBodyMassRecordClient) GetMass(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMass(ctx, &pb.GetMassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *LeanBodyMassRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LeanBodyMassRecordBuilderClient wraps the gRPC LeanBodyMassRecordBuilderService client.
+type LeanBodyMassRecordBuilderClient struct {
+	svc pb.LeanBodyMassRecordBuilderServiceClient
+}
+
+// NewLeanBodyMassRecordBuilderClient creates a new LeanBodyMassRecordBuilder client.
+func NewLeanBodyMassRecordBuilderClient(cc grpc.ClientConnInterface) *LeanBodyMassRecordBuilderClient {
+	return &LeanBodyMassRecordBuilderClient{
+		svc: pb.NewLeanBodyMassRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *LeanBodyMassRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *LeanBodyMassRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *LeanBodyMassRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SleepSessionRecordClient wraps the gRPC SleepSessionRecordService client.
+type SleepSessionRecordClient struct {
+	svc pb.SleepSessionRecordServiceClient
+}
+
+// NewSleepSessionRecordClient creates a new SleepSessionRecord client.
+func NewSleepSessionRecordClient(cc grpc.ClientConnInterface) *SleepSessionRecordClient {
+	return &SleepSessionRecordClient{
+		svc: pb.NewSleepSessionRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SleepSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotes calls the GetNotes RPC.
+func (c *SleepSessionRecordClient) GetNotes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotes(ctx, &pb.GetNotesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStages calls the GetStages RPC.
+func (c *SleepSessionRecordClient) GetStages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStages(ctx, &pb.GetStagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *SleepSessionRecordClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SleepSessionRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SleepSessionRecordBuilderClient wraps the gRPC SleepSessionRecordBuilderService client.
+type SleepSessionRecordBuilderClient struct {
+	svc pb.SleepSessionRecordBuilderServiceClient
+}
+
+// NewSleepSessionRecordBuilderClient creates a new SleepSessionRecordBuilder client.
+func NewSleepSessionRecordBuilderClient(cc grpc.ClientConnInterface) *SleepSessionRecordBuilderClient {
+	return &SleepSessionRecordBuilderClient{
+		svc: pb.NewSleepSessionRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SleepSessionRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *SleepSessionRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *SleepSessionRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *SleepSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotes calls the SetNotes RPC.
+func (c *SleepSessionRecordBuilderClient) SetNotes(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetNotes(ctx, &pb.SetNotesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *SleepSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *SleepSessionRecordBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SleepSessionRecordStageClient wraps the gRPC SleepSessionRecordStageService client.
+type SleepSessionRecordStageClient struct {
+	svc pb.SleepSessionRecordStageServiceClient
+}
+
+// NewSleepSessionRecordStageClient creates a new SleepSessionRecordStage client.
+func NewSleepSessionRecordStageClient(cc grpc.ClientConnInterface) *SleepSessionRecordStageClient {
+	return &SleepSessionRecordStageClient{
+		svc: pb.NewSleepSessionRecordStageServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SleepSessionRecordStageClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndTime calls the GetEndTime RPC.
+func (c *SleepSessionRecordStageClient) GetEndTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTime calls the GetStartTime RPC.
+func (c *SleepSessionRecordStageClient) GetStartTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *SleepSessionRecordStageClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SleepSessionRecordStageClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SkinTemperatureRecordClient wraps the gRPC SkinTemperatureRecordService client.
+type SkinTemperatureRecordClient struct {
+	svc pb.SkinTemperatureRecordServiceClient
+}
+
+// NewSkinTemperatureRecordClient creates a new SkinTemperatureRecord client.
+func NewSkinTemperatureRecordClient(cc grpc.ClientConnInterface) *SkinTemperatureRecordClient {
+	return &SkinTemperatureRecordClient{
+		svc: pb.NewSkinTemperatureRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SkinTemperatureRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBaseline calls the GetBaseline RPC.
+func (c *SkinTemperatureRecordClient) GetBaseline(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBaseline(ctx, &pb.GetBaselineRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeltas calls the GetDeltas RPC.
+func (c *SkinTemperatureRecordClient) GetDeltas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeltas(ctx, &pb.GetDeltasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementLocation calls the GetMeasurementLocation RPC.
+func (c *SkinTemperatureRecordClient) GetMeasurementLocation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementLocation(ctx, &pb.GetMeasurementLocationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SkinTemperatureRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SkinTemperatureRecordBuilderClient wraps the gRPC SkinTemperatureRecordBuilderService client.
+type SkinTemperatureRecordBuilderClient struct {
+	svc pb.SkinTemperatureRecordBuilderServiceClient
+}
+
+// NewSkinTemperatureRecordBuilderClient creates a new SkinTemperatureRecordBuilder client.
+func NewSkinTemperatureRecordBuilderClient(cc grpc.ClientConnInterface) *SkinTemperatureRecordBuilderClient {
+	return &SkinTemperatureRecordBuilderClient{
+		svc: pb.NewSkinTemperatureRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SkinTemperatureRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *SkinTemperatureRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *SkinTemperatureRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBaseline calls the SetBaseline RPC.
+func (c *SkinTemperatureRecordBuilderClient) SetBaseline(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBaseline(ctx, &pb.SetBaselineRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *SkinTemperatureRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMeasurementLocation calls the SetMeasurementLocation RPC.
+func (c *SkinTemperatureRecordBuilderClient) SetMeasurementLocation(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMeasurementLocation(ctx, &pb.SetMeasurementLocationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *SkinTemperatureRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SkinTemperatureRecordDeltaClient wraps the gRPC SkinTemperatureRecordDeltaService client.
+type SkinTemperatureRecordDeltaClient struct {
+	svc pb.SkinTemperatureRecordDeltaServiceClient
+}
+
+// NewSkinTemperatureRecordDeltaClient creates a new SkinTemperatureRecordDelta client.
+func NewSkinTemperatureRecordDeltaClient(cc grpc.ClientConnInterface) *SkinTemperatureRecordDeltaClient {
+	return &SkinTemperatureRecordDeltaClient{
+		svc: pb.NewSkinTemperatureRecordDeltaServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SkinTemperatureRecordDeltaClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDelta calls the GetDelta RPC.
+func (c *SkinTemperatureRecordDeltaClient) GetDelta(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDelta(ctx, &pb.GetDeltaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTime calls the GetTime RPC.
+func (c *SkinTemperatureRecordDeltaClient) GetTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SkinTemperatureRecordDeltaClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BodyWaterMassRecordClient wraps the gRPC BodyWaterMassRecordService client.
+type BodyWaterMassRecordClient struct {
+	svc pb.BodyWaterMassRecordServiceClient
+}
+
+// NewBodyWaterMassRecordClient creates a new BodyWaterMassRecord client.
+func NewBodyWaterMassRecordClient(cc grpc.ClientConnInterface) *BodyWaterMassRecordClient {
+	return &BodyWaterMassRecordClient{
+		svc: pb.NewBodyWaterMassRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *BodyWaterMassRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBodyWaterMass calls the GetBodyWaterMass RPC.
+func (c *BodyWaterMassRecordClient) GetBodyWaterMass(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBodyWaterMass(ctx, &pb.GetBodyWaterMassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *BodyWaterMassRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BodyWaterMassRecordBuilderClient wraps the gRPC BodyWaterMassRecordBuilderService client.
+type BodyWaterMassRecordBuilderClient struct {
+	svc pb.BodyWaterMassRecordBuilderServiceClient
+}
+
+// NewBodyWaterMassRecordBuilderClient creates a new BodyWaterMassRecordBuilder client.
+func NewBodyWaterMassRecordBuilderClient(cc grpc.ClientConnInterface) *BodyWaterMassRecordBuilderClient {
+	return &BodyWaterMassRecordBuilderClient{
+		svc: pb.NewBodyWaterMassRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *BodyWaterMassRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *BodyWaterMassRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *BodyWaterMassRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PlannedExerciseBlockClient wraps the gRPC PlannedExerciseBlockService client.
+type PlannedExerciseBlockClient struct {
+	svc pb.PlannedExerciseBlockServiceClient
+}
+
+// NewPlannedExerciseBlockClient creates a new PlannedExerciseBlock client.
+func NewPlannedExerciseBlockClient(cc grpc.ClientConnInterface) *PlannedExerciseBlockClient {
+	return &PlannedExerciseBlockClient{
+		svc: pb.NewPlannedExerciseBlockServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *PlannedExerciseBlockClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *PlannedExerciseBlockClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRepetitions calls the GetRepetitions RPC.
+func (c *PlannedExerciseBlockClient) GetRepetitions(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRepetitions(ctx, &pb.GetRepetitionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSteps calls the GetSteps RPC.
+func (c *PlannedExerciseBlockClient) GetSteps(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSteps(ctx, &pb.GetStepsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PlannedExerciseBlockClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PlannedExerciseBlockBuilderClient wraps the gRPC PlannedExerciseBlockBuilderService client.
+type PlannedExerciseBlockBuilderClient struct {
+	svc pb.PlannedExerciseBlockBuilderServiceClient
+}
+
+// NewPlannedExerciseBlockBuilderClient creates a new PlannedExerciseBlockBuilder client.
+func NewPlannedExerciseBlockBuilderClient(cc grpc.ClientConnInterface) *PlannedExerciseBlockBuilderClient {
+	return &PlannedExerciseBlockBuilderClient{
+		svc: pb.NewPlannedExerciseBlockBuilderServiceClient(cc),
+	}
+}
+
+// AddStep calls the AddStep RPC.
+func (c *PlannedExerciseBlockBuilderClient) AddStep(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddStep(ctx, &pb.AddStepRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *PlannedExerciseBlockBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSteps calls the ClearSteps RPC.
+func (c *PlannedExerciseBlockBuilderClient) ClearSteps(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearSteps(ctx, &pb.ClearStepsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *PlannedExerciseBlockBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRepetitions calls the SetRepetitions RPC.
+func (c *PlannedExerciseBlockBuilderClient) SetRepetitions(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRepetitions(ctx, &pb.SetRepetitionsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -7392,7 +6933,7 @@ func NewFhirVersionClient(cc grpc.ClientConnInterface) *FhirVersionClient {
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *FhirVersionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.FhirVersionDescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -7466,7 +7007,7 @@ func (c *FhirVersionClient) ToString(ctx context.Context) (string, error) {
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *FhirVersionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.FhirVersionWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -7484,20 +7025,20 @@ func (c *FhirVersionClient) ParseFhirVersion(ctx context.Context, arg0 string) (
 	return resp.GetResult(), nil
 }
 
-// DeviceClient wraps the gRPC DeviceService client.
-type DeviceClient struct {
-	svc pb.DeviceServiceClient
+// StepsCadenceRecordClient wraps the gRPC StepsCadenceRecordService client.
+type StepsCadenceRecordClient struct {
+	svc pb.StepsCadenceRecordServiceClient
 }
 
-// NewDeviceClient creates a new Device client.
-func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
-	return &DeviceClient{
-		svc: pb.NewDeviceServiceClient(cc),
+// NewStepsCadenceRecordClient creates a new StepsCadenceRecord client.
+func NewStepsCadenceRecordClient(cc grpc.ClientConnInterface) *StepsCadenceRecordClient {
+	return &StepsCadenceRecordClient{
+		svc: pb.NewStepsCadenceRecordServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *DeviceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *StepsCadenceRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -7507,27 +7048,9 @@ func (c *DeviceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	return resp.GetResult(), nil
 }
 
-// GetManufacturer calls the GetManufacturer RPC.
-func (c *DeviceClient) GetManufacturer(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetManufacturer(ctx, &pb.GetManufacturerRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetModel calls the GetModel RPC.
-func (c *DeviceClient) GetModel(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetModel(ctx, &pb.GetModelRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *DeviceClient) GetType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+// GetSamples calls the GetSamples RPC.
+func (c *StepsCadenceRecordClient) GetSamples(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSamples(ctx, &pb.GetSamplesRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -7535,7 +7058,7 @@ func (c *DeviceClient) GetType(ctx context.Context) (int32, error) {
 }
 
 // HashCode calls the HashCode RPC.
-func (c *DeviceClient) HashCode(ctx context.Context) (int32, error) {
+func (c *StepsCadenceRecordClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -7543,115 +7066,20 @@ func (c *DeviceClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// DeviceBuilderClient wraps the gRPC DeviceBuilderService client.
-type DeviceBuilderClient struct {
-	svc pb.DeviceBuilderServiceClient
+// StepsCadenceRecordBuilderClient wraps the gRPC StepsCadenceRecordBuilderService client.
+type StepsCadenceRecordBuilderClient struct {
+	svc pb.StepsCadenceRecordBuilderServiceClient
 }
 
-// NewDeviceBuilderClient creates a new DeviceBuilder client.
-func NewDeviceBuilderClient(cc grpc.ClientConnInterface) *DeviceBuilderClient {
-	return &DeviceBuilderClient{
-		svc: pb.NewDeviceBuilderServiceClient(cc),
+// NewStepsCadenceRecordBuilderClient creates a new StepsCadenceRecordBuilder client.
+func NewStepsCadenceRecordBuilderClient(cc grpc.ClientConnInterface) *StepsCadenceRecordBuilderClient {
+	return &StepsCadenceRecordBuilderClient{
+		svc: pb.NewStepsCadenceRecordBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *DeviceBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetManufacturer calls the SetManufacturer RPC.
-func (c *DeviceBuilderClient) SetManufacturer(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetManufacturer(ctx, &pb.SetManufacturerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetModel calls the SetModel RPC.
-func (c *DeviceBuilderClient) SetModel(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetModel(ctx, &pb.SetModelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetType calls the SetType RPC.
-func (c *DeviceBuilderClient) SetType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WheelchairPushesRecordClient wraps the gRPC WheelchairPushesRecordService client.
-type WheelchairPushesRecordClient struct {
-	svc pb.WheelchairPushesRecordServiceClient
-}
-
-// NewWheelchairPushesRecordClient creates a new WheelchairPushesRecord client.
-func NewWheelchairPushesRecordClient(cc grpc.ClientConnInterface) *WheelchairPushesRecordClient {
-	return &WheelchairPushesRecordClient{
-		svc: pb.NewWheelchairPushesRecordServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *WheelchairPushesRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCount calls the GetCount RPC.
-func (c *WheelchairPushesRecordClient) GetCount(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *WheelchairPushesRecordClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WheelchairPushesRecordBuilderClient wraps the gRPC WheelchairPushesRecordBuilderService client.
-type WheelchairPushesRecordBuilderClient struct {
-	svc pb.WheelchairPushesRecordBuilderServiceClient
-}
-
-// NewWheelchairPushesRecordBuilderClient creates a new WheelchairPushesRecordBuilder client.
-func NewWheelchairPushesRecordBuilderClient(cc grpc.ClientConnInterface) *WheelchairPushesRecordBuilderClient {
-	return &WheelchairPushesRecordBuilderClient{
-		svc: pb.NewWheelchairPushesRecordBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *WheelchairPushesRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *StepsCadenceRecordBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -7660,7 +7088,7 @@ func (c *WheelchairPushesRecordBuilderClient) Build(ctx context.Context) (int64,
 }
 
 // ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
-func (c *WheelchairPushesRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+func (c *StepsCadenceRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
 	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
@@ -7669,7 +7097,7 @@ func (c *WheelchairPushesRecordBuilderClient) ClearEndZoneOffset(ctx context.Con
 }
 
 // ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
-func (c *WheelchairPushesRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+func (c *StepsCadenceRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
 	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
@@ -7678,7 +7106,7 @@ func (c *WheelchairPushesRecordBuilderClient) ClearStartZoneOffset(ctx context.C
 }
 
 // SetEndZoneOffset calls the SetEndZoneOffset RPC.
-func (c *WheelchairPushesRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *StepsCadenceRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
 		Arg0: arg0,
 	})
@@ -7689,7 +7117,7 @@ func (c *WheelchairPushesRecordBuilderClient) SetEndZoneOffset(ctx context.Conte
 }
 
 // SetStartZoneOffset calls the SetStartZoneOffset RPC.
-func (c *WheelchairPushesRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+func (c *StepsCadenceRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
 		Arg0: arg0,
 	})
@@ -7699,20 +7127,20 @@ func (c *WheelchairPushesRecordBuilderClient) SetStartZoneOffset(ctx context.Con
 	return resp.GetResult(), nil
 }
 
-// PlannedExerciseBlockClient wraps the gRPC PlannedExerciseBlockService client.
-type PlannedExerciseBlockClient struct {
-	svc pb.PlannedExerciseBlockServiceClient
+// StepsCadenceRecordStepsCadenceRecordSampleClient wraps the gRPC StepsCadenceRecordStepsCadenceRecordSampleService client.
+type StepsCadenceRecordStepsCadenceRecordSampleClient struct {
+	svc pb.StepsCadenceRecordStepsCadenceRecordSampleServiceClient
 }
 
-// NewPlannedExerciseBlockClient creates a new PlannedExerciseBlock client.
-func NewPlannedExerciseBlockClient(cc grpc.ClientConnInterface) *PlannedExerciseBlockClient {
-	return &PlannedExerciseBlockClient{
-		svc: pb.NewPlannedExerciseBlockServiceClient(cc),
+// NewStepsCadenceRecordStepsCadenceRecordSampleClient creates a new StepsCadenceRecordStepsCadenceRecordSample client.
+func NewStepsCadenceRecordStepsCadenceRecordSampleClient(cc grpc.ClientConnInterface) *StepsCadenceRecordStepsCadenceRecordSampleClient {
+	return &StepsCadenceRecordStepsCadenceRecordSampleClient{
+		svc: pb.NewStepsCadenceRecordStepsCadenceRecordSampleServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *PlannedExerciseBlockClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *StepsCadenceRecordStepsCadenceRecordSampleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -7722,18 +7150,18 @@ func (c *PlannedExerciseBlockClient) Equals(ctx context.Context, arg0 int64) (bo
 	return resp.GetResult(), nil
 }
 
-// GetDescription calls the GetDescription RPC.
-func (c *PlannedExerciseBlockClient) GetDescription(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+// GetRate calls the GetRate RPC.
+func (c *StepsCadenceRecordStepsCadenceRecordSampleClient) GetRate(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetRate(ctx, &pb.GetRateRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetRepetitions calls the GetRepetitions RPC.
-func (c *PlannedExerciseBlockClient) GetRepetitions(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRepetitions(ctx, &pb.GetRepetitionsRequest{})
+// GetTime calls the GetTime RPC.
+func (c *StepsCadenceRecordStepsCadenceRecordSampleClient) GetTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -7741,7 +7169,7 @@ func (c *PlannedExerciseBlockClient) GetRepetitions(ctx context.Context) (int32,
 }
 
 // HashCode calls the HashCode RPC.
-func (c *PlannedExerciseBlockClient) HashCode(ctx context.Context) (int32, error) {
+func (c *StepsCadenceRecordStepsCadenceRecordSampleClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -7749,31 +7177,70 @@ func (c *PlannedExerciseBlockClient) HashCode(ctx context.Context) (int32, error
 	return resp.GetResult(), nil
 }
 
-// PlannedExerciseBlockBuilderClient wraps the gRPC PlannedExerciseBlockBuilderService client.
-type PlannedExerciseBlockBuilderClient struct {
-	svc pb.PlannedExerciseBlockBuilderServiceClient
+// Vo2MaxRecordClient wraps the gRPC Vo2MaxRecordService client.
+type Vo2MaxRecordClient struct {
+	svc pb.Vo2MaxRecordServiceClient
 }
 
-// NewPlannedExerciseBlockBuilderClient creates a new PlannedExerciseBlockBuilder client.
-func NewPlannedExerciseBlockBuilderClient(cc grpc.ClientConnInterface) *PlannedExerciseBlockBuilderClient {
-	return &PlannedExerciseBlockBuilderClient{
-		svc: pb.NewPlannedExerciseBlockBuilderServiceClient(cc),
+// NewVo2MaxRecordClient creates a new Vo2MaxRecord client.
+func NewVo2MaxRecordClient(cc grpc.ClientConnInterface) *Vo2MaxRecordClient {
+	return &Vo2MaxRecordClient{
+		svc: pb.NewVo2MaxRecordServiceClient(cc),
 	}
 }
 
-// AddStep calls the AddStep RPC.
-func (c *PlannedExerciseBlockBuilderClient) AddStep(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddStep(ctx, &pb.AddStepRequest{
+// Equals calls the Equals RPC.
+func (c *Vo2MaxRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementMethod calls the GetMeasurementMethod RPC.
+func (c *Vo2MaxRecordClient) GetMeasurementMethod(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementMethod(ctx, &pb.GetMeasurementMethodRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
+// GetVo2MillilitersPerMinuteKilogram calls the GetVo2MillilitersPerMinuteKilogram RPC.
+func (c *Vo2MaxRecordClient) GetVo2MillilitersPerMinuteKilogram(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetVo2MillilitersPerMinuteKilogram(ctx, &pb.GetVo2MillilitersPerMinuteKilogramRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *Vo2MaxRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Vo2MaxRecordBuilderClient wraps the gRPC Vo2MaxRecordBuilderService client.
+type Vo2MaxRecordBuilderClient struct {
+	svc pb.Vo2MaxRecordBuilderServiceClient
+}
+
+// NewVo2MaxRecordBuilderClient creates a new Vo2MaxRecordBuilder client.
+func NewVo2MaxRecordBuilderClient(cc grpc.ClientConnInterface) *Vo2MaxRecordBuilderClient {
+	return &Vo2MaxRecordBuilderClient{
+		svc: pb.NewVo2MaxRecordBuilderServiceClient(cc),
+	}
+}
+
 // Build calls the Build RPC.
-func (c *PlannedExerciseBlockBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *Vo2MaxRecordBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -7781,18 +7248,18 @@ func (c *PlannedExerciseBlockBuilderClient) Build(ctx context.Context) (int64, e
 	return resp.GetResult(), nil
 }
 
-// ClearSteps calls the ClearSteps RPC.
-func (c *PlannedExerciseBlockBuilderClient) ClearSteps(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearSteps(ctx, &pb.ClearStepsRequest{})
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *Vo2MaxRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetDescription calls the SetDescription RPC.
-func (c *PlannedExerciseBlockBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *Vo2MaxRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -7801,9 +7268,661 @@ func (c *PlannedExerciseBlockBuilderClient) SetDescription(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// SetRepetitions calls the SetRepetitions RPC.
-func (c *PlannedExerciseBlockBuilderClient) SetRepetitions(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetRepetitions(ctx, &pb.SetRepetitionsRequest{
+// WeightRecordClient wraps the gRPC WeightRecordService client.
+type WeightRecordClient struct {
+	svc pb.WeightRecordServiceClient
+}
+
+// NewWeightRecordClient creates a new WeightRecord client.
+func NewWeightRecordClient(cc grpc.ClientConnInterface) *WeightRecordClient {
+	return &WeightRecordClient{
+		svc: pb.NewWeightRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *WeightRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWeight calls the GetWeight RPC.
+func (c *WeightRecordClient) GetWeight(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWeight(ctx, &pb.GetWeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *WeightRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WeightRecordBuilderClient wraps the gRPC WeightRecordBuilderService client.
+type WeightRecordBuilderClient struct {
+	svc pb.WeightRecordBuilderServiceClient
+}
+
+// NewWeightRecordBuilderClient creates a new WeightRecordBuilder client.
+func NewWeightRecordBuilderClient(cc grpc.ClientConnInterface) *WeightRecordBuilderClient {
+	return &WeightRecordBuilderClient{
+		svc: pb.NewWeightRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *WeightRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *WeightRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *WeightRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RestingHeartRateRecordClient wraps the gRPC RestingHeartRateRecordService client.
+type RestingHeartRateRecordClient struct {
+	svc pb.RestingHeartRateRecordServiceClient
+}
+
+// NewRestingHeartRateRecordClient creates a new RestingHeartRateRecord client.
+func NewRestingHeartRateRecordClient(cc grpc.ClientConnInterface) *RestingHeartRateRecordClient {
+	return &RestingHeartRateRecordClient{
+		svc: pb.NewRestingHeartRateRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *RestingHeartRateRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBeatsPerMinute calls the GetBeatsPerMinute RPC.
+func (c *RestingHeartRateRecordClient) GetBeatsPerMinute(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBeatsPerMinute(ctx, &pb.GetBeatsPerMinuteRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RestingHeartRateRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RestingHeartRateRecordBuilderClient wraps the gRPC RestingHeartRateRecordBuilderService client.
+type RestingHeartRateRecordBuilderClient struct {
+	svc pb.RestingHeartRateRecordBuilderServiceClient
+}
+
+// NewRestingHeartRateRecordBuilderClient creates a new RestingHeartRateRecordBuilder client.
+func NewRestingHeartRateRecordBuilderClient(cc grpc.ClientConnInterface) *RestingHeartRateRecordBuilderClient {
+	return &RestingHeartRateRecordBuilderClient{
+		svc: pb.NewRestingHeartRateRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RestingHeartRateRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *RestingHeartRateRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *RestingHeartRateRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ActiveCaloriesBurnedRecordClient wraps the gRPC ActiveCaloriesBurnedRecordService client.
+type ActiveCaloriesBurnedRecordClient struct {
+	svc pb.ActiveCaloriesBurnedRecordServiceClient
+}
+
+// NewActiveCaloriesBurnedRecordClient creates a new ActiveCaloriesBurnedRecord client.
+func NewActiveCaloriesBurnedRecordClient(cc grpc.ClientConnInterface) *ActiveCaloriesBurnedRecordClient {
+	return &ActiveCaloriesBurnedRecordClient{
+		svc: pb.NewActiveCaloriesBurnedRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ActiveCaloriesBurnedRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnergy calls the GetEnergy RPC.
+func (c *ActiveCaloriesBurnedRecordClient) GetEnergy(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEnergy(ctx, &pb.GetEnergyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ActiveCaloriesBurnedRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ActiveCaloriesBurnedRecordBuilderClient wraps the gRPC ActiveCaloriesBurnedRecordBuilderService client.
+type ActiveCaloriesBurnedRecordBuilderClient struct {
+	svc pb.ActiveCaloriesBurnedRecordBuilderServiceClient
+}
+
+// NewActiveCaloriesBurnedRecordBuilderClient creates a new ActiveCaloriesBurnedRecordBuilder client.
+func NewActiveCaloriesBurnedRecordBuilderClient(cc grpc.ClientConnInterface) *ActiveCaloriesBurnedRecordBuilderClient {
+	return &ActiveCaloriesBurnedRecordBuilderClient{
+		svc: pb.NewActiveCaloriesBurnedRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ActiveCaloriesBurnedRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearEndZoneOffset calls the ClearEndZoneOffset RPC.
+func (c *ActiveCaloriesBurnedRecordBuilderClient) ClearEndZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearEndZoneOffset(ctx, &pb.ClearEndZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearStartZoneOffset calls the ClearStartZoneOffset RPC.
+func (c *ActiveCaloriesBurnedRecordBuilderClient) ClearStartZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearStartZoneOffset(ctx, &pb.ClearStartZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *ActiveCaloriesBurnedRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *ActiveCaloriesBurnedRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MindfulnessSessionRecordClient wraps the gRPC MindfulnessSessionRecordService client.
+type MindfulnessSessionRecordClient struct {
+	svc pb.MindfulnessSessionRecordServiceClient
+}
+
+// NewMindfulnessSessionRecordClient creates a new MindfulnessSessionRecord client.
+func NewMindfulnessSessionRecordClient(cc grpc.ClientConnInterface) *MindfulnessSessionRecordClient {
+	return &MindfulnessSessionRecordClient{
+		svc: pb.NewMindfulnessSessionRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MindfulnessSessionRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMindfulnessSessionType calls the GetMindfulnessSessionType RPC.
+func (c *MindfulnessSessionRecordClient) GetMindfulnessSessionType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMindfulnessSessionType(ctx, &pb.GetMindfulnessSessionTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotes calls the GetNotes RPC.
+func (c *MindfulnessSessionRecordClient) GetNotes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotes(ctx, &pb.GetNotesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *MindfulnessSessionRecordClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MindfulnessSessionRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MindfulnessSessionRecordBuilderClient wraps the gRPC MindfulnessSessionRecordBuilderService client.
+type MindfulnessSessionRecordBuilderClient struct {
+	svc pb.MindfulnessSessionRecordBuilderServiceClient
+}
+
+// NewMindfulnessSessionRecordBuilderClient creates a new MindfulnessSessionRecordBuilder client.
+func NewMindfulnessSessionRecordBuilderClient(cc grpc.ClientConnInterface) *MindfulnessSessionRecordBuilderClient {
+	return &MindfulnessSessionRecordBuilderClient{
+		svc: pb.NewMindfulnessSessionRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *MindfulnessSessionRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndZoneOffset calls the SetEndZoneOffset RPC.
+func (c *MindfulnessSessionRecordBuilderClient) SetEndZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndZoneOffset(ctx, &pb.SetEndZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotes calls the SetNotes RPC.
+func (c *MindfulnessSessionRecordBuilderClient) SetNotes(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetNotes(ctx, &pb.SetNotesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartZoneOffset calls the SetStartZoneOffset RPC.
+func (c *MindfulnessSessionRecordBuilderClient) SetStartZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartZoneOffset(ctx, &pb.SetStartZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *MindfulnessSessionRecordBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BloodPressureRecordClient wraps the gRPC BloodPressureRecordService client.
+type BloodPressureRecordClient struct {
+	svc pb.BloodPressureRecordServiceClient
+}
+
+// NewBloodPressureRecordClient creates a new BloodPressureRecord client.
+func NewBloodPressureRecordClient(cc grpc.ClientConnInterface) *BloodPressureRecordClient {
+	return &BloodPressureRecordClient{
+		svc: pb.NewBloodPressureRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *BloodPressureRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBodyPosition calls the GetBodyPosition RPC.
+func (c *BloodPressureRecordClient) GetBodyPosition(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBodyPosition(ctx, &pb.GetBodyPositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDiastolic calls the GetDiastolic RPC.
+func (c *BloodPressureRecordClient) GetDiastolic(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDiastolic(ctx, &pb.GetDiastolicRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementLocation calls the GetMeasurementLocation RPC.
+func (c *BloodPressureRecordClient) GetMeasurementLocation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementLocation(ctx, &pb.GetMeasurementLocationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystolic calls the GetSystolic RPC.
+func (c *BloodPressureRecordClient) GetSystolic(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSystolic(ctx, &pb.GetSystolicRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *BloodPressureRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BloodPressureRecordBuilderClient wraps the gRPC BloodPressureRecordBuilderService client.
+type BloodPressureRecordBuilderClient struct {
+	svc pb.BloodPressureRecordBuilderServiceClient
+}
+
+// NewBloodPressureRecordBuilderClient creates a new BloodPressureRecordBuilder client.
+func NewBloodPressureRecordBuilderClient(cc grpc.ClientConnInterface) *BloodPressureRecordBuilderClient {
+	return &BloodPressureRecordBuilderClient{
+		svc: pb.NewBloodPressureRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *BloodPressureRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *BloodPressureRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *BloodPressureRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SexualActivityRecordClient wraps the gRPC SexualActivityRecordService client.
+type SexualActivityRecordClient struct {
+	svc pb.SexualActivityRecordServiceClient
+}
+
+// NewSexualActivityRecordClient creates a new SexualActivityRecord client.
+func NewSexualActivityRecordClient(cc grpc.ClientConnInterface) *SexualActivityRecordClient {
+	return &SexualActivityRecordClient{
+		svc: pb.NewSexualActivityRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SexualActivityRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProtectionUsed calls the GetProtectionUsed RPC.
+func (c *SexualActivityRecordClient) GetProtectionUsed(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProtectionUsed(ctx, &pb.GetProtectionUsedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SexualActivityRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SexualActivityRecordBuilderClient wraps the gRPC SexualActivityRecordBuilderService client.
+type SexualActivityRecordBuilderClient struct {
+	svc pb.SexualActivityRecordBuilderServiceClient
+}
+
+// NewSexualActivityRecordBuilderClient creates a new SexualActivityRecordBuilder client.
+func NewSexualActivityRecordBuilderClient(cc grpc.ClientConnInterface) *SexualActivityRecordBuilderClient {
+	return &SexualActivityRecordBuilderClient{
+		svc: pb.NewSexualActivityRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SexualActivityRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *SexualActivityRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *SexualActivityRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OvulationTestRecordClient wraps the gRPC OvulationTestRecordService client.
+type OvulationTestRecordClient struct {
+	svc pb.OvulationTestRecordServiceClient
+}
+
+// NewOvulationTestRecordClient creates a new OvulationTestRecord client.
+func NewOvulationTestRecordClient(cc grpc.ClientConnInterface) *OvulationTestRecordClient {
+	return &OvulationTestRecordClient{
+		svc: pb.NewOvulationTestRecordServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *OvulationTestRecordClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResult calls the GetResult RPC.
+func (c *OvulationTestRecordClient) GetResult(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResult(ctx, &pb.GetResultRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *OvulationTestRecordClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OvulationTestRecordBuilderClient wraps the gRPC OvulationTestRecordBuilderService client.
+type OvulationTestRecordBuilderClient struct {
+	svc pb.OvulationTestRecordBuilderServiceClient
+}
+
+// NewOvulationTestRecordBuilderClient creates a new OvulationTestRecordBuilder client.
+func NewOvulationTestRecordBuilderClient(cc grpc.ClientConnInterface) *OvulationTestRecordBuilderClient {
+	return &OvulationTestRecordBuilderClient{
+		svc: pb.NewOvulationTestRecordBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *OvulationTestRecordBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearZoneOffset calls the ClearZoneOffset RPC.
+func (c *OvulationTestRecordBuilderClient) ClearZoneOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearZoneOffset(ctx, &pb.ClearZoneOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZoneOffset calls the SetZoneOffset RPC.
+func (c *OvulationTestRecordBuilderClient) SetZoneOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetZoneOffset(ctx, &pb.SetZoneOffsetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

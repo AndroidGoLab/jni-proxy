@@ -21,184 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SSLSocketsService_ExportKeyingMaterial_FullMethodName = "/ssl.SSLSocketsService/ExportKeyingMaterial"
-	SSLSocketsService_IsSupportedSocket_FullMethodName    = "/ssl.SSLSocketsService/IsSupportedSocket"
-	SSLSocketsService_SetUseSessionTickets_FullMethodName = "/ssl.SSLSocketsService/SetUseSessionTickets"
-)
-
-// SSLSocketsServiceClient is the client API for SSLSocketsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SSLSocketsServiceClient interface {
-	ExportKeyingMaterial(ctx context.Context, in *ExportKeyingMaterialRequest, opts ...grpc.CallOption) (*ExportKeyingMaterialResponse, error)
-	IsSupportedSocket(ctx context.Context, in *IsSupportedSocketRequest, opts ...grpc.CallOption) (*IsSupportedSocketResponse, error)
-	SetUseSessionTickets(ctx context.Context, in *SetUseSessionTicketsRequest, opts ...grpc.CallOption) (*SetUseSessionTicketsResponse, error)
-}
-
-type sSLSocketsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSSLSocketsServiceClient(cc grpc.ClientConnInterface) SSLSocketsServiceClient {
-	return &sSLSocketsServiceClient{cc}
-}
-
-func (c *sSLSocketsServiceClient) ExportKeyingMaterial(ctx context.Context, in *ExportKeyingMaterialRequest, opts ...grpc.CallOption) (*ExportKeyingMaterialResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExportKeyingMaterialResponse)
-	err := c.cc.Invoke(ctx, SSLSocketsService_ExportKeyingMaterial_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sSLSocketsServiceClient) IsSupportedSocket(ctx context.Context, in *IsSupportedSocketRequest, opts ...grpc.CallOption) (*IsSupportedSocketResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSupportedSocketResponse)
-	err := c.cc.Invoke(ctx, SSLSocketsService_IsSupportedSocket_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sSLSocketsServiceClient) SetUseSessionTickets(ctx context.Context, in *SetUseSessionTicketsRequest, opts ...grpc.CallOption) (*SetUseSessionTicketsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUseSessionTicketsResponse)
-	err := c.cc.Invoke(ctx, SSLSocketsService_SetUseSessionTickets_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SSLSocketsServiceServer is the server API for SSLSocketsService service.
-// All implementations must embed UnimplementedSSLSocketsServiceServer
-// for forward compatibility.
-type SSLSocketsServiceServer interface {
-	ExportKeyingMaterial(context.Context, *ExportKeyingMaterialRequest) (*ExportKeyingMaterialResponse, error)
-	IsSupportedSocket(context.Context, *IsSupportedSocketRequest) (*IsSupportedSocketResponse, error)
-	SetUseSessionTickets(context.Context, *SetUseSessionTicketsRequest) (*SetUseSessionTicketsResponse, error)
-	mustEmbedUnimplementedSSLSocketsServiceServer()
-}
-
-// UnimplementedSSLSocketsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSSLSocketsServiceServer struct{}
-
-func (UnimplementedSSLSocketsServiceServer) ExportKeyingMaterial(context.Context, *ExportKeyingMaterialRequest) (*ExportKeyingMaterialResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ExportKeyingMaterial not implemented")
-}
-func (UnimplementedSSLSocketsServiceServer) IsSupportedSocket(context.Context, *IsSupportedSocketRequest) (*IsSupportedSocketResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSupportedSocket not implemented")
-}
-func (UnimplementedSSLSocketsServiceServer) SetUseSessionTickets(context.Context, *SetUseSessionTicketsRequest) (*SetUseSessionTicketsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUseSessionTickets not implemented")
-}
-func (UnimplementedSSLSocketsServiceServer) mustEmbedUnimplementedSSLSocketsServiceServer() {}
-func (UnimplementedSSLSocketsServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeSSLSocketsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SSLSocketsServiceServer will
-// result in compilation errors.
-type UnsafeSSLSocketsServiceServer interface {
-	mustEmbedUnimplementedSSLSocketsServiceServer()
-}
-
-func RegisterSSLSocketsServiceServer(s grpc.ServiceRegistrar, srv SSLSocketsServiceServer) {
-	// If the following call panics, it indicates UnimplementedSSLSocketsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SSLSocketsService_ServiceDesc, srv)
-}
-
-func _SSLSocketsService_ExportKeyingMaterial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExportKeyingMaterialRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SSLSocketsServiceServer).ExportKeyingMaterial(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SSLSocketsService_ExportKeyingMaterial_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SSLSocketsServiceServer).ExportKeyingMaterial(ctx, req.(*ExportKeyingMaterialRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SSLSocketsService_IsSupportedSocket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSupportedSocketRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SSLSocketsServiceServer).IsSupportedSocket(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SSLSocketsService_IsSupportedSocket_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SSLSocketsServiceServer).IsSupportedSocket(ctx, req.(*IsSupportedSocketRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SSLSocketsService_SetUseSessionTickets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUseSessionTicketsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SSLSocketsServiceServer).SetUseSessionTickets(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SSLSocketsService_SetUseSessionTickets_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SSLSocketsServiceServer).SetUseSessionTickets(ctx, req.(*SetUseSessionTicketsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SSLSocketsService_ServiceDesc is the grpc.ServiceDesc for SSLSocketsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SSLSocketsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ssl.SSLSocketsService",
-	HandlerType: (*SSLSocketsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ExportKeyingMaterial",
-			Handler:    _SSLSocketsService_ExportKeyingMaterial_Handler,
-		},
-		{
-			MethodName: "IsSupportedSocket",
-			Handler:    _SSLSocketsService_IsSupportedSocket_Handler,
-		},
-		{
-			MethodName: "SetUseSessionTickets",
-			Handler:    _SSLSocketsService_SetUseSessionTickets_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ssl/ssl.proto",
-}
-
-const (
 	SSLEnginesService_ExportKeyingMaterial_FullMethodName = "/ssl.SSLEnginesService/ExportKeyingMaterial"
 	SSLEnginesService_IsSupportedEngine_FullMethodName    = "/ssl.SSLEnginesService/IsSupportedEngine"
 	SSLEnginesService_SetUseSessionTickets_FullMethodName = "/ssl.SSLEnginesService/SetUseSessionTickets"
@@ -370,6 +192,184 @@ var SSLEnginesService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetUseSessionTickets",
 			Handler:    _SSLEnginesService_SetUseSessionTickets_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ssl/ssl.proto",
+}
+
+const (
+	SSLSocketsService_ExportKeyingMaterial_FullMethodName = "/ssl.SSLSocketsService/ExportKeyingMaterial"
+	SSLSocketsService_IsSupportedSocket_FullMethodName    = "/ssl.SSLSocketsService/IsSupportedSocket"
+	SSLSocketsService_SetUseSessionTickets_FullMethodName = "/ssl.SSLSocketsService/SetUseSessionTickets"
+)
+
+// SSLSocketsServiceClient is the client API for SSLSocketsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SSLSocketsServiceClient interface {
+	ExportKeyingMaterial(ctx context.Context, in *ExportKeyingMaterialRequest, opts ...grpc.CallOption) (*ExportKeyingMaterialResponse, error)
+	IsSupportedSocket(ctx context.Context, in *IsSupportedSocketRequest, opts ...grpc.CallOption) (*IsSupportedSocketResponse, error)
+	SetUseSessionTickets(ctx context.Context, in *SetUseSessionTicketsRequest, opts ...grpc.CallOption) (*SetUseSessionTicketsResponse, error)
+}
+
+type sSLSocketsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSSLSocketsServiceClient(cc grpc.ClientConnInterface) SSLSocketsServiceClient {
+	return &sSLSocketsServiceClient{cc}
+}
+
+func (c *sSLSocketsServiceClient) ExportKeyingMaterial(ctx context.Context, in *ExportKeyingMaterialRequest, opts ...grpc.CallOption) (*ExportKeyingMaterialResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExportKeyingMaterialResponse)
+	err := c.cc.Invoke(ctx, SSLSocketsService_ExportKeyingMaterial_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sSLSocketsServiceClient) IsSupportedSocket(ctx context.Context, in *IsSupportedSocketRequest, opts ...grpc.CallOption) (*IsSupportedSocketResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSupportedSocketResponse)
+	err := c.cc.Invoke(ctx, SSLSocketsService_IsSupportedSocket_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sSLSocketsServiceClient) SetUseSessionTickets(ctx context.Context, in *SetUseSessionTicketsRequest, opts ...grpc.CallOption) (*SetUseSessionTicketsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUseSessionTicketsResponse)
+	err := c.cc.Invoke(ctx, SSLSocketsService_SetUseSessionTickets_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SSLSocketsServiceServer is the server API for SSLSocketsService service.
+// All implementations must embed UnimplementedSSLSocketsServiceServer
+// for forward compatibility.
+type SSLSocketsServiceServer interface {
+	ExportKeyingMaterial(context.Context, *ExportKeyingMaterialRequest) (*ExportKeyingMaterialResponse, error)
+	IsSupportedSocket(context.Context, *IsSupportedSocketRequest) (*IsSupportedSocketResponse, error)
+	SetUseSessionTickets(context.Context, *SetUseSessionTicketsRequest) (*SetUseSessionTicketsResponse, error)
+	mustEmbedUnimplementedSSLSocketsServiceServer()
+}
+
+// UnimplementedSSLSocketsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSSLSocketsServiceServer struct{}
+
+func (UnimplementedSSLSocketsServiceServer) ExportKeyingMaterial(context.Context, *ExportKeyingMaterialRequest) (*ExportKeyingMaterialResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExportKeyingMaterial not implemented")
+}
+func (UnimplementedSSLSocketsServiceServer) IsSupportedSocket(context.Context, *IsSupportedSocketRequest) (*IsSupportedSocketResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSupportedSocket not implemented")
+}
+func (UnimplementedSSLSocketsServiceServer) SetUseSessionTickets(context.Context, *SetUseSessionTicketsRequest) (*SetUseSessionTicketsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUseSessionTickets not implemented")
+}
+func (UnimplementedSSLSocketsServiceServer) mustEmbedUnimplementedSSLSocketsServiceServer() {}
+func (UnimplementedSSLSocketsServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeSSLSocketsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SSLSocketsServiceServer will
+// result in compilation errors.
+type UnsafeSSLSocketsServiceServer interface {
+	mustEmbedUnimplementedSSLSocketsServiceServer()
+}
+
+func RegisterSSLSocketsServiceServer(s grpc.ServiceRegistrar, srv SSLSocketsServiceServer) {
+	// If the following call panics, it indicates UnimplementedSSLSocketsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SSLSocketsService_ServiceDesc, srv)
+}
+
+func _SSLSocketsService_ExportKeyingMaterial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExportKeyingMaterialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SSLSocketsServiceServer).ExportKeyingMaterial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SSLSocketsService_ExportKeyingMaterial_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SSLSocketsServiceServer).ExportKeyingMaterial(ctx, req.(*ExportKeyingMaterialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SSLSocketsService_IsSupportedSocket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSupportedSocketRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SSLSocketsServiceServer).IsSupportedSocket(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SSLSocketsService_IsSupportedSocket_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SSLSocketsServiceServer).IsSupportedSocket(ctx, req.(*IsSupportedSocketRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SSLSocketsService_SetUseSessionTickets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUseSessionTicketsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SSLSocketsServiceServer).SetUseSessionTickets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SSLSocketsService_SetUseSessionTickets_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SSLSocketsServiceServer).SetUseSessionTickets(ctx, req.(*SetUseSessionTicketsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SSLSocketsService_ServiceDesc is the grpc.ServiceDesc for SSLSocketsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SSLSocketsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ssl.SSLSocketsService",
+	HandlerType: (*SSLSocketsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ExportKeyingMaterial",
+			Handler:    _SSLSocketsService_ExportKeyingMaterial_Handler,
+		},
+		{
+			MethodName: "IsSupportedSocket",
+			Handler:    _SSLSocketsService_IsSupportedSocket_Handler,
+		},
+		{
+			MethodName: "SetUseSessionTickets",
+			Handler:    _SSLSocketsService_SetUseSessionTickets_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

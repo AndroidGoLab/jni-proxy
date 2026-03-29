@@ -6,546 +6,6 @@ package sip;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/sip";
 
-message AnswerCallRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message AnswerCallResponse {
-}
-
-message ChangeCallRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message ChangeCallResponse {
-}
-
-message EndCallRequest {
-}
-
-message EndCallResponse {
-}
-
-message GetCallIdRequest {
-}
-
-message GetCallIdResponse {
-  string result = 1;
-}
-
-message GetLocalIpRequest {
-}
-
-message GetLocalIpResponse {
-  string result = 1;
-}
-
-message GetLocalProfileRequest {
-}
-
-message GetLocalProfileResponse {
-  int64 result = 1;
-}
-
-message GetPeerProfileRequest {
-}
-
-message GetPeerProfileResponse {
-  int64 result = 1;
-}
-
-message GetStateRequest {
-}
-
-message GetStateResponse {
-  int32 result = 1;
-}
-
-message IsInCallRequest {
-}
-
-message IsInCallResponse {
-  bool result = 1;
-}
-
-message MakeCallRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message MakeCallResponse {
-}
-
-message RegisterRequest {
-  int32 arg0 = 1;
-}
-
-message RegisterResponse {
-}
-
-message SetListenerRequest {
-  int64 arg0 = 1;
-}
-
-message SetListenerResponse {
-}
-
-message UnregisterRequest {
-}
-
-message UnregisterResponse {
-}
-
-message OnCallBusyRequest {
-  int64 arg0 = 1;
-}
-
-message OnCallBusyResponse {
-}
-
-message OnCallChangeFailedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  string arg2 = 3;
-}
-
-message OnCallChangeFailedResponse {
-}
-
-message OnCallEndedRequest {
-  int64 arg0 = 1;
-}
-
-message OnCallEndedResponse {
-}
-
-message OnCallEstablishedRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message OnCallEstablishedResponse {
-}
-
-message OnCallingRequest {
-  int64 arg0 = 1;
-}
-
-message OnCallingResponse {
-}
-
-message OnErrorRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  string arg2 = 3;
-}
-
-message OnErrorResponse {
-}
-
-message OnRegisteringRequest {
-  int64 arg0 = 1;
-}
-
-message OnRegisteringResponse {
-}
-
-message OnRegistrationDoneRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnRegistrationDoneResponse {
-}
-
-message OnRegistrationFailedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  string arg2 = 3;
-}
-
-message OnRegistrationFailedResponse {
-}
-
-message OnRegistrationTimeoutRequest {
-  int64 arg0 = 1;
-}
-
-message OnRegistrationTimeoutResponse {
-}
-
-message OnRingingRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-}
-
-message OnRingingResponse {
-}
-
-message OnRingingBackRequest {
-  int64 arg0 = 1;
-}
-
-message OnRingingBackResponse {
-}
-
-message ToStringRequest {
-  int32 arg0 = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message CloseRequest {
-  string arg0 = 1;
-}
-
-message CloseResponse {
-}
-
-message CreateSipSessionRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message CreateSipSessionResponse {
-  int64 result = 1;
-}
-
-message GetSessionForRequest {
-  int64 arg0 = 1;
-}
-
-message GetSessionForResponse {
-  int64 result = 1;
-}
-
-message IsOpenedRequest {
-  string arg0 = 1;
-}
-
-message IsOpenedResponse {
-  bool result = 1;
-}
-
-message IsRegisteredRequest {
-  string arg0 = 1;
-}
-
-message IsRegisteredResponse {
-  bool result = 1;
-}
-
-message MakeAudioCall4Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message MakeAudioCall4Response {
-  int64 result = 1;
-}
-
-message MakeAudioCall4_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message MakeAudioCall4_1Response {
-  int64 result = 1;
-}
-
-message Open1Request {
-  int64 arg0 = 1;
-}
-
-message Open1Response {
-}
-
-message Open3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message Open3_1Response {
-}
-
-message ManagerRegisterRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message SetRegistrationListenerRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetRegistrationListenerResponse {
-}
-
-message TakeAudioCallRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message TakeAudioCallResponse {
-  int64 result = 1;
-}
-
-message ManagerUnregisterRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message ManagerGetCallIdRequest {
-  int64 arg0 = 1;
-}
-
-message GetOfferSessionDescriptionRequest {
-  int64 arg0 = 1;
-}
-
-message GetOfferSessionDescriptionResponse {
-  string result = 1;
-}
-
-message IsApiSupportedRequest {
-  int64 arg0 = 1;
-}
-
-message IsApiSupportedResponse {
-  bool result = 1;
-}
-
-message IsIncomingCallIntentRequest {
-  int64 arg0 = 1;
-}
-
-message IsIncomingCallIntentResponse {
-  bool result = 1;
-}
-
-message IsSipWifiOnlyRequest {
-  int64 arg0 = 1;
-}
-
-message IsSipWifiOnlyResponse {
-  bool result = 1;
-}
-
-message IsVoipSupportedRequest {
-  int64 arg0 = 1;
-}
-
-message IsVoipSupportedResponse {
-  bool result = 1;
-}
-
-message NewInstanceRequest {
-  int64 arg0 = 1;
-}
-
-message NewInstanceResponse {
-  int64 result = 1;
-}
-
-message NewAudioCallRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewAudioCallResponse {
-  int64 result = 1;
-}
-
-message AudioCallAnswerCallRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message AttachCallRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  string arg1 = 3;
-}
-
-message AttachCallResponse {
-}
-
-message AudioCallCloseRequest {
-  int64 handle = 1;
-}
-
-message ContinueCallRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message ContinueCallResponse {
-}
-
-message AudioCallEndCallRequest {
-  int64 handle = 1;
-}
-
-message AudioCallGetLocalProfileRequest {
-  int64 handle = 1;
-}
-
-message AudioCallGetPeerProfileRequest {
-  int64 handle = 1;
-}
-
-message AudioCallGetStateRequest {
-  int64 handle = 1;
-}
-
-message HoldCallRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message HoldCallResponse {
-}
-
-message AudioCallIsInCallRequest {
-  int64 handle = 1;
-}
-
-message IsMutedRequest {
-  int64 handle = 1;
-}
-
-message IsMutedResponse {
-  bool result = 1;
-}
-
-message IsOnHoldRequest {
-  int64 handle = 1;
-}
-
-message IsOnHoldResponse {
-  bool result = 1;
-}
-
-message AudioCallMakeCallRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-  int32 arg2 = 4;
-}
-
-message SendDtmf1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SendDtmf1Response {
-}
-
-message SendDtmf2_1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message SendDtmf2_1Response {
-}
-
-message SetListener1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetListener1Response {
-}
-
-message SetListener2_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  bool arg1 = 3;
-}
-
-message SetListener2_1Response {
-}
-
-message SetSpeakerModeRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetSpeakerModeResponse {
-}
-
-message StartAudioRequest {
-  int64 handle = 1;
-}
-
-message StartAudioResponse {
-}
-
-message ToggleMuteRequest {
-  int64 handle = 1;
-}
-
-message ToggleMuteResponse {
-}
-
-message AudioCallListenerOnCallEstablishedRequest {
-  int64 arg0 = 1;
-}
-
-message OnCallHeldRequest {
-  int64 arg0 = 1;
-}
-
-message OnCallHeldResponse {
-}
-
-message OnChangedRequest {
-  int64 arg0 = 1;
-}
-
-message OnChangedResponse {
-}
-
-message OnReadyToCallRequest {
-  int64 arg0 = 1;
-}
-
-message OnReadyToCallResponse {
-}
-
-message AudioCallListenerOnRingingRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RegistrationListenerOnRegisteringRequest {
-  string arg0 = 1;
-}
-
-message RegistrationListenerOnRegistrationDoneRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RegistrationListenerOnRegistrationFailedRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  string arg2 = 3;
-}
-
 message DescribeContentsRequest {
 }
 
@@ -731,105 +191,544 @@ message SetSendKeepAliveResponse {
   int64 result = 1;
 }
 
-service SessionService {
-  rpc AnswerCall (AnswerCallRequest) returns (AnswerCallResponse);
-  rpc ChangeCall (ChangeCallRequest) returns (ChangeCallResponse);
-  rpc EndCall (EndCallRequest) returns (EndCallResponse);
-  rpc GetCallId (GetCallIdRequest) returns (GetCallIdResponse);
-  rpc GetLocalIp (GetLocalIpRequest) returns (GetLocalIpResponse);
-  rpc GetLocalProfile (GetLocalProfileRequest) returns (GetLocalProfileResponse);
-  rpc GetPeerProfile (GetPeerProfileRequest) returns (GetPeerProfileResponse);
-  rpc GetState (GetStateRequest) returns (GetStateResponse);
-  rpc IsInCall (IsInCallRequest) returns (IsInCallResponse);
-  rpc MakeCall (MakeCallRequest) returns (MakeCallResponse);
-  rpc Register (RegisterRequest) returns (RegisterResponse);
-  rpc SetListener (SetListenerRequest) returns (SetListenerResponse);
-  rpc Unregister (UnregisterRequest) returns (UnregisterResponse);
+message OnRegisteringRequest {
+  string arg0 = 1;
 }
 
-service SessionListenerService {
-  rpc OnCallBusy (OnCallBusyRequest) returns (OnCallBusyResponse);
-  rpc OnCallChangeFailed (OnCallChangeFailedRequest) returns (OnCallChangeFailedResponse);
-  rpc OnCallEnded (OnCallEndedRequest) returns (OnCallEndedResponse);
-  rpc OnCallEstablished (OnCallEstablishedRequest) returns (OnCallEstablishedResponse);
-  rpc OnCalling (OnCallingRequest) returns (OnCallingResponse);
-  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
-  rpc OnRegistering (OnRegisteringRequest) returns (OnRegisteringResponse);
-  rpc OnRegistrationDone (OnRegistrationDoneRequest) returns (OnRegistrationDoneResponse);
-  rpc OnRegistrationFailed (OnRegistrationFailedRequest) returns (OnRegistrationFailedResponse);
-  rpc OnRegistrationTimeout (OnRegistrationTimeoutRequest) returns (OnRegistrationTimeoutResponse);
-  rpc OnRinging (OnRingingRequest) returns (OnRingingResponse);
-  rpc OnRingingBack (OnRingingBackRequest) returns (OnRingingBackResponse);
+message OnRegisteringResponse {
 }
 
-service SessionStateService {
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
+message OnRegistrationDoneRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
 }
 
-service ManagerService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc CreateSipSession (CreateSipSessionRequest) returns (CreateSipSessionResponse);
-  rpc GetSessionFor (GetSessionForRequest) returns (GetSessionForResponse);
-  rpc IsOpened (IsOpenedRequest) returns (IsOpenedResponse);
-  rpc IsRegistered (IsRegisteredRequest) returns (IsRegisteredResponse);
-  rpc MakeAudioCall4 (MakeAudioCall4Request) returns (MakeAudioCall4Response);
-  rpc MakeAudioCall4_1 (MakeAudioCall4_1Request) returns (MakeAudioCall4_1Response);
-  rpc Open1 (Open1Request) returns (Open1Response);
-  rpc Open3_1 (Open3_1Request) returns (Open3_1Response);
-  rpc Register (ManagerRegisterRequest) returns (RegisterResponse);
-  rpc SetRegistrationListener (SetRegistrationListenerRequest) returns (SetRegistrationListenerResponse);
-  rpc TakeAudioCall (TakeAudioCallRequest) returns (TakeAudioCallResponse);
-  rpc Unregister (ManagerUnregisterRequest) returns (UnregisterResponse);
-  rpc GetCallId (ManagerGetCallIdRequest) returns (GetCallIdResponse);
-  rpc GetOfferSessionDescription (GetOfferSessionDescriptionRequest) returns (GetOfferSessionDescriptionResponse);
-  rpc IsApiSupported (IsApiSupportedRequest) returns (IsApiSupportedResponse);
-  rpc IsIncomingCallIntent (IsIncomingCallIntentRequest) returns (IsIncomingCallIntentResponse);
-  rpc IsSipWifiOnly (IsSipWifiOnlyRequest) returns (IsSipWifiOnlyResponse);
-  rpc IsVoipSupported (IsVoipSupportedRequest) returns (IsVoipSupportedResponse);
-  rpc NewInstance (NewInstanceRequest) returns (NewInstanceResponse);
+message OnRegistrationDoneResponse {
 }
 
-service AudioCallService {
-  rpc NewAudioCall (NewAudioCallRequest) returns (NewAudioCallResponse);
-  rpc AnswerCall (AudioCallAnswerCallRequest) returns (AnswerCallResponse);
-  rpc AttachCall (AttachCallRequest) returns (AttachCallResponse);
-  rpc Close (AudioCallCloseRequest) returns (CloseResponse);
-  rpc ContinueCall (ContinueCallRequest) returns (ContinueCallResponse);
-  rpc EndCall (AudioCallEndCallRequest) returns (EndCallResponse);
-  rpc GetLocalProfile (AudioCallGetLocalProfileRequest) returns (GetLocalProfileResponse);
-  rpc GetPeerProfile (AudioCallGetPeerProfileRequest) returns (GetPeerProfileResponse);
-  rpc GetState (AudioCallGetStateRequest) returns (GetStateResponse);
-  rpc HoldCall (HoldCallRequest) returns (HoldCallResponse);
-  rpc IsInCall (AudioCallIsInCallRequest) returns (IsInCallResponse);
-  rpc IsMuted (IsMutedRequest) returns (IsMutedResponse);
-  rpc IsOnHold (IsOnHoldRequest) returns (IsOnHoldResponse);
-  rpc MakeCall (AudioCallMakeCallRequest) returns (MakeCallResponse);
-  rpc SendDtmf1 (SendDtmf1Request) returns (SendDtmf1Response);
-  rpc SendDtmf2_1 (SendDtmf2_1Request) returns (SendDtmf2_1Response);
-  rpc SetListener1 (SetListener1Request) returns (SetListener1Response);
-  rpc SetListener2_1 (SetListener2_1Request) returns (SetListener2_1Response);
-  rpc SetSpeakerMode (SetSpeakerModeRequest) returns (SetSpeakerModeResponse);
-  rpc StartAudio (StartAudioRequest) returns (StartAudioResponse);
-  rpc ToggleMute (ToggleMuteRequest) returns (ToggleMuteResponse);
+message OnRegistrationFailedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
 }
 
-service AudioCallListenerService {
-  rpc OnCallBusy (OnCallBusyRequest) returns (OnCallBusyResponse);
-  rpc OnCallEnded (OnCallEndedRequest) returns (OnCallEndedResponse);
-  rpc OnCallEstablished (AudioCallListenerOnCallEstablishedRequest) returns (OnCallEstablishedResponse);
-  rpc OnCallHeld (OnCallHeldRequest) returns (OnCallHeldResponse);
-  rpc OnCalling (OnCallingRequest) returns (OnCallingResponse);
-  rpc OnChanged (OnChangedRequest) returns (OnChangedResponse);
-  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
-  rpc OnReadyToCall (OnReadyToCallRequest) returns (OnReadyToCallResponse);
-  rpc OnRinging (AudioCallListenerOnRingingRequest) returns (OnRingingResponse);
-  rpc OnRingingBack (OnRingingBackRequest) returns (OnRingingBackResponse);
+message OnRegistrationFailedResponse {
 }
 
-service RegistrationListenerService {
-  rpc OnRegistering (RegistrationListenerOnRegisteringRequest) returns (OnRegisteringResponse);
-  rpc OnRegistrationDone (RegistrationListenerOnRegistrationDoneRequest) returns (OnRegistrationDoneResponse);
-  rpc OnRegistrationFailed (RegistrationListenerOnRegistrationFailedRequest) returns (OnRegistrationFailedResponse);
+message NewAudioCallRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAudioCallResponse {
+  int64 result = 1;
+}
+
+message AnswerCallRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AnswerCallResponse {
+}
+
+message AttachCallRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message AttachCallResponse {
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message ContinueCallRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ContinueCallResponse {
+}
+
+message EndCallRequest {
+  int64 handle = 1;
+}
+
+message EndCallResponse {
+}
+
+message GetLocalProfileRequest {
+  int64 handle = 1;
+}
+
+message GetLocalProfileResponse {
+  int64 result = 1;
+}
+
+message GetPeerProfileRequest {
+  int64 handle = 1;
+}
+
+message GetPeerProfileResponse {
+  int64 result = 1;
+}
+
+message GetStateRequest {
+  int64 handle = 1;
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message HoldCallRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message HoldCallResponse {
+}
+
+message IsInCallRequest {
+  int64 handle = 1;
+}
+
+message IsInCallResponse {
+  bool result = 1;
+}
+
+message IsMutedRequest {
+  int64 handle = 1;
+}
+
+message IsMutedResponse {
+  bool result = 1;
+}
+
+message IsOnHoldRequest {
+  int64 handle = 1;
+}
+
+message IsOnHoldResponse {
+  bool result = 1;
+}
+
+message MakeCallRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message MakeCallResponse {
+}
+
+message SendDtmf1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SendDtmf1Response {
+}
+
+message SendDtmf2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendDtmf2_1Response {
+}
+
+message SetListener1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetListener1Response {
+}
+
+message SetListener2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message SetListener2_1Response {
+}
+
+message SetSpeakerModeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetSpeakerModeResponse {
+}
+
+message StartAudioRequest {
+  int64 handle = 1;
+}
+
+message StartAudioResponse {
+}
+
+message ToggleMuteRequest {
+  int64 handle = 1;
+}
+
+message ToggleMuteResponse {
+}
+
+message OnCallBusyRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallBusyResponse {
+}
+
+message OnCallEndedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallEndedResponse {
+}
+
+message OnCallEstablishedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallEstablishedResponse {
+}
+
+message OnCallHeldRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallHeldResponse {
+}
+
+message OnCallingRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallingResponse {
+}
+
+message OnChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnChangedResponse {
+}
+
+message OnErrorRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message OnErrorResponse {
+}
+
+message OnReadyToCallRequest {
+  int64 arg0 = 1;
+}
+
+message OnReadyToCallResponse {
+}
+
+message OnRingingRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnRingingResponse {
+}
+
+message OnRingingBackRequest {
+  int64 arg0 = 1;
+}
+
+message OnRingingBackResponse {
+}
+
+message SessionAnswerCallRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ChangeCallRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ChangeCallResponse {
+}
+
+message SessionEndCallRequest {
+}
+
+message GetCallIdRequest {
+}
+
+message GetCallIdResponse {
+  string result = 1;
+}
+
+message GetLocalIpRequest {
+}
+
+message GetLocalIpResponse {
+  string result = 1;
+}
+
+message SessionGetLocalProfileRequest {
+}
+
+message SessionGetPeerProfileRequest {
+}
+
+message SessionGetStateRequest {
+}
+
+message SessionIsInCallRequest {
+}
+
+message SessionMakeCallRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message RegisterRequest {
+  int32 arg0 = 1;
+}
+
+message RegisterResponse {
+}
+
+message SetListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetListenerResponse {
+}
+
+message UnregisterRequest {
+}
+
+message UnregisterResponse {
+}
+
+message OnCallChangeFailedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message OnCallChangeFailedResponse {
+}
+
+message SessionListenerOnCallEstablishedRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message SessionListenerOnRegisteringRequest {
+  int64 arg0 = 1;
+}
+
+message SessionListenerOnRegistrationDoneRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SessionListenerOnRegistrationFailedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message OnRegistrationTimeoutRequest {
+  int64 arg0 = 1;
+}
+
+message OnRegistrationTimeoutResponse {
+}
+
+message SessionListenerOnRingingRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message ToStringRequest {
+  int32 arg0 = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message ManagerCloseRequest {
+  string arg0 = 1;
+}
+
+message CreateSipSessionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateSipSessionResponse {
+  int64 result = 1;
+}
+
+message GetSessionForRequest {
+  int64 arg0 = 1;
+}
+
+message GetSessionForResponse {
+  int64 result = 1;
+}
+
+message IsOpenedRequest {
+  string arg0 = 1;
+}
+
+message IsOpenedResponse {
+  bool result = 1;
+}
+
+message IsRegisteredRequest {
+  string arg0 = 1;
+}
+
+message IsRegisteredResponse {
+  bool result = 1;
+}
+
+message MakeAudioCall4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message MakeAudioCall4Response {
+  int64 result = 1;
+}
+
+message MakeAudioCall4_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message MakeAudioCall4_1Response {
+  int64 result = 1;
+}
+
+message Open1Request {
+  int64 arg0 = 1;
+}
+
+message Open1Response {
+}
+
+message Open3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Open3_1Response {
+}
+
+message ManagerRegisterRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetRegistrationListenerRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetRegistrationListenerResponse {
+}
+
+message TakeAudioCallRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message TakeAudioCallResponse {
+  int64 result = 1;
+}
+
+message ManagerUnregisterRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ManagerGetCallIdRequest {
+  int64 arg0 = 1;
+}
+
+message GetOfferSessionDescriptionRequest {
+  int64 arg0 = 1;
+}
+
+message GetOfferSessionDescriptionResponse {
+  string result = 1;
+}
+
+message IsApiSupportedRequest {
+  int64 arg0 = 1;
+}
+
+message IsApiSupportedResponse {
+  bool result = 1;
+}
+
+message IsIncomingCallIntentRequest {
+  int64 arg0 = 1;
+}
+
+message IsIncomingCallIntentResponse {
+  bool result = 1;
+}
+
+message IsSipWifiOnlyRequest {
+  int64 arg0 = 1;
+}
+
+message IsSipWifiOnlyResponse {
+  bool result = 1;
+}
+
+message IsVoipSupportedRequest {
+  int64 arg0 = 1;
+}
+
+message IsVoipSupportedResponse {
+  bool result = 1;
+}
+
+message NewInstanceRequest {
+  int64 arg0 = 1;
+}
+
+message NewInstanceResponse {
+  int64 result = 1;
 }
 
 service ProfileService {
@@ -863,6 +762,107 @@ service ProfileBuilderService {
   rpc SetSendKeepAlive (SetSendKeepAliveRequest) returns (SetSendKeepAliveResponse);
 }
 
+service RegistrationListenerService {
+  rpc OnRegistering (OnRegisteringRequest) returns (OnRegisteringResponse);
+  rpc OnRegistrationDone (OnRegistrationDoneRequest) returns (OnRegistrationDoneResponse);
+  rpc OnRegistrationFailed (OnRegistrationFailedRequest) returns (OnRegistrationFailedResponse);
+}
+
+service AudioCallService {
+  rpc NewAudioCall (NewAudioCallRequest) returns (NewAudioCallResponse);
+  rpc AnswerCall (AnswerCallRequest) returns (AnswerCallResponse);
+  rpc AttachCall (AttachCallRequest) returns (AttachCallResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc ContinueCall (ContinueCallRequest) returns (ContinueCallResponse);
+  rpc EndCall (EndCallRequest) returns (EndCallResponse);
+  rpc GetLocalProfile (GetLocalProfileRequest) returns (GetLocalProfileResponse);
+  rpc GetPeerProfile (GetPeerProfileRequest) returns (GetPeerProfileResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc HoldCall (HoldCallRequest) returns (HoldCallResponse);
+  rpc IsInCall (IsInCallRequest) returns (IsInCallResponse);
+  rpc IsMuted (IsMutedRequest) returns (IsMutedResponse);
+  rpc IsOnHold (IsOnHoldRequest) returns (IsOnHoldResponse);
+  rpc MakeCall (MakeCallRequest) returns (MakeCallResponse);
+  rpc SendDtmf1 (SendDtmf1Request) returns (SendDtmf1Response);
+  rpc SendDtmf2_1 (SendDtmf2_1Request) returns (SendDtmf2_1Response);
+  rpc SetListener1 (SetListener1Request) returns (SetListener1Response);
+  rpc SetListener2_1 (SetListener2_1Request) returns (SetListener2_1Response);
+  rpc SetSpeakerMode (SetSpeakerModeRequest) returns (SetSpeakerModeResponse);
+  rpc StartAudio (StartAudioRequest) returns (StartAudioResponse);
+  rpc ToggleMute (ToggleMuteRequest) returns (ToggleMuteResponse);
+}
+
+service AudioCallListenerService {
+  rpc OnCallBusy (OnCallBusyRequest) returns (OnCallBusyResponse);
+  rpc OnCallEnded (OnCallEndedRequest) returns (OnCallEndedResponse);
+  rpc OnCallEstablished (OnCallEstablishedRequest) returns (OnCallEstablishedResponse);
+  rpc OnCallHeld (OnCallHeldRequest) returns (OnCallHeldResponse);
+  rpc OnCalling (OnCallingRequest) returns (OnCallingResponse);
+  rpc OnChanged (OnChangedRequest) returns (OnChangedResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnReadyToCall (OnReadyToCallRequest) returns (OnReadyToCallResponse);
+  rpc OnRinging (OnRingingRequest) returns (OnRingingResponse);
+  rpc OnRingingBack (OnRingingBackRequest) returns (OnRingingBackResponse);
+}
+
+service SessionService {
+  rpc AnswerCall (SessionAnswerCallRequest) returns (AnswerCallResponse);
+  rpc ChangeCall (ChangeCallRequest) returns (ChangeCallResponse);
+  rpc EndCall (SessionEndCallRequest) returns (EndCallResponse);
+  rpc GetCallId (GetCallIdRequest) returns (GetCallIdResponse);
+  rpc GetLocalIp (GetLocalIpRequest) returns (GetLocalIpResponse);
+  rpc GetLocalProfile (SessionGetLocalProfileRequest) returns (GetLocalProfileResponse);
+  rpc GetPeerProfile (SessionGetPeerProfileRequest) returns (GetPeerProfileResponse);
+  rpc GetState (SessionGetStateRequest) returns (GetStateResponse);
+  rpc IsInCall (SessionIsInCallRequest) returns (IsInCallResponse);
+  rpc MakeCall (SessionMakeCallRequest) returns (MakeCallResponse);
+  rpc Register (RegisterRequest) returns (RegisterResponse);
+  rpc SetListener (SetListenerRequest) returns (SetListenerResponse);
+  rpc Unregister (UnregisterRequest) returns (UnregisterResponse);
+}
+
+service SessionListenerService {
+  rpc OnCallBusy (OnCallBusyRequest) returns (OnCallBusyResponse);
+  rpc OnCallChangeFailed (OnCallChangeFailedRequest) returns (OnCallChangeFailedResponse);
+  rpc OnCallEnded (OnCallEndedRequest) returns (OnCallEndedResponse);
+  rpc OnCallEstablished (SessionListenerOnCallEstablishedRequest) returns (OnCallEstablishedResponse);
+  rpc OnCalling (OnCallingRequest) returns (OnCallingResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnRegistering (SessionListenerOnRegisteringRequest) returns (OnRegisteringResponse);
+  rpc OnRegistrationDone (SessionListenerOnRegistrationDoneRequest) returns (OnRegistrationDoneResponse);
+  rpc OnRegistrationFailed (SessionListenerOnRegistrationFailedRequest) returns (OnRegistrationFailedResponse);
+  rpc OnRegistrationTimeout (OnRegistrationTimeoutRequest) returns (OnRegistrationTimeoutResponse);
+  rpc OnRinging (SessionListenerOnRingingRequest) returns (OnRingingResponse);
+  rpc OnRingingBack (OnRingingBackRequest) returns (OnRingingBackResponse);
+}
+
+service SessionStateService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
 service ErrorCodeService {
   rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ManagerService {
+  rpc Close (ManagerCloseRequest) returns (CloseResponse);
+  rpc CreateSipSession (CreateSipSessionRequest) returns (CreateSipSessionResponse);
+  rpc GetSessionFor (GetSessionForRequest) returns (GetSessionForResponse);
+  rpc IsOpened (IsOpenedRequest) returns (IsOpenedResponse);
+  rpc IsRegistered (IsRegisteredRequest) returns (IsRegisteredResponse);
+  rpc MakeAudioCall4 (MakeAudioCall4Request) returns (MakeAudioCall4Response);
+  rpc MakeAudioCall4_1 (MakeAudioCall4_1Request) returns (MakeAudioCall4_1Response);
+  rpc Open1 (Open1Request) returns (Open1Response);
+  rpc Open3_1 (Open3_1Request) returns (Open3_1Response);
+  rpc Register (ManagerRegisterRequest) returns (RegisterResponse);
+  rpc SetRegistrationListener (SetRegistrationListenerRequest) returns (SetRegistrationListenerResponse);
+  rpc TakeAudioCall (TakeAudioCallRequest) returns (TakeAudioCallResponse);
+  rpc Unregister (ManagerUnregisterRequest) returns (UnregisterResponse);
+  rpc GetCallId (ManagerGetCallIdRequest) returns (GetCallIdResponse);
+  rpc GetOfferSessionDescription (GetOfferSessionDescriptionRequest) returns (GetOfferSessionDescriptionResponse);
+  rpc IsApiSupported (IsApiSupportedRequest) returns (IsApiSupportedResponse);
+  rpc IsIncomingCallIntent (IsIncomingCallIntentRequest) returns (IsIncomingCallIntentResponse);
+  rpc IsSipWifiOnly (IsSipWifiOnlyRequest) returns (IsSipWifiOnlyResponse);
+  rpc IsVoipSupported (IsVoipSupportedRequest) returns (IsVoipSupportedResponse);
+  rpc NewInstance (NewInstanceRequest) returns (NewInstanceResponse);
 }

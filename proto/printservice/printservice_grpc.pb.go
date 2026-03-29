@@ -21,6 +21,427 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_FullMethodName = "/printservice.CustomPrinterIconCallbackService/OnCustomPrinterIconLoaded"
+)
+
+// CustomPrinterIconCallbackServiceClient is the client API for CustomPrinterIconCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CustomPrinterIconCallbackServiceClient interface {
+	OnCustomPrinterIconLoaded(ctx context.Context, in *OnCustomPrinterIconLoadedRequest, opts ...grpc.CallOption) (*OnCustomPrinterIconLoadedResponse, error)
+}
+
+type customPrinterIconCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCustomPrinterIconCallbackServiceClient(cc grpc.ClientConnInterface) CustomPrinterIconCallbackServiceClient {
+	return &customPrinterIconCallbackServiceClient{cc}
+}
+
+func (c *customPrinterIconCallbackServiceClient) OnCustomPrinterIconLoaded(ctx context.Context, in *OnCustomPrinterIconLoadedRequest, opts ...grpc.CallOption) (*OnCustomPrinterIconLoadedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCustomPrinterIconLoadedResponse)
+	err := c.cc.Invoke(ctx, CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CustomPrinterIconCallbackServiceServer is the server API for CustomPrinterIconCallbackService service.
+// All implementations must embed UnimplementedCustomPrinterIconCallbackServiceServer
+// for forward compatibility.
+type CustomPrinterIconCallbackServiceServer interface {
+	OnCustomPrinterIconLoaded(context.Context, *OnCustomPrinterIconLoadedRequest) (*OnCustomPrinterIconLoadedResponse, error)
+	mustEmbedUnimplementedCustomPrinterIconCallbackServiceServer()
+}
+
+// UnimplementedCustomPrinterIconCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCustomPrinterIconCallbackServiceServer struct{}
+
+func (UnimplementedCustomPrinterIconCallbackServiceServer) OnCustomPrinterIconLoaded(context.Context, *OnCustomPrinterIconLoadedRequest) (*OnCustomPrinterIconLoadedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCustomPrinterIconLoaded not implemented")
+}
+func (UnimplementedCustomPrinterIconCallbackServiceServer) mustEmbedUnimplementedCustomPrinterIconCallbackServiceServer() {
+}
+func (UnimplementedCustomPrinterIconCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCustomPrinterIconCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CustomPrinterIconCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCustomPrinterIconCallbackServiceServer interface {
+	mustEmbedUnimplementedCustomPrinterIconCallbackServiceServer()
+}
+
+func RegisterCustomPrinterIconCallbackServiceServer(s grpc.ServiceRegistrar, srv CustomPrinterIconCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCustomPrinterIconCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CustomPrinterIconCallbackService_ServiceDesc, srv)
+}
+
+func _CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCustomPrinterIconLoadedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomPrinterIconCallbackServiceServer).OnCustomPrinterIconLoaded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomPrinterIconCallbackServiceServer).OnCustomPrinterIconLoaded(ctx, req.(*OnCustomPrinterIconLoadedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CustomPrinterIconCallbackService_ServiceDesc is the grpc.ServiceDesc for CustomPrinterIconCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CustomPrinterIconCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "printservice.CustomPrinterIconCallbackService",
+	HandlerType: (*CustomPrinterIconCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnCustomPrinterIconLoaded",
+			Handler:    _CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/printservice/printservice.proto",
+}
+
+const (
+	PrintDocumentService_GetData_FullMethodName = "/printservice.PrintDocumentService/GetData"
+	PrintDocumentService_GetInfo_FullMethodName = "/printservice.PrintDocumentService/GetInfo"
+)
+
+// PrintDocumentServiceClient is the client API for PrintDocumentService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PrintDocumentServiceClient interface {
+	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
+}
+
+type printDocumentServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPrintDocumentServiceClient(cc grpc.ClientConnInterface) PrintDocumentServiceClient {
+	return &printDocumentServiceClient{cc}
+}
+
+func (c *printDocumentServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataResponse)
+	err := c.cc.Invoke(ctx, PrintDocumentService_GetData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *printDocumentServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInfoResponse)
+	err := c.cc.Invoke(ctx, PrintDocumentService_GetInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PrintDocumentServiceServer is the server API for PrintDocumentService service.
+// All implementations must embed UnimplementedPrintDocumentServiceServer
+// for forward compatibility.
+type PrintDocumentServiceServer interface {
+	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
+	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
+	mustEmbedUnimplementedPrintDocumentServiceServer()
+}
+
+// UnimplementedPrintDocumentServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPrintDocumentServiceServer struct{}
+
+func (UnimplementedPrintDocumentServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+}
+func (UnimplementedPrintDocumentServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInfo not implemented")
+}
+func (UnimplementedPrintDocumentServiceServer) mustEmbedUnimplementedPrintDocumentServiceServer() {}
+func (UnimplementedPrintDocumentServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafePrintDocumentServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PrintDocumentServiceServer will
+// result in compilation errors.
+type UnsafePrintDocumentServiceServer interface {
+	mustEmbedUnimplementedPrintDocumentServiceServer()
+}
+
+func RegisterPrintDocumentServiceServer(s grpc.ServiceRegistrar, srv PrintDocumentServiceServer) {
+	// If the following call panics, it indicates UnimplementedPrintDocumentServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PrintDocumentService_ServiceDesc, srv)
+}
+
+func _PrintDocumentService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PrintDocumentServiceServer).GetData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PrintDocumentService_GetData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PrintDocumentServiceServer).GetData(ctx, req.(*GetDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PrintDocumentService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PrintDocumentServiceServer).GetInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PrintDocumentService_GetInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PrintDocumentServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PrintDocumentService_ServiceDesc is the grpc.ServiceDesc for PrintDocumentService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PrintDocumentService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "printservice.PrintDocumentService",
+	HandlerType: (*PrintDocumentServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetData",
+			Handler:    _PrintDocumentService_GetData_Handler,
+		},
+		{
+			MethodName: "GetInfo",
+			Handler:    _PrintDocumentService_GetInfo_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/printservice/printservice.proto",
+}
+
+const (
+	PrintServiceService_GeneratePrinterId_FullMethodName  = "/printservice.PrintServiceService/GeneratePrinterId"
+	PrintServiceService_GetActivePrintJobs_FullMethodName = "/printservice.PrintServiceService/GetActivePrintJobs"
+	PrintServiceService_OnBind_FullMethodName             = "/printservice.PrintServiceService/OnBind"
+)
+
+// PrintServiceServiceClient is the client API for PrintServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PrintServiceServiceClient interface {
+	GeneratePrinterId(ctx context.Context, in *GeneratePrinterIdRequest, opts ...grpc.CallOption) (*GeneratePrinterIdResponse, error)
+	GetActivePrintJobs(ctx context.Context, in *GetActivePrintJobsRequest, opts ...grpc.CallOption) (*GetActivePrintJobsResponse, error)
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+}
+
+type printServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPrintServiceServiceClient(cc grpc.ClientConnInterface) PrintServiceServiceClient {
+	return &printServiceServiceClient{cc}
+}
+
+func (c *printServiceServiceClient) GeneratePrinterId(ctx context.Context, in *GeneratePrinterIdRequest, opts ...grpc.CallOption) (*GeneratePrinterIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GeneratePrinterIdResponse)
+	err := c.cc.Invoke(ctx, PrintServiceService_GeneratePrinterId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *printServiceServiceClient) GetActivePrintJobs(ctx context.Context, in *GetActivePrintJobsRequest, opts ...grpc.CallOption) (*GetActivePrintJobsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActivePrintJobsResponse)
+	err := c.cc.Invoke(ctx, PrintServiceService_GetActivePrintJobs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *printServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, PrintServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PrintServiceServiceServer is the server API for PrintServiceService service.
+// All implementations must embed UnimplementedPrintServiceServiceServer
+// for forward compatibility.
+type PrintServiceServiceServer interface {
+	GeneratePrinterId(context.Context, *GeneratePrinterIdRequest) (*GeneratePrinterIdResponse, error)
+	GetActivePrintJobs(context.Context, *GetActivePrintJobsRequest) (*GetActivePrintJobsResponse, error)
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	mustEmbedUnimplementedPrintServiceServiceServer()
+}
+
+// UnimplementedPrintServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPrintServiceServiceServer struct{}
+
+func (UnimplementedPrintServiceServiceServer) GeneratePrinterId(context.Context, *GeneratePrinterIdRequest) (*GeneratePrinterIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GeneratePrinterId not implemented")
+}
+func (UnimplementedPrintServiceServiceServer) GetActivePrintJobs(context.Context, *GetActivePrintJobsRequest) (*GetActivePrintJobsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActivePrintJobs not implemented")
+}
+func (UnimplementedPrintServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedPrintServiceServiceServer) mustEmbedUnimplementedPrintServiceServiceServer() {}
+func (UnimplementedPrintServiceServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafePrintServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PrintServiceServiceServer will
+// result in compilation errors.
+type UnsafePrintServiceServiceServer interface {
+	mustEmbedUnimplementedPrintServiceServiceServer()
+}
+
+func RegisterPrintServiceServiceServer(s grpc.ServiceRegistrar, srv PrintServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedPrintServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PrintServiceService_ServiceDesc, srv)
+}
+
+func _PrintServiceService_GeneratePrinterId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GeneratePrinterIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PrintServiceServiceServer).GeneratePrinterId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PrintServiceService_GeneratePrinterId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PrintServiceServiceServer).GeneratePrinterId(ctx, req.(*GeneratePrinterIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PrintServiceService_GetActivePrintJobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivePrintJobsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PrintServiceServiceServer).GetActivePrintJobs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PrintServiceService_GetActivePrintJobs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PrintServiceServiceServer).GetActivePrintJobs(ctx, req.(*GetActivePrintJobsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PrintServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PrintServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PrintServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PrintServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PrintServiceService_ServiceDesc is the grpc.ServiceDesc for PrintServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PrintServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "printservice.PrintServiceService",
+	HandlerType: (*PrintServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GeneratePrinterId",
+			Handler:    _PrintServiceService_GeneratePrinterId_Handler,
+		},
+		{
+			MethodName: "GetActivePrintJobs",
+			Handler:    _PrintServiceService_GetActivePrintJobs_Handler,
+		},
+		{
+			MethodName: "OnBind",
+			Handler:    _PrintServiceService_OnBind_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/printservice/printservice.proto",
+}
+
+const (
 	PrintJobService_Block_FullMethodName                   = "/printservice.PrintJobService/Block"
 	PrintJobService_Cancel_FullMethodName                  = "/printservice.PrintJobService/Cancel"
 	PrintJobService_Complete_FullMethodName                = "/printservice.PrintJobService/Complete"
@@ -997,389 +1418,8 @@ var PrintJobService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_FullMethodName = "/printservice.CustomPrinterIconCallbackService/OnCustomPrinterIconLoaded"
-)
-
-// CustomPrinterIconCallbackServiceClient is the client API for CustomPrinterIconCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CustomPrinterIconCallbackServiceClient interface {
-	OnCustomPrinterIconLoaded(ctx context.Context, in *OnCustomPrinterIconLoadedRequest, opts ...grpc.CallOption) (*OnCustomPrinterIconLoadedResponse, error)
-}
-
-type customPrinterIconCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCustomPrinterIconCallbackServiceClient(cc grpc.ClientConnInterface) CustomPrinterIconCallbackServiceClient {
-	return &customPrinterIconCallbackServiceClient{cc}
-}
-
-func (c *customPrinterIconCallbackServiceClient) OnCustomPrinterIconLoaded(ctx context.Context, in *OnCustomPrinterIconLoadedRequest, opts ...grpc.CallOption) (*OnCustomPrinterIconLoadedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCustomPrinterIconLoadedResponse)
-	err := c.cc.Invoke(ctx, CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CustomPrinterIconCallbackServiceServer is the server API for CustomPrinterIconCallbackService service.
-// All implementations must embed UnimplementedCustomPrinterIconCallbackServiceServer
-// for forward compatibility.
-type CustomPrinterIconCallbackServiceServer interface {
-	OnCustomPrinterIconLoaded(context.Context, *OnCustomPrinterIconLoadedRequest) (*OnCustomPrinterIconLoadedResponse, error)
-	mustEmbedUnimplementedCustomPrinterIconCallbackServiceServer()
-}
-
-// UnimplementedCustomPrinterIconCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCustomPrinterIconCallbackServiceServer struct{}
-
-func (UnimplementedCustomPrinterIconCallbackServiceServer) OnCustomPrinterIconLoaded(context.Context, *OnCustomPrinterIconLoadedRequest) (*OnCustomPrinterIconLoadedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCustomPrinterIconLoaded not implemented")
-}
-func (UnimplementedCustomPrinterIconCallbackServiceServer) mustEmbedUnimplementedCustomPrinterIconCallbackServiceServer() {
-}
-func (UnimplementedCustomPrinterIconCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCustomPrinterIconCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CustomPrinterIconCallbackServiceServer will
-// result in compilation errors.
-type UnsafeCustomPrinterIconCallbackServiceServer interface {
-	mustEmbedUnimplementedCustomPrinterIconCallbackServiceServer()
-}
-
-func RegisterCustomPrinterIconCallbackServiceServer(s grpc.ServiceRegistrar, srv CustomPrinterIconCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedCustomPrinterIconCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CustomPrinterIconCallbackService_ServiceDesc, srv)
-}
-
-func _CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCustomPrinterIconLoadedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomPrinterIconCallbackServiceServer).OnCustomPrinterIconLoaded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomPrinterIconCallbackServiceServer).OnCustomPrinterIconLoaded(ctx, req.(*OnCustomPrinterIconLoadedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CustomPrinterIconCallbackService_ServiceDesc is the grpc.ServiceDesc for CustomPrinterIconCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CustomPrinterIconCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "printservice.CustomPrinterIconCallbackService",
-	HandlerType: (*CustomPrinterIconCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnCustomPrinterIconLoaded",
-			Handler:    _CustomPrinterIconCallbackService_OnCustomPrinterIconLoaded_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/printservice/printservice.proto",
-}
-
-const (
-	PrintDocumentService_GetData_FullMethodName = "/printservice.PrintDocumentService/GetData"
-	PrintDocumentService_GetInfo_FullMethodName = "/printservice.PrintDocumentService/GetInfo"
-)
-
-// PrintDocumentServiceClient is the client API for PrintDocumentService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PrintDocumentServiceClient interface {
-	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
-	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
-}
-
-type printDocumentServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPrintDocumentServiceClient(cc grpc.ClientConnInterface) PrintDocumentServiceClient {
-	return &printDocumentServiceClient{cc}
-}
-
-func (c *printDocumentServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataResponse)
-	err := c.cc.Invoke(ctx, PrintDocumentService_GetData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *printDocumentServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInfoResponse)
-	err := c.cc.Invoke(ctx, PrintDocumentService_GetInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PrintDocumentServiceServer is the server API for PrintDocumentService service.
-// All implementations must embed UnimplementedPrintDocumentServiceServer
-// for forward compatibility.
-type PrintDocumentServiceServer interface {
-	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
-	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
-	mustEmbedUnimplementedPrintDocumentServiceServer()
-}
-
-// UnimplementedPrintDocumentServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPrintDocumentServiceServer struct{}
-
-func (UnimplementedPrintDocumentServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
-}
-func (UnimplementedPrintDocumentServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInfo not implemented")
-}
-func (UnimplementedPrintDocumentServiceServer) mustEmbedUnimplementedPrintDocumentServiceServer() {}
-func (UnimplementedPrintDocumentServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafePrintDocumentServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PrintDocumentServiceServer will
-// result in compilation errors.
-type UnsafePrintDocumentServiceServer interface {
-	mustEmbedUnimplementedPrintDocumentServiceServer()
-}
-
-func RegisterPrintDocumentServiceServer(s grpc.ServiceRegistrar, srv PrintDocumentServiceServer) {
-	// If the following call panics, it indicates UnimplementedPrintDocumentServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PrintDocumentService_ServiceDesc, srv)
-}
-
-func _PrintDocumentService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PrintDocumentServiceServer).GetData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PrintDocumentService_GetData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintDocumentServiceServer).GetData(ctx, req.(*GetDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PrintDocumentService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PrintDocumentServiceServer).GetInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PrintDocumentService_GetInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintDocumentServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PrintDocumentService_ServiceDesc is the grpc.ServiceDesc for PrintDocumentService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PrintDocumentService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "printservice.PrintDocumentService",
-	HandlerType: (*PrintDocumentServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetData",
-			Handler:    _PrintDocumentService_GetData_Handler,
-		},
-		{
-			MethodName: "GetInfo",
-			Handler:    _PrintDocumentService_GetInfo_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/printservice/printservice.proto",
-}
-
-const (
-	PrintServiceService_GeneratePrinterId_FullMethodName = "/printservice.PrintServiceService/GeneratePrinterId"
-	PrintServiceService_OnBind_FullMethodName            = "/printservice.PrintServiceService/OnBind"
-)
-
-// PrintServiceServiceClient is the client API for PrintServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PrintServiceServiceClient interface {
-	GeneratePrinterId(ctx context.Context, in *GeneratePrinterIdRequest, opts ...grpc.CallOption) (*GeneratePrinterIdResponse, error)
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-}
-
-type printServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPrintServiceServiceClient(cc grpc.ClientConnInterface) PrintServiceServiceClient {
-	return &printServiceServiceClient{cc}
-}
-
-func (c *printServiceServiceClient) GeneratePrinterId(ctx context.Context, in *GeneratePrinterIdRequest, opts ...grpc.CallOption) (*GeneratePrinterIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GeneratePrinterIdResponse)
-	err := c.cc.Invoke(ctx, PrintServiceService_GeneratePrinterId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *printServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, PrintServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PrintServiceServiceServer is the server API for PrintServiceService service.
-// All implementations must embed UnimplementedPrintServiceServiceServer
-// for forward compatibility.
-type PrintServiceServiceServer interface {
-	GeneratePrinterId(context.Context, *GeneratePrinterIdRequest) (*GeneratePrinterIdResponse, error)
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	mustEmbedUnimplementedPrintServiceServiceServer()
-}
-
-// UnimplementedPrintServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPrintServiceServiceServer struct{}
-
-func (UnimplementedPrintServiceServiceServer) GeneratePrinterId(context.Context, *GeneratePrinterIdRequest) (*GeneratePrinterIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GeneratePrinterId not implemented")
-}
-func (UnimplementedPrintServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedPrintServiceServiceServer) mustEmbedUnimplementedPrintServiceServiceServer() {}
-func (UnimplementedPrintServiceServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafePrintServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PrintServiceServiceServer will
-// result in compilation errors.
-type UnsafePrintServiceServiceServer interface {
-	mustEmbedUnimplementedPrintServiceServiceServer()
-}
-
-func RegisterPrintServiceServiceServer(s grpc.ServiceRegistrar, srv PrintServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedPrintServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PrintServiceService_ServiceDesc, srv)
-}
-
-func _PrintServiceService_GeneratePrinterId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GeneratePrinterIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PrintServiceServiceServer).GeneratePrinterId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PrintServiceService_GeneratePrinterId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintServiceServiceServer).GeneratePrinterId(ctx, req.(*GeneratePrinterIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PrintServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PrintServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PrintServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PrintServiceService_ServiceDesc is the grpc.ServiceDesc for PrintServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PrintServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "printservice.PrintServiceService",
-	HandlerType: (*PrintServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GeneratePrinterId",
-			Handler:    _PrintServiceService_GeneratePrinterId_Handler,
-		},
-		{
-			MethodName: "OnBind",
-			Handler:    _PrintServiceService_OnBind_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/printservice/printservice.proto",
-}
-
-const (
+	PrinterDiscoverySessionService_GetPrinters_FullMethodName                 = "/printservice.PrinterDiscoverySessionService/GetPrinters"
+	PrinterDiscoverySessionService_GetTrackedPrinters_FullMethodName          = "/printservice.PrinterDiscoverySessionService/GetTrackedPrinters"
 	PrinterDiscoverySessionService_IsDestroyed_FullMethodName                 = "/printservice.PrinterDiscoverySessionService/IsDestroyed"
 	PrinterDiscoverySessionService_IsPrinterDiscoveryStarted_FullMethodName   = "/printservice.PrinterDiscoverySessionService/IsPrinterDiscoveryStarted"
 	PrinterDiscoverySessionService_OnDestroy_FullMethodName                   = "/printservice.PrinterDiscoverySessionService/OnDestroy"
@@ -1393,6 +1433,8 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PrinterDiscoverySessionServiceClient interface {
+	GetPrinters(ctx context.Context, in *GetPrintersRequest, opts ...grpc.CallOption) (*GetPrintersResponse, error)
+	GetTrackedPrinters(ctx context.Context, in *GetTrackedPrintersRequest, opts ...grpc.CallOption) (*GetTrackedPrintersResponse, error)
 	IsDestroyed(ctx context.Context, in *IsDestroyedRequest, opts ...grpc.CallOption) (*IsDestroyedResponse, error)
 	IsPrinterDiscoveryStarted(ctx context.Context, in *IsPrinterDiscoveryStartedRequest, opts ...grpc.CallOption) (*IsPrinterDiscoveryStartedResponse, error)
 	OnDestroy(ctx context.Context, in *OnDestroyRequest, opts ...grpc.CallOption) (*OnDestroyResponse, error)
@@ -1408,6 +1450,26 @@ type printerDiscoverySessionServiceClient struct {
 
 func NewPrinterDiscoverySessionServiceClient(cc grpc.ClientConnInterface) PrinterDiscoverySessionServiceClient {
 	return &printerDiscoverySessionServiceClient{cc}
+}
+
+func (c *printerDiscoverySessionServiceClient) GetPrinters(ctx context.Context, in *GetPrintersRequest, opts ...grpc.CallOption) (*GetPrintersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPrintersResponse)
+	err := c.cc.Invoke(ctx, PrinterDiscoverySessionService_GetPrinters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *printerDiscoverySessionServiceClient) GetTrackedPrinters(ctx context.Context, in *GetTrackedPrintersRequest, opts ...grpc.CallOption) (*GetTrackedPrintersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrackedPrintersResponse)
+	err := c.cc.Invoke(ctx, PrinterDiscoverySessionService_GetTrackedPrinters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *printerDiscoverySessionServiceClient) IsDestroyed(ctx context.Context, in *IsDestroyedRequest, opts ...grpc.CallOption) (*IsDestroyedResponse, error) {
@@ -1484,6 +1546,8 @@ func (c *printerDiscoverySessionServiceClient) OnStopPrinterStateTracking(ctx co
 // All implementations must embed UnimplementedPrinterDiscoverySessionServiceServer
 // for forward compatibility.
 type PrinterDiscoverySessionServiceServer interface {
+	GetPrinters(context.Context, *GetPrintersRequest) (*GetPrintersResponse, error)
+	GetTrackedPrinters(context.Context, *GetTrackedPrintersRequest) (*GetTrackedPrintersResponse, error)
 	IsDestroyed(context.Context, *IsDestroyedRequest) (*IsDestroyedResponse, error)
 	IsPrinterDiscoveryStarted(context.Context, *IsPrinterDiscoveryStartedRequest) (*IsPrinterDiscoveryStartedResponse, error)
 	OnDestroy(context.Context, *OnDestroyRequest) (*OnDestroyResponse, error)
@@ -1501,6 +1565,12 @@ type PrinterDiscoverySessionServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedPrinterDiscoverySessionServiceServer struct{}
 
+func (UnimplementedPrinterDiscoverySessionServiceServer) GetPrinters(context.Context, *GetPrintersRequest) (*GetPrintersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrinters not implemented")
+}
+func (UnimplementedPrinterDiscoverySessionServiceServer) GetTrackedPrinters(context.Context, *GetTrackedPrintersRequest) (*GetTrackedPrintersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrackedPrinters not implemented")
+}
 func (UnimplementedPrinterDiscoverySessionServiceServer) IsDestroyed(context.Context, *IsDestroyedRequest) (*IsDestroyedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsDestroyed not implemented")
 }
@@ -1542,6 +1612,42 @@ func RegisterPrinterDiscoverySessionServiceServer(s grpc.ServiceRegistrar, srv P
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&PrinterDiscoverySessionService_ServiceDesc, srv)
+}
+
+func _PrinterDiscoverySessionService_GetPrinters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrintersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PrinterDiscoverySessionServiceServer).GetPrinters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PrinterDiscoverySessionService_GetPrinters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PrinterDiscoverySessionServiceServer).GetPrinters(ctx, req.(*GetPrintersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PrinterDiscoverySessionService_GetTrackedPrinters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrackedPrintersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PrinterDiscoverySessionServiceServer).GetTrackedPrinters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PrinterDiscoverySessionService_GetTrackedPrinters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PrinterDiscoverySessionServiceServer).GetTrackedPrinters(ctx, req.(*GetTrackedPrintersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _PrinterDiscoverySessionService_IsDestroyed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1677,6 +1783,14 @@ var PrinterDiscoverySessionService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "printservice.PrinterDiscoverySessionService",
 	HandlerType: (*PrinterDiscoverySessionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPrinters",
+			Handler:    _PrinterDiscoverySessionService_GetPrinters_Handler,
+		},
+		{
+			MethodName: "GetTrackedPrinters",
+			Handler:    _PrinterDiscoverySessionService_GetTrackedPrinters_Handler,
+		},
 		{
 			MethodName: "IsDestroyed",
 			Handler:    _PrinterDiscoverySessionService_IsDestroyed_Handler,

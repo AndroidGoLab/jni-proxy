@@ -6,6 +6,20 @@ package lights;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/lights";
 
+message GetLightStatesRequest {
+}
+
+message GetLightStatesResponse {
+  int64 result = 1;
+}
+
+message GetLightsRequest {
+}
+
+message GetLightsResponse {
+  int64 result = 1;
+}
+
 message AddLightRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -167,6 +181,11 @@ message RequestLightsRequest {
 message RequestLightsResponse {
 }
 
+service RequestService {
+  rpc GetLightStates (GetLightStatesRequest) returns (GetLightStatesResponse);
+  rpc GetLights (GetLightsRequest) returns (GetLightsResponse);
+}
+
 service RequestBuilderService {
   rpc AddLight (AddLightRequest) returns (AddLightResponse);
   rpc Build (BuildRequest) returns (BuildResponse);
@@ -203,6 +222,7 @@ service LightService {
 
 service ManagerService {
   rpc GetLightState (GetLightStateRequest) returns (GetLightStateResponse);
+  rpc GetLights (GetLightsRequest) returns (GetLightsResponse);
   rpc OpenSession (OpenSessionRequest) returns (OpenSessionResponse);
 }
 

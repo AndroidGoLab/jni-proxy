@@ -9,6 +9,94 @@ import (
 	"google.golang.org/grpc"
 )
 
+// DeviceInfoClient wraps the gRPC DeviceInfoService client.
+type DeviceInfoClient struct {
+	svc pb.DeviceInfoServiceClient
+}
+
+// NewDeviceInfoClient creates a new DeviceInfo client.
+func NewDeviceInfoClient(cc grpc.ClientConnInterface) *DeviceInfoClient {
+	return &DeviceInfoClient{
+		svc: pb.NewDeviceInfoServiceClient(cc),
+	}
+}
+
+// GetEventsSupported calls the GetEventsSupported RPC.
+func (c *DeviceInfoClient) GetEventsSupported(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEventsSupported(ctx, &pb.GetEventsSupportedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetManufacturer calls the GetManufacturer RPC.
+func (c *DeviceInfoClient) GetManufacturer(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetManufacturer(ctx, &pb.GetManufacturerRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModel calls the GetModel RPC.
+func (c *DeviceInfoClient) GetModel(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetModel(ctx, &pb.GetModelRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOperationsSupported calls the GetOperationsSupported RPC.
+func (c *DeviceInfoClient) GetOperationsSupported(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOperationsSupported(ctx, &pb.GetOperationsSupportedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSerialNumber calls the GetSerialNumber RPC.
+func (c *DeviceInfoClient) GetSerialNumber(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSerialNumber(ctx, &pb.GetSerialNumberRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *DeviceInfoClient) GetVersion(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEventSupported calls the IsEventSupported RPC.
+func (c *DeviceInfoClient) IsEventSupported(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsEventSupported(ctx, &pb.IsEventSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOperationSupported calls the IsOperationSupported RPC.
+func (c *DeviceInfoClient) IsOperationSupported(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsOperationSupported(ctx, &pb.IsOperationSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // EventClient wraps the gRPC EventService client.
 type EventClient struct {
 	svc pb.EventServiceClient
@@ -107,286 +195,6 @@ func (c *EventClient) GetTransactionId(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetTransactionId(ctx, &pb.GetTransactionIdRequest{})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DeviceClient wraps the gRPC DeviceService client.
-type DeviceClient struct {
-	svc pb.DeviceServiceClient
-}
-
-// NewDeviceClient creates a new Device client.
-func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
-	return &DeviceClient{
-		svc: pb.NewDeviceServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *DeviceClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// DeleteObject calls the DeleteObject RPC.
-func (c *DeviceClient) DeleteObject(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.DeleteObject(ctx, &pb.DeleteObjectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceId calls the GetDeviceId RPC.
-func (c *DeviceClient) GetDeviceId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDeviceId(ctx, &pb.GetDeviceIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceInfo calls the GetDeviceInfo RPC.
-func (c *DeviceClient) GetDeviceInfo(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceName calls the GetDeviceName RPC.
-func (c *DeviceClient) GetDeviceName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetDeviceName(ctx, &pb.GetDeviceNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetObject calls the GetObject RPC.
-func (c *DeviceClient) GetObject(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetObject(ctx, &pb.GetObjectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetObjectHandles calls the GetObjectHandles RPC.
-func (c *DeviceClient) GetObjectHandles(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.GetObjectHandles(ctx, &pb.GetObjectHandlesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetObjectInfo calls the GetObjectInfo RPC.
-func (c *DeviceClient) GetObjectInfo(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetObjectInfo(ctx, &pb.GetObjectInfoRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParent calls the GetParent RPC.
-func (c *DeviceClient) GetParent(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetParent(ctx, &pb.GetParentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPartialObject calls the GetPartialObject RPC.
-func (c *DeviceClient) GetPartialObject(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetPartialObject(ctx, &pb.GetPartialObjectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPartialObject64 calls the GetPartialObject64 RPC.
-func (c *DeviceClient) GetPartialObject64(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetPartialObject64(ctx, &pb.GetPartialObject64Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStorageId calls the GetStorageId RPC.
-func (c *DeviceClient) GetStorageId(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetStorageId(ctx, &pb.DeviceGetStorageIdRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStorageIds calls the GetStorageIds RPC.
-func (c *DeviceClient) GetStorageIds(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStorageIds(ctx, &pb.GetStorageIdsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStorageInfo calls the GetStorageInfo RPC.
-func (c *DeviceClient) GetStorageInfo(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetStorageInfo(ctx, &pb.GetStorageInfoRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetThumbnail calls the GetThumbnail RPC.
-func (c *DeviceClient) GetThumbnail(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetThumbnail(ctx, &pb.GetThumbnailRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ImportFile2 calls the ImportFile2 RPC.
-func (c *DeviceClient) ImportFile2(ctx context.Context, handle int64, arg0 int32, arg1 int64) (bool, error) {
-	resp, err := c.svc.ImportFile2(ctx, &pb.ImportFile2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ImportFile2_1 calls the ImportFile2_1 RPC.
-func (c *DeviceClient) ImportFile2_1(ctx context.Context, handle int64, arg0 int32, arg1 string) (bool, error) {
-	resp, err := c.svc.ImportFile2_1(ctx, &pb.ImportFile2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Open calls the Open RPC.
-func (c *DeviceClient) Open(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Open(ctx, &pb.OpenRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReadEvent calls the ReadEvent RPC.
-func (c *DeviceClient) ReadEvent(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.ReadEvent(ctx, &pb.ReadEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SendObject calls the SendObject RPC.
-func (c *DeviceClient) SendObject(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.SendObject(ctx, &pb.SendObjectRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SendObjectInfo calls the SendObjectInfo RPC.
-func (c *DeviceClient) SendObjectInfo(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SendObjectInfo(ctx, &pb.SendObjectInfoRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DeviceClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }
@@ -549,7 +357,7 @@ func (c *ObjectInfoClient) GetObjectHandle(ctx context.Context) (int32, error) {
 
 // GetParent calls the GetParent RPC.
 func (c *ObjectInfoClient) GetParent(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetParent(ctx, &pb.ObjectInfoGetParentRequest{})
+	resp, err := c.svc.GetParent(ctx, &pb.GetParentRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -953,76 +761,31 @@ func (c *StorageInfoClient) GetVolumeIdentifier(ctx context.Context) (string, er
 	return resp.GetResult(), nil
 }
 
-// DeviceInfoClient wraps the gRPC DeviceInfoService client.
-type DeviceInfoClient struct {
-	svc pb.DeviceInfoServiceClient
+// DeviceClient wraps the gRPC DeviceService client.
+type DeviceClient struct {
+	svc pb.DeviceServiceClient
 }
 
-// NewDeviceInfoClient creates a new DeviceInfo client.
-func NewDeviceInfoClient(cc grpc.ClientConnInterface) *DeviceInfoClient {
-	return &DeviceInfoClient{
-		svc: pb.NewDeviceInfoServiceClient(cc),
+// NewDeviceClient creates a new Device client.
+func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
+	return &DeviceClient{
+		svc: pb.NewDeviceServiceClient(cc),
 	}
 }
 
-// GetEventsSupported calls the GetEventsSupported RPC.
-func (c *DeviceInfoClient) GetEventsSupported(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEventsSupported(ctx, &pb.GetEventsSupportedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// Close calls the Close RPC.
+func (c *DeviceClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
 }
 
-// GetManufacturer calls the GetManufacturer RPC.
-func (c *DeviceInfoClient) GetManufacturer(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetManufacturer(ctx, &pb.GetManufacturerRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetModel calls the GetModel RPC.
-func (c *DeviceInfoClient) GetModel(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetModel(ctx, &pb.GetModelRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOperationsSupported calls the GetOperationsSupported RPC.
-func (c *DeviceInfoClient) GetOperationsSupported(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOperationsSupported(ctx, &pb.GetOperationsSupportedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSerialNumber calls the GetSerialNumber RPC.
-func (c *DeviceInfoClient) GetSerialNumber(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSerialNumber(ctx, &pb.GetSerialNumberRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVersion calls the GetVersion RPC.
-func (c *DeviceInfoClient) GetVersion(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEventSupported calls the IsEventSupported RPC.
-func (c *DeviceInfoClient) IsEventSupported(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsEventSupported(ctx, &pb.IsEventSupportedRequest{
-		Arg0: arg0,
+// DeleteObject calls the DeleteObject RPC.
+func (c *DeviceClient) DeleteObject(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.DeleteObject(ctx, &pb.DeleteObjectRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -1030,13 +793,250 @@ func (c *DeviceInfoClient) IsEventSupported(ctx context.Context, arg0 int32) (bo
 	return resp.GetResult(), nil
 }
 
-// IsOperationSupported calls the IsOperationSupported RPC.
-func (c *DeviceInfoClient) IsOperationSupported(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsOperationSupported(ctx, &pb.IsOperationSupportedRequest{
-		Arg0: arg0,
+// GetDeviceId calls the GetDeviceId RPC.
+func (c *DeviceClient) GetDeviceId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDeviceId(ctx, &pb.GetDeviceIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceInfo calls the GetDeviceInfo RPC.
+func (c *DeviceClient) GetDeviceInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceName calls the GetDeviceName RPC.
+func (c *DeviceClient) GetDeviceName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDeviceName(ctx, &pb.GetDeviceNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetObject calls the GetObject RPC.
+func (c *DeviceClient) GetObject(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetObject(ctx, &pb.GetObjectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetObjectHandles calls the GetObjectHandles RPC.
+func (c *DeviceClient) GetObjectHandles(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetObjectHandles(ctx, &pb.GetObjectHandlesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetObjectInfo calls the GetObjectInfo RPC.
+func (c *DeviceClient) GetObjectInfo(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetObjectInfo(ctx, &pb.GetObjectInfoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParent calls the GetParent RPC.
+func (c *DeviceClient) GetParent(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetParent(ctx, &pb.DeviceGetParentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPartialObject calls the GetPartialObject RPC.
+func (c *DeviceClient) GetPartialObject(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetPartialObject(ctx, &pb.GetPartialObjectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPartialObject64 calls the GetPartialObject64 RPC.
+func (c *DeviceClient) GetPartialObject64(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetPartialObject64(ctx, &pb.GetPartialObject64Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStorageId calls the GetStorageId RPC.
+func (c *DeviceClient) GetStorageId(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetStorageId(ctx, &pb.DeviceGetStorageIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStorageIds calls the GetStorageIds RPC.
+func (c *DeviceClient) GetStorageIds(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStorageIds(ctx, &pb.GetStorageIdsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStorageInfo calls the GetStorageInfo RPC.
+func (c *DeviceClient) GetStorageInfo(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetStorageInfo(ctx, &pb.GetStorageInfoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetThumbnail calls the GetThumbnail RPC.
+func (c *DeviceClient) GetThumbnail(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetThumbnail(ctx, &pb.GetThumbnailRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ImportFile2 calls the ImportFile2 RPC.
+func (c *DeviceClient) ImportFile2(ctx context.Context, handle int64, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.ImportFile2(ctx, &pb.ImportFile2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ImportFile2_1 calls the ImportFile2_1 RPC.
+func (c *DeviceClient) ImportFile2_1(ctx context.Context, handle int64, arg0 int32, arg1 string) (bool, error) {
+	resp, err := c.svc.ImportFile2_1(ctx, &pb.ImportFile2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Open calls the Open RPC.
+func (c *DeviceClient) Open(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Open(ctx, &pb.OpenRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadEvent calls the ReadEvent RPC.
+func (c *DeviceClient) ReadEvent(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.ReadEvent(ctx, &pb.ReadEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendObject calls the SendObject RPC.
+func (c *DeviceClient) SendObject(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.SendObject(ctx, &pb.SendObjectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendObjectInfo calls the SendObjectInfo RPC.
+func (c *DeviceClient) SendObjectInfo(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SendObjectInfo(ctx, &pb.SendObjectInfoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DeviceClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }

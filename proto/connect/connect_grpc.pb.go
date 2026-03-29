@@ -21,1271 +21,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DeleteMedicalResourcesRequestService_DescribeContents_FullMethodName = "/connect.DeleteMedicalResourcesRequestService/DescribeContents"
-	DeleteMedicalResourcesRequestService_Equals_FullMethodName           = "/connect.DeleteMedicalResourcesRequestService/Equals"
-	DeleteMedicalResourcesRequestService_HashCode_FullMethodName         = "/connect.DeleteMedicalResourcesRequestService/HashCode"
-	DeleteMedicalResourcesRequestService_ToString_FullMethodName         = "/connect.DeleteMedicalResourcesRequestService/ToString"
-	DeleteMedicalResourcesRequestService_WriteToParcel_FullMethodName    = "/connect.DeleteMedicalResourcesRequestService/WriteToParcel"
-)
-
-// DeleteMedicalResourcesRequestServiceClient is the client API for DeleteMedicalResourcesRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeleteMedicalResourcesRequestServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type deleteMedicalResourcesRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDeleteMedicalResourcesRequestServiceClient(cc grpc.ClientConnInterface) DeleteMedicalResourcesRequestServiceClient {
-	return &deleteMedicalResourcesRequestServiceClient{cc}
-}
-
-func (c *deleteMedicalResourcesRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deleteMedicalResourcesRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deleteMedicalResourcesRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deleteMedicalResourcesRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deleteMedicalResourcesRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DeleteMedicalResourcesRequestServiceServer is the server API for DeleteMedicalResourcesRequestService service.
-// All implementations must embed UnimplementedDeleteMedicalResourcesRequestServiceServer
-// for forward compatibility.
-type DeleteMedicalResourcesRequestServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedDeleteMedicalResourcesRequestServiceServer()
-}
-
-// UnimplementedDeleteMedicalResourcesRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDeleteMedicalResourcesRequestServiceServer struct{}
-
-func (UnimplementedDeleteMedicalResourcesRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestServiceServer) mustEmbedUnimplementedDeleteMedicalResourcesRequestServiceServer() {
-}
-func (UnimplementedDeleteMedicalResourcesRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDeleteMedicalResourcesRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeleteMedicalResourcesRequestServiceServer will
-// result in compilation errors.
-type UnsafeDeleteMedicalResourcesRequestServiceServer interface {
-	mustEmbedUnimplementedDeleteMedicalResourcesRequestServiceServer()
-}
-
-func RegisterDeleteMedicalResourcesRequestServiceServer(s grpc.ServiceRegistrar, srv DeleteMedicalResourcesRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeleteMedicalResourcesRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DeleteMedicalResourcesRequestService_ServiceDesc, srv)
-}
-
-func _DeleteMedicalResourcesRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeleteMedicalResourcesRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeleteMedicalResourcesRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeleteMedicalResourcesRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeleteMedicalResourcesRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DeleteMedicalResourcesRequestService_ServiceDesc is the grpc.ServiceDesc for DeleteMedicalResourcesRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DeleteMedicalResourcesRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.DeleteMedicalResourcesRequestService",
-	HandlerType: (*DeleteMedicalResourcesRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _DeleteMedicalResourcesRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _DeleteMedicalResourcesRequestService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _DeleteMedicalResourcesRequestService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DeleteMedicalResourcesRequestService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _DeleteMedicalResourcesRequestService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_FullMethodName           = "/connect.DeleteMedicalResourcesRequestBuilderService/AddDataSourceId"
-	DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_FullMethodName    = "/connect.DeleteMedicalResourcesRequestBuilderService/AddMedicalResourceType"
-	DeleteMedicalResourcesRequestBuilderService_Build_FullMethodName                     = "/connect.DeleteMedicalResourcesRequestBuilderService/Build"
-	DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_FullMethodName        = "/connect.DeleteMedicalResourcesRequestBuilderService/ClearDataSourceIds"
-	DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_FullMethodName = "/connect.DeleteMedicalResourcesRequestBuilderService/ClearMedicalResourceTypes"
-)
-
-// DeleteMedicalResourcesRequestBuilderServiceClient is the client API for DeleteMedicalResourcesRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeleteMedicalResourcesRequestBuilderServiceClient interface {
-	AddDataSourceId(ctx context.Context, in *AddDataSourceIdRequest, opts ...grpc.CallOption) (*AddDataSourceIdResponse, error)
-	AddMedicalResourceType(ctx context.Context, in *AddMedicalResourceTypeRequest, opts ...grpc.CallOption) (*AddMedicalResourceTypeResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	ClearDataSourceIds(ctx context.Context, in *ClearDataSourceIdsRequest, opts ...grpc.CallOption) (*ClearDataSourceIdsResponse, error)
-	ClearMedicalResourceTypes(ctx context.Context, in *ClearMedicalResourceTypesRequest, opts ...grpc.CallOption) (*ClearMedicalResourceTypesResponse, error)
-}
-
-type deleteMedicalResourcesRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDeleteMedicalResourcesRequestBuilderServiceClient(cc grpc.ClientConnInterface) DeleteMedicalResourcesRequestBuilderServiceClient {
-	return &deleteMedicalResourcesRequestBuilderServiceClient{cc}
-}
-
-func (c *deleteMedicalResourcesRequestBuilderServiceClient) AddDataSourceId(ctx context.Context, in *AddDataSourceIdRequest, opts ...grpc.CallOption) (*AddDataSourceIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddDataSourceIdResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deleteMedicalResourcesRequestBuilderServiceClient) AddMedicalResourceType(ctx context.Context, in *AddMedicalResourceTypeRequest, opts ...grpc.CallOption) (*AddMedicalResourceTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddMedicalResourceTypeResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deleteMedicalResourcesRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deleteMedicalResourcesRequestBuilderServiceClient) ClearDataSourceIds(ctx context.Context, in *ClearDataSourceIdsRequest, opts ...grpc.CallOption) (*ClearDataSourceIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearDataSourceIdsResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deleteMedicalResourcesRequestBuilderServiceClient) ClearMedicalResourceTypes(ctx context.Context, in *ClearMedicalResourceTypesRequest, opts ...grpc.CallOption) (*ClearMedicalResourceTypesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearMedicalResourceTypesResponse)
-	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DeleteMedicalResourcesRequestBuilderServiceServer is the server API for DeleteMedicalResourcesRequestBuilderService service.
-// All implementations must embed UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer
-// for forward compatibility.
-type DeleteMedicalResourcesRequestBuilderServiceServer interface {
-	AddDataSourceId(context.Context, *AddDataSourceIdRequest) (*AddDataSourceIdResponse, error)
-	AddMedicalResourceType(context.Context, *AddMedicalResourceTypeRequest) (*AddMedicalResourceTypeResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	ClearDataSourceIds(context.Context, *ClearDataSourceIdsRequest) (*ClearDataSourceIdsResponse, error)
-	ClearMedicalResourceTypes(context.Context, *ClearMedicalResourceTypesRequest) (*ClearMedicalResourceTypesResponse, error)
-	mustEmbedUnimplementedDeleteMedicalResourcesRequestBuilderServiceServer()
-}
-
-// UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer struct{}
-
-func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) AddDataSourceId(context.Context, *AddDataSourceIdRequest) (*AddDataSourceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddDataSourceId not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) AddMedicalResourceType(context.Context, *AddMedicalResourceTypeRequest) (*AddMedicalResourceTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddMedicalResourceType not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) ClearDataSourceIds(context.Context, *ClearDataSourceIdsRequest) (*ClearDataSourceIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearDataSourceIds not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) ClearMedicalResourceTypes(context.Context, *ClearMedicalResourceTypesRequest) (*ClearMedicalResourceTypesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearMedicalResourceTypes not implemented")
-}
-func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) mustEmbedUnimplementedDeleteMedicalResourcesRequestBuilderServiceServer() {
-}
-func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDeleteMedicalResourcesRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeleteMedicalResourcesRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeDeleteMedicalResourcesRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedDeleteMedicalResourcesRequestBuilderServiceServer()
-}
-
-func RegisterDeleteMedicalResourcesRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv DeleteMedicalResourcesRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DeleteMedicalResourcesRequestBuilderService_ServiceDesc, srv)
-}
-
-func _DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddDataSourceIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).AddDataSourceId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).AddDataSourceId(ctx, req.(*AddDataSourceIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddMedicalResourceTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).AddMedicalResourceType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).AddMedicalResourceType(ctx, req.(*AddMedicalResourceTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeleteMedicalResourcesRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearDataSourceIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).ClearDataSourceIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).ClearDataSourceIds(ctx, req.(*ClearDataSourceIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearMedicalResourceTypesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).ClearMedicalResourceTypes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).ClearMedicalResourceTypes(ctx, req.(*ClearMedicalResourceTypesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DeleteMedicalResourcesRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for DeleteMedicalResourcesRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DeleteMedicalResourcesRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.DeleteMedicalResourcesRequestBuilderService",
-	HandlerType: (*DeleteMedicalResourcesRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddDataSourceId",
-			Handler:    _DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_Handler,
-		},
-		{
-			MethodName: "AddMedicalResourceType",
-			Handler:    _DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _DeleteMedicalResourcesRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "ClearDataSourceIds",
-			Handler:    _DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_Handler,
-		},
-		{
-			MethodName: "ClearMedicalResourceTypes",
-			Handler:    _DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	TimeInstantRangeFilterService_Equals_FullMethodName       = "/connect.TimeInstantRangeFilterService/Equals"
-	TimeInstantRangeFilterService_GetEndTime_FullMethodName   = "/connect.TimeInstantRangeFilterService/GetEndTime"
-	TimeInstantRangeFilterService_GetStartTime_FullMethodName = "/connect.TimeInstantRangeFilterService/GetStartTime"
-	TimeInstantRangeFilterService_HashCode_FullMethodName     = "/connect.TimeInstantRangeFilterService/HashCode"
-	TimeInstantRangeFilterService_IsBounded_FullMethodName    = "/connect.TimeInstantRangeFilterService/IsBounded"
-)
-
-// TimeInstantRangeFilterServiceClient is the client API for TimeInstantRangeFilterService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TimeInstantRangeFilterServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetEndTime(ctx context.Context, in *GetEndTimeRequest, opts ...grpc.CallOption) (*GetEndTimeResponse, error)
-	GetStartTime(ctx context.Context, in *GetStartTimeRequest, opts ...grpc.CallOption) (*GetStartTimeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsBounded(ctx context.Context, in *IsBoundedRequest, opts ...grpc.CallOption) (*IsBoundedResponse, error)
-}
-
-type timeInstantRangeFilterServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTimeInstantRangeFilterServiceClient(cc grpc.ClientConnInterface) TimeInstantRangeFilterServiceClient {
-	return &timeInstantRangeFilterServiceClient{cc}
-}
-
-func (c *timeInstantRangeFilterServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeInstantRangeFilterServiceClient) GetEndTime(ctx context.Context, in *GetEndTimeRequest, opts ...grpc.CallOption) (*GetEndTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEndTimeResponse)
-	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_GetEndTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeInstantRangeFilterServiceClient) GetStartTime(ctx context.Context, in *GetStartTimeRequest, opts ...grpc.CallOption) (*GetStartTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStartTimeResponse)
-	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_GetStartTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeInstantRangeFilterServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeInstantRangeFilterServiceClient) IsBounded(ctx context.Context, in *IsBoundedRequest, opts ...grpc.CallOption) (*IsBoundedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsBoundedResponse)
-	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_IsBounded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TimeInstantRangeFilterServiceServer is the server API for TimeInstantRangeFilterService service.
-// All implementations must embed UnimplementedTimeInstantRangeFilterServiceServer
-// for forward compatibility.
-type TimeInstantRangeFilterServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetEndTime(context.Context, *GetEndTimeRequest) (*GetEndTimeResponse, error)
-	GetStartTime(context.Context, *GetStartTimeRequest) (*GetStartTimeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsBounded(context.Context, *IsBoundedRequest) (*IsBoundedResponse, error)
-	mustEmbedUnimplementedTimeInstantRangeFilterServiceServer()
-}
-
-// UnimplementedTimeInstantRangeFilterServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTimeInstantRangeFilterServiceServer struct{}
-
-func (UnimplementedTimeInstantRangeFilterServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedTimeInstantRangeFilterServiceServer) GetEndTime(context.Context, *GetEndTimeRequest) (*GetEndTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEndTime not implemented")
-}
-func (UnimplementedTimeInstantRangeFilterServiceServer) GetStartTime(context.Context, *GetStartTimeRequest) (*GetStartTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStartTime not implemented")
-}
-func (UnimplementedTimeInstantRangeFilterServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedTimeInstantRangeFilterServiceServer) IsBounded(context.Context, *IsBoundedRequest) (*IsBoundedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsBounded not implemented")
-}
-func (UnimplementedTimeInstantRangeFilterServiceServer) mustEmbedUnimplementedTimeInstantRangeFilterServiceServer() {
-}
-func (UnimplementedTimeInstantRangeFilterServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTimeInstantRangeFilterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TimeInstantRangeFilterServiceServer will
-// result in compilation errors.
-type UnsafeTimeInstantRangeFilterServiceServer interface {
-	mustEmbedUnimplementedTimeInstantRangeFilterServiceServer()
-}
-
-func RegisterTimeInstantRangeFilterServiceServer(s grpc.ServiceRegistrar, srv TimeInstantRangeFilterServiceServer) {
-	// If the following call panics, it indicates UnimplementedTimeInstantRangeFilterServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TimeInstantRangeFilterService_ServiceDesc, srv)
-}
-
-func _TimeInstantRangeFilterService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeInstantRangeFilterServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeInstantRangeFilterService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeInstantRangeFilterServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeInstantRangeFilterService_GetEndTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEndTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeInstantRangeFilterServiceServer).GetEndTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeInstantRangeFilterService_GetEndTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeInstantRangeFilterServiceServer).GetEndTime(ctx, req.(*GetEndTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeInstantRangeFilterService_GetStartTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStartTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeInstantRangeFilterServiceServer).GetStartTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeInstantRangeFilterService_GetStartTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeInstantRangeFilterServiceServer).GetStartTime(ctx, req.(*GetStartTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeInstantRangeFilterService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeInstantRangeFilterServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeInstantRangeFilterService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeInstantRangeFilterServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeInstantRangeFilterService_IsBounded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsBoundedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeInstantRangeFilterServiceServer).IsBounded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeInstantRangeFilterService_IsBounded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeInstantRangeFilterServiceServer).IsBounded(ctx, req.(*IsBoundedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TimeInstantRangeFilterService_ServiceDesc is the grpc.ServiceDesc for TimeInstantRangeFilterService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TimeInstantRangeFilterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.TimeInstantRangeFilterService",
-	HandlerType: (*TimeInstantRangeFilterServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _TimeInstantRangeFilterService_Equals_Handler,
-		},
-		{
-			MethodName: "GetEndTime",
-			Handler:    _TimeInstantRangeFilterService_GetEndTime_Handler,
-		},
-		{
-			MethodName: "GetStartTime",
-			Handler:    _TimeInstantRangeFilterService_GetStartTime_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _TimeInstantRangeFilterService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsBounded",
-			Handler:    _TimeInstantRangeFilterService_IsBounded_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	TimeInstantRangeFilterBuilderService_Build_FullMethodName        = "/connect.TimeInstantRangeFilterBuilderService/Build"
-	TimeInstantRangeFilterBuilderService_SetEndTime_FullMethodName   = "/connect.TimeInstantRangeFilterBuilderService/SetEndTime"
-	TimeInstantRangeFilterBuilderService_SetStartTime_FullMethodName = "/connect.TimeInstantRangeFilterBuilderService/SetStartTime"
-)
-
-// TimeInstantRangeFilterBuilderServiceClient is the client API for TimeInstantRangeFilterBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TimeInstantRangeFilterBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetEndTime(ctx context.Context, in *SetEndTimeRequest, opts ...grpc.CallOption) (*SetEndTimeResponse, error)
-	SetStartTime(ctx context.Context, in *SetStartTimeRequest, opts ...grpc.CallOption) (*SetStartTimeResponse, error)
-}
-
-type timeInstantRangeFilterBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTimeInstantRangeFilterBuilderServiceClient(cc grpc.ClientConnInterface) TimeInstantRangeFilterBuilderServiceClient {
-	return &timeInstantRangeFilterBuilderServiceClient{cc}
-}
-
-func (c *timeInstantRangeFilterBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, TimeInstantRangeFilterBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeInstantRangeFilterBuilderServiceClient) SetEndTime(ctx context.Context, in *SetEndTimeRequest, opts ...grpc.CallOption) (*SetEndTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEndTimeResponse)
-	err := c.cc.Invoke(ctx, TimeInstantRangeFilterBuilderService_SetEndTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeInstantRangeFilterBuilderServiceClient) SetStartTime(ctx context.Context, in *SetStartTimeRequest, opts ...grpc.CallOption) (*SetStartTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStartTimeResponse)
-	err := c.cc.Invoke(ctx, TimeInstantRangeFilterBuilderService_SetStartTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TimeInstantRangeFilterBuilderServiceServer is the server API for TimeInstantRangeFilterBuilderService service.
-// All implementations must embed UnimplementedTimeInstantRangeFilterBuilderServiceServer
-// for forward compatibility.
-type TimeInstantRangeFilterBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetEndTime(context.Context, *SetEndTimeRequest) (*SetEndTimeResponse, error)
-	SetStartTime(context.Context, *SetStartTimeRequest) (*SetStartTimeResponse, error)
-	mustEmbedUnimplementedTimeInstantRangeFilterBuilderServiceServer()
-}
-
-// UnimplementedTimeInstantRangeFilterBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTimeInstantRangeFilterBuilderServiceServer struct{}
-
-func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) SetEndTime(context.Context, *SetEndTimeRequest) (*SetEndTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEndTime not implemented")
-}
-func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) SetStartTime(context.Context, *SetStartTimeRequest) (*SetStartTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStartTime not implemented")
-}
-func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) mustEmbedUnimplementedTimeInstantRangeFilterBuilderServiceServer() {
-}
-func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTimeInstantRangeFilterBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TimeInstantRangeFilterBuilderServiceServer will
-// result in compilation errors.
-type UnsafeTimeInstantRangeFilterBuilderServiceServer interface {
-	mustEmbedUnimplementedTimeInstantRangeFilterBuilderServiceServer()
-}
-
-func RegisterTimeInstantRangeFilterBuilderServiceServer(s grpc.ServiceRegistrar, srv TimeInstantRangeFilterBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedTimeInstantRangeFilterBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TimeInstantRangeFilterBuilderService_ServiceDesc, srv)
-}
-
-func _TimeInstantRangeFilterBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeInstantRangeFilterBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeInstantRangeFilterBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeInstantRangeFilterBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeInstantRangeFilterBuilderService_SetEndTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEndTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeInstantRangeFilterBuilderServiceServer).SetEndTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeInstantRangeFilterBuilderService_SetEndTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeInstantRangeFilterBuilderServiceServer).SetEndTime(ctx, req.(*SetEndTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeInstantRangeFilterBuilderService_SetStartTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStartTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeInstantRangeFilterBuilderServiceServer).SetStartTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeInstantRangeFilterBuilderService_SetStartTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeInstantRangeFilterBuilderServiceServer).SetStartTime(ctx, req.(*SetStartTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TimeInstantRangeFilterBuilderService_ServiceDesc is the grpc.ServiceDesc for TimeInstantRangeFilterBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TimeInstantRangeFilterBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.TimeInstantRangeFilterBuilderService",
-	HandlerType: (*TimeInstantRangeFilterBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _TimeInstantRangeFilterBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetEndTime",
-			Handler:    _TimeInstantRangeFilterBuilderService_SetEndTime_Handler,
-		},
-		{
-			MethodName: "SetStartTime",
-			Handler:    _TimeInstantRangeFilterBuilderService_SetStartTime_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	AggregateRecordsRequestService_GetTimeRangeFilter_FullMethodName = "/connect.AggregateRecordsRequestService/GetTimeRangeFilter"
-)
-
-// AggregateRecordsRequestServiceClient is the client API for AggregateRecordsRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AggregateRecordsRequestServiceClient interface {
-	GetTimeRangeFilter(ctx context.Context, in *GetTimeRangeFilterRequest, opts ...grpc.CallOption) (*GetTimeRangeFilterResponse, error)
-}
-
-type aggregateRecordsRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAggregateRecordsRequestServiceClient(cc grpc.ClientConnInterface) AggregateRecordsRequestServiceClient {
-	return &aggregateRecordsRequestServiceClient{cc}
-}
-
-func (c *aggregateRecordsRequestServiceClient) GetTimeRangeFilter(ctx context.Context, in *GetTimeRangeFilterRequest, opts ...grpc.CallOption) (*GetTimeRangeFilterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTimeRangeFilterResponse)
-	err := c.cc.Invoke(ctx, AggregateRecordsRequestService_GetTimeRangeFilter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AggregateRecordsRequestServiceServer is the server API for AggregateRecordsRequestService service.
-// All implementations must embed UnimplementedAggregateRecordsRequestServiceServer
-// for forward compatibility.
-type AggregateRecordsRequestServiceServer interface {
-	GetTimeRangeFilter(context.Context, *GetTimeRangeFilterRequest) (*GetTimeRangeFilterResponse, error)
-	mustEmbedUnimplementedAggregateRecordsRequestServiceServer()
-}
-
-// UnimplementedAggregateRecordsRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAggregateRecordsRequestServiceServer struct{}
-
-func (UnimplementedAggregateRecordsRequestServiceServer) GetTimeRangeFilter(context.Context, *GetTimeRangeFilterRequest) (*GetTimeRangeFilterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTimeRangeFilter not implemented")
-}
-func (UnimplementedAggregateRecordsRequestServiceServer) mustEmbedUnimplementedAggregateRecordsRequestServiceServer() {
-}
-func (UnimplementedAggregateRecordsRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAggregateRecordsRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AggregateRecordsRequestServiceServer will
-// result in compilation errors.
-type UnsafeAggregateRecordsRequestServiceServer interface {
-	mustEmbedUnimplementedAggregateRecordsRequestServiceServer()
-}
-
-func RegisterAggregateRecordsRequestServiceServer(s grpc.ServiceRegistrar, srv AggregateRecordsRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedAggregateRecordsRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AggregateRecordsRequestService_ServiceDesc, srv)
-}
-
-func _AggregateRecordsRequestService_GetTimeRangeFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimeRangeFilterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AggregateRecordsRequestServiceServer).GetTimeRangeFilter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AggregateRecordsRequestService_GetTimeRangeFilter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AggregateRecordsRequestServiceServer).GetTimeRangeFilter(ctx, req.(*GetTimeRangeFilterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AggregateRecordsRequestService_ServiceDesc is the grpc.ServiceDesc for AggregateRecordsRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AggregateRecordsRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.AggregateRecordsRequestService",
-	HandlerType: (*AggregateRecordsRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetTimeRangeFilter",
-			Handler:    _AggregateRecordsRequestService_GetTimeRangeFilter_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	ReadRecordsRequestUsingFiltersService_GetPageSize_FullMethodName        = "/connect.ReadRecordsRequestUsingFiltersService/GetPageSize"
-	ReadRecordsRequestUsingFiltersService_GetPageToken_FullMethodName       = "/connect.ReadRecordsRequestUsingFiltersService/GetPageToken"
-	ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_FullMethodName = "/connect.ReadRecordsRequestUsingFiltersService/GetTimeRangeFilter"
-	ReadRecordsRequestUsingFiltersService_IsAscending_FullMethodName        = "/connect.ReadRecordsRequestUsingFiltersService/IsAscending"
-)
-
-// ReadRecordsRequestUsingFiltersServiceClient is the client API for ReadRecordsRequestUsingFiltersService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReadRecordsRequestUsingFiltersServiceClient interface {
-	GetPageSize(ctx context.Context, in *GetPageSizeRequest, opts ...grpc.CallOption) (*GetPageSizeResponse, error)
-	GetPageToken(ctx context.Context, in *GetPageTokenRequest, opts ...grpc.CallOption) (*GetPageTokenResponse, error)
-	GetTimeRangeFilter(ctx context.Context, in *GetTimeRangeFilterRequest, opts ...grpc.CallOption) (*GetTimeRangeFilterResponse, error)
-	IsAscending(ctx context.Context, in *IsAscendingRequest, opts ...grpc.CallOption) (*IsAscendingResponse, error)
-}
-
-type readRecordsRequestUsingFiltersServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReadRecordsRequestUsingFiltersServiceClient(cc grpc.ClientConnInterface) ReadRecordsRequestUsingFiltersServiceClient {
-	return &readRecordsRequestUsingFiltersServiceClient{cc}
-}
-
-func (c *readRecordsRequestUsingFiltersServiceClient) GetPageSize(ctx context.Context, in *GetPageSizeRequest, opts ...grpc.CallOption) (*GetPageSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPageSizeResponse)
-	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_GetPageSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readRecordsRequestUsingFiltersServiceClient) GetPageToken(ctx context.Context, in *GetPageTokenRequest, opts ...grpc.CallOption) (*GetPageTokenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPageTokenResponse)
-	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_GetPageToken_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readRecordsRequestUsingFiltersServiceClient) GetTimeRangeFilter(ctx context.Context, in *GetTimeRangeFilterRequest, opts ...grpc.CallOption) (*GetTimeRangeFilterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTimeRangeFilterResponse)
-	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readRecordsRequestUsingFiltersServiceClient) IsAscending(ctx context.Context, in *IsAscendingRequest, opts ...grpc.CallOption) (*IsAscendingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAscendingResponse)
-	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_IsAscending_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReadRecordsRequestUsingFiltersServiceServer is the server API for ReadRecordsRequestUsingFiltersService service.
-// All implementations must embed UnimplementedReadRecordsRequestUsingFiltersServiceServer
-// for forward compatibility.
-type ReadRecordsRequestUsingFiltersServiceServer interface {
-	GetPageSize(context.Context, *GetPageSizeRequest) (*GetPageSizeResponse, error)
-	GetPageToken(context.Context, *GetPageTokenRequest) (*GetPageTokenResponse, error)
-	GetTimeRangeFilter(context.Context, *GetTimeRangeFilterRequest) (*GetTimeRangeFilterResponse, error)
-	IsAscending(context.Context, *IsAscendingRequest) (*IsAscendingResponse, error)
-	mustEmbedUnimplementedReadRecordsRequestUsingFiltersServiceServer()
-}
-
-// UnimplementedReadRecordsRequestUsingFiltersServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReadRecordsRequestUsingFiltersServiceServer struct{}
-
-func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) GetPageSize(context.Context, *GetPageSizeRequest) (*GetPageSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageSize not implemented")
-}
-func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) GetPageToken(context.Context, *GetPageTokenRequest) (*GetPageTokenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageToken not implemented")
-}
-func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) GetTimeRangeFilter(context.Context, *GetTimeRangeFilterRequest) (*GetTimeRangeFilterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTimeRangeFilter not implemented")
-}
-func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) IsAscending(context.Context, *IsAscendingRequest) (*IsAscendingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAscending not implemented")
-}
-func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) mustEmbedUnimplementedReadRecordsRequestUsingFiltersServiceServer() {
-}
-func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) testEmbeddedByValue() {}
-
-// UnsafeReadRecordsRequestUsingFiltersServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReadRecordsRequestUsingFiltersServiceServer will
-// result in compilation errors.
-type UnsafeReadRecordsRequestUsingFiltersServiceServer interface {
-	mustEmbedUnimplementedReadRecordsRequestUsingFiltersServiceServer()
-}
-
-func RegisterReadRecordsRequestUsingFiltersServiceServer(s grpc.ServiceRegistrar, srv ReadRecordsRequestUsingFiltersServiceServer) {
-	// If the following call panics, it indicates UnimplementedReadRecordsRequestUsingFiltersServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReadRecordsRequestUsingFiltersService_ServiceDesc, srv)
-}
-
-func _ReadRecordsRequestUsingFiltersService_GetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetPageSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadRecordsRequestUsingFiltersService_GetPageSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetPageSize(ctx, req.(*GetPageSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadRecordsRequestUsingFiltersService_GetPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetPageToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadRecordsRequestUsingFiltersService_GetPageToken_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetPageToken(ctx, req.(*GetPageTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimeRangeFilterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetTimeRangeFilter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetTimeRangeFilter(ctx, req.(*GetTimeRangeFilterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadRecordsRequestUsingFiltersService_IsAscending_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAscendingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadRecordsRequestUsingFiltersServiceServer).IsAscending(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadRecordsRequestUsingFiltersService_IsAscending_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadRecordsRequestUsingFiltersServiceServer).IsAscending(ctx, req.(*IsAscendingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReadRecordsRequestUsingFiltersService_ServiceDesc is the grpc.ServiceDesc for ReadRecordsRequestUsingFiltersService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReadRecordsRequestUsingFiltersService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.ReadRecordsRequestUsingFiltersService",
-	HandlerType: (*ReadRecordsRequestUsingFiltersServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetPageSize",
-			Handler:    _ReadRecordsRequestUsingFiltersService_GetPageSize_Handler,
-		},
-		{
-			MethodName: "GetPageToken",
-			Handler:    _ReadRecordsRequestUsingFiltersService_GetPageToken_Handler,
-		},
-		{
-			MethodName: "GetTimeRangeFilter",
-			Handler:    _ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_Handler,
-		},
-		{
-			MethodName: "IsAscending",
-			Handler:    _ReadRecordsRequestUsingFiltersService_IsAscending_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
 	ReadRecordsResponseService_GetNextPageToken_FullMethodName = "/connect.ReadRecordsResponseService/GetNextPageToken"
+	ReadRecordsResponseService_GetRecords_FullMethodName       = "/connect.ReadRecordsResponseService/GetRecords"
 )
 
 // ReadRecordsResponseServiceClient is the client API for ReadRecordsResponseService service.
@@ -1293,6 +30,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ReadRecordsResponseServiceClient interface {
 	GetNextPageToken(ctx context.Context, in *GetNextPageTokenRequest, opts ...grpc.CallOption) (*GetNextPageTokenResponse, error)
+	GetRecords(ctx context.Context, in *GetRecordsRequest, opts ...grpc.CallOption) (*GetRecordsResponse, error)
 }
 
 type readRecordsResponseServiceClient struct {
@@ -1313,11 +51,22 @@ func (c *readRecordsResponseServiceClient) GetNextPageToken(ctx context.Context,
 	return out, nil
 }
 
+func (c *readRecordsResponseServiceClient) GetRecords(ctx context.Context, in *GetRecordsRequest, opts ...grpc.CallOption) (*GetRecordsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordsResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsResponseService_GetRecords_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ReadRecordsResponseServiceServer is the server API for ReadRecordsResponseService service.
 // All implementations must embed UnimplementedReadRecordsResponseServiceServer
 // for forward compatibility.
 type ReadRecordsResponseServiceServer interface {
 	GetNextPageToken(context.Context, *GetNextPageTokenRequest) (*GetNextPageTokenResponse, error)
+	GetRecords(context.Context, *GetRecordsRequest) (*GetRecordsResponse, error)
 	mustEmbedUnimplementedReadRecordsResponseServiceServer()
 }
 
@@ -1330,6 +79,9 @@ type UnimplementedReadRecordsResponseServiceServer struct{}
 
 func (UnimplementedReadRecordsResponseServiceServer) GetNextPageToken(context.Context, *GetNextPageTokenRequest) (*GetNextPageTokenResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNextPageToken not implemented")
+}
+func (UnimplementedReadRecordsResponseServiceServer) GetRecords(context.Context, *GetRecordsRequest) (*GetRecordsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecords not implemented")
 }
 func (UnimplementedReadRecordsResponseServiceServer) mustEmbedUnimplementedReadRecordsResponseServiceServer() {
 }
@@ -1371,6 +123,24 @@ func _ReadRecordsResponseService_GetNextPageToken_Handler(srv interface{}, ctx c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ReadRecordsResponseService_GetRecords_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsResponseServiceServer).GetRecords(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsResponseService_GetRecords_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsResponseServiceServer).GetRecords(ctx, req.(*GetRecordsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ReadRecordsResponseService_ServiceDesc is the grpc.ServiceDesc for ReadRecordsResponseService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1382,2380 +152,9 @@ var ReadRecordsResponseService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "GetNextPageToken",
 			Handler:    _ReadRecordsResponseService_GetNextPageToken_Handler,
 		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	ReadMedicalResourcesInitialRequestService_Equals_FullMethodName                 = "/connect.ReadMedicalResourcesInitialRequestService/Equals"
-	ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_FullMethodName = "/connect.ReadMedicalResourcesInitialRequestService/GetMedicalResourceType"
-	ReadMedicalResourcesInitialRequestService_HashCode_FullMethodName               = "/connect.ReadMedicalResourcesInitialRequestService/HashCode"
-	ReadMedicalResourcesInitialRequestService_ToString_FullMethodName               = "/connect.ReadMedicalResourcesInitialRequestService/ToString"
-)
-
-// ReadMedicalResourcesInitialRequestServiceClient is the client API for ReadMedicalResourcesInitialRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReadMedicalResourcesInitialRequestServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetMedicalResourceType(ctx context.Context, in *GetMedicalResourceTypeRequest, opts ...grpc.CallOption) (*GetMedicalResourceTypeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type readMedicalResourcesInitialRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReadMedicalResourcesInitialRequestServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesInitialRequestServiceClient {
-	return &readMedicalResourcesInitialRequestServiceClient{cc}
-}
-
-func (c *readMedicalResourcesInitialRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesInitialRequestServiceClient) GetMedicalResourceType(ctx context.Context, in *GetMedicalResourceTypeRequest, opts ...grpc.CallOption) (*GetMedicalResourceTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMedicalResourceTypeResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesInitialRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesInitialRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReadMedicalResourcesInitialRequestServiceServer is the server API for ReadMedicalResourcesInitialRequestService service.
-// All implementations must embed UnimplementedReadMedicalResourcesInitialRequestServiceServer
-// for forward compatibility.
-type ReadMedicalResourcesInitialRequestServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetMedicalResourceType(context.Context, *GetMedicalResourceTypeRequest) (*GetMedicalResourceTypeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedReadMedicalResourcesInitialRequestServiceServer()
-}
-
-// UnimplementedReadMedicalResourcesInitialRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReadMedicalResourcesInitialRequestServiceServer struct{}
-
-func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) GetMedicalResourceType(context.Context, *GetMedicalResourceTypeRequest) (*GetMedicalResourceTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMedicalResourceType not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) mustEmbedUnimplementedReadMedicalResourcesInitialRequestServiceServer() {
-}
-func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeReadMedicalResourcesInitialRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReadMedicalResourcesInitialRequestServiceServer will
-// result in compilation errors.
-type UnsafeReadMedicalResourcesInitialRequestServiceServer interface {
-	mustEmbedUnimplementedReadMedicalResourcesInitialRequestServiceServer()
-}
-
-func RegisterReadMedicalResourcesInitialRequestServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesInitialRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedReadMedicalResourcesInitialRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReadMedicalResourcesInitialRequestService_ServiceDesc, srv)
-}
-
-func _ReadMedicalResourcesInitialRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMedicalResourceTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestServiceServer).GetMedicalResourceType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestServiceServer).GetMedicalResourceType(ctx, req.(*GetMedicalResourceTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesInitialRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesInitialRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReadMedicalResourcesInitialRequestService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesInitialRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReadMedicalResourcesInitialRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.ReadMedicalResourcesInitialRequestService",
-	HandlerType: (*ReadMedicalResourcesInitialRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Equals",
-			Handler:    _ReadMedicalResourcesInitialRequestService_Equals_Handler,
-		},
-		{
-			MethodName: "GetMedicalResourceType",
-			Handler:    _ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ReadMedicalResourcesInitialRequestService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ReadMedicalResourcesInitialRequestService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_FullMethodName        = "/connect.ReadMedicalResourcesInitialRequestBuilderService/AddDataSourceId"
-	ReadMedicalResourcesInitialRequestBuilderService_Build_FullMethodName                  = "/connect.ReadMedicalResourcesInitialRequestBuilderService/Build"
-	ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_FullMethodName     = "/connect.ReadMedicalResourcesInitialRequestBuilderService/ClearDataSourceIds"
-	ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_FullMethodName = "/connect.ReadMedicalResourcesInitialRequestBuilderService/SetMedicalResourceType"
-	ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_FullMethodName            = "/connect.ReadMedicalResourcesInitialRequestBuilderService/SetPageSize"
-)
-
-// ReadMedicalResourcesInitialRequestBuilderServiceClient is the client API for ReadMedicalResourcesInitialRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReadMedicalResourcesInitialRequestBuilderServiceClient interface {
-	AddDataSourceId(ctx context.Context, in *AddDataSourceIdRequest, opts ...grpc.CallOption) (*AddDataSourceIdResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	ClearDataSourceIds(ctx context.Context, in *ClearDataSourceIdsRequest, opts ...grpc.CallOption) (*ClearDataSourceIdsResponse, error)
-	SetMedicalResourceType(ctx context.Context, in *SetMedicalResourceTypeRequest, opts ...grpc.CallOption) (*SetMedicalResourceTypeResponse, error)
-	SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error)
-}
-
-type readMedicalResourcesInitialRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReadMedicalResourcesInitialRequestBuilderServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesInitialRequestBuilderServiceClient {
-	return &readMedicalResourcesInitialRequestBuilderServiceClient{cc}
-}
-
-func (c *readMedicalResourcesInitialRequestBuilderServiceClient) AddDataSourceId(ctx context.Context, in *AddDataSourceIdRequest, opts ...grpc.CallOption) (*AddDataSourceIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddDataSourceIdResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesInitialRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesInitialRequestBuilderServiceClient) ClearDataSourceIds(ctx context.Context, in *ClearDataSourceIdsRequest, opts ...grpc.CallOption) (*ClearDataSourceIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearDataSourceIdsResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesInitialRequestBuilderServiceClient) SetMedicalResourceType(ctx context.Context, in *SetMedicalResourceTypeRequest, opts ...grpc.CallOption) (*SetMedicalResourceTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMedicalResourceTypeResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesInitialRequestBuilderServiceClient) SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPageSizeResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReadMedicalResourcesInitialRequestBuilderServiceServer is the server API for ReadMedicalResourcesInitialRequestBuilderService service.
-// All implementations must embed UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer
-// for forward compatibility.
-type ReadMedicalResourcesInitialRequestBuilderServiceServer interface {
-	AddDataSourceId(context.Context, *AddDataSourceIdRequest) (*AddDataSourceIdResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	ClearDataSourceIds(context.Context, *ClearDataSourceIdsRequest) (*ClearDataSourceIdsResponse, error)
-	SetMedicalResourceType(context.Context, *SetMedicalResourceTypeRequest) (*SetMedicalResourceTypeResponse, error)
-	SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error)
-	mustEmbedUnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer()
-}
-
-// UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer struct{}
-
-func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) AddDataSourceId(context.Context, *AddDataSourceIdRequest) (*AddDataSourceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddDataSourceId not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) ClearDataSourceIds(context.Context, *ClearDataSourceIdsRequest) (*ClearDataSourceIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearDataSourceIds not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) SetMedicalResourceType(context.Context, *SetMedicalResourceTypeRequest) (*SetMedicalResourceTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMedicalResourceType not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPageSize not implemented")
-}
-func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) mustEmbedUnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer() {
-}
-func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeReadMedicalResourcesInitialRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReadMedicalResourcesInitialRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeReadMedicalResourcesInitialRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer()
-}
-
-func RegisterReadMedicalResourcesInitialRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesInitialRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReadMedicalResourcesInitialRequestBuilderService_ServiceDesc, srv)
-}
-
-func _ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddDataSourceIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).AddDataSourceId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).AddDataSourceId(ctx, req.(*AddDataSourceIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesInitialRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearDataSourceIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).ClearDataSourceIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).ClearDataSourceIds(ctx, req.(*ClearDataSourceIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMedicalResourceTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).SetMedicalResourceType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).SetMedicalResourceType(ctx, req.(*SetMedicalResourceTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPageSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).SetPageSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).SetPageSize(ctx, req.(*SetPageSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReadMedicalResourcesInitialRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesInitialRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReadMedicalResourcesInitialRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.ReadMedicalResourcesInitialRequestBuilderService",
-	HandlerType: (*ReadMedicalResourcesInitialRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddDataSourceId",
-			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "ClearDataSourceIds",
-			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_Handler,
-		},
-		{
-			MethodName: "SetMedicalResourceType",
-			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_Handler,
-		},
-		{
-			MethodName: "SetPageSize",
-			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	AggregateRecordsGroupedByPeriodResponseService_GetEndTime_FullMethodName   = "/connect.AggregateRecordsGroupedByPeriodResponseService/GetEndTime"
-	AggregateRecordsGroupedByPeriodResponseService_GetStartTime_FullMethodName = "/connect.AggregateRecordsGroupedByPeriodResponseService/GetStartTime"
-)
-
-// AggregateRecordsGroupedByPeriodResponseServiceClient is the client API for AggregateRecordsGroupedByPeriodResponseService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AggregateRecordsGroupedByPeriodResponseServiceClient interface {
-	GetEndTime(ctx context.Context, in *GetEndTimeRequest, opts ...grpc.CallOption) (*GetEndTimeResponse, error)
-	GetStartTime(ctx context.Context, in *GetStartTimeRequest, opts ...grpc.CallOption) (*GetStartTimeResponse, error)
-}
-
-type aggregateRecordsGroupedByPeriodResponseServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAggregateRecordsGroupedByPeriodResponseServiceClient(cc grpc.ClientConnInterface) AggregateRecordsGroupedByPeriodResponseServiceClient {
-	return &aggregateRecordsGroupedByPeriodResponseServiceClient{cc}
-}
-
-func (c *aggregateRecordsGroupedByPeriodResponseServiceClient) GetEndTime(ctx context.Context, in *GetEndTimeRequest, opts ...grpc.CallOption) (*GetEndTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEndTimeResponse)
-	err := c.cc.Invoke(ctx, AggregateRecordsGroupedByPeriodResponseService_GetEndTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *aggregateRecordsGroupedByPeriodResponseServiceClient) GetStartTime(ctx context.Context, in *GetStartTimeRequest, opts ...grpc.CallOption) (*GetStartTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStartTimeResponse)
-	err := c.cc.Invoke(ctx, AggregateRecordsGroupedByPeriodResponseService_GetStartTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AggregateRecordsGroupedByPeriodResponseServiceServer is the server API for AggregateRecordsGroupedByPeriodResponseService service.
-// All implementations must embed UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer
-// for forward compatibility.
-type AggregateRecordsGroupedByPeriodResponseServiceServer interface {
-	GetEndTime(context.Context, *GetEndTimeRequest) (*GetEndTimeResponse, error)
-	GetStartTime(context.Context, *GetStartTimeRequest) (*GetStartTimeResponse, error)
-	mustEmbedUnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer()
-}
-
-// UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer struct{}
-
-func (UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer) GetEndTime(context.Context, *GetEndTimeRequest) (*GetEndTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEndTime not implemented")
-}
-func (UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer) GetStartTime(context.Context, *GetStartTimeRequest) (*GetStartTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStartTime not implemented")
-}
-func (UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer) mustEmbedUnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer() {
-}
-func (UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAggregateRecordsGroupedByPeriodResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AggregateRecordsGroupedByPeriodResponseServiceServer will
-// result in compilation errors.
-type UnsafeAggregateRecordsGroupedByPeriodResponseServiceServer interface {
-	mustEmbedUnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer()
-}
-
-func RegisterAggregateRecordsGroupedByPeriodResponseServiceServer(s grpc.ServiceRegistrar, srv AggregateRecordsGroupedByPeriodResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AggregateRecordsGroupedByPeriodResponseService_ServiceDesc, srv)
-}
-
-func _AggregateRecordsGroupedByPeriodResponseService_GetEndTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEndTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AggregateRecordsGroupedByPeriodResponseServiceServer).GetEndTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AggregateRecordsGroupedByPeriodResponseService_GetEndTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AggregateRecordsGroupedByPeriodResponseServiceServer).GetEndTime(ctx, req.(*GetEndTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AggregateRecordsGroupedByPeriodResponseService_GetStartTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStartTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AggregateRecordsGroupedByPeriodResponseServiceServer).GetStartTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AggregateRecordsGroupedByPeriodResponseService_GetStartTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AggregateRecordsGroupedByPeriodResponseServiceServer).GetStartTime(ctx, req.(*GetStartTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AggregateRecordsGroupedByPeriodResponseService_ServiceDesc is the grpc.ServiceDesc for AggregateRecordsGroupedByPeriodResponseService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AggregateRecordsGroupedByPeriodResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.AggregateRecordsGroupedByPeriodResponseService",
-	HandlerType: (*AggregateRecordsGroupedByPeriodResponseServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetEndTime",
-			Handler:    _AggregateRecordsGroupedByPeriodResponseService_GetEndTime_Handler,
-		},
-		{
-			MethodName: "GetStartTime",
-			Handler:    _AggregateRecordsGroupedByPeriodResponseService_GetStartTime_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	CreateMedicalDataSourceRequestService_DescribeContents_FullMethodName = "/connect.CreateMedicalDataSourceRequestService/DescribeContents"
-	CreateMedicalDataSourceRequestService_Equals_FullMethodName           = "/connect.CreateMedicalDataSourceRequestService/Equals"
-	CreateMedicalDataSourceRequestService_GetDisplayName_FullMethodName   = "/connect.CreateMedicalDataSourceRequestService/GetDisplayName"
-	CreateMedicalDataSourceRequestService_GetFhirBaseUri_FullMethodName   = "/connect.CreateMedicalDataSourceRequestService/GetFhirBaseUri"
-	CreateMedicalDataSourceRequestService_GetFhirVersion_FullMethodName   = "/connect.CreateMedicalDataSourceRequestService/GetFhirVersion"
-	CreateMedicalDataSourceRequestService_HashCode_FullMethodName         = "/connect.CreateMedicalDataSourceRequestService/HashCode"
-	CreateMedicalDataSourceRequestService_ToString_FullMethodName         = "/connect.CreateMedicalDataSourceRequestService/ToString"
-	CreateMedicalDataSourceRequestService_WriteToParcel_FullMethodName    = "/connect.CreateMedicalDataSourceRequestService/WriteToParcel"
-)
-
-// CreateMedicalDataSourceRequestServiceClient is the client API for CreateMedicalDataSourceRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CreateMedicalDataSourceRequestServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error)
-	GetFhirBaseUri(ctx context.Context, in *GetFhirBaseUriRequest, opts ...grpc.CallOption) (*GetFhirBaseUriResponse, error)
-	GetFhirVersion(ctx context.Context, in *GetFhirVersionRequest, opts ...grpc.CallOption) (*GetFhirVersionResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type createMedicalDataSourceRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCreateMedicalDataSourceRequestServiceClient(cc grpc.ClientConnInterface) CreateMedicalDataSourceRequestServiceClient {
-	return &createMedicalDataSourceRequestServiceClient{cc}
-}
-
-func (c *createMedicalDataSourceRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestServiceClient) GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDisplayNameResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_GetDisplayName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestServiceClient) GetFhirBaseUri(ctx context.Context, in *GetFhirBaseUriRequest, opts ...grpc.CallOption) (*GetFhirBaseUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFhirBaseUriResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_GetFhirBaseUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestServiceClient) GetFhirVersion(ctx context.Context, in *GetFhirVersionRequest, opts ...grpc.CallOption) (*GetFhirVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFhirVersionResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_GetFhirVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CreateMedicalDataSourceRequestServiceServer is the server API for CreateMedicalDataSourceRequestService service.
-// All implementations must embed UnimplementedCreateMedicalDataSourceRequestServiceServer
-// for forward compatibility.
-type CreateMedicalDataSourceRequestServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error)
-	GetFhirBaseUri(context.Context, *GetFhirBaseUriRequest) (*GetFhirBaseUriResponse, error)
-	GetFhirVersion(context.Context, *GetFhirVersionRequest) (*GetFhirVersionResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCreateMedicalDataSourceRequestServiceServer()
-}
-
-// UnimplementedCreateMedicalDataSourceRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCreateMedicalDataSourceRequestServiceServer struct{}
-
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDisplayName not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) GetFhirBaseUri(context.Context, *GetFhirBaseUriRequest) (*GetFhirBaseUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFhirBaseUri not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) GetFhirVersion(context.Context, *GetFhirVersionRequest) (*GetFhirVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFhirVersion not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) mustEmbedUnimplementedCreateMedicalDataSourceRequestServiceServer() {
-}
-func (UnimplementedCreateMedicalDataSourceRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCreateMedicalDataSourceRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CreateMedicalDataSourceRequestServiceServer will
-// result in compilation errors.
-type UnsafeCreateMedicalDataSourceRequestServiceServer interface {
-	mustEmbedUnimplementedCreateMedicalDataSourceRequestServiceServer()
-}
-
-func RegisterCreateMedicalDataSourceRequestServiceServer(s grpc.ServiceRegistrar, srv CreateMedicalDataSourceRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedCreateMedicalDataSourceRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CreateMedicalDataSourceRequestService_ServiceDesc, srv)
-}
-
-func _CreateMedicalDataSourceRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestService_GetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDisplayNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).GetDisplayName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestService_GetDisplayName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).GetDisplayName(ctx, req.(*GetDisplayNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestService_GetFhirBaseUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFhirBaseUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).GetFhirBaseUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestService_GetFhirBaseUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).GetFhirBaseUri(ctx, req.(*GetFhirBaseUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestService_GetFhirVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFhirVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).GetFhirVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestService_GetFhirVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).GetFhirVersion(ctx, req.(*GetFhirVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CreateMedicalDataSourceRequestService_ServiceDesc is the grpc.ServiceDesc for CreateMedicalDataSourceRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CreateMedicalDataSourceRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.CreateMedicalDataSourceRequestService",
-	HandlerType: (*CreateMedicalDataSourceRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CreateMedicalDataSourceRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _CreateMedicalDataSourceRequestService_Equals_Handler,
-		},
-		{
-			MethodName: "GetDisplayName",
-			Handler:    _CreateMedicalDataSourceRequestService_GetDisplayName_Handler,
-		},
-		{
-			MethodName: "GetFhirBaseUri",
-			Handler:    _CreateMedicalDataSourceRequestService_GetFhirBaseUri_Handler,
-		},
-		{
-			MethodName: "GetFhirVersion",
-			Handler:    _CreateMedicalDataSourceRequestService_GetFhirVersion_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _CreateMedicalDataSourceRequestService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CreateMedicalDataSourceRequestService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CreateMedicalDataSourceRequestService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	CreateMedicalDataSourceRequestBuilderService_Build_FullMethodName          = "/connect.CreateMedicalDataSourceRequestBuilderService/Build"
-	CreateMedicalDataSourceRequestBuilderService_SetDisplayName_FullMethodName = "/connect.CreateMedicalDataSourceRequestBuilderService/SetDisplayName"
-	CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_FullMethodName = "/connect.CreateMedicalDataSourceRequestBuilderService/SetFhirBaseUri"
-	CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_FullMethodName = "/connect.CreateMedicalDataSourceRequestBuilderService/SetFhirVersion"
-)
-
-// CreateMedicalDataSourceRequestBuilderServiceClient is the client API for CreateMedicalDataSourceRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CreateMedicalDataSourceRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetDisplayName(ctx context.Context, in *SetDisplayNameRequest, opts ...grpc.CallOption) (*SetDisplayNameResponse, error)
-	SetFhirBaseUri(ctx context.Context, in *SetFhirBaseUriRequest, opts ...grpc.CallOption) (*SetFhirBaseUriResponse, error)
-	SetFhirVersion(ctx context.Context, in *SetFhirVersionRequest, opts ...grpc.CallOption) (*SetFhirVersionResponse, error)
-}
-
-type createMedicalDataSourceRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCreateMedicalDataSourceRequestBuilderServiceClient(cc grpc.ClientConnInterface) CreateMedicalDataSourceRequestBuilderServiceClient {
-	return &createMedicalDataSourceRequestBuilderServiceClient{cc}
-}
-
-func (c *createMedicalDataSourceRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestBuilderServiceClient) SetDisplayName(ctx context.Context, in *SetDisplayNameRequest, opts ...grpc.CallOption) (*SetDisplayNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDisplayNameResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestBuilderService_SetDisplayName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestBuilderServiceClient) SetFhirBaseUri(ctx context.Context, in *SetFhirBaseUriRequest, opts ...grpc.CallOption) (*SetFhirBaseUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFhirBaseUriResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createMedicalDataSourceRequestBuilderServiceClient) SetFhirVersion(ctx context.Context, in *SetFhirVersionRequest, opts ...grpc.CallOption) (*SetFhirVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFhirVersionResponse)
-	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CreateMedicalDataSourceRequestBuilderServiceServer is the server API for CreateMedicalDataSourceRequestBuilderService service.
-// All implementations must embed UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer
-// for forward compatibility.
-type CreateMedicalDataSourceRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetDisplayName(context.Context, *SetDisplayNameRequest) (*SetDisplayNameResponse, error)
-	SetFhirBaseUri(context.Context, *SetFhirBaseUriRequest) (*SetFhirBaseUriResponse, error)
-	SetFhirVersion(context.Context, *SetFhirVersionRequest) (*SetFhirVersionResponse, error)
-	mustEmbedUnimplementedCreateMedicalDataSourceRequestBuilderServiceServer()
-}
-
-// UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer struct{}
-
-func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) SetDisplayName(context.Context, *SetDisplayNameRequest) (*SetDisplayNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDisplayName not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) SetFhirBaseUri(context.Context, *SetFhirBaseUriRequest) (*SetFhirBaseUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFhirBaseUri not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) SetFhirVersion(context.Context, *SetFhirVersionRequest) (*SetFhirVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFhirVersion not implemented")
-}
-func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) mustEmbedUnimplementedCreateMedicalDataSourceRequestBuilderServiceServer() {
-}
-func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCreateMedicalDataSourceRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CreateMedicalDataSourceRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeCreateMedicalDataSourceRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedCreateMedicalDataSourceRequestBuilderServiceServer()
-}
-
-func RegisterCreateMedicalDataSourceRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv CreateMedicalDataSourceRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CreateMedicalDataSourceRequestBuilderService_ServiceDesc, srv)
-}
-
-func _CreateMedicalDataSourceRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestBuilderService_SetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDisplayNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetDisplayName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestBuilderService_SetDisplayName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetDisplayName(ctx, req.(*SetDisplayNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFhirBaseUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetFhirBaseUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetFhirBaseUri(ctx, req.(*SetFhirBaseUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFhirVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetFhirVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetFhirVersion(ctx, req.(*SetFhirVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CreateMedicalDataSourceRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for CreateMedicalDataSourceRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CreateMedicalDataSourceRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.CreateMedicalDataSourceRequestBuilderService",
-	HandlerType: (*CreateMedicalDataSourceRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _CreateMedicalDataSourceRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetDisplayName",
-			Handler:    _CreateMedicalDataSourceRequestBuilderService_SetDisplayName_Handler,
-		},
-		{
-			MethodName: "SetFhirBaseUri",
-			Handler:    _CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_Handler,
-		},
-		{
-			MethodName: "SetFhirVersion",
-			Handler:    _CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	ReadMedicalResourcesRequestService_GetPageSize_FullMethodName = "/connect.ReadMedicalResourcesRequestService/GetPageSize"
-)
-
-// ReadMedicalResourcesRequestServiceClient is the client API for ReadMedicalResourcesRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReadMedicalResourcesRequestServiceClient interface {
-	GetPageSize(ctx context.Context, in *GetPageSizeRequest, opts ...grpc.CallOption) (*GetPageSizeResponse, error)
-}
-
-type readMedicalResourcesRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReadMedicalResourcesRequestServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesRequestServiceClient {
-	return &readMedicalResourcesRequestServiceClient{cc}
-}
-
-func (c *readMedicalResourcesRequestServiceClient) GetPageSize(ctx context.Context, in *GetPageSizeRequest, opts ...grpc.CallOption) (*GetPageSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPageSizeResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesRequestService_GetPageSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReadMedicalResourcesRequestServiceServer is the server API for ReadMedicalResourcesRequestService service.
-// All implementations must embed UnimplementedReadMedicalResourcesRequestServiceServer
-// for forward compatibility.
-type ReadMedicalResourcesRequestServiceServer interface {
-	GetPageSize(context.Context, *GetPageSizeRequest) (*GetPageSizeResponse, error)
-	mustEmbedUnimplementedReadMedicalResourcesRequestServiceServer()
-}
-
-// UnimplementedReadMedicalResourcesRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReadMedicalResourcesRequestServiceServer struct{}
-
-func (UnimplementedReadMedicalResourcesRequestServiceServer) GetPageSize(context.Context, *GetPageSizeRequest) (*GetPageSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageSize not implemented")
-}
-func (UnimplementedReadMedicalResourcesRequestServiceServer) mustEmbedUnimplementedReadMedicalResourcesRequestServiceServer() {
-}
-func (UnimplementedReadMedicalResourcesRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeReadMedicalResourcesRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReadMedicalResourcesRequestServiceServer will
-// result in compilation errors.
-type UnsafeReadMedicalResourcesRequestServiceServer interface {
-	mustEmbedUnimplementedReadMedicalResourcesRequestServiceServer()
-}
-
-func RegisterReadMedicalResourcesRequestServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedReadMedicalResourcesRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReadMedicalResourcesRequestService_ServiceDesc, srv)
-}
-
-func _ReadMedicalResourcesRequestService_GetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesRequestServiceServer).GetPageSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesRequestService_GetPageSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesRequestServiceServer).GetPageSize(ctx, req.(*GetPageSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReadMedicalResourcesRequestService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReadMedicalResourcesRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.ReadMedicalResourcesRequestService",
-	HandlerType: (*ReadMedicalResourcesRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetPageSize",
-			Handler:    _ReadMedicalResourcesRequestService_GetPageSize_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	HealthConnectExceptionService_GetErrorCode_FullMethodName = "/connect.HealthConnectExceptionService/GetErrorCode"
-)
-
-// HealthConnectExceptionServiceClient is the client API for HealthConnectExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type HealthConnectExceptionServiceClient interface {
-	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
-}
-
-type healthConnectExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewHealthConnectExceptionServiceClient(cc grpc.ClientConnInterface) HealthConnectExceptionServiceClient {
-	return &healthConnectExceptionServiceClient{cc}
-}
-
-func (c *healthConnectExceptionServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetErrorCodeResponse)
-	err := c.cc.Invoke(ctx, HealthConnectExceptionService_GetErrorCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// HealthConnectExceptionServiceServer is the server API for HealthConnectExceptionService service.
-// All implementations must embed UnimplementedHealthConnectExceptionServiceServer
-// for forward compatibility.
-type HealthConnectExceptionServiceServer interface {
-	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
-	mustEmbedUnimplementedHealthConnectExceptionServiceServer()
-}
-
-// UnimplementedHealthConnectExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedHealthConnectExceptionServiceServer struct{}
-
-func (UnimplementedHealthConnectExceptionServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
-}
-func (UnimplementedHealthConnectExceptionServiceServer) mustEmbedUnimplementedHealthConnectExceptionServiceServer() {
-}
-func (UnimplementedHealthConnectExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeHealthConnectExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to HealthConnectExceptionServiceServer will
-// result in compilation errors.
-type UnsafeHealthConnectExceptionServiceServer interface {
-	mustEmbedUnimplementedHealthConnectExceptionServiceServer()
-}
-
-func RegisterHealthConnectExceptionServiceServer(s grpc.ServiceRegistrar, srv HealthConnectExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedHealthConnectExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&HealthConnectExceptionService_ServiceDesc, srv)
-}
-
-func _HealthConnectExceptionService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetErrorCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HealthConnectExceptionServiceServer).GetErrorCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HealthConnectExceptionService_GetErrorCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthConnectExceptionServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// HealthConnectExceptionService_ServiceDesc is the grpc.ServiceDesc for HealthConnectExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var HealthConnectExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.HealthConnectExceptionService",
-	HandlerType: (*HealthConnectExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetErrorCode",
-			Handler:    _HealthConnectExceptionService_GetErrorCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	ReadMedicalResourcesPageRequestService_Equals_FullMethodName       = "/connect.ReadMedicalResourcesPageRequestService/Equals"
-	ReadMedicalResourcesPageRequestService_GetPageToken_FullMethodName = "/connect.ReadMedicalResourcesPageRequestService/GetPageToken"
-	ReadMedicalResourcesPageRequestService_HashCode_FullMethodName     = "/connect.ReadMedicalResourcesPageRequestService/HashCode"
-	ReadMedicalResourcesPageRequestService_ToString_FullMethodName     = "/connect.ReadMedicalResourcesPageRequestService/ToString"
-)
-
-// ReadMedicalResourcesPageRequestServiceClient is the client API for ReadMedicalResourcesPageRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReadMedicalResourcesPageRequestServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetPageToken(ctx context.Context, in *GetPageTokenRequest, opts ...grpc.CallOption) (*ReadMedicalResourcesPageRequestGetPageTokenResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type readMedicalResourcesPageRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReadMedicalResourcesPageRequestServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesPageRequestServiceClient {
-	return &readMedicalResourcesPageRequestServiceClient{cc}
-}
-
-func (c *readMedicalResourcesPageRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesPageRequestServiceClient) GetPageToken(ctx context.Context, in *GetPageTokenRequest, opts ...grpc.CallOption) (*ReadMedicalResourcesPageRequestGetPageTokenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReadMedicalResourcesPageRequestGetPageTokenResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestService_GetPageToken_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesPageRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesPageRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReadMedicalResourcesPageRequestServiceServer is the server API for ReadMedicalResourcesPageRequestService service.
-// All implementations must embed UnimplementedReadMedicalResourcesPageRequestServiceServer
-// for forward compatibility.
-type ReadMedicalResourcesPageRequestServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetPageToken(context.Context, *GetPageTokenRequest) (*ReadMedicalResourcesPageRequestGetPageTokenResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedReadMedicalResourcesPageRequestServiceServer()
-}
-
-// UnimplementedReadMedicalResourcesPageRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReadMedicalResourcesPageRequestServiceServer struct{}
-
-func (UnimplementedReadMedicalResourcesPageRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedReadMedicalResourcesPageRequestServiceServer) GetPageToken(context.Context, *GetPageTokenRequest) (*ReadMedicalResourcesPageRequestGetPageTokenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPageToken not implemented")
-}
-func (UnimplementedReadMedicalResourcesPageRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedReadMedicalResourcesPageRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedReadMedicalResourcesPageRequestServiceServer) mustEmbedUnimplementedReadMedicalResourcesPageRequestServiceServer() {
-}
-func (UnimplementedReadMedicalResourcesPageRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeReadMedicalResourcesPageRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReadMedicalResourcesPageRequestServiceServer will
-// result in compilation errors.
-type UnsafeReadMedicalResourcesPageRequestServiceServer interface {
-	mustEmbedUnimplementedReadMedicalResourcesPageRequestServiceServer()
-}
-
-func RegisterReadMedicalResourcesPageRequestServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesPageRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedReadMedicalResourcesPageRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReadMedicalResourcesPageRequestService_ServiceDesc, srv)
-}
-
-func _ReadMedicalResourcesPageRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesPageRequestServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesPageRequestService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesPageRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesPageRequestService_GetPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPageTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesPageRequestServiceServer).GetPageToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesPageRequestService_GetPageToken_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesPageRequestServiceServer).GetPageToken(ctx, req.(*GetPageTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesPageRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesPageRequestServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesPageRequestService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesPageRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesPageRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesPageRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesPageRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesPageRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReadMedicalResourcesPageRequestService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesPageRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReadMedicalResourcesPageRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.ReadMedicalResourcesPageRequestService",
-	HandlerType: (*ReadMedicalResourcesPageRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _ReadMedicalResourcesPageRequestService_Equals_Handler,
-		},
-		{
-			MethodName: "GetPageToken",
-			Handler:    _ReadMedicalResourcesPageRequestService_GetPageToken_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ReadMedicalResourcesPageRequestService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ReadMedicalResourcesPageRequestService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	ReadMedicalResourcesPageRequestBuilderService_Build_FullMethodName        = "/connect.ReadMedicalResourcesPageRequestBuilderService/Build"
-	ReadMedicalResourcesPageRequestBuilderService_SetPageSize_FullMethodName  = "/connect.ReadMedicalResourcesPageRequestBuilderService/SetPageSize"
-	ReadMedicalResourcesPageRequestBuilderService_SetPageToken_FullMethodName = "/connect.ReadMedicalResourcesPageRequestBuilderService/SetPageToken"
-)
-
-// ReadMedicalResourcesPageRequestBuilderServiceClient is the client API for ReadMedicalResourcesPageRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReadMedicalResourcesPageRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error)
-	SetPageToken(ctx context.Context, in *SetPageTokenRequest, opts ...grpc.CallOption) (*SetPageTokenResponse, error)
-}
-
-type readMedicalResourcesPageRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReadMedicalResourcesPageRequestBuilderServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesPageRequestBuilderServiceClient {
-	return &readMedicalResourcesPageRequestBuilderServiceClient{cc}
-}
-
-func (c *readMedicalResourcesPageRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesPageRequestBuilderServiceClient) SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPageSizeResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestBuilderService_SetPageSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readMedicalResourcesPageRequestBuilderServiceClient) SetPageToken(ctx context.Context, in *SetPageTokenRequest, opts ...grpc.CallOption) (*SetPageTokenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPageTokenResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestBuilderService_SetPageToken_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReadMedicalResourcesPageRequestBuilderServiceServer is the server API for ReadMedicalResourcesPageRequestBuilderService service.
-// All implementations must embed UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer
-// for forward compatibility.
-type ReadMedicalResourcesPageRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error)
-	SetPageToken(context.Context, *SetPageTokenRequest) (*SetPageTokenResponse, error)
-	mustEmbedUnimplementedReadMedicalResourcesPageRequestBuilderServiceServer()
-}
-
-// UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer struct{}
-
-func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPageSize not implemented")
-}
-func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) SetPageToken(context.Context, *SetPageTokenRequest) (*SetPageTokenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPageToken not implemented")
-}
-func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) mustEmbedUnimplementedReadMedicalResourcesPageRequestBuilderServiceServer() {
-}
-func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeReadMedicalResourcesPageRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReadMedicalResourcesPageRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeReadMedicalResourcesPageRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedReadMedicalResourcesPageRequestBuilderServiceServer()
-}
-
-func RegisterReadMedicalResourcesPageRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesPageRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReadMedicalResourcesPageRequestBuilderService_ServiceDesc, srv)
-}
-
-func _ReadMedicalResourcesPageRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesPageRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesPageRequestBuilderService_SetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPageSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).SetPageSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesPageRequestBuilderService_SetPageSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).SetPageSize(ctx, req.(*SetPageSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReadMedicalResourcesPageRequestBuilderService_SetPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPageTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).SetPageToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadMedicalResourcesPageRequestBuilderService_SetPageToken_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).SetPageToken(ctx, req.(*SetPageTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReadMedicalResourcesPageRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesPageRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReadMedicalResourcesPageRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.ReadMedicalResourcesPageRequestBuilderService",
-	HandlerType: (*ReadMedicalResourcesPageRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _ReadMedicalResourcesPageRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetPageSize",
-			Handler:    _ReadMedicalResourcesPageRequestBuilderService_SetPageSize_Handler,
-		},
-		{
-			MethodName: "SetPageToken",
-			Handler:    _ReadMedicalResourcesPageRequestBuilderService_SetPageToken_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	RecordIdFilterService_GetClientRecordId_FullMethodName = "/connect.RecordIdFilterService/GetClientRecordId"
-	RecordIdFilterService_GetId_FullMethodName             = "/connect.RecordIdFilterService/GetId"
-)
-
-// RecordIdFilterServiceClient is the client API for RecordIdFilterService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RecordIdFilterServiceClient interface {
-	GetClientRecordId(ctx context.Context, in *GetClientRecordIdRequest, opts ...grpc.CallOption) (*GetClientRecordIdResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-}
-
-type recordIdFilterServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRecordIdFilterServiceClient(cc grpc.ClientConnInterface) RecordIdFilterServiceClient {
-	return &recordIdFilterServiceClient{cc}
-}
-
-func (c *recordIdFilterServiceClient) GetClientRecordId(ctx context.Context, in *GetClientRecordIdRequest, opts ...grpc.CallOption) (*GetClientRecordIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetClientRecordIdResponse)
-	err := c.cc.Invoke(ctx, RecordIdFilterService_GetClientRecordId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *recordIdFilterServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, RecordIdFilterService_GetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RecordIdFilterServiceServer is the server API for RecordIdFilterService service.
-// All implementations must embed UnimplementedRecordIdFilterServiceServer
-// for forward compatibility.
-type RecordIdFilterServiceServer interface {
-	GetClientRecordId(context.Context, *GetClientRecordIdRequest) (*GetClientRecordIdResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	mustEmbedUnimplementedRecordIdFilterServiceServer()
-}
-
-// UnimplementedRecordIdFilterServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRecordIdFilterServiceServer struct{}
-
-func (UnimplementedRecordIdFilterServiceServer) GetClientRecordId(context.Context, *GetClientRecordIdRequest) (*GetClientRecordIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetClientRecordId not implemented")
-}
-func (UnimplementedRecordIdFilterServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
-}
-func (UnimplementedRecordIdFilterServiceServer) mustEmbedUnimplementedRecordIdFilterServiceServer() {}
-func (UnimplementedRecordIdFilterServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeRecordIdFilterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RecordIdFilterServiceServer will
-// result in compilation errors.
-type UnsafeRecordIdFilterServiceServer interface {
-	mustEmbedUnimplementedRecordIdFilterServiceServer()
-}
-
-func RegisterRecordIdFilterServiceServer(s grpc.ServiceRegistrar, srv RecordIdFilterServiceServer) {
-	// If the following call panics, it indicates UnimplementedRecordIdFilterServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RecordIdFilterService_ServiceDesc, srv)
-}
-
-func _RecordIdFilterService_GetClientRecordId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetClientRecordIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RecordIdFilterServiceServer).GetClientRecordId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RecordIdFilterService_GetClientRecordId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecordIdFilterServiceServer).GetClientRecordId(ctx, req.(*GetClientRecordIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RecordIdFilterService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RecordIdFilterServiceServer).GetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RecordIdFilterService_GetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecordIdFilterServiceServer).GetId(ctx, req.(*GetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RecordIdFilterService_ServiceDesc is the grpc.ServiceDesc for RecordIdFilterService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RecordIdFilterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.RecordIdFilterService",
-	HandlerType: (*RecordIdFilterServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetClientRecordId",
-			Handler:    _RecordIdFilterService_GetClientRecordId_Handler,
-		},
-		{
-			MethodName: "GetId",
-			Handler:    _RecordIdFilterService_GetId_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	GetMedicalDataSourcesRequestService_DescribeContents_FullMethodName = "/connect.GetMedicalDataSourcesRequestService/DescribeContents"
-	GetMedicalDataSourcesRequestService_Equals_FullMethodName           = "/connect.GetMedicalDataSourcesRequestService/Equals"
-	GetMedicalDataSourcesRequestService_HashCode_FullMethodName         = "/connect.GetMedicalDataSourcesRequestService/HashCode"
-	GetMedicalDataSourcesRequestService_ToString_FullMethodName         = "/connect.GetMedicalDataSourcesRequestService/ToString"
-	GetMedicalDataSourcesRequestService_WriteToParcel_FullMethodName    = "/connect.GetMedicalDataSourcesRequestService/WriteToParcel"
-)
-
-// GetMedicalDataSourcesRequestServiceClient is the client API for GetMedicalDataSourcesRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GetMedicalDataSourcesRequestServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type getMedicalDataSourcesRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGetMedicalDataSourcesRequestServiceClient(cc grpc.ClientConnInterface) GetMedicalDataSourcesRequestServiceClient {
-	return &getMedicalDataSourcesRequestServiceClient{cc}
-}
-
-func (c *getMedicalDataSourcesRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getMedicalDataSourcesRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getMedicalDataSourcesRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getMedicalDataSourcesRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getMedicalDataSourcesRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GetMedicalDataSourcesRequestServiceServer is the server API for GetMedicalDataSourcesRequestService service.
-// All implementations must embed UnimplementedGetMedicalDataSourcesRequestServiceServer
-// for forward compatibility.
-type GetMedicalDataSourcesRequestServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedGetMedicalDataSourcesRequestServiceServer()
-}
-
-// UnimplementedGetMedicalDataSourcesRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGetMedicalDataSourcesRequestServiceServer struct{}
-
-func (UnimplementedGetMedicalDataSourcesRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedGetMedicalDataSourcesRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedGetMedicalDataSourcesRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedGetMedicalDataSourcesRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedGetMedicalDataSourcesRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedGetMedicalDataSourcesRequestServiceServer) mustEmbedUnimplementedGetMedicalDataSourcesRequestServiceServer() {
-}
-func (UnimplementedGetMedicalDataSourcesRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeGetMedicalDataSourcesRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GetMedicalDataSourcesRequestServiceServer will
-// result in compilation errors.
-type UnsafeGetMedicalDataSourcesRequestServiceServer interface {
-	mustEmbedUnimplementedGetMedicalDataSourcesRequestServiceServer()
-}
-
-func RegisterGetMedicalDataSourcesRequestServiceServer(s grpc.ServiceRegistrar, srv GetMedicalDataSourcesRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedGetMedicalDataSourcesRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GetMedicalDataSourcesRequestService_ServiceDesc, srv)
-}
-
-func _GetMedicalDataSourcesRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetMedicalDataSourcesRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetMedicalDataSourcesRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetMedicalDataSourcesRequestService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetMedicalDataSourcesRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetMedicalDataSourcesRequestService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetMedicalDataSourcesRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetMedicalDataSourcesRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetMedicalDataSourcesRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetMedicalDataSourcesRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetMedicalDataSourcesRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GetMedicalDataSourcesRequestService_ServiceDesc is the grpc.ServiceDesc for GetMedicalDataSourcesRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GetMedicalDataSourcesRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.GetMedicalDataSourcesRequestService",
-	HandlerType: (*GetMedicalDataSourcesRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _GetMedicalDataSourcesRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _GetMedicalDataSourcesRequestService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _GetMedicalDataSourcesRequestService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _GetMedicalDataSourcesRequestService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _GetMedicalDataSourcesRequestService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/connect/connect.proto",
-}
-
-const (
-	GetMedicalDataSourcesRequestBuilderService_AddPackageName_FullMethodName    = "/connect.GetMedicalDataSourcesRequestBuilderService/AddPackageName"
-	GetMedicalDataSourcesRequestBuilderService_Build_FullMethodName             = "/connect.GetMedicalDataSourcesRequestBuilderService/Build"
-	GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_FullMethodName = "/connect.GetMedicalDataSourcesRequestBuilderService/ClearPackageNames"
-)
-
-// GetMedicalDataSourcesRequestBuilderServiceClient is the client API for GetMedicalDataSourcesRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GetMedicalDataSourcesRequestBuilderServiceClient interface {
-	AddPackageName(ctx context.Context, in *AddPackageNameRequest, opts ...grpc.CallOption) (*AddPackageNameResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	ClearPackageNames(ctx context.Context, in *ClearPackageNamesRequest, opts ...grpc.CallOption) (*ClearPackageNamesResponse, error)
-}
-
-type getMedicalDataSourcesRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGetMedicalDataSourcesRequestBuilderServiceClient(cc grpc.ClientConnInterface) GetMedicalDataSourcesRequestBuilderServiceClient {
-	return &getMedicalDataSourcesRequestBuilderServiceClient{cc}
-}
-
-func (c *getMedicalDataSourcesRequestBuilderServiceClient) AddPackageName(ctx context.Context, in *AddPackageNameRequest, opts ...grpc.CallOption) (*AddPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddPackageNameResponse)
-	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestBuilderService_AddPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getMedicalDataSourcesRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getMedicalDataSourcesRequestBuilderServiceClient) ClearPackageNames(ctx context.Context, in *ClearPackageNamesRequest, opts ...grpc.CallOption) (*ClearPackageNamesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearPackageNamesResponse)
-	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GetMedicalDataSourcesRequestBuilderServiceServer is the server API for GetMedicalDataSourcesRequestBuilderService service.
-// All implementations must embed UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer
-// for forward compatibility.
-type GetMedicalDataSourcesRequestBuilderServiceServer interface {
-	AddPackageName(context.Context, *AddPackageNameRequest) (*AddPackageNameResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	ClearPackageNames(context.Context, *ClearPackageNamesRequest) (*ClearPackageNamesResponse, error)
-	mustEmbedUnimplementedGetMedicalDataSourcesRequestBuilderServiceServer()
-}
-
-// UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer struct{}
-
-func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) AddPackageName(context.Context, *AddPackageNameRequest) (*AddPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddPackageName not implemented")
-}
-func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) ClearPackageNames(context.Context, *ClearPackageNamesRequest) (*ClearPackageNamesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearPackageNames not implemented")
-}
-func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) mustEmbedUnimplementedGetMedicalDataSourcesRequestBuilderServiceServer() {
-}
-func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeGetMedicalDataSourcesRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GetMedicalDataSourcesRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeGetMedicalDataSourcesRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedGetMedicalDataSourcesRequestBuilderServiceServer()
-}
-
-func RegisterGetMedicalDataSourcesRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv GetMedicalDataSourcesRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GetMedicalDataSourcesRequestBuilderService_ServiceDesc, srv)
-}
-
-func _GetMedicalDataSourcesRequestBuilderService_AddPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).AddPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetMedicalDataSourcesRequestBuilderService_AddPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).AddPackageName(ctx, req.(*AddPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetMedicalDataSourcesRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetMedicalDataSourcesRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearPackageNamesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).ClearPackageNames(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).ClearPackageNames(ctx, req.(*ClearPackageNamesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GetMedicalDataSourcesRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for GetMedicalDataSourcesRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GetMedicalDataSourcesRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.GetMedicalDataSourcesRequestBuilderService",
-	HandlerType: (*GetMedicalDataSourcesRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddPackageName",
-			Handler:    _GetMedicalDataSourcesRequestBuilderService_AddPackageName_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _GetMedicalDataSourcesRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "ClearPackageNames",
-			Handler:    _GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_Handler,
+			MethodName: "GetRecords",
+			Handler:    _ReadRecordsResponseService_GetRecords_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4197,368 +596,1491 @@ var LocalTimeRangeFilterBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_FullMethodName = "/connect.ReadMedicalResourcesResponseService/NewReadMedicalResourcesResponse"
-	ReadMedicalResourcesResponseService_DescribeContents_FullMethodName                = "/connect.ReadMedicalResourcesResponseService/DescribeContents"
-	ReadMedicalResourcesResponseService_Equals_FullMethodName                          = "/connect.ReadMedicalResourcesResponseService/Equals"
-	ReadMedicalResourcesResponseService_GetNextPageToken_FullMethodName                = "/connect.ReadMedicalResourcesResponseService/GetNextPageToken"
-	ReadMedicalResourcesResponseService_GetRemainingCount_FullMethodName               = "/connect.ReadMedicalResourcesResponseService/GetRemainingCount"
-	ReadMedicalResourcesResponseService_HashCode_FullMethodName                        = "/connect.ReadMedicalResourcesResponseService/HashCode"
-	ReadMedicalResourcesResponseService_ToString_FullMethodName                        = "/connect.ReadMedicalResourcesResponseService/ToString"
-	ReadMedicalResourcesResponseService_WriteToParcel_FullMethodName                   = "/connect.ReadMedicalResourcesResponseService/WriteToParcel"
+	MedicalResourceIdService_NewMedicalResourceId_FullMethodName = "/connect.MedicalResourceIdService/NewMedicalResourceId"
+	MedicalResourceIdService_DescribeContents_FullMethodName     = "/connect.MedicalResourceIdService/DescribeContents"
+	MedicalResourceIdService_Equals_FullMethodName               = "/connect.MedicalResourceIdService/Equals"
+	MedicalResourceIdService_GetDataSourceId_FullMethodName      = "/connect.MedicalResourceIdService/GetDataSourceId"
+	MedicalResourceIdService_GetFhirResourceId_FullMethodName    = "/connect.MedicalResourceIdService/GetFhirResourceId"
+	MedicalResourceIdService_GetFhirResourceType_FullMethodName  = "/connect.MedicalResourceIdService/GetFhirResourceType"
+	MedicalResourceIdService_HashCode_FullMethodName             = "/connect.MedicalResourceIdService/HashCode"
+	MedicalResourceIdService_ToString_FullMethodName             = "/connect.MedicalResourceIdService/ToString"
+	MedicalResourceIdService_WriteToParcel_FullMethodName        = "/connect.MedicalResourceIdService/WriteToParcel"
+	MedicalResourceIdService_FromFhirReference_FullMethodName    = "/connect.MedicalResourceIdService/FromFhirReference"
 )
 
-// ReadMedicalResourcesResponseServiceClient is the client API for ReadMedicalResourcesResponseService service.
+// MedicalResourceIdServiceClient is the client API for MedicalResourceIdService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReadMedicalResourcesResponseServiceClient interface {
-	NewReadMedicalResourcesResponse(ctx context.Context, in *NewReadMedicalResourcesResponseRequest, opts ...grpc.CallOption) (*NewReadMedicalResourcesResponseResponse, error)
-	DescribeContents(ctx context.Context, in *ReadMedicalResourcesResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *ReadMedicalResourcesResponseEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetNextPageToken(ctx context.Context, in *ReadMedicalResourcesResponseGetNextPageTokenRequest, opts ...grpc.CallOption) (*ReadMedicalResourcesResponseGetNextPageTokenResponse, error)
-	GetRemainingCount(ctx context.Context, in *GetRemainingCountRequest, opts ...grpc.CallOption) (*GetRemainingCountResponse, error)
-	HashCode(ctx context.Context, in *ReadMedicalResourcesResponseHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ReadMedicalResourcesResponseToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *ReadMedicalResourcesResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type MedicalResourceIdServiceClient interface {
+	NewMedicalResourceId(ctx context.Context, in *NewMedicalResourceIdRequest, opts ...grpc.CallOption) (*NewMedicalResourceIdResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *MedicalResourceIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDataSourceId(ctx context.Context, in *GetDataSourceIdRequest, opts ...grpc.CallOption) (*GetDataSourceIdResponse, error)
+	GetFhirResourceId(ctx context.Context, in *GetFhirResourceIdRequest, opts ...grpc.CallOption) (*GetFhirResourceIdResponse, error)
+	GetFhirResourceType(ctx context.Context, in *GetFhirResourceTypeRequest, opts ...grpc.CallOption) (*GetFhirResourceTypeResponse, error)
+	HashCode(ctx context.Context, in *MedicalResourceIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	FromFhirReference(ctx context.Context, in *FromFhirReferenceRequest, opts ...grpc.CallOption) (*FromFhirReferenceResponse, error)
 }
 
-type readMedicalResourcesResponseServiceClient struct {
+type medicalResourceIdServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewReadMedicalResourcesResponseServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesResponseServiceClient {
-	return &readMedicalResourcesResponseServiceClient{cc}
+func NewMedicalResourceIdServiceClient(cc grpc.ClientConnInterface) MedicalResourceIdServiceClient {
+	return &medicalResourceIdServiceClient{cc}
 }
 
-func (c *readMedicalResourcesResponseServiceClient) NewReadMedicalResourcesResponse(ctx context.Context, in *NewReadMedicalResourcesResponseRequest, opts ...grpc.CallOption) (*NewReadMedicalResourcesResponseResponse, error) {
+func (c *medicalResourceIdServiceClient) NewMedicalResourceId(ctx context.Context, in *NewMedicalResourceIdRequest, opts ...grpc.CallOption) (*NewMedicalResourceIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewReadMedicalResourcesResponseResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_FullMethodName, in, out, cOpts...)
+	out := new(NewMedicalResourceIdResponse)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_NewMedicalResourceId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *readMedicalResourcesResponseServiceClient) DescribeContents(ctx context.Context, in *ReadMedicalResourcesResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *medicalResourceIdServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *readMedicalResourcesResponseServiceClient) Equals(ctx context.Context, in *ReadMedicalResourcesResponseEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *medicalResourceIdServiceClient) Equals(ctx context.Context, in *MedicalResourceIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *readMedicalResourcesResponseServiceClient) GetNextPageToken(ctx context.Context, in *ReadMedicalResourcesResponseGetNextPageTokenRequest, opts ...grpc.CallOption) (*ReadMedicalResourcesResponseGetNextPageTokenResponse, error) {
+func (c *medicalResourceIdServiceClient) GetDataSourceId(ctx context.Context, in *GetDataSourceIdRequest, opts ...grpc.CallOption) (*GetDataSourceIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReadMedicalResourcesResponseGetNextPageTokenResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_GetNextPageToken_FullMethodName, in, out, cOpts...)
+	out := new(GetDataSourceIdResponse)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_GetDataSourceId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *readMedicalResourcesResponseServiceClient) GetRemainingCount(ctx context.Context, in *GetRemainingCountRequest, opts ...grpc.CallOption) (*GetRemainingCountResponse, error) {
+func (c *medicalResourceIdServiceClient) GetFhirResourceId(ctx context.Context, in *GetFhirResourceIdRequest, opts ...grpc.CallOption) (*GetFhirResourceIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRemainingCountResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_GetRemainingCount_FullMethodName, in, out, cOpts...)
+	out := new(GetFhirResourceIdResponse)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_GetFhirResourceId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *readMedicalResourcesResponseServiceClient) HashCode(ctx context.Context, in *ReadMedicalResourcesResponseHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *medicalResourceIdServiceClient) GetFhirResourceType(ctx context.Context, in *GetFhirResourceTypeRequest, opts ...grpc.CallOption) (*GetFhirResourceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFhirResourceTypeResponse)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_GetFhirResourceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *medicalResourceIdServiceClient) HashCode(ctx context.Context, in *MedicalResourceIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *readMedicalResourcesResponseServiceClient) ToString(ctx context.Context, in *ReadMedicalResourcesResponseToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *medicalResourceIdServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *readMedicalResourcesResponseServiceClient) WriteToParcel(ctx context.Context, in *ReadMedicalResourcesResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *medicalResourceIdServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ReadMedicalResourcesResponseServiceServer is the server API for ReadMedicalResourcesResponseService service.
-// All implementations must embed UnimplementedReadMedicalResourcesResponseServiceServer
-// for forward compatibility.
-type ReadMedicalResourcesResponseServiceServer interface {
-	NewReadMedicalResourcesResponse(context.Context, *NewReadMedicalResourcesResponseRequest) (*NewReadMedicalResourcesResponseResponse, error)
-	DescribeContents(context.Context, *ReadMedicalResourcesResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *ReadMedicalResourcesResponseEqualsRequest) (*EqualsResponse, error)
-	GetNextPageToken(context.Context, *ReadMedicalResourcesResponseGetNextPageTokenRequest) (*ReadMedicalResourcesResponseGetNextPageTokenResponse, error)
-	GetRemainingCount(context.Context, *GetRemainingCountRequest) (*GetRemainingCountResponse, error)
-	HashCode(context.Context, *ReadMedicalResourcesResponseHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ReadMedicalResourcesResponseToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *ReadMedicalResourcesResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedReadMedicalResourcesResponseServiceServer()
+func (c *medicalResourceIdServiceClient) FromFhirReference(ctx context.Context, in *FromFhirReferenceRequest, opts ...grpc.CallOption) (*FromFhirReferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromFhirReferenceResponse)
+	err := c.cc.Invoke(ctx, MedicalResourceIdService_FromFhirReference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedReadMedicalResourcesResponseServiceServer must be embedded to have
+// MedicalResourceIdServiceServer is the server API for MedicalResourceIdService service.
+// All implementations must embed UnimplementedMedicalResourceIdServiceServer
+// for forward compatibility.
+type MedicalResourceIdServiceServer interface {
+	NewMedicalResourceId(context.Context, *NewMedicalResourceIdRequest) (*NewMedicalResourceIdResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *MedicalResourceIdEqualsRequest) (*EqualsResponse, error)
+	GetDataSourceId(context.Context, *GetDataSourceIdRequest) (*GetDataSourceIdResponse, error)
+	GetFhirResourceId(context.Context, *GetFhirResourceIdRequest) (*GetFhirResourceIdResponse, error)
+	GetFhirResourceType(context.Context, *GetFhirResourceTypeRequest) (*GetFhirResourceTypeResponse, error)
+	HashCode(context.Context, *MedicalResourceIdHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	FromFhirReference(context.Context, *FromFhirReferenceRequest) (*FromFhirReferenceResponse, error)
+	mustEmbedUnimplementedMedicalResourceIdServiceServer()
+}
+
+// UnimplementedMedicalResourceIdServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedReadMedicalResourcesResponseServiceServer struct{}
+type UnimplementedMedicalResourceIdServiceServer struct{}
 
-func (UnimplementedReadMedicalResourcesResponseServiceServer) NewReadMedicalResourcesResponse(context.Context, *NewReadMedicalResourcesResponseRequest) (*NewReadMedicalResourcesResponseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewReadMedicalResourcesResponse not implemented")
+func (UnimplementedMedicalResourceIdServiceServer) NewMedicalResourceId(context.Context, *NewMedicalResourceIdRequest) (*NewMedicalResourceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewMedicalResourceId not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) DescribeContents(context.Context, *ReadMedicalResourcesResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedMedicalResourceIdServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) Equals(context.Context, *ReadMedicalResourcesResponseEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedMedicalResourceIdServiceServer) Equals(context.Context, *MedicalResourceIdEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) GetNextPageToken(context.Context, *ReadMedicalResourcesResponseGetNextPageTokenRequest) (*ReadMedicalResourcesResponseGetNextPageTokenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNextPageToken not implemented")
+func (UnimplementedMedicalResourceIdServiceServer) GetDataSourceId(context.Context, *GetDataSourceIdRequest) (*GetDataSourceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataSourceId not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) GetRemainingCount(context.Context, *GetRemainingCountRequest) (*GetRemainingCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRemainingCount not implemented")
+func (UnimplementedMedicalResourceIdServiceServer) GetFhirResourceId(context.Context, *GetFhirResourceIdRequest) (*GetFhirResourceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFhirResourceId not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) HashCode(context.Context, *ReadMedicalResourcesResponseHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedMedicalResourceIdServiceServer) GetFhirResourceType(context.Context, *GetFhirResourceTypeRequest) (*GetFhirResourceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFhirResourceType not implemented")
+}
+func (UnimplementedMedicalResourceIdServiceServer) HashCode(context.Context, *MedicalResourceIdHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) ToString(context.Context, *ReadMedicalResourcesResponseToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedMedicalResourceIdServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) WriteToParcel(context.Context, *ReadMedicalResourcesResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedMedicalResourceIdServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) mustEmbedUnimplementedReadMedicalResourcesResponseServiceServer() {
+func (UnimplementedMedicalResourceIdServiceServer) FromFhirReference(context.Context, *FromFhirReferenceRequest) (*FromFhirReferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromFhirReference not implemented")
 }
-func (UnimplementedReadMedicalResourcesResponseServiceServer) testEmbeddedByValue() {}
+func (UnimplementedMedicalResourceIdServiceServer) mustEmbedUnimplementedMedicalResourceIdServiceServer() {
+}
+func (UnimplementedMedicalResourceIdServiceServer) testEmbeddedByValue() {}
 
-// UnsafeReadMedicalResourcesResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReadMedicalResourcesResponseServiceServer will
+// UnsafeMedicalResourceIdServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MedicalResourceIdServiceServer will
 // result in compilation errors.
-type UnsafeReadMedicalResourcesResponseServiceServer interface {
-	mustEmbedUnimplementedReadMedicalResourcesResponseServiceServer()
+type UnsafeMedicalResourceIdServiceServer interface {
+	mustEmbedUnimplementedMedicalResourceIdServiceServer()
 }
 
-func RegisterReadMedicalResourcesResponseServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedReadMedicalResourcesResponseServiceServer was
+func RegisterMedicalResourceIdServiceServer(s grpc.ServiceRegistrar, srv MedicalResourceIdServiceServer) {
+	// If the following call panics, it indicates UnimplementedMedicalResourceIdServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ReadMedicalResourcesResponseService_ServiceDesc, srv)
+	s.RegisterService(&MedicalResourceIdService_ServiceDesc, srv)
 }
 
-func _ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewReadMedicalResourcesResponseRequest)
+func _MedicalResourceIdService_NewMedicalResourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewMedicalResourceIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ReadMedicalResourcesResponseServiceServer).NewReadMedicalResourcesResponse(ctx, in)
+		return srv.(MedicalResourceIdServiceServer).NewMedicalResourceId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_FullMethodName,
+		FullMethod: MedicalResourceIdService_NewMedicalResourceId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesResponseServiceServer).NewReadMedicalResourcesResponse(ctx, req.(*NewReadMedicalResourcesResponseRequest))
+		return srv.(MedicalResourceIdServiceServer).NewMedicalResourceId(ctx, req.(*NewMedicalResourceIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ReadMedicalResourcesResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadMedicalResourcesResponseDescribeContentsRequest)
+func _MedicalResourceIdService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ReadMedicalResourcesResponseServiceServer).DescribeContents(ctx, in)
+		return srv.(MedicalResourceIdServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ReadMedicalResourcesResponseService_DescribeContents_FullMethodName,
+		FullMethod: MedicalResourceIdService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesResponseServiceServer).DescribeContents(ctx, req.(*ReadMedicalResourcesResponseDescribeContentsRequest))
+		return srv.(MedicalResourceIdServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ReadMedicalResourcesResponseService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadMedicalResourcesResponseEqualsRequest)
+func _MedicalResourceIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MedicalResourceIdEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ReadMedicalResourcesResponseServiceServer).Equals(ctx, in)
+		return srv.(MedicalResourceIdServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ReadMedicalResourcesResponseService_Equals_FullMethodName,
+		FullMethod: MedicalResourceIdService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesResponseServiceServer).Equals(ctx, req.(*ReadMedicalResourcesResponseEqualsRequest))
+		return srv.(MedicalResourceIdServiceServer).Equals(ctx, req.(*MedicalResourceIdEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ReadMedicalResourcesResponseService_GetNextPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadMedicalResourcesResponseGetNextPageTokenRequest)
+func _MedicalResourceIdService_GetDataSourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataSourceIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ReadMedicalResourcesResponseServiceServer).GetNextPageToken(ctx, in)
+		return srv.(MedicalResourceIdServiceServer).GetDataSourceId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ReadMedicalResourcesResponseService_GetNextPageToken_FullMethodName,
+		FullMethod: MedicalResourceIdService_GetDataSourceId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesResponseServiceServer).GetNextPageToken(ctx, req.(*ReadMedicalResourcesResponseGetNextPageTokenRequest))
+		return srv.(MedicalResourceIdServiceServer).GetDataSourceId(ctx, req.(*GetDataSourceIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ReadMedicalResourcesResponseService_GetRemainingCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRemainingCountRequest)
+func _MedicalResourceIdService_GetFhirResourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFhirResourceIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ReadMedicalResourcesResponseServiceServer).GetRemainingCount(ctx, in)
+		return srv.(MedicalResourceIdServiceServer).GetFhirResourceId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ReadMedicalResourcesResponseService_GetRemainingCount_FullMethodName,
+		FullMethod: MedicalResourceIdService_GetFhirResourceId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesResponseServiceServer).GetRemainingCount(ctx, req.(*GetRemainingCountRequest))
+		return srv.(MedicalResourceIdServiceServer).GetFhirResourceId(ctx, req.(*GetFhirResourceIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ReadMedicalResourcesResponseService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadMedicalResourcesResponseHashCodeRequest)
+func _MedicalResourceIdService_GetFhirResourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFhirResourceTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ReadMedicalResourcesResponseServiceServer).HashCode(ctx, in)
+		return srv.(MedicalResourceIdServiceServer).GetFhirResourceType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ReadMedicalResourcesResponseService_HashCode_FullMethodName,
+		FullMethod: MedicalResourceIdService_GetFhirResourceType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesResponseServiceServer).HashCode(ctx, req.(*ReadMedicalResourcesResponseHashCodeRequest))
+		return srv.(MedicalResourceIdServiceServer).GetFhirResourceType(ctx, req.(*GetFhirResourceTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ReadMedicalResourcesResponseService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadMedicalResourcesResponseToStringRequest)
+func _MedicalResourceIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MedicalResourceIdHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ReadMedicalResourcesResponseServiceServer).ToString(ctx, in)
+		return srv.(MedicalResourceIdServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ReadMedicalResourcesResponseService_ToString_FullMethodName,
+		FullMethod: MedicalResourceIdService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesResponseServiceServer).ToString(ctx, req.(*ReadMedicalResourcesResponseToStringRequest))
+		return srv.(MedicalResourceIdServiceServer).HashCode(ctx, req.(*MedicalResourceIdHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ReadMedicalResourcesResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadMedicalResourcesResponseWriteToParcelRequest)
+func _MedicalResourceIdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ReadMedicalResourcesResponseServiceServer).WriteToParcel(ctx, in)
+		return srv.(MedicalResourceIdServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ReadMedicalResourcesResponseService_WriteToParcel_FullMethodName,
+		FullMethod: MedicalResourceIdService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadMedicalResourcesResponseServiceServer).WriteToParcel(ctx, req.(*ReadMedicalResourcesResponseWriteToParcelRequest))
+		return srv.(MedicalResourceIdServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ReadMedicalResourcesResponseService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesResponseService service.
+func _MedicalResourceIdService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MedicalResourceIdServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MedicalResourceIdService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MedicalResourceIdServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MedicalResourceIdService_FromFhirReference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromFhirReferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MedicalResourceIdServiceServer).FromFhirReference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MedicalResourceIdService_FromFhirReference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MedicalResourceIdServiceServer).FromFhirReference(ctx, req.(*FromFhirReferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MedicalResourceIdService_ServiceDesc is the grpc.ServiceDesc for MedicalResourceIdService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ReadMedicalResourcesResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.ReadMedicalResourcesResponseService",
-	HandlerType: (*ReadMedicalResourcesResponseServiceServer)(nil),
+var MedicalResourceIdService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.MedicalResourceIdService",
+	HandlerType: (*MedicalResourceIdServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewReadMedicalResourcesResponse",
-			Handler:    _ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_Handler,
+			MethodName: "NewMedicalResourceId",
+			Handler:    _MedicalResourceIdService_NewMedicalResourceId_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _ReadMedicalResourcesResponseService_DescribeContents_Handler,
+			Handler:    _MedicalResourceIdService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _ReadMedicalResourcesResponseService_Equals_Handler,
+			Handler:    _MedicalResourceIdService_Equals_Handler,
 		},
 		{
-			MethodName: "GetNextPageToken",
-			Handler:    _ReadMedicalResourcesResponseService_GetNextPageToken_Handler,
+			MethodName: "GetDataSourceId",
+			Handler:    _MedicalResourceIdService_GetDataSourceId_Handler,
 		},
 		{
-			MethodName: "GetRemainingCount",
-			Handler:    _ReadMedicalResourcesResponseService_GetRemainingCount_Handler,
+			MethodName: "GetFhirResourceId",
+			Handler:    _MedicalResourceIdService_GetFhirResourceId_Handler,
+		},
+		{
+			MethodName: "GetFhirResourceType",
+			Handler:    _MedicalResourceIdService_GetFhirResourceType_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _ReadMedicalResourcesResponseService_HashCode_Handler,
+			Handler:    _MedicalResourceIdService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _ReadMedicalResourcesResponseService_ToString_Handler,
+			Handler:    _MedicalResourceIdService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _ReadMedicalResourcesResponseService_WriteToParcel_Handler,
+			Handler:    _MedicalResourceIdService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "FromFhirReference",
+			Handler:    _MedicalResourceIdService_FromFhirReference_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadMedicalResourcesPageRequestService_Equals_FullMethodName       = "/connect.ReadMedicalResourcesPageRequestService/Equals"
+	ReadMedicalResourcesPageRequestService_GetPageToken_FullMethodName = "/connect.ReadMedicalResourcesPageRequestService/GetPageToken"
+	ReadMedicalResourcesPageRequestService_HashCode_FullMethodName     = "/connect.ReadMedicalResourcesPageRequestService/HashCode"
+	ReadMedicalResourcesPageRequestService_ToString_FullMethodName     = "/connect.ReadMedicalResourcesPageRequestService/ToString"
+)
+
+// ReadMedicalResourcesPageRequestServiceClient is the client API for ReadMedicalResourcesPageRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadMedicalResourcesPageRequestServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPageToken(ctx context.Context, in *GetPageTokenRequest, opts ...grpc.CallOption) (*GetPageTokenResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ReadMedicalResourcesPageRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type readMedicalResourcesPageRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadMedicalResourcesPageRequestServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesPageRequestServiceClient {
+	return &readMedicalResourcesPageRequestServiceClient{cc}
+}
+
+func (c *readMedicalResourcesPageRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesPageRequestServiceClient) GetPageToken(ctx context.Context, in *GetPageTokenRequest, opts ...grpc.CallOption) (*GetPageTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPageTokenResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestService_GetPageToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesPageRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesPageRequestServiceClient) ToString(ctx context.Context, in *ReadMedicalResourcesPageRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadMedicalResourcesPageRequestServiceServer is the server API for ReadMedicalResourcesPageRequestService service.
+// All implementations must embed UnimplementedReadMedicalResourcesPageRequestServiceServer
+// for forward compatibility.
+type ReadMedicalResourcesPageRequestServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPageToken(context.Context, *GetPageTokenRequest) (*GetPageTokenResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ReadMedicalResourcesPageRequestToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedReadMedicalResourcesPageRequestServiceServer()
+}
+
+// UnimplementedReadMedicalResourcesPageRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadMedicalResourcesPageRequestServiceServer struct{}
+
+func (UnimplementedReadMedicalResourcesPageRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedReadMedicalResourcesPageRequestServiceServer) GetPageToken(context.Context, *GetPageTokenRequest) (*GetPageTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageToken not implemented")
+}
+func (UnimplementedReadMedicalResourcesPageRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedReadMedicalResourcesPageRequestServiceServer) ToString(context.Context, *ReadMedicalResourcesPageRequestToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedReadMedicalResourcesPageRequestServiceServer) mustEmbedUnimplementedReadMedicalResourcesPageRequestServiceServer() {
+}
+func (UnimplementedReadMedicalResourcesPageRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadMedicalResourcesPageRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadMedicalResourcesPageRequestServiceServer will
+// result in compilation errors.
+type UnsafeReadMedicalResourcesPageRequestServiceServer interface {
+	mustEmbedUnimplementedReadMedicalResourcesPageRequestServiceServer()
+}
+
+func RegisterReadMedicalResourcesPageRequestServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesPageRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadMedicalResourcesPageRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadMedicalResourcesPageRequestService_ServiceDesc, srv)
+}
+
+func _ReadMedicalResourcesPageRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesPageRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesPageRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesPageRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesPageRequestService_GetPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesPageRequestServiceServer).GetPageToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesPageRequestService_GetPageToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesPageRequestServiceServer).GetPageToken(ctx, req.(*GetPageTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesPageRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesPageRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesPageRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesPageRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesPageRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadMedicalResourcesPageRequestToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesPageRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesPageRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesPageRequestServiceServer).ToString(ctx, req.(*ReadMedicalResourcesPageRequestToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadMedicalResourcesPageRequestService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesPageRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadMedicalResourcesPageRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadMedicalResourcesPageRequestService",
+	HandlerType: (*ReadMedicalResourcesPageRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _ReadMedicalResourcesPageRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPageToken",
+			Handler:    _ReadMedicalResourcesPageRequestService_GetPageToken_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ReadMedicalResourcesPageRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ReadMedicalResourcesPageRequestService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadMedicalResourcesPageRequestBuilderService_Build_FullMethodName        = "/connect.ReadMedicalResourcesPageRequestBuilderService/Build"
+	ReadMedicalResourcesPageRequestBuilderService_SetPageSize_FullMethodName  = "/connect.ReadMedicalResourcesPageRequestBuilderService/SetPageSize"
+	ReadMedicalResourcesPageRequestBuilderService_SetPageToken_FullMethodName = "/connect.ReadMedicalResourcesPageRequestBuilderService/SetPageToken"
+)
+
+// ReadMedicalResourcesPageRequestBuilderServiceClient is the client API for ReadMedicalResourcesPageRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadMedicalResourcesPageRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error)
+	SetPageToken(ctx context.Context, in *SetPageTokenRequest, opts ...grpc.CallOption) (*SetPageTokenResponse, error)
+}
+
+type readMedicalResourcesPageRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadMedicalResourcesPageRequestBuilderServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesPageRequestBuilderServiceClient {
+	return &readMedicalResourcesPageRequestBuilderServiceClient{cc}
+}
+
+func (c *readMedicalResourcesPageRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesPageRequestBuilderServiceClient) SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPageSizeResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestBuilderService_SetPageSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesPageRequestBuilderServiceClient) SetPageToken(ctx context.Context, in *SetPageTokenRequest, opts ...grpc.CallOption) (*SetPageTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPageTokenResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesPageRequestBuilderService_SetPageToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadMedicalResourcesPageRequestBuilderServiceServer is the server API for ReadMedicalResourcesPageRequestBuilderService service.
+// All implementations must embed UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer
+// for forward compatibility.
+type ReadMedicalResourcesPageRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error)
+	SetPageToken(context.Context, *SetPageTokenRequest) (*SetPageTokenResponse, error)
+	mustEmbedUnimplementedReadMedicalResourcesPageRequestBuilderServiceServer()
+}
+
+// UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer struct{}
+
+func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPageSize not implemented")
+}
+func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) SetPageToken(context.Context, *SetPageTokenRequest) (*SetPageTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPageToken not implemented")
+}
+func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) mustEmbedUnimplementedReadMedicalResourcesPageRequestBuilderServiceServer() {
+}
+func (UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadMedicalResourcesPageRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadMedicalResourcesPageRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeReadMedicalResourcesPageRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedReadMedicalResourcesPageRequestBuilderServiceServer()
+}
+
+func RegisterReadMedicalResourcesPageRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesPageRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadMedicalResourcesPageRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadMedicalResourcesPageRequestBuilderService_ServiceDesc, srv)
+}
+
+func _ReadMedicalResourcesPageRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesPageRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesPageRequestBuilderService_SetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPageSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).SetPageSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesPageRequestBuilderService_SetPageSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).SetPageSize(ctx, req.(*SetPageSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesPageRequestBuilderService_SetPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPageTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).SetPageToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesPageRequestBuilderService_SetPageToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesPageRequestBuilderServiceServer).SetPageToken(ctx, req.(*SetPageTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadMedicalResourcesPageRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesPageRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadMedicalResourcesPageRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadMedicalResourcesPageRequestBuilderService",
+	HandlerType: (*ReadMedicalResourcesPageRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ReadMedicalResourcesPageRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetPageSize",
+			Handler:    _ReadMedicalResourcesPageRequestBuilderService_SetPageSize_Handler,
+		},
+		{
+			MethodName: "SetPageToken",
+			Handler:    _ReadMedicalResourcesPageRequestBuilderService_SetPageToken_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadRecordsRequestService_GetRecordType_FullMethodName = "/connect.ReadRecordsRequestService/GetRecordType"
+)
+
+// ReadRecordsRequestServiceClient is the client API for ReadRecordsRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadRecordsRequestServiceClient interface {
+	GetRecordType(ctx context.Context, in *GetRecordTypeRequest, opts ...grpc.CallOption) (*GetRecordTypeResponse, error)
+}
+
+type readRecordsRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadRecordsRequestServiceClient(cc grpc.ClientConnInterface) ReadRecordsRequestServiceClient {
+	return &readRecordsRequestServiceClient{cc}
+}
+
+func (c *readRecordsRequestServiceClient) GetRecordType(ctx context.Context, in *GetRecordTypeRequest, opts ...grpc.CallOption) (*GetRecordTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordTypeResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestService_GetRecordType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadRecordsRequestServiceServer is the server API for ReadRecordsRequestService service.
+// All implementations must embed UnimplementedReadRecordsRequestServiceServer
+// for forward compatibility.
+type ReadRecordsRequestServiceServer interface {
+	GetRecordType(context.Context, *GetRecordTypeRequest) (*GetRecordTypeResponse, error)
+	mustEmbedUnimplementedReadRecordsRequestServiceServer()
+}
+
+// UnimplementedReadRecordsRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadRecordsRequestServiceServer struct{}
+
+func (UnimplementedReadRecordsRequestServiceServer) GetRecordType(context.Context, *GetRecordTypeRequest) (*GetRecordTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecordType not implemented")
+}
+func (UnimplementedReadRecordsRequestServiceServer) mustEmbedUnimplementedReadRecordsRequestServiceServer() {
+}
+func (UnimplementedReadRecordsRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadRecordsRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadRecordsRequestServiceServer will
+// result in compilation errors.
+type UnsafeReadRecordsRequestServiceServer interface {
+	mustEmbedUnimplementedReadRecordsRequestServiceServer()
+}
+
+func RegisterReadRecordsRequestServiceServer(s grpc.ServiceRegistrar, srv ReadRecordsRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadRecordsRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadRecordsRequestService_ServiceDesc, srv)
+}
+
+func _ReadRecordsRequestService_GetRecordType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestServiceServer).GetRecordType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestService_GetRecordType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestServiceServer).GetRecordType(ctx, req.(*GetRecordTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadRecordsRequestService_ServiceDesc is the grpc.ServiceDesc for ReadRecordsRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadRecordsRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadRecordsRequestService",
+	HandlerType: (*ReadRecordsRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRecordType",
+			Handler:    _ReadRecordsRequestService_GetRecordType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadRecordsRequestUsingFiltersService_GetDataOrigins_FullMethodName     = "/connect.ReadRecordsRequestUsingFiltersService/GetDataOrigins"
+	ReadRecordsRequestUsingFiltersService_GetPageSize_FullMethodName        = "/connect.ReadRecordsRequestUsingFiltersService/GetPageSize"
+	ReadRecordsRequestUsingFiltersService_GetPageToken_FullMethodName       = "/connect.ReadRecordsRequestUsingFiltersService/GetPageToken"
+	ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_FullMethodName = "/connect.ReadRecordsRequestUsingFiltersService/GetTimeRangeFilter"
+	ReadRecordsRequestUsingFiltersService_IsAscending_FullMethodName        = "/connect.ReadRecordsRequestUsingFiltersService/IsAscending"
+)
+
+// ReadRecordsRequestUsingFiltersServiceClient is the client API for ReadRecordsRequestUsingFiltersService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadRecordsRequestUsingFiltersServiceClient interface {
+	GetDataOrigins(ctx context.Context, in *GetDataOriginsRequest, opts ...grpc.CallOption) (*GetDataOriginsResponse, error)
+	GetPageSize(ctx context.Context, in *GetPageSizeRequest, opts ...grpc.CallOption) (*GetPageSizeResponse, error)
+	GetPageToken(ctx context.Context, in *GetPageTokenRequest, opts ...grpc.CallOption) (*ReadRecordsRequestUsingFiltersGetPageTokenResponse, error)
+	GetTimeRangeFilter(ctx context.Context, in *GetTimeRangeFilterRequest, opts ...grpc.CallOption) (*GetTimeRangeFilterResponse, error)
+	IsAscending(ctx context.Context, in *IsAscendingRequest, opts ...grpc.CallOption) (*IsAscendingResponse, error)
+}
+
+type readRecordsRequestUsingFiltersServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadRecordsRequestUsingFiltersServiceClient(cc grpc.ClientConnInterface) ReadRecordsRequestUsingFiltersServiceClient {
+	return &readRecordsRequestUsingFiltersServiceClient{cc}
+}
+
+func (c *readRecordsRequestUsingFiltersServiceClient) GetDataOrigins(ctx context.Context, in *GetDataOriginsRequest, opts ...grpc.CallOption) (*GetDataOriginsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataOriginsResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_GetDataOrigins_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersServiceClient) GetPageSize(ctx context.Context, in *GetPageSizeRequest, opts ...grpc.CallOption) (*GetPageSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPageSizeResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_GetPageSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersServiceClient) GetPageToken(ctx context.Context, in *GetPageTokenRequest, opts ...grpc.CallOption) (*ReadRecordsRequestUsingFiltersGetPageTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReadRecordsRequestUsingFiltersGetPageTokenResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_GetPageToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersServiceClient) GetTimeRangeFilter(ctx context.Context, in *GetTimeRangeFilterRequest, opts ...grpc.CallOption) (*GetTimeRangeFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeRangeFilterResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersServiceClient) IsAscending(ctx context.Context, in *IsAscendingRequest, opts ...grpc.CallOption) (*IsAscendingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAscendingResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersService_IsAscending_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadRecordsRequestUsingFiltersServiceServer is the server API for ReadRecordsRequestUsingFiltersService service.
+// All implementations must embed UnimplementedReadRecordsRequestUsingFiltersServiceServer
+// for forward compatibility.
+type ReadRecordsRequestUsingFiltersServiceServer interface {
+	GetDataOrigins(context.Context, *GetDataOriginsRequest) (*GetDataOriginsResponse, error)
+	GetPageSize(context.Context, *GetPageSizeRequest) (*GetPageSizeResponse, error)
+	GetPageToken(context.Context, *GetPageTokenRequest) (*ReadRecordsRequestUsingFiltersGetPageTokenResponse, error)
+	GetTimeRangeFilter(context.Context, *GetTimeRangeFilterRequest) (*GetTimeRangeFilterResponse, error)
+	IsAscending(context.Context, *IsAscendingRequest) (*IsAscendingResponse, error)
+	mustEmbedUnimplementedReadRecordsRequestUsingFiltersServiceServer()
+}
+
+// UnimplementedReadRecordsRequestUsingFiltersServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadRecordsRequestUsingFiltersServiceServer struct{}
+
+func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) GetDataOrigins(context.Context, *GetDataOriginsRequest) (*GetDataOriginsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataOrigins not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) GetPageSize(context.Context, *GetPageSizeRequest) (*GetPageSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageSize not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) GetPageToken(context.Context, *GetPageTokenRequest) (*ReadRecordsRequestUsingFiltersGetPageTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageToken not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) GetTimeRangeFilter(context.Context, *GetTimeRangeFilterRequest) (*GetTimeRangeFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeRangeFilter not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) IsAscending(context.Context, *IsAscendingRequest) (*IsAscendingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAscending not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) mustEmbedUnimplementedReadRecordsRequestUsingFiltersServiceServer() {
+}
+func (UnimplementedReadRecordsRequestUsingFiltersServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadRecordsRequestUsingFiltersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadRecordsRequestUsingFiltersServiceServer will
+// result in compilation errors.
+type UnsafeReadRecordsRequestUsingFiltersServiceServer interface {
+	mustEmbedUnimplementedReadRecordsRequestUsingFiltersServiceServer()
+}
+
+func RegisterReadRecordsRequestUsingFiltersServiceServer(s grpc.ServiceRegistrar, srv ReadRecordsRequestUsingFiltersServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadRecordsRequestUsingFiltersServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadRecordsRequestUsingFiltersService_ServiceDesc, srv)
+}
+
+func _ReadRecordsRequestUsingFiltersService_GetDataOrigins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataOriginsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetDataOrigins(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersService_GetDataOrigins_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetDataOrigins(ctx, req.(*GetDataOriginsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersService_GetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetPageSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersService_GetPageSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetPageSize(ctx, req.(*GetPageSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersService_GetPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetPageToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersService_GetPageToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetPageToken(ctx, req.(*GetPageTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeRangeFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetTimeRangeFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).GetTimeRangeFilter(ctx, req.(*GetTimeRangeFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersService_IsAscending_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAscendingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).IsAscending(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersService_IsAscending_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersServiceServer).IsAscending(ctx, req.(*IsAscendingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadRecordsRequestUsingFiltersService_ServiceDesc is the grpc.ServiceDesc for ReadRecordsRequestUsingFiltersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadRecordsRequestUsingFiltersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadRecordsRequestUsingFiltersService",
+	HandlerType: (*ReadRecordsRequestUsingFiltersServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetDataOrigins",
+			Handler:    _ReadRecordsRequestUsingFiltersService_GetDataOrigins_Handler,
+		},
+		{
+			MethodName: "GetPageSize",
+			Handler:    _ReadRecordsRequestUsingFiltersService_GetPageSize_Handler,
+		},
+		{
+			MethodName: "GetPageToken",
+			Handler:    _ReadRecordsRequestUsingFiltersService_GetPageToken_Handler,
+		},
+		{
+			MethodName: "GetTimeRangeFilter",
+			Handler:    _ReadRecordsRequestUsingFiltersService_GetTimeRangeFilter_Handler,
+		},
+		{
+			MethodName: "IsAscending",
+			Handler:    _ReadRecordsRequestUsingFiltersService_IsAscending_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadRecordsRequestUsingFiltersBuilderService_AddDataOrigins_FullMethodName     = "/connect.ReadRecordsRequestUsingFiltersBuilderService/AddDataOrigins"
+	ReadRecordsRequestUsingFiltersBuilderService_Build_FullMethodName              = "/connect.ReadRecordsRequestUsingFiltersBuilderService/Build"
+	ReadRecordsRequestUsingFiltersBuilderService_SetAscending_FullMethodName       = "/connect.ReadRecordsRequestUsingFiltersBuilderService/SetAscending"
+	ReadRecordsRequestUsingFiltersBuilderService_SetPageSize_FullMethodName        = "/connect.ReadRecordsRequestUsingFiltersBuilderService/SetPageSize"
+	ReadRecordsRequestUsingFiltersBuilderService_SetPageToken_FullMethodName       = "/connect.ReadRecordsRequestUsingFiltersBuilderService/SetPageToken"
+	ReadRecordsRequestUsingFiltersBuilderService_SetTimeRangeFilter_FullMethodName = "/connect.ReadRecordsRequestUsingFiltersBuilderService/SetTimeRangeFilter"
+)
+
+// ReadRecordsRequestUsingFiltersBuilderServiceClient is the client API for ReadRecordsRequestUsingFiltersBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadRecordsRequestUsingFiltersBuilderServiceClient interface {
+	AddDataOrigins(ctx context.Context, in *AddDataOriginsRequest, opts ...grpc.CallOption) (*AddDataOriginsResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAscending(ctx context.Context, in *SetAscendingRequest, opts ...grpc.CallOption) (*SetAscendingResponse, error)
+	SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error)
+	SetPageToken(ctx context.Context, in *ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest, opts ...grpc.CallOption) (*SetPageTokenResponse, error)
+	SetTimeRangeFilter(ctx context.Context, in *SetTimeRangeFilterRequest, opts ...grpc.CallOption) (*SetTimeRangeFilterResponse, error)
+}
+
+type readRecordsRequestUsingFiltersBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadRecordsRequestUsingFiltersBuilderServiceClient(cc grpc.ClientConnInterface) ReadRecordsRequestUsingFiltersBuilderServiceClient {
+	return &readRecordsRequestUsingFiltersBuilderServiceClient{cc}
+}
+
+func (c *readRecordsRequestUsingFiltersBuilderServiceClient) AddDataOrigins(ctx context.Context, in *AddDataOriginsRequest, opts ...grpc.CallOption) (*AddDataOriginsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDataOriginsResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersBuilderService_AddDataOrigins_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersBuilderServiceClient) SetAscending(ctx context.Context, in *SetAscendingRequest, opts ...grpc.CallOption) (*SetAscendingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAscendingResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersBuilderService_SetAscending_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersBuilderServiceClient) SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPageSizeResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersBuilderService_SetPageSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersBuilderServiceClient) SetPageToken(ctx context.Context, in *ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest, opts ...grpc.CallOption) (*SetPageTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPageTokenResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersBuilderService_SetPageToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingFiltersBuilderServiceClient) SetTimeRangeFilter(ctx context.Context, in *SetTimeRangeFilterRequest, opts ...grpc.CallOption) (*SetTimeRangeFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeRangeFilterResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingFiltersBuilderService_SetTimeRangeFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadRecordsRequestUsingFiltersBuilderServiceServer is the server API for ReadRecordsRequestUsingFiltersBuilderService service.
+// All implementations must embed UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer
+// for forward compatibility.
+type ReadRecordsRequestUsingFiltersBuilderServiceServer interface {
+	AddDataOrigins(context.Context, *AddDataOriginsRequest) (*AddDataOriginsResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAscending(context.Context, *SetAscendingRequest) (*SetAscendingResponse, error)
+	SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error)
+	SetPageToken(context.Context, *ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) (*SetPageTokenResponse, error)
+	SetTimeRangeFilter(context.Context, *SetTimeRangeFilterRequest) (*SetTimeRangeFilterResponse, error)
+	mustEmbedUnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer()
+}
+
+// UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer struct{}
+
+func (UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer) AddDataOrigins(context.Context, *AddDataOriginsRequest) (*AddDataOriginsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDataOrigins not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer) SetAscending(context.Context, *SetAscendingRequest) (*SetAscendingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAscending not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer) SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPageSize not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer) SetPageToken(context.Context, *ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) (*SetPageTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPageToken not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer) SetTimeRangeFilter(context.Context, *SetTimeRangeFilterRequest) (*SetTimeRangeFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeRangeFilter not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer) mustEmbedUnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer() {
+}
+func (UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadRecordsRequestUsingFiltersBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadRecordsRequestUsingFiltersBuilderServiceServer will
+// result in compilation errors.
+type UnsafeReadRecordsRequestUsingFiltersBuilderServiceServer interface {
+	mustEmbedUnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer()
+}
+
+func RegisterReadRecordsRequestUsingFiltersBuilderServiceServer(s grpc.ServiceRegistrar, srv ReadRecordsRequestUsingFiltersBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadRecordsRequestUsingFiltersBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadRecordsRequestUsingFiltersBuilderService_ServiceDesc, srv)
+}
+
+func _ReadRecordsRequestUsingFiltersBuilderService_AddDataOrigins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDataOriginsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).AddDataOrigins(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersBuilderService_AddDataOrigins_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).AddDataOrigins(ctx, req.(*AddDataOriginsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersBuilderService_SetAscending_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAscendingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).SetAscending(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersBuilderService_SetAscending_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).SetAscending(ctx, req.(*SetAscendingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersBuilderService_SetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPageSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).SetPageSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersBuilderService_SetPageSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).SetPageSize(ctx, req.(*SetPageSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersBuilderService_SetPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).SetPageToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersBuilderService_SetPageToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).SetPageToken(ctx, req.(*ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingFiltersBuilderService_SetTimeRangeFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeRangeFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).SetTimeRangeFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingFiltersBuilderService_SetTimeRangeFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingFiltersBuilderServiceServer).SetTimeRangeFilter(ctx, req.(*SetTimeRangeFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadRecordsRequestUsingFiltersBuilderService_ServiceDesc is the grpc.ServiceDesc for ReadRecordsRequestUsingFiltersBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadRecordsRequestUsingFiltersBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadRecordsRequestUsingFiltersBuilderService",
+	HandlerType: (*ReadRecordsRequestUsingFiltersBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDataOrigins",
+			Handler:    _ReadRecordsRequestUsingFiltersBuilderService_AddDataOrigins_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _ReadRecordsRequestUsingFiltersBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAscending",
+			Handler:    _ReadRecordsRequestUsingFiltersBuilderService_SetAscending_Handler,
+		},
+		{
+			MethodName: "SetPageSize",
+			Handler:    _ReadRecordsRequestUsingFiltersBuilderService_SetPageSize_Handler,
+		},
+		{
+			MethodName: "SetPageToken",
+			Handler:    _ReadRecordsRequestUsingFiltersBuilderService_SetPageToken_Handler,
+		},
+		{
+			MethodName: "SetTimeRangeFilter",
+			Handler:    _ReadRecordsRequestUsingFiltersBuilderService_SetTimeRangeFilter_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4707,444 +2229,1990 @@ var AggregateRecordsGroupedByDurationResponseService_ServiceDesc = grpc.ServiceD
 }
 
 const (
-	MedicalResourceIdService_NewMedicalResourceId_FullMethodName = "/connect.MedicalResourceIdService/NewMedicalResourceId"
-	MedicalResourceIdService_DescribeContents_FullMethodName     = "/connect.MedicalResourceIdService/DescribeContents"
-	MedicalResourceIdService_Equals_FullMethodName               = "/connect.MedicalResourceIdService/Equals"
-	MedicalResourceIdService_GetDataSourceId_FullMethodName      = "/connect.MedicalResourceIdService/GetDataSourceId"
-	MedicalResourceIdService_GetFhirResourceId_FullMethodName    = "/connect.MedicalResourceIdService/GetFhirResourceId"
-	MedicalResourceIdService_GetFhirResourceType_FullMethodName  = "/connect.MedicalResourceIdService/GetFhirResourceType"
-	MedicalResourceIdService_HashCode_FullMethodName             = "/connect.MedicalResourceIdService/HashCode"
-	MedicalResourceIdService_ToString_FullMethodName             = "/connect.MedicalResourceIdService/ToString"
-	MedicalResourceIdService_WriteToParcel_FullMethodName        = "/connect.MedicalResourceIdService/WriteToParcel"
-	MedicalResourceIdService_FromFhirReference_FullMethodName    = "/connect.MedicalResourceIdService/FromFhirReference"
+	HealthConnectExceptionService_GetErrorCode_FullMethodName = "/connect.HealthConnectExceptionService/GetErrorCode"
 )
 
-// MedicalResourceIdServiceClient is the client API for MedicalResourceIdService service.
+// HealthConnectExceptionServiceClient is the client API for HealthConnectExceptionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MedicalResourceIdServiceClient interface {
-	NewMedicalResourceId(ctx context.Context, in *NewMedicalResourceIdRequest, opts ...grpc.CallOption) (*NewMedicalResourceIdResponse, error)
-	DescribeContents(ctx context.Context, in *MedicalResourceIdDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *MedicalResourceIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetDataSourceId(ctx context.Context, in *GetDataSourceIdRequest, opts ...grpc.CallOption) (*GetDataSourceIdResponse, error)
-	GetFhirResourceId(ctx context.Context, in *GetFhirResourceIdRequest, opts ...grpc.CallOption) (*GetFhirResourceIdResponse, error)
-	GetFhirResourceType(ctx context.Context, in *GetFhirResourceTypeRequest, opts ...grpc.CallOption) (*GetFhirResourceTypeResponse, error)
-	HashCode(ctx context.Context, in *MedicalResourceIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *MedicalResourceIdToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *MedicalResourceIdWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	FromFhirReference(ctx context.Context, in *FromFhirReferenceRequest, opts ...grpc.CallOption) (*FromFhirReferenceResponse, error)
+type HealthConnectExceptionServiceClient interface {
+	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
 }
 
-type medicalResourceIdServiceClient struct {
+type healthConnectExceptionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMedicalResourceIdServiceClient(cc grpc.ClientConnInterface) MedicalResourceIdServiceClient {
-	return &medicalResourceIdServiceClient{cc}
+func NewHealthConnectExceptionServiceClient(cc grpc.ClientConnInterface) HealthConnectExceptionServiceClient {
+	return &healthConnectExceptionServiceClient{cc}
 }
 
-func (c *medicalResourceIdServiceClient) NewMedicalResourceId(ctx context.Context, in *NewMedicalResourceIdRequest, opts ...grpc.CallOption) (*NewMedicalResourceIdResponse, error) {
+func (c *healthConnectExceptionServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewMedicalResourceIdResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_NewMedicalResourceId_FullMethodName, in, out, cOpts...)
+	out := new(GetErrorCodeResponse)
+	err := c.cc.Invoke(ctx, HealthConnectExceptionService_GetErrorCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *medicalResourceIdServiceClient) DescribeContents(ctx context.Context, in *MedicalResourceIdDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *medicalResourceIdServiceClient) Equals(ctx context.Context, in *MedicalResourceIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *medicalResourceIdServiceClient) GetDataSourceId(ctx context.Context, in *GetDataSourceIdRequest, opts ...grpc.CallOption) (*GetDataSourceIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataSourceIdResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_GetDataSourceId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *medicalResourceIdServiceClient) GetFhirResourceId(ctx context.Context, in *GetFhirResourceIdRequest, opts ...grpc.CallOption) (*GetFhirResourceIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFhirResourceIdResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_GetFhirResourceId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *medicalResourceIdServiceClient) GetFhirResourceType(ctx context.Context, in *GetFhirResourceTypeRequest, opts ...grpc.CallOption) (*GetFhirResourceTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFhirResourceTypeResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_GetFhirResourceType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *medicalResourceIdServiceClient) HashCode(ctx context.Context, in *MedicalResourceIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *medicalResourceIdServiceClient) ToString(ctx context.Context, in *MedicalResourceIdToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *medicalResourceIdServiceClient) WriteToParcel(ctx context.Context, in *MedicalResourceIdWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *medicalResourceIdServiceClient) FromFhirReference(ctx context.Context, in *FromFhirReferenceRequest, opts ...grpc.CallOption) (*FromFhirReferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromFhirReferenceResponse)
-	err := c.cc.Invoke(ctx, MedicalResourceIdService_FromFhirReference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MedicalResourceIdServiceServer is the server API for MedicalResourceIdService service.
-// All implementations must embed UnimplementedMedicalResourceIdServiceServer
+// HealthConnectExceptionServiceServer is the server API for HealthConnectExceptionService service.
+// All implementations must embed UnimplementedHealthConnectExceptionServiceServer
 // for forward compatibility.
-type MedicalResourceIdServiceServer interface {
-	NewMedicalResourceId(context.Context, *NewMedicalResourceIdRequest) (*NewMedicalResourceIdResponse, error)
-	DescribeContents(context.Context, *MedicalResourceIdDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *MedicalResourceIdEqualsRequest) (*EqualsResponse, error)
-	GetDataSourceId(context.Context, *GetDataSourceIdRequest) (*GetDataSourceIdResponse, error)
-	GetFhirResourceId(context.Context, *GetFhirResourceIdRequest) (*GetFhirResourceIdResponse, error)
-	GetFhirResourceType(context.Context, *GetFhirResourceTypeRequest) (*GetFhirResourceTypeResponse, error)
-	HashCode(context.Context, *MedicalResourceIdHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *MedicalResourceIdToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *MedicalResourceIdWriteToParcelRequest) (*WriteToParcelResponse, error)
-	FromFhirReference(context.Context, *FromFhirReferenceRequest) (*FromFhirReferenceResponse, error)
-	mustEmbedUnimplementedMedicalResourceIdServiceServer()
+type HealthConnectExceptionServiceServer interface {
+	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
+	mustEmbedUnimplementedHealthConnectExceptionServiceServer()
 }
 
-// UnimplementedMedicalResourceIdServiceServer must be embedded to have
+// UnimplementedHealthConnectExceptionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedMedicalResourceIdServiceServer struct{}
+type UnimplementedHealthConnectExceptionServiceServer struct{}
 
-func (UnimplementedMedicalResourceIdServiceServer) NewMedicalResourceId(context.Context, *NewMedicalResourceIdRequest) (*NewMedicalResourceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewMedicalResourceId not implemented")
+func (UnimplementedHealthConnectExceptionServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
 }
-func (UnimplementedMedicalResourceIdServiceServer) DescribeContents(context.Context, *MedicalResourceIdDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedHealthConnectExceptionServiceServer) mustEmbedUnimplementedHealthConnectExceptionServiceServer() {
 }
-func (UnimplementedMedicalResourceIdServiceServer) Equals(context.Context, *MedicalResourceIdEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedMedicalResourceIdServiceServer) GetDataSourceId(context.Context, *GetDataSourceIdRequest) (*GetDataSourceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDataSourceId not implemented")
-}
-func (UnimplementedMedicalResourceIdServiceServer) GetFhirResourceId(context.Context, *GetFhirResourceIdRequest) (*GetFhirResourceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFhirResourceId not implemented")
-}
-func (UnimplementedMedicalResourceIdServiceServer) GetFhirResourceType(context.Context, *GetFhirResourceTypeRequest) (*GetFhirResourceTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFhirResourceType not implemented")
-}
-func (UnimplementedMedicalResourceIdServiceServer) HashCode(context.Context, *MedicalResourceIdHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedMedicalResourceIdServiceServer) ToString(context.Context, *MedicalResourceIdToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedMedicalResourceIdServiceServer) WriteToParcel(context.Context, *MedicalResourceIdWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedMedicalResourceIdServiceServer) FromFhirReference(context.Context, *FromFhirReferenceRequest) (*FromFhirReferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromFhirReference not implemented")
-}
-func (UnimplementedMedicalResourceIdServiceServer) mustEmbedUnimplementedMedicalResourceIdServiceServer() {
-}
-func (UnimplementedMedicalResourceIdServiceServer) testEmbeddedByValue() {}
+func (UnimplementedHealthConnectExceptionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeMedicalResourceIdServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MedicalResourceIdServiceServer will
+// UnsafeHealthConnectExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HealthConnectExceptionServiceServer will
 // result in compilation errors.
-type UnsafeMedicalResourceIdServiceServer interface {
-	mustEmbedUnimplementedMedicalResourceIdServiceServer()
+type UnsafeHealthConnectExceptionServiceServer interface {
+	mustEmbedUnimplementedHealthConnectExceptionServiceServer()
 }
 
-func RegisterMedicalResourceIdServiceServer(s grpc.ServiceRegistrar, srv MedicalResourceIdServiceServer) {
-	// If the following call panics, it indicates UnimplementedMedicalResourceIdServiceServer was
+func RegisterHealthConnectExceptionServiceServer(s grpc.ServiceRegistrar, srv HealthConnectExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedHealthConnectExceptionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&MedicalResourceIdService_ServiceDesc, srv)
+	s.RegisterService(&HealthConnectExceptionService_ServiceDesc, srv)
 }
 
-func _MedicalResourceIdService_NewMedicalResourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewMedicalResourceIdRequest)
+func _HealthConnectExceptionService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).NewMedicalResourceId(ctx, in)
+		return srv.(HealthConnectExceptionServiceServer).GetErrorCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MedicalResourceIdService_NewMedicalResourceId_FullMethodName,
+		FullMethod: HealthConnectExceptionService_GetErrorCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).NewMedicalResourceId(ctx, req.(*NewMedicalResourceIdRequest))
+		return srv.(HealthConnectExceptionServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MedicalResourceIdService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MedicalResourceIdDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).DescribeContents(ctx, req.(*MedicalResourceIdDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MedicalResourceIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MedicalResourceIdEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).Equals(ctx, req.(*MedicalResourceIdEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MedicalResourceIdService_GetDataSourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDataSourceIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).GetDataSourceId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_GetDataSourceId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).GetDataSourceId(ctx, req.(*GetDataSourceIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MedicalResourceIdService_GetFhirResourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFhirResourceIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).GetFhirResourceId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_GetFhirResourceId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).GetFhirResourceId(ctx, req.(*GetFhirResourceIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MedicalResourceIdService_GetFhirResourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFhirResourceTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).GetFhirResourceType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_GetFhirResourceType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).GetFhirResourceType(ctx, req.(*GetFhirResourceTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MedicalResourceIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MedicalResourceIdHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).HashCode(ctx, req.(*MedicalResourceIdHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MedicalResourceIdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MedicalResourceIdToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).ToString(ctx, req.(*MedicalResourceIdToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MedicalResourceIdService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MedicalResourceIdWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).WriteToParcel(ctx, req.(*MedicalResourceIdWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MedicalResourceIdService_FromFhirReference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromFhirReferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MedicalResourceIdServiceServer).FromFhirReference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MedicalResourceIdService_FromFhirReference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MedicalResourceIdServiceServer).FromFhirReference(ctx, req.(*FromFhirReferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MedicalResourceIdService_ServiceDesc is the grpc.ServiceDesc for MedicalResourceIdService service.
+// HealthConnectExceptionService_ServiceDesc is the grpc.ServiceDesc for HealthConnectExceptionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var MedicalResourceIdService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "connect.MedicalResourceIdService",
-	HandlerType: (*MedicalResourceIdServiceServer)(nil),
+var HealthConnectExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.HealthConnectExceptionService",
+	HandlerType: (*HealthConnectExceptionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewMedicalResourceId",
-			Handler:    _MedicalResourceIdService_NewMedicalResourceId_Handler,
+			MethodName: "GetErrorCode",
+			Handler:    _HealthConnectExceptionService_GetErrorCode_Handler,
 		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	DeleteMedicalResourcesRequestService_DescribeContents_FullMethodName        = "/connect.DeleteMedicalResourcesRequestService/DescribeContents"
+	DeleteMedicalResourcesRequestService_Equals_FullMethodName                  = "/connect.DeleteMedicalResourcesRequestService/Equals"
+	DeleteMedicalResourcesRequestService_GetDataSourceIds_FullMethodName        = "/connect.DeleteMedicalResourcesRequestService/GetDataSourceIds"
+	DeleteMedicalResourcesRequestService_GetMedicalResourceTypes_FullMethodName = "/connect.DeleteMedicalResourcesRequestService/GetMedicalResourceTypes"
+	DeleteMedicalResourcesRequestService_HashCode_FullMethodName                = "/connect.DeleteMedicalResourcesRequestService/HashCode"
+	DeleteMedicalResourcesRequestService_ToString_FullMethodName                = "/connect.DeleteMedicalResourcesRequestService/ToString"
+	DeleteMedicalResourcesRequestService_WriteToParcel_FullMethodName           = "/connect.DeleteMedicalResourcesRequestService/WriteToParcel"
+)
+
+// DeleteMedicalResourcesRequestServiceClient is the client API for DeleteMedicalResourcesRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeleteMedicalResourcesRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DeleteMedicalResourcesRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDataSourceIds(ctx context.Context, in *GetDataSourceIdsRequest, opts ...grpc.CallOption) (*GetDataSourceIdsResponse, error)
+	GetMedicalResourceTypes(ctx context.Context, in *GetMedicalResourceTypesRequest, opts ...grpc.CallOption) (*GetMedicalResourceTypesResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *DeleteMedicalResourcesRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *DeleteMedicalResourcesRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type deleteMedicalResourcesRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeleteMedicalResourcesRequestServiceClient(cc grpc.ClientConnInterface) DeleteMedicalResourcesRequestServiceClient {
+	return &deleteMedicalResourcesRequestServiceClient{cc}
+}
+
+func (c *deleteMedicalResourcesRequestServiceClient) DescribeContents(ctx context.Context, in *DeleteMedicalResourcesRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestServiceClient) GetDataSourceIds(ctx context.Context, in *GetDataSourceIdsRequest, opts ...grpc.CallOption) (*GetDataSourceIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataSourceIdsResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_GetDataSourceIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestServiceClient) GetMedicalResourceTypes(ctx context.Context, in *GetMedicalResourceTypesRequest, opts ...grpc.CallOption) (*GetMedicalResourceTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMedicalResourceTypesResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_GetMedicalResourceTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestServiceClient) ToString(ctx context.Context, in *DeleteMedicalResourcesRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestServiceClient) WriteToParcel(ctx context.Context, in *DeleteMedicalResourcesRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeleteMedicalResourcesRequestServiceServer is the server API for DeleteMedicalResourcesRequestService service.
+// All implementations must embed UnimplementedDeleteMedicalResourcesRequestServiceServer
+// for forward compatibility.
+type DeleteMedicalResourcesRequestServiceServer interface {
+	DescribeContents(context.Context, *DeleteMedicalResourcesRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDataSourceIds(context.Context, *GetDataSourceIdsRequest) (*GetDataSourceIdsResponse, error)
+	GetMedicalResourceTypes(context.Context, *GetMedicalResourceTypesRequest) (*GetMedicalResourceTypesResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *DeleteMedicalResourcesRequestToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *DeleteMedicalResourcesRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDeleteMedicalResourcesRequestServiceServer()
+}
+
+// UnimplementedDeleteMedicalResourcesRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeleteMedicalResourcesRequestServiceServer struct{}
+
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) DescribeContents(context.Context, *DeleteMedicalResourcesRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) GetDataSourceIds(context.Context, *GetDataSourceIdsRequest) (*GetDataSourceIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataSourceIds not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) GetMedicalResourceTypes(context.Context, *GetMedicalResourceTypesRequest) (*GetMedicalResourceTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMedicalResourceTypes not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) ToString(context.Context, *DeleteMedicalResourcesRequestToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) WriteToParcel(context.Context, *DeleteMedicalResourcesRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) mustEmbedUnimplementedDeleteMedicalResourcesRequestServiceServer() {
+}
+func (UnimplementedDeleteMedicalResourcesRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDeleteMedicalResourcesRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeleteMedicalResourcesRequestServiceServer will
+// result in compilation errors.
+type UnsafeDeleteMedicalResourcesRequestServiceServer interface {
+	mustEmbedUnimplementedDeleteMedicalResourcesRequestServiceServer()
+}
+
+func RegisterDeleteMedicalResourcesRequestServiceServer(s grpc.ServiceRegistrar, srv DeleteMedicalResourcesRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeleteMedicalResourcesRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeleteMedicalResourcesRequestService_ServiceDesc, srv)
+}
+
+func _DeleteMedicalResourcesRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteMedicalResourcesRequestDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).DescribeContents(ctx, req.(*DeleteMedicalResourcesRequestDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestService_GetDataSourceIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataSourceIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).GetDataSourceIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestService_GetDataSourceIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).GetDataSourceIds(ctx, req.(*GetDataSourceIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestService_GetMedicalResourceTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMedicalResourceTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).GetMedicalResourceTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestService_GetMedicalResourceTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).GetMedicalResourceTypes(ctx, req.(*GetMedicalResourceTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteMedicalResourcesRequestToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).ToString(ctx, req.(*DeleteMedicalResourcesRequestToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteMedicalResourcesRequestWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestServiceServer).WriteToParcel(ctx, req.(*DeleteMedicalResourcesRequestWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeleteMedicalResourcesRequestService_ServiceDesc is the grpc.ServiceDesc for DeleteMedicalResourcesRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeleteMedicalResourcesRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.DeleteMedicalResourcesRequestService",
+	HandlerType: (*DeleteMedicalResourcesRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _MedicalResourceIdService_DescribeContents_Handler,
+			Handler:    _DeleteMedicalResourcesRequestService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _MedicalResourceIdService_Equals_Handler,
+			Handler:    _DeleteMedicalResourcesRequestService_Equals_Handler,
 		},
 		{
-			MethodName: "GetDataSourceId",
-			Handler:    _MedicalResourceIdService_GetDataSourceId_Handler,
+			MethodName: "GetDataSourceIds",
+			Handler:    _DeleteMedicalResourcesRequestService_GetDataSourceIds_Handler,
 		},
 		{
-			MethodName: "GetFhirResourceId",
-			Handler:    _MedicalResourceIdService_GetFhirResourceId_Handler,
-		},
-		{
-			MethodName: "GetFhirResourceType",
-			Handler:    _MedicalResourceIdService_GetFhirResourceType_Handler,
+			MethodName: "GetMedicalResourceTypes",
+			Handler:    _DeleteMedicalResourcesRequestService_GetMedicalResourceTypes_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _MedicalResourceIdService_HashCode_Handler,
+			Handler:    _DeleteMedicalResourcesRequestService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _MedicalResourceIdService_ToString_Handler,
+			Handler:    _DeleteMedicalResourcesRequestService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _MedicalResourceIdService_WriteToParcel_Handler,
+			Handler:    _DeleteMedicalResourcesRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_FullMethodName           = "/connect.DeleteMedicalResourcesRequestBuilderService/AddDataSourceId"
+	DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_FullMethodName    = "/connect.DeleteMedicalResourcesRequestBuilderService/AddMedicalResourceType"
+	DeleteMedicalResourcesRequestBuilderService_Build_FullMethodName                     = "/connect.DeleteMedicalResourcesRequestBuilderService/Build"
+	DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_FullMethodName        = "/connect.DeleteMedicalResourcesRequestBuilderService/ClearDataSourceIds"
+	DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_FullMethodName = "/connect.DeleteMedicalResourcesRequestBuilderService/ClearMedicalResourceTypes"
+)
+
+// DeleteMedicalResourcesRequestBuilderServiceClient is the client API for DeleteMedicalResourcesRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeleteMedicalResourcesRequestBuilderServiceClient interface {
+	AddDataSourceId(ctx context.Context, in *AddDataSourceIdRequest, opts ...grpc.CallOption) (*AddDataSourceIdResponse, error)
+	AddMedicalResourceType(ctx context.Context, in *AddMedicalResourceTypeRequest, opts ...grpc.CallOption) (*AddMedicalResourceTypeResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	ClearDataSourceIds(ctx context.Context, in *ClearDataSourceIdsRequest, opts ...grpc.CallOption) (*ClearDataSourceIdsResponse, error)
+	ClearMedicalResourceTypes(ctx context.Context, in *ClearMedicalResourceTypesRequest, opts ...grpc.CallOption) (*ClearMedicalResourceTypesResponse, error)
+}
+
+type deleteMedicalResourcesRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeleteMedicalResourcesRequestBuilderServiceClient(cc grpc.ClientConnInterface) DeleteMedicalResourcesRequestBuilderServiceClient {
+	return &deleteMedicalResourcesRequestBuilderServiceClient{cc}
+}
+
+func (c *deleteMedicalResourcesRequestBuilderServiceClient) AddDataSourceId(ctx context.Context, in *AddDataSourceIdRequest, opts ...grpc.CallOption) (*AddDataSourceIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDataSourceIdResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestBuilderServiceClient) AddMedicalResourceType(ctx context.Context, in *AddMedicalResourceTypeRequest, opts ...grpc.CallOption) (*AddMedicalResourceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddMedicalResourceTypeResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestBuilderServiceClient) ClearDataSourceIds(ctx context.Context, in *ClearDataSourceIdsRequest, opts ...grpc.CallOption) (*ClearDataSourceIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearDataSourceIdsResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deleteMedicalResourcesRequestBuilderServiceClient) ClearMedicalResourceTypes(ctx context.Context, in *ClearMedicalResourceTypesRequest, opts ...grpc.CallOption) (*ClearMedicalResourceTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearMedicalResourceTypesResponse)
+	err := c.cc.Invoke(ctx, DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeleteMedicalResourcesRequestBuilderServiceServer is the server API for DeleteMedicalResourcesRequestBuilderService service.
+// All implementations must embed UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer
+// for forward compatibility.
+type DeleteMedicalResourcesRequestBuilderServiceServer interface {
+	AddDataSourceId(context.Context, *AddDataSourceIdRequest) (*AddDataSourceIdResponse, error)
+	AddMedicalResourceType(context.Context, *AddMedicalResourceTypeRequest) (*AddMedicalResourceTypeResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	ClearDataSourceIds(context.Context, *ClearDataSourceIdsRequest) (*ClearDataSourceIdsResponse, error)
+	ClearMedicalResourceTypes(context.Context, *ClearMedicalResourceTypesRequest) (*ClearMedicalResourceTypesResponse, error)
+	mustEmbedUnimplementedDeleteMedicalResourcesRequestBuilderServiceServer()
+}
+
+// UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer struct{}
+
+func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) AddDataSourceId(context.Context, *AddDataSourceIdRequest) (*AddDataSourceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDataSourceId not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) AddMedicalResourceType(context.Context, *AddMedicalResourceTypeRequest) (*AddMedicalResourceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddMedicalResourceType not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) ClearDataSourceIds(context.Context, *ClearDataSourceIdsRequest) (*ClearDataSourceIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearDataSourceIds not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) ClearMedicalResourceTypes(context.Context, *ClearMedicalResourceTypesRequest) (*ClearMedicalResourceTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearMedicalResourceTypes not implemented")
+}
+func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) mustEmbedUnimplementedDeleteMedicalResourcesRequestBuilderServiceServer() {
+}
+func (UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDeleteMedicalResourcesRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeleteMedicalResourcesRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeDeleteMedicalResourcesRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedDeleteMedicalResourcesRequestBuilderServiceServer()
+}
+
+func RegisterDeleteMedicalResourcesRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv DeleteMedicalResourcesRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeleteMedicalResourcesRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeleteMedicalResourcesRequestBuilderService_ServiceDesc, srv)
+}
+
+func _DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDataSourceIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).AddDataSourceId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).AddDataSourceId(ctx, req.(*AddDataSourceIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddMedicalResourceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).AddMedicalResourceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).AddMedicalResourceType(ctx, req.(*AddMedicalResourceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearDataSourceIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).ClearDataSourceIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).ClearDataSourceIds(ctx, req.(*ClearDataSourceIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearMedicalResourceTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).ClearMedicalResourceTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteMedicalResourcesRequestBuilderServiceServer).ClearMedicalResourceTypes(ctx, req.(*ClearMedicalResourceTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeleteMedicalResourcesRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for DeleteMedicalResourcesRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeleteMedicalResourcesRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.DeleteMedicalResourcesRequestBuilderService",
+	HandlerType: (*DeleteMedicalResourcesRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDataSourceId",
+			Handler:    _DeleteMedicalResourcesRequestBuilderService_AddDataSourceId_Handler,
 		},
 		{
-			MethodName: "FromFhirReference",
-			Handler:    _MedicalResourceIdService_FromFhirReference_Handler,
+			MethodName: "AddMedicalResourceType",
+			Handler:    _DeleteMedicalResourcesRequestBuilderService_AddMedicalResourceType_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _DeleteMedicalResourcesRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "ClearDataSourceIds",
+			Handler:    _DeleteMedicalResourcesRequestBuilderService_ClearDataSourceIds_Handler,
+		},
+		{
+			MethodName: "ClearMedicalResourceTypes",
+			Handler:    _DeleteMedicalResourcesRequestBuilderService_ClearMedicalResourceTypes_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	CreateMedicalDataSourceRequestService_DescribeContents_FullMethodName = "/connect.CreateMedicalDataSourceRequestService/DescribeContents"
+	CreateMedicalDataSourceRequestService_Equals_FullMethodName           = "/connect.CreateMedicalDataSourceRequestService/Equals"
+	CreateMedicalDataSourceRequestService_GetDisplayName_FullMethodName   = "/connect.CreateMedicalDataSourceRequestService/GetDisplayName"
+	CreateMedicalDataSourceRequestService_GetFhirBaseUri_FullMethodName   = "/connect.CreateMedicalDataSourceRequestService/GetFhirBaseUri"
+	CreateMedicalDataSourceRequestService_GetFhirVersion_FullMethodName   = "/connect.CreateMedicalDataSourceRequestService/GetFhirVersion"
+	CreateMedicalDataSourceRequestService_HashCode_FullMethodName         = "/connect.CreateMedicalDataSourceRequestService/HashCode"
+	CreateMedicalDataSourceRequestService_ToString_FullMethodName         = "/connect.CreateMedicalDataSourceRequestService/ToString"
+	CreateMedicalDataSourceRequestService_WriteToParcel_FullMethodName    = "/connect.CreateMedicalDataSourceRequestService/WriteToParcel"
+)
+
+// CreateMedicalDataSourceRequestServiceClient is the client API for CreateMedicalDataSourceRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CreateMedicalDataSourceRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *CreateMedicalDataSourceRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error)
+	GetFhirBaseUri(ctx context.Context, in *GetFhirBaseUriRequest, opts ...grpc.CallOption) (*GetFhirBaseUriResponse, error)
+	GetFhirVersion(ctx context.Context, in *GetFhirVersionRequest, opts ...grpc.CallOption) (*GetFhirVersionResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *CreateMedicalDataSourceRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *CreateMedicalDataSourceRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type createMedicalDataSourceRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCreateMedicalDataSourceRequestServiceClient(cc grpc.ClientConnInterface) CreateMedicalDataSourceRequestServiceClient {
+	return &createMedicalDataSourceRequestServiceClient{cc}
+}
+
+func (c *createMedicalDataSourceRequestServiceClient) DescribeContents(ctx context.Context, in *CreateMedicalDataSourceRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestServiceClient) GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayNameResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_GetDisplayName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestServiceClient) GetFhirBaseUri(ctx context.Context, in *GetFhirBaseUriRequest, opts ...grpc.CallOption) (*GetFhirBaseUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFhirBaseUriResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_GetFhirBaseUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestServiceClient) GetFhirVersion(ctx context.Context, in *GetFhirVersionRequest, opts ...grpc.CallOption) (*GetFhirVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFhirVersionResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_GetFhirVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestServiceClient) ToString(ctx context.Context, in *CreateMedicalDataSourceRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestServiceClient) WriteToParcel(ctx context.Context, in *CreateMedicalDataSourceRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CreateMedicalDataSourceRequestServiceServer is the server API for CreateMedicalDataSourceRequestService service.
+// All implementations must embed UnimplementedCreateMedicalDataSourceRequestServiceServer
+// for forward compatibility.
+type CreateMedicalDataSourceRequestServiceServer interface {
+	DescribeContents(context.Context, *CreateMedicalDataSourceRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error)
+	GetFhirBaseUri(context.Context, *GetFhirBaseUriRequest) (*GetFhirBaseUriResponse, error)
+	GetFhirVersion(context.Context, *GetFhirVersionRequest) (*GetFhirVersionResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *CreateMedicalDataSourceRequestToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *CreateMedicalDataSourceRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCreateMedicalDataSourceRequestServiceServer()
+}
+
+// UnimplementedCreateMedicalDataSourceRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCreateMedicalDataSourceRequestServiceServer struct{}
+
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) DescribeContents(context.Context, *CreateMedicalDataSourceRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayName not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) GetFhirBaseUri(context.Context, *GetFhirBaseUriRequest) (*GetFhirBaseUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFhirBaseUri not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) GetFhirVersion(context.Context, *GetFhirVersionRequest) (*GetFhirVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFhirVersion not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) ToString(context.Context, *CreateMedicalDataSourceRequestToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) WriteToParcel(context.Context, *CreateMedicalDataSourceRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) mustEmbedUnimplementedCreateMedicalDataSourceRequestServiceServer() {
+}
+func (UnimplementedCreateMedicalDataSourceRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCreateMedicalDataSourceRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CreateMedicalDataSourceRequestServiceServer will
+// result in compilation errors.
+type UnsafeCreateMedicalDataSourceRequestServiceServer interface {
+	mustEmbedUnimplementedCreateMedicalDataSourceRequestServiceServer()
+}
+
+func RegisterCreateMedicalDataSourceRequestServiceServer(s grpc.ServiceRegistrar, srv CreateMedicalDataSourceRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedCreateMedicalDataSourceRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CreateMedicalDataSourceRequestService_ServiceDesc, srv)
+}
+
+func _CreateMedicalDataSourceRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateMedicalDataSourceRequestDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).DescribeContents(ctx, req.(*CreateMedicalDataSourceRequestDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestService_GetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).GetDisplayName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestService_GetDisplayName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).GetDisplayName(ctx, req.(*GetDisplayNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestService_GetFhirBaseUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFhirBaseUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).GetFhirBaseUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestService_GetFhirBaseUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).GetFhirBaseUri(ctx, req.(*GetFhirBaseUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestService_GetFhirVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFhirVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).GetFhirVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestService_GetFhirVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).GetFhirVersion(ctx, req.(*GetFhirVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateMedicalDataSourceRequestToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).ToString(ctx, req.(*CreateMedicalDataSourceRequestToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateMedicalDataSourceRequestWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestServiceServer).WriteToParcel(ctx, req.(*CreateMedicalDataSourceRequestWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CreateMedicalDataSourceRequestService_ServiceDesc is the grpc.ServiceDesc for CreateMedicalDataSourceRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CreateMedicalDataSourceRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.CreateMedicalDataSourceRequestService",
+	HandlerType: (*CreateMedicalDataSourceRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CreateMedicalDataSourceRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _CreateMedicalDataSourceRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDisplayName",
+			Handler:    _CreateMedicalDataSourceRequestService_GetDisplayName_Handler,
+		},
+		{
+			MethodName: "GetFhirBaseUri",
+			Handler:    _CreateMedicalDataSourceRequestService_GetFhirBaseUri_Handler,
+		},
+		{
+			MethodName: "GetFhirVersion",
+			Handler:    _CreateMedicalDataSourceRequestService_GetFhirVersion_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _CreateMedicalDataSourceRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CreateMedicalDataSourceRequestService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CreateMedicalDataSourceRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	CreateMedicalDataSourceRequestBuilderService_Build_FullMethodName          = "/connect.CreateMedicalDataSourceRequestBuilderService/Build"
+	CreateMedicalDataSourceRequestBuilderService_SetDisplayName_FullMethodName = "/connect.CreateMedicalDataSourceRequestBuilderService/SetDisplayName"
+	CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_FullMethodName = "/connect.CreateMedicalDataSourceRequestBuilderService/SetFhirBaseUri"
+	CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_FullMethodName = "/connect.CreateMedicalDataSourceRequestBuilderService/SetFhirVersion"
+)
+
+// CreateMedicalDataSourceRequestBuilderServiceClient is the client API for CreateMedicalDataSourceRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CreateMedicalDataSourceRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetDisplayName(ctx context.Context, in *SetDisplayNameRequest, opts ...grpc.CallOption) (*SetDisplayNameResponse, error)
+	SetFhirBaseUri(ctx context.Context, in *SetFhirBaseUriRequest, opts ...grpc.CallOption) (*SetFhirBaseUriResponse, error)
+	SetFhirVersion(ctx context.Context, in *SetFhirVersionRequest, opts ...grpc.CallOption) (*SetFhirVersionResponse, error)
+}
+
+type createMedicalDataSourceRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCreateMedicalDataSourceRequestBuilderServiceClient(cc grpc.ClientConnInterface) CreateMedicalDataSourceRequestBuilderServiceClient {
+	return &createMedicalDataSourceRequestBuilderServiceClient{cc}
+}
+
+func (c *createMedicalDataSourceRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestBuilderServiceClient) SetDisplayName(ctx context.Context, in *SetDisplayNameRequest, opts ...grpc.CallOption) (*SetDisplayNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDisplayNameResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestBuilderService_SetDisplayName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestBuilderServiceClient) SetFhirBaseUri(ctx context.Context, in *SetFhirBaseUriRequest, opts ...grpc.CallOption) (*SetFhirBaseUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFhirBaseUriResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createMedicalDataSourceRequestBuilderServiceClient) SetFhirVersion(ctx context.Context, in *SetFhirVersionRequest, opts ...grpc.CallOption) (*SetFhirVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFhirVersionResponse)
+	err := c.cc.Invoke(ctx, CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CreateMedicalDataSourceRequestBuilderServiceServer is the server API for CreateMedicalDataSourceRequestBuilderService service.
+// All implementations must embed UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer
+// for forward compatibility.
+type CreateMedicalDataSourceRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetDisplayName(context.Context, *SetDisplayNameRequest) (*SetDisplayNameResponse, error)
+	SetFhirBaseUri(context.Context, *SetFhirBaseUriRequest) (*SetFhirBaseUriResponse, error)
+	SetFhirVersion(context.Context, *SetFhirVersionRequest) (*SetFhirVersionResponse, error)
+	mustEmbedUnimplementedCreateMedicalDataSourceRequestBuilderServiceServer()
+}
+
+// UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer struct{}
+
+func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) SetDisplayName(context.Context, *SetDisplayNameRequest) (*SetDisplayNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDisplayName not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) SetFhirBaseUri(context.Context, *SetFhirBaseUriRequest) (*SetFhirBaseUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFhirBaseUri not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) SetFhirVersion(context.Context, *SetFhirVersionRequest) (*SetFhirVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFhirVersion not implemented")
+}
+func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) mustEmbedUnimplementedCreateMedicalDataSourceRequestBuilderServiceServer() {
+}
+func (UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCreateMedicalDataSourceRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CreateMedicalDataSourceRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeCreateMedicalDataSourceRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedCreateMedicalDataSourceRequestBuilderServiceServer()
+}
+
+func RegisterCreateMedicalDataSourceRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv CreateMedicalDataSourceRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedCreateMedicalDataSourceRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CreateMedicalDataSourceRequestBuilderService_ServiceDesc, srv)
+}
+
+func _CreateMedicalDataSourceRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestBuilderService_SetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDisplayNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetDisplayName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestBuilderService_SetDisplayName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetDisplayName(ctx, req.(*SetDisplayNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFhirBaseUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetFhirBaseUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetFhirBaseUri(ctx, req.(*SetFhirBaseUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFhirVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetFhirVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateMedicalDataSourceRequestBuilderServiceServer).SetFhirVersion(ctx, req.(*SetFhirVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CreateMedicalDataSourceRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for CreateMedicalDataSourceRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CreateMedicalDataSourceRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.CreateMedicalDataSourceRequestBuilderService",
+	HandlerType: (*CreateMedicalDataSourceRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _CreateMedicalDataSourceRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetDisplayName",
+			Handler:    _CreateMedicalDataSourceRequestBuilderService_SetDisplayName_Handler,
+		},
+		{
+			MethodName: "SetFhirBaseUri",
+			Handler:    _CreateMedicalDataSourceRequestBuilderService_SetFhirBaseUri_Handler,
+		},
+		{
+			MethodName: "SetFhirVersion",
+			Handler:    _CreateMedicalDataSourceRequestBuilderService_SetFhirVersion_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	AggregateRecordsGroupedByPeriodResponseService_GetEndTime_FullMethodName   = "/connect.AggregateRecordsGroupedByPeriodResponseService/GetEndTime"
+	AggregateRecordsGroupedByPeriodResponseService_GetStartTime_FullMethodName = "/connect.AggregateRecordsGroupedByPeriodResponseService/GetStartTime"
+)
+
+// AggregateRecordsGroupedByPeriodResponseServiceClient is the client API for AggregateRecordsGroupedByPeriodResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AggregateRecordsGroupedByPeriodResponseServiceClient interface {
+	GetEndTime(ctx context.Context, in *GetEndTimeRequest, opts ...grpc.CallOption) (*GetEndTimeResponse, error)
+	GetStartTime(ctx context.Context, in *GetStartTimeRequest, opts ...grpc.CallOption) (*GetStartTimeResponse, error)
+}
+
+type aggregateRecordsGroupedByPeriodResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAggregateRecordsGroupedByPeriodResponseServiceClient(cc grpc.ClientConnInterface) AggregateRecordsGroupedByPeriodResponseServiceClient {
+	return &aggregateRecordsGroupedByPeriodResponseServiceClient{cc}
+}
+
+func (c *aggregateRecordsGroupedByPeriodResponseServiceClient) GetEndTime(ctx context.Context, in *GetEndTimeRequest, opts ...grpc.CallOption) (*GetEndTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndTimeResponse)
+	err := c.cc.Invoke(ctx, AggregateRecordsGroupedByPeriodResponseService_GetEndTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aggregateRecordsGroupedByPeriodResponseServiceClient) GetStartTime(ctx context.Context, in *GetStartTimeRequest, opts ...grpc.CallOption) (*GetStartTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartTimeResponse)
+	err := c.cc.Invoke(ctx, AggregateRecordsGroupedByPeriodResponseService_GetStartTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AggregateRecordsGroupedByPeriodResponseServiceServer is the server API for AggregateRecordsGroupedByPeriodResponseService service.
+// All implementations must embed UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer
+// for forward compatibility.
+type AggregateRecordsGroupedByPeriodResponseServiceServer interface {
+	GetEndTime(context.Context, *GetEndTimeRequest) (*GetEndTimeResponse, error)
+	GetStartTime(context.Context, *GetStartTimeRequest) (*GetStartTimeResponse, error)
+	mustEmbedUnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer()
+}
+
+// UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer struct{}
+
+func (UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer) GetEndTime(context.Context, *GetEndTimeRequest) (*GetEndTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndTime not implemented")
+}
+func (UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer) GetStartTime(context.Context, *GetStartTimeRequest) (*GetStartTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartTime not implemented")
+}
+func (UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer) mustEmbedUnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer() {
+}
+func (UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAggregateRecordsGroupedByPeriodResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AggregateRecordsGroupedByPeriodResponseServiceServer will
+// result in compilation errors.
+type UnsafeAggregateRecordsGroupedByPeriodResponseServiceServer interface {
+	mustEmbedUnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer()
+}
+
+func RegisterAggregateRecordsGroupedByPeriodResponseServiceServer(s grpc.ServiceRegistrar, srv AggregateRecordsGroupedByPeriodResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedAggregateRecordsGroupedByPeriodResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AggregateRecordsGroupedByPeriodResponseService_ServiceDesc, srv)
+}
+
+func _AggregateRecordsGroupedByPeriodResponseService_GetEndTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AggregateRecordsGroupedByPeriodResponseServiceServer).GetEndTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AggregateRecordsGroupedByPeriodResponseService_GetEndTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AggregateRecordsGroupedByPeriodResponseServiceServer).GetEndTime(ctx, req.(*GetEndTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AggregateRecordsGroupedByPeriodResponseService_GetStartTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AggregateRecordsGroupedByPeriodResponseServiceServer).GetStartTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AggregateRecordsGroupedByPeriodResponseService_GetStartTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AggregateRecordsGroupedByPeriodResponseServiceServer).GetStartTime(ctx, req.(*GetStartTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AggregateRecordsGroupedByPeriodResponseService_ServiceDesc is the grpc.ServiceDesc for AggregateRecordsGroupedByPeriodResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AggregateRecordsGroupedByPeriodResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.AggregateRecordsGroupedByPeriodResponseService",
+	HandlerType: (*AggregateRecordsGroupedByPeriodResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetEndTime",
+			Handler:    _AggregateRecordsGroupedByPeriodResponseService_GetEndTime_Handler,
+		},
+		{
+			MethodName: "GetStartTime",
+			Handler:    _AggregateRecordsGroupedByPeriodResponseService_GetStartTime_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	InsertRecordsResponseService_GetRecords_FullMethodName = "/connect.InsertRecordsResponseService/GetRecords"
+)
+
+// InsertRecordsResponseServiceClient is the client API for InsertRecordsResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InsertRecordsResponseServiceClient interface {
+	GetRecords(ctx context.Context, in *GetRecordsRequest, opts ...grpc.CallOption) (*GetRecordsResponse, error)
+}
+
+type insertRecordsResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInsertRecordsResponseServiceClient(cc grpc.ClientConnInterface) InsertRecordsResponseServiceClient {
+	return &insertRecordsResponseServiceClient{cc}
+}
+
+func (c *insertRecordsResponseServiceClient) GetRecords(ctx context.Context, in *GetRecordsRequest, opts ...grpc.CallOption) (*GetRecordsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordsResponse)
+	err := c.cc.Invoke(ctx, InsertRecordsResponseService_GetRecords_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InsertRecordsResponseServiceServer is the server API for InsertRecordsResponseService service.
+// All implementations must embed UnimplementedInsertRecordsResponseServiceServer
+// for forward compatibility.
+type InsertRecordsResponseServiceServer interface {
+	GetRecords(context.Context, *GetRecordsRequest) (*GetRecordsResponse, error)
+	mustEmbedUnimplementedInsertRecordsResponseServiceServer()
+}
+
+// UnimplementedInsertRecordsResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInsertRecordsResponseServiceServer struct{}
+
+func (UnimplementedInsertRecordsResponseServiceServer) GetRecords(context.Context, *GetRecordsRequest) (*GetRecordsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecords not implemented")
+}
+func (UnimplementedInsertRecordsResponseServiceServer) mustEmbedUnimplementedInsertRecordsResponseServiceServer() {
+}
+func (UnimplementedInsertRecordsResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInsertRecordsResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InsertRecordsResponseServiceServer will
+// result in compilation errors.
+type UnsafeInsertRecordsResponseServiceServer interface {
+	mustEmbedUnimplementedInsertRecordsResponseServiceServer()
+}
+
+func RegisterInsertRecordsResponseServiceServer(s grpc.ServiceRegistrar, srv InsertRecordsResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedInsertRecordsResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InsertRecordsResponseService_ServiceDesc, srv)
+}
+
+func _InsertRecordsResponseService_GetRecords_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InsertRecordsResponseServiceServer).GetRecords(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InsertRecordsResponseService_GetRecords_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InsertRecordsResponseServiceServer).GetRecords(ctx, req.(*GetRecordsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InsertRecordsResponseService_ServiceDesc is the grpc.ServiceDesc for InsertRecordsResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InsertRecordsResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.InsertRecordsResponseService",
+	HandlerType: (*InsertRecordsResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRecords",
+			Handler:    _InsertRecordsResponseService_GetRecords_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	GetMedicalDataSourcesRequestService_DescribeContents_FullMethodName = "/connect.GetMedicalDataSourcesRequestService/DescribeContents"
+	GetMedicalDataSourcesRequestService_Equals_FullMethodName           = "/connect.GetMedicalDataSourcesRequestService/Equals"
+	GetMedicalDataSourcesRequestService_GetPackageNames_FullMethodName  = "/connect.GetMedicalDataSourcesRequestService/GetPackageNames"
+	GetMedicalDataSourcesRequestService_HashCode_FullMethodName         = "/connect.GetMedicalDataSourcesRequestService/HashCode"
+	GetMedicalDataSourcesRequestService_ToString_FullMethodName         = "/connect.GetMedicalDataSourcesRequestService/ToString"
+	GetMedicalDataSourcesRequestService_WriteToParcel_FullMethodName    = "/connect.GetMedicalDataSourcesRequestService/WriteToParcel"
+)
+
+// GetMedicalDataSourcesRequestServiceClient is the client API for GetMedicalDataSourcesRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GetMedicalDataSourcesRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *GetMedicalDataSourcesRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPackageNames(ctx context.Context, in *GetPackageNamesRequest, opts ...grpc.CallOption) (*GetPackageNamesResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *GetMedicalDataSourcesRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *GetMedicalDataSourcesRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type getMedicalDataSourcesRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGetMedicalDataSourcesRequestServiceClient(cc grpc.ClientConnInterface) GetMedicalDataSourcesRequestServiceClient {
+	return &getMedicalDataSourcesRequestServiceClient{cc}
+}
+
+func (c *getMedicalDataSourcesRequestServiceClient) DescribeContents(ctx context.Context, in *GetMedicalDataSourcesRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getMedicalDataSourcesRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getMedicalDataSourcesRequestServiceClient) GetPackageNames(ctx context.Context, in *GetPackageNamesRequest, opts ...grpc.CallOption) (*GetPackageNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNamesResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_GetPackageNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getMedicalDataSourcesRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getMedicalDataSourcesRequestServiceClient) ToString(ctx context.Context, in *GetMedicalDataSourcesRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getMedicalDataSourcesRequestServiceClient) WriteToParcel(ctx context.Context, in *GetMedicalDataSourcesRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GetMedicalDataSourcesRequestServiceServer is the server API for GetMedicalDataSourcesRequestService service.
+// All implementations must embed UnimplementedGetMedicalDataSourcesRequestServiceServer
+// for forward compatibility.
+type GetMedicalDataSourcesRequestServiceServer interface {
+	DescribeContents(context.Context, *GetMedicalDataSourcesRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPackageNames(context.Context, *GetPackageNamesRequest) (*GetPackageNamesResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *GetMedicalDataSourcesRequestToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *GetMedicalDataSourcesRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedGetMedicalDataSourcesRequestServiceServer()
+}
+
+// UnimplementedGetMedicalDataSourcesRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGetMedicalDataSourcesRequestServiceServer struct{}
+
+func (UnimplementedGetMedicalDataSourcesRequestServiceServer) DescribeContents(context.Context, *GetMedicalDataSourcesRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestServiceServer) GetPackageNames(context.Context, *GetPackageNamesRequest) (*GetPackageNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageNames not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestServiceServer) ToString(context.Context, *GetMedicalDataSourcesRequestToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestServiceServer) WriteToParcel(context.Context, *GetMedicalDataSourcesRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestServiceServer) mustEmbedUnimplementedGetMedicalDataSourcesRequestServiceServer() {
+}
+func (UnimplementedGetMedicalDataSourcesRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGetMedicalDataSourcesRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GetMedicalDataSourcesRequestServiceServer will
+// result in compilation errors.
+type UnsafeGetMedicalDataSourcesRequestServiceServer interface {
+	mustEmbedUnimplementedGetMedicalDataSourcesRequestServiceServer()
+}
+
+func RegisterGetMedicalDataSourcesRequestServiceServer(s grpc.ServiceRegistrar, srv GetMedicalDataSourcesRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedGetMedicalDataSourcesRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GetMedicalDataSourcesRequestService_ServiceDesc, srv)
+}
+
+func _GetMedicalDataSourcesRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMedicalDataSourcesRequestDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).DescribeContents(ctx, req.(*GetMedicalDataSourcesRequestDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetMedicalDataSourcesRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetMedicalDataSourcesRequestService_GetPackageNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).GetPackageNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestService_GetPackageNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).GetPackageNames(ctx, req.(*GetPackageNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetMedicalDataSourcesRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetMedicalDataSourcesRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMedicalDataSourcesRequestToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).ToString(ctx, req.(*GetMedicalDataSourcesRequestToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetMedicalDataSourcesRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMedicalDataSourcesRequestWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestServiceServer).WriteToParcel(ctx, req.(*GetMedicalDataSourcesRequestWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GetMedicalDataSourcesRequestService_ServiceDesc is the grpc.ServiceDesc for GetMedicalDataSourcesRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GetMedicalDataSourcesRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.GetMedicalDataSourcesRequestService",
+	HandlerType: (*GetMedicalDataSourcesRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _GetMedicalDataSourcesRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _GetMedicalDataSourcesRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPackageNames",
+			Handler:    _GetMedicalDataSourcesRequestService_GetPackageNames_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _GetMedicalDataSourcesRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _GetMedicalDataSourcesRequestService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _GetMedicalDataSourcesRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	GetMedicalDataSourcesRequestBuilderService_AddPackageName_FullMethodName    = "/connect.GetMedicalDataSourcesRequestBuilderService/AddPackageName"
+	GetMedicalDataSourcesRequestBuilderService_Build_FullMethodName             = "/connect.GetMedicalDataSourcesRequestBuilderService/Build"
+	GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_FullMethodName = "/connect.GetMedicalDataSourcesRequestBuilderService/ClearPackageNames"
+)
+
+// GetMedicalDataSourcesRequestBuilderServiceClient is the client API for GetMedicalDataSourcesRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GetMedicalDataSourcesRequestBuilderServiceClient interface {
+	AddPackageName(ctx context.Context, in *AddPackageNameRequest, opts ...grpc.CallOption) (*AddPackageNameResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	ClearPackageNames(ctx context.Context, in *ClearPackageNamesRequest, opts ...grpc.CallOption) (*ClearPackageNamesResponse, error)
+}
+
+type getMedicalDataSourcesRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGetMedicalDataSourcesRequestBuilderServiceClient(cc grpc.ClientConnInterface) GetMedicalDataSourcesRequestBuilderServiceClient {
+	return &getMedicalDataSourcesRequestBuilderServiceClient{cc}
+}
+
+func (c *getMedicalDataSourcesRequestBuilderServiceClient) AddPackageName(ctx context.Context, in *AddPackageNameRequest, opts ...grpc.CallOption) (*AddPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddPackageNameResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestBuilderService_AddPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getMedicalDataSourcesRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getMedicalDataSourcesRequestBuilderServiceClient) ClearPackageNames(ctx context.Context, in *ClearPackageNamesRequest, opts ...grpc.CallOption) (*ClearPackageNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearPackageNamesResponse)
+	err := c.cc.Invoke(ctx, GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GetMedicalDataSourcesRequestBuilderServiceServer is the server API for GetMedicalDataSourcesRequestBuilderService service.
+// All implementations must embed UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer
+// for forward compatibility.
+type GetMedicalDataSourcesRequestBuilderServiceServer interface {
+	AddPackageName(context.Context, *AddPackageNameRequest) (*AddPackageNameResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	ClearPackageNames(context.Context, *ClearPackageNamesRequest) (*ClearPackageNamesResponse, error)
+	mustEmbedUnimplementedGetMedicalDataSourcesRequestBuilderServiceServer()
+}
+
+// UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer struct{}
+
+func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) AddPackageName(context.Context, *AddPackageNameRequest) (*AddPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddPackageName not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) ClearPackageNames(context.Context, *ClearPackageNamesRequest) (*ClearPackageNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearPackageNames not implemented")
+}
+func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) mustEmbedUnimplementedGetMedicalDataSourcesRequestBuilderServiceServer() {
+}
+func (UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGetMedicalDataSourcesRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GetMedicalDataSourcesRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeGetMedicalDataSourcesRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedGetMedicalDataSourcesRequestBuilderServiceServer()
+}
+
+func RegisterGetMedicalDataSourcesRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv GetMedicalDataSourcesRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedGetMedicalDataSourcesRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GetMedicalDataSourcesRequestBuilderService_ServiceDesc, srv)
+}
+
+func _GetMedicalDataSourcesRequestBuilderService_AddPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).AddPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestBuilderService_AddPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).AddPackageName(ctx, req.(*AddPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetMedicalDataSourcesRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearPackageNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).ClearPackageNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetMedicalDataSourcesRequestBuilderServiceServer).ClearPackageNames(ctx, req.(*ClearPackageNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GetMedicalDataSourcesRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for GetMedicalDataSourcesRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GetMedicalDataSourcesRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.GetMedicalDataSourcesRequestBuilderService",
+	HandlerType: (*GetMedicalDataSourcesRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddPackageName",
+			Handler:    _GetMedicalDataSourcesRequestBuilderService_AddPackageName_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _GetMedicalDataSourcesRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "ClearPackageNames",
+			Handler:    _GetMedicalDataSourcesRequestBuilderService_ClearPackageNames_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -5166,14 +4234,14 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UpsertMedicalResourceRequestServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *UpsertMedicalResourceRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
 	GetDataSourceId(ctx context.Context, in *UpsertMedicalResourceRequestGetDataSourceIdRequest, opts ...grpc.CallOption) (*GetDataSourceIdResponse, error)
 	GetFhirVersion(ctx context.Context, in *GetFhirVersionRequest, opts ...grpc.CallOption) (*GetFhirVersionResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	ToString(ctx context.Context, in *UpsertMedicalResourceRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *UpsertMedicalResourceRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type upsertMedicalResourceRequestServiceClient struct {
@@ -5184,7 +4252,7 @@ func NewUpsertMedicalResourceRequestServiceClient(cc grpc.ClientConnInterface) U
 	return &upsertMedicalResourceRequestServiceClient{cc}
 }
 
-func (c *upsertMedicalResourceRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *upsertMedicalResourceRequestServiceClient) DescribeContents(ctx context.Context, in *UpsertMedicalResourceRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, UpsertMedicalResourceRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -5244,7 +4312,7 @@ func (c *upsertMedicalResourceRequestServiceClient) HashCode(ctx context.Context
 	return out, nil
 }
 
-func (c *upsertMedicalResourceRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *upsertMedicalResourceRequestServiceClient) ToString(ctx context.Context, in *UpsertMedicalResourceRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, UpsertMedicalResourceRequestService_ToString_FullMethodName, in, out, cOpts...)
@@ -5254,7 +4322,7 @@ func (c *upsertMedicalResourceRequestServiceClient) ToString(ctx context.Context
 	return out, nil
 }
 
-func (c *upsertMedicalResourceRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *upsertMedicalResourceRequestServiceClient) WriteToParcel(ctx context.Context, in *UpsertMedicalResourceRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, UpsertMedicalResourceRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -5268,14 +4336,14 @@ func (c *upsertMedicalResourceRequestServiceClient) WriteToParcel(ctx context.Co
 // All implementations must embed UnimplementedUpsertMedicalResourceRequestServiceServer
 // for forward compatibility.
 type UpsertMedicalResourceRequestServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *UpsertMedicalResourceRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
 	GetDataSourceId(context.Context, *UpsertMedicalResourceRequestGetDataSourceIdRequest) (*GetDataSourceIdResponse, error)
 	GetFhirVersion(context.Context, *GetFhirVersionRequest) (*GetFhirVersionResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	ToString(context.Context, *UpsertMedicalResourceRequestToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *UpsertMedicalResourceRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedUpsertMedicalResourceRequestServiceServer()
 }
 
@@ -5286,7 +4354,7 @@ type UpsertMedicalResourceRequestServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedUpsertMedicalResourceRequestServiceServer struct{}
 
-func (UnimplementedUpsertMedicalResourceRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedUpsertMedicalResourceRequestServiceServer) DescribeContents(context.Context, *UpsertMedicalResourceRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedUpsertMedicalResourceRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
@@ -5304,10 +4372,10 @@ func (UnimplementedUpsertMedicalResourceRequestServiceServer) GetFhirVersion(con
 func (UnimplementedUpsertMedicalResourceRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedUpsertMedicalResourceRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedUpsertMedicalResourceRequestServiceServer) ToString(context.Context, *UpsertMedicalResourceRequestToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedUpsertMedicalResourceRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedUpsertMedicalResourceRequestServiceServer) WriteToParcel(context.Context, *UpsertMedicalResourceRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedUpsertMedicalResourceRequestServiceServer) mustEmbedUnimplementedUpsertMedicalResourceRequestServiceServer() {
@@ -5333,7 +4401,7 @@ func RegisterUpsertMedicalResourceRequestServiceServer(s grpc.ServiceRegistrar, 
 }
 
 func _UpsertMedicalResourceRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(UpsertMedicalResourceRequestDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5345,7 +4413,7 @@ func _UpsertMedicalResourceRequestService_DescribeContents_Handler(srv interface
 		FullMethod: UpsertMedicalResourceRequestService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpsertMedicalResourceRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(UpsertMedicalResourceRequestServiceServer).DescribeContents(ctx, req.(*UpsertMedicalResourceRequestDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5441,7 +4509,7 @@ func _UpsertMedicalResourceRequestService_HashCode_Handler(srv interface{}, ctx 
 }
 
 func _UpsertMedicalResourceRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+	in := new(UpsertMedicalResourceRequestToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5453,13 +4521,13 @@ func _UpsertMedicalResourceRequestService_ToString_Handler(srv interface{}, ctx 
 		FullMethod: UpsertMedicalResourceRequestService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpsertMedicalResourceRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(UpsertMedicalResourceRequestServiceServer).ToString(ctx, req.(*UpsertMedicalResourceRequestToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UpsertMedicalResourceRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(UpsertMedicalResourceRequestWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5471,7 +4539,7 @@ func _UpsertMedicalResourceRequestService_WriteToParcel_Handler(srv interface{},
 		FullMethod: UpsertMedicalResourceRequestService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpsertMedicalResourceRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(UpsertMedicalResourceRequestServiceServer).WriteToParcel(ctx, req.(*UpsertMedicalResourceRequestWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5731,6 +4799,2202 @@ var UpsertMedicalResourceRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetFhirVersion",
 			Handler:    _UpsertMedicalResourceRequestBuilderService_SetFhirVersion_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	AggregateRecordsRequestService_GetAggregationTypes_FullMethodName   = "/connect.AggregateRecordsRequestService/GetAggregationTypes"
+	AggregateRecordsRequestService_GetDataOriginsFilters_FullMethodName = "/connect.AggregateRecordsRequestService/GetDataOriginsFilters"
+	AggregateRecordsRequestService_GetTimeRangeFilter_FullMethodName    = "/connect.AggregateRecordsRequestService/GetTimeRangeFilter"
+)
+
+// AggregateRecordsRequestServiceClient is the client API for AggregateRecordsRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AggregateRecordsRequestServiceClient interface {
+	GetAggregationTypes(ctx context.Context, in *GetAggregationTypesRequest, opts ...grpc.CallOption) (*GetAggregationTypesResponse, error)
+	GetDataOriginsFilters(ctx context.Context, in *GetDataOriginsFiltersRequest, opts ...grpc.CallOption) (*GetDataOriginsFiltersResponse, error)
+	GetTimeRangeFilter(ctx context.Context, in *GetTimeRangeFilterRequest, opts ...grpc.CallOption) (*GetTimeRangeFilterResponse, error)
+}
+
+type aggregateRecordsRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAggregateRecordsRequestServiceClient(cc grpc.ClientConnInterface) AggregateRecordsRequestServiceClient {
+	return &aggregateRecordsRequestServiceClient{cc}
+}
+
+func (c *aggregateRecordsRequestServiceClient) GetAggregationTypes(ctx context.Context, in *GetAggregationTypesRequest, opts ...grpc.CallOption) (*GetAggregationTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAggregationTypesResponse)
+	err := c.cc.Invoke(ctx, AggregateRecordsRequestService_GetAggregationTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aggregateRecordsRequestServiceClient) GetDataOriginsFilters(ctx context.Context, in *GetDataOriginsFiltersRequest, opts ...grpc.CallOption) (*GetDataOriginsFiltersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataOriginsFiltersResponse)
+	err := c.cc.Invoke(ctx, AggregateRecordsRequestService_GetDataOriginsFilters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aggregateRecordsRequestServiceClient) GetTimeRangeFilter(ctx context.Context, in *GetTimeRangeFilterRequest, opts ...grpc.CallOption) (*GetTimeRangeFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeRangeFilterResponse)
+	err := c.cc.Invoke(ctx, AggregateRecordsRequestService_GetTimeRangeFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AggregateRecordsRequestServiceServer is the server API for AggregateRecordsRequestService service.
+// All implementations must embed UnimplementedAggregateRecordsRequestServiceServer
+// for forward compatibility.
+type AggregateRecordsRequestServiceServer interface {
+	GetAggregationTypes(context.Context, *GetAggregationTypesRequest) (*GetAggregationTypesResponse, error)
+	GetDataOriginsFilters(context.Context, *GetDataOriginsFiltersRequest) (*GetDataOriginsFiltersResponse, error)
+	GetTimeRangeFilter(context.Context, *GetTimeRangeFilterRequest) (*GetTimeRangeFilterResponse, error)
+	mustEmbedUnimplementedAggregateRecordsRequestServiceServer()
+}
+
+// UnimplementedAggregateRecordsRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAggregateRecordsRequestServiceServer struct{}
+
+func (UnimplementedAggregateRecordsRequestServiceServer) GetAggregationTypes(context.Context, *GetAggregationTypesRequest) (*GetAggregationTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAggregationTypes not implemented")
+}
+func (UnimplementedAggregateRecordsRequestServiceServer) GetDataOriginsFilters(context.Context, *GetDataOriginsFiltersRequest) (*GetDataOriginsFiltersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataOriginsFilters not implemented")
+}
+func (UnimplementedAggregateRecordsRequestServiceServer) GetTimeRangeFilter(context.Context, *GetTimeRangeFilterRequest) (*GetTimeRangeFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeRangeFilter not implemented")
+}
+func (UnimplementedAggregateRecordsRequestServiceServer) mustEmbedUnimplementedAggregateRecordsRequestServiceServer() {
+}
+func (UnimplementedAggregateRecordsRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAggregateRecordsRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AggregateRecordsRequestServiceServer will
+// result in compilation errors.
+type UnsafeAggregateRecordsRequestServiceServer interface {
+	mustEmbedUnimplementedAggregateRecordsRequestServiceServer()
+}
+
+func RegisterAggregateRecordsRequestServiceServer(s grpc.ServiceRegistrar, srv AggregateRecordsRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedAggregateRecordsRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AggregateRecordsRequestService_ServiceDesc, srv)
+}
+
+func _AggregateRecordsRequestService_GetAggregationTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAggregationTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AggregateRecordsRequestServiceServer).GetAggregationTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AggregateRecordsRequestService_GetAggregationTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AggregateRecordsRequestServiceServer).GetAggregationTypes(ctx, req.(*GetAggregationTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AggregateRecordsRequestService_GetDataOriginsFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataOriginsFiltersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AggregateRecordsRequestServiceServer).GetDataOriginsFilters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AggregateRecordsRequestService_GetDataOriginsFilters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AggregateRecordsRequestServiceServer).GetDataOriginsFilters(ctx, req.(*GetDataOriginsFiltersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AggregateRecordsRequestService_GetTimeRangeFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeRangeFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AggregateRecordsRequestServiceServer).GetTimeRangeFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AggregateRecordsRequestService_GetTimeRangeFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AggregateRecordsRequestServiceServer).GetTimeRangeFilter(ctx, req.(*GetTimeRangeFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AggregateRecordsRequestService_ServiceDesc is the grpc.ServiceDesc for AggregateRecordsRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AggregateRecordsRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.AggregateRecordsRequestService",
+	HandlerType: (*AggregateRecordsRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAggregationTypes",
+			Handler:    _AggregateRecordsRequestService_GetAggregationTypes_Handler,
+		},
+		{
+			MethodName: "GetDataOriginsFilters",
+			Handler:    _AggregateRecordsRequestService_GetDataOriginsFilters_Handler,
+		},
+		{
+			MethodName: "GetTimeRangeFilter",
+			Handler:    _AggregateRecordsRequestService_GetTimeRangeFilter_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	AggregateRecordsRequestBuilderService_AddDataOriginsFilter_FullMethodName = "/connect.AggregateRecordsRequestBuilderService/AddDataOriginsFilter"
+	AggregateRecordsRequestBuilderService_Build_FullMethodName                = "/connect.AggregateRecordsRequestBuilderService/Build"
+)
+
+// AggregateRecordsRequestBuilderServiceClient is the client API for AggregateRecordsRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AggregateRecordsRequestBuilderServiceClient interface {
+	AddDataOriginsFilter(ctx context.Context, in *AddDataOriginsFilterRequest, opts ...grpc.CallOption) (*AddDataOriginsFilterResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type aggregateRecordsRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAggregateRecordsRequestBuilderServiceClient(cc grpc.ClientConnInterface) AggregateRecordsRequestBuilderServiceClient {
+	return &aggregateRecordsRequestBuilderServiceClient{cc}
+}
+
+func (c *aggregateRecordsRequestBuilderServiceClient) AddDataOriginsFilter(ctx context.Context, in *AddDataOriginsFilterRequest, opts ...grpc.CallOption) (*AddDataOriginsFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDataOriginsFilterResponse)
+	err := c.cc.Invoke(ctx, AggregateRecordsRequestBuilderService_AddDataOriginsFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aggregateRecordsRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, AggregateRecordsRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AggregateRecordsRequestBuilderServiceServer is the server API for AggregateRecordsRequestBuilderService service.
+// All implementations must embed UnimplementedAggregateRecordsRequestBuilderServiceServer
+// for forward compatibility.
+type AggregateRecordsRequestBuilderServiceServer interface {
+	AddDataOriginsFilter(context.Context, *AddDataOriginsFilterRequest) (*AddDataOriginsFilterResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedAggregateRecordsRequestBuilderServiceServer()
+}
+
+// UnimplementedAggregateRecordsRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAggregateRecordsRequestBuilderServiceServer struct{}
+
+func (UnimplementedAggregateRecordsRequestBuilderServiceServer) AddDataOriginsFilter(context.Context, *AddDataOriginsFilterRequest) (*AddDataOriginsFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDataOriginsFilter not implemented")
+}
+func (UnimplementedAggregateRecordsRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedAggregateRecordsRequestBuilderServiceServer) mustEmbedUnimplementedAggregateRecordsRequestBuilderServiceServer() {
+}
+func (UnimplementedAggregateRecordsRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAggregateRecordsRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AggregateRecordsRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeAggregateRecordsRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedAggregateRecordsRequestBuilderServiceServer()
+}
+
+func RegisterAggregateRecordsRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv AggregateRecordsRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAggregateRecordsRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AggregateRecordsRequestBuilderService_ServiceDesc, srv)
+}
+
+func _AggregateRecordsRequestBuilderService_AddDataOriginsFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDataOriginsFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AggregateRecordsRequestBuilderServiceServer).AddDataOriginsFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AggregateRecordsRequestBuilderService_AddDataOriginsFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AggregateRecordsRequestBuilderServiceServer).AddDataOriginsFilter(ctx, req.(*AddDataOriginsFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AggregateRecordsRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AggregateRecordsRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AggregateRecordsRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AggregateRecordsRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AggregateRecordsRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for AggregateRecordsRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AggregateRecordsRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.AggregateRecordsRequestBuilderService",
+	HandlerType: (*AggregateRecordsRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDataOriginsFilter",
+			Handler:    _AggregateRecordsRequestBuilderService_AddDataOriginsFilter_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _AggregateRecordsRequestBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	TimeInstantRangeFilterService_Equals_FullMethodName       = "/connect.TimeInstantRangeFilterService/Equals"
+	TimeInstantRangeFilterService_GetEndTime_FullMethodName   = "/connect.TimeInstantRangeFilterService/GetEndTime"
+	TimeInstantRangeFilterService_GetStartTime_FullMethodName = "/connect.TimeInstantRangeFilterService/GetStartTime"
+	TimeInstantRangeFilterService_HashCode_FullMethodName     = "/connect.TimeInstantRangeFilterService/HashCode"
+	TimeInstantRangeFilterService_IsBounded_FullMethodName    = "/connect.TimeInstantRangeFilterService/IsBounded"
+)
+
+// TimeInstantRangeFilterServiceClient is the client API for TimeInstantRangeFilterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TimeInstantRangeFilterServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetEndTime(ctx context.Context, in *GetEndTimeRequest, opts ...grpc.CallOption) (*GetEndTimeResponse, error)
+	GetStartTime(ctx context.Context, in *GetStartTimeRequest, opts ...grpc.CallOption) (*GetStartTimeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsBounded(ctx context.Context, in *IsBoundedRequest, opts ...grpc.CallOption) (*IsBoundedResponse, error)
+}
+
+type timeInstantRangeFilterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTimeInstantRangeFilterServiceClient(cc grpc.ClientConnInterface) TimeInstantRangeFilterServiceClient {
+	return &timeInstantRangeFilterServiceClient{cc}
+}
+
+func (c *timeInstantRangeFilterServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeInstantRangeFilterServiceClient) GetEndTime(ctx context.Context, in *GetEndTimeRequest, opts ...grpc.CallOption) (*GetEndTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndTimeResponse)
+	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_GetEndTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeInstantRangeFilterServiceClient) GetStartTime(ctx context.Context, in *GetStartTimeRequest, opts ...grpc.CallOption) (*GetStartTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartTimeResponse)
+	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_GetStartTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeInstantRangeFilterServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeInstantRangeFilterServiceClient) IsBounded(ctx context.Context, in *IsBoundedRequest, opts ...grpc.CallOption) (*IsBoundedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsBoundedResponse)
+	err := c.cc.Invoke(ctx, TimeInstantRangeFilterService_IsBounded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TimeInstantRangeFilterServiceServer is the server API for TimeInstantRangeFilterService service.
+// All implementations must embed UnimplementedTimeInstantRangeFilterServiceServer
+// for forward compatibility.
+type TimeInstantRangeFilterServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetEndTime(context.Context, *GetEndTimeRequest) (*GetEndTimeResponse, error)
+	GetStartTime(context.Context, *GetStartTimeRequest) (*GetStartTimeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsBounded(context.Context, *IsBoundedRequest) (*IsBoundedResponse, error)
+	mustEmbedUnimplementedTimeInstantRangeFilterServiceServer()
+}
+
+// UnimplementedTimeInstantRangeFilterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTimeInstantRangeFilterServiceServer struct{}
+
+func (UnimplementedTimeInstantRangeFilterServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTimeInstantRangeFilterServiceServer) GetEndTime(context.Context, *GetEndTimeRequest) (*GetEndTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndTime not implemented")
+}
+func (UnimplementedTimeInstantRangeFilterServiceServer) GetStartTime(context.Context, *GetStartTimeRequest) (*GetStartTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartTime not implemented")
+}
+func (UnimplementedTimeInstantRangeFilterServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTimeInstantRangeFilterServiceServer) IsBounded(context.Context, *IsBoundedRequest) (*IsBoundedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsBounded not implemented")
+}
+func (UnimplementedTimeInstantRangeFilterServiceServer) mustEmbedUnimplementedTimeInstantRangeFilterServiceServer() {
+}
+func (UnimplementedTimeInstantRangeFilterServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTimeInstantRangeFilterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TimeInstantRangeFilterServiceServer will
+// result in compilation errors.
+type UnsafeTimeInstantRangeFilterServiceServer interface {
+	mustEmbedUnimplementedTimeInstantRangeFilterServiceServer()
+}
+
+func RegisterTimeInstantRangeFilterServiceServer(s grpc.ServiceRegistrar, srv TimeInstantRangeFilterServiceServer) {
+	// If the following call panics, it indicates UnimplementedTimeInstantRangeFilterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TimeInstantRangeFilterService_ServiceDesc, srv)
+}
+
+func _TimeInstantRangeFilterService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeInstantRangeFilterServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeInstantRangeFilterService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeInstantRangeFilterServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeInstantRangeFilterService_GetEndTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeInstantRangeFilterServiceServer).GetEndTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeInstantRangeFilterService_GetEndTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeInstantRangeFilterServiceServer).GetEndTime(ctx, req.(*GetEndTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeInstantRangeFilterService_GetStartTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeInstantRangeFilterServiceServer).GetStartTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeInstantRangeFilterService_GetStartTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeInstantRangeFilterServiceServer).GetStartTime(ctx, req.(*GetStartTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeInstantRangeFilterService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeInstantRangeFilterServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeInstantRangeFilterService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeInstantRangeFilterServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeInstantRangeFilterService_IsBounded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsBoundedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeInstantRangeFilterServiceServer).IsBounded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeInstantRangeFilterService_IsBounded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeInstantRangeFilterServiceServer).IsBounded(ctx, req.(*IsBoundedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TimeInstantRangeFilterService_ServiceDesc is the grpc.ServiceDesc for TimeInstantRangeFilterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TimeInstantRangeFilterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.TimeInstantRangeFilterService",
+	HandlerType: (*TimeInstantRangeFilterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _TimeInstantRangeFilterService_Equals_Handler,
+		},
+		{
+			MethodName: "GetEndTime",
+			Handler:    _TimeInstantRangeFilterService_GetEndTime_Handler,
+		},
+		{
+			MethodName: "GetStartTime",
+			Handler:    _TimeInstantRangeFilterService_GetStartTime_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TimeInstantRangeFilterService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsBounded",
+			Handler:    _TimeInstantRangeFilterService_IsBounded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	TimeInstantRangeFilterBuilderService_Build_FullMethodName        = "/connect.TimeInstantRangeFilterBuilderService/Build"
+	TimeInstantRangeFilterBuilderService_SetEndTime_FullMethodName   = "/connect.TimeInstantRangeFilterBuilderService/SetEndTime"
+	TimeInstantRangeFilterBuilderService_SetStartTime_FullMethodName = "/connect.TimeInstantRangeFilterBuilderService/SetStartTime"
+)
+
+// TimeInstantRangeFilterBuilderServiceClient is the client API for TimeInstantRangeFilterBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TimeInstantRangeFilterBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetEndTime(ctx context.Context, in *SetEndTimeRequest, opts ...grpc.CallOption) (*SetEndTimeResponse, error)
+	SetStartTime(ctx context.Context, in *SetStartTimeRequest, opts ...grpc.CallOption) (*SetStartTimeResponse, error)
+}
+
+type timeInstantRangeFilterBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTimeInstantRangeFilterBuilderServiceClient(cc grpc.ClientConnInterface) TimeInstantRangeFilterBuilderServiceClient {
+	return &timeInstantRangeFilterBuilderServiceClient{cc}
+}
+
+func (c *timeInstantRangeFilterBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TimeInstantRangeFilterBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeInstantRangeFilterBuilderServiceClient) SetEndTime(ctx context.Context, in *SetEndTimeRequest, opts ...grpc.CallOption) (*SetEndTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEndTimeResponse)
+	err := c.cc.Invoke(ctx, TimeInstantRangeFilterBuilderService_SetEndTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeInstantRangeFilterBuilderServiceClient) SetStartTime(ctx context.Context, in *SetStartTimeRequest, opts ...grpc.CallOption) (*SetStartTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStartTimeResponse)
+	err := c.cc.Invoke(ctx, TimeInstantRangeFilterBuilderService_SetStartTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TimeInstantRangeFilterBuilderServiceServer is the server API for TimeInstantRangeFilterBuilderService service.
+// All implementations must embed UnimplementedTimeInstantRangeFilterBuilderServiceServer
+// for forward compatibility.
+type TimeInstantRangeFilterBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetEndTime(context.Context, *SetEndTimeRequest) (*SetEndTimeResponse, error)
+	SetStartTime(context.Context, *SetStartTimeRequest) (*SetStartTimeResponse, error)
+	mustEmbedUnimplementedTimeInstantRangeFilterBuilderServiceServer()
+}
+
+// UnimplementedTimeInstantRangeFilterBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTimeInstantRangeFilterBuilderServiceServer struct{}
+
+func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) SetEndTime(context.Context, *SetEndTimeRequest) (*SetEndTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEndTime not implemented")
+}
+func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) SetStartTime(context.Context, *SetStartTimeRequest) (*SetStartTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStartTime not implemented")
+}
+func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) mustEmbedUnimplementedTimeInstantRangeFilterBuilderServiceServer() {
+}
+func (UnimplementedTimeInstantRangeFilterBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTimeInstantRangeFilterBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TimeInstantRangeFilterBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTimeInstantRangeFilterBuilderServiceServer interface {
+	mustEmbedUnimplementedTimeInstantRangeFilterBuilderServiceServer()
+}
+
+func RegisterTimeInstantRangeFilterBuilderServiceServer(s grpc.ServiceRegistrar, srv TimeInstantRangeFilterBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTimeInstantRangeFilterBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TimeInstantRangeFilterBuilderService_ServiceDesc, srv)
+}
+
+func _TimeInstantRangeFilterBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeInstantRangeFilterBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeInstantRangeFilterBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeInstantRangeFilterBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeInstantRangeFilterBuilderService_SetEndTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEndTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeInstantRangeFilterBuilderServiceServer).SetEndTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeInstantRangeFilterBuilderService_SetEndTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeInstantRangeFilterBuilderServiceServer).SetEndTime(ctx, req.(*SetEndTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeInstantRangeFilterBuilderService_SetStartTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStartTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeInstantRangeFilterBuilderServiceServer).SetStartTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeInstantRangeFilterBuilderService_SetStartTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeInstantRangeFilterBuilderServiceServer).SetStartTime(ctx, req.(*SetStartTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TimeInstantRangeFilterBuilderService_ServiceDesc is the grpc.ServiceDesc for TimeInstantRangeFilterBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TimeInstantRangeFilterBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.TimeInstantRangeFilterBuilderService",
+	HandlerType: (*TimeInstantRangeFilterBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TimeInstantRangeFilterBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetEndTime",
+			Handler:    _TimeInstantRangeFilterBuilderService_SetEndTime_Handler,
+		},
+		{
+			MethodName: "SetStartTime",
+			Handler:    _TimeInstantRangeFilterBuilderService_SetStartTime_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadMedicalResourcesRequestService_GetPageSize_FullMethodName = "/connect.ReadMedicalResourcesRequestService/GetPageSize"
+)
+
+// ReadMedicalResourcesRequestServiceClient is the client API for ReadMedicalResourcesRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadMedicalResourcesRequestServiceClient interface {
+	GetPageSize(ctx context.Context, in *GetPageSizeRequest, opts ...grpc.CallOption) (*GetPageSizeResponse, error)
+}
+
+type readMedicalResourcesRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadMedicalResourcesRequestServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesRequestServiceClient {
+	return &readMedicalResourcesRequestServiceClient{cc}
+}
+
+func (c *readMedicalResourcesRequestServiceClient) GetPageSize(ctx context.Context, in *GetPageSizeRequest, opts ...grpc.CallOption) (*GetPageSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPageSizeResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesRequestService_GetPageSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadMedicalResourcesRequestServiceServer is the server API for ReadMedicalResourcesRequestService service.
+// All implementations must embed UnimplementedReadMedicalResourcesRequestServiceServer
+// for forward compatibility.
+type ReadMedicalResourcesRequestServiceServer interface {
+	GetPageSize(context.Context, *GetPageSizeRequest) (*GetPageSizeResponse, error)
+	mustEmbedUnimplementedReadMedicalResourcesRequestServiceServer()
+}
+
+// UnimplementedReadMedicalResourcesRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadMedicalResourcesRequestServiceServer struct{}
+
+func (UnimplementedReadMedicalResourcesRequestServiceServer) GetPageSize(context.Context, *GetPageSizeRequest) (*GetPageSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPageSize not implemented")
+}
+func (UnimplementedReadMedicalResourcesRequestServiceServer) mustEmbedUnimplementedReadMedicalResourcesRequestServiceServer() {
+}
+func (UnimplementedReadMedicalResourcesRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadMedicalResourcesRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadMedicalResourcesRequestServiceServer will
+// result in compilation errors.
+type UnsafeReadMedicalResourcesRequestServiceServer interface {
+	mustEmbedUnimplementedReadMedicalResourcesRequestServiceServer()
+}
+
+func RegisterReadMedicalResourcesRequestServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadMedicalResourcesRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadMedicalResourcesRequestService_ServiceDesc, srv)
+}
+
+func _ReadMedicalResourcesRequestService_GetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPageSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesRequestServiceServer).GetPageSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesRequestService_GetPageSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesRequestServiceServer).GetPageSize(ctx, req.(*GetPageSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadMedicalResourcesRequestService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadMedicalResourcesRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadMedicalResourcesRequestService",
+	HandlerType: (*ReadMedicalResourcesRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPageSize",
+			Handler:    _ReadMedicalResourcesRequestService_GetPageSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadMedicalResourcesInitialRequestService_Equals_FullMethodName                 = "/connect.ReadMedicalResourcesInitialRequestService/Equals"
+	ReadMedicalResourcesInitialRequestService_GetDataSourceIds_FullMethodName       = "/connect.ReadMedicalResourcesInitialRequestService/GetDataSourceIds"
+	ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_FullMethodName = "/connect.ReadMedicalResourcesInitialRequestService/GetMedicalResourceType"
+	ReadMedicalResourcesInitialRequestService_HashCode_FullMethodName               = "/connect.ReadMedicalResourcesInitialRequestService/HashCode"
+	ReadMedicalResourcesInitialRequestService_ToString_FullMethodName               = "/connect.ReadMedicalResourcesInitialRequestService/ToString"
+)
+
+// ReadMedicalResourcesInitialRequestServiceClient is the client API for ReadMedicalResourcesInitialRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadMedicalResourcesInitialRequestServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDataSourceIds(ctx context.Context, in *GetDataSourceIdsRequest, opts ...grpc.CallOption) (*GetDataSourceIdsResponse, error)
+	GetMedicalResourceType(ctx context.Context, in *GetMedicalResourceTypeRequest, opts ...grpc.CallOption) (*GetMedicalResourceTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ReadMedicalResourcesInitialRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type readMedicalResourcesInitialRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadMedicalResourcesInitialRequestServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesInitialRequestServiceClient {
+	return &readMedicalResourcesInitialRequestServiceClient{cc}
+}
+
+func (c *readMedicalResourcesInitialRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesInitialRequestServiceClient) GetDataSourceIds(ctx context.Context, in *GetDataSourceIdsRequest, opts ...grpc.CallOption) (*GetDataSourceIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataSourceIdsResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_GetDataSourceIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesInitialRequestServiceClient) GetMedicalResourceType(ctx context.Context, in *GetMedicalResourceTypeRequest, opts ...grpc.CallOption) (*GetMedicalResourceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMedicalResourceTypeResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesInitialRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesInitialRequestServiceClient) ToString(ctx context.Context, in *ReadMedicalResourcesInitialRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadMedicalResourcesInitialRequestServiceServer is the server API for ReadMedicalResourcesInitialRequestService service.
+// All implementations must embed UnimplementedReadMedicalResourcesInitialRequestServiceServer
+// for forward compatibility.
+type ReadMedicalResourcesInitialRequestServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDataSourceIds(context.Context, *GetDataSourceIdsRequest) (*GetDataSourceIdsResponse, error)
+	GetMedicalResourceType(context.Context, *GetMedicalResourceTypeRequest) (*GetMedicalResourceTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ReadMedicalResourcesInitialRequestToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedReadMedicalResourcesInitialRequestServiceServer()
+}
+
+// UnimplementedReadMedicalResourcesInitialRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadMedicalResourcesInitialRequestServiceServer struct{}
+
+func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) GetDataSourceIds(context.Context, *GetDataSourceIdsRequest) (*GetDataSourceIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataSourceIds not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) GetMedicalResourceType(context.Context, *GetMedicalResourceTypeRequest) (*GetMedicalResourceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMedicalResourceType not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) ToString(context.Context, *ReadMedicalResourcesInitialRequestToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) mustEmbedUnimplementedReadMedicalResourcesInitialRequestServiceServer() {
+}
+func (UnimplementedReadMedicalResourcesInitialRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadMedicalResourcesInitialRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadMedicalResourcesInitialRequestServiceServer will
+// result in compilation errors.
+type UnsafeReadMedicalResourcesInitialRequestServiceServer interface {
+	mustEmbedUnimplementedReadMedicalResourcesInitialRequestServiceServer()
+}
+
+func RegisterReadMedicalResourcesInitialRequestServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesInitialRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadMedicalResourcesInitialRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadMedicalResourcesInitialRequestService_ServiceDesc, srv)
+}
+
+func _ReadMedicalResourcesInitialRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesInitialRequestService_GetDataSourceIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataSourceIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).GetDataSourceIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestService_GetDataSourceIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).GetDataSourceIds(ctx, req.(*GetDataSourceIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMedicalResourceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).GetMedicalResourceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).GetMedicalResourceType(ctx, req.(*GetMedicalResourceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesInitialRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesInitialRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadMedicalResourcesInitialRequestToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestServiceServer).ToString(ctx, req.(*ReadMedicalResourcesInitialRequestToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadMedicalResourcesInitialRequestService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesInitialRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadMedicalResourcesInitialRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadMedicalResourcesInitialRequestService",
+	HandlerType: (*ReadMedicalResourcesInitialRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _ReadMedicalResourcesInitialRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDataSourceIds",
+			Handler:    _ReadMedicalResourcesInitialRequestService_GetDataSourceIds_Handler,
+		},
+		{
+			MethodName: "GetMedicalResourceType",
+			Handler:    _ReadMedicalResourcesInitialRequestService_GetMedicalResourceType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ReadMedicalResourcesInitialRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ReadMedicalResourcesInitialRequestService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_FullMethodName        = "/connect.ReadMedicalResourcesInitialRequestBuilderService/AddDataSourceId"
+	ReadMedicalResourcesInitialRequestBuilderService_Build_FullMethodName                  = "/connect.ReadMedicalResourcesInitialRequestBuilderService/Build"
+	ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_FullMethodName     = "/connect.ReadMedicalResourcesInitialRequestBuilderService/ClearDataSourceIds"
+	ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_FullMethodName = "/connect.ReadMedicalResourcesInitialRequestBuilderService/SetMedicalResourceType"
+	ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_FullMethodName            = "/connect.ReadMedicalResourcesInitialRequestBuilderService/SetPageSize"
+)
+
+// ReadMedicalResourcesInitialRequestBuilderServiceClient is the client API for ReadMedicalResourcesInitialRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadMedicalResourcesInitialRequestBuilderServiceClient interface {
+	AddDataSourceId(ctx context.Context, in *AddDataSourceIdRequest, opts ...grpc.CallOption) (*AddDataSourceIdResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	ClearDataSourceIds(ctx context.Context, in *ClearDataSourceIdsRequest, opts ...grpc.CallOption) (*ClearDataSourceIdsResponse, error)
+	SetMedicalResourceType(ctx context.Context, in *SetMedicalResourceTypeRequest, opts ...grpc.CallOption) (*SetMedicalResourceTypeResponse, error)
+	SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error)
+}
+
+type readMedicalResourcesInitialRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadMedicalResourcesInitialRequestBuilderServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesInitialRequestBuilderServiceClient {
+	return &readMedicalResourcesInitialRequestBuilderServiceClient{cc}
+}
+
+func (c *readMedicalResourcesInitialRequestBuilderServiceClient) AddDataSourceId(ctx context.Context, in *AddDataSourceIdRequest, opts ...grpc.CallOption) (*AddDataSourceIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDataSourceIdResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesInitialRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesInitialRequestBuilderServiceClient) ClearDataSourceIds(ctx context.Context, in *ClearDataSourceIdsRequest, opts ...grpc.CallOption) (*ClearDataSourceIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearDataSourceIdsResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesInitialRequestBuilderServiceClient) SetMedicalResourceType(ctx context.Context, in *SetMedicalResourceTypeRequest, opts ...grpc.CallOption) (*SetMedicalResourceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMedicalResourceTypeResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesInitialRequestBuilderServiceClient) SetPageSize(ctx context.Context, in *SetPageSizeRequest, opts ...grpc.CallOption) (*SetPageSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPageSizeResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadMedicalResourcesInitialRequestBuilderServiceServer is the server API for ReadMedicalResourcesInitialRequestBuilderService service.
+// All implementations must embed UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer
+// for forward compatibility.
+type ReadMedicalResourcesInitialRequestBuilderServiceServer interface {
+	AddDataSourceId(context.Context, *AddDataSourceIdRequest) (*AddDataSourceIdResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	ClearDataSourceIds(context.Context, *ClearDataSourceIdsRequest) (*ClearDataSourceIdsResponse, error)
+	SetMedicalResourceType(context.Context, *SetMedicalResourceTypeRequest) (*SetMedicalResourceTypeResponse, error)
+	SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error)
+	mustEmbedUnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer()
+}
+
+// UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer struct{}
+
+func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) AddDataSourceId(context.Context, *AddDataSourceIdRequest) (*AddDataSourceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDataSourceId not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) ClearDataSourceIds(context.Context, *ClearDataSourceIdsRequest) (*ClearDataSourceIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearDataSourceIds not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) SetMedicalResourceType(context.Context, *SetMedicalResourceTypeRequest) (*SetMedicalResourceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMedicalResourceType not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) SetPageSize(context.Context, *SetPageSizeRequest) (*SetPageSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPageSize not implemented")
+}
+func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) mustEmbedUnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer() {
+}
+func (UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadMedicalResourcesInitialRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadMedicalResourcesInitialRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeReadMedicalResourcesInitialRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer()
+}
+
+func RegisterReadMedicalResourcesInitialRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesInitialRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadMedicalResourcesInitialRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadMedicalResourcesInitialRequestBuilderService_ServiceDesc, srv)
+}
+
+func _ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDataSourceIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).AddDataSourceId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).AddDataSourceId(ctx, req.(*AddDataSourceIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesInitialRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearDataSourceIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).ClearDataSourceIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).ClearDataSourceIds(ctx, req.(*ClearDataSourceIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMedicalResourceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).SetMedicalResourceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).SetMedicalResourceType(ctx, req.(*SetMedicalResourceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPageSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).SetPageSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesInitialRequestBuilderServiceServer).SetPageSize(ctx, req.(*SetPageSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadMedicalResourcesInitialRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesInitialRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadMedicalResourcesInitialRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadMedicalResourcesInitialRequestBuilderService",
+	HandlerType: (*ReadMedicalResourcesInitialRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDataSourceId",
+			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_AddDataSourceId_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "ClearDataSourceIds",
+			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_ClearDataSourceIds_Handler,
+		},
+		{
+			MethodName: "SetMedicalResourceType",
+			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_SetMedicalResourceType_Handler,
+		},
+		{
+			MethodName: "SetPageSize",
+			Handler:    _ReadMedicalResourcesInitialRequestBuilderService_SetPageSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_FullMethodName = "/connect.ReadMedicalResourcesResponseService/NewReadMedicalResourcesResponse"
+	ReadMedicalResourcesResponseService_DescribeContents_FullMethodName                = "/connect.ReadMedicalResourcesResponseService/DescribeContents"
+	ReadMedicalResourcesResponseService_Equals_FullMethodName                          = "/connect.ReadMedicalResourcesResponseService/Equals"
+	ReadMedicalResourcesResponseService_GetMedicalResources_FullMethodName             = "/connect.ReadMedicalResourcesResponseService/GetMedicalResources"
+	ReadMedicalResourcesResponseService_GetNextPageToken_FullMethodName                = "/connect.ReadMedicalResourcesResponseService/GetNextPageToken"
+	ReadMedicalResourcesResponseService_GetRemainingCount_FullMethodName               = "/connect.ReadMedicalResourcesResponseService/GetRemainingCount"
+	ReadMedicalResourcesResponseService_HashCode_FullMethodName                        = "/connect.ReadMedicalResourcesResponseService/HashCode"
+	ReadMedicalResourcesResponseService_ToString_FullMethodName                        = "/connect.ReadMedicalResourcesResponseService/ToString"
+	ReadMedicalResourcesResponseService_WriteToParcel_FullMethodName                   = "/connect.ReadMedicalResourcesResponseService/WriteToParcel"
+)
+
+// ReadMedicalResourcesResponseServiceClient is the client API for ReadMedicalResourcesResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadMedicalResourcesResponseServiceClient interface {
+	NewReadMedicalResourcesResponse(ctx context.Context, in *NewReadMedicalResourcesResponseRequest, opts ...grpc.CallOption) (*NewReadMedicalResourcesResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *ReadMedicalResourcesResponseEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMedicalResources(ctx context.Context, in *GetMedicalResourcesRequest, opts ...grpc.CallOption) (*GetMedicalResourcesResponse, error)
+	GetNextPageToken(ctx context.Context, in *ReadMedicalResourcesResponseGetNextPageTokenRequest, opts ...grpc.CallOption) (*ReadMedicalResourcesResponseGetNextPageTokenResponse, error)
+	GetRemainingCount(ctx context.Context, in *GetRemainingCountRequest, opts ...grpc.CallOption) (*GetRemainingCountResponse, error)
+	HashCode(ctx context.Context, in *ReadMedicalResourcesResponseHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type readMedicalResourcesResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadMedicalResourcesResponseServiceClient(cc grpc.ClientConnInterface) ReadMedicalResourcesResponseServiceClient {
+	return &readMedicalResourcesResponseServiceClient{cc}
+}
+
+func (c *readMedicalResourcesResponseServiceClient) NewReadMedicalResourcesResponse(ctx context.Context, in *NewReadMedicalResourcesResponseRequest, opts ...grpc.CallOption) (*NewReadMedicalResourcesResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewReadMedicalResourcesResponseResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesResponseServiceClient) Equals(ctx context.Context, in *ReadMedicalResourcesResponseEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesResponseServiceClient) GetMedicalResources(ctx context.Context, in *GetMedicalResourcesRequest, opts ...grpc.CallOption) (*GetMedicalResourcesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMedicalResourcesResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_GetMedicalResources_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesResponseServiceClient) GetNextPageToken(ctx context.Context, in *ReadMedicalResourcesResponseGetNextPageTokenRequest, opts ...grpc.CallOption) (*ReadMedicalResourcesResponseGetNextPageTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReadMedicalResourcesResponseGetNextPageTokenResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_GetNextPageToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesResponseServiceClient) GetRemainingCount(ctx context.Context, in *GetRemainingCountRequest, opts ...grpc.CallOption) (*GetRemainingCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRemainingCountResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_GetRemainingCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesResponseServiceClient) HashCode(ctx context.Context, in *ReadMedicalResourcesResponseHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesResponseServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readMedicalResourcesResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ReadMedicalResourcesResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadMedicalResourcesResponseServiceServer is the server API for ReadMedicalResourcesResponseService service.
+// All implementations must embed UnimplementedReadMedicalResourcesResponseServiceServer
+// for forward compatibility.
+type ReadMedicalResourcesResponseServiceServer interface {
+	NewReadMedicalResourcesResponse(context.Context, *NewReadMedicalResourcesResponseRequest) (*NewReadMedicalResourcesResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *ReadMedicalResourcesResponseEqualsRequest) (*EqualsResponse, error)
+	GetMedicalResources(context.Context, *GetMedicalResourcesRequest) (*GetMedicalResourcesResponse, error)
+	GetNextPageToken(context.Context, *ReadMedicalResourcesResponseGetNextPageTokenRequest) (*ReadMedicalResourcesResponseGetNextPageTokenResponse, error)
+	GetRemainingCount(context.Context, *GetRemainingCountRequest) (*GetRemainingCountResponse, error)
+	HashCode(context.Context, *ReadMedicalResourcesResponseHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedReadMedicalResourcesResponseServiceServer()
+}
+
+// UnimplementedReadMedicalResourcesResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadMedicalResourcesResponseServiceServer struct{}
+
+func (UnimplementedReadMedicalResourcesResponseServiceServer) NewReadMedicalResourcesResponse(context.Context, *NewReadMedicalResourcesResponseRequest) (*NewReadMedicalResourcesResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewReadMedicalResourcesResponse not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) Equals(context.Context, *ReadMedicalResourcesResponseEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) GetMedicalResources(context.Context, *GetMedicalResourcesRequest) (*GetMedicalResourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMedicalResources not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) GetNextPageToken(context.Context, *ReadMedicalResourcesResponseGetNextPageTokenRequest) (*ReadMedicalResourcesResponseGetNextPageTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNextPageToken not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) GetRemainingCount(context.Context, *GetRemainingCountRequest) (*GetRemainingCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRemainingCount not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) HashCode(context.Context, *ReadMedicalResourcesResponseHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) mustEmbedUnimplementedReadMedicalResourcesResponseServiceServer() {
+}
+func (UnimplementedReadMedicalResourcesResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadMedicalResourcesResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadMedicalResourcesResponseServiceServer will
+// result in compilation errors.
+type UnsafeReadMedicalResourcesResponseServiceServer interface {
+	mustEmbedUnimplementedReadMedicalResourcesResponseServiceServer()
+}
+
+func RegisterReadMedicalResourcesResponseServiceServer(s grpc.ServiceRegistrar, srv ReadMedicalResourcesResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadMedicalResourcesResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadMedicalResourcesResponseService_ServiceDesc, srv)
+}
+
+func _ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewReadMedicalResourcesResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).NewReadMedicalResourcesResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).NewReadMedicalResourcesResponse(ctx, req.(*NewReadMedicalResourcesResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesResponseService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadMedicalResourcesResponseEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).Equals(ctx, req.(*ReadMedicalResourcesResponseEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesResponseService_GetMedicalResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMedicalResourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).GetMedicalResources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_GetMedicalResources_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).GetMedicalResources(ctx, req.(*GetMedicalResourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesResponseService_GetNextPageToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadMedicalResourcesResponseGetNextPageTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).GetNextPageToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_GetNextPageToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).GetNextPageToken(ctx, req.(*ReadMedicalResourcesResponseGetNextPageTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesResponseService_GetRemainingCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRemainingCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).GetRemainingCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_GetRemainingCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).GetRemainingCount(ctx, req.(*GetRemainingCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesResponseService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadMedicalResourcesResponseHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).HashCode(ctx, req.(*ReadMedicalResourcesResponseHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesResponseService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadMedicalResourcesResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadMedicalResourcesResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadMedicalResourcesResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadMedicalResourcesResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadMedicalResourcesResponseService_ServiceDesc is the grpc.ServiceDesc for ReadMedicalResourcesResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadMedicalResourcesResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadMedicalResourcesResponseService",
+	HandlerType: (*ReadMedicalResourcesResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewReadMedicalResourcesResponse",
+			Handler:    _ReadMedicalResourcesResponseService_NewReadMedicalResourcesResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ReadMedicalResourcesResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ReadMedicalResourcesResponseService_Equals_Handler,
+		},
+		{
+			MethodName: "GetMedicalResources",
+			Handler:    _ReadMedicalResourcesResponseService_GetMedicalResources_Handler,
+		},
+		{
+			MethodName: "GetNextPageToken",
+			Handler:    _ReadMedicalResourcesResponseService_GetNextPageToken_Handler,
+		},
+		{
+			MethodName: "GetRemainingCount",
+			Handler:    _ReadMedicalResourcesResponseService_GetRemainingCount_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ReadMedicalResourcesResponseService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ReadMedicalResourcesResponseService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ReadMedicalResourcesResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadRecordsRequestUsingIdsService_GetRecordIdFilters_FullMethodName = "/connect.ReadRecordsRequestUsingIdsService/GetRecordIdFilters"
+)
+
+// ReadRecordsRequestUsingIdsServiceClient is the client API for ReadRecordsRequestUsingIdsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadRecordsRequestUsingIdsServiceClient interface {
+	GetRecordIdFilters(ctx context.Context, in *GetRecordIdFiltersRequest, opts ...grpc.CallOption) (*GetRecordIdFiltersResponse, error)
+}
+
+type readRecordsRequestUsingIdsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadRecordsRequestUsingIdsServiceClient(cc grpc.ClientConnInterface) ReadRecordsRequestUsingIdsServiceClient {
+	return &readRecordsRequestUsingIdsServiceClient{cc}
+}
+
+func (c *readRecordsRequestUsingIdsServiceClient) GetRecordIdFilters(ctx context.Context, in *GetRecordIdFiltersRequest, opts ...grpc.CallOption) (*GetRecordIdFiltersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordIdFiltersResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingIdsService_GetRecordIdFilters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadRecordsRequestUsingIdsServiceServer is the server API for ReadRecordsRequestUsingIdsService service.
+// All implementations must embed UnimplementedReadRecordsRequestUsingIdsServiceServer
+// for forward compatibility.
+type ReadRecordsRequestUsingIdsServiceServer interface {
+	GetRecordIdFilters(context.Context, *GetRecordIdFiltersRequest) (*GetRecordIdFiltersResponse, error)
+	mustEmbedUnimplementedReadRecordsRequestUsingIdsServiceServer()
+}
+
+// UnimplementedReadRecordsRequestUsingIdsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadRecordsRequestUsingIdsServiceServer struct{}
+
+func (UnimplementedReadRecordsRequestUsingIdsServiceServer) GetRecordIdFilters(context.Context, *GetRecordIdFiltersRequest) (*GetRecordIdFiltersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecordIdFilters not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingIdsServiceServer) mustEmbedUnimplementedReadRecordsRequestUsingIdsServiceServer() {
+}
+func (UnimplementedReadRecordsRequestUsingIdsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadRecordsRequestUsingIdsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadRecordsRequestUsingIdsServiceServer will
+// result in compilation errors.
+type UnsafeReadRecordsRequestUsingIdsServiceServer interface {
+	mustEmbedUnimplementedReadRecordsRequestUsingIdsServiceServer()
+}
+
+func RegisterReadRecordsRequestUsingIdsServiceServer(s grpc.ServiceRegistrar, srv ReadRecordsRequestUsingIdsServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadRecordsRequestUsingIdsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadRecordsRequestUsingIdsService_ServiceDesc, srv)
+}
+
+func _ReadRecordsRequestUsingIdsService_GetRecordIdFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordIdFiltersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingIdsServiceServer).GetRecordIdFilters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingIdsService_GetRecordIdFilters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingIdsServiceServer).GetRecordIdFilters(ctx, req.(*GetRecordIdFiltersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadRecordsRequestUsingIdsService_ServiceDesc is the grpc.ServiceDesc for ReadRecordsRequestUsingIdsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadRecordsRequestUsingIdsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadRecordsRequestUsingIdsService",
+	HandlerType: (*ReadRecordsRequestUsingIdsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRecordIdFilters",
+			Handler:    _ReadRecordsRequestUsingIdsService_GetRecordIdFilters_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	ReadRecordsRequestUsingIdsBuilderService_AddClientRecordId_FullMethodName = "/connect.ReadRecordsRequestUsingIdsBuilderService/AddClientRecordId"
+	ReadRecordsRequestUsingIdsBuilderService_AddId_FullMethodName             = "/connect.ReadRecordsRequestUsingIdsBuilderService/AddId"
+	ReadRecordsRequestUsingIdsBuilderService_Build_FullMethodName             = "/connect.ReadRecordsRequestUsingIdsBuilderService/Build"
+)
+
+// ReadRecordsRequestUsingIdsBuilderServiceClient is the client API for ReadRecordsRequestUsingIdsBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReadRecordsRequestUsingIdsBuilderServiceClient interface {
+	AddClientRecordId(ctx context.Context, in *AddClientRecordIdRequest, opts ...grpc.CallOption) (*AddClientRecordIdResponse, error)
+	AddId(ctx context.Context, in *AddIdRequest, opts ...grpc.CallOption) (*AddIdResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type readRecordsRequestUsingIdsBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReadRecordsRequestUsingIdsBuilderServiceClient(cc grpc.ClientConnInterface) ReadRecordsRequestUsingIdsBuilderServiceClient {
+	return &readRecordsRequestUsingIdsBuilderServiceClient{cc}
+}
+
+func (c *readRecordsRequestUsingIdsBuilderServiceClient) AddClientRecordId(ctx context.Context, in *AddClientRecordIdRequest, opts ...grpc.CallOption) (*AddClientRecordIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddClientRecordIdResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingIdsBuilderService_AddClientRecordId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingIdsBuilderServiceClient) AddId(ctx context.Context, in *AddIdRequest, opts ...grpc.CallOption) (*AddIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddIdResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingIdsBuilderService_AddId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readRecordsRequestUsingIdsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ReadRecordsRequestUsingIdsBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReadRecordsRequestUsingIdsBuilderServiceServer is the server API for ReadRecordsRequestUsingIdsBuilderService service.
+// All implementations must embed UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer
+// for forward compatibility.
+type ReadRecordsRequestUsingIdsBuilderServiceServer interface {
+	AddClientRecordId(context.Context, *AddClientRecordIdRequest) (*AddClientRecordIdResponse, error)
+	AddId(context.Context, *AddIdRequest) (*AddIdResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedReadRecordsRequestUsingIdsBuilderServiceServer()
+}
+
+// UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer struct{}
+
+func (UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer) AddClientRecordId(context.Context, *AddClientRecordIdRequest) (*AddClientRecordIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddClientRecordId not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer) AddId(context.Context, *AddIdRequest) (*AddIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddId not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer) mustEmbedUnimplementedReadRecordsRequestUsingIdsBuilderServiceServer() {
+}
+func (UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReadRecordsRequestUsingIdsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReadRecordsRequestUsingIdsBuilderServiceServer will
+// result in compilation errors.
+type UnsafeReadRecordsRequestUsingIdsBuilderServiceServer interface {
+	mustEmbedUnimplementedReadRecordsRequestUsingIdsBuilderServiceServer()
+}
+
+func RegisterReadRecordsRequestUsingIdsBuilderServiceServer(s grpc.ServiceRegistrar, srv ReadRecordsRequestUsingIdsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedReadRecordsRequestUsingIdsBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReadRecordsRequestUsingIdsBuilderService_ServiceDesc, srv)
+}
+
+func _ReadRecordsRequestUsingIdsBuilderService_AddClientRecordId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddClientRecordIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingIdsBuilderServiceServer).AddClientRecordId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingIdsBuilderService_AddClientRecordId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingIdsBuilderServiceServer).AddClientRecordId(ctx, req.(*AddClientRecordIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingIdsBuilderService_AddId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingIdsBuilderServiceServer).AddId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingIdsBuilderService_AddId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingIdsBuilderServiceServer).AddId(ctx, req.(*AddIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReadRecordsRequestUsingIdsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReadRecordsRequestUsingIdsBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReadRecordsRequestUsingIdsBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReadRecordsRequestUsingIdsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReadRecordsRequestUsingIdsBuilderService_ServiceDesc is the grpc.ServiceDesc for ReadRecordsRequestUsingIdsBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReadRecordsRequestUsingIdsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.ReadRecordsRequestUsingIdsBuilderService",
+	HandlerType: (*ReadRecordsRequestUsingIdsBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddClientRecordId",
+			Handler:    _ReadRecordsRequestUsingIdsBuilderService_AddClientRecordId_Handler,
+		},
+		{
+			MethodName: "AddId",
+			Handler:    _ReadRecordsRequestUsingIdsBuilderService_AddId_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _ReadRecordsRequestUsingIdsBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/connect/connect.proto",
+}
+
+const (
+	RecordIdFilterService_GetClientRecordId_FullMethodName = "/connect.RecordIdFilterService/GetClientRecordId"
+	RecordIdFilterService_GetId_FullMethodName             = "/connect.RecordIdFilterService/GetId"
+)
+
+// RecordIdFilterServiceClient is the client API for RecordIdFilterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RecordIdFilterServiceClient interface {
+	GetClientRecordId(ctx context.Context, in *GetClientRecordIdRequest, opts ...grpc.CallOption) (*GetClientRecordIdResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+}
+
+type recordIdFilterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRecordIdFilterServiceClient(cc grpc.ClientConnInterface) RecordIdFilterServiceClient {
+	return &recordIdFilterServiceClient{cc}
+}
+
+func (c *recordIdFilterServiceClient) GetClientRecordId(ctx context.Context, in *GetClientRecordIdRequest, opts ...grpc.CallOption) (*GetClientRecordIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClientRecordIdResponse)
+	err := c.cc.Invoke(ctx, RecordIdFilterService_GetClientRecordId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordIdFilterServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, RecordIdFilterService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RecordIdFilterServiceServer is the server API for RecordIdFilterService service.
+// All implementations must embed UnimplementedRecordIdFilterServiceServer
+// for forward compatibility.
+type RecordIdFilterServiceServer interface {
+	GetClientRecordId(context.Context, *GetClientRecordIdRequest) (*GetClientRecordIdResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	mustEmbedUnimplementedRecordIdFilterServiceServer()
+}
+
+// UnimplementedRecordIdFilterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRecordIdFilterServiceServer struct{}
+
+func (UnimplementedRecordIdFilterServiceServer) GetClientRecordId(context.Context, *GetClientRecordIdRequest) (*GetClientRecordIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClientRecordId not implemented")
+}
+func (UnimplementedRecordIdFilterServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedRecordIdFilterServiceServer) mustEmbedUnimplementedRecordIdFilterServiceServer() {}
+func (UnimplementedRecordIdFilterServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeRecordIdFilterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RecordIdFilterServiceServer will
+// result in compilation errors.
+type UnsafeRecordIdFilterServiceServer interface {
+	mustEmbedUnimplementedRecordIdFilterServiceServer()
+}
+
+func RegisterRecordIdFilterServiceServer(s grpc.ServiceRegistrar, srv RecordIdFilterServiceServer) {
+	// If the following call panics, it indicates UnimplementedRecordIdFilterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RecordIdFilterService_ServiceDesc, srv)
+}
+
+func _RecordIdFilterService_GetClientRecordId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClientRecordIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordIdFilterServiceServer).GetClientRecordId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordIdFilterService_GetClientRecordId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordIdFilterServiceServer).GetClientRecordId(ctx, req.(*GetClientRecordIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordIdFilterService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordIdFilterServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordIdFilterService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordIdFilterServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RecordIdFilterService_ServiceDesc is the grpc.ServiceDesc for RecordIdFilterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RecordIdFilterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "connect.RecordIdFilterService",
+	HandlerType: (*RecordIdFilterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetClientRecordId",
+			Handler:    _RecordIdFilterService_GetClientRecordId_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _RecordIdFilterService_GetId_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

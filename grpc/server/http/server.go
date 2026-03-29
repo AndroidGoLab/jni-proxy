@@ -15,6 +15,102 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// X509TrustManagerExtensionsServer implements pb.X509TrustManagerExtensionsServiceServer.
+type X509TrustManagerExtensionsServer struct {
+	pb.UnimplementedX509TrustManagerExtensionsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *X509TrustManagerExtensionsServer) NewX509TrustManagerExtensions(_ context.Context, req *pb.NewX509TrustManagerExtensionsRequest) (*pb.NewX509TrustManagerExtensionsResponse, error) {
+	obj, err := jnipkg.NewX509TrustManagerExtensions(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewX509TrustManagerExtensionsResponse{Result: handle}, nil
+}
+
+func (s *X509TrustManagerExtensionsServer) CheckServerTrusted5(_ context.Context, req *pb.CheckServerTrusted5Request) (*pb.CheckServerTrusted5Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.X509TrustManagerExtensions{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CheckServerTrusted5(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CheckServerTrusted5Response{Result: handle}, nil
+}
+
+func (s *X509TrustManagerExtensionsServer) CheckServerTrusted3_1(_ context.Context, req *pb.CheckServerTrusted3_1Request) (*pb.CheckServerTrusted3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.X509TrustManagerExtensions{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CheckServerTrusted3_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CheckServerTrusted3_1Response{Result: handle}, nil
+}
+
+func (s *X509TrustManagerExtensionsServer) IsSameTrustConfiguration(_ context.Context, req *pb.IsSameTrustConfigurationRequest) (*pb.IsSameTrustConfigurationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.X509TrustManagerExtensions{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsSameTrustConfiguration(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSameTrustConfigurationResponse{Result: result}, nil
+}
+
+func (s *X509TrustManagerExtensionsServer) IsUserAddedCertificate(_ context.Context, req *pb.IsUserAddedCertificateRequest) (*pb.IsUserAddedCertificateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.X509TrustManagerExtensions{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsUserAddedCertificate(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsUserAddedCertificateResponse{Result: result}, nil
+}
+
 // SslErrorServer implements pb.SslErrorServiceServer.
 type SslErrorServer struct {
 	pb.UnimplementedSslErrorServiceServer
@@ -88,7 +184,7 @@ func (s *SslErrorServer) GetPrimaryError(_ context.Context, req *pb.GetPrimaryEr
 	return &pb.GetPrimaryErrorResponse{Result: result}, nil
 }
 
-func (s *SslErrorServer) GetUrl(_ context.Context, req *pb.SslErrorGetUrlRequest) (*pb.GetUrlResponse, error) {
+func (s *SslErrorServer) GetUrl(_ context.Context, req *pb.GetUrlRequest) (*pb.GetUrlResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -128,56 +224,6 @@ func (s *SslErrorServer) ToString(_ context.Context, req *pb.ToStringRequest) (*
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ToStringResponse{Result: result}, nil
-}
-
-// X509TrustManagerExtensionsServer implements pb.X509TrustManagerExtensionsServiceServer.
-type X509TrustManagerExtensionsServer struct {
-	pb.UnimplementedX509TrustManagerExtensionsServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *X509TrustManagerExtensionsServer) NewX509TrustManagerExtensions(_ context.Context, req *pb.NewX509TrustManagerExtensionsRequest) (*pb.NewX509TrustManagerExtensionsResponse, error) {
-	obj, err := jnipkg.NewX509TrustManagerExtensions(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewX509TrustManagerExtensionsResponse{Result: handle}, nil
-}
-
-func (s *X509TrustManagerExtensionsServer) IsSameTrustConfiguration(_ context.Context, req *pb.IsSameTrustConfigurationRequest) (*pb.IsSameTrustConfigurationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.X509TrustManagerExtensions{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsSameTrustConfiguration(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsSameTrustConfigurationResponse{Result: result}, nil
-}
-
-func (s *X509TrustManagerExtensionsServer) IsUserAddedCertificate(_ context.Context, req *pb.IsUserAddedCertificateRequest) (*pb.IsUserAddedCertificateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.X509TrustManagerExtensions{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsUserAddedCertificate(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsUserAddedCertificateResponse{Result: result}, nil
 }
 
 // SslCertificateServer implements pb.SslCertificateServiceServer.

@@ -21,520 +21,1052 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	TouchInteractionControllerService_GetDisplayId_FullMethodName                 = "/accessibilityservice.TouchInteractionControllerService/GetDisplayId"
-	TouchInteractionControllerService_GetMaxPointerCount_FullMethodName           = "/accessibilityservice.TouchInteractionControllerService/GetMaxPointerCount"
-	TouchInteractionControllerService_GetState_FullMethodName                     = "/accessibilityservice.TouchInteractionControllerService/GetState"
-	TouchInteractionControllerService_PerformClick_FullMethodName                 = "/accessibilityservice.TouchInteractionControllerService/PerformClick"
-	TouchInteractionControllerService_PerformLongClickAndStartDrag_FullMethodName = "/accessibilityservice.TouchInteractionControllerService/PerformLongClickAndStartDrag"
-	TouchInteractionControllerService_RegisterCallback_FullMethodName             = "/accessibilityservice.TouchInteractionControllerService/RegisterCallback"
-	TouchInteractionControllerService_RequestDelegating_FullMethodName            = "/accessibilityservice.TouchInteractionControllerService/RequestDelegating"
-	TouchInteractionControllerService_RequestDragging_FullMethodName              = "/accessibilityservice.TouchInteractionControllerService/RequestDragging"
-	TouchInteractionControllerService_RequestTouchExploration_FullMethodName      = "/accessibilityservice.TouchInteractionControllerService/RequestTouchExploration"
-	TouchInteractionControllerService_UnregisterAllCallbacks_FullMethodName       = "/accessibilityservice.TouchInteractionControllerService/UnregisterAllCallbacks"
-	TouchInteractionControllerService_UnregisterCallback_FullMethodName           = "/accessibilityservice.TouchInteractionControllerService/UnregisterCallback"
-	TouchInteractionControllerService_StateToString_FullMethodName                = "/accessibilityservice.TouchInteractionControllerService/StateToString"
+	AccessibilityServiceInfoService_NewAccessibilityServiceInfo_FullMethodName      = "/accessibilityservice.AccessibilityServiceInfoService/NewAccessibilityServiceInfo"
+	AccessibilityServiceInfoService_DescribeContents_FullMethodName                 = "/accessibilityservice.AccessibilityServiceInfoService/DescribeContents"
+	AccessibilityServiceInfoService_Equals_FullMethodName                           = "/accessibilityservice.AccessibilityServiceInfoService/Equals"
+	AccessibilityServiceInfoService_GetCanRetrieveWindowContent_FullMethodName      = "/accessibilityservice.AccessibilityServiceInfoService/GetCanRetrieveWindowContent"
+	AccessibilityServiceInfoService_GetCapabilities_FullMethodName                  = "/accessibilityservice.AccessibilityServiceInfoService/GetCapabilities"
+	AccessibilityServiceInfoService_GetDescription_FullMethodName                   = "/accessibilityservice.AccessibilityServiceInfoService/GetDescription"
+	AccessibilityServiceInfoService_GetId_FullMethodName                            = "/accessibilityservice.AccessibilityServiceInfoService/GetId"
+	AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_FullMethodName    = "/accessibilityservice.AccessibilityServiceInfoService/GetInteractiveUiTimeoutMillis"
+	AccessibilityServiceInfoService_GetMotionEventSources_FullMethodName            = "/accessibilityservice.AccessibilityServiceInfoService/GetMotionEventSources"
+	AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_FullMethodName = "/accessibilityservice.AccessibilityServiceInfoService/GetNonInteractiveUiTimeoutMillis"
+	AccessibilityServiceInfoService_GetResolveInfo_FullMethodName                   = "/accessibilityservice.AccessibilityServiceInfoService/GetResolveInfo"
+	AccessibilityServiceInfoService_GetSettingsActivityName_FullMethodName          = "/accessibilityservice.AccessibilityServiceInfoService/GetSettingsActivityName"
+	AccessibilityServiceInfoService_GetTileServiceName_FullMethodName               = "/accessibilityservice.AccessibilityServiceInfoService/GetTileServiceName"
+	AccessibilityServiceInfoService_HashCode_FullMethodName                         = "/accessibilityservice.AccessibilityServiceInfoService/HashCode"
+	AccessibilityServiceInfoService_IsAccessibilityTool_FullMethodName              = "/accessibilityservice.AccessibilityServiceInfoService/IsAccessibilityTool"
+	AccessibilityServiceInfoService_LoadDescription_FullMethodName                  = "/accessibilityservice.AccessibilityServiceInfoService/LoadDescription"
+	AccessibilityServiceInfoService_LoadIntro_FullMethodName                        = "/accessibilityservice.AccessibilityServiceInfoService/LoadIntro"
+	AccessibilityServiceInfoService_LoadSummary_FullMethodName                      = "/accessibilityservice.AccessibilityServiceInfoService/LoadSummary"
+	AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_FullMethodName    = "/accessibilityservice.AccessibilityServiceInfoService/SetInteractiveUiTimeoutMillis"
+	AccessibilityServiceInfoService_SetMotionEventSources_FullMethodName            = "/accessibilityservice.AccessibilityServiceInfoService/SetMotionEventSources"
+	AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_FullMethodName = "/accessibilityservice.AccessibilityServiceInfoService/SetNonInteractiveUiTimeoutMillis"
+	AccessibilityServiceInfoService_ToString_FullMethodName                         = "/accessibilityservice.AccessibilityServiceInfoService/ToString"
+	AccessibilityServiceInfoService_WriteToParcel_FullMethodName                    = "/accessibilityservice.AccessibilityServiceInfoService/WriteToParcel"
+	AccessibilityServiceInfoService_CapabilityToString_FullMethodName               = "/accessibilityservice.AccessibilityServiceInfoService/CapabilityToString"
+	AccessibilityServiceInfoService_FeedbackTypeToString_FullMethodName             = "/accessibilityservice.AccessibilityServiceInfoService/FeedbackTypeToString"
+	AccessibilityServiceInfoService_FlagToString_FullMethodName                     = "/accessibilityservice.AccessibilityServiceInfoService/FlagToString"
 )
 
-// TouchInteractionControllerServiceClient is the client API for TouchInteractionControllerService service.
+// AccessibilityServiceInfoServiceClient is the client API for AccessibilityServiceInfoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TouchInteractionControllerServiceClient interface {
-	GetDisplayId(ctx context.Context, in *GetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error)
-	GetMaxPointerCount(ctx context.Context, in *GetMaxPointerCountRequest, opts ...grpc.CallOption) (*GetMaxPointerCountResponse, error)
-	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
-	PerformClick(ctx context.Context, in *PerformClickRequest, opts ...grpc.CallOption) (*PerformClickResponse, error)
-	PerformLongClickAndStartDrag(ctx context.Context, in *PerformLongClickAndStartDragRequest, opts ...grpc.CallOption) (*PerformLongClickAndStartDragResponse, error)
-	RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error)
-	RequestDelegating(ctx context.Context, in *RequestDelegatingRequest, opts ...grpc.CallOption) (*RequestDelegatingResponse, error)
-	RequestDragging(ctx context.Context, in *RequestDraggingRequest, opts ...grpc.CallOption) (*RequestDraggingResponse, error)
-	RequestTouchExploration(ctx context.Context, in *RequestTouchExplorationRequest, opts ...grpc.CallOption) (*RequestTouchExplorationResponse, error)
-	UnregisterAllCallbacks(ctx context.Context, in *UnregisterAllCallbacksRequest, opts ...grpc.CallOption) (*UnregisterAllCallbacksResponse, error)
-	UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error)
-	StateToString(ctx context.Context, in *StateToStringRequest, opts ...grpc.CallOption) (*StateToStringResponse, error)
+type AccessibilityServiceInfoServiceClient interface {
+	NewAccessibilityServiceInfo(ctx context.Context, in *NewAccessibilityServiceInfoRequest, opts ...grpc.CallOption) (*NewAccessibilityServiceInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetCanRetrieveWindowContent(ctx context.Context, in *GetCanRetrieveWindowContentRequest, opts ...grpc.CallOption) (*GetCanRetrieveWindowContentResponse, error)
+	GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error)
+	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetInteractiveUiTimeoutMillis(ctx context.Context, in *GetInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*GetInteractiveUiTimeoutMillisResponse, error)
+	GetMotionEventSources(ctx context.Context, in *GetMotionEventSourcesRequest, opts ...grpc.CallOption) (*GetMotionEventSourcesResponse, error)
+	GetNonInteractiveUiTimeoutMillis(ctx context.Context, in *GetNonInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*GetNonInteractiveUiTimeoutMillisResponse, error)
+	GetResolveInfo(ctx context.Context, in *GetResolveInfoRequest, opts ...grpc.CallOption) (*GetResolveInfoResponse, error)
+	GetSettingsActivityName(ctx context.Context, in *GetSettingsActivityNameRequest, opts ...grpc.CallOption) (*GetSettingsActivityNameResponse, error)
+	GetTileServiceName(ctx context.Context, in *GetTileServiceNameRequest, opts ...grpc.CallOption) (*GetTileServiceNameResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsAccessibilityTool(ctx context.Context, in *IsAccessibilityToolRequest, opts ...grpc.CallOption) (*IsAccessibilityToolResponse, error)
+	LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error)
+	LoadIntro(ctx context.Context, in *LoadIntroRequest, opts ...grpc.CallOption) (*LoadIntroResponse, error)
+	LoadSummary(ctx context.Context, in *LoadSummaryRequest, opts ...grpc.CallOption) (*LoadSummaryResponse, error)
+	SetInteractiveUiTimeoutMillis(ctx context.Context, in *SetInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*SetInteractiveUiTimeoutMillisResponse, error)
+	SetMotionEventSources(ctx context.Context, in *SetMotionEventSourcesRequest, opts ...grpc.CallOption) (*SetMotionEventSourcesResponse, error)
+	SetNonInteractiveUiTimeoutMillis(ctx context.Context, in *SetNonInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*SetNonInteractiveUiTimeoutMillisResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	CapabilityToString(ctx context.Context, in *CapabilityToStringRequest, opts ...grpc.CallOption) (*CapabilityToStringResponse, error)
+	FeedbackTypeToString(ctx context.Context, in *FeedbackTypeToStringRequest, opts ...grpc.CallOption) (*FeedbackTypeToStringResponse, error)
+	FlagToString(ctx context.Context, in *FlagToStringRequest, opts ...grpc.CallOption) (*FlagToStringResponse, error)
 }
 
-type touchInteractionControllerServiceClient struct {
+type accessibilityServiceInfoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTouchInteractionControllerServiceClient(cc grpc.ClientConnInterface) TouchInteractionControllerServiceClient {
-	return &touchInteractionControllerServiceClient{cc}
+func NewAccessibilityServiceInfoServiceClient(cc grpc.ClientConnInterface) AccessibilityServiceInfoServiceClient {
+	return &accessibilityServiceInfoServiceClient{cc}
 }
 
-func (c *touchInteractionControllerServiceClient) GetDisplayId(ctx context.Context, in *GetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) NewAccessibilityServiceInfo(ctx context.Context, in *NewAccessibilityServiceInfoRequest, opts ...grpc.CallOption) (*NewAccessibilityServiceInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDisplayIdResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_GetDisplayId_FullMethodName, in, out, cOpts...)
+	out := new(NewAccessibilityServiceInfoResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_NewAccessibilityServiceInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) GetMaxPointerCount(ctx context.Context, in *GetMaxPointerCountRequest, opts ...grpc.CallOption) (*GetMaxPointerCountResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxPointerCountResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_GetMaxPointerCount_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStateResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_GetState_FullMethodName, in, out, cOpts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) PerformClick(ctx context.Context, in *PerformClickRequest, opts ...grpc.CallOption) (*PerformClickResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetCanRetrieveWindowContent(ctx context.Context, in *GetCanRetrieveWindowContentRequest, opts ...grpc.CallOption) (*GetCanRetrieveWindowContentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PerformClickResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_PerformClick_FullMethodName, in, out, cOpts...)
+	out := new(GetCanRetrieveWindowContentResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetCanRetrieveWindowContent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) PerformLongClickAndStartDrag(ctx context.Context, in *PerformLongClickAndStartDragRequest, opts ...grpc.CallOption) (*PerformLongClickAndStartDragResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PerformLongClickAndStartDragResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_PerformLongClickAndStartDrag_FullMethodName, in, out, cOpts...)
+	out := new(GetCapabilitiesResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetCapabilities_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterCallbackResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_RegisterCallback_FullMethodName, in, out, cOpts...)
+	out := new(GetDescriptionResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetDescription_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) RequestDelegating(ctx context.Context, in *RequestDelegatingRequest, opts ...grpc.CallOption) (*RequestDelegatingResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestDelegatingResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_RequestDelegating_FullMethodName, in, out, cOpts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) RequestDragging(ctx context.Context, in *RequestDraggingRequest, opts ...grpc.CallOption) (*RequestDraggingResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetInteractiveUiTimeoutMillis(ctx context.Context, in *GetInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*GetInteractiveUiTimeoutMillisResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestDraggingResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_RequestDragging_FullMethodName, in, out, cOpts...)
+	out := new(GetInteractiveUiTimeoutMillisResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) RequestTouchExploration(ctx context.Context, in *RequestTouchExplorationRequest, opts ...grpc.CallOption) (*RequestTouchExplorationResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetMotionEventSources(ctx context.Context, in *GetMotionEventSourcesRequest, opts ...grpc.CallOption) (*GetMotionEventSourcesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestTouchExplorationResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_RequestTouchExploration_FullMethodName, in, out, cOpts...)
+	out := new(GetMotionEventSourcesResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetMotionEventSources_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) UnregisterAllCallbacks(ctx context.Context, in *UnregisterAllCallbacksRequest, opts ...grpc.CallOption) (*UnregisterAllCallbacksResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetNonInteractiveUiTimeoutMillis(ctx context.Context, in *GetNonInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*GetNonInteractiveUiTimeoutMillisResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterAllCallbacksResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_UnregisterAllCallbacks_FullMethodName, in, out, cOpts...)
+	out := new(GetNonInteractiveUiTimeoutMillisResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetResolveInfo(ctx context.Context, in *GetResolveInfoRequest, opts ...grpc.CallOption) (*GetResolveInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterCallbackResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_UnregisterCallback_FullMethodName, in, out, cOpts...)
+	out := new(GetResolveInfoResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetResolveInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerServiceClient) StateToString(ctx context.Context, in *StateToStringRequest, opts ...grpc.CallOption) (*StateToStringResponse, error) {
+func (c *accessibilityServiceInfoServiceClient) GetSettingsActivityName(ctx context.Context, in *GetSettingsActivityNameRequest, opts ...grpc.CallOption) (*GetSettingsActivityNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StateToStringResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerService_StateToString_FullMethodName, in, out, cOpts...)
+	out := new(GetSettingsActivityNameResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetSettingsActivityName_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// TouchInteractionControllerServiceServer is the server API for TouchInteractionControllerService service.
-// All implementations must embed UnimplementedTouchInteractionControllerServiceServer
+func (c *accessibilityServiceInfoServiceClient) GetTileServiceName(ctx context.Context, in *GetTileServiceNameRequest, opts ...grpc.CallOption) (*GetTileServiceNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTileServiceNameResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetTileServiceName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) IsAccessibilityTool(ctx context.Context, in *IsAccessibilityToolRequest, opts ...grpc.CallOption) (*IsAccessibilityToolResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAccessibilityToolResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_IsAccessibilityTool_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadDescriptionResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_LoadDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) LoadIntro(ctx context.Context, in *LoadIntroRequest, opts ...grpc.CallOption) (*LoadIntroResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadIntroResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_LoadIntro_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) LoadSummary(ctx context.Context, in *LoadSummaryRequest, opts ...grpc.CallOption) (*LoadSummaryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadSummaryResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_LoadSummary_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) SetInteractiveUiTimeoutMillis(ctx context.Context, in *SetInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*SetInteractiveUiTimeoutMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInteractiveUiTimeoutMillisResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) SetMotionEventSources(ctx context.Context, in *SetMotionEventSourcesRequest, opts ...grpc.CallOption) (*SetMotionEventSourcesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMotionEventSourcesResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_SetMotionEventSources_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) SetNonInteractiveUiTimeoutMillis(ctx context.Context, in *SetNonInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*SetNonInteractiveUiTimeoutMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNonInteractiveUiTimeoutMillisResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) CapabilityToString(ctx context.Context, in *CapabilityToStringRequest, opts ...grpc.CallOption) (*CapabilityToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CapabilityToStringResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_CapabilityToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) FeedbackTypeToString(ctx context.Context, in *FeedbackTypeToStringRequest, opts ...grpc.CallOption) (*FeedbackTypeToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FeedbackTypeToStringResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_FeedbackTypeToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceInfoServiceClient) FlagToString(ctx context.Context, in *FlagToStringRequest, opts ...grpc.CallOption) (*FlagToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FlagToStringResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_FlagToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccessibilityServiceInfoServiceServer is the server API for AccessibilityServiceInfoService service.
+// All implementations must embed UnimplementedAccessibilityServiceInfoServiceServer
 // for forward compatibility.
-type TouchInteractionControllerServiceServer interface {
-	GetDisplayId(context.Context, *GetDisplayIdRequest) (*GetDisplayIdResponse, error)
-	GetMaxPointerCount(context.Context, *GetMaxPointerCountRequest) (*GetMaxPointerCountResponse, error)
-	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
-	PerformClick(context.Context, *PerformClickRequest) (*PerformClickResponse, error)
-	PerformLongClickAndStartDrag(context.Context, *PerformLongClickAndStartDragRequest) (*PerformLongClickAndStartDragResponse, error)
-	RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error)
-	RequestDelegating(context.Context, *RequestDelegatingRequest) (*RequestDelegatingResponse, error)
-	RequestDragging(context.Context, *RequestDraggingRequest) (*RequestDraggingResponse, error)
-	RequestTouchExploration(context.Context, *RequestTouchExplorationRequest) (*RequestTouchExplorationResponse, error)
-	UnregisterAllCallbacks(context.Context, *UnregisterAllCallbacksRequest) (*UnregisterAllCallbacksResponse, error)
-	UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error)
-	StateToString(context.Context, *StateToStringRequest) (*StateToStringResponse, error)
-	mustEmbedUnimplementedTouchInteractionControllerServiceServer()
+type AccessibilityServiceInfoServiceServer interface {
+	NewAccessibilityServiceInfo(context.Context, *NewAccessibilityServiceInfoRequest) (*NewAccessibilityServiceInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetCanRetrieveWindowContent(context.Context, *GetCanRetrieveWindowContentRequest) (*GetCanRetrieveWindowContentResponse, error)
+	GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error)
+	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetInteractiveUiTimeoutMillis(context.Context, *GetInteractiveUiTimeoutMillisRequest) (*GetInteractiveUiTimeoutMillisResponse, error)
+	GetMotionEventSources(context.Context, *GetMotionEventSourcesRequest) (*GetMotionEventSourcesResponse, error)
+	GetNonInteractiveUiTimeoutMillis(context.Context, *GetNonInteractiveUiTimeoutMillisRequest) (*GetNonInteractiveUiTimeoutMillisResponse, error)
+	GetResolveInfo(context.Context, *GetResolveInfoRequest) (*GetResolveInfoResponse, error)
+	GetSettingsActivityName(context.Context, *GetSettingsActivityNameRequest) (*GetSettingsActivityNameResponse, error)
+	GetTileServiceName(context.Context, *GetTileServiceNameRequest) (*GetTileServiceNameResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsAccessibilityTool(context.Context, *IsAccessibilityToolRequest) (*IsAccessibilityToolResponse, error)
+	LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error)
+	LoadIntro(context.Context, *LoadIntroRequest) (*LoadIntroResponse, error)
+	LoadSummary(context.Context, *LoadSummaryRequest) (*LoadSummaryResponse, error)
+	SetInteractiveUiTimeoutMillis(context.Context, *SetInteractiveUiTimeoutMillisRequest) (*SetInteractiveUiTimeoutMillisResponse, error)
+	SetMotionEventSources(context.Context, *SetMotionEventSourcesRequest) (*SetMotionEventSourcesResponse, error)
+	SetNonInteractiveUiTimeoutMillis(context.Context, *SetNonInteractiveUiTimeoutMillisRequest) (*SetNonInteractiveUiTimeoutMillisResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	CapabilityToString(context.Context, *CapabilityToStringRequest) (*CapabilityToStringResponse, error)
+	FeedbackTypeToString(context.Context, *FeedbackTypeToStringRequest) (*FeedbackTypeToStringResponse, error)
+	FlagToString(context.Context, *FlagToStringRequest) (*FlagToStringResponse, error)
+	mustEmbedUnimplementedAccessibilityServiceInfoServiceServer()
 }
 
-// UnimplementedTouchInteractionControllerServiceServer must be embedded to have
+// UnimplementedAccessibilityServiceInfoServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedTouchInteractionControllerServiceServer struct{}
+type UnimplementedAccessibilityServiceInfoServiceServer struct{}
 
-func (UnimplementedTouchInteractionControllerServiceServer) GetDisplayId(context.Context, *GetDisplayIdRequest) (*GetDisplayIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDisplayId not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) NewAccessibilityServiceInfo(context.Context, *NewAccessibilityServiceInfoRequest) (*NewAccessibilityServiceInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAccessibilityServiceInfo not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) GetMaxPointerCount(context.Context, *GetMaxPointerCountRequest) (*GetMaxPointerCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxPointerCount not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) PerformClick(context.Context, *PerformClickRequest) (*PerformClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PerformClick not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetCanRetrieveWindowContent(context.Context, *GetCanRetrieveWindowContentRequest) (*GetCanRetrieveWindowContentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCanRetrieveWindowContent not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) PerformLongClickAndStartDrag(context.Context, *PerformLongClickAndStartDragRequest) (*PerformLongClickAndStartDragResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PerformLongClickAndStartDrag not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCapabilities not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterCallback not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) RequestDelegating(context.Context, *RequestDelegatingRequest) (*RequestDelegatingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestDelegating not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) RequestDragging(context.Context, *RequestDraggingRequest) (*RequestDraggingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestDragging not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetInteractiveUiTimeoutMillis(context.Context, *GetInteractiveUiTimeoutMillisRequest) (*GetInteractiveUiTimeoutMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInteractiveUiTimeoutMillis not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) RequestTouchExploration(context.Context, *RequestTouchExplorationRequest) (*RequestTouchExplorationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestTouchExploration not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetMotionEventSources(context.Context, *GetMotionEventSourcesRequest) (*GetMotionEventSourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMotionEventSources not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) UnregisterAllCallbacks(context.Context, *UnregisterAllCallbacksRequest) (*UnregisterAllCallbacksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterAllCallbacks not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetNonInteractiveUiTimeoutMillis(context.Context, *GetNonInteractiveUiTimeoutMillisRequest) (*GetNonInteractiveUiTimeoutMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNonInteractiveUiTimeoutMillis not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterCallback not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetResolveInfo(context.Context, *GetResolveInfoRequest) (*GetResolveInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResolveInfo not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) StateToString(context.Context, *StateToStringRequest) (*StateToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StateToString not implemented")
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetSettingsActivityName(context.Context, *GetSettingsActivityNameRequest) (*GetSettingsActivityNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSettingsActivityName not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) mustEmbedUnimplementedTouchInteractionControllerServiceServer() {
+func (UnimplementedAccessibilityServiceInfoServiceServer) GetTileServiceName(context.Context, *GetTileServiceNameRequest) (*GetTileServiceNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTileServiceName not implemented")
 }
-func (UnimplementedTouchInteractionControllerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAccessibilityServiceInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) IsAccessibilityTool(context.Context, *IsAccessibilityToolRequest) (*IsAccessibilityToolResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAccessibilityTool not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadDescription not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) LoadIntro(context.Context, *LoadIntroRequest) (*LoadIntroResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadIntro not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) LoadSummary(context.Context, *LoadSummaryRequest) (*LoadSummaryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadSummary not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) SetInteractiveUiTimeoutMillis(context.Context, *SetInteractiveUiTimeoutMillisRequest) (*SetInteractiveUiTimeoutMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInteractiveUiTimeoutMillis not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) SetMotionEventSources(context.Context, *SetMotionEventSourcesRequest) (*SetMotionEventSourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMotionEventSources not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) SetNonInteractiveUiTimeoutMillis(context.Context, *SetNonInteractiveUiTimeoutMillisRequest) (*SetNonInteractiveUiTimeoutMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNonInteractiveUiTimeoutMillis not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) CapabilityToString(context.Context, *CapabilityToStringRequest) (*CapabilityToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CapabilityToString not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) FeedbackTypeToString(context.Context, *FeedbackTypeToStringRequest) (*FeedbackTypeToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FeedbackTypeToString not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) FlagToString(context.Context, *FlagToStringRequest) (*FlagToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FlagToString not implemented")
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) mustEmbedUnimplementedAccessibilityServiceInfoServiceServer() {
+}
+func (UnimplementedAccessibilityServiceInfoServiceServer) testEmbeddedByValue() {}
 
-// UnsafeTouchInteractionControllerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TouchInteractionControllerServiceServer will
+// UnsafeAccessibilityServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccessibilityServiceInfoServiceServer will
 // result in compilation errors.
-type UnsafeTouchInteractionControllerServiceServer interface {
-	mustEmbedUnimplementedTouchInteractionControllerServiceServer()
+type UnsafeAccessibilityServiceInfoServiceServer interface {
+	mustEmbedUnimplementedAccessibilityServiceInfoServiceServer()
 }
 
-func RegisterTouchInteractionControllerServiceServer(s grpc.ServiceRegistrar, srv TouchInteractionControllerServiceServer) {
-	// If the following call panics, it indicates UnimplementedTouchInteractionControllerServiceServer was
+func RegisterAccessibilityServiceInfoServiceServer(s grpc.ServiceRegistrar, srv AccessibilityServiceInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccessibilityServiceInfoServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&TouchInteractionControllerService_ServiceDesc, srv)
+	s.RegisterService(&AccessibilityServiceInfoService_ServiceDesc, srv)
 }
 
-func _TouchInteractionControllerService_GetDisplayId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDisplayIdRequest)
+func _AccessibilityServiceInfoService_NewAccessibilityServiceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAccessibilityServiceInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).GetDisplayId(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).NewAccessibilityServiceInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_GetDisplayId_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_NewAccessibilityServiceInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).GetDisplayId(ctx, req.(*GetDisplayIdRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).NewAccessibilityServiceInfo(ctx, req.(*NewAccessibilityServiceInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_GetMaxPointerCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxPointerCountRequest)
+func _AccessibilityServiceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).GetMaxPointerCount(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_GetMaxPointerCount_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).GetMaxPointerCount(ctx, req.(*GetMaxPointerCountRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStateRequest)
+func _AccessibilityServiceInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).GetState(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_GetState_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).GetState(ctx, req.(*GetStateRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_PerformClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PerformClickRequest)
+func _AccessibilityServiceInfoService_GetCanRetrieveWindowContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCanRetrieveWindowContentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).PerformClick(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetCanRetrieveWindowContent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_PerformClick_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetCanRetrieveWindowContent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).PerformClick(ctx, req.(*PerformClickRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetCanRetrieveWindowContent(ctx, req.(*GetCanRetrieveWindowContentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_PerformLongClickAndStartDrag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PerformLongClickAndStartDragRequest)
+func _AccessibilityServiceInfoService_GetCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCapabilitiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).PerformLongClickAndStartDrag(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetCapabilities(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_PerformLongClickAndStartDrag_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetCapabilities_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).PerformLongClickAndStartDrag(ctx, req.(*PerformLongClickAndStartDragRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetCapabilities(ctx, req.(*GetCapabilitiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_RegisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterCallbackRequest)
+func _AccessibilityServiceInfoService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDescriptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).RegisterCallback(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetDescription(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_RegisterCallback_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetDescription_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).RegisterCallback(ctx, req.(*RegisterCallbackRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_RequestDelegating_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestDelegatingRequest)
+func _AccessibilityServiceInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).RequestDelegating(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_RequestDelegating_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).RequestDelegating(ctx, req.(*RequestDelegatingRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetId(ctx, req.(*GetIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_RequestDragging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestDraggingRequest)
+func _AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInteractiveUiTimeoutMillisRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).RequestDragging(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetInteractiveUiTimeoutMillis(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_RequestDragging_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).RequestDragging(ctx, req.(*RequestDraggingRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetInteractiveUiTimeoutMillis(ctx, req.(*GetInteractiveUiTimeoutMillisRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_RequestTouchExploration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestTouchExplorationRequest)
+func _AccessibilityServiceInfoService_GetMotionEventSources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMotionEventSourcesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).RequestTouchExploration(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetMotionEventSources(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_RequestTouchExploration_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetMotionEventSources_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).RequestTouchExploration(ctx, req.(*RequestTouchExplorationRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetMotionEventSources(ctx, req.(*GetMotionEventSourcesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_UnregisterAllCallbacks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterAllCallbacksRequest)
+func _AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNonInteractiveUiTimeoutMillisRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).UnregisterAllCallbacks(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetNonInteractiveUiTimeoutMillis(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_UnregisterAllCallbacks_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).UnregisterAllCallbacks(ctx, req.(*UnregisterAllCallbacksRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetNonInteractiveUiTimeoutMillis(ctx, req.(*GetNonInteractiveUiTimeoutMillisRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_UnregisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterCallbackRequest)
+func _AccessibilityServiceInfoService_GetResolveInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResolveInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).UnregisterCallback(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetResolveInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_UnregisterCallback_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetResolveInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).UnregisterCallback(ctx, req.(*UnregisterCallbackRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetResolveInfo(ctx, req.(*GetResolveInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerService_StateToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StateToStringRequest)
+func _AccessibilityServiceInfoService_GetSettingsActivityName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSettingsActivityNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerServiceServer).StateToString(ctx, in)
+		return srv.(AccessibilityServiceInfoServiceServer).GetSettingsActivityName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerService_StateToString_FullMethodName,
+		FullMethod: AccessibilityServiceInfoService_GetSettingsActivityName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerServiceServer).StateToString(ctx, req.(*StateToStringRequest))
+		return srv.(AccessibilityServiceInfoServiceServer).GetSettingsActivityName(ctx, req.(*GetSettingsActivityNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// TouchInteractionControllerService_ServiceDesc is the grpc.ServiceDesc for TouchInteractionControllerService service.
+func _AccessibilityServiceInfoService_GetTileServiceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTileServiceNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).GetTileServiceName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_GetTileServiceName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).GetTileServiceName(ctx, req.(*GetTileServiceNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_IsAccessibilityTool_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAccessibilityToolRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).IsAccessibilityTool(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_IsAccessibilityTool_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).IsAccessibilityTool(ctx, req.(*IsAccessibilityToolRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_LoadDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).LoadDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_LoadDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).LoadDescription(ctx, req.(*LoadDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_LoadIntro_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadIntroRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).LoadIntro(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_LoadIntro_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).LoadIntro(ctx, req.(*LoadIntroRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_LoadSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadSummaryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).LoadSummary(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_LoadSummary_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).LoadSummary(ctx, req.(*LoadSummaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInteractiveUiTimeoutMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).SetInteractiveUiTimeoutMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).SetInteractiveUiTimeoutMillis(ctx, req.(*SetInteractiveUiTimeoutMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_SetMotionEventSources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMotionEventSourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).SetMotionEventSources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_SetMotionEventSources_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).SetMotionEventSources(ctx, req.(*SetMotionEventSourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNonInteractiveUiTimeoutMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).SetNonInteractiveUiTimeoutMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).SetNonInteractiveUiTimeoutMillis(ctx, req.(*SetNonInteractiveUiTimeoutMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_CapabilityToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CapabilityToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).CapabilityToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_CapabilityToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).CapabilityToString(ctx, req.(*CapabilityToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_FeedbackTypeToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FeedbackTypeToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).FeedbackTypeToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_FeedbackTypeToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).FeedbackTypeToString(ctx, req.(*FeedbackTypeToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceInfoService_FlagToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FlagToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceInfoServiceServer).FlagToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceInfoService_FlagToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceInfoServiceServer).FlagToString(ctx, req.(*FlagToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccessibilityServiceInfoService_ServiceDesc is the grpc.ServiceDesc for AccessibilityServiceInfoService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var TouchInteractionControllerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.TouchInteractionControllerService",
-	HandlerType: (*TouchInteractionControllerServiceServer)(nil),
+var AccessibilityServiceInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.AccessibilityServiceInfoService",
+	HandlerType: (*AccessibilityServiceInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetDisplayId",
-			Handler:    _TouchInteractionControllerService_GetDisplayId_Handler,
+			MethodName: "NewAccessibilityServiceInfo",
+			Handler:    _AccessibilityServiceInfoService_NewAccessibilityServiceInfo_Handler,
 		},
 		{
-			MethodName: "GetMaxPointerCount",
-			Handler:    _TouchInteractionControllerService_GetMaxPointerCount_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _AccessibilityServiceInfoService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetState",
-			Handler:    _TouchInteractionControllerService_GetState_Handler,
+			MethodName: "Equals",
+			Handler:    _AccessibilityServiceInfoService_Equals_Handler,
 		},
 		{
-			MethodName: "PerformClick",
-			Handler:    _TouchInteractionControllerService_PerformClick_Handler,
+			MethodName: "GetCanRetrieveWindowContent",
+			Handler:    _AccessibilityServiceInfoService_GetCanRetrieveWindowContent_Handler,
 		},
 		{
-			MethodName: "PerformLongClickAndStartDrag",
-			Handler:    _TouchInteractionControllerService_PerformLongClickAndStartDrag_Handler,
+			MethodName: "GetCapabilities",
+			Handler:    _AccessibilityServiceInfoService_GetCapabilities_Handler,
 		},
 		{
-			MethodName: "RegisterCallback",
-			Handler:    _TouchInteractionControllerService_RegisterCallback_Handler,
+			MethodName: "GetDescription",
+			Handler:    _AccessibilityServiceInfoService_GetDescription_Handler,
 		},
 		{
-			MethodName: "RequestDelegating",
-			Handler:    _TouchInteractionControllerService_RequestDelegating_Handler,
+			MethodName: "GetId",
+			Handler:    _AccessibilityServiceInfoService_GetId_Handler,
 		},
 		{
-			MethodName: "RequestDragging",
-			Handler:    _TouchInteractionControllerService_RequestDragging_Handler,
+			MethodName: "GetInteractiveUiTimeoutMillis",
+			Handler:    _AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_Handler,
 		},
 		{
-			MethodName: "RequestTouchExploration",
-			Handler:    _TouchInteractionControllerService_RequestTouchExploration_Handler,
+			MethodName: "GetMotionEventSources",
+			Handler:    _AccessibilityServiceInfoService_GetMotionEventSources_Handler,
 		},
 		{
-			MethodName: "UnregisterAllCallbacks",
-			Handler:    _TouchInteractionControllerService_UnregisterAllCallbacks_Handler,
+			MethodName: "GetNonInteractiveUiTimeoutMillis",
+			Handler:    _AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_Handler,
 		},
 		{
-			MethodName: "UnregisterCallback",
-			Handler:    _TouchInteractionControllerService_UnregisterCallback_Handler,
+			MethodName: "GetResolveInfo",
+			Handler:    _AccessibilityServiceInfoService_GetResolveInfo_Handler,
 		},
 		{
-			MethodName: "StateToString",
-			Handler:    _TouchInteractionControllerService_StateToString_Handler,
+			MethodName: "GetSettingsActivityName",
+			Handler:    _AccessibilityServiceInfoService_GetSettingsActivityName_Handler,
+		},
+		{
+			MethodName: "GetTileServiceName",
+			Handler:    _AccessibilityServiceInfoService_GetTileServiceName_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AccessibilityServiceInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsAccessibilityTool",
+			Handler:    _AccessibilityServiceInfoService_IsAccessibilityTool_Handler,
+		},
+		{
+			MethodName: "LoadDescription",
+			Handler:    _AccessibilityServiceInfoService_LoadDescription_Handler,
+		},
+		{
+			MethodName: "LoadIntro",
+			Handler:    _AccessibilityServiceInfoService_LoadIntro_Handler,
+		},
+		{
+			MethodName: "LoadSummary",
+			Handler:    _AccessibilityServiceInfoService_LoadSummary_Handler,
+		},
+		{
+			MethodName: "SetInteractiveUiTimeoutMillis",
+			Handler:    _AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_Handler,
+		},
+		{
+			MethodName: "SetMotionEventSources",
+			Handler:    _AccessibilityServiceInfoService_SetMotionEventSources_Handler,
+		},
+		{
+			MethodName: "SetNonInteractiveUiTimeoutMillis",
+			Handler:    _AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AccessibilityServiceInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AccessibilityServiceInfoService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "CapabilityToString",
+			Handler:    _AccessibilityServiceInfoService_CapabilityToString_Handler,
+		},
+		{
+			MethodName: "FeedbackTypeToString",
+			Handler:    _AccessibilityServiceInfoService_FeedbackTypeToString_Handler,
+		},
+		{
+			MethodName: "FlagToString",
+			Handler:    _AccessibilityServiceInfoService_FlagToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -542,140 +1074,178 @@ var TouchInteractionControllerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	TouchInteractionControllerCallbackService_OnMotionEvent_FullMethodName  = "/accessibilityservice.TouchInteractionControllerCallbackService/OnMotionEvent"
-	TouchInteractionControllerCallbackService_OnStateChanged_FullMethodName = "/accessibilityservice.TouchInteractionControllerCallbackService/OnStateChanged"
+	AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_FullMethodName        = "/accessibilityservice.AccessibilityButtonControllerService/IsAccessibilityButtonAvailable"
+	AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_FullMethodName   = "/accessibilityservice.AccessibilityButtonControllerService/RegisterAccessibilityButtonCallback"
+	AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_FullMethodName = "/accessibilityservice.AccessibilityButtonControllerService/UnregisterAccessibilityButtonCallback"
 )
 
-// TouchInteractionControllerCallbackServiceClient is the client API for TouchInteractionControllerCallbackService service.
+// AccessibilityButtonControllerServiceClient is the client API for AccessibilityButtonControllerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TouchInteractionControllerCallbackServiceClient interface {
-	OnMotionEvent(ctx context.Context, in *OnMotionEventRequest, opts ...grpc.CallOption) (*OnMotionEventResponse, error)
-	OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error)
+type AccessibilityButtonControllerServiceClient interface {
+	IsAccessibilityButtonAvailable(ctx context.Context, in *IsAccessibilityButtonAvailableRequest, opts ...grpc.CallOption) (*IsAccessibilityButtonAvailableResponse, error)
+	RegisterAccessibilityButtonCallback(ctx context.Context, in *RegisterAccessibilityButtonCallbackRequest, opts ...grpc.CallOption) (*RegisterAccessibilityButtonCallbackResponse, error)
+	UnregisterAccessibilityButtonCallback(ctx context.Context, in *UnregisterAccessibilityButtonCallbackRequest, opts ...grpc.CallOption) (*UnregisterAccessibilityButtonCallbackResponse, error)
 }
 
-type touchInteractionControllerCallbackServiceClient struct {
+type accessibilityButtonControllerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTouchInteractionControllerCallbackServiceClient(cc grpc.ClientConnInterface) TouchInteractionControllerCallbackServiceClient {
-	return &touchInteractionControllerCallbackServiceClient{cc}
+func NewAccessibilityButtonControllerServiceClient(cc grpc.ClientConnInterface) AccessibilityButtonControllerServiceClient {
+	return &accessibilityButtonControllerServiceClient{cc}
 }
 
-func (c *touchInteractionControllerCallbackServiceClient) OnMotionEvent(ctx context.Context, in *OnMotionEventRequest, opts ...grpc.CallOption) (*OnMotionEventResponse, error) {
+func (c *accessibilityButtonControllerServiceClient) IsAccessibilityButtonAvailable(ctx context.Context, in *IsAccessibilityButtonAvailableRequest, opts ...grpc.CallOption) (*IsAccessibilityButtonAvailableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnMotionEventResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerCallbackService_OnMotionEvent_FullMethodName, in, out, cOpts...)
+	out := new(IsAccessibilityButtonAvailableResponse)
+	err := c.cc.Invoke(ctx, AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *touchInteractionControllerCallbackServiceClient) OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error) {
+func (c *accessibilityButtonControllerServiceClient) RegisterAccessibilityButtonCallback(ctx context.Context, in *RegisterAccessibilityButtonCallbackRequest, opts ...grpc.CallOption) (*RegisterAccessibilityButtonCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStateChangedResponse)
-	err := c.cc.Invoke(ctx, TouchInteractionControllerCallbackService_OnStateChanged_FullMethodName, in, out, cOpts...)
+	out := new(RegisterAccessibilityButtonCallbackResponse)
+	err := c.cc.Invoke(ctx, AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// TouchInteractionControllerCallbackServiceServer is the server API for TouchInteractionControllerCallbackService service.
-// All implementations must embed UnimplementedTouchInteractionControllerCallbackServiceServer
+func (c *accessibilityButtonControllerServiceClient) UnregisterAccessibilityButtonCallback(ctx context.Context, in *UnregisterAccessibilityButtonCallbackRequest, opts ...grpc.CallOption) (*UnregisterAccessibilityButtonCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterAccessibilityButtonCallbackResponse)
+	err := c.cc.Invoke(ctx, AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccessibilityButtonControllerServiceServer is the server API for AccessibilityButtonControllerService service.
+// All implementations must embed UnimplementedAccessibilityButtonControllerServiceServer
 // for forward compatibility.
-type TouchInteractionControllerCallbackServiceServer interface {
-	OnMotionEvent(context.Context, *OnMotionEventRequest) (*OnMotionEventResponse, error)
-	OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error)
-	mustEmbedUnimplementedTouchInteractionControllerCallbackServiceServer()
+type AccessibilityButtonControllerServiceServer interface {
+	IsAccessibilityButtonAvailable(context.Context, *IsAccessibilityButtonAvailableRequest) (*IsAccessibilityButtonAvailableResponse, error)
+	RegisterAccessibilityButtonCallback(context.Context, *RegisterAccessibilityButtonCallbackRequest) (*RegisterAccessibilityButtonCallbackResponse, error)
+	UnregisterAccessibilityButtonCallback(context.Context, *UnregisterAccessibilityButtonCallbackRequest) (*UnregisterAccessibilityButtonCallbackResponse, error)
+	mustEmbedUnimplementedAccessibilityButtonControllerServiceServer()
 }
 
-// UnimplementedTouchInteractionControllerCallbackServiceServer must be embedded to have
+// UnimplementedAccessibilityButtonControllerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedTouchInteractionControllerCallbackServiceServer struct{}
+type UnimplementedAccessibilityButtonControllerServiceServer struct{}
 
-func (UnimplementedTouchInteractionControllerCallbackServiceServer) OnMotionEvent(context.Context, *OnMotionEventRequest) (*OnMotionEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnMotionEvent not implemented")
+func (UnimplementedAccessibilityButtonControllerServiceServer) IsAccessibilityButtonAvailable(context.Context, *IsAccessibilityButtonAvailableRequest) (*IsAccessibilityButtonAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAccessibilityButtonAvailable not implemented")
 }
-func (UnimplementedTouchInteractionControllerCallbackServiceServer) OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStateChanged not implemented")
+func (UnimplementedAccessibilityButtonControllerServiceServer) RegisterAccessibilityButtonCallback(context.Context, *RegisterAccessibilityButtonCallbackRequest) (*RegisterAccessibilityButtonCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterAccessibilityButtonCallback not implemented")
 }
-func (UnimplementedTouchInteractionControllerCallbackServiceServer) mustEmbedUnimplementedTouchInteractionControllerCallbackServiceServer() {
+func (UnimplementedAccessibilityButtonControllerServiceServer) UnregisterAccessibilityButtonCallback(context.Context, *UnregisterAccessibilityButtonCallbackRequest) (*UnregisterAccessibilityButtonCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterAccessibilityButtonCallback not implemented")
 }
-func (UnimplementedTouchInteractionControllerCallbackServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAccessibilityButtonControllerServiceServer) mustEmbedUnimplementedAccessibilityButtonControllerServiceServer() {
+}
+func (UnimplementedAccessibilityButtonControllerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeTouchInteractionControllerCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TouchInteractionControllerCallbackServiceServer will
+// UnsafeAccessibilityButtonControllerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccessibilityButtonControllerServiceServer will
 // result in compilation errors.
-type UnsafeTouchInteractionControllerCallbackServiceServer interface {
-	mustEmbedUnimplementedTouchInteractionControllerCallbackServiceServer()
+type UnsafeAccessibilityButtonControllerServiceServer interface {
+	mustEmbedUnimplementedAccessibilityButtonControllerServiceServer()
 }
 
-func RegisterTouchInteractionControllerCallbackServiceServer(s grpc.ServiceRegistrar, srv TouchInteractionControllerCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedTouchInteractionControllerCallbackServiceServer was
+func RegisterAccessibilityButtonControllerServiceServer(s grpc.ServiceRegistrar, srv AccessibilityButtonControllerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccessibilityButtonControllerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&TouchInteractionControllerCallbackService_ServiceDesc, srv)
+	s.RegisterService(&AccessibilityButtonControllerService_ServiceDesc, srv)
 }
 
-func _TouchInteractionControllerCallbackService_OnMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnMotionEventRequest)
+func _AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAccessibilityButtonAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerCallbackServiceServer).OnMotionEvent(ctx, in)
+		return srv.(AccessibilityButtonControllerServiceServer).IsAccessibilityButtonAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerCallbackService_OnMotionEvent_FullMethodName,
+		FullMethod: AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerCallbackServiceServer).OnMotionEvent(ctx, req.(*OnMotionEventRequest))
+		return srv.(AccessibilityButtonControllerServiceServer).IsAccessibilityButtonAvailable(ctx, req.(*IsAccessibilityButtonAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TouchInteractionControllerCallbackService_OnStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStateChangedRequest)
+func _AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterAccessibilityButtonCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TouchInteractionControllerCallbackServiceServer).OnStateChanged(ctx, in)
+		return srv.(AccessibilityButtonControllerServiceServer).RegisterAccessibilityButtonCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TouchInteractionControllerCallbackService_OnStateChanged_FullMethodName,
+		FullMethod: AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchInteractionControllerCallbackServiceServer).OnStateChanged(ctx, req.(*OnStateChangedRequest))
+		return srv.(AccessibilityButtonControllerServiceServer).RegisterAccessibilityButtonCallback(ctx, req.(*RegisterAccessibilityButtonCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// TouchInteractionControllerCallbackService_ServiceDesc is the grpc.ServiceDesc for TouchInteractionControllerCallbackService service.
+func _AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterAccessibilityButtonCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityButtonControllerServiceServer).UnregisterAccessibilityButtonCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityButtonControllerServiceServer).UnregisterAccessibilityButtonCallback(ctx, req.(*UnregisterAccessibilityButtonCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccessibilityButtonControllerService_ServiceDesc is the grpc.ServiceDesc for AccessibilityButtonControllerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var TouchInteractionControllerCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.TouchInteractionControllerCallbackService",
-	HandlerType: (*TouchInteractionControllerCallbackServiceServer)(nil),
+var AccessibilityButtonControllerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.AccessibilityButtonControllerService",
+	HandlerType: (*AccessibilityButtonControllerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnMotionEvent",
-			Handler:    _TouchInteractionControllerCallbackService_OnMotionEvent_Handler,
+			MethodName: "IsAccessibilityButtonAvailable",
+			Handler:    _AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_Handler,
 		},
 		{
-			MethodName: "OnStateChanged",
-			Handler:    _TouchInteractionControllerCallbackService_OnStateChanged_Handler,
+			MethodName: "RegisterAccessibilityButtonCallback",
+			Handler:    _AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_Handler,
+		},
+		{
+			MethodName: "UnregisterAccessibilityButtonCallback",
+			Handler:    _AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -683,330 +1253,141 @@ var TouchInteractionControllerCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	BrailleDisplayControllerService_Connect2_FullMethodName    = "/accessibilityservice.BrailleDisplayControllerService/Connect2"
-	BrailleDisplayControllerService_Connect3_1_FullMethodName  = "/accessibilityservice.BrailleDisplayControllerService/Connect3_1"
-	BrailleDisplayControllerService_Connect2_2_FullMethodName  = "/accessibilityservice.BrailleDisplayControllerService/Connect2_2"
-	BrailleDisplayControllerService_Connect3_3_FullMethodName  = "/accessibilityservice.BrailleDisplayControllerService/Connect3_3"
-	BrailleDisplayControllerService_Disconnect_FullMethodName  = "/accessibilityservice.BrailleDisplayControllerService/Disconnect"
-	BrailleDisplayControllerService_IsConnected_FullMethodName = "/accessibilityservice.BrailleDisplayControllerService/IsConnected"
-	BrailleDisplayControllerService_Write_FullMethodName       = "/accessibilityservice.BrailleDisplayControllerService/Write"
+	AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_FullMethodName = "/accessibilityservice.AccessibilityButtonControllerAccessibilityButtonCallbackService/OnAvailabilityChanged"
+	AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_FullMethodName             = "/accessibilityservice.AccessibilityButtonControllerAccessibilityButtonCallbackService/OnClicked"
 )
 
-// BrailleDisplayControllerServiceClient is the client API for BrailleDisplayControllerService service.
+// AccessibilityButtonControllerAccessibilityButtonCallbackServiceClient is the client API for AccessibilityButtonControllerAccessibilityButtonCallbackService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BrailleDisplayControllerServiceClient interface {
-	Connect2(ctx context.Context, in *Connect2Request, opts ...grpc.CallOption) (*Connect2Response, error)
-	Connect3_1(ctx context.Context, in *Connect3_1Request, opts ...grpc.CallOption) (*Connect3_1Response, error)
-	Connect2_2(ctx context.Context, in *Connect2_2Request, opts ...grpc.CallOption) (*Connect2_2Response, error)
-	Connect3_3(ctx context.Context, in *Connect3_3Request, opts ...grpc.CallOption) (*Connect3_3Response, error)
-	Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error)
-	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
-	Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*WriteResponse, error)
+type AccessibilityButtonControllerAccessibilityButtonCallbackServiceClient interface {
+	OnAvailabilityChanged(ctx context.Context, in *OnAvailabilityChangedRequest, opts ...grpc.CallOption) (*OnAvailabilityChangedResponse, error)
+	OnClicked(ctx context.Context, in *OnClickedRequest, opts ...grpc.CallOption) (*OnClickedResponse, error)
 }
 
-type brailleDisplayControllerServiceClient struct {
+type accessibilityButtonControllerAccessibilityButtonCallbackServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBrailleDisplayControllerServiceClient(cc grpc.ClientConnInterface) BrailleDisplayControllerServiceClient {
-	return &brailleDisplayControllerServiceClient{cc}
+func NewAccessibilityButtonControllerAccessibilityButtonCallbackServiceClient(cc grpc.ClientConnInterface) AccessibilityButtonControllerAccessibilityButtonCallbackServiceClient {
+	return &accessibilityButtonControllerAccessibilityButtonCallbackServiceClient{cc}
 }
 
-func (c *brailleDisplayControllerServiceClient) Connect2(ctx context.Context, in *Connect2Request, opts ...grpc.CallOption) (*Connect2Response, error) {
+func (c *accessibilityButtonControllerAccessibilityButtonCallbackServiceClient) OnAvailabilityChanged(ctx context.Context, in *OnAvailabilityChangedRequest, opts ...grpc.CallOption) (*OnAvailabilityChangedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Connect2Response)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Connect2_FullMethodName, in, out, cOpts...)
+	out := new(OnAvailabilityChangedResponse)
+	err := c.cc.Invoke(ctx, AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *brailleDisplayControllerServiceClient) Connect3_1(ctx context.Context, in *Connect3_1Request, opts ...grpc.CallOption) (*Connect3_1Response, error) {
+func (c *accessibilityButtonControllerAccessibilityButtonCallbackServiceClient) OnClicked(ctx context.Context, in *OnClickedRequest, opts ...grpc.CallOption) (*OnClickedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Connect3_1Response)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Connect3_1_FullMethodName, in, out, cOpts...)
+	out := new(OnClickedResponse)
+	err := c.cc.Invoke(ctx, AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *brailleDisplayControllerServiceClient) Connect2_2(ctx context.Context, in *Connect2_2Request, opts ...grpc.CallOption) (*Connect2_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Connect2_2Response)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Connect2_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *brailleDisplayControllerServiceClient) Connect3_3(ctx context.Context, in *Connect3_3Request, opts ...grpc.CallOption) (*Connect3_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Connect3_3Response)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Connect3_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *brailleDisplayControllerServiceClient) Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DisconnectResponse)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Disconnect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *brailleDisplayControllerServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsConnectedResponse)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_IsConnected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *brailleDisplayControllerServiceClient) Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*WriteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteResponse)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Write_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BrailleDisplayControllerServiceServer is the server API for BrailleDisplayControllerService service.
-// All implementations must embed UnimplementedBrailleDisplayControllerServiceServer
+// AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer is the server API for AccessibilityButtonControllerAccessibilityButtonCallbackService service.
+// All implementations must embed UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer
 // for forward compatibility.
-type BrailleDisplayControllerServiceServer interface {
-	Connect2(context.Context, *Connect2Request) (*Connect2Response, error)
-	Connect3_1(context.Context, *Connect3_1Request) (*Connect3_1Response, error)
-	Connect2_2(context.Context, *Connect2_2Request) (*Connect2_2Response, error)
-	Connect3_3(context.Context, *Connect3_3Request) (*Connect3_3Response, error)
-	Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error)
-	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
-	Write(context.Context, *WriteRequest) (*WriteResponse, error)
-	mustEmbedUnimplementedBrailleDisplayControllerServiceServer()
+type AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer interface {
+	OnAvailabilityChanged(context.Context, *OnAvailabilityChangedRequest) (*OnAvailabilityChangedResponse, error)
+	OnClicked(context.Context, *OnClickedRequest) (*OnClickedResponse, error)
+	mustEmbedUnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer()
 }
 
-// UnimplementedBrailleDisplayControllerServiceServer must be embedded to have
+// UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBrailleDisplayControllerServiceServer struct{}
+type UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer struct{}
 
-func (UnimplementedBrailleDisplayControllerServiceServer) Connect2(context.Context, *Connect2Request) (*Connect2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Connect2 not implemented")
+func (UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) OnAvailabilityChanged(context.Context, *OnAvailabilityChangedRequest) (*OnAvailabilityChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAvailabilityChanged not implemented")
 }
-func (UnimplementedBrailleDisplayControllerServiceServer) Connect3_1(context.Context, *Connect3_1Request) (*Connect3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Connect3_1 not implemented")
+func (UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) OnClicked(context.Context, *OnClickedRequest) (*OnClickedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClicked not implemented")
 }
-func (UnimplementedBrailleDisplayControllerServiceServer) Connect2_2(context.Context, *Connect2_2Request) (*Connect2_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Connect2_2 not implemented")
+func (UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) mustEmbedUnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer() {
 }
-func (UnimplementedBrailleDisplayControllerServiceServer) Connect3_3(context.Context, *Connect3_3Request) (*Connect3_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Connect3_3 not implemented")
+func (UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) testEmbeddedByValue() {
 }
-func (UnimplementedBrailleDisplayControllerServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Disconnect not implemented")
-}
-func (UnimplementedBrailleDisplayControllerServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
-}
-func (UnimplementedBrailleDisplayControllerServiceServer) Write(context.Context, *WriteRequest) (*WriteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Write not implemented")
-}
-func (UnimplementedBrailleDisplayControllerServiceServer) mustEmbedUnimplementedBrailleDisplayControllerServiceServer() {
-}
-func (UnimplementedBrailleDisplayControllerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeBrailleDisplayControllerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BrailleDisplayControllerServiceServer will
+// UnsafeAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer will
 // result in compilation errors.
-type UnsafeBrailleDisplayControllerServiceServer interface {
-	mustEmbedUnimplementedBrailleDisplayControllerServiceServer()
+type UnsafeAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer interface {
+	mustEmbedUnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer()
 }
 
-func RegisterBrailleDisplayControllerServiceServer(s grpc.ServiceRegistrar, srv BrailleDisplayControllerServiceServer) {
-	// If the following call panics, it indicates UnimplementedBrailleDisplayControllerServiceServer was
+func RegisterAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer(s grpc.ServiceRegistrar, srv AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BrailleDisplayControllerService_ServiceDesc, srv)
+	s.RegisterService(&AccessibilityButtonControllerAccessibilityButtonCallbackService_ServiceDesc, srv)
 }
 
-func _BrailleDisplayControllerService_Connect2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Connect2Request)
+func _AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAvailabilityChangedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrailleDisplayControllerServiceServer).Connect2(ctx, in)
+		return srv.(AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer).OnAvailabilityChanged(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrailleDisplayControllerService_Connect2_FullMethodName,
+		FullMethod: AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerServiceServer).Connect2(ctx, req.(*Connect2Request))
+		return srv.(AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer).OnAvailabilityChanged(ctx, req.(*OnAvailabilityChangedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BrailleDisplayControllerService_Connect3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Connect3_1Request)
+func _AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClickedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrailleDisplayControllerServiceServer).Connect3_1(ctx, in)
+		return srv.(AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer).OnClicked(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrailleDisplayControllerService_Connect3_1_FullMethodName,
+		FullMethod: AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerServiceServer).Connect3_1(ctx, req.(*Connect3_1Request))
+		return srv.(AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer).OnClicked(ctx, req.(*OnClickedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BrailleDisplayControllerService_Connect2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Connect2_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BrailleDisplayControllerServiceServer).Connect2_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BrailleDisplayControllerService_Connect2_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerServiceServer).Connect2_2(ctx, req.(*Connect2_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BrailleDisplayControllerService_Connect3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Connect3_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BrailleDisplayControllerServiceServer).Connect3_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BrailleDisplayControllerService_Connect3_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerServiceServer).Connect3_3(ctx, req.(*Connect3_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BrailleDisplayControllerService_Disconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DisconnectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BrailleDisplayControllerServiceServer).Disconnect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BrailleDisplayControllerService_Disconnect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerServiceServer).Disconnect(ctx, req.(*DisconnectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BrailleDisplayControllerService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsConnectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BrailleDisplayControllerServiceServer).IsConnected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BrailleDisplayControllerService_IsConnected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BrailleDisplayControllerService_Write_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BrailleDisplayControllerServiceServer).Write(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BrailleDisplayControllerService_Write_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerServiceServer).Write(ctx, req.(*WriteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BrailleDisplayControllerService_ServiceDesc is the grpc.ServiceDesc for BrailleDisplayControllerService service.
+// AccessibilityButtonControllerAccessibilityButtonCallbackService_ServiceDesc is the grpc.ServiceDesc for AccessibilityButtonControllerAccessibilityButtonCallbackService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BrailleDisplayControllerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.BrailleDisplayControllerService",
-	HandlerType: (*BrailleDisplayControllerServiceServer)(nil),
+var AccessibilityButtonControllerAccessibilityButtonCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.AccessibilityButtonControllerAccessibilityButtonCallbackService",
+	HandlerType: (*AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Connect2",
-			Handler:    _BrailleDisplayControllerService_Connect2_Handler,
+			MethodName: "OnAvailabilityChanged",
+			Handler:    _AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_Handler,
 		},
 		{
-			MethodName: "Connect3_1",
-			Handler:    _BrailleDisplayControllerService_Connect3_1_Handler,
-		},
-		{
-			MethodName: "Connect2_2",
-			Handler:    _BrailleDisplayControllerService_Connect2_2_Handler,
-		},
-		{
-			MethodName: "Connect3_3",
-			Handler:    _BrailleDisplayControllerService_Connect3_3_Handler,
-		},
-		{
-			MethodName: "Disconnect",
-			Handler:    _BrailleDisplayControllerService_Disconnect_Handler,
-		},
-		{
-			MethodName: "IsConnected",
-			Handler:    _BrailleDisplayControllerService_IsConnected_Handler,
-		},
-		{
-			MethodName: "Write",
-			Handler:    _BrailleDisplayControllerService_Write_Handler,
+			MethodName: "OnClicked",
+			Handler:    _AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1014,217 +1395,329 @@ var BrailleDisplayControllerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_FullMethodName        = "/accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService/OnConnected"
-	BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_FullMethodName = "/accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService/OnConnectionFailed"
-	BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_FullMethodName     = "/accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService/OnDisconnected"
-	BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_FullMethodName            = "/accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService/OnInput"
+	InputMethodService_NewInputMethod_FullMethodName            = "/accessibilityservice.InputMethodService/NewInputMethod"
+	InputMethodService_GetCurrentInputConnection_FullMethodName = "/accessibilityservice.InputMethodService/GetCurrentInputConnection"
+	InputMethodService_GetCurrentInputEditorInfo_FullMethodName = "/accessibilityservice.InputMethodService/GetCurrentInputEditorInfo"
+	InputMethodService_GetCurrentInputStarted_FullMethodName    = "/accessibilityservice.InputMethodService/GetCurrentInputStarted"
+	InputMethodService_OnFinishInput_FullMethodName             = "/accessibilityservice.InputMethodService/OnFinishInput"
+	InputMethodService_OnStartInput_FullMethodName              = "/accessibilityservice.InputMethodService/OnStartInput"
+	InputMethodService_OnUpdateSelection_FullMethodName         = "/accessibilityservice.InputMethodService/OnUpdateSelection"
 )
 
-// BrailleDisplayControllerBrailleDisplayCallbackServiceClient is the client API for BrailleDisplayControllerBrailleDisplayCallbackService service.
+// InputMethodServiceClient is the client API for InputMethodService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BrailleDisplayControllerBrailleDisplayCallbackServiceClient interface {
-	OnConnected(ctx context.Context, in *OnConnectedRequest, opts ...grpc.CallOption) (*OnConnectedResponse, error)
-	OnConnectionFailed(ctx context.Context, in *OnConnectionFailedRequest, opts ...grpc.CallOption) (*OnConnectionFailedResponse, error)
-	OnDisconnected(ctx context.Context, in *OnDisconnectedRequest, opts ...grpc.CallOption) (*OnDisconnectedResponse, error)
-	OnInput(ctx context.Context, in *OnInputRequest, opts ...grpc.CallOption) (*OnInputResponse, error)
+type InputMethodServiceClient interface {
+	NewInputMethod(ctx context.Context, in *NewInputMethodRequest, opts ...grpc.CallOption) (*NewInputMethodResponse, error)
+	GetCurrentInputConnection(ctx context.Context, in *GetCurrentInputConnectionRequest, opts ...grpc.CallOption) (*GetCurrentInputConnectionResponse, error)
+	GetCurrentInputEditorInfo(ctx context.Context, in *GetCurrentInputEditorInfoRequest, opts ...grpc.CallOption) (*GetCurrentInputEditorInfoResponse, error)
+	GetCurrentInputStarted(ctx context.Context, in *GetCurrentInputStartedRequest, opts ...grpc.CallOption) (*GetCurrentInputStartedResponse, error)
+	OnFinishInput(ctx context.Context, in *OnFinishInputRequest, opts ...grpc.CallOption) (*OnFinishInputResponse, error)
+	OnStartInput(ctx context.Context, in *OnStartInputRequest, opts ...grpc.CallOption) (*OnStartInputResponse, error)
+	OnUpdateSelection(ctx context.Context, in *OnUpdateSelectionRequest, opts ...grpc.CallOption) (*OnUpdateSelectionResponse, error)
 }
 
-type brailleDisplayControllerBrailleDisplayCallbackServiceClient struct {
+type inputMethodServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(cc grpc.ClientConnInterface) BrailleDisplayControllerBrailleDisplayCallbackServiceClient {
-	return &brailleDisplayControllerBrailleDisplayCallbackServiceClient{cc}
+func NewInputMethodServiceClient(cc grpc.ClientConnInterface) InputMethodServiceClient {
+	return &inputMethodServiceClient{cc}
 }
 
-func (c *brailleDisplayControllerBrailleDisplayCallbackServiceClient) OnConnected(ctx context.Context, in *OnConnectedRequest, opts ...grpc.CallOption) (*OnConnectedResponse, error) {
+func (c *inputMethodServiceClient) NewInputMethod(ctx context.Context, in *NewInputMethodRequest, opts ...grpc.CallOption) (*NewInputMethodResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnConnectedResponse)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_FullMethodName, in, out, cOpts...)
+	out := new(NewInputMethodResponse)
+	err := c.cc.Invoke(ctx, InputMethodService_NewInputMethod_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *brailleDisplayControllerBrailleDisplayCallbackServiceClient) OnConnectionFailed(ctx context.Context, in *OnConnectionFailedRequest, opts ...grpc.CallOption) (*OnConnectionFailedResponse, error) {
+func (c *inputMethodServiceClient) GetCurrentInputConnection(ctx context.Context, in *GetCurrentInputConnectionRequest, opts ...grpc.CallOption) (*GetCurrentInputConnectionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnConnectionFailedResponse)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_FullMethodName, in, out, cOpts...)
+	out := new(GetCurrentInputConnectionResponse)
+	err := c.cc.Invoke(ctx, InputMethodService_GetCurrentInputConnection_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *brailleDisplayControllerBrailleDisplayCallbackServiceClient) OnDisconnected(ctx context.Context, in *OnDisconnectedRequest, opts ...grpc.CallOption) (*OnDisconnectedResponse, error) {
+func (c *inputMethodServiceClient) GetCurrentInputEditorInfo(ctx context.Context, in *GetCurrentInputEditorInfoRequest, opts ...grpc.CallOption) (*GetCurrentInputEditorInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisconnectedResponse)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_FullMethodName, in, out, cOpts...)
+	out := new(GetCurrentInputEditorInfoResponse)
+	err := c.cc.Invoke(ctx, InputMethodService_GetCurrentInputEditorInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *brailleDisplayControllerBrailleDisplayCallbackServiceClient) OnInput(ctx context.Context, in *OnInputRequest, opts ...grpc.CallOption) (*OnInputResponse, error) {
+func (c *inputMethodServiceClient) GetCurrentInputStarted(ctx context.Context, in *GetCurrentInputStartedRequest, opts ...grpc.CallOption) (*GetCurrentInputStartedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnInputResponse)
-	err := c.cc.Invoke(ctx, BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_FullMethodName, in, out, cOpts...)
+	out := new(GetCurrentInputStartedResponse)
+	err := c.cc.Invoke(ctx, InputMethodService_GetCurrentInputStarted_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// BrailleDisplayControllerBrailleDisplayCallbackServiceServer is the server API for BrailleDisplayControllerBrailleDisplayCallbackService service.
-// All implementations must embed UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer
+func (c *inputMethodServiceClient) OnFinishInput(ctx context.Context, in *OnFinishInputRequest, opts ...grpc.CallOption) (*OnFinishInputResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFinishInputResponse)
+	err := c.cc.Invoke(ctx, InputMethodService_OnFinishInput_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputMethodServiceClient) OnStartInput(ctx context.Context, in *OnStartInputRequest, opts ...grpc.CallOption) (*OnStartInputResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartInputResponse)
+	err := c.cc.Invoke(ctx, InputMethodService_OnStartInput_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputMethodServiceClient) OnUpdateSelection(ctx context.Context, in *OnUpdateSelectionRequest, opts ...grpc.CallOption) (*OnUpdateSelectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUpdateSelectionResponse)
+	err := c.cc.Invoke(ctx, InputMethodService_OnUpdateSelection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputMethodServiceServer is the server API for InputMethodService service.
+// All implementations must embed UnimplementedInputMethodServiceServer
 // for forward compatibility.
-type BrailleDisplayControllerBrailleDisplayCallbackServiceServer interface {
-	OnConnected(context.Context, *OnConnectedRequest) (*OnConnectedResponse, error)
-	OnConnectionFailed(context.Context, *OnConnectionFailedRequest) (*OnConnectionFailedResponse, error)
-	OnDisconnected(context.Context, *OnDisconnectedRequest) (*OnDisconnectedResponse, error)
-	OnInput(context.Context, *OnInputRequest) (*OnInputResponse, error)
-	mustEmbedUnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer()
+type InputMethodServiceServer interface {
+	NewInputMethod(context.Context, *NewInputMethodRequest) (*NewInputMethodResponse, error)
+	GetCurrentInputConnection(context.Context, *GetCurrentInputConnectionRequest) (*GetCurrentInputConnectionResponse, error)
+	GetCurrentInputEditorInfo(context.Context, *GetCurrentInputEditorInfoRequest) (*GetCurrentInputEditorInfoResponse, error)
+	GetCurrentInputStarted(context.Context, *GetCurrentInputStartedRequest) (*GetCurrentInputStartedResponse, error)
+	OnFinishInput(context.Context, *OnFinishInputRequest) (*OnFinishInputResponse, error)
+	OnStartInput(context.Context, *OnStartInputRequest) (*OnStartInputResponse, error)
+	OnUpdateSelection(context.Context, *OnUpdateSelectionRequest) (*OnUpdateSelectionResponse, error)
+	mustEmbedUnimplementedInputMethodServiceServer()
 }
 
-// UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer must be embedded to have
+// UnimplementedInputMethodServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer struct{}
+type UnimplementedInputMethodServiceServer struct{}
 
-func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) OnConnected(context.Context, *OnConnectedRequest) (*OnConnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnConnected not implemented")
+func (UnimplementedInputMethodServiceServer) NewInputMethod(context.Context, *NewInputMethodRequest) (*NewInputMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInputMethod not implemented")
 }
-func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) OnConnectionFailed(context.Context, *OnConnectionFailedRequest) (*OnConnectionFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnConnectionFailed not implemented")
+func (UnimplementedInputMethodServiceServer) GetCurrentInputConnection(context.Context, *GetCurrentInputConnectionRequest) (*GetCurrentInputConnectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentInputConnection not implemented")
 }
-func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) OnDisconnected(context.Context, *OnDisconnectedRequest) (*OnDisconnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisconnected not implemented")
+func (UnimplementedInputMethodServiceServer) GetCurrentInputEditorInfo(context.Context, *GetCurrentInputEditorInfoRequest) (*GetCurrentInputEditorInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentInputEditorInfo not implemented")
 }
-func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) OnInput(context.Context, *OnInputRequest) (*OnInputResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnInput not implemented")
+func (UnimplementedInputMethodServiceServer) GetCurrentInputStarted(context.Context, *GetCurrentInputStartedRequest) (*GetCurrentInputStartedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentInputStarted not implemented")
 }
-func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) mustEmbedUnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer() {
+func (UnimplementedInputMethodServiceServer) OnFinishInput(context.Context, *OnFinishInputRequest) (*OnFinishInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFinishInput not implemented")
 }
-func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) testEmbeddedByValue() {
+func (UnimplementedInputMethodServiceServer) OnStartInput(context.Context, *OnStartInputRequest) (*OnStartInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStartInput not implemented")
 }
+func (UnimplementedInputMethodServiceServer) OnUpdateSelection(context.Context, *OnUpdateSelectionRequest) (*OnUpdateSelectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUpdateSelection not implemented")
+}
+func (UnimplementedInputMethodServiceServer) mustEmbedUnimplementedInputMethodServiceServer() {}
+func (UnimplementedInputMethodServiceServer) testEmbeddedByValue()                            {}
 
-// UnsafeBrailleDisplayControllerBrailleDisplayCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BrailleDisplayControllerBrailleDisplayCallbackServiceServer will
+// UnsafeInputMethodServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputMethodServiceServer will
 // result in compilation errors.
-type UnsafeBrailleDisplayControllerBrailleDisplayCallbackServiceServer interface {
-	mustEmbedUnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer()
+type UnsafeInputMethodServiceServer interface {
+	mustEmbedUnimplementedInputMethodServiceServer()
 }
 
-func RegisterBrailleDisplayControllerBrailleDisplayCallbackServiceServer(s grpc.ServiceRegistrar, srv BrailleDisplayControllerBrailleDisplayCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer was
+func RegisterInputMethodServiceServer(s grpc.ServiceRegistrar, srv InputMethodServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputMethodServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BrailleDisplayControllerBrailleDisplayCallbackService_ServiceDesc, srv)
+	s.RegisterService(&InputMethodService_ServiceDesc, srv)
 }
 
-func _BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnConnectedRequest)
+func _InputMethodService_NewInputMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInputMethodRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnConnected(ctx, in)
+		return srv.(InputMethodServiceServer).NewInputMethod(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_FullMethodName,
+		FullMethod: InputMethodService_NewInputMethod_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnConnected(ctx, req.(*OnConnectedRequest))
+		return srv.(InputMethodServiceServer).NewInputMethod(ctx, req.(*NewInputMethodRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnConnectionFailedRequest)
+func _InputMethodService_GetCurrentInputConnection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentInputConnectionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnConnectionFailed(ctx, in)
+		return srv.(InputMethodServiceServer).GetCurrentInputConnection(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_FullMethodName,
+		FullMethod: InputMethodService_GetCurrentInputConnection_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnConnectionFailed(ctx, req.(*OnConnectionFailedRequest))
+		return srv.(InputMethodServiceServer).GetCurrentInputConnection(ctx, req.(*GetCurrentInputConnectionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisconnectedRequest)
+func _InputMethodService_GetCurrentInputEditorInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentInputEditorInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnDisconnected(ctx, in)
+		return srv.(InputMethodServiceServer).GetCurrentInputEditorInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_FullMethodName,
+		FullMethod: InputMethodService_GetCurrentInputEditorInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnDisconnected(ctx, req.(*OnDisconnectedRequest))
+		return srv.(InputMethodServiceServer).GetCurrentInputEditorInfo(ctx, req.(*GetCurrentInputEditorInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnInputRequest)
+func _InputMethodService_GetCurrentInputStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentInputStartedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnInput(ctx, in)
+		return srv.(InputMethodServiceServer).GetCurrentInputStarted(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_FullMethodName,
+		FullMethod: InputMethodService_GetCurrentInputStarted_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnInput(ctx, req.(*OnInputRequest))
+		return srv.(InputMethodServiceServer).GetCurrentInputStarted(ctx, req.(*GetCurrentInputStartedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// BrailleDisplayControllerBrailleDisplayCallbackService_ServiceDesc is the grpc.ServiceDesc for BrailleDisplayControllerBrailleDisplayCallbackService service.
+func _InputMethodService_OnFinishInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFinishInputRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodServiceServer).OnFinishInput(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodService_OnFinishInput_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodServiceServer).OnFinishInput(ctx, req.(*OnFinishInputRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputMethodService_OnStartInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartInputRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodServiceServer).OnStartInput(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodService_OnStartInput_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodServiceServer).OnStartInput(ctx, req.(*OnStartInputRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputMethodService_OnUpdateSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUpdateSelectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodServiceServer).OnUpdateSelection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodService_OnUpdateSelection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodServiceServer).OnUpdateSelection(ctx, req.(*OnUpdateSelectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputMethodService_ServiceDesc is the grpc.ServiceDesc for InputMethodService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BrailleDisplayControllerBrailleDisplayCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService",
-	HandlerType: (*BrailleDisplayControllerBrailleDisplayCallbackServiceServer)(nil),
+var InputMethodService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.InputMethodService",
+	HandlerType: (*InputMethodServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnConnected",
-			Handler:    _BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_Handler,
+			MethodName: "NewInputMethod",
+			Handler:    _InputMethodService_NewInputMethod_Handler,
 		},
 		{
-			MethodName: "OnConnectionFailed",
-			Handler:    _BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_Handler,
+			MethodName: "GetCurrentInputConnection",
+			Handler:    _InputMethodService_GetCurrentInputConnection_Handler,
 		},
 		{
-			MethodName: "OnDisconnected",
-			Handler:    _BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_Handler,
+			MethodName: "GetCurrentInputEditorInfo",
+			Handler:    _InputMethodService_GetCurrentInputEditorInfo_Handler,
 		},
 		{
-			MethodName: "OnInput",
-			Handler:    _BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_Handler,
+			MethodName: "GetCurrentInputStarted",
+			Handler:    _InputMethodService_GetCurrentInputStarted_Handler,
+		},
+		{
+			MethodName: "OnFinishInput",
+			Handler:    _InputMethodService_OnFinishInput_Handler,
+		},
+		{
+			MethodName: "OnStartInput",
+			Handler:    _InputMethodService_OnStartInput_Handler,
+		},
+		{
+			MethodName: "OnUpdateSelection",
+			Handler:    _InputMethodService_OnUpdateSelection_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1232,282 +1725,406 @@ var BrailleDisplayControllerBrailleDisplayCallbackService_ServiceDesc = grpc.Ser
 }
 
 const (
-	FingerprintGestureControllerService_IsGestureDetectionAvailable_FullMethodName          = "/accessibilityservice.FingerprintGestureControllerService/IsGestureDetectionAvailable"
-	FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_FullMethodName = "/accessibilityservice.FingerprintGestureControllerService/UnregisterFingerprintGestureCallback"
+	InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_FullMethodName       = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/ClearMetaKeyStates"
+	InputMethodAccessibilityInputConnectionService_CommitText_FullMethodName               = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/CommitText"
+	InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_FullMethodName    = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/DeleteSurroundingText"
+	InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_FullMethodName        = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/GetCursorCapsMode"
+	InputMethodAccessibilityInputConnectionService_GetSurroundingText_FullMethodName       = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/GetSurroundingText"
+	InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_FullMethodName = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/PerformContextMenuAction"
+	InputMethodAccessibilityInputConnectionService_PerformEditorAction_FullMethodName      = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/PerformEditorAction"
+	InputMethodAccessibilityInputConnectionService_SendKeyEvent_FullMethodName             = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/SendKeyEvent"
+	InputMethodAccessibilityInputConnectionService_SetSelection_FullMethodName             = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/SetSelection"
 )
 
-// FingerprintGestureControllerServiceClient is the client API for FingerprintGestureControllerService service.
+// InputMethodAccessibilityInputConnectionServiceClient is the client API for InputMethodAccessibilityInputConnectionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FingerprintGestureControllerServiceClient interface {
-	IsGestureDetectionAvailable(ctx context.Context, in *IsGestureDetectionAvailableRequest, opts ...grpc.CallOption) (*IsGestureDetectionAvailableResponse, error)
-	UnregisterFingerprintGestureCallback(ctx context.Context, in *UnregisterFingerprintGestureCallbackRequest, opts ...grpc.CallOption) (*UnregisterFingerprintGestureCallbackResponse, error)
+type InputMethodAccessibilityInputConnectionServiceClient interface {
+	ClearMetaKeyStates(ctx context.Context, in *ClearMetaKeyStatesRequest, opts ...grpc.CallOption) (*ClearMetaKeyStatesResponse, error)
+	CommitText(ctx context.Context, in *CommitTextRequest, opts ...grpc.CallOption) (*CommitTextResponse, error)
+	DeleteSurroundingText(ctx context.Context, in *DeleteSurroundingTextRequest, opts ...grpc.CallOption) (*DeleteSurroundingTextResponse, error)
+	GetCursorCapsMode(ctx context.Context, in *GetCursorCapsModeRequest, opts ...grpc.CallOption) (*GetCursorCapsModeResponse, error)
+	GetSurroundingText(ctx context.Context, in *GetSurroundingTextRequest, opts ...grpc.CallOption) (*GetSurroundingTextResponse, error)
+	PerformContextMenuAction(ctx context.Context, in *PerformContextMenuActionRequest, opts ...grpc.CallOption) (*PerformContextMenuActionResponse, error)
+	PerformEditorAction(ctx context.Context, in *PerformEditorActionRequest, opts ...grpc.CallOption) (*PerformEditorActionResponse, error)
+	SendKeyEvent(ctx context.Context, in *SendKeyEventRequest, opts ...grpc.CallOption) (*SendKeyEventResponse, error)
+	SetSelection(ctx context.Context, in *SetSelectionRequest, opts ...grpc.CallOption) (*SetSelectionResponse, error)
 }
 
-type fingerprintGestureControllerServiceClient struct {
+type inputMethodAccessibilityInputConnectionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewFingerprintGestureControllerServiceClient(cc grpc.ClientConnInterface) FingerprintGestureControllerServiceClient {
-	return &fingerprintGestureControllerServiceClient{cc}
+func NewInputMethodAccessibilityInputConnectionServiceClient(cc grpc.ClientConnInterface) InputMethodAccessibilityInputConnectionServiceClient {
+	return &inputMethodAccessibilityInputConnectionServiceClient{cc}
 }
 
-func (c *fingerprintGestureControllerServiceClient) IsGestureDetectionAvailable(ctx context.Context, in *IsGestureDetectionAvailableRequest, opts ...grpc.CallOption) (*IsGestureDetectionAvailableResponse, error) {
+func (c *inputMethodAccessibilityInputConnectionServiceClient) ClearMetaKeyStates(ctx context.Context, in *ClearMetaKeyStatesRequest, opts ...grpc.CallOption) (*ClearMetaKeyStatesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsGestureDetectionAvailableResponse)
-	err := c.cc.Invoke(ctx, FingerprintGestureControllerService_IsGestureDetectionAvailable_FullMethodName, in, out, cOpts...)
+	out := new(ClearMetaKeyStatesResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fingerprintGestureControllerServiceClient) UnregisterFingerprintGestureCallback(ctx context.Context, in *UnregisterFingerprintGestureCallbackRequest, opts ...grpc.CallOption) (*UnregisterFingerprintGestureCallbackResponse, error) {
+func (c *inputMethodAccessibilityInputConnectionServiceClient) CommitText(ctx context.Context, in *CommitTextRequest, opts ...grpc.CallOption) (*CommitTextResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterFingerprintGestureCallbackResponse)
-	err := c.cc.Invoke(ctx, FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_FullMethodName, in, out, cOpts...)
+	out := new(CommitTextResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_CommitText_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// FingerprintGestureControllerServiceServer is the server API for FingerprintGestureControllerService service.
-// All implementations must embed UnimplementedFingerprintGestureControllerServiceServer
+func (c *inputMethodAccessibilityInputConnectionServiceClient) DeleteSurroundingText(ctx context.Context, in *DeleteSurroundingTextRequest, opts ...grpc.CallOption) (*DeleteSurroundingTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteSurroundingTextResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputMethodAccessibilityInputConnectionServiceClient) GetCursorCapsMode(ctx context.Context, in *GetCursorCapsModeRequest, opts ...grpc.CallOption) (*GetCursorCapsModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCursorCapsModeResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputMethodAccessibilityInputConnectionServiceClient) GetSurroundingText(ctx context.Context, in *GetSurroundingTextRequest, opts ...grpc.CallOption) (*GetSurroundingTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSurroundingTextResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_GetSurroundingText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputMethodAccessibilityInputConnectionServiceClient) PerformContextMenuAction(ctx context.Context, in *PerformContextMenuActionRequest, opts ...grpc.CallOption) (*PerformContextMenuActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PerformContextMenuActionResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputMethodAccessibilityInputConnectionServiceClient) PerformEditorAction(ctx context.Context, in *PerformEditorActionRequest, opts ...grpc.CallOption) (*PerformEditorActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PerformEditorActionResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_PerformEditorAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputMethodAccessibilityInputConnectionServiceClient) SendKeyEvent(ctx context.Context, in *SendKeyEventRequest, opts ...grpc.CallOption) (*SendKeyEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendKeyEventResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_SendKeyEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputMethodAccessibilityInputConnectionServiceClient) SetSelection(ctx context.Context, in *SetSelectionRequest, opts ...grpc.CallOption) (*SetSelectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSelectionResponse)
+	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_SetSelection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputMethodAccessibilityInputConnectionServiceServer is the server API for InputMethodAccessibilityInputConnectionService service.
+// All implementations must embed UnimplementedInputMethodAccessibilityInputConnectionServiceServer
 // for forward compatibility.
-type FingerprintGestureControllerServiceServer interface {
-	IsGestureDetectionAvailable(context.Context, *IsGestureDetectionAvailableRequest) (*IsGestureDetectionAvailableResponse, error)
-	UnregisterFingerprintGestureCallback(context.Context, *UnregisterFingerprintGestureCallbackRequest) (*UnregisterFingerprintGestureCallbackResponse, error)
-	mustEmbedUnimplementedFingerprintGestureControllerServiceServer()
+type InputMethodAccessibilityInputConnectionServiceServer interface {
+	ClearMetaKeyStates(context.Context, *ClearMetaKeyStatesRequest) (*ClearMetaKeyStatesResponse, error)
+	CommitText(context.Context, *CommitTextRequest) (*CommitTextResponse, error)
+	DeleteSurroundingText(context.Context, *DeleteSurroundingTextRequest) (*DeleteSurroundingTextResponse, error)
+	GetCursorCapsMode(context.Context, *GetCursorCapsModeRequest) (*GetCursorCapsModeResponse, error)
+	GetSurroundingText(context.Context, *GetSurroundingTextRequest) (*GetSurroundingTextResponse, error)
+	PerformContextMenuAction(context.Context, *PerformContextMenuActionRequest) (*PerformContextMenuActionResponse, error)
+	PerformEditorAction(context.Context, *PerformEditorActionRequest) (*PerformEditorActionResponse, error)
+	SendKeyEvent(context.Context, *SendKeyEventRequest) (*SendKeyEventResponse, error)
+	SetSelection(context.Context, *SetSelectionRequest) (*SetSelectionResponse, error)
+	mustEmbedUnimplementedInputMethodAccessibilityInputConnectionServiceServer()
 }
 
-// UnimplementedFingerprintGestureControllerServiceServer must be embedded to have
+// UnimplementedInputMethodAccessibilityInputConnectionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedFingerprintGestureControllerServiceServer struct{}
+type UnimplementedInputMethodAccessibilityInputConnectionServiceServer struct{}
 
-func (UnimplementedFingerprintGestureControllerServiceServer) IsGestureDetectionAvailable(context.Context, *IsGestureDetectionAvailableRequest) (*IsGestureDetectionAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsGestureDetectionAvailable not implemented")
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) ClearMetaKeyStates(context.Context, *ClearMetaKeyStatesRequest) (*ClearMetaKeyStatesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearMetaKeyStates not implemented")
 }
-func (UnimplementedFingerprintGestureControllerServiceServer) UnregisterFingerprintGestureCallback(context.Context, *UnregisterFingerprintGestureCallbackRequest) (*UnregisterFingerprintGestureCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterFingerprintGestureCallback not implemented")
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) CommitText(context.Context, *CommitTextRequest) (*CommitTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CommitText not implemented")
 }
-func (UnimplementedFingerprintGestureControllerServiceServer) mustEmbedUnimplementedFingerprintGestureControllerServiceServer() {
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) DeleteSurroundingText(context.Context, *DeleteSurroundingTextRequest) (*DeleteSurroundingTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteSurroundingText not implemented")
 }
-func (UnimplementedFingerprintGestureControllerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) GetCursorCapsMode(context.Context, *GetCursorCapsModeRequest) (*GetCursorCapsModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCursorCapsMode not implemented")
+}
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) GetSurroundingText(context.Context, *GetSurroundingTextRequest) (*GetSurroundingTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSurroundingText not implemented")
+}
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) PerformContextMenuAction(context.Context, *PerformContextMenuActionRequest) (*PerformContextMenuActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformContextMenuAction not implemented")
+}
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) PerformEditorAction(context.Context, *PerformEditorActionRequest) (*PerformEditorActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformEditorAction not implemented")
+}
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) SendKeyEvent(context.Context, *SendKeyEventRequest) (*SendKeyEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendKeyEvent not implemented")
+}
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) SetSelection(context.Context, *SetSelectionRequest) (*SetSelectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSelection not implemented")
+}
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) mustEmbedUnimplementedInputMethodAccessibilityInputConnectionServiceServer() {
+}
+func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeFingerprintGestureControllerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FingerprintGestureControllerServiceServer will
+// UnsafeInputMethodAccessibilityInputConnectionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputMethodAccessibilityInputConnectionServiceServer will
 // result in compilation errors.
-type UnsafeFingerprintGestureControllerServiceServer interface {
-	mustEmbedUnimplementedFingerprintGestureControllerServiceServer()
+type UnsafeInputMethodAccessibilityInputConnectionServiceServer interface {
+	mustEmbedUnimplementedInputMethodAccessibilityInputConnectionServiceServer()
 }
 
-func RegisterFingerprintGestureControllerServiceServer(s grpc.ServiceRegistrar, srv FingerprintGestureControllerServiceServer) {
-	// If the following call panics, it indicates UnimplementedFingerprintGestureControllerServiceServer was
+func RegisterInputMethodAccessibilityInputConnectionServiceServer(s grpc.ServiceRegistrar, srv InputMethodAccessibilityInputConnectionServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputMethodAccessibilityInputConnectionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&FingerprintGestureControllerService_ServiceDesc, srv)
+	s.RegisterService(&InputMethodAccessibilityInputConnectionService_ServiceDesc, srv)
 }
 
-func _FingerprintGestureControllerService_IsGestureDetectionAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsGestureDetectionAvailableRequest)
+func _InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearMetaKeyStatesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FingerprintGestureControllerServiceServer).IsGestureDetectionAvailable(ctx, in)
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).ClearMetaKeyStates(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FingerprintGestureControllerService_IsGestureDetectionAvailable_FullMethodName,
+		FullMethod: InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FingerprintGestureControllerServiceServer).IsGestureDetectionAvailable(ctx, req.(*IsGestureDetectionAvailableRequest))
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).ClearMetaKeyStates(ctx, req.(*ClearMetaKeyStatesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterFingerprintGestureCallbackRequest)
+func _InputMethodAccessibilityInputConnectionService_CommitText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CommitTextRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FingerprintGestureControllerServiceServer).UnregisterFingerprintGestureCallback(ctx, in)
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).CommitText(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_FullMethodName,
+		FullMethod: InputMethodAccessibilityInputConnectionService_CommitText_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FingerprintGestureControllerServiceServer).UnregisterFingerprintGestureCallback(ctx, req.(*UnregisterFingerprintGestureCallbackRequest))
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).CommitText(ctx, req.(*CommitTextRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// FingerprintGestureControllerService_ServiceDesc is the grpc.ServiceDesc for FingerprintGestureControllerService service.
+func _InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteSurroundingTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).DeleteSurroundingText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).DeleteSurroundingText(ctx, req.(*DeleteSurroundingTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCursorCapsModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).GetCursorCapsMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).GetCursorCapsMode(ctx, req.(*GetCursorCapsModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputMethodAccessibilityInputConnectionService_GetSurroundingText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSurroundingTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).GetSurroundingText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodAccessibilityInputConnectionService_GetSurroundingText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).GetSurroundingText(ctx, req.(*GetSurroundingTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformContextMenuActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).PerformContextMenuAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).PerformContextMenuAction(ctx, req.(*PerformContextMenuActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputMethodAccessibilityInputConnectionService_PerformEditorAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformEditorActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).PerformEditorAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodAccessibilityInputConnectionService_PerformEditorAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).PerformEditorAction(ctx, req.(*PerformEditorActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputMethodAccessibilityInputConnectionService_SendKeyEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendKeyEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).SendKeyEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodAccessibilityInputConnectionService_SendKeyEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).SendKeyEvent(ctx, req.(*SendKeyEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputMethodAccessibilityInputConnectionService_SetSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSelectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).SetSelection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputMethodAccessibilityInputConnectionService_SetSelection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputMethodAccessibilityInputConnectionServiceServer).SetSelection(ctx, req.(*SetSelectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputMethodAccessibilityInputConnectionService_ServiceDesc is the grpc.ServiceDesc for InputMethodAccessibilityInputConnectionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var FingerprintGestureControllerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.FingerprintGestureControllerService",
-	HandlerType: (*FingerprintGestureControllerServiceServer)(nil),
+var InputMethodAccessibilityInputConnectionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.InputMethodAccessibilityInputConnectionService",
+	HandlerType: (*InputMethodAccessibilityInputConnectionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "IsGestureDetectionAvailable",
-			Handler:    _FingerprintGestureControllerService_IsGestureDetectionAvailable_Handler,
+			MethodName: "ClearMetaKeyStates",
+			Handler:    _InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_Handler,
 		},
 		{
-			MethodName: "UnregisterFingerprintGestureCallback",
-			Handler:    _FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/accessibilityservice/accessibilityservice.proto",
-}
-
-const (
-	FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_FullMethodName                     = "/accessibilityservice.FingerprintGestureControllerFingerprintGestureCallbackService/OnGestureDetected"
-	FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_FullMethodName = "/accessibilityservice.FingerprintGestureControllerFingerprintGestureCallbackService/OnGestureDetectionAvailabilityChanged"
-)
-
-// FingerprintGestureControllerFingerprintGestureCallbackServiceClient is the client API for FingerprintGestureControllerFingerprintGestureCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FingerprintGestureControllerFingerprintGestureCallbackServiceClient interface {
-	OnGestureDetected(ctx context.Context, in *OnGestureDetectedRequest, opts ...grpc.CallOption) (*OnGestureDetectedResponse, error)
-	OnGestureDetectionAvailabilityChanged(ctx context.Context, in *OnGestureDetectionAvailabilityChangedRequest, opts ...grpc.CallOption) (*OnGestureDetectionAvailabilityChangedResponse, error)
-}
-
-type fingerprintGestureControllerFingerprintGestureCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFingerprintGestureControllerFingerprintGestureCallbackServiceClient(cc grpc.ClientConnInterface) FingerprintGestureControllerFingerprintGestureCallbackServiceClient {
-	return &fingerprintGestureControllerFingerprintGestureCallbackServiceClient{cc}
-}
-
-func (c *fingerprintGestureControllerFingerprintGestureCallbackServiceClient) OnGestureDetected(ctx context.Context, in *OnGestureDetectedRequest, opts ...grpc.CallOption) (*OnGestureDetectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnGestureDetectedResponse)
-	err := c.cc.Invoke(ctx, FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fingerprintGestureControllerFingerprintGestureCallbackServiceClient) OnGestureDetectionAvailabilityChanged(ctx context.Context, in *OnGestureDetectionAvailabilityChangedRequest, opts ...grpc.CallOption) (*OnGestureDetectionAvailabilityChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnGestureDetectionAvailabilityChangedResponse)
-	err := c.cc.Invoke(ctx, FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FingerprintGestureControllerFingerprintGestureCallbackServiceServer is the server API for FingerprintGestureControllerFingerprintGestureCallbackService service.
-// All implementations must embed UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer
-// for forward compatibility.
-type FingerprintGestureControllerFingerprintGestureCallbackServiceServer interface {
-	OnGestureDetected(context.Context, *OnGestureDetectedRequest) (*OnGestureDetectedResponse, error)
-	OnGestureDetectionAvailabilityChanged(context.Context, *OnGestureDetectionAvailabilityChangedRequest) (*OnGestureDetectionAvailabilityChangedResponse, error)
-	mustEmbedUnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer()
-}
-
-// UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer struct{}
-
-func (UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer) OnGestureDetected(context.Context, *OnGestureDetectedRequest) (*OnGestureDetectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnGestureDetected not implemented")
-}
-func (UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer) OnGestureDetectionAvailabilityChanged(context.Context, *OnGestureDetectionAvailabilityChangedRequest) (*OnGestureDetectionAvailabilityChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnGestureDetectionAvailabilityChanged not implemented")
-}
-func (UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer) mustEmbedUnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer() {
-}
-func (UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer) testEmbeddedByValue() {
-}
-
-// UnsafeFingerprintGestureControllerFingerprintGestureCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FingerprintGestureControllerFingerprintGestureCallbackServiceServer will
-// result in compilation errors.
-type UnsafeFingerprintGestureControllerFingerprintGestureCallbackServiceServer interface {
-	mustEmbedUnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer()
-}
-
-func RegisterFingerprintGestureControllerFingerprintGestureCallbackServiceServer(s grpc.ServiceRegistrar, srv FingerprintGestureControllerFingerprintGestureCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FingerprintGestureControllerFingerprintGestureCallbackService_ServiceDesc, srv)
-}
-
-func _FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnGestureDetectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FingerprintGestureControllerFingerprintGestureCallbackServiceServer).OnGestureDetected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FingerprintGestureControllerFingerprintGestureCallbackServiceServer).OnGestureDetected(ctx, req.(*OnGestureDetectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnGestureDetectionAvailabilityChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FingerprintGestureControllerFingerprintGestureCallbackServiceServer).OnGestureDetectionAvailabilityChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FingerprintGestureControllerFingerprintGestureCallbackServiceServer).OnGestureDetectionAvailabilityChanged(ctx, req.(*OnGestureDetectionAvailabilityChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FingerprintGestureControllerFingerprintGestureCallbackService_ServiceDesc is the grpc.ServiceDesc for FingerprintGestureControllerFingerprintGestureCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FingerprintGestureControllerFingerprintGestureCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.FingerprintGestureControllerFingerprintGestureCallbackService",
-	HandlerType: (*FingerprintGestureControllerFingerprintGestureCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnGestureDetected",
-			Handler:    _FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_Handler,
+			MethodName: "CommitText",
+			Handler:    _InputMethodAccessibilityInputConnectionService_CommitText_Handler,
 		},
 		{
-			MethodName: "OnGestureDetectionAvailabilityChanged",
-			Handler:    _FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_Handler,
+			MethodName: "DeleteSurroundingText",
+			Handler:    _InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_Handler,
+		},
+		{
+			MethodName: "GetCursorCapsMode",
+			Handler:    _InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_Handler,
+		},
+		{
+			MethodName: "GetSurroundingText",
+			Handler:    _InputMethodAccessibilityInputConnectionService_GetSurroundingText_Handler,
+		},
+		{
+			MethodName: "PerformContextMenuAction",
+			Handler:    _InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_Handler,
+		},
+		{
+			MethodName: "PerformEditorAction",
+			Handler:    _InputMethodAccessibilityInputConnectionService_PerformEditorAction_Handler,
+		},
+		{
+			MethodName: "SendKeyEvent",
+			Handler:    _InputMethodAccessibilityInputConnectionService_SendKeyEvent_Handler,
+		},
+		{
+			MethodName: "SetSelection",
+			Handler:    _InputMethodAccessibilityInputConnectionService_SetSelection_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1534,8 +2151,11 @@ const (
 	AccessibilityServiceService_GetRootInActiveWindow1_1_FullMethodName             = "/accessibilityservice.AccessibilityServiceService/GetRootInActiveWindow1_1"
 	AccessibilityServiceService_GetServiceInfo_FullMethodName                       = "/accessibilityservice.AccessibilityServiceService/GetServiceInfo"
 	AccessibilityServiceService_GetSoftKeyboardController_FullMethodName            = "/accessibilityservice.AccessibilityServiceService/GetSoftKeyboardController"
+	AccessibilityServiceService_GetSystemActions_FullMethodName                     = "/accessibilityservice.AccessibilityServiceService/GetSystemActions"
 	AccessibilityServiceService_GetSystemService_FullMethodName                     = "/accessibilityservice.AccessibilityServiceService/GetSystemService"
 	AccessibilityServiceService_GetTouchInteractionController_FullMethodName        = "/accessibilityservice.AccessibilityServiceService/GetTouchInteractionController"
+	AccessibilityServiceService_GetWindows_FullMethodName                           = "/accessibilityservice.AccessibilityServiceService/GetWindows"
+	AccessibilityServiceService_GetWindowsOnAllDisplays_FullMethodName              = "/accessibilityservice.AccessibilityServiceService/GetWindowsOnAllDisplays"
 	AccessibilityServiceService_IsCacheEnabled_FullMethodName                       = "/accessibilityservice.AccessibilityServiceService/IsCacheEnabled"
 	AccessibilityServiceService_IsNodeInCache_FullMethodName                        = "/accessibilityservice.AccessibilityServiceService/IsNodeInCache"
 	AccessibilityServiceService_OnAccessibilityEvent_FullMethodName                 = "/accessibilityservice.AccessibilityServiceService/OnAccessibilityEvent"
@@ -1579,8 +2199,11 @@ type AccessibilityServiceServiceClient interface {
 	GetRootInActiveWindow1_1(ctx context.Context, in *GetRootInActiveWindow1_1Request, opts ...grpc.CallOption) (*GetRootInActiveWindow1_1Response, error)
 	GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error)
 	GetSoftKeyboardController(ctx context.Context, in *GetSoftKeyboardControllerRequest, opts ...grpc.CallOption) (*GetSoftKeyboardControllerResponse, error)
+	GetSystemActions(ctx context.Context, in *GetSystemActionsRequest, opts ...grpc.CallOption) (*GetSystemActionsResponse, error)
 	GetSystemService(ctx context.Context, in *GetSystemServiceRequest, opts ...grpc.CallOption) (*GetSystemServiceResponse, error)
 	GetTouchInteractionController(ctx context.Context, in *GetTouchInteractionControllerRequest, opts ...grpc.CallOption) (*GetTouchInteractionControllerResponse, error)
+	GetWindows(ctx context.Context, in *GetWindowsRequest, opts ...grpc.CallOption) (*GetWindowsResponse, error)
+	GetWindowsOnAllDisplays(ctx context.Context, in *GetWindowsOnAllDisplaysRequest, opts ...grpc.CallOption) (*GetWindowsOnAllDisplaysResponse, error)
 	IsCacheEnabled(ctx context.Context, in *IsCacheEnabledRequest, opts ...grpc.CallOption) (*IsCacheEnabledResponse, error)
 	IsNodeInCache(ctx context.Context, in *IsNodeInCacheRequest, opts ...grpc.CallOption) (*IsNodeInCacheResponse, error)
 	OnAccessibilityEvent(ctx context.Context, in *OnAccessibilityEventRequest, opts ...grpc.CallOption) (*OnAccessibilityEventResponse, error)
@@ -1799,6 +2422,16 @@ func (c *accessibilityServiceServiceClient) GetSoftKeyboardController(ctx contex
 	return out, nil
 }
 
+func (c *accessibilityServiceServiceClient) GetSystemActions(ctx context.Context, in *GetSystemActionsRequest, opts ...grpc.CallOption) (*GetSystemActionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSystemActionsResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceService_GetSystemActions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *accessibilityServiceServiceClient) GetSystemService(ctx context.Context, in *GetSystemServiceRequest, opts ...grpc.CallOption) (*GetSystemServiceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSystemServiceResponse)
@@ -1813,6 +2446,26 @@ func (c *accessibilityServiceServiceClient) GetTouchInteractionController(ctx co
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTouchInteractionControllerResponse)
 	err := c.cc.Invoke(ctx, AccessibilityServiceService_GetTouchInteractionController_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceServiceClient) GetWindows(ctx context.Context, in *GetWindowsRequest, opts ...grpc.CallOption) (*GetWindowsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWindowsResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceService_GetWindows_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityServiceServiceClient) GetWindowsOnAllDisplays(ctx context.Context, in *GetWindowsOnAllDisplaysRequest, opts ...grpc.CallOption) (*GetWindowsOnAllDisplaysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWindowsOnAllDisplaysResponse)
+	err := c.cc.Invoke(ctx, AccessibilityServiceService_GetWindowsOnAllDisplays_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2022,8 +2675,11 @@ type AccessibilityServiceServiceServer interface {
 	GetRootInActiveWindow1_1(context.Context, *GetRootInActiveWindow1_1Request) (*GetRootInActiveWindow1_1Response, error)
 	GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error)
 	GetSoftKeyboardController(context.Context, *GetSoftKeyboardControllerRequest) (*GetSoftKeyboardControllerResponse, error)
+	GetSystemActions(context.Context, *GetSystemActionsRequest) (*GetSystemActionsResponse, error)
 	GetSystemService(context.Context, *GetSystemServiceRequest) (*GetSystemServiceResponse, error)
 	GetTouchInteractionController(context.Context, *GetTouchInteractionControllerRequest) (*GetTouchInteractionControllerResponse, error)
+	GetWindows(context.Context, *GetWindowsRequest) (*GetWindowsResponse, error)
+	GetWindowsOnAllDisplays(context.Context, *GetWindowsOnAllDisplaysRequest) (*GetWindowsOnAllDisplaysResponse, error)
 	IsCacheEnabled(context.Context, *IsCacheEnabledRequest) (*IsCacheEnabledResponse, error)
 	IsNodeInCache(context.Context, *IsNodeInCacheRequest) (*IsNodeInCacheResponse, error)
 	OnAccessibilityEvent(context.Context, *OnAccessibilityEventRequest) (*OnAccessibilityEventResponse, error)
@@ -2109,11 +2765,20 @@ func (UnimplementedAccessibilityServiceServiceServer) GetServiceInfo(context.Con
 func (UnimplementedAccessibilityServiceServiceServer) GetSoftKeyboardController(context.Context, *GetSoftKeyboardControllerRequest) (*GetSoftKeyboardControllerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSoftKeyboardController not implemented")
 }
+func (UnimplementedAccessibilityServiceServiceServer) GetSystemActions(context.Context, *GetSystemActionsRequest) (*GetSystemActionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSystemActions not implemented")
+}
 func (UnimplementedAccessibilityServiceServiceServer) GetSystemService(context.Context, *GetSystemServiceRequest) (*GetSystemServiceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSystemService not implemented")
 }
 func (UnimplementedAccessibilityServiceServiceServer) GetTouchInteractionController(context.Context, *GetTouchInteractionControllerRequest) (*GetTouchInteractionControllerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTouchInteractionController not implemented")
+}
+func (UnimplementedAccessibilityServiceServiceServer) GetWindows(context.Context, *GetWindowsRequest) (*GetWindowsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindows not implemented")
+}
+func (UnimplementedAccessibilityServiceServiceServer) GetWindowsOnAllDisplays(context.Context, *GetWindowsOnAllDisplaysRequest) (*GetWindowsOnAllDisplaysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindowsOnAllDisplays not implemented")
 }
 func (UnimplementedAccessibilityServiceServiceServer) IsCacheEnabled(context.Context, *IsCacheEnabledRequest) (*IsCacheEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsCacheEnabled not implemented")
@@ -2533,6 +3198,24 @@ func _AccessibilityServiceService_GetSoftKeyboardController_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AccessibilityServiceService_GetSystemActions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSystemActionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceServiceServer).GetSystemActions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceService_GetSystemActions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceServiceServer).GetSystemActions(ctx, req.(*GetSystemActionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _AccessibilityServiceService_GetSystemService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSystemServiceRequest)
 	if err := dec(in); err != nil {
@@ -2565,6 +3248,42 @@ func _AccessibilityServiceService_GetTouchInteractionController_Handler(srv inte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AccessibilityServiceServiceServer).GetTouchInteractionController(ctx, req.(*GetTouchInteractionControllerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceService_GetWindows_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWindowsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceServiceServer).GetWindows(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceService_GetWindows_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceServiceServer).GetWindows(ctx, req.(*GetWindowsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessibilityServiceService_GetWindowsOnAllDisplays_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWindowsOnAllDisplaysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessibilityServiceServiceServer).GetWindowsOnAllDisplays(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessibilityServiceService_GetWindowsOnAllDisplays_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessibilityServiceServiceServer).GetWindowsOnAllDisplays(ctx, req.(*GetWindowsOnAllDisplaysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2977,12 +3696,24 @@ var AccessibilityServiceService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AccessibilityServiceService_GetSoftKeyboardController_Handler,
 		},
 		{
+			MethodName: "GetSystemActions",
+			Handler:    _AccessibilityServiceService_GetSystemActions_Handler,
+		},
+		{
 			MethodName: "GetSystemService",
 			Handler:    _AccessibilityServiceService_GetSystemService_Handler,
 		},
 		{
 			MethodName: "GetTouchInteractionController",
 			Handler:    _AccessibilityServiceService_GetTouchInteractionController_Handler,
+		},
+		{
+			MethodName: "GetWindows",
+			Handler:    _AccessibilityServiceService_GetWindows_Handler,
+		},
+		{
+			MethodName: "GetWindowsOnAllDisplays",
+			Handler:    _AccessibilityServiceService_GetWindowsOnAllDisplays_Handler,
 		},
 		{
 			MethodName: "IsCacheEnabled",
@@ -4375,178 +5106,140 @@ var AccessibilityServiceTakeScreenshotCallbackService_ServiceDesc = grpc.Service
 }
 
 const (
-	AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_FullMethodName        = "/accessibilityservice.AccessibilityButtonControllerService/IsAccessibilityButtonAvailable"
-	AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_FullMethodName   = "/accessibilityservice.AccessibilityButtonControllerService/RegisterAccessibilityButtonCallback"
-	AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_FullMethodName = "/accessibilityservice.AccessibilityButtonControllerService/UnregisterAccessibilityButtonCallback"
+	FingerprintGestureControllerService_IsGestureDetectionAvailable_FullMethodName          = "/accessibilityservice.FingerprintGestureControllerService/IsGestureDetectionAvailable"
+	FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_FullMethodName = "/accessibilityservice.FingerprintGestureControllerService/UnregisterFingerprintGestureCallback"
 )
 
-// AccessibilityButtonControllerServiceClient is the client API for AccessibilityButtonControllerService service.
+// FingerprintGestureControllerServiceClient is the client API for FingerprintGestureControllerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccessibilityButtonControllerServiceClient interface {
-	IsAccessibilityButtonAvailable(ctx context.Context, in *IsAccessibilityButtonAvailableRequest, opts ...grpc.CallOption) (*IsAccessibilityButtonAvailableResponse, error)
-	RegisterAccessibilityButtonCallback(ctx context.Context, in *RegisterAccessibilityButtonCallbackRequest, opts ...grpc.CallOption) (*RegisterAccessibilityButtonCallbackResponse, error)
-	UnregisterAccessibilityButtonCallback(ctx context.Context, in *UnregisterAccessibilityButtonCallbackRequest, opts ...grpc.CallOption) (*UnregisterAccessibilityButtonCallbackResponse, error)
+type FingerprintGestureControllerServiceClient interface {
+	IsGestureDetectionAvailable(ctx context.Context, in *IsGestureDetectionAvailableRequest, opts ...grpc.CallOption) (*IsGestureDetectionAvailableResponse, error)
+	UnregisterFingerprintGestureCallback(ctx context.Context, in *UnregisterFingerprintGestureCallbackRequest, opts ...grpc.CallOption) (*UnregisterFingerprintGestureCallbackResponse, error)
 }
 
-type accessibilityButtonControllerServiceClient struct {
+type fingerprintGestureControllerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAccessibilityButtonControllerServiceClient(cc grpc.ClientConnInterface) AccessibilityButtonControllerServiceClient {
-	return &accessibilityButtonControllerServiceClient{cc}
+func NewFingerprintGestureControllerServiceClient(cc grpc.ClientConnInterface) FingerprintGestureControllerServiceClient {
+	return &fingerprintGestureControllerServiceClient{cc}
 }
 
-func (c *accessibilityButtonControllerServiceClient) IsAccessibilityButtonAvailable(ctx context.Context, in *IsAccessibilityButtonAvailableRequest, opts ...grpc.CallOption) (*IsAccessibilityButtonAvailableResponse, error) {
+func (c *fingerprintGestureControllerServiceClient) IsGestureDetectionAvailable(ctx context.Context, in *IsGestureDetectionAvailableRequest, opts ...grpc.CallOption) (*IsGestureDetectionAvailableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAccessibilityButtonAvailableResponse)
-	err := c.cc.Invoke(ctx, AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_FullMethodName, in, out, cOpts...)
+	out := new(IsGestureDetectionAvailableResponse)
+	err := c.cc.Invoke(ctx, FingerprintGestureControllerService_IsGestureDetectionAvailable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityButtonControllerServiceClient) RegisterAccessibilityButtonCallback(ctx context.Context, in *RegisterAccessibilityButtonCallbackRequest, opts ...grpc.CallOption) (*RegisterAccessibilityButtonCallbackResponse, error) {
+func (c *fingerprintGestureControllerServiceClient) UnregisterFingerprintGestureCallback(ctx context.Context, in *UnregisterFingerprintGestureCallbackRequest, opts ...grpc.CallOption) (*UnregisterFingerprintGestureCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterAccessibilityButtonCallbackResponse)
-	err := c.cc.Invoke(ctx, AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_FullMethodName, in, out, cOpts...)
+	out := new(UnregisterFingerprintGestureCallbackResponse)
+	err := c.cc.Invoke(ctx, FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityButtonControllerServiceClient) UnregisterAccessibilityButtonCallback(ctx context.Context, in *UnregisterAccessibilityButtonCallbackRequest, opts ...grpc.CallOption) (*UnregisterAccessibilityButtonCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterAccessibilityButtonCallbackResponse)
-	err := c.cc.Invoke(ctx, AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AccessibilityButtonControllerServiceServer is the server API for AccessibilityButtonControllerService service.
-// All implementations must embed UnimplementedAccessibilityButtonControllerServiceServer
+// FingerprintGestureControllerServiceServer is the server API for FingerprintGestureControllerService service.
+// All implementations must embed UnimplementedFingerprintGestureControllerServiceServer
 // for forward compatibility.
-type AccessibilityButtonControllerServiceServer interface {
-	IsAccessibilityButtonAvailable(context.Context, *IsAccessibilityButtonAvailableRequest) (*IsAccessibilityButtonAvailableResponse, error)
-	RegisterAccessibilityButtonCallback(context.Context, *RegisterAccessibilityButtonCallbackRequest) (*RegisterAccessibilityButtonCallbackResponse, error)
-	UnregisterAccessibilityButtonCallback(context.Context, *UnregisterAccessibilityButtonCallbackRequest) (*UnregisterAccessibilityButtonCallbackResponse, error)
-	mustEmbedUnimplementedAccessibilityButtonControllerServiceServer()
+type FingerprintGestureControllerServiceServer interface {
+	IsGestureDetectionAvailable(context.Context, *IsGestureDetectionAvailableRequest) (*IsGestureDetectionAvailableResponse, error)
+	UnregisterFingerprintGestureCallback(context.Context, *UnregisterFingerprintGestureCallbackRequest) (*UnregisterFingerprintGestureCallbackResponse, error)
+	mustEmbedUnimplementedFingerprintGestureControllerServiceServer()
 }
 
-// UnimplementedAccessibilityButtonControllerServiceServer must be embedded to have
+// UnimplementedFingerprintGestureControllerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAccessibilityButtonControllerServiceServer struct{}
+type UnimplementedFingerprintGestureControllerServiceServer struct{}
 
-func (UnimplementedAccessibilityButtonControllerServiceServer) IsAccessibilityButtonAvailable(context.Context, *IsAccessibilityButtonAvailableRequest) (*IsAccessibilityButtonAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAccessibilityButtonAvailable not implemented")
+func (UnimplementedFingerprintGestureControllerServiceServer) IsGestureDetectionAvailable(context.Context, *IsGestureDetectionAvailableRequest) (*IsGestureDetectionAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsGestureDetectionAvailable not implemented")
 }
-func (UnimplementedAccessibilityButtonControllerServiceServer) RegisterAccessibilityButtonCallback(context.Context, *RegisterAccessibilityButtonCallbackRequest) (*RegisterAccessibilityButtonCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterAccessibilityButtonCallback not implemented")
+func (UnimplementedFingerprintGestureControllerServiceServer) UnregisterFingerprintGestureCallback(context.Context, *UnregisterFingerprintGestureCallbackRequest) (*UnregisterFingerprintGestureCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterFingerprintGestureCallback not implemented")
 }
-func (UnimplementedAccessibilityButtonControllerServiceServer) UnregisterAccessibilityButtonCallback(context.Context, *UnregisterAccessibilityButtonCallbackRequest) (*UnregisterAccessibilityButtonCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterAccessibilityButtonCallback not implemented")
+func (UnimplementedFingerprintGestureControllerServiceServer) mustEmbedUnimplementedFingerprintGestureControllerServiceServer() {
 }
-func (UnimplementedAccessibilityButtonControllerServiceServer) mustEmbedUnimplementedAccessibilityButtonControllerServiceServer() {
-}
-func (UnimplementedAccessibilityButtonControllerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedFingerprintGestureControllerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAccessibilityButtonControllerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccessibilityButtonControllerServiceServer will
+// UnsafeFingerprintGestureControllerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FingerprintGestureControllerServiceServer will
 // result in compilation errors.
-type UnsafeAccessibilityButtonControllerServiceServer interface {
-	mustEmbedUnimplementedAccessibilityButtonControllerServiceServer()
+type UnsafeFingerprintGestureControllerServiceServer interface {
+	mustEmbedUnimplementedFingerprintGestureControllerServiceServer()
 }
 
-func RegisterAccessibilityButtonControllerServiceServer(s grpc.ServiceRegistrar, srv AccessibilityButtonControllerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAccessibilityButtonControllerServiceServer was
+func RegisterFingerprintGestureControllerServiceServer(s grpc.ServiceRegistrar, srv FingerprintGestureControllerServiceServer) {
+	// If the following call panics, it indicates UnimplementedFingerprintGestureControllerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AccessibilityButtonControllerService_ServiceDesc, srv)
+	s.RegisterService(&FingerprintGestureControllerService_ServiceDesc, srv)
 }
 
-func _AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAccessibilityButtonAvailableRequest)
+func _FingerprintGestureControllerService_IsGestureDetectionAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsGestureDetectionAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityButtonControllerServiceServer).IsAccessibilityButtonAvailable(ctx, in)
+		return srv.(FingerprintGestureControllerServiceServer).IsGestureDetectionAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_FullMethodName,
+		FullMethod: FingerprintGestureControllerService_IsGestureDetectionAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityButtonControllerServiceServer).IsAccessibilityButtonAvailable(ctx, req.(*IsAccessibilityButtonAvailableRequest))
+		return srv.(FingerprintGestureControllerServiceServer).IsGestureDetectionAvailable(ctx, req.(*IsGestureDetectionAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterAccessibilityButtonCallbackRequest)
+func _FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterFingerprintGestureCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityButtonControllerServiceServer).RegisterAccessibilityButtonCallback(ctx, in)
+		return srv.(FingerprintGestureControllerServiceServer).UnregisterFingerprintGestureCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_FullMethodName,
+		FullMethod: FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityButtonControllerServiceServer).RegisterAccessibilityButtonCallback(ctx, req.(*RegisterAccessibilityButtonCallbackRequest))
+		return srv.(FingerprintGestureControllerServiceServer).UnregisterFingerprintGestureCallback(ctx, req.(*UnregisterFingerprintGestureCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterAccessibilityButtonCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityButtonControllerServiceServer).UnregisterAccessibilityButtonCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityButtonControllerServiceServer).UnregisterAccessibilityButtonCallback(ctx, req.(*UnregisterAccessibilityButtonCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AccessibilityButtonControllerService_ServiceDesc is the grpc.ServiceDesc for AccessibilityButtonControllerService service.
+// FingerprintGestureControllerService_ServiceDesc is the grpc.ServiceDesc for FingerprintGestureControllerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AccessibilityButtonControllerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.AccessibilityButtonControllerService",
-	HandlerType: (*AccessibilityButtonControllerServiceServer)(nil),
+var FingerprintGestureControllerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.FingerprintGestureControllerService",
+	HandlerType: (*FingerprintGestureControllerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "IsAccessibilityButtonAvailable",
-			Handler:    _AccessibilityButtonControllerService_IsAccessibilityButtonAvailable_Handler,
+			MethodName: "IsGestureDetectionAvailable",
+			Handler:    _FingerprintGestureControllerService_IsGestureDetectionAvailable_Handler,
 		},
 		{
-			MethodName: "RegisterAccessibilityButtonCallback",
-			Handler:    _AccessibilityButtonControllerService_RegisterAccessibilityButtonCallback_Handler,
-		},
-		{
-			MethodName: "UnregisterAccessibilityButtonCallback",
-			Handler:    _AccessibilityButtonControllerService_UnregisterAccessibilityButtonCallback_Handler,
+			MethodName: "UnregisterFingerprintGestureCallback",
+			Handler:    _FingerprintGestureControllerService_UnregisterFingerprintGestureCallback_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4554,141 +5247,141 @@ var AccessibilityButtonControllerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_FullMethodName = "/accessibilityservice.AccessibilityButtonControllerAccessibilityButtonCallbackService/OnAvailabilityChanged"
-	AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_FullMethodName             = "/accessibilityservice.AccessibilityButtonControllerAccessibilityButtonCallbackService/OnClicked"
+	FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_FullMethodName                     = "/accessibilityservice.FingerprintGestureControllerFingerprintGestureCallbackService/OnGestureDetected"
+	FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_FullMethodName = "/accessibilityservice.FingerprintGestureControllerFingerprintGestureCallbackService/OnGestureDetectionAvailabilityChanged"
 )
 
-// AccessibilityButtonControllerAccessibilityButtonCallbackServiceClient is the client API for AccessibilityButtonControllerAccessibilityButtonCallbackService service.
+// FingerprintGestureControllerFingerprintGestureCallbackServiceClient is the client API for FingerprintGestureControllerFingerprintGestureCallbackService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccessibilityButtonControllerAccessibilityButtonCallbackServiceClient interface {
-	OnAvailabilityChanged(ctx context.Context, in *OnAvailabilityChangedRequest, opts ...grpc.CallOption) (*OnAvailabilityChangedResponse, error)
-	OnClicked(ctx context.Context, in *OnClickedRequest, opts ...grpc.CallOption) (*OnClickedResponse, error)
+type FingerprintGestureControllerFingerprintGestureCallbackServiceClient interface {
+	OnGestureDetected(ctx context.Context, in *OnGestureDetectedRequest, opts ...grpc.CallOption) (*OnGestureDetectedResponse, error)
+	OnGestureDetectionAvailabilityChanged(ctx context.Context, in *OnGestureDetectionAvailabilityChangedRequest, opts ...grpc.CallOption) (*OnGestureDetectionAvailabilityChangedResponse, error)
 }
 
-type accessibilityButtonControllerAccessibilityButtonCallbackServiceClient struct {
+type fingerprintGestureControllerFingerprintGestureCallbackServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAccessibilityButtonControllerAccessibilityButtonCallbackServiceClient(cc grpc.ClientConnInterface) AccessibilityButtonControllerAccessibilityButtonCallbackServiceClient {
-	return &accessibilityButtonControllerAccessibilityButtonCallbackServiceClient{cc}
+func NewFingerprintGestureControllerFingerprintGestureCallbackServiceClient(cc grpc.ClientConnInterface) FingerprintGestureControllerFingerprintGestureCallbackServiceClient {
+	return &fingerprintGestureControllerFingerprintGestureCallbackServiceClient{cc}
 }
 
-func (c *accessibilityButtonControllerAccessibilityButtonCallbackServiceClient) OnAvailabilityChanged(ctx context.Context, in *OnAvailabilityChangedRequest, opts ...grpc.CallOption) (*OnAvailabilityChangedResponse, error) {
+func (c *fingerprintGestureControllerFingerprintGestureCallbackServiceClient) OnGestureDetected(ctx context.Context, in *OnGestureDetectedRequest, opts ...grpc.CallOption) (*OnGestureDetectedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAvailabilityChangedResponse)
-	err := c.cc.Invoke(ctx, AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_FullMethodName, in, out, cOpts...)
+	out := new(OnGestureDetectedResponse)
+	err := c.cc.Invoke(ctx, FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityButtonControllerAccessibilityButtonCallbackServiceClient) OnClicked(ctx context.Context, in *OnClickedRequest, opts ...grpc.CallOption) (*OnClickedResponse, error) {
+func (c *fingerprintGestureControllerFingerprintGestureCallbackServiceClient) OnGestureDetectionAvailabilityChanged(ctx context.Context, in *OnGestureDetectionAvailabilityChangedRequest, opts ...grpc.CallOption) (*OnGestureDetectionAvailabilityChangedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClickedResponse)
-	err := c.cc.Invoke(ctx, AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_FullMethodName, in, out, cOpts...)
+	out := new(OnGestureDetectionAvailabilityChangedResponse)
+	err := c.cc.Invoke(ctx, FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer is the server API for AccessibilityButtonControllerAccessibilityButtonCallbackService service.
-// All implementations must embed UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer
+// FingerprintGestureControllerFingerprintGestureCallbackServiceServer is the server API for FingerprintGestureControllerFingerprintGestureCallbackService service.
+// All implementations must embed UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer
 // for forward compatibility.
-type AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer interface {
-	OnAvailabilityChanged(context.Context, *OnAvailabilityChangedRequest) (*OnAvailabilityChangedResponse, error)
-	OnClicked(context.Context, *OnClickedRequest) (*OnClickedResponse, error)
-	mustEmbedUnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer()
+type FingerprintGestureControllerFingerprintGestureCallbackServiceServer interface {
+	OnGestureDetected(context.Context, *OnGestureDetectedRequest) (*OnGestureDetectedResponse, error)
+	OnGestureDetectionAvailabilityChanged(context.Context, *OnGestureDetectionAvailabilityChangedRequest) (*OnGestureDetectionAvailabilityChangedResponse, error)
+	mustEmbedUnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer()
 }
 
-// UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer must be embedded to have
+// UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer struct{}
+type UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer struct{}
 
-func (UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) OnAvailabilityChanged(context.Context, *OnAvailabilityChangedRequest) (*OnAvailabilityChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAvailabilityChanged not implemented")
+func (UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer) OnGestureDetected(context.Context, *OnGestureDetectedRequest) (*OnGestureDetectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGestureDetected not implemented")
 }
-func (UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) OnClicked(context.Context, *OnClickedRequest) (*OnClickedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClicked not implemented")
+func (UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer) OnGestureDetectionAvailabilityChanged(context.Context, *OnGestureDetectionAvailabilityChangedRequest) (*OnGestureDetectionAvailabilityChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGestureDetectionAvailabilityChanged not implemented")
 }
-func (UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) mustEmbedUnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer() {
+func (UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer) mustEmbedUnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer() {
 }
-func (UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) testEmbeddedByValue() {
+func (UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer) testEmbeddedByValue() {
 }
 
-// UnsafeAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer will
+// UnsafeFingerprintGestureControllerFingerprintGestureCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FingerprintGestureControllerFingerprintGestureCallbackServiceServer will
 // result in compilation errors.
-type UnsafeAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer interface {
-	mustEmbedUnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer()
+type UnsafeFingerprintGestureControllerFingerprintGestureCallbackServiceServer interface {
+	mustEmbedUnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer()
 }
 
-func RegisterAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer(s grpc.ServiceRegistrar, srv AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedAccessibilityButtonControllerAccessibilityButtonCallbackServiceServer was
+func RegisterFingerprintGestureControllerFingerprintGestureCallbackServiceServer(s grpc.ServiceRegistrar, srv FingerprintGestureControllerFingerprintGestureCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedFingerprintGestureControllerFingerprintGestureCallbackServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AccessibilityButtonControllerAccessibilityButtonCallbackService_ServiceDesc, srv)
+	s.RegisterService(&FingerprintGestureControllerFingerprintGestureCallbackService_ServiceDesc, srv)
 }
 
-func _AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAvailabilityChangedRequest)
+func _FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGestureDetectedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer).OnAvailabilityChanged(ctx, in)
+		return srv.(FingerprintGestureControllerFingerprintGestureCallbackServiceServer).OnGestureDetected(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_FullMethodName,
+		FullMethod: FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer).OnAvailabilityChanged(ctx, req.(*OnAvailabilityChangedRequest))
+		return srv.(FingerprintGestureControllerFingerprintGestureCallbackServiceServer).OnGestureDetected(ctx, req.(*OnGestureDetectedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClickedRequest)
+func _FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGestureDetectionAvailabilityChangedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer).OnClicked(ctx, in)
+		return srv.(FingerprintGestureControllerFingerprintGestureCallbackServiceServer).OnGestureDetectionAvailabilityChanged(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_FullMethodName,
+		FullMethod: FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer).OnClicked(ctx, req.(*OnClickedRequest))
+		return srv.(FingerprintGestureControllerFingerprintGestureCallbackServiceServer).OnGestureDetectionAvailabilityChanged(ctx, req.(*OnGestureDetectionAvailabilityChangedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AccessibilityButtonControllerAccessibilityButtonCallbackService_ServiceDesc is the grpc.ServiceDesc for AccessibilityButtonControllerAccessibilityButtonCallbackService service.
+// FingerprintGestureControllerFingerprintGestureCallbackService_ServiceDesc is the grpc.ServiceDesc for FingerprintGestureControllerFingerprintGestureCallbackService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AccessibilityButtonControllerAccessibilityButtonCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.AccessibilityButtonControllerAccessibilityButtonCallbackService",
-	HandlerType: (*AccessibilityButtonControllerAccessibilityButtonCallbackServiceServer)(nil),
+var FingerprintGestureControllerFingerprintGestureCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.FingerprintGestureControllerFingerprintGestureCallbackService",
+	HandlerType: (*FingerprintGestureControllerFingerprintGestureCallbackServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnAvailabilityChanged",
-			Handler:    _AccessibilityButtonControllerAccessibilityButtonCallbackService_OnAvailabilityChanged_Handler,
+			MethodName: "OnGestureDetected",
+			Handler:    _FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetected_Handler,
 		},
 		{
-			MethodName: "OnClicked",
-			Handler:    _AccessibilityButtonControllerAccessibilityButtonCallbackService_OnClicked_Handler,
+			MethodName: "OnGestureDetectionAvailabilityChanged",
+			Handler:    _FingerprintGestureControllerFingerprintGestureCallbackService_OnGestureDetectionAvailabilityChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4696,330 +5389,368 @@ var AccessibilityButtonControllerAccessibilityButtonCallbackService_ServiceDesc 
 }
 
 const (
-	AccessibilityGestureEventService_NewAccessibilityGestureEvent_FullMethodName = "/accessibilityservice.AccessibilityGestureEventService/NewAccessibilityGestureEvent"
-	AccessibilityGestureEventService_DescribeContents_FullMethodName             = "/accessibilityservice.AccessibilityGestureEventService/DescribeContents"
-	AccessibilityGestureEventService_GetDisplayId_FullMethodName                 = "/accessibilityservice.AccessibilityGestureEventService/GetDisplayId"
-	AccessibilityGestureEventService_GetGestureId_FullMethodName                 = "/accessibilityservice.AccessibilityGestureEventService/GetGestureId"
-	AccessibilityGestureEventService_ToString_FullMethodName                     = "/accessibilityservice.AccessibilityGestureEventService/ToString"
-	AccessibilityGestureEventService_WriteToParcel_FullMethodName                = "/accessibilityservice.AccessibilityGestureEventService/WriteToParcel"
-	AccessibilityGestureEventService_GestureIdToString_FullMethodName            = "/accessibilityservice.AccessibilityGestureEventService/GestureIdToString"
+	MagnificationConfigService_DescribeContents_FullMethodName = "/accessibilityservice.MagnificationConfigService/DescribeContents"
+	MagnificationConfigService_GetCenterX_FullMethodName       = "/accessibilityservice.MagnificationConfigService/GetCenterX"
+	MagnificationConfigService_GetCenterY_FullMethodName       = "/accessibilityservice.MagnificationConfigService/GetCenterY"
+	MagnificationConfigService_GetMode_FullMethodName          = "/accessibilityservice.MagnificationConfigService/GetMode"
+	MagnificationConfigService_GetScale_FullMethodName         = "/accessibilityservice.MagnificationConfigService/GetScale"
+	MagnificationConfigService_IsActivated_FullMethodName      = "/accessibilityservice.MagnificationConfigService/IsActivated"
+	MagnificationConfigService_ToString_FullMethodName         = "/accessibilityservice.MagnificationConfigService/ToString"
+	MagnificationConfigService_WriteToParcel_FullMethodName    = "/accessibilityservice.MagnificationConfigService/WriteToParcel"
 )
 
-// AccessibilityGestureEventServiceClient is the client API for AccessibilityGestureEventService service.
+// MagnificationConfigServiceClient is the client API for MagnificationConfigService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccessibilityGestureEventServiceClient interface {
-	NewAccessibilityGestureEvent(ctx context.Context, in *NewAccessibilityGestureEventRequest, opts ...grpc.CallOption) (*NewAccessibilityGestureEventResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetDisplayId(ctx context.Context, in *AccessibilityGestureEventGetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error)
-	GetGestureId(ctx context.Context, in *GetGestureIdRequest, opts ...grpc.CallOption) (*GetGestureIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	GestureIdToString(ctx context.Context, in *GestureIdToStringRequest, opts ...grpc.CallOption) (*GestureIdToStringResponse, error)
+type MagnificationConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *MagnificationConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCenterX(ctx context.Context, in *GetCenterXRequest, opts ...grpc.CallOption) (*GetCenterXResponse, error)
+	GetCenterY(ctx context.Context, in *GetCenterYRequest, opts ...grpc.CallOption) (*GetCenterYResponse, error)
+	GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
+	GetScale(ctx context.Context, in *GetScaleRequest, opts ...grpc.CallOption) (*GetScaleResponse, error)
+	IsActivated(ctx context.Context, in *IsActivatedRequest, opts ...grpc.CallOption) (*IsActivatedResponse, error)
+	ToString(ctx context.Context, in *MagnificationConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *MagnificationConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type accessibilityGestureEventServiceClient struct {
+type magnificationConfigServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAccessibilityGestureEventServiceClient(cc grpc.ClientConnInterface) AccessibilityGestureEventServiceClient {
-	return &accessibilityGestureEventServiceClient{cc}
+func NewMagnificationConfigServiceClient(cc grpc.ClientConnInterface) MagnificationConfigServiceClient {
+	return &magnificationConfigServiceClient{cc}
 }
 
-func (c *accessibilityGestureEventServiceClient) NewAccessibilityGestureEvent(ctx context.Context, in *NewAccessibilityGestureEventRequest, opts ...grpc.CallOption) (*NewAccessibilityGestureEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAccessibilityGestureEventResponse)
-	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_NewAccessibilityGestureEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityGestureEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *magnificationConfigServiceClient) DescribeContents(ctx context.Context, in *MagnificationConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MagnificationConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityGestureEventServiceClient) GetDisplayId(ctx context.Context, in *AccessibilityGestureEventGetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error) {
+func (c *magnificationConfigServiceClient) GetCenterX(ctx context.Context, in *GetCenterXRequest, opts ...grpc.CallOption) (*GetCenterXResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDisplayIdResponse)
-	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_GetDisplayId_FullMethodName, in, out, cOpts...)
+	out := new(GetCenterXResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigService_GetCenterX_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityGestureEventServiceClient) GetGestureId(ctx context.Context, in *GetGestureIdRequest, opts ...grpc.CallOption) (*GetGestureIdResponse, error) {
+func (c *magnificationConfigServiceClient) GetCenterY(ctx context.Context, in *GetCenterYRequest, opts ...grpc.CallOption) (*GetCenterYResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGestureIdResponse)
-	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_GetGestureId_FullMethodName, in, out, cOpts...)
+	out := new(GetCenterYResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigService_GetCenterY_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityGestureEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *magnificationConfigServiceClient) GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetModeResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigService_GetMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *magnificationConfigServiceClient) GetScale(ctx context.Context, in *GetScaleRequest, opts ...grpc.CallOption) (*GetScaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScaleResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigService_GetScale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *magnificationConfigServiceClient) IsActivated(ctx context.Context, in *IsActivatedRequest, opts ...grpc.CallOption) (*IsActivatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsActivatedResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigService_IsActivated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *magnificationConfigServiceClient) ToString(ctx context.Context, in *MagnificationConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MagnificationConfigService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityGestureEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *magnificationConfigServiceClient) WriteToParcel(ctx context.Context, in *MagnificationConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MagnificationConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityGestureEventServiceClient) GestureIdToString(ctx context.Context, in *GestureIdToStringRequest, opts ...grpc.CallOption) (*GestureIdToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GestureIdToStringResponse)
-	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_GestureIdToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AccessibilityGestureEventServiceServer is the server API for AccessibilityGestureEventService service.
-// All implementations must embed UnimplementedAccessibilityGestureEventServiceServer
+// MagnificationConfigServiceServer is the server API for MagnificationConfigService service.
+// All implementations must embed UnimplementedMagnificationConfigServiceServer
 // for forward compatibility.
-type AccessibilityGestureEventServiceServer interface {
-	NewAccessibilityGestureEvent(context.Context, *NewAccessibilityGestureEventRequest) (*NewAccessibilityGestureEventResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetDisplayId(context.Context, *AccessibilityGestureEventGetDisplayIdRequest) (*GetDisplayIdResponse, error)
-	GetGestureId(context.Context, *GetGestureIdRequest) (*GetGestureIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	GestureIdToString(context.Context, *GestureIdToStringRequest) (*GestureIdToStringResponse, error)
-	mustEmbedUnimplementedAccessibilityGestureEventServiceServer()
+type MagnificationConfigServiceServer interface {
+	DescribeContents(context.Context, *MagnificationConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCenterX(context.Context, *GetCenterXRequest) (*GetCenterXResponse, error)
+	GetCenterY(context.Context, *GetCenterYRequest) (*GetCenterYResponse, error)
+	GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error)
+	GetScale(context.Context, *GetScaleRequest) (*GetScaleResponse, error)
+	IsActivated(context.Context, *IsActivatedRequest) (*IsActivatedResponse, error)
+	ToString(context.Context, *MagnificationConfigToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *MagnificationConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedMagnificationConfigServiceServer()
 }
 
-// UnimplementedAccessibilityGestureEventServiceServer must be embedded to have
+// UnimplementedMagnificationConfigServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAccessibilityGestureEventServiceServer struct{}
+type UnimplementedMagnificationConfigServiceServer struct{}
 
-func (UnimplementedAccessibilityGestureEventServiceServer) NewAccessibilityGestureEvent(context.Context, *NewAccessibilityGestureEventRequest) (*NewAccessibilityGestureEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAccessibilityGestureEvent not implemented")
-}
-func (UnimplementedAccessibilityGestureEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedMagnificationConfigServiceServer) DescribeContents(context.Context, *MagnificationConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedAccessibilityGestureEventServiceServer) GetDisplayId(context.Context, *AccessibilityGestureEventGetDisplayIdRequest) (*GetDisplayIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDisplayId not implemented")
+func (UnimplementedMagnificationConfigServiceServer) GetCenterX(context.Context, *GetCenterXRequest) (*GetCenterXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCenterX not implemented")
 }
-func (UnimplementedAccessibilityGestureEventServiceServer) GetGestureId(context.Context, *GetGestureIdRequest) (*GetGestureIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGestureId not implemented")
+func (UnimplementedMagnificationConfigServiceServer) GetCenterY(context.Context, *GetCenterYRequest) (*GetCenterYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCenterY not implemented")
 }
-func (UnimplementedAccessibilityGestureEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedMagnificationConfigServiceServer) GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMode not implemented")
+}
+func (UnimplementedMagnificationConfigServiceServer) GetScale(context.Context, *GetScaleRequest) (*GetScaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScale not implemented")
+}
+func (UnimplementedMagnificationConfigServiceServer) IsActivated(context.Context, *IsActivatedRequest) (*IsActivatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsActivated not implemented")
+}
+func (UnimplementedMagnificationConfigServiceServer) ToString(context.Context, *MagnificationConfigToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedAccessibilityGestureEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedMagnificationConfigServiceServer) WriteToParcel(context.Context, *MagnificationConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedAccessibilityGestureEventServiceServer) GestureIdToString(context.Context, *GestureIdToStringRequest) (*GestureIdToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GestureIdToString not implemented")
+func (UnimplementedMagnificationConfigServiceServer) mustEmbedUnimplementedMagnificationConfigServiceServer() {
 }
-func (UnimplementedAccessibilityGestureEventServiceServer) mustEmbedUnimplementedAccessibilityGestureEventServiceServer() {
-}
-func (UnimplementedAccessibilityGestureEventServiceServer) testEmbeddedByValue() {}
+func (UnimplementedMagnificationConfigServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAccessibilityGestureEventServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccessibilityGestureEventServiceServer will
+// UnsafeMagnificationConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MagnificationConfigServiceServer will
 // result in compilation errors.
-type UnsafeAccessibilityGestureEventServiceServer interface {
-	mustEmbedUnimplementedAccessibilityGestureEventServiceServer()
+type UnsafeMagnificationConfigServiceServer interface {
+	mustEmbedUnimplementedMagnificationConfigServiceServer()
 }
 
-func RegisterAccessibilityGestureEventServiceServer(s grpc.ServiceRegistrar, srv AccessibilityGestureEventServiceServer) {
-	// If the following call panics, it indicates UnimplementedAccessibilityGestureEventServiceServer was
+func RegisterMagnificationConfigServiceServer(s grpc.ServiceRegistrar, srv MagnificationConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedMagnificationConfigServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AccessibilityGestureEventService_ServiceDesc, srv)
+	s.RegisterService(&MagnificationConfigService_ServiceDesc, srv)
 }
 
-func _AccessibilityGestureEventService_NewAccessibilityGestureEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAccessibilityGestureEventRequest)
+func _MagnificationConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MagnificationConfigDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityGestureEventServiceServer).NewAccessibilityGestureEvent(ctx, in)
+		return srv.(MagnificationConfigServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityGestureEventService_NewAccessibilityGestureEvent_FullMethodName,
+		FullMethod: MagnificationConfigService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityGestureEventServiceServer).NewAccessibilityGestureEvent(ctx, req.(*NewAccessibilityGestureEventRequest))
+		return srv.(MagnificationConfigServiceServer).DescribeContents(ctx, req.(*MagnificationConfigDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityGestureEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _MagnificationConfigService_GetCenterX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCenterXRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityGestureEventServiceServer).DescribeContents(ctx, in)
+		return srv.(MagnificationConfigServiceServer).GetCenterX(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityGestureEventService_DescribeContents_FullMethodName,
+		FullMethod: MagnificationConfigService_GetCenterX_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityGestureEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(MagnificationConfigServiceServer).GetCenterX(ctx, req.(*GetCenterXRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityGestureEventService_GetDisplayId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AccessibilityGestureEventGetDisplayIdRequest)
+func _MagnificationConfigService_GetCenterY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCenterYRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityGestureEventServiceServer).GetDisplayId(ctx, in)
+		return srv.(MagnificationConfigServiceServer).GetCenterY(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityGestureEventService_GetDisplayId_FullMethodName,
+		FullMethod: MagnificationConfigService_GetCenterY_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityGestureEventServiceServer).GetDisplayId(ctx, req.(*AccessibilityGestureEventGetDisplayIdRequest))
+		return srv.(MagnificationConfigServiceServer).GetCenterY(ctx, req.(*GetCenterYRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityGestureEventService_GetGestureId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGestureIdRequest)
+func _MagnificationConfigService_GetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityGestureEventServiceServer).GetGestureId(ctx, in)
+		return srv.(MagnificationConfigServiceServer).GetMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityGestureEventService_GetGestureId_FullMethodName,
+		FullMethod: MagnificationConfigService_GetMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityGestureEventServiceServer).GetGestureId(ctx, req.(*GetGestureIdRequest))
+		return srv.(MagnificationConfigServiceServer).GetMode(ctx, req.(*GetModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityGestureEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+func _MagnificationConfigService_GetScale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScaleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityGestureEventServiceServer).ToString(ctx, in)
+		return srv.(MagnificationConfigServiceServer).GetScale(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityGestureEventService_ToString_FullMethodName,
+		FullMethod: MagnificationConfigService_GetScale_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityGestureEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(MagnificationConfigServiceServer).GetScale(ctx, req.(*GetScaleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityGestureEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+func _MagnificationConfigService_IsActivated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsActivatedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityGestureEventServiceServer).WriteToParcel(ctx, in)
+		return srv.(MagnificationConfigServiceServer).IsActivated(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityGestureEventService_WriteToParcel_FullMethodName,
+		FullMethod: MagnificationConfigService_IsActivated_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityGestureEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(MagnificationConfigServiceServer).IsActivated(ctx, req.(*IsActivatedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityGestureEventService_GestureIdToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GestureIdToStringRequest)
+func _MagnificationConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MagnificationConfigToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityGestureEventServiceServer).GestureIdToString(ctx, in)
+		return srv.(MagnificationConfigServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityGestureEventService_GestureIdToString_FullMethodName,
+		FullMethod: MagnificationConfigService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityGestureEventServiceServer).GestureIdToString(ctx, req.(*GestureIdToStringRequest))
+		return srv.(MagnificationConfigServiceServer).ToString(ctx, req.(*MagnificationConfigToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AccessibilityGestureEventService_ServiceDesc is the grpc.ServiceDesc for AccessibilityGestureEventService service.
+func _MagnificationConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MagnificationConfigWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MagnificationConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MagnificationConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MagnificationConfigServiceServer).WriteToParcel(ctx, req.(*MagnificationConfigWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MagnificationConfigService_ServiceDesc is the grpc.ServiceDesc for MagnificationConfigService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AccessibilityGestureEventService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.AccessibilityGestureEventService",
-	HandlerType: (*AccessibilityGestureEventServiceServer)(nil),
+var MagnificationConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.MagnificationConfigService",
+	HandlerType: (*MagnificationConfigServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewAccessibilityGestureEvent",
-			Handler:    _AccessibilityGestureEventService_NewAccessibilityGestureEvent_Handler,
-		},
-		{
 			MethodName: "DescribeContents",
-			Handler:    _AccessibilityGestureEventService_DescribeContents_Handler,
+			Handler:    _MagnificationConfigService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetDisplayId",
-			Handler:    _AccessibilityGestureEventService_GetDisplayId_Handler,
+			MethodName: "GetCenterX",
+			Handler:    _MagnificationConfigService_GetCenterX_Handler,
 		},
 		{
-			MethodName: "GetGestureId",
-			Handler:    _AccessibilityGestureEventService_GetGestureId_Handler,
+			MethodName: "GetCenterY",
+			Handler:    _MagnificationConfigService_GetCenterY_Handler,
+		},
+		{
+			MethodName: "GetMode",
+			Handler:    _MagnificationConfigService_GetMode_Handler,
+		},
+		{
+			MethodName: "GetScale",
+			Handler:    _MagnificationConfigService_GetScale_Handler,
+		},
+		{
+			MethodName: "IsActivated",
+			Handler:    _MagnificationConfigService_IsActivated_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _AccessibilityGestureEventService_ToString_Handler,
+			Handler:    _MagnificationConfigService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _AccessibilityGestureEventService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "GestureIdToString",
-			Handler:    _AccessibilityGestureEventService_GestureIdToString_Handler,
+			Handler:    _MagnificationConfigService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -5027,1052 +5758,292 @@ var AccessibilityGestureEventService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AccessibilityServiceInfoService_NewAccessibilityServiceInfo_FullMethodName      = "/accessibilityservice.AccessibilityServiceInfoService/NewAccessibilityServiceInfo"
-	AccessibilityServiceInfoService_DescribeContents_FullMethodName                 = "/accessibilityservice.AccessibilityServiceInfoService/DescribeContents"
-	AccessibilityServiceInfoService_Equals_FullMethodName                           = "/accessibilityservice.AccessibilityServiceInfoService/Equals"
-	AccessibilityServiceInfoService_GetCanRetrieveWindowContent_FullMethodName      = "/accessibilityservice.AccessibilityServiceInfoService/GetCanRetrieveWindowContent"
-	AccessibilityServiceInfoService_GetCapabilities_FullMethodName                  = "/accessibilityservice.AccessibilityServiceInfoService/GetCapabilities"
-	AccessibilityServiceInfoService_GetDescription_FullMethodName                   = "/accessibilityservice.AccessibilityServiceInfoService/GetDescription"
-	AccessibilityServiceInfoService_GetId_FullMethodName                            = "/accessibilityservice.AccessibilityServiceInfoService/GetId"
-	AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_FullMethodName    = "/accessibilityservice.AccessibilityServiceInfoService/GetInteractiveUiTimeoutMillis"
-	AccessibilityServiceInfoService_GetMotionEventSources_FullMethodName            = "/accessibilityservice.AccessibilityServiceInfoService/GetMotionEventSources"
-	AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_FullMethodName = "/accessibilityservice.AccessibilityServiceInfoService/GetNonInteractiveUiTimeoutMillis"
-	AccessibilityServiceInfoService_GetResolveInfo_FullMethodName                   = "/accessibilityservice.AccessibilityServiceInfoService/GetResolveInfo"
-	AccessibilityServiceInfoService_GetSettingsActivityName_FullMethodName          = "/accessibilityservice.AccessibilityServiceInfoService/GetSettingsActivityName"
-	AccessibilityServiceInfoService_GetTileServiceName_FullMethodName               = "/accessibilityservice.AccessibilityServiceInfoService/GetTileServiceName"
-	AccessibilityServiceInfoService_HashCode_FullMethodName                         = "/accessibilityservice.AccessibilityServiceInfoService/HashCode"
-	AccessibilityServiceInfoService_IsAccessibilityTool_FullMethodName              = "/accessibilityservice.AccessibilityServiceInfoService/IsAccessibilityTool"
-	AccessibilityServiceInfoService_LoadDescription_FullMethodName                  = "/accessibilityservice.AccessibilityServiceInfoService/LoadDescription"
-	AccessibilityServiceInfoService_LoadIntro_FullMethodName                        = "/accessibilityservice.AccessibilityServiceInfoService/LoadIntro"
-	AccessibilityServiceInfoService_LoadSummary_FullMethodName                      = "/accessibilityservice.AccessibilityServiceInfoService/LoadSummary"
-	AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_FullMethodName    = "/accessibilityservice.AccessibilityServiceInfoService/SetInteractiveUiTimeoutMillis"
-	AccessibilityServiceInfoService_SetMotionEventSources_FullMethodName            = "/accessibilityservice.AccessibilityServiceInfoService/SetMotionEventSources"
-	AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_FullMethodName = "/accessibilityservice.AccessibilityServiceInfoService/SetNonInteractiveUiTimeoutMillis"
-	AccessibilityServiceInfoService_ToString_FullMethodName                         = "/accessibilityservice.AccessibilityServiceInfoService/ToString"
-	AccessibilityServiceInfoService_WriteToParcel_FullMethodName                    = "/accessibilityservice.AccessibilityServiceInfoService/WriteToParcel"
-	AccessibilityServiceInfoService_CapabilityToString_FullMethodName               = "/accessibilityservice.AccessibilityServiceInfoService/CapabilityToString"
-	AccessibilityServiceInfoService_FeedbackTypeToString_FullMethodName             = "/accessibilityservice.AccessibilityServiceInfoService/FeedbackTypeToString"
-	AccessibilityServiceInfoService_FlagToString_FullMethodName                     = "/accessibilityservice.AccessibilityServiceInfoService/FlagToString"
+	MagnificationConfigBuilderService_Build_FullMethodName        = "/accessibilityservice.MagnificationConfigBuilderService/Build"
+	MagnificationConfigBuilderService_SetActivated_FullMethodName = "/accessibilityservice.MagnificationConfigBuilderService/SetActivated"
+	MagnificationConfigBuilderService_SetCenterX_FullMethodName   = "/accessibilityservice.MagnificationConfigBuilderService/SetCenterX"
+	MagnificationConfigBuilderService_SetCenterY_FullMethodName   = "/accessibilityservice.MagnificationConfigBuilderService/SetCenterY"
+	MagnificationConfigBuilderService_SetMode_FullMethodName      = "/accessibilityservice.MagnificationConfigBuilderService/SetMode"
+	MagnificationConfigBuilderService_SetScale_FullMethodName     = "/accessibilityservice.MagnificationConfigBuilderService/SetScale"
 )
 
-// AccessibilityServiceInfoServiceClient is the client API for AccessibilityServiceInfoService service.
+// MagnificationConfigBuilderServiceClient is the client API for MagnificationConfigBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccessibilityServiceInfoServiceClient interface {
-	NewAccessibilityServiceInfo(ctx context.Context, in *NewAccessibilityServiceInfoRequest, opts ...grpc.CallOption) (*NewAccessibilityServiceInfoResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetCanRetrieveWindowContent(ctx context.Context, in *GetCanRetrieveWindowContentRequest, opts ...grpc.CallOption) (*GetCanRetrieveWindowContentResponse, error)
-	GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error)
-	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-	GetInteractiveUiTimeoutMillis(ctx context.Context, in *GetInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*GetInteractiveUiTimeoutMillisResponse, error)
-	GetMotionEventSources(ctx context.Context, in *GetMotionEventSourcesRequest, opts ...grpc.CallOption) (*GetMotionEventSourcesResponse, error)
-	GetNonInteractiveUiTimeoutMillis(ctx context.Context, in *GetNonInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*GetNonInteractiveUiTimeoutMillisResponse, error)
-	GetResolveInfo(ctx context.Context, in *GetResolveInfoRequest, opts ...grpc.CallOption) (*GetResolveInfoResponse, error)
-	GetSettingsActivityName(ctx context.Context, in *GetSettingsActivityNameRequest, opts ...grpc.CallOption) (*GetSettingsActivityNameResponse, error)
-	GetTileServiceName(ctx context.Context, in *GetTileServiceNameRequest, opts ...grpc.CallOption) (*GetTileServiceNameResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsAccessibilityTool(ctx context.Context, in *IsAccessibilityToolRequest, opts ...grpc.CallOption) (*IsAccessibilityToolResponse, error)
-	LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error)
-	LoadIntro(ctx context.Context, in *LoadIntroRequest, opts ...grpc.CallOption) (*LoadIntroResponse, error)
-	LoadSummary(ctx context.Context, in *LoadSummaryRequest, opts ...grpc.CallOption) (*LoadSummaryResponse, error)
-	SetInteractiveUiTimeoutMillis(ctx context.Context, in *SetInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*SetInteractiveUiTimeoutMillisResponse, error)
-	SetMotionEventSources(ctx context.Context, in *SetMotionEventSourcesRequest, opts ...grpc.CallOption) (*SetMotionEventSourcesResponse, error)
-	SetNonInteractiveUiTimeoutMillis(ctx context.Context, in *SetNonInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*SetNonInteractiveUiTimeoutMillisResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	CapabilityToString(ctx context.Context, in *CapabilityToStringRequest, opts ...grpc.CallOption) (*CapabilityToStringResponse, error)
-	FeedbackTypeToString(ctx context.Context, in *FeedbackTypeToStringRequest, opts ...grpc.CallOption) (*FeedbackTypeToStringResponse, error)
-	FlagToString(ctx context.Context, in *FlagToStringRequest, opts ...grpc.CallOption) (*FlagToStringResponse, error)
+type MagnificationConfigBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetActivated(ctx context.Context, in *SetActivatedRequest, opts ...grpc.CallOption) (*SetActivatedResponse, error)
+	SetCenterX(ctx context.Context, in *SetCenterXRequest, opts ...grpc.CallOption) (*SetCenterXResponse, error)
+	SetCenterY(ctx context.Context, in *SetCenterYRequest, opts ...grpc.CallOption) (*SetCenterYResponse, error)
+	SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error)
+	SetScale(ctx context.Context, in *MagnificationConfigBuilderSetScaleRequest, opts ...grpc.CallOption) (*MagnificationConfigBuilderSetScaleResponse, error)
 }
 
-type accessibilityServiceInfoServiceClient struct {
+type magnificationConfigBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAccessibilityServiceInfoServiceClient(cc grpc.ClientConnInterface) AccessibilityServiceInfoServiceClient {
-	return &accessibilityServiceInfoServiceClient{cc}
+func NewMagnificationConfigBuilderServiceClient(cc grpc.ClientConnInterface) MagnificationConfigBuilderServiceClient {
+	return &magnificationConfigBuilderServiceClient{cc}
 }
 
-func (c *accessibilityServiceInfoServiceClient) NewAccessibilityServiceInfo(ctx context.Context, in *NewAccessibilityServiceInfoRequest, opts ...grpc.CallOption) (*NewAccessibilityServiceInfoResponse, error) {
+func (c *magnificationConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAccessibilityServiceInfoResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_NewAccessibilityServiceInfo_FullMethodName, in, out, cOpts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityServiceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *magnificationConfigBuilderServiceClient) SetActivated(ctx context.Context, in *SetActivatedRequest, opts ...grpc.CallOption) (*SetActivatedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(SetActivatedResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetActivated_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityServiceInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *magnificationConfigBuilderServiceClient) SetCenterX(ctx context.Context, in *SetCenterXRequest, opts ...grpc.CallOption) (*SetCenterXResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_Equals_FullMethodName, in, out, cOpts...)
+	out := new(SetCenterXResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetCenterX_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityServiceInfoServiceClient) GetCanRetrieveWindowContent(ctx context.Context, in *GetCanRetrieveWindowContentRequest, opts ...grpc.CallOption) (*GetCanRetrieveWindowContentResponse, error) {
+func (c *magnificationConfigBuilderServiceClient) SetCenterY(ctx context.Context, in *SetCenterYRequest, opts ...grpc.CallOption) (*SetCenterYResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCanRetrieveWindowContentResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetCanRetrieveWindowContent_FullMethodName, in, out, cOpts...)
+	out := new(SetCenterYResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetCenterY_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityServiceInfoServiceClient) GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error) {
+func (c *magnificationConfigBuilderServiceClient) SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCapabilitiesResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetCapabilities_FullMethodName, in, out, cOpts...)
+	out := new(SetModeResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetMode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityServiceInfoServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
+func (c *magnificationConfigBuilderServiceClient) SetScale(ctx context.Context, in *MagnificationConfigBuilderSetScaleRequest, opts ...grpc.CallOption) (*MagnificationConfigBuilderSetScaleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDescriptionResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetDescription_FullMethodName, in, out, cOpts...)
+	out := new(MagnificationConfigBuilderSetScaleResponse)
+	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetScale_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessibilityServiceInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) GetInteractiveUiTimeoutMillis(ctx context.Context, in *GetInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*GetInteractiveUiTimeoutMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInteractiveUiTimeoutMillisResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) GetMotionEventSources(ctx context.Context, in *GetMotionEventSourcesRequest, opts ...grpc.CallOption) (*GetMotionEventSourcesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMotionEventSourcesResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetMotionEventSources_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) GetNonInteractiveUiTimeoutMillis(ctx context.Context, in *GetNonInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*GetNonInteractiveUiTimeoutMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNonInteractiveUiTimeoutMillisResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) GetResolveInfo(ctx context.Context, in *GetResolveInfoRequest, opts ...grpc.CallOption) (*GetResolveInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResolveInfoResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetResolveInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) GetSettingsActivityName(ctx context.Context, in *GetSettingsActivityNameRequest, opts ...grpc.CallOption) (*GetSettingsActivityNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSettingsActivityNameResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetSettingsActivityName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) GetTileServiceName(ctx context.Context, in *GetTileServiceNameRequest, opts ...grpc.CallOption) (*GetTileServiceNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTileServiceNameResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_GetTileServiceName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) IsAccessibilityTool(ctx context.Context, in *IsAccessibilityToolRequest, opts ...grpc.CallOption) (*IsAccessibilityToolResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAccessibilityToolResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_IsAccessibilityTool_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LoadDescriptionResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_LoadDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) LoadIntro(ctx context.Context, in *LoadIntroRequest, opts ...grpc.CallOption) (*LoadIntroResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LoadIntroResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_LoadIntro_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) LoadSummary(ctx context.Context, in *LoadSummaryRequest, opts ...grpc.CallOption) (*LoadSummaryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LoadSummaryResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_LoadSummary_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) SetInteractiveUiTimeoutMillis(ctx context.Context, in *SetInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*SetInteractiveUiTimeoutMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetInteractiveUiTimeoutMillisResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) SetMotionEventSources(ctx context.Context, in *SetMotionEventSourcesRequest, opts ...grpc.CallOption) (*SetMotionEventSourcesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMotionEventSourcesResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_SetMotionEventSources_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) SetNonInteractiveUiTimeoutMillis(ctx context.Context, in *SetNonInteractiveUiTimeoutMillisRequest, opts ...grpc.CallOption) (*SetNonInteractiveUiTimeoutMillisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetNonInteractiveUiTimeoutMillisResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) CapabilityToString(ctx context.Context, in *CapabilityToStringRequest, opts ...grpc.CallOption) (*CapabilityToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CapabilityToStringResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_CapabilityToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) FeedbackTypeToString(ctx context.Context, in *FeedbackTypeToStringRequest, opts ...grpc.CallOption) (*FeedbackTypeToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FeedbackTypeToStringResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_FeedbackTypeToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessibilityServiceInfoServiceClient) FlagToString(ctx context.Context, in *FlagToStringRequest, opts ...grpc.CallOption) (*FlagToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FlagToStringResponse)
-	err := c.cc.Invoke(ctx, AccessibilityServiceInfoService_FlagToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AccessibilityServiceInfoServiceServer is the server API for AccessibilityServiceInfoService service.
-// All implementations must embed UnimplementedAccessibilityServiceInfoServiceServer
+// MagnificationConfigBuilderServiceServer is the server API for MagnificationConfigBuilderService service.
+// All implementations must embed UnimplementedMagnificationConfigBuilderServiceServer
 // for forward compatibility.
-type AccessibilityServiceInfoServiceServer interface {
-	NewAccessibilityServiceInfo(context.Context, *NewAccessibilityServiceInfoRequest) (*NewAccessibilityServiceInfoResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetCanRetrieveWindowContent(context.Context, *GetCanRetrieveWindowContentRequest) (*GetCanRetrieveWindowContentResponse, error)
-	GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error)
-	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	GetInteractiveUiTimeoutMillis(context.Context, *GetInteractiveUiTimeoutMillisRequest) (*GetInteractiveUiTimeoutMillisResponse, error)
-	GetMotionEventSources(context.Context, *GetMotionEventSourcesRequest) (*GetMotionEventSourcesResponse, error)
-	GetNonInteractiveUiTimeoutMillis(context.Context, *GetNonInteractiveUiTimeoutMillisRequest) (*GetNonInteractiveUiTimeoutMillisResponse, error)
-	GetResolveInfo(context.Context, *GetResolveInfoRequest) (*GetResolveInfoResponse, error)
-	GetSettingsActivityName(context.Context, *GetSettingsActivityNameRequest) (*GetSettingsActivityNameResponse, error)
-	GetTileServiceName(context.Context, *GetTileServiceNameRequest) (*GetTileServiceNameResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsAccessibilityTool(context.Context, *IsAccessibilityToolRequest) (*IsAccessibilityToolResponse, error)
-	LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error)
-	LoadIntro(context.Context, *LoadIntroRequest) (*LoadIntroResponse, error)
-	LoadSummary(context.Context, *LoadSummaryRequest) (*LoadSummaryResponse, error)
-	SetInteractiveUiTimeoutMillis(context.Context, *SetInteractiveUiTimeoutMillisRequest) (*SetInteractiveUiTimeoutMillisResponse, error)
-	SetMotionEventSources(context.Context, *SetMotionEventSourcesRequest) (*SetMotionEventSourcesResponse, error)
-	SetNonInteractiveUiTimeoutMillis(context.Context, *SetNonInteractiveUiTimeoutMillisRequest) (*SetNonInteractiveUiTimeoutMillisResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	CapabilityToString(context.Context, *CapabilityToStringRequest) (*CapabilityToStringResponse, error)
-	FeedbackTypeToString(context.Context, *FeedbackTypeToStringRequest) (*FeedbackTypeToStringResponse, error)
-	FlagToString(context.Context, *FlagToStringRequest) (*FlagToStringResponse, error)
-	mustEmbedUnimplementedAccessibilityServiceInfoServiceServer()
+type MagnificationConfigBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetActivated(context.Context, *SetActivatedRequest) (*SetActivatedResponse, error)
+	SetCenterX(context.Context, *SetCenterXRequest) (*SetCenterXResponse, error)
+	SetCenterY(context.Context, *SetCenterYRequest) (*SetCenterYResponse, error)
+	SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error)
+	SetScale(context.Context, *MagnificationConfigBuilderSetScaleRequest) (*MagnificationConfigBuilderSetScaleResponse, error)
+	mustEmbedUnimplementedMagnificationConfigBuilderServiceServer()
 }
 
-// UnimplementedAccessibilityServiceInfoServiceServer must be embedded to have
+// UnimplementedMagnificationConfigBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAccessibilityServiceInfoServiceServer struct{}
+type UnimplementedMagnificationConfigBuilderServiceServer struct{}
 
-func (UnimplementedAccessibilityServiceInfoServiceServer) NewAccessibilityServiceInfo(context.Context, *NewAccessibilityServiceInfoRequest) (*NewAccessibilityServiceInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAccessibilityServiceInfo not implemented")
+func (UnimplementedMagnificationConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedAccessibilityServiceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedMagnificationConfigBuilderServiceServer) SetActivated(context.Context, *SetActivatedRequest) (*SetActivatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetActivated not implemented")
 }
-func (UnimplementedAccessibilityServiceInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedMagnificationConfigBuilderServiceServer) SetCenterX(context.Context, *SetCenterXRequest) (*SetCenterXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCenterX not implemented")
 }
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetCanRetrieveWindowContent(context.Context, *GetCanRetrieveWindowContentRequest) (*GetCanRetrieveWindowContentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCanRetrieveWindowContent not implemented")
+func (UnimplementedMagnificationConfigBuilderServiceServer) SetCenterY(context.Context, *SetCenterYRequest) (*SetCenterYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCenterY not implemented")
 }
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCapabilities not implemented")
+func (UnimplementedMagnificationConfigBuilderServiceServer) SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMode not implemented")
 }
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
+func (UnimplementedMagnificationConfigBuilderServiceServer) SetScale(context.Context, *MagnificationConfigBuilderSetScaleRequest) (*MagnificationConfigBuilderSetScaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScale not implemented")
 }
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+func (UnimplementedMagnificationConfigBuilderServiceServer) mustEmbedUnimplementedMagnificationConfigBuilderServiceServer() {
 }
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetInteractiveUiTimeoutMillis(context.Context, *GetInteractiveUiTimeoutMillisRequest) (*GetInteractiveUiTimeoutMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInteractiveUiTimeoutMillis not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetMotionEventSources(context.Context, *GetMotionEventSourcesRequest) (*GetMotionEventSourcesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMotionEventSources not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetNonInteractiveUiTimeoutMillis(context.Context, *GetNonInteractiveUiTimeoutMillisRequest) (*GetNonInteractiveUiTimeoutMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNonInteractiveUiTimeoutMillis not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetResolveInfo(context.Context, *GetResolveInfoRequest) (*GetResolveInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResolveInfo not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetSettingsActivityName(context.Context, *GetSettingsActivityNameRequest) (*GetSettingsActivityNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSettingsActivityName not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) GetTileServiceName(context.Context, *GetTileServiceNameRequest) (*GetTileServiceNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTileServiceName not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) IsAccessibilityTool(context.Context, *IsAccessibilityToolRequest) (*IsAccessibilityToolResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAccessibilityTool not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LoadDescription not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) LoadIntro(context.Context, *LoadIntroRequest) (*LoadIntroResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LoadIntro not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) LoadSummary(context.Context, *LoadSummaryRequest) (*LoadSummaryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LoadSummary not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) SetInteractiveUiTimeoutMillis(context.Context, *SetInteractiveUiTimeoutMillisRequest) (*SetInteractiveUiTimeoutMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetInteractiveUiTimeoutMillis not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) SetMotionEventSources(context.Context, *SetMotionEventSourcesRequest) (*SetMotionEventSourcesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMotionEventSources not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) SetNonInteractiveUiTimeoutMillis(context.Context, *SetNonInteractiveUiTimeoutMillisRequest) (*SetNonInteractiveUiTimeoutMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetNonInteractiveUiTimeoutMillis not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) CapabilityToString(context.Context, *CapabilityToStringRequest) (*CapabilityToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CapabilityToString not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) FeedbackTypeToString(context.Context, *FeedbackTypeToStringRequest) (*FeedbackTypeToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FeedbackTypeToString not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) FlagToString(context.Context, *FlagToStringRequest) (*FlagToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FlagToString not implemented")
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) mustEmbedUnimplementedAccessibilityServiceInfoServiceServer() {
-}
-func (UnimplementedAccessibilityServiceInfoServiceServer) testEmbeddedByValue() {}
+func (UnimplementedMagnificationConfigBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAccessibilityServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccessibilityServiceInfoServiceServer will
+// UnsafeMagnificationConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MagnificationConfigBuilderServiceServer will
 // result in compilation errors.
-type UnsafeAccessibilityServiceInfoServiceServer interface {
-	mustEmbedUnimplementedAccessibilityServiceInfoServiceServer()
+type UnsafeMagnificationConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedMagnificationConfigBuilderServiceServer()
 }
 
-func RegisterAccessibilityServiceInfoServiceServer(s grpc.ServiceRegistrar, srv AccessibilityServiceInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedAccessibilityServiceInfoServiceServer was
+func RegisterMagnificationConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv MagnificationConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedMagnificationConfigBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AccessibilityServiceInfoService_ServiceDesc, srv)
+	s.RegisterService(&MagnificationConfigBuilderService_ServiceDesc, srv)
 }
 
-func _AccessibilityServiceInfoService_NewAccessibilityServiceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAccessibilityServiceInfoRequest)
+func _MagnificationConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).NewAccessibilityServiceInfo(ctx, in)
+		return srv.(MagnificationConfigBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_NewAccessibilityServiceInfo_FullMethodName,
+		FullMethod: MagnificationConfigBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).NewAccessibilityServiceInfo(ctx, req.(*NewAccessibilityServiceInfoRequest))
+		return srv.(MagnificationConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityServiceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _MagnificationConfigBuilderService_SetActivated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetActivatedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).DescribeContents(ctx, in)
+		return srv.(MagnificationConfigBuilderServiceServer).SetActivated(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_DescribeContents_FullMethodName,
+		FullMethod: MagnificationConfigBuilderService_SetActivated_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(MagnificationConfigBuilderServiceServer).SetActivated(ctx, req.(*SetActivatedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityServiceInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+func _MagnificationConfigBuilderService_SetCenterX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCenterXRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).Equals(ctx, in)
+		return srv.(MagnificationConfigBuilderServiceServer).SetCenterX(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_Equals_FullMethodName,
+		FullMethod: MagnificationConfigBuilderService_SetCenterX_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(MagnificationConfigBuilderServiceServer).SetCenterX(ctx, req.(*SetCenterXRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityServiceInfoService_GetCanRetrieveWindowContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCanRetrieveWindowContentRequest)
+func _MagnificationConfigBuilderService_SetCenterY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCenterYRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetCanRetrieveWindowContent(ctx, in)
+		return srv.(MagnificationConfigBuilderServiceServer).SetCenterY(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetCanRetrieveWindowContent_FullMethodName,
+		FullMethod: MagnificationConfigBuilderService_SetCenterY_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetCanRetrieveWindowContent(ctx, req.(*GetCanRetrieveWindowContentRequest))
+		return srv.(MagnificationConfigBuilderServiceServer).SetCenterY(ctx, req.(*SetCenterYRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityServiceInfoService_GetCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCapabilitiesRequest)
+func _MagnificationConfigBuilderService_SetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetCapabilities(ctx, in)
+		return srv.(MagnificationConfigBuilderServiceServer).SetMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetCapabilities_FullMethodName,
+		FullMethod: MagnificationConfigBuilderService_SetMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetCapabilities(ctx, req.(*GetCapabilitiesRequest))
+		return srv.(MagnificationConfigBuilderServiceServer).SetMode(ctx, req.(*SetModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityServiceInfoService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDescriptionRequest)
+func _MagnificationConfigBuilderService_SetScale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MagnificationConfigBuilderSetScaleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetDescription(ctx, in)
+		return srv.(MagnificationConfigBuilderServiceServer).SetScale(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetDescription_FullMethodName,
+		FullMethod: MagnificationConfigBuilderService_SetScale_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
+		return srv.(MagnificationConfigBuilderServiceServer).SetScale(ctx, req.(*MagnificationConfigBuilderSetScaleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessibilityServiceInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetId(ctx, req.(*GetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInteractiveUiTimeoutMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetInteractiveUiTimeoutMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetInteractiveUiTimeoutMillis(ctx, req.(*GetInteractiveUiTimeoutMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_GetMotionEventSources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMotionEventSourcesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetMotionEventSources(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetMotionEventSources_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetMotionEventSources(ctx, req.(*GetMotionEventSourcesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNonInteractiveUiTimeoutMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetNonInteractiveUiTimeoutMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetNonInteractiveUiTimeoutMillis(ctx, req.(*GetNonInteractiveUiTimeoutMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_GetResolveInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResolveInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetResolveInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetResolveInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetResolveInfo(ctx, req.(*GetResolveInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_GetSettingsActivityName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSettingsActivityNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetSettingsActivityName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetSettingsActivityName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetSettingsActivityName(ctx, req.(*GetSettingsActivityNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_GetTileServiceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTileServiceNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).GetTileServiceName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_GetTileServiceName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).GetTileServiceName(ctx, req.(*GetTileServiceNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_IsAccessibilityTool_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAccessibilityToolRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).IsAccessibilityTool(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_IsAccessibilityTool_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).IsAccessibilityTool(ctx, req.(*IsAccessibilityToolRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_LoadDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoadDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).LoadDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_LoadDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).LoadDescription(ctx, req.(*LoadDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_LoadIntro_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoadIntroRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).LoadIntro(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_LoadIntro_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).LoadIntro(ctx, req.(*LoadIntroRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_LoadSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoadSummaryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).LoadSummary(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_LoadSummary_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).LoadSummary(ctx, req.(*LoadSummaryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetInteractiveUiTimeoutMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).SetInteractiveUiTimeoutMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).SetInteractiveUiTimeoutMillis(ctx, req.(*SetInteractiveUiTimeoutMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_SetMotionEventSources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMotionEventSourcesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).SetMotionEventSources(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_SetMotionEventSources_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).SetMotionEventSources(ctx, req.(*SetMotionEventSourcesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetNonInteractiveUiTimeoutMillisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).SetNonInteractiveUiTimeoutMillis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).SetNonInteractiveUiTimeoutMillis(ctx, req.(*SetNonInteractiveUiTimeoutMillisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_CapabilityToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CapabilityToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).CapabilityToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_CapabilityToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).CapabilityToString(ctx, req.(*CapabilityToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_FeedbackTypeToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FeedbackTypeToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).FeedbackTypeToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_FeedbackTypeToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).FeedbackTypeToString(ctx, req.(*FeedbackTypeToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessibilityServiceInfoService_FlagToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FlagToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessibilityServiceInfoServiceServer).FlagToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessibilityServiceInfoService_FlagToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessibilityServiceInfoServiceServer).FlagToString(ctx, req.(*FlagToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AccessibilityServiceInfoService_ServiceDesc is the grpc.ServiceDesc for AccessibilityServiceInfoService service.
+// MagnificationConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for MagnificationConfigBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AccessibilityServiceInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.AccessibilityServiceInfoService",
-	HandlerType: (*AccessibilityServiceInfoServiceServer)(nil),
+var MagnificationConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.MagnificationConfigBuilderService",
+	HandlerType: (*MagnificationConfigBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewAccessibilityServiceInfo",
-			Handler:    _AccessibilityServiceInfoService_NewAccessibilityServiceInfo_Handler,
+			MethodName: "Build",
+			Handler:    _MagnificationConfigBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "DescribeContents",
-			Handler:    _AccessibilityServiceInfoService_DescribeContents_Handler,
+			MethodName: "SetActivated",
+			Handler:    _MagnificationConfigBuilderService_SetActivated_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _AccessibilityServiceInfoService_Equals_Handler,
+			MethodName: "SetCenterX",
+			Handler:    _MagnificationConfigBuilderService_SetCenterX_Handler,
 		},
 		{
-			MethodName: "GetCanRetrieveWindowContent",
-			Handler:    _AccessibilityServiceInfoService_GetCanRetrieveWindowContent_Handler,
+			MethodName: "SetCenterY",
+			Handler:    _MagnificationConfigBuilderService_SetCenterY_Handler,
 		},
 		{
-			MethodName: "GetCapabilities",
-			Handler:    _AccessibilityServiceInfoService_GetCapabilities_Handler,
+			MethodName: "SetMode",
+			Handler:    _MagnificationConfigBuilderService_SetMode_Handler,
 		},
 		{
-			MethodName: "GetDescription",
-			Handler:    _AccessibilityServiceInfoService_GetDescription_Handler,
-		},
-		{
-			MethodName: "GetId",
-			Handler:    _AccessibilityServiceInfoService_GetId_Handler,
-		},
-		{
-			MethodName: "GetInteractiveUiTimeoutMillis",
-			Handler:    _AccessibilityServiceInfoService_GetInteractiveUiTimeoutMillis_Handler,
-		},
-		{
-			MethodName: "GetMotionEventSources",
-			Handler:    _AccessibilityServiceInfoService_GetMotionEventSources_Handler,
-		},
-		{
-			MethodName: "GetNonInteractiveUiTimeoutMillis",
-			Handler:    _AccessibilityServiceInfoService_GetNonInteractiveUiTimeoutMillis_Handler,
-		},
-		{
-			MethodName: "GetResolveInfo",
-			Handler:    _AccessibilityServiceInfoService_GetResolveInfo_Handler,
-		},
-		{
-			MethodName: "GetSettingsActivityName",
-			Handler:    _AccessibilityServiceInfoService_GetSettingsActivityName_Handler,
-		},
-		{
-			MethodName: "GetTileServiceName",
-			Handler:    _AccessibilityServiceInfoService_GetTileServiceName_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AccessibilityServiceInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsAccessibilityTool",
-			Handler:    _AccessibilityServiceInfoService_IsAccessibilityTool_Handler,
-		},
-		{
-			MethodName: "LoadDescription",
-			Handler:    _AccessibilityServiceInfoService_LoadDescription_Handler,
-		},
-		{
-			MethodName: "LoadIntro",
-			Handler:    _AccessibilityServiceInfoService_LoadIntro_Handler,
-		},
-		{
-			MethodName: "LoadSummary",
-			Handler:    _AccessibilityServiceInfoService_LoadSummary_Handler,
-		},
-		{
-			MethodName: "SetInteractiveUiTimeoutMillis",
-			Handler:    _AccessibilityServiceInfoService_SetInteractiveUiTimeoutMillis_Handler,
-		},
-		{
-			MethodName: "SetMotionEventSources",
-			Handler:    _AccessibilityServiceInfoService_SetMotionEventSources_Handler,
-		},
-		{
-			MethodName: "SetNonInteractiveUiTimeoutMillis",
-			Handler:    _AccessibilityServiceInfoService_SetNonInteractiveUiTimeoutMillis_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AccessibilityServiceInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _AccessibilityServiceInfoService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "CapabilityToString",
-			Handler:    _AccessibilityServiceInfoService_CapabilityToString_Handler,
-		},
-		{
-			MethodName: "FeedbackTypeToString",
-			Handler:    _AccessibilityServiceInfoService_FeedbackTypeToString_Handler,
-		},
-		{
-			MethodName: "FlagToString",
-			Handler:    _AccessibilityServiceInfoService_FlagToString_Handler,
+			MethodName: "SetScale",
+			Handler:    _MagnificationConfigBuilderService_SetScale_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6769,368 +6740,368 @@ var GestureDescriptionStrokeDescriptionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	MagnificationConfigService_DescribeContents_FullMethodName = "/accessibilityservice.MagnificationConfigService/DescribeContents"
-	MagnificationConfigService_GetCenterX_FullMethodName       = "/accessibilityservice.MagnificationConfigService/GetCenterX"
-	MagnificationConfigService_GetCenterY_FullMethodName       = "/accessibilityservice.MagnificationConfigService/GetCenterY"
-	MagnificationConfigService_GetMode_FullMethodName          = "/accessibilityservice.MagnificationConfigService/GetMode"
-	MagnificationConfigService_GetScale_FullMethodName         = "/accessibilityservice.MagnificationConfigService/GetScale"
-	MagnificationConfigService_IsActivated_FullMethodName      = "/accessibilityservice.MagnificationConfigService/IsActivated"
-	MagnificationConfigService_ToString_FullMethodName         = "/accessibilityservice.MagnificationConfigService/ToString"
-	MagnificationConfigService_WriteToParcel_FullMethodName    = "/accessibilityservice.MagnificationConfigService/WriteToParcel"
+	AccessibilityGestureEventService_NewAccessibilityGestureEvent_FullMethodName = "/accessibilityservice.AccessibilityGestureEventService/NewAccessibilityGestureEvent"
+	AccessibilityGestureEventService_DescribeContents_FullMethodName             = "/accessibilityservice.AccessibilityGestureEventService/DescribeContents"
+	AccessibilityGestureEventService_GetDisplayId_FullMethodName                 = "/accessibilityservice.AccessibilityGestureEventService/GetDisplayId"
+	AccessibilityGestureEventService_GetGestureId_FullMethodName                 = "/accessibilityservice.AccessibilityGestureEventService/GetGestureId"
+	AccessibilityGestureEventService_GetMotionEvents_FullMethodName              = "/accessibilityservice.AccessibilityGestureEventService/GetMotionEvents"
+	AccessibilityGestureEventService_ToString_FullMethodName                     = "/accessibilityservice.AccessibilityGestureEventService/ToString"
+	AccessibilityGestureEventService_WriteToParcel_FullMethodName                = "/accessibilityservice.AccessibilityGestureEventService/WriteToParcel"
+	AccessibilityGestureEventService_GestureIdToString_FullMethodName            = "/accessibilityservice.AccessibilityGestureEventService/GestureIdToString"
 )
 
-// MagnificationConfigServiceClient is the client API for MagnificationConfigService service.
+// AccessibilityGestureEventServiceClient is the client API for AccessibilityGestureEventService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MagnificationConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *MagnificationConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCenterX(ctx context.Context, in *GetCenterXRequest, opts ...grpc.CallOption) (*GetCenterXResponse, error)
-	GetCenterY(ctx context.Context, in *GetCenterYRequest, opts ...grpc.CallOption) (*GetCenterYResponse, error)
-	GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
-	GetScale(ctx context.Context, in *GetScaleRequest, opts ...grpc.CallOption) (*GetScaleResponse, error)
-	IsActivated(ctx context.Context, in *IsActivatedRequest, opts ...grpc.CallOption) (*IsActivatedResponse, error)
-	ToString(ctx context.Context, in *MagnificationConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *MagnificationConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type AccessibilityGestureEventServiceClient interface {
+	NewAccessibilityGestureEvent(ctx context.Context, in *NewAccessibilityGestureEventRequest, opts ...grpc.CallOption) (*NewAccessibilityGestureEventResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDisplayId(ctx context.Context, in *AccessibilityGestureEventGetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error)
+	GetGestureId(ctx context.Context, in *GetGestureIdRequest, opts ...grpc.CallOption) (*GetGestureIdResponse, error)
+	GetMotionEvents(ctx context.Context, in *GetMotionEventsRequest, opts ...grpc.CallOption) (*GetMotionEventsResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	GestureIdToString(ctx context.Context, in *GestureIdToStringRequest, opts ...grpc.CallOption) (*GestureIdToStringResponse, error)
 }
 
-type magnificationConfigServiceClient struct {
+type accessibilityGestureEventServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMagnificationConfigServiceClient(cc grpc.ClientConnInterface) MagnificationConfigServiceClient {
-	return &magnificationConfigServiceClient{cc}
+func NewAccessibilityGestureEventServiceClient(cc grpc.ClientConnInterface) AccessibilityGestureEventServiceClient {
+	return &accessibilityGestureEventServiceClient{cc}
 }
 
-func (c *magnificationConfigServiceClient) DescribeContents(ctx context.Context, in *MagnificationConfigDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *accessibilityGestureEventServiceClient) NewAccessibilityGestureEvent(ctx context.Context, in *NewAccessibilityGestureEventRequest, opts ...grpc.CallOption) (*NewAccessibilityGestureEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAccessibilityGestureEventResponse)
+	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_NewAccessibilityGestureEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessibilityGestureEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigServiceClient) GetCenterX(ctx context.Context, in *GetCenterXRequest, opts ...grpc.CallOption) (*GetCenterXResponse, error) {
+func (c *accessibilityGestureEventServiceClient) GetDisplayId(ctx context.Context, in *AccessibilityGestureEventGetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCenterXResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigService_GetCenterX_FullMethodName, in, out, cOpts...)
+	out := new(GetDisplayIdResponse)
+	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_GetDisplayId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigServiceClient) GetCenterY(ctx context.Context, in *GetCenterYRequest, opts ...grpc.CallOption) (*GetCenterYResponse, error) {
+func (c *accessibilityGestureEventServiceClient) GetGestureId(ctx context.Context, in *GetGestureIdRequest, opts ...grpc.CallOption) (*GetGestureIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCenterYResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigService_GetCenterY_FullMethodName, in, out, cOpts...)
+	out := new(GetGestureIdResponse)
+	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_GetGestureId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigServiceClient) GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error) {
+func (c *accessibilityGestureEventServiceClient) GetMotionEvents(ctx context.Context, in *GetMotionEventsRequest, opts ...grpc.CallOption) (*GetMotionEventsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetModeResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigService_GetMode_FullMethodName, in, out, cOpts...)
+	out := new(GetMotionEventsResponse)
+	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_GetMotionEvents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigServiceClient) GetScale(ctx context.Context, in *GetScaleRequest, opts ...grpc.CallOption) (*GetScaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScaleResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigService_GetScale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *magnificationConfigServiceClient) IsActivated(ctx context.Context, in *IsActivatedRequest, opts ...grpc.CallOption) (*IsActivatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsActivatedResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigService_IsActivated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *magnificationConfigServiceClient) ToString(ctx context.Context, in *MagnificationConfigToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *accessibilityGestureEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigServiceClient) WriteToParcel(ctx context.Context, in *MagnificationConfigWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *accessibilityGestureEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MagnificationConfigServiceServer is the server API for MagnificationConfigService service.
-// All implementations must embed UnimplementedMagnificationConfigServiceServer
-// for forward compatibility.
-type MagnificationConfigServiceServer interface {
-	DescribeContents(context.Context, *MagnificationConfigDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCenterX(context.Context, *GetCenterXRequest) (*GetCenterXResponse, error)
-	GetCenterY(context.Context, *GetCenterYRequest) (*GetCenterYResponse, error)
-	GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error)
-	GetScale(context.Context, *GetScaleRequest) (*GetScaleResponse, error)
-	IsActivated(context.Context, *IsActivatedRequest) (*IsActivatedResponse, error)
-	ToString(context.Context, *MagnificationConfigToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *MagnificationConfigWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedMagnificationConfigServiceServer()
+func (c *accessibilityGestureEventServiceClient) GestureIdToString(ctx context.Context, in *GestureIdToStringRequest, opts ...grpc.CallOption) (*GestureIdToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GestureIdToStringResponse)
+	err := c.cc.Invoke(ctx, AccessibilityGestureEventService_GestureIdToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedMagnificationConfigServiceServer must be embedded to have
+// AccessibilityGestureEventServiceServer is the server API for AccessibilityGestureEventService service.
+// All implementations must embed UnimplementedAccessibilityGestureEventServiceServer
+// for forward compatibility.
+type AccessibilityGestureEventServiceServer interface {
+	NewAccessibilityGestureEvent(context.Context, *NewAccessibilityGestureEventRequest) (*NewAccessibilityGestureEventResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDisplayId(context.Context, *AccessibilityGestureEventGetDisplayIdRequest) (*GetDisplayIdResponse, error)
+	GetGestureId(context.Context, *GetGestureIdRequest) (*GetGestureIdResponse, error)
+	GetMotionEvents(context.Context, *GetMotionEventsRequest) (*GetMotionEventsResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	GestureIdToString(context.Context, *GestureIdToStringRequest) (*GestureIdToStringResponse, error)
+	mustEmbedUnimplementedAccessibilityGestureEventServiceServer()
+}
+
+// UnimplementedAccessibilityGestureEventServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedMagnificationConfigServiceServer struct{}
+type UnimplementedAccessibilityGestureEventServiceServer struct{}
 
-func (UnimplementedMagnificationConfigServiceServer) DescribeContents(context.Context, *MagnificationConfigDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedAccessibilityGestureEventServiceServer) NewAccessibilityGestureEvent(context.Context, *NewAccessibilityGestureEventRequest) (*NewAccessibilityGestureEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAccessibilityGestureEvent not implemented")
+}
+func (UnimplementedAccessibilityGestureEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedMagnificationConfigServiceServer) GetCenterX(context.Context, *GetCenterXRequest) (*GetCenterXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCenterX not implemented")
+func (UnimplementedAccessibilityGestureEventServiceServer) GetDisplayId(context.Context, *AccessibilityGestureEventGetDisplayIdRequest) (*GetDisplayIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayId not implemented")
 }
-func (UnimplementedMagnificationConfigServiceServer) GetCenterY(context.Context, *GetCenterYRequest) (*GetCenterYResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCenterY not implemented")
+func (UnimplementedAccessibilityGestureEventServiceServer) GetGestureId(context.Context, *GetGestureIdRequest) (*GetGestureIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGestureId not implemented")
 }
-func (UnimplementedMagnificationConfigServiceServer) GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMode not implemented")
+func (UnimplementedAccessibilityGestureEventServiceServer) GetMotionEvents(context.Context, *GetMotionEventsRequest) (*GetMotionEventsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMotionEvents not implemented")
 }
-func (UnimplementedMagnificationConfigServiceServer) GetScale(context.Context, *GetScaleRequest) (*GetScaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScale not implemented")
-}
-func (UnimplementedMagnificationConfigServiceServer) IsActivated(context.Context, *IsActivatedRequest) (*IsActivatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsActivated not implemented")
-}
-func (UnimplementedMagnificationConfigServiceServer) ToString(context.Context, *MagnificationConfigToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedAccessibilityGestureEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedMagnificationConfigServiceServer) WriteToParcel(context.Context, *MagnificationConfigWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedAccessibilityGestureEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedMagnificationConfigServiceServer) mustEmbedUnimplementedMagnificationConfigServiceServer() {
+func (UnimplementedAccessibilityGestureEventServiceServer) GestureIdToString(context.Context, *GestureIdToStringRequest) (*GestureIdToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GestureIdToString not implemented")
 }
-func (UnimplementedMagnificationConfigServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAccessibilityGestureEventServiceServer) mustEmbedUnimplementedAccessibilityGestureEventServiceServer() {
+}
+func (UnimplementedAccessibilityGestureEventServiceServer) testEmbeddedByValue() {}
 
-// UnsafeMagnificationConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MagnificationConfigServiceServer will
+// UnsafeAccessibilityGestureEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccessibilityGestureEventServiceServer will
 // result in compilation errors.
-type UnsafeMagnificationConfigServiceServer interface {
-	mustEmbedUnimplementedMagnificationConfigServiceServer()
+type UnsafeAccessibilityGestureEventServiceServer interface {
+	mustEmbedUnimplementedAccessibilityGestureEventServiceServer()
 }
 
-func RegisterMagnificationConfigServiceServer(s grpc.ServiceRegistrar, srv MagnificationConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedMagnificationConfigServiceServer was
+func RegisterAccessibilityGestureEventServiceServer(s grpc.ServiceRegistrar, srv AccessibilityGestureEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccessibilityGestureEventServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&MagnificationConfigService_ServiceDesc, srv)
+	s.RegisterService(&AccessibilityGestureEventService_ServiceDesc, srv)
 }
 
-func _MagnificationConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MagnificationConfigDescribeContentsRequest)
+func _AccessibilityGestureEventService_NewAccessibilityGestureEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAccessibilityGestureEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigServiceServer).DescribeContents(ctx, in)
+		return srv.(AccessibilityGestureEventServiceServer).NewAccessibilityGestureEvent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigService_DescribeContents_FullMethodName,
+		FullMethod: AccessibilityGestureEventService_NewAccessibilityGestureEvent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigServiceServer).DescribeContents(ctx, req.(*MagnificationConfigDescribeContentsRequest))
+		return srv.(AccessibilityGestureEventServiceServer).NewAccessibilityGestureEvent(ctx, req.(*NewAccessibilityGestureEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigService_GetCenterX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCenterXRequest)
+func _AccessibilityGestureEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigServiceServer).GetCenterX(ctx, in)
+		return srv.(AccessibilityGestureEventServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigService_GetCenterX_FullMethodName,
+		FullMethod: AccessibilityGestureEventService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigServiceServer).GetCenterX(ctx, req.(*GetCenterXRequest))
+		return srv.(AccessibilityGestureEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigService_GetCenterY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCenterYRequest)
+func _AccessibilityGestureEventService_GetDisplayId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AccessibilityGestureEventGetDisplayIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigServiceServer).GetCenterY(ctx, in)
+		return srv.(AccessibilityGestureEventServiceServer).GetDisplayId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigService_GetCenterY_FullMethodName,
+		FullMethod: AccessibilityGestureEventService_GetDisplayId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigServiceServer).GetCenterY(ctx, req.(*GetCenterYRequest))
+		return srv.(AccessibilityGestureEventServiceServer).GetDisplayId(ctx, req.(*AccessibilityGestureEventGetDisplayIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigService_GetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetModeRequest)
+func _AccessibilityGestureEventService_GetGestureId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGestureIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigServiceServer).GetMode(ctx, in)
+		return srv.(AccessibilityGestureEventServiceServer).GetGestureId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigService_GetMode_FullMethodName,
+		FullMethod: AccessibilityGestureEventService_GetGestureId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigServiceServer).GetMode(ctx, req.(*GetModeRequest))
+		return srv.(AccessibilityGestureEventServiceServer).GetGestureId(ctx, req.(*GetGestureIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigService_GetScale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScaleRequest)
+func _AccessibilityGestureEventService_GetMotionEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMotionEventsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigServiceServer).GetScale(ctx, in)
+		return srv.(AccessibilityGestureEventServiceServer).GetMotionEvents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigService_GetScale_FullMethodName,
+		FullMethod: AccessibilityGestureEventService_GetMotionEvents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigServiceServer).GetScale(ctx, req.(*GetScaleRequest))
+		return srv.(AccessibilityGestureEventServiceServer).GetMotionEvents(ctx, req.(*GetMotionEventsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigService_IsActivated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsActivatedRequest)
+func _AccessibilityGestureEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigServiceServer).IsActivated(ctx, in)
+		return srv.(AccessibilityGestureEventServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigService_IsActivated_FullMethodName,
+		FullMethod: AccessibilityGestureEventService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigServiceServer).IsActivated(ctx, req.(*IsActivatedRequest))
+		return srv.(AccessibilityGestureEventServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MagnificationConfigToStringRequest)
+func _AccessibilityGestureEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigServiceServer).ToString(ctx, in)
+		return srv.(AccessibilityGestureEventServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigService_ToString_FullMethodName,
+		FullMethod: AccessibilityGestureEventService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigServiceServer).ToString(ctx, req.(*MagnificationConfigToStringRequest))
+		return srv.(AccessibilityGestureEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MagnificationConfigWriteToParcelRequest)
+func _AccessibilityGestureEventService_GestureIdToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GestureIdToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigServiceServer).WriteToParcel(ctx, in)
+		return srv.(AccessibilityGestureEventServiceServer).GestureIdToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigService_WriteToParcel_FullMethodName,
+		FullMethod: AccessibilityGestureEventService_GestureIdToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigServiceServer).WriteToParcel(ctx, req.(*MagnificationConfigWriteToParcelRequest))
+		return srv.(AccessibilityGestureEventServiceServer).GestureIdToString(ctx, req.(*GestureIdToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// MagnificationConfigService_ServiceDesc is the grpc.ServiceDesc for MagnificationConfigService service.
+// AccessibilityGestureEventService_ServiceDesc is the grpc.ServiceDesc for AccessibilityGestureEventService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var MagnificationConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.MagnificationConfigService",
-	HandlerType: (*MagnificationConfigServiceServer)(nil),
+var AccessibilityGestureEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.AccessibilityGestureEventService",
+	HandlerType: (*AccessibilityGestureEventServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "NewAccessibilityGestureEvent",
+			Handler:    _AccessibilityGestureEventService_NewAccessibilityGestureEvent_Handler,
+		},
+		{
 			MethodName: "DescribeContents",
-			Handler:    _MagnificationConfigService_DescribeContents_Handler,
+			Handler:    _AccessibilityGestureEventService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetCenterX",
-			Handler:    _MagnificationConfigService_GetCenterX_Handler,
+			MethodName: "GetDisplayId",
+			Handler:    _AccessibilityGestureEventService_GetDisplayId_Handler,
 		},
 		{
-			MethodName: "GetCenterY",
-			Handler:    _MagnificationConfigService_GetCenterY_Handler,
+			MethodName: "GetGestureId",
+			Handler:    _AccessibilityGestureEventService_GetGestureId_Handler,
 		},
 		{
-			MethodName: "GetMode",
-			Handler:    _MagnificationConfigService_GetMode_Handler,
-		},
-		{
-			MethodName: "GetScale",
-			Handler:    _MagnificationConfigService_GetScale_Handler,
-		},
-		{
-			MethodName: "IsActivated",
-			Handler:    _MagnificationConfigService_IsActivated_Handler,
+			MethodName: "GetMotionEvents",
+			Handler:    _AccessibilityGestureEventService_GetMotionEvents_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _MagnificationConfigService_ToString_Handler,
+			Handler:    _AccessibilityGestureEventService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _MagnificationConfigService_WriteToParcel_Handler,
+			Handler:    _AccessibilityGestureEventService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "GestureIdToString",
+			Handler:    _AccessibilityGestureEventService_GestureIdToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -7138,292 +7109,330 @@ var MagnificationConfigService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	MagnificationConfigBuilderService_Build_FullMethodName        = "/accessibilityservice.MagnificationConfigBuilderService/Build"
-	MagnificationConfigBuilderService_SetActivated_FullMethodName = "/accessibilityservice.MagnificationConfigBuilderService/SetActivated"
-	MagnificationConfigBuilderService_SetCenterX_FullMethodName   = "/accessibilityservice.MagnificationConfigBuilderService/SetCenterX"
-	MagnificationConfigBuilderService_SetCenterY_FullMethodName   = "/accessibilityservice.MagnificationConfigBuilderService/SetCenterY"
-	MagnificationConfigBuilderService_SetMode_FullMethodName      = "/accessibilityservice.MagnificationConfigBuilderService/SetMode"
-	MagnificationConfigBuilderService_SetScale_FullMethodName     = "/accessibilityservice.MagnificationConfigBuilderService/SetScale"
+	BrailleDisplayControllerService_Connect2_FullMethodName    = "/accessibilityservice.BrailleDisplayControllerService/Connect2"
+	BrailleDisplayControllerService_Connect3_1_FullMethodName  = "/accessibilityservice.BrailleDisplayControllerService/Connect3_1"
+	BrailleDisplayControllerService_Connect2_2_FullMethodName  = "/accessibilityservice.BrailleDisplayControllerService/Connect2_2"
+	BrailleDisplayControllerService_Connect3_3_FullMethodName  = "/accessibilityservice.BrailleDisplayControllerService/Connect3_3"
+	BrailleDisplayControllerService_Disconnect_FullMethodName  = "/accessibilityservice.BrailleDisplayControllerService/Disconnect"
+	BrailleDisplayControllerService_IsConnected_FullMethodName = "/accessibilityservice.BrailleDisplayControllerService/IsConnected"
+	BrailleDisplayControllerService_Write_FullMethodName       = "/accessibilityservice.BrailleDisplayControllerService/Write"
 )
 
-// MagnificationConfigBuilderServiceClient is the client API for MagnificationConfigBuilderService service.
+// BrailleDisplayControllerServiceClient is the client API for BrailleDisplayControllerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MagnificationConfigBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetActivated(ctx context.Context, in *SetActivatedRequest, opts ...grpc.CallOption) (*SetActivatedResponse, error)
-	SetCenterX(ctx context.Context, in *SetCenterXRequest, opts ...grpc.CallOption) (*SetCenterXResponse, error)
-	SetCenterY(ctx context.Context, in *SetCenterYRequest, opts ...grpc.CallOption) (*SetCenterYResponse, error)
-	SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error)
-	SetScale(ctx context.Context, in *MagnificationConfigBuilderSetScaleRequest, opts ...grpc.CallOption) (*MagnificationConfigBuilderSetScaleResponse, error)
+type BrailleDisplayControllerServiceClient interface {
+	Connect2(ctx context.Context, in *Connect2Request, opts ...grpc.CallOption) (*Connect2Response, error)
+	Connect3_1(ctx context.Context, in *Connect3_1Request, opts ...grpc.CallOption) (*Connect3_1Response, error)
+	Connect2_2(ctx context.Context, in *Connect2_2Request, opts ...grpc.CallOption) (*Connect2_2Response, error)
+	Connect3_3(ctx context.Context, in *Connect3_3Request, opts ...grpc.CallOption) (*Connect3_3Response, error)
+	Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error)
+	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
+	Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*WriteResponse, error)
 }
 
-type magnificationConfigBuilderServiceClient struct {
+type brailleDisplayControllerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMagnificationConfigBuilderServiceClient(cc grpc.ClientConnInterface) MagnificationConfigBuilderServiceClient {
-	return &magnificationConfigBuilderServiceClient{cc}
+func NewBrailleDisplayControllerServiceClient(cc grpc.ClientConnInterface) BrailleDisplayControllerServiceClient {
+	return &brailleDisplayControllerServiceClient{cc}
 }
 
-func (c *magnificationConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *brailleDisplayControllerServiceClient) Connect2(ctx context.Context, in *Connect2Request, opts ...grpc.CallOption) (*Connect2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	out := new(Connect2Response)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Connect2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigBuilderServiceClient) SetActivated(ctx context.Context, in *SetActivatedRequest, opts ...grpc.CallOption) (*SetActivatedResponse, error) {
+func (c *brailleDisplayControllerServiceClient) Connect3_1(ctx context.Context, in *Connect3_1Request, opts ...grpc.CallOption) (*Connect3_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetActivatedResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetActivated_FullMethodName, in, out, cOpts...)
+	out := new(Connect3_1Response)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Connect3_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigBuilderServiceClient) SetCenterX(ctx context.Context, in *SetCenterXRequest, opts ...grpc.CallOption) (*SetCenterXResponse, error) {
+func (c *brailleDisplayControllerServiceClient) Connect2_2(ctx context.Context, in *Connect2_2Request, opts ...grpc.CallOption) (*Connect2_2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCenterXResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetCenterX_FullMethodName, in, out, cOpts...)
+	out := new(Connect2_2Response)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Connect2_2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigBuilderServiceClient) SetCenterY(ctx context.Context, in *SetCenterYRequest, opts ...grpc.CallOption) (*SetCenterYResponse, error) {
+func (c *brailleDisplayControllerServiceClient) Connect3_3(ctx context.Context, in *Connect3_3Request, opts ...grpc.CallOption) (*Connect3_3Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCenterYResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetCenterY_FullMethodName, in, out, cOpts...)
+	out := new(Connect3_3Response)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Connect3_3_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigBuilderServiceClient) SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error) {
+func (c *brailleDisplayControllerServiceClient) Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetModeResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetMode_FullMethodName, in, out, cOpts...)
+	out := new(DisconnectResponse)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Disconnect_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *magnificationConfigBuilderServiceClient) SetScale(ctx context.Context, in *MagnificationConfigBuilderSetScaleRequest, opts ...grpc.CallOption) (*MagnificationConfigBuilderSetScaleResponse, error) {
+func (c *brailleDisplayControllerServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MagnificationConfigBuilderSetScaleResponse)
-	err := c.cc.Invoke(ctx, MagnificationConfigBuilderService_SetScale_FullMethodName, in, out, cOpts...)
+	out := new(IsConnectedResponse)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_IsConnected_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MagnificationConfigBuilderServiceServer is the server API for MagnificationConfigBuilderService service.
-// All implementations must embed UnimplementedMagnificationConfigBuilderServiceServer
+func (c *brailleDisplayControllerServiceClient) Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*WriteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteResponse)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerService_Write_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BrailleDisplayControllerServiceServer is the server API for BrailleDisplayControllerService service.
+// All implementations must embed UnimplementedBrailleDisplayControllerServiceServer
 // for forward compatibility.
-type MagnificationConfigBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetActivated(context.Context, *SetActivatedRequest) (*SetActivatedResponse, error)
-	SetCenterX(context.Context, *SetCenterXRequest) (*SetCenterXResponse, error)
-	SetCenterY(context.Context, *SetCenterYRequest) (*SetCenterYResponse, error)
-	SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error)
-	SetScale(context.Context, *MagnificationConfigBuilderSetScaleRequest) (*MagnificationConfigBuilderSetScaleResponse, error)
-	mustEmbedUnimplementedMagnificationConfigBuilderServiceServer()
+type BrailleDisplayControllerServiceServer interface {
+	Connect2(context.Context, *Connect2Request) (*Connect2Response, error)
+	Connect3_1(context.Context, *Connect3_1Request) (*Connect3_1Response, error)
+	Connect2_2(context.Context, *Connect2_2Request) (*Connect2_2Response, error)
+	Connect3_3(context.Context, *Connect3_3Request) (*Connect3_3Response, error)
+	Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error)
+	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
+	Write(context.Context, *WriteRequest) (*WriteResponse, error)
+	mustEmbedUnimplementedBrailleDisplayControllerServiceServer()
 }
 
-// UnimplementedMagnificationConfigBuilderServiceServer must be embedded to have
+// UnimplementedBrailleDisplayControllerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedMagnificationConfigBuilderServiceServer struct{}
+type UnimplementedBrailleDisplayControllerServiceServer struct{}
 
-func (UnimplementedMagnificationConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+func (UnimplementedBrailleDisplayControllerServiceServer) Connect2(context.Context, *Connect2Request) (*Connect2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Connect2 not implemented")
 }
-func (UnimplementedMagnificationConfigBuilderServiceServer) SetActivated(context.Context, *SetActivatedRequest) (*SetActivatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetActivated not implemented")
+func (UnimplementedBrailleDisplayControllerServiceServer) Connect3_1(context.Context, *Connect3_1Request) (*Connect3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Connect3_1 not implemented")
 }
-func (UnimplementedMagnificationConfigBuilderServiceServer) SetCenterX(context.Context, *SetCenterXRequest) (*SetCenterXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCenterX not implemented")
+func (UnimplementedBrailleDisplayControllerServiceServer) Connect2_2(context.Context, *Connect2_2Request) (*Connect2_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Connect2_2 not implemented")
 }
-func (UnimplementedMagnificationConfigBuilderServiceServer) SetCenterY(context.Context, *SetCenterYRequest) (*SetCenterYResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCenterY not implemented")
+func (UnimplementedBrailleDisplayControllerServiceServer) Connect3_3(context.Context, *Connect3_3Request) (*Connect3_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Connect3_3 not implemented")
 }
-func (UnimplementedMagnificationConfigBuilderServiceServer) SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMode not implemented")
+func (UnimplementedBrailleDisplayControllerServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Disconnect not implemented")
 }
-func (UnimplementedMagnificationConfigBuilderServiceServer) SetScale(context.Context, *MagnificationConfigBuilderSetScaleRequest) (*MagnificationConfigBuilderSetScaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetScale not implemented")
+func (UnimplementedBrailleDisplayControllerServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
 }
-func (UnimplementedMagnificationConfigBuilderServiceServer) mustEmbedUnimplementedMagnificationConfigBuilderServiceServer() {
+func (UnimplementedBrailleDisplayControllerServiceServer) Write(context.Context, *WriteRequest) (*WriteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Write not implemented")
 }
-func (UnimplementedMagnificationConfigBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedBrailleDisplayControllerServiceServer) mustEmbedUnimplementedBrailleDisplayControllerServiceServer() {
+}
+func (UnimplementedBrailleDisplayControllerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeMagnificationConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MagnificationConfigBuilderServiceServer will
+// UnsafeBrailleDisplayControllerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BrailleDisplayControllerServiceServer will
 // result in compilation errors.
-type UnsafeMagnificationConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedMagnificationConfigBuilderServiceServer()
+type UnsafeBrailleDisplayControllerServiceServer interface {
+	mustEmbedUnimplementedBrailleDisplayControllerServiceServer()
 }
 
-func RegisterMagnificationConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv MagnificationConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedMagnificationConfigBuilderServiceServer was
+func RegisterBrailleDisplayControllerServiceServer(s grpc.ServiceRegistrar, srv BrailleDisplayControllerServiceServer) {
+	// If the following call panics, it indicates UnimplementedBrailleDisplayControllerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&MagnificationConfigBuilderService_ServiceDesc, srv)
+	s.RegisterService(&BrailleDisplayControllerService_ServiceDesc, srv)
 }
 
-func _MagnificationConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
+func _BrailleDisplayControllerService_Connect2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Connect2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigBuilderServiceServer).Build(ctx, in)
+		return srv.(BrailleDisplayControllerServiceServer).Connect2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigBuilderService_Build_FullMethodName,
+		FullMethod: BrailleDisplayControllerService_Connect2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(BrailleDisplayControllerServiceServer).Connect2(ctx, req.(*Connect2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigBuilderService_SetActivated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetActivatedRequest)
+func _BrailleDisplayControllerService_Connect3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Connect3_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigBuilderServiceServer).SetActivated(ctx, in)
+		return srv.(BrailleDisplayControllerServiceServer).Connect3_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigBuilderService_SetActivated_FullMethodName,
+		FullMethod: BrailleDisplayControllerService_Connect3_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigBuilderServiceServer).SetActivated(ctx, req.(*SetActivatedRequest))
+		return srv.(BrailleDisplayControllerServiceServer).Connect3_1(ctx, req.(*Connect3_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigBuilderService_SetCenterX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCenterXRequest)
+func _BrailleDisplayControllerService_Connect2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Connect2_2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigBuilderServiceServer).SetCenterX(ctx, in)
+		return srv.(BrailleDisplayControllerServiceServer).Connect2_2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigBuilderService_SetCenterX_FullMethodName,
+		FullMethod: BrailleDisplayControllerService_Connect2_2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigBuilderServiceServer).SetCenterX(ctx, req.(*SetCenterXRequest))
+		return srv.(BrailleDisplayControllerServiceServer).Connect2_2(ctx, req.(*Connect2_2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigBuilderService_SetCenterY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCenterYRequest)
+func _BrailleDisplayControllerService_Connect3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Connect3_3Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigBuilderServiceServer).SetCenterY(ctx, in)
+		return srv.(BrailleDisplayControllerServiceServer).Connect3_3(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigBuilderService_SetCenterY_FullMethodName,
+		FullMethod: BrailleDisplayControllerService_Connect3_3_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigBuilderServiceServer).SetCenterY(ctx, req.(*SetCenterYRequest))
+		return srv.(BrailleDisplayControllerServiceServer).Connect3_3(ctx, req.(*Connect3_3Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigBuilderService_SetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetModeRequest)
+func _BrailleDisplayControllerService_Disconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisconnectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigBuilderServiceServer).SetMode(ctx, in)
+		return srv.(BrailleDisplayControllerServiceServer).Disconnect(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigBuilderService_SetMode_FullMethodName,
+		FullMethod: BrailleDisplayControllerService_Disconnect_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigBuilderServiceServer).SetMode(ctx, req.(*SetModeRequest))
+		return srv.(BrailleDisplayControllerServiceServer).Disconnect(ctx, req.(*DisconnectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MagnificationConfigBuilderService_SetScale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MagnificationConfigBuilderSetScaleRequest)
+func _BrailleDisplayControllerService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsConnectedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MagnificationConfigBuilderServiceServer).SetScale(ctx, in)
+		return srv.(BrailleDisplayControllerServiceServer).IsConnected(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MagnificationConfigBuilderService_SetScale_FullMethodName,
+		FullMethod: BrailleDisplayControllerService_IsConnected_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MagnificationConfigBuilderServiceServer).SetScale(ctx, req.(*MagnificationConfigBuilderSetScaleRequest))
+		return srv.(BrailleDisplayControllerServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// MagnificationConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for MagnificationConfigBuilderService service.
+func _BrailleDisplayControllerService_Write_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BrailleDisplayControllerServiceServer).Write(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BrailleDisplayControllerService_Write_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BrailleDisplayControllerServiceServer).Write(ctx, req.(*WriteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BrailleDisplayControllerService_ServiceDesc is the grpc.ServiceDesc for BrailleDisplayControllerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var MagnificationConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.MagnificationConfigBuilderService",
-	HandlerType: (*MagnificationConfigBuilderServiceServer)(nil),
+var BrailleDisplayControllerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.BrailleDisplayControllerService",
+	HandlerType: (*BrailleDisplayControllerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Build",
-			Handler:    _MagnificationConfigBuilderService_Build_Handler,
+			MethodName: "Connect2",
+			Handler:    _BrailleDisplayControllerService_Connect2_Handler,
 		},
 		{
-			MethodName: "SetActivated",
-			Handler:    _MagnificationConfigBuilderService_SetActivated_Handler,
+			MethodName: "Connect3_1",
+			Handler:    _BrailleDisplayControllerService_Connect3_1_Handler,
 		},
 		{
-			MethodName: "SetCenterX",
-			Handler:    _MagnificationConfigBuilderService_SetCenterX_Handler,
+			MethodName: "Connect2_2",
+			Handler:    _BrailleDisplayControllerService_Connect2_2_Handler,
 		},
 		{
-			MethodName: "SetCenterY",
-			Handler:    _MagnificationConfigBuilderService_SetCenterY_Handler,
+			MethodName: "Connect3_3",
+			Handler:    _BrailleDisplayControllerService_Connect3_3_Handler,
 		},
 		{
-			MethodName: "SetMode",
-			Handler:    _MagnificationConfigBuilderService_SetMode_Handler,
+			MethodName: "Disconnect",
+			Handler:    _BrailleDisplayControllerService_Disconnect_Handler,
 		},
 		{
-			MethodName: "SetScale",
-			Handler:    _MagnificationConfigBuilderService_SetScale_Handler,
+			MethodName: "IsConnected",
+			Handler:    _BrailleDisplayControllerService_IsConnected_Handler,
+		},
+		{
+			MethodName: "Write",
+			Handler:    _BrailleDisplayControllerService_Write_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -7431,329 +7440,217 @@ var MagnificationConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	InputMethodService_NewInputMethod_FullMethodName            = "/accessibilityservice.InputMethodService/NewInputMethod"
-	InputMethodService_GetCurrentInputConnection_FullMethodName = "/accessibilityservice.InputMethodService/GetCurrentInputConnection"
-	InputMethodService_GetCurrentInputEditorInfo_FullMethodName = "/accessibilityservice.InputMethodService/GetCurrentInputEditorInfo"
-	InputMethodService_GetCurrentInputStarted_FullMethodName    = "/accessibilityservice.InputMethodService/GetCurrentInputStarted"
-	InputMethodService_OnFinishInput_FullMethodName             = "/accessibilityservice.InputMethodService/OnFinishInput"
-	InputMethodService_OnStartInput_FullMethodName              = "/accessibilityservice.InputMethodService/OnStartInput"
-	InputMethodService_OnUpdateSelection_FullMethodName         = "/accessibilityservice.InputMethodService/OnUpdateSelection"
+	BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_FullMethodName        = "/accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService/OnConnected"
+	BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_FullMethodName = "/accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService/OnConnectionFailed"
+	BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_FullMethodName     = "/accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService/OnDisconnected"
+	BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_FullMethodName            = "/accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService/OnInput"
 )
 
-// InputMethodServiceClient is the client API for InputMethodService service.
+// BrailleDisplayControllerBrailleDisplayCallbackServiceClient is the client API for BrailleDisplayControllerBrailleDisplayCallbackService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InputMethodServiceClient interface {
-	NewInputMethod(ctx context.Context, in *NewInputMethodRequest, opts ...grpc.CallOption) (*NewInputMethodResponse, error)
-	GetCurrentInputConnection(ctx context.Context, in *GetCurrentInputConnectionRequest, opts ...grpc.CallOption) (*GetCurrentInputConnectionResponse, error)
-	GetCurrentInputEditorInfo(ctx context.Context, in *GetCurrentInputEditorInfoRequest, opts ...grpc.CallOption) (*GetCurrentInputEditorInfoResponse, error)
-	GetCurrentInputStarted(ctx context.Context, in *GetCurrentInputStartedRequest, opts ...grpc.CallOption) (*GetCurrentInputStartedResponse, error)
-	OnFinishInput(ctx context.Context, in *OnFinishInputRequest, opts ...grpc.CallOption) (*OnFinishInputResponse, error)
-	OnStartInput(ctx context.Context, in *OnStartInputRequest, opts ...grpc.CallOption) (*OnStartInputResponse, error)
-	OnUpdateSelection(ctx context.Context, in *OnUpdateSelectionRequest, opts ...grpc.CallOption) (*OnUpdateSelectionResponse, error)
+type BrailleDisplayControllerBrailleDisplayCallbackServiceClient interface {
+	OnConnected(ctx context.Context, in *OnConnectedRequest, opts ...grpc.CallOption) (*OnConnectedResponse, error)
+	OnConnectionFailed(ctx context.Context, in *OnConnectionFailedRequest, opts ...grpc.CallOption) (*OnConnectionFailedResponse, error)
+	OnDisconnected(ctx context.Context, in *OnDisconnectedRequest, opts ...grpc.CallOption) (*OnDisconnectedResponse, error)
+	OnInput(ctx context.Context, in *OnInputRequest, opts ...grpc.CallOption) (*OnInputResponse, error)
 }
 
-type inputMethodServiceClient struct {
+type brailleDisplayControllerBrailleDisplayCallbackServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInputMethodServiceClient(cc grpc.ClientConnInterface) InputMethodServiceClient {
-	return &inputMethodServiceClient{cc}
+func NewBrailleDisplayControllerBrailleDisplayCallbackServiceClient(cc grpc.ClientConnInterface) BrailleDisplayControllerBrailleDisplayCallbackServiceClient {
+	return &brailleDisplayControllerBrailleDisplayCallbackServiceClient{cc}
 }
 
-func (c *inputMethodServiceClient) NewInputMethod(ctx context.Context, in *NewInputMethodRequest, opts ...grpc.CallOption) (*NewInputMethodResponse, error) {
+func (c *brailleDisplayControllerBrailleDisplayCallbackServiceClient) OnConnected(ctx context.Context, in *OnConnectedRequest, opts ...grpc.CallOption) (*OnConnectedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInputMethodResponse)
-	err := c.cc.Invoke(ctx, InputMethodService_NewInputMethod_FullMethodName, in, out, cOpts...)
+	out := new(OnConnectedResponse)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodServiceClient) GetCurrentInputConnection(ctx context.Context, in *GetCurrentInputConnectionRequest, opts ...grpc.CallOption) (*GetCurrentInputConnectionResponse, error) {
+func (c *brailleDisplayControllerBrailleDisplayCallbackServiceClient) OnConnectionFailed(ctx context.Context, in *OnConnectionFailedRequest, opts ...grpc.CallOption) (*OnConnectionFailedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentInputConnectionResponse)
-	err := c.cc.Invoke(ctx, InputMethodService_GetCurrentInputConnection_FullMethodName, in, out, cOpts...)
+	out := new(OnConnectionFailedResponse)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodServiceClient) GetCurrentInputEditorInfo(ctx context.Context, in *GetCurrentInputEditorInfoRequest, opts ...grpc.CallOption) (*GetCurrentInputEditorInfoResponse, error) {
+func (c *brailleDisplayControllerBrailleDisplayCallbackServiceClient) OnDisconnected(ctx context.Context, in *OnDisconnectedRequest, opts ...grpc.CallOption) (*OnDisconnectedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentInputEditorInfoResponse)
-	err := c.cc.Invoke(ctx, InputMethodService_GetCurrentInputEditorInfo_FullMethodName, in, out, cOpts...)
+	out := new(OnDisconnectedResponse)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodServiceClient) GetCurrentInputStarted(ctx context.Context, in *GetCurrentInputStartedRequest, opts ...grpc.CallOption) (*GetCurrentInputStartedResponse, error) {
+func (c *brailleDisplayControllerBrailleDisplayCallbackServiceClient) OnInput(ctx context.Context, in *OnInputRequest, opts ...grpc.CallOption) (*OnInputResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentInputStartedResponse)
-	err := c.cc.Invoke(ctx, InputMethodService_GetCurrentInputStarted_FullMethodName, in, out, cOpts...)
+	out := new(OnInputResponse)
+	err := c.cc.Invoke(ctx, BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodServiceClient) OnFinishInput(ctx context.Context, in *OnFinishInputRequest, opts ...grpc.CallOption) (*OnFinishInputResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnFinishInputResponse)
-	err := c.cc.Invoke(ctx, InputMethodService_OnFinishInput_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputMethodServiceClient) OnStartInput(ctx context.Context, in *OnStartInputRequest, opts ...grpc.CallOption) (*OnStartInputResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStartInputResponse)
-	err := c.cc.Invoke(ctx, InputMethodService_OnStartInput_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputMethodServiceClient) OnUpdateSelection(ctx context.Context, in *OnUpdateSelectionRequest, opts ...grpc.CallOption) (*OnUpdateSelectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnUpdateSelectionResponse)
-	err := c.cc.Invoke(ctx, InputMethodService_OnUpdateSelection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// InputMethodServiceServer is the server API for InputMethodService service.
-// All implementations must embed UnimplementedInputMethodServiceServer
+// BrailleDisplayControllerBrailleDisplayCallbackServiceServer is the server API for BrailleDisplayControllerBrailleDisplayCallbackService service.
+// All implementations must embed UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer
 // for forward compatibility.
-type InputMethodServiceServer interface {
-	NewInputMethod(context.Context, *NewInputMethodRequest) (*NewInputMethodResponse, error)
-	GetCurrentInputConnection(context.Context, *GetCurrentInputConnectionRequest) (*GetCurrentInputConnectionResponse, error)
-	GetCurrentInputEditorInfo(context.Context, *GetCurrentInputEditorInfoRequest) (*GetCurrentInputEditorInfoResponse, error)
-	GetCurrentInputStarted(context.Context, *GetCurrentInputStartedRequest) (*GetCurrentInputStartedResponse, error)
-	OnFinishInput(context.Context, *OnFinishInputRequest) (*OnFinishInputResponse, error)
-	OnStartInput(context.Context, *OnStartInputRequest) (*OnStartInputResponse, error)
-	OnUpdateSelection(context.Context, *OnUpdateSelectionRequest) (*OnUpdateSelectionResponse, error)
-	mustEmbedUnimplementedInputMethodServiceServer()
+type BrailleDisplayControllerBrailleDisplayCallbackServiceServer interface {
+	OnConnected(context.Context, *OnConnectedRequest) (*OnConnectedResponse, error)
+	OnConnectionFailed(context.Context, *OnConnectionFailedRequest) (*OnConnectionFailedResponse, error)
+	OnDisconnected(context.Context, *OnDisconnectedRequest) (*OnDisconnectedResponse, error)
+	OnInput(context.Context, *OnInputRequest) (*OnInputResponse, error)
+	mustEmbedUnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer()
 }
 
-// UnimplementedInputMethodServiceServer must be embedded to have
+// UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedInputMethodServiceServer struct{}
+type UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer struct{}
 
-func (UnimplementedInputMethodServiceServer) NewInputMethod(context.Context, *NewInputMethodRequest) (*NewInputMethodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInputMethod not implemented")
+func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) OnConnected(context.Context, *OnConnectedRequest) (*OnConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnConnected not implemented")
 }
-func (UnimplementedInputMethodServiceServer) GetCurrentInputConnection(context.Context, *GetCurrentInputConnectionRequest) (*GetCurrentInputConnectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentInputConnection not implemented")
+func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) OnConnectionFailed(context.Context, *OnConnectionFailedRequest) (*OnConnectionFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnConnectionFailed not implemented")
 }
-func (UnimplementedInputMethodServiceServer) GetCurrentInputEditorInfo(context.Context, *GetCurrentInputEditorInfoRequest) (*GetCurrentInputEditorInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentInputEditorInfo not implemented")
+func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) OnDisconnected(context.Context, *OnDisconnectedRequest) (*OnDisconnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisconnected not implemented")
 }
-func (UnimplementedInputMethodServiceServer) GetCurrentInputStarted(context.Context, *GetCurrentInputStartedRequest) (*GetCurrentInputStartedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentInputStarted not implemented")
+func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) OnInput(context.Context, *OnInputRequest) (*OnInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInput not implemented")
 }
-func (UnimplementedInputMethodServiceServer) OnFinishInput(context.Context, *OnFinishInputRequest) (*OnFinishInputResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnFinishInput not implemented")
+func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) mustEmbedUnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer() {
 }
-func (UnimplementedInputMethodServiceServer) OnStartInput(context.Context, *OnStartInputRequest) (*OnStartInputResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStartInput not implemented")
+func (UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer) testEmbeddedByValue() {
 }
-func (UnimplementedInputMethodServiceServer) OnUpdateSelection(context.Context, *OnUpdateSelectionRequest) (*OnUpdateSelectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnUpdateSelection not implemented")
-}
-func (UnimplementedInputMethodServiceServer) mustEmbedUnimplementedInputMethodServiceServer() {}
-func (UnimplementedInputMethodServiceServer) testEmbeddedByValue()                            {}
 
-// UnsafeInputMethodServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InputMethodServiceServer will
+// UnsafeBrailleDisplayControllerBrailleDisplayCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BrailleDisplayControllerBrailleDisplayCallbackServiceServer will
 // result in compilation errors.
-type UnsafeInputMethodServiceServer interface {
-	mustEmbedUnimplementedInputMethodServiceServer()
+type UnsafeBrailleDisplayControllerBrailleDisplayCallbackServiceServer interface {
+	mustEmbedUnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer()
 }
 
-func RegisterInputMethodServiceServer(s grpc.ServiceRegistrar, srv InputMethodServiceServer) {
-	// If the following call panics, it indicates UnimplementedInputMethodServiceServer was
+func RegisterBrailleDisplayControllerBrailleDisplayCallbackServiceServer(s grpc.ServiceRegistrar, srv BrailleDisplayControllerBrailleDisplayCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedBrailleDisplayControllerBrailleDisplayCallbackServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&InputMethodService_ServiceDesc, srv)
+	s.RegisterService(&BrailleDisplayControllerBrailleDisplayCallbackService_ServiceDesc, srv)
 }
 
-func _InputMethodService_NewInputMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInputMethodRequest)
+func _BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnConnectedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodServiceServer).NewInputMethod(ctx, in)
+		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnConnected(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodService_NewInputMethod_FullMethodName,
+		FullMethod: BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodServiceServer).NewInputMethod(ctx, req.(*NewInputMethodRequest))
+		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnConnected(ctx, req.(*OnConnectedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodService_GetCurrentInputConnection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentInputConnectionRequest)
+func _BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnConnectionFailedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodServiceServer).GetCurrentInputConnection(ctx, in)
+		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnConnectionFailed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodService_GetCurrentInputConnection_FullMethodName,
+		FullMethod: BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodServiceServer).GetCurrentInputConnection(ctx, req.(*GetCurrentInputConnectionRequest))
+		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnConnectionFailed(ctx, req.(*OnConnectionFailedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodService_GetCurrentInputEditorInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentInputEditorInfoRequest)
+func _BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisconnectedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodServiceServer).GetCurrentInputEditorInfo(ctx, in)
+		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnDisconnected(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodService_GetCurrentInputEditorInfo_FullMethodName,
+		FullMethod: BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodServiceServer).GetCurrentInputEditorInfo(ctx, req.(*GetCurrentInputEditorInfoRequest))
+		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnDisconnected(ctx, req.(*OnDisconnectedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodService_GetCurrentInputStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentInputStartedRequest)
+func _BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInputRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodServiceServer).GetCurrentInputStarted(ctx, in)
+		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnInput(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodService_GetCurrentInputStarted_FullMethodName,
+		FullMethod: BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodServiceServer).GetCurrentInputStarted(ctx, req.(*GetCurrentInputStartedRequest))
+		return srv.(BrailleDisplayControllerBrailleDisplayCallbackServiceServer).OnInput(ctx, req.(*OnInputRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodService_OnFinishInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnFinishInputRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputMethodServiceServer).OnFinishInput(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputMethodService_OnFinishInput_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodServiceServer).OnFinishInput(ctx, req.(*OnFinishInputRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputMethodService_OnStartInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStartInputRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputMethodServiceServer).OnStartInput(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputMethodService_OnStartInput_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodServiceServer).OnStartInput(ctx, req.(*OnStartInputRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputMethodService_OnUpdateSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnUpdateSelectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputMethodServiceServer).OnUpdateSelection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputMethodService_OnUpdateSelection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodServiceServer).OnUpdateSelection(ctx, req.(*OnUpdateSelectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// InputMethodService_ServiceDesc is the grpc.ServiceDesc for InputMethodService service.
+// BrailleDisplayControllerBrailleDisplayCallbackService_ServiceDesc is the grpc.ServiceDesc for BrailleDisplayControllerBrailleDisplayCallbackService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InputMethodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.InputMethodService",
-	HandlerType: (*InputMethodServiceServer)(nil),
+var BrailleDisplayControllerBrailleDisplayCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.BrailleDisplayControllerBrailleDisplayCallbackService",
+	HandlerType: (*BrailleDisplayControllerBrailleDisplayCallbackServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewInputMethod",
-			Handler:    _InputMethodService_NewInputMethod_Handler,
+			MethodName: "OnConnected",
+			Handler:    _BrailleDisplayControllerBrailleDisplayCallbackService_OnConnected_Handler,
 		},
 		{
-			MethodName: "GetCurrentInputConnection",
-			Handler:    _InputMethodService_GetCurrentInputConnection_Handler,
+			MethodName: "OnConnectionFailed",
+			Handler:    _BrailleDisplayControllerBrailleDisplayCallbackService_OnConnectionFailed_Handler,
 		},
 		{
-			MethodName: "GetCurrentInputEditorInfo",
-			Handler:    _InputMethodService_GetCurrentInputEditorInfo_Handler,
+			MethodName: "OnDisconnected",
+			Handler:    _BrailleDisplayControllerBrailleDisplayCallbackService_OnDisconnected_Handler,
 		},
 		{
-			MethodName: "GetCurrentInputStarted",
-			Handler:    _InputMethodService_GetCurrentInputStarted_Handler,
-		},
-		{
-			MethodName: "OnFinishInput",
-			Handler:    _InputMethodService_OnFinishInput_Handler,
-		},
-		{
-			MethodName: "OnStartInput",
-			Handler:    _InputMethodService_OnStartInput_Handler,
-		},
-		{
-			MethodName: "OnUpdateSelection",
-			Handler:    _InputMethodService_OnUpdateSelection_Handler,
+			MethodName: "OnInput",
+			Handler:    _BrailleDisplayControllerBrailleDisplayCallbackService_OnInput_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -7761,406 +7658,661 @@ var InputMethodService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_FullMethodName       = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/ClearMetaKeyStates"
-	InputMethodAccessibilityInputConnectionService_CommitText_FullMethodName               = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/CommitText"
-	InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_FullMethodName    = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/DeleteSurroundingText"
-	InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_FullMethodName        = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/GetCursorCapsMode"
-	InputMethodAccessibilityInputConnectionService_GetSurroundingText_FullMethodName       = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/GetSurroundingText"
-	InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_FullMethodName = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/PerformContextMenuAction"
-	InputMethodAccessibilityInputConnectionService_PerformEditorAction_FullMethodName      = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/PerformEditorAction"
-	InputMethodAccessibilityInputConnectionService_SendKeyEvent_FullMethodName             = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/SendKeyEvent"
-	InputMethodAccessibilityInputConnectionService_SetSelection_FullMethodName             = "/accessibilityservice.InputMethodAccessibilityInputConnectionService/SetSelection"
+	TouchInteractionControllerService_GetDisplayId_FullMethodName                 = "/accessibilityservice.TouchInteractionControllerService/GetDisplayId"
+	TouchInteractionControllerService_GetMaxPointerCount_FullMethodName           = "/accessibilityservice.TouchInteractionControllerService/GetMaxPointerCount"
+	TouchInteractionControllerService_GetState_FullMethodName                     = "/accessibilityservice.TouchInteractionControllerService/GetState"
+	TouchInteractionControllerService_PerformClick_FullMethodName                 = "/accessibilityservice.TouchInteractionControllerService/PerformClick"
+	TouchInteractionControllerService_PerformLongClickAndStartDrag_FullMethodName = "/accessibilityservice.TouchInteractionControllerService/PerformLongClickAndStartDrag"
+	TouchInteractionControllerService_RegisterCallback_FullMethodName             = "/accessibilityservice.TouchInteractionControllerService/RegisterCallback"
+	TouchInteractionControllerService_RequestDelegating_FullMethodName            = "/accessibilityservice.TouchInteractionControllerService/RequestDelegating"
+	TouchInteractionControllerService_RequestDragging_FullMethodName              = "/accessibilityservice.TouchInteractionControllerService/RequestDragging"
+	TouchInteractionControllerService_RequestTouchExploration_FullMethodName      = "/accessibilityservice.TouchInteractionControllerService/RequestTouchExploration"
+	TouchInteractionControllerService_UnregisterAllCallbacks_FullMethodName       = "/accessibilityservice.TouchInteractionControllerService/UnregisterAllCallbacks"
+	TouchInteractionControllerService_UnregisterCallback_FullMethodName           = "/accessibilityservice.TouchInteractionControllerService/UnregisterCallback"
+	TouchInteractionControllerService_StateToString_FullMethodName                = "/accessibilityservice.TouchInteractionControllerService/StateToString"
 )
 
-// InputMethodAccessibilityInputConnectionServiceClient is the client API for InputMethodAccessibilityInputConnectionService service.
+// TouchInteractionControllerServiceClient is the client API for TouchInteractionControllerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InputMethodAccessibilityInputConnectionServiceClient interface {
-	ClearMetaKeyStates(ctx context.Context, in *ClearMetaKeyStatesRequest, opts ...grpc.CallOption) (*ClearMetaKeyStatesResponse, error)
-	CommitText(ctx context.Context, in *CommitTextRequest, opts ...grpc.CallOption) (*CommitTextResponse, error)
-	DeleteSurroundingText(ctx context.Context, in *DeleteSurroundingTextRequest, opts ...grpc.CallOption) (*DeleteSurroundingTextResponse, error)
-	GetCursorCapsMode(ctx context.Context, in *GetCursorCapsModeRequest, opts ...grpc.CallOption) (*GetCursorCapsModeResponse, error)
-	GetSurroundingText(ctx context.Context, in *GetSurroundingTextRequest, opts ...grpc.CallOption) (*GetSurroundingTextResponse, error)
-	PerformContextMenuAction(ctx context.Context, in *PerformContextMenuActionRequest, opts ...grpc.CallOption) (*PerformContextMenuActionResponse, error)
-	PerformEditorAction(ctx context.Context, in *PerformEditorActionRequest, opts ...grpc.CallOption) (*PerformEditorActionResponse, error)
-	SendKeyEvent(ctx context.Context, in *SendKeyEventRequest, opts ...grpc.CallOption) (*SendKeyEventResponse, error)
-	SetSelection(ctx context.Context, in *SetSelectionRequest, opts ...grpc.CallOption) (*SetSelectionResponse, error)
+type TouchInteractionControllerServiceClient interface {
+	GetDisplayId(ctx context.Context, in *GetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error)
+	GetMaxPointerCount(ctx context.Context, in *GetMaxPointerCountRequest, opts ...grpc.CallOption) (*GetMaxPointerCountResponse, error)
+	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
+	PerformClick(ctx context.Context, in *PerformClickRequest, opts ...grpc.CallOption) (*PerformClickResponse, error)
+	PerformLongClickAndStartDrag(ctx context.Context, in *PerformLongClickAndStartDragRequest, opts ...grpc.CallOption) (*PerformLongClickAndStartDragResponse, error)
+	RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error)
+	RequestDelegating(ctx context.Context, in *RequestDelegatingRequest, opts ...grpc.CallOption) (*RequestDelegatingResponse, error)
+	RequestDragging(ctx context.Context, in *RequestDraggingRequest, opts ...grpc.CallOption) (*RequestDraggingResponse, error)
+	RequestTouchExploration(ctx context.Context, in *RequestTouchExplorationRequest, opts ...grpc.CallOption) (*RequestTouchExplorationResponse, error)
+	UnregisterAllCallbacks(ctx context.Context, in *UnregisterAllCallbacksRequest, opts ...grpc.CallOption) (*UnregisterAllCallbacksResponse, error)
+	UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error)
+	StateToString(ctx context.Context, in *StateToStringRequest, opts ...grpc.CallOption) (*StateToStringResponse, error)
 }
 
-type inputMethodAccessibilityInputConnectionServiceClient struct {
+type touchInteractionControllerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInputMethodAccessibilityInputConnectionServiceClient(cc grpc.ClientConnInterface) InputMethodAccessibilityInputConnectionServiceClient {
-	return &inputMethodAccessibilityInputConnectionServiceClient{cc}
+func NewTouchInteractionControllerServiceClient(cc grpc.ClientConnInterface) TouchInteractionControllerServiceClient {
+	return &touchInteractionControllerServiceClient{cc}
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) ClearMetaKeyStates(ctx context.Context, in *ClearMetaKeyStatesRequest, opts ...grpc.CallOption) (*ClearMetaKeyStatesResponse, error) {
+func (c *touchInteractionControllerServiceClient) GetDisplayId(ctx context.Context, in *GetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearMetaKeyStatesResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_FullMethodName, in, out, cOpts...)
+	out := new(GetDisplayIdResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_GetDisplayId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) CommitText(ctx context.Context, in *CommitTextRequest, opts ...grpc.CallOption) (*CommitTextResponse, error) {
+func (c *touchInteractionControllerServiceClient) GetMaxPointerCount(ctx context.Context, in *GetMaxPointerCountRequest, opts ...grpc.CallOption) (*GetMaxPointerCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CommitTextResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_CommitText_FullMethodName, in, out, cOpts...)
+	out := new(GetMaxPointerCountResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_GetMaxPointerCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) DeleteSurroundingText(ctx context.Context, in *DeleteSurroundingTextRequest, opts ...grpc.CallOption) (*DeleteSurroundingTextResponse, error) {
+func (c *touchInteractionControllerServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteSurroundingTextResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_FullMethodName, in, out, cOpts...)
+	out := new(GetStateResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_GetState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) GetCursorCapsMode(ctx context.Context, in *GetCursorCapsModeRequest, opts ...grpc.CallOption) (*GetCursorCapsModeResponse, error) {
+func (c *touchInteractionControllerServiceClient) PerformClick(ctx context.Context, in *PerformClickRequest, opts ...grpc.CallOption) (*PerformClickResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCursorCapsModeResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_FullMethodName, in, out, cOpts...)
+	out := new(PerformClickResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_PerformClick_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) GetSurroundingText(ctx context.Context, in *GetSurroundingTextRequest, opts ...grpc.CallOption) (*GetSurroundingTextResponse, error) {
+func (c *touchInteractionControllerServiceClient) PerformLongClickAndStartDrag(ctx context.Context, in *PerformLongClickAndStartDragRequest, opts ...grpc.CallOption) (*PerformLongClickAndStartDragResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSurroundingTextResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_GetSurroundingText_FullMethodName, in, out, cOpts...)
+	out := new(PerformLongClickAndStartDragResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_PerformLongClickAndStartDrag_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) PerformContextMenuAction(ctx context.Context, in *PerformContextMenuActionRequest, opts ...grpc.CallOption) (*PerformContextMenuActionResponse, error) {
+func (c *touchInteractionControllerServiceClient) RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PerformContextMenuActionResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_FullMethodName, in, out, cOpts...)
+	out := new(RegisterCallbackResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_RegisterCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) PerformEditorAction(ctx context.Context, in *PerformEditorActionRequest, opts ...grpc.CallOption) (*PerformEditorActionResponse, error) {
+func (c *touchInteractionControllerServiceClient) RequestDelegating(ctx context.Context, in *RequestDelegatingRequest, opts ...grpc.CallOption) (*RequestDelegatingResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PerformEditorActionResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_PerformEditorAction_FullMethodName, in, out, cOpts...)
+	out := new(RequestDelegatingResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_RequestDelegating_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) SendKeyEvent(ctx context.Context, in *SendKeyEventRequest, opts ...grpc.CallOption) (*SendKeyEventResponse, error) {
+func (c *touchInteractionControllerServiceClient) RequestDragging(ctx context.Context, in *RequestDraggingRequest, opts ...grpc.CallOption) (*RequestDraggingResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendKeyEventResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_SendKeyEvent_FullMethodName, in, out, cOpts...)
+	out := new(RequestDraggingResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_RequestDragging_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *inputMethodAccessibilityInputConnectionServiceClient) SetSelection(ctx context.Context, in *SetSelectionRequest, opts ...grpc.CallOption) (*SetSelectionResponse, error) {
+func (c *touchInteractionControllerServiceClient) RequestTouchExploration(ctx context.Context, in *RequestTouchExplorationRequest, opts ...grpc.CallOption) (*RequestTouchExplorationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSelectionResponse)
-	err := c.cc.Invoke(ctx, InputMethodAccessibilityInputConnectionService_SetSelection_FullMethodName, in, out, cOpts...)
+	out := new(RequestTouchExplorationResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_RequestTouchExploration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// InputMethodAccessibilityInputConnectionServiceServer is the server API for InputMethodAccessibilityInputConnectionService service.
-// All implementations must embed UnimplementedInputMethodAccessibilityInputConnectionServiceServer
+func (c *touchInteractionControllerServiceClient) UnregisterAllCallbacks(ctx context.Context, in *UnregisterAllCallbacksRequest, opts ...grpc.CallOption) (*UnregisterAllCallbacksResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterAllCallbacksResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_UnregisterAllCallbacks_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *touchInteractionControllerServiceClient) UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterCallbackResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_UnregisterCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *touchInteractionControllerServiceClient) StateToString(ctx context.Context, in *StateToStringRequest, opts ...grpc.CallOption) (*StateToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StateToStringResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerService_StateToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TouchInteractionControllerServiceServer is the server API for TouchInteractionControllerService service.
+// All implementations must embed UnimplementedTouchInteractionControllerServiceServer
 // for forward compatibility.
-type InputMethodAccessibilityInputConnectionServiceServer interface {
-	ClearMetaKeyStates(context.Context, *ClearMetaKeyStatesRequest) (*ClearMetaKeyStatesResponse, error)
-	CommitText(context.Context, *CommitTextRequest) (*CommitTextResponse, error)
-	DeleteSurroundingText(context.Context, *DeleteSurroundingTextRequest) (*DeleteSurroundingTextResponse, error)
-	GetCursorCapsMode(context.Context, *GetCursorCapsModeRequest) (*GetCursorCapsModeResponse, error)
-	GetSurroundingText(context.Context, *GetSurroundingTextRequest) (*GetSurroundingTextResponse, error)
-	PerformContextMenuAction(context.Context, *PerformContextMenuActionRequest) (*PerformContextMenuActionResponse, error)
-	PerformEditorAction(context.Context, *PerformEditorActionRequest) (*PerformEditorActionResponse, error)
-	SendKeyEvent(context.Context, *SendKeyEventRequest) (*SendKeyEventResponse, error)
-	SetSelection(context.Context, *SetSelectionRequest) (*SetSelectionResponse, error)
-	mustEmbedUnimplementedInputMethodAccessibilityInputConnectionServiceServer()
+type TouchInteractionControllerServiceServer interface {
+	GetDisplayId(context.Context, *GetDisplayIdRequest) (*GetDisplayIdResponse, error)
+	GetMaxPointerCount(context.Context, *GetMaxPointerCountRequest) (*GetMaxPointerCountResponse, error)
+	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
+	PerformClick(context.Context, *PerformClickRequest) (*PerformClickResponse, error)
+	PerformLongClickAndStartDrag(context.Context, *PerformLongClickAndStartDragRequest) (*PerformLongClickAndStartDragResponse, error)
+	RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error)
+	RequestDelegating(context.Context, *RequestDelegatingRequest) (*RequestDelegatingResponse, error)
+	RequestDragging(context.Context, *RequestDraggingRequest) (*RequestDraggingResponse, error)
+	RequestTouchExploration(context.Context, *RequestTouchExplorationRequest) (*RequestTouchExplorationResponse, error)
+	UnregisterAllCallbacks(context.Context, *UnregisterAllCallbacksRequest) (*UnregisterAllCallbacksResponse, error)
+	UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error)
+	StateToString(context.Context, *StateToStringRequest) (*StateToStringResponse, error)
+	mustEmbedUnimplementedTouchInteractionControllerServiceServer()
 }
 
-// UnimplementedInputMethodAccessibilityInputConnectionServiceServer must be embedded to have
+// UnimplementedTouchInteractionControllerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedInputMethodAccessibilityInputConnectionServiceServer struct{}
+type UnimplementedTouchInteractionControllerServiceServer struct{}
 
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) ClearMetaKeyStates(context.Context, *ClearMetaKeyStatesRequest) (*ClearMetaKeyStatesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearMetaKeyStates not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) GetDisplayId(context.Context, *GetDisplayIdRequest) (*GetDisplayIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayId not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) CommitText(context.Context, *CommitTextRequest) (*CommitTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CommitText not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) GetMaxPointerCount(context.Context, *GetMaxPointerCountRequest) (*GetMaxPointerCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxPointerCount not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) DeleteSurroundingText(context.Context, *DeleteSurroundingTextRequest) (*DeleteSurroundingTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DeleteSurroundingText not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) GetCursorCapsMode(context.Context, *GetCursorCapsModeRequest) (*GetCursorCapsModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCursorCapsMode not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) PerformClick(context.Context, *PerformClickRequest) (*PerformClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformClick not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) GetSurroundingText(context.Context, *GetSurroundingTextRequest) (*GetSurroundingTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSurroundingText not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) PerformLongClickAndStartDrag(context.Context, *PerformLongClickAndStartDragRequest) (*PerformLongClickAndStartDragResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformLongClickAndStartDrag not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) PerformContextMenuAction(context.Context, *PerformContextMenuActionRequest) (*PerformContextMenuActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PerformContextMenuAction not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterCallback not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) PerformEditorAction(context.Context, *PerformEditorActionRequest) (*PerformEditorActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PerformEditorAction not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) RequestDelegating(context.Context, *RequestDelegatingRequest) (*RequestDelegatingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestDelegating not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) SendKeyEvent(context.Context, *SendKeyEventRequest) (*SendKeyEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendKeyEvent not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) RequestDragging(context.Context, *RequestDraggingRequest) (*RequestDraggingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestDragging not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) SetSelection(context.Context, *SetSelectionRequest) (*SetSelectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSelection not implemented")
+func (UnimplementedTouchInteractionControllerServiceServer) RequestTouchExploration(context.Context, *RequestTouchExplorationRequest) (*RequestTouchExplorationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestTouchExploration not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) mustEmbedUnimplementedInputMethodAccessibilityInputConnectionServiceServer() {
+func (UnimplementedTouchInteractionControllerServiceServer) UnregisterAllCallbacks(context.Context, *UnregisterAllCallbacksRequest) (*UnregisterAllCallbacksResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterAllCallbacks not implemented")
 }
-func (UnimplementedInputMethodAccessibilityInputConnectionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedTouchInteractionControllerServiceServer) UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterCallback not implemented")
+}
+func (UnimplementedTouchInteractionControllerServiceServer) StateToString(context.Context, *StateToStringRequest) (*StateToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StateToString not implemented")
+}
+func (UnimplementedTouchInteractionControllerServiceServer) mustEmbedUnimplementedTouchInteractionControllerServiceServer() {
+}
+func (UnimplementedTouchInteractionControllerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeInputMethodAccessibilityInputConnectionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InputMethodAccessibilityInputConnectionServiceServer will
+// UnsafeTouchInteractionControllerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TouchInteractionControllerServiceServer will
 // result in compilation errors.
-type UnsafeInputMethodAccessibilityInputConnectionServiceServer interface {
-	mustEmbedUnimplementedInputMethodAccessibilityInputConnectionServiceServer()
+type UnsafeTouchInteractionControllerServiceServer interface {
+	mustEmbedUnimplementedTouchInteractionControllerServiceServer()
 }
 
-func RegisterInputMethodAccessibilityInputConnectionServiceServer(s grpc.ServiceRegistrar, srv InputMethodAccessibilityInputConnectionServiceServer) {
-	// If the following call panics, it indicates UnimplementedInputMethodAccessibilityInputConnectionServiceServer was
+func RegisterTouchInteractionControllerServiceServer(s grpc.ServiceRegistrar, srv TouchInteractionControllerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTouchInteractionControllerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&InputMethodAccessibilityInputConnectionService_ServiceDesc, srv)
+	s.RegisterService(&TouchInteractionControllerService_ServiceDesc, srv)
 }
 
-func _InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearMetaKeyStatesRequest)
+func _TouchInteractionControllerService_GetDisplayId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).ClearMetaKeyStates(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).GetDisplayId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_FullMethodName,
+		FullMethod: TouchInteractionControllerService_GetDisplayId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).ClearMetaKeyStates(ctx, req.(*ClearMetaKeyStatesRequest))
+		return srv.(TouchInteractionControllerServiceServer).GetDisplayId(ctx, req.(*GetDisplayIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodAccessibilityInputConnectionService_CommitText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CommitTextRequest)
+func _TouchInteractionControllerService_GetMaxPointerCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxPointerCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).CommitText(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).GetMaxPointerCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_CommitText_FullMethodName,
+		FullMethod: TouchInteractionControllerService_GetMaxPointerCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).CommitText(ctx, req.(*CommitTextRequest))
+		return srv.(TouchInteractionControllerServiceServer).GetMaxPointerCount(ctx, req.(*GetMaxPointerCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteSurroundingTextRequest)
+func _TouchInteractionControllerService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).DeleteSurroundingText(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).GetState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_FullMethodName,
+		FullMethod: TouchInteractionControllerService_GetState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).DeleteSurroundingText(ctx, req.(*DeleteSurroundingTextRequest))
+		return srv.(TouchInteractionControllerServiceServer).GetState(ctx, req.(*GetStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCursorCapsModeRequest)
+func _TouchInteractionControllerService_PerformClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformClickRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).GetCursorCapsMode(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).PerformClick(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_FullMethodName,
+		FullMethod: TouchInteractionControllerService_PerformClick_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).GetCursorCapsMode(ctx, req.(*GetCursorCapsModeRequest))
+		return srv.(TouchInteractionControllerServiceServer).PerformClick(ctx, req.(*PerformClickRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodAccessibilityInputConnectionService_GetSurroundingText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSurroundingTextRequest)
+func _TouchInteractionControllerService_PerformLongClickAndStartDrag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformLongClickAndStartDragRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).GetSurroundingText(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).PerformLongClickAndStartDrag(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_GetSurroundingText_FullMethodName,
+		FullMethod: TouchInteractionControllerService_PerformLongClickAndStartDrag_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).GetSurroundingText(ctx, req.(*GetSurroundingTextRequest))
+		return srv.(TouchInteractionControllerServiceServer).PerformLongClickAndStartDrag(ctx, req.(*PerformLongClickAndStartDragRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PerformContextMenuActionRequest)
+func _TouchInteractionControllerService_RegisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).PerformContextMenuAction(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).RegisterCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_FullMethodName,
+		FullMethod: TouchInteractionControllerService_RegisterCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).PerformContextMenuAction(ctx, req.(*PerformContextMenuActionRequest))
+		return srv.(TouchInteractionControllerServiceServer).RegisterCallback(ctx, req.(*RegisterCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodAccessibilityInputConnectionService_PerformEditorAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PerformEditorActionRequest)
+func _TouchInteractionControllerService_RequestDelegating_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestDelegatingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).PerformEditorAction(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).RequestDelegating(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_PerformEditorAction_FullMethodName,
+		FullMethod: TouchInteractionControllerService_RequestDelegating_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).PerformEditorAction(ctx, req.(*PerformEditorActionRequest))
+		return srv.(TouchInteractionControllerServiceServer).RequestDelegating(ctx, req.(*RequestDelegatingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodAccessibilityInputConnectionService_SendKeyEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendKeyEventRequest)
+func _TouchInteractionControllerService_RequestDragging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestDraggingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).SendKeyEvent(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).RequestDragging(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_SendKeyEvent_FullMethodName,
+		FullMethod: TouchInteractionControllerService_RequestDragging_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).SendKeyEvent(ctx, req.(*SendKeyEventRequest))
+		return srv.(TouchInteractionControllerServiceServer).RequestDragging(ctx, req.(*RequestDraggingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodAccessibilityInputConnectionService_SetSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSelectionRequest)
+func _TouchInteractionControllerService_RequestTouchExploration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestTouchExplorationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).SetSelection(ctx, in)
+		return srv.(TouchInteractionControllerServiceServer).RequestTouchExploration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InputMethodAccessibilityInputConnectionService_SetSelection_FullMethodName,
+		FullMethod: TouchInteractionControllerService_RequestTouchExploration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodAccessibilityInputConnectionServiceServer).SetSelection(ctx, req.(*SetSelectionRequest))
+		return srv.(TouchInteractionControllerServiceServer).RequestTouchExploration(ctx, req.(*RequestTouchExplorationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// InputMethodAccessibilityInputConnectionService_ServiceDesc is the grpc.ServiceDesc for InputMethodAccessibilityInputConnectionService service.
+func _TouchInteractionControllerService_UnregisterAllCallbacks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterAllCallbacksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchInteractionControllerServiceServer).UnregisterAllCallbacks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchInteractionControllerService_UnregisterAllCallbacks_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchInteractionControllerServiceServer).UnregisterAllCallbacks(ctx, req.(*UnregisterAllCallbacksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TouchInteractionControllerService_UnregisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchInteractionControllerServiceServer).UnregisterCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchInteractionControllerService_UnregisterCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchInteractionControllerServiceServer).UnregisterCallback(ctx, req.(*UnregisterCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TouchInteractionControllerService_StateToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StateToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchInteractionControllerServiceServer).StateToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchInteractionControllerService_StateToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchInteractionControllerServiceServer).StateToString(ctx, req.(*StateToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TouchInteractionControllerService_ServiceDesc is the grpc.ServiceDesc for TouchInteractionControllerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InputMethodAccessibilityInputConnectionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibilityservice.InputMethodAccessibilityInputConnectionService",
-	HandlerType: (*InputMethodAccessibilityInputConnectionServiceServer)(nil),
+var TouchInteractionControllerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.TouchInteractionControllerService",
+	HandlerType: (*TouchInteractionControllerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "ClearMetaKeyStates",
-			Handler:    _InputMethodAccessibilityInputConnectionService_ClearMetaKeyStates_Handler,
+			MethodName: "GetDisplayId",
+			Handler:    _TouchInteractionControllerService_GetDisplayId_Handler,
 		},
 		{
-			MethodName: "CommitText",
-			Handler:    _InputMethodAccessibilityInputConnectionService_CommitText_Handler,
+			MethodName: "GetMaxPointerCount",
+			Handler:    _TouchInteractionControllerService_GetMaxPointerCount_Handler,
 		},
 		{
-			MethodName: "DeleteSurroundingText",
-			Handler:    _InputMethodAccessibilityInputConnectionService_DeleteSurroundingText_Handler,
+			MethodName: "GetState",
+			Handler:    _TouchInteractionControllerService_GetState_Handler,
 		},
 		{
-			MethodName: "GetCursorCapsMode",
-			Handler:    _InputMethodAccessibilityInputConnectionService_GetCursorCapsMode_Handler,
+			MethodName: "PerformClick",
+			Handler:    _TouchInteractionControllerService_PerformClick_Handler,
 		},
 		{
-			MethodName: "GetSurroundingText",
-			Handler:    _InputMethodAccessibilityInputConnectionService_GetSurroundingText_Handler,
+			MethodName: "PerformLongClickAndStartDrag",
+			Handler:    _TouchInteractionControllerService_PerformLongClickAndStartDrag_Handler,
 		},
 		{
-			MethodName: "PerformContextMenuAction",
-			Handler:    _InputMethodAccessibilityInputConnectionService_PerformContextMenuAction_Handler,
+			MethodName: "RegisterCallback",
+			Handler:    _TouchInteractionControllerService_RegisterCallback_Handler,
 		},
 		{
-			MethodName: "PerformEditorAction",
-			Handler:    _InputMethodAccessibilityInputConnectionService_PerformEditorAction_Handler,
+			MethodName: "RequestDelegating",
+			Handler:    _TouchInteractionControllerService_RequestDelegating_Handler,
 		},
 		{
-			MethodName: "SendKeyEvent",
-			Handler:    _InputMethodAccessibilityInputConnectionService_SendKeyEvent_Handler,
+			MethodName: "RequestDragging",
+			Handler:    _TouchInteractionControllerService_RequestDragging_Handler,
 		},
 		{
-			MethodName: "SetSelection",
-			Handler:    _InputMethodAccessibilityInputConnectionService_SetSelection_Handler,
+			MethodName: "RequestTouchExploration",
+			Handler:    _TouchInteractionControllerService_RequestTouchExploration_Handler,
+		},
+		{
+			MethodName: "UnregisterAllCallbacks",
+			Handler:    _TouchInteractionControllerService_UnregisterAllCallbacks_Handler,
+		},
+		{
+			MethodName: "UnregisterCallback",
+			Handler:    _TouchInteractionControllerService_UnregisterCallback_Handler,
+		},
+		{
+			MethodName: "StateToString",
+			Handler:    _TouchInteractionControllerService_StateToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibilityservice/accessibilityservice.proto",
+}
+
+const (
+	TouchInteractionControllerCallbackService_OnMotionEvent_FullMethodName  = "/accessibilityservice.TouchInteractionControllerCallbackService/OnMotionEvent"
+	TouchInteractionControllerCallbackService_OnStateChanged_FullMethodName = "/accessibilityservice.TouchInteractionControllerCallbackService/OnStateChanged"
+)
+
+// TouchInteractionControllerCallbackServiceClient is the client API for TouchInteractionControllerCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TouchInteractionControllerCallbackServiceClient interface {
+	OnMotionEvent(ctx context.Context, in *OnMotionEventRequest, opts ...grpc.CallOption) (*OnMotionEventResponse, error)
+	OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error)
+}
+
+type touchInteractionControllerCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTouchInteractionControllerCallbackServiceClient(cc grpc.ClientConnInterface) TouchInteractionControllerCallbackServiceClient {
+	return &touchInteractionControllerCallbackServiceClient{cc}
+}
+
+func (c *touchInteractionControllerCallbackServiceClient) OnMotionEvent(ctx context.Context, in *OnMotionEventRequest, opts ...grpc.CallOption) (*OnMotionEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMotionEventResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerCallbackService_OnMotionEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *touchInteractionControllerCallbackServiceClient) OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStateChangedResponse)
+	err := c.cc.Invoke(ctx, TouchInteractionControllerCallbackService_OnStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TouchInteractionControllerCallbackServiceServer is the server API for TouchInteractionControllerCallbackService service.
+// All implementations must embed UnimplementedTouchInteractionControllerCallbackServiceServer
+// for forward compatibility.
+type TouchInteractionControllerCallbackServiceServer interface {
+	OnMotionEvent(context.Context, *OnMotionEventRequest) (*OnMotionEventResponse, error)
+	OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error)
+	mustEmbedUnimplementedTouchInteractionControllerCallbackServiceServer()
+}
+
+// UnimplementedTouchInteractionControllerCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTouchInteractionControllerCallbackServiceServer struct{}
+
+func (UnimplementedTouchInteractionControllerCallbackServiceServer) OnMotionEvent(context.Context, *OnMotionEventRequest) (*OnMotionEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMotionEvent not implemented")
+}
+func (UnimplementedTouchInteractionControllerCallbackServiceServer) OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStateChanged not implemented")
+}
+func (UnimplementedTouchInteractionControllerCallbackServiceServer) mustEmbedUnimplementedTouchInteractionControllerCallbackServiceServer() {
+}
+func (UnimplementedTouchInteractionControllerCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTouchInteractionControllerCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TouchInteractionControllerCallbackServiceServer will
+// result in compilation errors.
+type UnsafeTouchInteractionControllerCallbackServiceServer interface {
+	mustEmbedUnimplementedTouchInteractionControllerCallbackServiceServer()
+}
+
+func RegisterTouchInteractionControllerCallbackServiceServer(s grpc.ServiceRegistrar, srv TouchInteractionControllerCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedTouchInteractionControllerCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TouchInteractionControllerCallbackService_ServiceDesc, srv)
+}
+
+func _TouchInteractionControllerCallbackService_OnMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMotionEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchInteractionControllerCallbackServiceServer).OnMotionEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchInteractionControllerCallbackService_OnMotionEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchInteractionControllerCallbackServiceServer).OnMotionEvent(ctx, req.(*OnMotionEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TouchInteractionControllerCallbackService_OnStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchInteractionControllerCallbackServiceServer).OnStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchInteractionControllerCallbackService_OnStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchInteractionControllerCallbackServiceServer).OnStateChanged(ctx, req.(*OnStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TouchInteractionControllerCallbackService_ServiceDesc is the grpc.ServiceDesc for TouchInteractionControllerCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TouchInteractionControllerCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibilityservice.TouchInteractionControllerCallbackService",
+	HandlerType: (*TouchInteractionControllerCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnMotionEvent",
+			Handler:    _TouchInteractionControllerCallbackService_OnMotionEvent_Handler,
+		},
+		{
+			MethodName: "OnStateChanged",
+			Handler:    _TouchInteractionControllerCallbackService_OnStateChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -21,178 +21,254 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Ipv6AddrIdentificationService_NewIpv6AddrIdentification_FullMethodName = "/ike.Ipv6AddrIdentificationService/NewIpv6AddrIdentification"
-	Ipv6AddrIdentificationService_Equals_FullMethodName                    = "/ike.Ipv6AddrIdentificationService/Equals"
-	Ipv6AddrIdentificationService_HashCode_FullMethodName                  = "/ike.Ipv6AddrIdentificationService/HashCode"
+	SessionConfigurationService_GetEapInfo_FullMethodName                  = "/ike.SessionConfigurationService/GetEapInfo"
+	SessionConfigurationService_GetIkeSessionConnectionInfo_FullMethodName = "/ike.SessionConfigurationService/GetIkeSessionConnectionInfo"
+	SessionConfigurationService_GetRemoteApplicationVersion_FullMethodName = "/ike.SessionConfigurationService/GetRemoteApplicationVersion"
+	SessionConfigurationService_GetRemoteVendorIds_FullMethodName          = "/ike.SessionConfigurationService/GetRemoteVendorIds"
+	SessionConfigurationService_IsIkeExtensionEnabled_FullMethodName       = "/ike.SessionConfigurationService/IsIkeExtensionEnabled"
 )
 
-// Ipv6AddrIdentificationServiceClient is the client API for Ipv6AddrIdentificationService service.
+// SessionConfigurationServiceClient is the client API for SessionConfigurationService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type Ipv6AddrIdentificationServiceClient interface {
-	NewIpv6AddrIdentification(ctx context.Context, in *NewIpv6AddrIdentificationRequest, opts ...grpc.CallOption) (*NewIpv6AddrIdentificationResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+type SessionConfigurationServiceClient interface {
+	GetEapInfo(ctx context.Context, in *GetEapInfoRequest, opts ...grpc.CallOption) (*GetEapInfoResponse, error)
+	GetIkeSessionConnectionInfo(ctx context.Context, in *GetIkeSessionConnectionInfoRequest, opts ...grpc.CallOption) (*GetIkeSessionConnectionInfoResponse, error)
+	GetRemoteApplicationVersion(ctx context.Context, in *GetRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*GetRemoteApplicationVersionResponse, error)
+	GetRemoteVendorIds(ctx context.Context, in *GetRemoteVendorIdsRequest, opts ...grpc.CallOption) (*GetRemoteVendorIdsResponse, error)
+	IsIkeExtensionEnabled(ctx context.Context, in *IsIkeExtensionEnabledRequest, opts ...grpc.CallOption) (*IsIkeExtensionEnabledResponse, error)
 }
 
-type ipv6AddrIdentificationServiceClient struct {
+type sessionConfigurationServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewIpv6AddrIdentificationServiceClient(cc grpc.ClientConnInterface) Ipv6AddrIdentificationServiceClient {
-	return &ipv6AddrIdentificationServiceClient{cc}
+func NewSessionConfigurationServiceClient(cc grpc.ClientConnInterface) SessionConfigurationServiceClient {
+	return &sessionConfigurationServiceClient{cc}
 }
 
-func (c *ipv6AddrIdentificationServiceClient) NewIpv6AddrIdentification(ctx context.Context, in *NewIpv6AddrIdentificationRequest, opts ...grpc.CallOption) (*NewIpv6AddrIdentificationResponse, error) {
+func (c *sessionConfigurationServiceClient) GetEapInfo(ctx context.Context, in *GetEapInfoRequest, opts ...grpc.CallOption) (*GetEapInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewIpv6AddrIdentificationResponse)
-	err := c.cc.Invoke(ctx, Ipv6AddrIdentificationService_NewIpv6AddrIdentification_FullMethodName, in, out, cOpts...)
+	out := new(GetEapInfoResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationService_GetEapInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ipv6AddrIdentificationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *sessionConfigurationServiceClient) GetIkeSessionConnectionInfo(ctx context.Context, in *GetIkeSessionConnectionInfoRequest, opts ...grpc.CallOption) (*GetIkeSessionConnectionInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, Ipv6AddrIdentificationService_Equals_FullMethodName, in, out, cOpts...)
+	out := new(GetIkeSessionConnectionInfoResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationService_GetIkeSessionConnectionInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ipv6AddrIdentificationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *sessionConfigurationServiceClient) GetRemoteApplicationVersion(ctx context.Context, in *GetRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*GetRemoteApplicationVersionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, Ipv6AddrIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
+	out := new(GetRemoteApplicationVersionResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationService_GetRemoteApplicationVersion_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Ipv6AddrIdentificationServiceServer is the server API for Ipv6AddrIdentificationService service.
-// All implementations must embed UnimplementedIpv6AddrIdentificationServiceServer
+func (c *sessionConfigurationServiceClient) GetRemoteVendorIds(ctx context.Context, in *GetRemoteVendorIdsRequest, opts ...grpc.CallOption) (*GetRemoteVendorIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRemoteVendorIdsResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationService_GetRemoteVendorIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionConfigurationServiceClient) IsIkeExtensionEnabled(ctx context.Context, in *IsIkeExtensionEnabledRequest, opts ...grpc.CallOption) (*IsIkeExtensionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsIkeExtensionEnabledResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationService_IsIkeExtensionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SessionConfigurationServiceServer is the server API for SessionConfigurationService service.
+// All implementations must embed UnimplementedSessionConfigurationServiceServer
 // for forward compatibility.
-type Ipv6AddrIdentificationServiceServer interface {
-	NewIpv6AddrIdentification(context.Context, *NewIpv6AddrIdentificationRequest) (*NewIpv6AddrIdentificationResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedIpv6AddrIdentificationServiceServer()
+type SessionConfigurationServiceServer interface {
+	GetEapInfo(context.Context, *GetEapInfoRequest) (*GetEapInfoResponse, error)
+	GetIkeSessionConnectionInfo(context.Context, *GetIkeSessionConnectionInfoRequest) (*GetIkeSessionConnectionInfoResponse, error)
+	GetRemoteApplicationVersion(context.Context, *GetRemoteApplicationVersionRequest) (*GetRemoteApplicationVersionResponse, error)
+	GetRemoteVendorIds(context.Context, *GetRemoteVendorIdsRequest) (*GetRemoteVendorIdsResponse, error)
+	IsIkeExtensionEnabled(context.Context, *IsIkeExtensionEnabledRequest) (*IsIkeExtensionEnabledResponse, error)
+	mustEmbedUnimplementedSessionConfigurationServiceServer()
 }
 
-// UnimplementedIpv6AddrIdentificationServiceServer must be embedded to have
+// UnimplementedSessionConfigurationServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedIpv6AddrIdentificationServiceServer struct{}
+type UnimplementedSessionConfigurationServiceServer struct{}
 
-func (UnimplementedIpv6AddrIdentificationServiceServer) NewIpv6AddrIdentification(context.Context, *NewIpv6AddrIdentificationRequest) (*NewIpv6AddrIdentificationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewIpv6AddrIdentification not implemented")
+func (UnimplementedSessionConfigurationServiceServer) GetEapInfo(context.Context, *GetEapInfoRequest) (*GetEapInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEapInfo not implemented")
 }
-func (UnimplementedIpv6AddrIdentificationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedSessionConfigurationServiceServer) GetIkeSessionConnectionInfo(context.Context, *GetIkeSessionConnectionInfoRequest) (*GetIkeSessionConnectionInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIkeSessionConnectionInfo not implemented")
 }
-func (UnimplementedIpv6AddrIdentificationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+func (UnimplementedSessionConfigurationServiceServer) GetRemoteApplicationVersion(context.Context, *GetRemoteApplicationVersionRequest) (*GetRemoteApplicationVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRemoteApplicationVersion not implemented")
 }
-func (UnimplementedIpv6AddrIdentificationServiceServer) mustEmbedUnimplementedIpv6AddrIdentificationServiceServer() {
+func (UnimplementedSessionConfigurationServiceServer) GetRemoteVendorIds(context.Context, *GetRemoteVendorIdsRequest) (*GetRemoteVendorIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRemoteVendorIds not implemented")
 }
-func (UnimplementedIpv6AddrIdentificationServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSessionConfigurationServiceServer) IsIkeExtensionEnabled(context.Context, *IsIkeExtensionEnabledRequest) (*IsIkeExtensionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsIkeExtensionEnabled not implemented")
+}
+func (UnimplementedSessionConfigurationServiceServer) mustEmbedUnimplementedSessionConfigurationServiceServer() {
+}
+func (UnimplementedSessionConfigurationServiceServer) testEmbeddedByValue() {}
 
-// UnsafeIpv6AddrIdentificationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to Ipv6AddrIdentificationServiceServer will
+// UnsafeSessionConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionConfigurationServiceServer will
 // result in compilation errors.
-type UnsafeIpv6AddrIdentificationServiceServer interface {
-	mustEmbedUnimplementedIpv6AddrIdentificationServiceServer()
+type UnsafeSessionConfigurationServiceServer interface {
+	mustEmbedUnimplementedSessionConfigurationServiceServer()
 }
 
-func RegisterIpv6AddrIdentificationServiceServer(s grpc.ServiceRegistrar, srv Ipv6AddrIdentificationServiceServer) {
-	// If the following call panics, it indicates UnimplementedIpv6AddrIdentificationServiceServer was
+func RegisterSessionConfigurationServiceServer(s grpc.ServiceRegistrar, srv SessionConfigurationServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionConfigurationServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&Ipv6AddrIdentificationService_ServiceDesc, srv)
+	s.RegisterService(&SessionConfigurationService_ServiceDesc, srv)
 }
 
-func _Ipv6AddrIdentificationService_NewIpv6AddrIdentification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewIpv6AddrIdentificationRequest)
+func _SessionConfigurationService_GetEapInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEapInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(Ipv6AddrIdentificationServiceServer).NewIpv6AddrIdentification(ctx, in)
+		return srv.(SessionConfigurationServiceServer).GetEapInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Ipv6AddrIdentificationService_NewIpv6AddrIdentification_FullMethodName,
+		FullMethod: SessionConfigurationService_GetEapInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Ipv6AddrIdentificationServiceServer).NewIpv6AddrIdentification(ctx, req.(*NewIpv6AddrIdentificationRequest))
+		return srv.(SessionConfigurationServiceServer).GetEapInfo(ctx, req.(*GetEapInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Ipv6AddrIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+func _SessionConfigurationService_GetIkeSessionConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIkeSessionConnectionInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(Ipv6AddrIdentificationServiceServer).Equals(ctx, in)
+		return srv.(SessionConfigurationServiceServer).GetIkeSessionConnectionInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Ipv6AddrIdentificationService_Equals_FullMethodName,
+		FullMethod: SessionConfigurationService_GetIkeSessionConnectionInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Ipv6AddrIdentificationServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(SessionConfigurationServiceServer).GetIkeSessionConnectionInfo(ctx, req.(*GetIkeSessionConnectionInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Ipv6AddrIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+func _SessionConfigurationService_GetRemoteApplicationVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRemoteApplicationVersionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(Ipv6AddrIdentificationServiceServer).HashCode(ctx, in)
+		return srv.(SessionConfigurationServiceServer).GetRemoteApplicationVersion(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Ipv6AddrIdentificationService_HashCode_FullMethodName,
+		FullMethod: SessionConfigurationService_GetRemoteApplicationVersion_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Ipv6AddrIdentificationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(SessionConfigurationServiceServer).GetRemoteApplicationVersion(ctx, req.(*GetRemoteApplicationVersionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Ipv6AddrIdentificationService_ServiceDesc is the grpc.ServiceDesc for Ipv6AddrIdentificationService service.
+func _SessionConfigurationService_GetRemoteVendorIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRemoteVendorIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionConfigurationServiceServer).GetRemoteVendorIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionConfigurationService_GetRemoteVendorIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionConfigurationServiceServer).GetRemoteVendorIds(ctx, req.(*GetRemoteVendorIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionConfigurationService_IsIkeExtensionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsIkeExtensionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionConfigurationServiceServer).IsIkeExtensionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionConfigurationService_IsIkeExtensionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionConfigurationServiceServer).IsIkeExtensionEnabled(ctx, req.(*IsIkeExtensionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SessionConfigurationService_ServiceDesc is the grpc.ServiceDesc for SessionConfigurationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Ipv6AddrIdentificationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.Ipv6AddrIdentificationService",
-	HandlerType: (*Ipv6AddrIdentificationServiceServer)(nil),
+var SessionConfigurationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.SessionConfigurationService",
+	HandlerType: (*SessionConfigurationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewIpv6AddrIdentification",
-			Handler:    _Ipv6AddrIdentificationService_NewIpv6AddrIdentification_Handler,
+			MethodName: "GetEapInfo",
+			Handler:    _SessionConfigurationService_GetEapInfo_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _Ipv6AddrIdentificationService_Equals_Handler,
+			MethodName: "GetIkeSessionConnectionInfo",
+			Handler:    _SessionConfigurationService_GetIkeSessionConnectionInfo_Handler,
 		},
 		{
-			MethodName: "HashCode",
-			Handler:    _Ipv6AddrIdentificationService_HashCode_Handler,
+			MethodName: "GetRemoteApplicationVersion",
+			Handler:    _SessionConfigurationService_GetRemoteApplicationVersion_Handler,
+		},
+		{
+			MethodName: "GetRemoteVendorIds",
+			Handler:    _SessionConfigurationService_GetRemoteVendorIds_Handler,
+		},
+		{
+			MethodName: "IsIkeExtensionEnabled",
+			Handler:    _SessionConfigurationService_IsIkeExtensionEnabled_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -200,839 +276,368 @@ var Ipv6AddrIdentificationService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SessionService_NewSession_FullMethodName        = "/ike.SessionService/NewSession"
-	SessionService_Close_FullMethodName             = "/ike.SessionService/Close"
-	SessionService_CloseChildSession_FullMethodName = "/ike.SessionService/CloseChildSession"
-	SessionService_Dump_FullMethodName              = "/ike.SessionService/Dump"
-	SessionService_Finalize_FullMethodName          = "/ike.SessionService/Finalize"
-	SessionService_Kill_FullMethodName              = "/ike.SessionService/Kill"
-	SessionService_OpenChildSession_FullMethodName  = "/ike.SessionService/OpenChildSession"
+	SessionConfigurationBuilderService_AddIkeExtension_FullMethodName               = "/ike.SessionConfigurationBuilderService/AddIkeExtension"
+	SessionConfigurationBuilderService_AddRemoteVendorId_FullMethodName             = "/ike.SessionConfigurationBuilderService/AddRemoteVendorId"
+	SessionConfigurationBuilderService_Build_FullMethodName                         = "/ike.SessionConfigurationBuilderService/Build"
+	SessionConfigurationBuilderService_ClearIkeExtensions_FullMethodName            = "/ike.SessionConfigurationBuilderService/ClearIkeExtensions"
+	SessionConfigurationBuilderService_ClearRemoteApplicationVersion_FullMethodName = "/ike.SessionConfigurationBuilderService/ClearRemoteApplicationVersion"
+	SessionConfigurationBuilderService_ClearRemoteVendorIds_FullMethodName          = "/ike.SessionConfigurationBuilderService/ClearRemoteVendorIds"
+	SessionConfigurationBuilderService_SetEapInfo_FullMethodName                    = "/ike.SessionConfigurationBuilderService/SetEapInfo"
+	SessionConfigurationBuilderService_SetRemoteApplicationVersion_FullMethodName   = "/ike.SessionConfigurationBuilderService/SetRemoteApplicationVersion"
 )
 
-// SessionServiceClient is the client API for SessionService service.
+// SessionConfigurationBuilderServiceClient is the client API for SessionConfigurationBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionServiceClient interface {
-	NewSession(ctx context.Context, in *NewSessionRequest, opts ...grpc.CallOption) (*NewSessionResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	CloseChildSession(ctx context.Context, in *CloseChildSessionRequest, opts ...grpc.CallOption) (*CloseChildSessionResponse, error)
-	Dump(ctx context.Context, in *DumpRequest, opts ...grpc.CallOption) (*DumpResponse, error)
-	Finalize(ctx context.Context, in *FinalizeRequest, opts ...grpc.CallOption) (*FinalizeResponse, error)
-	Kill(ctx context.Context, in *KillRequest, opts ...grpc.CallOption) (*KillResponse, error)
-	OpenChildSession(ctx context.Context, in *OpenChildSessionRequest, opts ...grpc.CallOption) (*OpenChildSessionResponse, error)
-}
-
-type sessionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionServiceClient(cc grpc.ClientConnInterface) SessionServiceClient {
-	return &sessionServiceClient{cc}
-}
-
-func (c *sessionServiceClient) NewSession(ctx context.Context, in *NewSessionRequest, opts ...grpc.CallOption) (*NewSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSessionResponse)
-	err := c.cc.Invoke(ctx, SessionService_NewSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, SessionService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) CloseChildSession(ctx context.Context, in *CloseChildSessionRequest, opts ...grpc.CallOption) (*CloseChildSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseChildSessionResponse)
-	err := c.cc.Invoke(ctx, SessionService_CloseChildSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Dump(ctx context.Context, in *DumpRequest, opts ...grpc.CallOption) (*DumpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DumpResponse)
-	err := c.cc.Invoke(ctx, SessionService_Dump_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Finalize(ctx context.Context, in *FinalizeRequest, opts ...grpc.CallOption) (*FinalizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FinalizeResponse)
-	err := c.cc.Invoke(ctx, SessionService_Finalize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Kill(ctx context.Context, in *KillRequest, opts ...grpc.CallOption) (*KillResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(KillResponse)
-	err := c.cc.Invoke(ctx, SessionService_Kill_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) OpenChildSession(ctx context.Context, in *OpenChildSessionRequest, opts ...grpc.CallOption) (*OpenChildSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenChildSessionResponse)
-	err := c.cc.Invoke(ctx, SessionService_OpenChildSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionServiceServer is the server API for SessionService service.
-// All implementations must embed UnimplementedSessionServiceServer
-// for forward compatibility.
-type SessionServiceServer interface {
-	NewSession(context.Context, *NewSessionRequest) (*NewSessionResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	CloseChildSession(context.Context, *CloseChildSessionRequest) (*CloseChildSessionResponse, error)
-	Dump(context.Context, *DumpRequest) (*DumpResponse, error)
-	Finalize(context.Context, *FinalizeRequest) (*FinalizeResponse, error)
-	Kill(context.Context, *KillRequest) (*KillResponse, error)
-	OpenChildSession(context.Context, *OpenChildSessionRequest) (*OpenChildSessionResponse, error)
-	mustEmbedUnimplementedSessionServiceServer()
-}
-
-// UnimplementedSessionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionServiceServer struct{}
-
-func (UnimplementedSessionServiceServer) NewSession(context.Context, *NewSessionRequest) (*NewSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSession not implemented")
-}
-func (UnimplementedSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedSessionServiceServer) CloseChildSession(context.Context, *CloseChildSessionRequest) (*CloseChildSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CloseChildSession not implemented")
-}
-func (UnimplementedSessionServiceServer) Dump(context.Context, *DumpRequest) (*DumpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Dump not implemented")
-}
-func (UnimplementedSessionServiceServer) Finalize(context.Context, *FinalizeRequest) (*FinalizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Finalize not implemented")
-}
-func (UnimplementedSessionServiceServer) Kill(context.Context, *KillRequest) (*KillResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Kill not implemented")
-}
-func (UnimplementedSessionServiceServer) OpenChildSession(context.Context, *OpenChildSessionRequest) (*OpenChildSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenChildSession not implemented")
-}
-func (UnimplementedSessionServiceServer) mustEmbedUnimplementedSessionServiceServer() {}
-func (UnimplementedSessionServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeSessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionServiceServer will
-// result in compilation errors.
-type UnsafeSessionServiceServer interface {
-	mustEmbedUnimplementedSessionServiceServer()
-}
-
-func RegisterSessionServiceServer(s grpc.ServiceRegistrar, srv SessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionService_ServiceDesc, srv)
-}
-
-func _SessionService_NewSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).NewSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_NewSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).NewSession(ctx, req.(*NewSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_CloseChildSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseChildSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).CloseChildSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_CloseChildSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).CloseChildSession(ctx, req.(*CloseChildSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Dump_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DumpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Dump(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Dump_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Dump(ctx, req.(*DumpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Finalize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FinalizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Finalize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Finalize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Finalize(ctx, req.(*FinalizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Kill_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KillRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Kill(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Kill_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Kill(ctx, req.(*KillRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_OpenChildSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenChildSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).OpenChildSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_OpenChildSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).OpenChildSession(ctx, req.(*OpenChildSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionService_ServiceDesc is the grpc.ServiceDesc for SessionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.SessionService",
-	HandlerType: (*SessionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSession",
-			Handler:    _SessionService_NewSession_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _SessionService_Close_Handler,
-		},
-		{
-			MethodName: "CloseChildSession",
-			Handler:    _SessionService_CloseChildSession_Handler,
-		},
-		{
-			MethodName: "Dump",
-			Handler:    _SessionService_Dump_Handler,
-		},
-		{
-			MethodName: "Finalize",
-			Handler:    _SessionService_Finalize_Handler,
-		},
-		{
-			MethodName: "Kill",
-			Handler:    _SessionService_Kill_Handler,
-		},
-		{
-			MethodName: "OpenChildSession",
-			Handler:    _SessionService_OpenChildSession_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	TunnelConnectionParamsService_NewTunnelConnectionParams_FullMethodName       = "/ike.TunnelConnectionParamsService/NewTunnelConnectionParams"
-	TunnelConnectionParamsService_Equals_FullMethodName                          = "/ike.TunnelConnectionParamsService/Equals"
-	TunnelConnectionParamsService_GetIkeSessionParams_FullMethodName             = "/ike.TunnelConnectionParamsService/GetIkeSessionParams"
-	TunnelConnectionParamsService_GetTunnelModeChildSessionParams_FullMethodName = "/ike.TunnelConnectionParamsService/GetTunnelModeChildSessionParams"
-	TunnelConnectionParamsService_HashCode_FullMethodName                        = "/ike.TunnelConnectionParamsService/HashCode"
-)
-
-// TunnelConnectionParamsServiceClient is the client API for TunnelConnectionParamsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TunnelConnectionParamsServiceClient interface {
-	NewTunnelConnectionParams(ctx context.Context, in *NewTunnelConnectionParamsRequest, opts ...grpc.CallOption) (*NewTunnelConnectionParamsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetIkeSessionParams(ctx context.Context, in *GetIkeSessionParamsRequest, opts ...grpc.CallOption) (*GetIkeSessionParamsResponse, error)
-	GetTunnelModeChildSessionParams(ctx context.Context, in *GetTunnelModeChildSessionParamsRequest, opts ...grpc.CallOption) (*GetTunnelModeChildSessionParamsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type tunnelConnectionParamsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTunnelConnectionParamsServiceClient(cc grpc.ClientConnInterface) TunnelConnectionParamsServiceClient {
-	return &tunnelConnectionParamsServiceClient{cc}
-}
-
-func (c *tunnelConnectionParamsServiceClient) NewTunnelConnectionParams(ctx context.Context, in *NewTunnelConnectionParamsRequest, opts ...grpc.CallOption) (*NewTunnelConnectionParamsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTunnelConnectionParamsResponse)
-	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_NewTunnelConnectionParams_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tunnelConnectionParamsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tunnelConnectionParamsServiceClient) GetIkeSessionParams(ctx context.Context, in *GetIkeSessionParamsRequest, opts ...grpc.CallOption) (*GetIkeSessionParamsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIkeSessionParamsResponse)
-	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_GetIkeSessionParams_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tunnelConnectionParamsServiceClient) GetTunnelModeChildSessionParams(ctx context.Context, in *GetTunnelModeChildSessionParamsRequest, opts ...grpc.CallOption) (*GetTunnelModeChildSessionParamsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTunnelModeChildSessionParamsResponse)
-	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_GetTunnelModeChildSessionParams_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tunnelConnectionParamsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TunnelConnectionParamsServiceServer is the server API for TunnelConnectionParamsService service.
-// All implementations must embed UnimplementedTunnelConnectionParamsServiceServer
-// for forward compatibility.
-type TunnelConnectionParamsServiceServer interface {
-	NewTunnelConnectionParams(context.Context, *NewTunnelConnectionParamsRequest) (*NewTunnelConnectionParamsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetIkeSessionParams(context.Context, *GetIkeSessionParamsRequest) (*GetIkeSessionParamsResponse, error)
-	GetTunnelModeChildSessionParams(context.Context, *GetTunnelModeChildSessionParamsRequest) (*GetTunnelModeChildSessionParamsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedTunnelConnectionParamsServiceServer()
-}
-
-// UnimplementedTunnelConnectionParamsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTunnelConnectionParamsServiceServer struct{}
-
-func (UnimplementedTunnelConnectionParamsServiceServer) NewTunnelConnectionParams(context.Context, *NewTunnelConnectionParamsRequest) (*NewTunnelConnectionParamsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTunnelConnectionParams not implemented")
-}
-func (UnimplementedTunnelConnectionParamsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedTunnelConnectionParamsServiceServer) GetIkeSessionParams(context.Context, *GetIkeSessionParamsRequest) (*GetIkeSessionParamsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIkeSessionParams not implemented")
-}
-func (UnimplementedTunnelConnectionParamsServiceServer) GetTunnelModeChildSessionParams(context.Context, *GetTunnelModeChildSessionParamsRequest) (*GetTunnelModeChildSessionParamsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTunnelModeChildSessionParams not implemented")
-}
-func (UnimplementedTunnelConnectionParamsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedTunnelConnectionParamsServiceServer) mustEmbedUnimplementedTunnelConnectionParamsServiceServer() {
-}
-func (UnimplementedTunnelConnectionParamsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTunnelConnectionParamsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TunnelConnectionParamsServiceServer will
-// result in compilation errors.
-type UnsafeTunnelConnectionParamsServiceServer interface {
-	mustEmbedUnimplementedTunnelConnectionParamsServiceServer()
-}
-
-func RegisterTunnelConnectionParamsServiceServer(s grpc.ServiceRegistrar, srv TunnelConnectionParamsServiceServer) {
-	// If the following call panics, it indicates UnimplementedTunnelConnectionParamsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TunnelConnectionParamsService_ServiceDesc, srv)
-}
-
-func _TunnelConnectionParamsService_NewTunnelConnectionParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTunnelConnectionParamsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TunnelConnectionParamsServiceServer).NewTunnelConnectionParams(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TunnelConnectionParamsService_NewTunnelConnectionParams_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TunnelConnectionParamsServiceServer).NewTunnelConnectionParams(ctx, req.(*NewTunnelConnectionParamsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TunnelConnectionParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TunnelConnectionParamsServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TunnelConnectionParamsService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TunnelConnectionParamsServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TunnelConnectionParamsService_GetIkeSessionParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIkeSessionParamsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TunnelConnectionParamsServiceServer).GetIkeSessionParams(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TunnelConnectionParamsService_GetIkeSessionParams_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TunnelConnectionParamsServiceServer).GetIkeSessionParams(ctx, req.(*GetIkeSessionParamsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TunnelConnectionParamsService_GetTunnelModeChildSessionParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTunnelModeChildSessionParamsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TunnelConnectionParamsServiceServer).GetTunnelModeChildSessionParams(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TunnelConnectionParamsService_GetTunnelModeChildSessionParams_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TunnelConnectionParamsServiceServer).GetTunnelModeChildSessionParams(ctx, req.(*GetTunnelModeChildSessionParamsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TunnelConnectionParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TunnelConnectionParamsServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TunnelConnectionParamsService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TunnelConnectionParamsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TunnelConnectionParamsService_ServiceDesc is the grpc.ServiceDesc for TunnelConnectionParamsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TunnelConnectionParamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.TunnelConnectionParamsService",
-	HandlerType: (*TunnelConnectionParamsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewTunnelConnectionParams",
-			Handler:    _TunnelConnectionParamsService_NewTunnelConnectionParams_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _TunnelConnectionParamsService_Equals_Handler,
-		},
-		{
-			MethodName: "GetIkeSessionParams",
-			Handler:    _TunnelConnectionParamsService_GetIkeSessionParams_Handler,
-		},
-		{
-			MethodName: "GetTunnelModeChildSessionParams",
-			Handler:    _TunnelConnectionParamsService_GetTunnelModeChildSessionParams_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _TunnelConnectionParamsService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	TransportModeChildSessionParamsBuilderService_AddChildSaProposal_FullMethodName          = "/ike.TransportModeChildSessionParamsBuilderService/AddChildSaProposal"
-	TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_FullMethodName  = "/ike.TransportModeChildSessionParamsBuilderService/AddInboundTrafficSelectors"
-	TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_FullMethodName = "/ike.TransportModeChildSessionParamsBuilderService/AddOutboundTrafficSelectors"
-	TransportModeChildSessionParamsBuilderService_Build_FullMethodName                       = "/ike.TransportModeChildSessionParamsBuilderService/Build"
-	TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_FullMethodName          = "/ike.TransportModeChildSessionParamsBuilderService/SetLifetimeSeconds"
-)
-
-// TransportModeChildSessionParamsBuilderServiceClient is the client API for TransportModeChildSessionParamsBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TransportModeChildSessionParamsBuilderServiceClient interface {
-	AddChildSaProposal(ctx context.Context, in *AddChildSaProposalRequest, opts ...grpc.CallOption) (*AddChildSaProposalResponse, error)
-	AddInboundTrafficSelectors(ctx context.Context, in *AddInboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*AddInboundTrafficSelectorsResponse, error)
-	AddOutboundTrafficSelectors(ctx context.Context, in *AddOutboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*AddOutboundTrafficSelectorsResponse, error)
+type SessionConfigurationBuilderServiceClient interface {
+	AddIkeExtension(ctx context.Context, in *AddIkeExtensionRequest, opts ...grpc.CallOption) (*AddIkeExtensionResponse, error)
+	AddRemoteVendorId(ctx context.Context, in *AddRemoteVendorIdRequest, opts ...grpc.CallOption) (*AddRemoteVendorIdResponse, error)
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetLifetimeSeconds(ctx context.Context, in *SetLifetimeSecondsRequest, opts ...grpc.CallOption) (*SetLifetimeSecondsResponse, error)
+	ClearIkeExtensions(ctx context.Context, in *ClearIkeExtensionsRequest, opts ...grpc.CallOption) (*ClearIkeExtensionsResponse, error)
+	ClearRemoteApplicationVersion(ctx context.Context, in *ClearRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*ClearRemoteApplicationVersionResponse, error)
+	ClearRemoteVendorIds(ctx context.Context, in *ClearRemoteVendorIdsRequest, opts ...grpc.CallOption) (*ClearRemoteVendorIdsResponse, error)
+	SetEapInfo(ctx context.Context, in *SetEapInfoRequest, opts ...grpc.CallOption) (*SetEapInfoResponse, error)
+	SetRemoteApplicationVersion(ctx context.Context, in *SetRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*SetRemoteApplicationVersionResponse, error)
 }
 
-type transportModeChildSessionParamsBuilderServiceClient struct {
+type sessionConfigurationBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTransportModeChildSessionParamsBuilderServiceClient(cc grpc.ClientConnInterface) TransportModeChildSessionParamsBuilderServiceClient {
-	return &transportModeChildSessionParamsBuilderServiceClient{cc}
+func NewSessionConfigurationBuilderServiceClient(cc grpc.ClientConnInterface) SessionConfigurationBuilderServiceClient {
+	return &sessionConfigurationBuilderServiceClient{cc}
 }
 
-func (c *transportModeChildSessionParamsBuilderServiceClient) AddChildSaProposal(ctx context.Context, in *AddChildSaProposalRequest, opts ...grpc.CallOption) (*AddChildSaProposalResponse, error) {
+func (c *sessionConfigurationBuilderServiceClient) AddIkeExtension(ctx context.Context, in *AddIkeExtensionRequest, opts ...grpc.CallOption) (*AddIkeExtensionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddChildSaProposalResponse)
-	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_AddChildSaProposal_FullMethodName, in, out, cOpts...)
+	out := new(AddIkeExtensionResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_AddIkeExtension_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *transportModeChildSessionParamsBuilderServiceClient) AddInboundTrafficSelectors(ctx context.Context, in *AddInboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*AddInboundTrafficSelectorsResponse, error) {
+func (c *sessionConfigurationBuilderServiceClient) AddRemoteVendorId(ctx context.Context, in *AddRemoteVendorIdRequest, opts ...grpc.CallOption) (*AddRemoteVendorIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddInboundTrafficSelectorsResponse)
-	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_FullMethodName, in, out, cOpts...)
+	out := new(AddRemoteVendorIdResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_AddRemoteVendorId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *transportModeChildSessionParamsBuilderServiceClient) AddOutboundTrafficSelectors(ctx context.Context, in *AddOutboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*AddOutboundTrafficSelectorsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddOutboundTrafficSelectorsResponse)
-	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *transportModeChildSessionParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *sessionConfigurationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *transportModeChildSessionParamsBuilderServiceClient) SetLifetimeSeconds(ctx context.Context, in *SetLifetimeSecondsRequest, opts ...grpc.CallOption) (*SetLifetimeSecondsResponse, error) {
+func (c *sessionConfigurationBuilderServiceClient) ClearIkeExtensions(ctx context.Context, in *ClearIkeExtensionsRequest, opts ...grpc.CallOption) (*ClearIkeExtensionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLifetimeSecondsResponse)
-	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_FullMethodName, in, out, cOpts...)
+	out := new(ClearIkeExtensionsResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_ClearIkeExtensions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// TransportModeChildSessionParamsBuilderServiceServer is the server API for TransportModeChildSessionParamsBuilderService service.
-// All implementations must embed UnimplementedTransportModeChildSessionParamsBuilderServiceServer
-// for forward compatibility.
-type TransportModeChildSessionParamsBuilderServiceServer interface {
-	AddChildSaProposal(context.Context, *AddChildSaProposalRequest) (*AddChildSaProposalResponse, error)
-	AddInboundTrafficSelectors(context.Context, *AddInboundTrafficSelectorsRequest) (*AddInboundTrafficSelectorsResponse, error)
-	AddOutboundTrafficSelectors(context.Context, *AddOutboundTrafficSelectorsRequest) (*AddOutboundTrafficSelectorsResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetLifetimeSeconds(context.Context, *SetLifetimeSecondsRequest) (*SetLifetimeSecondsResponse, error)
-	mustEmbedUnimplementedTransportModeChildSessionParamsBuilderServiceServer()
+func (c *sessionConfigurationBuilderServiceClient) ClearRemoteApplicationVersion(ctx context.Context, in *ClearRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*ClearRemoteApplicationVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearRemoteApplicationVersionResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_ClearRemoteApplicationVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedTransportModeChildSessionParamsBuilderServiceServer must be embedded to have
+func (c *sessionConfigurationBuilderServiceClient) ClearRemoteVendorIds(ctx context.Context, in *ClearRemoteVendorIdsRequest, opts ...grpc.CallOption) (*ClearRemoteVendorIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearRemoteVendorIdsResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_ClearRemoteVendorIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionConfigurationBuilderServiceClient) SetEapInfo(ctx context.Context, in *SetEapInfoRequest, opts ...grpc.CallOption) (*SetEapInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEapInfoResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_SetEapInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionConfigurationBuilderServiceClient) SetRemoteApplicationVersion(ctx context.Context, in *SetRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*SetRemoteApplicationVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRemoteApplicationVersionResponse)
+	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_SetRemoteApplicationVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SessionConfigurationBuilderServiceServer is the server API for SessionConfigurationBuilderService service.
+// All implementations must embed UnimplementedSessionConfigurationBuilderServiceServer
+// for forward compatibility.
+type SessionConfigurationBuilderServiceServer interface {
+	AddIkeExtension(context.Context, *AddIkeExtensionRequest) (*AddIkeExtensionResponse, error)
+	AddRemoteVendorId(context.Context, *AddRemoteVendorIdRequest) (*AddRemoteVendorIdResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	ClearIkeExtensions(context.Context, *ClearIkeExtensionsRequest) (*ClearIkeExtensionsResponse, error)
+	ClearRemoteApplicationVersion(context.Context, *ClearRemoteApplicationVersionRequest) (*ClearRemoteApplicationVersionResponse, error)
+	ClearRemoteVendorIds(context.Context, *ClearRemoteVendorIdsRequest) (*ClearRemoteVendorIdsResponse, error)
+	SetEapInfo(context.Context, *SetEapInfoRequest) (*SetEapInfoResponse, error)
+	SetRemoteApplicationVersion(context.Context, *SetRemoteApplicationVersionRequest) (*SetRemoteApplicationVersionResponse, error)
+	mustEmbedUnimplementedSessionConfigurationBuilderServiceServer()
+}
+
+// UnimplementedSessionConfigurationBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedTransportModeChildSessionParamsBuilderServiceServer struct{}
+type UnimplementedSessionConfigurationBuilderServiceServer struct{}
 
-func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) AddChildSaProposal(context.Context, *AddChildSaProposalRequest) (*AddChildSaProposalResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddChildSaProposal not implemented")
+func (UnimplementedSessionConfigurationBuilderServiceServer) AddIkeExtension(context.Context, *AddIkeExtensionRequest) (*AddIkeExtensionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddIkeExtension not implemented")
 }
-func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) AddInboundTrafficSelectors(context.Context, *AddInboundTrafficSelectorsRequest) (*AddInboundTrafficSelectorsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddInboundTrafficSelectors not implemented")
+func (UnimplementedSessionConfigurationBuilderServiceServer) AddRemoteVendorId(context.Context, *AddRemoteVendorIdRequest) (*AddRemoteVendorIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddRemoteVendorId not implemented")
 }
-func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) AddOutboundTrafficSelectors(context.Context, *AddOutboundTrafficSelectorsRequest) (*AddOutboundTrafficSelectorsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddOutboundTrafficSelectors not implemented")
-}
-func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedSessionConfigurationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) SetLifetimeSeconds(context.Context, *SetLifetimeSecondsRequest) (*SetLifetimeSecondsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLifetimeSeconds not implemented")
+func (UnimplementedSessionConfigurationBuilderServiceServer) ClearIkeExtensions(context.Context, *ClearIkeExtensionsRequest) (*ClearIkeExtensionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearIkeExtensions not implemented")
 }
-func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) mustEmbedUnimplementedTransportModeChildSessionParamsBuilderServiceServer() {
+func (UnimplementedSessionConfigurationBuilderServiceServer) ClearRemoteApplicationVersion(context.Context, *ClearRemoteApplicationVersionRequest) (*ClearRemoteApplicationVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearRemoteApplicationVersion not implemented")
 }
-func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSessionConfigurationBuilderServiceServer) ClearRemoteVendorIds(context.Context, *ClearRemoteVendorIdsRequest) (*ClearRemoteVendorIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearRemoteVendorIds not implemented")
+}
+func (UnimplementedSessionConfigurationBuilderServiceServer) SetEapInfo(context.Context, *SetEapInfoRequest) (*SetEapInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEapInfo not implemented")
+}
+func (UnimplementedSessionConfigurationBuilderServiceServer) SetRemoteApplicationVersion(context.Context, *SetRemoteApplicationVersionRequest) (*SetRemoteApplicationVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRemoteApplicationVersion not implemented")
+}
+func (UnimplementedSessionConfigurationBuilderServiceServer) mustEmbedUnimplementedSessionConfigurationBuilderServiceServer() {
+}
+func (UnimplementedSessionConfigurationBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeTransportModeChildSessionParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TransportModeChildSessionParamsBuilderServiceServer will
+// UnsafeSessionConfigurationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionConfigurationBuilderServiceServer will
 // result in compilation errors.
-type UnsafeTransportModeChildSessionParamsBuilderServiceServer interface {
-	mustEmbedUnimplementedTransportModeChildSessionParamsBuilderServiceServer()
+type UnsafeSessionConfigurationBuilderServiceServer interface {
+	mustEmbedUnimplementedSessionConfigurationBuilderServiceServer()
 }
 
-func RegisterTransportModeChildSessionParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv TransportModeChildSessionParamsBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedTransportModeChildSessionParamsBuilderServiceServer was
+func RegisterSessionConfigurationBuilderServiceServer(s grpc.ServiceRegistrar, srv SessionConfigurationBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionConfigurationBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&TransportModeChildSessionParamsBuilderService_ServiceDesc, srv)
+	s.RegisterService(&SessionConfigurationBuilderService_ServiceDesc, srv)
 }
 
-func _TransportModeChildSessionParamsBuilderService_AddChildSaProposal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddChildSaProposalRequest)
+func _SessionConfigurationBuilderService_AddIkeExtension_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddIkeExtensionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddChildSaProposal(ctx, in)
+		return srv.(SessionConfigurationBuilderServiceServer).AddIkeExtension(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TransportModeChildSessionParamsBuilderService_AddChildSaProposal_FullMethodName,
+		FullMethod: SessionConfigurationBuilderService_AddIkeExtension_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddChildSaProposal(ctx, req.(*AddChildSaProposalRequest))
+		return srv.(SessionConfigurationBuilderServiceServer).AddIkeExtension(ctx, req.(*AddIkeExtensionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddInboundTrafficSelectorsRequest)
+func _SessionConfigurationBuilderService_AddRemoteVendorId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddRemoteVendorIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddInboundTrafficSelectors(ctx, in)
+		return srv.(SessionConfigurationBuilderServiceServer).AddRemoteVendorId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_FullMethodName,
+		FullMethod: SessionConfigurationBuilderService_AddRemoteVendorId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddInboundTrafficSelectors(ctx, req.(*AddInboundTrafficSelectorsRequest))
+		return srv.(SessionConfigurationBuilderServiceServer).AddRemoteVendorId(ctx, req.(*AddRemoteVendorIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddOutboundTrafficSelectorsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddOutboundTrafficSelectors(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddOutboundTrafficSelectors(ctx, req.(*AddOutboundTrafficSelectorsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TransportModeChildSessionParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SessionConfigurationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).Build(ctx, in)
+		return srv.(SessionConfigurationBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TransportModeChildSessionParamsBuilderService_Build_FullMethodName,
+		FullMethod: SessionConfigurationBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(SessionConfigurationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLifetimeSecondsRequest)
+func _SessionConfigurationBuilderService_ClearIkeExtensions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearIkeExtensionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).SetLifetimeSeconds(ctx, in)
+		return srv.(SessionConfigurationBuilderServiceServer).ClearIkeExtensions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_FullMethodName,
+		FullMethod: SessionConfigurationBuilderService_ClearIkeExtensions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransportModeChildSessionParamsBuilderServiceServer).SetLifetimeSeconds(ctx, req.(*SetLifetimeSecondsRequest))
+		return srv.(SessionConfigurationBuilderServiceServer).ClearIkeExtensions(ctx, req.(*ClearIkeExtensionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// TransportModeChildSessionParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for TransportModeChildSessionParamsBuilderService service.
+func _SessionConfigurationBuilderService_ClearRemoteApplicationVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearRemoteApplicationVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionConfigurationBuilderServiceServer).ClearRemoteApplicationVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionConfigurationBuilderService_ClearRemoteApplicationVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionConfigurationBuilderServiceServer).ClearRemoteApplicationVersion(ctx, req.(*ClearRemoteApplicationVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionConfigurationBuilderService_ClearRemoteVendorIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearRemoteVendorIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionConfigurationBuilderServiceServer).ClearRemoteVendorIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionConfigurationBuilderService_ClearRemoteVendorIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionConfigurationBuilderServiceServer).ClearRemoteVendorIds(ctx, req.(*ClearRemoteVendorIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionConfigurationBuilderService_SetEapInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEapInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionConfigurationBuilderServiceServer).SetEapInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionConfigurationBuilderService_SetEapInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionConfigurationBuilderServiceServer).SetEapInfo(ctx, req.(*SetEapInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionConfigurationBuilderService_SetRemoteApplicationVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRemoteApplicationVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionConfigurationBuilderServiceServer).SetRemoteApplicationVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionConfigurationBuilderService_SetRemoteApplicationVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionConfigurationBuilderServiceServer).SetRemoteApplicationVersion(ctx, req.(*SetRemoteApplicationVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SessionConfigurationBuilderService_ServiceDesc is the grpc.ServiceDesc for SessionConfigurationBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var TransportModeChildSessionParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.TransportModeChildSessionParamsBuilderService",
-	HandlerType: (*TransportModeChildSessionParamsBuilderServiceServer)(nil),
+var SessionConfigurationBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.SessionConfigurationBuilderService",
+	HandlerType: (*SessionConfigurationBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AddChildSaProposal",
-			Handler:    _TransportModeChildSessionParamsBuilderService_AddChildSaProposal_Handler,
+			MethodName: "AddIkeExtension",
+			Handler:    _SessionConfigurationBuilderService_AddIkeExtension_Handler,
 		},
 		{
-			MethodName: "AddInboundTrafficSelectors",
-			Handler:    _TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_Handler,
-		},
-		{
-			MethodName: "AddOutboundTrafficSelectors",
-			Handler:    _TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_Handler,
+			MethodName: "AddRemoteVendorId",
+			Handler:    _SessionConfigurationBuilderService_AddRemoteVendorId_Handler,
 		},
 		{
 			MethodName: "Build",
-			Handler:    _TransportModeChildSessionParamsBuilderService_Build_Handler,
+			Handler:    _SessionConfigurationBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "SetLifetimeSeconds",
-			Handler:    _TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_Handler,
+			MethodName: "ClearIkeExtensions",
+			Handler:    _SessionConfigurationBuilderService_ClearIkeExtensions_Handler,
+		},
+		{
+			MethodName: "ClearRemoteApplicationVersion",
+			Handler:    _SessionConfigurationBuilderService_ClearRemoteApplicationVersion_Handler,
+		},
+		{
+			MethodName: "ClearRemoteVendorIds",
+			Handler:    _SessionConfigurationBuilderService_ClearRemoteVendorIds_Handler,
+		},
+		{
+			MethodName: "SetEapInfo",
+			Handler:    _SessionConfigurationBuilderService_SetEapInfo_Handler,
+		},
+		{
+			MethodName: "SetRemoteApplicationVersion",
+			Handler:    _SessionConfigurationBuilderService_SetRemoteApplicationVersion_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1040,216 +645,1121 @@ var TransportModeChildSessionParamsBuilderService_ServiceDesc = grpc.ServiceDesc
 }
 
 const (
-	ChildSessionCallbackService_OnClosed_FullMethodName                = "/ike.ChildSessionCallbackService/OnClosed"
-	ChildSessionCallbackService_OnIpSecTransformCreated_FullMethodName = "/ike.ChildSessionCallbackService/OnIpSecTransformCreated"
-	ChildSessionCallbackService_OnIpSecTransformDeleted_FullMethodName = "/ike.ChildSessionCallbackService/OnIpSecTransformDeleted"
-	ChildSessionCallbackService_OnOpened_FullMethodName                = "/ike.ChildSessionCallbackService/OnOpened"
+	SessionConnectionInfoService_NewSessionConnectionInfo_FullMethodName = "/ike.SessionConnectionInfoService/NewSessionConnectionInfo"
+	SessionConnectionInfoService_GetLocalAddress_FullMethodName          = "/ike.SessionConnectionInfoService/GetLocalAddress"
+	SessionConnectionInfoService_GetNetwork_FullMethodName               = "/ike.SessionConnectionInfoService/GetNetwork"
+	SessionConnectionInfoService_GetRemoteAddress_FullMethodName         = "/ike.SessionConnectionInfoService/GetRemoteAddress"
 )
 
-// ChildSessionCallbackServiceClient is the client API for ChildSessionCallbackService service.
+// SessionConnectionInfoServiceClient is the client API for SessionConnectionInfoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChildSessionCallbackServiceClient interface {
-	OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error)
-	OnIpSecTransformCreated(ctx context.Context, in *OnIpSecTransformCreatedRequest, opts ...grpc.CallOption) (*OnIpSecTransformCreatedResponse, error)
-	OnIpSecTransformDeleted(ctx context.Context, in *OnIpSecTransformDeletedRequest, opts ...grpc.CallOption) (*OnIpSecTransformDeletedResponse, error)
-	OnOpened(ctx context.Context, in *OnOpenedRequest, opts ...grpc.CallOption) (*OnOpenedResponse, error)
+type SessionConnectionInfoServiceClient interface {
+	NewSessionConnectionInfo(ctx context.Context, in *NewSessionConnectionInfoRequest, opts ...grpc.CallOption) (*NewSessionConnectionInfoResponse, error)
+	GetLocalAddress(ctx context.Context, in *GetLocalAddressRequest, opts ...grpc.CallOption) (*GetLocalAddressResponse, error)
+	GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error)
+	GetRemoteAddress(ctx context.Context, in *GetRemoteAddressRequest, opts ...grpc.CallOption) (*GetRemoteAddressResponse, error)
 }
 
-type childSessionCallbackServiceClient struct {
+type sessionConnectionInfoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewChildSessionCallbackServiceClient(cc grpc.ClientConnInterface) ChildSessionCallbackServiceClient {
-	return &childSessionCallbackServiceClient{cc}
+func NewSessionConnectionInfoServiceClient(cc grpc.ClientConnInterface) SessionConnectionInfoServiceClient {
+	return &sessionConnectionInfoServiceClient{cc}
 }
 
-func (c *childSessionCallbackServiceClient) OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error) {
+func (c *sessionConnectionInfoServiceClient) NewSessionConnectionInfo(ctx context.Context, in *NewSessionConnectionInfoRequest, opts ...grpc.CallOption) (*NewSessionConnectionInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClosedResponse)
-	err := c.cc.Invoke(ctx, ChildSessionCallbackService_OnClosed_FullMethodName, in, out, cOpts...)
+	out := new(NewSessionConnectionInfoResponse)
+	err := c.cc.Invoke(ctx, SessionConnectionInfoService_NewSessionConnectionInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *childSessionCallbackServiceClient) OnIpSecTransformCreated(ctx context.Context, in *OnIpSecTransformCreatedRequest, opts ...grpc.CallOption) (*OnIpSecTransformCreatedResponse, error) {
+func (c *sessionConnectionInfoServiceClient) GetLocalAddress(ctx context.Context, in *GetLocalAddressRequest, opts ...grpc.CallOption) (*GetLocalAddressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnIpSecTransformCreatedResponse)
-	err := c.cc.Invoke(ctx, ChildSessionCallbackService_OnIpSecTransformCreated_FullMethodName, in, out, cOpts...)
+	out := new(GetLocalAddressResponse)
+	err := c.cc.Invoke(ctx, SessionConnectionInfoService_GetLocalAddress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *childSessionCallbackServiceClient) OnIpSecTransformDeleted(ctx context.Context, in *OnIpSecTransformDeletedRequest, opts ...grpc.CallOption) (*OnIpSecTransformDeletedResponse, error) {
+func (c *sessionConnectionInfoServiceClient) GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnIpSecTransformDeletedResponse)
-	err := c.cc.Invoke(ctx, ChildSessionCallbackService_OnIpSecTransformDeleted_FullMethodName, in, out, cOpts...)
+	out := new(GetNetworkResponse)
+	err := c.cc.Invoke(ctx, SessionConnectionInfoService_GetNetwork_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *childSessionCallbackServiceClient) OnOpened(ctx context.Context, in *OnOpenedRequest, opts ...grpc.CallOption) (*OnOpenedResponse, error) {
+func (c *sessionConnectionInfoServiceClient) GetRemoteAddress(ctx context.Context, in *GetRemoteAddressRequest, opts ...grpc.CallOption) (*GetRemoteAddressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnOpenedResponse)
-	err := c.cc.Invoke(ctx, ChildSessionCallbackService_OnOpened_FullMethodName, in, out, cOpts...)
+	out := new(GetRemoteAddressResponse)
+	err := c.cc.Invoke(ctx, SessionConnectionInfoService_GetRemoteAddress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ChildSessionCallbackServiceServer is the server API for ChildSessionCallbackService service.
-// All implementations must embed UnimplementedChildSessionCallbackServiceServer
+// SessionConnectionInfoServiceServer is the server API for SessionConnectionInfoService service.
+// All implementations must embed UnimplementedSessionConnectionInfoServiceServer
 // for forward compatibility.
-type ChildSessionCallbackServiceServer interface {
-	OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error)
-	OnIpSecTransformCreated(context.Context, *OnIpSecTransformCreatedRequest) (*OnIpSecTransformCreatedResponse, error)
-	OnIpSecTransformDeleted(context.Context, *OnIpSecTransformDeletedRequest) (*OnIpSecTransformDeletedResponse, error)
-	OnOpened(context.Context, *OnOpenedRequest) (*OnOpenedResponse, error)
-	mustEmbedUnimplementedChildSessionCallbackServiceServer()
+type SessionConnectionInfoServiceServer interface {
+	NewSessionConnectionInfo(context.Context, *NewSessionConnectionInfoRequest) (*NewSessionConnectionInfoResponse, error)
+	GetLocalAddress(context.Context, *GetLocalAddressRequest) (*GetLocalAddressResponse, error)
+	GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error)
+	GetRemoteAddress(context.Context, *GetRemoteAddressRequest) (*GetRemoteAddressResponse, error)
+	mustEmbedUnimplementedSessionConnectionInfoServiceServer()
 }
 
-// UnimplementedChildSessionCallbackServiceServer must be embedded to have
+// UnimplementedSessionConnectionInfoServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedChildSessionCallbackServiceServer struct{}
+type UnimplementedSessionConnectionInfoServiceServer struct{}
 
-func (UnimplementedChildSessionCallbackServiceServer) OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClosed not implemented")
+func (UnimplementedSessionConnectionInfoServiceServer) NewSessionConnectionInfo(context.Context, *NewSessionConnectionInfoRequest) (*NewSessionConnectionInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSessionConnectionInfo not implemented")
 }
-func (UnimplementedChildSessionCallbackServiceServer) OnIpSecTransformCreated(context.Context, *OnIpSecTransformCreatedRequest) (*OnIpSecTransformCreatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnIpSecTransformCreated not implemented")
+func (UnimplementedSessionConnectionInfoServiceServer) GetLocalAddress(context.Context, *GetLocalAddressRequest) (*GetLocalAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocalAddress not implemented")
 }
-func (UnimplementedChildSessionCallbackServiceServer) OnIpSecTransformDeleted(context.Context, *OnIpSecTransformDeletedRequest) (*OnIpSecTransformDeletedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnIpSecTransformDeleted not implemented")
+func (UnimplementedSessionConnectionInfoServiceServer) GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetwork not implemented")
 }
-func (UnimplementedChildSessionCallbackServiceServer) OnOpened(context.Context, *OnOpenedRequest) (*OnOpenedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnOpened not implemented")
+func (UnimplementedSessionConnectionInfoServiceServer) GetRemoteAddress(context.Context, *GetRemoteAddressRequest) (*GetRemoteAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRemoteAddress not implemented")
 }
-func (UnimplementedChildSessionCallbackServiceServer) mustEmbedUnimplementedChildSessionCallbackServiceServer() {
+func (UnimplementedSessionConnectionInfoServiceServer) mustEmbedUnimplementedSessionConnectionInfoServiceServer() {
 }
-func (UnimplementedChildSessionCallbackServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSessionConnectionInfoServiceServer) testEmbeddedByValue() {}
 
-// UnsafeChildSessionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChildSessionCallbackServiceServer will
+// UnsafeSessionConnectionInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionConnectionInfoServiceServer will
 // result in compilation errors.
-type UnsafeChildSessionCallbackServiceServer interface {
-	mustEmbedUnimplementedChildSessionCallbackServiceServer()
+type UnsafeSessionConnectionInfoServiceServer interface {
+	mustEmbedUnimplementedSessionConnectionInfoServiceServer()
 }
 
-func RegisterChildSessionCallbackServiceServer(s grpc.ServiceRegistrar, srv ChildSessionCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedChildSessionCallbackServiceServer was
+func RegisterSessionConnectionInfoServiceServer(s grpc.ServiceRegistrar, srv SessionConnectionInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionConnectionInfoServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ChildSessionCallbackService_ServiceDesc, srv)
+	s.RegisterService(&SessionConnectionInfoService_ServiceDesc, srv)
 }
 
-func _ChildSessionCallbackService_OnClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClosedRequest)
+func _SessionConnectionInfoService_NewSessionConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSessionConnectionInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChildSessionCallbackServiceServer).OnClosed(ctx, in)
+		return srv.(SessionConnectionInfoServiceServer).NewSessionConnectionInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChildSessionCallbackService_OnClosed_FullMethodName,
+		FullMethod: SessionConnectionInfoService_NewSessionConnectionInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSessionCallbackServiceServer).OnClosed(ctx, req.(*OnClosedRequest))
+		return srv.(SessionConnectionInfoServiceServer).NewSessionConnectionInfo(ctx, req.(*NewSessionConnectionInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChildSessionCallbackService_OnIpSecTransformCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnIpSecTransformCreatedRequest)
+func _SessionConnectionInfoService_GetLocalAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocalAddressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChildSessionCallbackServiceServer).OnIpSecTransformCreated(ctx, in)
+		return srv.(SessionConnectionInfoServiceServer).GetLocalAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChildSessionCallbackService_OnIpSecTransformCreated_FullMethodName,
+		FullMethod: SessionConnectionInfoService_GetLocalAddress_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSessionCallbackServiceServer).OnIpSecTransformCreated(ctx, req.(*OnIpSecTransformCreatedRequest))
+		return srv.(SessionConnectionInfoServiceServer).GetLocalAddress(ctx, req.(*GetLocalAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChildSessionCallbackService_OnIpSecTransformDeleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnIpSecTransformDeletedRequest)
+func _SessionConnectionInfoService_GetNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChildSessionCallbackServiceServer).OnIpSecTransformDeleted(ctx, in)
+		return srv.(SessionConnectionInfoServiceServer).GetNetwork(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChildSessionCallbackService_OnIpSecTransformDeleted_FullMethodName,
+		FullMethod: SessionConnectionInfoService_GetNetwork_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSessionCallbackServiceServer).OnIpSecTransformDeleted(ctx, req.(*OnIpSecTransformDeletedRequest))
+		return srv.(SessionConnectionInfoServiceServer).GetNetwork(ctx, req.(*GetNetworkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChildSessionCallbackService_OnOpened_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnOpenedRequest)
+func _SessionConnectionInfoService_GetRemoteAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRemoteAddressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChildSessionCallbackServiceServer).OnOpened(ctx, in)
+		return srv.(SessionConnectionInfoServiceServer).GetRemoteAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ChildSessionCallbackService_OnOpened_FullMethodName,
+		FullMethod: SessionConnectionInfoService_GetRemoteAddress_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSessionCallbackServiceServer).OnOpened(ctx, req.(*OnOpenedRequest))
+		return srv.(SessionConnectionInfoServiceServer).GetRemoteAddress(ctx, req.(*GetRemoteAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ChildSessionCallbackService_ServiceDesc is the grpc.ServiceDesc for ChildSessionCallbackService service.
+// SessionConnectionInfoService_ServiceDesc is the grpc.ServiceDesc for SessionConnectionInfoService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ChildSessionCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.ChildSessionCallbackService",
-	HandlerType: (*ChildSessionCallbackServiceServer)(nil),
+var SessionConnectionInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.SessionConnectionInfoService",
+	HandlerType: (*SessionConnectionInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnClosed",
-			Handler:    _ChildSessionCallbackService_OnClosed_Handler,
+			MethodName: "NewSessionConnectionInfo",
+			Handler:    _SessionConnectionInfoService_NewSessionConnectionInfo_Handler,
 		},
 		{
-			MethodName: "OnIpSecTransformCreated",
-			Handler:    _ChildSessionCallbackService_OnIpSecTransformCreated_Handler,
+			MethodName: "GetLocalAddress",
+			Handler:    _SessionConnectionInfoService_GetLocalAddress_Handler,
 		},
 		{
-			MethodName: "OnIpSecTransformDeleted",
-			Handler:    _ChildSessionCallbackService_OnIpSecTransformDeleted_Handler,
+			MethodName: "GetNetwork",
+			Handler:    _SessionConnectionInfoService_GetNetwork_Handler,
 		},
 		{
-			MethodName: "OnOpened",
-			Handler:    _ChildSessionCallbackService_OnOpened_Handler,
+			MethodName: "GetRemoteAddress",
+			Handler:    _SessionConnectionInfoService_GetRemoteAddress_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	ChildSaProposalService_Equals_FullMethodName                           = "/ike.ChildSaProposalService/Equals"
+	ChildSaProposalService_HashCode_FullMethodName                         = "/ike.ChildSaProposalService/HashCode"
+	ChildSaProposalService_GetSupportedEncryptionAlgorithms_FullMethodName = "/ike.ChildSaProposalService/GetSupportedEncryptionAlgorithms"
+	ChildSaProposalService_GetSupportedIntegrityAlgorithms_FullMethodName  = "/ike.ChildSaProposalService/GetSupportedIntegrityAlgorithms"
+)
+
+// ChildSaProposalServiceClient is the client API for ChildSaProposalService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChildSaProposalServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	GetSupportedEncryptionAlgorithms(ctx context.Context, in *GetSupportedEncryptionAlgorithmsRequest, opts ...grpc.CallOption) (*GetSupportedEncryptionAlgorithmsResponse, error)
+	GetSupportedIntegrityAlgorithms(ctx context.Context, in *GetSupportedIntegrityAlgorithmsRequest, opts ...grpc.CallOption) (*GetSupportedIntegrityAlgorithmsResponse, error)
+}
+
+type childSaProposalServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChildSaProposalServiceClient(cc grpc.ClientConnInterface) ChildSaProposalServiceClient {
+	return &childSaProposalServiceClient{cc}
+}
+
+func (c *childSaProposalServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ChildSaProposalService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSaProposalServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ChildSaProposalService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSaProposalServiceClient) GetSupportedEncryptionAlgorithms(ctx context.Context, in *GetSupportedEncryptionAlgorithmsRequest, opts ...grpc.CallOption) (*GetSupportedEncryptionAlgorithmsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedEncryptionAlgorithmsResponse)
+	err := c.cc.Invoke(ctx, ChildSaProposalService_GetSupportedEncryptionAlgorithms_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSaProposalServiceClient) GetSupportedIntegrityAlgorithms(ctx context.Context, in *GetSupportedIntegrityAlgorithmsRequest, opts ...grpc.CallOption) (*GetSupportedIntegrityAlgorithmsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedIntegrityAlgorithmsResponse)
+	err := c.cc.Invoke(ctx, ChildSaProposalService_GetSupportedIntegrityAlgorithms_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChildSaProposalServiceServer is the server API for ChildSaProposalService service.
+// All implementations must embed UnimplementedChildSaProposalServiceServer
+// for forward compatibility.
+type ChildSaProposalServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	GetSupportedEncryptionAlgorithms(context.Context, *GetSupportedEncryptionAlgorithmsRequest) (*GetSupportedEncryptionAlgorithmsResponse, error)
+	GetSupportedIntegrityAlgorithms(context.Context, *GetSupportedIntegrityAlgorithmsRequest) (*GetSupportedIntegrityAlgorithmsResponse, error)
+	mustEmbedUnimplementedChildSaProposalServiceServer()
+}
+
+// UnimplementedChildSaProposalServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChildSaProposalServiceServer struct{}
+
+func (UnimplementedChildSaProposalServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedChildSaProposalServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedChildSaProposalServiceServer) GetSupportedEncryptionAlgorithms(context.Context, *GetSupportedEncryptionAlgorithmsRequest) (*GetSupportedEncryptionAlgorithmsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedEncryptionAlgorithms not implemented")
+}
+func (UnimplementedChildSaProposalServiceServer) GetSupportedIntegrityAlgorithms(context.Context, *GetSupportedIntegrityAlgorithmsRequest) (*GetSupportedIntegrityAlgorithmsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedIntegrityAlgorithms not implemented")
+}
+func (UnimplementedChildSaProposalServiceServer) mustEmbedUnimplementedChildSaProposalServiceServer() {
+}
+func (UnimplementedChildSaProposalServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChildSaProposalServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChildSaProposalServiceServer will
+// result in compilation errors.
+type UnsafeChildSaProposalServiceServer interface {
+	mustEmbedUnimplementedChildSaProposalServiceServer()
+}
+
+func RegisterChildSaProposalServiceServer(s grpc.ServiceRegistrar, srv ChildSaProposalServiceServer) {
+	// If the following call panics, it indicates UnimplementedChildSaProposalServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChildSaProposalService_ServiceDesc, srv)
+}
+
+func _ChildSaProposalService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSaProposalServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSaProposalService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSaProposalServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSaProposalService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSaProposalServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSaProposalService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSaProposalServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSaProposalService_GetSupportedEncryptionAlgorithms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedEncryptionAlgorithmsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSaProposalServiceServer).GetSupportedEncryptionAlgorithms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSaProposalService_GetSupportedEncryptionAlgorithms_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSaProposalServiceServer).GetSupportedEncryptionAlgorithms(ctx, req.(*GetSupportedEncryptionAlgorithmsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSaProposalService_GetSupportedIntegrityAlgorithms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedIntegrityAlgorithmsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSaProposalServiceServer).GetSupportedIntegrityAlgorithms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSaProposalService_GetSupportedIntegrityAlgorithms_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSaProposalServiceServer).GetSupportedIntegrityAlgorithms(ctx, req.(*GetSupportedIntegrityAlgorithmsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChildSaProposalService_ServiceDesc is the grpc.ServiceDesc for ChildSaProposalService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChildSaProposalService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.ChildSaProposalService",
+	HandlerType: (*ChildSaProposalServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _ChildSaProposalService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ChildSaProposalService_HashCode_Handler,
+		},
+		{
+			MethodName: "GetSupportedEncryptionAlgorithms",
+			Handler:    _ChildSaProposalService_GetSupportedEncryptionAlgorithms_Handler,
+		},
+		{
+			MethodName: "GetSupportedIntegrityAlgorithms",
+			Handler:    _ChildSaProposalService_GetSupportedIntegrityAlgorithms_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	ChildSaProposalBuilderService_AddDhGroup_FullMethodName             = "/ike.ChildSaProposalBuilderService/AddDhGroup"
+	ChildSaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName = "/ike.ChildSaProposalBuilderService/AddEncryptionAlgorithm"
+	ChildSaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName  = "/ike.ChildSaProposalBuilderService/AddIntegrityAlgorithm"
+	ChildSaProposalBuilderService_Build_FullMethodName                  = "/ike.ChildSaProposalBuilderService/Build"
+)
+
+// ChildSaProposalBuilderServiceClient is the client API for ChildSaProposalBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChildSaProposalBuilderServiceClient interface {
+	AddDhGroup(ctx context.Context, in *AddDhGroupRequest, opts ...grpc.CallOption) (*AddDhGroupResponse, error)
+	AddEncryptionAlgorithm(ctx context.Context, in *AddEncryptionAlgorithmRequest, opts ...grpc.CallOption) (*AddEncryptionAlgorithmResponse, error)
+	AddIntegrityAlgorithm(ctx context.Context, in *AddIntegrityAlgorithmRequest, opts ...grpc.CallOption) (*AddIntegrityAlgorithmResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type childSaProposalBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChildSaProposalBuilderServiceClient(cc grpc.ClientConnInterface) ChildSaProposalBuilderServiceClient {
+	return &childSaProposalBuilderServiceClient{cc}
+}
+
+func (c *childSaProposalBuilderServiceClient) AddDhGroup(ctx context.Context, in *AddDhGroupRequest, opts ...grpc.CallOption) (*AddDhGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDhGroupResponse)
+	err := c.cc.Invoke(ctx, ChildSaProposalBuilderService_AddDhGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSaProposalBuilderServiceClient) AddEncryptionAlgorithm(ctx context.Context, in *AddEncryptionAlgorithmRequest, opts ...grpc.CallOption) (*AddEncryptionAlgorithmResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddEncryptionAlgorithmResponse)
+	err := c.cc.Invoke(ctx, ChildSaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSaProposalBuilderServiceClient) AddIntegrityAlgorithm(ctx context.Context, in *AddIntegrityAlgorithmRequest, opts ...grpc.CallOption) (*AddIntegrityAlgorithmResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddIntegrityAlgorithmResponse)
+	err := c.cc.Invoke(ctx, ChildSaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSaProposalBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ChildSaProposalBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChildSaProposalBuilderServiceServer is the server API for ChildSaProposalBuilderService service.
+// All implementations must embed UnimplementedChildSaProposalBuilderServiceServer
+// for forward compatibility.
+type ChildSaProposalBuilderServiceServer interface {
+	AddDhGroup(context.Context, *AddDhGroupRequest) (*AddDhGroupResponse, error)
+	AddEncryptionAlgorithm(context.Context, *AddEncryptionAlgorithmRequest) (*AddEncryptionAlgorithmResponse, error)
+	AddIntegrityAlgorithm(context.Context, *AddIntegrityAlgorithmRequest) (*AddIntegrityAlgorithmResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedChildSaProposalBuilderServiceServer()
+}
+
+// UnimplementedChildSaProposalBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChildSaProposalBuilderServiceServer struct{}
+
+func (UnimplementedChildSaProposalBuilderServiceServer) AddDhGroup(context.Context, *AddDhGroupRequest) (*AddDhGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDhGroup not implemented")
+}
+func (UnimplementedChildSaProposalBuilderServiceServer) AddEncryptionAlgorithm(context.Context, *AddEncryptionAlgorithmRequest) (*AddEncryptionAlgorithmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddEncryptionAlgorithm not implemented")
+}
+func (UnimplementedChildSaProposalBuilderServiceServer) AddIntegrityAlgorithm(context.Context, *AddIntegrityAlgorithmRequest) (*AddIntegrityAlgorithmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddIntegrityAlgorithm not implemented")
+}
+func (UnimplementedChildSaProposalBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedChildSaProposalBuilderServiceServer) mustEmbedUnimplementedChildSaProposalBuilderServiceServer() {
+}
+func (UnimplementedChildSaProposalBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChildSaProposalBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChildSaProposalBuilderServiceServer will
+// result in compilation errors.
+type UnsafeChildSaProposalBuilderServiceServer interface {
+	mustEmbedUnimplementedChildSaProposalBuilderServiceServer()
+}
+
+func RegisterChildSaProposalBuilderServiceServer(s grpc.ServiceRegistrar, srv ChildSaProposalBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedChildSaProposalBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChildSaProposalBuilderService_ServiceDesc, srv)
+}
+
+func _ChildSaProposalBuilderService_AddDhGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDhGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSaProposalBuilderServiceServer).AddDhGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSaProposalBuilderService_AddDhGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSaProposalBuilderServiceServer).AddDhGroup(ctx, req.(*AddDhGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSaProposalBuilderService_AddEncryptionAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddEncryptionAlgorithmRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSaProposalBuilderServiceServer).AddEncryptionAlgorithm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSaProposalBuilderServiceServer).AddEncryptionAlgorithm(ctx, req.(*AddEncryptionAlgorithmRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSaProposalBuilderService_AddIntegrityAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddIntegrityAlgorithmRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSaProposalBuilderServiceServer).AddIntegrityAlgorithm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSaProposalBuilderServiceServer).AddIntegrityAlgorithm(ctx, req.(*AddIntegrityAlgorithmRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSaProposalBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSaProposalBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSaProposalBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSaProposalBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChildSaProposalBuilderService_ServiceDesc is the grpc.ServiceDesc for ChildSaProposalBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChildSaProposalBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.ChildSaProposalBuilderService",
+	HandlerType: (*ChildSaProposalBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDhGroup",
+			Handler:    _ChildSaProposalBuilderService_AddDhGroup_Handler,
+		},
+		{
+			MethodName: "AddEncryptionAlgorithm",
+			Handler:    _ChildSaProposalBuilderService_AddEncryptionAlgorithm_Handler,
+		},
+		{
+			MethodName: "AddIntegrityAlgorithm",
+			Handler:    _ChildSaProposalBuilderService_AddIntegrityAlgorithm_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _ChildSaProposalBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_FullMethodName = "/ike.DerAsn1DnIdentificationService/NewDerAsn1DnIdentification"
+	DerAsn1DnIdentificationService_Equals_FullMethodName                     = "/ike.DerAsn1DnIdentificationService/Equals"
+	DerAsn1DnIdentificationService_HashCode_FullMethodName                   = "/ike.DerAsn1DnIdentificationService/HashCode"
+)
+
+// DerAsn1DnIdentificationServiceClient is the client API for DerAsn1DnIdentificationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DerAsn1DnIdentificationServiceClient interface {
+	NewDerAsn1DnIdentification(ctx context.Context, in *NewDerAsn1DnIdentificationRequest, opts ...grpc.CallOption) (*NewDerAsn1DnIdentificationResponse, error)
+	Equals(ctx context.Context, in *DerAsn1DnIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *DerAsn1DnIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type derAsn1DnIdentificationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDerAsn1DnIdentificationServiceClient(cc grpc.ClientConnInterface) DerAsn1DnIdentificationServiceClient {
+	return &derAsn1DnIdentificationServiceClient{cc}
+}
+
+func (c *derAsn1DnIdentificationServiceClient) NewDerAsn1DnIdentification(ctx context.Context, in *NewDerAsn1DnIdentificationRequest, opts ...grpc.CallOption) (*NewDerAsn1DnIdentificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDerAsn1DnIdentificationResponse)
+	err := c.cc.Invoke(ctx, DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *derAsn1DnIdentificationServiceClient) Equals(ctx context.Context, in *DerAsn1DnIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, DerAsn1DnIdentificationService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *derAsn1DnIdentificationServiceClient) HashCode(ctx context.Context, in *DerAsn1DnIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, DerAsn1DnIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DerAsn1DnIdentificationServiceServer is the server API for DerAsn1DnIdentificationService service.
+// All implementations must embed UnimplementedDerAsn1DnIdentificationServiceServer
+// for forward compatibility.
+type DerAsn1DnIdentificationServiceServer interface {
+	NewDerAsn1DnIdentification(context.Context, *NewDerAsn1DnIdentificationRequest) (*NewDerAsn1DnIdentificationResponse, error)
+	Equals(context.Context, *DerAsn1DnIdentificationEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *DerAsn1DnIdentificationHashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedDerAsn1DnIdentificationServiceServer()
+}
+
+// UnimplementedDerAsn1DnIdentificationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDerAsn1DnIdentificationServiceServer struct{}
+
+func (UnimplementedDerAsn1DnIdentificationServiceServer) NewDerAsn1DnIdentification(context.Context, *NewDerAsn1DnIdentificationRequest) (*NewDerAsn1DnIdentificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDerAsn1DnIdentification not implemented")
+}
+func (UnimplementedDerAsn1DnIdentificationServiceServer) Equals(context.Context, *DerAsn1DnIdentificationEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedDerAsn1DnIdentificationServiceServer) HashCode(context.Context, *DerAsn1DnIdentificationHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedDerAsn1DnIdentificationServiceServer) mustEmbedUnimplementedDerAsn1DnIdentificationServiceServer() {
+}
+func (UnimplementedDerAsn1DnIdentificationServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDerAsn1DnIdentificationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DerAsn1DnIdentificationServiceServer will
+// result in compilation errors.
+type UnsafeDerAsn1DnIdentificationServiceServer interface {
+	mustEmbedUnimplementedDerAsn1DnIdentificationServiceServer()
+}
+
+func RegisterDerAsn1DnIdentificationServiceServer(s grpc.ServiceRegistrar, srv DerAsn1DnIdentificationServiceServer) {
+	// If the following call panics, it indicates UnimplementedDerAsn1DnIdentificationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DerAsn1DnIdentificationService_ServiceDesc, srv)
+}
+
+func _DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDerAsn1DnIdentificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DerAsn1DnIdentificationServiceServer).NewDerAsn1DnIdentification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DerAsn1DnIdentificationServiceServer).NewDerAsn1DnIdentification(ctx, req.(*NewDerAsn1DnIdentificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DerAsn1DnIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DerAsn1DnIdentificationEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DerAsn1DnIdentificationServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DerAsn1DnIdentificationService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DerAsn1DnIdentificationServiceServer).Equals(ctx, req.(*DerAsn1DnIdentificationEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DerAsn1DnIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DerAsn1DnIdentificationHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DerAsn1DnIdentificationServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DerAsn1DnIdentificationService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DerAsn1DnIdentificationServiceServer).HashCode(ctx, req.(*DerAsn1DnIdentificationHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DerAsn1DnIdentificationService_ServiceDesc is the grpc.ServiceDesc for DerAsn1DnIdentificationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DerAsn1DnIdentificationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.DerAsn1DnIdentificationService",
+	HandlerType: (*DerAsn1DnIdentificationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDerAsn1DnIdentification",
+			Handler:    _DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _DerAsn1DnIdentificationService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _DerAsn1DnIdentificationService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	SaProposalService_Equals_FullMethodName                 = "/ike.SaProposalService/Equals"
+	SaProposalService_GetDhGroups_FullMethodName            = "/ike.SaProposalService/GetDhGroups"
+	SaProposalService_GetIntegrityAlgorithms_FullMethodName = "/ike.SaProposalService/GetIntegrityAlgorithms"
+	SaProposalService_HashCode_FullMethodName               = "/ike.SaProposalService/HashCode"
+	SaProposalService_ToString_FullMethodName               = "/ike.SaProposalService/ToString"
+	SaProposalService_GetSupportedDhGroups_FullMethodName   = "/ike.SaProposalService/GetSupportedDhGroups"
+)
+
+// SaProposalServiceClient is the client API for SaProposalService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SaProposalServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDhGroups(ctx context.Context, in *GetDhGroupsRequest, opts ...grpc.CallOption) (*GetDhGroupsResponse, error)
+	GetIntegrityAlgorithms(ctx context.Context, in *GetIntegrityAlgorithmsRequest, opts ...grpc.CallOption) (*GetIntegrityAlgorithmsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	GetSupportedDhGroups(ctx context.Context, in *GetSupportedDhGroupsRequest, opts ...grpc.CallOption) (*GetSupportedDhGroupsResponse, error)
+}
+
+type saProposalServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSaProposalServiceClient(cc grpc.ClientConnInterface) SaProposalServiceClient {
+	return &saProposalServiceClient{cc}
+}
+
+func (c *saProposalServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SaProposalService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalServiceClient) GetDhGroups(ctx context.Context, in *GetDhGroupsRequest, opts ...grpc.CallOption) (*GetDhGroupsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDhGroupsResponse)
+	err := c.cc.Invoke(ctx, SaProposalService_GetDhGroups_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalServiceClient) GetIntegrityAlgorithms(ctx context.Context, in *GetIntegrityAlgorithmsRequest, opts ...grpc.CallOption) (*GetIntegrityAlgorithmsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntegrityAlgorithmsResponse)
+	err := c.cc.Invoke(ctx, SaProposalService_GetIntegrityAlgorithms_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SaProposalService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SaProposalService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalServiceClient) GetSupportedDhGroups(ctx context.Context, in *GetSupportedDhGroupsRequest, opts ...grpc.CallOption) (*GetSupportedDhGroupsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedDhGroupsResponse)
+	err := c.cc.Invoke(ctx, SaProposalService_GetSupportedDhGroups_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SaProposalServiceServer is the server API for SaProposalService service.
+// All implementations must embed UnimplementedSaProposalServiceServer
+// for forward compatibility.
+type SaProposalServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDhGroups(context.Context, *GetDhGroupsRequest) (*GetDhGroupsResponse, error)
+	GetIntegrityAlgorithms(context.Context, *GetIntegrityAlgorithmsRequest) (*GetIntegrityAlgorithmsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	GetSupportedDhGroups(context.Context, *GetSupportedDhGroupsRequest) (*GetSupportedDhGroupsResponse, error)
+	mustEmbedUnimplementedSaProposalServiceServer()
+}
+
+// UnimplementedSaProposalServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSaProposalServiceServer struct{}
+
+func (UnimplementedSaProposalServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSaProposalServiceServer) GetDhGroups(context.Context, *GetDhGroupsRequest) (*GetDhGroupsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDhGroups not implemented")
+}
+func (UnimplementedSaProposalServiceServer) GetIntegrityAlgorithms(context.Context, *GetIntegrityAlgorithmsRequest) (*GetIntegrityAlgorithmsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntegrityAlgorithms not implemented")
+}
+func (UnimplementedSaProposalServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSaProposalServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSaProposalServiceServer) GetSupportedDhGroups(context.Context, *GetSupportedDhGroupsRequest) (*GetSupportedDhGroupsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedDhGroups not implemented")
+}
+func (UnimplementedSaProposalServiceServer) mustEmbedUnimplementedSaProposalServiceServer() {}
+func (UnimplementedSaProposalServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeSaProposalServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SaProposalServiceServer will
+// result in compilation errors.
+type UnsafeSaProposalServiceServer interface {
+	mustEmbedUnimplementedSaProposalServiceServer()
+}
+
+func RegisterSaProposalServiceServer(s grpc.ServiceRegistrar, srv SaProposalServiceServer) {
+	// If the following call panics, it indicates UnimplementedSaProposalServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SaProposalService_ServiceDesc, srv)
+}
+
+func _SaProposalService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalService_GetDhGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDhGroupsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalServiceServer).GetDhGroups(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalService_GetDhGroups_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalServiceServer).GetDhGroups(ctx, req.(*GetDhGroupsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalService_GetIntegrityAlgorithms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntegrityAlgorithmsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalServiceServer).GetIntegrityAlgorithms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalService_GetIntegrityAlgorithms_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalServiceServer).GetIntegrityAlgorithms(ctx, req.(*GetIntegrityAlgorithmsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalService_GetSupportedDhGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedDhGroupsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalServiceServer).GetSupportedDhGroups(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalService_GetSupportedDhGroups_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalServiceServer).GetSupportedDhGroups(ctx, req.(*GetSupportedDhGroupsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SaProposalService_ServiceDesc is the grpc.ServiceDesc for SaProposalService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SaProposalService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.SaProposalService",
+	HandlerType: (*SaProposalServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _SaProposalService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDhGroups",
+			Handler:    _SaProposalService_GetDhGroups_Handler,
+		},
+		{
+			MethodName: "GetIntegrityAlgorithms",
+			Handler:    _SaProposalService_GetIntegrityAlgorithms_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _SaProposalService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SaProposalService_ToString_Handler,
+		},
+		{
+			MethodName: "GetSupportedDhGroups",
+			Handler:    _SaProposalService_GetSupportedDhGroups_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1260,6 +1770,8 @@ const (
 	SessionParamsService_Equals_FullMethodName                          = "/ike.SessionParamsService/Equals"
 	SessionParamsService_GetDpdDelaySeconds_FullMethodName              = "/ike.SessionParamsService/GetDpdDelaySeconds"
 	SessionParamsService_GetHardLifetimeSeconds_FullMethodName          = "/ike.SessionParamsService/GetHardLifetimeSeconds"
+	SessionParamsService_GetIkeOptions_FullMethodName                   = "/ike.SessionParamsService/GetIkeOptions"
+	SessionParamsService_GetIkeSaProposals_FullMethodName               = "/ike.SessionParamsService/GetIkeSaProposals"
 	SessionParamsService_GetLocalAuthConfig_FullMethodName              = "/ike.SessionParamsService/GetLocalAuthConfig"
 	SessionParamsService_GetLocalIdentification_FullMethodName          = "/ike.SessionParamsService/GetLocalIdentification"
 	SessionParamsService_GetNattKeepAliveDelaySeconds_FullMethodName    = "/ike.SessionParamsService/GetNattKeepAliveDelaySeconds"
@@ -1277,20 +1789,22 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SessionParamsServiceClient interface {
-	Equals(ctx context.Context, in *SessionParamsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetDpdDelaySeconds(ctx context.Context, in *GetDpdDelaySecondsRequest, opts ...grpc.CallOption) (*GetDpdDelaySecondsResponse, error)
 	GetHardLifetimeSeconds(ctx context.Context, in *GetHardLifetimeSecondsRequest, opts ...grpc.CallOption) (*GetHardLifetimeSecondsResponse, error)
+	GetIkeOptions(ctx context.Context, in *GetIkeOptionsRequest, opts ...grpc.CallOption) (*GetIkeOptionsResponse, error)
+	GetIkeSaProposals(ctx context.Context, in *GetIkeSaProposalsRequest, opts ...grpc.CallOption) (*GetIkeSaProposalsResponse, error)
 	GetLocalAuthConfig(ctx context.Context, in *GetLocalAuthConfigRequest, opts ...grpc.CallOption) (*GetLocalAuthConfigResponse, error)
 	GetLocalIdentification(ctx context.Context, in *GetLocalIdentificationRequest, opts ...grpc.CallOption) (*GetLocalIdentificationResponse, error)
 	GetNattKeepAliveDelaySeconds(ctx context.Context, in *GetNattKeepAliveDelaySecondsRequest, opts ...grpc.CallOption) (*GetNattKeepAliveDelaySecondsResponse, error)
-	GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error)
+	GetNetwork(ctx context.Context, in *SessionParamsGetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error)
 	GetRemoteAuthConfig(ctx context.Context, in *GetRemoteAuthConfigRequest, opts ...grpc.CallOption) (*GetRemoteAuthConfigResponse, error)
 	GetRemoteIdentification(ctx context.Context, in *GetRemoteIdentificationRequest, opts ...grpc.CallOption) (*GetRemoteIdentificationResponse, error)
 	GetRetransmissionTimeoutsMillis(ctx context.Context, in *GetRetransmissionTimeoutsMillisRequest, opts ...grpc.CallOption) (*GetRetransmissionTimeoutsMillisResponse, error)
 	GetServerHostname(ctx context.Context, in *GetServerHostnameRequest, opts ...grpc.CallOption) (*GetServerHostnameResponse, error)
 	GetSoftLifetimeSeconds(ctx context.Context, in *GetSoftLifetimeSecondsRequest, opts ...grpc.CallOption) (*GetSoftLifetimeSecondsResponse, error)
 	HasIkeOption(ctx context.Context, in *HasIkeOptionRequest, opts ...grpc.CallOption) (*HasIkeOptionResponse, error)
-	HashCode(ctx context.Context, in *SessionParamsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type sessionParamsServiceClient struct {
@@ -1301,7 +1815,7 @@ func NewSessionParamsServiceClient(cc grpc.ClientConnInterface) SessionParamsSer
 	return &sessionParamsServiceClient{cc}
 }
 
-func (c *sessionParamsServiceClient) Equals(ctx context.Context, in *SessionParamsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *sessionParamsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, SessionParamsService_Equals_FullMethodName, in, out, cOpts...)
@@ -1325,6 +1839,26 @@ func (c *sessionParamsServiceClient) GetHardLifetimeSeconds(ctx context.Context,
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetHardLifetimeSecondsResponse)
 	err := c.cc.Invoke(ctx, SessionParamsService_GetHardLifetimeSeconds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionParamsServiceClient) GetIkeOptions(ctx context.Context, in *GetIkeOptionsRequest, opts ...grpc.CallOption) (*GetIkeOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIkeOptionsResponse)
+	err := c.cc.Invoke(ctx, SessionParamsService_GetIkeOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionParamsServiceClient) GetIkeSaProposals(ctx context.Context, in *GetIkeSaProposalsRequest, opts ...grpc.CallOption) (*GetIkeSaProposalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIkeSaProposalsResponse)
+	err := c.cc.Invoke(ctx, SessionParamsService_GetIkeSaProposals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1361,7 +1895,7 @@ func (c *sessionParamsServiceClient) GetNattKeepAliveDelaySeconds(ctx context.Co
 	return out, nil
 }
 
-func (c *sessionParamsServiceClient) GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error) {
+func (c *sessionParamsServiceClient) GetNetwork(ctx context.Context, in *SessionParamsGetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNetworkResponse)
 	err := c.cc.Invoke(ctx, SessionParamsService_GetNetwork_FullMethodName, in, out, cOpts...)
@@ -1431,7 +1965,7 @@ func (c *sessionParamsServiceClient) HasIkeOption(ctx context.Context, in *HasIk
 	return out, nil
 }
 
-func (c *sessionParamsServiceClient) HashCode(ctx context.Context, in *SessionParamsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *sessionParamsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, SessionParamsService_HashCode_FullMethodName, in, out, cOpts...)
@@ -1445,20 +1979,22 @@ func (c *sessionParamsServiceClient) HashCode(ctx context.Context, in *SessionPa
 // All implementations must embed UnimplementedSessionParamsServiceServer
 // for forward compatibility.
 type SessionParamsServiceServer interface {
-	Equals(context.Context, *SessionParamsEqualsRequest) (*EqualsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetDpdDelaySeconds(context.Context, *GetDpdDelaySecondsRequest) (*GetDpdDelaySecondsResponse, error)
 	GetHardLifetimeSeconds(context.Context, *GetHardLifetimeSecondsRequest) (*GetHardLifetimeSecondsResponse, error)
+	GetIkeOptions(context.Context, *GetIkeOptionsRequest) (*GetIkeOptionsResponse, error)
+	GetIkeSaProposals(context.Context, *GetIkeSaProposalsRequest) (*GetIkeSaProposalsResponse, error)
 	GetLocalAuthConfig(context.Context, *GetLocalAuthConfigRequest) (*GetLocalAuthConfigResponse, error)
 	GetLocalIdentification(context.Context, *GetLocalIdentificationRequest) (*GetLocalIdentificationResponse, error)
 	GetNattKeepAliveDelaySeconds(context.Context, *GetNattKeepAliveDelaySecondsRequest) (*GetNattKeepAliveDelaySecondsResponse, error)
-	GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error)
+	GetNetwork(context.Context, *SessionParamsGetNetworkRequest) (*GetNetworkResponse, error)
 	GetRemoteAuthConfig(context.Context, *GetRemoteAuthConfigRequest) (*GetRemoteAuthConfigResponse, error)
 	GetRemoteIdentification(context.Context, *GetRemoteIdentificationRequest) (*GetRemoteIdentificationResponse, error)
 	GetRetransmissionTimeoutsMillis(context.Context, *GetRetransmissionTimeoutsMillisRequest) (*GetRetransmissionTimeoutsMillisResponse, error)
 	GetServerHostname(context.Context, *GetServerHostnameRequest) (*GetServerHostnameResponse, error)
 	GetSoftLifetimeSeconds(context.Context, *GetSoftLifetimeSecondsRequest) (*GetSoftLifetimeSecondsResponse, error)
 	HasIkeOption(context.Context, *HasIkeOptionRequest) (*HasIkeOptionResponse, error)
-	HashCode(context.Context, *SessionParamsHashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedSessionParamsServiceServer()
 }
 
@@ -1469,7 +2005,7 @@ type SessionParamsServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSessionParamsServiceServer struct{}
 
-func (UnimplementedSessionParamsServiceServer) Equals(context.Context, *SessionParamsEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedSessionParamsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
 func (UnimplementedSessionParamsServiceServer) GetDpdDelaySeconds(context.Context, *GetDpdDelaySecondsRequest) (*GetDpdDelaySecondsResponse, error) {
@@ -1477,6 +2013,12 @@ func (UnimplementedSessionParamsServiceServer) GetDpdDelaySeconds(context.Contex
 }
 func (UnimplementedSessionParamsServiceServer) GetHardLifetimeSeconds(context.Context, *GetHardLifetimeSecondsRequest) (*GetHardLifetimeSecondsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetHardLifetimeSeconds not implemented")
+}
+func (UnimplementedSessionParamsServiceServer) GetIkeOptions(context.Context, *GetIkeOptionsRequest) (*GetIkeOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIkeOptions not implemented")
+}
+func (UnimplementedSessionParamsServiceServer) GetIkeSaProposals(context.Context, *GetIkeSaProposalsRequest) (*GetIkeSaProposalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIkeSaProposals not implemented")
 }
 func (UnimplementedSessionParamsServiceServer) GetLocalAuthConfig(context.Context, *GetLocalAuthConfigRequest) (*GetLocalAuthConfigResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLocalAuthConfig not implemented")
@@ -1487,7 +2029,7 @@ func (UnimplementedSessionParamsServiceServer) GetLocalIdentification(context.Co
 func (UnimplementedSessionParamsServiceServer) GetNattKeepAliveDelaySeconds(context.Context, *GetNattKeepAliveDelaySecondsRequest) (*GetNattKeepAliveDelaySecondsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNattKeepAliveDelaySeconds not implemented")
 }
-func (UnimplementedSessionParamsServiceServer) GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error) {
+func (UnimplementedSessionParamsServiceServer) GetNetwork(context.Context, *SessionParamsGetNetworkRequest) (*GetNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNetwork not implemented")
 }
 func (UnimplementedSessionParamsServiceServer) GetRemoteAuthConfig(context.Context, *GetRemoteAuthConfigRequest) (*GetRemoteAuthConfigResponse, error) {
@@ -1508,7 +2050,7 @@ func (UnimplementedSessionParamsServiceServer) GetSoftLifetimeSeconds(context.Co
 func (UnimplementedSessionParamsServiceServer) HasIkeOption(context.Context, *HasIkeOptionRequest) (*HasIkeOptionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HasIkeOption not implemented")
 }
-func (UnimplementedSessionParamsServiceServer) HashCode(context.Context, *SessionParamsHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedSessionParamsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedSessionParamsServiceServer) mustEmbedUnimplementedSessionParamsServiceServer() {}
@@ -1533,7 +2075,7 @@ func RegisterSessionParamsServiceServer(s grpc.ServiceRegistrar, srv SessionPara
 }
 
 func _SessionParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsEqualsRequest)
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1545,7 +2087,7 @@ func _SessionParamsService_Equals_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: SessionParamsService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsServiceServer).Equals(ctx, req.(*SessionParamsEqualsRequest))
+		return srv.(SessionParamsServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1582,6 +2124,42 @@ func _SessionParamsService_GetHardLifetimeSeconds_Handler(srv interface{}, ctx c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SessionParamsServiceServer).GetHardLifetimeSeconds(ctx, req.(*GetHardLifetimeSecondsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionParamsService_GetIkeOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIkeOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionParamsServiceServer).GetIkeOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionParamsService_GetIkeOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionParamsServiceServer).GetIkeOptions(ctx, req.(*GetIkeOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionParamsService_GetIkeSaProposals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIkeSaProposalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionParamsServiceServer).GetIkeSaProposals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionParamsService_GetIkeSaProposals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionParamsServiceServer).GetIkeSaProposals(ctx, req.(*GetIkeSaProposalsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1641,7 +2219,7 @@ func _SessionParamsService_GetNattKeepAliveDelaySeconds_Handler(srv interface{},
 }
 
 func _SessionParamsService_GetNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkRequest)
+	in := new(SessionParamsGetNetworkRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1653,7 +2231,7 @@ func _SessionParamsService_GetNetwork_Handler(srv interface{}, ctx context.Conte
 		FullMethod: SessionParamsService_GetNetwork_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsServiceServer).GetNetwork(ctx, req.(*GetNetworkRequest))
+		return srv.(SessionParamsServiceServer).GetNetwork(ctx, req.(*SessionParamsGetNetworkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1767,7 +2345,7 @@ func _SessionParamsService_HasIkeOption_Handler(srv interface{}, ctx context.Con
 }
 
 func _SessionParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1779,7 +2357,7 @@ func _SessionParamsService_HashCode_Handler(srv interface{}, ctx context.Context
 		FullMethod: SessionParamsService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsServiceServer).HashCode(ctx, req.(*SessionParamsHashCodeRequest))
+		return srv.(SessionParamsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1802,6 +2380,14 @@ var SessionParamsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetHardLifetimeSeconds",
 			Handler:    _SessionParamsService_GetHardLifetimeSeconds_Handler,
+		},
+		{
+			MethodName: "GetIkeOptions",
+			Handler:    _SessionParamsService_GetIkeOptions_Handler,
+		},
+		{
+			MethodName: "GetIkeSaProposals",
+			Handler:    _SessionParamsService_GetIkeSaProposals_Handler,
 		},
 		{
 			MethodName: "GetLocalAuthConfig",
@@ -2496,8 +3082,8 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SessionParamsIkeAuthConfigServiceClient interface {
-	Equals(ctx context.Context, in *SessionParamsIkeAuthConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *SessionParamsIkeAuthConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type sessionParamsIkeAuthConfigServiceClient struct {
@@ -2508,7 +3094,7 @@ func NewSessionParamsIkeAuthConfigServiceClient(cc grpc.ClientConnInterface) Ses
 	return &sessionParamsIkeAuthConfigServiceClient{cc}
 }
 
-func (c *sessionParamsIkeAuthConfigServiceClient) Equals(ctx context.Context, in *SessionParamsIkeAuthConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *sessionParamsIkeAuthConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthConfigService_Equals_FullMethodName, in, out, cOpts...)
@@ -2518,7 +3104,7 @@ func (c *sessionParamsIkeAuthConfigServiceClient) Equals(ctx context.Context, in
 	return out, nil
 }
 
-func (c *sessionParamsIkeAuthConfigServiceClient) HashCode(ctx context.Context, in *SessionParamsIkeAuthConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *sessionParamsIkeAuthConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthConfigService_HashCode_FullMethodName, in, out, cOpts...)
@@ -2532,8 +3118,8 @@ func (c *sessionParamsIkeAuthConfigServiceClient) HashCode(ctx context.Context, 
 // All implementations must embed UnimplementedSessionParamsIkeAuthConfigServiceServer
 // for forward compatibility.
 type SessionParamsIkeAuthConfigServiceServer interface {
-	Equals(context.Context, *SessionParamsIkeAuthConfigEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *SessionParamsIkeAuthConfigHashCodeRequest) (*HashCodeResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedSessionParamsIkeAuthConfigServiceServer()
 }
 
@@ -2544,10 +3130,10 @@ type SessionParamsIkeAuthConfigServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSessionParamsIkeAuthConfigServiceServer struct{}
 
-func (UnimplementedSessionParamsIkeAuthConfigServiceServer) Equals(context.Context, *SessionParamsIkeAuthConfigEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedSessionParamsIkeAuthConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedSessionParamsIkeAuthConfigServiceServer) HashCode(context.Context, *SessionParamsIkeAuthConfigHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedSessionParamsIkeAuthConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthConfigServiceServer) mustEmbedUnimplementedSessionParamsIkeAuthConfigServiceServer() {
@@ -2573,7 +3159,7 @@ func RegisterSessionParamsIkeAuthConfigServiceServer(s grpc.ServiceRegistrar, sr
 }
 
 func _SessionParamsIkeAuthConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthConfigEqualsRequest)
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2585,13 +3171,13 @@ func _SessionParamsIkeAuthConfigService_Equals_Handler(srv interface{}, ctx cont
 		FullMethod: SessionParamsIkeAuthConfigService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthConfigServiceServer).Equals(ctx, req.(*SessionParamsIkeAuthConfigEqualsRequest))
+		return srv.(SessionParamsIkeAuthConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SessionParamsIkeAuthConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthConfigHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2603,7 +3189,7 @@ func _SessionParamsIkeAuthConfigService_HashCode_Handler(srv interface{}, ctx co
 		FullMethod: SessionParamsIkeAuthConfigService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthConfigServiceServer).HashCode(ctx, req.(*SessionParamsIkeAuthConfigHashCodeRequest))
+		return srv.(SessionParamsIkeAuthConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2629,20 +3215,22 @@ var SessionParamsIkeAuthConfigService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SessionParamsIkeAuthDigitalSignLocalConfigService_Equals_FullMethodName                  = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/Equals"
-	SessionParamsIkeAuthDigitalSignLocalConfigService_GetClientEndCertificate_FullMethodName = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/GetClientEndCertificate"
-	SessionParamsIkeAuthDigitalSignLocalConfigService_GetPrivateKey_FullMethodName           = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/GetPrivateKey"
-	SessionParamsIkeAuthDigitalSignLocalConfigService_HashCode_FullMethodName                = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/HashCode"
+	SessionParamsIkeAuthDigitalSignLocalConfigService_Equals_FullMethodName                      = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/Equals"
+	SessionParamsIkeAuthDigitalSignLocalConfigService_GetClientEndCertificate_FullMethodName     = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/GetClientEndCertificate"
+	SessionParamsIkeAuthDigitalSignLocalConfigService_GetIntermediateCertificates_FullMethodName = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/GetIntermediateCertificates"
+	SessionParamsIkeAuthDigitalSignLocalConfigService_GetPrivateKey_FullMethodName               = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/GetPrivateKey"
+	SessionParamsIkeAuthDigitalSignLocalConfigService_HashCode_FullMethodName                    = "/ike.SessionParamsIkeAuthDigitalSignLocalConfigService/HashCode"
 )
 
 // SessionParamsIkeAuthDigitalSignLocalConfigServiceClient is the client API for SessionParamsIkeAuthDigitalSignLocalConfigService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SessionParamsIkeAuthDigitalSignLocalConfigServiceClient interface {
-	Equals(ctx context.Context, in *SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetClientEndCertificate(ctx context.Context, in *GetClientEndCertificateRequest, opts ...grpc.CallOption) (*GetClientEndCertificateResponse, error)
+	GetIntermediateCertificates(ctx context.Context, in *GetIntermediateCertificatesRequest, opts ...grpc.CallOption) (*GetIntermediateCertificatesResponse, error)
 	GetPrivateKey(ctx context.Context, in *GetPrivateKeyRequest, opts ...grpc.CallOption) (*GetPrivateKeyResponse, error)
-	HashCode(ctx context.Context, in *SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type sessionParamsIkeAuthDigitalSignLocalConfigServiceClient struct {
@@ -2653,7 +3241,7 @@ func NewSessionParamsIkeAuthDigitalSignLocalConfigServiceClient(cc grpc.ClientCo
 	return &sessionParamsIkeAuthDigitalSignLocalConfigServiceClient{cc}
 }
 
-func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) Equals(ctx context.Context, in *SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthDigitalSignLocalConfigService_Equals_FullMethodName, in, out, cOpts...)
@@ -2673,6 +3261,16 @@ func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) GetClientEndCe
 	return out, nil
 }
 
+func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) GetIntermediateCertificates(ctx context.Context, in *GetIntermediateCertificatesRequest, opts ...grpc.CallOption) (*GetIntermediateCertificatesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntermediateCertificatesResponse)
+	err := c.cc.Invoke(ctx, SessionParamsIkeAuthDigitalSignLocalConfigService_GetIntermediateCertificates_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) GetPrivateKey(ctx context.Context, in *GetPrivateKeyRequest, opts ...grpc.CallOption) (*GetPrivateKeyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPrivateKeyResponse)
@@ -2683,7 +3281,7 @@ func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) GetPrivateKey(
 	return out, nil
 }
 
-func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) HashCode(ctx context.Context, in *SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthDigitalSignLocalConfigService_HashCode_FullMethodName, in, out, cOpts...)
@@ -2697,10 +3295,11 @@ func (c *sessionParamsIkeAuthDigitalSignLocalConfigServiceClient) HashCode(ctx c
 // All implementations must embed UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer
 // for forward compatibility.
 type SessionParamsIkeAuthDigitalSignLocalConfigServiceServer interface {
-	Equals(context.Context, *SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) (*EqualsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetClientEndCertificate(context.Context, *GetClientEndCertificateRequest) (*GetClientEndCertificateResponse, error)
+	GetIntermediateCertificates(context.Context, *GetIntermediateCertificatesRequest) (*GetIntermediateCertificatesResponse, error)
 	GetPrivateKey(context.Context, *GetPrivateKeyRequest) (*GetPrivateKeyResponse, error)
-	HashCode(context.Context, *SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer()
 }
 
@@ -2711,16 +3310,19 @@ type SessionParamsIkeAuthDigitalSignLocalConfigServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer struct{}
 
-func (UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer) Equals(context.Context, *SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer) GetClientEndCertificate(context.Context, *GetClientEndCertificateRequest) (*GetClientEndCertificateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetClientEndCertificate not implemented")
 }
+func (UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer) GetIntermediateCertificates(context.Context, *GetIntermediateCertificatesRequest) (*GetIntermediateCertificatesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntermediateCertificates not implemented")
+}
 func (UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer) GetPrivateKey(context.Context, *GetPrivateKeyRequest) (*GetPrivateKeyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPrivateKey not implemented")
 }
-func (UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer) HashCode(context.Context, *SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer) mustEmbedUnimplementedSessionParamsIkeAuthDigitalSignLocalConfigServiceServer() {
@@ -2746,7 +3348,7 @@ func RegisterSessionParamsIkeAuthDigitalSignLocalConfigServiceServer(s grpc.Serv
 }
 
 func _SessionParamsIkeAuthDigitalSignLocalConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest)
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2758,7 +3360,7 @@ func _SessionParamsIkeAuthDigitalSignLocalConfigService_Equals_Handler(srv inter
 		FullMethod: SessionParamsIkeAuthDigitalSignLocalConfigService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthDigitalSignLocalConfigServiceServer).Equals(ctx, req.(*SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest))
+		return srv.(SessionParamsIkeAuthDigitalSignLocalConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2777,6 +3379,24 @@ func _SessionParamsIkeAuthDigitalSignLocalConfigService_GetClientEndCertificate_
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SessionParamsIkeAuthDigitalSignLocalConfigServiceServer).GetClientEndCertificate(ctx, req.(*GetClientEndCertificateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionParamsIkeAuthDigitalSignLocalConfigService_GetIntermediateCertificates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntermediateCertificatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionParamsIkeAuthDigitalSignLocalConfigServiceServer).GetIntermediateCertificates(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionParamsIkeAuthDigitalSignLocalConfigService_GetIntermediateCertificates_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionParamsIkeAuthDigitalSignLocalConfigServiceServer).GetIntermediateCertificates(ctx, req.(*GetIntermediateCertificatesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2800,7 +3420,7 @@ func _SessionParamsIkeAuthDigitalSignLocalConfigService_GetPrivateKey_Handler(sr
 }
 
 func _SessionParamsIkeAuthDigitalSignLocalConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2812,7 +3432,7 @@ func _SessionParamsIkeAuthDigitalSignLocalConfigService_HashCode_Handler(srv int
 		FullMethod: SessionParamsIkeAuthDigitalSignLocalConfigService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthDigitalSignLocalConfigServiceServer).HashCode(ctx, req.(*SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest))
+		return srv.(SessionParamsIkeAuthDigitalSignLocalConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2831,6 +3451,10 @@ var SessionParamsIkeAuthDigitalSignLocalConfigService_ServiceDesc = grpc.Service
 		{
 			MethodName: "GetClientEndCertificate",
 			Handler:    _SessionParamsIkeAuthDigitalSignLocalConfigService_GetClientEndCertificate_Handler,
+		},
+		{
+			MethodName: "GetIntermediateCertificates",
+			Handler:    _SessionParamsIkeAuthDigitalSignLocalConfigService_GetIntermediateCertificates_Handler,
 		},
 		{
 			MethodName: "GetPrivateKey",
@@ -2855,9 +3479,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SessionParamsIkeAuthDigitalSignRemoteConfigServiceClient interface {
-	Equals(ctx context.Context, in *SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetRemoteCaCert(ctx context.Context, in *GetRemoteCaCertRequest, opts ...grpc.CallOption) (*GetRemoteCaCertResponse, error)
-	HashCode(ctx context.Context, in *SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type sessionParamsIkeAuthDigitalSignRemoteConfigServiceClient struct {
@@ -2868,7 +3492,7 @@ func NewSessionParamsIkeAuthDigitalSignRemoteConfigServiceClient(cc grpc.ClientC
 	return &sessionParamsIkeAuthDigitalSignRemoteConfigServiceClient{cc}
 }
 
-func (c *sessionParamsIkeAuthDigitalSignRemoteConfigServiceClient) Equals(ctx context.Context, in *SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *sessionParamsIkeAuthDigitalSignRemoteConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthDigitalSignRemoteConfigService_Equals_FullMethodName, in, out, cOpts...)
@@ -2888,7 +3512,7 @@ func (c *sessionParamsIkeAuthDigitalSignRemoteConfigServiceClient) GetRemoteCaCe
 	return out, nil
 }
 
-func (c *sessionParamsIkeAuthDigitalSignRemoteConfigServiceClient) HashCode(ctx context.Context, in *SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *sessionParamsIkeAuthDigitalSignRemoteConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthDigitalSignRemoteConfigService_HashCode_FullMethodName, in, out, cOpts...)
@@ -2902,9 +3526,9 @@ func (c *sessionParamsIkeAuthDigitalSignRemoteConfigServiceClient) HashCode(ctx 
 // All implementations must embed UnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer
 // for forward compatibility.
 type SessionParamsIkeAuthDigitalSignRemoteConfigServiceServer interface {
-	Equals(context.Context, *SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) (*EqualsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetRemoteCaCert(context.Context, *GetRemoteCaCertRequest) (*GetRemoteCaCertResponse, error)
-	HashCode(context.Context, *SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer()
 }
 
@@ -2915,13 +3539,13 @@ type SessionParamsIkeAuthDigitalSignRemoteConfigServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer struct{}
 
-func (UnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer) Equals(context.Context, *SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer) GetRemoteCaCert(context.Context, *GetRemoteCaCertRequest) (*GetRemoteCaCertResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRemoteCaCert not implemented")
 }
-func (UnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer) HashCode(context.Context, *SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer) mustEmbedUnimplementedSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer() {
@@ -2947,7 +3571,7 @@ func RegisterSessionParamsIkeAuthDigitalSignRemoteConfigServiceServer(s grpc.Ser
 }
 
 func _SessionParamsIkeAuthDigitalSignRemoteConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest)
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2959,7 +3583,7 @@ func _SessionParamsIkeAuthDigitalSignRemoteConfigService_Equals_Handler(srv inte
 		FullMethod: SessionParamsIkeAuthDigitalSignRemoteConfigService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthDigitalSignRemoteConfigServiceServer).Equals(ctx, req.(*SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest))
+		return srv.(SessionParamsIkeAuthDigitalSignRemoteConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2983,7 +3607,7 @@ func _SessionParamsIkeAuthDigitalSignRemoteConfigService_GetRemoteCaCert_Handler
 }
 
 func _SessionParamsIkeAuthDigitalSignRemoteConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2995,7 +3619,7 @@ func _SessionParamsIkeAuthDigitalSignRemoteConfigService_HashCode_Handler(srv in
 		FullMethod: SessionParamsIkeAuthDigitalSignRemoteConfigService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthDigitalSignRemoteConfigServiceServer).HashCode(ctx, req.(*SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest))
+		return srv.(SessionParamsIkeAuthDigitalSignRemoteConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3034,9 +3658,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SessionParamsIkeAuthEapConfigServiceClient interface {
-	Equals(ctx context.Context, in *SessionParamsIkeAuthEapConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetEapConfig(ctx context.Context, in *GetEapConfigRequest, opts ...grpc.CallOption) (*GetEapConfigResponse, error)
-	HashCode(ctx context.Context, in *SessionParamsIkeAuthEapConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type sessionParamsIkeAuthEapConfigServiceClient struct {
@@ -3047,7 +3671,7 @@ func NewSessionParamsIkeAuthEapConfigServiceClient(cc grpc.ClientConnInterface) 
 	return &sessionParamsIkeAuthEapConfigServiceClient{cc}
 }
 
-func (c *sessionParamsIkeAuthEapConfigServiceClient) Equals(ctx context.Context, in *SessionParamsIkeAuthEapConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *sessionParamsIkeAuthEapConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthEapConfigService_Equals_FullMethodName, in, out, cOpts...)
@@ -3067,7 +3691,7 @@ func (c *sessionParamsIkeAuthEapConfigServiceClient) GetEapConfig(ctx context.Co
 	return out, nil
 }
 
-func (c *sessionParamsIkeAuthEapConfigServiceClient) HashCode(ctx context.Context, in *SessionParamsIkeAuthEapConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *sessionParamsIkeAuthEapConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthEapConfigService_HashCode_FullMethodName, in, out, cOpts...)
@@ -3081,9 +3705,9 @@ func (c *sessionParamsIkeAuthEapConfigServiceClient) HashCode(ctx context.Contex
 // All implementations must embed UnimplementedSessionParamsIkeAuthEapConfigServiceServer
 // for forward compatibility.
 type SessionParamsIkeAuthEapConfigServiceServer interface {
-	Equals(context.Context, *SessionParamsIkeAuthEapConfigEqualsRequest) (*EqualsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetEapConfig(context.Context, *GetEapConfigRequest) (*GetEapConfigResponse, error)
-	HashCode(context.Context, *SessionParamsIkeAuthEapConfigHashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedSessionParamsIkeAuthEapConfigServiceServer()
 }
 
@@ -3094,13 +3718,13 @@ type SessionParamsIkeAuthEapConfigServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSessionParamsIkeAuthEapConfigServiceServer struct{}
 
-func (UnimplementedSessionParamsIkeAuthEapConfigServiceServer) Equals(context.Context, *SessionParamsIkeAuthEapConfigEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedSessionParamsIkeAuthEapConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthEapConfigServiceServer) GetEapConfig(context.Context, *GetEapConfigRequest) (*GetEapConfigResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetEapConfig not implemented")
 }
-func (UnimplementedSessionParamsIkeAuthEapConfigServiceServer) HashCode(context.Context, *SessionParamsIkeAuthEapConfigHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedSessionParamsIkeAuthEapConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthEapConfigServiceServer) mustEmbedUnimplementedSessionParamsIkeAuthEapConfigServiceServer() {
@@ -3126,7 +3750,7 @@ func RegisterSessionParamsIkeAuthEapConfigServiceServer(s grpc.ServiceRegistrar,
 }
 
 func _SessionParamsIkeAuthEapConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthEapConfigEqualsRequest)
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3138,7 +3762,7 @@ func _SessionParamsIkeAuthEapConfigService_Equals_Handler(srv interface{}, ctx c
 		FullMethod: SessionParamsIkeAuthEapConfigService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthEapConfigServiceServer).Equals(ctx, req.(*SessionParamsIkeAuthEapConfigEqualsRequest))
+		return srv.(SessionParamsIkeAuthEapConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3162,7 +3786,7 @@ func _SessionParamsIkeAuthEapConfigService_GetEapConfig_Handler(srv interface{},
 }
 
 func _SessionParamsIkeAuthEapConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthEapConfigHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3174,7 +3798,7 @@ func _SessionParamsIkeAuthEapConfigService_HashCode_Handler(srv interface{}, ctx
 		FullMethod: SessionParamsIkeAuthEapConfigService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthEapConfigServiceServer).HashCode(ctx, req.(*SessionParamsIkeAuthEapConfigHashCodeRequest))
+		return srv.(SessionParamsIkeAuthEapConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3213,9 +3837,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SessionParamsIkeAuthPskConfigServiceClient interface {
-	Equals(ctx context.Context, in *SessionParamsIkeAuthPskConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetPsk(ctx context.Context, in *GetPskRequest, opts ...grpc.CallOption) (*GetPskResponse, error)
-	HashCode(ctx context.Context, in *SessionParamsIkeAuthPskConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type sessionParamsIkeAuthPskConfigServiceClient struct {
@@ -3226,7 +3850,7 @@ func NewSessionParamsIkeAuthPskConfigServiceClient(cc grpc.ClientConnInterface) 
 	return &sessionParamsIkeAuthPskConfigServiceClient{cc}
 }
 
-func (c *sessionParamsIkeAuthPskConfigServiceClient) Equals(ctx context.Context, in *SessionParamsIkeAuthPskConfigEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *sessionParamsIkeAuthPskConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthPskConfigService_Equals_FullMethodName, in, out, cOpts...)
@@ -3246,7 +3870,7 @@ func (c *sessionParamsIkeAuthPskConfigServiceClient) GetPsk(ctx context.Context,
 	return out, nil
 }
 
-func (c *sessionParamsIkeAuthPskConfigServiceClient) HashCode(ctx context.Context, in *SessionParamsIkeAuthPskConfigHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *sessionParamsIkeAuthPskConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, SessionParamsIkeAuthPskConfigService_HashCode_FullMethodName, in, out, cOpts...)
@@ -3260,9 +3884,9 @@ func (c *sessionParamsIkeAuthPskConfigServiceClient) HashCode(ctx context.Contex
 // All implementations must embed UnimplementedSessionParamsIkeAuthPskConfigServiceServer
 // for forward compatibility.
 type SessionParamsIkeAuthPskConfigServiceServer interface {
-	Equals(context.Context, *SessionParamsIkeAuthPskConfigEqualsRequest) (*EqualsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetPsk(context.Context, *GetPskRequest) (*GetPskResponse, error)
-	HashCode(context.Context, *SessionParamsIkeAuthPskConfigHashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedSessionParamsIkeAuthPskConfigServiceServer()
 }
 
@@ -3273,13 +3897,13 @@ type SessionParamsIkeAuthPskConfigServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSessionParamsIkeAuthPskConfigServiceServer struct{}
 
-func (UnimplementedSessionParamsIkeAuthPskConfigServiceServer) Equals(context.Context, *SessionParamsIkeAuthPskConfigEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedSessionParamsIkeAuthPskConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthPskConfigServiceServer) GetPsk(context.Context, *GetPskRequest) (*GetPskResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPsk not implemented")
 }
-func (UnimplementedSessionParamsIkeAuthPskConfigServiceServer) HashCode(context.Context, *SessionParamsIkeAuthPskConfigHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedSessionParamsIkeAuthPskConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedSessionParamsIkeAuthPskConfigServiceServer) mustEmbedUnimplementedSessionParamsIkeAuthPskConfigServiceServer() {
@@ -3305,7 +3929,7 @@ func RegisterSessionParamsIkeAuthPskConfigServiceServer(s grpc.ServiceRegistrar,
 }
 
 func _SessionParamsIkeAuthPskConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthPskConfigEqualsRequest)
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3317,7 +3941,7 @@ func _SessionParamsIkeAuthPskConfigService_Equals_Handler(srv interface{}, ctx c
 		FullMethod: SessionParamsIkeAuthPskConfigService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthPskConfigServiceServer).Equals(ctx, req.(*SessionParamsIkeAuthPskConfigEqualsRequest))
+		return srv.(SessionParamsIkeAuthPskConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3341,7 +3965,7 @@ func _SessionParamsIkeAuthPskConfigService_GetPsk_Handler(srv interface{}, ctx c
 }
 
 func _SessionParamsIkeAuthPskConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionParamsIkeAuthPskConfigHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3353,7 +3977,7 @@ func _SessionParamsIkeAuthPskConfigService_HashCode_Handler(srv interface{}, ctx
 		FullMethod: SessionParamsIkeAuthPskConfigService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionParamsIkeAuthPskConfigServiceServer).HashCode(ctx, req.(*SessionParamsIkeAuthPskConfigHashCodeRequest))
+		return srv.(SessionParamsIkeAuthPskConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3383,988 +4007,6 @@ var SessionParamsIkeAuthPskConfigService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SessionConfigurationService_GetEapInfo_FullMethodName                  = "/ike.SessionConfigurationService/GetEapInfo"
-	SessionConfigurationService_GetIkeSessionConnectionInfo_FullMethodName = "/ike.SessionConfigurationService/GetIkeSessionConnectionInfo"
-	SessionConfigurationService_GetRemoteApplicationVersion_FullMethodName = "/ike.SessionConfigurationService/GetRemoteApplicationVersion"
-	SessionConfigurationService_IsIkeExtensionEnabled_FullMethodName       = "/ike.SessionConfigurationService/IsIkeExtensionEnabled"
-)
-
-// SessionConfigurationServiceClient is the client API for SessionConfigurationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionConfigurationServiceClient interface {
-	GetEapInfo(ctx context.Context, in *GetEapInfoRequest, opts ...grpc.CallOption) (*GetEapInfoResponse, error)
-	GetIkeSessionConnectionInfo(ctx context.Context, in *GetIkeSessionConnectionInfoRequest, opts ...grpc.CallOption) (*GetIkeSessionConnectionInfoResponse, error)
-	GetRemoteApplicationVersion(ctx context.Context, in *GetRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*GetRemoteApplicationVersionResponse, error)
-	IsIkeExtensionEnabled(ctx context.Context, in *IsIkeExtensionEnabledRequest, opts ...grpc.CallOption) (*IsIkeExtensionEnabledResponse, error)
-}
-
-type sessionConfigurationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionConfigurationServiceClient(cc grpc.ClientConnInterface) SessionConfigurationServiceClient {
-	return &sessionConfigurationServiceClient{cc}
-}
-
-func (c *sessionConfigurationServiceClient) GetEapInfo(ctx context.Context, in *GetEapInfoRequest, opts ...grpc.CallOption) (*GetEapInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEapInfoResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationService_GetEapInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationServiceClient) GetIkeSessionConnectionInfo(ctx context.Context, in *GetIkeSessionConnectionInfoRequest, opts ...grpc.CallOption) (*GetIkeSessionConnectionInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIkeSessionConnectionInfoResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationService_GetIkeSessionConnectionInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationServiceClient) GetRemoteApplicationVersion(ctx context.Context, in *GetRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*GetRemoteApplicationVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRemoteApplicationVersionResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationService_GetRemoteApplicationVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationServiceClient) IsIkeExtensionEnabled(ctx context.Context, in *IsIkeExtensionEnabledRequest, opts ...grpc.CallOption) (*IsIkeExtensionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsIkeExtensionEnabledResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationService_IsIkeExtensionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionConfigurationServiceServer is the server API for SessionConfigurationService service.
-// All implementations must embed UnimplementedSessionConfigurationServiceServer
-// for forward compatibility.
-type SessionConfigurationServiceServer interface {
-	GetEapInfo(context.Context, *GetEapInfoRequest) (*GetEapInfoResponse, error)
-	GetIkeSessionConnectionInfo(context.Context, *GetIkeSessionConnectionInfoRequest) (*GetIkeSessionConnectionInfoResponse, error)
-	GetRemoteApplicationVersion(context.Context, *GetRemoteApplicationVersionRequest) (*GetRemoteApplicationVersionResponse, error)
-	IsIkeExtensionEnabled(context.Context, *IsIkeExtensionEnabledRequest) (*IsIkeExtensionEnabledResponse, error)
-	mustEmbedUnimplementedSessionConfigurationServiceServer()
-}
-
-// UnimplementedSessionConfigurationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionConfigurationServiceServer struct{}
-
-func (UnimplementedSessionConfigurationServiceServer) GetEapInfo(context.Context, *GetEapInfoRequest) (*GetEapInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEapInfo not implemented")
-}
-func (UnimplementedSessionConfigurationServiceServer) GetIkeSessionConnectionInfo(context.Context, *GetIkeSessionConnectionInfoRequest) (*GetIkeSessionConnectionInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIkeSessionConnectionInfo not implemented")
-}
-func (UnimplementedSessionConfigurationServiceServer) GetRemoteApplicationVersion(context.Context, *GetRemoteApplicationVersionRequest) (*GetRemoteApplicationVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRemoteApplicationVersion not implemented")
-}
-func (UnimplementedSessionConfigurationServiceServer) IsIkeExtensionEnabled(context.Context, *IsIkeExtensionEnabledRequest) (*IsIkeExtensionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsIkeExtensionEnabled not implemented")
-}
-func (UnimplementedSessionConfigurationServiceServer) mustEmbedUnimplementedSessionConfigurationServiceServer() {
-}
-func (UnimplementedSessionConfigurationServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSessionConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionConfigurationServiceServer will
-// result in compilation errors.
-type UnsafeSessionConfigurationServiceServer interface {
-	mustEmbedUnimplementedSessionConfigurationServiceServer()
-}
-
-func RegisterSessionConfigurationServiceServer(s grpc.ServiceRegistrar, srv SessionConfigurationServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionConfigurationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionConfigurationService_ServiceDesc, srv)
-}
-
-func _SessionConfigurationService_GetEapInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEapInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationServiceServer).GetEapInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationService_GetEapInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationServiceServer).GetEapInfo(ctx, req.(*GetEapInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationService_GetIkeSessionConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIkeSessionConnectionInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationServiceServer).GetIkeSessionConnectionInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationService_GetIkeSessionConnectionInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationServiceServer).GetIkeSessionConnectionInfo(ctx, req.(*GetIkeSessionConnectionInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationService_GetRemoteApplicationVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRemoteApplicationVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationServiceServer).GetRemoteApplicationVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationService_GetRemoteApplicationVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationServiceServer).GetRemoteApplicationVersion(ctx, req.(*GetRemoteApplicationVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationService_IsIkeExtensionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsIkeExtensionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationServiceServer).IsIkeExtensionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationService_IsIkeExtensionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationServiceServer).IsIkeExtensionEnabled(ctx, req.(*IsIkeExtensionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionConfigurationService_ServiceDesc is the grpc.ServiceDesc for SessionConfigurationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionConfigurationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.SessionConfigurationService",
-	HandlerType: (*SessionConfigurationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetEapInfo",
-			Handler:    _SessionConfigurationService_GetEapInfo_Handler,
-		},
-		{
-			MethodName: "GetIkeSessionConnectionInfo",
-			Handler:    _SessionConfigurationService_GetIkeSessionConnectionInfo_Handler,
-		},
-		{
-			MethodName: "GetRemoteApplicationVersion",
-			Handler:    _SessionConfigurationService_GetRemoteApplicationVersion_Handler,
-		},
-		{
-			MethodName: "IsIkeExtensionEnabled",
-			Handler:    _SessionConfigurationService_IsIkeExtensionEnabled_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	SessionConfigurationBuilderService_AddIkeExtension_FullMethodName               = "/ike.SessionConfigurationBuilderService/AddIkeExtension"
-	SessionConfigurationBuilderService_AddRemoteVendorId_FullMethodName             = "/ike.SessionConfigurationBuilderService/AddRemoteVendorId"
-	SessionConfigurationBuilderService_Build_FullMethodName                         = "/ike.SessionConfigurationBuilderService/Build"
-	SessionConfigurationBuilderService_ClearIkeExtensions_FullMethodName            = "/ike.SessionConfigurationBuilderService/ClearIkeExtensions"
-	SessionConfigurationBuilderService_ClearRemoteApplicationVersion_FullMethodName = "/ike.SessionConfigurationBuilderService/ClearRemoteApplicationVersion"
-	SessionConfigurationBuilderService_ClearRemoteVendorIds_FullMethodName          = "/ike.SessionConfigurationBuilderService/ClearRemoteVendorIds"
-	SessionConfigurationBuilderService_SetEapInfo_FullMethodName                    = "/ike.SessionConfigurationBuilderService/SetEapInfo"
-	SessionConfigurationBuilderService_SetRemoteApplicationVersion_FullMethodName   = "/ike.SessionConfigurationBuilderService/SetRemoteApplicationVersion"
-)
-
-// SessionConfigurationBuilderServiceClient is the client API for SessionConfigurationBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionConfigurationBuilderServiceClient interface {
-	AddIkeExtension(ctx context.Context, in *AddIkeExtensionRequest, opts ...grpc.CallOption) (*AddIkeExtensionResponse, error)
-	AddRemoteVendorId(ctx context.Context, in *AddRemoteVendorIdRequest, opts ...grpc.CallOption) (*AddRemoteVendorIdResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	ClearIkeExtensions(ctx context.Context, in *ClearIkeExtensionsRequest, opts ...grpc.CallOption) (*ClearIkeExtensionsResponse, error)
-	ClearRemoteApplicationVersion(ctx context.Context, in *ClearRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*ClearRemoteApplicationVersionResponse, error)
-	ClearRemoteVendorIds(ctx context.Context, in *ClearRemoteVendorIdsRequest, opts ...grpc.CallOption) (*ClearRemoteVendorIdsResponse, error)
-	SetEapInfo(ctx context.Context, in *SetEapInfoRequest, opts ...grpc.CallOption) (*SetEapInfoResponse, error)
-	SetRemoteApplicationVersion(ctx context.Context, in *SetRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*SetRemoteApplicationVersionResponse, error)
-}
-
-type sessionConfigurationBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionConfigurationBuilderServiceClient(cc grpc.ClientConnInterface) SessionConfigurationBuilderServiceClient {
-	return &sessionConfigurationBuilderServiceClient{cc}
-}
-
-func (c *sessionConfigurationBuilderServiceClient) AddIkeExtension(ctx context.Context, in *AddIkeExtensionRequest, opts ...grpc.CallOption) (*AddIkeExtensionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddIkeExtensionResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_AddIkeExtension_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationBuilderServiceClient) AddRemoteVendorId(ctx context.Context, in *AddRemoteVendorIdRequest, opts ...grpc.CallOption) (*AddRemoteVendorIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddRemoteVendorIdResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_AddRemoteVendorId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationBuilderServiceClient) ClearIkeExtensions(ctx context.Context, in *ClearIkeExtensionsRequest, opts ...grpc.CallOption) (*ClearIkeExtensionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearIkeExtensionsResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_ClearIkeExtensions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationBuilderServiceClient) ClearRemoteApplicationVersion(ctx context.Context, in *ClearRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*ClearRemoteApplicationVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearRemoteApplicationVersionResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_ClearRemoteApplicationVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationBuilderServiceClient) ClearRemoteVendorIds(ctx context.Context, in *ClearRemoteVendorIdsRequest, opts ...grpc.CallOption) (*ClearRemoteVendorIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearRemoteVendorIdsResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_ClearRemoteVendorIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationBuilderServiceClient) SetEapInfo(ctx context.Context, in *SetEapInfoRequest, opts ...grpc.CallOption) (*SetEapInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEapInfoResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_SetEapInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConfigurationBuilderServiceClient) SetRemoteApplicationVersion(ctx context.Context, in *SetRemoteApplicationVersionRequest, opts ...grpc.CallOption) (*SetRemoteApplicationVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRemoteApplicationVersionResponse)
-	err := c.cc.Invoke(ctx, SessionConfigurationBuilderService_SetRemoteApplicationVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionConfigurationBuilderServiceServer is the server API for SessionConfigurationBuilderService service.
-// All implementations must embed UnimplementedSessionConfigurationBuilderServiceServer
-// for forward compatibility.
-type SessionConfigurationBuilderServiceServer interface {
-	AddIkeExtension(context.Context, *AddIkeExtensionRequest) (*AddIkeExtensionResponse, error)
-	AddRemoteVendorId(context.Context, *AddRemoteVendorIdRequest) (*AddRemoteVendorIdResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	ClearIkeExtensions(context.Context, *ClearIkeExtensionsRequest) (*ClearIkeExtensionsResponse, error)
-	ClearRemoteApplicationVersion(context.Context, *ClearRemoteApplicationVersionRequest) (*ClearRemoteApplicationVersionResponse, error)
-	ClearRemoteVendorIds(context.Context, *ClearRemoteVendorIdsRequest) (*ClearRemoteVendorIdsResponse, error)
-	SetEapInfo(context.Context, *SetEapInfoRequest) (*SetEapInfoResponse, error)
-	SetRemoteApplicationVersion(context.Context, *SetRemoteApplicationVersionRequest) (*SetRemoteApplicationVersionResponse, error)
-	mustEmbedUnimplementedSessionConfigurationBuilderServiceServer()
-}
-
-// UnimplementedSessionConfigurationBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionConfigurationBuilderServiceServer struct{}
-
-func (UnimplementedSessionConfigurationBuilderServiceServer) AddIkeExtension(context.Context, *AddIkeExtensionRequest) (*AddIkeExtensionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddIkeExtension not implemented")
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) AddRemoteVendorId(context.Context, *AddRemoteVendorIdRequest) (*AddRemoteVendorIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddRemoteVendorId not implemented")
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) ClearIkeExtensions(context.Context, *ClearIkeExtensionsRequest) (*ClearIkeExtensionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearIkeExtensions not implemented")
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) ClearRemoteApplicationVersion(context.Context, *ClearRemoteApplicationVersionRequest) (*ClearRemoteApplicationVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearRemoteApplicationVersion not implemented")
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) ClearRemoteVendorIds(context.Context, *ClearRemoteVendorIdsRequest) (*ClearRemoteVendorIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearRemoteVendorIds not implemented")
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) SetEapInfo(context.Context, *SetEapInfoRequest) (*SetEapInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEapInfo not implemented")
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) SetRemoteApplicationVersion(context.Context, *SetRemoteApplicationVersionRequest) (*SetRemoteApplicationVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRemoteApplicationVersion not implemented")
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) mustEmbedUnimplementedSessionConfigurationBuilderServiceServer() {
-}
-func (UnimplementedSessionConfigurationBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSessionConfigurationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionConfigurationBuilderServiceServer will
-// result in compilation errors.
-type UnsafeSessionConfigurationBuilderServiceServer interface {
-	mustEmbedUnimplementedSessionConfigurationBuilderServiceServer()
-}
-
-func RegisterSessionConfigurationBuilderServiceServer(s grpc.ServiceRegistrar, srv SessionConfigurationBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionConfigurationBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionConfigurationBuilderService_ServiceDesc, srv)
-}
-
-func _SessionConfigurationBuilderService_AddIkeExtension_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddIkeExtensionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationBuilderServiceServer).AddIkeExtension(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationBuilderService_AddIkeExtension_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationBuilderServiceServer).AddIkeExtension(ctx, req.(*AddIkeExtensionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationBuilderService_AddRemoteVendorId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddRemoteVendorIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationBuilderServiceServer).AddRemoteVendorId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationBuilderService_AddRemoteVendorId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationBuilderServiceServer).AddRemoteVendorId(ctx, req.(*AddRemoteVendorIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationBuilderService_ClearIkeExtensions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearIkeExtensionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationBuilderServiceServer).ClearIkeExtensions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationBuilderService_ClearIkeExtensions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationBuilderServiceServer).ClearIkeExtensions(ctx, req.(*ClearIkeExtensionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationBuilderService_ClearRemoteApplicationVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearRemoteApplicationVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationBuilderServiceServer).ClearRemoteApplicationVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationBuilderService_ClearRemoteApplicationVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationBuilderServiceServer).ClearRemoteApplicationVersion(ctx, req.(*ClearRemoteApplicationVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationBuilderService_ClearRemoteVendorIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearRemoteVendorIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationBuilderServiceServer).ClearRemoteVendorIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationBuilderService_ClearRemoteVendorIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationBuilderServiceServer).ClearRemoteVendorIds(ctx, req.(*ClearRemoteVendorIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationBuilderService_SetEapInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEapInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationBuilderServiceServer).SetEapInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationBuilderService_SetEapInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationBuilderServiceServer).SetEapInfo(ctx, req.(*SetEapInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConfigurationBuilderService_SetRemoteApplicationVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRemoteApplicationVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConfigurationBuilderServiceServer).SetRemoteApplicationVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConfigurationBuilderService_SetRemoteApplicationVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConfigurationBuilderServiceServer).SetRemoteApplicationVersion(ctx, req.(*SetRemoteApplicationVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionConfigurationBuilderService_ServiceDesc is the grpc.ServiceDesc for SessionConfigurationBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionConfigurationBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.SessionConfigurationBuilderService",
-	HandlerType: (*SessionConfigurationBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddIkeExtension",
-			Handler:    _SessionConfigurationBuilderService_AddIkeExtension_Handler,
-		},
-		{
-			MethodName: "AddRemoteVendorId",
-			Handler:    _SessionConfigurationBuilderService_AddRemoteVendorId_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _SessionConfigurationBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "ClearIkeExtensions",
-			Handler:    _SessionConfigurationBuilderService_ClearIkeExtensions_Handler,
-		},
-		{
-			MethodName: "ClearRemoteApplicationVersion",
-			Handler:    _SessionConfigurationBuilderService_ClearRemoteApplicationVersion_Handler,
-		},
-		{
-			MethodName: "ClearRemoteVendorIds",
-			Handler:    _SessionConfigurationBuilderService_ClearRemoteVendorIds_Handler,
-		},
-		{
-			MethodName: "SetEapInfo",
-			Handler:    _SessionConfigurationBuilderService_SetEapInfo_Handler,
-		},
-		{
-			MethodName: "SetRemoteApplicationVersion",
-			Handler:    _SessionConfigurationBuilderService_SetRemoteApplicationVersion_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	Ipv4AddrIdentificationService_NewIpv4AddrIdentification_FullMethodName = "/ike.Ipv4AddrIdentificationService/NewIpv4AddrIdentification"
-	Ipv4AddrIdentificationService_Equals_FullMethodName                    = "/ike.Ipv4AddrIdentificationService/Equals"
-	Ipv4AddrIdentificationService_HashCode_FullMethodName                  = "/ike.Ipv4AddrIdentificationService/HashCode"
-)
-
-// Ipv4AddrIdentificationServiceClient is the client API for Ipv4AddrIdentificationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type Ipv4AddrIdentificationServiceClient interface {
-	NewIpv4AddrIdentification(ctx context.Context, in *NewIpv4AddrIdentificationRequest, opts ...grpc.CallOption) (*NewIpv4AddrIdentificationResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type ipv4AddrIdentificationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewIpv4AddrIdentificationServiceClient(cc grpc.ClientConnInterface) Ipv4AddrIdentificationServiceClient {
-	return &ipv4AddrIdentificationServiceClient{cc}
-}
-
-func (c *ipv4AddrIdentificationServiceClient) NewIpv4AddrIdentification(ctx context.Context, in *NewIpv4AddrIdentificationRequest, opts ...grpc.CallOption) (*NewIpv4AddrIdentificationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewIpv4AddrIdentificationResponse)
-	err := c.cc.Invoke(ctx, Ipv4AddrIdentificationService_NewIpv4AddrIdentification_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ipv4AddrIdentificationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, Ipv4AddrIdentificationService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ipv4AddrIdentificationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, Ipv4AddrIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// Ipv4AddrIdentificationServiceServer is the server API for Ipv4AddrIdentificationService service.
-// All implementations must embed UnimplementedIpv4AddrIdentificationServiceServer
-// for forward compatibility.
-type Ipv4AddrIdentificationServiceServer interface {
-	NewIpv4AddrIdentification(context.Context, *NewIpv4AddrIdentificationRequest) (*NewIpv4AddrIdentificationResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedIpv4AddrIdentificationServiceServer()
-}
-
-// UnimplementedIpv4AddrIdentificationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedIpv4AddrIdentificationServiceServer struct{}
-
-func (UnimplementedIpv4AddrIdentificationServiceServer) NewIpv4AddrIdentification(context.Context, *NewIpv4AddrIdentificationRequest) (*NewIpv4AddrIdentificationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewIpv4AddrIdentification not implemented")
-}
-func (UnimplementedIpv4AddrIdentificationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedIpv4AddrIdentificationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedIpv4AddrIdentificationServiceServer) mustEmbedUnimplementedIpv4AddrIdentificationServiceServer() {
-}
-func (UnimplementedIpv4AddrIdentificationServiceServer) testEmbeddedByValue() {}
-
-// UnsafeIpv4AddrIdentificationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to Ipv4AddrIdentificationServiceServer will
-// result in compilation errors.
-type UnsafeIpv4AddrIdentificationServiceServer interface {
-	mustEmbedUnimplementedIpv4AddrIdentificationServiceServer()
-}
-
-func RegisterIpv4AddrIdentificationServiceServer(s grpc.ServiceRegistrar, srv Ipv4AddrIdentificationServiceServer) {
-	// If the following call panics, it indicates UnimplementedIpv4AddrIdentificationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&Ipv4AddrIdentificationService_ServiceDesc, srv)
-}
-
-func _Ipv4AddrIdentificationService_NewIpv4AddrIdentification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewIpv4AddrIdentificationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(Ipv4AddrIdentificationServiceServer).NewIpv4AddrIdentification(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Ipv4AddrIdentificationService_NewIpv4AddrIdentification_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Ipv4AddrIdentificationServiceServer).NewIpv4AddrIdentification(ctx, req.(*NewIpv4AddrIdentificationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Ipv4AddrIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(Ipv4AddrIdentificationServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Ipv4AddrIdentificationService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Ipv4AddrIdentificationServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Ipv4AddrIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(Ipv4AddrIdentificationServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Ipv4AddrIdentificationService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Ipv4AddrIdentificationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// Ipv4AddrIdentificationService_ServiceDesc is the grpc.ServiceDesc for Ipv4AddrIdentificationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var Ipv4AddrIdentificationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.Ipv4AddrIdentificationService",
-	HandlerType: (*Ipv4AddrIdentificationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewIpv4AddrIdentification",
-			Handler:    _Ipv4AddrIdentificationService_NewIpv4AddrIdentification_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _Ipv4AddrIdentificationService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _Ipv4AddrIdentificationService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	SessionConnectionInfoService_NewSessionConnectionInfo_FullMethodName = "/ike.SessionConnectionInfoService/NewSessionConnectionInfo"
-	SessionConnectionInfoService_GetLocalAddress_FullMethodName          = "/ike.SessionConnectionInfoService/GetLocalAddress"
-	SessionConnectionInfoService_GetNetwork_FullMethodName               = "/ike.SessionConnectionInfoService/GetNetwork"
-	SessionConnectionInfoService_GetRemoteAddress_FullMethodName         = "/ike.SessionConnectionInfoService/GetRemoteAddress"
-)
-
-// SessionConnectionInfoServiceClient is the client API for SessionConnectionInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionConnectionInfoServiceClient interface {
-	NewSessionConnectionInfo(ctx context.Context, in *NewSessionConnectionInfoRequest, opts ...grpc.CallOption) (*NewSessionConnectionInfoResponse, error)
-	GetLocalAddress(ctx context.Context, in *GetLocalAddressRequest, opts ...grpc.CallOption) (*GetLocalAddressResponse, error)
-	GetNetwork(ctx context.Context, in *SessionConnectionInfoGetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error)
-	GetRemoteAddress(ctx context.Context, in *GetRemoteAddressRequest, opts ...grpc.CallOption) (*GetRemoteAddressResponse, error)
-}
-
-type sessionConnectionInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionConnectionInfoServiceClient(cc grpc.ClientConnInterface) SessionConnectionInfoServiceClient {
-	return &sessionConnectionInfoServiceClient{cc}
-}
-
-func (c *sessionConnectionInfoServiceClient) NewSessionConnectionInfo(ctx context.Context, in *NewSessionConnectionInfoRequest, opts ...grpc.CallOption) (*NewSessionConnectionInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSessionConnectionInfoResponse)
-	err := c.cc.Invoke(ctx, SessionConnectionInfoService_NewSessionConnectionInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConnectionInfoServiceClient) GetLocalAddress(ctx context.Context, in *GetLocalAddressRequest, opts ...grpc.CallOption) (*GetLocalAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocalAddressResponse)
-	err := c.cc.Invoke(ctx, SessionConnectionInfoService_GetLocalAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConnectionInfoServiceClient) GetNetwork(ctx context.Context, in *SessionConnectionInfoGetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkResponse)
-	err := c.cc.Invoke(ctx, SessionConnectionInfoService_GetNetwork_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionConnectionInfoServiceClient) GetRemoteAddress(ctx context.Context, in *GetRemoteAddressRequest, opts ...grpc.CallOption) (*GetRemoteAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRemoteAddressResponse)
-	err := c.cc.Invoke(ctx, SessionConnectionInfoService_GetRemoteAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionConnectionInfoServiceServer is the server API for SessionConnectionInfoService service.
-// All implementations must embed UnimplementedSessionConnectionInfoServiceServer
-// for forward compatibility.
-type SessionConnectionInfoServiceServer interface {
-	NewSessionConnectionInfo(context.Context, *NewSessionConnectionInfoRequest) (*NewSessionConnectionInfoResponse, error)
-	GetLocalAddress(context.Context, *GetLocalAddressRequest) (*GetLocalAddressResponse, error)
-	GetNetwork(context.Context, *SessionConnectionInfoGetNetworkRequest) (*GetNetworkResponse, error)
-	GetRemoteAddress(context.Context, *GetRemoteAddressRequest) (*GetRemoteAddressResponse, error)
-	mustEmbedUnimplementedSessionConnectionInfoServiceServer()
-}
-
-// UnimplementedSessionConnectionInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionConnectionInfoServiceServer struct{}
-
-func (UnimplementedSessionConnectionInfoServiceServer) NewSessionConnectionInfo(context.Context, *NewSessionConnectionInfoRequest) (*NewSessionConnectionInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSessionConnectionInfo not implemented")
-}
-func (UnimplementedSessionConnectionInfoServiceServer) GetLocalAddress(context.Context, *GetLocalAddressRequest) (*GetLocalAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocalAddress not implemented")
-}
-func (UnimplementedSessionConnectionInfoServiceServer) GetNetwork(context.Context, *SessionConnectionInfoGetNetworkRequest) (*GetNetworkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetwork not implemented")
-}
-func (UnimplementedSessionConnectionInfoServiceServer) GetRemoteAddress(context.Context, *GetRemoteAddressRequest) (*GetRemoteAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRemoteAddress not implemented")
-}
-func (UnimplementedSessionConnectionInfoServiceServer) mustEmbedUnimplementedSessionConnectionInfoServiceServer() {
-}
-func (UnimplementedSessionConnectionInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSessionConnectionInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionConnectionInfoServiceServer will
-// result in compilation errors.
-type UnsafeSessionConnectionInfoServiceServer interface {
-	mustEmbedUnimplementedSessionConnectionInfoServiceServer()
-}
-
-func RegisterSessionConnectionInfoServiceServer(s grpc.ServiceRegistrar, srv SessionConnectionInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionConnectionInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionConnectionInfoService_ServiceDesc, srv)
-}
-
-func _SessionConnectionInfoService_NewSessionConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSessionConnectionInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConnectionInfoServiceServer).NewSessionConnectionInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConnectionInfoService_NewSessionConnectionInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConnectionInfoServiceServer).NewSessionConnectionInfo(ctx, req.(*NewSessionConnectionInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConnectionInfoService_GetLocalAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocalAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConnectionInfoServiceServer).GetLocalAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConnectionInfoService_GetLocalAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConnectionInfoServiceServer).GetLocalAddress(ctx, req.(*GetLocalAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConnectionInfoService_GetNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SessionConnectionInfoGetNetworkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConnectionInfoServiceServer).GetNetwork(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConnectionInfoService_GetNetwork_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConnectionInfoServiceServer).GetNetwork(ctx, req.(*SessionConnectionInfoGetNetworkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionConnectionInfoService_GetRemoteAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRemoteAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionConnectionInfoServiceServer).GetRemoteAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionConnectionInfoService_GetRemoteAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionConnectionInfoServiceServer).GetRemoteAddress(ctx, req.(*GetRemoteAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionConnectionInfoService_ServiceDesc is the grpc.ServiceDesc for SessionConnectionInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionConnectionInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.SessionConnectionInfoService",
-	HandlerType: (*SessionConnectionInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSessionConnectionInfo",
-			Handler:    _SessionConnectionInfoService_NewSessionConnectionInfo_Handler,
-		},
-		{
-			MethodName: "GetLocalAddress",
-			Handler:    _SessionConnectionInfoService_GetLocalAddress_Handler,
-		},
-		{
-			MethodName: "GetNetwork",
-			Handler:    _SessionConnectionInfoService_GetNetwork_Handler,
-		},
-		{
-			MethodName: "GetRemoteAddress",
-			Handler:    _SessionConnectionInfoService_GetRemoteAddress_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
 	Rfc822AddrIdentificationService_NewRfc822AddrIdentification_FullMethodName = "/ike.Rfc822AddrIdentificationService/NewRfc822AddrIdentification"
 	Rfc822AddrIdentificationService_Equals_FullMethodName                      = "/ike.Rfc822AddrIdentificationService/Equals"
 	Rfc822AddrIdentificationService_HashCode_FullMethodName                    = "/ike.Rfc822AddrIdentificationService/HashCode"
@@ -4375,8 +4017,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type Rfc822AddrIdentificationServiceClient interface {
 	NewRfc822AddrIdentification(ctx context.Context, in *NewRfc822AddrIdentificationRequest, opts ...grpc.CallOption) (*NewRfc822AddrIdentificationResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Equals(ctx context.Context, in *Rfc822AddrIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *Rfc822AddrIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type rfc822AddrIdentificationServiceClient struct {
@@ -4397,7 +4039,7 @@ func (c *rfc822AddrIdentificationServiceClient) NewRfc822AddrIdentification(ctx 
 	return out, nil
 }
 
-func (c *rfc822AddrIdentificationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *rfc822AddrIdentificationServiceClient) Equals(ctx context.Context, in *Rfc822AddrIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, Rfc822AddrIdentificationService_Equals_FullMethodName, in, out, cOpts...)
@@ -4407,7 +4049,7 @@ func (c *rfc822AddrIdentificationServiceClient) Equals(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *rfc822AddrIdentificationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *rfc822AddrIdentificationServiceClient) HashCode(ctx context.Context, in *Rfc822AddrIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, Rfc822AddrIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
@@ -4422,8 +4064,8 @@ func (c *rfc822AddrIdentificationServiceClient) HashCode(ctx context.Context, in
 // for forward compatibility.
 type Rfc822AddrIdentificationServiceServer interface {
 	NewRfc822AddrIdentification(context.Context, *NewRfc822AddrIdentificationRequest) (*NewRfc822AddrIdentificationResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	Equals(context.Context, *Rfc822AddrIdentificationEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *Rfc822AddrIdentificationHashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedRfc822AddrIdentificationServiceServer()
 }
 
@@ -4437,10 +4079,10 @@ type UnimplementedRfc822AddrIdentificationServiceServer struct{}
 func (UnimplementedRfc822AddrIdentificationServiceServer) NewRfc822AddrIdentification(context.Context, *NewRfc822AddrIdentificationRequest) (*NewRfc822AddrIdentificationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewRfc822AddrIdentification not implemented")
 }
-func (UnimplementedRfc822AddrIdentificationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedRfc822AddrIdentificationServiceServer) Equals(context.Context, *Rfc822AddrIdentificationEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedRfc822AddrIdentificationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedRfc822AddrIdentificationServiceServer) HashCode(context.Context, *Rfc822AddrIdentificationHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedRfc822AddrIdentificationServiceServer) mustEmbedUnimplementedRfc822AddrIdentificationServiceServer() {
@@ -4484,7 +4126,7 @@ func _Rfc822AddrIdentificationService_NewRfc822AddrIdentification_Handler(srv in
 }
 
 func _Rfc822AddrIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+	in := new(Rfc822AddrIdentificationEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4496,13 +4138,13 @@ func _Rfc822AddrIdentificationService_Equals_Handler(srv interface{}, ctx contex
 		FullMethod: Rfc822AddrIdentificationService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Rfc822AddrIdentificationServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(Rfc822AddrIdentificationServiceServer).Equals(ctx, req.(*Rfc822AddrIdentificationEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Rfc822AddrIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+	in := new(Rfc822AddrIdentificationHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4514,7 +4156,7 @@ func _Rfc822AddrIdentificationService_HashCode_Handler(srv interface{}, ctx cont
 		FullMethod: Rfc822AddrIdentificationService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Rfc822AddrIdentificationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(Rfc822AddrIdentificationServiceServer).HashCode(ctx, req.(*Rfc822AddrIdentificationHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4544,177 +4186,1912 @@ var Rfc822AddrIdentificationService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SaProposalService_Equals_FullMethodName   = "/ike.SaProposalService/Equals"
-	SaProposalService_HashCode_FullMethodName = "/ike.SaProposalService/HashCode"
-	SaProposalService_ToString_FullMethodName = "/ike.SaProposalService/ToString"
+	TrafficSelectorService_NewTrafficSelector_FullMethodName = "/ike.TrafficSelectorService/NewTrafficSelector"
+	TrafficSelectorService_Equals_FullMethodName             = "/ike.TrafficSelectorService/Equals"
+	TrafficSelectorService_HashCode_FullMethodName           = "/ike.TrafficSelectorService/HashCode"
 )
 
-// SaProposalServiceClient is the client API for SaProposalService service.
+// TrafficSelectorServiceClient is the client API for TrafficSelectorService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SaProposalServiceClient interface {
-	Equals(ctx context.Context, in *SaProposalEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *SaProposalHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+type TrafficSelectorServiceClient interface {
+	NewTrafficSelector(ctx context.Context, in *NewTrafficSelectorRequest, opts ...grpc.CallOption) (*NewTrafficSelectorResponse, error)
+	Equals(ctx context.Context, in *TrafficSelectorEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *TrafficSelectorHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
-type saProposalServiceClient struct {
+type trafficSelectorServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSaProposalServiceClient(cc grpc.ClientConnInterface) SaProposalServiceClient {
-	return &saProposalServiceClient{cc}
+func NewTrafficSelectorServiceClient(cc grpc.ClientConnInterface) TrafficSelectorServiceClient {
+	return &trafficSelectorServiceClient{cc}
 }
 
-func (c *saProposalServiceClient) Equals(ctx context.Context, in *SaProposalEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *trafficSelectorServiceClient) NewTrafficSelector(ctx context.Context, in *NewTrafficSelectorRequest, opts ...grpc.CallOption) (*NewTrafficSelectorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTrafficSelectorResponse)
+	err := c.cc.Invoke(ctx, TrafficSelectorService_NewTrafficSelector_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trafficSelectorServiceClient) Equals(ctx context.Context, in *TrafficSelectorEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SaProposalService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TrafficSelectorService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *saProposalServiceClient) HashCode(ctx context.Context, in *SaProposalHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *trafficSelectorServiceClient) HashCode(ctx context.Context, in *TrafficSelectorHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SaProposalService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TrafficSelectorService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *saProposalServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SaProposalService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SaProposalServiceServer is the server API for SaProposalService service.
-// All implementations must embed UnimplementedSaProposalServiceServer
+// TrafficSelectorServiceServer is the server API for TrafficSelectorService service.
+// All implementations must embed UnimplementedTrafficSelectorServiceServer
 // for forward compatibility.
-type SaProposalServiceServer interface {
-	Equals(context.Context, *SaProposalEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *SaProposalHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedSaProposalServiceServer()
+type TrafficSelectorServiceServer interface {
+	NewTrafficSelector(context.Context, *NewTrafficSelectorRequest) (*NewTrafficSelectorResponse, error)
+	Equals(context.Context, *TrafficSelectorEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *TrafficSelectorHashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedTrafficSelectorServiceServer()
 }
 
-// UnimplementedSaProposalServiceServer must be embedded to have
+// UnimplementedTrafficSelectorServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSaProposalServiceServer struct{}
+type UnimplementedTrafficSelectorServiceServer struct{}
 
-func (UnimplementedSaProposalServiceServer) Equals(context.Context, *SaProposalEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedTrafficSelectorServiceServer) NewTrafficSelector(context.Context, *NewTrafficSelectorRequest) (*NewTrafficSelectorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTrafficSelector not implemented")
+}
+func (UnimplementedTrafficSelectorServiceServer) Equals(context.Context, *TrafficSelectorEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedSaProposalServiceServer) HashCode(context.Context, *SaProposalHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedTrafficSelectorServiceServer) HashCode(context.Context, *TrafficSelectorHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedSaProposalServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+func (UnimplementedTrafficSelectorServiceServer) mustEmbedUnimplementedTrafficSelectorServiceServer() {
 }
-func (UnimplementedSaProposalServiceServer) mustEmbedUnimplementedSaProposalServiceServer() {}
-func (UnimplementedSaProposalServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedTrafficSelectorServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSaProposalServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SaProposalServiceServer will
+// UnsafeTrafficSelectorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrafficSelectorServiceServer will
 // result in compilation errors.
-type UnsafeSaProposalServiceServer interface {
-	mustEmbedUnimplementedSaProposalServiceServer()
+type UnsafeTrafficSelectorServiceServer interface {
+	mustEmbedUnimplementedTrafficSelectorServiceServer()
 }
 
-func RegisterSaProposalServiceServer(s grpc.ServiceRegistrar, srv SaProposalServiceServer) {
-	// If the following call panics, it indicates UnimplementedSaProposalServiceServer was
+func RegisterTrafficSelectorServiceServer(s grpc.ServiceRegistrar, srv TrafficSelectorServiceServer) {
+	// If the following call panics, it indicates UnimplementedTrafficSelectorServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SaProposalService_ServiceDesc, srv)
+	s.RegisterService(&TrafficSelectorService_ServiceDesc, srv)
 }
 
-func _SaProposalService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SaProposalEqualsRequest)
+func _TrafficSelectorService_NewTrafficSelector_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTrafficSelectorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SaProposalServiceServer).Equals(ctx, in)
+		return srv.(TrafficSelectorServiceServer).NewTrafficSelector(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SaProposalService_Equals_FullMethodName,
+		FullMethod: TrafficSelectorService_NewTrafficSelector_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SaProposalServiceServer).Equals(ctx, req.(*SaProposalEqualsRequest))
+		return srv.(TrafficSelectorServiceServer).NewTrafficSelector(ctx, req.(*NewTrafficSelectorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SaProposalService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SaProposalHashCodeRequest)
+func _TrafficSelectorService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrafficSelectorEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SaProposalServiceServer).HashCode(ctx, in)
+		return srv.(TrafficSelectorServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SaProposalService_HashCode_FullMethodName,
+		FullMethod: TrafficSelectorService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SaProposalServiceServer).HashCode(ctx, req.(*SaProposalHashCodeRequest))
+		return srv.(TrafficSelectorServiceServer).Equals(ctx, req.(*TrafficSelectorEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SaProposalService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+func _TrafficSelectorService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrafficSelectorHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SaProposalServiceServer).ToString(ctx, in)
+		return srv.(TrafficSelectorServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SaProposalService_ToString_FullMethodName,
+		FullMethod: TrafficSelectorService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SaProposalServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(TrafficSelectorServiceServer).HashCode(ctx, req.(*TrafficSelectorHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SaProposalService_ServiceDesc is the grpc.ServiceDesc for SaProposalService service.
+// TrafficSelectorService_ServiceDesc is the grpc.ServiceDesc for TrafficSelectorService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SaProposalService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.SaProposalService",
-	HandlerType: (*SaProposalServiceServer)(nil),
+var TrafficSelectorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.TrafficSelectorService",
+	HandlerType: (*TrafficSelectorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "NewTrafficSelector",
+			Handler:    _TrafficSelectorService_NewTrafficSelector_Handler,
+		},
+		{
 			MethodName: "Equals",
-			Handler:    _SaProposalService_Equals_Handler,
+			Handler:    _TrafficSelectorService_Equals_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _SaProposalService_HashCode_Handler,
+			Handler:    _TrafficSelectorService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	ChildSessionConfigurationService_GetInboundTrafficSelectors_FullMethodName  = "/ike.ChildSessionConfigurationService/GetInboundTrafficSelectors"
+	ChildSessionConfigurationService_GetOutboundTrafficSelectors_FullMethodName = "/ike.ChildSessionConfigurationService/GetOutboundTrafficSelectors"
+)
+
+// ChildSessionConfigurationServiceClient is the client API for ChildSessionConfigurationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChildSessionConfigurationServiceClient interface {
+	GetInboundTrafficSelectors(ctx context.Context, in *GetInboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*GetInboundTrafficSelectorsResponse, error)
+	GetOutboundTrafficSelectors(ctx context.Context, in *GetOutboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*GetOutboundTrafficSelectorsResponse, error)
+}
+
+type childSessionConfigurationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChildSessionConfigurationServiceClient(cc grpc.ClientConnInterface) ChildSessionConfigurationServiceClient {
+	return &childSessionConfigurationServiceClient{cc}
+}
+
+func (c *childSessionConfigurationServiceClient) GetInboundTrafficSelectors(ctx context.Context, in *GetInboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*GetInboundTrafficSelectorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInboundTrafficSelectorsResponse)
+	err := c.cc.Invoke(ctx, ChildSessionConfigurationService_GetInboundTrafficSelectors_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSessionConfigurationServiceClient) GetOutboundTrafficSelectors(ctx context.Context, in *GetOutboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*GetOutboundTrafficSelectorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutboundTrafficSelectorsResponse)
+	err := c.cc.Invoke(ctx, ChildSessionConfigurationService_GetOutboundTrafficSelectors_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChildSessionConfigurationServiceServer is the server API for ChildSessionConfigurationService service.
+// All implementations must embed UnimplementedChildSessionConfigurationServiceServer
+// for forward compatibility.
+type ChildSessionConfigurationServiceServer interface {
+	GetInboundTrafficSelectors(context.Context, *GetInboundTrafficSelectorsRequest) (*GetInboundTrafficSelectorsResponse, error)
+	GetOutboundTrafficSelectors(context.Context, *GetOutboundTrafficSelectorsRequest) (*GetOutboundTrafficSelectorsResponse, error)
+	mustEmbedUnimplementedChildSessionConfigurationServiceServer()
+}
+
+// UnimplementedChildSessionConfigurationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChildSessionConfigurationServiceServer struct{}
+
+func (UnimplementedChildSessionConfigurationServiceServer) GetInboundTrafficSelectors(context.Context, *GetInboundTrafficSelectorsRequest) (*GetInboundTrafficSelectorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInboundTrafficSelectors not implemented")
+}
+func (UnimplementedChildSessionConfigurationServiceServer) GetOutboundTrafficSelectors(context.Context, *GetOutboundTrafficSelectorsRequest) (*GetOutboundTrafficSelectorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutboundTrafficSelectors not implemented")
+}
+func (UnimplementedChildSessionConfigurationServiceServer) mustEmbedUnimplementedChildSessionConfigurationServiceServer() {
+}
+func (UnimplementedChildSessionConfigurationServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChildSessionConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChildSessionConfigurationServiceServer will
+// result in compilation errors.
+type UnsafeChildSessionConfigurationServiceServer interface {
+	mustEmbedUnimplementedChildSessionConfigurationServiceServer()
+}
+
+func RegisterChildSessionConfigurationServiceServer(s grpc.ServiceRegistrar, srv ChildSessionConfigurationServiceServer) {
+	// If the following call panics, it indicates UnimplementedChildSessionConfigurationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChildSessionConfigurationService_ServiceDesc, srv)
+}
+
+func _ChildSessionConfigurationService_GetInboundTrafficSelectors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInboundTrafficSelectorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionConfigurationServiceServer).GetInboundTrafficSelectors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionConfigurationService_GetInboundTrafficSelectors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionConfigurationServiceServer).GetInboundTrafficSelectors(ctx, req.(*GetInboundTrafficSelectorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSessionConfigurationService_GetOutboundTrafficSelectors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutboundTrafficSelectorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionConfigurationServiceServer).GetOutboundTrafficSelectors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionConfigurationService_GetOutboundTrafficSelectors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionConfigurationServiceServer).GetOutboundTrafficSelectors(ctx, req.(*GetOutboundTrafficSelectorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChildSessionConfigurationService_ServiceDesc is the grpc.ServiceDesc for ChildSessionConfigurationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChildSessionConfigurationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.ChildSessionConfigurationService",
+	HandlerType: (*ChildSessionConfigurationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetInboundTrafficSelectors",
+			Handler:    _ChildSessionConfigurationService_GetInboundTrafficSelectors_Handler,
 		},
 		{
-			MethodName: "ToString",
-			Handler:    _SaProposalService_ToString_Handler,
+			MethodName: "GetOutboundTrafficSelectors",
+			Handler:    _ChildSessionConfigurationService_GetOutboundTrafficSelectors_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	ChildSessionConfigurationBuilderService_Build_FullMethodName = "/ike.ChildSessionConfigurationBuilderService/Build"
+)
+
+// ChildSessionConfigurationBuilderServiceClient is the client API for ChildSessionConfigurationBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChildSessionConfigurationBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type childSessionConfigurationBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChildSessionConfigurationBuilderServiceClient(cc grpc.ClientConnInterface) ChildSessionConfigurationBuilderServiceClient {
+	return &childSessionConfigurationBuilderServiceClient{cc}
+}
+
+func (c *childSessionConfigurationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ChildSessionConfigurationBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChildSessionConfigurationBuilderServiceServer is the server API for ChildSessionConfigurationBuilderService service.
+// All implementations must embed UnimplementedChildSessionConfigurationBuilderServiceServer
+// for forward compatibility.
+type ChildSessionConfigurationBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedChildSessionConfigurationBuilderServiceServer()
+}
+
+// UnimplementedChildSessionConfigurationBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChildSessionConfigurationBuilderServiceServer struct{}
+
+func (UnimplementedChildSessionConfigurationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedChildSessionConfigurationBuilderServiceServer) mustEmbedUnimplementedChildSessionConfigurationBuilderServiceServer() {
+}
+func (UnimplementedChildSessionConfigurationBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChildSessionConfigurationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChildSessionConfigurationBuilderServiceServer will
+// result in compilation errors.
+type UnsafeChildSessionConfigurationBuilderServiceServer interface {
+	mustEmbedUnimplementedChildSessionConfigurationBuilderServiceServer()
+}
+
+func RegisterChildSessionConfigurationBuilderServiceServer(s grpc.ServiceRegistrar, srv ChildSessionConfigurationBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedChildSessionConfigurationBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChildSessionConfigurationBuilderService_ServiceDesc, srv)
+}
+
+func _ChildSessionConfigurationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionConfigurationBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionConfigurationBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionConfigurationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChildSessionConfigurationBuilderService_ServiceDesc is the grpc.ServiceDesc for ChildSessionConfigurationBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChildSessionConfigurationBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.ChildSessionConfigurationBuilderService",
+	HandlerType: (*ChildSessionConfigurationBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ChildSessionConfigurationBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	IkeSaProposalService_Equals_FullMethodName                            = "/ike.IkeSaProposalService/Equals"
+	IkeSaProposalService_GetPseudorandomFunctions_FullMethodName          = "/ike.IkeSaProposalService/GetPseudorandomFunctions"
+	IkeSaProposalService_HashCode_FullMethodName                          = "/ike.IkeSaProposalService/HashCode"
+	IkeSaProposalService_GetSupportedEncryptionAlgorithms_FullMethodName  = "/ike.IkeSaProposalService/GetSupportedEncryptionAlgorithms"
+	IkeSaProposalService_GetSupportedIntegrityAlgorithms_FullMethodName   = "/ike.IkeSaProposalService/GetSupportedIntegrityAlgorithms"
+	IkeSaProposalService_GetSupportedPseudorandomFunctions_FullMethodName = "/ike.IkeSaProposalService/GetSupportedPseudorandomFunctions"
+)
+
+// IkeSaProposalServiceClient is the client API for IkeSaProposalService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type IkeSaProposalServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPseudorandomFunctions(ctx context.Context, in *GetPseudorandomFunctionsRequest, opts ...grpc.CallOption) (*GetPseudorandomFunctionsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	GetSupportedEncryptionAlgorithms(ctx context.Context, in *GetSupportedEncryptionAlgorithmsRequest, opts ...grpc.CallOption) (*GetSupportedEncryptionAlgorithmsResponse, error)
+	GetSupportedIntegrityAlgorithms(ctx context.Context, in *GetSupportedIntegrityAlgorithmsRequest, opts ...grpc.CallOption) (*GetSupportedIntegrityAlgorithmsResponse, error)
+	GetSupportedPseudorandomFunctions(ctx context.Context, in *GetSupportedPseudorandomFunctionsRequest, opts ...grpc.CallOption) (*GetSupportedPseudorandomFunctionsResponse, error)
+}
+
+type ikeSaProposalServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIkeSaProposalServiceClient(cc grpc.ClientConnInterface) IkeSaProposalServiceClient {
+	return &ikeSaProposalServiceClient{cc}
+}
+
+func (c *ikeSaProposalServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, IkeSaProposalService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ikeSaProposalServiceClient) GetPseudorandomFunctions(ctx context.Context, in *GetPseudorandomFunctionsRequest, opts ...grpc.CallOption) (*GetPseudorandomFunctionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPseudorandomFunctionsResponse)
+	err := c.cc.Invoke(ctx, IkeSaProposalService_GetPseudorandomFunctions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ikeSaProposalServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, IkeSaProposalService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ikeSaProposalServiceClient) GetSupportedEncryptionAlgorithms(ctx context.Context, in *GetSupportedEncryptionAlgorithmsRequest, opts ...grpc.CallOption) (*GetSupportedEncryptionAlgorithmsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedEncryptionAlgorithmsResponse)
+	err := c.cc.Invoke(ctx, IkeSaProposalService_GetSupportedEncryptionAlgorithms_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ikeSaProposalServiceClient) GetSupportedIntegrityAlgorithms(ctx context.Context, in *GetSupportedIntegrityAlgorithmsRequest, opts ...grpc.CallOption) (*GetSupportedIntegrityAlgorithmsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedIntegrityAlgorithmsResponse)
+	err := c.cc.Invoke(ctx, IkeSaProposalService_GetSupportedIntegrityAlgorithms_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ikeSaProposalServiceClient) GetSupportedPseudorandomFunctions(ctx context.Context, in *GetSupportedPseudorandomFunctionsRequest, opts ...grpc.CallOption) (*GetSupportedPseudorandomFunctionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedPseudorandomFunctionsResponse)
+	err := c.cc.Invoke(ctx, IkeSaProposalService_GetSupportedPseudorandomFunctions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// IkeSaProposalServiceServer is the server API for IkeSaProposalService service.
+// All implementations must embed UnimplementedIkeSaProposalServiceServer
+// for forward compatibility.
+type IkeSaProposalServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPseudorandomFunctions(context.Context, *GetPseudorandomFunctionsRequest) (*GetPseudorandomFunctionsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	GetSupportedEncryptionAlgorithms(context.Context, *GetSupportedEncryptionAlgorithmsRequest) (*GetSupportedEncryptionAlgorithmsResponse, error)
+	GetSupportedIntegrityAlgorithms(context.Context, *GetSupportedIntegrityAlgorithmsRequest) (*GetSupportedIntegrityAlgorithmsResponse, error)
+	GetSupportedPseudorandomFunctions(context.Context, *GetSupportedPseudorandomFunctionsRequest) (*GetSupportedPseudorandomFunctionsResponse, error)
+	mustEmbedUnimplementedIkeSaProposalServiceServer()
+}
+
+// UnimplementedIkeSaProposalServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIkeSaProposalServiceServer struct{}
+
+func (UnimplementedIkeSaProposalServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedIkeSaProposalServiceServer) GetPseudorandomFunctions(context.Context, *GetPseudorandomFunctionsRequest) (*GetPseudorandomFunctionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPseudorandomFunctions not implemented")
+}
+func (UnimplementedIkeSaProposalServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedIkeSaProposalServiceServer) GetSupportedEncryptionAlgorithms(context.Context, *GetSupportedEncryptionAlgorithmsRequest) (*GetSupportedEncryptionAlgorithmsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedEncryptionAlgorithms not implemented")
+}
+func (UnimplementedIkeSaProposalServiceServer) GetSupportedIntegrityAlgorithms(context.Context, *GetSupportedIntegrityAlgorithmsRequest) (*GetSupportedIntegrityAlgorithmsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedIntegrityAlgorithms not implemented")
+}
+func (UnimplementedIkeSaProposalServiceServer) GetSupportedPseudorandomFunctions(context.Context, *GetSupportedPseudorandomFunctionsRequest) (*GetSupportedPseudorandomFunctionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedPseudorandomFunctions not implemented")
+}
+func (UnimplementedIkeSaProposalServiceServer) mustEmbedUnimplementedIkeSaProposalServiceServer() {}
+func (UnimplementedIkeSaProposalServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeIkeSaProposalServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to IkeSaProposalServiceServer will
+// result in compilation errors.
+type UnsafeIkeSaProposalServiceServer interface {
+	mustEmbedUnimplementedIkeSaProposalServiceServer()
+}
+
+func RegisterIkeSaProposalServiceServer(s grpc.ServiceRegistrar, srv IkeSaProposalServiceServer) {
+	// If the following call panics, it indicates UnimplementedIkeSaProposalServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&IkeSaProposalService_ServiceDesc, srv)
+}
+
+func _IkeSaProposalService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IkeSaProposalServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IkeSaProposalService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IkeSaProposalServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IkeSaProposalService_GetPseudorandomFunctions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPseudorandomFunctionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IkeSaProposalServiceServer).GetPseudorandomFunctions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IkeSaProposalService_GetPseudorandomFunctions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IkeSaProposalServiceServer).GetPseudorandomFunctions(ctx, req.(*GetPseudorandomFunctionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IkeSaProposalService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IkeSaProposalServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IkeSaProposalService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IkeSaProposalServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IkeSaProposalService_GetSupportedEncryptionAlgorithms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedEncryptionAlgorithmsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IkeSaProposalServiceServer).GetSupportedEncryptionAlgorithms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IkeSaProposalService_GetSupportedEncryptionAlgorithms_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IkeSaProposalServiceServer).GetSupportedEncryptionAlgorithms(ctx, req.(*GetSupportedEncryptionAlgorithmsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IkeSaProposalService_GetSupportedIntegrityAlgorithms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedIntegrityAlgorithmsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IkeSaProposalServiceServer).GetSupportedIntegrityAlgorithms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IkeSaProposalService_GetSupportedIntegrityAlgorithms_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IkeSaProposalServiceServer).GetSupportedIntegrityAlgorithms(ctx, req.(*GetSupportedIntegrityAlgorithmsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IkeSaProposalService_GetSupportedPseudorandomFunctions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedPseudorandomFunctionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IkeSaProposalServiceServer).GetSupportedPseudorandomFunctions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IkeSaProposalService_GetSupportedPseudorandomFunctions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IkeSaProposalServiceServer).GetSupportedPseudorandomFunctions(ctx, req.(*GetSupportedPseudorandomFunctionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// IkeSaProposalService_ServiceDesc is the grpc.ServiceDesc for IkeSaProposalService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var IkeSaProposalService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.IkeSaProposalService",
+	HandlerType: (*IkeSaProposalServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _IkeSaProposalService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPseudorandomFunctions",
+			Handler:    _IkeSaProposalService_GetPseudorandomFunctions_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _IkeSaProposalService_HashCode_Handler,
+		},
+		{
+			MethodName: "GetSupportedEncryptionAlgorithms",
+			Handler:    _IkeSaProposalService_GetSupportedEncryptionAlgorithms_Handler,
+		},
+		{
+			MethodName: "GetSupportedIntegrityAlgorithms",
+			Handler:    _IkeSaProposalService_GetSupportedIntegrityAlgorithms_Handler,
+		},
+		{
+			MethodName: "GetSupportedPseudorandomFunctions",
+			Handler:    _IkeSaProposalService_GetSupportedPseudorandomFunctions_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	SaProposalBuilderService_AddDhGroup_FullMethodName              = "/ike.SaProposalBuilderService/AddDhGroup"
+	SaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName  = "/ike.SaProposalBuilderService/AddEncryptionAlgorithm"
+	SaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName   = "/ike.SaProposalBuilderService/AddIntegrityAlgorithm"
+	SaProposalBuilderService_AddPseudorandomFunction_FullMethodName = "/ike.SaProposalBuilderService/AddPseudorandomFunction"
+	SaProposalBuilderService_Build_FullMethodName                   = "/ike.SaProposalBuilderService/Build"
+)
+
+// SaProposalBuilderServiceClient is the client API for SaProposalBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SaProposalBuilderServiceClient interface {
+	AddDhGroup(ctx context.Context, in *AddDhGroupRequest, opts ...grpc.CallOption) (*AddDhGroupResponse, error)
+	AddEncryptionAlgorithm(ctx context.Context, in *AddEncryptionAlgorithmRequest, opts ...grpc.CallOption) (*AddEncryptionAlgorithmResponse, error)
+	AddIntegrityAlgorithm(ctx context.Context, in *AddIntegrityAlgorithmRequest, opts ...grpc.CallOption) (*AddIntegrityAlgorithmResponse, error)
+	AddPseudorandomFunction(ctx context.Context, in *AddPseudorandomFunctionRequest, opts ...grpc.CallOption) (*AddPseudorandomFunctionResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type saProposalBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSaProposalBuilderServiceClient(cc grpc.ClientConnInterface) SaProposalBuilderServiceClient {
+	return &saProposalBuilderServiceClient{cc}
+}
+
+func (c *saProposalBuilderServiceClient) AddDhGroup(ctx context.Context, in *AddDhGroupRequest, opts ...grpc.CallOption) (*AddDhGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDhGroupResponse)
+	err := c.cc.Invoke(ctx, SaProposalBuilderService_AddDhGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalBuilderServiceClient) AddEncryptionAlgorithm(ctx context.Context, in *AddEncryptionAlgorithmRequest, opts ...grpc.CallOption) (*AddEncryptionAlgorithmResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddEncryptionAlgorithmResponse)
+	err := c.cc.Invoke(ctx, SaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalBuilderServiceClient) AddIntegrityAlgorithm(ctx context.Context, in *AddIntegrityAlgorithmRequest, opts ...grpc.CallOption) (*AddIntegrityAlgorithmResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddIntegrityAlgorithmResponse)
+	err := c.cc.Invoke(ctx, SaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalBuilderServiceClient) AddPseudorandomFunction(ctx context.Context, in *AddPseudorandomFunctionRequest, opts ...grpc.CallOption) (*AddPseudorandomFunctionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddPseudorandomFunctionResponse)
+	err := c.cc.Invoke(ctx, SaProposalBuilderService_AddPseudorandomFunction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *saProposalBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, SaProposalBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SaProposalBuilderServiceServer is the server API for SaProposalBuilderService service.
+// All implementations must embed UnimplementedSaProposalBuilderServiceServer
+// for forward compatibility.
+type SaProposalBuilderServiceServer interface {
+	AddDhGroup(context.Context, *AddDhGroupRequest) (*AddDhGroupResponse, error)
+	AddEncryptionAlgorithm(context.Context, *AddEncryptionAlgorithmRequest) (*AddEncryptionAlgorithmResponse, error)
+	AddIntegrityAlgorithm(context.Context, *AddIntegrityAlgorithmRequest) (*AddIntegrityAlgorithmResponse, error)
+	AddPseudorandomFunction(context.Context, *AddPseudorandomFunctionRequest) (*AddPseudorandomFunctionResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedSaProposalBuilderServiceServer()
+}
+
+// UnimplementedSaProposalBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSaProposalBuilderServiceServer struct{}
+
+func (UnimplementedSaProposalBuilderServiceServer) AddDhGroup(context.Context, *AddDhGroupRequest) (*AddDhGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDhGroup not implemented")
+}
+func (UnimplementedSaProposalBuilderServiceServer) AddEncryptionAlgorithm(context.Context, *AddEncryptionAlgorithmRequest) (*AddEncryptionAlgorithmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddEncryptionAlgorithm not implemented")
+}
+func (UnimplementedSaProposalBuilderServiceServer) AddIntegrityAlgorithm(context.Context, *AddIntegrityAlgorithmRequest) (*AddIntegrityAlgorithmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddIntegrityAlgorithm not implemented")
+}
+func (UnimplementedSaProposalBuilderServiceServer) AddPseudorandomFunction(context.Context, *AddPseudorandomFunctionRequest) (*AddPseudorandomFunctionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddPseudorandomFunction not implemented")
+}
+func (UnimplementedSaProposalBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedSaProposalBuilderServiceServer) mustEmbedUnimplementedSaProposalBuilderServiceServer() {
+}
+func (UnimplementedSaProposalBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSaProposalBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SaProposalBuilderServiceServer will
+// result in compilation errors.
+type UnsafeSaProposalBuilderServiceServer interface {
+	mustEmbedUnimplementedSaProposalBuilderServiceServer()
+}
+
+func RegisterSaProposalBuilderServiceServer(s grpc.ServiceRegistrar, srv SaProposalBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSaProposalBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SaProposalBuilderService_ServiceDesc, srv)
+}
+
+func _SaProposalBuilderService_AddDhGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDhGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalBuilderServiceServer).AddDhGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalBuilderService_AddDhGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalBuilderServiceServer).AddDhGroup(ctx, req.(*AddDhGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalBuilderService_AddEncryptionAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddEncryptionAlgorithmRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalBuilderServiceServer).AddEncryptionAlgorithm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalBuilderServiceServer).AddEncryptionAlgorithm(ctx, req.(*AddEncryptionAlgorithmRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalBuilderService_AddIntegrityAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddIntegrityAlgorithmRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalBuilderServiceServer).AddIntegrityAlgorithm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalBuilderServiceServer).AddIntegrityAlgorithm(ctx, req.(*AddIntegrityAlgorithmRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalBuilderService_AddPseudorandomFunction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddPseudorandomFunctionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalBuilderServiceServer).AddPseudorandomFunction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalBuilderService_AddPseudorandomFunction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalBuilderServiceServer).AddPseudorandomFunction(ctx, req.(*AddPseudorandomFunctionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SaProposalBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SaProposalBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SaProposalBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SaProposalBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SaProposalBuilderService_ServiceDesc is the grpc.ServiceDesc for SaProposalBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SaProposalBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.SaProposalBuilderService",
+	HandlerType: (*SaProposalBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDhGroup",
+			Handler:    _SaProposalBuilderService_AddDhGroup_Handler,
+		},
+		{
+			MethodName: "AddEncryptionAlgorithm",
+			Handler:    _SaProposalBuilderService_AddEncryptionAlgorithm_Handler,
+		},
+		{
+			MethodName: "AddIntegrityAlgorithm",
+			Handler:    _SaProposalBuilderService_AddIntegrityAlgorithm_Handler,
+		},
+		{
+			MethodName: "AddPseudorandomFunction",
+			Handler:    _SaProposalBuilderService_AddPseudorandomFunction_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _SaProposalBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	SessionService_NewSession_FullMethodName        = "/ike.SessionService/NewSession"
+	SessionService_Close_FullMethodName             = "/ike.SessionService/Close"
+	SessionService_CloseChildSession_FullMethodName = "/ike.SessionService/CloseChildSession"
+	SessionService_Dump_FullMethodName              = "/ike.SessionService/Dump"
+	SessionService_Finalize_FullMethodName          = "/ike.SessionService/Finalize"
+	SessionService_Kill_FullMethodName              = "/ike.SessionService/Kill"
+	SessionService_OpenChildSession_FullMethodName  = "/ike.SessionService/OpenChildSession"
+)
+
+// SessionServiceClient is the client API for SessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SessionServiceClient interface {
+	NewSession(ctx context.Context, in *NewSessionRequest, opts ...grpc.CallOption) (*NewSessionResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	CloseChildSession(ctx context.Context, in *CloseChildSessionRequest, opts ...grpc.CallOption) (*CloseChildSessionResponse, error)
+	Dump(ctx context.Context, in *DumpRequest, opts ...grpc.CallOption) (*DumpResponse, error)
+	Finalize(ctx context.Context, in *FinalizeRequest, opts ...grpc.CallOption) (*FinalizeResponse, error)
+	Kill(ctx context.Context, in *KillRequest, opts ...grpc.CallOption) (*KillResponse, error)
+	OpenChildSession(ctx context.Context, in *OpenChildSessionRequest, opts ...grpc.CallOption) (*OpenChildSessionResponse, error)
+}
+
+type sessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSessionServiceClient(cc grpc.ClientConnInterface) SessionServiceClient {
+	return &sessionServiceClient{cc}
+}
+
+func (c *sessionServiceClient) NewSession(ctx context.Context, in *NewSessionRequest, opts ...grpc.CallOption) (*NewSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSessionResponse)
+	err := c.cc.Invoke(ctx, SessionService_NewSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) CloseChildSession(ctx context.Context, in *CloseChildSessionRequest, opts ...grpc.CallOption) (*CloseChildSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseChildSessionResponse)
+	err := c.cc.Invoke(ctx, SessionService_CloseChildSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Dump(ctx context.Context, in *DumpRequest, opts ...grpc.CallOption) (*DumpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DumpResponse)
+	err := c.cc.Invoke(ctx, SessionService_Dump_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Finalize(ctx context.Context, in *FinalizeRequest, opts ...grpc.CallOption) (*FinalizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinalizeResponse)
+	err := c.cc.Invoke(ctx, SessionService_Finalize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Kill(ctx context.Context, in *KillRequest, opts ...grpc.CallOption) (*KillResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(KillResponse)
+	err := c.cc.Invoke(ctx, SessionService_Kill_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) OpenChildSession(ctx context.Context, in *OpenChildSessionRequest, opts ...grpc.CallOption) (*OpenChildSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenChildSessionResponse)
+	err := c.cc.Invoke(ctx, SessionService_OpenChildSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SessionServiceServer is the server API for SessionService service.
+// All implementations must embed UnimplementedSessionServiceServer
+// for forward compatibility.
+type SessionServiceServer interface {
+	NewSession(context.Context, *NewSessionRequest) (*NewSessionResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	CloseChildSession(context.Context, *CloseChildSessionRequest) (*CloseChildSessionResponse, error)
+	Dump(context.Context, *DumpRequest) (*DumpResponse, error)
+	Finalize(context.Context, *FinalizeRequest) (*FinalizeResponse, error)
+	Kill(context.Context, *KillRequest) (*KillResponse, error)
+	OpenChildSession(context.Context, *OpenChildSessionRequest) (*OpenChildSessionResponse, error)
+	mustEmbedUnimplementedSessionServiceServer()
+}
+
+// UnimplementedSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSessionServiceServer struct{}
+
+func (UnimplementedSessionServiceServer) NewSession(context.Context, *NewSessionRequest) (*NewSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSession not implemented")
+}
+func (UnimplementedSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSessionServiceServer) CloseChildSession(context.Context, *CloseChildSessionRequest) (*CloseChildSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CloseChildSession not implemented")
+}
+func (UnimplementedSessionServiceServer) Dump(context.Context, *DumpRequest) (*DumpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Dump not implemented")
+}
+func (UnimplementedSessionServiceServer) Finalize(context.Context, *FinalizeRequest) (*FinalizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Finalize not implemented")
+}
+func (UnimplementedSessionServiceServer) Kill(context.Context, *KillRequest) (*KillResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Kill not implemented")
+}
+func (UnimplementedSessionServiceServer) OpenChildSession(context.Context, *OpenChildSessionRequest) (*OpenChildSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenChildSession not implemented")
+}
+func (UnimplementedSessionServiceServer) mustEmbedUnimplementedSessionServiceServer() {}
+func (UnimplementedSessionServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionServiceServer will
+// result in compilation errors.
+type UnsafeSessionServiceServer interface {
+	mustEmbedUnimplementedSessionServiceServer()
+}
+
+func RegisterSessionServiceServer(s grpc.ServiceRegistrar, srv SessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SessionService_ServiceDesc, srv)
+}
+
+func _SessionService_NewSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).NewSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_NewSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).NewSession(ctx, req.(*NewSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_CloseChildSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseChildSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).CloseChildSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_CloseChildSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).CloseChildSession(ctx, req.(*CloseChildSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Dump_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DumpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Dump(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Dump_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Dump(ctx, req.(*DumpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Finalize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinalizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Finalize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Finalize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Finalize(ctx, req.(*FinalizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Kill_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KillRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Kill(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Kill_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Kill(ctx, req.(*KillRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_OpenChildSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenChildSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).OpenChildSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_OpenChildSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).OpenChildSession(ctx, req.(*OpenChildSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SessionService_ServiceDesc is the grpc.ServiceDesc for SessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.SessionService",
+	HandlerType: (*SessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSession",
+			Handler:    _SessionService_NewSession_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SessionService_Close_Handler,
+		},
+		{
+			MethodName: "CloseChildSession",
+			Handler:    _SessionService_CloseChildSession_Handler,
+		},
+		{
+			MethodName: "Dump",
+			Handler:    _SessionService_Dump_Handler,
+		},
+		{
+			MethodName: "Finalize",
+			Handler:    _SessionService_Finalize_Handler,
+		},
+		{
+			MethodName: "Kill",
+			Handler:    _SessionService_Kill_Handler,
+		},
+		{
+			MethodName: "OpenChildSession",
+			Handler:    _SessionService_OpenChildSession_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	Ipv4AddrIdentificationService_NewIpv4AddrIdentification_FullMethodName = "/ike.Ipv4AddrIdentificationService/NewIpv4AddrIdentification"
+	Ipv4AddrIdentificationService_Equals_FullMethodName                    = "/ike.Ipv4AddrIdentificationService/Equals"
+	Ipv4AddrIdentificationService_HashCode_FullMethodName                  = "/ike.Ipv4AddrIdentificationService/HashCode"
+)
+
+// Ipv4AddrIdentificationServiceClient is the client API for Ipv4AddrIdentificationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type Ipv4AddrIdentificationServiceClient interface {
+	NewIpv4AddrIdentification(ctx context.Context, in *NewIpv4AddrIdentificationRequest, opts ...grpc.CallOption) (*NewIpv4AddrIdentificationResponse, error)
+	Equals(ctx context.Context, in *Ipv4AddrIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *Ipv4AddrIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type ipv4AddrIdentificationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIpv4AddrIdentificationServiceClient(cc grpc.ClientConnInterface) Ipv4AddrIdentificationServiceClient {
+	return &ipv4AddrIdentificationServiceClient{cc}
+}
+
+func (c *ipv4AddrIdentificationServiceClient) NewIpv4AddrIdentification(ctx context.Context, in *NewIpv4AddrIdentificationRequest, opts ...grpc.CallOption) (*NewIpv4AddrIdentificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewIpv4AddrIdentificationResponse)
+	err := c.cc.Invoke(ctx, Ipv4AddrIdentificationService_NewIpv4AddrIdentification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipv4AddrIdentificationServiceClient) Equals(ctx context.Context, in *Ipv4AddrIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, Ipv4AddrIdentificationService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipv4AddrIdentificationServiceClient) HashCode(ctx context.Context, in *Ipv4AddrIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, Ipv4AddrIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// Ipv4AddrIdentificationServiceServer is the server API for Ipv4AddrIdentificationService service.
+// All implementations must embed UnimplementedIpv4AddrIdentificationServiceServer
+// for forward compatibility.
+type Ipv4AddrIdentificationServiceServer interface {
+	NewIpv4AddrIdentification(context.Context, *NewIpv4AddrIdentificationRequest) (*NewIpv4AddrIdentificationResponse, error)
+	Equals(context.Context, *Ipv4AddrIdentificationEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *Ipv4AddrIdentificationHashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedIpv4AddrIdentificationServiceServer()
+}
+
+// UnimplementedIpv4AddrIdentificationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIpv4AddrIdentificationServiceServer struct{}
+
+func (UnimplementedIpv4AddrIdentificationServiceServer) NewIpv4AddrIdentification(context.Context, *NewIpv4AddrIdentificationRequest) (*NewIpv4AddrIdentificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewIpv4AddrIdentification not implemented")
+}
+func (UnimplementedIpv4AddrIdentificationServiceServer) Equals(context.Context, *Ipv4AddrIdentificationEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedIpv4AddrIdentificationServiceServer) HashCode(context.Context, *Ipv4AddrIdentificationHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedIpv4AddrIdentificationServiceServer) mustEmbedUnimplementedIpv4AddrIdentificationServiceServer() {
+}
+func (UnimplementedIpv4AddrIdentificationServiceServer) testEmbeddedByValue() {}
+
+// UnsafeIpv4AddrIdentificationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to Ipv4AddrIdentificationServiceServer will
+// result in compilation errors.
+type UnsafeIpv4AddrIdentificationServiceServer interface {
+	mustEmbedUnimplementedIpv4AddrIdentificationServiceServer()
+}
+
+func RegisterIpv4AddrIdentificationServiceServer(s grpc.ServiceRegistrar, srv Ipv4AddrIdentificationServiceServer) {
+	// If the following call panics, it indicates UnimplementedIpv4AddrIdentificationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&Ipv4AddrIdentificationService_ServiceDesc, srv)
+}
+
+func _Ipv4AddrIdentificationService_NewIpv4AddrIdentification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewIpv4AddrIdentificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Ipv4AddrIdentificationServiceServer).NewIpv4AddrIdentification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Ipv4AddrIdentificationService_NewIpv4AddrIdentification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Ipv4AddrIdentificationServiceServer).NewIpv4AddrIdentification(ctx, req.(*NewIpv4AddrIdentificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ipv4AddrIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Ipv4AddrIdentificationEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Ipv4AddrIdentificationServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Ipv4AddrIdentificationService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Ipv4AddrIdentificationServiceServer).Equals(ctx, req.(*Ipv4AddrIdentificationEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ipv4AddrIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Ipv4AddrIdentificationHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Ipv4AddrIdentificationServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Ipv4AddrIdentificationService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Ipv4AddrIdentificationServiceServer).HashCode(ctx, req.(*Ipv4AddrIdentificationHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// Ipv4AddrIdentificationService_ServiceDesc is the grpc.ServiceDesc for Ipv4AddrIdentificationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var Ipv4AddrIdentificationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.Ipv4AddrIdentificationService",
+	HandlerType: (*Ipv4AddrIdentificationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewIpv4AddrIdentification",
+			Handler:    _Ipv4AddrIdentificationService_NewIpv4AddrIdentification_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _Ipv4AddrIdentificationService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _Ipv4AddrIdentificationService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	Ipv6AddrIdentificationService_NewIpv6AddrIdentification_FullMethodName = "/ike.Ipv6AddrIdentificationService/NewIpv6AddrIdentification"
+	Ipv6AddrIdentificationService_Equals_FullMethodName                    = "/ike.Ipv6AddrIdentificationService/Equals"
+	Ipv6AddrIdentificationService_HashCode_FullMethodName                  = "/ike.Ipv6AddrIdentificationService/HashCode"
+)
+
+// Ipv6AddrIdentificationServiceClient is the client API for Ipv6AddrIdentificationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type Ipv6AddrIdentificationServiceClient interface {
+	NewIpv6AddrIdentification(ctx context.Context, in *NewIpv6AddrIdentificationRequest, opts ...grpc.CallOption) (*NewIpv6AddrIdentificationResponse, error)
+	Equals(ctx context.Context, in *Ipv6AddrIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *Ipv6AddrIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type ipv6AddrIdentificationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIpv6AddrIdentificationServiceClient(cc grpc.ClientConnInterface) Ipv6AddrIdentificationServiceClient {
+	return &ipv6AddrIdentificationServiceClient{cc}
+}
+
+func (c *ipv6AddrIdentificationServiceClient) NewIpv6AddrIdentification(ctx context.Context, in *NewIpv6AddrIdentificationRequest, opts ...grpc.CallOption) (*NewIpv6AddrIdentificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewIpv6AddrIdentificationResponse)
+	err := c.cc.Invoke(ctx, Ipv6AddrIdentificationService_NewIpv6AddrIdentification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipv6AddrIdentificationServiceClient) Equals(ctx context.Context, in *Ipv6AddrIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, Ipv6AddrIdentificationService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipv6AddrIdentificationServiceClient) HashCode(ctx context.Context, in *Ipv6AddrIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, Ipv6AddrIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// Ipv6AddrIdentificationServiceServer is the server API for Ipv6AddrIdentificationService service.
+// All implementations must embed UnimplementedIpv6AddrIdentificationServiceServer
+// for forward compatibility.
+type Ipv6AddrIdentificationServiceServer interface {
+	NewIpv6AddrIdentification(context.Context, *NewIpv6AddrIdentificationRequest) (*NewIpv6AddrIdentificationResponse, error)
+	Equals(context.Context, *Ipv6AddrIdentificationEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *Ipv6AddrIdentificationHashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedIpv6AddrIdentificationServiceServer()
+}
+
+// UnimplementedIpv6AddrIdentificationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIpv6AddrIdentificationServiceServer struct{}
+
+func (UnimplementedIpv6AddrIdentificationServiceServer) NewIpv6AddrIdentification(context.Context, *NewIpv6AddrIdentificationRequest) (*NewIpv6AddrIdentificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewIpv6AddrIdentification not implemented")
+}
+func (UnimplementedIpv6AddrIdentificationServiceServer) Equals(context.Context, *Ipv6AddrIdentificationEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedIpv6AddrIdentificationServiceServer) HashCode(context.Context, *Ipv6AddrIdentificationHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedIpv6AddrIdentificationServiceServer) mustEmbedUnimplementedIpv6AddrIdentificationServiceServer() {
+}
+func (UnimplementedIpv6AddrIdentificationServiceServer) testEmbeddedByValue() {}
+
+// UnsafeIpv6AddrIdentificationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to Ipv6AddrIdentificationServiceServer will
+// result in compilation errors.
+type UnsafeIpv6AddrIdentificationServiceServer interface {
+	mustEmbedUnimplementedIpv6AddrIdentificationServiceServer()
+}
+
+func RegisterIpv6AddrIdentificationServiceServer(s grpc.ServiceRegistrar, srv Ipv6AddrIdentificationServiceServer) {
+	// If the following call panics, it indicates UnimplementedIpv6AddrIdentificationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&Ipv6AddrIdentificationService_ServiceDesc, srv)
+}
+
+func _Ipv6AddrIdentificationService_NewIpv6AddrIdentification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewIpv6AddrIdentificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Ipv6AddrIdentificationServiceServer).NewIpv6AddrIdentification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Ipv6AddrIdentificationService_NewIpv6AddrIdentification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Ipv6AddrIdentificationServiceServer).NewIpv6AddrIdentification(ctx, req.(*NewIpv6AddrIdentificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ipv6AddrIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Ipv6AddrIdentificationEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Ipv6AddrIdentificationServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Ipv6AddrIdentificationService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Ipv6AddrIdentificationServiceServer).Equals(ctx, req.(*Ipv6AddrIdentificationEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ipv6AddrIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Ipv6AddrIdentificationHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Ipv6AddrIdentificationServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Ipv6AddrIdentificationService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Ipv6AddrIdentificationServiceServer).HashCode(ctx, req.(*Ipv6AddrIdentificationHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// Ipv6AddrIdentificationService_ServiceDesc is the grpc.ServiceDesc for Ipv6AddrIdentificationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var Ipv6AddrIdentificationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.Ipv6AddrIdentificationService",
+	HandlerType: (*Ipv6AddrIdentificationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewIpv6AddrIdentification",
+			Handler:    _Ipv6AddrIdentificationService_NewIpv6AddrIdentification_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _Ipv6AddrIdentificationService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _Ipv6AddrIdentificationService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	TunnelConnectionParamsService_NewTunnelConnectionParams_FullMethodName       = "/ike.TunnelConnectionParamsService/NewTunnelConnectionParams"
+	TunnelConnectionParamsService_Equals_FullMethodName                          = "/ike.TunnelConnectionParamsService/Equals"
+	TunnelConnectionParamsService_GetIkeSessionParams_FullMethodName             = "/ike.TunnelConnectionParamsService/GetIkeSessionParams"
+	TunnelConnectionParamsService_GetTunnelModeChildSessionParams_FullMethodName = "/ike.TunnelConnectionParamsService/GetTunnelModeChildSessionParams"
+	TunnelConnectionParamsService_HashCode_FullMethodName                        = "/ike.TunnelConnectionParamsService/HashCode"
+)
+
+// TunnelConnectionParamsServiceClient is the client API for TunnelConnectionParamsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TunnelConnectionParamsServiceClient interface {
+	NewTunnelConnectionParams(ctx context.Context, in *NewTunnelConnectionParamsRequest, opts ...grpc.CallOption) (*NewTunnelConnectionParamsResponse, error)
+	Equals(ctx context.Context, in *TunnelConnectionParamsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetIkeSessionParams(ctx context.Context, in *GetIkeSessionParamsRequest, opts ...grpc.CallOption) (*GetIkeSessionParamsResponse, error)
+	GetTunnelModeChildSessionParams(ctx context.Context, in *GetTunnelModeChildSessionParamsRequest, opts ...grpc.CallOption) (*GetTunnelModeChildSessionParamsResponse, error)
+	HashCode(ctx context.Context, in *TunnelConnectionParamsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type tunnelConnectionParamsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTunnelConnectionParamsServiceClient(cc grpc.ClientConnInterface) TunnelConnectionParamsServiceClient {
+	return &tunnelConnectionParamsServiceClient{cc}
+}
+
+func (c *tunnelConnectionParamsServiceClient) NewTunnelConnectionParams(ctx context.Context, in *NewTunnelConnectionParamsRequest, opts ...grpc.CallOption) (*NewTunnelConnectionParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTunnelConnectionParamsResponse)
+	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_NewTunnelConnectionParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tunnelConnectionParamsServiceClient) Equals(ctx context.Context, in *TunnelConnectionParamsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tunnelConnectionParamsServiceClient) GetIkeSessionParams(ctx context.Context, in *GetIkeSessionParamsRequest, opts ...grpc.CallOption) (*GetIkeSessionParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIkeSessionParamsResponse)
+	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_GetIkeSessionParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tunnelConnectionParamsServiceClient) GetTunnelModeChildSessionParams(ctx context.Context, in *GetTunnelModeChildSessionParamsRequest, opts ...grpc.CallOption) (*GetTunnelModeChildSessionParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTunnelModeChildSessionParamsResponse)
+	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_GetTunnelModeChildSessionParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tunnelConnectionParamsServiceClient) HashCode(ctx context.Context, in *TunnelConnectionParamsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TunnelConnectionParamsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TunnelConnectionParamsServiceServer is the server API for TunnelConnectionParamsService service.
+// All implementations must embed UnimplementedTunnelConnectionParamsServiceServer
+// for forward compatibility.
+type TunnelConnectionParamsServiceServer interface {
+	NewTunnelConnectionParams(context.Context, *NewTunnelConnectionParamsRequest) (*NewTunnelConnectionParamsResponse, error)
+	Equals(context.Context, *TunnelConnectionParamsEqualsRequest) (*EqualsResponse, error)
+	GetIkeSessionParams(context.Context, *GetIkeSessionParamsRequest) (*GetIkeSessionParamsResponse, error)
+	GetTunnelModeChildSessionParams(context.Context, *GetTunnelModeChildSessionParamsRequest) (*GetTunnelModeChildSessionParamsResponse, error)
+	HashCode(context.Context, *TunnelConnectionParamsHashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedTunnelConnectionParamsServiceServer()
+}
+
+// UnimplementedTunnelConnectionParamsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTunnelConnectionParamsServiceServer struct{}
+
+func (UnimplementedTunnelConnectionParamsServiceServer) NewTunnelConnectionParams(context.Context, *NewTunnelConnectionParamsRequest) (*NewTunnelConnectionParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTunnelConnectionParams not implemented")
+}
+func (UnimplementedTunnelConnectionParamsServiceServer) Equals(context.Context, *TunnelConnectionParamsEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTunnelConnectionParamsServiceServer) GetIkeSessionParams(context.Context, *GetIkeSessionParamsRequest) (*GetIkeSessionParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIkeSessionParams not implemented")
+}
+func (UnimplementedTunnelConnectionParamsServiceServer) GetTunnelModeChildSessionParams(context.Context, *GetTunnelModeChildSessionParamsRequest) (*GetTunnelModeChildSessionParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTunnelModeChildSessionParams not implemented")
+}
+func (UnimplementedTunnelConnectionParamsServiceServer) HashCode(context.Context, *TunnelConnectionParamsHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTunnelConnectionParamsServiceServer) mustEmbedUnimplementedTunnelConnectionParamsServiceServer() {
+}
+func (UnimplementedTunnelConnectionParamsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTunnelConnectionParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TunnelConnectionParamsServiceServer will
+// result in compilation errors.
+type UnsafeTunnelConnectionParamsServiceServer interface {
+	mustEmbedUnimplementedTunnelConnectionParamsServiceServer()
+}
+
+func RegisterTunnelConnectionParamsServiceServer(s grpc.ServiceRegistrar, srv TunnelConnectionParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedTunnelConnectionParamsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TunnelConnectionParamsService_ServiceDesc, srv)
+}
+
+func _TunnelConnectionParamsService_NewTunnelConnectionParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTunnelConnectionParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TunnelConnectionParamsServiceServer).NewTunnelConnectionParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TunnelConnectionParamsService_NewTunnelConnectionParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TunnelConnectionParamsServiceServer).NewTunnelConnectionParams(ctx, req.(*NewTunnelConnectionParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TunnelConnectionParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TunnelConnectionParamsEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TunnelConnectionParamsServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TunnelConnectionParamsService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TunnelConnectionParamsServiceServer).Equals(ctx, req.(*TunnelConnectionParamsEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TunnelConnectionParamsService_GetIkeSessionParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIkeSessionParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TunnelConnectionParamsServiceServer).GetIkeSessionParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TunnelConnectionParamsService_GetIkeSessionParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TunnelConnectionParamsServiceServer).GetIkeSessionParams(ctx, req.(*GetIkeSessionParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TunnelConnectionParamsService_GetTunnelModeChildSessionParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTunnelModeChildSessionParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TunnelConnectionParamsServiceServer).GetTunnelModeChildSessionParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TunnelConnectionParamsService_GetTunnelModeChildSessionParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TunnelConnectionParamsServiceServer).GetTunnelModeChildSessionParams(ctx, req.(*GetTunnelModeChildSessionParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TunnelConnectionParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TunnelConnectionParamsHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TunnelConnectionParamsServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TunnelConnectionParamsService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TunnelConnectionParamsServiceServer).HashCode(ctx, req.(*TunnelConnectionParamsHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TunnelConnectionParamsService_ServiceDesc is the grpc.ServiceDesc for TunnelConnectionParamsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TunnelConnectionParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.TunnelConnectionParamsService",
+	HandlerType: (*TunnelConnectionParamsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTunnelConnectionParams",
+			Handler:    _TunnelConnectionParamsService_NewTunnelConnectionParams_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _TunnelConnectionParamsService_Equals_Handler,
+		},
+		{
+			MethodName: "GetIkeSessionParams",
+			Handler:    _TunnelConnectionParamsService_GetIkeSessionParams_Handler,
+		},
+		{
+			MethodName: "GetTunnelModeChildSessionParams",
+			Handler:    _TunnelConnectionParamsService_GetTunnelModeChildSessionParams_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TunnelConnectionParamsService_HashCode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4863,6 +6240,402 @@ var SessionCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ChildSessionCallbackService_OnClosed_FullMethodName                = "/ike.ChildSessionCallbackService/OnClosed"
+	ChildSessionCallbackService_OnIpSecTransformCreated_FullMethodName = "/ike.ChildSessionCallbackService/OnIpSecTransformCreated"
+	ChildSessionCallbackService_OnIpSecTransformDeleted_FullMethodName = "/ike.ChildSessionCallbackService/OnIpSecTransformDeleted"
+	ChildSessionCallbackService_OnOpened_FullMethodName                = "/ike.ChildSessionCallbackService/OnOpened"
+)
+
+// ChildSessionCallbackServiceClient is the client API for ChildSessionCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChildSessionCallbackServiceClient interface {
+	OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error)
+	OnIpSecTransformCreated(ctx context.Context, in *OnIpSecTransformCreatedRequest, opts ...grpc.CallOption) (*OnIpSecTransformCreatedResponse, error)
+	OnIpSecTransformDeleted(ctx context.Context, in *OnIpSecTransformDeletedRequest, opts ...grpc.CallOption) (*OnIpSecTransformDeletedResponse, error)
+	OnOpened(ctx context.Context, in *OnOpenedRequest, opts ...grpc.CallOption) (*OnOpenedResponse, error)
+}
+
+type childSessionCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChildSessionCallbackServiceClient(cc grpc.ClientConnInterface) ChildSessionCallbackServiceClient {
+	return &childSessionCallbackServiceClient{cc}
+}
+
+func (c *childSessionCallbackServiceClient) OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClosedResponse)
+	err := c.cc.Invoke(ctx, ChildSessionCallbackService_OnClosed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSessionCallbackServiceClient) OnIpSecTransformCreated(ctx context.Context, in *OnIpSecTransformCreatedRequest, opts ...grpc.CallOption) (*OnIpSecTransformCreatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnIpSecTransformCreatedResponse)
+	err := c.cc.Invoke(ctx, ChildSessionCallbackService_OnIpSecTransformCreated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSessionCallbackServiceClient) OnIpSecTransformDeleted(ctx context.Context, in *OnIpSecTransformDeletedRequest, opts ...grpc.CallOption) (*OnIpSecTransformDeletedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnIpSecTransformDeletedResponse)
+	err := c.cc.Invoke(ctx, ChildSessionCallbackService_OnIpSecTransformDeleted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSessionCallbackServiceClient) OnOpened(ctx context.Context, in *OnOpenedRequest, opts ...grpc.CallOption) (*OnOpenedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnOpenedResponse)
+	err := c.cc.Invoke(ctx, ChildSessionCallbackService_OnOpened_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChildSessionCallbackServiceServer is the server API for ChildSessionCallbackService service.
+// All implementations must embed UnimplementedChildSessionCallbackServiceServer
+// for forward compatibility.
+type ChildSessionCallbackServiceServer interface {
+	OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error)
+	OnIpSecTransformCreated(context.Context, *OnIpSecTransformCreatedRequest) (*OnIpSecTransformCreatedResponse, error)
+	OnIpSecTransformDeleted(context.Context, *OnIpSecTransformDeletedRequest) (*OnIpSecTransformDeletedResponse, error)
+	OnOpened(context.Context, *OnOpenedRequest) (*OnOpenedResponse, error)
+	mustEmbedUnimplementedChildSessionCallbackServiceServer()
+}
+
+// UnimplementedChildSessionCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChildSessionCallbackServiceServer struct{}
+
+func (UnimplementedChildSessionCallbackServiceServer) OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClosed not implemented")
+}
+func (UnimplementedChildSessionCallbackServiceServer) OnIpSecTransformCreated(context.Context, *OnIpSecTransformCreatedRequest) (*OnIpSecTransformCreatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnIpSecTransformCreated not implemented")
+}
+func (UnimplementedChildSessionCallbackServiceServer) OnIpSecTransformDeleted(context.Context, *OnIpSecTransformDeletedRequest) (*OnIpSecTransformDeletedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnIpSecTransformDeleted not implemented")
+}
+func (UnimplementedChildSessionCallbackServiceServer) OnOpened(context.Context, *OnOpenedRequest) (*OnOpenedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnOpened not implemented")
+}
+func (UnimplementedChildSessionCallbackServiceServer) mustEmbedUnimplementedChildSessionCallbackServiceServer() {
+}
+func (UnimplementedChildSessionCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChildSessionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChildSessionCallbackServiceServer will
+// result in compilation errors.
+type UnsafeChildSessionCallbackServiceServer interface {
+	mustEmbedUnimplementedChildSessionCallbackServiceServer()
+}
+
+func RegisterChildSessionCallbackServiceServer(s grpc.ServiceRegistrar, srv ChildSessionCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedChildSessionCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChildSessionCallbackService_ServiceDesc, srv)
+}
+
+func _ChildSessionCallbackService_OnClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClosedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionCallbackServiceServer).OnClosed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionCallbackService_OnClosed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionCallbackServiceServer).OnClosed(ctx, req.(*OnClosedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSessionCallbackService_OnIpSecTransformCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnIpSecTransformCreatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionCallbackServiceServer).OnIpSecTransformCreated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionCallbackService_OnIpSecTransformCreated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionCallbackServiceServer).OnIpSecTransformCreated(ctx, req.(*OnIpSecTransformCreatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSessionCallbackService_OnIpSecTransformDeleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnIpSecTransformDeletedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionCallbackServiceServer).OnIpSecTransformDeleted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionCallbackService_OnIpSecTransformDeleted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionCallbackServiceServer).OnIpSecTransformDeleted(ctx, req.(*OnIpSecTransformDeletedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSessionCallbackService_OnOpened_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnOpenedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionCallbackServiceServer).OnOpened(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionCallbackService_OnOpened_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionCallbackServiceServer).OnOpened(ctx, req.(*OnOpenedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChildSessionCallbackService_ServiceDesc is the grpc.ServiceDesc for ChildSessionCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChildSessionCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.ChildSessionCallbackService",
+	HandlerType: (*ChildSessionCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnClosed",
+			Handler:    _ChildSessionCallbackService_OnClosed_Handler,
+		},
+		{
+			MethodName: "OnIpSecTransformCreated",
+			Handler:    _ChildSessionCallbackService_OnIpSecTransformCreated_Handler,
+		},
+		{
+			MethodName: "OnIpSecTransformDeleted",
+			Handler:    _ChildSessionCallbackService_OnIpSecTransformDeleted_Handler,
+		},
+		{
+			MethodName: "OnOpened",
+			Handler:    _ChildSessionCallbackService_OnOpened_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
+	KeyIdIdentificationService_NewKeyIdIdentification_FullMethodName = "/ike.KeyIdIdentificationService/NewKeyIdIdentification"
+	KeyIdIdentificationService_Equals_FullMethodName                 = "/ike.KeyIdIdentificationService/Equals"
+	KeyIdIdentificationService_HashCode_FullMethodName               = "/ike.KeyIdIdentificationService/HashCode"
+)
+
+// KeyIdIdentificationServiceClient is the client API for KeyIdIdentificationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyIdIdentificationServiceClient interface {
+	NewKeyIdIdentification(ctx context.Context, in *NewKeyIdIdentificationRequest, opts ...grpc.CallOption) (*NewKeyIdIdentificationResponse, error)
+	Equals(ctx context.Context, in *KeyIdIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *KeyIdIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type keyIdIdentificationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyIdIdentificationServiceClient(cc grpc.ClientConnInterface) KeyIdIdentificationServiceClient {
+	return &keyIdIdentificationServiceClient{cc}
+}
+
+func (c *keyIdIdentificationServiceClient) NewKeyIdIdentification(ctx context.Context, in *NewKeyIdIdentificationRequest, opts ...grpc.CallOption) (*NewKeyIdIdentificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewKeyIdIdentificationResponse)
+	err := c.cc.Invoke(ctx, KeyIdIdentificationService_NewKeyIdIdentification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyIdIdentificationServiceClient) Equals(ctx context.Context, in *KeyIdIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, KeyIdIdentificationService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyIdIdentificationServiceClient) HashCode(ctx context.Context, in *KeyIdIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, KeyIdIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyIdIdentificationServiceServer is the server API for KeyIdIdentificationService service.
+// All implementations must embed UnimplementedKeyIdIdentificationServiceServer
+// for forward compatibility.
+type KeyIdIdentificationServiceServer interface {
+	NewKeyIdIdentification(context.Context, *NewKeyIdIdentificationRequest) (*NewKeyIdIdentificationResponse, error)
+	Equals(context.Context, *KeyIdIdentificationEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *KeyIdIdentificationHashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedKeyIdIdentificationServiceServer()
+}
+
+// UnimplementedKeyIdIdentificationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyIdIdentificationServiceServer struct{}
+
+func (UnimplementedKeyIdIdentificationServiceServer) NewKeyIdIdentification(context.Context, *NewKeyIdIdentificationRequest) (*NewKeyIdIdentificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewKeyIdIdentification not implemented")
+}
+func (UnimplementedKeyIdIdentificationServiceServer) Equals(context.Context, *KeyIdIdentificationEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedKeyIdIdentificationServiceServer) HashCode(context.Context, *KeyIdIdentificationHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedKeyIdIdentificationServiceServer) mustEmbedUnimplementedKeyIdIdentificationServiceServer() {
+}
+func (UnimplementedKeyIdIdentificationServiceServer) testEmbeddedByValue() {}
+
+// UnsafeKeyIdIdentificationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyIdIdentificationServiceServer will
+// result in compilation errors.
+type UnsafeKeyIdIdentificationServiceServer interface {
+	mustEmbedUnimplementedKeyIdIdentificationServiceServer()
+}
+
+func RegisterKeyIdIdentificationServiceServer(s grpc.ServiceRegistrar, srv KeyIdIdentificationServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyIdIdentificationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyIdIdentificationService_ServiceDesc, srv)
+}
+
+func _KeyIdIdentificationService_NewKeyIdIdentification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewKeyIdIdentificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyIdIdentificationServiceServer).NewKeyIdIdentification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyIdIdentificationService_NewKeyIdIdentification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyIdIdentificationServiceServer).NewKeyIdIdentification(ctx, req.(*NewKeyIdIdentificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyIdIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyIdIdentificationEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyIdIdentificationServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyIdIdentificationService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyIdIdentificationServiceServer).Equals(ctx, req.(*KeyIdIdentificationEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyIdIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyIdIdentificationHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyIdIdentificationServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyIdIdentificationService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyIdIdentificationServiceServer).HashCode(ctx, req.(*KeyIdIdentificationHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyIdIdentificationService_ServiceDesc is the grpc.ServiceDesc for KeyIdIdentificationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyIdIdentificationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.KeyIdIdentificationService",
+	HandlerType: (*KeyIdIdentificationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewKeyIdIdentification",
+			Handler:    _KeyIdIdentificationService_NewKeyIdIdentification_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _KeyIdIdentificationService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _KeyIdIdentificationService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ike/ike.proto",
+}
+
+const (
 	FqdnIdentificationService_NewFqdnIdentification_FullMethodName = "/ike.FqdnIdentificationService/NewFqdnIdentification"
 	FqdnIdentificationService_Equals_FullMethodName                = "/ike.FqdnIdentificationService/Equals"
 	FqdnIdentificationService_HashCode_FullMethodName              = "/ike.FqdnIdentificationService/HashCode"
@@ -4873,8 +6646,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type FqdnIdentificationServiceClient interface {
 	NewFqdnIdentification(ctx context.Context, in *NewFqdnIdentificationRequest, opts ...grpc.CallOption) (*NewFqdnIdentificationResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Equals(ctx context.Context, in *FqdnIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *FqdnIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type fqdnIdentificationServiceClient struct {
@@ -4895,7 +6668,7 @@ func (c *fqdnIdentificationServiceClient) NewFqdnIdentification(ctx context.Cont
 	return out, nil
 }
 
-func (c *fqdnIdentificationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *fqdnIdentificationServiceClient) Equals(ctx context.Context, in *FqdnIdentificationEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, FqdnIdentificationService_Equals_FullMethodName, in, out, cOpts...)
@@ -4905,7 +6678,7 @@ func (c *fqdnIdentificationServiceClient) Equals(ctx context.Context, in *Equals
 	return out, nil
 }
 
-func (c *fqdnIdentificationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *fqdnIdentificationServiceClient) HashCode(ctx context.Context, in *FqdnIdentificationHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, FqdnIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
@@ -4920,8 +6693,8 @@ func (c *fqdnIdentificationServiceClient) HashCode(ctx context.Context, in *Hash
 // for forward compatibility.
 type FqdnIdentificationServiceServer interface {
 	NewFqdnIdentification(context.Context, *NewFqdnIdentificationRequest) (*NewFqdnIdentificationResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	Equals(context.Context, *FqdnIdentificationEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *FqdnIdentificationHashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedFqdnIdentificationServiceServer()
 }
 
@@ -4935,10 +6708,10 @@ type UnimplementedFqdnIdentificationServiceServer struct{}
 func (UnimplementedFqdnIdentificationServiceServer) NewFqdnIdentification(context.Context, *NewFqdnIdentificationRequest) (*NewFqdnIdentificationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewFqdnIdentification not implemented")
 }
-func (UnimplementedFqdnIdentificationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedFqdnIdentificationServiceServer) Equals(context.Context, *FqdnIdentificationEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedFqdnIdentificationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedFqdnIdentificationServiceServer) HashCode(context.Context, *FqdnIdentificationHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedFqdnIdentificationServiceServer) mustEmbedUnimplementedFqdnIdentificationServiceServer() {
@@ -4982,7 +6755,7 @@ func _FqdnIdentificationService_NewFqdnIdentification_Handler(srv interface{}, c
 }
 
 func _FqdnIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+	in := new(FqdnIdentificationEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4994,13 +6767,13 @@ func _FqdnIdentificationService_Equals_Handler(srv interface{}, ctx context.Cont
 		FullMethod: FqdnIdentificationService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FqdnIdentificationServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(FqdnIdentificationServiceServer).Equals(ctx, req.(*FqdnIdentificationEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _FqdnIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+	in := new(FqdnIdentificationHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5012,7 +6785,7 @@ func _FqdnIdentificationService_HashCode_Handler(srv interface{}, ctx context.Co
 		FullMethod: FqdnIdentificationService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FqdnIdentificationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(FqdnIdentificationServiceServer).HashCode(ctx, req.(*FqdnIdentificationHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5042,378 +6815,26 @@ var FqdnIdentificationService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ChildSaProposalService_Equals_FullMethodName   = "/ike.ChildSaProposalService/Equals"
-	ChildSaProposalService_HashCode_FullMethodName = "/ike.ChildSaProposalService/HashCode"
-)
-
-// ChildSaProposalServiceClient is the client API for ChildSaProposalService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChildSaProposalServiceClient interface {
-	Equals(ctx context.Context, in *ChildSaProposalEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *ChildSaProposalHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type childSaProposalServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChildSaProposalServiceClient(cc grpc.ClientConnInterface) ChildSaProposalServiceClient {
-	return &childSaProposalServiceClient{cc}
-}
-
-func (c *childSaProposalServiceClient) Equals(ctx context.Context, in *ChildSaProposalEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ChildSaProposalService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *childSaProposalServiceClient) HashCode(ctx context.Context, in *ChildSaProposalHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ChildSaProposalService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChildSaProposalServiceServer is the server API for ChildSaProposalService service.
-// All implementations must embed UnimplementedChildSaProposalServiceServer
-// for forward compatibility.
-type ChildSaProposalServiceServer interface {
-	Equals(context.Context, *ChildSaProposalEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *ChildSaProposalHashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedChildSaProposalServiceServer()
-}
-
-// UnimplementedChildSaProposalServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChildSaProposalServiceServer struct{}
-
-func (UnimplementedChildSaProposalServiceServer) Equals(context.Context, *ChildSaProposalEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedChildSaProposalServiceServer) HashCode(context.Context, *ChildSaProposalHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedChildSaProposalServiceServer) mustEmbedUnimplementedChildSaProposalServiceServer() {
-}
-func (UnimplementedChildSaProposalServiceServer) testEmbeddedByValue() {}
-
-// UnsafeChildSaProposalServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChildSaProposalServiceServer will
-// result in compilation errors.
-type UnsafeChildSaProposalServiceServer interface {
-	mustEmbedUnimplementedChildSaProposalServiceServer()
-}
-
-func RegisterChildSaProposalServiceServer(s grpc.ServiceRegistrar, srv ChildSaProposalServiceServer) {
-	// If the following call panics, it indicates UnimplementedChildSaProposalServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChildSaProposalService_ServiceDesc, srv)
-}
-
-func _ChildSaProposalService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChildSaProposalEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChildSaProposalServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChildSaProposalService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSaProposalServiceServer).Equals(ctx, req.(*ChildSaProposalEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChildSaProposalService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChildSaProposalHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChildSaProposalServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChildSaProposalService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSaProposalServiceServer).HashCode(ctx, req.(*ChildSaProposalHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChildSaProposalService_ServiceDesc is the grpc.ServiceDesc for ChildSaProposalService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChildSaProposalService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.ChildSaProposalService",
-	HandlerType: (*ChildSaProposalServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _ChildSaProposalService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ChildSaProposalService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	ChildSaProposalBuilderService_AddDhGroup_FullMethodName             = "/ike.ChildSaProposalBuilderService/AddDhGroup"
-	ChildSaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName = "/ike.ChildSaProposalBuilderService/AddEncryptionAlgorithm"
-	ChildSaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName  = "/ike.ChildSaProposalBuilderService/AddIntegrityAlgorithm"
-	ChildSaProposalBuilderService_Build_FullMethodName                  = "/ike.ChildSaProposalBuilderService/Build"
-)
-
-// ChildSaProposalBuilderServiceClient is the client API for ChildSaProposalBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChildSaProposalBuilderServiceClient interface {
-	AddDhGroup(ctx context.Context, in *AddDhGroupRequest, opts ...grpc.CallOption) (*AddDhGroupResponse, error)
-	AddEncryptionAlgorithm(ctx context.Context, in *AddEncryptionAlgorithmRequest, opts ...grpc.CallOption) (*AddEncryptionAlgorithmResponse, error)
-	AddIntegrityAlgorithm(ctx context.Context, in *AddIntegrityAlgorithmRequest, opts ...grpc.CallOption) (*AddIntegrityAlgorithmResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type childSaProposalBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChildSaProposalBuilderServiceClient(cc grpc.ClientConnInterface) ChildSaProposalBuilderServiceClient {
-	return &childSaProposalBuilderServiceClient{cc}
-}
-
-func (c *childSaProposalBuilderServiceClient) AddDhGroup(ctx context.Context, in *AddDhGroupRequest, opts ...grpc.CallOption) (*AddDhGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddDhGroupResponse)
-	err := c.cc.Invoke(ctx, ChildSaProposalBuilderService_AddDhGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *childSaProposalBuilderServiceClient) AddEncryptionAlgorithm(ctx context.Context, in *AddEncryptionAlgorithmRequest, opts ...grpc.CallOption) (*AddEncryptionAlgorithmResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddEncryptionAlgorithmResponse)
-	err := c.cc.Invoke(ctx, ChildSaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *childSaProposalBuilderServiceClient) AddIntegrityAlgorithm(ctx context.Context, in *AddIntegrityAlgorithmRequest, opts ...grpc.CallOption) (*AddIntegrityAlgorithmResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddIntegrityAlgorithmResponse)
-	err := c.cc.Invoke(ctx, ChildSaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *childSaProposalBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ChildSaProposalBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChildSaProposalBuilderServiceServer is the server API for ChildSaProposalBuilderService service.
-// All implementations must embed UnimplementedChildSaProposalBuilderServiceServer
-// for forward compatibility.
-type ChildSaProposalBuilderServiceServer interface {
-	AddDhGroup(context.Context, *AddDhGroupRequest) (*AddDhGroupResponse, error)
-	AddEncryptionAlgorithm(context.Context, *AddEncryptionAlgorithmRequest) (*AddEncryptionAlgorithmResponse, error)
-	AddIntegrityAlgorithm(context.Context, *AddIntegrityAlgorithmRequest) (*AddIntegrityAlgorithmResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedChildSaProposalBuilderServiceServer()
-}
-
-// UnimplementedChildSaProposalBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChildSaProposalBuilderServiceServer struct{}
-
-func (UnimplementedChildSaProposalBuilderServiceServer) AddDhGroup(context.Context, *AddDhGroupRequest) (*AddDhGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddDhGroup not implemented")
-}
-func (UnimplementedChildSaProposalBuilderServiceServer) AddEncryptionAlgorithm(context.Context, *AddEncryptionAlgorithmRequest) (*AddEncryptionAlgorithmResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddEncryptionAlgorithm not implemented")
-}
-func (UnimplementedChildSaProposalBuilderServiceServer) AddIntegrityAlgorithm(context.Context, *AddIntegrityAlgorithmRequest) (*AddIntegrityAlgorithmResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddIntegrityAlgorithm not implemented")
-}
-func (UnimplementedChildSaProposalBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedChildSaProposalBuilderServiceServer) mustEmbedUnimplementedChildSaProposalBuilderServiceServer() {
-}
-func (UnimplementedChildSaProposalBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeChildSaProposalBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChildSaProposalBuilderServiceServer will
-// result in compilation errors.
-type UnsafeChildSaProposalBuilderServiceServer interface {
-	mustEmbedUnimplementedChildSaProposalBuilderServiceServer()
-}
-
-func RegisterChildSaProposalBuilderServiceServer(s grpc.ServiceRegistrar, srv ChildSaProposalBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedChildSaProposalBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChildSaProposalBuilderService_ServiceDesc, srv)
-}
-
-func _ChildSaProposalBuilderService_AddDhGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddDhGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChildSaProposalBuilderServiceServer).AddDhGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChildSaProposalBuilderService_AddDhGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSaProposalBuilderServiceServer).AddDhGroup(ctx, req.(*AddDhGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChildSaProposalBuilderService_AddEncryptionAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddEncryptionAlgorithmRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChildSaProposalBuilderServiceServer).AddEncryptionAlgorithm(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChildSaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSaProposalBuilderServiceServer).AddEncryptionAlgorithm(ctx, req.(*AddEncryptionAlgorithmRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChildSaProposalBuilderService_AddIntegrityAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddIntegrityAlgorithmRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChildSaProposalBuilderServiceServer).AddIntegrityAlgorithm(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChildSaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSaProposalBuilderServiceServer).AddIntegrityAlgorithm(ctx, req.(*AddIntegrityAlgorithmRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChildSaProposalBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChildSaProposalBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChildSaProposalBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSaProposalBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChildSaProposalBuilderService_ServiceDesc is the grpc.ServiceDesc for ChildSaProposalBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChildSaProposalBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.ChildSaProposalBuilderService",
-	HandlerType: (*ChildSaProposalBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddDhGroup",
-			Handler:    _ChildSaProposalBuilderService_AddDhGroup_Handler,
-		},
-		{
-			MethodName: "AddEncryptionAlgorithm",
-			Handler:    _ChildSaProposalBuilderService_AddEncryptionAlgorithm_Handler,
-		},
-		{
-			MethodName: "AddIntegrityAlgorithm",
-			Handler:    _ChildSaProposalBuilderService_AddIntegrityAlgorithm_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _ChildSaProposalBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	ChildSessionParamsService_Equals_FullMethodName                 = "/ike.ChildSessionParamsService/Equals"
-	ChildSessionParamsService_GetHardLifetimeSeconds_FullMethodName = "/ike.ChildSessionParamsService/GetHardLifetimeSeconds"
-	ChildSessionParamsService_GetSoftLifetimeSeconds_FullMethodName = "/ike.ChildSessionParamsService/GetSoftLifetimeSeconds"
-	ChildSessionParamsService_HashCode_FullMethodName               = "/ike.ChildSessionParamsService/HashCode"
+	ChildSessionParamsService_Equals_FullMethodName                      = "/ike.ChildSessionParamsService/Equals"
+	ChildSessionParamsService_GetChildSaProposals_FullMethodName         = "/ike.ChildSessionParamsService/GetChildSaProposals"
+	ChildSessionParamsService_GetHardLifetimeSeconds_FullMethodName      = "/ike.ChildSessionParamsService/GetHardLifetimeSeconds"
+	ChildSessionParamsService_GetInboundTrafficSelectors_FullMethodName  = "/ike.ChildSessionParamsService/GetInboundTrafficSelectors"
+	ChildSessionParamsService_GetOutboundTrafficSelectors_FullMethodName = "/ike.ChildSessionParamsService/GetOutboundTrafficSelectors"
+	ChildSessionParamsService_GetSoftLifetimeSeconds_FullMethodName      = "/ike.ChildSessionParamsService/GetSoftLifetimeSeconds"
+	ChildSessionParamsService_HashCode_FullMethodName                    = "/ike.ChildSessionParamsService/HashCode"
 )
 
 // ChildSessionParamsServiceClient is the client API for ChildSessionParamsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ChildSessionParamsServiceClient interface {
-	Equals(ctx context.Context, in *ChildSessionParamsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetChildSaProposals(ctx context.Context, in *GetChildSaProposalsRequest, opts ...grpc.CallOption) (*GetChildSaProposalsResponse, error)
 	GetHardLifetimeSeconds(ctx context.Context, in *GetHardLifetimeSecondsRequest, opts ...grpc.CallOption) (*GetHardLifetimeSecondsResponse, error)
+	GetInboundTrafficSelectors(ctx context.Context, in *GetInboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*GetInboundTrafficSelectorsResponse, error)
+	GetOutboundTrafficSelectors(ctx context.Context, in *GetOutboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*GetOutboundTrafficSelectorsResponse, error)
 	GetSoftLifetimeSeconds(ctx context.Context, in *GetSoftLifetimeSecondsRequest, opts ...grpc.CallOption) (*GetSoftLifetimeSecondsResponse, error)
-	HashCode(ctx context.Context, in *ChildSessionParamsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type childSessionParamsServiceClient struct {
@@ -5424,10 +6845,20 @@ func NewChildSessionParamsServiceClient(cc grpc.ClientConnInterface) ChildSessio
 	return &childSessionParamsServiceClient{cc}
 }
 
-func (c *childSessionParamsServiceClient) Equals(ctx context.Context, in *ChildSessionParamsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *childSessionParamsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, ChildSessionParamsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSessionParamsServiceClient) GetChildSaProposals(ctx context.Context, in *GetChildSaProposalsRequest, opts ...grpc.CallOption) (*GetChildSaProposalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChildSaProposalsResponse)
+	err := c.cc.Invoke(ctx, ChildSessionParamsService_GetChildSaProposals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5444,6 +6875,26 @@ func (c *childSessionParamsServiceClient) GetHardLifetimeSeconds(ctx context.Con
 	return out, nil
 }
 
+func (c *childSessionParamsServiceClient) GetInboundTrafficSelectors(ctx context.Context, in *GetInboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*GetInboundTrafficSelectorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInboundTrafficSelectorsResponse)
+	err := c.cc.Invoke(ctx, ChildSessionParamsService_GetInboundTrafficSelectors_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *childSessionParamsServiceClient) GetOutboundTrafficSelectors(ctx context.Context, in *GetOutboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*GetOutboundTrafficSelectorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutboundTrafficSelectorsResponse)
+	err := c.cc.Invoke(ctx, ChildSessionParamsService_GetOutboundTrafficSelectors_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *childSessionParamsServiceClient) GetSoftLifetimeSeconds(ctx context.Context, in *GetSoftLifetimeSecondsRequest, opts ...grpc.CallOption) (*GetSoftLifetimeSecondsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSoftLifetimeSecondsResponse)
@@ -5454,7 +6905,7 @@ func (c *childSessionParamsServiceClient) GetSoftLifetimeSeconds(ctx context.Con
 	return out, nil
 }
 
-func (c *childSessionParamsServiceClient) HashCode(ctx context.Context, in *ChildSessionParamsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *childSessionParamsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, ChildSessionParamsService_HashCode_FullMethodName, in, out, cOpts...)
@@ -5468,10 +6919,13 @@ func (c *childSessionParamsServiceClient) HashCode(ctx context.Context, in *Chil
 // All implementations must embed UnimplementedChildSessionParamsServiceServer
 // for forward compatibility.
 type ChildSessionParamsServiceServer interface {
-	Equals(context.Context, *ChildSessionParamsEqualsRequest) (*EqualsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetChildSaProposals(context.Context, *GetChildSaProposalsRequest) (*GetChildSaProposalsResponse, error)
 	GetHardLifetimeSeconds(context.Context, *GetHardLifetimeSecondsRequest) (*GetHardLifetimeSecondsResponse, error)
+	GetInboundTrafficSelectors(context.Context, *GetInboundTrafficSelectorsRequest) (*GetInboundTrafficSelectorsResponse, error)
+	GetOutboundTrafficSelectors(context.Context, *GetOutboundTrafficSelectorsRequest) (*GetOutboundTrafficSelectorsResponse, error)
 	GetSoftLifetimeSeconds(context.Context, *GetSoftLifetimeSecondsRequest) (*GetSoftLifetimeSecondsResponse, error)
-	HashCode(context.Context, *ChildSessionParamsHashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedChildSessionParamsServiceServer()
 }
 
@@ -5482,16 +6936,25 @@ type ChildSessionParamsServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedChildSessionParamsServiceServer struct{}
 
-func (UnimplementedChildSessionParamsServiceServer) Equals(context.Context, *ChildSessionParamsEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedChildSessionParamsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedChildSessionParamsServiceServer) GetChildSaProposals(context.Context, *GetChildSaProposalsRequest) (*GetChildSaProposalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChildSaProposals not implemented")
 }
 func (UnimplementedChildSessionParamsServiceServer) GetHardLifetimeSeconds(context.Context, *GetHardLifetimeSecondsRequest) (*GetHardLifetimeSecondsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetHardLifetimeSeconds not implemented")
 }
+func (UnimplementedChildSessionParamsServiceServer) GetInboundTrafficSelectors(context.Context, *GetInboundTrafficSelectorsRequest) (*GetInboundTrafficSelectorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInboundTrafficSelectors not implemented")
+}
+func (UnimplementedChildSessionParamsServiceServer) GetOutboundTrafficSelectors(context.Context, *GetOutboundTrafficSelectorsRequest) (*GetOutboundTrafficSelectorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutboundTrafficSelectors not implemented")
+}
 func (UnimplementedChildSessionParamsServiceServer) GetSoftLifetimeSeconds(context.Context, *GetSoftLifetimeSecondsRequest) (*GetSoftLifetimeSecondsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSoftLifetimeSeconds not implemented")
 }
-func (UnimplementedChildSessionParamsServiceServer) HashCode(context.Context, *ChildSessionParamsHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedChildSessionParamsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedChildSessionParamsServiceServer) mustEmbedUnimplementedChildSessionParamsServiceServer() {
@@ -5517,7 +6980,7 @@ func RegisterChildSessionParamsServiceServer(s grpc.ServiceRegistrar, srv ChildS
 }
 
 func _ChildSessionParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChildSessionParamsEqualsRequest)
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5529,7 +6992,25 @@ func _ChildSessionParamsService_Equals_Handler(srv interface{}, ctx context.Cont
 		FullMethod: ChildSessionParamsService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSessionParamsServiceServer).Equals(ctx, req.(*ChildSessionParamsEqualsRequest))
+		return srv.(ChildSessionParamsServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSessionParamsService_GetChildSaProposals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChildSaProposalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionParamsServiceServer).GetChildSaProposals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionParamsService_GetChildSaProposals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionParamsServiceServer).GetChildSaProposals(ctx, req.(*GetChildSaProposalsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5548,6 +7029,42 @@ func _ChildSessionParamsService_GetHardLifetimeSeconds_Handler(srv interface{}, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ChildSessionParamsServiceServer).GetHardLifetimeSeconds(ctx, req.(*GetHardLifetimeSecondsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSessionParamsService_GetInboundTrafficSelectors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInboundTrafficSelectorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionParamsServiceServer).GetInboundTrafficSelectors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionParamsService_GetInboundTrafficSelectors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionParamsServiceServer).GetInboundTrafficSelectors(ctx, req.(*GetInboundTrafficSelectorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChildSessionParamsService_GetOutboundTrafficSelectors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutboundTrafficSelectorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChildSessionParamsServiceServer).GetOutboundTrafficSelectors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChildSessionParamsService_GetOutboundTrafficSelectors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChildSessionParamsServiceServer).GetOutboundTrafficSelectors(ctx, req.(*GetOutboundTrafficSelectorsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5571,7 +7088,7 @@ func _ChildSessionParamsService_GetSoftLifetimeSeconds_Handler(srv interface{}, 
 }
 
 func _ChildSessionParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChildSessionParamsHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5583,7 +7100,7 @@ func _ChildSessionParamsService_HashCode_Handler(srv interface{}, ctx context.Co
 		FullMethod: ChildSessionParamsService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSessionParamsServiceServer).HashCode(ctx, req.(*ChildSessionParamsHashCodeRequest))
+		return srv.(ChildSessionParamsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5600,8 +7117,20 @@ var ChildSessionParamsService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ChildSessionParamsService_Equals_Handler,
 		},
 		{
+			MethodName: "GetChildSaProposals",
+			Handler:    _ChildSessionParamsService_GetChildSaProposals_Handler,
+		},
+		{
 			MethodName: "GetHardLifetimeSeconds",
 			Handler:    _ChildSessionParamsService_GetHardLifetimeSeconds_Handler,
+		},
+		{
+			MethodName: "GetInboundTrafficSelectors",
+			Handler:    _ChildSessionParamsService_GetInboundTrafficSelectors_Handler,
+		},
+		{
+			MethodName: "GetOutboundTrafficSelectors",
+			Handler:    _ChildSessionParamsService_GetOutboundTrafficSelectors_Handler,
 		},
 		{
 			MethodName: "GetSoftLifetimeSeconds",
@@ -5617,16 +7146,18 @@ var ChildSessionParamsService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	TunnelModeChildSessionParamsService_Equals_FullMethodName   = "/ike.TunnelModeChildSessionParamsService/Equals"
-	TunnelModeChildSessionParamsService_HashCode_FullMethodName = "/ike.TunnelModeChildSessionParamsService/HashCode"
+	TunnelModeChildSessionParamsService_Equals_FullMethodName                   = "/ike.TunnelModeChildSessionParamsService/Equals"
+	TunnelModeChildSessionParamsService_GetConfigurationRequests_FullMethodName = "/ike.TunnelModeChildSessionParamsService/GetConfigurationRequests"
+	TunnelModeChildSessionParamsService_HashCode_FullMethodName                 = "/ike.TunnelModeChildSessionParamsService/HashCode"
 )
 
 // TunnelModeChildSessionParamsServiceClient is the client API for TunnelModeChildSessionParamsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TunnelModeChildSessionParamsServiceClient interface {
-	Equals(ctx context.Context, in *TunnelModeChildSessionParamsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *TunnelModeChildSessionParamsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetConfigurationRequests(ctx context.Context, in *GetConfigurationRequestsRequest, opts ...grpc.CallOption) (*GetConfigurationRequestsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
 type tunnelModeChildSessionParamsServiceClient struct {
@@ -5637,7 +7168,7 @@ func NewTunnelModeChildSessionParamsServiceClient(cc grpc.ClientConnInterface) T
 	return &tunnelModeChildSessionParamsServiceClient{cc}
 }
 
-func (c *tunnelModeChildSessionParamsServiceClient) Equals(ctx context.Context, in *TunnelModeChildSessionParamsEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *tunnelModeChildSessionParamsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, TunnelModeChildSessionParamsService_Equals_FullMethodName, in, out, cOpts...)
@@ -5647,7 +7178,17 @@ func (c *tunnelModeChildSessionParamsServiceClient) Equals(ctx context.Context, 
 	return out, nil
 }
 
-func (c *tunnelModeChildSessionParamsServiceClient) HashCode(ctx context.Context, in *TunnelModeChildSessionParamsHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *tunnelModeChildSessionParamsServiceClient) GetConfigurationRequests(ctx context.Context, in *GetConfigurationRequestsRequest, opts ...grpc.CallOption) (*GetConfigurationRequestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfigurationRequestsResponse)
+	err := c.cc.Invoke(ctx, TunnelModeChildSessionParamsService_GetConfigurationRequests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tunnelModeChildSessionParamsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, TunnelModeChildSessionParamsService_HashCode_FullMethodName, in, out, cOpts...)
@@ -5661,8 +7202,9 @@ func (c *tunnelModeChildSessionParamsServiceClient) HashCode(ctx context.Context
 // All implementations must embed UnimplementedTunnelModeChildSessionParamsServiceServer
 // for forward compatibility.
 type TunnelModeChildSessionParamsServiceServer interface {
-	Equals(context.Context, *TunnelModeChildSessionParamsEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *TunnelModeChildSessionParamsHashCodeRequest) (*HashCodeResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetConfigurationRequests(context.Context, *GetConfigurationRequestsRequest) (*GetConfigurationRequestsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedTunnelModeChildSessionParamsServiceServer()
 }
 
@@ -5673,10 +7215,13 @@ type TunnelModeChildSessionParamsServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedTunnelModeChildSessionParamsServiceServer struct{}
 
-func (UnimplementedTunnelModeChildSessionParamsServiceServer) Equals(context.Context, *TunnelModeChildSessionParamsEqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedTunnelModeChildSessionParamsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedTunnelModeChildSessionParamsServiceServer) HashCode(context.Context, *TunnelModeChildSessionParamsHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedTunnelModeChildSessionParamsServiceServer) GetConfigurationRequests(context.Context, *GetConfigurationRequestsRequest) (*GetConfigurationRequestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfigurationRequests not implemented")
+}
+func (UnimplementedTunnelModeChildSessionParamsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedTunnelModeChildSessionParamsServiceServer) mustEmbedUnimplementedTunnelModeChildSessionParamsServiceServer() {
@@ -5702,7 +7247,7 @@ func RegisterTunnelModeChildSessionParamsServiceServer(s grpc.ServiceRegistrar, 
 }
 
 func _TunnelModeChildSessionParamsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TunnelModeChildSessionParamsEqualsRequest)
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5714,13 +7259,31 @@ func _TunnelModeChildSessionParamsService_Equals_Handler(srv interface{}, ctx co
 		FullMethod: TunnelModeChildSessionParamsService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TunnelModeChildSessionParamsServiceServer).Equals(ctx, req.(*TunnelModeChildSessionParamsEqualsRequest))
+		return srv.(TunnelModeChildSessionParamsServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TunnelModeChildSessionParamsService_GetConfigurationRequests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfigurationRequestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TunnelModeChildSessionParamsServiceServer).GetConfigurationRequests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TunnelModeChildSessionParamsService_GetConfigurationRequests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TunnelModeChildSessionParamsServiceServer).GetConfigurationRequests(ctx, req.(*GetConfigurationRequestsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TunnelModeChildSessionParamsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TunnelModeChildSessionParamsHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5732,7 +7295,7 @@ func _TunnelModeChildSessionParamsService_HashCode_Handler(srv interface{}, ctx 
 		FullMethod: TunnelModeChildSessionParamsService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TunnelModeChildSessionParamsServiceServer).HashCode(ctx, req.(*TunnelModeChildSessionParamsHashCodeRequest))
+		return srv.(TunnelModeChildSessionParamsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5747,6 +7310,10 @@ var TunnelModeChildSessionParamsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Equals",
 			Handler:    _TunnelModeChildSessionParamsService_Equals_Handler,
+		},
+		{
+			MethodName: "GetConfigurationRequests",
+			Handler:    _TunnelModeChildSessionParamsService_GetConfigurationRequests_Handler,
 		},
 		{
 			MethodName: "HashCode",
@@ -6449,1034 +8016,254 @@ var TunnelModeChildSessionParamsConfigRequestIpv6AddressService_ServiceDesc = gr
 }
 
 const (
-	IkeSaProposalService_Equals_FullMethodName   = "/ike.IkeSaProposalService/Equals"
-	IkeSaProposalService_HashCode_FullMethodName = "/ike.IkeSaProposalService/HashCode"
+	TransportModeChildSessionParamsBuilderService_AddChildSaProposal_FullMethodName          = "/ike.TransportModeChildSessionParamsBuilderService/AddChildSaProposal"
+	TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_FullMethodName  = "/ike.TransportModeChildSessionParamsBuilderService/AddInboundTrafficSelectors"
+	TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_FullMethodName = "/ike.TransportModeChildSessionParamsBuilderService/AddOutboundTrafficSelectors"
+	TransportModeChildSessionParamsBuilderService_Build_FullMethodName                       = "/ike.TransportModeChildSessionParamsBuilderService/Build"
+	TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_FullMethodName          = "/ike.TransportModeChildSessionParamsBuilderService/SetLifetimeSeconds"
 )
 
-// IkeSaProposalServiceClient is the client API for IkeSaProposalService service.
+// TransportModeChildSessionParamsBuilderServiceClient is the client API for TransportModeChildSessionParamsBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type IkeSaProposalServiceClient interface {
-	Equals(ctx context.Context, in *IkeSaProposalEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *IkeSaProposalHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type ikeSaProposalServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewIkeSaProposalServiceClient(cc grpc.ClientConnInterface) IkeSaProposalServiceClient {
-	return &ikeSaProposalServiceClient{cc}
-}
-
-func (c *ikeSaProposalServiceClient) Equals(ctx context.Context, in *IkeSaProposalEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, IkeSaProposalService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ikeSaProposalServiceClient) HashCode(ctx context.Context, in *IkeSaProposalHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, IkeSaProposalService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// IkeSaProposalServiceServer is the server API for IkeSaProposalService service.
-// All implementations must embed UnimplementedIkeSaProposalServiceServer
-// for forward compatibility.
-type IkeSaProposalServiceServer interface {
-	Equals(context.Context, *IkeSaProposalEqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *IkeSaProposalHashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedIkeSaProposalServiceServer()
-}
-
-// UnimplementedIkeSaProposalServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedIkeSaProposalServiceServer struct{}
-
-func (UnimplementedIkeSaProposalServiceServer) Equals(context.Context, *IkeSaProposalEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedIkeSaProposalServiceServer) HashCode(context.Context, *IkeSaProposalHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedIkeSaProposalServiceServer) mustEmbedUnimplementedIkeSaProposalServiceServer() {}
-func (UnimplementedIkeSaProposalServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeIkeSaProposalServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to IkeSaProposalServiceServer will
-// result in compilation errors.
-type UnsafeIkeSaProposalServiceServer interface {
-	mustEmbedUnimplementedIkeSaProposalServiceServer()
-}
-
-func RegisterIkeSaProposalServiceServer(s grpc.ServiceRegistrar, srv IkeSaProposalServiceServer) {
-	// If the following call panics, it indicates UnimplementedIkeSaProposalServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&IkeSaProposalService_ServiceDesc, srv)
-}
-
-func _IkeSaProposalService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IkeSaProposalEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IkeSaProposalServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IkeSaProposalService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IkeSaProposalServiceServer).Equals(ctx, req.(*IkeSaProposalEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IkeSaProposalService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IkeSaProposalHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IkeSaProposalServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IkeSaProposalService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IkeSaProposalServiceServer).HashCode(ctx, req.(*IkeSaProposalHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// IkeSaProposalService_ServiceDesc is the grpc.ServiceDesc for IkeSaProposalService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var IkeSaProposalService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.IkeSaProposalService",
-	HandlerType: (*IkeSaProposalServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _IkeSaProposalService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _IkeSaProposalService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	SaProposalBuilderService_AddDhGroup_FullMethodName              = "/ike.SaProposalBuilderService/AddDhGroup"
-	SaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName  = "/ike.SaProposalBuilderService/AddEncryptionAlgorithm"
-	SaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName   = "/ike.SaProposalBuilderService/AddIntegrityAlgorithm"
-	SaProposalBuilderService_AddPseudorandomFunction_FullMethodName = "/ike.SaProposalBuilderService/AddPseudorandomFunction"
-	SaProposalBuilderService_Build_FullMethodName                   = "/ike.SaProposalBuilderService/Build"
-)
-
-// SaProposalBuilderServiceClient is the client API for SaProposalBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SaProposalBuilderServiceClient interface {
-	AddDhGroup(ctx context.Context, in *AddDhGroupRequest, opts ...grpc.CallOption) (*AddDhGroupResponse, error)
-	AddEncryptionAlgorithm(ctx context.Context, in *AddEncryptionAlgorithmRequest, opts ...grpc.CallOption) (*AddEncryptionAlgorithmResponse, error)
-	AddIntegrityAlgorithm(ctx context.Context, in *AddIntegrityAlgorithmRequest, opts ...grpc.CallOption) (*AddIntegrityAlgorithmResponse, error)
-	AddPseudorandomFunction(ctx context.Context, in *AddPseudorandomFunctionRequest, opts ...grpc.CallOption) (*AddPseudorandomFunctionResponse, error)
+type TransportModeChildSessionParamsBuilderServiceClient interface {
+	AddChildSaProposal(ctx context.Context, in *AddChildSaProposalRequest, opts ...grpc.CallOption) (*AddChildSaProposalResponse, error)
+	AddInboundTrafficSelectors(ctx context.Context, in *AddInboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*AddInboundTrafficSelectorsResponse, error)
+	AddOutboundTrafficSelectors(ctx context.Context, in *AddOutboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*AddOutboundTrafficSelectorsResponse, error)
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetLifetimeSeconds(ctx context.Context, in *SetLifetimeSecondsRequest, opts ...grpc.CallOption) (*SetLifetimeSecondsResponse, error)
 }
 
-type saProposalBuilderServiceClient struct {
+type transportModeChildSessionParamsBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSaProposalBuilderServiceClient(cc grpc.ClientConnInterface) SaProposalBuilderServiceClient {
-	return &saProposalBuilderServiceClient{cc}
+func NewTransportModeChildSessionParamsBuilderServiceClient(cc grpc.ClientConnInterface) TransportModeChildSessionParamsBuilderServiceClient {
+	return &transportModeChildSessionParamsBuilderServiceClient{cc}
 }
 
-func (c *saProposalBuilderServiceClient) AddDhGroup(ctx context.Context, in *AddDhGroupRequest, opts ...grpc.CallOption) (*AddDhGroupResponse, error) {
+func (c *transportModeChildSessionParamsBuilderServiceClient) AddChildSaProposal(ctx context.Context, in *AddChildSaProposalRequest, opts ...grpc.CallOption) (*AddChildSaProposalResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddDhGroupResponse)
-	err := c.cc.Invoke(ctx, SaProposalBuilderService_AddDhGroup_FullMethodName, in, out, cOpts...)
+	out := new(AddChildSaProposalResponse)
+	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_AddChildSaProposal_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *saProposalBuilderServiceClient) AddEncryptionAlgorithm(ctx context.Context, in *AddEncryptionAlgorithmRequest, opts ...grpc.CallOption) (*AddEncryptionAlgorithmResponse, error) {
+func (c *transportModeChildSessionParamsBuilderServiceClient) AddInboundTrafficSelectors(ctx context.Context, in *AddInboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*AddInboundTrafficSelectorsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddEncryptionAlgorithmResponse)
-	err := c.cc.Invoke(ctx, SaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName, in, out, cOpts...)
+	out := new(AddInboundTrafficSelectorsResponse)
+	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *saProposalBuilderServiceClient) AddIntegrityAlgorithm(ctx context.Context, in *AddIntegrityAlgorithmRequest, opts ...grpc.CallOption) (*AddIntegrityAlgorithmResponse, error) {
+func (c *transportModeChildSessionParamsBuilderServiceClient) AddOutboundTrafficSelectors(ctx context.Context, in *AddOutboundTrafficSelectorsRequest, opts ...grpc.CallOption) (*AddOutboundTrafficSelectorsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddIntegrityAlgorithmResponse)
-	err := c.cc.Invoke(ctx, SaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName, in, out, cOpts...)
+	out := new(AddOutboundTrafficSelectorsResponse)
+	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *saProposalBuilderServiceClient) AddPseudorandomFunction(ctx context.Context, in *AddPseudorandomFunctionRequest, opts ...grpc.CallOption) (*AddPseudorandomFunctionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddPseudorandomFunctionResponse)
-	err := c.cc.Invoke(ctx, SaProposalBuilderService_AddPseudorandomFunction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *saProposalBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *transportModeChildSessionParamsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SaProposalBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SaProposalBuilderServiceServer is the server API for SaProposalBuilderService service.
-// All implementations must embed UnimplementedSaProposalBuilderServiceServer
-// for forward compatibility.
-type SaProposalBuilderServiceServer interface {
-	AddDhGroup(context.Context, *AddDhGroupRequest) (*AddDhGroupResponse, error)
-	AddEncryptionAlgorithm(context.Context, *AddEncryptionAlgorithmRequest) (*AddEncryptionAlgorithmResponse, error)
-	AddIntegrityAlgorithm(context.Context, *AddIntegrityAlgorithmRequest) (*AddIntegrityAlgorithmResponse, error)
-	AddPseudorandomFunction(context.Context, *AddPseudorandomFunctionRequest) (*AddPseudorandomFunctionResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedSaProposalBuilderServiceServer()
+func (c *transportModeChildSessionParamsBuilderServiceClient) SetLifetimeSeconds(ctx context.Context, in *SetLifetimeSecondsRequest, opts ...grpc.CallOption) (*SetLifetimeSecondsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLifetimeSecondsResponse)
+	err := c.cc.Invoke(ctx, TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedSaProposalBuilderServiceServer must be embedded to have
+// TransportModeChildSessionParamsBuilderServiceServer is the server API for TransportModeChildSessionParamsBuilderService service.
+// All implementations must embed UnimplementedTransportModeChildSessionParamsBuilderServiceServer
+// for forward compatibility.
+type TransportModeChildSessionParamsBuilderServiceServer interface {
+	AddChildSaProposal(context.Context, *AddChildSaProposalRequest) (*AddChildSaProposalResponse, error)
+	AddInboundTrafficSelectors(context.Context, *AddInboundTrafficSelectorsRequest) (*AddInboundTrafficSelectorsResponse, error)
+	AddOutboundTrafficSelectors(context.Context, *AddOutboundTrafficSelectorsRequest) (*AddOutboundTrafficSelectorsResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetLifetimeSeconds(context.Context, *SetLifetimeSecondsRequest) (*SetLifetimeSecondsResponse, error)
+	mustEmbedUnimplementedTransportModeChildSessionParamsBuilderServiceServer()
+}
+
+// UnimplementedTransportModeChildSessionParamsBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSaProposalBuilderServiceServer struct{}
+type UnimplementedTransportModeChildSessionParamsBuilderServiceServer struct{}
 
-func (UnimplementedSaProposalBuilderServiceServer) AddDhGroup(context.Context, *AddDhGroupRequest) (*AddDhGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddDhGroup not implemented")
+func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) AddChildSaProposal(context.Context, *AddChildSaProposalRequest) (*AddChildSaProposalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddChildSaProposal not implemented")
 }
-func (UnimplementedSaProposalBuilderServiceServer) AddEncryptionAlgorithm(context.Context, *AddEncryptionAlgorithmRequest) (*AddEncryptionAlgorithmResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddEncryptionAlgorithm not implemented")
+func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) AddInboundTrafficSelectors(context.Context, *AddInboundTrafficSelectorsRequest) (*AddInboundTrafficSelectorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddInboundTrafficSelectors not implemented")
 }
-func (UnimplementedSaProposalBuilderServiceServer) AddIntegrityAlgorithm(context.Context, *AddIntegrityAlgorithmRequest) (*AddIntegrityAlgorithmResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddIntegrityAlgorithm not implemented")
+func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) AddOutboundTrafficSelectors(context.Context, *AddOutboundTrafficSelectorsRequest) (*AddOutboundTrafficSelectorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddOutboundTrafficSelectors not implemented")
 }
-func (UnimplementedSaProposalBuilderServiceServer) AddPseudorandomFunction(context.Context, *AddPseudorandomFunctionRequest) (*AddPseudorandomFunctionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddPseudorandomFunction not implemented")
-}
-func (UnimplementedSaProposalBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedSaProposalBuilderServiceServer) mustEmbedUnimplementedSaProposalBuilderServiceServer() {
+func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) SetLifetimeSeconds(context.Context, *SetLifetimeSecondsRequest) (*SetLifetimeSecondsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLifetimeSeconds not implemented")
 }
-func (UnimplementedSaProposalBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) mustEmbedUnimplementedTransportModeChildSessionParamsBuilderServiceServer() {
+}
+func (UnimplementedTransportModeChildSessionParamsBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSaProposalBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SaProposalBuilderServiceServer will
+// UnsafeTransportModeChildSessionParamsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TransportModeChildSessionParamsBuilderServiceServer will
 // result in compilation errors.
-type UnsafeSaProposalBuilderServiceServer interface {
-	mustEmbedUnimplementedSaProposalBuilderServiceServer()
+type UnsafeTransportModeChildSessionParamsBuilderServiceServer interface {
+	mustEmbedUnimplementedTransportModeChildSessionParamsBuilderServiceServer()
 }
 
-func RegisterSaProposalBuilderServiceServer(s grpc.ServiceRegistrar, srv SaProposalBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSaProposalBuilderServiceServer was
+func RegisterTransportModeChildSessionParamsBuilderServiceServer(s grpc.ServiceRegistrar, srv TransportModeChildSessionParamsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTransportModeChildSessionParamsBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SaProposalBuilderService_ServiceDesc, srv)
+	s.RegisterService(&TransportModeChildSessionParamsBuilderService_ServiceDesc, srv)
 }
 
-func _SaProposalBuilderService_AddDhGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddDhGroupRequest)
+func _TransportModeChildSessionParamsBuilderService_AddChildSaProposal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddChildSaProposalRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SaProposalBuilderServiceServer).AddDhGroup(ctx, in)
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddChildSaProposal(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SaProposalBuilderService_AddDhGroup_FullMethodName,
+		FullMethod: TransportModeChildSessionParamsBuilderService_AddChildSaProposal_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SaProposalBuilderServiceServer).AddDhGroup(ctx, req.(*AddDhGroupRequest))
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddChildSaProposal(ctx, req.(*AddChildSaProposalRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SaProposalBuilderService_AddEncryptionAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddEncryptionAlgorithmRequest)
+func _TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddInboundTrafficSelectorsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SaProposalBuilderServiceServer).AddEncryptionAlgorithm(ctx, in)
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddInboundTrafficSelectors(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SaProposalBuilderService_AddEncryptionAlgorithm_FullMethodName,
+		FullMethod: TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SaProposalBuilderServiceServer).AddEncryptionAlgorithm(ctx, req.(*AddEncryptionAlgorithmRequest))
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddInboundTrafficSelectors(ctx, req.(*AddInboundTrafficSelectorsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SaProposalBuilderService_AddIntegrityAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddIntegrityAlgorithmRequest)
+func _TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddOutboundTrafficSelectorsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SaProposalBuilderServiceServer).AddIntegrityAlgorithm(ctx, in)
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddOutboundTrafficSelectors(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SaProposalBuilderService_AddIntegrityAlgorithm_FullMethodName,
+		FullMethod: TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SaProposalBuilderServiceServer).AddIntegrityAlgorithm(ctx, req.(*AddIntegrityAlgorithmRequest))
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).AddOutboundTrafficSelectors(ctx, req.(*AddOutboundTrafficSelectorsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SaProposalBuilderService_AddPseudorandomFunction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPseudorandomFunctionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SaProposalBuilderServiceServer).AddPseudorandomFunction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SaProposalBuilderService_AddPseudorandomFunction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SaProposalBuilderServiceServer).AddPseudorandomFunction(ctx, req.(*AddPseudorandomFunctionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SaProposalBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TransportModeChildSessionParamsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SaProposalBuilderServiceServer).Build(ctx, in)
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SaProposalBuilderService_Build_FullMethodName,
+		FullMethod: TransportModeChildSessionParamsBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SaProposalBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SaProposalBuilderService_ServiceDesc is the grpc.ServiceDesc for SaProposalBuilderService service.
+func _TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLifetimeSecondsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).SetLifetimeSeconds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransportModeChildSessionParamsBuilderServiceServer).SetLifetimeSeconds(ctx, req.(*SetLifetimeSecondsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TransportModeChildSessionParamsBuilderService_ServiceDesc is the grpc.ServiceDesc for TransportModeChildSessionParamsBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SaProposalBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.SaProposalBuilderService",
-	HandlerType: (*SaProposalBuilderServiceServer)(nil),
+var TransportModeChildSessionParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ike.TransportModeChildSessionParamsBuilderService",
+	HandlerType: (*TransportModeChildSessionParamsBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AddDhGroup",
-			Handler:    _SaProposalBuilderService_AddDhGroup_Handler,
+			MethodName: "AddChildSaProposal",
+			Handler:    _TransportModeChildSessionParamsBuilderService_AddChildSaProposal_Handler,
 		},
 		{
-			MethodName: "AddEncryptionAlgorithm",
-			Handler:    _SaProposalBuilderService_AddEncryptionAlgorithm_Handler,
+			MethodName: "AddInboundTrafficSelectors",
+			Handler:    _TransportModeChildSessionParamsBuilderService_AddInboundTrafficSelectors_Handler,
 		},
 		{
-			MethodName: "AddIntegrityAlgorithm",
-			Handler:    _SaProposalBuilderService_AddIntegrityAlgorithm_Handler,
-		},
-		{
-			MethodName: "AddPseudorandomFunction",
-			Handler:    _SaProposalBuilderService_AddPseudorandomFunction_Handler,
+			MethodName: "AddOutboundTrafficSelectors",
+			Handler:    _TransportModeChildSessionParamsBuilderService_AddOutboundTrafficSelectors_Handler,
 		},
 		{
 			MethodName: "Build",
-			Handler:    _SaProposalBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_FullMethodName = "/ike.DerAsn1DnIdentificationService/NewDerAsn1DnIdentification"
-	DerAsn1DnIdentificationService_Equals_FullMethodName                     = "/ike.DerAsn1DnIdentificationService/Equals"
-	DerAsn1DnIdentificationService_HashCode_FullMethodName                   = "/ike.DerAsn1DnIdentificationService/HashCode"
-)
-
-// DerAsn1DnIdentificationServiceClient is the client API for DerAsn1DnIdentificationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DerAsn1DnIdentificationServiceClient interface {
-	NewDerAsn1DnIdentification(ctx context.Context, in *NewDerAsn1DnIdentificationRequest, opts ...grpc.CallOption) (*NewDerAsn1DnIdentificationResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type derAsn1DnIdentificationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDerAsn1DnIdentificationServiceClient(cc grpc.ClientConnInterface) DerAsn1DnIdentificationServiceClient {
-	return &derAsn1DnIdentificationServiceClient{cc}
-}
-
-func (c *derAsn1DnIdentificationServiceClient) NewDerAsn1DnIdentification(ctx context.Context, in *NewDerAsn1DnIdentificationRequest, opts ...grpc.CallOption) (*NewDerAsn1DnIdentificationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDerAsn1DnIdentificationResponse)
-	err := c.cc.Invoke(ctx, DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *derAsn1DnIdentificationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, DerAsn1DnIdentificationService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *derAsn1DnIdentificationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, DerAsn1DnIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DerAsn1DnIdentificationServiceServer is the server API for DerAsn1DnIdentificationService service.
-// All implementations must embed UnimplementedDerAsn1DnIdentificationServiceServer
-// for forward compatibility.
-type DerAsn1DnIdentificationServiceServer interface {
-	NewDerAsn1DnIdentification(context.Context, *NewDerAsn1DnIdentificationRequest) (*NewDerAsn1DnIdentificationResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedDerAsn1DnIdentificationServiceServer()
-}
-
-// UnimplementedDerAsn1DnIdentificationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDerAsn1DnIdentificationServiceServer struct{}
-
-func (UnimplementedDerAsn1DnIdentificationServiceServer) NewDerAsn1DnIdentification(context.Context, *NewDerAsn1DnIdentificationRequest) (*NewDerAsn1DnIdentificationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDerAsn1DnIdentification not implemented")
-}
-func (UnimplementedDerAsn1DnIdentificationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedDerAsn1DnIdentificationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedDerAsn1DnIdentificationServiceServer) mustEmbedUnimplementedDerAsn1DnIdentificationServiceServer() {
-}
-func (UnimplementedDerAsn1DnIdentificationServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDerAsn1DnIdentificationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DerAsn1DnIdentificationServiceServer will
-// result in compilation errors.
-type UnsafeDerAsn1DnIdentificationServiceServer interface {
-	mustEmbedUnimplementedDerAsn1DnIdentificationServiceServer()
-}
-
-func RegisterDerAsn1DnIdentificationServiceServer(s grpc.ServiceRegistrar, srv DerAsn1DnIdentificationServiceServer) {
-	// If the following call panics, it indicates UnimplementedDerAsn1DnIdentificationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DerAsn1DnIdentificationService_ServiceDesc, srv)
-}
-
-func _DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDerAsn1DnIdentificationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DerAsn1DnIdentificationServiceServer).NewDerAsn1DnIdentification(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DerAsn1DnIdentificationServiceServer).NewDerAsn1DnIdentification(ctx, req.(*NewDerAsn1DnIdentificationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DerAsn1DnIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DerAsn1DnIdentificationServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DerAsn1DnIdentificationService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DerAsn1DnIdentificationServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DerAsn1DnIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DerAsn1DnIdentificationServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DerAsn1DnIdentificationService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DerAsn1DnIdentificationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DerAsn1DnIdentificationService_ServiceDesc is the grpc.ServiceDesc for DerAsn1DnIdentificationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DerAsn1DnIdentificationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.DerAsn1DnIdentificationService",
-	HandlerType: (*DerAsn1DnIdentificationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDerAsn1DnIdentification",
-			Handler:    _DerAsn1DnIdentificationService_NewDerAsn1DnIdentification_Handler,
+			Handler:    _TransportModeChildSessionParamsBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _DerAsn1DnIdentificationService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _DerAsn1DnIdentificationService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	TrafficSelectorService_NewTrafficSelector_FullMethodName = "/ike.TrafficSelectorService/NewTrafficSelector"
-	TrafficSelectorService_Equals_FullMethodName             = "/ike.TrafficSelectorService/Equals"
-	TrafficSelectorService_HashCode_FullMethodName           = "/ike.TrafficSelectorService/HashCode"
-)
-
-// TrafficSelectorServiceClient is the client API for TrafficSelectorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TrafficSelectorServiceClient interface {
-	NewTrafficSelector(ctx context.Context, in *NewTrafficSelectorRequest, opts ...grpc.CallOption) (*NewTrafficSelectorResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type trafficSelectorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTrafficSelectorServiceClient(cc grpc.ClientConnInterface) TrafficSelectorServiceClient {
-	return &trafficSelectorServiceClient{cc}
-}
-
-func (c *trafficSelectorServiceClient) NewTrafficSelector(ctx context.Context, in *NewTrafficSelectorRequest, opts ...grpc.CallOption) (*NewTrafficSelectorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTrafficSelectorResponse)
-	err := c.cc.Invoke(ctx, TrafficSelectorService_NewTrafficSelector_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficSelectorServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, TrafficSelectorService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trafficSelectorServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, TrafficSelectorService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TrafficSelectorServiceServer is the server API for TrafficSelectorService service.
-// All implementations must embed UnimplementedTrafficSelectorServiceServer
-// for forward compatibility.
-type TrafficSelectorServiceServer interface {
-	NewTrafficSelector(context.Context, *NewTrafficSelectorRequest) (*NewTrafficSelectorResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedTrafficSelectorServiceServer()
-}
-
-// UnimplementedTrafficSelectorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTrafficSelectorServiceServer struct{}
-
-func (UnimplementedTrafficSelectorServiceServer) NewTrafficSelector(context.Context, *NewTrafficSelectorRequest) (*NewTrafficSelectorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTrafficSelector not implemented")
-}
-func (UnimplementedTrafficSelectorServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedTrafficSelectorServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedTrafficSelectorServiceServer) mustEmbedUnimplementedTrafficSelectorServiceServer() {
-}
-func (UnimplementedTrafficSelectorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTrafficSelectorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TrafficSelectorServiceServer will
-// result in compilation errors.
-type UnsafeTrafficSelectorServiceServer interface {
-	mustEmbedUnimplementedTrafficSelectorServiceServer()
-}
-
-func RegisterTrafficSelectorServiceServer(s grpc.ServiceRegistrar, srv TrafficSelectorServiceServer) {
-	// If the following call panics, it indicates UnimplementedTrafficSelectorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TrafficSelectorService_ServiceDesc, srv)
-}
-
-func _TrafficSelectorService_NewTrafficSelector_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTrafficSelectorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficSelectorServiceServer).NewTrafficSelector(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficSelectorService_NewTrafficSelector_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficSelectorServiceServer).NewTrafficSelector(ctx, req.(*NewTrafficSelectorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficSelectorService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficSelectorServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficSelectorService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficSelectorServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrafficSelectorService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrafficSelectorServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrafficSelectorService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrafficSelectorServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TrafficSelectorService_ServiceDesc is the grpc.ServiceDesc for TrafficSelectorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TrafficSelectorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.TrafficSelectorService",
-	HandlerType: (*TrafficSelectorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewTrafficSelector",
-			Handler:    _TrafficSelectorService_NewTrafficSelector_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _TrafficSelectorService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _TrafficSelectorService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	KeyIdIdentificationService_NewKeyIdIdentification_FullMethodName = "/ike.KeyIdIdentificationService/NewKeyIdIdentification"
-	KeyIdIdentificationService_Equals_FullMethodName                 = "/ike.KeyIdIdentificationService/Equals"
-	KeyIdIdentificationService_HashCode_FullMethodName               = "/ike.KeyIdIdentificationService/HashCode"
-)
-
-// KeyIdIdentificationServiceClient is the client API for KeyIdIdentificationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type KeyIdIdentificationServiceClient interface {
-	NewKeyIdIdentification(ctx context.Context, in *NewKeyIdIdentificationRequest, opts ...grpc.CallOption) (*NewKeyIdIdentificationResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type keyIdIdentificationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewKeyIdIdentificationServiceClient(cc grpc.ClientConnInterface) KeyIdIdentificationServiceClient {
-	return &keyIdIdentificationServiceClient{cc}
-}
-
-func (c *keyIdIdentificationServiceClient) NewKeyIdIdentification(ctx context.Context, in *NewKeyIdIdentificationRequest, opts ...grpc.CallOption) (*NewKeyIdIdentificationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewKeyIdIdentificationResponse)
-	err := c.cc.Invoke(ctx, KeyIdIdentificationService_NewKeyIdIdentification_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyIdIdentificationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, KeyIdIdentificationService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyIdIdentificationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, KeyIdIdentificationService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// KeyIdIdentificationServiceServer is the server API for KeyIdIdentificationService service.
-// All implementations must embed UnimplementedKeyIdIdentificationServiceServer
-// for forward compatibility.
-type KeyIdIdentificationServiceServer interface {
-	NewKeyIdIdentification(context.Context, *NewKeyIdIdentificationRequest) (*NewKeyIdIdentificationResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedKeyIdIdentificationServiceServer()
-}
-
-// UnimplementedKeyIdIdentificationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedKeyIdIdentificationServiceServer struct{}
-
-func (UnimplementedKeyIdIdentificationServiceServer) NewKeyIdIdentification(context.Context, *NewKeyIdIdentificationRequest) (*NewKeyIdIdentificationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewKeyIdIdentification not implemented")
-}
-func (UnimplementedKeyIdIdentificationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedKeyIdIdentificationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedKeyIdIdentificationServiceServer) mustEmbedUnimplementedKeyIdIdentificationServiceServer() {
-}
-func (UnimplementedKeyIdIdentificationServiceServer) testEmbeddedByValue() {}
-
-// UnsafeKeyIdIdentificationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to KeyIdIdentificationServiceServer will
-// result in compilation errors.
-type UnsafeKeyIdIdentificationServiceServer interface {
-	mustEmbedUnimplementedKeyIdIdentificationServiceServer()
-}
-
-func RegisterKeyIdIdentificationServiceServer(s grpc.ServiceRegistrar, srv KeyIdIdentificationServiceServer) {
-	// If the following call panics, it indicates UnimplementedKeyIdIdentificationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&KeyIdIdentificationService_ServiceDesc, srv)
-}
-
-func _KeyIdIdentificationService_NewKeyIdIdentification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewKeyIdIdentificationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyIdIdentificationServiceServer).NewKeyIdIdentification(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyIdIdentificationService_NewKeyIdIdentification_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyIdIdentificationServiceServer).NewKeyIdIdentification(ctx, req.(*NewKeyIdIdentificationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyIdIdentificationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyIdIdentificationServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyIdIdentificationService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyIdIdentificationServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyIdIdentificationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyIdIdentificationServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyIdIdentificationService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyIdIdentificationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// KeyIdIdentificationService_ServiceDesc is the grpc.ServiceDesc for KeyIdIdentificationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var KeyIdIdentificationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.KeyIdIdentificationService",
-	HandlerType: (*KeyIdIdentificationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewKeyIdIdentification",
-			Handler:    _KeyIdIdentificationService_NewKeyIdIdentification_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _KeyIdIdentificationService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _KeyIdIdentificationService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ike/ike.proto",
-}
-
-const (
-	ChildSessionConfigurationBuilderService_Build_FullMethodName = "/ike.ChildSessionConfigurationBuilderService/Build"
-)
-
-// ChildSessionConfigurationBuilderServiceClient is the client API for ChildSessionConfigurationBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChildSessionConfigurationBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type childSessionConfigurationBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChildSessionConfigurationBuilderServiceClient(cc grpc.ClientConnInterface) ChildSessionConfigurationBuilderServiceClient {
-	return &childSessionConfigurationBuilderServiceClient{cc}
-}
-
-func (c *childSessionConfigurationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ChildSessionConfigurationBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChildSessionConfigurationBuilderServiceServer is the server API for ChildSessionConfigurationBuilderService service.
-// All implementations must embed UnimplementedChildSessionConfigurationBuilderServiceServer
-// for forward compatibility.
-type ChildSessionConfigurationBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedChildSessionConfigurationBuilderServiceServer()
-}
-
-// UnimplementedChildSessionConfigurationBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChildSessionConfigurationBuilderServiceServer struct{}
-
-func (UnimplementedChildSessionConfigurationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedChildSessionConfigurationBuilderServiceServer) mustEmbedUnimplementedChildSessionConfigurationBuilderServiceServer() {
-}
-func (UnimplementedChildSessionConfigurationBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeChildSessionConfigurationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChildSessionConfigurationBuilderServiceServer will
-// result in compilation errors.
-type UnsafeChildSessionConfigurationBuilderServiceServer interface {
-	mustEmbedUnimplementedChildSessionConfigurationBuilderServiceServer()
-}
-
-func RegisterChildSessionConfigurationBuilderServiceServer(s grpc.ServiceRegistrar, srv ChildSessionConfigurationBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedChildSessionConfigurationBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChildSessionConfigurationBuilderService_ServiceDesc, srv)
-}
-
-func _ChildSessionConfigurationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChildSessionConfigurationBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChildSessionConfigurationBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChildSessionConfigurationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChildSessionConfigurationBuilderService_ServiceDesc is the grpc.ServiceDesc for ChildSessionConfigurationBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChildSessionConfigurationBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ike.ChildSessionConfigurationBuilderService",
-	HandlerType: (*ChildSessionConfigurationBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _ChildSessionConfigurationBuilderService_Build_Handler,
+			MethodName: "SetLifetimeSeconds",
+			Handler:    _TransportModeChildSessionParamsBuilderService_SetLifetimeSeconds_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

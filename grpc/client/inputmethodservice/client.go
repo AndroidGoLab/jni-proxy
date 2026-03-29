@@ -9,6 +9,315 @@ import (
 	"google.golang.org/grpc"
 )
 
+// KeyboardViewClient wraps the gRPC KeyboardViewService client.
+type KeyboardViewClient struct {
+	svc pb.KeyboardViewServiceClient
+}
+
+// NewKeyboardViewClient creates a new KeyboardView client.
+func NewKeyboardViewClient(cc grpc.ClientConnInterface) *KeyboardViewClient {
+	return &KeyboardViewClient{
+		svc: pb.NewKeyboardViewServiceClient(cc),
+	}
+}
+
+// Closing calls the Closing RPC.
+func (c *KeyboardViewClient) Closing(ctx context.Context, handle int64) error {
+	_, err := c.svc.Closing(ctx, &pb.ClosingRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetKeyboard calls the GetKeyboard RPC.
+func (c *KeyboardViewClient) GetKeyboard(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetKeyboard(ctx, &pb.GetKeyboardRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HandleBack calls the HandleBack RPC.
+func (c *KeyboardViewClient) HandleBack(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HandleBack(ctx, &pb.HandleBackRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InvalidateAllKeys calls the InvalidateAllKeys RPC.
+func (c *KeyboardViewClient) InvalidateAllKeys(ctx context.Context, handle int64) error {
+	_, err := c.svc.InvalidateAllKeys(ctx, &pb.InvalidateAllKeysRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// InvalidateKey calls the InvalidateKey RPC.
+func (c *KeyboardViewClient) InvalidateKey(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.InvalidateKey(ctx, &pb.InvalidateKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// IsPreviewEnabled calls the IsPreviewEnabled RPC.
+func (c *KeyboardViewClient) IsPreviewEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPreviewEnabled(ctx, &pb.IsPreviewEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsProximityCorrectionEnabled calls the IsProximityCorrectionEnabled RPC.
+func (c *KeyboardViewClient) IsProximityCorrectionEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsProximityCorrectionEnabled(ctx, &pb.IsProximityCorrectionEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsShifted calls the IsShifted RPC.
+func (c *KeyboardViewClient) IsShifted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsShifted(ctx, &pb.IsShiftedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnClick calls the OnClick RPC.
+func (c *KeyboardViewClient) OnClick(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnDetachedFromWindow calls the OnDetachedFromWindow RPC.
+func (c *KeyboardViewClient) OnDetachedFromWindow(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnDetachedFromWindow(ctx, &pb.OnDetachedFromWindowRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnDraw calls the OnDraw RPC.
+func (c *KeyboardViewClient) OnDraw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnDraw(ctx, &pb.OnDrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnHoverEvent calls the OnHoverEvent RPC.
+func (c *KeyboardViewClient) OnHoverEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnHoverEvent(ctx, &pb.OnHoverEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnMeasure calls the OnMeasure RPC.
+func (c *KeyboardViewClient) OnMeasure(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.OnMeasure(ctx, &pb.OnMeasureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnSizeChanged calls the OnSizeChanged RPC.
+func (c *KeyboardViewClient) OnSizeChanged(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnSizeChanged(ctx, &pb.OnSizeChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// OnTouchEvent calls the OnTouchEvent RPC.
+func (c *KeyboardViewClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetKeyboard calls the SetKeyboard RPC.
+func (c *KeyboardViewClient) SetKeyboard(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetKeyboard(ctx, &pb.SetKeyboardRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetOnKeyboardActionListener calls the SetOnKeyboardActionListener RPC.
+func (c *KeyboardViewClient) SetOnKeyboardActionListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetOnKeyboardActionListener(ctx, &pb.SetOnKeyboardActionListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPopupOffset calls the SetPopupOffset RPC.
+func (c *KeyboardViewClient) SetPopupOffset(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetPopupOffset(ctx, &pb.SetPopupOffsetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetPopupParent calls the SetPopupParent RPC.
+func (c *KeyboardViewClient) SetPopupParent(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPopupParent(ctx, &pb.SetPopupParentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPreviewEnabled calls the SetPreviewEnabled RPC.
+func (c *KeyboardViewClient) SetPreviewEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetPreviewEnabled(ctx, &pb.SetPreviewEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetProximityCorrectionEnabled calls the SetProximityCorrectionEnabled RPC.
+func (c *KeyboardViewClient) SetProximityCorrectionEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetProximityCorrectionEnabled(ctx, &pb.SetProximityCorrectionEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetShifted calls the SetShifted RPC.
+func (c *KeyboardViewClient) SetShifted(ctx context.Context, handle int64, arg0 bool) (bool, error) {
+	resp, err := c.svc.SetShifted(ctx, &pb.SetShiftedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVerticalCorrection calls the SetVerticalCorrection RPC.
+func (c *KeyboardViewClient) SetVerticalCorrection(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetVerticalCorrection(ctx, &pb.SetVerticalCorrectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// KeyboardViewOnKeyboardActionListenerClient wraps the gRPC KeyboardViewOnKeyboardActionListenerService client.
+type KeyboardViewOnKeyboardActionListenerClient struct {
+	svc pb.KeyboardViewOnKeyboardActionListenerServiceClient
+}
+
+// NewKeyboardViewOnKeyboardActionListenerClient creates a new KeyboardViewOnKeyboardActionListener client.
+func NewKeyboardViewOnKeyboardActionListenerClient(cc grpc.ClientConnInterface) *KeyboardViewOnKeyboardActionListenerClient {
+	return &KeyboardViewOnKeyboardActionListenerClient{
+		svc: pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(cc),
+	}
+}
+
+// OnKey calls the OnKey RPC.
+func (c *KeyboardViewOnKeyboardActionListenerClient) OnKey(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnKey(ctx, &pb.OnKeyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPress calls the OnPress RPC.
+func (c *KeyboardViewOnKeyboardActionListenerClient) OnPress(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnPress(ctx, &pb.OnPressRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRelease calls the OnRelease RPC.
+func (c *KeyboardViewOnKeyboardActionListenerClient) OnRelease(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnRelease(ctx, &pb.OnReleaseRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnText calls the OnText RPC.
+func (c *KeyboardViewOnKeyboardActionListenerClient) OnText(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnText(ctx, &pb.OnTextRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SwipeDown calls the SwipeDown RPC.
+func (c *KeyboardViewOnKeyboardActionListenerClient) SwipeDown(ctx context.Context) error {
+	_, err := c.svc.SwipeDown(ctx, &pb.SwipeDownRequest{})
+	return err
+}
+
+// SwipeLeft calls the SwipeLeft RPC.
+func (c *KeyboardViewOnKeyboardActionListenerClient) SwipeLeft(ctx context.Context) error {
+	_, err := c.svc.SwipeLeft(ctx, &pb.SwipeLeftRequest{})
+	return err
+}
+
+// SwipeRight calls the SwipeRight RPC.
+func (c *KeyboardViewOnKeyboardActionListenerClient) SwipeRight(ctx context.Context) error {
+	_, err := c.svc.SwipeRight(ctx, &pb.SwipeRightRequest{})
+	return err
+}
+
+// SwipeUp calls the SwipeUp RPC.
+func (c *KeyboardViewOnKeyboardActionListenerClient) SwipeUp(ctx context.Context) error {
+	_, err := c.svc.SwipeUp(ctx, &pb.SwipeUpRequest{})
+	return err
+}
+
 // KeyboardClient wraps the gRPC KeyboardService client.
 type KeyboardClient struct {
 	svc pb.KeyboardServiceClient
@@ -32,9 +341,31 @@ func (c *KeyboardClient) GetHeight(ctx context.Context, handle int64) (int32, er
 	return resp.GetResult(), nil
 }
 
+// GetKeys calls the GetKeys RPC.
+func (c *KeyboardClient) GetKeys(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetKeys(ctx, &pb.GetKeysRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetMinWidth calls the GetMinWidth RPC.
 func (c *KeyboardClient) GetMinWidth(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetMinWidth(ctx, &pb.GetMinWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModifierKeys calls the GetModifierKeys RPC.
+func (c *KeyboardClient) GetModifierKeys(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetModifierKeys(ctx, &pb.GetModifierKeysRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -147,6 +478,121 @@ func (c *KeyboardKeyClient) SquaredDistanceFrom(ctx context.Context, arg0 int32,
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// ExtractEditTextClient wraps the gRPC ExtractEditTextService client.
+type ExtractEditTextClient struct {
+	svc pb.ExtractEditTextServiceClient
+}
+
+// NewExtractEditTextClient creates a new ExtractEditText client.
+func NewExtractEditTextClient(cc grpc.ClientConnInterface) *ExtractEditTextClient {
+	return &ExtractEditTextClient{
+		svc: pb.NewExtractEditTextServiceClient(cc),
+	}
+}
+
+// FinishInternalChanges calls the FinishInternalChanges RPC.
+func (c *ExtractEditTextClient) FinishInternalChanges(ctx context.Context, handle int64) error {
+	_, err := c.svc.FinishInternalChanges(ctx, &pb.FinishInternalChangesRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// HasFocus calls the HasFocus RPC.
+func (c *ExtractEditTextClient) HasFocus(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocus(ctx, &pb.HasFocusRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasVerticalScrollBar calls the HasVerticalScrollBar RPC.
+func (c *ExtractEditTextClient) HasVerticalScrollBar(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasVerticalScrollBar(ctx, &pb.HasVerticalScrollBarRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasWindowFocus calls the HasWindowFocus RPC.
+func (c *ExtractEditTextClient) HasWindowFocus(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasWindowFocus(ctx, &pb.HasWindowFocusRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFocused calls the IsFocused RPC.
+func (c *ExtractEditTextClient) IsFocused(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFocused(ctx, &pb.IsFocusedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInputMethodTarget calls the IsInputMethodTarget RPC.
+func (c *ExtractEditTextClient) IsInputMethodTarget(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsInputMethodTarget(ctx, &pb.IsInputMethodTargetRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTextContextMenuItem calls the OnTextContextMenuItem RPC.
+func (c *ExtractEditTextClient) OnTextContextMenuItem(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.OnTextContextMenuItem(ctx, &pb.OnTextContextMenuItemRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformClick calls the PerformClick RPC.
+func (c *ExtractEditTextClient) PerformClick(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.PerformClick(ctx, &pb.PerformClickRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtractedText calls the SetExtractedText RPC.
+func (c *ExtractEditTextClient) SetExtractedText(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetExtractedText(ctx, &pb.SetExtractedTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartInternalChanges calls the StartInternalChanges RPC.
+func (c *ExtractEditTextClient) StartInternalChanges(ctx context.Context, handle int64) error {
+	_, err := c.svc.StartInternalChanges(ctx, &pb.StartInternalChangesRequest{
+		Handle: handle,
+	})
+	return err
 }
 
 // AbstractInputMethodServiceClient wraps the gRPC AbstractInputMethodServiceService client.
@@ -1605,429 +2051,5 @@ func (c *InputMethodServiceInputMethodSessionImplClient) ViewClicked(ctx context
 	_, err := c.svc.ViewClicked(ctx, &pb.ViewClickedRequest{
 		Arg0: arg0,
 	})
-	return err
-}
-
-// ExtractEditTextClient wraps the gRPC ExtractEditTextService client.
-type ExtractEditTextClient struct {
-	svc pb.ExtractEditTextServiceClient
-}
-
-// NewExtractEditTextClient creates a new ExtractEditText client.
-func NewExtractEditTextClient(cc grpc.ClientConnInterface) *ExtractEditTextClient {
-	return &ExtractEditTextClient{
-		svc: pb.NewExtractEditTextServiceClient(cc),
-	}
-}
-
-// FinishInternalChanges calls the FinishInternalChanges RPC.
-func (c *ExtractEditTextClient) FinishInternalChanges(ctx context.Context, handle int64) error {
-	_, err := c.svc.FinishInternalChanges(ctx, &pb.FinishInternalChangesRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// HasFocus calls the HasFocus RPC.
-func (c *ExtractEditTextClient) HasFocus(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocus(ctx, &pb.HasFocusRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasVerticalScrollBar calls the HasVerticalScrollBar RPC.
-func (c *ExtractEditTextClient) HasVerticalScrollBar(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasVerticalScrollBar(ctx, &pb.HasVerticalScrollBarRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasWindowFocus calls the HasWindowFocus RPC.
-func (c *ExtractEditTextClient) HasWindowFocus(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasWindowFocus(ctx, &pb.HasWindowFocusRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFocused calls the IsFocused RPC.
-func (c *ExtractEditTextClient) IsFocused(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFocused(ctx, &pb.IsFocusedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInputMethodTarget calls the IsInputMethodTarget RPC.
-func (c *ExtractEditTextClient) IsInputMethodTarget(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsInputMethodTarget(ctx, &pb.IsInputMethodTargetRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnTextContextMenuItem calls the OnTextContextMenuItem RPC.
-func (c *ExtractEditTextClient) OnTextContextMenuItem(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.OnTextContextMenuItem(ctx, &pb.OnTextContextMenuItemRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PerformClick calls the PerformClick RPC.
-func (c *ExtractEditTextClient) PerformClick(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.PerformClick(ctx, &pb.PerformClickRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetExtractedText calls the SetExtractedText RPC.
-func (c *ExtractEditTextClient) SetExtractedText(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetExtractedText(ctx, &pb.SetExtractedTextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// StartInternalChanges calls the StartInternalChanges RPC.
-func (c *ExtractEditTextClient) StartInternalChanges(ctx context.Context, handle int64) error {
-	_, err := c.svc.StartInternalChanges(ctx, &pb.StartInternalChangesRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// KeyboardViewClient wraps the gRPC KeyboardViewService client.
-type KeyboardViewClient struct {
-	svc pb.KeyboardViewServiceClient
-}
-
-// NewKeyboardViewClient creates a new KeyboardView client.
-func NewKeyboardViewClient(cc grpc.ClientConnInterface) *KeyboardViewClient {
-	return &KeyboardViewClient{
-		svc: pb.NewKeyboardViewServiceClient(cc),
-	}
-}
-
-// Closing calls the Closing RPC.
-func (c *KeyboardViewClient) Closing(ctx context.Context, handle int64) error {
-	_, err := c.svc.Closing(ctx, &pb.ClosingRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetKeyboard calls the GetKeyboard RPC.
-func (c *KeyboardViewClient) GetKeyboard(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetKeyboard(ctx, &pb.GetKeyboardRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HandleBack calls the HandleBack RPC.
-func (c *KeyboardViewClient) HandleBack(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HandleBack(ctx, &pb.HandleBackRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// InvalidateAllKeys calls the InvalidateAllKeys RPC.
-func (c *KeyboardViewClient) InvalidateAllKeys(ctx context.Context, handle int64) error {
-	_, err := c.svc.InvalidateAllKeys(ctx, &pb.InvalidateAllKeysRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// InvalidateKey calls the InvalidateKey RPC.
-func (c *KeyboardViewClient) InvalidateKey(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.InvalidateKey(ctx, &pb.InvalidateKeyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// IsPreviewEnabled calls the IsPreviewEnabled RPC.
-func (c *KeyboardViewClient) IsPreviewEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsPreviewEnabled(ctx, &pb.IsPreviewEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsProximityCorrectionEnabled calls the IsProximityCorrectionEnabled RPC.
-func (c *KeyboardViewClient) IsProximityCorrectionEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsProximityCorrectionEnabled(ctx, &pb.IsProximityCorrectionEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsShifted calls the IsShifted RPC.
-func (c *KeyboardViewClient) IsShifted(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsShifted(ctx, &pb.IsShiftedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnClick calls the OnClick RPC.
-func (c *KeyboardViewClient) OnClick(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnDetachedFromWindow calls the OnDetachedFromWindow RPC.
-func (c *KeyboardViewClient) OnDetachedFromWindow(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnDetachedFromWindow(ctx, &pb.OnDetachedFromWindowRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnDraw calls the OnDraw RPC.
-func (c *KeyboardViewClient) OnDraw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnDraw(ctx, &pb.OnDrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnHoverEvent calls the OnHoverEvent RPC.
-func (c *KeyboardViewClient) OnHoverEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnHoverEvent(ctx, &pb.OnHoverEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnMeasure calls the OnMeasure RPC.
-func (c *KeyboardViewClient) OnMeasure(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.OnMeasure(ctx, &pb.OnMeasureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnSizeChanged calls the OnSizeChanged RPC.
-func (c *KeyboardViewClient) OnSizeChanged(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnSizeChanged(ctx, &pb.OnSizeChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// OnTouchEvent calls the OnTouchEvent RPC.
-func (c *KeyboardViewClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetKeyboard calls the SetKeyboard RPC.
-func (c *KeyboardViewClient) SetKeyboard(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetKeyboard(ctx, &pb.SetKeyboardRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetOnKeyboardActionListener calls the SetOnKeyboardActionListener RPC.
-func (c *KeyboardViewClient) SetOnKeyboardActionListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetOnKeyboardActionListener(ctx, &pb.SetOnKeyboardActionListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPopupOffset calls the SetPopupOffset RPC.
-func (c *KeyboardViewClient) SetPopupOffset(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetPopupOffset(ctx, &pb.SetPopupOffsetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetPopupParent calls the SetPopupParent RPC.
-func (c *KeyboardViewClient) SetPopupParent(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPopupParent(ctx, &pb.SetPopupParentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPreviewEnabled calls the SetPreviewEnabled RPC.
-func (c *KeyboardViewClient) SetPreviewEnabled(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetPreviewEnabled(ctx, &pb.SetPreviewEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetProximityCorrectionEnabled calls the SetProximityCorrectionEnabled RPC.
-func (c *KeyboardViewClient) SetProximityCorrectionEnabled(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetProximityCorrectionEnabled(ctx, &pb.SetProximityCorrectionEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetShifted calls the SetShifted RPC.
-func (c *KeyboardViewClient) SetShifted(ctx context.Context, handle int64, arg0 bool) (bool, error) {
-	resp, err := c.svc.SetShifted(ctx, &pb.SetShiftedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetVerticalCorrection calls the SetVerticalCorrection RPC.
-func (c *KeyboardViewClient) SetVerticalCorrection(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetVerticalCorrection(ctx, &pb.SetVerticalCorrectionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// KeyboardViewOnKeyboardActionListenerClient wraps the gRPC KeyboardViewOnKeyboardActionListenerService client.
-type KeyboardViewOnKeyboardActionListenerClient struct {
-	svc pb.KeyboardViewOnKeyboardActionListenerServiceClient
-}
-
-// NewKeyboardViewOnKeyboardActionListenerClient creates a new KeyboardViewOnKeyboardActionListener client.
-func NewKeyboardViewOnKeyboardActionListenerClient(cc grpc.ClientConnInterface) *KeyboardViewOnKeyboardActionListenerClient {
-	return &KeyboardViewOnKeyboardActionListenerClient{
-		svc: pb.NewKeyboardViewOnKeyboardActionListenerServiceClient(cc),
-	}
-}
-
-// OnKey calls the OnKey RPC.
-func (c *KeyboardViewOnKeyboardActionListenerClient) OnKey(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.OnKey(ctx, &pb.OnKeyRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnPress calls the OnPress RPC.
-func (c *KeyboardViewOnKeyboardActionListenerClient) OnPress(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnPress(ctx, &pb.OnPressRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRelease calls the OnRelease RPC.
-func (c *KeyboardViewOnKeyboardActionListenerClient) OnRelease(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnRelease(ctx, &pb.OnReleaseRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnText calls the OnText RPC.
-func (c *KeyboardViewOnKeyboardActionListenerClient) OnText(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnText(ctx, &pb.OnTextRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SwipeDown calls the SwipeDown RPC.
-func (c *KeyboardViewOnKeyboardActionListenerClient) SwipeDown(ctx context.Context) error {
-	_, err := c.svc.SwipeDown(ctx, &pb.SwipeDownRequest{})
-	return err
-}
-
-// SwipeLeft calls the SwipeLeft RPC.
-func (c *KeyboardViewOnKeyboardActionListenerClient) SwipeLeft(ctx context.Context) error {
-	_, err := c.svc.SwipeLeft(ctx, &pb.SwipeLeftRequest{})
-	return err
-}
-
-// SwipeRight calls the SwipeRight RPC.
-func (c *KeyboardViewOnKeyboardActionListenerClient) SwipeRight(ctx context.Context) error {
-	_, err := c.svc.SwipeRight(ctx, &pb.SwipeRightRequest{})
-	return err
-}
-
-// SwipeUp calls the SwipeUp RPC.
-func (c *KeyboardViewOnKeyboardActionListenerClient) SwipeUp(ctx context.Context) error {
-	_, err := c.svc.SwipeUp(ctx, &pb.SwipeUpRequest{})
 	return err
 }

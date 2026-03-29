@@ -21,22 +21,23 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	HomeSpService_NewHomeSp_FullMethodName               = "/pps.HomeSpService/NewHomeSp"
-	HomeSpService_DescribeContents_FullMethodName        = "/pps.HomeSpService/DescribeContents"
-	HomeSpService_Equals_FullMethodName                  = "/pps.HomeSpService/Equals"
-	HomeSpService_GetFqdn_FullMethodName                 = "/pps.HomeSpService/GetFqdn"
-	HomeSpService_GetFriendlyName_FullMethodName         = "/pps.HomeSpService/GetFriendlyName"
-	HomeSpService_GetMatchAllOis_FullMethodName          = "/pps.HomeSpService/GetMatchAllOis"
-	HomeSpService_GetMatchAnyOis_FullMethodName          = "/pps.HomeSpService/GetMatchAnyOis"
-	HomeSpService_GetRoamingConsortiumOis_FullMethodName = "/pps.HomeSpService/GetRoamingConsortiumOis"
-	HomeSpService_HashCode_FullMethodName                = "/pps.HomeSpService/HashCode"
-	HomeSpService_SetFqdn_FullMethodName                 = "/pps.HomeSpService/SetFqdn"
-	HomeSpService_SetFriendlyName_FullMethodName         = "/pps.HomeSpService/SetFriendlyName"
-	HomeSpService_SetMatchAllOis_FullMethodName          = "/pps.HomeSpService/SetMatchAllOis"
-	HomeSpService_SetMatchAnyOis_FullMethodName          = "/pps.HomeSpService/SetMatchAnyOis"
-	HomeSpService_SetRoamingConsortiumOis_FullMethodName = "/pps.HomeSpService/SetRoamingConsortiumOis"
-	HomeSpService_ToString_FullMethodName                = "/pps.HomeSpService/ToString"
-	HomeSpService_WriteToParcel_FullMethodName           = "/pps.HomeSpService/WriteToParcel"
+	HomeSpService_NewHomeSp_FullMethodName                = "/pps.HomeSpService/NewHomeSp"
+	HomeSpService_DescribeContents_FullMethodName         = "/pps.HomeSpService/DescribeContents"
+	HomeSpService_Equals_FullMethodName                   = "/pps.HomeSpService/Equals"
+	HomeSpService_GetFqdn_FullMethodName                  = "/pps.HomeSpService/GetFqdn"
+	HomeSpService_GetFriendlyName_FullMethodName          = "/pps.HomeSpService/GetFriendlyName"
+	HomeSpService_GetMatchAllOis_FullMethodName           = "/pps.HomeSpService/GetMatchAllOis"
+	HomeSpService_GetMatchAnyOis_FullMethodName           = "/pps.HomeSpService/GetMatchAnyOis"
+	HomeSpService_GetOtherHomePartnersList_FullMethodName = "/pps.HomeSpService/GetOtherHomePartnersList"
+	HomeSpService_GetRoamingConsortiumOis_FullMethodName  = "/pps.HomeSpService/GetRoamingConsortiumOis"
+	HomeSpService_HashCode_FullMethodName                 = "/pps.HomeSpService/HashCode"
+	HomeSpService_SetFqdn_FullMethodName                  = "/pps.HomeSpService/SetFqdn"
+	HomeSpService_SetFriendlyName_FullMethodName          = "/pps.HomeSpService/SetFriendlyName"
+	HomeSpService_SetMatchAllOis_FullMethodName           = "/pps.HomeSpService/SetMatchAllOis"
+	HomeSpService_SetMatchAnyOis_FullMethodName           = "/pps.HomeSpService/SetMatchAnyOis"
+	HomeSpService_SetRoamingConsortiumOis_FullMethodName  = "/pps.HomeSpService/SetRoamingConsortiumOis"
+	HomeSpService_ToString_FullMethodName                 = "/pps.HomeSpService/ToString"
+	HomeSpService_WriteToParcel_FullMethodName            = "/pps.HomeSpService/WriteToParcel"
 )
 
 // HomeSpServiceClient is the client API for HomeSpService service.
@@ -50,6 +51,7 @@ type HomeSpServiceClient interface {
 	GetFriendlyName(ctx context.Context, in *GetFriendlyNameRequest, opts ...grpc.CallOption) (*GetFriendlyNameResponse, error)
 	GetMatchAllOis(ctx context.Context, in *GetMatchAllOisRequest, opts ...grpc.CallOption) (*GetMatchAllOisResponse, error)
 	GetMatchAnyOis(ctx context.Context, in *GetMatchAnyOisRequest, opts ...grpc.CallOption) (*GetMatchAnyOisResponse, error)
+	GetOtherHomePartnersList(ctx context.Context, in *GetOtherHomePartnersListRequest, opts ...grpc.CallOption) (*GetOtherHomePartnersListResponse, error)
 	GetRoamingConsortiumOis(ctx context.Context, in *GetRoamingConsortiumOisRequest, opts ...grpc.CallOption) (*GetRoamingConsortiumOisResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	SetFqdn(ctx context.Context, in *SetFqdnRequest, opts ...grpc.CallOption) (*SetFqdnResponse, error)
@@ -133,6 +135,16 @@ func (c *homeSpServiceClient) GetMatchAnyOis(ctx context.Context, in *GetMatchAn
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMatchAnyOisResponse)
 	err := c.cc.Invoke(ctx, HomeSpService_GetMatchAnyOis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *homeSpServiceClient) GetOtherHomePartnersList(ctx context.Context, in *GetOtherHomePartnersListRequest, opts ...grpc.CallOption) (*GetOtherHomePartnersListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOtherHomePartnersListResponse)
+	err := c.cc.Invoke(ctx, HomeSpService_GetOtherHomePartnersList_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -240,6 +252,7 @@ type HomeSpServiceServer interface {
 	GetFriendlyName(context.Context, *GetFriendlyNameRequest) (*GetFriendlyNameResponse, error)
 	GetMatchAllOis(context.Context, *GetMatchAllOisRequest) (*GetMatchAllOisResponse, error)
 	GetMatchAnyOis(context.Context, *GetMatchAnyOisRequest) (*GetMatchAnyOisResponse, error)
+	GetOtherHomePartnersList(context.Context, *GetOtherHomePartnersListRequest) (*GetOtherHomePartnersListResponse, error)
 	GetRoamingConsortiumOis(context.Context, *GetRoamingConsortiumOisRequest) (*GetRoamingConsortiumOisResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	SetFqdn(context.Context, *SetFqdnRequest) (*SetFqdnResponse, error)
@@ -279,6 +292,9 @@ func (UnimplementedHomeSpServiceServer) GetMatchAllOis(context.Context, *GetMatc
 }
 func (UnimplementedHomeSpServiceServer) GetMatchAnyOis(context.Context, *GetMatchAnyOisRequest) (*GetMatchAnyOisResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMatchAnyOis not implemented")
+}
+func (UnimplementedHomeSpServiceServer) GetOtherHomePartnersList(context.Context, *GetOtherHomePartnersListRequest) (*GetOtherHomePartnersListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOtherHomePartnersList not implemented")
 }
 func (UnimplementedHomeSpServiceServer) GetRoamingConsortiumOis(context.Context, *GetRoamingConsortiumOisRequest) (*GetRoamingConsortiumOisResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRoamingConsortiumOis not implemented")
@@ -450,6 +466,24 @@ func _HomeSpService_GetMatchAnyOis_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HomeSpServiceServer).GetMatchAnyOis(ctx, req.(*GetMatchAnyOisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HomeSpService_GetOtherHomePartnersList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOtherHomePartnersListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HomeSpServiceServer).GetOtherHomePartnersList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HomeSpService_GetOtherHomePartnersList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HomeSpServiceServer).GetOtherHomePartnersList(ctx, req.(*GetOtherHomePartnersListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -650,6 +684,10 @@ var HomeSpService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetMatchAnyOis",
 			Handler:    _HomeSpService_GetMatchAnyOis_Handler,
+		},
+		{
+			MethodName: "GetOtherHomePartnersList",
+			Handler:    _HomeSpService_GetOtherHomePartnersList_Handler,
 		},
 		{
 			MethodName: "GetRoamingConsortiumOis",

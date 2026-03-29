@@ -6,6 +6,42 @@ package effect;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/effect";
 
+message CreateEffectRequest {
+  string arg0 = 1;
+}
+
+message CreateEffectResponse {
+  int64 result = 1;
+}
+
+message IsEffectSupportedRequest {
+  string arg0 = 1;
+}
+
+message IsEffectSupportedResponse {
+  bool result = 1;
+}
+
+message GetFactoryRequest {
+}
+
+message GetFactoryResponse {
+  int64 result = 1;
+}
+
+message ReleaseRequest {
+}
+
+message ReleaseResponse {
+}
+
+message CreateWithCurrentGlContextRequest {
+}
+
+message CreateWithCurrentGlContextResponse {
+  int64 result = 1;
+}
+
 message ApplyRequest {
   int32 arg0 = 1;
   int32 arg1 = 2;
@@ -21,12 +57,6 @@ message GetNameRequest {
 
 message GetNameResponse {
   string result = 1;
-}
-
-message ReleaseRequest {
-}
-
-message ReleaseResponse {
 }
 
 message SetParameterRequest {
@@ -52,34 +82,15 @@ message OnEffectUpdatedRequest {
 message OnEffectUpdatedResponse {
 }
 
-message CreateEffectRequest {
-  string arg0 = 1;
+service FactoryService {
+  rpc CreateEffect (CreateEffectRequest) returns (CreateEffectResponse);
+  rpc IsEffectSupported (IsEffectSupportedRequest) returns (IsEffectSupportedResponse);
 }
 
-message CreateEffectResponse {
-  int64 result = 1;
-}
-
-message IsEffectSupportedRequest {
-  string arg0 = 1;
-}
-
-message IsEffectSupportedResponse {
-  bool result = 1;
-}
-
-message GetFactoryRequest {
-}
-
-message GetFactoryResponse {
-  int64 result = 1;
-}
-
-message CreateWithCurrentGlContextRequest {
-}
-
-message CreateWithCurrentGlContextResponse {
-  int64 result = 1;
+service ContextService {
+  rpc GetFactory (GetFactoryRequest) returns (GetFactoryResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc CreateWithCurrentGlContext (CreateWithCurrentGlContextRequest) returns (CreateWithCurrentGlContextResponse);
 }
 
 service EffectService {
@@ -92,15 +103,4 @@ service EffectService {
 
 service UpdateListenerService {
   rpc OnEffectUpdated (OnEffectUpdatedRequest) returns (OnEffectUpdatedResponse);
-}
-
-service FactoryService {
-  rpc CreateEffect (CreateEffectRequest) returns (CreateEffectResponse);
-  rpc IsEffectSupported (IsEffectSupportedRequest) returns (IsEffectSupportedResponse);
-}
-
-service ContextService {
-  rpc GetFactory (GetFactoryRequest) returns (GetFactoryResponse);
-  rpc Release (ReleaseRequest) returns (ReleaseResponse);
-  rpc CreateWithCurrentGlContext (CreateWithCurrentGlContextRequest) returns (CreateWithCurrentGlContextResponse);
 }

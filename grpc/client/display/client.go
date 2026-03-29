@@ -7812,148 +7812,6 @@ func (c *SurfaceViewClient) SetZOrderOnTop(ctx context.Context, arg0 bool) error
 	return err
 }
 
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// CreateVirtualDisplay1 calls the CreateVirtualDisplay1 RPC.
-func (c *ManagerClient) CreateVirtualDisplay1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateVirtualDisplay1(ctx, &pb.CreateVirtualDisplay1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateVirtualDisplay6_1 calls the CreateVirtualDisplay6_1 RPC.
-func (c *ManagerClient) CreateVirtualDisplay6_1(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32) (int64, error) {
-	resp, err := c.svc.CreateVirtualDisplay6_1(ctx, &pb.CreateVirtualDisplay6_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplay calls the GetDisplay RPC.
-func (c *ManagerClient) GetDisplay(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetDisplay(ctx, &pb.ManagerGetDisplayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplays0 calls the GetDisplays0 RPC.
-func (c *ManagerClient) GetDisplays0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDisplays0(ctx, &pb.GetDisplays0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplays1_1 calls the GetDisplays1_1 RPC.
-func (c *ManagerClient) GetDisplays1_1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetDisplays1_1(ctx, &pb.GetDisplays1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHdrConversionMode calls the GetHdrConversionMode RPC.
-func (c *ManagerClient) GetHdrConversionMode(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetHdrConversionMode(ctx, &pb.GetHdrConversionModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMatchContentFrameRateUserPreference calls the GetMatchContentFrameRateUserPreference RPC.
-func (c *ManagerClient) GetMatchContentFrameRateUserPreference(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMatchContentFrameRateUserPreference(ctx, &pb.GetMatchContentFrameRateUserPreferenceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegisterDisplayListener calls the RegisterDisplayListener RPC.
-func (c *ManagerClient) RegisterDisplayListener(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.RegisterDisplayListener(ctx, &pb.RegisterDisplayListenerRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// UnregisterDisplayListener calls the UnregisterDisplayListener RPC.
-func (c *ManagerClient) UnregisterDisplayListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterDisplayListener(ctx, &pb.UnregisterDisplayListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ManagerDisplayListenerClient wraps the gRPC ManagerDisplayListenerService client.
-type ManagerDisplayListenerClient struct {
-	svc pb.ManagerDisplayListenerServiceClient
-}
-
-// NewManagerDisplayListenerClient creates a new ManagerDisplayListener client.
-func NewManagerDisplayListenerClient(cc grpc.ClientConnInterface) *ManagerDisplayListenerClient {
-	return &ManagerDisplayListenerClient{
-		svc: pb.NewManagerDisplayListenerServiceClient(cc),
-	}
-}
-
-// OnDisplayAdded calls the OnDisplayAdded RPC.
-func (c *ManagerDisplayListenerClient) OnDisplayAdded(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnDisplayAdded(ctx, &pb.OnDisplayAddedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnDisplayChanged calls the OnDisplayChanged RPC.
-func (c *ManagerDisplayListenerClient) OnDisplayChanged(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnDisplayChanged(ctx, &pb.OnDisplayChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnDisplayRemoved calls the OnDisplayRemoved RPC.
-func (c *ManagerDisplayListenerClient) OnDisplayRemoved(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnDisplayRemoved(ctx, &pb.OnDisplayRemovedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // DeviceProductInfoClient wraps the gRPC DeviceProductInfoService client.
 type DeviceProductInfoClient struct {
 	svc pb.DeviceProductInfoServiceClient
@@ -8187,6 +8045,148 @@ func (c *HdrConversionModeClient) WriteToParcel(ctx context.Context, handle int6
 	return err
 }
 
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// CreateVirtualDisplay1 calls the CreateVirtualDisplay1 RPC.
+func (c *ManagerClient) CreateVirtualDisplay1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateVirtualDisplay1(ctx, &pb.CreateVirtualDisplay1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateVirtualDisplay6_1 calls the CreateVirtualDisplay6_1 RPC.
+func (c *ManagerClient) CreateVirtualDisplay6_1(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32) (int64, error) {
+	resp, err := c.svc.CreateVirtualDisplay6_1(ctx, &pb.CreateVirtualDisplay6_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplay calls the GetDisplay RPC.
+func (c *ManagerClient) GetDisplay(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDisplay(ctx, &pb.ManagerGetDisplayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplays0 calls the GetDisplays0 RPC.
+func (c *ManagerClient) GetDisplays0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplays0(ctx, &pb.GetDisplays0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplays1_1 calls the GetDisplays1_1 RPC.
+func (c *ManagerClient) GetDisplays1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetDisplays1_1(ctx, &pb.GetDisplays1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHdrConversionMode calls the GetHdrConversionMode RPC.
+func (c *ManagerClient) GetHdrConversionMode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHdrConversionMode(ctx, &pb.GetHdrConversionModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatchContentFrameRateUserPreference calls the GetMatchContentFrameRateUserPreference RPC.
+func (c *ManagerClient) GetMatchContentFrameRateUserPreference(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMatchContentFrameRateUserPreference(ctx, &pb.GetMatchContentFrameRateUserPreferenceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterDisplayListener calls the RegisterDisplayListener RPC.
+func (c *ManagerClient) RegisterDisplayListener(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.RegisterDisplayListener(ctx, &pb.RegisterDisplayListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UnregisterDisplayListener calls the UnregisterDisplayListener RPC.
+func (c *ManagerClient) UnregisterDisplayListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterDisplayListener(ctx, &pb.UnregisterDisplayListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerDisplayListenerClient wraps the gRPC ManagerDisplayListenerService client.
+type ManagerDisplayListenerClient struct {
+	svc pb.ManagerDisplayListenerServiceClient
+}
+
+// NewManagerDisplayListenerClient creates a new ManagerDisplayListener client.
+func NewManagerDisplayListenerClient(cc grpc.ClientConnInterface) *ManagerDisplayListenerClient {
+	return &ManagerDisplayListenerClient{
+		svc: pb.NewManagerDisplayListenerServiceClient(cc),
+	}
+}
+
+// OnDisplayAdded calls the OnDisplayAdded RPC.
+func (c *ManagerDisplayListenerClient) OnDisplayAdded(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDisplayAdded(ctx, &pb.OnDisplayAddedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDisplayChanged calls the OnDisplayChanged RPC.
+func (c *ManagerDisplayListenerClient) OnDisplayChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDisplayChanged(ctx, &pb.OnDisplayChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDisplayRemoved calls the OnDisplayRemoved RPC.
+func (c *ManagerDisplayListenerClient) OnDisplayRemoved(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDisplayRemoved(ctx, &pb.OnDisplayRemovedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // VirtualDisplayConfigClient wraps the gRPC VirtualDisplayConfigService client.
 type VirtualDisplayConfigClient struct {
 	svc pb.VirtualDisplayConfigServiceClient
@@ -8240,6 +8240,15 @@ func (c *VirtualDisplayConfigClient) GetDensityDpi(ctx context.Context) (int32, 
 // GetDimBrightness calls the GetDimBrightness RPC.
 func (c *VirtualDisplayConfigClient) GetDimBrightness(ctx context.Context) (float32, error) {
 	resp, err := c.svc.GetDimBrightness(ctx, &pb.GetDimBrightnessRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayCategories calls the GetDisplayCategories RPC.
+func (c *VirtualDisplayConfigClient) GetDisplayCategories(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplayCategories(ctx, &pb.GetDisplayCategoriesRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -8446,423 +8455,6 @@ func (c *VirtualDisplayConfigBuilderClient) SetSurface(ctx context.Context, arg0
 	return resp.GetResult(), nil
 }
 
-// WindowManagerLayoutParamsClient wraps the gRPC WindowManagerLayoutParamsService client.
-type WindowManagerLayoutParamsClient struct {
-	svc pb.WindowManagerLayoutParamsServiceClient
-}
-
-// NewWindowManagerLayoutParamsClient creates a new WindowManagerLayoutParams client.
-func NewWindowManagerLayoutParamsClient(cc grpc.ClientConnInterface) *WindowManagerLayoutParamsClient {
-	return &WindowManagerLayoutParamsClient{
-		svc: pb.NewWindowManagerLayoutParamsServiceClient(cc),
-	}
-}
-
-// AreWallpaperTouchEventsEnabled calls the AreWallpaperTouchEventsEnabled RPC.
-func (c *WindowManagerLayoutParamsClient) AreWallpaperTouchEventsEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.AreWallpaperTouchEventsEnabled(ctx, &pb.AreWallpaperTouchEventsEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanPlayMoveAnimation calls the CanPlayMoveAnimation RPC.
-func (c *WindowManagerLayoutParamsClient) CanPlayMoveAnimation(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanPlayMoveAnimation(ctx, &pb.CanPlayMoveAnimationRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CopyFrom calls the CopyFrom RPC.
-func (c *WindowManagerLayoutParamsClient) CopyFrom(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CopyFrom(ctx, &pb.CopyFromRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Debug calls the Debug RPC.
-func (c *WindowManagerLayoutParamsClient) Debug(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.Debug(ctx, &pb.DebugRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *WindowManagerLayoutParamsClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBlurBehindRadius calls the GetBlurBehindRadius RPC.
-func (c *WindowManagerLayoutParamsClient) GetBlurBehindRadius(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBlurBehindRadius(ctx, &pb.GetBlurBehindRadiusRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorMode calls the GetColorMode RPC.
-func (c *WindowManagerLayoutParamsClient) GetColorMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetColorMode(ctx, &pb.GetColorModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDesiredHdrHeadroom calls the GetDesiredHdrHeadroom RPC.
-func (c *WindowManagerLayoutParamsClient) GetDesiredHdrHeadroom(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetDesiredHdrHeadroom(ctx, &pb.GetDesiredHdrHeadroomRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFitInsetsSides calls the GetFitInsetsSides RPC.
-func (c *WindowManagerLayoutParamsClient) GetFitInsetsSides(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetFitInsetsSides(ctx, &pb.GetFitInsetsSidesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFitInsetsTypes calls the GetFitInsetsTypes RPC.
-func (c *WindowManagerLayoutParamsClient) GetFitInsetsTypes(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetFitInsetsTypes(ctx, &pb.GetFitInsetsTypesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFrameRateBoostOnTouchEnabled calls the GetFrameRateBoostOnTouchEnabled RPC.
-func (c *WindowManagerLayoutParamsClient) GetFrameRateBoostOnTouchEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetFrameRateBoostOnTouchEnabled(ctx, &pb.GetFrameRateBoostOnTouchEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *WindowManagerLayoutParamsClient) GetTitle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFitInsetsIgnoringVisibility calls the IsFitInsetsIgnoringVisibility RPC.
-func (c *WindowManagerLayoutParamsClient) IsFitInsetsIgnoringVisibility(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFitInsetsIgnoringVisibility(ctx, &pb.IsFitInsetsIgnoringVisibilityRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFrameRatePowerSavingsBalanced calls the IsFrameRatePowerSavingsBalanced RPC.
-func (c *WindowManagerLayoutParamsClient) IsFrameRatePowerSavingsBalanced(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFrameRatePowerSavingsBalanced(ctx, &pb.IsFrameRatePowerSavingsBalancedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsHdrConversionEnabled calls the IsHdrConversionEnabled RPC.
-func (c *WindowManagerLayoutParamsClient) IsHdrConversionEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsHdrConversionEnabled(ctx, &pb.IsHdrConversionEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBlurBehindRadius calls the SetBlurBehindRadius RPC.
-func (c *WindowManagerLayoutParamsClient) SetBlurBehindRadius(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetBlurBehindRadius(ctx, &pb.SetBlurBehindRadiusRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetCanPlayMoveAnimation calls the SetCanPlayMoveAnimation RPC.
-func (c *WindowManagerLayoutParamsClient) SetCanPlayMoveAnimation(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetCanPlayMoveAnimation(ctx, &pb.SetCanPlayMoveAnimationRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetColorMode calls the SetColorMode RPC.
-func (c *WindowManagerLayoutParamsClient) SetColorMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetColorMode(ctx, &pb.SetColorModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDesiredHdrHeadroom calls the SetDesiredHdrHeadroom RPC.
-func (c *WindowManagerLayoutParamsClient) SetDesiredHdrHeadroom(ctx context.Context, arg0 float32) error {
-	_, err := c.svc.SetDesiredHdrHeadroom(ctx, &pb.WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFitInsetsIgnoringVisibility calls the SetFitInsetsIgnoringVisibility RPC.
-func (c *WindowManagerLayoutParamsClient) SetFitInsetsIgnoringVisibility(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetFitInsetsIgnoringVisibility(ctx, &pb.SetFitInsetsIgnoringVisibilityRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFitInsetsSides calls the SetFitInsetsSides RPC.
-func (c *WindowManagerLayoutParamsClient) SetFitInsetsSides(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetFitInsetsSides(ctx, &pb.SetFitInsetsSidesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFitInsetsTypes calls the SetFitInsetsTypes RPC.
-func (c *WindowManagerLayoutParamsClient) SetFitInsetsTypes(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetFitInsetsTypes(ctx, &pb.SetFitInsetsTypesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFrameRateBoostOnTouchEnabled calls the SetFrameRateBoostOnTouchEnabled RPC.
-func (c *WindowManagerLayoutParamsClient) SetFrameRateBoostOnTouchEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetFrameRateBoostOnTouchEnabled(ctx, &pb.SetFrameRateBoostOnTouchEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFrameRatePowerSavingsBalanced calls the SetFrameRatePowerSavingsBalanced RPC.
-func (c *WindowManagerLayoutParamsClient) SetFrameRatePowerSavingsBalanced(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetFrameRatePowerSavingsBalanced(ctx, &pb.SetFrameRatePowerSavingsBalancedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetHdrConversionEnabled calls the SetHdrConversionEnabled RPC.
-func (c *WindowManagerLayoutParamsClient) SetHdrConversionEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetHdrConversionEnabled(ctx, &pb.SetHdrConversionEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTitle calls the SetTitle RPC.
-func (c *WindowManagerLayoutParamsClient) SetTitle(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetWallpaperTouchEventsEnabled calls the SetWallpaperTouchEventsEnabled RPC.
-func (c *WindowManagerLayoutParamsClient) SetWallpaperTouchEventsEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetWallpaperTouchEventsEnabled(ctx, &pb.SetWallpaperTouchEventsEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *WindowManagerLayoutParamsClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *WindowManagerLayoutParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// MayUseInputMethod calls the MayUseInputMethod RPC.
-func (c *WindowManagerLayoutParamsClient) MayUseInputMethod(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.MayUseInputMethod(ctx, &pb.MayUseInputMethodRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ViewGroupLayoutParamsClient wraps the gRPC ViewGroupLayoutParamsService client.
-type ViewGroupLayoutParamsClient struct {
-	svc pb.ViewGroupLayoutParamsServiceClient
-}
-
-// NewViewGroupLayoutParamsClient creates a new ViewGroupLayoutParams client.
-func NewViewGroupLayoutParamsClient(cc grpc.ClientConnInterface) *ViewGroupLayoutParamsClient {
-	return &ViewGroupLayoutParamsClient{
-		svc: pb.NewViewGroupLayoutParamsServiceClient(cc),
-	}
-}
-
-// ResolveLayoutDirection calls the ResolveLayoutDirection RPC.
-func (c *ViewGroupLayoutParamsClient) ResolveLayoutDirection(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.ResolveLayoutDirection(ctx, &pb.ResolveLayoutDirectionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ViewGroupMarginLayoutParamsClient wraps the gRPC ViewGroupMarginLayoutParamsService client.
-type ViewGroupMarginLayoutParamsClient struct {
-	svc pb.ViewGroupMarginLayoutParamsServiceClient
-}
-
-// NewViewGroupMarginLayoutParamsClient creates a new ViewGroupMarginLayoutParams client.
-func NewViewGroupMarginLayoutParamsClient(cc grpc.ClientConnInterface) *ViewGroupMarginLayoutParamsClient {
-	return &ViewGroupMarginLayoutParamsClient{
-		svc: pb.NewViewGroupMarginLayoutParamsServiceClient(cc),
-	}
-}
-
-// GetLayoutDirection calls the GetLayoutDirection RPC.
-func (c *ViewGroupMarginLayoutParamsClient) GetLayoutDirection(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLayoutDirection(ctx, &pb.GetLayoutDirectionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMarginEnd calls the GetMarginEnd RPC.
-func (c *ViewGroupMarginLayoutParamsClient) GetMarginEnd(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMarginEnd(ctx, &pb.GetMarginEndRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMarginStart calls the GetMarginStart RPC.
-func (c *ViewGroupMarginLayoutParamsClient) GetMarginStart(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMarginStart(ctx, &pb.GetMarginStartRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsMarginRelative calls the IsMarginRelative RPC.
-func (c *ViewGroupMarginLayoutParamsClient) IsMarginRelative(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsMarginRelative(ctx, &pb.IsMarginRelativeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ResolveLayoutDirection calls the ResolveLayoutDirection RPC.
-func (c *ViewGroupMarginLayoutParamsClient) ResolveLayoutDirection(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.ResolveLayoutDirection(ctx, &pb.ResolveLayoutDirectionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetLayoutDirection calls the SetLayoutDirection RPC.
-func (c *ViewGroupMarginLayoutParamsClient) SetLayoutDirection(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetLayoutDirection(ctx, &pb.SetLayoutDirectionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMarginEnd calls the SetMarginEnd RPC.
-func (c *ViewGroupMarginLayoutParamsClient) SetMarginEnd(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMarginEnd(ctx, &pb.SetMarginEndRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMarginStart calls the SetMarginStart RPC.
-func (c *ViewGroupMarginLayoutParamsClient) SetMarginStart(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMarginStart(ctx, &pb.SetMarginStartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMargins calls the SetMargins RPC.
-func (c *ViewGroupMarginLayoutParamsClient) SetMargins(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetMargins(ctx, &pb.SetMarginsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// ViewGroupOnHierarchyChangeListenerClient wraps the gRPC ViewGroupOnHierarchyChangeListenerService client.
-type ViewGroupOnHierarchyChangeListenerClient struct {
-	svc pb.ViewGroupOnHierarchyChangeListenerServiceClient
-}
-
-// NewViewGroupOnHierarchyChangeListenerClient creates a new ViewGroupOnHierarchyChangeListener client.
-func NewViewGroupOnHierarchyChangeListenerClient(cc grpc.ClientConnInterface) *ViewGroupOnHierarchyChangeListenerClient {
-	return &ViewGroupOnHierarchyChangeListenerClient{
-		svc: pb.NewViewGroupOnHierarchyChangeListenerServiceClient(cc),
-	}
-}
-
-// OnChildViewAdded calls the OnChildViewAdded RPC.
-func (c *ViewGroupOnHierarchyChangeListenerClient) OnChildViewAdded(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnChildViewAdded(ctx, &pb.OnChildViewAddedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnChildViewRemoved calls the OnChildViewRemoved RPC.
-func (c *ViewGroupOnHierarchyChangeListenerClient) OnChildViewRemoved(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnChildViewRemoved(ctx, &pb.OnChildViewRemovedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // HdrCapabilitiesClient wraps the gRPC HdrCapabilitiesService client.
 type HdrCapabilitiesClient struct {
 	svc pb.HdrCapabilitiesServiceClient
@@ -8933,7 +8525,7 @@ func (c *HdrCapabilitiesClient) GetSupportedHdrTypes(ctx context.Context) (int64
 
 // HashCode calls the HashCode RPC.
 func (c *HdrCapabilitiesClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HdrCapabilitiesHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -9046,7 +8638,7 @@ func (c *ModeClient) GetSupportedHdrTypes(ctx context.Context) (int64, error) {
 
 // HashCode calls the HashCode RPC.
 func (c *ModeClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ModeHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -9067,65 +8659,6 @@ func (c *ModeClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) 
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
-	})
-	return err
-}
-
-// SurfaceHolderCallbackClient wraps the gRPC SurfaceHolderCallbackService client.
-type SurfaceHolderCallbackClient struct {
-	svc pb.SurfaceHolderCallbackServiceClient
-}
-
-// NewSurfaceHolderCallbackClient creates a new SurfaceHolderCallback client.
-func NewSurfaceHolderCallbackClient(cc grpc.ClientConnInterface) *SurfaceHolderCallbackClient {
-	return &SurfaceHolderCallbackClient{
-		svc: pb.NewSurfaceHolderCallbackServiceClient(cc),
-	}
-}
-
-// SurfaceChanged calls the SurfaceChanged RPC.
-func (c *SurfaceHolderCallbackClient) SurfaceChanged(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SurfaceChanged(ctx, &pb.SurfaceChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SurfaceCreated calls the SurfaceCreated RPC.
-func (c *SurfaceHolderCallbackClient) SurfaceCreated(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SurfaceCreated(ctx, &pb.SurfaceCreatedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SurfaceDestroyed calls the SurfaceDestroyed RPC.
-func (c *SurfaceHolderCallbackClient) SurfaceDestroyed(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SurfaceDestroyed(ctx, &pb.SurfaceDestroyedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SurfaceHolderCallback2Client wraps the gRPC SurfaceHolderCallback2Service client.
-type SurfaceHolderCallback2Client struct {
-	svc pb.SurfaceHolderCallback2ServiceClient
-}
-
-// NewSurfaceHolderCallback2Client creates a new SurfaceHolderCallback2 client.
-func NewSurfaceHolderCallback2Client(cc grpc.ClientConnInterface) *SurfaceHolderCallback2Client {
-	return &SurfaceHolderCallback2Client{
-		svc: pb.NewSurfaceHolderCallback2ServiceClient(cc),
-	}
-}
-
-// SurfaceRedrawNeeded calls the SurfaceRedrawNeeded RPC.
-func (c *SurfaceHolderCallback2Client) SurfaceRedrawNeeded(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SurfaceRedrawNeeded(ctx, &pb.SurfaceRedrawNeededRequest{
-		Arg0: arg0,
 	})
 	return err
 }
@@ -9758,6 +9291,482 @@ func (c *ViewOnUnhandledKeyEventListenerClient) OnUnhandledKeyEvent(ctx context.
 	resp, err := c.svc.OnUnhandledKeyEvent(ctx, &pb.OnUnhandledKeyEventRequest{
 		Arg0: arg0,
 		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SurfaceHolderCallbackClient wraps the gRPC SurfaceHolderCallbackService client.
+type SurfaceHolderCallbackClient struct {
+	svc pb.SurfaceHolderCallbackServiceClient
+}
+
+// NewSurfaceHolderCallbackClient creates a new SurfaceHolderCallback client.
+func NewSurfaceHolderCallbackClient(cc grpc.ClientConnInterface) *SurfaceHolderCallbackClient {
+	return &SurfaceHolderCallbackClient{
+		svc: pb.NewSurfaceHolderCallbackServiceClient(cc),
+	}
+}
+
+// SurfaceChanged calls the SurfaceChanged RPC.
+func (c *SurfaceHolderCallbackClient) SurfaceChanged(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SurfaceChanged(ctx, &pb.SurfaceChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SurfaceCreated calls the SurfaceCreated RPC.
+func (c *SurfaceHolderCallbackClient) SurfaceCreated(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SurfaceCreated(ctx, &pb.SurfaceCreatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SurfaceDestroyed calls the SurfaceDestroyed RPC.
+func (c *SurfaceHolderCallbackClient) SurfaceDestroyed(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SurfaceDestroyed(ctx, &pb.SurfaceDestroyedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SurfaceHolderCallback2Client wraps the gRPC SurfaceHolderCallback2Service client.
+type SurfaceHolderCallback2Client struct {
+	svc pb.SurfaceHolderCallback2ServiceClient
+}
+
+// NewSurfaceHolderCallback2Client creates a new SurfaceHolderCallback2 client.
+func NewSurfaceHolderCallback2Client(cc grpc.ClientConnInterface) *SurfaceHolderCallback2Client {
+	return &SurfaceHolderCallback2Client{
+		svc: pb.NewSurfaceHolderCallback2ServiceClient(cc),
+	}
+}
+
+// SurfaceRedrawNeeded calls the SurfaceRedrawNeeded RPC.
+func (c *SurfaceHolderCallback2Client) SurfaceRedrawNeeded(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SurfaceRedrawNeeded(ctx, &pb.SurfaceRedrawNeededRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ViewGroupLayoutParamsClient wraps the gRPC ViewGroupLayoutParamsService client.
+type ViewGroupLayoutParamsClient struct {
+	svc pb.ViewGroupLayoutParamsServiceClient
+}
+
+// NewViewGroupLayoutParamsClient creates a new ViewGroupLayoutParams client.
+func NewViewGroupLayoutParamsClient(cc grpc.ClientConnInterface) *ViewGroupLayoutParamsClient {
+	return &ViewGroupLayoutParamsClient{
+		svc: pb.NewViewGroupLayoutParamsServiceClient(cc),
+	}
+}
+
+// ResolveLayoutDirection calls the ResolveLayoutDirection RPC.
+func (c *ViewGroupLayoutParamsClient) ResolveLayoutDirection(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.ResolveLayoutDirection(ctx, &pb.ResolveLayoutDirectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ViewGroupMarginLayoutParamsClient wraps the gRPC ViewGroupMarginLayoutParamsService client.
+type ViewGroupMarginLayoutParamsClient struct {
+	svc pb.ViewGroupMarginLayoutParamsServiceClient
+}
+
+// NewViewGroupMarginLayoutParamsClient creates a new ViewGroupMarginLayoutParams client.
+func NewViewGroupMarginLayoutParamsClient(cc grpc.ClientConnInterface) *ViewGroupMarginLayoutParamsClient {
+	return &ViewGroupMarginLayoutParamsClient{
+		svc: pb.NewViewGroupMarginLayoutParamsServiceClient(cc),
+	}
+}
+
+// GetLayoutDirection calls the GetLayoutDirection RPC.
+func (c *ViewGroupMarginLayoutParamsClient) GetLayoutDirection(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLayoutDirection(ctx, &pb.ViewGroupMarginLayoutParamsGetLayoutDirectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMarginEnd calls the GetMarginEnd RPC.
+func (c *ViewGroupMarginLayoutParamsClient) GetMarginEnd(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMarginEnd(ctx, &pb.GetMarginEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMarginStart calls the GetMarginStart RPC.
+func (c *ViewGroupMarginLayoutParamsClient) GetMarginStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMarginStart(ctx, &pb.GetMarginStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMarginRelative calls the IsMarginRelative RPC.
+func (c *ViewGroupMarginLayoutParamsClient) IsMarginRelative(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMarginRelative(ctx, &pb.IsMarginRelativeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveLayoutDirection calls the ResolveLayoutDirection RPC.
+func (c *ViewGroupMarginLayoutParamsClient) ResolveLayoutDirection(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.ResolveLayoutDirection(ctx, &pb.ResolveLayoutDirectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayoutDirection calls the SetLayoutDirection RPC.
+func (c *ViewGroupMarginLayoutParamsClient) SetLayoutDirection(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetLayoutDirection(ctx, &pb.ViewGroupMarginLayoutParamsSetLayoutDirectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMarginEnd calls the SetMarginEnd RPC.
+func (c *ViewGroupMarginLayoutParamsClient) SetMarginEnd(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMarginEnd(ctx, &pb.SetMarginEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMarginStart calls the SetMarginStart RPC.
+func (c *ViewGroupMarginLayoutParamsClient) SetMarginStart(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMarginStart(ctx, &pb.SetMarginStartRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMargins calls the SetMargins RPC.
+func (c *ViewGroupMarginLayoutParamsClient) SetMargins(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetMargins(ctx, &pb.SetMarginsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// ViewGroupOnHierarchyChangeListenerClient wraps the gRPC ViewGroupOnHierarchyChangeListenerService client.
+type ViewGroupOnHierarchyChangeListenerClient struct {
+	svc pb.ViewGroupOnHierarchyChangeListenerServiceClient
+}
+
+// NewViewGroupOnHierarchyChangeListenerClient creates a new ViewGroupOnHierarchyChangeListener client.
+func NewViewGroupOnHierarchyChangeListenerClient(cc grpc.ClientConnInterface) *ViewGroupOnHierarchyChangeListenerClient {
+	return &ViewGroupOnHierarchyChangeListenerClient{
+		svc: pb.NewViewGroupOnHierarchyChangeListenerServiceClient(cc),
+	}
+}
+
+// OnChildViewAdded calls the OnChildViewAdded RPC.
+func (c *ViewGroupOnHierarchyChangeListenerClient) OnChildViewAdded(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnChildViewAdded(ctx, &pb.OnChildViewAddedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnChildViewRemoved calls the OnChildViewRemoved RPC.
+func (c *ViewGroupOnHierarchyChangeListenerClient) OnChildViewRemoved(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnChildViewRemoved(ctx, &pb.OnChildViewRemovedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// WindowManagerLayoutParamsClient wraps the gRPC WindowManagerLayoutParamsService client.
+type WindowManagerLayoutParamsClient struct {
+	svc pb.WindowManagerLayoutParamsServiceClient
+}
+
+// NewWindowManagerLayoutParamsClient creates a new WindowManagerLayoutParams client.
+func NewWindowManagerLayoutParamsClient(cc grpc.ClientConnInterface) *WindowManagerLayoutParamsClient {
+	return &WindowManagerLayoutParamsClient{
+		svc: pb.NewWindowManagerLayoutParamsServiceClient(cc),
+	}
+}
+
+// AreWallpaperTouchEventsEnabled calls the AreWallpaperTouchEventsEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) AreWallpaperTouchEventsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreWallpaperTouchEventsEnabled(ctx, &pb.AreWallpaperTouchEventsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanPlayMoveAnimation calls the CanPlayMoveAnimation RPC.
+func (c *WindowManagerLayoutParamsClient) CanPlayMoveAnimation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanPlayMoveAnimation(ctx, &pb.CanPlayMoveAnimationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CopyFrom calls the CopyFrom RPC.
+func (c *WindowManagerLayoutParamsClient) CopyFrom(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CopyFrom(ctx, &pb.CopyFromRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Debug calls the Debug RPC.
+func (c *WindowManagerLayoutParamsClient) Debug(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.Debug(ctx, &pb.DebugRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WindowManagerLayoutParamsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBlurBehindRadius calls the GetBlurBehindRadius RPC.
+func (c *WindowManagerLayoutParamsClient) GetBlurBehindRadius(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBlurBehindRadius(ctx, &pb.GetBlurBehindRadiusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorMode calls the GetColorMode RPC.
+func (c *WindowManagerLayoutParamsClient) GetColorMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetColorMode(ctx, &pb.GetColorModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredHdrHeadroom calls the GetDesiredHdrHeadroom RPC.
+func (c *WindowManagerLayoutParamsClient) GetDesiredHdrHeadroom(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetDesiredHdrHeadroom(ctx, &pb.GetDesiredHdrHeadroomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFitInsetsSides calls the GetFitInsetsSides RPC.
+func (c *WindowManagerLayoutParamsClient) GetFitInsetsSides(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFitInsetsSides(ctx, &pb.GetFitInsetsSidesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFitInsetsTypes calls the GetFitInsetsTypes RPC.
+func (c *WindowManagerLayoutParamsClient) GetFitInsetsTypes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFitInsetsTypes(ctx, &pb.GetFitInsetsTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameRateBoostOnTouchEnabled calls the GetFrameRateBoostOnTouchEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) GetFrameRateBoostOnTouchEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetFrameRateBoostOnTouchEnabled(ctx, &pb.GetFrameRateBoostOnTouchEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *WindowManagerLayoutParamsClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFitInsetsIgnoringVisibility calls the IsFitInsetsIgnoringVisibility RPC.
+func (c *WindowManagerLayoutParamsClient) IsFitInsetsIgnoringVisibility(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFitInsetsIgnoringVisibility(ctx, &pb.IsFitInsetsIgnoringVisibilityRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFrameRatePowerSavingsBalanced calls the IsFrameRatePowerSavingsBalanced RPC.
+func (c *WindowManagerLayoutParamsClient) IsFrameRatePowerSavingsBalanced(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFrameRatePowerSavingsBalanced(ctx, &pb.IsFrameRatePowerSavingsBalancedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHdrConversionEnabled calls the IsHdrConversionEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) IsHdrConversionEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHdrConversionEnabled(ctx, &pb.IsHdrConversionEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBlurBehindRadius calls the SetBlurBehindRadius RPC.
+func (c *WindowManagerLayoutParamsClient) SetBlurBehindRadius(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetBlurBehindRadius(ctx, &pb.SetBlurBehindRadiusRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCanPlayMoveAnimation calls the SetCanPlayMoveAnimation RPC.
+func (c *WindowManagerLayoutParamsClient) SetCanPlayMoveAnimation(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetCanPlayMoveAnimation(ctx, &pb.SetCanPlayMoveAnimationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetColorMode calls the SetColorMode RPC.
+func (c *WindowManagerLayoutParamsClient) SetColorMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetColorMode(ctx, &pb.SetColorModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDesiredHdrHeadroom calls the SetDesiredHdrHeadroom RPC.
+func (c *WindowManagerLayoutParamsClient) SetDesiredHdrHeadroom(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetDesiredHdrHeadroom(ctx, &pb.WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFitInsetsIgnoringVisibility calls the SetFitInsetsIgnoringVisibility RPC.
+func (c *WindowManagerLayoutParamsClient) SetFitInsetsIgnoringVisibility(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFitInsetsIgnoringVisibility(ctx, &pb.SetFitInsetsIgnoringVisibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFitInsetsSides calls the SetFitInsetsSides RPC.
+func (c *WindowManagerLayoutParamsClient) SetFitInsetsSides(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetFitInsetsSides(ctx, &pb.SetFitInsetsSidesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFitInsetsTypes calls the SetFitInsetsTypes RPC.
+func (c *WindowManagerLayoutParamsClient) SetFitInsetsTypes(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetFitInsetsTypes(ctx, &pb.SetFitInsetsTypesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFrameRateBoostOnTouchEnabled calls the SetFrameRateBoostOnTouchEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) SetFrameRateBoostOnTouchEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFrameRateBoostOnTouchEnabled(ctx, &pb.SetFrameRateBoostOnTouchEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFrameRatePowerSavingsBalanced calls the SetFrameRatePowerSavingsBalanced RPC.
+func (c *WindowManagerLayoutParamsClient) SetFrameRatePowerSavingsBalanced(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFrameRatePowerSavingsBalanced(ctx, &pb.SetFrameRatePowerSavingsBalancedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHdrConversionEnabled calls the SetHdrConversionEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) SetHdrConversionEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetHdrConversionEnabled(ctx, &pb.SetHdrConversionEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *WindowManagerLayoutParamsClient) SetTitle(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWallpaperTouchEventsEnabled calls the SetWallpaperTouchEventsEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) SetWallpaperTouchEventsEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetWallpaperTouchEventsEnabled(ctx, &pb.SetWallpaperTouchEventsEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *WindowManagerLayoutParamsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WindowManagerLayoutParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MayUseInputMethod calls the MayUseInputMethod RPC.
+func (c *WindowManagerLayoutParamsClient) MayUseInputMethod(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.MayUseInputMethod(ctx, &pb.MayUseInputMethodRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return false, err

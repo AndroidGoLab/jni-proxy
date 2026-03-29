@@ -21,6 +21,299 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	VisibleActivityInfoService_DescribeContents_FullMethodName = "/voice.VisibleActivityInfoService/DescribeContents"
+	VisibleActivityInfoService_Equals_FullMethodName           = "/voice.VisibleActivityInfoService/Equals"
+	VisibleActivityInfoService_GetActivityId_FullMethodName    = "/voice.VisibleActivityInfoService/GetActivityId"
+	VisibleActivityInfoService_HashCode_FullMethodName         = "/voice.VisibleActivityInfoService/HashCode"
+	VisibleActivityInfoService_ToString_FullMethodName         = "/voice.VisibleActivityInfoService/ToString"
+	VisibleActivityInfoService_WriteToParcel_FullMethodName    = "/voice.VisibleActivityInfoService/WriteToParcel"
+)
+
+// VisibleActivityInfoServiceClient is the client API for VisibleActivityInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type VisibleActivityInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetActivityId(ctx context.Context, in *GetActivityIdRequest, opts ...grpc.CallOption) (*GetActivityIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type visibleActivityInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewVisibleActivityInfoServiceClient(cc grpc.ClientConnInterface) VisibleActivityInfoServiceClient {
+	return &visibleActivityInfoServiceClient{cc}
+}
+
+func (c *visibleActivityInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, VisibleActivityInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibleActivityInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, VisibleActivityInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibleActivityInfoServiceClient) GetActivityId(ctx context.Context, in *GetActivityIdRequest, opts ...grpc.CallOption) (*GetActivityIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActivityIdResponse)
+	err := c.cc.Invoke(ctx, VisibleActivityInfoService_GetActivityId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibleActivityInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, VisibleActivityInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibleActivityInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, VisibleActivityInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visibleActivityInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, VisibleActivityInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VisibleActivityInfoServiceServer is the server API for VisibleActivityInfoService service.
+// All implementations must embed UnimplementedVisibleActivityInfoServiceServer
+// for forward compatibility.
+type VisibleActivityInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetActivityId(context.Context, *GetActivityIdRequest) (*GetActivityIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedVisibleActivityInfoServiceServer()
+}
+
+// UnimplementedVisibleActivityInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedVisibleActivityInfoServiceServer struct{}
+
+func (UnimplementedVisibleActivityInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedVisibleActivityInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedVisibleActivityInfoServiceServer) GetActivityId(context.Context, *GetActivityIdRequest) (*GetActivityIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActivityId not implemented")
+}
+func (UnimplementedVisibleActivityInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedVisibleActivityInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedVisibleActivityInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedVisibleActivityInfoServiceServer) mustEmbedUnimplementedVisibleActivityInfoServiceServer() {
+}
+func (UnimplementedVisibleActivityInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeVisibleActivityInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VisibleActivityInfoServiceServer will
+// result in compilation errors.
+type UnsafeVisibleActivityInfoServiceServer interface {
+	mustEmbedUnimplementedVisibleActivityInfoServiceServer()
+}
+
+func RegisterVisibleActivityInfoServiceServer(s grpc.ServiceRegistrar, srv VisibleActivityInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedVisibleActivityInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&VisibleActivityInfoService_ServiceDesc, srv)
+}
+
+func _VisibleActivityInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibleActivityInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibleActivityInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibleActivityInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibleActivityInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibleActivityInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibleActivityInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibleActivityInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibleActivityInfoService_GetActivityId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivityIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibleActivityInfoServiceServer).GetActivityId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibleActivityInfoService_GetActivityId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibleActivityInfoServiceServer).GetActivityId(ctx, req.(*GetActivityIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibleActivityInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibleActivityInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibleActivityInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibleActivityInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibleActivityInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibleActivityInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibleActivityInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibleActivityInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisibleActivityInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisibleActivityInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisibleActivityInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisibleActivityInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VisibleActivityInfoService_ServiceDesc is the grpc.ServiceDesc for VisibleActivityInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VisibleActivityInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "voice.VisibleActivityInfoService",
+	HandlerType: (*VisibleActivityInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _VisibleActivityInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _VisibleActivityInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetActivityId",
+			Handler:    _VisibleActivityInfoService_GetActivityId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _VisibleActivityInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _VisibleActivityInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _VisibleActivityInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/voice/voice.proto",
+}
+
+const (
 	InteractionSessionServiceService_OnBind_FullMethodName                 = "/voice.InteractionSessionServiceService/OnBind"
 	InteractionSessionServiceService_OnConfigurationChanged_FullMethodName = "/voice.InteractionSessionServiceService/OnConfigurationChanged"
 	InteractionSessionServiceService_OnCreate_FullMethodName               = "/voice.InteractionSessionServiceService/OnCreate"
@@ -307,6 +600,527 @@ var InteractionSessionServiceService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnTrimMemory",
 			Handler:    _InteractionSessionServiceService_OnTrimMemory_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/voice/voice.proto",
+}
+
+const (
+	InteractionServiceService_NewInteractionService_FullMethodName           = "/voice.InteractionServiceService/NewInteractionService"
+	InteractionServiceService_GetDisabledShowContext_FullMethodName          = "/voice.InteractionServiceService/GetDisabledShowContext"
+	InteractionServiceService_OnBind_FullMethodName                          = "/voice.InteractionServiceService/OnBind"
+	InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_FullMethodName = "/voice.InteractionServiceService/OnLaunchVoiceAssistFromKeyguard"
+	InteractionServiceService_OnPrepareToShowSession_FullMethodName          = "/voice.InteractionServiceService/OnPrepareToShowSession"
+	InteractionServiceService_OnReady_FullMethodName                         = "/voice.InteractionServiceService/OnReady"
+	InteractionServiceService_OnShowSessionFailed_FullMethodName             = "/voice.InteractionServiceService/OnShowSessionFailed"
+	InteractionServiceService_OnShutdown_FullMethodName                      = "/voice.InteractionServiceService/OnShutdown"
+	InteractionServiceService_SetDisabledShowContext_FullMethodName          = "/voice.InteractionServiceService/SetDisabledShowContext"
+	InteractionServiceService_SetUiHints_FullMethodName                      = "/voice.InteractionServiceService/SetUiHints"
+	InteractionServiceService_ShowSession_FullMethodName                     = "/voice.InteractionServiceService/ShowSession"
+	InteractionServiceService_IsActiveService_FullMethodName                 = "/voice.InteractionServiceService/IsActiveService"
+)
+
+// InteractionServiceServiceClient is the client API for InteractionServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InteractionServiceServiceClient interface {
+	NewInteractionService(ctx context.Context, in *NewInteractionServiceRequest, opts ...grpc.CallOption) (*NewInteractionServiceResponse, error)
+	GetDisabledShowContext(ctx context.Context, in *GetDisabledShowContextRequest, opts ...grpc.CallOption) (*GetDisabledShowContextResponse, error)
+	OnBind(ctx context.Context, in *InteractionServiceOnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnLaunchVoiceAssistFromKeyguard(ctx context.Context, in *OnLaunchVoiceAssistFromKeyguardRequest, opts ...grpc.CallOption) (*OnLaunchVoiceAssistFromKeyguardResponse, error)
+	OnPrepareToShowSession(ctx context.Context, in *OnPrepareToShowSessionRequest, opts ...grpc.CallOption) (*OnPrepareToShowSessionResponse, error)
+	OnReady(ctx context.Context, in *OnReadyRequest, opts ...grpc.CallOption) (*OnReadyResponse, error)
+	OnShowSessionFailed(ctx context.Context, in *OnShowSessionFailedRequest, opts ...grpc.CallOption) (*OnShowSessionFailedResponse, error)
+	OnShutdown(ctx context.Context, in *OnShutdownRequest, opts ...grpc.CallOption) (*OnShutdownResponse, error)
+	SetDisabledShowContext(ctx context.Context, in *SetDisabledShowContextRequest, opts ...grpc.CallOption) (*SetDisabledShowContextResponse, error)
+	SetUiHints(ctx context.Context, in *SetUiHintsRequest, opts ...grpc.CallOption) (*SetUiHintsResponse, error)
+	ShowSession(ctx context.Context, in *ShowSessionRequest, opts ...grpc.CallOption) (*ShowSessionResponse, error)
+	IsActiveService(ctx context.Context, in *IsActiveServiceRequest, opts ...grpc.CallOption) (*IsActiveServiceResponse, error)
+}
+
+type interactionServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInteractionServiceServiceClient(cc grpc.ClientConnInterface) InteractionServiceServiceClient {
+	return &interactionServiceServiceClient{cc}
+}
+
+func (c *interactionServiceServiceClient) NewInteractionService(ctx context.Context, in *NewInteractionServiceRequest, opts ...grpc.CallOption) (*NewInteractionServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInteractionServiceResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_NewInteractionService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) GetDisabledShowContext(ctx context.Context, in *GetDisabledShowContextRequest, opts ...grpc.CallOption) (*GetDisabledShowContextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisabledShowContextResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_GetDisabledShowContext_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) OnBind(ctx context.Context, in *InteractionServiceOnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) OnLaunchVoiceAssistFromKeyguard(ctx context.Context, in *OnLaunchVoiceAssistFromKeyguardRequest, opts ...grpc.CallOption) (*OnLaunchVoiceAssistFromKeyguardResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnLaunchVoiceAssistFromKeyguardResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) OnPrepareToShowSession(ctx context.Context, in *OnPrepareToShowSessionRequest, opts ...grpc.CallOption) (*OnPrepareToShowSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPrepareToShowSessionResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_OnPrepareToShowSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) OnReady(ctx context.Context, in *OnReadyRequest, opts ...grpc.CallOption) (*OnReadyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReadyResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_OnReady_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) OnShowSessionFailed(ctx context.Context, in *OnShowSessionFailedRequest, opts ...grpc.CallOption) (*OnShowSessionFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnShowSessionFailedResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_OnShowSessionFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) OnShutdown(ctx context.Context, in *OnShutdownRequest, opts ...grpc.CallOption) (*OnShutdownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnShutdownResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_OnShutdown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) SetDisabledShowContext(ctx context.Context, in *SetDisabledShowContextRequest, opts ...grpc.CallOption) (*SetDisabledShowContextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDisabledShowContextResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_SetDisabledShowContext_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) SetUiHints(ctx context.Context, in *SetUiHintsRequest, opts ...grpc.CallOption) (*SetUiHintsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUiHintsResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_SetUiHints_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) ShowSession(ctx context.Context, in *ShowSessionRequest, opts ...grpc.CallOption) (*ShowSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShowSessionResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_ShowSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactionServiceServiceClient) IsActiveService(ctx context.Context, in *IsActiveServiceRequest, opts ...grpc.CallOption) (*IsActiveServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsActiveServiceResponse)
+	err := c.cc.Invoke(ctx, InteractionServiceService_IsActiveService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InteractionServiceServiceServer is the server API for InteractionServiceService service.
+// All implementations must embed UnimplementedInteractionServiceServiceServer
+// for forward compatibility.
+type InteractionServiceServiceServer interface {
+	NewInteractionService(context.Context, *NewInteractionServiceRequest) (*NewInteractionServiceResponse, error)
+	GetDisabledShowContext(context.Context, *GetDisabledShowContextRequest) (*GetDisabledShowContextResponse, error)
+	OnBind(context.Context, *InteractionServiceOnBindRequest) (*OnBindResponse, error)
+	OnLaunchVoiceAssistFromKeyguard(context.Context, *OnLaunchVoiceAssistFromKeyguardRequest) (*OnLaunchVoiceAssistFromKeyguardResponse, error)
+	OnPrepareToShowSession(context.Context, *OnPrepareToShowSessionRequest) (*OnPrepareToShowSessionResponse, error)
+	OnReady(context.Context, *OnReadyRequest) (*OnReadyResponse, error)
+	OnShowSessionFailed(context.Context, *OnShowSessionFailedRequest) (*OnShowSessionFailedResponse, error)
+	OnShutdown(context.Context, *OnShutdownRequest) (*OnShutdownResponse, error)
+	SetDisabledShowContext(context.Context, *SetDisabledShowContextRequest) (*SetDisabledShowContextResponse, error)
+	SetUiHints(context.Context, *SetUiHintsRequest) (*SetUiHintsResponse, error)
+	ShowSession(context.Context, *ShowSessionRequest) (*ShowSessionResponse, error)
+	IsActiveService(context.Context, *IsActiveServiceRequest) (*IsActiveServiceResponse, error)
+	mustEmbedUnimplementedInteractionServiceServiceServer()
+}
+
+// UnimplementedInteractionServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInteractionServiceServiceServer struct{}
+
+func (UnimplementedInteractionServiceServiceServer) NewInteractionService(context.Context, *NewInteractionServiceRequest) (*NewInteractionServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInteractionService not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) GetDisabledShowContext(context.Context, *GetDisabledShowContextRequest) (*GetDisabledShowContextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisabledShowContext not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) OnBind(context.Context, *InteractionServiceOnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) OnLaunchVoiceAssistFromKeyguard(context.Context, *OnLaunchVoiceAssistFromKeyguardRequest) (*OnLaunchVoiceAssistFromKeyguardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnLaunchVoiceAssistFromKeyguard not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) OnPrepareToShowSession(context.Context, *OnPrepareToShowSessionRequest) (*OnPrepareToShowSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPrepareToShowSession not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) OnReady(context.Context, *OnReadyRequest) (*OnReadyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnReady not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) OnShowSessionFailed(context.Context, *OnShowSessionFailedRequest) (*OnShowSessionFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnShowSessionFailed not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) OnShutdown(context.Context, *OnShutdownRequest) (*OnShutdownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnShutdown not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) SetDisabledShowContext(context.Context, *SetDisabledShowContextRequest) (*SetDisabledShowContextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDisabledShowContext not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) SetUiHints(context.Context, *SetUiHintsRequest) (*SetUiHintsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUiHints not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) ShowSession(context.Context, *ShowSessionRequest) (*ShowSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShowSession not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) IsActiveService(context.Context, *IsActiveServiceRequest) (*IsActiveServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsActiveService not implemented")
+}
+func (UnimplementedInteractionServiceServiceServer) mustEmbedUnimplementedInteractionServiceServiceServer() {
+}
+func (UnimplementedInteractionServiceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInteractionServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InteractionServiceServiceServer will
+// result in compilation errors.
+type UnsafeInteractionServiceServiceServer interface {
+	mustEmbedUnimplementedInteractionServiceServiceServer()
+}
+
+func RegisterInteractionServiceServiceServer(s grpc.ServiceRegistrar, srv InteractionServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedInteractionServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InteractionServiceService_ServiceDesc, srv)
+}
+
+func _InteractionServiceService_NewInteractionService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInteractionServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).NewInteractionService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_NewInteractionService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).NewInteractionService(ctx, req.(*NewInteractionServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_GetDisabledShowContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisabledShowContextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).GetDisabledShowContext(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_GetDisabledShowContext_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).GetDisabledShowContext(ctx, req.(*GetDisabledShowContextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InteractionServiceOnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).OnBind(ctx, req.(*InteractionServiceOnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnLaunchVoiceAssistFromKeyguardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).OnLaunchVoiceAssistFromKeyguard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).OnLaunchVoiceAssistFromKeyguard(ctx, req.(*OnLaunchVoiceAssistFromKeyguardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_OnPrepareToShowSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPrepareToShowSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).OnPrepareToShowSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_OnPrepareToShowSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).OnPrepareToShowSession(ctx, req.(*OnPrepareToShowSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_OnReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReadyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).OnReady(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_OnReady_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).OnReady(ctx, req.(*OnReadyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_OnShowSessionFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnShowSessionFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).OnShowSessionFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_OnShowSessionFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).OnShowSessionFailed(ctx, req.(*OnShowSessionFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_OnShutdown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnShutdownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).OnShutdown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_OnShutdown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).OnShutdown(ctx, req.(*OnShutdownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_SetDisabledShowContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDisabledShowContextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).SetDisabledShowContext(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_SetDisabledShowContext_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).SetDisabledShowContext(ctx, req.(*SetDisabledShowContextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_SetUiHints_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUiHintsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).SetUiHints(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_SetUiHints_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).SetUiHints(ctx, req.(*SetUiHintsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_ShowSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShowSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).ShowSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_ShowSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).ShowSession(ctx, req.(*ShowSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractionServiceService_IsActiveService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsActiveServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractionServiceServiceServer).IsActiveService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractionServiceService_IsActiveService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractionServiceServiceServer).IsActiveService(ctx, req.(*IsActiveServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InteractionServiceService_ServiceDesc is the grpc.ServiceDesc for InteractionServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InteractionServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "voice.InteractionServiceService",
+	HandlerType: (*InteractionServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewInteractionService",
+			Handler:    _InteractionServiceService_NewInteractionService_Handler,
+		},
+		{
+			MethodName: "GetDisabledShowContext",
+			Handler:    _InteractionServiceService_GetDisabledShowContext_Handler,
+		},
+		{
+			MethodName: "OnBind",
+			Handler:    _InteractionServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnLaunchVoiceAssistFromKeyguard",
+			Handler:    _InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_Handler,
+		},
+		{
+			MethodName: "OnPrepareToShowSession",
+			Handler:    _InteractionServiceService_OnPrepareToShowSession_Handler,
+		},
+		{
+			MethodName: "OnReady",
+			Handler:    _InteractionServiceService_OnReady_Handler,
+		},
+		{
+			MethodName: "OnShowSessionFailed",
+			Handler:    _InteractionServiceService_OnShowSessionFailed_Handler,
+		},
+		{
+			MethodName: "OnShutdown",
+			Handler:    _InteractionServiceService_OnShutdown_Handler,
+		},
+		{
+			MethodName: "SetDisabledShowContext",
+			Handler:    _InteractionServiceService_SetDisabledShowContext_Handler,
+		},
+		{
+			MethodName: "SetUiHints",
+			Handler:    _InteractionServiceService_SetUiHints_Handler,
+		},
+		{
+			MethodName: "ShowSession",
+			Handler:    _InteractionServiceService_ShowSession_Handler,
+		},
+		{
+			MethodName: "IsActiveService",
+			Handler:    _InteractionServiceService_IsActiveService_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4122,820 +4936,6 @@ var InteractionSessionRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _InteractionSessionRequestService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/voice/voice.proto",
-}
-
-const (
-	InteractionServiceService_NewInteractionService_FullMethodName           = "/voice.InteractionServiceService/NewInteractionService"
-	InteractionServiceService_GetDisabledShowContext_FullMethodName          = "/voice.InteractionServiceService/GetDisabledShowContext"
-	InteractionServiceService_OnBind_FullMethodName                          = "/voice.InteractionServiceService/OnBind"
-	InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_FullMethodName = "/voice.InteractionServiceService/OnLaunchVoiceAssistFromKeyguard"
-	InteractionServiceService_OnPrepareToShowSession_FullMethodName          = "/voice.InteractionServiceService/OnPrepareToShowSession"
-	InteractionServiceService_OnReady_FullMethodName                         = "/voice.InteractionServiceService/OnReady"
-	InteractionServiceService_OnShowSessionFailed_FullMethodName             = "/voice.InteractionServiceService/OnShowSessionFailed"
-	InteractionServiceService_OnShutdown_FullMethodName                      = "/voice.InteractionServiceService/OnShutdown"
-	InteractionServiceService_SetDisabledShowContext_FullMethodName          = "/voice.InteractionServiceService/SetDisabledShowContext"
-	InteractionServiceService_SetUiHints_FullMethodName                      = "/voice.InteractionServiceService/SetUiHints"
-	InteractionServiceService_ShowSession_FullMethodName                     = "/voice.InteractionServiceService/ShowSession"
-	InteractionServiceService_IsActiveService_FullMethodName                 = "/voice.InteractionServiceService/IsActiveService"
-)
-
-// InteractionServiceServiceClient is the client API for InteractionServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InteractionServiceServiceClient interface {
-	NewInteractionService(ctx context.Context, in *NewInteractionServiceRequest, opts ...grpc.CallOption) (*NewInteractionServiceResponse, error)
-	GetDisabledShowContext(ctx context.Context, in *GetDisabledShowContextRequest, opts ...grpc.CallOption) (*GetDisabledShowContextResponse, error)
-	OnBind(ctx context.Context, in *InteractionServiceOnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-	OnLaunchVoiceAssistFromKeyguard(ctx context.Context, in *OnLaunchVoiceAssistFromKeyguardRequest, opts ...grpc.CallOption) (*OnLaunchVoiceAssistFromKeyguardResponse, error)
-	OnPrepareToShowSession(ctx context.Context, in *OnPrepareToShowSessionRequest, opts ...grpc.CallOption) (*OnPrepareToShowSessionResponse, error)
-	OnReady(ctx context.Context, in *OnReadyRequest, opts ...grpc.CallOption) (*OnReadyResponse, error)
-	OnShowSessionFailed(ctx context.Context, in *OnShowSessionFailedRequest, opts ...grpc.CallOption) (*OnShowSessionFailedResponse, error)
-	OnShutdown(ctx context.Context, in *OnShutdownRequest, opts ...grpc.CallOption) (*OnShutdownResponse, error)
-	SetDisabledShowContext(ctx context.Context, in *SetDisabledShowContextRequest, opts ...grpc.CallOption) (*SetDisabledShowContextResponse, error)
-	SetUiHints(ctx context.Context, in *SetUiHintsRequest, opts ...grpc.CallOption) (*SetUiHintsResponse, error)
-	ShowSession(ctx context.Context, in *ShowSessionRequest, opts ...grpc.CallOption) (*ShowSessionResponse, error)
-	IsActiveService(ctx context.Context, in *IsActiveServiceRequest, opts ...grpc.CallOption) (*IsActiveServiceResponse, error)
-}
-
-type interactionServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewInteractionServiceServiceClient(cc grpc.ClientConnInterface) InteractionServiceServiceClient {
-	return &interactionServiceServiceClient{cc}
-}
-
-func (c *interactionServiceServiceClient) NewInteractionService(ctx context.Context, in *NewInteractionServiceRequest, opts ...grpc.CallOption) (*NewInteractionServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInteractionServiceResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_NewInteractionService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) GetDisabledShowContext(ctx context.Context, in *GetDisabledShowContextRequest, opts ...grpc.CallOption) (*GetDisabledShowContextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDisabledShowContextResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_GetDisabledShowContext_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) OnBind(ctx context.Context, in *InteractionServiceOnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) OnLaunchVoiceAssistFromKeyguard(ctx context.Context, in *OnLaunchVoiceAssistFromKeyguardRequest, opts ...grpc.CallOption) (*OnLaunchVoiceAssistFromKeyguardResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnLaunchVoiceAssistFromKeyguardResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) OnPrepareToShowSession(ctx context.Context, in *OnPrepareToShowSessionRequest, opts ...grpc.CallOption) (*OnPrepareToShowSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPrepareToShowSessionResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_OnPrepareToShowSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) OnReady(ctx context.Context, in *OnReadyRequest, opts ...grpc.CallOption) (*OnReadyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnReadyResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_OnReady_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) OnShowSessionFailed(ctx context.Context, in *OnShowSessionFailedRequest, opts ...grpc.CallOption) (*OnShowSessionFailedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnShowSessionFailedResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_OnShowSessionFailed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) OnShutdown(ctx context.Context, in *OnShutdownRequest, opts ...grpc.CallOption) (*OnShutdownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnShutdownResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_OnShutdown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) SetDisabledShowContext(ctx context.Context, in *SetDisabledShowContextRequest, opts ...grpc.CallOption) (*SetDisabledShowContextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDisabledShowContextResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_SetDisabledShowContext_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) SetUiHints(ctx context.Context, in *SetUiHintsRequest, opts ...grpc.CallOption) (*SetUiHintsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUiHintsResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_SetUiHints_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) ShowSession(ctx context.Context, in *ShowSessionRequest, opts ...grpc.CallOption) (*ShowSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShowSessionResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_ShowSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *interactionServiceServiceClient) IsActiveService(ctx context.Context, in *IsActiveServiceRequest, opts ...grpc.CallOption) (*IsActiveServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsActiveServiceResponse)
-	err := c.cc.Invoke(ctx, InteractionServiceService_IsActiveService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// InteractionServiceServiceServer is the server API for InteractionServiceService service.
-// All implementations must embed UnimplementedInteractionServiceServiceServer
-// for forward compatibility.
-type InteractionServiceServiceServer interface {
-	NewInteractionService(context.Context, *NewInteractionServiceRequest) (*NewInteractionServiceResponse, error)
-	GetDisabledShowContext(context.Context, *GetDisabledShowContextRequest) (*GetDisabledShowContextResponse, error)
-	OnBind(context.Context, *InteractionServiceOnBindRequest) (*OnBindResponse, error)
-	OnLaunchVoiceAssistFromKeyguard(context.Context, *OnLaunchVoiceAssistFromKeyguardRequest) (*OnLaunchVoiceAssistFromKeyguardResponse, error)
-	OnPrepareToShowSession(context.Context, *OnPrepareToShowSessionRequest) (*OnPrepareToShowSessionResponse, error)
-	OnReady(context.Context, *OnReadyRequest) (*OnReadyResponse, error)
-	OnShowSessionFailed(context.Context, *OnShowSessionFailedRequest) (*OnShowSessionFailedResponse, error)
-	OnShutdown(context.Context, *OnShutdownRequest) (*OnShutdownResponse, error)
-	SetDisabledShowContext(context.Context, *SetDisabledShowContextRequest) (*SetDisabledShowContextResponse, error)
-	SetUiHints(context.Context, *SetUiHintsRequest) (*SetUiHintsResponse, error)
-	ShowSession(context.Context, *ShowSessionRequest) (*ShowSessionResponse, error)
-	IsActiveService(context.Context, *IsActiveServiceRequest) (*IsActiveServiceResponse, error)
-	mustEmbedUnimplementedInteractionServiceServiceServer()
-}
-
-// UnimplementedInteractionServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedInteractionServiceServiceServer struct{}
-
-func (UnimplementedInteractionServiceServiceServer) NewInteractionService(context.Context, *NewInteractionServiceRequest) (*NewInteractionServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInteractionService not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) GetDisabledShowContext(context.Context, *GetDisabledShowContextRequest) (*GetDisabledShowContextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDisabledShowContext not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) OnBind(context.Context, *InteractionServiceOnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) OnLaunchVoiceAssistFromKeyguard(context.Context, *OnLaunchVoiceAssistFromKeyguardRequest) (*OnLaunchVoiceAssistFromKeyguardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnLaunchVoiceAssistFromKeyguard not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) OnPrepareToShowSession(context.Context, *OnPrepareToShowSessionRequest) (*OnPrepareToShowSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPrepareToShowSession not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) OnReady(context.Context, *OnReadyRequest) (*OnReadyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnReady not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) OnShowSessionFailed(context.Context, *OnShowSessionFailedRequest) (*OnShowSessionFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnShowSessionFailed not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) OnShutdown(context.Context, *OnShutdownRequest) (*OnShutdownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnShutdown not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) SetDisabledShowContext(context.Context, *SetDisabledShowContextRequest) (*SetDisabledShowContextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDisabledShowContext not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) SetUiHints(context.Context, *SetUiHintsRequest) (*SetUiHintsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUiHints not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) ShowSession(context.Context, *ShowSessionRequest) (*ShowSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ShowSession not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) IsActiveService(context.Context, *IsActiveServiceRequest) (*IsActiveServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsActiveService not implemented")
-}
-func (UnimplementedInteractionServiceServiceServer) mustEmbedUnimplementedInteractionServiceServiceServer() {
-}
-func (UnimplementedInteractionServiceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeInteractionServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InteractionServiceServiceServer will
-// result in compilation errors.
-type UnsafeInteractionServiceServiceServer interface {
-	mustEmbedUnimplementedInteractionServiceServiceServer()
-}
-
-func RegisterInteractionServiceServiceServer(s grpc.ServiceRegistrar, srv InteractionServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedInteractionServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&InteractionServiceService_ServiceDesc, srv)
-}
-
-func _InteractionServiceService_NewInteractionService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInteractionServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).NewInteractionService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_NewInteractionService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).NewInteractionService(ctx, req.(*NewInteractionServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_GetDisabledShowContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDisabledShowContextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).GetDisabledShowContext(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_GetDisabledShowContext_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).GetDisabledShowContext(ctx, req.(*GetDisabledShowContextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InteractionServiceOnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).OnBind(ctx, req.(*InteractionServiceOnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnLaunchVoiceAssistFromKeyguardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).OnLaunchVoiceAssistFromKeyguard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).OnLaunchVoiceAssistFromKeyguard(ctx, req.(*OnLaunchVoiceAssistFromKeyguardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_OnPrepareToShowSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPrepareToShowSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).OnPrepareToShowSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_OnPrepareToShowSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).OnPrepareToShowSession(ctx, req.(*OnPrepareToShowSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_OnReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnReadyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).OnReady(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_OnReady_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).OnReady(ctx, req.(*OnReadyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_OnShowSessionFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnShowSessionFailedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).OnShowSessionFailed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_OnShowSessionFailed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).OnShowSessionFailed(ctx, req.(*OnShowSessionFailedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_OnShutdown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnShutdownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).OnShutdown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_OnShutdown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).OnShutdown(ctx, req.(*OnShutdownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_SetDisabledShowContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDisabledShowContextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).SetDisabledShowContext(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_SetDisabledShowContext_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).SetDisabledShowContext(ctx, req.(*SetDisabledShowContextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_SetUiHints_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUiHintsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).SetUiHints(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_SetUiHints_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).SetUiHints(ctx, req.(*SetUiHintsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_ShowSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShowSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).ShowSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_ShowSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).ShowSession(ctx, req.(*ShowSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InteractionServiceService_IsActiveService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsActiveServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InteractionServiceServiceServer).IsActiveService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InteractionServiceService_IsActiveService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractionServiceServiceServer).IsActiveService(ctx, req.(*IsActiveServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// InteractionServiceService_ServiceDesc is the grpc.ServiceDesc for InteractionServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var InteractionServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "voice.InteractionServiceService",
-	HandlerType: (*InteractionServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewInteractionService",
-			Handler:    _InteractionServiceService_NewInteractionService_Handler,
-		},
-		{
-			MethodName: "GetDisabledShowContext",
-			Handler:    _InteractionServiceService_GetDisabledShowContext_Handler,
-		},
-		{
-			MethodName: "OnBind",
-			Handler:    _InteractionServiceService_OnBind_Handler,
-		},
-		{
-			MethodName: "OnLaunchVoiceAssistFromKeyguard",
-			Handler:    _InteractionServiceService_OnLaunchVoiceAssistFromKeyguard_Handler,
-		},
-		{
-			MethodName: "OnPrepareToShowSession",
-			Handler:    _InteractionServiceService_OnPrepareToShowSession_Handler,
-		},
-		{
-			MethodName: "OnReady",
-			Handler:    _InteractionServiceService_OnReady_Handler,
-		},
-		{
-			MethodName: "OnShowSessionFailed",
-			Handler:    _InteractionServiceService_OnShowSessionFailed_Handler,
-		},
-		{
-			MethodName: "OnShutdown",
-			Handler:    _InteractionServiceService_OnShutdown_Handler,
-		},
-		{
-			MethodName: "SetDisabledShowContext",
-			Handler:    _InteractionServiceService_SetDisabledShowContext_Handler,
-		},
-		{
-			MethodName: "SetUiHints",
-			Handler:    _InteractionServiceService_SetUiHints_Handler,
-		},
-		{
-			MethodName: "ShowSession",
-			Handler:    _InteractionServiceService_ShowSession_Handler,
-		},
-		{
-			MethodName: "IsActiveService",
-			Handler:    _InteractionServiceService_IsActiveService_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/voice/voice.proto",
-}
-
-const (
-	VisibleActivityInfoService_DescribeContents_FullMethodName = "/voice.VisibleActivityInfoService/DescribeContents"
-	VisibleActivityInfoService_Equals_FullMethodName           = "/voice.VisibleActivityInfoService/Equals"
-	VisibleActivityInfoService_GetActivityId_FullMethodName    = "/voice.VisibleActivityInfoService/GetActivityId"
-	VisibleActivityInfoService_HashCode_FullMethodName         = "/voice.VisibleActivityInfoService/HashCode"
-	VisibleActivityInfoService_ToString_FullMethodName         = "/voice.VisibleActivityInfoService/ToString"
-	VisibleActivityInfoService_WriteToParcel_FullMethodName    = "/voice.VisibleActivityInfoService/WriteToParcel"
-)
-
-// VisibleActivityInfoServiceClient is the client API for VisibleActivityInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VisibleActivityInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetActivityId(ctx context.Context, in *GetActivityIdRequest, opts ...grpc.CallOption) (*GetActivityIdResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type visibleActivityInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewVisibleActivityInfoServiceClient(cc grpc.ClientConnInterface) VisibleActivityInfoServiceClient {
-	return &visibleActivityInfoServiceClient{cc}
-}
-
-func (c *visibleActivityInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, VisibleActivityInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibleActivityInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, VisibleActivityInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibleActivityInfoServiceClient) GetActivityId(ctx context.Context, in *GetActivityIdRequest, opts ...grpc.CallOption) (*GetActivityIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityIdResponse)
-	err := c.cc.Invoke(ctx, VisibleActivityInfoService_GetActivityId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibleActivityInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, VisibleActivityInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibleActivityInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, VisibleActivityInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visibleActivityInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, VisibleActivityInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// VisibleActivityInfoServiceServer is the server API for VisibleActivityInfoService service.
-// All implementations must embed UnimplementedVisibleActivityInfoServiceServer
-// for forward compatibility.
-type VisibleActivityInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetActivityId(context.Context, *GetActivityIdRequest) (*GetActivityIdResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedVisibleActivityInfoServiceServer()
-}
-
-// UnimplementedVisibleActivityInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedVisibleActivityInfoServiceServer struct{}
-
-func (UnimplementedVisibleActivityInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedVisibleActivityInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedVisibleActivityInfoServiceServer) GetActivityId(context.Context, *GetActivityIdRequest) (*GetActivityIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityId not implemented")
-}
-func (UnimplementedVisibleActivityInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedVisibleActivityInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedVisibleActivityInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedVisibleActivityInfoServiceServer) mustEmbedUnimplementedVisibleActivityInfoServiceServer() {
-}
-func (UnimplementedVisibleActivityInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeVisibleActivityInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VisibleActivityInfoServiceServer will
-// result in compilation errors.
-type UnsafeVisibleActivityInfoServiceServer interface {
-	mustEmbedUnimplementedVisibleActivityInfoServiceServer()
-}
-
-func RegisterVisibleActivityInfoServiceServer(s grpc.ServiceRegistrar, srv VisibleActivityInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedVisibleActivityInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&VisibleActivityInfoService_ServiceDesc, srv)
-}
-
-func _VisibleActivityInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibleActivityInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibleActivityInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibleActivityInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibleActivityInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibleActivityInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibleActivityInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibleActivityInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibleActivityInfoService_GetActivityId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibleActivityInfoServiceServer).GetActivityId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibleActivityInfoService_GetActivityId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibleActivityInfoServiceServer).GetActivityId(ctx, req.(*GetActivityIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibleActivityInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibleActivityInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibleActivityInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibleActivityInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibleActivityInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibleActivityInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibleActivityInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibleActivityInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisibleActivityInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisibleActivityInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisibleActivityInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisibleActivityInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// VisibleActivityInfoService_ServiceDesc is the grpc.ServiceDesc for VisibleActivityInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var VisibleActivityInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "voice.VisibleActivityInfoService",
-	HandlerType: (*VisibleActivityInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _VisibleActivityInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _VisibleActivityInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetActivityId",
-			Handler:    _VisibleActivityInfoService_GetActivityId_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _VisibleActivityInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _VisibleActivityInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _VisibleActivityInfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

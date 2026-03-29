@@ -6,6 +6,49 @@ package om;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/om";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message RegisterFabricatedOverlayRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterFabricatedOverlayResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message UnregisterFabricatedOverlayRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterFabricatedOverlayResponse {
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewInstanceRequest {
+}
+
+message NewInstanceResponse {
+  int64 result = 1;
+}
+
 message NewFabricatedOverlayRequest {
   string arg0 = 1;
   string arg1 = 2;
@@ -83,13 +126,6 @@ message SetTargetOverlayableRequest {
 message SetTargetOverlayableResponse {
 }
 
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
 message EqualsRequest {
   int64 arg0 = 1;
 }
@@ -105,19 +141,19 @@ message HashCodeResponse {
   int32 result = 1;
 }
 
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
+message CommitRequest {
   int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
-message WriteToParcelResponse {
+message CommitResponse {
+}
+
+message GetOverlayInfosForTargetRequest {
+  string arg0 = 1;
+}
+
+message GetOverlayInfosForTargetResponse {
+  int64 result = 1;
 }
 
 message GetOverlayIdentifierRequest {
@@ -148,32 +184,13 @@ message GetTargetPackageNameResponse {
   string result = 1;
 }
 
-message CommitRequest {
-  int64 arg0 = 1;
-}
-
-message CommitResponse {
-}
-
-message RegisterFabricatedOverlayRequest {
-  int64 arg0 = 1;
-}
-
-message RegisterFabricatedOverlayResponse {
-}
-
-message UnregisterFabricatedOverlayRequest {
-  int64 arg0 = 1;
-}
-
-message UnregisterFabricatedOverlayResponse {
-}
-
-message NewInstanceRequest {
-}
-
-message NewInstanceResponse {
-  int64 result = 1;
+service OverlayManagerTransactionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc RegisterFabricatedOverlay (RegisterFabricatedOverlayRequest) returns (RegisterFabricatedOverlayResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UnregisterFabricatedOverlay (UnregisterFabricatedOverlayRequest) returns (UnregisterFabricatedOverlayResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc NewInstance (NewInstanceRequest) returns (NewInstanceResponse);
 }
 
 service FabricatedOverlayService {
@@ -195,6 +212,11 @@ service OverlayIdentifierService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
+service OverlayManagerService {
+  rpc Commit (CommitRequest) returns (CommitResponse);
+  rpc GetOverlayInfosForTarget (GetOverlayInfosForTargetRequest) returns (GetOverlayInfosForTargetResponse);
+}
+
 service OverlayInfoService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
@@ -205,17 +227,4 @@ service OverlayInfoService {
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service OverlayManagerService {
-  rpc Commit (CommitRequest) returns (CommitResponse);
-}
-
-service OverlayManagerTransactionService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc RegisterFabricatedOverlay (RegisterFabricatedOverlayRequest) returns (RegisterFabricatedOverlayResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UnregisterFabricatedOverlay (UnregisterFabricatedOverlayRequest) returns (UnregisterFabricatedOverlayResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc NewInstance (NewInstanceRequest) returns (NewInstanceResponse);
 }

@@ -123,6 +123,261 @@ var DeviceTypesService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ProviderServiceService_CreatePublisherForAllAvailable_FullMethodName = "/controls.ProviderServiceService/CreatePublisherForAllAvailable"
+	ProviderServiceService_CreatePublisherForSuggested_FullMethodName    = "/controls.ProviderServiceService/CreatePublisherForSuggested"
+	ProviderServiceService_OnBind_FullMethodName                         = "/controls.ProviderServiceService/OnBind"
+	ProviderServiceService_OnUnbind_FullMethodName                       = "/controls.ProviderServiceService/OnUnbind"
+	ProviderServiceService_RequestAddControl_FullMethodName              = "/controls.ProviderServiceService/RequestAddControl"
+)
+
+// ProviderServiceServiceClient is the client API for ProviderServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ProviderServiceServiceClient interface {
+	CreatePublisherForAllAvailable(ctx context.Context, in *CreatePublisherForAllAvailableRequest, opts ...grpc.CallOption) (*CreatePublisherForAllAvailableResponse, error)
+	CreatePublisherForSuggested(ctx context.Context, in *CreatePublisherForSuggestedRequest, opts ...grpc.CallOption) (*CreatePublisherForSuggestedResponse, error)
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnUnbind(ctx context.Context, in *OnUnbindRequest, opts ...grpc.CallOption) (*OnUnbindResponse, error)
+	RequestAddControl(ctx context.Context, in *RequestAddControlRequest, opts ...grpc.CallOption) (*RequestAddControlResponse, error)
+}
+
+type providerServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewProviderServiceServiceClient(cc grpc.ClientConnInterface) ProviderServiceServiceClient {
+	return &providerServiceServiceClient{cc}
+}
+
+func (c *providerServiceServiceClient) CreatePublisherForAllAvailable(ctx context.Context, in *CreatePublisherForAllAvailableRequest, opts ...grpc.CallOption) (*CreatePublisherForAllAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePublisherForAllAvailableResponse)
+	err := c.cc.Invoke(ctx, ProviderServiceService_CreatePublisherForAllAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceServiceClient) CreatePublisherForSuggested(ctx context.Context, in *CreatePublisherForSuggestedRequest, opts ...grpc.CallOption) (*CreatePublisherForSuggestedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePublisherForSuggestedResponse)
+	err := c.cc.Invoke(ctx, ProviderServiceService_CreatePublisherForSuggested_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, ProviderServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceServiceClient) OnUnbind(ctx context.Context, in *OnUnbindRequest, opts ...grpc.CallOption) (*OnUnbindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnbindResponse)
+	err := c.cc.Invoke(ctx, ProviderServiceService_OnUnbind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceServiceClient) RequestAddControl(ctx context.Context, in *RequestAddControlRequest, opts ...grpc.CallOption) (*RequestAddControlResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestAddControlResponse)
+	err := c.cc.Invoke(ctx, ProviderServiceService_RequestAddControl_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ProviderServiceServiceServer is the server API for ProviderServiceService service.
+// All implementations must embed UnimplementedProviderServiceServiceServer
+// for forward compatibility.
+type ProviderServiceServiceServer interface {
+	CreatePublisherForAllAvailable(context.Context, *CreatePublisherForAllAvailableRequest) (*CreatePublisherForAllAvailableResponse, error)
+	CreatePublisherForSuggested(context.Context, *CreatePublisherForSuggestedRequest) (*CreatePublisherForSuggestedResponse, error)
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnUnbind(context.Context, *OnUnbindRequest) (*OnUnbindResponse, error)
+	RequestAddControl(context.Context, *RequestAddControlRequest) (*RequestAddControlResponse, error)
+	mustEmbedUnimplementedProviderServiceServiceServer()
+}
+
+// UnimplementedProviderServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedProviderServiceServiceServer struct{}
+
+func (UnimplementedProviderServiceServiceServer) CreatePublisherForAllAvailable(context.Context, *CreatePublisherForAllAvailableRequest) (*CreatePublisherForAllAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreatePublisherForAllAvailable not implemented")
+}
+func (UnimplementedProviderServiceServiceServer) CreatePublisherForSuggested(context.Context, *CreatePublisherForSuggestedRequest) (*CreatePublisherForSuggestedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreatePublisherForSuggested not implemented")
+}
+func (UnimplementedProviderServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedProviderServiceServiceServer) OnUnbind(context.Context, *OnUnbindRequest) (*OnUnbindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnbind not implemented")
+}
+func (UnimplementedProviderServiceServiceServer) RequestAddControl(context.Context, *RequestAddControlRequest) (*RequestAddControlResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestAddControl not implemented")
+}
+func (UnimplementedProviderServiceServiceServer) mustEmbedUnimplementedProviderServiceServiceServer() {
+}
+func (UnimplementedProviderServiceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeProviderServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProviderServiceServiceServer will
+// result in compilation errors.
+type UnsafeProviderServiceServiceServer interface {
+	mustEmbedUnimplementedProviderServiceServiceServer()
+}
+
+func RegisterProviderServiceServiceServer(s grpc.ServiceRegistrar, srv ProviderServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedProviderServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ProviderServiceService_ServiceDesc, srv)
+}
+
+func _ProviderServiceService_CreatePublisherForAllAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePublisherForAllAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServiceServer).CreatePublisherForAllAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderServiceService_CreatePublisherForAllAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServiceServer).CreatePublisherForAllAvailable(ctx, req.(*CreatePublisherForAllAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderServiceService_CreatePublisherForSuggested_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePublisherForSuggestedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServiceServer).CreatePublisherForSuggested(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderServiceService_CreatePublisherForSuggested_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServiceServer).CreatePublisherForSuggested(ctx, req.(*CreatePublisherForSuggestedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderServiceService_OnUnbind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUnbindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServiceServer).OnUnbind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderServiceService_OnUnbind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServiceServer).OnUnbind(ctx, req.(*OnUnbindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderServiceService_RequestAddControl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestAddControlRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServiceServer).RequestAddControl(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderServiceService_RequestAddControl_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServiceServer).RequestAddControl(ctx, req.(*RequestAddControlRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ProviderServiceService_ServiceDesc is the grpc.ServiceDesc for ProviderServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ProviderServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "controls.ProviderServiceService",
+	HandlerType: (*ProviderServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreatePublisherForAllAvailable",
+			Handler:    _ProviderServiceService_CreatePublisherForAllAvailable_Handler,
+		},
+		{
+			MethodName: "CreatePublisherForSuggested",
+			Handler:    _ProviderServiceService_CreatePublisherForSuggested_Handler,
+		},
+		{
+			MethodName: "OnBind",
+			Handler:    _ProviderServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnUnbind",
+			Handler:    _ProviderServiceService_OnUnbind_Handler,
+		},
+		{
+			MethodName: "RequestAddControl",
+			Handler:    _ProviderServiceService_RequestAddControl_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/controls/controls.proto",
+}
+
+const (
 	ControlService_DescribeContents_FullMethodName   = "/controls.ControlService/DescribeContents"
 	ControlService_GetAppIntent_FullMethodName       = "/controls.ControlService/GetAppIntent"
 	ControlService_GetControlId_FullMethodName       = "/controls.ControlService/GetControlId"
@@ -1792,185 +2047,6 @@ var ControlStatelessBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetZone",
 			Handler:    _ControlStatelessBuilderService_SetZone_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/controls/controls.proto",
-}
-
-const (
-	ProviderServiceService_OnBind_FullMethodName            = "/controls.ProviderServiceService/OnBind"
-	ProviderServiceService_OnUnbind_FullMethodName          = "/controls.ProviderServiceService/OnUnbind"
-	ProviderServiceService_RequestAddControl_FullMethodName = "/controls.ProviderServiceService/RequestAddControl"
-)
-
-// ProviderServiceServiceClient is the client API for ProviderServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ProviderServiceServiceClient interface {
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-	OnUnbind(ctx context.Context, in *OnUnbindRequest, opts ...grpc.CallOption) (*OnUnbindResponse, error)
-	RequestAddControl(ctx context.Context, in *RequestAddControlRequest, opts ...grpc.CallOption) (*RequestAddControlResponse, error)
-}
-
-type providerServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewProviderServiceServiceClient(cc grpc.ClientConnInterface) ProviderServiceServiceClient {
-	return &providerServiceServiceClient{cc}
-}
-
-func (c *providerServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, ProviderServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceServiceClient) OnUnbind(ctx context.Context, in *OnUnbindRequest, opts ...grpc.CallOption) (*OnUnbindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnUnbindResponse)
-	err := c.cc.Invoke(ctx, ProviderServiceService_OnUnbind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceServiceClient) RequestAddControl(ctx context.Context, in *RequestAddControlRequest, opts ...grpc.CallOption) (*RequestAddControlResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestAddControlResponse)
-	err := c.cc.Invoke(ctx, ProviderServiceService_RequestAddControl_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ProviderServiceServiceServer is the server API for ProviderServiceService service.
-// All implementations must embed UnimplementedProviderServiceServiceServer
-// for forward compatibility.
-type ProviderServiceServiceServer interface {
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	OnUnbind(context.Context, *OnUnbindRequest) (*OnUnbindResponse, error)
-	RequestAddControl(context.Context, *RequestAddControlRequest) (*RequestAddControlResponse, error)
-	mustEmbedUnimplementedProviderServiceServiceServer()
-}
-
-// UnimplementedProviderServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedProviderServiceServiceServer struct{}
-
-func (UnimplementedProviderServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedProviderServiceServiceServer) OnUnbind(context.Context, *OnUnbindRequest) (*OnUnbindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnUnbind not implemented")
-}
-func (UnimplementedProviderServiceServiceServer) RequestAddControl(context.Context, *RequestAddControlRequest) (*RequestAddControlResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestAddControl not implemented")
-}
-func (UnimplementedProviderServiceServiceServer) mustEmbedUnimplementedProviderServiceServiceServer() {
-}
-func (UnimplementedProviderServiceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeProviderServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ProviderServiceServiceServer will
-// result in compilation errors.
-type UnsafeProviderServiceServiceServer interface {
-	mustEmbedUnimplementedProviderServiceServiceServer()
-}
-
-func RegisterProviderServiceServiceServer(s grpc.ServiceRegistrar, srv ProviderServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedProviderServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ProviderServiceService_ServiceDesc, srv)
-}
-
-func _ProviderServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderServiceService_OnUnbind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnUnbindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServiceServer).OnUnbind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderServiceService_OnUnbind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServiceServer).OnUnbind(ctx, req.(*OnUnbindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderServiceService_RequestAddControl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestAddControlRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServiceServer).RequestAddControl(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderServiceService_RequestAddControl_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServiceServer).RequestAddControl(ctx, req.(*RequestAddControlRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ProviderServiceService_ServiceDesc is the grpc.ServiceDesc for ProviderServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ProviderServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "controls.ProviderServiceService",
-	HandlerType: (*ProviderServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnBind",
-			Handler:    _ProviderServiceService_OnBind_Handler,
-		},
-		{
-			MethodName: "OnUnbind",
-			Handler:    _ProviderServiceService_OnUnbind_Handler,
-		},
-		{
-			MethodName: "RequestAddControl",
-			Handler:    _ProviderServiceService_RequestAddControl_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

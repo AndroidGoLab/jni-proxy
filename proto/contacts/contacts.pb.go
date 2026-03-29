@@ -3143,6 +3143,94 @@ func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
 	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{67}
 }
 
+type GetSimAccountsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSimAccountsRequest) Reset() {
+	*x = GetSimAccountsRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSimAccountsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSimAccountsRequest) ProtoMessage() {}
+
+func (x *GetSimAccountsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSimAccountsRequest.ProtoReflect.Descriptor instead.
+func (*GetSimAccountsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetSimAccountsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetSimAccountsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSimAccountsResponse) Reset() {
+	*x = GetSimAccountsResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSimAccountsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSimAccountsResponse) ProtoMessage() {}
+
+func (x *GetSimAccountsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSimAccountsResponse.ProtoReflect.Descriptor instead.
+func (*GetSimAccountsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetSimAccountsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetPresenceIconResourceIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -3152,7 +3240,7 @@ type GetPresenceIconResourceIdRequest struct {
 
 func (x *GetPresenceIconResourceIdRequest) Reset() {
 	*x = GetPresenceIconResourceIdRequest{}
-	mi := &file_proto_contacts_contacts_proto_msgTypes[68]
+	mi := &file_proto_contacts_contacts_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3164,7 +3252,7 @@ func (x *GetPresenceIconResourceIdRequest) String() string {
 func (*GetPresenceIconResourceIdRequest) ProtoMessage() {}
 
 func (x *GetPresenceIconResourceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_contacts_contacts_proto_msgTypes[68]
+	mi := &file_proto_contacts_contacts_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3177,7 +3265,7 @@ func (x *GetPresenceIconResourceIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPresenceIconResourceIdRequest.ProtoReflect.Descriptor instead.
 func (*GetPresenceIconResourceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{68}
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *GetPresenceIconResourceIdRequest) GetArg0() int32 {
@@ -3196,7 +3284,7 @@ type GetPresenceIconResourceIdResponse struct {
 
 func (x *GetPresenceIconResourceIdResponse) Reset() {
 	*x = GetPresenceIconResourceIdResponse{}
-	mi := &file_proto_contacts_contacts_proto_msgTypes[69]
+	mi := &file_proto_contacts_contacts_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3208,7 +3296,7 @@ func (x *GetPresenceIconResourceIdResponse) String() string {
 func (*GetPresenceIconResourceIdResponse) ProtoMessage() {}
 
 func (x *GetPresenceIconResourceIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_contacts_contacts_proto_msgTypes[69]
+	mi := &file_proto_contacts_contacts_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3221,7 +3309,7 @@ func (x *GetPresenceIconResourceIdResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetPresenceIconResourceIdResponse.ProtoReflect.Descriptor instead.
 func (*GetPresenceIconResourceIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{69}
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetPresenceIconResourceIdResponse) GetResult() int32 {
@@ -3240,7 +3328,7 @@ type GetPresencePrecedenceRequest struct {
 
 func (x *GetPresencePrecedenceRequest) Reset() {
 	*x = GetPresencePrecedenceRequest{}
-	mi := &file_proto_contacts_contacts_proto_msgTypes[70]
+	mi := &file_proto_contacts_contacts_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3252,7 +3340,7 @@ func (x *GetPresencePrecedenceRequest) String() string {
 func (*GetPresencePrecedenceRequest) ProtoMessage() {}
 
 func (x *GetPresencePrecedenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_contacts_contacts_proto_msgTypes[70]
+	mi := &file_proto_contacts_contacts_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3265,7 +3353,7 @@ func (x *GetPresencePrecedenceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPresencePrecedenceRequest.ProtoReflect.Descriptor instead.
 func (*GetPresencePrecedenceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{70}
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *GetPresencePrecedenceRequest) GetArg0() int32 {
@@ -3284,7 +3372,7 @@ type GetPresencePrecedenceResponse struct {
 
 func (x *GetPresencePrecedenceResponse) Reset() {
 	*x = GetPresencePrecedenceResponse{}
-	mi := &file_proto_contacts_contacts_proto_msgTypes[71]
+	mi := &file_proto_contacts_contacts_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3296,7 +3384,7 @@ func (x *GetPresencePrecedenceResponse) String() string {
 func (*GetPresencePrecedenceResponse) ProtoMessage() {}
 
 func (x *GetPresencePrecedenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_contacts_contacts_proto_msgTypes[71]
+	mi := &file_proto_contacts_contacts_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3309,7 +3397,7 @@ func (x *GetPresencePrecedenceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPresencePrecedenceResponse.ProtoReflect.Descriptor instead.
 func (*GetPresencePrecedenceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{71}
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *GetPresencePrecedenceResponse) GetResult() int32 {
@@ -3478,7 +3566,11 @@ const file_proto_contacts_contacts_proto_rawDesc = "" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"6\n" +
+	"\x15WriteToParcelResponse\"+\n" +
+	"\x15GetSimAccountsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16GetSimAccountsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
 	" GetPresenceIconResourceIdRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\";\n" +
 	"!GetPresenceIconResourceIdResponse\x12\x16\n" +
@@ -3533,7 +3625,9 @@ const file_proto_contacts_contacts_proto_rawDesc = "" +
 	"\tGetEfType\x12\x1a.contacts.GetEfTypeRequest\x1a\x1b.contacts.GetEfTypeResponse\x12V\n" +
 	"\x0fGetSimSlotIndex\x12 .contacts.GetSimSlotIndexRequest\x1a!.contacts.GetSimSlotIndexResponse\x12A\n" +
 	"\bHashCode\x12\x19.contacts.HashCodeRequest\x1a\x1a.contacts.HashCodeResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.contacts.WriteToParcelRequest\x1a\x1f.contacts.WriteToParcelResponse2\xfe\x01\n" +
+	"\rWriteToParcel\x12\x1e.contacts.WriteToParcelRequest\x1a\x1f.contacts.WriteToParcelResponse2q\n" +
+	"\x1aContractSimContactsService\x12S\n" +
+	"\x0eGetSimAccounts\x12\x1f.contacts.GetSimAccountsRequest\x1a .contacts.GetSimAccountsResponse2\xfe\x01\n" +
 	"\x1cContractStatusUpdatesService\x12t\n" +
 	"\x19GetPresenceIconResourceId\x12*.contacts.GetPresenceIconResourceIdRequest\x1a+.contacts.GetPresenceIconResourceIdResponse\x12h\n" +
 	"\x15GetPresencePrecedence\x12&.contacts.GetPresencePrecedenceRequest\x1a'.contacts.GetPresencePrecedenceResponse2\xda\x01\n" +
@@ -3554,7 +3648,7 @@ func file_proto_contacts_contacts_proto_rawDescGZIP() []byte {
 	return file_proto_contacts_contacts_proto_rawDescData
 }
 
-var file_proto_contacts_contacts_proto_msgTypes = make([]protoimpl.MessageInfo, 72)
+var file_proto_contacts_contacts_proto_msgTypes = make([]protoimpl.MessageInfo, 74)
 var file_proto_contacts_contacts_proto_goTypes = []any{
 	(*NewContractRequest)(nil),                     // 0: contacts.NewContractRequest
 	(*NewContractResponse)(nil),                    // 1: contacts.NewContractResponse
@@ -3624,10 +3718,12 @@ var file_proto_contacts_contacts_proto_goTypes = []any{
 	(*HashCodeResponse)(nil),                       // 65: contacts.HashCodeResponse
 	(*WriteToParcelRequest)(nil),                   // 66: contacts.WriteToParcelRequest
 	(*WriteToParcelResponse)(nil),                  // 67: contacts.WriteToParcelResponse
-	(*GetPresenceIconResourceIdRequest)(nil),       // 68: contacts.GetPresenceIconResourceIdRequest
-	(*GetPresenceIconResourceIdResponse)(nil),      // 69: contacts.GetPresenceIconResourceIdResponse
-	(*GetPresencePrecedenceRequest)(nil),           // 70: contacts.GetPresencePrecedenceRequest
-	(*GetPresencePrecedenceResponse)(nil),          // 71: contacts.GetPresencePrecedenceResponse
+	(*GetSimAccountsRequest)(nil),                  // 68: contacts.GetSimAccountsRequest
+	(*GetSimAccountsResponse)(nil),                 // 69: contacts.GetSimAccountsResponse
+	(*GetPresenceIconResourceIdRequest)(nil),       // 70: contacts.GetPresenceIconResourceIdRequest
+	(*GetPresenceIconResourceIdResponse)(nil),      // 71: contacts.GetPresenceIconResourceIdResponse
+	(*GetPresencePrecedenceRequest)(nil),           // 72: contacts.GetPresencePrecedenceRequest
+	(*GetPresencePrecedenceResponse)(nil),          // 73: contacts.GetPresencePrecedenceResponse
 }
 var file_proto_contacts_contacts_proto_depIdxs = []int32{
 	0,  // 0: contacts.ContractService.NewContract:input_type -> contacts.NewContractRequest
@@ -3666,54 +3762,56 @@ var file_proto_contacts_contacts_proto_depIdxs = []int32{
 	62, // 33: contacts.ContractSimAccountService.GetSimSlotIndex:input_type -> contacts.GetSimSlotIndexRequest
 	64, // 34: contacts.ContractSimAccountService.HashCode:input_type -> contacts.HashCodeRequest
 	66, // 35: contacts.ContractSimAccountService.WriteToParcel:input_type -> contacts.WriteToParcelRequest
-	68, // 36: contacts.ContractStatusUpdatesService.GetPresenceIconResourceId:input_type -> contacts.GetPresenceIconResourceIdRequest
-	70, // 37: contacts.ContractStatusUpdatesService.GetPresencePrecedence:input_type -> contacts.GetPresencePrecedenceRequest
-	32, // 38: contacts.ContractSyncStateService.Get:input_type -> contacts.GetRequest
-	34, // 39: contacts.ContractSyncStateService.NewSetOperation:input_type -> contacts.NewSetOperationRequest
-	36, // 40: contacts.ContractSyncStateService.Set:input_type -> contacts.SetRequest
-	1,  // 41: contacts.ContractService.NewContract:output_type -> contacts.NewContractResponse
-	3,  // 42: contacts.ContractService.IsProfileId:output_type -> contacts.IsProfileIdResponse
-	5,  // 43: contacts.ContractContactsService.GetLookupUri2:output_type -> contacts.GetLookupUri2Response
-	7,  // 44: contacts.ContractContactsService.GetLookupUri2_1:output_type -> contacts.GetLookupUri2_1Response
-	9,  // 45: contacts.ContractContactsService.IsEnterpriseContactId:output_type -> contacts.IsEnterpriseContactIdResponse
-	11, // 46: contacts.ContractContactsService.LookupContact:output_type -> contacts.LookupContactResponse
-	13, // 47: contacts.ContractContactsService.MarkAsContacted:output_type -> contacts.MarkAsContactedResponse
-	15, // 48: contacts.ContractContactsService.OpenContactPhotoInputStream2:output_type -> contacts.OpenContactPhotoInputStream2Response
-	17, // 49: contacts.ContractContactsService.OpenContactPhotoInputStream3_1:output_type -> contacts.OpenContactPhotoInputStream3_1Response
-	19, // 50: contacts.ContractDataService.GetContactLookupUri:output_type -> contacts.GetContactLookupUriResponse
-	21, // 51: contacts.ContractDirectoryService.IsEnterpriseDirectoryId:output_type -> contacts.IsEnterpriseDirectoryIdResponse
-	23, // 52: contacts.ContractDirectoryService.IsRemoteDirectoryId:output_type -> contacts.IsRemoteDirectoryIdResponse
-	25, // 53: contacts.ContractDirectoryService.NotifyDirectoryChange:output_type -> contacts.NotifyDirectoryChangeResponse
-	27, // 54: contacts.ContractGroupsService.NewEntityIterator:output_type -> contacts.NewEntityIteratorResponse
-	29, // 55: contacts.ContractPinnedPositionsService.Pin:output_type -> contacts.PinResponse
-	31, // 56: contacts.ContractPinnedPositionsService.Undemote:output_type -> contacts.UndemoteResponse
-	33, // 57: contacts.ContractProfileSyncStateService.Get:output_type -> contacts.GetResponse
-	35, // 58: contacts.ContractProfileSyncStateService.NewSetOperation:output_type -> contacts.NewSetOperationResponse
-	37, // 59: contacts.ContractProfileSyncStateService.Set:output_type -> contacts.SetResponse
-	39, // 60: contacts.ContractQuickContactService.ShowQuickContact5:output_type -> contacts.ShowQuickContact5Response
-	41, // 61: contacts.ContractQuickContactService.ShowQuickContact5_1:output_type -> contacts.ShowQuickContact5_1Response
-	43, // 62: contacts.ContractQuickContactService.ShowQuickContact5_2:output_type -> contacts.ShowQuickContact5_2Response
-	45, // 63: contacts.ContractQuickContactService.ShowQuickContact5_3:output_type -> contacts.ShowQuickContact5_3Response
-	19, // 64: contacts.ContractRawContactsService.GetContactLookupUri:output_type -> contacts.GetContactLookupUriResponse
-	47, // 65: contacts.ContractRawContactsService.GetLocalAccountName:output_type -> contacts.GetLocalAccountNameResponse
-	49, // 66: contacts.ContractRawContactsService.GetLocalAccountType:output_type -> contacts.GetLocalAccountTypeResponse
-	27, // 67: contacts.ContractRawContactsService.NewEntityIterator:output_type -> contacts.NewEntityIteratorResponse
-	51, // 68: contacts.ContractSettingsService.GetDefaultAccount:output_type -> contacts.GetDefaultAccountResponse
-	53, // 69: contacts.ContractSimAccountService.DescribeContents:output_type -> contacts.DescribeContentsResponse
-	55, // 70: contacts.ContractSimAccountService.Equals:output_type -> contacts.EqualsResponse
-	57, // 71: contacts.ContractSimAccountService.GetAccountName:output_type -> contacts.GetAccountNameResponse
-	59, // 72: contacts.ContractSimAccountService.GetAccountType:output_type -> contacts.GetAccountTypeResponse
-	61, // 73: contacts.ContractSimAccountService.GetEfType:output_type -> contacts.GetEfTypeResponse
-	63, // 74: contacts.ContractSimAccountService.GetSimSlotIndex:output_type -> contacts.GetSimSlotIndexResponse
-	65, // 75: contacts.ContractSimAccountService.HashCode:output_type -> contacts.HashCodeResponse
-	67, // 76: contacts.ContractSimAccountService.WriteToParcel:output_type -> contacts.WriteToParcelResponse
-	69, // 77: contacts.ContractStatusUpdatesService.GetPresenceIconResourceId:output_type -> contacts.GetPresenceIconResourceIdResponse
-	71, // 78: contacts.ContractStatusUpdatesService.GetPresencePrecedence:output_type -> contacts.GetPresencePrecedenceResponse
-	33, // 79: contacts.ContractSyncStateService.Get:output_type -> contacts.GetResponse
-	35, // 80: contacts.ContractSyncStateService.NewSetOperation:output_type -> contacts.NewSetOperationResponse
-	37, // 81: contacts.ContractSyncStateService.Set:output_type -> contacts.SetResponse
-	41, // [41:82] is the sub-list for method output_type
-	0,  // [0:41] is the sub-list for method input_type
+	68, // 36: contacts.ContractSimContactsService.GetSimAccounts:input_type -> contacts.GetSimAccountsRequest
+	70, // 37: contacts.ContractStatusUpdatesService.GetPresenceIconResourceId:input_type -> contacts.GetPresenceIconResourceIdRequest
+	72, // 38: contacts.ContractStatusUpdatesService.GetPresencePrecedence:input_type -> contacts.GetPresencePrecedenceRequest
+	32, // 39: contacts.ContractSyncStateService.Get:input_type -> contacts.GetRequest
+	34, // 40: contacts.ContractSyncStateService.NewSetOperation:input_type -> contacts.NewSetOperationRequest
+	36, // 41: contacts.ContractSyncStateService.Set:input_type -> contacts.SetRequest
+	1,  // 42: contacts.ContractService.NewContract:output_type -> contacts.NewContractResponse
+	3,  // 43: contacts.ContractService.IsProfileId:output_type -> contacts.IsProfileIdResponse
+	5,  // 44: contacts.ContractContactsService.GetLookupUri2:output_type -> contacts.GetLookupUri2Response
+	7,  // 45: contacts.ContractContactsService.GetLookupUri2_1:output_type -> contacts.GetLookupUri2_1Response
+	9,  // 46: contacts.ContractContactsService.IsEnterpriseContactId:output_type -> contacts.IsEnterpriseContactIdResponse
+	11, // 47: contacts.ContractContactsService.LookupContact:output_type -> contacts.LookupContactResponse
+	13, // 48: contacts.ContractContactsService.MarkAsContacted:output_type -> contacts.MarkAsContactedResponse
+	15, // 49: contacts.ContractContactsService.OpenContactPhotoInputStream2:output_type -> contacts.OpenContactPhotoInputStream2Response
+	17, // 50: contacts.ContractContactsService.OpenContactPhotoInputStream3_1:output_type -> contacts.OpenContactPhotoInputStream3_1Response
+	19, // 51: contacts.ContractDataService.GetContactLookupUri:output_type -> contacts.GetContactLookupUriResponse
+	21, // 52: contacts.ContractDirectoryService.IsEnterpriseDirectoryId:output_type -> contacts.IsEnterpriseDirectoryIdResponse
+	23, // 53: contacts.ContractDirectoryService.IsRemoteDirectoryId:output_type -> contacts.IsRemoteDirectoryIdResponse
+	25, // 54: contacts.ContractDirectoryService.NotifyDirectoryChange:output_type -> contacts.NotifyDirectoryChangeResponse
+	27, // 55: contacts.ContractGroupsService.NewEntityIterator:output_type -> contacts.NewEntityIteratorResponse
+	29, // 56: contacts.ContractPinnedPositionsService.Pin:output_type -> contacts.PinResponse
+	31, // 57: contacts.ContractPinnedPositionsService.Undemote:output_type -> contacts.UndemoteResponse
+	33, // 58: contacts.ContractProfileSyncStateService.Get:output_type -> contacts.GetResponse
+	35, // 59: contacts.ContractProfileSyncStateService.NewSetOperation:output_type -> contacts.NewSetOperationResponse
+	37, // 60: contacts.ContractProfileSyncStateService.Set:output_type -> contacts.SetResponse
+	39, // 61: contacts.ContractQuickContactService.ShowQuickContact5:output_type -> contacts.ShowQuickContact5Response
+	41, // 62: contacts.ContractQuickContactService.ShowQuickContact5_1:output_type -> contacts.ShowQuickContact5_1Response
+	43, // 63: contacts.ContractQuickContactService.ShowQuickContact5_2:output_type -> contacts.ShowQuickContact5_2Response
+	45, // 64: contacts.ContractQuickContactService.ShowQuickContact5_3:output_type -> contacts.ShowQuickContact5_3Response
+	19, // 65: contacts.ContractRawContactsService.GetContactLookupUri:output_type -> contacts.GetContactLookupUriResponse
+	47, // 66: contacts.ContractRawContactsService.GetLocalAccountName:output_type -> contacts.GetLocalAccountNameResponse
+	49, // 67: contacts.ContractRawContactsService.GetLocalAccountType:output_type -> contacts.GetLocalAccountTypeResponse
+	27, // 68: contacts.ContractRawContactsService.NewEntityIterator:output_type -> contacts.NewEntityIteratorResponse
+	51, // 69: contacts.ContractSettingsService.GetDefaultAccount:output_type -> contacts.GetDefaultAccountResponse
+	53, // 70: contacts.ContractSimAccountService.DescribeContents:output_type -> contacts.DescribeContentsResponse
+	55, // 71: contacts.ContractSimAccountService.Equals:output_type -> contacts.EqualsResponse
+	57, // 72: contacts.ContractSimAccountService.GetAccountName:output_type -> contacts.GetAccountNameResponse
+	59, // 73: contacts.ContractSimAccountService.GetAccountType:output_type -> contacts.GetAccountTypeResponse
+	61, // 74: contacts.ContractSimAccountService.GetEfType:output_type -> contacts.GetEfTypeResponse
+	63, // 75: contacts.ContractSimAccountService.GetSimSlotIndex:output_type -> contacts.GetSimSlotIndexResponse
+	65, // 76: contacts.ContractSimAccountService.HashCode:output_type -> contacts.HashCodeResponse
+	67, // 77: contacts.ContractSimAccountService.WriteToParcel:output_type -> contacts.WriteToParcelResponse
+	69, // 78: contacts.ContractSimContactsService.GetSimAccounts:output_type -> contacts.GetSimAccountsResponse
+	71, // 79: contacts.ContractStatusUpdatesService.GetPresenceIconResourceId:output_type -> contacts.GetPresenceIconResourceIdResponse
+	73, // 80: contacts.ContractStatusUpdatesService.GetPresencePrecedence:output_type -> contacts.GetPresencePrecedenceResponse
+	33, // 81: contacts.ContractSyncStateService.Get:output_type -> contacts.GetResponse
+	35, // 82: contacts.ContractSyncStateService.NewSetOperation:output_type -> contacts.NewSetOperationResponse
+	37, // 83: contacts.ContractSyncStateService.Set:output_type -> contacts.SetResponse
+	42, // [42:84] is the sub-list for method output_type
+	0,  // [0:42] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -3730,9 +3828,9 @@ func file_proto_contacts_contacts_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_contacts_contacts_proto_rawDesc), len(file_proto_contacts_contacts_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   72,
+			NumMessages:   74,
 			NumExtensions: 0,
-			NumServices:   13,
+			NumServices:   14,
 		},
 		GoTypes:           file_proto_contacts_contacts_proto_goTypes,
 		DependencyIndexes: file_proto_contacts_contacts_proto_depIdxs,

@@ -6,11 +6,22 @@ package templates;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/templates";
 
-message NewStatelessTemplateRequest {
+message NewThumbnailTemplateRequest {
   string arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
 }
 
-message NewStatelessTemplateResponse {
+message NewThumbnailTemplateResponse {
+  int64 result = 1;
+}
+
+message GetContentDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetContentDescriptionResponse {
   int64 result = 1;
 }
 
@@ -22,65 +33,62 @@ message GetTemplateTypeResponse {
   int32 result = 1;
 }
 
-message NewTemperatureControlTemplateRequest {
+message GetThumbnailRequest {
+  int64 handle = 1;
+}
+
+message GetThumbnailResponse {
+  int64 result = 1;
+}
+
+message IsActiveRequest {
+  int64 handle = 1;
+}
+
+message IsActiveResponse {
+  bool result = 1;
+}
+
+message GetTemplateIdRequest {
+}
+
+message GetTemplateIdResponse {
+  string result = 1;
+}
+
+message ControlTemplateGetTemplateTypeRequest {
+}
+
+message GetErrorTemplateRequest {
+}
+
+message GetErrorTemplateResponse {
+  int64 result = 1;
+}
+
+message GetNoTemplateObjectRequest {
+}
+
+message GetNoTemplateObjectResponse {
+  int64 result = 1;
+}
+
+message NewStatelessTemplateRequest {
+  string arg0 = 1;
+}
+
+message NewStatelessTemplateResponse {
+  int64 result = 1;
+}
+
+message NewToggleRangeTemplateRequest {
   string arg0 = 1;
   int64 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
+  int64 arg2 = 3;
 }
 
-message NewTemperatureControlTemplateResponse {
+message NewToggleRangeTemplateResponse {
   int64 result = 1;
-}
-
-message GetCurrentActiveModeRequest {
-  int64 handle = 1;
-}
-
-message GetCurrentActiveModeResponse {
-  int32 result = 1;
-}
-
-message GetCurrentModeRequest {
-  int64 handle = 1;
-}
-
-message GetCurrentModeResponse {
-  int32 result = 1;
-}
-
-message GetModesRequest {
-  int64 handle = 1;
-}
-
-message GetModesResponse {
-  int32 result = 1;
-}
-
-message GetTemplateRequest {
-  int64 handle = 1;
-}
-
-message GetTemplateResponse {
-  int64 result = 1;
-}
-
-message NewControlButtonRequest {
-  bool arg0 = 1;
-  string arg1 = 2;
-}
-
-message NewControlButtonResponse {
-  int64 result = 1;
-}
-
-message DescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
 }
 
 message GetActionDescriptionRequest {
@@ -91,21 +99,20 @@ message GetActionDescriptionResponse {
   int64 result = 1;
 }
 
+message GetRangeRequest {
+  int64 handle = 1;
+}
+
+message GetRangeResponse {
+  int64 result = 1;
+}
+
 message IsCheckedRequest {
   int64 handle = 1;
 }
 
 message IsCheckedResponse {
   bool result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
 }
 
 message NewRangeTemplateRequest {
@@ -161,6 +168,50 @@ message GetStepValueResponse {
   float result = 1;
 }
 
+message NewTemperatureControlTemplateRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message NewTemperatureControlTemplateResponse {
+  int64 result = 1;
+}
+
+message GetCurrentActiveModeRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentActiveModeResponse {
+  int32 result = 1;
+}
+
+message GetCurrentModeRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentModeResponse {
+  int32 result = 1;
+}
+
+message GetModesRequest {
+  int64 handle = 1;
+}
+
+message GetModesResponse {
+  int32 result = 1;
+}
+
+message GetTemplateRequest {
+  int64 handle = 1;
+}
+
+message GetTemplateResponse {
+  int64 result = 1;
+}
+
 message NewToggleTemplateRequest {
   string arg0 = 1;
   int64 arg1 = 2;
@@ -170,120 +221,30 @@ message NewToggleTemplateResponse {
   int64 result = 1;
 }
 
-message GetContentDescriptionRequest {
+message NewControlButtonRequest {
+  bool arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewControlButtonResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
   int64 handle = 1;
 }
 
-message GetContentDescriptionResponse {
-  int64 result = 1;
+message DescribeContentsResponse {
+  int32 result = 1;
 }
 
-message NewThumbnailTemplateRequest {
-  string arg0 = 1;
-  bool arg1 = 2;
-  int64 arg2 = 3;
-  string arg3 = 4;
-}
-
-message NewThumbnailTemplateResponse {
-  int64 result = 1;
-}
-
-message GetThumbnailRequest {
+message WriteToParcelRequest {
   int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
 }
 
-message GetThumbnailResponse {
-  int64 result = 1;
-}
-
-message IsActiveRequest {
-  int64 handle = 1;
-}
-
-message IsActiveResponse {
-  bool result = 1;
-}
-
-message GetTemplateIdRequest {
-}
-
-message GetTemplateIdResponse {
-  string result = 1;
-}
-
-message ControlTemplateGetTemplateTypeRequest {
-}
-
-message GetErrorTemplateRequest {
-}
-
-message GetErrorTemplateResponse {
-  int64 result = 1;
-}
-
-message GetNoTemplateObjectRequest {
-}
-
-message GetNoTemplateObjectResponse {
-  int64 result = 1;
-}
-
-message NewToggleRangeTemplateRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message NewToggleRangeTemplateResponse {
-  int64 result = 1;
-}
-
-message GetRangeRequest {
-  int64 handle = 1;
-}
-
-message GetRangeResponse {
-  int64 result = 1;
-}
-
-service StatelessTemplateService {
-  rpc NewStatelessTemplate (NewStatelessTemplateRequest) returns (NewStatelessTemplateResponse);
-  rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
-}
-
-service TemperatureControlTemplateService {
-  rpc NewTemperatureControlTemplate (NewTemperatureControlTemplateRequest) returns (NewTemperatureControlTemplateResponse);
-  rpc GetCurrentActiveMode (GetCurrentActiveModeRequest) returns (GetCurrentActiveModeResponse);
-  rpc GetCurrentMode (GetCurrentModeRequest) returns (GetCurrentModeResponse);
-  rpc GetModes (GetModesRequest) returns (GetModesResponse);
-  rpc GetTemplate (GetTemplateRequest) returns (GetTemplateResponse);
-  rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
-}
-
-service ControlButtonService {
-  rpc NewControlButton (NewControlButtonRequest) returns (NewControlButtonResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetActionDescription (GetActionDescriptionRequest) returns (GetActionDescriptionResponse);
-  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service RangeTemplateService {
-  rpc NewRangeTemplate (NewRangeTemplateRequest) returns (NewRangeTemplateResponse);
-  rpc GetCurrentValue (GetCurrentValueRequest) returns (GetCurrentValueResponse);
-  rpc GetFormatString (GetFormatStringRequest) returns (GetFormatStringResponse);
-  rpc GetMaxValue (GetMaxValueRequest) returns (GetMaxValueResponse);
-  rpc GetMinValue (GetMinValueRequest) returns (GetMinValueResponse);
-  rpc GetStepValue (GetStepValueRequest) returns (GetStepValueResponse);
-  rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
-}
-
-service ToggleTemplateService {
-  rpc NewToggleTemplate (NewToggleTemplateRequest) returns (NewToggleTemplateResponse);
-  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
-  rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
-  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
+message WriteToParcelResponse {
 }
 
 service ThumbnailTemplateService {
@@ -301,10 +262,49 @@ service ControlTemplateService {
   rpc GetNoTemplateObject (GetNoTemplateObjectRequest) returns (GetNoTemplateObjectResponse);
 }
 
+service StatelessTemplateService {
+  rpc NewStatelessTemplate (NewStatelessTemplateRequest) returns (NewStatelessTemplateResponse);
+  rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
+}
+
 service ToggleRangeTemplateService {
   rpc NewToggleRangeTemplate (NewToggleRangeTemplateRequest) returns (NewToggleRangeTemplateResponse);
   rpc GetActionDescription (GetActionDescriptionRequest) returns (GetActionDescriptionResponse);
   rpc GetRange (GetRangeRequest) returns (GetRangeResponse);
   rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
   rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
+}
+
+service RangeTemplateService {
+  rpc NewRangeTemplate (NewRangeTemplateRequest) returns (NewRangeTemplateResponse);
+  rpc GetCurrentValue (GetCurrentValueRequest) returns (GetCurrentValueResponse);
+  rpc GetFormatString (GetFormatStringRequest) returns (GetFormatStringResponse);
+  rpc GetMaxValue (GetMaxValueRequest) returns (GetMaxValueResponse);
+  rpc GetMinValue (GetMinValueRequest) returns (GetMinValueResponse);
+  rpc GetStepValue (GetStepValueRequest) returns (GetStepValueResponse);
+  rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
+}
+
+service TemperatureControlTemplateService {
+  rpc NewTemperatureControlTemplate (NewTemperatureControlTemplateRequest) returns (NewTemperatureControlTemplateResponse);
+  rpc GetCurrentActiveMode (GetCurrentActiveModeRequest) returns (GetCurrentActiveModeResponse);
+  rpc GetCurrentMode (GetCurrentModeRequest) returns (GetCurrentModeResponse);
+  rpc GetModes (GetModesRequest) returns (GetModesResponse);
+  rpc GetTemplate (GetTemplateRequest) returns (GetTemplateResponse);
+  rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
+}
+
+service ToggleTemplateService {
+  rpc NewToggleTemplate (NewToggleTemplateRequest) returns (NewToggleTemplateResponse);
+  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
+  rpc GetTemplateType (GetTemplateTypeRequest) returns (GetTemplateTypeResponse);
+  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
+}
+
+service ControlButtonService {
+  rpc NewControlButton (NewControlButtonRequest) returns (NewControlButtonResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetActionDescription (GetActionDescriptionRequest) returns (GetActionDescriptionResponse);
+  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

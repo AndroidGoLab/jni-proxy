@@ -6,11 +6,281 @@ package slice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/slice";
 
+message NewSpecRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewSpecResponse {
+  int64 result = 1;
+}
+
+message CanRenderRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CanRenderResponse {
+  bool result = 1;
+}
+
 message DescribeContentsRequest {
+  int64 handle = 1;
 }
 
 message DescribeContentsResponse {
   int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetRevisionRequest {
+  int64 handle = 1;
+}
+
+message GetRevisionResponse {
+  int32 result = 1;
+}
+
+message GetTypeRequest {
+  int64 handle = 1;
+}
+
+message GetTypeResponse {
+  string result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message SliceDescribeContentsRequest {
+}
+
+message GetHintsRequest {
+}
+
+message GetHintsResponse {
+  int64 result = 1;
+}
+
+message GetItemsRequest {
+}
+
+message GetItemsResponse {
+  int64 result = 1;
+}
+
+message GetSpecRequest {
+}
+
+message GetSpecResponse {
+  int64 result = 1;
+}
+
+message GetUriRequest {
+}
+
+message GetUriResponse {
+  int64 result = 1;
+}
+
+message IsCallerNeededRequest {
+}
+
+message IsCallerNeededResponse {
+  bool result = 1;
+}
+
+message SliceToStringRequest {
+}
+
+message SliceWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddActionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message AddActionResponse {
+  int64 result = 1;
+}
+
+message AddSubSliceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message AddSubSliceResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetCallerNeededRequest {
+  bool arg0 = 1;
+}
+
+message SetCallerNeededResponse {
+  int64 result = 1;
+}
+
+message AttachInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AttachInfoResponse {
+}
+
+message CallRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CallResponse {
+  int64 result = 1;
+}
+
+message DeleteRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DeleteResponse {
+  int32 result = 1;
+}
+
+message ProviderGetTypeRequest {
+  int64 arg0 = 1;
+}
+
+message InsertRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message InsertResponse {
+  int64 result = 1;
+}
+
+message OnCreatePermissionRequestRequest {
+  int64 arg0 = 1;
+}
+
+message OnCreatePermissionRequestResponse {
+  int64 result = 1;
+}
+
+message OnGetSliceDescendantsRequest {
+  int64 arg0 = 1;
+}
+
+message OnGetSliceDescendantsResponse {
+  int64 result = 1;
+}
+
+message OnMapIntentToUriRequest {
+  int64 arg0 = 1;
+}
+
+message OnMapIntentToUriResponse {
+  int64 result = 1;
+}
+
+message OnSlicePinnedRequest {
+  int64 arg0 = 1;
+}
+
+message OnSlicePinnedResponse {
+}
+
+message OnSliceUnpinnedRequest {
+  int64 arg0 = 1;
+}
+
+message OnSliceUnpinnedResponse {
+}
+
+message Query4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Query4Response {
+  int64 result = 1;
+}
+
+message Query5_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+}
+
+message Query5_1Response {
+  int64 result = 1;
+}
+
+message Query6_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message Query6_2Response {
+  int64 result = 1;
+}
+
+message UpdateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message UpdateResponse {
+  int32 result = 1;
+}
+
+message ItemDescribeContentsRequest {
 }
 
 message GetActionRequest {
@@ -91,53 +361,9 @@ message HasHintResponse {
   bool result = 1;
 }
 
-message WriteToParcelRequest {
+message ItemWriteToParcelRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message CheckSlicePermissionRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message CheckSlicePermissionResponse {
-  int32 result = 1;
-}
-
-message GrantSlicePermissionRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GrantSlicePermissionResponse {
-}
-
-message MapIntentToUriRequest {
-  int64 arg0 = 1;
-}
-
-message MapIntentToUriResponse {
-  int64 result = 1;
-}
-
-message RevokeSlicePermissionRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RevokeSlicePermissionResponse {
-}
-
-message UnpinSliceRequest {
-  int64 arg0 = 1;
-}
-
-message UnpinSliceResponse {
 }
 
 message NewMetricsRequest {
@@ -172,283 +398,97 @@ message LogVisibleRequest {
 message LogVisibleResponse {
 }
 
-message NewSpecRequest {
-  string arg0 = 1;
+message CheckSlicePermissionRequest {
+  int64 arg0 = 1;
   int32 arg1 = 2;
+  int32 arg2 = 3;
 }
 
-message NewSpecResponse {
-  int64 result = 1;
-}
-
-message CanRenderRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message CanRenderResponse {
-  bool result = 1;
-}
-
-message SpecDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message EqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetRevisionRequest {
-  int64 handle = 1;
-}
-
-message GetRevisionResponse {
+message CheckSlicePermissionResponse {
   int32 result = 1;
 }
 
-message GetTypeRequest {
-  int64 handle = 1;
+message GetPinnedSlicesRequest {
 }
 
-message GetTypeResponse {
-  string result = 1;
+message GetPinnedSlicesResponse {
+  int64 result = 1;
 }
 
-message ToStringRequest {
-  int64 handle = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message SpecWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message AttachInfoRequest {
+message GetPinnedSpecsRequest {
   int64 arg0 = 1;
-  int64 arg1 = 2;
 }
 
-message AttachInfoResponse {
+message GetPinnedSpecsResponse {
+  int64 result = 1;
 }
 
-message CallRequest {
+message GetSliceDescendantsRequest {
+  int64 arg0 = 1;
+}
+
+message GetSliceDescendantsResponse {
+  int64 result = 1;
+}
+
+message GrantSlicePermissionRequest {
   string arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message CallResponse {
-  int64 result = 1;
-}
-
-message DeleteRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message DeleteResponse {
-  int32 result = 1;
-}
-
-message ProviderGetTypeRequest {
-  int64 arg0 = 1;
-}
-
-message InsertRequest {
-  int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message InsertResponse {
+message GrantSlicePermissionResponse {
+}
+
+message MapIntentToUriRequest {
+  int64 arg0 = 1;
+}
+
+message MapIntentToUriResponse {
   int64 result = 1;
 }
 
-message OnCreatePermissionRequestRequest {
-  int64 arg0 = 1;
-}
-
-message OnCreatePermissionRequestResponse {
-  int64 result = 1;
-}
-
-message OnMapIntentToUriRequest {
-  int64 arg0 = 1;
-}
-
-message OnMapIntentToUriResponse {
-  int64 result = 1;
-}
-
-message OnSlicePinnedRequest {
-  int64 arg0 = 1;
-}
-
-message OnSlicePinnedResponse {
-}
-
-message OnSliceUnpinnedRequest {
-  int64 arg0 = 1;
-}
-
-message OnSliceUnpinnedResponse {
-}
-
-message Query4Request {
-  int64 arg0 = 1;
+message RevokeSlicePermissionRequest {
+  string arg0 = 1;
   int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
 }
 
-message Query4Response {
-  int64 result = 1;
+message RevokeSlicePermissionResponse {
 }
 
-message Query5_1Request {
+message UnpinSliceRequest {
   int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-  string arg4 = 5;
 }
 
-message Query5_1Response {
-  int64 result = 1;
-}
-
-message Query6_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-  string arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message Query6_2Response {
-  int64 result = 1;
-}
-
-message UpdateRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message UpdateResponse {
-  int32 result = 1;
-}
-
-message GetSpecRequest {
-}
-
-message GetSpecResponse {
-  int64 result = 1;
-}
-
-message GetUriRequest {
-}
-
-message GetUriResponse {
-  int64 result = 1;
-}
-
-message IsCallerNeededRequest {
-}
-
-message IsCallerNeededResponse {
-  bool result = 1;
-}
-
-message SliceToStringRequest {
-}
-
-message AddActionRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-}
-
-message AddActionResponse {
-  int64 result = 1;
-}
-
-message AddSubSliceRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message AddSubSliceResponse {
-  int64 result = 1;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetCallerNeededRequest {
-  bool arg0 = 1;
-}
-
-message SetCallerNeededResponse {
-  int64 result = 1;
-}
-
-service ItemService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetAction (GetActionRequest) returns (GetActionResponse);
-  rpc GetBundle (GetBundleRequest) returns (GetBundleResponse);
-  rpc GetFormat (GetFormatRequest) returns (GetFormatResponse);
-  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
-  rpc GetInt (GetIntRequest) returns (GetIntResponse);
-  rpc GetLong (GetLongRequest) returns (GetLongResponse);
-  rpc GetRemoteInput (GetRemoteInputRequest) returns (GetRemoteInputResponse);
-  rpc GetSlice (GetSliceRequest) returns (GetSliceResponse);
-  rpc GetSubType (GetSubTypeRequest) returns (GetSubTypeResponse);
-  rpc GetText (GetTextRequest) returns (GetTextResponse);
-  rpc HasHint (HasHintRequest) returns (HasHintResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ManagerService {
-  rpc CheckSlicePermission (CheckSlicePermissionRequest) returns (CheckSlicePermissionResponse);
-  rpc GrantSlicePermission (GrantSlicePermissionRequest) returns (GrantSlicePermissionResponse);
-  rpc MapIntentToUri (MapIntentToUriRequest) returns (MapIntentToUriResponse);
-  rpc RevokeSlicePermission (RevokeSlicePermissionRequest) returns (RevokeSlicePermissionResponse);
-  rpc UnpinSlice (UnpinSliceRequest) returns (UnpinSliceResponse);
-}
-
-service MetricsService {
-  rpc NewMetrics (NewMetricsRequest) returns (NewMetricsResponse);
-  rpc LogHidden (LogHiddenRequest) returns (LogHiddenResponse);
-  rpc LogTouch (LogTouchRequest) returns (LogTouchResponse);
-  rpc LogVisible (LogVisibleRequest) returns (LogVisibleResponse);
+message UnpinSliceResponse {
 }
 
 service SpecService {
   rpc NewSpec (NewSpecRequest) returns (NewSpecResponse);
   rpc CanRender (CanRenderRequest) returns (CanRenderResponse);
-  rpc DescribeContents (SpecDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetRevision (GetRevisionRequest) returns (GetRevisionResponse);
   rpc GetType (GetTypeRequest) returns (GetTypeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (SpecWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SliceService {
+  rpc DescribeContents (SliceDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetHints (GetHintsRequest) returns (GetHintsResponse);
+  rpc GetItems (GetItemsRequest) returns (GetItemsResponse);
+  rpc GetSpec (GetSpecRequest) returns (GetSpecResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc IsCallerNeeded (IsCallerNeededRequest) returns (IsCallerNeededResponse);
+  rpc ToString (SliceToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (SliceWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BuilderService {
+  rpc AddAction (AddActionRequest) returns (AddActionResponse);
+  rpc AddSubSlice (AddSubSliceRequest) returns (AddSubSliceResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCallerNeeded (SetCallerNeededRequest) returns (SetCallerNeededResponse);
 }
 
 service ProviderService {
@@ -458,6 +498,7 @@ service ProviderService {
   rpc GetType (ProviderGetTypeRequest) returns (GetTypeResponse);
   rpc Insert (InsertRequest) returns (InsertResponse);
   rpc OnCreatePermissionRequest (OnCreatePermissionRequestRequest) returns (OnCreatePermissionRequestResponse);
+  rpc OnGetSliceDescendants (OnGetSliceDescendantsRequest) returns (OnGetSliceDescendantsResponse);
   rpc OnMapIntentToUri (OnMapIntentToUriRequest) returns (OnMapIntentToUriResponse);
   rpc OnSlicePinned (OnSlicePinnedRequest) returns (OnSlicePinnedResponse);
   rpc OnSliceUnpinned (OnSliceUnpinnedRequest) returns (OnSliceUnpinnedResponse);
@@ -467,18 +508,37 @@ service ProviderService {
   rpc Update (UpdateRequest) returns (UpdateResponse);
 }
 
-service SliceService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSpec (GetSpecRequest) returns (GetSpecResponse);
-  rpc GetUri (GetUriRequest) returns (GetUriResponse);
-  rpc IsCallerNeeded (IsCallerNeededRequest) returns (IsCallerNeededResponse);
-  rpc ToString (SliceToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service ItemService {
+  rpc DescribeContents (ItemDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAction (GetActionRequest) returns (GetActionResponse);
+  rpc GetBundle (GetBundleRequest) returns (GetBundleResponse);
+  rpc GetFormat (GetFormatRequest) returns (GetFormatResponse);
+  rpc GetHints (GetHintsRequest) returns (GetHintsResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetLong (GetLongRequest) returns (GetLongResponse);
+  rpc GetRemoteInput (GetRemoteInputRequest) returns (GetRemoteInputResponse);
+  rpc GetSlice (GetSliceRequest) returns (GetSliceResponse);
+  rpc GetSubType (GetSubTypeRequest) returns (GetSubTypeResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc HasHint (HasHintRequest) returns (HasHintResponse);
+  rpc WriteToParcel (ItemWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service BuilderService {
-  rpc AddAction (AddActionRequest) returns (AddActionResponse);
-  rpc AddSubSlice (AddSubSliceRequest) returns (AddSubSliceResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetCallerNeeded (SetCallerNeededRequest) returns (SetCallerNeededResponse);
+service MetricsService {
+  rpc NewMetrics (NewMetricsRequest) returns (NewMetricsResponse);
+  rpc LogHidden (LogHiddenRequest) returns (LogHiddenResponse);
+  rpc LogTouch (LogTouchRequest) returns (LogTouchResponse);
+  rpc LogVisible (LogVisibleRequest) returns (LogVisibleResponse);
+}
+
+service ManagerService {
+  rpc CheckSlicePermission (CheckSlicePermissionRequest) returns (CheckSlicePermissionResponse);
+  rpc GetPinnedSlices (GetPinnedSlicesRequest) returns (GetPinnedSlicesResponse);
+  rpc GetPinnedSpecs (GetPinnedSpecsRequest) returns (GetPinnedSpecsResponse);
+  rpc GetSliceDescendants (GetSliceDescendantsRequest) returns (GetSliceDescendantsResponse);
+  rpc GrantSlicePermission (GrantSlicePermissionRequest) returns (GrantSlicePermissionResponse);
+  rpc MapIntentToUri (MapIntentToUriRequest) returns (MapIntentToUriResponse);
+  rpc RevokeSlicePermission (RevokeSlicePermissionRequest) returns (RevokeSlicePermissionResponse);
+  rpc UnpinSlice (UnpinSliceRequest) returns (UnpinSliceResponse);
 }

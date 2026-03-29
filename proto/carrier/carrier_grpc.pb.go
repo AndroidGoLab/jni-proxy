@@ -21,177 +21,253 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	MessagePduService_NewMessagePdu_FullMethodName    = "/carrier.MessagePduService/NewMessagePdu"
-	MessagePduService_DescribeContents_FullMethodName = "/carrier.MessagePduService/DescribeContents"
-	MessagePduService_WriteToParcel_FullMethodName    = "/carrier.MessagePduService/WriteToParcel"
+	ServiceService_NotifyCarrierNetworkChange1_FullMethodName   = "/carrier.ServiceService/NotifyCarrierNetworkChange1"
+	ServiceService_NotifyCarrierNetworkChange2_1_FullMethodName = "/carrier.ServiceService/NotifyCarrierNetworkChange2_1"
+	ServiceService_OnBind_FullMethodName                        = "/carrier.ServiceService/OnBind"
+	ServiceService_OnLoadConfig1_FullMethodName                 = "/carrier.ServiceService/OnLoadConfig1"
+	ServiceService_OnLoadConfig2_1_FullMethodName               = "/carrier.ServiceService/OnLoadConfig2_1"
 )
 
-// MessagePduServiceClient is the client API for MessagePduService service.
+// ServiceServiceClient is the client API for ServiceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MessagePduServiceClient interface {
-	NewMessagePdu(ctx context.Context, in *NewMessagePduRequest, opts ...grpc.CallOption) (*NewMessagePduResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type ServiceServiceClient interface {
+	NotifyCarrierNetworkChange1(ctx context.Context, in *NotifyCarrierNetworkChange1Request, opts ...grpc.CallOption) (*NotifyCarrierNetworkChange1Response, error)
+	NotifyCarrierNetworkChange2_1(ctx context.Context, in *NotifyCarrierNetworkChange2_1Request, opts ...grpc.CallOption) (*NotifyCarrierNetworkChange2_1Response, error)
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnLoadConfig1(ctx context.Context, in *OnLoadConfig1Request, opts ...grpc.CallOption) (*OnLoadConfig1Response, error)
+	OnLoadConfig2_1(ctx context.Context, in *OnLoadConfig2_1Request, opts ...grpc.CallOption) (*OnLoadConfig2_1Response, error)
 }
 
-type messagePduServiceClient struct {
+type serviceServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMessagePduServiceClient(cc grpc.ClientConnInterface) MessagePduServiceClient {
-	return &messagePduServiceClient{cc}
+func NewServiceServiceClient(cc grpc.ClientConnInterface) ServiceServiceClient {
+	return &serviceServiceClient{cc}
 }
 
-func (c *messagePduServiceClient) NewMessagePdu(ctx context.Context, in *NewMessagePduRequest, opts ...grpc.CallOption) (*NewMessagePduResponse, error) {
+func (c *serviceServiceClient) NotifyCarrierNetworkChange1(ctx context.Context, in *NotifyCarrierNetworkChange1Request, opts ...grpc.CallOption) (*NotifyCarrierNetworkChange1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewMessagePduResponse)
-	err := c.cc.Invoke(ctx, MessagePduService_NewMessagePdu_FullMethodName, in, out, cOpts...)
+	out := new(NotifyCarrierNetworkChange1Response)
+	err := c.cc.Invoke(ctx, ServiceService_NotifyCarrierNetworkChange1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *messagePduServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *serviceServiceClient) NotifyCarrierNetworkChange2_1(ctx context.Context, in *NotifyCarrierNetworkChange2_1Request, opts ...grpc.CallOption) (*NotifyCarrierNetworkChange2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, MessagePduService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(NotifyCarrierNetworkChange2_1Response)
+	err := c.cc.Invoke(ctx, ServiceService_NotifyCarrierNetworkChange2_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *messagePduServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *serviceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, MessagePduService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnBind_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MessagePduServiceServer is the server API for MessagePduService service.
-// All implementations must embed UnimplementedMessagePduServiceServer
+func (c *serviceServiceClient) OnLoadConfig1(ctx context.Context, in *OnLoadConfig1Request, opts ...grpc.CallOption) (*OnLoadConfig1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnLoadConfig1Response)
+	err := c.cc.Invoke(ctx, ServiceService_OnLoadConfig1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnLoadConfig2_1(ctx context.Context, in *OnLoadConfig2_1Request, opts ...grpc.CallOption) (*OnLoadConfig2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnLoadConfig2_1Response)
+	err := c.cc.Invoke(ctx, ServiceService_OnLoadConfig2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServiceServiceServer is the server API for ServiceService service.
+// All implementations must embed UnimplementedServiceServiceServer
 // for forward compatibility.
-type MessagePduServiceServer interface {
-	NewMessagePdu(context.Context, *NewMessagePduRequest) (*NewMessagePduResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedMessagePduServiceServer()
+type ServiceServiceServer interface {
+	NotifyCarrierNetworkChange1(context.Context, *NotifyCarrierNetworkChange1Request) (*NotifyCarrierNetworkChange1Response, error)
+	NotifyCarrierNetworkChange2_1(context.Context, *NotifyCarrierNetworkChange2_1Request) (*NotifyCarrierNetworkChange2_1Response, error)
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnLoadConfig1(context.Context, *OnLoadConfig1Request) (*OnLoadConfig1Response, error)
+	OnLoadConfig2_1(context.Context, *OnLoadConfig2_1Request) (*OnLoadConfig2_1Response, error)
+	mustEmbedUnimplementedServiceServiceServer()
 }
 
-// UnimplementedMessagePduServiceServer must be embedded to have
+// UnimplementedServiceServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedMessagePduServiceServer struct{}
+type UnimplementedServiceServiceServer struct{}
 
-func (UnimplementedMessagePduServiceServer) NewMessagePdu(context.Context, *NewMessagePduRequest) (*NewMessagePduResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewMessagePdu not implemented")
+func (UnimplementedServiceServiceServer) NotifyCarrierNetworkChange1(context.Context, *NotifyCarrierNetworkChange1Request) (*NotifyCarrierNetworkChange1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyCarrierNetworkChange1 not implemented")
 }
-func (UnimplementedMessagePduServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedServiceServiceServer) NotifyCarrierNetworkChange2_1(context.Context, *NotifyCarrierNetworkChange2_1Request) (*NotifyCarrierNetworkChange2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyCarrierNetworkChange2_1 not implemented")
 }
-func (UnimplementedMessagePduServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+func (UnimplementedServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
 }
-func (UnimplementedMessagePduServiceServer) mustEmbedUnimplementedMessagePduServiceServer() {}
-func (UnimplementedMessagePduServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedServiceServiceServer) OnLoadConfig1(context.Context, *OnLoadConfig1Request) (*OnLoadConfig1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnLoadConfig1 not implemented")
+}
+func (UnimplementedServiceServiceServer) OnLoadConfig2_1(context.Context, *OnLoadConfig2_1Request) (*OnLoadConfig2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnLoadConfig2_1 not implemented")
+}
+func (UnimplementedServiceServiceServer) mustEmbedUnimplementedServiceServiceServer() {}
+func (UnimplementedServiceServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafeMessagePduServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MessagePduServiceServer will
+// UnsafeServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceServiceServer will
 // result in compilation errors.
-type UnsafeMessagePduServiceServer interface {
-	mustEmbedUnimplementedMessagePduServiceServer()
+type UnsafeServiceServiceServer interface {
+	mustEmbedUnimplementedServiceServiceServer()
 }
 
-func RegisterMessagePduServiceServer(s grpc.ServiceRegistrar, srv MessagePduServiceServer) {
-	// If the following call panics, it indicates UnimplementedMessagePduServiceServer was
+func RegisterServiceServiceServer(s grpc.ServiceRegistrar, srv ServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedServiceServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&MessagePduService_ServiceDesc, srv)
+	s.RegisterService(&ServiceService_ServiceDesc, srv)
 }
 
-func _MessagePduService_NewMessagePdu_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewMessagePduRequest)
+func _ServiceService_NotifyCarrierNetworkChange1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyCarrierNetworkChange1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MessagePduServiceServer).NewMessagePdu(ctx, in)
+		return srv.(ServiceServiceServer).NotifyCarrierNetworkChange1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MessagePduService_NewMessagePdu_FullMethodName,
+		FullMethod: ServiceService_NotifyCarrierNetworkChange1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MessagePduServiceServer).NewMessagePdu(ctx, req.(*NewMessagePduRequest))
+		return srv.(ServiceServiceServer).NotifyCarrierNetworkChange1(ctx, req.(*NotifyCarrierNetworkChange1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MessagePduService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _ServiceService_NotifyCarrierNetworkChange2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyCarrierNetworkChange2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MessagePduServiceServer).DescribeContents(ctx, in)
+		return srv.(ServiceServiceServer).NotifyCarrierNetworkChange2_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MessagePduService_DescribeContents_FullMethodName,
+		FullMethod: ServiceService_NotifyCarrierNetworkChange2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MessagePduServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ServiceServiceServer).NotifyCarrierNetworkChange2_1(ctx, req.(*NotifyCarrierNetworkChange2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MessagePduService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+func _ServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MessagePduServiceServer).WriteToParcel(ctx, in)
+		return srv.(ServiceServiceServer).OnBind(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MessagePduService_WriteToParcel_FullMethodName,
+		FullMethod: ServiceService_OnBind_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MessagePduServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(ServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// MessagePduService_ServiceDesc is the grpc.ServiceDesc for MessagePduService service.
+func _ServiceService_OnLoadConfig1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnLoadConfig1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnLoadConfig1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnLoadConfig1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnLoadConfig1(ctx, req.(*OnLoadConfig1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnLoadConfig2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnLoadConfig2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnLoadConfig2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnLoadConfig2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnLoadConfig2_1(ctx, req.(*OnLoadConfig2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServiceService_ServiceDesc is the grpc.ServiceDesc for ServiceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var MessagePduService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "carrier.MessagePduService",
-	HandlerType: (*MessagePduServiceServer)(nil),
+var ServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "carrier.ServiceService",
+	HandlerType: (*ServiceServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewMessagePdu",
-			Handler:    _MessagePduService_NewMessagePdu_Handler,
+			MethodName: "NotifyCarrierNetworkChange1",
+			Handler:    _ServiceService_NotifyCarrierNetworkChange1_Handler,
 		},
 		{
-			MethodName: "DescribeContents",
-			Handler:    _MessagePduService_DescribeContents_Handler,
+			MethodName: "NotifyCarrierNetworkChange2_1",
+			Handler:    _ServiceService_NotifyCarrierNetworkChange2_1_Handler,
 		},
 		{
-			MethodName: "WriteToParcel",
-			Handler:    _MessagePduService_WriteToParcel_Handler,
+			MethodName: "OnBind",
+			Handler:    _ServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnLoadConfig1",
+			Handler:    _ServiceService_OnLoadConfig1_Handler,
+		},
+		{
+			MethodName: "OnLoadConfig2_1",
+			Handler:    _ServiceService_OnLoadConfig2_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -718,147 +794,6 @@ var MessagingServiceSendSmsResultService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetSendStatus",
 			Handler:    _MessagingServiceSendSmsResultService_GetSendStatus_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/carrier/carrier.proto",
-}
-
-const (
-	MessagingClientServiceService_NewMessagingClientService_FullMethodName = "/carrier.MessagingClientServiceService/NewMessagingClientService"
-	MessagingClientServiceService_OnBind_FullMethodName                    = "/carrier.MessagingClientServiceService/OnBind"
-)
-
-// MessagingClientServiceServiceClient is the client API for MessagingClientServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MessagingClientServiceServiceClient interface {
-	NewMessagingClientService(ctx context.Context, in *NewMessagingClientServiceRequest, opts ...grpc.CallOption) (*NewMessagingClientServiceResponse, error)
-	OnBind(ctx context.Context, in *MessagingClientServiceOnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-}
-
-type messagingClientServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMessagingClientServiceServiceClient(cc grpc.ClientConnInterface) MessagingClientServiceServiceClient {
-	return &messagingClientServiceServiceClient{cc}
-}
-
-func (c *messagingClientServiceServiceClient) NewMessagingClientService(ctx context.Context, in *NewMessagingClientServiceRequest, opts ...grpc.CallOption) (*NewMessagingClientServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewMessagingClientServiceResponse)
-	err := c.cc.Invoke(ctx, MessagingClientServiceService_NewMessagingClientService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *messagingClientServiceServiceClient) OnBind(ctx context.Context, in *MessagingClientServiceOnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, MessagingClientServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MessagingClientServiceServiceServer is the server API for MessagingClientServiceService service.
-// All implementations must embed UnimplementedMessagingClientServiceServiceServer
-// for forward compatibility.
-type MessagingClientServiceServiceServer interface {
-	NewMessagingClientService(context.Context, *NewMessagingClientServiceRequest) (*NewMessagingClientServiceResponse, error)
-	OnBind(context.Context, *MessagingClientServiceOnBindRequest) (*OnBindResponse, error)
-	mustEmbedUnimplementedMessagingClientServiceServiceServer()
-}
-
-// UnimplementedMessagingClientServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMessagingClientServiceServiceServer struct{}
-
-func (UnimplementedMessagingClientServiceServiceServer) NewMessagingClientService(context.Context, *NewMessagingClientServiceRequest) (*NewMessagingClientServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewMessagingClientService not implemented")
-}
-func (UnimplementedMessagingClientServiceServiceServer) OnBind(context.Context, *MessagingClientServiceOnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedMessagingClientServiceServiceServer) mustEmbedUnimplementedMessagingClientServiceServiceServer() {
-}
-func (UnimplementedMessagingClientServiceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMessagingClientServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MessagingClientServiceServiceServer will
-// result in compilation errors.
-type UnsafeMessagingClientServiceServiceServer interface {
-	mustEmbedUnimplementedMessagingClientServiceServiceServer()
-}
-
-func RegisterMessagingClientServiceServiceServer(s grpc.ServiceRegistrar, srv MessagingClientServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedMessagingClientServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MessagingClientServiceService_ServiceDesc, srv)
-}
-
-func _MessagingClientServiceService_NewMessagingClientService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewMessagingClientServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MessagingClientServiceServiceServer).NewMessagingClientService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MessagingClientServiceService_NewMessagingClientService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MessagingClientServiceServiceServer).NewMessagingClientService(ctx, req.(*NewMessagingClientServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MessagingClientServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MessagingClientServiceOnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MessagingClientServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MessagingClientServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MessagingClientServiceServiceServer).OnBind(ctx, req.(*MessagingClientServiceOnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MessagingClientServiceService_ServiceDesc is the grpc.ServiceDesc for MessagingClientServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MessagingClientServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "carrier.MessagingClientServiceService",
-	HandlerType: (*MessagingClientServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewMessagingClientService",
-			Handler:    _MessagingClientServiceService_NewMessagingClientService_Handler,
-		},
-		{
-			MethodName: "OnBind",
-			Handler:    _MessagingClientServiceService_OnBind_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1462,253 +1397,356 @@ var IdentifierService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ServiceService_NotifyCarrierNetworkChange1_FullMethodName   = "/carrier.ServiceService/NotifyCarrierNetworkChange1"
-	ServiceService_NotifyCarrierNetworkChange2_1_FullMethodName = "/carrier.ServiceService/NotifyCarrierNetworkChange2_1"
-	ServiceService_OnBind_FullMethodName                        = "/carrier.ServiceService/OnBind"
-	ServiceService_OnLoadConfig1_FullMethodName                 = "/carrier.ServiceService/OnLoadConfig1"
-	ServiceService_OnLoadConfig2_1_FullMethodName               = "/carrier.ServiceService/OnLoadConfig2_1"
+	MessagingClientServiceService_NewMessagingClientService_FullMethodName = "/carrier.MessagingClientServiceService/NewMessagingClientService"
+	MessagingClientServiceService_OnBind_FullMethodName                    = "/carrier.MessagingClientServiceService/OnBind"
 )
 
-// ServiceServiceClient is the client API for ServiceService service.
+// MessagingClientServiceServiceClient is the client API for MessagingClientServiceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ServiceServiceClient interface {
-	NotifyCarrierNetworkChange1(ctx context.Context, in *NotifyCarrierNetworkChange1Request, opts ...grpc.CallOption) (*NotifyCarrierNetworkChange1Response, error)
-	NotifyCarrierNetworkChange2_1(ctx context.Context, in *NotifyCarrierNetworkChange2_1Request, opts ...grpc.CallOption) (*NotifyCarrierNetworkChange2_1Response, error)
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-	OnLoadConfig1(ctx context.Context, in *OnLoadConfig1Request, opts ...grpc.CallOption) (*OnLoadConfig1Response, error)
-	OnLoadConfig2_1(ctx context.Context, in *OnLoadConfig2_1Request, opts ...grpc.CallOption) (*OnLoadConfig2_1Response, error)
+type MessagingClientServiceServiceClient interface {
+	NewMessagingClientService(ctx context.Context, in *NewMessagingClientServiceRequest, opts ...grpc.CallOption) (*NewMessagingClientServiceResponse, error)
+	OnBind(ctx context.Context, in *MessagingClientServiceOnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
 }
 
-type serviceServiceClient struct {
+type messagingClientServiceServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewServiceServiceClient(cc grpc.ClientConnInterface) ServiceServiceClient {
-	return &serviceServiceClient{cc}
+func NewMessagingClientServiceServiceClient(cc grpc.ClientConnInterface) MessagingClientServiceServiceClient {
+	return &messagingClientServiceServiceClient{cc}
 }
 
-func (c *serviceServiceClient) NotifyCarrierNetworkChange1(ctx context.Context, in *NotifyCarrierNetworkChange1Request, opts ...grpc.CallOption) (*NotifyCarrierNetworkChange1Response, error) {
+func (c *messagingClientServiceServiceClient) NewMessagingClientService(ctx context.Context, in *NewMessagingClientServiceRequest, opts ...grpc.CallOption) (*NewMessagingClientServiceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyCarrierNetworkChange1Response)
-	err := c.cc.Invoke(ctx, ServiceService_NotifyCarrierNetworkChange1_FullMethodName, in, out, cOpts...)
+	out := new(NewMessagingClientServiceResponse)
+	err := c.cc.Invoke(ctx, MessagingClientServiceService_NewMessagingClientService_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceServiceClient) NotifyCarrierNetworkChange2_1(ctx context.Context, in *NotifyCarrierNetworkChange2_1Request, opts ...grpc.CallOption) (*NotifyCarrierNetworkChange2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyCarrierNetworkChange2_1Response)
-	err := c.cc.Invoke(ctx, ServiceService_NotifyCarrierNetworkChange2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+func (c *messagingClientServiceServiceClient) OnBind(ctx context.Context, in *MessagingClientServiceOnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, ServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MessagingClientServiceService_OnBind_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceServiceClient) OnLoadConfig1(ctx context.Context, in *OnLoadConfig1Request, opts ...grpc.CallOption) (*OnLoadConfig1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnLoadConfig1Response)
-	err := c.cc.Invoke(ctx, ServiceService_OnLoadConfig1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceServiceClient) OnLoadConfig2_1(ctx context.Context, in *OnLoadConfig2_1Request, opts ...grpc.CallOption) (*OnLoadConfig2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnLoadConfig2_1Response)
-	err := c.cc.Invoke(ctx, ServiceService_OnLoadConfig2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ServiceServiceServer is the server API for ServiceService service.
-// All implementations must embed UnimplementedServiceServiceServer
+// MessagingClientServiceServiceServer is the server API for MessagingClientServiceService service.
+// All implementations must embed UnimplementedMessagingClientServiceServiceServer
 // for forward compatibility.
-type ServiceServiceServer interface {
-	NotifyCarrierNetworkChange1(context.Context, *NotifyCarrierNetworkChange1Request) (*NotifyCarrierNetworkChange1Response, error)
-	NotifyCarrierNetworkChange2_1(context.Context, *NotifyCarrierNetworkChange2_1Request) (*NotifyCarrierNetworkChange2_1Response, error)
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	OnLoadConfig1(context.Context, *OnLoadConfig1Request) (*OnLoadConfig1Response, error)
-	OnLoadConfig2_1(context.Context, *OnLoadConfig2_1Request) (*OnLoadConfig2_1Response, error)
-	mustEmbedUnimplementedServiceServiceServer()
+type MessagingClientServiceServiceServer interface {
+	NewMessagingClientService(context.Context, *NewMessagingClientServiceRequest) (*NewMessagingClientServiceResponse, error)
+	OnBind(context.Context, *MessagingClientServiceOnBindRequest) (*OnBindResponse, error)
+	mustEmbedUnimplementedMessagingClientServiceServiceServer()
 }
 
-// UnimplementedServiceServiceServer must be embedded to have
+// UnimplementedMessagingClientServiceServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedServiceServiceServer struct{}
+type UnimplementedMessagingClientServiceServiceServer struct{}
 
-func (UnimplementedServiceServiceServer) NotifyCarrierNetworkChange1(context.Context, *NotifyCarrierNetworkChange1Request) (*NotifyCarrierNetworkChange1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyCarrierNetworkChange1 not implemented")
+func (UnimplementedMessagingClientServiceServiceServer) NewMessagingClientService(context.Context, *NewMessagingClientServiceRequest) (*NewMessagingClientServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewMessagingClientService not implemented")
 }
-func (UnimplementedServiceServiceServer) NotifyCarrierNetworkChange2_1(context.Context, *NotifyCarrierNetworkChange2_1Request) (*NotifyCarrierNetworkChange2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyCarrierNetworkChange2_1 not implemented")
-}
-func (UnimplementedServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+func (UnimplementedMessagingClientServiceServiceServer) OnBind(context.Context, *MessagingClientServiceOnBindRequest) (*OnBindResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
 }
-func (UnimplementedServiceServiceServer) OnLoadConfig1(context.Context, *OnLoadConfig1Request) (*OnLoadConfig1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnLoadConfig1 not implemented")
+func (UnimplementedMessagingClientServiceServiceServer) mustEmbedUnimplementedMessagingClientServiceServiceServer() {
 }
-func (UnimplementedServiceServiceServer) OnLoadConfig2_1(context.Context, *OnLoadConfig2_1Request) (*OnLoadConfig2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnLoadConfig2_1 not implemented")
-}
-func (UnimplementedServiceServiceServer) mustEmbedUnimplementedServiceServiceServer() {}
-func (UnimplementedServiceServiceServer) testEmbeddedByValue()                        {}
+func (UnimplementedMessagingClientServiceServiceServer) testEmbeddedByValue() {}
 
-// UnsafeServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ServiceServiceServer will
+// UnsafeMessagingClientServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MessagingClientServiceServiceServer will
 // result in compilation errors.
-type UnsafeServiceServiceServer interface {
-	mustEmbedUnimplementedServiceServiceServer()
+type UnsafeMessagingClientServiceServiceServer interface {
+	mustEmbedUnimplementedMessagingClientServiceServiceServer()
 }
 
-func RegisterServiceServiceServer(s grpc.ServiceRegistrar, srv ServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedServiceServiceServer was
+func RegisterMessagingClientServiceServiceServer(s grpc.ServiceRegistrar, srv MessagingClientServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedMessagingClientServiceServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ServiceService_ServiceDesc, srv)
+	s.RegisterService(&MessagingClientServiceService_ServiceDesc, srv)
 }
 
-func _ServiceService_NotifyCarrierNetworkChange1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyCarrierNetworkChange1Request)
+func _MessagingClientServiceService_NewMessagingClientService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewMessagingClientServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServiceServer).NotifyCarrierNetworkChange1(ctx, in)
+		return srv.(MessagingClientServiceServiceServer).NewMessagingClientService(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ServiceService_NotifyCarrierNetworkChange1_FullMethodName,
+		FullMethod: MessagingClientServiceService_NewMessagingClientService_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).NotifyCarrierNetworkChange1(ctx, req.(*NotifyCarrierNetworkChange1Request))
+		return srv.(MessagingClientServiceServiceServer).NewMessagingClientService(ctx, req.(*NewMessagingClientServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ServiceService_NotifyCarrierNetworkChange2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyCarrierNetworkChange2_1Request)
+func _MessagingClientServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MessagingClientServiceOnBindRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServiceServer).NotifyCarrierNetworkChange2_1(ctx, in)
+		return srv.(MessagingClientServiceServiceServer).OnBind(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ServiceService_NotifyCarrierNetworkChange2_1_FullMethodName,
+		FullMethod: MessagingClientServiceService_OnBind_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).NotifyCarrierNetworkChange2_1(ctx, req.(*NotifyCarrierNetworkChange2_1Request))
+		return srv.(MessagingClientServiceServiceServer).OnBind(ctx, req.(*MessagingClientServiceOnBindRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_OnLoadConfig1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnLoadConfig1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).OnLoadConfig1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_OnLoadConfig1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).OnLoadConfig1(ctx, req.(*OnLoadConfig1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ServiceService_OnLoadConfig2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnLoadConfig2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServiceServer).OnLoadConfig2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ServiceService_OnLoadConfig2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServiceServer).OnLoadConfig2_1(ctx, req.(*OnLoadConfig2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ServiceService_ServiceDesc is the grpc.ServiceDesc for ServiceService service.
+// MessagingClientServiceService_ServiceDesc is the grpc.ServiceDesc for MessagingClientServiceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "carrier.ServiceService",
-	HandlerType: (*ServiceServiceServer)(nil),
+var MessagingClientServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "carrier.MessagingClientServiceService",
+	HandlerType: (*MessagingClientServiceServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NotifyCarrierNetworkChange1",
-			Handler:    _ServiceService_NotifyCarrierNetworkChange1_Handler,
-		},
-		{
-			MethodName: "NotifyCarrierNetworkChange2_1",
-			Handler:    _ServiceService_NotifyCarrierNetworkChange2_1_Handler,
+			MethodName: "NewMessagingClientService",
+			Handler:    _MessagingClientServiceService_NewMessagingClientService_Handler,
 		},
 		{
 			MethodName: "OnBind",
-			Handler:    _ServiceService_OnBind_Handler,
+			Handler:    _MessagingClientServiceService_OnBind_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/carrier/carrier.proto",
+}
+
+const (
+	MessagePduService_NewMessagePdu_FullMethodName    = "/carrier.MessagePduService/NewMessagePdu"
+	MessagePduService_DescribeContents_FullMethodName = "/carrier.MessagePduService/DescribeContents"
+	MessagePduService_GetPdus_FullMethodName          = "/carrier.MessagePduService/GetPdus"
+	MessagePduService_WriteToParcel_FullMethodName    = "/carrier.MessagePduService/WriteToParcel"
+)
+
+// MessagePduServiceClient is the client API for MessagePduService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MessagePduServiceClient interface {
+	NewMessagePdu(ctx context.Context, in *NewMessagePduRequest, opts ...grpc.CallOption) (*NewMessagePduResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetPdus(ctx context.Context, in *GetPdusRequest, opts ...grpc.CallOption) (*GetPdusResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type messagePduServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMessagePduServiceClient(cc grpc.ClientConnInterface) MessagePduServiceClient {
+	return &messagePduServiceClient{cc}
+}
+
+func (c *messagePduServiceClient) NewMessagePdu(ctx context.Context, in *NewMessagePduRequest, opts ...grpc.CallOption) (*NewMessagePduResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewMessagePduResponse)
+	err := c.cc.Invoke(ctx, MessagePduService_NewMessagePdu_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *messagePduServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, MessagePduService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *messagePduServiceClient) GetPdus(ctx context.Context, in *GetPdusRequest, opts ...grpc.CallOption) (*GetPdusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPdusResponse)
+	err := c.cc.Invoke(ctx, MessagePduService_GetPdus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *messagePduServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, MessagePduService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MessagePduServiceServer is the server API for MessagePduService service.
+// All implementations must embed UnimplementedMessagePduServiceServer
+// for forward compatibility.
+type MessagePduServiceServer interface {
+	NewMessagePdu(context.Context, *NewMessagePduRequest) (*NewMessagePduResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetPdus(context.Context, *GetPdusRequest) (*GetPdusResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedMessagePduServiceServer()
+}
+
+// UnimplementedMessagePduServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMessagePduServiceServer struct{}
+
+func (UnimplementedMessagePduServiceServer) NewMessagePdu(context.Context, *NewMessagePduRequest) (*NewMessagePduResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewMessagePdu not implemented")
+}
+func (UnimplementedMessagePduServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedMessagePduServiceServer) GetPdus(context.Context, *GetPdusRequest) (*GetPdusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPdus not implemented")
+}
+func (UnimplementedMessagePduServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedMessagePduServiceServer) mustEmbedUnimplementedMessagePduServiceServer() {}
+func (UnimplementedMessagePduServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeMessagePduServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MessagePduServiceServer will
+// result in compilation errors.
+type UnsafeMessagePduServiceServer interface {
+	mustEmbedUnimplementedMessagePduServiceServer()
+}
+
+func RegisterMessagePduServiceServer(s grpc.ServiceRegistrar, srv MessagePduServiceServer) {
+	// If the following call panics, it indicates UnimplementedMessagePduServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MessagePduService_ServiceDesc, srv)
+}
+
+func _MessagePduService_NewMessagePdu_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewMessagePduRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MessagePduServiceServer).NewMessagePdu(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MessagePduService_NewMessagePdu_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MessagePduServiceServer).NewMessagePdu(ctx, req.(*NewMessagePduRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MessagePduService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MessagePduServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MessagePduService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MessagePduServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MessagePduService_GetPdus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPdusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MessagePduServiceServer).GetPdus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MessagePduService_GetPdus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MessagePduServiceServer).GetPdus(ctx, req.(*GetPdusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MessagePduService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MessagePduServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MessagePduService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MessagePduServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MessagePduService_ServiceDesc is the grpc.ServiceDesc for MessagePduService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MessagePduService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "carrier.MessagePduService",
+	HandlerType: (*MessagePduServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewMessagePdu",
+			Handler:    _MessagePduService_NewMessagePdu_Handler,
 		},
 		{
-			MethodName: "OnLoadConfig1",
-			Handler:    _ServiceService_OnLoadConfig1_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _MessagePduService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "OnLoadConfig2_1",
-			Handler:    _ServiceService_OnLoadConfig2_1_Handler,
+			MethodName: "GetPdus",
+			Handler:    _MessagePduService_GetPdus_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _MessagePduService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

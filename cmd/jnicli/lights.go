@@ -12,6 +12,43 @@ var lightsCmd = &cobra.Command{
 	Short: "lights service operations",
 }
 
+var lightsRequestCmd = &cobra.Command{
+	Use:   "request",
+	Short: "RequestService operations",
+}
+
+var lightsRequestGetLightStatesCmd = &cobra.Command{
+	Use:   "get-light-states",
+	Short: "GetLightStates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestServiceClient(grpcConn)
+		req := &pb.GetLightStatesRequest{}
+		resp, err := client.GetLightStates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var lightsRequestGetLightsCmd = &cobra.Command{
+	Use:   "get-lights",
+	Short: "GetLights RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestServiceClient(grpcConn)
+		req := &pb.GetLightsRequest{}
+		resp, err := client.GetLights(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var lightsRequestBuilderCmd = &cobra.Command{
 	Use:   "request-builder",
 	Short: "RequestBuilderService operations",
@@ -438,6 +475,22 @@ var lightsManagerGetLightStateCmd = &cobra.Command{
 	},
 }
 
+var lightsManagerGetLightsCmd = &cobra.Command{
+	Use:   "get-lights",
+	Short: "GetLights RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetLightsRequest{}
+		resp, err := client.GetLights(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var lightsManagerOpenSessionCmd = &cobra.Command{
 	Use:   "open-session",
 	Short: "OpenSession RPC",
@@ -495,6 +548,9 @@ var lightsManagerLightsSessionRequestLightsCmd = &cobra.Command{
 }
 
 func init() {
+	lightsRequestCmd.AddCommand(lightsRequestGetLightStatesCmd)
+	lightsRequestCmd.AddCommand(lightsRequestGetLightsCmd)
+	lightsCmd.AddCommand(lightsRequestCmd)
 	lightsRequestBuilderAddLightCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	lightsRequestBuilderAddLightCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	lightsRequestBuilderCmd.AddCommand(lightsRequestBuilderAddLightCmd)
@@ -533,6 +589,7 @@ func init() {
 	lightsCmd.AddCommand(lightsLightCmd)
 	lightsManagerGetLightStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	lightsManagerCmd.AddCommand(lightsManagerGetLightStateCmd)
+	lightsManagerCmd.AddCommand(lightsManagerGetLightsCmd)
 	lightsManagerCmd.AddCommand(lightsManagerOpenSessionCmd)
 	lightsCmd.AddCommand(lightsManagerCmd)
 	lightsManagerLightsSessionCmd.AddCommand(lightsManagerLightsSessionCloseCmd)

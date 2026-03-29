@@ -132,155 +132,6 @@ var omapiChannelTransmitCmd = &cobra.Command{
 	},
 }
 
-var omapiSEServiceCmd = &cobra.Command{
-	Use:   "se-service",
-	Short: "SEServiceService operations",
-}
-
-var omapiSEServiceNewSEServiceCmd = &cobra.Command{
-	Use:   "new-se-service",
-	Short: "NewSEService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSEServiceServiceClient(grpcConn)
-		req := &pb.NewSEServiceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewSEService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiSEServiceGetReadersCmd = &cobra.Command{
-	Use:   "get-readers",
-	Short: "GetReaders RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSEServiceServiceClient(grpcConn)
-		req := &pb.GetReadersRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetReaders(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiSEServiceGetUiccReaderCmd = &cobra.Command{
-	Use:   "get-uicc-reader",
-	Short: "GetUiccReader RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSEServiceServiceClient(grpcConn)
-		req := &pb.GetUiccReaderRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetUiccReader(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiSEServiceGetVersionCmd = &cobra.Command{
-	Use:   "get-version",
-	Short: "GetVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSEServiceServiceClient(grpcConn)
-		req := &pb.GetVersionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiSEServiceIsConnectedCmd = &cobra.Command{
-	Use:   "is-connected",
-	Short: "IsConnected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSEServiceServiceClient(grpcConn)
-		req := &pb.IsConnectedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsConnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiSEServiceShutdownCmd = &cobra.Command{
-	Use:   "shutdown",
-	Short: "Shutdown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSEServiceServiceClient(grpcConn)
-		req := &pb.ShutdownRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Shutdown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiSEServiceOnConnectedListenerCmd = &cobra.Command{
-	Use:   "se-service-on-connected-listener",
-	Short: "SEServiceOnConnectedListenerService operations",
-}
-
-var omapiSEServiceOnConnectedListenerOnConnectedCmd = &cobra.Command{
-	Use:   "on-connected",
-	Short: "OnConnected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSEServiceOnConnectedListenerServiceClient(grpcConn)
-		req := &pb.OnConnectedRequest{}
-		resp, err := client.OnConnected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var omapiSessionCmd = &cobra.Command{
 	Use:   "session",
 	Short: "SessionService operations",
@@ -448,6 +299,155 @@ var omapiSessionOpenLogicalChannel2_1Cmd = &cobra.Command{
 	},
 }
 
+var omapiSEServiceCmd = &cobra.Command{
+	Use:   "se-service",
+	Short: "SEServiceService operations",
+}
+
+var omapiSEServiceNewSEServiceCmd = &cobra.Command{
+	Use:   "new-se-service",
+	Short: "NewSEService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSEServiceServiceClient(grpcConn)
+		req := &pb.NewSEServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewSEService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiSEServiceGetReadersCmd = &cobra.Command{
+	Use:   "get-readers",
+	Short: "GetReaders RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSEServiceServiceClient(grpcConn)
+		req := &pb.GetReadersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetReaders(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiSEServiceGetUiccReaderCmd = &cobra.Command{
+	Use:   "get-uicc-reader",
+	Short: "GetUiccReader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSEServiceServiceClient(grpcConn)
+		req := &pb.GetUiccReaderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetUiccReader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiSEServiceGetVersionCmd = &cobra.Command{
+	Use:   "get-version",
+	Short: "GetVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSEServiceServiceClient(grpcConn)
+		req := &pb.GetVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiSEServiceIsConnectedCmd = &cobra.Command{
+	Use:   "is-connected",
+	Short: "IsConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSEServiceServiceClient(grpcConn)
+		req := &pb.IsConnectedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiSEServiceShutdownCmd = &cobra.Command{
+	Use:   "shutdown",
+	Short: "Shutdown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSEServiceServiceClient(grpcConn)
+		req := &pb.ShutdownRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Shutdown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiSEServiceOnConnectedListenerCmd = &cobra.Command{
+	Use:   "se-service-on-connected-listener",
+	Short: "SEServiceOnConnectedListenerService operations",
+}
+
+var omapiSEServiceOnConnectedListenerOnConnectedCmd = &cobra.Command{
+	Use:   "on-connected",
+	Short: "OnConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSEServiceOnConnectedListenerServiceClient(grpcConn)
+		req := &pb.OnConnectedRequest{}
+		resp, err := client.OnConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var omapiReaderCmd = &cobra.Command{
 	Use:   "reader",
 	Short: "ReaderService operations",
@@ -543,6 +543,22 @@ func init() {
 	omapiChannelTransmitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	omapiChannelCmd.AddCommand(omapiChannelTransmitCmd)
 	omapiCmd.AddCommand(omapiChannelCmd)
+	omapiSessionCmd.AddCommand(omapiSessionCloseCmd)
+	omapiSessionCmd.AddCommand(omapiSessionCloseChannelsCmd)
+	omapiSessionCmd.AddCommand(omapiSessionGetATRCmd)
+	omapiSessionCmd.AddCommand(omapiSessionGetReaderCmd)
+	omapiSessionCmd.AddCommand(omapiSessionIsClosedCmd)
+	omapiSessionOpenBasicChannel1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omapiSessionCmd.AddCommand(omapiSessionOpenBasicChannel1Cmd)
+	omapiSessionOpenBasicChannel2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omapiSessionOpenBasicChannel2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	omapiSessionCmd.AddCommand(omapiSessionOpenBasicChannel2_1Cmd)
+	omapiSessionOpenLogicalChannel1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omapiSessionCmd.AddCommand(omapiSessionOpenLogicalChannel1Cmd)
+	omapiSessionOpenLogicalChannel2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omapiSessionOpenLogicalChannel2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	omapiSessionCmd.AddCommand(omapiSessionOpenLogicalChannel2_1Cmd)
+	omapiCmd.AddCommand(omapiSessionCmd)
 	omapiSEServiceNewSEServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	omapiSEServiceNewSEServiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	omapiSEServiceNewSEServiceCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -561,22 +577,6 @@ func init() {
 	omapiCmd.AddCommand(omapiSEServiceCmd)
 	omapiSEServiceOnConnectedListenerCmd.AddCommand(omapiSEServiceOnConnectedListenerOnConnectedCmd)
 	omapiCmd.AddCommand(omapiSEServiceOnConnectedListenerCmd)
-	omapiSessionCmd.AddCommand(omapiSessionCloseCmd)
-	omapiSessionCmd.AddCommand(omapiSessionCloseChannelsCmd)
-	omapiSessionCmd.AddCommand(omapiSessionGetATRCmd)
-	omapiSessionCmd.AddCommand(omapiSessionGetReaderCmd)
-	omapiSessionCmd.AddCommand(omapiSessionIsClosedCmd)
-	omapiSessionOpenBasicChannel1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	omapiSessionCmd.AddCommand(omapiSessionOpenBasicChannel1Cmd)
-	omapiSessionOpenBasicChannel2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	omapiSessionOpenBasicChannel2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	omapiSessionCmd.AddCommand(omapiSessionOpenBasicChannel2_1Cmd)
-	omapiSessionOpenLogicalChannel1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	omapiSessionCmd.AddCommand(omapiSessionOpenLogicalChannel1Cmd)
-	omapiSessionOpenLogicalChannel2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	omapiSessionOpenLogicalChannel2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	omapiSessionCmd.AddCommand(omapiSessionOpenLogicalChannel2_1Cmd)
-	omapiCmd.AddCommand(omapiSessionCmd)
 	omapiReaderCmd.AddCommand(omapiReaderCloseSessionsCmd)
 	omapiReaderCmd.AddCommand(omapiReaderGetNameCmd)
 	omapiReaderCmd.AddCommand(omapiReaderGetSEServiceCmd)

@@ -21,6 +21,362 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	StateCallbackService_OnAvailable_FullMethodName   = "/ims.StateCallbackService/OnAvailable"
+	StateCallbackService_OnError_FullMethodName       = "/ims.StateCallbackService/OnError"
+	StateCallbackService_OnUnavailable_FullMethodName = "/ims.StateCallbackService/OnUnavailable"
+)
+
+// StateCallbackServiceClient is the client API for StateCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StateCallbackServiceClient interface {
+	OnAvailable(ctx context.Context, in *OnAvailableRequest, opts ...grpc.CallOption) (*OnAvailableResponse, error)
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+	OnUnavailable(ctx context.Context, in *OnUnavailableRequest, opts ...grpc.CallOption) (*OnUnavailableResponse, error)
+}
+
+type stateCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStateCallbackServiceClient(cc grpc.ClientConnInterface) StateCallbackServiceClient {
+	return &stateCallbackServiceClient{cc}
+}
+
+func (c *stateCallbackServiceClient) OnAvailable(ctx context.Context, in *OnAvailableRequest, opts ...grpc.CallOption) (*OnAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAvailableResponse)
+	err := c.cc.Invoke(ctx, StateCallbackService_OnAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *stateCallbackServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, StateCallbackService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *stateCallbackServiceClient) OnUnavailable(ctx context.Context, in *OnUnavailableRequest, opts ...grpc.CallOption) (*OnUnavailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnavailableResponse)
+	err := c.cc.Invoke(ctx, StateCallbackService_OnUnavailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StateCallbackServiceServer is the server API for StateCallbackService service.
+// All implementations must embed UnimplementedStateCallbackServiceServer
+// for forward compatibility.
+type StateCallbackServiceServer interface {
+	OnAvailable(context.Context, *OnAvailableRequest) (*OnAvailableResponse, error)
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	OnUnavailable(context.Context, *OnUnavailableRequest) (*OnUnavailableResponse, error)
+	mustEmbedUnimplementedStateCallbackServiceServer()
+}
+
+// UnimplementedStateCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStateCallbackServiceServer struct{}
+
+func (UnimplementedStateCallbackServiceServer) OnAvailable(context.Context, *OnAvailableRequest) (*OnAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAvailable not implemented")
+}
+func (UnimplementedStateCallbackServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedStateCallbackServiceServer) OnUnavailable(context.Context, *OnUnavailableRequest) (*OnUnavailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnavailable not implemented")
+}
+func (UnimplementedStateCallbackServiceServer) mustEmbedUnimplementedStateCallbackServiceServer() {}
+func (UnimplementedStateCallbackServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeStateCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StateCallbackServiceServer will
+// result in compilation errors.
+type UnsafeStateCallbackServiceServer interface {
+	mustEmbedUnimplementedStateCallbackServiceServer()
+}
+
+func RegisterStateCallbackServiceServer(s grpc.ServiceRegistrar, srv StateCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedStateCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StateCallbackService_ServiceDesc, srv)
+}
+
+func _StateCallbackService_OnAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StateCallbackServiceServer).OnAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StateCallbackService_OnAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StateCallbackServiceServer).OnAvailable(ctx, req.(*OnAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StateCallbackService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StateCallbackServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StateCallbackService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StateCallbackServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StateCallbackService_OnUnavailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUnavailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StateCallbackServiceServer).OnUnavailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StateCallbackService_OnUnavailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StateCallbackServiceServer).OnUnavailable(ctx, req.(*OnUnavailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StateCallbackService_ServiceDesc is the grpc.ServiceDesc for StateCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StateCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ims.StateCallbackService",
+	HandlerType: (*StateCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAvailable",
+			Handler:    _StateCallbackService_OnAvailable_Handler,
+		},
+		{
+			MethodName: "OnError",
+			Handler:    _StateCallbackService_OnError_Handler,
+		},
+		{
+			MethodName: "OnUnavailable",
+			Handler:    _StateCallbackService_OnUnavailable_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ims/ims.proto",
+}
+
+const (
+	ManagerService_GetImsMmTelManager_FullMethodName     = "/ims.ManagerService/GetImsMmTelManager"
+	ManagerService_GetImsRcsManager_FullMethodName       = "/ims.ManagerService/GetImsRcsManager"
+	ManagerService_GetProvisioningManager_FullMethodName = "/ims.ManagerService/GetProvisioningManager"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	GetImsMmTelManager(ctx context.Context, in *GetImsMmTelManagerRequest, opts ...grpc.CallOption) (*GetImsMmTelManagerResponse, error)
+	GetImsRcsManager(ctx context.Context, in *GetImsRcsManagerRequest, opts ...grpc.CallOption) (*GetImsRcsManagerResponse, error)
+	GetProvisioningManager(ctx context.Context, in *GetProvisioningManagerRequest, opts ...grpc.CallOption) (*GetProvisioningManagerResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) GetImsMmTelManager(ctx context.Context, in *GetImsMmTelManagerRequest, opts ...grpc.CallOption) (*GetImsMmTelManagerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetImsMmTelManagerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetImsMmTelManager_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetImsRcsManager(ctx context.Context, in *GetImsRcsManagerRequest, opts ...grpc.CallOption) (*GetImsRcsManagerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetImsRcsManagerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetImsRcsManager_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetProvisioningManager(ctx context.Context, in *GetProvisioningManagerRequest, opts ...grpc.CallOption) (*GetProvisioningManagerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProvisioningManagerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetProvisioningManager_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	GetImsMmTelManager(context.Context, *GetImsMmTelManagerRequest) (*GetImsMmTelManagerResponse, error)
+	GetImsRcsManager(context.Context, *GetImsRcsManagerRequest) (*GetImsRcsManagerResponse, error)
+	GetProvisioningManager(context.Context, *GetProvisioningManagerRequest) (*GetProvisioningManagerResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) GetImsMmTelManager(context.Context, *GetImsMmTelManagerRequest) (*GetImsMmTelManagerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetImsMmTelManager not implemented")
+}
+func (UnimplementedManagerServiceServer) GetImsRcsManager(context.Context, *GetImsRcsManagerRequest) (*GetImsRcsManagerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetImsRcsManager not implemented")
+}
+func (UnimplementedManagerServiceServer) GetProvisioningManager(context.Context, *GetProvisioningManagerRequest) (*GetProvisioningManagerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProvisioningManager not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_GetImsMmTelManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetImsMmTelManagerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetImsMmTelManager(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetImsMmTelManager_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetImsMmTelManager(ctx, req.(*GetImsMmTelManagerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetImsRcsManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetImsRcsManagerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetImsRcsManager(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetImsRcsManager_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetImsRcsManager(ctx, req.(*GetImsRcsManagerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetProvisioningManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProvisioningManagerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetProvisioningManager(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetProvisioningManager_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetProvisioningManager(ctx, req.(*GetProvisioningManagerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ims.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetImsMmTelManager",
+			Handler:    _ManagerService_GetImsMmTelManager_Handler,
+		},
+		{
+			MethodName: "GetImsRcsManager",
+			Handler:    _ManagerService_GetImsRcsManager_Handler,
+		},
+		{
+			MethodName: "GetProvisioningManager",
+			Handler:    _ManagerService_GetProvisioningManager_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ims/ims.proto",
+}
+
+const (
 	RegistrationManagerService_RegisterImsRegistrationCallback_FullMethodName   = "/ims.RegistrationManagerService/RegisterImsRegistrationCallback"
 	RegistrationManagerService_UnregisterImsRegistrationCallback_FullMethodName = "/ims.RegistrationManagerService/UnregisterImsRegistrationCallback"
 )
@@ -455,368 +811,621 @@ var RegistrationManagerRegistrationCallbackService_ServiceDesc = grpc.ServiceDes
 }
 
 const (
-	RegistrationAttributesService_DescribeContents_FullMethodName  = "/ims.RegistrationAttributesService/DescribeContents"
-	RegistrationAttributesService_Equals_FullMethodName            = "/ims.RegistrationAttributesService/Equals"
-	RegistrationAttributesService_GetAttributeFlags_FullMethodName = "/ims.RegistrationAttributesService/GetAttributeFlags"
-	RegistrationAttributesService_GetSipDetails_FullMethodName     = "/ims.RegistrationAttributesService/GetSipDetails"
-	RegistrationAttributesService_GetTransportType_FullMethodName  = "/ims.RegistrationAttributesService/GetTransportType"
-	RegistrationAttributesService_HashCode_FullMethodName          = "/ims.RegistrationAttributesService/HashCode"
-	RegistrationAttributesService_ToString_FullMethodName          = "/ims.RegistrationAttributesService/ToString"
-	RegistrationAttributesService_WriteToParcel_FullMethodName     = "/ims.RegistrationAttributesService/WriteToParcel"
+	RcsUceAdapterService_IsUceSettingEnabled_FullMethodName = "/ims.RcsUceAdapterService/IsUceSettingEnabled"
 )
 
-// RegistrationAttributesServiceClient is the client API for RegistrationAttributesService service.
+// RcsUceAdapterServiceClient is the client API for RcsUceAdapterService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RegistrationAttributesServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAttributeFlags(ctx context.Context, in *GetAttributeFlagsRequest, opts ...grpc.CallOption) (*GetAttributeFlagsResponse, error)
-	GetSipDetails(ctx context.Context, in *GetSipDetailsRequest, opts ...grpc.CallOption) (*GetSipDetailsResponse, error)
-	GetTransportType(ctx context.Context, in *GetTransportTypeRequest, opts ...grpc.CallOption) (*GetTransportTypeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type RcsUceAdapterServiceClient interface {
+	IsUceSettingEnabled(ctx context.Context, in *IsUceSettingEnabledRequest, opts ...grpc.CallOption) (*IsUceSettingEnabledResponse, error)
 }
 
-type registrationAttributesServiceClient struct {
+type rcsUceAdapterServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewRegistrationAttributesServiceClient(cc grpc.ClientConnInterface) RegistrationAttributesServiceClient {
-	return &registrationAttributesServiceClient{cc}
+func NewRcsUceAdapterServiceClient(cc grpc.ClientConnInterface) RcsUceAdapterServiceClient {
+	return &rcsUceAdapterServiceClient{cc}
 }
 
-func (c *registrationAttributesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *rcsUceAdapterServiceClient) IsUceSettingEnabled(ctx context.Context, in *IsUceSettingEnabledRequest, opts ...grpc.CallOption) (*IsUceSettingEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RegistrationAttributesService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(IsUceSettingEnabledResponse)
+	err := c.cc.Invoke(ctx, RcsUceAdapterService_IsUceSettingEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *registrationAttributesServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, RegistrationAttributesService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *registrationAttributesServiceClient) GetAttributeFlags(ctx context.Context, in *GetAttributeFlagsRequest, opts ...grpc.CallOption) (*GetAttributeFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAttributeFlagsResponse)
-	err := c.cc.Invoke(ctx, RegistrationAttributesService_GetAttributeFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *registrationAttributesServiceClient) GetSipDetails(ctx context.Context, in *GetSipDetailsRequest, opts ...grpc.CallOption) (*GetSipDetailsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSipDetailsResponse)
-	err := c.cc.Invoke(ctx, RegistrationAttributesService_GetSipDetails_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *registrationAttributesServiceClient) GetTransportType(ctx context.Context, in *GetTransportTypeRequest, opts ...grpc.CallOption) (*GetTransportTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransportTypeResponse)
-	err := c.cc.Invoke(ctx, RegistrationAttributesService_GetTransportType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *registrationAttributesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, RegistrationAttributesService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *registrationAttributesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, RegistrationAttributesService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *registrationAttributesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RegistrationAttributesService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RegistrationAttributesServiceServer is the server API for RegistrationAttributesService service.
-// All implementations must embed UnimplementedRegistrationAttributesServiceServer
+// RcsUceAdapterServiceServer is the server API for RcsUceAdapterService service.
+// All implementations must embed UnimplementedRcsUceAdapterServiceServer
 // for forward compatibility.
-type RegistrationAttributesServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAttributeFlags(context.Context, *GetAttributeFlagsRequest) (*GetAttributeFlagsResponse, error)
-	GetSipDetails(context.Context, *GetSipDetailsRequest) (*GetSipDetailsResponse, error)
-	GetTransportType(context.Context, *GetTransportTypeRequest) (*GetTransportTypeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedRegistrationAttributesServiceServer()
+type RcsUceAdapterServiceServer interface {
+	IsUceSettingEnabled(context.Context, *IsUceSettingEnabledRequest) (*IsUceSettingEnabledResponse, error)
+	mustEmbedUnimplementedRcsUceAdapterServiceServer()
 }
 
-// UnimplementedRegistrationAttributesServiceServer must be embedded to have
+// UnimplementedRcsUceAdapterServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedRegistrationAttributesServiceServer struct{}
+type UnimplementedRcsUceAdapterServiceServer struct{}
 
-func (UnimplementedRegistrationAttributesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedRcsUceAdapterServiceServer) IsUceSettingEnabled(context.Context, *IsUceSettingEnabledRequest) (*IsUceSettingEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUceSettingEnabled not implemented")
 }
-func (UnimplementedRegistrationAttributesServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedRegistrationAttributesServiceServer) GetAttributeFlags(context.Context, *GetAttributeFlagsRequest) (*GetAttributeFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAttributeFlags not implemented")
-}
-func (UnimplementedRegistrationAttributesServiceServer) GetSipDetails(context.Context, *GetSipDetailsRequest) (*GetSipDetailsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSipDetails not implemented")
-}
-func (UnimplementedRegistrationAttributesServiceServer) GetTransportType(context.Context, *GetTransportTypeRequest) (*GetTransportTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransportType not implemented")
-}
-func (UnimplementedRegistrationAttributesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedRegistrationAttributesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedRegistrationAttributesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedRegistrationAttributesServiceServer) mustEmbedUnimplementedRegistrationAttributesServiceServer() {
-}
-func (UnimplementedRegistrationAttributesServiceServer) testEmbeddedByValue() {}
+func (UnimplementedRcsUceAdapterServiceServer) mustEmbedUnimplementedRcsUceAdapterServiceServer() {}
+func (UnimplementedRcsUceAdapterServiceServer) testEmbeddedByValue()                              {}
 
-// UnsafeRegistrationAttributesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RegistrationAttributesServiceServer will
+// UnsafeRcsUceAdapterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RcsUceAdapterServiceServer will
 // result in compilation errors.
-type UnsafeRegistrationAttributesServiceServer interface {
-	mustEmbedUnimplementedRegistrationAttributesServiceServer()
+type UnsafeRcsUceAdapterServiceServer interface {
+	mustEmbedUnimplementedRcsUceAdapterServiceServer()
 }
 
-func RegisterRegistrationAttributesServiceServer(s grpc.ServiceRegistrar, srv RegistrationAttributesServiceServer) {
-	// If the following call panics, it indicates UnimplementedRegistrationAttributesServiceServer was
+func RegisterRcsUceAdapterServiceServer(s grpc.ServiceRegistrar, srv RcsUceAdapterServiceServer) {
+	// If the following call panics, it indicates UnimplementedRcsUceAdapterServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&RegistrationAttributesService_ServiceDesc, srv)
+	s.RegisterService(&RcsUceAdapterService_ServiceDesc, srv)
 }
 
-func _RegistrationAttributesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RcsUceAdapterService_IsUceSettingEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUceSettingEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RcsUceAdapterServiceServer).IsUceSettingEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RcsUceAdapterService_IsUceSettingEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RcsUceAdapterServiceServer).IsUceSettingEnabled(ctx, req.(*IsUceSettingEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RcsUceAdapterService_ServiceDesc is the grpc.ServiceDesc for RcsUceAdapterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RcsUceAdapterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ims.RcsUceAdapterService",
+	HandlerType: (*RcsUceAdapterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "IsUceSettingEnabled",
+			Handler:    _RcsUceAdapterService_IsUceSettingEnabled_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ims/ims.proto",
+}
+
+const (
+	SipDetailsService_DescribeContents_FullMethodName     = "/ims.SipDetailsService/DescribeContents"
+	SipDetailsService_Equals_FullMethodName               = "/ims.SipDetailsService/Equals"
+	SipDetailsService_GetCSeq_FullMethodName              = "/ims.SipDetailsService/GetCSeq"
+	SipDetailsService_GetCallId_FullMethodName            = "/ims.SipDetailsService/GetCallId"
+	SipDetailsService_GetMethod_FullMethodName            = "/ims.SipDetailsService/GetMethod"
+	SipDetailsService_GetReasonHeaderCause_FullMethodName = "/ims.SipDetailsService/GetReasonHeaderCause"
+	SipDetailsService_GetReasonHeaderText_FullMethodName  = "/ims.SipDetailsService/GetReasonHeaderText"
+	SipDetailsService_GetResponseCode_FullMethodName      = "/ims.SipDetailsService/GetResponseCode"
+	SipDetailsService_GetResponsePhrase_FullMethodName    = "/ims.SipDetailsService/GetResponsePhrase"
+	SipDetailsService_HashCode_FullMethodName             = "/ims.SipDetailsService/HashCode"
+	SipDetailsService_ToString_FullMethodName             = "/ims.SipDetailsService/ToString"
+	SipDetailsService_WriteToParcel_FullMethodName        = "/ims.SipDetailsService/WriteToParcel"
+)
+
+// SipDetailsServiceClient is the client API for SipDetailsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SipDetailsServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetCSeq(ctx context.Context, in *GetCSeqRequest, opts ...grpc.CallOption) (*GetCSeqResponse, error)
+	GetCallId(ctx context.Context, in *GetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error)
+	GetMethod(ctx context.Context, in *GetMethodRequest, opts ...grpc.CallOption) (*GetMethodResponse, error)
+	GetReasonHeaderCause(ctx context.Context, in *GetReasonHeaderCauseRequest, opts ...grpc.CallOption) (*GetReasonHeaderCauseResponse, error)
+	GetReasonHeaderText(ctx context.Context, in *GetReasonHeaderTextRequest, opts ...grpc.CallOption) (*GetReasonHeaderTextResponse, error)
+	GetResponseCode(ctx context.Context, in *GetResponseCodeRequest, opts ...grpc.CallOption) (*GetResponseCodeResponse, error)
+	GetResponsePhrase(ctx context.Context, in *GetResponsePhraseRequest, opts ...grpc.CallOption) (*GetResponsePhraseResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type sipDetailsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSipDetailsServiceClient(cc grpc.ClientConnInterface) SipDetailsServiceClient {
+	return &sipDetailsServiceClient{cc}
+}
+
+func (c *sipDetailsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) GetCSeq(ctx context.Context, in *GetCSeqRequest, opts ...grpc.CallOption) (*GetCSeqResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCSeqResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_GetCSeq_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) GetCallId(ctx context.Context, in *GetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallIdResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_GetCallId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) GetMethod(ctx context.Context, in *GetMethodRequest, opts ...grpc.CallOption) (*GetMethodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMethodResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_GetMethod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) GetReasonHeaderCause(ctx context.Context, in *GetReasonHeaderCauseRequest, opts ...grpc.CallOption) (*GetReasonHeaderCauseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReasonHeaderCauseResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_GetReasonHeaderCause_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) GetReasonHeaderText(ctx context.Context, in *GetReasonHeaderTextRequest, opts ...grpc.CallOption) (*GetReasonHeaderTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReasonHeaderTextResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_GetReasonHeaderText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) GetResponseCode(ctx context.Context, in *GetResponseCodeRequest, opts ...grpc.CallOption) (*GetResponseCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponseCodeResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_GetResponseCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) GetResponsePhrase(ctx context.Context, in *GetResponsePhraseRequest, opts ...grpc.CallOption) (*GetResponsePhraseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponsePhraseResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_GetResponsePhrase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sipDetailsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SipDetailsService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SipDetailsServiceServer is the server API for SipDetailsService service.
+// All implementations must embed UnimplementedSipDetailsServiceServer
+// for forward compatibility.
+type SipDetailsServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetCSeq(context.Context, *GetCSeqRequest) (*GetCSeqResponse, error)
+	GetCallId(context.Context, *GetCallIdRequest) (*GetCallIdResponse, error)
+	GetMethod(context.Context, *GetMethodRequest) (*GetMethodResponse, error)
+	GetReasonHeaderCause(context.Context, *GetReasonHeaderCauseRequest) (*GetReasonHeaderCauseResponse, error)
+	GetReasonHeaderText(context.Context, *GetReasonHeaderTextRequest) (*GetReasonHeaderTextResponse, error)
+	GetResponseCode(context.Context, *GetResponseCodeRequest) (*GetResponseCodeResponse, error)
+	GetResponsePhrase(context.Context, *GetResponsePhraseRequest) (*GetResponsePhraseResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSipDetailsServiceServer()
+}
+
+// UnimplementedSipDetailsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSipDetailsServiceServer struct{}
+
+func (UnimplementedSipDetailsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) GetCSeq(context.Context, *GetCSeqRequest) (*GetCSeqResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCSeq not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) GetCallId(context.Context, *GetCallIdRequest) (*GetCallIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallId not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) GetMethod(context.Context, *GetMethodRequest) (*GetMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMethod not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) GetReasonHeaderCause(context.Context, *GetReasonHeaderCauseRequest) (*GetReasonHeaderCauseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReasonHeaderCause not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) GetReasonHeaderText(context.Context, *GetReasonHeaderTextRequest) (*GetReasonHeaderTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReasonHeaderText not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) GetResponseCode(context.Context, *GetResponseCodeRequest) (*GetResponseCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResponseCode not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) GetResponsePhrase(context.Context, *GetResponsePhraseRequest) (*GetResponsePhraseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResponsePhrase not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSipDetailsServiceServer) mustEmbedUnimplementedSipDetailsServiceServer() {}
+func (UnimplementedSipDetailsServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeSipDetailsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SipDetailsServiceServer will
+// result in compilation errors.
+type UnsafeSipDetailsServiceServer interface {
+	mustEmbedUnimplementedSipDetailsServiceServer()
+}
+
+func RegisterSipDetailsServiceServer(s grpc.ServiceRegistrar, srv SipDetailsServiceServer) {
+	// If the following call panics, it indicates UnimplementedSipDetailsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SipDetailsService_ServiceDesc, srv)
+}
+
+func _SipDetailsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegistrationAttributesServiceServer).DescribeContents(ctx, in)
+		return srv.(SipDetailsServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegistrationAttributesService_DescribeContents_FullMethodName,
+		FullMethod: SipDetailsService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationAttributesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(SipDetailsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegistrationAttributesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SipDetailsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegistrationAttributesServiceServer).Equals(ctx, in)
+		return srv.(SipDetailsServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegistrationAttributesService_Equals_FullMethodName,
+		FullMethod: SipDetailsService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationAttributesServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(SipDetailsServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegistrationAttributesService_GetAttributeFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAttributeFlagsRequest)
+func _SipDetailsService_GetCSeq_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCSeqRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegistrationAttributesServiceServer).GetAttributeFlags(ctx, in)
+		return srv.(SipDetailsServiceServer).GetCSeq(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegistrationAttributesService_GetAttributeFlags_FullMethodName,
+		FullMethod: SipDetailsService_GetCSeq_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationAttributesServiceServer).GetAttributeFlags(ctx, req.(*GetAttributeFlagsRequest))
+		return srv.(SipDetailsServiceServer).GetCSeq(ctx, req.(*GetCSeqRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegistrationAttributesService_GetSipDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSipDetailsRequest)
+func _SipDetailsService_GetCallId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegistrationAttributesServiceServer).GetSipDetails(ctx, in)
+		return srv.(SipDetailsServiceServer).GetCallId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegistrationAttributesService_GetSipDetails_FullMethodName,
+		FullMethod: SipDetailsService_GetCallId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationAttributesServiceServer).GetSipDetails(ctx, req.(*GetSipDetailsRequest))
+		return srv.(SipDetailsServiceServer).GetCallId(ctx, req.(*GetCallIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegistrationAttributesService_GetTransportType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransportTypeRequest)
+func _SipDetailsService_GetMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMethodRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegistrationAttributesServiceServer).GetTransportType(ctx, in)
+		return srv.(SipDetailsServiceServer).GetMethod(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegistrationAttributesService_GetTransportType_FullMethodName,
+		FullMethod: SipDetailsService_GetMethod_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationAttributesServiceServer).GetTransportType(ctx, req.(*GetTransportTypeRequest))
+		return srv.(SipDetailsServiceServer).GetMethod(ctx, req.(*GetMethodRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegistrationAttributesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SipDetailsService_GetReasonHeaderCause_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReasonHeaderCauseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SipDetailsServiceServer).GetReasonHeaderCause(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SipDetailsService_GetReasonHeaderCause_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SipDetailsServiceServer).GetReasonHeaderCause(ctx, req.(*GetReasonHeaderCauseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SipDetailsService_GetReasonHeaderText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReasonHeaderTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SipDetailsServiceServer).GetReasonHeaderText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SipDetailsService_GetReasonHeaderText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SipDetailsServiceServer).GetReasonHeaderText(ctx, req.(*GetReasonHeaderTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SipDetailsService_GetResponseCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResponseCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SipDetailsServiceServer).GetResponseCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SipDetailsService_GetResponseCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SipDetailsServiceServer).GetResponseCode(ctx, req.(*GetResponseCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SipDetailsService_GetResponsePhrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResponsePhraseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SipDetailsServiceServer).GetResponsePhrase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SipDetailsService_GetResponsePhrase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SipDetailsServiceServer).GetResponsePhrase(ctx, req.(*GetResponsePhraseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SipDetailsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegistrationAttributesServiceServer).HashCode(ctx, in)
+		return srv.(SipDetailsServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegistrationAttributesService_HashCode_FullMethodName,
+		FullMethod: SipDetailsService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationAttributesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(SipDetailsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegistrationAttributesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SipDetailsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegistrationAttributesServiceServer).ToString(ctx, in)
+		return srv.(SipDetailsServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegistrationAttributesService_ToString_FullMethodName,
+		FullMethod: SipDetailsService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationAttributesServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(SipDetailsServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegistrationAttributesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SipDetailsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegistrationAttributesServiceServer).WriteToParcel(ctx, in)
+		return srv.(SipDetailsServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegistrationAttributesService_WriteToParcel_FullMethodName,
+		FullMethod: SipDetailsService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationAttributesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(SipDetailsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// RegistrationAttributesService_ServiceDesc is the grpc.ServiceDesc for RegistrationAttributesService service.
+// SipDetailsService_ServiceDesc is the grpc.ServiceDesc for SipDetailsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var RegistrationAttributesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ims.RegistrationAttributesService",
-	HandlerType: (*RegistrationAttributesServiceServer)(nil),
+var SipDetailsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ims.SipDetailsService",
+	HandlerType: (*SipDetailsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _RegistrationAttributesService_DescribeContents_Handler,
+			Handler:    _SipDetailsService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _RegistrationAttributesService_Equals_Handler,
+			Handler:    _SipDetailsService_Equals_Handler,
 		},
 		{
-			MethodName: "GetAttributeFlags",
-			Handler:    _RegistrationAttributesService_GetAttributeFlags_Handler,
+			MethodName: "GetCSeq",
+			Handler:    _SipDetailsService_GetCSeq_Handler,
 		},
 		{
-			MethodName: "GetSipDetails",
-			Handler:    _RegistrationAttributesService_GetSipDetails_Handler,
+			MethodName: "GetCallId",
+			Handler:    _SipDetailsService_GetCallId_Handler,
 		},
 		{
-			MethodName: "GetTransportType",
-			Handler:    _RegistrationAttributesService_GetTransportType_Handler,
+			MethodName: "GetMethod",
+			Handler:    _SipDetailsService_GetMethod_Handler,
+		},
+		{
+			MethodName: "GetReasonHeaderCause",
+			Handler:    _SipDetailsService_GetReasonHeaderCause_Handler,
+		},
+		{
+			MethodName: "GetReasonHeaderText",
+			Handler:    _SipDetailsService_GetReasonHeaderText_Handler,
+		},
+		{
+			MethodName: "GetResponseCode",
+			Handler:    _SipDetailsService_GetResponseCode_Handler,
+		},
+		{
+			MethodName: "GetResponsePhrase",
+			Handler:    _SipDetailsService_GetResponsePhrase_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _RegistrationAttributesService_HashCode_Handler,
+			Handler:    _SipDetailsService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _RegistrationAttributesService_ToString_Handler,
+			Handler:    _SipDetailsService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _RegistrationAttributesService_WriteToParcel_Handler,
+			Handler:    _SipDetailsService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1071,616 +1680,6 @@ var RcsManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UnregisterImsStateCallback",
 			Handler:    _RcsManagerService_UnregisterImsStateCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ims/ims.proto",
-}
-
-const (
-	StateCallbackService_OnAvailable_FullMethodName   = "/ims.StateCallbackService/OnAvailable"
-	StateCallbackService_OnError_FullMethodName       = "/ims.StateCallbackService/OnError"
-	StateCallbackService_OnUnavailable_FullMethodName = "/ims.StateCallbackService/OnUnavailable"
-)
-
-// StateCallbackServiceClient is the client API for StateCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StateCallbackServiceClient interface {
-	OnAvailable(ctx context.Context, in *OnAvailableRequest, opts ...grpc.CallOption) (*OnAvailableResponse, error)
-	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
-	OnUnavailable(ctx context.Context, in *OnUnavailableRequest, opts ...grpc.CallOption) (*OnUnavailableResponse, error)
-}
-
-type stateCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStateCallbackServiceClient(cc grpc.ClientConnInterface) StateCallbackServiceClient {
-	return &stateCallbackServiceClient{cc}
-}
-
-func (c *stateCallbackServiceClient) OnAvailable(ctx context.Context, in *OnAvailableRequest, opts ...grpc.CallOption) (*OnAvailableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAvailableResponse)
-	err := c.cc.Invoke(ctx, StateCallbackService_OnAvailable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *stateCallbackServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnErrorResponse)
-	err := c.cc.Invoke(ctx, StateCallbackService_OnError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *stateCallbackServiceClient) OnUnavailable(ctx context.Context, in *OnUnavailableRequest, opts ...grpc.CallOption) (*OnUnavailableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnUnavailableResponse)
-	err := c.cc.Invoke(ctx, StateCallbackService_OnUnavailable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StateCallbackServiceServer is the server API for StateCallbackService service.
-// All implementations must embed UnimplementedStateCallbackServiceServer
-// for forward compatibility.
-type StateCallbackServiceServer interface {
-	OnAvailable(context.Context, *OnAvailableRequest) (*OnAvailableResponse, error)
-	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
-	OnUnavailable(context.Context, *OnUnavailableRequest) (*OnUnavailableResponse, error)
-	mustEmbedUnimplementedStateCallbackServiceServer()
-}
-
-// UnimplementedStateCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStateCallbackServiceServer struct{}
-
-func (UnimplementedStateCallbackServiceServer) OnAvailable(context.Context, *OnAvailableRequest) (*OnAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAvailable not implemented")
-}
-func (UnimplementedStateCallbackServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
-}
-func (UnimplementedStateCallbackServiceServer) OnUnavailable(context.Context, *OnUnavailableRequest) (*OnUnavailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnUnavailable not implemented")
-}
-func (UnimplementedStateCallbackServiceServer) mustEmbedUnimplementedStateCallbackServiceServer() {}
-func (UnimplementedStateCallbackServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeStateCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StateCallbackServiceServer will
-// result in compilation errors.
-type UnsafeStateCallbackServiceServer interface {
-	mustEmbedUnimplementedStateCallbackServiceServer()
-}
-
-func RegisterStateCallbackServiceServer(s grpc.ServiceRegistrar, srv StateCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedStateCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StateCallbackService_ServiceDesc, srv)
-}
-
-func _StateCallbackService_OnAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAvailableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StateCallbackServiceServer).OnAvailable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StateCallbackService_OnAvailable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StateCallbackServiceServer).OnAvailable(ctx, req.(*OnAvailableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StateCallbackService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StateCallbackServiceServer).OnError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StateCallbackService_OnError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StateCallbackServiceServer).OnError(ctx, req.(*OnErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StateCallbackService_OnUnavailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnUnavailableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StateCallbackServiceServer).OnUnavailable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StateCallbackService_OnUnavailable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StateCallbackServiceServer).OnUnavailable(ctx, req.(*OnUnavailableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StateCallbackService_ServiceDesc is the grpc.ServiceDesc for StateCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StateCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ims.StateCallbackService",
-	HandlerType: (*StateCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnAvailable",
-			Handler:    _StateCallbackService_OnAvailable_Handler,
-		},
-		{
-			MethodName: "OnError",
-			Handler:    _StateCallbackService_OnError_Handler,
-		},
-		{
-			MethodName: "OnUnavailable",
-			Handler:    _StateCallbackService_OnUnavailable_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ims/ims.proto",
-}
-
-const (
-	RcsUceAdapterService_IsUceSettingEnabled_FullMethodName = "/ims.RcsUceAdapterService/IsUceSettingEnabled"
-)
-
-// RcsUceAdapterServiceClient is the client API for RcsUceAdapterService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RcsUceAdapterServiceClient interface {
-	IsUceSettingEnabled(ctx context.Context, in *IsUceSettingEnabledRequest, opts ...grpc.CallOption) (*IsUceSettingEnabledResponse, error)
-}
-
-type rcsUceAdapterServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRcsUceAdapterServiceClient(cc grpc.ClientConnInterface) RcsUceAdapterServiceClient {
-	return &rcsUceAdapterServiceClient{cc}
-}
-
-func (c *rcsUceAdapterServiceClient) IsUceSettingEnabled(ctx context.Context, in *IsUceSettingEnabledRequest, opts ...grpc.CallOption) (*IsUceSettingEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsUceSettingEnabledResponse)
-	err := c.cc.Invoke(ctx, RcsUceAdapterService_IsUceSettingEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RcsUceAdapterServiceServer is the server API for RcsUceAdapterService service.
-// All implementations must embed UnimplementedRcsUceAdapterServiceServer
-// for forward compatibility.
-type RcsUceAdapterServiceServer interface {
-	IsUceSettingEnabled(context.Context, *IsUceSettingEnabledRequest) (*IsUceSettingEnabledResponse, error)
-	mustEmbedUnimplementedRcsUceAdapterServiceServer()
-}
-
-// UnimplementedRcsUceAdapterServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRcsUceAdapterServiceServer struct{}
-
-func (UnimplementedRcsUceAdapterServiceServer) IsUceSettingEnabled(context.Context, *IsUceSettingEnabledRequest) (*IsUceSettingEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsUceSettingEnabled not implemented")
-}
-func (UnimplementedRcsUceAdapterServiceServer) mustEmbedUnimplementedRcsUceAdapterServiceServer() {}
-func (UnimplementedRcsUceAdapterServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeRcsUceAdapterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RcsUceAdapterServiceServer will
-// result in compilation errors.
-type UnsafeRcsUceAdapterServiceServer interface {
-	mustEmbedUnimplementedRcsUceAdapterServiceServer()
-}
-
-func RegisterRcsUceAdapterServiceServer(s grpc.ServiceRegistrar, srv RcsUceAdapterServiceServer) {
-	// If the following call panics, it indicates UnimplementedRcsUceAdapterServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RcsUceAdapterService_ServiceDesc, srv)
-}
-
-func _RcsUceAdapterService_IsUceSettingEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsUceSettingEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RcsUceAdapterServiceServer).IsUceSettingEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RcsUceAdapterService_IsUceSettingEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RcsUceAdapterServiceServer).IsUceSettingEnabled(ctx, req.(*IsUceSettingEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RcsUceAdapterService_ServiceDesc is the grpc.ServiceDesc for RcsUceAdapterService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RcsUceAdapterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ims.RcsUceAdapterService",
-	HandlerType: (*RcsUceAdapterServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "IsUceSettingEnabled",
-			Handler:    _RcsUceAdapterService_IsUceSettingEnabled_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ims/ims.proto",
-}
-
-const (
-	ReasonInfoService_NewReasonInfo_FullMethodName    = "/ims.ReasonInfoService/NewReasonInfo"
-	ReasonInfoService_DescribeContents_FullMethodName = "/ims.ReasonInfoService/DescribeContents"
-	ReasonInfoService_GetCode_FullMethodName          = "/ims.ReasonInfoService/GetCode"
-	ReasonInfoService_GetExtraCode_FullMethodName     = "/ims.ReasonInfoService/GetExtraCode"
-	ReasonInfoService_GetExtraMessage_FullMethodName  = "/ims.ReasonInfoService/GetExtraMessage"
-	ReasonInfoService_ToString_FullMethodName         = "/ims.ReasonInfoService/ToString"
-	ReasonInfoService_WriteToParcel_FullMethodName    = "/ims.ReasonInfoService/WriteToParcel"
-)
-
-// ReasonInfoServiceClient is the client API for ReasonInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReasonInfoServiceClient interface {
-	NewReasonInfo(ctx context.Context, in *NewReasonInfoRequest, opts ...grpc.CallOption) (*NewReasonInfoResponse, error)
-	DescribeContents(ctx context.Context, in *ReasonInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCode(ctx context.Context, in *GetCodeRequest, opts ...grpc.CallOption) (*GetCodeResponse, error)
-	GetExtraCode(ctx context.Context, in *GetExtraCodeRequest, opts ...grpc.CallOption) (*GetExtraCodeResponse, error)
-	GetExtraMessage(ctx context.Context, in *GetExtraMessageRequest, opts ...grpc.CallOption) (*GetExtraMessageResponse, error)
-	ToString(ctx context.Context, in *ReasonInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *ReasonInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type reasonInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReasonInfoServiceClient(cc grpc.ClientConnInterface) ReasonInfoServiceClient {
-	return &reasonInfoServiceClient{cc}
-}
-
-func (c *reasonInfoServiceClient) NewReasonInfo(ctx context.Context, in *NewReasonInfoRequest, opts ...grpc.CallOption) (*NewReasonInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewReasonInfoResponse)
-	err := c.cc.Invoke(ctx, ReasonInfoService_NewReasonInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *reasonInfoServiceClient) DescribeContents(ctx context.Context, in *ReasonInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ReasonInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *reasonInfoServiceClient) GetCode(ctx context.Context, in *GetCodeRequest, opts ...grpc.CallOption) (*GetCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCodeResponse)
-	err := c.cc.Invoke(ctx, ReasonInfoService_GetCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *reasonInfoServiceClient) GetExtraCode(ctx context.Context, in *GetExtraCodeRequest, opts ...grpc.CallOption) (*GetExtraCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtraCodeResponse)
-	err := c.cc.Invoke(ctx, ReasonInfoService_GetExtraCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *reasonInfoServiceClient) GetExtraMessage(ctx context.Context, in *GetExtraMessageRequest, opts ...grpc.CallOption) (*GetExtraMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtraMessageResponse)
-	err := c.cc.Invoke(ctx, ReasonInfoService_GetExtraMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *reasonInfoServiceClient) ToString(ctx context.Context, in *ReasonInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ReasonInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *reasonInfoServiceClient) WriteToParcel(ctx context.Context, in *ReasonInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ReasonInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReasonInfoServiceServer is the server API for ReasonInfoService service.
-// All implementations must embed UnimplementedReasonInfoServiceServer
-// for forward compatibility.
-type ReasonInfoServiceServer interface {
-	NewReasonInfo(context.Context, *NewReasonInfoRequest) (*NewReasonInfoResponse, error)
-	DescribeContents(context.Context, *ReasonInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCode(context.Context, *GetCodeRequest) (*GetCodeResponse, error)
-	GetExtraCode(context.Context, *GetExtraCodeRequest) (*GetExtraCodeResponse, error)
-	GetExtraMessage(context.Context, *GetExtraMessageRequest) (*GetExtraMessageResponse, error)
-	ToString(context.Context, *ReasonInfoToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *ReasonInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedReasonInfoServiceServer()
-}
-
-// UnimplementedReasonInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReasonInfoServiceServer struct{}
-
-func (UnimplementedReasonInfoServiceServer) NewReasonInfo(context.Context, *NewReasonInfoRequest) (*NewReasonInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewReasonInfo not implemented")
-}
-func (UnimplementedReasonInfoServiceServer) DescribeContents(context.Context, *ReasonInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedReasonInfoServiceServer) GetCode(context.Context, *GetCodeRequest) (*GetCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCode not implemented")
-}
-func (UnimplementedReasonInfoServiceServer) GetExtraCode(context.Context, *GetExtraCodeRequest) (*GetExtraCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtraCode not implemented")
-}
-func (UnimplementedReasonInfoServiceServer) GetExtraMessage(context.Context, *GetExtraMessageRequest) (*GetExtraMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtraMessage not implemented")
-}
-func (UnimplementedReasonInfoServiceServer) ToString(context.Context, *ReasonInfoToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedReasonInfoServiceServer) WriteToParcel(context.Context, *ReasonInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedReasonInfoServiceServer) mustEmbedUnimplementedReasonInfoServiceServer() {}
-func (UnimplementedReasonInfoServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeReasonInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReasonInfoServiceServer will
-// result in compilation errors.
-type UnsafeReasonInfoServiceServer interface {
-	mustEmbedUnimplementedReasonInfoServiceServer()
-}
-
-func RegisterReasonInfoServiceServer(s grpc.ServiceRegistrar, srv ReasonInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedReasonInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReasonInfoService_ServiceDesc, srv)
-}
-
-func _ReasonInfoService_NewReasonInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewReasonInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReasonInfoServiceServer).NewReasonInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReasonInfoService_NewReasonInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReasonInfoServiceServer).NewReasonInfo(ctx, req.(*NewReasonInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReasonInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReasonInfoDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReasonInfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReasonInfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReasonInfoServiceServer).DescribeContents(ctx, req.(*ReasonInfoDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReasonInfoService_GetCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReasonInfoServiceServer).GetCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReasonInfoService_GetCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReasonInfoServiceServer).GetCode(ctx, req.(*GetCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReasonInfoService_GetExtraCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExtraCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReasonInfoServiceServer).GetExtraCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReasonInfoService_GetExtraCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReasonInfoServiceServer).GetExtraCode(ctx, req.(*GetExtraCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReasonInfoService_GetExtraMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExtraMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReasonInfoServiceServer).GetExtraMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReasonInfoService_GetExtraMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReasonInfoServiceServer).GetExtraMessage(ctx, req.(*GetExtraMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReasonInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReasonInfoToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReasonInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReasonInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReasonInfoServiceServer).ToString(ctx, req.(*ReasonInfoToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReasonInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReasonInfoWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReasonInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReasonInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReasonInfoServiceServer).WriteToParcel(ctx, req.(*ReasonInfoWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReasonInfoService_ServiceDesc is the grpc.ServiceDesc for ReasonInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReasonInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ims.ReasonInfoService",
-	HandlerType: (*ReasonInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewReasonInfo",
-			Handler:    _ReasonInfoService_NewReasonInfo_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ReasonInfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetCode",
-			Handler:    _ReasonInfoService_GetCode_Handler,
-		},
-		{
-			MethodName: "GetExtraCode",
-			Handler:    _ReasonInfoService_GetExtraCode_Handler,
-		},
-		{
-			MethodName: "GetExtraMessage",
-			Handler:    _ReasonInfoService_GetExtraMessage_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ReasonInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ReasonInfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2349,526 +2348,6 @@ var MmTelManagerCapabilityCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SipDetailsService_DescribeContents_FullMethodName     = "/ims.SipDetailsService/DescribeContents"
-	SipDetailsService_Equals_FullMethodName               = "/ims.SipDetailsService/Equals"
-	SipDetailsService_GetCSeq_FullMethodName              = "/ims.SipDetailsService/GetCSeq"
-	SipDetailsService_GetCallId_FullMethodName            = "/ims.SipDetailsService/GetCallId"
-	SipDetailsService_GetMethod_FullMethodName            = "/ims.SipDetailsService/GetMethod"
-	SipDetailsService_GetReasonHeaderCause_FullMethodName = "/ims.SipDetailsService/GetReasonHeaderCause"
-	SipDetailsService_GetReasonHeaderText_FullMethodName  = "/ims.SipDetailsService/GetReasonHeaderText"
-	SipDetailsService_GetResponseCode_FullMethodName      = "/ims.SipDetailsService/GetResponseCode"
-	SipDetailsService_GetResponsePhrase_FullMethodName    = "/ims.SipDetailsService/GetResponsePhrase"
-	SipDetailsService_HashCode_FullMethodName             = "/ims.SipDetailsService/HashCode"
-	SipDetailsService_ToString_FullMethodName             = "/ims.SipDetailsService/ToString"
-	SipDetailsService_WriteToParcel_FullMethodName        = "/ims.SipDetailsService/WriteToParcel"
-)
-
-// SipDetailsServiceClient is the client API for SipDetailsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SipDetailsServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetCSeq(ctx context.Context, in *GetCSeqRequest, opts ...grpc.CallOption) (*GetCSeqResponse, error)
-	GetCallId(ctx context.Context, in *GetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error)
-	GetMethod(ctx context.Context, in *GetMethodRequest, opts ...grpc.CallOption) (*GetMethodResponse, error)
-	GetReasonHeaderCause(ctx context.Context, in *GetReasonHeaderCauseRequest, opts ...grpc.CallOption) (*GetReasonHeaderCauseResponse, error)
-	GetReasonHeaderText(ctx context.Context, in *GetReasonHeaderTextRequest, opts ...grpc.CallOption) (*GetReasonHeaderTextResponse, error)
-	GetResponseCode(ctx context.Context, in *GetResponseCodeRequest, opts ...grpc.CallOption) (*GetResponseCodeResponse, error)
-	GetResponsePhrase(ctx context.Context, in *GetResponsePhraseRequest, opts ...grpc.CallOption) (*GetResponsePhraseResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type sipDetailsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSipDetailsServiceClient(cc grpc.ClientConnInterface) SipDetailsServiceClient {
-	return &sipDetailsServiceClient{cc}
-}
-
-func (c *sipDetailsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) GetCSeq(ctx context.Context, in *GetCSeqRequest, opts ...grpc.CallOption) (*GetCSeqResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCSeqResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_GetCSeq_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) GetCallId(ctx context.Context, in *GetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCallIdResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_GetCallId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) GetMethod(ctx context.Context, in *GetMethodRequest, opts ...grpc.CallOption) (*GetMethodResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMethodResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_GetMethod_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) GetReasonHeaderCause(ctx context.Context, in *GetReasonHeaderCauseRequest, opts ...grpc.CallOption) (*GetReasonHeaderCauseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReasonHeaderCauseResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_GetReasonHeaderCause_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) GetReasonHeaderText(ctx context.Context, in *GetReasonHeaderTextRequest, opts ...grpc.CallOption) (*GetReasonHeaderTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReasonHeaderTextResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_GetReasonHeaderText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) GetResponseCode(ctx context.Context, in *GetResponseCodeRequest, opts ...grpc.CallOption) (*GetResponseCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponseCodeResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_GetResponseCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) GetResponsePhrase(ctx context.Context, in *GetResponsePhraseRequest, opts ...grpc.CallOption) (*GetResponsePhraseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponsePhraseResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_GetResponsePhrase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sipDetailsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SipDetailsService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SipDetailsServiceServer is the server API for SipDetailsService service.
-// All implementations must embed UnimplementedSipDetailsServiceServer
-// for forward compatibility.
-type SipDetailsServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetCSeq(context.Context, *GetCSeqRequest) (*GetCSeqResponse, error)
-	GetCallId(context.Context, *GetCallIdRequest) (*GetCallIdResponse, error)
-	GetMethod(context.Context, *GetMethodRequest) (*GetMethodResponse, error)
-	GetReasonHeaderCause(context.Context, *GetReasonHeaderCauseRequest) (*GetReasonHeaderCauseResponse, error)
-	GetReasonHeaderText(context.Context, *GetReasonHeaderTextRequest) (*GetReasonHeaderTextResponse, error)
-	GetResponseCode(context.Context, *GetResponseCodeRequest) (*GetResponseCodeResponse, error)
-	GetResponsePhrase(context.Context, *GetResponsePhraseRequest) (*GetResponsePhraseResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSipDetailsServiceServer()
-}
-
-// UnimplementedSipDetailsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSipDetailsServiceServer struct{}
-
-func (UnimplementedSipDetailsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) GetCSeq(context.Context, *GetCSeqRequest) (*GetCSeqResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCSeq not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) GetCallId(context.Context, *GetCallIdRequest) (*GetCallIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCallId not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) GetMethod(context.Context, *GetMethodRequest) (*GetMethodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMethod not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) GetReasonHeaderCause(context.Context, *GetReasonHeaderCauseRequest) (*GetReasonHeaderCauseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReasonHeaderCause not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) GetReasonHeaderText(context.Context, *GetReasonHeaderTextRequest) (*GetReasonHeaderTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReasonHeaderText not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) GetResponseCode(context.Context, *GetResponseCodeRequest) (*GetResponseCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResponseCode not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) GetResponsePhrase(context.Context, *GetResponsePhraseRequest) (*GetResponsePhraseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResponsePhrase not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSipDetailsServiceServer) mustEmbedUnimplementedSipDetailsServiceServer() {}
-func (UnimplementedSipDetailsServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeSipDetailsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SipDetailsServiceServer will
-// result in compilation errors.
-type UnsafeSipDetailsServiceServer interface {
-	mustEmbedUnimplementedSipDetailsServiceServer()
-}
-
-func RegisterSipDetailsServiceServer(s grpc.ServiceRegistrar, srv SipDetailsServiceServer) {
-	// If the following call panics, it indicates UnimplementedSipDetailsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SipDetailsService_ServiceDesc, srv)
-}
-
-func _SipDetailsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_GetCSeq_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCSeqRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).GetCSeq(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_GetCSeq_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).GetCSeq(ctx, req.(*GetCSeqRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_GetCallId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCallIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).GetCallId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_GetCallId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).GetCallId(ctx, req.(*GetCallIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_GetMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMethodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).GetMethod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_GetMethod_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).GetMethod(ctx, req.(*GetMethodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_GetReasonHeaderCause_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReasonHeaderCauseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).GetReasonHeaderCause(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_GetReasonHeaderCause_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).GetReasonHeaderCause(ctx, req.(*GetReasonHeaderCauseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_GetReasonHeaderText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReasonHeaderTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).GetReasonHeaderText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_GetReasonHeaderText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).GetReasonHeaderText(ctx, req.(*GetReasonHeaderTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_GetResponseCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResponseCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).GetResponseCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_GetResponseCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).GetResponseCode(ctx, req.(*GetResponseCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_GetResponsePhrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResponsePhraseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).GetResponsePhrase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_GetResponsePhrase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).GetResponsePhrase(ctx, req.(*GetResponsePhraseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SipDetailsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SipDetailsServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SipDetailsService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SipDetailsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SipDetailsService_ServiceDesc is the grpc.ServiceDesc for SipDetailsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SipDetailsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ims.SipDetailsService",
-	HandlerType: (*SipDetailsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SipDetailsService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _SipDetailsService_Equals_Handler,
-		},
-		{
-			MethodName: "GetCSeq",
-			Handler:    _SipDetailsService_GetCSeq_Handler,
-		},
-		{
-			MethodName: "GetCallId",
-			Handler:    _SipDetailsService_GetCallId_Handler,
-		},
-		{
-			MethodName: "GetMethod",
-			Handler:    _SipDetailsService_GetMethod_Handler,
-		},
-		{
-			MethodName: "GetReasonHeaderCause",
-			Handler:    _SipDetailsService_GetReasonHeaderCause_Handler,
-		},
-		{
-			MethodName: "GetReasonHeaderText",
-			Handler:    _SipDetailsService_GetReasonHeaderText_Handler,
-		},
-		{
-			MethodName: "GetResponseCode",
-			Handler:    _SipDetailsService_GetResponseCode_Handler,
-		},
-		{
-			MethodName: "GetResponsePhrase",
-			Handler:    _SipDetailsService_GetResponsePhrase_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _SipDetailsService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SipDetailsService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SipDetailsService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ims/ims.proto",
-}
-
-const (
 	ExceptionService_GetCode_FullMethodName = "/ims.ExceptionService/GetCode"
 )
 
@@ -2876,7 +2355,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ExceptionServiceClient interface {
-	GetCode(ctx context.Context, in *ExceptionGetCodeRequest, opts ...grpc.CallOption) (*GetCodeResponse, error)
+	GetCode(ctx context.Context, in *GetCodeRequest, opts ...grpc.CallOption) (*GetCodeResponse, error)
 }
 
 type exceptionServiceClient struct {
@@ -2887,7 +2366,7 @@ func NewExceptionServiceClient(cc grpc.ClientConnInterface) ExceptionServiceClie
 	return &exceptionServiceClient{cc}
 }
 
-func (c *exceptionServiceClient) GetCode(ctx context.Context, in *ExceptionGetCodeRequest, opts ...grpc.CallOption) (*GetCodeResponse, error) {
+func (c *exceptionServiceClient) GetCode(ctx context.Context, in *GetCodeRequest, opts ...grpc.CallOption) (*GetCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCodeResponse)
 	err := c.cc.Invoke(ctx, ExceptionService_GetCode_FullMethodName, in, out, cOpts...)
@@ -2901,7 +2380,7 @@ func (c *exceptionServiceClient) GetCode(ctx context.Context, in *ExceptionGetCo
 // All implementations must embed UnimplementedExceptionServiceServer
 // for forward compatibility.
 type ExceptionServiceServer interface {
-	GetCode(context.Context, *ExceptionGetCodeRequest) (*GetCodeResponse, error)
+	GetCode(context.Context, *GetCodeRequest) (*GetCodeResponse, error)
 	mustEmbedUnimplementedExceptionServiceServer()
 }
 
@@ -2912,7 +2391,7 @@ type ExceptionServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedExceptionServiceServer struct{}
 
-func (UnimplementedExceptionServiceServer) GetCode(context.Context, *ExceptionGetCodeRequest) (*GetCodeResponse, error) {
+func (UnimplementedExceptionServiceServer) GetCode(context.Context, *GetCodeRequest) (*GetCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCode not implemented")
 }
 func (UnimplementedExceptionServiceServer) mustEmbedUnimplementedExceptionServiceServer() {}
@@ -2937,7 +2416,7 @@ func RegisterExceptionServiceServer(s grpc.ServiceRegistrar, srv ExceptionServic
 }
 
 func _ExceptionService_GetCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExceptionGetCodeRequest)
+	in := new(GetCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2949,7 +2428,7 @@ func _ExceptionService_GetCode_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: ExceptionService_GetCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExceptionServiceServer).GetCode(ctx, req.(*ExceptionGetCodeRequest))
+		return srv.(ExceptionServiceServer).GetCode(ctx, req.(*GetCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2964,184 +2443,6 @@ var ExceptionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCode",
 			Handler:    _ExceptionService_GetCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/ims/ims.proto",
-}
-
-const (
-	ManagerService_GetImsMmTelManager_FullMethodName     = "/ims.ManagerService/GetImsMmTelManager"
-	ManagerService_GetImsRcsManager_FullMethodName       = "/ims.ManagerService/GetImsRcsManager"
-	ManagerService_GetProvisioningManager_FullMethodName = "/ims.ManagerService/GetProvisioningManager"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	GetImsMmTelManager(ctx context.Context, in *GetImsMmTelManagerRequest, opts ...grpc.CallOption) (*GetImsMmTelManagerResponse, error)
-	GetImsRcsManager(ctx context.Context, in *GetImsRcsManagerRequest, opts ...grpc.CallOption) (*GetImsRcsManagerResponse, error)
-	GetProvisioningManager(ctx context.Context, in *GetProvisioningManagerRequest, opts ...grpc.CallOption) (*GetProvisioningManagerResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) GetImsMmTelManager(ctx context.Context, in *GetImsMmTelManagerRequest, opts ...grpc.CallOption) (*GetImsMmTelManagerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetImsMmTelManagerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetImsMmTelManager_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetImsRcsManager(ctx context.Context, in *GetImsRcsManagerRequest, opts ...grpc.CallOption) (*GetImsRcsManagerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetImsRcsManagerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetImsRcsManager_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetProvisioningManager(ctx context.Context, in *GetProvisioningManagerRequest, opts ...grpc.CallOption) (*GetProvisioningManagerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProvisioningManagerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetProvisioningManager_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	GetImsMmTelManager(context.Context, *GetImsMmTelManagerRequest) (*GetImsMmTelManagerResponse, error)
-	GetImsRcsManager(context.Context, *GetImsRcsManagerRequest) (*GetImsRcsManagerResponse, error)
-	GetProvisioningManager(context.Context, *GetProvisioningManagerRequest) (*GetProvisioningManagerResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) GetImsMmTelManager(context.Context, *GetImsMmTelManagerRequest) (*GetImsMmTelManagerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetImsMmTelManager not implemented")
-}
-func (UnimplementedManagerServiceServer) GetImsRcsManager(context.Context, *GetImsRcsManagerRequest) (*GetImsRcsManagerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetImsRcsManager not implemented")
-}
-func (UnimplementedManagerServiceServer) GetProvisioningManager(context.Context, *GetProvisioningManagerRequest) (*GetProvisioningManagerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProvisioningManager not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_GetImsMmTelManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetImsMmTelManagerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetImsMmTelManager(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetImsMmTelManager_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetImsMmTelManager(ctx, req.(*GetImsMmTelManagerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetImsRcsManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetImsRcsManagerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetImsRcsManager(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetImsRcsManager_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetImsRcsManager(ctx, req.(*GetImsRcsManagerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetProvisioningManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProvisioningManagerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetProvisioningManager(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetProvisioningManager_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetProvisioningManager(ctx, req.(*GetProvisioningManagerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ims.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetImsMmTelManager",
-			Handler:    _ManagerService_GetImsMmTelManager_Handler,
-		},
-		{
-			MethodName: "GetImsRcsManager",
-			Handler:    _ManagerService_GetImsRcsManager_Handler,
-		},
-		{
-			MethodName: "GetProvisioningManager",
-			Handler:    _ManagerService_GetProvisioningManager_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3653,6 +2954,743 @@ var ProvisioningManagerFeatureProvisioningCallbackService_ServiceDesc = grpc.Ser
 		{
 			MethodName: "OnRcsFeatureProvisioningChanged",
 			Handler:    _ProvisioningManagerFeatureProvisioningCallbackService_OnRcsFeatureProvisioningChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ims/ims.proto",
+}
+
+const (
+	ReasonInfoService_NewReasonInfo_FullMethodName    = "/ims.ReasonInfoService/NewReasonInfo"
+	ReasonInfoService_DescribeContents_FullMethodName = "/ims.ReasonInfoService/DescribeContents"
+	ReasonInfoService_GetCode_FullMethodName          = "/ims.ReasonInfoService/GetCode"
+	ReasonInfoService_GetExtraCode_FullMethodName     = "/ims.ReasonInfoService/GetExtraCode"
+	ReasonInfoService_GetExtraMessage_FullMethodName  = "/ims.ReasonInfoService/GetExtraMessage"
+	ReasonInfoService_ToString_FullMethodName         = "/ims.ReasonInfoService/ToString"
+	ReasonInfoService_WriteToParcel_FullMethodName    = "/ims.ReasonInfoService/WriteToParcel"
+)
+
+// ReasonInfoServiceClient is the client API for ReasonInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReasonInfoServiceClient interface {
+	NewReasonInfo(ctx context.Context, in *NewReasonInfoRequest, opts ...grpc.CallOption) (*NewReasonInfoResponse, error)
+	DescribeContents(ctx context.Context, in *ReasonInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCode(ctx context.Context, in *ReasonInfoGetCodeRequest, opts ...grpc.CallOption) (*GetCodeResponse, error)
+	GetExtraCode(ctx context.Context, in *GetExtraCodeRequest, opts ...grpc.CallOption) (*GetExtraCodeResponse, error)
+	GetExtraMessage(ctx context.Context, in *GetExtraMessageRequest, opts ...grpc.CallOption) (*GetExtraMessageResponse, error)
+	ToString(ctx context.Context, in *ReasonInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *ReasonInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type reasonInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReasonInfoServiceClient(cc grpc.ClientConnInterface) ReasonInfoServiceClient {
+	return &reasonInfoServiceClient{cc}
+}
+
+func (c *reasonInfoServiceClient) NewReasonInfo(ctx context.Context, in *NewReasonInfoRequest, opts ...grpc.CallOption) (*NewReasonInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewReasonInfoResponse)
+	err := c.cc.Invoke(ctx, ReasonInfoService_NewReasonInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *reasonInfoServiceClient) DescribeContents(ctx context.Context, in *ReasonInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ReasonInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *reasonInfoServiceClient) GetCode(ctx context.Context, in *ReasonInfoGetCodeRequest, opts ...grpc.CallOption) (*GetCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCodeResponse)
+	err := c.cc.Invoke(ctx, ReasonInfoService_GetCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *reasonInfoServiceClient) GetExtraCode(ctx context.Context, in *GetExtraCodeRequest, opts ...grpc.CallOption) (*GetExtraCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtraCodeResponse)
+	err := c.cc.Invoke(ctx, ReasonInfoService_GetExtraCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *reasonInfoServiceClient) GetExtraMessage(ctx context.Context, in *GetExtraMessageRequest, opts ...grpc.CallOption) (*GetExtraMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtraMessageResponse)
+	err := c.cc.Invoke(ctx, ReasonInfoService_GetExtraMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *reasonInfoServiceClient) ToString(ctx context.Context, in *ReasonInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ReasonInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *reasonInfoServiceClient) WriteToParcel(ctx context.Context, in *ReasonInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ReasonInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReasonInfoServiceServer is the server API for ReasonInfoService service.
+// All implementations must embed UnimplementedReasonInfoServiceServer
+// for forward compatibility.
+type ReasonInfoServiceServer interface {
+	NewReasonInfo(context.Context, *NewReasonInfoRequest) (*NewReasonInfoResponse, error)
+	DescribeContents(context.Context, *ReasonInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCode(context.Context, *ReasonInfoGetCodeRequest) (*GetCodeResponse, error)
+	GetExtraCode(context.Context, *GetExtraCodeRequest) (*GetExtraCodeResponse, error)
+	GetExtraMessage(context.Context, *GetExtraMessageRequest) (*GetExtraMessageResponse, error)
+	ToString(context.Context, *ReasonInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *ReasonInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedReasonInfoServiceServer()
+}
+
+// UnimplementedReasonInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReasonInfoServiceServer struct{}
+
+func (UnimplementedReasonInfoServiceServer) NewReasonInfo(context.Context, *NewReasonInfoRequest) (*NewReasonInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewReasonInfo not implemented")
+}
+func (UnimplementedReasonInfoServiceServer) DescribeContents(context.Context, *ReasonInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedReasonInfoServiceServer) GetCode(context.Context, *ReasonInfoGetCodeRequest) (*GetCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCode not implemented")
+}
+func (UnimplementedReasonInfoServiceServer) GetExtraCode(context.Context, *GetExtraCodeRequest) (*GetExtraCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtraCode not implemented")
+}
+func (UnimplementedReasonInfoServiceServer) GetExtraMessage(context.Context, *GetExtraMessageRequest) (*GetExtraMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtraMessage not implemented")
+}
+func (UnimplementedReasonInfoServiceServer) ToString(context.Context, *ReasonInfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedReasonInfoServiceServer) WriteToParcel(context.Context, *ReasonInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedReasonInfoServiceServer) mustEmbedUnimplementedReasonInfoServiceServer() {}
+func (UnimplementedReasonInfoServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeReasonInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReasonInfoServiceServer will
+// result in compilation errors.
+type UnsafeReasonInfoServiceServer interface {
+	mustEmbedUnimplementedReasonInfoServiceServer()
+}
+
+func RegisterReasonInfoServiceServer(s grpc.ServiceRegistrar, srv ReasonInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedReasonInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReasonInfoService_ServiceDesc, srv)
+}
+
+func _ReasonInfoService_NewReasonInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewReasonInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReasonInfoServiceServer).NewReasonInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReasonInfoService_NewReasonInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReasonInfoServiceServer).NewReasonInfo(ctx, req.(*NewReasonInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReasonInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReasonInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReasonInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReasonInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReasonInfoServiceServer).DescribeContents(ctx, req.(*ReasonInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReasonInfoService_GetCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReasonInfoGetCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReasonInfoServiceServer).GetCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReasonInfoService_GetCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReasonInfoServiceServer).GetCode(ctx, req.(*ReasonInfoGetCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReasonInfoService_GetExtraCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtraCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReasonInfoServiceServer).GetExtraCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReasonInfoService_GetExtraCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReasonInfoServiceServer).GetExtraCode(ctx, req.(*GetExtraCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReasonInfoService_GetExtraMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtraMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReasonInfoServiceServer).GetExtraMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReasonInfoService_GetExtraMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReasonInfoServiceServer).GetExtraMessage(ctx, req.(*GetExtraMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReasonInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReasonInfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReasonInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReasonInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReasonInfoServiceServer).ToString(ctx, req.(*ReasonInfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReasonInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReasonInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReasonInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReasonInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReasonInfoServiceServer).WriteToParcel(ctx, req.(*ReasonInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReasonInfoService_ServiceDesc is the grpc.ServiceDesc for ReasonInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReasonInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ims.ReasonInfoService",
+	HandlerType: (*ReasonInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewReasonInfo",
+			Handler:    _ReasonInfoService_NewReasonInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ReasonInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCode",
+			Handler:    _ReasonInfoService_GetCode_Handler,
+		},
+		{
+			MethodName: "GetExtraCode",
+			Handler:    _ReasonInfoService_GetExtraCode_Handler,
+		},
+		{
+			MethodName: "GetExtraMessage",
+			Handler:    _ReasonInfoService_GetExtraMessage_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ReasonInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ReasonInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ims/ims.proto",
+}
+
+const (
+	RegistrationAttributesService_DescribeContents_FullMethodName  = "/ims.RegistrationAttributesService/DescribeContents"
+	RegistrationAttributesService_Equals_FullMethodName            = "/ims.RegistrationAttributesService/Equals"
+	RegistrationAttributesService_GetAttributeFlags_FullMethodName = "/ims.RegistrationAttributesService/GetAttributeFlags"
+	RegistrationAttributesService_GetFeatureTags_FullMethodName    = "/ims.RegistrationAttributesService/GetFeatureTags"
+	RegistrationAttributesService_GetSipDetails_FullMethodName     = "/ims.RegistrationAttributesService/GetSipDetails"
+	RegistrationAttributesService_GetTransportType_FullMethodName  = "/ims.RegistrationAttributesService/GetTransportType"
+	RegistrationAttributesService_HashCode_FullMethodName          = "/ims.RegistrationAttributesService/HashCode"
+	RegistrationAttributesService_ToString_FullMethodName          = "/ims.RegistrationAttributesService/ToString"
+	RegistrationAttributesService_WriteToParcel_FullMethodName     = "/ims.RegistrationAttributesService/WriteToParcel"
+)
+
+// RegistrationAttributesServiceClient is the client API for RegistrationAttributesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RegistrationAttributesServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAttributeFlags(ctx context.Context, in *GetAttributeFlagsRequest, opts ...grpc.CallOption) (*GetAttributeFlagsResponse, error)
+	GetFeatureTags(ctx context.Context, in *GetFeatureTagsRequest, opts ...grpc.CallOption) (*GetFeatureTagsResponse, error)
+	GetSipDetails(ctx context.Context, in *GetSipDetailsRequest, opts ...grpc.CallOption) (*GetSipDetailsResponse, error)
+	GetTransportType(ctx context.Context, in *GetTransportTypeRequest, opts ...grpc.CallOption) (*GetTransportTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type registrationAttributesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRegistrationAttributesServiceClient(cc grpc.ClientConnInterface) RegistrationAttributesServiceClient {
+	return &registrationAttributesServiceClient{cc}
+}
+
+func (c *registrationAttributesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationAttributesServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationAttributesServiceClient) GetAttributeFlags(ctx context.Context, in *GetAttributeFlagsRequest, opts ...grpc.CallOption) (*GetAttributeFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAttributeFlagsResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_GetAttributeFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationAttributesServiceClient) GetFeatureTags(ctx context.Context, in *GetFeatureTagsRequest, opts ...grpc.CallOption) (*GetFeatureTagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFeatureTagsResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_GetFeatureTags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationAttributesServiceClient) GetSipDetails(ctx context.Context, in *GetSipDetailsRequest, opts ...grpc.CallOption) (*GetSipDetailsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSipDetailsResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_GetSipDetails_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationAttributesServiceClient) GetTransportType(ctx context.Context, in *GetTransportTypeRequest, opts ...grpc.CallOption) (*GetTransportTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransportTypeResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_GetTransportType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationAttributesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationAttributesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationAttributesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, RegistrationAttributesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RegistrationAttributesServiceServer is the server API for RegistrationAttributesService service.
+// All implementations must embed UnimplementedRegistrationAttributesServiceServer
+// for forward compatibility.
+type RegistrationAttributesServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAttributeFlags(context.Context, *GetAttributeFlagsRequest) (*GetAttributeFlagsResponse, error)
+	GetFeatureTags(context.Context, *GetFeatureTagsRequest) (*GetFeatureTagsResponse, error)
+	GetSipDetails(context.Context, *GetSipDetailsRequest) (*GetSipDetailsResponse, error)
+	GetTransportType(context.Context, *GetTransportTypeRequest) (*GetTransportTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedRegistrationAttributesServiceServer()
+}
+
+// UnimplementedRegistrationAttributesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRegistrationAttributesServiceServer struct{}
+
+func (UnimplementedRegistrationAttributesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) GetAttributeFlags(context.Context, *GetAttributeFlagsRequest) (*GetAttributeFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAttributeFlags not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) GetFeatureTags(context.Context, *GetFeatureTagsRequest) (*GetFeatureTagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFeatureTags not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) GetSipDetails(context.Context, *GetSipDetailsRequest) (*GetSipDetailsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSipDetails not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) GetTransportType(context.Context, *GetTransportTypeRequest) (*GetTransportTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransportType not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedRegistrationAttributesServiceServer) mustEmbedUnimplementedRegistrationAttributesServiceServer() {
+}
+func (UnimplementedRegistrationAttributesServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRegistrationAttributesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RegistrationAttributesServiceServer will
+// result in compilation errors.
+type UnsafeRegistrationAttributesServiceServer interface {
+	mustEmbedUnimplementedRegistrationAttributesServiceServer()
+}
+
+func RegisterRegistrationAttributesServiceServer(s grpc.ServiceRegistrar, srv RegistrationAttributesServiceServer) {
+	// If the following call panics, it indicates UnimplementedRegistrationAttributesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RegistrationAttributesService_ServiceDesc, srv)
+}
+
+func _RegistrationAttributesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationAttributesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationAttributesService_GetAttributeFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAttributeFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).GetAttributeFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_GetAttributeFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).GetAttributeFlags(ctx, req.(*GetAttributeFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationAttributesService_GetFeatureTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFeatureTagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).GetFeatureTags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_GetFeatureTags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).GetFeatureTags(ctx, req.(*GetFeatureTagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationAttributesService_GetSipDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSipDetailsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).GetSipDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_GetSipDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).GetSipDetails(ctx, req.(*GetSipDetailsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationAttributesService_GetTransportType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransportTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).GetTransportType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_GetTransportType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).GetTransportType(ctx, req.(*GetTransportTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationAttributesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationAttributesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationAttributesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationAttributesServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationAttributesService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationAttributesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RegistrationAttributesService_ServiceDesc is the grpc.ServiceDesc for RegistrationAttributesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RegistrationAttributesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ims.RegistrationAttributesService",
+	HandlerType: (*RegistrationAttributesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _RegistrationAttributesService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _RegistrationAttributesService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAttributeFlags",
+			Handler:    _RegistrationAttributesService_GetAttributeFlags_Handler,
+		},
+		{
+			MethodName: "GetFeatureTags",
+			Handler:    _RegistrationAttributesService_GetFeatureTags_Handler,
+		},
+		{
+			MethodName: "GetSipDetails",
+			Handler:    _RegistrationAttributesService_GetSipDetails_Handler,
+		},
+		{
+			MethodName: "GetTransportType",
+			Handler:    _RegistrationAttributesService_GetTransportType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _RegistrationAttributesService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _RegistrationAttributesService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _RegistrationAttributesService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -12,42 +12,23 @@ var observerCmd = &cobra.Command{
 	Short: "observer service operations",
 }
 
-var observerSpecCmd = &cobra.Command{
-	Use:   "spec",
-	Short: "SpecService operations",
+var observerCallbackCmd = &cobra.Command{
+	Use:   "callback",
+	Short: "CallbackService operations",
 }
 
-var observerSpecDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var observerCallbackOnDocumentChangedCmd = &cobra.Command{
+	Use:   "on-document-changed",
+	Short: "OnDocumentChanged RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpecServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var observerSpecWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpecServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewCallbackServiceClient(grpcConn)
+		req := &pb.OnDocumentChangedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.OnDocumentChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -55,39 +36,18 @@ var observerSpecWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var observerSpecBuilderCmd = &cobra.Command{
-	Use:   "spec-builder",
-	Short: "SpecBuilderService operations",
-}
-
-var observerSpecBuilderAddFilterSchemasCmd = &cobra.Command{
-	Use:   "add-filter-schemas",
-	Short: "AddFilterSchemas RPC",
+var observerCallbackOnSchemaChangedCmd = &cobra.Command{
+	Use:   "on-schema-changed",
+	Short: "OnSchemaChanged RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpecBuilderServiceClient(grpcConn)
-		req := &pb.AddFilterSchemasRequest{}
+		client := pb.NewCallbackServiceClient(grpcConn)
+		req := &pb.OnSchemaChangedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.AddFilterSchemas(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var observerSpecBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpecBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
+		resp, err := client.OnSchemaChanged(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -146,6 +106,25 @@ var observerDocumentChangeInfoEqualsCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var observerDocumentChangeInfoGetChangedDocumentIdsCmd = &cobra.Command{
+	Use:   "get-changed-document-ids",
+	Short: "GetChangedDocumentIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentChangeInfoServiceClient(grpcConn)
+		req := &pb.GetChangedDocumentIdsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChangedDocumentIds(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -319,6 +298,25 @@ var observerSchemaChangeInfoEqualsCmd = &cobra.Command{
 	},
 }
 
+var observerSchemaChangeInfoGetChangedSchemaNamesCmd = &cobra.Command{
+	Use:   "get-changed-schema-names",
+	Short: "GetChangedSchemaNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchemaChangeInfoServiceClient(grpcConn)
+		req := &pb.GetChangedSchemaNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChangedSchemaNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var observerSchemaChangeInfoGetDatabaseNameCmd = &cobra.Command{
 	Use:   "get-database-name",
 	Short: "GetDatabaseName RPC",
@@ -395,23 +393,20 @@ var observerSchemaChangeInfoToStringCmd = &cobra.Command{
 	},
 }
 
-var observerCallbackCmd = &cobra.Command{
-	Use:   "callback",
-	Short: "CallbackService operations",
+var observerSpecCmd = &cobra.Command{
+	Use:   "spec",
+	Short: "SpecService operations",
 }
 
-var observerCallbackOnDocumentChangedCmd = &cobra.Command{
-	Use:   "on-document-changed",
-	Short: "OnDocumentChanged RPC",
+var observerSpecDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallbackServiceClient(grpcConn)
-		req := &pb.OnDocumentChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDocumentChanged(ctx, req)
+		client := pb.NewSpecServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -419,18 +414,77 @@ var observerCallbackOnDocumentChangedCmd = &cobra.Command{
 	},
 }
 
-var observerCallbackOnSchemaChangedCmd = &cobra.Command{
-	Use:   "on-schema-changed",
-	Short: "OnSchemaChanged RPC",
+var observerSpecGetFilterSchemasCmd = &cobra.Command{
+	Use:   "get-filter-schemas",
+	Short: "GetFilterSchemas RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCallbackServiceClient(grpcConn)
-		req := &pb.OnSchemaChangedRequest{}
+		client := pb.NewSpecServiceClient(grpcConn)
+		req := &pb.GetFilterSchemasRequest{}
+		resp, err := client.GetFilterSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var observerSpecWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpecServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnSchemaChanged(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var observerSpecBuilderCmd = &cobra.Command{
+	Use:   "spec-builder",
+	Short: "SpecBuilderService operations",
+}
+
+var observerSpecBuilderAddFilterSchemasCmd = &cobra.Command{
+	Use:   "add-filter-schemas",
+	Short: "AddFilterSchemas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpecBuilderServiceClient(grpcConn)
+		req := &pb.AddFilterSchemasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddFilterSchemas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var observerSpecBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpecBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -439,15 +493,11 @@ var observerCallbackOnSchemaChangedCmd = &cobra.Command{
 }
 
 func init() {
-	observerSpecCmd.AddCommand(observerSpecDescribeContentsCmd)
-	observerSpecWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	observerSpecWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	observerSpecCmd.AddCommand(observerSpecWriteToParcelCmd)
-	observerCmd.AddCommand(observerSpecCmd)
-	observerSpecBuilderAddFilterSchemasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	observerSpecBuilderCmd.AddCommand(observerSpecBuilderAddFilterSchemasCmd)
-	observerSpecBuilderCmd.AddCommand(observerSpecBuilderBuildCmd)
-	observerCmd.AddCommand(observerSpecBuilderCmd)
+	observerCallbackOnDocumentChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	observerCallbackCmd.AddCommand(observerCallbackOnDocumentChangedCmd)
+	observerCallbackOnSchemaChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	observerCallbackCmd.AddCommand(observerCallbackOnSchemaChangedCmd)
+	observerCmd.AddCommand(observerCallbackCmd)
 	observerDocumentChangeInfoNewDocumentChangeInfoCmd.Flags().String("arg0", "", "arg0 (string)")
 	observerDocumentChangeInfoNewDocumentChangeInfoCmd.Flags().String("arg1", "", "arg1 (string)")
 	observerDocumentChangeInfoNewDocumentChangeInfoCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -457,6 +507,8 @@ func init() {
 	observerDocumentChangeInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	observerDocumentChangeInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	observerDocumentChangeInfoCmd.AddCommand(observerDocumentChangeInfoEqualsCmd)
+	observerDocumentChangeInfoGetChangedDocumentIdsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	observerDocumentChangeInfoCmd.AddCommand(observerDocumentChangeInfoGetChangedDocumentIdsCmd)
 	observerDocumentChangeInfoGetDatabaseNameCmd.Flags().Int64("handle", 0, "handle (int64)")
 	observerDocumentChangeInfoCmd.AddCommand(observerDocumentChangeInfoGetDatabaseNameCmd)
 	observerDocumentChangeInfoGetNamespaceCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -477,6 +529,8 @@ func init() {
 	observerSchemaChangeInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	observerSchemaChangeInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	observerSchemaChangeInfoCmd.AddCommand(observerSchemaChangeInfoEqualsCmd)
+	observerSchemaChangeInfoGetChangedSchemaNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	observerSchemaChangeInfoCmd.AddCommand(observerSchemaChangeInfoGetChangedSchemaNamesCmd)
 	observerSchemaChangeInfoGetDatabaseNameCmd.Flags().Int64("handle", 0, "handle (int64)")
 	observerSchemaChangeInfoCmd.AddCommand(observerSchemaChangeInfoGetDatabaseNameCmd)
 	observerSchemaChangeInfoGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -486,10 +540,15 @@ func init() {
 	observerSchemaChangeInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	observerSchemaChangeInfoCmd.AddCommand(observerSchemaChangeInfoToStringCmd)
 	observerCmd.AddCommand(observerSchemaChangeInfoCmd)
-	observerCallbackOnDocumentChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	observerCallbackCmd.AddCommand(observerCallbackOnDocumentChangedCmd)
-	observerCallbackOnSchemaChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	observerCallbackCmd.AddCommand(observerCallbackOnSchemaChangedCmd)
-	observerCmd.AddCommand(observerCallbackCmd)
+	observerSpecCmd.AddCommand(observerSpecDescribeContentsCmd)
+	observerSpecCmd.AddCommand(observerSpecGetFilterSchemasCmd)
+	observerSpecWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	observerSpecWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	observerSpecCmd.AddCommand(observerSpecWriteToParcelCmd)
+	observerCmd.AddCommand(observerSpecCmd)
+	observerSpecBuilderAddFilterSchemasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	observerSpecBuilderCmd.AddCommand(observerSpecBuilderAddFilterSchemasCmd)
+	observerSpecBuilderCmd.AddCommand(observerSpecBuilderBuildCmd)
+	observerCmd.AddCommand(observerSpecBuilderCmd)
 	rootCmd.AddCommand(observerCmd)
 }

@@ -294,6 +294,14 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
+message GetSimAccountsRequest {
+  int64 arg0 = 1;
+}
+
+message GetSimAccountsResponse {
+  int64 result = 1;
+}
+
 message GetPresenceIconResourceIdRequest {
   int32 arg0 = 1;
 }
@@ -377,6 +385,10 @@ service ContractSimAccountService {
   rpc GetSimSlotIndex (GetSimSlotIndexRequest) returns (GetSimSlotIndexResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ContractSimContactsService {
+  rpc GetSimAccounts (GetSimAccountsRequest) returns (GetSimAccountsResponse);
 }
 
 service ContractStatusUpdatesService {

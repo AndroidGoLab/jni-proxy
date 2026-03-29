@@ -32,6 +32,15 @@ message GetDocumentUriResponse {
   int64 result = 1;
 }
 
+message GetExternalVolumeNamesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetExternalVolumeNamesResponse {
+  int64 result = 1;
+}
+
 message GetGenerationRequest {
   int64 handle = 1;
   int64 arg0 = 2;
@@ -76,6 +85,15 @@ message GetPickImagesMaxLimitRequest {
 
 message GetPickImagesMaxLimitResponse {
   int32 result = 1;
+}
+
+message GetRecentExternalVolumeNamesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRecentExternalVolumeNamesResponse {
+  int64 result = 1;
 }
 
 message GetRedactedUriRequest {
@@ -260,11 +278,13 @@ service MediaStoreService {
   rpc NewMediaStore (NewMediaStoreRequest) returns (NewMediaStoreResponse);
   rpc CanManageMedia (CanManageMediaRequest) returns (CanManageMediaResponse);
   rpc GetDocumentUri (GetDocumentUriRequest) returns (GetDocumentUriResponse);
+  rpc GetExternalVolumeNames (GetExternalVolumeNamesRequest) returns (GetExternalVolumeNamesResponse);
   rpc GetGeneration (GetGenerationRequest) returns (GetGenerationResponse);
   rpc GetMediaScannerUri (GetMediaScannerUriRequest) returns (GetMediaScannerUriResponse);
   rpc GetMediaUri (GetMediaUriRequest) returns (GetMediaUriResponse);
   rpc GetOriginalMediaFormatFileDescriptor (GetOriginalMediaFormatFileDescriptorRequest) returns (GetOriginalMediaFormatFileDescriptorResponse);
   rpc GetPickImagesMaxLimit (GetPickImagesMaxLimitRequest) returns (GetPickImagesMaxLimitResponse);
+  rpc GetRecentExternalVolumeNames (GetRecentExternalVolumeNamesRequest) returns (GetRecentExternalVolumeNamesResponse);
   rpc GetRedactedUri (GetRedactedUriRequest) returns (GetRedactedUriResponse);
   rpc GetRequireOriginal (GetRequireOriginalRequest) returns (GetRequireOriginalResponse);
   rpc GetVersion1 (GetVersion1Request) returns (GetVersion1Response);

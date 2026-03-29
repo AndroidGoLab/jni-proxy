@@ -9,320 +9,59 @@ import (
 	"google.golang.org/grpc"
 )
 
-// UploadDataProviderClient wraps the gRPC UploadDataProviderService client.
-type UploadDataProviderClient struct {
-	svc pb.UploadDataProviderServiceClient
+// ConnectionMigrationOptionsClient wraps the gRPC ConnectionMigrationOptionsService client.
+type ConnectionMigrationOptionsClient struct {
+	svc pb.ConnectionMigrationOptionsServiceClient
 }
 
-// NewUploadDataProviderClient creates a new UploadDataProvider client.
-func NewUploadDataProviderClient(cc grpc.ClientConnInterface) *UploadDataProviderClient {
-	return &UploadDataProviderClient{
-		svc: pb.NewUploadDataProviderServiceClient(cc),
+// NewConnectionMigrationOptionsClient creates a new ConnectionMigrationOptions client.
+func NewConnectionMigrationOptionsClient(cc grpc.ClientConnInterface) *ConnectionMigrationOptionsClient {
+	return &ConnectionMigrationOptionsClient{
+		svc: pb.NewConnectionMigrationOptionsServiceClient(cc),
 	}
 }
 
-// Close calls the Close RPC.
-func (c *UploadDataProviderClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// GetLength calls the GetLength RPC.
-func (c *UploadDataProviderClient) GetLength(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{})
+// GetAllowNonDefaultNetworkUsage calls the GetAllowNonDefaultNetworkUsage RPC.
+func (c *ConnectionMigrationOptionsClient) GetAllowNonDefaultNetworkUsage(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAllowNonDefaultNetworkUsage(ctx, &pb.GetAllowNonDefaultNetworkUsageRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Rewind calls the Rewind RPC.
-func (c *UploadDataProviderClient) Rewind(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Rewind(ctx, &pb.RewindRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// UrlResponseInfoClient wraps the gRPC UrlResponseInfoService client.
-type UrlResponseInfoClient struct {
-	svc pb.UrlResponseInfoServiceClient
-}
-
-// NewUrlResponseInfoClient creates a new UrlResponseInfo client.
-func NewUrlResponseInfoClient(cc grpc.ClientConnInterface) *UrlResponseInfoClient {
-	return &UrlResponseInfoClient{
-		svc: pb.NewUrlResponseInfoServiceClient(cc),
-	}
-}
-
-// GetHeaders calls the GetHeaders RPC.
-func (c *UrlResponseInfoClient) GetHeaders(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetHeaders(ctx, &pb.GetHeadersRequest{})
+// GetDefaultNetworkMigration calls the GetDefaultNetworkMigration RPC.
+func (c *ConnectionMigrationOptionsClient) GetDefaultNetworkMigration(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDefaultNetworkMigration(ctx, &pb.GetDefaultNetworkMigrationRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetHttpStatusCode calls the GetHttpStatusCode RPC.
-func (c *UrlResponseInfoClient) GetHttpStatusCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHttpStatusCode(ctx, &pb.GetHttpStatusCodeRequest{})
+// GetPathDegradationMigration calls the GetPathDegradationMigration RPC.
+func (c *ConnectionMigrationOptionsClient) GetPathDegradationMigration(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPathDegradationMigration(ctx, &pb.GetPathDegradationMigrationRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetHttpStatusText calls the GetHttpStatusText RPC.
-func (c *UrlResponseInfoClient) GetHttpStatusText(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetHttpStatusText(ctx, &pb.GetHttpStatusTextRequest{})
-	if err != nil {
-		return "", err
+// ConnectionMigrationOptionsBuilderClient wraps the gRPC ConnectionMigrationOptionsBuilderService client.
+type ConnectionMigrationOptionsBuilderClient struct {
+	svc pb.ConnectionMigrationOptionsBuilderServiceClient
+}
+
+// NewConnectionMigrationOptionsBuilderClient creates a new ConnectionMigrationOptionsBuilder client.
+func NewConnectionMigrationOptionsBuilderClient(cc grpc.ClientConnInterface) *ConnectionMigrationOptionsBuilderClient {
+	return &ConnectionMigrationOptionsBuilderClient{
+		svc: pb.NewConnectionMigrationOptionsBuilderServiceClient(cc),
 	}
-	return resp.GetResult(), nil
-}
-
-// GetNegotiatedProtocol calls the GetNegotiatedProtocol RPC.
-func (c *UrlResponseInfoClient) GetNegotiatedProtocol(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNegotiatedProtocol(ctx, &pb.GetNegotiatedProtocolRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReceivedByteCount calls the GetReceivedByteCount RPC.
-func (c *UrlResponseInfoClient) GetReceivedByteCount(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetReceivedByteCount(ctx, &pb.GetReceivedByteCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUrl calls the GetUrl RPC.
-func (c *UrlResponseInfoClient) GetUrl(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetUrl(ctx, &pb.GetUrlRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WasCached calls the WasCached RPC.
-func (c *UrlResponseInfoClient) WasCached(ctx context.Context) (bool, error) {
-	resp, err := c.svc.WasCached(ctx, &pb.WasCachedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ResponseCacheClient wraps the gRPC ResponseCacheService client.
-type ResponseCacheClient struct {
-	svc pb.ResponseCacheServiceClient
-}
-
-// NewResponseCacheClient creates a new ResponseCache client.
-func NewResponseCacheClient(cc grpc.ClientConnInterface) *ResponseCacheClient {
-	return &ResponseCacheClient{
-		svc: pb.NewResponseCacheServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *ResponseCacheClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// Delete calls the Delete RPC.
-func (c *ResponseCacheClient) Delete(ctx context.Context) error {
-	_, err := c.svc.Delete(ctx, &pb.DeleteRequest{})
-	return err
-}
-
-// Flush calls the Flush RPC.
-func (c *ResponseCacheClient) Flush(ctx context.Context) error {
-	_, err := c.svc.Flush(ctx, &pb.FlushRequest{})
-	return err
-}
-
-// GetHitCount calls the GetHitCount RPC.
-func (c *ResponseCacheClient) GetHitCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHitCount(ctx, &pb.GetHitCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNetworkCount calls the GetNetworkCount RPC.
-func (c *ResponseCacheClient) GetNetworkCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetNetworkCount(ctx, &pb.GetNetworkCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRequestCount calls the GetRequestCount RPC.
-func (c *ResponseCacheClient) GetRequestCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRequestCount(ctx, &pb.GetRequestCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MaxSize calls the MaxSize RPC.
-func (c *ResponseCacheClient) MaxSize(ctx context.Context) (int64, error) {
-	resp, err := c.svc.MaxSize(ctx, &pb.MaxSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Put calls the Put RPC.
-func (c *ResponseCacheClient) Put(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Put(ctx, &pb.PutRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Size calls the Size RPC.
-func (c *ResponseCacheClient) Size(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Size(ctx, &pb.SizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstalled calls the GetInstalled RPC.
-func (c *ResponseCacheClient) GetInstalled(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstalled(ctx, &pb.GetInstalledRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EngineClient wraps the gRPC EngineService client.
-type EngineClient struct {
-	svc pb.EngineServiceClient
-}
-
-// NewEngineClient creates a new Engine client.
-func NewEngineClient(cc grpc.ClientConnInterface) *EngineClient {
-	return &EngineClient{
-		svc: pb.NewEngineServiceClient(cc),
-	}
-}
-
-// BindToNetwork calls the BindToNetwork RPC.
-func (c *EngineClient) BindToNetwork(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.BindToNetwork(ctx, &pb.BindToNetworkRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CreateUrlStreamHandlerFactory calls the CreateUrlStreamHandlerFactory RPC.
-func (c *EngineClient) CreateUrlStreamHandlerFactory(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateUrlStreamHandlerFactory(ctx, &pb.CreateUrlStreamHandlerFactoryRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewBidirectionalStreamBuilder calls the NewBidirectionalStreamBuilder RPC.
-func (c *EngineClient) NewBidirectionalStreamBuilder(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.NewBidirectionalStreamBuilder(ctx, &pb.NewBidirectionalStreamBuilderRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewUrlRequestBuilder calls the NewUrlRequestBuilder RPC.
-func (c *EngineClient) NewUrlRequestBuilder(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.NewUrlRequestBuilder(ctx, &pb.NewUrlRequestBuilderRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenConnection calls the OpenConnection RPC.
-func (c *EngineClient) OpenConnection(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OpenConnection(ctx, &pb.OpenConnectionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Shutdown calls the Shutdown RPC.
-func (c *EngineClient) Shutdown(ctx context.Context) error {
-	_, err := c.svc.Shutdown(ctx, &pb.ShutdownRequest{})
-	return err
-}
-
-// GetVersionString calls the GetVersionString RPC.
-func (c *EngineClient) GetVersionString(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetVersionString(ctx, &pb.GetVersionStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// EngineBuilderClient wraps the gRPC EngineBuilderService client.
-type EngineBuilderClient struct {
-	svc pb.EngineBuilderServiceClient
-}
-
-// NewEngineBuilderClient creates a new EngineBuilder client.
-func NewEngineBuilderClient(cc grpc.ClientConnInterface) *EngineBuilderClient {
-	return &EngineBuilderClient{
-		svc: pb.NewEngineBuilderServiceClient(cc),
-	}
-}
-
-// AddQuicHint calls the AddQuicHint RPC.
-func (c *EngineBuilderClient) AddQuicHint(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.AddQuicHint(ctx, &pb.AddQuicHintRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // Build calls the Build RPC.
-func (c *EngineBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *ConnectionMigrationOptionsBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -330,18 +69,9 @@ func (c *EngineBuilderClient) Build(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetDefaultUserAgent calls the GetDefaultUserAgent RPC.
-func (c *EngineBuilderClient) GetDefaultUserAgent(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDefaultUserAgent(ctx, &pb.GetDefaultUserAgentRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetConnectionMigrationOptions calls the SetConnectionMigrationOptions RPC.
-func (c *EngineBuilderClient) SetConnectionMigrationOptions(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetConnectionMigrationOptions(ctx, &pb.SetConnectionMigrationOptionsRequest{
+// SetAllowNonDefaultNetworkUsage calls the SetAllowNonDefaultNetworkUsage RPC.
+func (c *ConnectionMigrationOptionsBuilderClient) SetAllowNonDefaultNetworkUsage(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAllowNonDefaultNetworkUsage(ctx, &pb.SetAllowNonDefaultNetworkUsageRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -350,9 +80,9 @@ func (c *EngineBuilderClient) SetConnectionMigrationOptions(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
-// SetDnsOptions calls the SetDnsOptions RPC.
-func (c *EngineBuilderClient) SetDnsOptions(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetDnsOptions(ctx, &pb.SetDnsOptionsRequest{
+// SetDefaultNetworkMigration calls the SetDefaultNetworkMigration RPC.
+func (c *ConnectionMigrationOptionsBuilderClient) SetDefaultNetworkMigration(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDefaultNetworkMigration(ctx, &pb.SetDefaultNetworkMigrationRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -361,121 +91,13 @@ func (c *EngineBuilderClient) SetDnsOptions(ctx context.Context, arg0 int64) (in
 	return resp.GetResult(), nil
 }
 
-// SetEnableBrotli calls the SetEnableBrotli RPC.
-func (c *EngineBuilderClient) SetEnableBrotli(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetEnableBrotli(ctx, &pb.SetEnableBrotliRequest{
+// SetPathDegradationMigration calls the SetPathDegradationMigration RPC.
+func (c *ConnectionMigrationOptionsBuilderClient) SetPathDegradationMigration(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPathDegradationMigration(ctx, &pb.SetPathDegradationMigrationRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEnableHttp2 calls the SetEnableHttp2 RPC.
-func (c *EngineBuilderClient) SetEnableHttp2(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetEnableHttp2(ctx, &pb.SetEnableHttp2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEnableHttpCache calls the SetEnableHttpCache RPC.
-func (c *EngineBuilderClient) SetEnableHttpCache(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetEnableHttpCache(ctx, &pb.SetEnableHttpCacheRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEnablePublicKeyPinningBypassForLocalTrustAnchors calls the SetEnablePublicKeyPinningBypassForLocalTrustAnchors RPC.
-func (c *EngineBuilderClient) SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx, &pb.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEnableQuic calls the SetEnableQuic RPC.
-func (c *EngineBuilderClient) SetEnableQuic(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetEnableQuic(ctx, &pb.SetEnableQuicRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetQuicOptions calls the SetQuicOptions RPC.
-func (c *EngineBuilderClient) SetQuicOptions(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetQuicOptions(ctx, &pb.SetQuicOptionsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStoragePath calls the SetStoragePath RPC.
-func (c *EngineBuilderClient) SetStoragePath(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetStoragePath(ctx, &pb.SetStoragePathRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserAgent calls the SetUserAgent RPC.
-func (c *EngineBuilderClient) SetUserAgent(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetUserAgent(ctx, &pb.SetUserAgentRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NetworkExceptionClient wraps the gRPC NetworkExceptionService client.
-type NetworkExceptionClient struct {
-	svc pb.NetworkExceptionServiceClient
-}
-
-// NewNetworkExceptionClient creates a new NetworkException client.
-func NewNetworkExceptionClient(cc grpc.ClientConnInterface) *NetworkExceptionClient {
-	return &NetworkExceptionClient{
-		svc: pb.NewNetworkExceptionServiceClient(cc),
-	}
-}
-
-// GetErrorCode calls the GetErrorCode RPC.
-func (c *NetworkExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsImmediatelyRetryable calls the IsImmediatelyRetryable RPC.
-func (c *NetworkExceptionClient) IsImmediatelyRetryable(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsImmediatelyRetryable(ctx, &pb.IsImmediatelyRetryableRequest{})
-	if err != nil {
-		return false, err
 	}
 	return resp.GetResult(), nil
 }
@@ -809,86 +431,6 @@ func (c *UrlRequestStatusListenerClient) OnStatus(ctx context.Context, arg0 int3
 	return err
 }
 
-// SslErrorClient wraps the gRPC SslErrorService client.
-type SslErrorClient struct {
-	svc pb.SslErrorServiceClient
-}
-
-// NewSslErrorClient creates a new SslError client.
-func NewSslErrorClient(cc grpc.ClientConnInterface) *SslErrorClient {
-	return &SslErrorClient{
-		svc: pb.NewSslErrorServiceClient(cc),
-	}
-}
-
-// AddError calls the AddError RPC.
-func (c *SslErrorClient) AddError(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.AddError(ctx, &pb.AddErrorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCertificate calls the GetCertificate RPC.
-func (c *SslErrorClient) GetCertificate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCertificate(ctx, &pb.GetCertificateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPrimaryError calls the GetPrimaryError RPC.
-func (c *SslErrorClient) GetPrimaryError(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPrimaryError(ctx, &pb.GetPrimaryErrorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUrl calls the GetUrl RPC.
-func (c *SslErrorClient) GetUrl(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetUrl(ctx, &pb.SslErrorGetUrlRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasError calls the HasError RPC.
-func (c *SslErrorClient) HasError(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.HasError(ctx, &pb.HasErrorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SslErrorClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // X509TrustManagerExtensionsClient wraps the gRPC X509TrustManagerExtensionsService client.
 type X509TrustManagerExtensionsClient struct {
 	svc pb.X509TrustManagerExtensionsServiceClient
@@ -899,6 +441,36 @@ func NewX509TrustManagerExtensionsClient(cc grpc.ClientConnInterface) *X509Trust
 	return &X509TrustManagerExtensionsClient{
 		svc: pb.NewX509TrustManagerExtensionsServiceClient(cc),
 	}
+}
+
+// CheckServerTrusted5 calls the CheckServerTrusted5 RPC.
+func (c *X509TrustManagerExtensionsClient) CheckServerTrusted5(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 string, arg4 string) (int64, error) {
+	resp, err := c.svc.CheckServerTrusted5(ctx, &pb.CheckServerTrusted5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckServerTrusted3_1 calls the CheckServerTrusted3_1 RPC.
+func (c *X509TrustManagerExtensionsClient) CheckServerTrusted3_1(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string) (int64, error) {
+	resp, err := c.svc.CheckServerTrusted3_1(ctx, &pb.CheckServerTrusted3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // IsSameTrustConfiguration calls the IsSameTrustConfiguration RPC.
@@ -968,583 +540,39 @@ func (c *UploadDataSinkClient) OnRewindSucceeded(ctx context.Context) error {
 	return err
 }
 
-// QuicOptionsClient wraps the gRPC QuicOptionsService client.
-type QuicOptionsClient struct {
-	svc pb.QuicOptionsServiceClient
+// UploadDataProviderClient wraps the gRPC UploadDataProviderService client.
+type UploadDataProviderClient struct {
+	svc pb.UploadDataProviderServiceClient
 }
 
-// NewQuicOptionsClient creates a new QuicOptions client.
-func NewQuicOptionsClient(cc grpc.ClientConnInterface) *QuicOptionsClient {
-	return &QuicOptionsClient{
-		svc: pb.NewQuicOptionsServiceClient(cc),
+// NewUploadDataProviderClient creates a new UploadDataProvider client.
+func NewUploadDataProviderClient(cc grpc.ClientConnInterface) *UploadDataProviderClient {
+	return &UploadDataProviderClient{
+		svc: pb.NewUploadDataProviderServiceClient(cc),
 	}
 }
 
-// GetHandshakeUserAgent calls the GetHandshakeUserAgent RPC.
-func (c *QuicOptionsClient) GetHandshakeUserAgent(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetHandshakeUserAgent(ctx, &pb.GetHandshakeUserAgentRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
+// Close calls the Close RPC.
+func (c *UploadDataProviderClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
 }
 
-// GetIdleConnectionTimeout calls the GetIdleConnectionTimeout RPC.
-func (c *QuicOptionsClient) GetIdleConnectionTimeout(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIdleConnectionTimeout(ctx, &pb.GetIdleConnectionTimeoutRequest{})
+// GetLength calls the GetLength RPC.
+func (c *UploadDataProviderClient) GetLength(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetInMemoryServerConfigsCacheSize calls the GetInMemoryServerConfigsCacheSize RPC.
-func (c *QuicOptionsClient) GetInMemoryServerConfigsCacheSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetInMemoryServerConfigsCacheSize(ctx, &pb.GetInMemoryServerConfigsCacheSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasInMemoryServerConfigsCacheSize calls the HasInMemoryServerConfigsCacheSize RPC.
-func (c *QuicOptionsClient) HasInMemoryServerConfigsCacheSize(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasInMemoryServerConfigsCacheSize(ctx, &pb.HasInMemoryServerConfigsCacheSizeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QuicOptionsBuilderClient wraps the gRPC QuicOptionsBuilderService client.
-type QuicOptionsBuilderClient struct {
-	svc pb.QuicOptionsBuilderServiceClient
-}
-
-// NewQuicOptionsBuilderClient creates a new QuicOptionsBuilder client.
-func NewQuicOptionsBuilderClient(cc grpc.ClientConnInterface) *QuicOptionsBuilderClient {
-	return &QuicOptionsBuilderClient{
-		svc: pb.NewQuicOptionsBuilderServiceClient(cc),
-	}
-}
-
-// AddAllowedQuicHost calls the AddAllowedQuicHost RPC.
-func (c *QuicOptionsBuilderClient) AddAllowedQuicHost(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddAllowedQuicHost(ctx, &pb.AddAllowedQuicHostRequest{
+// Rewind calls the Rewind RPC.
+func (c *UploadDataProviderClient) Rewind(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Rewind(ctx, &pb.RewindRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *QuicOptionsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetHandshakeUserAgent calls the SetHandshakeUserAgent RPC.
-func (c *QuicOptionsBuilderClient) SetHandshakeUserAgent(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetHandshakeUserAgent(ctx, &pb.SetHandshakeUserAgentRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIdleConnectionTimeout calls the SetIdleConnectionTimeout RPC.
-func (c *QuicOptionsBuilderClient) SetIdleConnectionTimeout(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetIdleConnectionTimeout(ctx, &pb.SetIdleConnectionTimeoutRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetInMemoryServerConfigsCacheSize calls the SetInMemoryServerConfigsCacheSize RPC.
-func (c *QuicOptionsBuilderClient) SetInMemoryServerConfigsCacheSize(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetInMemoryServerConfigsCacheSize(ctx, &pb.SetInMemoryServerConfigsCacheSizeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SslCertificateClient wraps the gRPC SslCertificateService client.
-type SslCertificateClient struct {
-	svc pb.SslCertificateServiceClient
-}
-
-// NewSslCertificateClient creates a new SslCertificate client.
-func NewSslCertificateClient(cc grpc.ClientConnInterface) *SslCertificateClient {
-	return &SslCertificateClient{
-		svc: pb.NewSslCertificateServiceClient(cc),
-	}
-}
-
-// GetIssuedBy calls the GetIssuedBy RPC.
-func (c *SslCertificateClient) GetIssuedBy(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIssuedBy(ctx, &pb.GetIssuedByRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIssuedTo calls the GetIssuedTo RPC.
-func (c *SslCertificateClient) GetIssuedTo(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIssuedTo(ctx, &pb.GetIssuedToRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValidNotAfter calls the GetValidNotAfter RPC.
-func (c *SslCertificateClient) GetValidNotAfter(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetValidNotAfter(ctx, &pb.GetValidNotAfterRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValidNotAfterDate calls the GetValidNotAfterDate RPC.
-func (c *SslCertificateClient) GetValidNotAfterDate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetValidNotAfterDate(ctx, &pb.GetValidNotAfterDateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValidNotBefore calls the GetValidNotBefore RPC.
-func (c *SslCertificateClient) GetValidNotBefore(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetValidNotBefore(ctx, &pb.GetValidNotBeforeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValidNotBeforeDate calls the GetValidNotBeforeDate RPC.
-func (c *SslCertificateClient) GetValidNotBeforeDate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetValidNotBeforeDate(ctx, &pb.GetValidNotBeforeDateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetX509Certificate calls the GetX509Certificate RPC.
-func (c *SslCertificateClient) GetX509Certificate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetX509Certificate(ctx, &pb.GetX509CertificateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SslCertificateClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// RestoreState calls the RestoreState RPC.
-func (c *SslCertificateClient) RestoreState(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.RestoreState(ctx, &pb.RestoreStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SaveState calls the SaveState RPC.
-func (c *SslCertificateClient) SaveState(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SaveState(ctx, &pb.SaveStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SslCertificateDNameClient wraps the gRPC SslCertificateDNameService client.
-type SslCertificateDNameClient struct {
-	svc pb.SslCertificateDNameServiceClient
-}
-
-// NewSslCertificateDNameClient creates a new SslCertificateDName client.
-func NewSslCertificateDNameClient(cc grpc.ClientConnInterface) *SslCertificateDNameClient {
-	return &SslCertificateDNameClient{
-		svc: pb.NewSslCertificateDNameServiceClient(cc),
-	}
-}
-
-// GetCName calls the GetCName RPC.
-func (c *SslCertificateDNameClient) GetCName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetCName(ctx, &pb.GetCNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDName calls the GetDName RPC.
-func (c *SslCertificateDNameClient) GetDName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDName(ctx, &pb.GetDNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOName calls the GetOName RPC.
-func (c *SslCertificateDNameClient) GetOName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetOName(ctx, &pb.GetONameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUName calls the GetUName RPC.
-func (c *SslCertificateDNameClient) GetUName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetUName(ctx, &pb.GetUNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// DnsOptionsClient wraps the gRPC DnsOptionsService client.
-type DnsOptionsClient struct {
-	svc pb.DnsOptionsServiceClient
-}
-
-// NewDnsOptionsClient creates a new DnsOptions client.
-func NewDnsOptionsClient(cc grpc.ClientConnInterface) *DnsOptionsClient {
-	return &DnsOptionsClient{
-		svc: pb.NewDnsOptionsServiceClient(cc),
-	}
-}
-
-// GetPersistHostCache calls the GetPersistHostCache RPC.
-func (c *DnsOptionsClient) GetPersistHostCache(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPersistHostCache(ctx, &pb.GetPersistHostCacheRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPersistHostCachePeriod calls the GetPersistHostCachePeriod RPC.
-func (c *DnsOptionsClient) GetPersistHostCachePeriod(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPersistHostCachePeriod(ctx, &pb.GetPersistHostCachePeriodRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreestablishConnectionsToStaleDnsResults calls the GetPreestablishConnectionsToStaleDnsResults RPC.
-func (c *DnsOptionsClient) GetPreestablishConnectionsToStaleDnsResults(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPreestablishConnectionsToStaleDnsResults(ctx, &pb.GetPreestablishConnectionsToStaleDnsResultsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStaleDns calls the GetStaleDns RPC.
-func (c *DnsOptionsClient) GetStaleDns(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetStaleDns(ctx, &pb.GetStaleDnsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStaleDnsOptions calls the GetStaleDnsOptions RPC.
-func (c *DnsOptionsClient) GetStaleDnsOptions(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStaleDnsOptions(ctx, &pb.GetStaleDnsOptionsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUseHttpStackDnsResolver calls the GetUseHttpStackDnsResolver RPC.
-func (c *DnsOptionsClient) GetUseHttpStackDnsResolver(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUseHttpStackDnsResolver(ctx, &pb.GetUseHttpStackDnsResolverRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DnsOptionsBuilderClient wraps the gRPC DnsOptionsBuilderService client.
-type DnsOptionsBuilderClient struct {
-	svc pb.DnsOptionsBuilderServiceClient
-}
-
-// NewDnsOptionsBuilderClient creates a new DnsOptionsBuilder client.
-func NewDnsOptionsBuilderClient(cc grpc.ClientConnInterface) *DnsOptionsBuilderClient {
-	return &DnsOptionsBuilderClient{
-		svc: pb.NewDnsOptionsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *DnsOptionsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPersistHostCache calls the SetPersistHostCache RPC.
-func (c *DnsOptionsBuilderClient) SetPersistHostCache(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetPersistHostCache(ctx, &pb.SetPersistHostCacheRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPersistHostCachePeriod calls the SetPersistHostCachePeriod RPC.
-func (c *DnsOptionsBuilderClient) SetPersistHostCachePeriod(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetPersistHostCachePeriod(ctx, &pb.SetPersistHostCachePeriodRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPreestablishConnectionsToStaleDnsResults calls the SetPreestablishConnectionsToStaleDnsResults RPC.
-func (c *DnsOptionsBuilderClient) SetPreestablishConnectionsToStaleDnsResults(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetPreestablishConnectionsToStaleDnsResults(ctx, &pb.SetPreestablishConnectionsToStaleDnsResultsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStaleDns calls the SetStaleDns RPC.
-func (c *DnsOptionsBuilderClient) SetStaleDns(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetStaleDns(ctx, &pb.SetStaleDnsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStaleDnsOptions calls the SetStaleDnsOptions RPC.
-func (c *DnsOptionsBuilderClient) SetStaleDnsOptions(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStaleDnsOptions(ctx, &pb.SetStaleDnsOptionsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUseHttpStackDnsResolver calls the SetUseHttpStackDnsResolver RPC.
-func (c *DnsOptionsBuilderClient) SetUseHttpStackDnsResolver(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetUseHttpStackDnsResolver(ctx, &pb.SetUseHttpStackDnsResolverRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DnsOptionsStaleDnsOptionsClient wraps the gRPC DnsOptionsStaleDnsOptionsService client.
-type DnsOptionsStaleDnsOptionsClient struct {
-	svc pb.DnsOptionsStaleDnsOptionsServiceClient
-}
-
-// NewDnsOptionsStaleDnsOptionsClient creates a new DnsOptionsStaleDnsOptions client.
-func NewDnsOptionsStaleDnsOptionsClient(cc grpc.ClientConnInterface) *DnsOptionsStaleDnsOptionsClient {
-	return &DnsOptionsStaleDnsOptionsClient{
-		svc: pb.NewDnsOptionsStaleDnsOptionsServiceClient(cc),
-	}
-}
-
-// GetAllowCrossNetworkUsage calls the GetAllowCrossNetworkUsage RPC.
-func (c *DnsOptionsStaleDnsOptionsClient) GetAllowCrossNetworkUsage(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAllowCrossNetworkUsage(ctx, &pb.GetAllowCrossNetworkUsageRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFreshLookupTimeout calls the GetFreshLookupTimeout RPC.
-func (c *DnsOptionsStaleDnsOptionsClient) GetFreshLookupTimeout(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFreshLookupTimeout(ctx, &pb.GetFreshLookupTimeoutRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxExpiredDelay calls the GetMaxExpiredDelay RPC.
-func (c *DnsOptionsStaleDnsOptionsClient) GetMaxExpiredDelay(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMaxExpiredDelay(ctx, &pb.GetMaxExpiredDelayRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUseStaleOnNameNotResolved calls the GetUseStaleOnNameNotResolved RPC.
-func (c *DnsOptionsStaleDnsOptionsClient) GetUseStaleOnNameNotResolved(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUseStaleOnNameNotResolved(ctx, &pb.GetUseStaleOnNameNotResolvedRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ConnectionMigrationOptionsClient wraps the gRPC ConnectionMigrationOptionsService client.
-type ConnectionMigrationOptionsClient struct {
-	svc pb.ConnectionMigrationOptionsServiceClient
-}
-
-// NewConnectionMigrationOptionsClient creates a new ConnectionMigrationOptions client.
-func NewConnectionMigrationOptionsClient(cc grpc.ClientConnInterface) *ConnectionMigrationOptionsClient {
-	return &ConnectionMigrationOptionsClient{
-		svc: pb.NewConnectionMigrationOptionsServiceClient(cc),
-	}
-}
-
-// GetAllowNonDefaultNetworkUsage calls the GetAllowNonDefaultNetworkUsage RPC.
-func (c *ConnectionMigrationOptionsClient) GetAllowNonDefaultNetworkUsage(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAllowNonDefaultNetworkUsage(ctx, &pb.GetAllowNonDefaultNetworkUsageRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDefaultNetworkMigration calls the GetDefaultNetworkMigration RPC.
-func (c *ConnectionMigrationOptionsClient) GetDefaultNetworkMigration(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDefaultNetworkMigration(ctx, &pb.GetDefaultNetworkMigrationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPathDegradationMigration calls the GetPathDegradationMigration RPC.
-func (c *ConnectionMigrationOptionsClient) GetPathDegradationMigration(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPathDegradationMigration(ctx, &pb.GetPathDegradationMigrationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ConnectionMigrationOptionsBuilderClient wraps the gRPC ConnectionMigrationOptionsBuilderService client.
-type ConnectionMigrationOptionsBuilderClient struct {
-	svc pb.ConnectionMigrationOptionsBuilderServiceClient
-}
-
-// NewConnectionMigrationOptionsBuilderClient creates a new ConnectionMigrationOptionsBuilder client.
-func NewConnectionMigrationOptionsBuilderClient(cc grpc.ClientConnInterface) *ConnectionMigrationOptionsBuilderClient {
-	return &ConnectionMigrationOptionsBuilderClient{
-		svc: pb.NewConnectionMigrationOptionsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ConnectionMigrationOptionsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAllowNonDefaultNetworkUsage calls the SetAllowNonDefaultNetworkUsage RPC.
-func (c *ConnectionMigrationOptionsBuilderClient) SetAllowNonDefaultNetworkUsage(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAllowNonDefaultNetworkUsage(ctx, &pb.SetAllowNonDefaultNetworkUsageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDefaultNetworkMigration calls the SetDefaultNetworkMigration RPC.
-func (c *ConnectionMigrationOptionsBuilderClient) SetDefaultNetworkMigration(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetDefaultNetworkMigration(ctx, &pb.SetDefaultNetworkMigrationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPathDegradationMigration calls the SetPathDegradationMigration RPC.
-func (c *ConnectionMigrationOptionsBuilderClient) SetPathDegradationMigration(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetPathDegradationMigration(ctx, &pb.SetPathDegradationMigrationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
 // BidirectionalStreamClient wraps the gRPC BidirectionalStreamService client.
@@ -1811,4 +839,1024 @@ func (c *BidirectionalStreamCallbackClient) OnSucceeded(ctx context.Context, arg
 		Arg1: arg1,
 	})
 	return err
+}
+
+// EngineClient wraps the gRPC EngineService client.
+type EngineClient struct {
+	svc pb.EngineServiceClient
+}
+
+// NewEngineClient creates a new Engine client.
+func NewEngineClient(cc grpc.ClientConnInterface) *EngineClient {
+	return &EngineClient{
+		svc: pb.NewEngineServiceClient(cc),
+	}
+}
+
+// BindToNetwork calls the BindToNetwork RPC.
+func (c *EngineClient) BindToNetwork(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.BindToNetwork(ctx, &pb.BindToNetworkRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CreateUrlStreamHandlerFactory calls the CreateUrlStreamHandlerFactory RPC.
+func (c *EngineClient) CreateUrlStreamHandlerFactory(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateUrlStreamHandlerFactory(ctx, &pb.CreateUrlStreamHandlerFactoryRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewBidirectionalStreamBuilder calls the NewBidirectionalStreamBuilder RPC.
+func (c *EngineClient) NewBidirectionalStreamBuilder(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.NewBidirectionalStreamBuilder(ctx, &pb.NewBidirectionalStreamBuilderRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewUrlRequestBuilder calls the NewUrlRequestBuilder RPC.
+func (c *EngineClient) NewUrlRequestBuilder(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.NewUrlRequestBuilder(ctx, &pb.NewUrlRequestBuilderRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenConnection calls the OpenConnection RPC.
+func (c *EngineClient) OpenConnection(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OpenConnection(ctx, &pb.OpenConnectionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Shutdown calls the Shutdown RPC.
+func (c *EngineClient) Shutdown(ctx context.Context) error {
+	_, err := c.svc.Shutdown(ctx, &pb.ShutdownRequest{})
+	return err
+}
+
+// GetVersionString calls the GetVersionString RPC.
+func (c *EngineClient) GetVersionString(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetVersionString(ctx, &pb.GetVersionStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// EngineBuilderClient wraps the gRPC EngineBuilderService client.
+type EngineBuilderClient struct {
+	svc pb.EngineBuilderServiceClient
+}
+
+// NewEngineBuilderClient creates a new EngineBuilder client.
+func NewEngineBuilderClient(cc grpc.ClientConnInterface) *EngineBuilderClient {
+	return &EngineBuilderClient{
+		svc: pb.NewEngineBuilderServiceClient(cc),
+	}
+}
+
+// AddQuicHint calls the AddQuicHint RPC.
+func (c *EngineBuilderClient) AddQuicHint(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.AddQuicHint(ctx, &pb.AddQuicHintRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *EngineBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultUserAgent calls the GetDefaultUserAgent RPC.
+func (c *EngineBuilderClient) GetDefaultUserAgent(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDefaultUserAgent(ctx, &pb.GetDefaultUserAgentRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConnectionMigrationOptions calls the SetConnectionMigrationOptions RPC.
+func (c *EngineBuilderClient) SetConnectionMigrationOptions(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetConnectionMigrationOptions(ctx, &pb.SetConnectionMigrationOptionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDnsOptions calls the SetDnsOptions RPC.
+func (c *EngineBuilderClient) SetDnsOptions(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDnsOptions(ctx, &pb.SetDnsOptionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEnableBrotli calls the SetEnableBrotli RPC.
+func (c *EngineBuilderClient) SetEnableBrotli(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetEnableBrotli(ctx, &pb.SetEnableBrotliRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEnableHttp2 calls the SetEnableHttp2 RPC.
+func (c *EngineBuilderClient) SetEnableHttp2(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetEnableHttp2(ctx, &pb.SetEnableHttp2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEnableHttpCache calls the SetEnableHttpCache RPC.
+func (c *EngineBuilderClient) SetEnableHttpCache(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetEnableHttpCache(ctx, &pb.SetEnableHttpCacheRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEnablePublicKeyPinningBypassForLocalTrustAnchors calls the SetEnablePublicKeyPinningBypassForLocalTrustAnchors RPC.
+func (c *EngineBuilderClient) SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx, &pb.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEnableQuic calls the SetEnableQuic RPC.
+func (c *EngineBuilderClient) SetEnableQuic(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetEnableQuic(ctx, &pb.SetEnableQuicRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetQuicOptions calls the SetQuicOptions RPC.
+func (c *EngineBuilderClient) SetQuicOptions(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetQuicOptions(ctx, &pb.SetQuicOptionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStoragePath calls the SetStoragePath RPC.
+func (c *EngineBuilderClient) SetStoragePath(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetStoragePath(ctx, &pb.SetStoragePathRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserAgent calls the SetUserAgent RPC.
+func (c *EngineBuilderClient) SetUserAgent(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetUserAgent(ctx, &pb.SetUserAgentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NetworkExceptionClient wraps the gRPC NetworkExceptionService client.
+type NetworkExceptionClient struct {
+	svc pb.NetworkExceptionServiceClient
+}
+
+// NewNetworkExceptionClient creates a new NetworkException client.
+func NewNetworkExceptionClient(cc grpc.ClientConnInterface) *NetworkExceptionClient {
+	return &NetworkExceptionClient{
+		svc: pb.NewNetworkExceptionServiceClient(cc),
+	}
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *NetworkExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsImmediatelyRetryable calls the IsImmediatelyRetryable RPC.
+func (c *NetworkExceptionClient) IsImmediatelyRetryable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsImmediatelyRetryable(ctx, &pb.IsImmediatelyRetryableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SslErrorClient wraps the gRPC SslErrorService client.
+type SslErrorClient struct {
+	svc pb.SslErrorServiceClient
+}
+
+// NewSslErrorClient creates a new SslError client.
+func NewSslErrorClient(cc grpc.ClientConnInterface) *SslErrorClient {
+	return &SslErrorClient{
+		svc: pb.NewSslErrorServiceClient(cc),
+	}
+}
+
+// AddError calls the AddError RPC.
+func (c *SslErrorClient) AddError(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.AddError(ctx, &pb.AddErrorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCertificate calls the GetCertificate RPC.
+func (c *SslErrorClient) GetCertificate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCertificate(ctx, &pb.GetCertificateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrimaryError calls the GetPrimaryError RPC.
+func (c *SslErrorClient) GetPrimaryError(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPrimaryError(ctx, &pb.GetPrimaryErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUrl calls the GetUrl RPC.
+func (c *SslErrorClient) GetUrl(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetUrl(ctx, &pb.GetUrlRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasError calls the HasError RPC.
+func (c *SslErrorClient) HasError(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasError(ctx, &pb.HasErrorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SslErrorClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuicOptionsClient wraps the gRPC QuicOptionsService client.
+type QuicOptionsClient struct {
+	svc pb.QuicOptionsServiceClient
+}
+
+// NewQuicOptionsClient creates a new QuicOptions client.
+func NewQuicOptionsClient(cc grpc.ClientConnInterface) *QuicOptionsClient {
+	return &QuicOptionsClient{
+		svc: pb.NewQuicOptionsServiceClient(cc),
+	}
+}
+
+// GetAllowedQuicHosts calls the GetAllowedQuicHosts RPC.
+func (c *QuicOptionsClient) GetAllowedQuicHosts(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAllowedQuicHosts(ctx, &pb.GetAllowedQuicHostsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandshakeUserAgent calls the GetHandshakeUserAgent RPC.
+func (c *QuicOptionsClient) GetHandshakeUserAgent(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetHandshakeUserAgent(ctx, &pb.GetHandshakeUserAgentRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIdleConnectionTimeout calls the GetIdleConnectionTimeout RPC.
+func (c *QuicOptionsClient) GetIdleConnectionTimeout(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIdleConnectionTimeout(ctx, &pb.GetIdleConnectionTimeoutRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInMemoryServerConfigsCacheSize calls the GetInMemoryServerConfigsCacheSize RPC.
+func (c *QuicOptionsClient) GetInMemoryServerConfigsCacheSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInMemoryServerConfigsCacheSize(ctx, &pb.GetInMemoryServerConfigsCacheSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasInMemoryServerConfigsCacheSize calls the HasInMemoryServerConfigsCacheSize RPC.
+func (c *QuicOptionsClient) HasInMemoryServerConfigsCacheSize(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasInMemoryServerConfigsCacheSize(ctx, &pb.HasInMemoryServerConfigsCacheSizeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuicOptionsBuilderClient wraps the gRPC QuicOptionsBuilderService client.
+type QuicOptionsBuilderClient struct {
+	svc pb.QuicOptionsBuilderServiceClient
+}
+
+// NewQuicOptionsBuilderClient creates a new QuicOptionsBuilder client.
+func NewQuicOptionsBuilderClient(cc grpc.ClientConnInterface) *QuicOptionsBuilderClient {
+	return &QuicOptionsBuilderClient{
+		svc: pb.NewQuicOptionsBuilderServiceClient(cc),
+	}
+}
+
+// AddAllowedQuicHost calls the AddAllowedQuicHost RPC.
+func (c *QuicOptionsBuilderClient) AddAllowedQuicHost(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddAllowedQuicHost(ctx, &pb.AddAllowedQuicHostRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *QuicOptionsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHandshakeUserAgent calls the SetHandshakeUserAgent RPC.
+func (c *QuicOptionsBuilderClient) SetHandshakeUserAgent(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetHandshakeUserAgent(ctx, &pb.SetHandshakeUserAgentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIdleConnectionTimeout calls the SetIdleConnectionTimeout RPC.
+func (c *QuicOptionsBuilderClient) SetIdleConnectionTimeout(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIdleConnectionTimeout(ctx, &pb.SetIdleConnectionTimeoutRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInMemoryServerConfigsCacheSize calls the SetInMemoryServerConfigsCacheSize RPC.
+func (c *QuicOptionsBuilderClient) SetInMemoryServerConfigsCacheSize(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetInMemoryServerConfigsCacheSize(ctx, &pb.SetInMemoryServerConfigsCacheSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DnsOptionsClient wraps the gRPC DnsOptionsService client.
+type DnsOptionsClient struct {
+	svc pb.DnsOptionsServiceClient
+}
+
+// NewDnsOptionsClient creates a new DnsOptions client.
+func NewDnsOptionsClient(cc grpc.ClientConnInterface) *DnsOptionsClient {
+	return &DnsOptionsClient{
+		svc: pb.NewDnsOptionsServiceClient(cc),
+	}
+}
+
+// GetPersistHostCache calls the GetPersistHostCache RPC.
+func (c *DnsOptionsClient) GetPersistHostCache(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPersistHostCache(ctx, &pb.GetPersistHostCacheRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPersistHostCachePeriod calls the GetPersistHostCachePeriod RPC.
+func (c *DnsOptionsClient) GetPersistHostCachePeriod(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPersistHostCachePeriod(ctx, &pb.GetPersistHostCachePeriodRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreestablishConnectionsToStaleDnsResults calls the GetPreestablishConnectionsToStaleDnsResults RPC.
+func (c *DnsOptionsClient) GetPreestablishConnectionsToStaleDnsResults(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPreestablishConnectionsToStaleDnsResults(ctx, &pb.GetPreestablishConnectionsToStaleDnsResultsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStaleDns calls the GetStaleDns RPC.
+func (c *DnsOptionsClient) GetStaleDns(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStaleDns(ctx, &pb.GetStaleDnsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStaleDnsOptions calls the GetStaleDnsOptions RPC.
+func (c *DnsOptionsClient) GetStaleDnsOptions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStaleDnsOptions(ctx, &pb.GetStaleDnsOptionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUseHttpStackDnsResolver calls the GetUseHttpStackDnsResolver RPC.
+func (c *DnsOptionsClient) GetUseHttpStackDnsResolver(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUseHttpStackDnsResolver(ctx, &pb.GetUseHttpStackDnsResolverRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DnsOptionsBuilderClient wraps the gRPC DnsOptionsBuilderService client.
+type DnsOptionsBuilderClient struct {
+	svc pb.DnsOptionsBuilderServiceClient
+}
+
+// NewDnsOptionsBuilderClient creates a new DnsOptionsBuilder client.
+func NewDnsOptionsBuilderClient(cc grpc.ClientConnInterface) *DnsOptionsBuilderClient {
+	return &DnsOptionsBuilderClient{
+		svc: pb.NewDnsOptionsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DnsOptionsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPersistHostCache calls the SetPersistHostCache RPC.
+func (c *DnsOptionsBuilderClient) SetPersistHostCache(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPersistHostCache(ctx, &pb.SetPersistHostCacheRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPersistHostCachePeriod calls the SetPersistHostCachePeriod RPC.
+func (c *DnsOptionsBuilderClient) SetPersistHostCachePeriod(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPersistHostCachePeriod(ctx, &pb.SetPersistHostCachePeriodRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPreestablishConnectionsToStaleDnsResults calls the SetPreestablishConnectionsToStaleDnsResults RPC.
+func (c *DnsOptionsBuilderClient) SetPreestablishConnectionsToStaleDnsResults(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPreestablishConnectionsToStaleDnsResults(ctx, &pb.SetPreestablishConnectionsToStaleDnsResultsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStaleDns calls the SetStaleDns RPC.
+func (c *DnsOptionsBuilderClient) SetStaleDns(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetStaleDns(ctx, &pb.SetStaleDnsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStaleDnsOptions calls the SetStaleDnsOptions RPC.
+func (c *DnsOptionsBuilderClient) SetStaleDnsOptions(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStaleDnsOptions(ctx, &pb.SetStaleDnsOptionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUseHttpStackDnsResolver calls the SetUseHttpStackDnsResolver RPC.
+func (c *DnsOptionsBuilderClient) SetUseHttpStackDnsResolver(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetUseHttpStackDnsResolver(ctx, &pb.SetUseHttpStackDnsResolverRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DnsOptionsStaleDnsOptionsClient wraps the gRPC DnsOptionsStaleDnsOptionsService client.
+type DnsOptionsStaleDnsOptionsClient struct {
+	svc pb.DnsOptionsStaleDnsOptionsServiceClient
+}
+
+// NewDnsOptionsStaleDnsOptionsClient creates a new DnsOptionsStaleDnsOptions client.
+func NewDnsOptionsStaleDnsOptionsClient(cc grpc.ClientConnInterface) *DnsOptionsStaleDnsOptionsClient {
+	return &DnsOptionsStaleDnsOptionsClient{
+		svc: pb.NewDnsOptionsStaleDnsOptionsServiceClient(cc),
+	}
+}
+
+// GetAllowCrossNetworkUsage calls the GetAllowCrossNetworkUsage RPC.
+func (c *DnsOptionsStaleDnsOptionsClient) GetAllowCrossNetworkUsage(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAllowCrossNetworkUsage(ctx, &pb.GetAllowCrossNetworkUsageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFreshLookupTimeout calls the GetFreshLookupTimeout RPC.
+func (c *DnsOptionsStaleDnsOptionsClient) GetFreshLookupTimeout(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFreshLookupTimeout(ctx, &pb.GetFreshLookupTimeoutRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxExpiredDelay calls the GetMaxExpiredDelay RPC.
+func (c *DnsOptionsStaleDnsOptionsClient) GetMaxExpiredDelay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMaxExpiredDelay(ctx, &pb.GetMaxExpiredDelayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUseStaleOnNameNotResolved calls the GetUseStaleOnNameNotResolved RPC.
+func (c *DnsOptionsStaleDnsOptionsClient) GetUseStaleOnNameNotResolved(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUseStaleOnNameNotResolved(ctx, &pb.GetUseStaleOnNameNotResolvedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResponseCacheClient wraps the gRPC ResponseCacheService client.
+type ResponseCacheClient struct {
+	svc pb.ResponseCacheServiceClient
+}
+
+// NewResponseCacheClient creates a new ResponseCache client.
+func NewResponseCacheClient(cc grpc.ClientConnInterface) *ResponseCacheClient {
+	return &ResponseCacheClient{
+		svc: pb.NewResponseCacheServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *ResponseCacheClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Delete calls the Delete RPC.
+func (c *ResponseCacheClient) Delete(ctx context.Context) error {
+	_, err := c.svc.Delete(ctx, &pb.DeleteRequest{})
+	return err
+}
+
+// Flush calls the Flush RPC.
+func (c *ResponseCacheClient) Flush(ctx context.Context) error {
+	_, err := c.svc.Flush(ctx, &pb.FlushRequest{})
+	return err
+}
+
+// GetHitCount calls the GetHitCount RPC.
+func (c *ResponseCacheClient) GetHitCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHitCount(ctx, &pb.GetHitCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetworkCount calls the GetNetworkCount RPC.
+func (c *ResponseCacheClient) GetNetworkCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNetworkCount(ctx, &pb.GetNetworkCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestCount calls the GetRequestCount RPC.
+func (c *ResponseCacheClient) GetRequestCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRequestCount(ctx, &pb.GetRequestCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MaxSize calls the MaxSize RPC.
+func (c *ResponseCacheClient) MaxSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.MaxSize(ctx, &pb.MaxSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Put calls the Put RPC.
+func (c *ResponseCacheClient) Put(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Put(ctx, &pb.PutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Size calls the Size RPC.
+func (c *ResponseCacheClient) Size(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Size(ctx, &pb.SizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstalled calls the GetInstalled RPC.
+func (c *ResponseCacheClient) GetInstalled(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstalled(ctx, &pb.GetInstalledRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SslCertificateClient wraps the gRPC SslCertificateService client.
+type SslCertificateClient struct {
+	svc pb.SslCertificateServiceClient
+}
+
+// NewSslCertificateClient creates a new SslCertificate client.
+func NewSslCertificateClient(cc grpc.ClientConnInterface) *SslCertificateClient {
+	return &SslCertificateClient{
+		svc: pb.NewSslCertificateServiceClient(cc),
+	}
+}
+
+// GetIssuedBy calls the GetIssuedBy RPC.
+func (c *SslCertificateClient) GetIssuedBy(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIssuedBy(ctx, &pb.GetIssuedByRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIssuedTo calls the GetIssuedTo RPC.
+func (c *SslCertificateClient) GetIssuedTo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIssuedTo(ctx, &pb.GetIssuedToRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValidNotAfter calls the GetValidNotAfter RPC.
+func (c *SslCertificateClient) GetValidNotAfter(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetValidNotAfter(ctx, &pb.GetValidNotAfterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValidNotAfterDate calls the GetValidNotAfterDate RPC.
+func (c *SslCertificateClient) GetValidNotAfterDate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetValidNotAfterDate(ctx, &pb.GetValidNotAfterDateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValidNotBefore calls the GetValidNotBefore RPC.
+func (c *SslCertificateClient) GetValidNotBefore(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetValidNotBefore(ctx, &pb.GetValidNotBeforeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValidNotBeforeDate calls the GetValidNotBeforeDate RPC.
+func (c *SslCertificateClient) GetValidNotBeforeDate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetValidNotBeforeDate(ctx, &pb.GetValidNotBeforeDateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetX509Certificate calls the GetX509Certificate RPC.
+func (c *SslCertificateClient) GetX509Certificate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetX509Certificate(ctx, &pb.GetX509CertificateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SslCertificateClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RestoreState calls the RestoreState RPC.
+func (c *SslCertificateClient) RestoreState(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.RestoreState(ctx, &pb.RestoreStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SaveState calls the SaveState RPC.
+func (c *SslCertificateClient) SaveState(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SaveState(ctx, &pb.SaveStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SslCertificateDNameClient wraps the gRPC SslCertificateDNameService client.
+type SslCertificateDNameClient struct {
+	svc pb.SslCertificateDNameServiceClient
+}
+
+// NewSslCertificateDNameClient creates a new SslCertificateDName client.
+func NewSslCertificateDNameClient(cc grpc.ClientConnInterface) *SslCertificateDNameClient {
+	return &SslCertificateDNameClient{
+		svc: pb.NewSslCertificateDNameServiceClient(cc),
+	}
+}
+
+// GetCName calls the GetCName RPC.
+func (c *SslCertificateDNameClient) GetCName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCName(ctx, &pb.GetCNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDName calls the GetDName RPC.
+func (c *SslCertificateDNameClient) GetDName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDName(ctx, &pb.GetDNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOName calls the GetOName RPC.
+func (c *SslCertificateDNameClient) GetOName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetOName(ctx, &pb.GetONameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUName calls the GetUName RPC.
+func (c *SslCertificateDNameClient) GetUName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetUName(ctx, &pb.GetUNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UrlResponseInfoClient wraps the gRPC UrlResponseInfoService client.
+type UrlResponseInfoClient struct {
+	svc pb.UrlResponseInfoServiceClient
+}
+
+// NewUrlResponseInfoClient creates a new UrlResponseInfo client.
+func NewUrlResponseInfoClient(cc grpc.ClientConnInterface) *UrlResponseInfoClient {
+	return &UrlResponseInfoClient{
+		svc: pb.NewUrlResponseInfoServiceClient(cc),
+	}
+}
+
+// GetHeaders calls the GetHeaders RPC.
+func (c *UrlResponseInfoClient) GetHeaders(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHeaders(ctx, &pb.GetHeadersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHttpStatusCode calls the GetHttpStatusCode RPC.
+func (c *UrlResponseInfoClient) GetHttpStatusCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHttpStatusCode(ctx, &pb.GetHttpStatusCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHttpStatusText calls the GetHttpStatusText RPC.
+func (c *UrlResponseInfoClient) GetHttpStatusText(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetHttpStatusText(ctx, &pb.GetHttpStatusTextRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNegotiatedProtocol calls the GetNegotiatedProtocol RPC.
+func (c *UrlResponseInfoClient) GetNegotiatedProtocol(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNegotiatedProtocol(ctx, &pb.GetNegotiatedProtocolRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReceivedByteCount calls the GetReceivedByteCount RPC.
+func (c *UrlResponseInfoClient) GetReceivedByteCount(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReceivedByteCount(ctx, &pb.GetReceivedByteCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUrl calls the GetUrl RPC.
+func (c *UrlResponseInfoClient) GetUrl(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetUrl(ctx, &pb.UrlResponseInfoGetUrlRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUrlChain calls the GetUrlChain RPC.
+func (c *UrlResponseInfoClient) GetUrlChain(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUrlChain(ctx, &pb.GetUrlChainRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WasCached calls the WasCached RPC.
+func (c *UrlResponseInfoClient) WasCached(ctx context.Context) (bool, error) {
+	resp, err := c.svc.WasCached(ctx, &pb.WasCachedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }

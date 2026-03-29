@@ -21,9 +21,1356 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	KeyboardViewService_NewKeyboardView_FullMethodName               = "/inputmethodservice.KeyboardViewService/NewKeyboardView"
+	KeyboardViewService_Closing_FullMethodName                       = "/inputmethodservice.KeyboardViewService/Closing"
+	KeyboardViewService_GetKeyboard_FullMethodName                   = "/inputmethodservice.KeyboardViewService/GetKeyboard"
+	KeyboardViewService_HandleBack_FullMethodName                    = "/inputmethodservice.KeyboardViewService/HandleBack"
+	KeyboardViewService_InvalidateAllKeys_FullMethodName             = "/inputmethodservice.KeyboardViewService/InvalidateAllKeys"
+	KeyboardViewService_InvalidateKey_FullMethodName                 = "/inputmethodservice.KeyboardViewService/InvalidateKey"
+	KeyboardViewService_IsPreviewEnabled_FullMethodName              = "/inputmethodservice.KeyboardViewService/IsPreviewEnabled"
+	KeyboardViewService_IsProximityCorrectionEnabled_FullMethodName  = "/inputmethodservice.KeyboardViewService/IsProximityCorrectionEnabled"
+	KeyboardViewService_IsShifted_FullMethodName                     = "/inputmethodservice.KeyboardViewService/IsShifted"
+	KeyboardViewService_OnClick_FullMethodName                       = "/inputmethodservice.KeyboardViewService/OnClick"
+	KeyboardViewService_OnDetachedFromWindow_FullMethodName          = "/inputmethodservice.KeyboardViewService/OnDetachedFromWindow"
+	KeyboardViewService_OnDraw_FullMethodName                        = "/inputmethodservice.KeyboardViewService/OnDraw"
+	KeyboardViewService_OnHoverEvent_FullMethodName                  = "/inputmethodservice.KeyboardViewService/OnHoverEvent"
+	KeyboardViewService_OnMeasure_FullMethodName                     = "/inputmethodservice.KeyboardViewService/OnMeasure"
+	KeyboardViewService_OnSizeChanged_FullMethodName                 = "/inputmethodservice.KeyboardViewService/OnSizeChanged"
+	KeyboardViewService_OnTouchEvent_FullMethodName                  = "/inputmethodservice.KeyboardViewService/OnTouchEvent"
+	KeyboardViewService_SetKeyboard_FullMethodName                   = "/inputmethodservice.KeyboardViewService/SetKeyboard"
+	KeyboardViewService_SetOnKeyboardActionListener_FullMethodName   = "/inputmethodservice.KeyboardViewService/SetOnKeyboardActionListener"
+	KeyboardViewService_SetPopupOffset_FullMethodName                = "/inputmethodservice.KeyboardViewService/SetPopupOffset"
+	KeyboardViewService_SetPopupParent_FullMethodName                = "/inputmethodservice.KeyboardViewService/SetPopupParent"
+	KeyboardViewService_SetPreviewEnabled_FullMethodName             = "/inputmethodservice.KeyboardViewService/SetPreviewEnabled"
+	KeyboardViewService_SetProximityCorrectionEnabled_FullMethodName = "/inputmethodservice.KeyboardViewService/SetProximityCorrectionEnabled"
+	KeyboardViewService_SetShifted_FullMethodName                    = "/inputmethodservice.KeyboardViewService/SetShifted"
+	KeyboardViewService_SetVerticalCorrection_FullMethodName         = "/inputmethodservice.KeyboardViewService/SetVerticalCorrection"
+)
+
+// KeyboardViewServiceClient is the client API for KeyboardViewService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyboardViewServiceClient interface {
+	NewKeyboardView(ctx context.Context, in *NewKeyboardViewRequest, opts ...grpc.CallOption) (*NewKeyboardViewResponse, error)
+	Closing(ctx context.Context, in *ClosingRequest, opts ...grpc.CallOption) (*ClosingResponse, error)
+	GetKeyboard(ctx context.Context, in *GetKeyboardRequest, opts ...grpc.CallOption) (*GetKeyboardResponse, error)
+	HandleBack(ctx context.Context, in *HandleBackRequest, opts ...grpc.CallOption) (*HandleBackResponse, error)
+	InvalidateAllKeys(ctx context.Context, in *InvalidateAllKeysRequest, opts ...grpc.CallOption) (*InvalidateAllKeysResponse, error)
+	InvalidateKey(ctx context.Context, in *InvalidateKeyRequest, opts ...grpc.CallOption) (*InvalidateKeyResponse, error)
+	IsPreviewEnabled(ctx context.Context, in *IsPreviewEnabledRequest, opts ...grpc.CallOption) (*IsPreviewEnabledResponse, error)
+	IsProximityCorrectionEnabled(ctx context.Context, in *IsProximityCorrectionEnabledRequest, opts ...grpc.CallOption) (*IsProximityCorrectionEnabledResponse, error)
+	IsShifted(ctx context.Context, in *IsShiftedRequest, opts ...grpc.CallOption) (*IsShiftedResponse, error)
+	OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
+	OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error)
+	OnDraw(ctx context.Context, in *OnDrawRequest, opts ...grpc.CallOption) (*OnDrawResponse, error)
+	OnHoverEvent(ctx context.Context, in *OnHoverEventRequest, opts ...grpc.CallOption) (*OnHoverEventResponse, error)
+	OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error)
+	OnSizeChanged(ctx context.Context, in *OnSizeChangedRequest, opts ...grpc.CallOption) (*OnSizeChangedResponse, error)
+	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	SetKeyboard(ctx context.Context, in *SetKeyboardRequest, opts ...grpc.CallOption) (*SetKeyboardResponse, error)
+	SetOnKeyboardActionListener(ctx context.Context, in *SetOnKeyboardActionListenerRequest, opts ...grpc.CallOption) (*SetOnKeyboardActionListenerResponse, error)
+	SetPopupOffset(ctx context.Context, in *SetPopupOffsetRequest, opts ...grpc.CallOption) (*SetPopupOffsetResponse, error)
+	SetPopupParent(ctx context.Context, in *SetPopupParentRequest, opts ...grpc.CallOption) (*SetPopupParentResponse, error)
+	SetPreviewEnabled(ctx context.Context, in *SetPreviewEnabledRequest, opts ...grpc.CallOption) (*SetPreviewEnabledResponse, error)
+	SetProximityCorrectionEnabled(ctx context.Context, in *SetProximityCorrectionEnabledRequest, opts ...grpc.CallOption) (*SetProximityCorrectionEnabledResponse, error)
+	SetShifted(ctx context.Context, in *SetShiftedRequest, opts ...grpc.CallOption) (*SetShiftedResponse, error)
+	SetVerticalCorrection(ctx context.Context, in *SetVerticalCorrectionRequest, opts ...grpc.CallOption) (*SetVerticalCorrectionResponse, error)
+}
+
+type keyboardViewServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyboardViewServiceClient(cc grpc.ClientConnInterface) KeyboardViewServiceClient {
+	return &keyboardViewServiceClient{cc}
+}
+
+func (c *keyboardViewServiceClient) NewKeyboardView(ctx context.Context, in *NewKeyboardViewRequest, opts ...grpc.CallOption) (*NewKeyboardViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewKeyboardViewResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_NewKeyboardView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) Closing(ctx context.Context, in *ClosingRequest, opts ...grpc.CallOption) (*ClosingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClosingResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_Closing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) GetKeyboard(ctx context.Context, in *GetKeyboardRequest, opts ...grpc.CallOption) (*GetKeyboardResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyboardResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_GetKeyboard_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) HandleBack(ctx context.Context, in *HandleBackRequest, opts ...grpc.CallOption) (*HandleBackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HandleBackResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_HandleBack_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) InvalidateAllKeys(ctx context.Context, in *InvalidateAllKeysRequest, opts ...grpc.CallOption) (*InvalidateAllKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InvalidateAllKeysResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_InvalidateAllKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) InvalidateKey(ctx context.Context, in *InvalidateKeyRequest, opts ...grpc.CallOption) (*InvalidateKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InvalidateKeyResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_InvalidateKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) IsPreviewEnabled(ctx context.Context, in *IsPreviewEnabledRequest, opts ...grpc.CallOption) (*IsPreviewEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPreviewEnabledResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_IsPreviewEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) IsProximityCorrectionEnabled(ctx context.Context, in *IsProximityCorrectionEnabledRequest, opts ...grpc.CallOption) (*IsProximityCorrectionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsProximityCorrectionEnabledResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_IsProximityCorrectionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) IsShifted(ctx context.Context, in *IsShiftedRequest, opts ...grpc.CallOption) (*IsShiftedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsShiftedResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_IsShifted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClickResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_OnClick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDetachedFromWindowResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_OnDetachedFromWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) OnDraw(ctx context.Context, in *OnDrawRequest, opts ...grpc.CallOption) (*OnDrawResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDrawResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_OnDraw_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) OnHoverEvent(ctx context.Context, in *OnHoverEventRequest, opts ...grpc.CallOption) (*OnHoverEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnHoverEventResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_OnHoverEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMeasureResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_OnMeasure_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) OnSizeChanged(ctx context.Context, in *OnSizeChangedRequest, opts ...grpc.CallOption) (*OnSizeChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSizeChangedResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_OnSizeChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchEventResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_OnTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) SetKeyboard(ctx context.Context, in *SetKeyboardRequest, opts ...grpc.CallOption) (*SetKeyboardResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyboardResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_SetKeyboard_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) SetOnKeyboardActionListener(ctx context.Context, in *SetOnKeyboardActionListenerRequest, opts ...grpc.CallOption) (*SetOnKeyboardActionListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnKeyboardActionListenerResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_SetOnKeyboardActionListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) SetPopupOffset(ctx context.Context, in *SetPopupOffsetRequest, opts ...grpc.CallOption) (*SetPopupOffsetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPopupOffsetResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_SetPopupOffset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) SetPopupParent(ctx context.Context, in *SetPopupParentRequest, opts ...grpc.CallOption) (*SetPopupParentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPopupParentResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_SetPopupParent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) SetPreviewEnabled(ctx context.Context, in *SetPreviewEnabledRequest, opts ...grpc.CallOption) (*SetPreviewEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewEnabledResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_SetPreviewEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) SetProximityCorrectionEnabled(ctx context.Context, in *SetProximityCorrectionEnabledRequest, opts ...grpc.CallOption) (*SetProximityCorrectionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetProximityCorrectionEnabledResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_SetProximityCorrectionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) SetShifted(ctx context.Context, in *SetShiftedRequest, opts ...grpc.CallOption) (*SetShiftedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShiftedResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_SetShifted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewServiceClient) SetVerticalCorrection(ctx context.Context, in *SetVerticalCorrectionRequest, opts ...grpc.CallOption) (*SetVerticalCorrectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVerticalCorrectionResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewService_SetVerticalCorrection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyboardViewServiceServer is the server API for KeyboardViewService service.
+// All implementations must embed UnimplementedKeyboardViewServiceServer
+// for forward compatibility.
+type KeyboardViewServiceServer interface {
+	NewKeyboardView(context.Context, *NewKeyboardViewRequest) (*NewKeyboardViewResponse, error)
+	Closing(context.Context, *ClosingRequest) (*ClosingResponse, error)
+	GetKeyboard(context.Context, *GetKeyboardRequest) (*GetKeyboardResponse, error)
+	HandleBack(context.Context, *HandleBackRequest) (*HandleBackResponse, error)
+	InvalidateAllKeys(context.Context, *InvalidateAllKeysRequest) (*InvalidateAllKeysResponse, error)
+	InvalidateKey(context.Context, *InvalidateKeyRequest) (*InvalidateKeyResponse, error)
+	IsPreviewEnabled(context.Context, *IsPreviewEnabledRequest) (*IsPreviewEnabledResponse, error)
+	IsProximityCorrectionEnabled(context.Context, *IsProximityCorrectionEnabledRequest) (*IsProximityCorrectionEnabledResponse, error)
+	IsShifted(context.Context, *IsShiftedRequest) (*IsShiftedResponse, error)
+	OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error)
+	OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error)
+	OnDraw(context.Context, *OnDrawRequest) (*OnDrawResponse, error)
+	OnHoverEvent(context.Context, *OnHoverEventRequest) (*OnHoverEventResponse, error)
+	OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error)
+	OnSizeChanged(context.Context, *OnSizeChangedRequest) (*OnSizeChangedResponse, error)
+	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
+	SetKeyboard(context.Context, *SetKeyboardRequest) (*SetKeyboardResponse, error)
+	SetOnKeyboardActionListener(context.Context, *SetOnKeyboardActionListenerRequest) (*SetOnKeyboardActionListenerResponse, error)
+	SetPopupOffset(context.Context, *SetPopupOffsetRequest) (*SetPopupOffsetResponse, error)
+	SetPopupParent(context.Context, *SetPopupParentRequest) (*SetPopupParentResponse, error)
+	SetPreviewEnabled(context.Context, *SetPreviewEnabledRequest) (*SetPreviewEnabledResponse, error)
+	SetProximityCorrectionEnabled(context.Context, *SetProximityCorrectionEnabledRequest) (*SetProximityCorrectionEnabledResponse, error)
+	SetShifted(context.Context, *SetShiftedRequest) (*SetShiftedResponse, error)
+	SetVerticalCorrection(context.Context, *SetVerticalCorrectionRequest) (*SetVerticalCorrectionResponse, error)
+	mustEmbedUnimplementedKeyboardViewServiceServer()
+}
+
+// UnimplementedKeyboardViewServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyboardViewServiceServer struct{}
+
+func (UnimplementedKeyboardViewServiceServer) NewKeyboardView(context.Context, *NewKeyboardViewRequest) (*NewKeyboardViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewKeyboardView not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) Closing(context.Context, *ClosingRequest) (*ClosingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Closing not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) GetKeyboard(context.Context, *GetKeyboardRequest) (*GetKeyboardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyboard not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) HandleBack(context.Context, *HandleBackRequest) (*HandleBackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HandleBack not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) InvalidateAllKeys(context.Context, *InvalidateAllKeysRequest) (*InvalidateAllKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method InvalidateAllKeys not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) InvalidateKey(context.Context, *InvalidateKeyRequest) (*InvalidateKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method InvalidateKey not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) IsPreviewEnabled(context.Context, *IsPreviewEnabledRequest) (*IsPreviewEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPreviewEnabled not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) IsProximityCorrectionEnabled(context.Context, *IsProximityCorrectionEnabledRequest) (*IsProximityCorrectionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsProximityCorrectionEnabled not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) IsShifted(context.Context, *IsShiftedRequest) (*IsShiftedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsShifted not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDetachedFromWindow not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) OnDraw(context.Context, *OnDrawRequest) (*OnDrawResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDraw not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) OnHoverEvent(context.Context, *OnHoverEventRequest) (*OnHoverEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnHoverEvent not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMeasure not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) OnSizeChanged(context.Context, *OnSizeChangedRequest) (*OnSizeChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSizeChanged not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) SetKeyboard(context.Context, *SetKeyboardRequest) (*SetKeyboardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyboard not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) SetOnKeyboardActionListener(context.Context, *SetOnKeyboardActionListenerRequest) (*SetOnKeyboardActionListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnKeyboardActionListener not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) SetPopupOffset(context.Context, *SetPopupOffsetRequest) (*SetPopupOffsetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPopupOffset not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) SetPopupParent(context.Context, *SetPopupParentRequest) (*SetPopupParentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPopupParent not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) SetPreviewEnabled(context.Context, *SetPreviewEnabledRequest) (*SetPreviewEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewEnabled not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) SetProximityCorrectionEnabled(context.Context, *SetProximityCorrectionEnabledRequest) (*SetProximityCorrectionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetProximityCorrectionEnabled not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) SetShifted(context.Context, *SetShiftedRequest) (*SetShiftedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShifted not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) SetVerticalCorrection(context.Context, *SetVerticalCorrectionRequest) (*SetVerticalCorrectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVerticalCorrection not implemented")
+}
+func (UnimplementedKeyboardViewServiceServer) mustEmbedUnimplementedKeyboardViewServiceServer() {}
+func (UnimplementedKeyboardViewServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeKeyboardViewServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyboardViewServiceServer will
+// result in compilation errors.
+type UnsafeKeyboardViewServiceServer interface {
+	mustEmbedUnimplementedKeyboardViewServiceServer()
+}
+
+func RegisterKeyboardViewServiceServer(s grpc.ServiceRegistrar, srv KeyboardViewServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyboardViewServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyboardViewService_ServiceDesc, srv)
+}
+
+func _KeyboardViewService_NewKeyboardView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewKeyboardViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).NewKeyboardView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_NewKeyboardView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).NewKeyboardView(ctx, req.(*NewKeyboardViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_Closing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClosingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).Closing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_Closing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).Closing(ctx, req.(*ClosingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_GetKeyboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).GetKeyboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_GetKeyboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).GetKeyboard(ctx, req.(*GetKeyboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_HandleBack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HandleBackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).HandleBack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_HandleBack_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).HandleBack(ctx, req.(*HandleBackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_InvalidateAllKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InvalidateAllKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).InvalidateAllKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_InvalidateAllKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).InvalidateAllKeys(ctx, req.(*InvalidateAllKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_InvalidateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InvalidateKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).InvalidateKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_InvalidateKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).InvalidateKey(ctx, req.(*InvalidateKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_IsPreviewEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPreviewEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).IsPreviewEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_IsPreviewEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).IsPreviewEnabled(ctx, req.(*IsPreviewEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_IsProximityCorrectionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsProximityCorrectionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).IsProximityCorrectionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_IsProximityCorrectionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).IsProximityCorrectionEnabled(ctx, req.(*IsProximityCorrectionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_IsShifted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsShiftedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).IsShifted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_IsShifted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).IsShifted(ctx, req.(*IsShiftedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).OnClick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_OnClick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).OnClick(ctx, req.(*OnClickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_OnDetachedFromWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDetachedFromWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).OnDetachedFromWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_OnDetachedFromWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).OnDetachedFromWindow(ctx, req.(*OnDetachedFromWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_OnDraw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDrawRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).OnDraw(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_OnDraw_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).OnDraw(ctx, req.(*OnDrawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_OnHoverEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnHoverEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).OnHoverEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_OnHoverEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).OnHoverEvent(ctx, req.(*OnHoverEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_OnMeasure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMeasureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).OnMeasure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_OnMeasure_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).OnMeasure(ctx, req.(*OnMeasureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_OnSizeChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSizeChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).OnSizeChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_OnSizeChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).OnSizeChanged(ctx, req.(*OnSizeChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).OnTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_OnTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_SetKeyboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).SetKeyboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_SetKeyboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).SetKeyboard(ctx, req.(*SetKeyboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_SetOnKeyboardActionListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnKeyboardActionListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).SetOnKeyboardActionListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_SetOnKeyboardActionListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).SetOnKeyboardActionListener(ctx, req.(*SetOnKeyboardActionListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_SetPopupOffset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPopupOffsetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).SetPopupOffset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_SetPopupOffset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).SetPopupOffset(ctx, req.(*SetPopupOffsetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_SetPopupParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPopupParentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).SetPopupParent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_SetPopupParent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).SetPopupParent(ctx, req.(*SetPopupParentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_SetPreviewEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).SetPreviewEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_SetPreviewEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).SetPreviewEnabled(ctx, req.(*SetPreviewEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_SetProximityCorrectionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetProximityCorrectionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).SetProximityCorrectionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_SetProximityCorrectionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).SetProximityCorrectionEnabled(ctx, req.(*SetProximityCorrectionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_SetShifted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShiftedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).SetShifted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_SetShifted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).SetShifted(ctx, req.(*SetShiftedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewService_SetVerticalCorrection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVerticalCorrectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewServiceServer).SetVerticalCorrection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewService_SetVerticalCorrection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewServiceServer).SetVerticalCorrection(ctx, req.(*SetVerticalCorrectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyboardViewService_ServiceDesc is the grpc.ServiceDesc for KeyboardViewService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyboardViewService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "inputmethodservice.KeyboardViewService",
+	HandlerType: (*KeyboardViewServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewKeyboardView",
+			Handler:    _KeyboardViewService_NewKeyboardView_Handler,
+		},
+		{
+			MethodName: "Closing",
+			Handler:    _KeyboardViewService_Closing_Handler,
+		},
+		{
+			MethodName: "GetKeyboard",
+			Handler:    _KeyboardViewService_GetKeyboard_Handler,
+		},
+		{
+			MethodName: "HandleBack",
+			Handler:    _KeyboardViewService_HandleBack_Handler,
+		},
+		{
+			MethodName: "InvalidateAllKeys",
+			Handler:    _KeyboardViewService_InvalidateAllKeys_Handler,
+		},
+		{
+			MethodName: "InvalidateKey",
+			Handler:    _KeyboardViewService_InvalidateKey_Handler,
+		},
+		{
+			MethodName: "IsPreviewEnabled",
+			Handler:    _KeyboardViewService_IsPreviewEnabled_Handler,
+		},
+		{
+			MethodName: "IsProximityCorrectionEnabled",
+			Handler:    _KeyboardViewService_IsProximityCorrectionEnabled_Handler,
+		},
+		{
+			MethodName: "IsShifted",
+			Handler:    _KeyboardViewService_IsShifted_Handler,
+		},
+		{
+			MethodName: "OnClick",
+			Handler:    _KeyboardViewService_OnClick_Handler,
+		},
+		{
+			MethodName: "OnDetachedFromWindow",
+			Handler:    _KeyboardViewService_OnDetachedFromWindow_Handler,
+		},
+		{
+			MethodName: "OnDraw",
+			Handler:    _KeyboardViewService_OnDraw_Handler,
+		},
+		{
+			MethodName: "OnHoverEvent",
+			Handler:    _KeyboardViewService_OnHoverEvent_Handler,
+		},
+		{
+			MethodName: "OnMeasure",
+			Handler:    _KeyboardViewService_OnMeasure_Handler,
+		},
+		{
+			MethodName: "OnSizeChanged",
+			Handler:    _KeyboardViewService_OnSizeChanged_Handler,
+		},
+		{
+			MethodName: "OnTouchEvent",
+			Handler:    _KeyboardViewService_OnTouchEvent_Handler,
+		},
+		{
+			MethodName: "SetKeyboard",
+			Handler:    _KeyboardViewService_SetKeyboard_Handler,
+		},
+		{
+			MethodName: "SetOnKeyboardActionListener",
+			Handler:    _KeyboardViewService_SetOnKeyboardActionListener_Handler,
+		},
+		{
+			MethodName: "SetPopupOffset",
+			Handler:    _KeyboardViewService_SetPopupOffset_Handler,
+		},
+		{
+			MethodName: "SetPopupParent",
+			Handler:    _KeyboardViewService_SetPopupParent_Handler,
+		},
+		{
+			MethodName: "SetPreviewEnabled",
+			Handler:    _KeyboardViewService_SetPreviewEnabled_Handler,
+		},
+		{
+			MethodName: "SetProximityCorrectionEnabled",
+			Handler:    _KeyboardViewService_SetProximityCorrectionEnabled_Handler,
+		},
+		{
+			MethodName: "SetShifted",
+			Handler:    _KeyboardViewService_SetShifted_Handler,
+		},
+		{
+			MethodName: "SetVerticalCorrection",
+			Handler:    _KeyboardViewService_SetVerticalCorrection_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/inputmethodservice/inputmethodservice.proto",
+}
+
+const (
+	KeyboardViewOnKeyboardActionListenerService_OnKey_FullMethodName      = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/OnKey"
+	KeyboardViewOnKeyboardActionListenerService_OnPress_FullMethodName    = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/OnPress"
+	KeyboardViewOnKeyboardActionListenerService_OnRelease_FullMethodName  = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/OnRelease"
+	KeyboardViewOnKeyboardActionListenerService_OnText_FullMethodName     = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/OnText"
+	KeyboardViewOnKeyboardActionListenerService_SwipeDown_FullMethodName  = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/SwipeDown"
+	KeyboardViewOnKeyboardActionListenerService_SwipeLeft_FullMethodName  = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/SwipeLeft"
+	KeyboardViewOnKeyboardActionListenerService_SwipeRight_FullMethodName = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/SwipeRight"
+	KeyboardViewOnKeyboardActionListenerService_SwipeUp_FullMethodName    = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/SwipeUp"
+)
+
+// KeyboardViewOnKeyboardActionListenerServiceClient is the client API for KeyboardViewOnKeyboardActionListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyboardViewOnKeyboardActionListenerServiceClient interface {
+	OnKey(ctx context.Context, in *OnKeyRequest, opts ...grpc.CallOption) (*OnKeyResponse, error)
+	OnPress(ctx context.Context, in *OnPressRequest, opts ...grpc.CallOption) (*OnPressResponse, error)
+	OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error)
+	OnText(ctx context.Context, in *OnTextRequest, opts ...grpc.CallOption) (*OnTextResponse, error)
+	SwipeDown(ctx context.Context, in *SwipeDownRequest, opts ...grpc.CallOption) (*SwipeDownResponse, error)
+	SwipeLeft(ctx context.Context, in *SwipeLeftRequest, opts ...grpc.CallOption) (*SwipeLeftResponse, error)
+	SwipeRight(ctx context.Context, in *SwipeRightRequest, opts ...grpc.CallOption) (*SwipeRightResponse, error)
+	SwipeUp(ctx context.Context, in *SwipeUpRequest, opts ...grpc.CallOption) (*SwipeUpResponse, error)
+}
+
+type keyboardViewOnKeyboardActionListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyboardViewOnKeyboardActionListenerServiceClient(cc grpc.ClientConnInterface) KeyboardViewOnKeyboardActionListenerServiceClient {
+	return &keyboardViewOnKeyboardActionListenerServiceClient{cc}
+}
+
+func (c *keyboardViewOnKeyboardActionListenerServiceClient) OnKey(ctx context.Context, in *OnKeyRequest, opts ...grpc.CallOption) (*OnKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_OnKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewOnKeyboardActionListenerServiceClient) OnPress(ctx context.Context, in *OnPressRequest, opts ...grpc.CallOption) (*OnPressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPressResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_OnPress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewOnKeyboardActionListenerServiceClient) OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReleaseResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_OnRelease_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewOnKeyboardActionListenerServiceClient) OnText(ctx context.Context, in *OnTextRequest, opts ...grpc.CallOption) (*OnTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTextResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_OnText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewOnKeyboardActionListenerServiceClient) SwipeDown(ctx context.Context, in *SwipeDownRequest, opts ...grpc.CallOption) (*SwipeDownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SwipeDownResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_SwipeDown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewOnKeyboardActionListenerServiceClient) SwipeLeft(ctx context.Context, in *SwipeLeftRequest, opts ...grpc.CallOption) (*SwipeLeftResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SwipeLeftResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_SwipeLeft_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewOnKeyboardActionListenerServiceClient) SwipeRight(ctx context.Context, in *SwipeRightRequest, opts ...grpc.CallOption) (*SwipeRightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SwipeRightResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_SwipeRight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardViewOnKeyboardActionListenerServiceClient) SwipeUp(ctx context.Context, in *SwipeUpRequest, opts ...grpc.CallOption) (*SwipeUpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SwipeUpResponse)
+	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_SwipeUp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyboardViewOnKeyboardActionListenerServiceServer is the server API for KeyboardViewOnKeyboardActionListenerService service.
+// All implementations must embed UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer
+// for forward compatibility.
+type KeyboardViewOnKeyboardActionListenerServiceServer interface {
+	OnKey(context.Context, *OnKeyRequest) (*OnKeyResponse, error)
+	OnPress(context.Context, *OnPressRequest) (*OnPressResponse, error)
+	OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error)
+	OnText(context.Context, *OnTextRequest) (*OnTextResponse, error)
+	SwipeDown(context.Context, *SwipeDownRequest) (*SwipeDownResponse, error)
+	SwipeLeft(context.Context, *SwipeLeftRequest) (*SwipeLeftResponse, error)
+	SwipeRight(context.Context, *SwipeRightRequest) (*SwipeRightResponse, error)
+	SwipeUp(context.Context, *SwipeUpRequest) (*SwipeUpResponse, error)
+	mustEmbedUnimplementedKeyboardViewOnKeyboardActionListenerServiceServer()
+}
+
+// UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer struct{}
+
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) OnKey(context.Context, *OnKeyRequest) (*OnKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKey not implemented")
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) OnPress(context.Context, *OnPressRequest) (*OnPressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPress not implemented")
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRelease not implemented")
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) OnText(context.Context, *OnTextRequest) (*OnTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnText not implemented")
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) SwipeDown(context.Context, *SwipeDownRequest) (*SwipeDownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SwipeDown not implemented")
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) SwipeLeft(context.Context, *SwipeLeftRequest) (*SwipeLeftResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SwipeLeft not implemented")
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) SwipeRight(context.Context, *SwipeRightRequest) (*SwipeRightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SwipeRight not implemented")
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) SwipeUp(context.Context, *SwipeUpRequest) (*SwipeUpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SwipeUp not implemented")
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) mustEmbedUnimplementedKeyboardViewOnKeyboardActionListenerServiceServer() {
+}
+func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeKeyboardViewOnKeyboardActionListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyboardViewOnKeyboardActionListenerServiceServer will
+// result in compilation errors.
+type UnsafeKeyboardViewOnKeyboardActionListenerServiceServer interface {
+	mustEmbedUnimplementedKeyboardViewOnKeyboardActionListenerServiceServer()
+}
+
+func RegisterKeyboardViewOnKeyboardActionListenerServiceServer(s grpc.ServiceRegistrar, srv KeyboardViewOnKeyboardActionListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyboardViewOnKeyboardActionListenerService_ServiceDesc, srv)
+}
+
+func _KeyboardViewOnKeyboardActionListenerService_OnKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewOnKeyboardActionListenerService_OnKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnKey(ctx, req.(*OnKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewOnKeyboardActionListenerService_OnPress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnPress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewOnKeyboardActionListenerService_OnPress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnPress(ctx, req.(*OnPressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewOnKeyboardActionListenerService_OnRelease_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnRelease(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewOnKeyboardActionListenerService_OnRelease_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnRelease(ctx, req.(*OnReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewOnKeyboardActionListenerService_OnText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewOnKeyboardActionListenerService_OnText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnText(ctx, req.(*OnTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewOnKeyboardActionListenerService_SwipeDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SwipeDownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeDown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewOnKeyboardActionListenerService_SwipeDown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeDown(ctx, req.(*SwipeDownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewOnKeyboardActionListenerService_SwipeLeft_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SwipeLeftRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeLeft(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewOnKeyboardActionListenerService_SwipeLeft_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeLeft(ctx, req.(*SwipeLeftRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewOnKeyboardActionListenerService_SwipeRight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SwipeRightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeRight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewOnKeyboardActionListenerService_SwipeRight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeRight(ctx, req.(*SwipeRightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardViewOnKeyboardActionListenerService_SwipeUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SwipeUpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeUp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardViewOnKeyboardActionListenerService_SwipeUp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeUp(ctx, req.(*SwipeUpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyboardViewOnKeyboardActionListenerService_ServiceDesc is the grpc.ServiceDesc for KeyboardViewOnKeyboardActionListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyboardViewOnKeyboardActionListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "inputmethodservice.KeyboardViewOnKeyboardActionListenerService",
+	HandlerType: (*KeyboardViewOnKeyboardActionListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnKey",
+			Handler:    _KeyboardViewOnKeyboardActionListenerService_OnKey_Handler,
+		},
+		{
+			MethodName: "OnPress",
+			Handler:    _KeyboardViewOnKeyboardActionListenerService_OnPress_Handler,
+		},
+		{
+			MethodName: "OnRelease",
+			Handler:    _KeyboardViewOnKeyboardActionListenerService_OnRelease_Handler,
+		},
+		{
+			MethodName: "OnText",
+			Handler:    _KeyboardViewOnKeyboardActionListenerService_OnText_Handler,
+		},
+		{
+			MethodName: "SwipeDown",
+			Handler:    _KeyboardViewOnKeyboardActionListenerService_SwipeDown_Handler,
+		},
+		{
+			MethodName: "SwipeLeft",
+			Handler:    _KeyboardViewOnKeyboardActionListenerService_SwipeLeft_Handler,
+		},
+		{
+			MethodName: "SwipeRight",
+			Handler:    _KeyboardViewOnKeyboardActionListenerService_SwipeRight_Handler,
+		},
+		{
+			MethodName: "SwipeUp",
+			Handler:    _KeyboardViewOnKeyboardActionListenerService_SwipeUp_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/inputmethodservice/inputmethodservice.proto",
+}
+
+const (
 	KeyboardService_NewKeyboard_FullMethodName      = "/inputmethodservice.KeyboardService/NewKeyboard"
 	KeyboardService_GetHeight_FullMethodName        = "/inputmethodservice.KeyboardService/GetHeight"
+	KeyboardService_GetKeys_FullMethodName          = "/inputmethodservice.KeyboardService/GetKeys"
 	KeyboardService_GetMinWidth_FullMethodName      = "/inputmethodservice.KeyboardService/GetMinWidth"
+	KeyboardService_GetModifierKeys_FullMethodName  = "/inputmethodservice.KeyboardService/GetModifierKeys"
 	KeyboardService_GetNearestKeys_FullMethodName   = "/inputmethodservice.KeyboardService/GetNearestKeys"
 	KeyboardService_GetShiftKeyIndex_FullMethodName = "/inputmethodservice.KeyboardService/GetShiftKeyIndex"
 	KeyboardService_IsShifted_FullMethodName        = "/inputmethodservice.KeyboardService/IsShifted"
@@ -36,7 +1383,9 @@ const (
 type KeyboardServiceClient interface {
 	NewKeyboard(ctx context.Context, in *NewKeyboardRequest, opts ...grpc.CallOption) (*NewKeyboardResponse, error)
 	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
+	GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error)
 	GetMinWidth(ctx context.Context, in *GetMinWidthRequest, opts ...grpc.CallOption) (*GetMinWidthResponse, error)
+	GetModifierKeys(ctx context.Context, in *GetModifierKeysRequest, opts ...grpc.CallOption) (*GetModifierKeysResponse, error)
 	GetNearestKeys(ctx context.Context, in *GetNearestKeysRequest, opts ...grpc.CallOption) (*GetNearestKeysResponse, error)
 	GetShiftKeyIndex(ctx context.Context, in *GetShiftKeyIndexRequest, opts ...grpc.CallOption) (*GetShiftKeyIndexResponse, error)
 	IsShifted(ctx context.Context, in *IsShiftedRequest, opts ...grpc.CallOption) (*IsShiftedResponse, error)
@@ -71,10 +1420,30 @@ func (c *keyboardServiceClient) GetHeight(ctx context.Context, in *GetHeightRequ
 	return out, nil
 }
 
+func (c *keyboardServiceClient) GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeysResponse)
+	err := c.cc.Invoke(ctx, KeyboardService_GetKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *keyboardServiceClient) GetMinWidth(ctx context.Context, in *GetMinWidthRequest, opts ...grpc.CallOption) (*GetMinWidthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMinWidthResponse)
 	err := c.cc.Invoke(ctx, KeyboardService_GetMinWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyboardServiceClient) GetModifierKeys(ctx context.Context, in *GetModifierKeysRequest, opts ...grpc.CallOption) (*GetModifierKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetModifierKeysResponse)
+	err := c.cc.Invoke(ctx, KeyboardService_GetModifierKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -127,7 +1496,9 @@ func (c *keyboardServiceClient) SetShifted(ctx context.Context, in *SetShiftedRe
 type KeyboardServiceServer interface {
 	NewKeyboard(context.Context, *NewKeyboardRequest) (*NewKeyboardResponse, error)
 	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
+	GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error)
 	GetMinWidth(context.Context, *GetMinWidthRequest) (*GetMinWidthResponse, error)
+	GetModifierKeys(context.Context, *GetModifierKeysRequest) (*GetModifierKeysResponse, error)
 	GetNearestKeys(context.Context, *GetNearestKeysRequest) (*GetNearestKeysResponse, error)
 	GetShiftKeyIndex(context.Context, *GetShiftKeyIndexRequest) (*GetShiftKeyIndexResponse, error)
 	IsShifted(context.Context, *IsShiftedRequest) (*IsShiftedResponse, error)
@@ -148,8 +1519,14 @@ func (UnimplementedKeyboardServiceServer) NewKeyboard(context.Context, *NewKeybo
 func (UnimplementedKeyboardServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
 }
+func (UnimplementedKeyboardServiceServer) GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeys not implemented")
+}
 func (UnimplementedKeyboardServiceServer) GetMinWidth(context.Context, *GetMinWidthRequest) (*GetMinWidthResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMinWidth not implemented")
+}
+func (UnimplementedKeyboardServiceServer) GetModifierKeys(context.Context, *GetModifierKeysRequest) (*GetModifierKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetModifierKeys not implemented")
 }
 func (UnimplementedKeyboardServiceServer) GetNearestKeys(context.Context, *GetNearestKeysRequest) (*GetNearestKeysResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNearestKeys not implemented")
@@ -220,6 +1597,24 @@ func _KeyboardService_GetHeight_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _KeyboardService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardServiceServer).GetKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardService_GetKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardServiceServer).GetKeys(ctx, req.(*GetKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _KeyboardService_GetMinWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMinWidthRequest)
 	if err := dec(in); err != nil {
@@ -234,6 +1629,24 @@ func _KeyboardService_GetMinWidth_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyboardServiceServer).GetMinWidth(ctx, req.(*GetMinWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyboardService_GetModifierKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetModifierKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyboardServiceServer).GetModifierKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyboardService_GetModifierKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyboardServiceServer).GetModifierKeys(ctx, req.(*GetModifierKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -326,8 +1739,16 @@ var KeyboardService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _KeyboardService_GetHeight_Handler,
 		},
 		{
+			MethodName: "GetKeys",
+			Handler:    _KeyboardService_GetKeys_Handler,
+		},
+		{
 			MethodName: "GetMinWidth",
 			Handler:    _KeyboardService_GetMinWidth_Handler,
+		},
+		{
+			MethodName: "GetModifierKeys",
+			Handler:    _KeyboardService_GetModifierKeys_Handler,
 		},
 		{
 			MethodName: "GetNearestKeys",
@@ -598,6 +2019,489 @@ var KeyboardKeyService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SquaredDistanceFrom",
 			Handler:    _KeyboardKeyService_SquaredDistanceFrom_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/inputmethodservice/inputmethodservice.proto",
+}
+
+const (
+	ExtractEditTextService_NewExtractEditText_FullMethodName    = "/inputmethodservice.ExtractEditTextService/NewExtractEditText"
+	ExtractEditTextService_FinishInternalChanges_FullMethodName = "/inputmethodservice.ExtractEditTextService/FinishInternalChanges"
+	ExtractEditTextService_HasFocus_FullMethodName              = "/inputmethodservice.ExtractEditTextService/HasFocus"
+	ExtractEditTextService_HasVerticalScrollBar_FullMethodName  = "/inputmethodservice.ExtractEditTextService/HasVerticalScrollBar"
+	ExtractEditTextService_HasWindowFocus_FullMethodName        = "/inputmethodservice.ExtractEditTextService/HasWindowFocus"
+	ExtractEditTextService_IsFocused_FullMethodName             = "/inputmethodservice.ExtractEditTextService/IsFocused"
+	ExtractEditTextService_IsInputMethodTarget_FullMethodName   = "/inputmethodservice.ExtractEditTextService/IsInputMethodTarget"
+	ExtractEditTextService_OnTextContextMenuItem_FullMethodName = "/inputmethodservice.ExtractEditTextService/OnTextContextMenuItem"
+	ExtractEditTextService_PerformClick_FullMethodName          = "/inputmethodservice.ExtractEditTextService/PerformClick"
+	ExtractEditTextService_SetExtractedText_FullMethodName      = "/inputmethodservice.ExtractEditTextService/SetExtractedText"
+	ExtractEditTextService_StartInternalChanges_FullMethodName  = "/inputmethodservice.ExtractEditTextService/StartInternalChanges"
+)
+
+// ExtractEditTextServiceClient is the client API for ExtractEditTextService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ExtractEditTextServiceClient interface {
+	NewExtractEditText(ctx context.Context, in *NewExtractEditTextRequest, opts ...grpc.CallOption) (*NewExtractEditTextResponse, error)
+	FinishInternalChanges(ctx context.Context, in *FinishInternalChangesRequest, opts ...grpc.CallOption) (*FinishInternalChangesResponse, error)
+	HasFocus(ctx context.Context, in *HasFocusRequest, opts ...grpc.CallOption) (*HasFocusResponse, error)
+	HasVerticalScrollBar(ctx context.Context, in *HasVerticalScrollBarRequest, opts ...grpc.CallOption) (*HasVerticalScrollBarResponse, error)
+	HasWindowFocus(ctx context.Context, in *HasWindowFocusRequest, opts ...grpc.CallOption) (*HasWindowFocusResponse, error)
+	IsFocused(ctx context.Context, in *IsFocusedRequest, opts ...grpc.CallOption) (*IsFocusedResponse, error)
+	IsInputMethodTarget(ctx context.Context, in *IsInputMethodTargetRequest, opts ...grpc.CallOption) (*IsInputMethodTargetResponse, error)
+	OnTextContextMenuItem(ctx context.Context, in *OnTextContextMenuItemRequest, opts ...grpc.CallOption) (*OnTextContextMenuItemResponse, error)
+	PerformClick(ctx context.Context, in *PerformClickRequest, opts ...grpc.CallOption) (*PerformClickResponse, error)
+	SetExtractedText(ctx context.Context, in *SetExtractedTextRequest, opts ...grpc.CallOption) (*SetExtractedTextResponse, error)
+	StartInternalChanges(ctx context.Context, in *StartInternalChangesRequest, opts ...grpc.CallOption) (*StartInternalChangesResponse, error)
+}
+
+type extractEditTextServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewExtractEditTextServiceClient(cc grpc.ClientConnInterface) ExtractEditTextServiceClient {
+	return &extractEditTextServiceClient{cc}
+}
+
+func (c *extractEditTextServiceClient) NewExtractEditText(ctx context.Context, in *NewExtractEditTextRequest, opts ...grpc.CallOption) (*NewExtractEditTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewExtractEditTextResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_NewExtractEditText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) FinishInternalChanges(ctx context.Context, in *FinishInternalChangesRequest, opts ...grpc.CallOption) (*FinishInternalChangesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishInternalChangesResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_FinishInternalChanges_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) HasFocus(ctx context.Context, in *HasFocusRequest, opts ...grpc.CallOption) (*HasFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasFocusResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_HasFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) HasVerticalScrollBar(ctx context.Context, in *HasVerticalScrollBarRequest, opts ...grpc.CallOption) (*HasVerticalScrollBarResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasVerticalScrollBarResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_HasVerticalScrollBar_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) HasWindowFocus(ctx context.Context, in *HasWindowFocusRequest, opts ...grpc.CallOption) (*HasWindowFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasWindowFocusResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_HasWindowFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) IsFocused(ctx context.Context, in *IsFocusedRequest, opts ...grpc.CallOption) (*IsFocusedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFocusedResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_IsFocused_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) IsInputMethodTarget(ctx context.Context, in *IsInputMethodTargetRequest, opts ...grpc.CallOption) (*IsInputMethodTargetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInputMethodTargetResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_IsInputMethodTarget_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) OnTextContextMenuItem(ctx context.Context, in *OnTextContextMenuItemRequest, opts ...grpc.CallOption) (*OnTextContextMenuItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTextContextMenuItemResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_OnTextContextMenuItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) PerformClick(ctx context.Context, in *PerformClickRequest, opts ...grpc.CallOption) (*PerformClickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PerformClickResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_PerformClick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) SetExtractedText(ctx context.Context, in *SetExtractedTextRequest, opts ...grpc.CallOption) (*SetExtractedTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtractedTextResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_SetExtractedText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *extractEditTextServiceClient) StartInternalChanges(ctx context.Context, in *StartInternalChangesRequest, opts ...grpc.CallOption) (*StartInternalChangesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartInternalChangesResponse)
+	err := c.cc.Invoke(ctx, ExtractEditTextService_StartInternalChanges_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ExtractEditTextServiceServer is the server API for ExtractEditTextService service.
+// All implementations must embed UnimplementedExtractEditTextServiceServer
+// for forward compatibility.
+type ExtractEditTextServiceServer interface {
+	NewExtractEditText(context.Context, *NewExtractEditTextRequest) (*NewExtractEditTextResponse, error)
+	FinishInternalChanges(context.Context, *FinishInternalChangesRequest) (*FinishInternalChangesResponse, error)
+	HasFocus(context.Context, *HasFocusRequest) (*HasFocusResponse, error)
+	HasVerticalScrollBar(context.Context, *HasVerticalScrollBarRequest) (*HasVerticalScrollBarResponse, error)
+	HasWindowFocus(context.Context, *HasWindowFocusRequest) (*HasWindowFocusResponse, error)
+	IsFocused(context.Context, *IsFocusedRequest) (*IsFocusedResponse, error)
+	IsInputMethodTarget(context.Context, *IsInputMethodTargetRequest) (*IsInputMethodTargetResponse, error)
+	OnTextContextMenuItem(context.Context, *OnTextContextMenuItemRequest) (*OnTextContextMenuItemResponse, error)
+	PerformClick(context.Context, *PerformClickRequest) (*PerformClickResponse, error)
+	SetExtractedText(context.Context, *SetExtractedTextRequest) (*SetExtractedTextResponse, error)
+	StartInternalChanges(context.Context, *StartInternalChangesRequest) (*StartInternalChangesResponse, error)
+	mustEmbedUnimplementedExtractEditTextServiceServer()
+}
+
+// UnimplementedExtractEditTextServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedExtractEditTextServiceServer struct{}
+
+func (UnimplementedExtractEditTextServiceServer) NewExtractEditText(context.Context, *NewExtractEditTextRequest) (*NewExtractEditTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewExtractEditText not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) FinishInternalChanges(context.Context, *FinishInternalChangesRequest) (*FinishInternalChangesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FinishInternalChanges not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) HasFocus(context.Context, *HasFocusRequest) (*HasFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasFocus not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) HasVerticalScrollBar(context.Context, *HasVerticalScrollBarRequest) (*HasVerticalScrollBarResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasVerticalScrollBar not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) HasWindowFocus(context.Context, *HasWindowFocusRequest) (*HasWindowFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasWindowFocus not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) IsFocused(context.Context, *IsFocusedRequest) (*IsFocusedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFocused not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) IsInputMethodTarget(context.Context, *IsInputMethodTargetRequest) (*IsInputMethodTargetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInputMethodTarget not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) OnTextContextMenuItem(context.Context, *OnTextContextMenuItemRequest) (*OnTextContextMenuItemResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTextContextMenuItem not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) PerformClick(context.Context, *PerformClickRequest) (*PerformClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformClick not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) SetExtractedText(context.Context, *SetExtractedTextRequest) (*SetExtractedTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtractedText not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) StartInternalChanges(context.Context, *StartInternalChangesRequest) (*StartInternalChangesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartInternalChanges not implemented")
+}
+func (UnimplementedExtractEditTextServiceServer) mustEmbedUnimplementedExtractEditTextServiceServer() {
+}
+func (UnimplementedExtractEditTextServiceServer) testEmbeddedByValue() {}
+
+// UnsafeExtractEditTextServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ExtractEditTextServiceServer will
+// result in compilation errors.
+type UnsafeExtractEditTextServiceServer interface {
+	mustEmbedUnimplementedExtractEditTextServiceServer()
+}
+
+func RegisterExtractEditTextServiceServer(s grpc.ServiceRegistrar, srv ExtractEditTextServiceServer) {
+	// If the following call panics, it indicates UnimplementedExtractEditTextServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ExtractEditTextService_ServiceDesc, srv)
+}
+
+func _ExtractEditTextService_NewExtractEditText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewExtractEditTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).NewExtractEditText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_NewExtractEditText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).NewExtractEditText(ctx, req.(*NewExtractEditTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_FinishInternalChanges_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishInternalChangesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).FinishInternalChanges(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_FinishInternalChanges_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).FinishInternalChanges(ctx, req.(*FinishInternalChangesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_HasFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).HasFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_HasFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).HasFocus(ctx, req.(*HasFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_HasVerticalScrollBar_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasVerticalScrollBarRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).HasVerticalScrollBar(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_HasVerticalScrollBar_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).HasVerticalScrollBar(ctx, req.(*HasVerticalScrollBarRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_HasWindowFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasWindowFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).HasWindowFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_HasWindowFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).HasWindowFocus(ctx, req.(*HasWindowFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_IsFocused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFocusedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).IsFocused(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_IsFocused_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).IsFocused(ctx, req.(*IsFocusedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_IsInputMethodTarget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInputMethodTargetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).IsInputMethodTarget(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_IsInputMethodTarget_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).IsInputMethodTarget(ctx, req.(*IsInputMethodTargetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_OnTextContextMenuItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTextContextMenuItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).OnTextContextMenuItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_OnTextContextMenuItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).OnTextContextMenuItem(ctx, req.(*OnTextContextMenuItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_PerformClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformClickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).PerformClick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_PerformClick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).PerformClick(ctx, req.(*PerformClickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_SetExtractedText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtractedTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).SetExtractedText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_SetExtractedText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).SetExtractedText(ctx, req.(*SetExtractedTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExtractEditTextService_StartInternalChanges_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartInternalChangesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExtractEditTextServiceServer).StartInternalChanges(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExtractEditTextService_StartInternalChanges_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExtractEditTextServiceServer).StartInternalChanges(ctx, req.(*StartInternalChangesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ExtractEditTextService_ServiceDesc is the grpc.ServiceDesc for ExtractEditTextService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ExtractEditTextService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "inputmethodservice.ExtractEditTextService",
+	HandlerType: (*ExtractEditTextServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewExtractEditText",
+			Handler:    _ExtractEditTextService_NewExtractEditText_Handler,
+		},
+		{
+			MethodName: "FinishInternalChanges",
+			Handler:    _ExtractEditTextService_FinishInternalChanges_Handler,
+		},
+		{
+			MethodName: "HasFocus",
+			Handler:    _ExtractEditTextService_HasFocus_Handler,
+		},
+		{
+			MethodName: "HasVerticalScrollBar",
+			Handler:    _ExtractEditTextService_HasVerticalScrollBar_Handler,
+		},
+		{
+			MethodName: "HasWindowFocus",
+			Handler:    _ExtractEditTextService_HasWindowFocus_Handler,
+		},
+		{
+			MethodName: "IsFocused",
+			Handler:    _ExtractEditTextService_IsFocused_Handler,
+		},
+		{
+			MethodName: "IsInputMethodTarget",
+			Handler:    _ExtractEditTextService_IsInputMethodTarget_Handler,
+		},
+		{
+			MethodName: "OnTextContextMenuItem",
+			Handler:    _ExtractEditTextService_OnTextContextMenuItem_Handler,
+		},
+		{
+			MethodName: "PerformClick",
+			Handler:    _ExtractEditTextService_PerformClick_Handler,
+		},
+		{
+			MethodName: "SetExtractedText",
+			Handler:    _ExtractEditTextService_SetExtractedText_Handler,
+		},
+		{
+			MethodName: "StartInternalChanges",
+			Handler:    _ExtractEditTextService_StartInternalChanges_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6462,1834 +8366,6 @@ var InputMethodServiceInputMethodSessionImplService_ServiceDesc = grpc.ServiceDe
 		{
 			MethodName: "ViewClicked",
 			Handler:    _InputMethodServiceInputMethodSessionImplService_ViewClicked_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/inputmethodservice/inputmethodservice.proto",
-}
-
-const (
-	ExtractEditTextService_NewExtractEditText_FullMethodName    = "/inputmethodservice.ExtractEditTextService/NewExtractEditText"
-	ExtractEditTextService_FinishInternalChanges_FullMethodName = "/inputmethodservice.ExtractEditTextService/FinishInternalChanges"
-	ExtractEditTextService_HasFocus_FullMethodName              = "/inputmethodservice.ExtractEditTextService/HasFocus"
-	ExtractEditTextService_HasVerticalScrollBar_FullMethodName  = "/inputmethodservice.ExtractEditTextService/HasVerticalScrollBar"
-	ExtractEditTextService_HasWindowFocus_FullMethodName        = "/inputmethodservice.ExtractEditTextService/HasWindowFocus"
-	ExtractEditTextService_IsFocused_FullMethodName             = "/inputmethodservice.ExtractEditTextService/IsFocused"
-	ExtractEditTextService_IsInputMethodTarget_FullMethodName   = "/inputmethodservice.ExtractEditTextService/IsInputMethodTarget"
-	ExtractEditTextService_OnTextContextMenuItem_FullMethodName = "/inputmethodservice.ExtractEditTextService/OnTextContextMenuItem"
-	ExtractEditTextService_PerformClick_FullMethodName          = "/inputmethodservice.ExtractEditTextService/PerformClick"
-	ExtractEditTextService_SetExtractedText_FullMethodName      = "/inputmethodservice.ExtractEditTextService/SetExtractedText"
-	ExtractEditTextService_StartInternalChanges_FullMethodName  = "/inputmethodservice.ExtractEditTextService/StartInternalChanges"
-)
-
-// ExtractEditTextServiceClient is the client API for ExtractEditTextService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ExtractEditTextServiceClient interface {
-	NewExtractEditText(ctx context.Context, in *NewExtractEditTextRequest, opts ...grpc.CallOption) (*NewExtractEditTextResponse, error)
-	FinishInternalChanges(ctx context.Context, in *FinishInternalChangesRequest, opts ...grpc.CallOption) (*FinishInternalChangesResponse, error)
-	HasFocus(ctx context.Context, in *HasFocusRequest, opts ...grpc.CallOption) (*HasFocusResponse, error)
-	HasVerticalScrollBar(ctx context.Context, in *HasVerticalScrollBarRequest, opts ...grpc.CallOption) (*HasVerticalScrollBarResponse, error)
-	HasWindowFocus(ctx context.Context, in *HasWindowFocusRequest, opts ...grpc.CallOption) (*HasWindowFocusResponse, error)
-	IsFocused(ctx context.Context, in *IsFocusedRequest, opts ...grpc.CallOption) (*IsFocusedResponse, error)
-	IsInputMethodTarget(ctx context.Context, in *IsInputMethodTargetRequest, opts ...grpc.CallOption) (*IsInputMethodTargetResponse, error)
-	OnTextContextMenuItem(ctx context.Context, in *OnTextContextMenuItemRequest, opts ...grpc.CallOption) (*OnTextContextMenuItemResponse, error)
-	PerformClick(ctx context.Context, in *PerformClickRequest, opts ...grpc.CallOption) (*PerformClickResponse, error)
-	SetExtractedText(ctx context.Context, in *SetExtractedTextRequest, opts ...grpc.CallOption) (*SetExtractedTextResponse, error)
-	StartInternalChanges(ctx context.Context, in *StartInternalChangesRequest, opts ...grpc.CallOption) (*StartInternalChangesResponse, error)
-}
-
-type extractEditTextServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewExtractEditTextServiceClient(cc grpc.ClientConnInterface) ExtractEditTextServiceClient {
-	return &extractEditTextServiceClient{cc}
-}
-
-func (c *extractEditTextServiceClient) NewExtractEditText(ctx context.Context, in *NewExtractEditTextRequest, opts ...grpc.CallOption) (*NewExtractEditTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewExtractEditTextResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_NewExtractEditText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) FinishInternalChanges(ctx context.Context, in *FinishInternalChangesRequest, opts ...grpc.CallOption) (*FinishInternalChangesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FinishInternalChangesResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_FinishInternalChanges_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) HasFocus(ctx context.Context, in *HasFocusRequest, opts ...grpc.CallOption) (*HasFocusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasFocusResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_HasFocus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) HasVerticalScrollBar(ctx context.Context, in *HasVerticalScrollBarRequest, opts ...grpc.CallOption) (*HasVerticalScrollBarResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasVerticalScrollBarResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_HasVerticalScrollBar_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) HasWindowFocus(ctx context.Context, in *HasWindowFocusRequest, opts ...grpc.CallOption) (*HasWindowFocusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasWindowFocusResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_HasWindowFocus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) IsFocused(ctx context.Context, in *IsFocusedRequest, opts ...grpc.CallOption) (*IsFocusedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFocusedResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_IsFocused_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) IsInputMethodTarget(ctx context.Context, in *IsInputMethodTargetRequest, opts ...grpc.CallOption) (*IsInputMethodTargetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInputMethodTargetResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_IsInputMethodTarget_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) OnTextContextMenuItem(ctx context.Context, in *OnTextContextMenuItemRequest, opts ...grpc.CallOption) (*OnTextContextMenuItemResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTextContextMenuItemResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_OnTextContextMenuItem_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) PerformClick(ctx context.Context, in *PerformClickRequest, opts ...grpc.CallOption) (*PerformClickResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PerformClickResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_PerformClick_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) SetExtractedText(ctx context.Context, in *SetExtractedTextRequest, opts ...grpc.CallOption) (*SetExtractedTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetExtractedTextResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_SetExtractedText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *extractEditTextServiceClient) StartInternalChanges(ctx context.Context, in *StartInternalChangesRequest, opts ...grpc.CallOption) (*StartInternalChangesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartInternalChangesResponse)
-	err := c.cc.Invoke(ctx, ExtractEditTextService_StartInternalChanges_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ExtractEditTextServiceServer is the server API for ExtractEditTextService service.
-// All implementations must embed UnimplementedExtractEditTextServiceServer
-// for forward compatibility.
-type ExtractEditTextServiceServer interface {
-	NewExtractEditText(context.Context, *NewExtractEditTextRequest) (*NewExtractEditTextResponse, error)
-	FinishInternalChanges(context.Context, *FinishInternalChangesRequest) (*FinishInternalChangesResponse, error)
-	HasFocus(context.Context, *HasFocusRequest) (*HasFocusResponse, error)
-	HasVerticalScrollBar(context.Context, *HasVerticalScrollBarRequest) (*HasVerticalScrollBarResponse, error)
-	HasWindowFocus(context.Context, *HasWindowFocusRequest) (*HasWindowFocusResponse, error)
-	IsFocused(context.Context, *IsFocusedRequest) (*IsFocusedResponse, error)
-	IsInputMethodTarget(context.Context, *IsInputMethodTargetRequest) (*IsInputMethodTargetResponse, error)
-	OnTextContextMenuItem(context.Context, *OnTextContextMenuItemRequest) (*OnTextContextMenuItemResponse, error)
-	PerformClick(context.Context, *PerformClickRequest) (*PerformClickResponse, error)
-	SetExtractedText(context.Context, *SetExtractedTextRequest) (*SetExtractedTextResponse, error)
-	StartInternalChanges(context.Context, *StartInternalChangesRequest) (*StartInternalChangesResponse, error)
-	mustEmbedUnimplementedExtractEditTextServiceServer()
-}
-
-// UnimplementedExtractEditTextServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedExtractEditTextServiceServer struct{}
-
-func (UnimplementedExtractEditTextServiceServer) NewExtractEditText(context.Context, *NewExtractEditTextRequest) (*NewExtractEditTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewExtractEditText not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) FinishInternalChanges(context.Context, *FinishInternalChangesRequest) (*FinishInternalChangesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FinishInternalChanges not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) HasFocus(context.Context, *HasFocusRequest) (*HasFocusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasFocus not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) HasVerticalScrollBar(context.Context, *HasVerticalScrollBarRequest) (*HasVerticalScrollBarResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasVerticalScrollBar not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) HasWindowFocus(context.Context, *HasWindowFocusRequest) (*HasWindowFocusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasWindowFocus not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) IsFocused(context.Context, *IsFocusedRequest) (*IsFocusedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFocused not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) IsInputMethodTarget(context.Context, *IsInputMethodTargetRequest) (*IsInputMethodTargetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInputMethodTarget not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) OnTextContextMenuItem(context.Context, *OnTextContextMenuItemRequest) (*OnTextContextMenuItemResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTextContextMenuItem not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) PerformClick(context.Context, *PerformClickRequest) (*PerformClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PerformClick not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) SetExtractedText(context.Context, *SetExtractedTextRequest) (*SetExtractedTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetExtractedText not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) StartInternalChanges(context.Context, *StartInternalChangesRequest) (*StartInternalChangesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartInternalChanges not implemented")
-}
-func (UnimplementedExtractEditTextServiceServer) mustEmbedUnimplementedExtractEditTextServiceServer() {
-}
-func (UnimplementedExtractEditTextServiceServer) testEmbeddedByValue() {}
-
-// UnsafeExtractEditTextServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ExtractEditTextServiceServer will
-// result in compilation errors.
-type UnsafeExtractEditTextServiceServer interface {
-	mustEmbedUnimplementedExtractEditTextServiceServer()
-}
-
-func RegisterExtractEditTextServiceServer(s grpc.ServiceRegistrar, srv ExtractEditTextServiceServer) {
-	// If the following call panics, it indicates UnimplementedExtractEditTextServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ExtractEditTextService_ServiceDesc, srv)
-}
-
-func _ExtractEditTextService_NewExtractEditText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewExtractEditTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).NewExtractEditText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_NewExtractEditText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).NewExtractEditText(ctx, req.(*NewExtractEditTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_FinishInternalChanges_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FinishInternalChangesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).FinishInternalChanges(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_FinishInternalChanges_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).FinishInternalChanges(ctx, req.(*FinishInternalChangesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_HasFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasFocusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).HasFocus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_HasFocus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).HasFocus(ctx, req.(*HasFocusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_HasVerticalScrollBar_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasVerticalScrollBarRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).HasVerticalScrollBar(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_HasVerticalScrollBar_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).HasVerticalScrollBar(ctx, req.(*HasVerticalScrollBarRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_HasWindowFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasWindowFocusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).HasWindowFocus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_HasWindowFocus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).HasWindowFocus(ctx, req.(*HasWindowFocusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_IsFocused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFocusedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).IsFocused(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_IsFocused_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).IsFocused(ctx, req.(*IsFocusedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_IsInputMethodTarget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInputMethodTargetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).IsInputMethodTarget(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_IsInputMethodTarget_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).IsInputMethodTarget(ctx, req.(*IsInputMethodTargetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_OnTextContextMenuItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTextContextMenuItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).OnTextContextMenuItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_OnTextContextMenuItem_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).OnTextContextMenuItem(ctx, req.(*OnTextContextMenuItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_PerformClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PerformClickRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).PerformClick(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_PerformClick_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).PerformClick(ctx, req.(*PerformClickRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_SetExtractedText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetExtractedTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).SetExtractedText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_SetExtractedText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).SetExtractedText(ctx, req.(*SetExtractedTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExtractEditTextService_StartInternalChanges_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartInternalChangesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExtractEditTextServiceServer).StartInternalChanges(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExtractEditTextService_StartInternalChanges_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExtractEditTextServiceServer).StartInternalChanges(ctx, req.(*StartInternalChangesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ExtractEditTextService_ServiceDesc is the grpc.ServiceDesc for ExtractEditTextService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ExtractEditTextService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "inputmethodservice.ExtractEditTextService",
-	HandlerType: (*ExtractEditTextServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewExtractEditText",
-			Handler:    _ExtractEditTextService_NewExtractEditText_Handler,
-		},
-		{
-			MethodName: "FinishInternalChanges",
-			Handler:    _ExtractEditTextService_FinishInternalChanges_Handler,
-		},
-		{
-			MethodName: "HasFocus",
-			Handler:    _ExtractEditTextService_HasFocus_Handler,
-		},
-		{
-			MethodName: "HasVerticalScrollBar",
-			Handler:    _ExtractEditTextService_HasVerticalScrollBar_Handler,
-		},
-		{
-			MethodName: "HasWindowFocus",
-			Handler:    _ExtractEditTextService_HasWindowFocus_Handler,
-		},
-		{
-			MethodName: "IsFocused",
-			Handler:    _ExtractEditTextService_IsFocused_Handler,
-		},
-		{
-			MethodName: "IsInputMethodTarget",
-			Handler:    _ExtractEditTextService_IsInputMethodTarget_Handler,
-		},
-		{
-			MethodName: "OnTextContextMenuItem",
-			Handler:    _ExtractEditTextService_OnTextContextMenuItem_Handler,
-		},
-		{
-			MethodName: "PerformClick",
-			Handler:    _ExtractEditTextService_PerformClick_Handler,
-		},
-		{
-			MethodName: "SetExtractedText",
-			Handler:    _ExtractEditTextService_SetExtractedText_Handler,
-		},
-		{
-			MethodName: "StartInternalChanges",
-			Handler:    _ExtractEditTextService_StartInternalChanges_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/inputmethodservice/inputmethodservice.proto",
-}
-
-const (
-	KeyboardViewService_NewKeyboardView_FullMethodName               = "/inputmethodservice.KeyboardViewService/NewKeyboardView"
-	KeyboardViewService_Closing_FullMethodName                       = "/inputmethodservice.KeyboardViewService/Closing"
-	KeyboardViewService_GetKeyboard_FullMethodName                   = "/inputmethodservice.KeyboardViewService/GetKeyboard"
-	KeyboardViewService_HandleBack_FullMethodName                    = "/inputmethodservice.KeyboardViewService/HandleBack"
-	KeyboardViewService_InvalidateAllKeys_FullMethodName             = "/inputmethodservice.KeyboardViewService/InvalidateAllKeys"
-	KeyboardViewService_InvalidateKey_FullMethodName                 = "/inputmethodservice.KeyboardViewService/InvalidateKey"
-	KeyboardViewService_IsPreviewEnabled_FullMethodName              = "/inputmethodservice.KeyboardViewService/IsPreviewEnabled"
-	KeyboardViewService_IsProximityCorrectionEnabled_FullMethodName  = "/inputmethodservice.KeyboardViewService/IsProximityCorrectionEnabled"
-	KeyboardViewService_IsShifted_FullMethodName                     = "/inputmethodservice.KeyboardViewService/IsShifted"
-	KeyboardViewService_OnClick_FullMethodName                       = "/inputmethodservice.KeyboardViewService/OnClick"
-	KeyboardViewService_OnDetachedFromWindow_FullMethodName          = "/inputmethodservice.KeyboardViewService/OnDetachedFromWindow"
-	KeyboardViewService_OnDraw_FullMethodName                        = "/inputmethodservice.KeyboardViewService/OnDraw"
-	KeyboardViewService_OnHoverEvent_FullMethodName                  = "/inputmethodservice.KeyboardViewService/OnHoverEvent"
-	KeyboardViewService_OnMeasure_FullMethodName                     = "/inputmethodservice.KeyboardViewService/OnMeasure"
-	KeyboardViewService_OnSizeChanged_FullMethodName                 = "/inputmethodservice.KeyboardViewService/OnSizeChanged"
-	KeyboardViewService_OnTouchEvent_FullMethodName                  = "/inputmethodservice.KeyboardViewService/OnTouchEvent"
-	KeyboardViewService_SetKeyboard_FullMethodName                   = "/inputmethodservice.KeyboardViewService/SetKeyboard"
-	KeyboardViewService_SetOnKeyboardActionListener_FullMethodName   = "/inputmethodservice.KeyboardViewService/SetOnKeyboardActionListener"
-	KeyboardViewService_SetPopupOffset_FullMethodName                = "/inputmethodservice.KeyboardViewService/SetPopupOffset"
-	KeyboardViewService_SetPopupParent_FullMethodName                = "/inputmethodservice.KeyboardViewService/SetPopupParent"
-	KeyboardViewService_SetPreviewEnabled_FullMethodName             = "/inputmethodservice.KeyboardViewService/SetPreviewEnabled"
-	KeyboardViewService_SetProximityCorrectionEnabled_FullMethodName = "/inputmethodservice.KeyboardViewService/SetProximityCorrectionEnabled"
-	KeyboardViewService_SetShifted_FullMethodName                    = "/inputmethodservice.KeyboardViewService/SetShifted"
-	KeyboardViewService_SetVerticalCorrection_FullMethodName         = "/inputmethodservice.KeyboardViewService/SetVerticalCorrection"
-)
-
-// KeyboardViewServiceClient is the client API for KeyboardViewService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type KeyboardViewServiceClient interface {
-	NewKeyboardView(ctx context.Context, in *NewKeyboardViewRequest, opts ...grpc.CallOption) (*NewKeyboardViewResponse, error)
-	Closing(ctx context.Context, in *ClosingRequest, opts ...grpc.CallOption) (*ClosingResponse, error)
-	GetKeyboard(ctx context.Context, in *GetKeyboardRequest, opts ...grpc.CallOption) (*GetKeyboardResponse, error)
-	HandleBack(ctx context.Context, in *HandleBackRequest, opts ...grpc.CallOption) (*HandleBackResponse, error)
-	InvalidateAllKeys(ctx context.Context, in *InvalidateAllKeysRequest, opts ...grpc.CallOption) (*InvalidateAllKeysResponse, error)
-	InvalidateKey(ctx context.Context, in *InvalidateKeyRequest, opts ...grpc.CallOption) (*InvalidateKeyResponse, error)
-	IsPreviewEnabled(ctx context.Context, in *IsPreviewEnabledRequest, opts ...grpc.CallOption) (*IsPreviewEnabledResponse, error)
-	IsProximityCorrectionEnabled(ctx context.Context, in *IsProximityCorrectionEnabledRequest, opts ...grpc.CallOption) (*IsProximityCorrectionEnabledResponse, error)
-	IsShifted(ctx context.Context, in *IsShiftedRequest, opts ...grpc.CallOption) (*IsShiftedResponse, error)
-	OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
-	OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error)
-	OnDraw(ctx context.Context, in *OnDrawRequest, opts ...grpc.CallOption) (*OnDrawResponse, error)
-	OnHoverEvent(ctx context.Context, in *OnHoverEventRequest, opts ...grpc.CallOption) (*OnHoverEventResponse, error)
-	OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error)
-	OnSizeChanged(ctx context.Context, in *OnSizeChangedRequest, opts ...grpc.CallOption) (*OnSizeChangedResponse, error)
-	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
-	SetKeyboard(ctx context.Context, in *SetKeyboardRequest, opts ...grpc.CallOption) (*SetKeyboardResponse, error)
-	SetOnKeyboardActionListener(ctx context.Context, in *SetOnKeyboardActionListenerRequest, opts ...grpc.CallOption) (*SetOnKeyboardActionListenerResponse, error)
-	SetPopupOffset(ctx context.Context, in *SetPopupOffsetRequest, opts ...grpc.CallOption) (*SetPopupOffsetResponse, error)
-	SetPopupParent(ctx context.Context, in *SetPopupParentRequest, opts ...grpc.CallOption) (*SetPopupParentResponse, error)
-	SetPreviewEnabled(ctx context.Context, in *SetPreviewEnabledRequest, opts ...grpc.CallOption) (*SetPreviewEnabledResponse, error)
-	SetProximityCorrectionEnabled(ctx context.Context, in *SetProximityCorrectionEnabledRequest, opts ...grpc.CallOption) (*SetProximityCorrectionEnabledResponse, error)
-	SetShifted(ctx context.Context, in *SetShiftedRequest, opts ...grpc.CallOption) (*SetShiftedResponse, error)
-	SetVerticalCorrection(ctx context.Context, in *SetVerticalCorrectionRequest, opts ...grpc.CallOption) (*SetVerticalCorrectionResponse, error)
-}
-
-type keyboardViewServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewKeyboardViewServiceClient(cc grpc.ClientConnInterface) KeyboardViewServiceClient {
-	return &keyboardViewServiceClient{cc}
-}
-
-func (c *keyboardViewServiceClient) NewKeyboardView(ctx context.Context, in *NewKeyboardViewRequest, opts ...grpc.CallOption) (*NewKeyboardViewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewKeyboardViewResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_NewKeyboardView_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) Closing(ctx context.Context, in *ClosingRequest, opts ...grpc.CallOption) (*ClosingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClosingResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_Closing_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) GetKeyboard(ctx context.Context, in *GetKeyboardRequest, opts ...grpc.CallOption) (*GetKeyboardResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetKeyboardResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_GetKeyboard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) HandleBack(ctx context.Context, in *HandleBackRequest, opts ...grpc.CallOption) (*HandleBackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HandleBackResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_HandleBack_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) InvalidateAllKeys(ctx context.Context, in *InvalidateAllKeysRequest, opts ...grpc.CallOption) (*InvalidateAllKeysResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InvalidateAllKeysResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_InvalidateAllKeys_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) InvalidateKey(ctx context.Context, in *InvalidateKeyRequest, opts ...grpc.CallOption) (*InvalidateKeyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InvalidateKeyResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_InvalidateKey_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) IsPreviewEnabled(ctx context.Context, in *IsPreviewEnabledRequest, opts ...grpc.CallOption) (*IsPreviewEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPreviewEnabledResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_IsPreviewEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) IsProximityCorrectionEnabled(ctx context.Context, in *IsProximityCorrectionEnabledRequest, opts ...grpc.CallOption) (*IsProximityCorrectionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsProximityCorrectionEnabledResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_IsProximityCorrectionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) IsShifted(ctx context.Context, in *IsShiftedRequest, opts ...grpc.CallOption) (*IsShiftedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsShiftedResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_IsShifted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClickResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_OnClick_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDetachedFromWindowResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_OnDetachedFromWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) OnDraw(ctx context.Context, in *OnDrawRequest, opts ...grpc.CallOption) (*OnDrawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDrawResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_OnDraw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) OnHoverEvent(ctx context.Context, in *OnHoverEventRequest, opts ...grpc.CallOption) (*OnHoverEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnHoverEventResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_OnHoverEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnMeasureResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_OnMeasure_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) OnSizeChanged(ctx context.Context, in *OnSizeChangedRequest, opts ...grpc.CallOption) (*OnSizeChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSizeChangedResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_OnSizeChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTouchEventResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_OnTouchEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) SetKeyboard(ctx context.Context, in *SetKeyboardRequest, opts ...grpc.CallOption) (*SetKeyboardResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetKeyboardResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_SetKeyboard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) SetOnKeyboardActionListener(ctx context.Context, in *SetOnKeyboardActionListenerRequest, opts ...grpc.CallOption) (*SetOnKeyboardActionListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOnKeyboardActionListenerResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_SetOnKeyboardActionListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) SetPopupOffset(ctx context.Context, in *SetPopupOffsetRequest, opts ...grpc.CallOption) (*SetPopupOffsetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPopupOffsetResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_SetPopupOffset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) SetPopupParent(ctx context.Context, in *SetPopupParentRequest, opts ...grpc.CallOption) (*SetPopupParentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPopupParentResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_SetPopupParent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) SetPreviewEnabled(ctx context.Context, in *SetPreviewEnabledRequest, opts ...grpc.CallOption) (*SetPreviewEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPreviewEnabledResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_SetPreviewEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) SetProximityCorrectionEnabled(ctx context.Context, in *SetProximityCorrectionEnabledRequest, opts ...grpc.CallOption) (*SetProximityCorrectionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetProximityCorrectionEnabledResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_SetProximityCorrectionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) SetShifted(ctx context.Context, in *SetShiftedRequest, opts ...grpc.CallOption) (*SetShiftedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShiftedResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_SetShifted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewServiceClient) SetVerticalCorrection(ctx context.Context, in *SetVerticalCorrectionRequest, opts ...grpc.CallOption) (*SetVerticalCorrectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetVerticalCorrectionResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewService_SetVerticalCorrection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// KeyboardViewServiceServer is the server API for KeyboardViewService service.
-// All implementations must embed UnimplementedKeyboardViewServiceServer
-// for forward compatibility.
-type KeyboardViewServiceServer interface {
-	NewKeyboardView(context.Context, *NewKeyboardViewRequest) (*NewKeyboardViewResponse, error)
-	Closing(context.Context, *ClosingRequest) (*ClosingResponse, error)
-	GetKeyboard(context.Context, *GetKeyboardRequest) (*GetKeyboardResponse, error)
-	HandleBack(context.Context, *HandleBackRequest) (*HandleBackResponse, error)
-	InvalidateAllKeys(context.Context, *InvalidateAllKeysRequest) (*InvalidateAllKeysResponse, error)
-	InvalidateKey(context.Context, *InvalidateKeyRequest) (*InvalidateKeyResponse, error)
-	IsPreviewEnabled(context.Context, *IsPreviewEnabledRequest) (*IsPreviewEnabledResponse, error)
-	IsProximityCorrectionEnabled(context.Context, *IsProximityCorrectionEnabledRequest) (*IsProximityCorrectionEnabledResponse, error)
-	IsShifted(context.Context, *IsShiftedRequest) (*IsShiftedResponse, error)
-	OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error)
-	OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error)
-	OnDraw(context.Context, *OnDrawRequest) (*OnDrawResponse, error)
-	OnHoverEvent(context.Context, *OnHoverEventRequest) (*OnHoverEventResponse, error)
-	OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error)
-	OnSizeChanged(context.Context, *OnSizeChangedRequest) (*OnSizeChangedResponse, error)
-	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
-	SetKeyboard(context.Context, *SetKeyboardRequest) (*SetKeyboardResponse, error)
-	SetOnKeyboardActionListener(context.Context, *SetOnKeyboardActionListenerRequest) (*SetOnKeyboardActionListenerResponse, error)
-	SetPopupOffset(context.Context, *SetPopupOffsetRequest) (*SetPopupOffsetResponse, error)
-	SetPopupParent(context.Context, *SetPopupParentRequest) (*SetPopupParentResponse, error)
-	SetPreviewEnabled(context.Context, *SetPreviewEnabledRequest) (*SetPreviewEnabledResponse, error)
-	SetProximityCorrectionEnabled(context.Context, *SetProximityCorrectionEnabledRequest) (*SetProximityCorrectionEnabledResponse, error)
-	SetShifted(context.Context, *SetShiftedRequest) (*SetShiftedResponse, error)
-	SetVerticalCorrection(context.Context, *SetVerticalCorrectionRequest) (*SetVerticalCorrectionResponse, error)
-	mustEmbedUnimplementedKeyboardViewServiceServer()
-}
-
-// UnimplementedKeyboardViewServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedKeyboardViewServiceServer struct{}
-
-func (UnimplementedKeyboardViewServiceServer) NewKeyboardView(context.Context, *NewKeyboardViewRequest) (*NewKeyboardViewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewKeyboardView not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) Closing(context.Context, *ClosingRequest) (*ClosingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Closing not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) GetKeyboard(context.Context, *GetKeyboardRequest) (*GetKeyboardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetKeyboard not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) HandleBack(context.Context, *HandleBackRequest) (*HandleBackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HandleBack not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) InvalidateAllKeys(context.Context, *InvalidateAllKeysRequest) (*InvalidateAllKeysResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method InvalidateAllKeys not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) InvalidateKey(context.Context, *InvalidateKeyRequest) (*InvalidateKeyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method InvalidateKey not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) IsPreviewEnabled(context.Context, *IsPreviewEnabledRequest) (*IsPreviewEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPreviewEnabled not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) IsProximityCorrectionEnabled(context.Context, *IsProximityCorrectionEnabledRequest) (*IsProximityCorrectionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsProximityCorrectionEnabled not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) IsShifted(context.Context, *IsShiftedRequest) (*IsShiftedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsShifted not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDetachedFromWindow not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) OnDraw(context.Context, *OnDrawRequest) (*OnDrawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDraw not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) OnHoverEvent(context.Context, *OnHoverEventRequest) (*OnHoverEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnHoverEvent not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnMeasure not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) OnSizeChanged(context.Context, *OnSizeChangedRequest) (*OnSizeChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSizeChanged not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) SetKeyboard(context.Context, *SetKeyboardRequest) (*SetKeyboardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetKeyboard not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) SetOnKeyboardActionListener(context.Context, *SetOnKeyboardActionListenerRequest) (*SetOnKeyboardActionListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOnKeyboardActionListener not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) SetPopupOffset(context.Context, *SetPopupOffsetRequest) (*SetPopupOffsetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPopupOffset not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) SetPopupParent(context.Context, *SetPopupParentRequest) (*SetPopupParentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPopupParent not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) SetPreviewEnabled(context.Context, *SetPreviewEnabledRequest) (*SetPreviewEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreviewEnabled not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) SetProximityCorrectionEnabled(context.Context, *SetProximityCorrectionEnabledRequest) (*SetProximityCorrectionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetProximityCorrectionEnabled not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) SetShifted(context.Context, *SetShiftedRequest) (*SetShiftedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShifted not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) SetVerticalCorrection(context.Context, *SetVerticalCorrectionRequest) (*SetVerticalCorrectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetVerticalCorrection not implemented")
-}
-func (UnimplementedKeyboardViewServiceServer) mustEmbedUnimplementedKeyboardViewServiceServer() {}
-func (UnimplementedKeyboardViewServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeKeyboardViewServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to KeyboardViewServiceServer will
-// result in compilation errors.
-type UnsafeKeyboardViewServiceServer interface {
-	mustEmbedUnimplementedKeyboardViewServiceServer()
-}
-
-func RegisterKeyboardViewServiceServer(s grpc.ServiceRegistrar, srv KeyboardViewServiceServer) {
-	// If the following call panics, it indicates UnimplementedKeyboardViewServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&KeyboardViewService_ServiceDesc, srv)
-}
-
-func _KeyboardViewService_NewKeyboardView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewKeyboardViewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).NewKeyboardView(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_NewKeyboardView_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).NewKeyboardView(ctx, req.(*NewKeyboardViewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_Closing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClosingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).Closing(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_Closing_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).Closing(ctx, req.(*ClosingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_GetKeyboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetKeyboardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).GetKeyboard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_GetKeyboard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).GetKeyboard(ctx, req.(*GetKeyboardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_HandleBack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HandleBackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).HandleBack(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_HandleBack_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).HandleBack(ctx, req.(*HandleBackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_InvalidateAllKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InvalidateAllKeysRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).InvalidateAllKeys(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_InvalidateAllKeys_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).InvalidateAllKeys(ctx, req.(*InvalidateAllKeysRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_InvalidateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InvalidateKeyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).InvalidateKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_InvalidateKey_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).InvalidateKey(ctx, req.(*InvalidateKeyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_IsPreviewEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPreviewEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).IsPreviewEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_IsPreviewEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).IsPreviewEnabled(ctx, req.(*IsPreviewEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_IsProximityCorrectionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsProximityCorrectionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).IsProximityCorrectionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_IsProximityCorrectionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).IsProximityCorrectionEnabled(ctx, req.(*IsProximityCorrectionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_IsShifted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsShiftedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).IsShifted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_IsShifted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).IsShifted(ctx, req.(*IsShiftedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClickRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).OnClick(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_OnClick_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).OnClick(ctx, req.(*OnClickRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_OnDetachedFromWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDetachedFromWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).OnDetachedFromWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_OnDetachedFromWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).OnDetachedFromWindow(ctx, req.(*OnDetachedFromWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_OnDraw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDrawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).OnDraw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_OnDraw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).OnDraw(ctx, req.(*OnDrawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_OnHoverEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnHoverEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).OnHoverEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_OnHoverEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).OnHoverEvent(ctx, req.(*OnHoverEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_OnMeasure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnMeasureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).OnMeasure(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_OnMeasure_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).OnMeasure(ctx, req.(*OnMeasureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_OnSizeChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSizeChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).OnSizeChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_OnSizeChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).OnSizeChanged(ctx, req.(*OnSizeChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTouchEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).OnTouchEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_OnTouchEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_SetKeyboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetKeyboardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).SetKeyboard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_SetKeyboard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).SetKeyboard(ctx, req.(*SetKeyboardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_SetOnKeyboardActionListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOnKeyboardActionListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).SetOnKeyboardActionListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_SetOnKeyboardActionListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).SetOnKeyboardActionListener(ctx, req.(*SetOnKeyboardActionListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_SetPopupOffset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPopupOffsetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).SetPopupOffset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_SetPopupOffset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).SetPopupOffset(ctx, req.(*SetPopupOffsetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_SetPopupParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPopupParentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).SetPopupParent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_SetPopupParent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).SetPopupParent(ctx, req.(*SetPopupParentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_SetPreviewEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPreviewEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).SetPreviewEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_SetPreviewEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).SetPreviewEnabled(ctx, req.(*SetPreviewEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_SetProximityCorrectionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetProximityCorrectionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).SetProximityCorrectionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_SetProximityCorrectionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).SetProximityCorrectionEnabled(ctx, req.(*SetProximityCorrectionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_SetShifted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShiftedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).SetShifted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_SetShifted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).SetShifted(ctx, req.(*SetShiftedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewService_SetVerticalCorrection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetVerticalCorrectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewServiceServer).SetVerticalCorrection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewService_SetVerticalCorrection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewServiceServer).SetVerticalCorrection(ctx, req.(*SetVerticalCorrectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// KeyboardViewService_ServiceDesc is the grpc.ServiceDesc for KeyboardViewService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var KeyboardViewService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "inputmethodservice.KeyboardViewService",
-	HandlerType: (*KeyboardViewServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewKeyboardView",
-			Handler:    _KeyboardViewService_NewKeyboardView_Handler,
-		},
-		{
-			MethodName: "Closing",
-			Handler:    _KeyboardViewService_Closing_Handler,
-		},
-		{
-			MethodName: "GetKeyboard",
-			Handler:    _KeyboardViewService_GetKeyboard_Handler,
-		},
-		{
-			MethodName: "HandleBack",
-			Handler:    _KeyboardViewService_HandleBack_Handler,
-		},
-		{
-			MethodName: "InvalidateAllKeys",
-			Handler:    _KeyboardViewService_InvalidateAllKeys_Handler,
-		},
-		{
-			MethodName: "InvalidateKey",
-			Handler:    _KeyboardViewService_InvalidateKey_Handler,
-		},
-		{
-			MethodName: "IsPreviewEnabled",
-			Handler:    _KeyboardViewService_IsPreviewEnabled_Handler,
-		},
-		{
-			MethodName: "IsProximityCorrectionEnabled",
-			Handler:    _KeyboardViewService_IsProximityCorrectionEnabled_Handler,
-		},
-		{
-			MethodName: "IsShifted",
-			Handler:    _KeyboardViewService_IsShifted_Handler,
-		},
-		{
-			MethodName: "OnClick",
-			Handler:    _KeyboardViewService_OnClick_Handler,
-		},
-		{
-			MethodName: "OnDetachedFromWindow",
-			Handler:    _KeyboardViewService_OnDetachedFromWindow_Handler,
-		},
-		{
-			MethodName: "OnDraw",
-			Handler:    _KeyboardViewService_OnDraw_Handler,
-		},
-		{
-			MethodName: "OnHoverEvent",
-			Handler:    _KeyboardViewService_OnHoverEvent_Handler,
-		},
-		{
-			MethodName: "OnMeasure",
-			Handler:    _KeyboardViewService_OnMeasure_Handler,
-		},
-		{
-			MethodName: "OnSizeChanged",
-			Handler:    _KeyboardViewService_OnSizeChanged_Handler,
-		},
-		{
-			MethodName: "OnTouchEvent",
-			Handler:    _KeyboardViewService_OnTouchEvent_Handler,
-		},
-		{
-			MethodName: "SetKeyboard",
-			Handler:    _KeyboardViewService_SetKeyboard_Handler,
-		},
-		{
-			MethodName: "SetOnKeyboardActionListener",
-			Handler:    _KeyboardViewService_SetOnKeyboardActionListener_Handler,
-		},
-		{
-			MethodName: "SetPopupOffset",
-			Handler:    _KeyboardViewService_SetPopupOffset_Handler,
-		},
-		{
-			MethodName: "SetPopupParent",
-			Handler:    _KeyboardViewService_SetPopupParent_Handler,
-		},
-		{
-			MethodName: "SetPreviewEnabled",
-			Handler:    _KeyboardViewService_SetPreviewEnabled_Handler,
-		},
-		{
-			MethodName: "SetProximityCorrectionEnabled",
-			Handler:    _KeyboardViewService_SetProximityCorrectionEnabled_Handler,
-		},
-		{
-			MethodName: "SetShifted",
-			Handler:    _KeyboardViewService_SetShifted_Handler,
-		},
-		{
-			MethodName: "SetVerticalCorrection",
-			Handler:    _KeyboardViewService_SetVerticalCorrection_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/inputmethodservice/inputmethodservice.proto",
-}
-
-const (
-	KeyboardViewOnKeyboardActionListenerService_OnKey_FullMethodName      = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/OnKey"
-	KeyboardViewOnKeyboardActionListenerService_OnPress_FullMethodName    = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/OnPress"
-	KeyboardViewOnKeyboardActionListenerService_OnRelease_FullMethodName  = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/OnRelease"
-	KeyboardViewOnKeyboardActionListenerService_OnText_FullMethodName     = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/OnText"
-	KeyboardViewOnKeyboardActionListenerService_SwipeDown_FullMethodName  = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/SwipeDown"
-	KeyboardViewOnKeyboardActionListenerService_SwipeLeft_FullMethodName  = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/SwipeLeft"
-	KeyboardViewOnKeyboardActionListenerService_SwipeRight_FullMethodName = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/SwipeRight"
-	KeyboardViewOnKeyboardActionListenerService_SwipeUp_FullMethodName    = "/inputmethodservice.KeyboardViewOnKeyboardActionListenerService/SwipeUp"
-)
-
-// KeyboardViewOnKeyboardActionListenerServiceClient is the client API for KeyboardViewOnKeyboardActionListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type KeyboardViewOnKeyboardActionListenerServiceClient interface {
-	OnKey(ctx context.Context, in *OnKeyRequest, opts ...grpc.CallOption) (*OnKeyResponse, error)
-	OnPress(ctx context.Context, in *OnPressRequest, opts ...grpc.CallOption) (*OnPressResponse, error)
-	OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error)
-	OnText(ctx context.Context, in *OnTextRequest, opts ...grpc.CallOption) (*OnTextResponse, error)
-	SwipeDown(ctx context.Context, in *SwipeDownRequest, opts ...grpc.CallOption) (*SwipeDownResponse, error)
-	SwipeLeft(ctx context.Context, in *SwipeLeftRequest, opts ...grpc.CallOption) (*SwipeLeftResponse, error)
-	SwipeRight(ctx context.Context, in *SwipeRightRequest, opts ...grpc.CallOption) (*SwipeRightResponse, error)
-	SwipeUp(ctx context.Context, in *SwipeUpRequest, opts ...grpc.CallOption) (*SwipeUpResponse, error)
-}
-
-type keyboardViewOnKeyboardActionListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewKeyboardViewOnKeyboardActionListenerServiceClient(cc grpc.ClientConnInterface) KeyboardViewOnKeyboardActionListenerServiceClient {
-	return &keyboardViewOnKeyboardActionListenerServiceClient{cc}
-}
-
-func (c *keyboardViewOnKeyboardActionListenerServiceClient) OnKey(ctx context.Context, in *OnKeyRequest, opts ...grpc.CallOption) (*OnKeyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_OnKey_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewOnKeyboardActionListenerServiceClient) OnPress(ctx context.Context, in *OnPressRequest, opts ...grpc.CallOption) (*OnPressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPressResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_OnPress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewOnKeyboardActionListenerServiceClient) OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnReleaseResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_OnRelease_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewOnKeyboardActionListenerServiceClient) OnText(ctx context.Context, in *OnTextRequest, opts ...grpc.CallOption) (*OnTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTextResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_OnText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewOnKeyboardActionListenerServiceClient) SwipeDown(ctx context.Context, in *SwipeDownRequest, opts ...grpc.CallOption) (*SwipeDownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SwipeDownResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_SwipeDown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewOnKeyboardActionListenerServiceClient) SwipeLeft(ctx context.Context, in *SwipeLeftRequest, opts ...grpc.CallOption) (*SwipeLeftResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SwipeLeftResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_SwipeLeft_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewOnKeyboardActionListenerServiceClient) SwipeRight(ctx context.Context, in *SwipeRightRequest, opts ...grpc.CallOption) (*SwipeRightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SwipeRightResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_SwipeRight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyboardViewOnKeyboardActionListenerServiceClient) SwipeUp(ctx context.Context, in *SwipeUpRequest, opts ...grpc.CallOption) (*SwipeUpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SwipeUpResponse)
-	err := c.cc.Invoke(ctx, KeyboardViewOnKeyboardActionListenerService_SwipeUp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// KeyboardViewOnKeyboardActionListenerServiceServer is the server API for KeyboardViewOnKeyboardActionListenerService service.
-// All implementations must embed UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer
-// for forward compatibility.
-type KeyboardViewOnKeyboardActionListenerServiceServer interface {
-	OnKey(context.Context, *OnKeyRequest) (*OnKeyResponse, error)
-	OnPress(context.Context, *OnPressRequest) (*OnPressResponse, error)
-	OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error)
-	OnText(context.Context, *OnTextRequest) (*OnTextResponse, error)
-	SwipeDown(context.Context, *SwipeDownRequest) (*SwipeDownResponse, error)
-	SwipeLeft(context.Context, *SwipeLeftRequest) (*SwipeLeftResponse, error)
-	SwipeRight(context.Context, *SwipeRightRequest) (*SwipeRightResponse, error)
-	SwipeUp(context.Context, *SwipeUpRequest) (*SwipeUpResponse, error)
-	mustEmbedUnimplementedKeyboardViewOnKeyboardActionListenerServiceServer()
-}
-
-// UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer struct{}
-
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) OnKey(context.Context, *OnKeyRequest) (*OnKeyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKey not implemented")
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) OnPress(context.Context, *OnPressRequest) (*OnPressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPress not implemented")
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRelease not implemented")
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) OnText(context.Context, *OnTextRequest) (*OnTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnText not implemented")
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) SwipeDown(context.Context, *SwipeDownRequest) (*SwipeDownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SwipeDown not implemented")
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) SwipeLeft(context.Context, *SwipeLeftRequest) (*SwipeLeftResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SwipeLeft not implemented")
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) SwipeRight(context.Context, *SwipeRightRequest) (*SwipeRightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SwipeRight not implemented")
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) SwipeUp(context.Context, *SwipeUpRequest) (*SwipeUpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SwipeUp not implemented")
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) mustEmbedUnimplementedKeyboardViewOnKeyboardActionListenerServiceServer() {
-}
-func (UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeKeyboardViewOnKeyboardActionListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to KeyboardViewOnKeyboardActionListenerServiceServer will
-// result in compilation errors.
-type UnsafeKeyboardViewOnKeyboardActionListenerServiceServer interface {
-	mustEmbedUnimplementedKeyboardViewOnKeyboardActionListenerServiceServer()
-}
-
-func RegisterKeyboardViewOnKeyboardActionListenerServiceServer(s grpc.ServiceRegistrar, srv KeyboardViewOnKeyboardActionListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedKeyboardViewOnKeyboardActionListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&KeyboardViewOnKeyboardActionListenerService_ServiceDesc, srv)
-}
-
-func _KeyboardViewOnKeyboardActionListenerService_OnKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewOnKeyboardActionListenerService_OnKey_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnKey(ctx, req.(*OnKeyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewOnKeyboardActionListenerService_OnPress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnPress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewOnKeyboardActionListenerService_OnPress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnPress(ctx, req.(*OnPressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewOnKeyboardActionListenerService_OnRelease_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnReleaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnRelease(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewOnKeyboardActionListenerService_OnRelease_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnRelease(ctx, req.(*OnReleaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewOnKeyboardActionListenerService_OnText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewOnKeyboardActionListenerService_OnText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).OnText(ctx, req.(*OnTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewOnKeyboardActionListenerService_SwipeDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SwipeDownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeDown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewOnKeyboardActionListenerService_SwipeDown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeDown(ctx, req.(*SwipeDownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewOnKeyboardActionListenerService_SwipeLeft_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SwipeLeftRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeLeft(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewOnKeyboardActionListenerService_SwipeLeft_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeLeft(ctx, req.(*SwipeLeftRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewOnKeyboardActionListenerService_SwipeRight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SwipeRightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeRight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewOnKeyboardActionListenerService_SwipeRight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeRight(ctx, req.(*SwipeRightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyboardViewOnKeyboardActionListenerService_SwipeUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SwipeUpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeUp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyboardViewOnKeyboardActionListenerService_SwipeUp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyboardViewOnKeyboardActionListenerServiceServer).SwipeUp(ctx, req.(*SwipeUpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// KeyboardViewOnKeyboardActionListenerService_ServiceDesc is the grpc.ServiceDesc for KeyboardViewOnKeyboardActionListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var KeyboardViewOnKeyboardActionListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "inputmethodservice.KeyboardViewOnKeyboardActionListenerService",
-	HandlerType: (*KeyboardViewOnKeyboardActionListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnKey",
-			Handler:    _KeyboardViewOnKeyboardActionListenerService_OnKey_Handler,
-		},
-		{
-			MethodName: "OnPress",
-			Handler:    _KeyboardViewOnKeyboardActionListenerService_OnPress_Handler,
-		},
-		{
-			MethodName: "OnRelease",
-			Handler:    _KeyboardViewOnKeyboardActionListenerService_OnRelease_Handler,
-		},
-		{
-			MethodName: "OnText",
-			Handler:    _KeyboardViewOnKeyboardActionListenerService_OnText_Handler,
-		},
-		{
-			MethodName: "SwipeDown",
-			Handler:    _KeyboardViewOnKeyboardActionListenerService_SwipeDown_Handler,
-		},
-		{
-			MethodName: "SwipeLeft",
-			Handler:    _KeyboardViewOnKeyboardActionListenerService_SwipeLeft_Handler,
-		},
-		{
-			MethodName: "SwipeRight",
-			Handler:    _KeyboardViewOnKeyboardActionListenerService_SwipeRight_Handler,
-		},
-		{
-			MethodName: "SwipeUp",
-			Handler:    _KeyboardViewOnKeyboardActionListenerService_SwipeUp_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

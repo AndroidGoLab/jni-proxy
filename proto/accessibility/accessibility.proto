@@ -37,50 +37,60 @@ message SendAccessibilityEventUncheckedRequest {
 message SendAccessibilityEventUncheckedResponse {
 }
 
-message NewRecordRequest {
+message NewWindowInfoRequest {
 }
 
-message NewRecordResponse {
+message NewWindowInfoResponse {
   int64 result = 1;
 }
 
-message GetAddedCountRequest {
+message DescribeContentsRequest {
   int64 handle = 1;
 }
 
-message GetAddedCountResponse {
+message DescribeContentsResponse {
   int32 result = 1;
 }
 
-message GetBeforeTextRequest {
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetAnchorRequest {
   int64 handle = 1;
 }
 
-message GetBeforeTextResponse {
+message GetAnchorResponse {
   int64 result = 1;
 }
 
-message GetClassNameRequest {
+message GetBoundsInScreenRequest {
   int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message GetClassNameResponse {
+message GetBoundsInScreenResponse {
+}
+
+message GetChildRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetChildResponse {
   int64 result = 1;
 }
 
-message GetContentDescriptionRequest {
+message GetChildCountRequest {
   int64 handle = 1;
 }
 
-message GetContentDescriptionResponse {
-  int64 result = 1;
-}
-
-message GetCurrentItemIndexRequest {
-  int64 handle = 1;
-}
-
-message GetCurrentItemIndexResponse {
+message GetChildCountResponse {
   int32 result = 1;
 }
 
@@ -92,156 +102,124 @@ message GetDisplayIdResponse {
   int32 result = 1;
 }
 
-message GetFromIndexRequest {
+message GetIdRequest {
   int64 handle = 1;
 }
 
-message GetFromIndexResponse {
+message GetIdResponse {
   int32 result = 1;
 }
 
-message GetItemCountRequest {
+message GetLayerRequest {
   int64 handle = 1;
 }
 
-message GetItemCountResponse {
+message GetLayerResponse {
   int32 result = 1;
 }
 
-message GetMaxScrollXRequest {
+message GetLocalesRequest {
   int64 handle = 1;
 }
 
-message GetMaxScrollXResponse {
-  int32 result = 1;
-}
-
-message GetMaxScrollYRequest {
-  int64 handle = 1;
-}
-
-message GetMaxScrollYResponse {
-  int32 result = 1;
-}
-
-message GetParcelableDataRequest {
-  int64 handle = 1;
-}
-
-message GetParcelableDataResponse {
+message GetLocalesResponse {
   int64 result = 1;
 }
 
-message GetRemovedCountRequest {
+message GetParentRequest {
   int64 handle = 1;
 }
 
-message GetRemovedCountResponse {
-  int32 result = 1;
-}
-
-message GetScrollDeltaXRequest {
-  int64 handle = 1;
-}
-
-message GetScrollDeltaXResponse {
-  int32 result = 1;
-}
-
-message GetScrollDeltaYRequest {
-  int64 handle = 1;
-}
-
-message GetScrollDeltaYResponse {
-  int32 result = 1;
-}
-
-message GetScrollXRequest {
-  int64 handle = 1;
-}
-
-message GetScrollXResponse {
-  int32 result = 1;
-}
-
-message GetScrollYRequest {
-  int64 handle = 1;
-}
-
-message GetScrollYResponse {
-  int32 result = 1;
-}
-
-message GetSource0Request {
-  int64 handle = 1;
-}
-
-message GetSource0Response {
+message GetParentResponse {
   int64 result = 1;
 }
 
-message GetSource1_1Request {
+message GetRegionInScreenRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRegionInScreenResponse {
+}
+
+message GetRoot0Request {
+  int64 handle = 1;
+}
+
+message GetRoot0Response {
+  int64 result = 1;
+}
+
+message GetRoot1_1Request {
   int64 handle = 1;
   int32 arg0 = 2;
 }
 
-message GetSource1_1Response {
+message GetRoot1_1Response {
   int64 result = 1;
 }
 
-message GetToIndexRequest {
+message GetTitleRequest {
   int64 handle = 1;
 }
 
-message GetToIndexResponse {
+message GetTitleResponse {
+  int64 result = 1;
+}
+
+message GetTransitionTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetTransitionTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetTypeRequest {
+  int64 handle = 1;
+}
+
+message GetTypeResponse {
   int32 result = 1;
 }
 
-message GetWindowIdRequest {
+message HashCodeRequest {
   int64 handle = 1;
 }
 
-message GetWindowIdResponse {
+message HashCodeResponse {
   int32 result = 1;
 }
 
-message IsCheckedRequest {
+message IsAccessibilityFocusedRequest {
   int64 handle = 1;
 }
 
-message IsCheckedResponse {
+message IsAccessibilityFocusedResponse {
   bool result = 1;
 }
 
-message IsEnabledRequest {
+message IsActiveRequest {
   int64 handle = 1;
 }
 
-message IsEnabledResponse {
+message IsActiveResponse {
   bool result = 1;
 }
 
-message IsFullScreenRequest {
+message IsFocusedRequest {
   int64 handle = 1;
 }
 
-message IsFullScreenResponse {
+message IsFocusedResponse {
   bool result = 1;
 }
 
-message IsPasswordRequest {
+message IsInPictureInPictureModeRequest {
   int64 handle = 1;
 }
 
-message IsPasswordResponse {
-  bool result = 1;
-}
-
-message IsScrollableRequest {
-  int64 handle = 1;
-}
-
-message IsScrollableResponse {
+message IsInPictureInPictureModeResponse {
   bool result = 1;
 }
 
@@ -252,197 +230,21 @@ message RecycleRequest {
 message RecycleResponse {
 }
 
-message SetAddedCountRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetAddedCountResponse {
-}
-
-message SetBeforeTextRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetBeforeTextResponse {
-}
-
-message SetCheckedRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetCheckedResponse {
-}
-
-message SetClassNameRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetClassNameResponse {
-}
-
-message SetContentDescriptionRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetContentDescriptionResponse {
-}
-
-message SetCurrentItemIndexRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetCurrentItemIndexResponse {
-}
-
-message SetEnabledRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetEnabledResponse {
-}
-
-message SetFromIndexRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetFromIndexResponse {
-}
-
-message SetFullScreenRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetFullScreenResponse {
-}
-
-message SetItemCountRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetItemCountResponse {
-}
-
-message SetMaxScrollXRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetMaxScrollXResponse {
-}
-
-message SetMaxScrollYRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetMaxScrollYResponse {
-}
-
-message SetParcelableDataRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetParcelableDataResponse {
-}
-
-message SetPasswordRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetPasswordResponse {
-}
-
-message SetRemovedCountRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetRemovedCountResponse {
-}
-
-message SetScrollDeltaXRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetScrollDeltaXResponse {
-}
-
-message SetScrollDeltaYRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetScrollDeltaYResponse {
-}
-
-message SetScrollXRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetScrollXResponse {
-}
-
-message SetScrollYRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetScrollYResponse {
-}
-
-message SetScrollableRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetScrollableResponse {
-}
-
-message SetSource1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetSource1Response {
-}
-
-message SetSource2_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message SetSource2_1Response {
-}
-
-message SetToIndexRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetToIndexResponse {
-}
-
 message ToStringRequest {
   int64 handle = 1;
 }
 
 message ToStringResponse {
   string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
 }
 
 message Obtain0Request {
@@ -527,21 +329,22 @@ message CanOpenPopupResponse {
   bool result = 1;
 }
 
-message DescribeContentsRequest {
+message FindAccessibilityNodeInfosByTextRequest {
   int64 handle = 1;
+  string arg0 = 2;
 }
 
-message DescribeContentsResponse {
-  int32 result = 1;
+message FindAccessibilityNodeInfosByTextResponse {
+  int64 result = 1;
 }
 
-message EqualsRequest {
+message FindAccessibilityNodeInfosByViewIdRequest {
   int64 handle = 1;
-  int64 arg0 = 2;
+  string arg0 = 2;
 }
 
-message EqualsResponse {
-  bool result = 1;
+message FindAccessibilityNodeInfosByViewIdResponse {
+  int64 result = 1;
 }
 
 message FindFocusRequest {
@@ -562,6 +365,14 @@ message FocusSearchResponse {
   int64 result = 1;
 }
 
+message GetActionListRequest {
+  int64 handle = 1;
+}
+
+message GetActionListResponse {
+  int64 result = 1;
+}
+
 message GetActionsRequest {
   int64 handle = 1;
 }
@@ -570,20 +381,20 @@ message GetActionsResponse {
   int32 result = 1;
 }
 
+message GetAvailableExtraDataRequest {
+  int64 handle = 1;
+}
+
+message GetAvailableExtraDataResponse {
+  int64 result = 1;
+}
+
 message GetBoundsInParentRequest {
   int64 handle = 1;
   int64 arg0 = 2;
 }
 
 message GetBoundsInParentResponse {
-}
-
-message GetBoundsInScreenRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetBoundsInScreenResponse {
 }
 
 message GetBoundsInWindowRequest {
@@ -621,12 +432,12 @@ message GetChild2_1Response {
   int64 result = 1;
 }
 
-message GetChildCountRequest {
+message GetClassNameRequest {
   int64 handle = 1;
 }
 
-message GetChildCountResponse {
-  int32 result = 1;
+message GetClassNameResponse {
+  int64 result = 1;
 }
 
 message GetCollectionInfoRequest {
@@ -650,6 +461,14 @@ message GetContainerTitleRequest {
 }
 
 message GetContainerTitleResponse {
+  int64 result = 1;
+}
+
+message GetContentDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetContentDescriptionResponse {
   int64 result = 1;
 }
 
@@ -722,6 +541,14 @@ message GetLabeledByRequest {
 }
 
 message GetLabeledByResponse {
+  int64 result = 1;
+}
+
+message GetLabeledByListRequest {
+  int64 handle = 1;
+}
+
+message GetLabeledByListResponse {
   int64 result = 1;
 }
 
@@ -894,20 +721,20 @@ message GetWindowResponse {
   int64 result = 1;
 }
 
+message GetWindowIdRequest {
+  int64 handle = 1;
+}
+
+message GetWindowIdResponse {
+  int32 result = 1;
+}
+
 message HasRequestInitialAccessibilityFocusRequest {
   int64 handle = 1;
 }
 
 message HasRequestInitialAccessibilityFocusResponse {
   bool result = 1;
-}
-
-message HashCodeRequest {
-  int64 handle = 1;
-}
-
-message HashCodeResponse {
-  int32 result = 1;
 }
 
 message IsAccessibilityDataSensitiveRequest {
@@ -918,19 +745,19 @@ message IsAccessibilityDataSensitiveResponse {
   bool result = 1;
 }
 
-message IsAccessibilityFocusedRequest {
-  int64 handle = 1;
-}
-
-message IsAccessibilityFocusedResponse {
-  bool result = 1;
-}
-
 message IsCheckableRequest {
   int64 handle = 1;
 }
 
 message IsCheckableResponse {
+  bool result = 1;
+}
+
+message IsCheckedRequest {
+  int64 handle = 1;
+}
+
+message IsCheckedResponse {
   bool result = 1;
 }
 
@@ -974,6 +801,14 @@ message IsEditableResponse {
   bool result = 1;
 }
 
+message IsEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
 message IsFieldRequiredRequest {
   int64 handle = 1;
 }
@@ -987,14 +822,6 @@ message IsFocusableRequest {
 }
 
 message IsFocusableResponse {
-  bool result = 1;
-}
-
-message IsFocusedRequest {
-  int64 handle = 1;
-}
-
-message IsFocusedResponse {
   bool result = 1;
 }
 
@@ -1038,11 +865,27 @@ message IsMultiLineResponse {
   bool result = 1;
 }
 
+message IsPasswordRequest {
+  int64 handle = 1;
+}
+
+message IsPasswordResponse {
+  bool result = 1;
+}
+
 message IsScreenReaderFocusableRequest {
   int64 handle = 1;
 }
 
 message IsScreenReaderFocusableResponse {
+  bool result = 1;
+}
+
+message IsScrollableRequest {
+  int64 handle = 1;
+}
+
+message IsScrollableResponse {
   bool result = 1;
 }
 
@@ -1250,6 +1093,14 @@ message SetChecked1_1Request {
 message SetChecked1_1Response {
 }
 
+message SetClassNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetClassNameResponse {
+}
+
 message SetClickableRequest {
   int64 handle = 1;
   bool arg0 = 2;
@@ -1280,6 +1131,14 @@ message SetContainerTitleRequest {
 }
 
 message SetContainerTitleResponse {
+}
+
+message SetContentDescriptionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetContentDescriptionResponse {
 }
 
 message SetContentInvalidRequest {
@@ -1320,6 +1179,14 @@ message SetEditableRequest {
 }
 
 message SetEditableResponse {
+}
+
+message SetEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetEnabledResponse {
 }
 
 message SetErrorRequest {
@@ -1517,6 +1384,14 @@ message SetParent2_1Request {
 message SetParent2_1Response {
 }
 
+message SetPasswordRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPasswordResponse {
+}
+
 message SetQueryFromAppProcessEnabledRequest {
   int64 handle = 1;
   int64 arg0 = 2;
@@ -1550,6 +1425,14 @@ message SetScreenReaderFocusableRequest {
 message SetScreenReaderFocusableResponse {
 }
 
+message SetScrollableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetScrollableResponse {
+}
+
 message SetSelectedRequest {
   int64 handle = 1;
   bool arg0 = 2;
@@ -1564,6 +1447,23 @@ message SetShowingHintTextRequest {
 }
 
 message SetShowingHintTextResponse {
+}
+
+message SetSource1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSource1Response {
+}
+
+message SetSource2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetSource2_1Response {
 }
 
 message SetStateDescriptionRequest {
@@ -1689,15 +1589,6 @@ message SetVisibleToUserRequest {
 message SetVisibleToUserResponse {
 }
 
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
-}
-
 message Obtain1_2Request {
   int64 handle = 1;
   int64 arg0 = 2;
@@ -1724,11 +1615,7 @@ message NodeInfoAccessibilityActionEqualsRequest {
   int64 arg0 = 1;
 }
 
-message GetIdRequest {
-}
-
-message GetIdResponse {
-  int32 result = 1;
+message NodeInfoAccessibilityActionGetIdRequest {
 }
 
 message GetLabelRequest {
@@ -1763,7 +1650,11 @@ message GetImportantForAccessibilityItemCountResponse {
   int32 result = 1;
 }
 
-message NodeInfoCollectionInfoGetItemCountRequest {
+message GetItemCountRequest {
+}
+
+message GetItemCountResponse {
+  int32 result = 1;
 }
 
 message GetRowCountRequest {
@@ -1923,11 +1814,7 @@ message GetMinResponse {
   float result = 1;
 }
 
-message GetTypeRequest {
-}
-
-message GetTypeResponse {
-  int32 result = 1;
+message NodeInfoRangeInfoGetTypeRequest {
 }
 
 message ObtainRequest {
@@ -1970,151 +1857,6 @@ message GetTargetForRegionResponse {
 message NodeInfoTouchDelegateInfoWriteToParcelRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
-}
-
-message NewWindowInfoRequest {
-}
-
-message NewWindowInfoResponse {
-  int64 result = 1;
-}
-
-message GetAnchorRequest {
-  int64 handle = 1;
-}
-
-message GetAnchorResponse {
-  int64 result = 1;
-}
-
-message GetChildRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetChildResponse {
-  int64 result = 1;
-}
-
-message WindowInfoGetIdRequest {
-  int64 handle = 1;
-}
-
-message GetLayerRequest {
-  int64 handle = 1;
-}
-
-message GetLayerResponse {
-  int32 result = 1;
-}
-
-message GetLocalesRequest {
-  int64 handle = 1;
-}
-
-message GetLocalesResponse {
-  int64 result = 1;
-}
-
-message GetParentRequest {
-  int64 handle = 1;
-}
-
-message GetParentResponse {
-  int64 result = 1;
-}
-
-message GetRegionInScreenRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetRegionInScreenResponse {
-}
-
-message GetRoot0Request {
-  int64 handle = 1;
-}
-
-message GetRoot0Response {
-  int64 result = 1;
-}
-
-message GetRoot1_1Request {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetRoot1_1Response {
-  int64 result = 1;
-}
-
-message GetTitleRequest {
-  int64 handle = 1;
-}
-
-message GetTitleResponse {
-  int64 result = 1;
-}
-
-message GetTransitionTimeMillisRequest {
-  int64 handle = 1;
-}
-
-message GetTransitionTimeMillisResponse {
-  int64 result = 1;
-}
-
-message WindowInfoGetTypeRequest {
-  int64 handle = 1;
-}
-
-message IsActiveRequest {
-  int64 handle = 1;
-}
-
-message IsActiveResponse {
-  bool result = 1;
-}
-
-message IsInPictureInPictureModeRequest {
-  int64 handle = 1;
-}
-
-message IsInPictureInPictureModeResponse {
-  bool result = 1;
-}
-
-message AddExtraDataToAccessibilityNodeInfoRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message AddExtraDataToAccessibilityNodeInfoResponse {
-}
-
-message CreateAccessibilityNodeInfoRequest {
-  int32 arg0 = 1;
-}
-
-message CreateAccessibilityNodeInfoResponse {
-  int64 result = 1;
-}
-
-message NodeProviderFindFocusRequest {
-  int32 arg0 = 1;
-}
-
-message PerformActionRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message PerformActionResponse {
-  bool result = 1;
 }
 
 message AddCaptioningChangeListenerRequest {
@@ -2326,6 +2068,28 @@ message GetAccessibilityFocusStrokeWidthRequest {
 
 message GetAccessibilityFocusStrokeWidthResponse {
   int32 result = 1;
+}
+
+message GetAccessibilityServiceListRequest {
+}
+
+message GetAccessibilityServiceListResponse {
+  int64 result = 1;
+}
+
+message GetEnabledAccessibilityServiceListRequest {
+  int32 arg0 = 1;
+}
+
+message GetEnabledAccessibilityServiceListResponse {
+  int64 result = 1;
+}
+
+message GetInstalledAccessibilityServiceListRequest {
+}
+
+message GetInstalledAccessibilityServiceListResponse {
+  int64 result = 1;
 }
 
 message GetRecommendedTimeoutMillisRequest {
@@ -2624,6 +2388,311 @@ message EventObtain1_2Request {
   int32 arg0 = 2;
 }
 
+message NewRecordRequest {
+}
+
+message NewRecordResponse {
+  int64 result = 1;
+}
+
+message GetAddedCountRequest {
+  int64 handle = 1;
+}
+
+message GetAddedCountResponse {
+  int32 result = 1;
+}
+
+message GetBeforeTextRequest {
+  int64 handle = 1;
+}
+
+message GetBeforeTextResponse {
+  int64 result = 1;
+}
+
+message GetCurrentItemIndexRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentItemIndexResponse {
+  int32 result = 1;
+}
+
+message GetFromIndexRequest {
+  int64 handle = 1;
+}
+
+message GetFromIndexResponse {
+  int32 result = 1;
+}
+
+message RecordGetItemCountRequest {
+  int64 handle = 1;
+}
+
+message GetMaxScrollXRequest {
+  int64 handle = 1;
+}
+
+message GetMaxScrollXResponse {
+  int32 result = 1;
+}
+
+message GetMaxScrollYRequest {
+  int64 handle = 1;
+}
+
+message GetMaxScrollYResponse {
+  int32 result = 1;
+}
+
+message GetParcelableDataRequest {
+  int64 handle = 1;
+}
+
+message GetParcelableDataResponse {
+  int64 result = 1;
+}
+
+message GetRemovedCountRequest {
+  int64 handle = 1;
+}
+
+message GetRemovedCountResponse {
+  int32 result = 1;
+}
+
+message GetScrollDeltaXRequest {
+  int64 handle = 1;
+}
+
+message GetScrollDeltaXResponse {
+  int32 result = 1;
+}
+
+message GetScrollDeltaYRequest {
+  int64 handle = 1;
+}
+
+message GetScrollDeltaYResponse {
+  int32 result = 1;
+}
+
+message GetScrollXRequest {
+  int64 handle = 1;
+}
+
+message GetScrollXResponse {
+  int32 result = 1;
+}
+
+message GetScrollYRequest {
+  int64 handle = 1;
+}
+
+message GetScrollYResponse {
+  int32 result = 1;
+}
+
+message GetSource0Request {
+  int64 handle = 1;
+}
+
+message GetSource0Response {
+  int64 result = 1;
+}
+
+message GetSource1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSource1_1Response {
+  int64 result = 1;
+}
+
+message GetToIndexRequest {
+  int64 handle = 1;
+}
+
+message GetToIndexResponse {
+  int32 result = 1;
+}
+
+message IsFullScreenRequest {
+  int64 handle = 1;
+}
+
+message IsFullScreenResponse {
+  bool result = 1;
+}
+
+message SetAddedCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAddedCountResponse {
+}
+
+message SetBeforeTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetBeforeTextResponse {
+}
+
+message SetCheckedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetCheckedResponse {
+}
+
+message SetCurrentItemIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetCurrentItemIndexResponse {
+}
+
+message SetFromIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetFromIndexResponse {
+}
+
+message SetFullScreenRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFullScreenResponse {
+}
+
+message SetItemCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetItemCountResponse {
+}
+
+message SetMaxScrollXRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMaxScrollXResponse {
+}
+
+message SetMaxScrollYRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMaxScrollYResponse {
+}
+
+message SetParcelableDataRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetParcelableDataResponse {
+}
+
+message SetRemovedCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRemovedCountResponse {
+}
+
+message SetScrollDeltaXRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScrollDeltaXResponse {
+}
+
+message SetScrollDeltaYRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScrollDeltaYResponse {
+}
+
+message SetScrollXRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScrollXResponse {
+}
+
+message SetScrollYRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScrollYResponse {
+}
+
+message SetToIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetToIndexResponse {
+}
+
+message AddExtraDataToAccessibilityNodeInfoRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message AddExtraDataToAccessibilityNodeInfoResponse {
+}
+
+message CreateAccessibilityNodeInfoRequest {
+  int32 arg0 = 1;
+}
+
+message CreateAccessibilityNodeInfoResponse {
+  int64 result = 1;
+}
+
+message NodeProviderFindAccessibilityNodeInfosByTextRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NodeProviderFindFocusRequest {
+  int32 arg0 = 1;
+}
+
+message PerformActionRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message PerformActionResponse {
+  bool result = 1;
+}
+
 service RequestPreparerService {
   rpc GetView (GetViewRequest) returns (GetViewResponse);
   rpc OnPrepareExtraData (OnPrepareExtraDataRequest) returns (OnPrepareExtraDataResponse);
@@ -2634,58 +2703,33 @@ service EventSourceService {
   rpc SendAccessibilityEventUnchecked (SendAccessibilityEventUncheckedRequest) returns (SendAccessibilityEventUncheckedResponse);
 }
 
-service RecordService {
-  rpc NewRecord (NewRecordRequest) returns (NewRecordResponse);
-  rpc GetAddedCount (GetAddedCountRequest) returns (GetAddedCountResponse);
-  rpc GetBeforeText (GetBeforeTextRequest) returns (GetBeforeTextResponse);
-  rpc GetClassName (GetClassNameRequest) returns (GetClassNameResponse);
-  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
-  rpc GetCurrentItemIndex (GetCurrentItemIndexRequest) returns (GetCurrentItemIndexResponse);
+service WindowInfoService {
+  rpc NewWindowInfo (NewWindowInfoRequest) returns (NewWindowInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAnchor (GetAnchorRequest) returns (GetAnchorResponse);
+  rpc GetBoundsInScreen (GetBoundsInScreenRequest) returns (GetBoundsInScreenResponse);
+  rpc GetChild (GetChildRequest) returns (GetChildResponse);
+  rpc GetChildCount (GetChildCountRequest) returns (GetChildCountResponse);
   rpc GetDisplayId (GetDisplayIdRequest) returns (GetDisplayIdResponse);
-  rpc GetFromIndex (GetFromIndexRequest) returns (GetFromIndexResponse);
-  rpc GetItemCount (GetItemCountRequest) returns (GetItemCountResponse);
-  rpc GetMaxScrollX (GetMaxScrollXRequest) returns (GetMaxScrollXResponse);
-  rpc GetMaxScrollY (GetMaxScrollYRequest) returns (GetMaxScrollYResponse);
-  rpc GetParcelableData (GetParcelableDataRequest) returns (GetParcelableDataResponse);
-  rpc GetRemovedCount (GetRemovedCountRequest) returns (GetRemovedCountResponse);
-  rpc GetScrollDeltaX (GetScrollDeltaXRequest) returns (GetScrollDeltaXResponse);
-  rpc GetScrollDeltaY (GetScrollDeltaYRequest) returns (GetScrollDeltaYResponse);
-  rpc GetScrollX (GetScrollXRequest) returns (GetScrollXResponse);
-  rpc GetScrollY (GetScrollYRequest) returns (GetScrollYResponse);
-  rpc GetSource0 (GetSource0Request) returns (GetSource0Response);
-  rpc GetSource1_1 (GetSource1_1Request) returns (GetSource1_1Response);
-  rpc GetToIndex (GetToIndexRequest) returns (GetToIndexResponse);
-  rpc GetWindowId (GetWindowIdRequest) returns (GetWindowIdResponse);
-  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
-  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
-  rpc IsFullScreen (IsFullScreenRequest) returns (IsFullScreenResponse);
-  rpc IsPassword (IsPasswordRequest) returns (IsPasswordResponse);
-  rpc IsScrollable (IsScrollableRequest) returns (IsScrollableResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLayer (GetLayerRequest) returns (GetLayerResponse);
+  rpc GetLocales (GetLocalesRequest) returns (GetLocalesResponse);
+  rpc GetParent (GetParentRequest) returns (GetParentResponse);
+  rpc GetRegionInScreen (GetRegionInScreenRequest) returns (GetRegionInScreenResponse);
+  rpc GetRoot0 (GetRoot0Request) returns (GetRoot0Response);
+  rpc GetRoot1_1 (GetRoot1_1Request) returns (GetRoot1_1Response);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetTransitionTimeMillis (GetTransitionTimeMillisRequest) returns (GetTransitionTimeMillisResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAccessibilityFocused (IsAccessibilityFocusedRequest) returns (IsAccessibilityFocusedResponse);
+  rpc IsActive (IsActiveRequest) returns (IsActiveResponse);
+  rpc IsFocused (IsFocusedRequest) returns (IsFocusedResponse);
+  rpc IsInPictureInPictureMode (IsInPictureInPictureModeRequest) returns (IsInPictureInPictureModeResponse);
   rpc Recycle (RecycleRequest) returns (RecycleResponse);
-  rpc SetAddedCount (SetAddedCountRequest) returns (SetAddedCountResponse);
-  rpc SetBeforeText (SetBeforeTextRequest) returns (SetBeforeTextResponse);
-  rpc SetChecked (SetCheckedRequest) returns (SetCheckedResponse);
-  rpc SetClassName (SetClassNameRequest) returns (SetClassNameResponse);
-  rpc SetContentDescription (SetContentDescriptionRequest) returns (SetContentDescriptionResponse);
-  rpc SetCurrentItemIndex (SetCurrentItemIndexRequest) returns (SetCurrentItemIndexResponse);
-  rpc SetEnabled (SetEnabledRequest) returns (SetEnabledResponse);
-  rpc SetFromIndex (SetFromIndexRequest) returns (SetFromIndexResponse);
-  rpc SetFullScreen (SetFullScreenRequest) returns (SetFullScreenResponse);
-  rpc SetItemCount (SetItemCountRequest) returns (SetItemCountResponse);
-  rpc SetMaxScrollX (SetMaxScrollXRequest) returns (SetMaxScrollXResponse);
-  rpc SetMaxScrollY (SetMaxScrollYRequest) returns (SetMaxScrollYResponse);
-  rpc SetParcelableData (SetParcelableDataRequest) returns (SetParcelableDataResponse);
-  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
-  rpc SetRemovedCount (SetRemovedCountRequest) returns (SetRemovedCountResponse);
-  rpc SetScrollDeltaX (SetScrollDeltaXRequest) returns (SetScrollDeltaXResponse);
-  rpc SetScrollDeltaY (SetScrollDeltaYRequest) returns (SetScrollDeltaYResponse);
-  rpc SetScrollX (SetScrollXRequest) returns (SetScrollXResponse);
-  rpc SetScrollY (SetScrollYRequest) returns (SetScrollYResponse);
-  rpc SetScrollable (SetScrollableRequest) returns (SetScrollableResponse);
-  rpc SetSource1 (SetSource1Request) returns (SetSource1Response);
-  rpc SetSource2_1 (SetSource2_1Request) returns (SetSource2_1Response);
-  rpc SetToIndex (SetToIndexRequest) returns (SetToIndexResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
   rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
   rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
 }
@@ -2701,9 +2745,13 @@ service NodeInfoService {
   rpc CanOpenPopup (CanOpenPopupRequest) returns (CanOpenPopupResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc FindAccessibilityNodeInfosByText (FindAccessibilityNodeInfosByTextRequest) returns (FindAccessibilityNodeInfosByTextResponse);
+  rpc FindAccessibilityNodeInfosByViewId (FindAccessibilityNodeInfosByViewIdRequest) returns (FindAccessibilityNodeInfosByViewIdResponse);
   rpc FindFocus (FindFocusRequest) returns (FindFocusResponse);
   rpc FocusSearch (FocusSearchRequest) returns (FocusSearchResponse);
+  rpc GetActionList (GetActionListRequest) returns (GetActionListResponse);
   rpc GetActions (GetActionsRequest) returns (GetActionsResponse);
+  rpc GetAvailableExtraData (GetAvailableExtraDataRequest) returns (GetAvailableExtraDataResponse);
   rpc GetBoundsInParent (GetBoundsInParentRequest) returns (GetBoundsInParentResponse);
   rpc GetBoundsInScreen (GetBoundsInScreenRequest) returns (GetBoundsInScreenResponse);
   rpc GetBoundsInWindow (GetBoundsInWindowRequest) returns (GetBoundsInWindowResponse);
@@ -2725,6 +2773,7 @@ service NodeInfoService {
   rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
   rpc GetLabelFor (GetLabelForRequest) returns (GetLabelForResponse);
   rpc GetLabeledBy (GetLabeledByRequest) returns (GetLabeledByResponse);
+  rpc GetLabeledByList (GetLabeledByListRequest) returns (GetLabeledByListResponse);
   rpc GetLiveRegion (GetLiveRegionRequest) returns (GetLiveRegionResponse);
   rpc GetMaxTextLength (GetMaxTextLengthRequest) returns (GetMaxTextLengthResponse);
   rpc GetMinDurationBetweenContentChanges (GetMinDurationBetweenContentChangesRequest) returns (GetMinDurationBetweenContentChangesResponse);
@@ -2867,7 +2916,7 @@ service NodeInfoService {
 service NodeInfoAccessibilityActionService {
   rpc DescribeContents (NodeInfoAccessibilityActionDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (NodeInfoAccessibilityActionEqualsRequest) returns (EqualsResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetId (NodeInfoAccessibilityActionGetIdRequest) returns (GetIdResponse);
   rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
   rpc HashCode (NodeInfoAccessibilityActionHashCodeRequest) returns (HashCodeResponse);
   rpc ToString (NodeInfoAccessibilityActionToStringRequest) returns (ToStringResponse);
@@ -2877,7 +2926,7 @@ service NodeInfoAccessibilityActionService {
 service NodeInfoCollectionInfoService {
   rpc GetColumnCount (GetColumnCountRequest) returns (GetColumnCountResponse);
   rpc GetImportantForAccessibilityItemCount (GetImportantForAccessibilityItemCountRequest) returns (GetImportantForAccessibilityItemCountResponse);
-  rpc GetItemCount (NodeInfoCollectionInfoGetItemCountRequest) returns (GetItemCountResponse);
+  rpc GetItemCount (GetItemCountRequest) returns (GetItemCountResponse);
   rpc GetRowCount (GetRowCountRequest) returns (GetRowCountResponse);
   rpc GetSelectionMode (GetSelectionModeRequest) returns (GetSelectionModeResponse);
   rpc IsHierarchical (IsHierarchicalRequest) returns (IsHierarchicalResponse);
@@ -2908,7 +2957,7 @@ service NodeInfoRangeInfoService {
   rpc GetCurrent (GetCurrentRequest) returns (GetCurrentResponse);
   rpc GetMax (GetMaxRequest) returns (GetMaxResponse);
   rpc GetMin (GetMinRequest) returns (GetMinResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetType (NodeInfoRangeInfoGetTypeRequest) returns (GetTypeResponse);
   rpc Obtain (ObtainRequest) returns (ObtainResponse);
 }
 
@@ -2918,44 +2967,6 @@ service NodeInfoTouchDelegateInfoService {
   rpc GetRegionCount (GetRegionCountRequest) returns (GetRegionCountResponse);
   rpc GetTargetForRegion (GetTargetForRegionRequest) returns (GetTargetForRegionResponse);
   rpc WriteToParcel (NodeInfoTouchDelegateInfoWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WindowInfoService {
-  rpc NewWindowInfo (NewWindowInfoRequest) returns (NewWindowInfoResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAnchor (GetAnchorRequest) returns (GetAnchorResponse);
-  rpc GetBoundsInScreen (GetBoundsInScreenRequest) returns (GetBoundsInScreenResponse);
-  rpc GetChild (GetChildRequest) returns (GetChildResponse);
-  rpc GetChildCount (GetChildCountRequest) returns (GetChildCountResponse);
-  rpc GetDisplayId (GetDisplayIdRequest) returns (GetDisplayIdResponse);
-  rpc GetId (WindowInfoGetIdRequest) returns (GetIdResponse);
-  rpc GetLayer (GetLayerRequest) returns (GetLayerResponse);
-  rpc GetLocales (GetLocalesRequest) returns (GetLocalesResponse);
-  rpc GetParent (GetParentRequest) returns (GetParentResponse);
-  rpc GetRegionInScreen (GetRegionInScreenRequest) returns (GetRegionInScreenResponse);
-  rpc GetRoot0 (GetRoot0Request) returns (GetRoot0Response);
-  rpc GetRoot1_1 (GetRoot1_1Request) returns (GetRoot1_1Response);
-  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
-  rpc GetTransitionTimeMillis (GetTransitionTimeMillisRequest) returns (GetTransitionTimeMillisResponse);
-  rpc GetType (WindowInfoGetTypeRequest) returns (GetTypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsAccessibilityFocused (IsAccessibilityFocusedRequest) returns (IsAccessibilityFocusedResponse);
-  rpc IsActive (IsActiveRequest) returns (IsActiveResponse);
-  rpc IsFocused (IsFocusedRequest) returns (IsFocusedResponse);
-  rpc IsInPictureInPictureMode (IsInPictureInPictureModeRequest) returns (IsInPictureInPictureModeResponse);
-  rpc Recycle (RecycleRequest) returns (RecycleResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
-  rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
-}
-
-service NodeProviderService {
-  rpc AddExtraDataToAccessibilityNodeInfo (AddExtraDataToAccessibilityNodeInfoRequest) returns (AddExtraDataToAccessibilityNodeInfoResponse);
-  rpc CreateAccessibilityNodeInfo (CreateAccessibilityNodeInfoRequest) returns (CreateAccessibilityNodeInfoResponse);
-  rpc FindFocus (NodeProviderFindFocusRequest) returns (FindFocusResponse);
-  rpc PerformAction (PerformActionRequest) returns (PerformActionResponse);
 }
 
 service CaptioningManagerService {
@@ -2998,6 +3009,9 @@ service ManagerService {
   rpc AddTouchExplorationStateChangeListener (AddTouchExplorationStateChangeListenerRequest) returns (AddTouchExplorationStateChangeListenerResponse);
   rpc GetAccessibilityFocusColor (GetAccessibilityFocusColorRequest) returns (GetAccessibilityFocusColorResponse);
   rpc GetAccessibilityFocusStrokeWidth (GetAccessibilityFocusStrokeWidthRequest) returns (GetAccessibilityFocusStrokeWidthResponse);
+  rpc GetAccessibilityServiceList (GetAccessibilityServiceListRequest) returns (GetAccessibilityServiceListResponse);
+  rpc GetEnabledAccessibilityServiceList (GetEnabledAccessibilityServiceListRequest) returns (GetEnabledAccessibilityServiceListResponse);
+  rpc GetInstalledAccessibilityServiceList (GetInstalledAccessibilityServiceListRequest) returns (GetInstalledAccessibilityServiceListResponse);
   rpc GetRecommendedTimeoutMillis (GetRecommendedTimeoutMillisRequest) returns (GetRecommendedTimeoutMillisResponse);
   rpc Interrupt (InterruptRequest) returns (InterruptResponse);
   rpc IsAudioDescriptionRequested (IsAudioDescriptionRequestedRequest) returns (IsAudioDescriptionRequestedResponse);
@@ -3066,4 +3080,69 @@ service EventService {
   rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
   rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
   rpc Obtain1_2 (EventObtain1_2Request) returns (Obtain1_2Response);
+}
+
+service RecordService {
+  rpc NewRecord (NewRecordRequest) returns (NewRecordResponse);
+  rpc GetAddedCount (GetAddedCountRequest) returns (GetAddedCountResponse);
+  rpc GetBeforeText (GetBeforeTextRequest) returns (GetBeforeTextResponse);
+  rpc GetClassName (GetClassNameRequest) returns (GetClassNameResponse);
+  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
+  rpc GetCurrentItemIndex (GetCurrentItemIndexRequest) returns (GetCurrentItemIndexResponse);
+  rpc GetDisplayId (GetDisplayIdRequest) returns (GetDisplayIdResponse);
+  rpc GetFromIndex (GetFromIndexRequest) returns (GetFromIndexResponse);
+  rpc GetItemCount (RecordGetItemCountRequest) returns (GetItemCountResponse);
+  rpc GetMaxScrollX (GetMaxScrollXRequest) returns (GetMaxScrollXResponse);
+  rpc GetMaxScrollY (GetMaxScrollYRequest) returns (GetMaxScrollYResponse);
+  rpc GetParcelableData (GetParcelableDataRequest) returns (GetParcelableDataResponse);
+  rpc GetRemovedCount (GetRemovedCountRequest) returns (GetRemovedCountResponse);
+  rpc GetScrollDeltaX (GetScrollDeltaXRequest) returns (GetScrollDeltaXResponse);
+  rpc GetScrollDeltaY (GetScrollDeltaYRequest) returns (GetScrollDeltaYResponse);
+  rpc GetScrollX (GetScrollXRequest) returns (GetScrollXResponse);
+  rpc GetScrollY (GetScrollYRequest) returns (GetScrollYResponse);
+  rpc GetSource0 (GetSource0Request) returns (GetSource0Response);
+  rpc GetSource1_1 (GetSource1_1Request) returns (GetSource1_1Response);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc GetToIndex (GetToIndexRequest) returns (GetToIndexResponse);
+  rpc GetWindowId (GetWindowIdRequest) returns (GetWindowIdResponse);
+  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsFullScreen (IsFullScreenRequest) returns (IsFullScreenResponse);
+  rpc IsPassword (IsPasswordRequest) returns (IsPasswordResponse);
+  rpc IsScrollable (IsScrollableRequest) returns (IsScrollableResponse);
+  rpc Recycle (RecycleRequest) returns (RecycleResponse);
+  rpc SetAddedCount (SetAddedCountRequest) returns (SetAddedCountResponse);
+  rpc SetBeforeText (SetBeforeTextRequest) returns (SetBeforeTextResponse);
+  rpc SetChecked (SetCheckedRequest) returns (SetCheckedResponse);
+  rpc SetClassName (SetClassNameRequest) returns (SetClassNameResponse);
+  rpc SetContentDescription (SetContentDescriptionRequest) returns (SetContentDescriptionResponse);
+  rpc SetCurrentItemIndex (SetCurrentItemIndexRequest) returns (SetCurrentItemIndexResponse);
+  rpc SetEnabled (SetEnabledRequest) returns (SetEnabledResponse);
+  rpc SetFromIndex (SetFromIndexRequest) returns (SetFromIndexResponse);
+  rpc SetFullScreen (SetFullScreenRequest) returns (SetFullScreenResponse);
+  rpc SetItemCount (SetItemCountRequest) returns (SetItemCountResponse);
+  rpc SetMaxScrollX (SetMaxScrollXRequest) returns (SetMaxScrollXResponse);
+  rpc SetMaxScrollY (SetMaxScrollYRequest) returns (SetMaxScrollYResponse);
+  rpc SetParcelableData (SetParcelableDataRequest) returns (SetParcelableDataResponse);
+  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
+  rpc SetRemovedCount (SetRemovedCountRequest) returns (SetRemovedCountResponse);
+  rpc SetScrollDeltaX (SetScrollDeltaXRequest) returns (SetScrollDeltaXResponse);
+  rpc SetScrollDeltaY (SetScrollDeltaYRequest) returns (SetScrollDeltaYResponse);
+  rpc SetScrollX (SetScrollXRequest) returns (SetScrollXResponse);
+  rpc SetScrollY (SetScrollYRequest) returns (SetScrollYResponse);
+  rpc SetScrollable (SetScrollableRequest) returns (SetScrollableResponse);
+  rpc SetSource1 (SetSource1Request) returns (SetSource1Response);
+  rpc SetSource2_1 (SetSource2_1Request) returns (SetSource2_1Response);
+  rpc SetToIndex (SetToIndexRequest) returns (SetToIndexResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
+  rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
+}
+
+service NodeProviderService {
+  rpc AddExtraDataToAccessibilityNodeInfo (AddExtraDataToAccessibilityNodeInfoRequest) returns (AddExtraDataToAccessibilityNodeInfoResponse);
+  rpc CreateAccessibilityNodeInfo (CreateAccessibilityNodeInfoRequest) returns (CreateAccessibilityNodeInfoResponse);
+  rpc FindAccessibilityNodeInfosByText (NodeProviderFindAccessibilityNodeInfosByTextRequest) returns (FindAccessibilityNodeInfosByTextResponse);
+  rpc FindFocus (NodeProviderFindFocusRequest) returns (FindFocusResponse);
+  rpc PerformAction (PerformActionRequest) returns (PerformActionResponse);
 }

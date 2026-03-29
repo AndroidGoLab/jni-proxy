@@ -13,21 +13,6 @@ message DescribeContentsResponse {
   int32 result = 1;
 }
 
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
 message EqualsRequest {
   int64 arg0 = 1;
 }
@@ -78,6 +63,14 @@ message HashCodeResponse {
   int32 result = 1;
 }
 
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
 message BuildRequest {
 }
 
@@ -117,10 +110,18 @@ message SetSightTypeResponse {
   int64 result = 1;
 }
 
-service BleCsRangingCapabilitiesService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message GetSupportedSecurityLevelsRequest {
+}
+
+message GetSupportedSecurityLevelsResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
 }
 
 service BleCsRangingParamsService {
@@ -141,4 +142,11 @@ service BleCsRangingParamsBuilderService {
   rpc SetRangingUpdateRate (SetRangingUpdateRateRequest) returns (SetRangingUpdateRateResponse);
   rpc SetSecurityLevel (SetSecurityLevelRequest) returns (SetSecurityLevelResponse);
   rpc SetSightType (SetSightTypeRequest) returns (SetSightTypeResponse);
+}
+
+service BleCsRangingCapabilitiesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSupportedSecurityLevels (GetSupportedSecurityLevelsRequest) returns (GetSupportedSecurityLevelsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

@@ -9,30 +9,71 @@ import (
 	"google.golang.org/grpc"
 )
 
-// CharacterPickerDialogClient wraps the gRPC CharacterPickerDialogService client.
-type CharacterPickerDialogClient struct {
-	svc pb.CharacterPickerDialogServiceClient
+// QwertyKeyListenerClient wraps the gRPC QwertyKeyListenerService client.
+type QwertyKeyListenerClient struct {
+	svc pb.QwertyKeyListenerServiceClient
 }
 
-// NewCharacterPickerDialogClient creates a new CharacterPickerDialog client.
-func NewCharacterPickerDialogClient(cc grpc.ClientConnInterface) *CharacterPickerDialogClient {
-	return &CharacterPickerDialogClient{
-		svc: pb.NewCharacterPickerDialogServiceClient(cc),
+// NewQwertyKeyListenerClient creates a new QwertyKeyListener client.
+func NewQwertyKeyListenerClient(cc grpc.ClientConnInterface) *QwertyKeyListenerClient {
+	return &QwertyKeyListenerClient{
+		svc: pb.NewQwertyKeyListenerServiceClient(cc),
 	}
 }
 
-// OnClick calls the OnClick RPC.
-func (c *CharacterPickerDialogClient) OnClick(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
+// GetInputType calls the GetInputType RPC.
+func (c *QwertyKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
 		Handle: handle,
-		Arg0:   arg0,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// OnItemClick calls the OnItemClick RPC.
-func (c *CharacterPickerDialogClient) OnItemClick(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) error {
-	_, err := c.svc.OnItemClick(ctx, &pb.OnItemClickRequest{
+// OnKeyDown calls the OnKeyDown RPC.
+func (c *QwertyKeyListenerClient) OnKeyDown(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *QwertyKeyListenerClient) GetInstance(ctx context.Context, handle int64, arg0 bool, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstanceForFullKeyboard calls the GetInstanceForFullKeyboard RPC.
+func (c *QwertyKeyListenerClient) GetInstanceForFullKeyboard(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstanceForFullKeyboard(ctx, &pb.GetInstanceForFullKeyboardRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MarkAsReplaced calls the MarkAsReplaced RPC.
+func (c *QwertyKeyListenerClient) MarkAsReplaced(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 string) error {
+	_, err := c.svc.MarkAsReplaced(ctx, &pb.MarkAsReplacedRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -42,41 +83,155 @@ func (c *CharacterPickerDialogClient) OnItemClick(ctx context.Context, handle in
 	return err
 }
 
-// NumberKeyListenerClient wraps the gRPC NumberKeyListenerService client.
-type NumberKeyListenerClient struct {
-	svc pb.NumberKeyListenerServiceClient
+// BaseMovementMethodClient wraps the gRPC BaseMovementMethodService client.
+type BaseMovementMethodClient struct {
+	svc pb.BaseMovementMethodServiceClient
 }
 
-// NewNumberKeyListenerClient creates a new NumberKeyListener client.
-func NewNumberKeyListenerClient(cc grpc.ClientConnInterface) *NumberKeyListenerClient {
-	return &NumberKeyListenerClient{
-		svc: pb.NewNumberKeyListenerServiceClient(cc),
+// NewBaseMovementMethodClient creates a new BaseMovementMethod client.
+func NewBaseMovementMethodClient(cc grpc.ClientConnInterface) *BaseMovementMethodClient {
+	return &BaseMovementMethodClient{
+		svc: pb.NewBaseMovementMethodServiceClient(cc),
 	}
 }
 
-// Filter calls the Filter RPC.
-func (c *NumberKeyListenerClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
-	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// CanSelectArbitrarily calls the CanSelectArbitrarily RPC.
+func (c *BaseMovementMethodClient) CanSelectArbitrarily(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanSelectArbitrarily(ctx, &pb.CanSelectArbitrarilyRequest{
+		Handle: handle,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Initialize calls the Initialize RPC.
+func (c *BaseMovementMethodClient) Initialize(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NextParagraph calls the NextParagraph RPC.
+func (c *BaseMovementMethodClient) NextParagraph(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.NextParagraph(ctx, &pb.NextParagraphRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnGenericMotionEvent calls the OnGenericMotionEvent RPC.
+func (c *BaseMovementMethodClient) OnGenericMotionEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnGenericMotionEvent(ctx, &pb.OnGenericMotionEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
 // OnKeyDown calls the OnKeyDown RPC.
-func (c *NumberKeyListenerClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+func (c *BaseMovementMethodClient) OnKeyDown(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
 	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyOther calls the OnKeyOther RPC.
+func (c *BaseMovementMethodClient) OnKeyOther(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnKeyOther(ctx, &pb.OnKeyOtherRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyUp calls the OnKeyUp RPC.
+func (c *BaseMovementMethodClient) OnKeyUp(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnKeyUp(ctx, &pb.OnKeyUpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTakeFocus calls the OnTakeFocus RPC.
+func (c *BaseMovementMethodClient) OnTakeFocus(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnTakeFocus(ctx, &pb.OnTakeFocusRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// OnTouchEvent calls the OnTouchEvent RPC.
+func (c *BaseMovementMethodClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTrackballEvent calls the OnTrackballEvent RPC.
+func (c *BaseMovementMethodClient) OnTrackballEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnTrackballEvent(ctx, &pb.OnTrackballEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousParagraph calls the PreviousParagraph RPC.
+func (c *BaseMovementMethodClient) PreviousParagraph(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.PreviousParagraph(ctx, &pb.PreviousParagraphRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	if err != nil {
 		return false, err
@@ -98,131 +253,11 @@ func NewSingleLineTransformationMethodClient(cc grpc.ClientConnInterface) *Singl
 
 // GetInstance calls the GetInstance RPC.
 func (c *SingleLineTransformationMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
+	resp, err := c.svc.GetInstance(ctx, &pb.SingleLineTransformationMethodGetInstanceRequest{
 		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MovementMethodClient wraps the gRPC MovementMethodService client.
-type MovementMethodClient struct {
-	svc pb.MovementMethodServiceClient
-}
-
-// NewMovementMethodClient creates a new MovementMethod client.
-func NewMovementMethodClient(cc grpc.ClientConnInterface) *MovementMethodClient {
-	return &MovementMethodClient{
-		svc: pb.NewMovementMethodServiceClient(cc),
-	}
-}
-
-// CanSelectArbitrarily calls the CanSelectArbitrarily RPC.
-func (c *MovementMethodClient) CanSelectArbitrarily(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanSelectArbitrarily(ctx, &pb.CanSelectArbitrarilyRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Initialize calls the Initialize RPC.
-func (c *MovementMethodClient) Initialize(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnGenericMotionEvent calls the OnGenericMotionEvent RPC.
-func (c *MovementMethodClient) OnGenericMotionEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnGenericMotionEvent(ctx, &pb.OnGenericMotionEventRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyDown calls the OnKeyDown RPC.
-func (c *MovementMethodClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyOther calls the OnKeyOther RPC.
-func (c *MovementMethodClient) OnKeyOther(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnKeyOther(ctx, &pb.OnKeyOtherRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyUp calls the OnKeyUp RPC.
-func (c *MovementMethodClient) OnKeyUp(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyUp(ctx, &pb.OnKeyUpRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnTakeFocus calls the OnTakeFocus RPC.
-func (c *MovementMethodClient) OnTakeFocus(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnTakeFocus(ctx, &pb.OnTakeFocusRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnTouchEvent calls the OnTouchEvent RPC.
-func (c *MovementMethodClient) OnTouchEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnTrackballEvent calls the OnTrackballEvent RPC.
-func (c *MovementMethodClient) OnTrackballEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnTrackballEvent(ctx, &pb.OnTrackballEventRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
 	}
 	return resp.GetResult(), nil
 }
@@ -259,482 +294,6 @@ func (c *ReplacementTransformationMethodClient) OnFocusChanged(ctx context.Conte
 		Arg2: arg2,
 		Arg3: arg3,
 		Arg4: arg4,
-	})
-	return err
-}
-
-// TouchClient wraps the gRPC TouchService client.
-type TouchClient struct {
-	svc pb.TouchServiceClient
-}
-
-// NewTouchClient creates a new Touch client.
-func NewTouchClient(cc grpc.ClientConnInterface) *TouchClient {
-	return &TouchClient{
-		svc: pb.NewTouchServiceClient(cc),
-	}
-}
-
-// GetInitialScrollX calls the GetInitialScrollX RPC.
-func (c *TouchClient) GetInitialScrollX(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
-	resp, err := c.svc.GetInitialScrollX(ctx, &pb.GetInitialScrollXRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInitialScrollY calls the GetInitialScrollY RPC.
-func (c *TouchClient) GetInitialScrollY(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
-	resp, err := c.svc.GetInitialScrollY(ctx, &pb.GetInitialScrollYRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnTouchEvent calls the OnTouchEvent RPC.
-func (c *TouchClient) OnTouchEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScrollTo calls the ScrollTo RPC.
-func (c *TouchClient) ScrollTo(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
-	_, err := c.svc.ScrollTo(ctx, &pb.ScrollToRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// ScrollingMovementMethodClient wraps the gRPC ScrollingMovementMethodService client.
-type ScrollingMovementMethodClient struct {
-	svc pb.ScrollingMovementMethodServiceClient
-}
-
-// NewScrollingMovementMethodClient creates a new ScrollingMovementMethod client.
-func NewScrollingMovementMethodClient(cc grpc.ClientConnInterface) *ScrollingMovementMethodClient {
-	return &ScrollingMovementMethodClient{
-		svc: pb.NewScrollingMovementMethodServiceClient(cc),
-	}
-}
-
-// OnTakeFocus calls the OnTakeFocus RPC.
-func (c *ScrollingMovementMethodClient) OnTakeFocus(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnTakeFocus(ctx, &pb.ScrollingMovementMethodOnTakeFocusRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// OnTouchEvent calls the OnTouchEvent RPC.
-func (c *ScrollingMovementMethodClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnTouchEvent(ctx, &pb.ScrollingMovementMethodOnTouchEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *ScrollingMovementMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HideReturnsTransformationMethodClient wraps the gRPC HideReturnsTransformationMethodService client.
-type HideReturnsTransformationMethodClient struct {
-	svc pb.HideReturnsTransformationMethodServiceClient
-}
-
-// NewHideReturnsTransformationMethodClient creates a new HideReturnsTransformationMethod client.
-func NewHideReturnsTransformationMethodClient(cc grpc.ClientConnInterface) *HideReturnsTransformationMethodClient {
-	return &HideReturnsTransformationMethodClient{
-		svc: pb.NewHideReturnsTransformationMethodServiceClient(cc),
-	}
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *HideReturnsTransformationMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MultiTapKeyListenerClient wraps the gRPC MultiTapKeyListenerService client.
-type MultiTapKeyListenerClient struct {
-	svc pb.MultiTapKeyListenerServiceClient
-}
-
-// NewMultiTapKeyListenerClient creates a new MultiTapKeyListener client.
-func NewMultiTapKeyListenerClient(cc grpc.ClientConnInterface) *MultiTapKeyListenerClient {
-	return &MultiTapKeyListenerClient{
-		svc: pb.NewMultiTapKeyListenerServiceClient(cc),
-	}
-}
-
-// GetInputType calls the GetInputType RPC.
-func (c *MultiTapKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyDown calls the OnKeyDown RPC.
-func (c *MultiTapKeyListenerClient) OnKeyDown(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyDown(ctx, &pb.MultiTapKeyListenerOnKeyDownRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnSpanAdded calls the OnSpanAdded RPC.
-func (c *MultiTapKeyListenerClient) OnSpanAdded(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnSpanAdded(ctx, &pb.OnSpanAddedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// OnSpanChanged calls the OnSpanChanged RPC.
-func (c *MultiTapKeyListenerClient) OnSpanChanged(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.OnSpanChanged(ctx, &pb.OnSpanChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// OnSpanRemoved calls the OnSpanRemoved RPC.
-func (c *MultiTapKeyListenerClient) OnSpanRemoved(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnSpanRemoved(ctx, &pb.OnSpanRemovedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *MultiTapKeyListenerClient) GetInstance(ctx context.Context, handle int64, arg0 bool, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.MultiTapKeyListenerGetInstanceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DigitsKeyListenerClient wraps the gRPC DigitsKeyListenerService client.
-type DigitsKeyListenerClient struct {
-	svc pb.DigitsKeyListenerServiceClient
-}
-
-// NewDigitsKeyListenerClient creates a new DigitsKeyListener client.
-func NewDigitsKeyListenerClient(cc grpc.ClientConnInterface) *DigitsKeyListenerClient {
-	return &DigitsKeyListenerClient{
-		svc: pb.NewDigitsKeyListenerServiceClient(cc),
-	}
-}
-
-// Filter calls the Filter RPC.
-func (c *DigitsKeyListenerClient) Filter(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
-	resp, err := c.svc.Filter(ctx, &pb.DigitsKeyListenerFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInputType calls the GetInputType RPC.
-func (c *DigitsKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *DigitsKeyListenerClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance2_1 calls the GetInstance2_1 RPC.
-func (c *DigitsKeyListenerClient) GetInstance2_1(ctx context.Context, handle int64, arg0 bool, arg1 bool) (int64, error) {
-	resp, err := c.svc.GetInstance2_1(ctx, &pb.GetInstance2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_2 calls the GetInstance1_2 RPC.
-func (c *DigitsKeyListenerClient) GetInstance1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.GetInstance1_2(ctx, &pb.GetInstance1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_3 calls the GetInstance1_3 RPC.
-func (c *DigitsKeyListenerClient) GetInstance1_3(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_3(ctx, &pb.GetInstance1_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance3_4 calls the GetInstance3_4 RPC.
-func (c *DigitsKeyListenerClient) GetInstance3_4(ctx context.Context, handle int64, arg0 int64, arg1 bool, arg2 bool) (int64, error) {
-	resp, err := c.svc.GetInstance3_4(ctx, &pb.GetInstance3_4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DialerKeyListenerClient wraps the gRPC DialerKeyListenerService client.
-type DialerKeyListenerClient struct {
-	svc pb.DialerKeyListenerServiceClient
-}
-
-// NewDialerKeyListenerClient creates a new DialerKeyListener client.
-func NewDialerKeyListenerClient(cc grpc.ClientConnInterface) *DialerKeyListenerClient {
-	return &DialerKeyListenerClient{
-		svc: pb.NewDialerKeyListenerServiceClient(cc),
-	}
-}
-
-// GetInputType calls the GetInputType RPC.
-func (c *DialerKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *DialerKeyListenerClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeKeyListenerClient wraps the gRPC TimeKeyListenerService client.
-type TimeKeyListenerClient struct {
-	svc pb.TimeKeyListenerServiceClient
-}
-
-// NewTimeKeyListenerClient creates a new TimeKeyListener client.
-func NewTimeKeyListenerClient(cc grpc.ClientConnInterface) *TimeKeyListenerClient {
-	return &TimeKeyListenerClient{
-		svc: pb.NewTimeKeyListenerServiceClient(cc),
-	}
-}
-
-// GetInputType calls the GetInputType RPC.
-func (c *TimeKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *TimeKeyListenerClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *TimeKeyListenerClient) GetInstance1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QwertyKeyListenerClient wraps the gRPC QwertyKeyListenerService client.
-type QwertyKeyListenerClient struct {
-	svc pb.QwertyKeyListenerServiceClient
-}
-
-// NewQwertyKeyListenerClient creates a new QwertyKeyListener client.
-func NewQwertyKeyListenerClient(cc grpc.ClientConnInterface) *QwertyKeyListenerClient {
-	return &QwertyKeyListenerClient{
-		svc: pb.NewQwertyKeyListenerServiceClient(cc),
-	}
-}
-
-// GetInputType calls the GetInputType RPC.
-func (c *QwertyKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyDown calls the OnKeyDown RPC.
-func (c *QwertyKeyListenerClient) OnKeyDown(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyDown(ctx, &pb.QwertyKeyListenerOnKeyDownRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *QwertyKeyListenerClient) GetInstance(ctx context.Context, handle int64, arg0 bool, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.QwertyKeyListenerGetInstanceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstanceForFullKeyboard calls the GetInstanceForFullKeyboard RPC.
-func (c *QwertyKeyListenerClient) GetInstanceForFullKeyboard(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstanceForFullKeyboard(ctx, &pb.GetInstanceForFullKeyboardRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MarkAsReplaced calls the MarkAsReplaced RPC.
-func (c *QwertyKeyListenerClient) MarkAsReplaced(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 string) error {
-	_, err := c.svc.MarkAsReplaced(ctx, &pb.MarkAsReplacedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
 	})
 	return err
 }
@@ -781,7 +340,7 @@ func (c *BaseKeyListenerClient) ForwardDelete(ctx context.Context, arg0 int64, a
 
 // OnKeyDown calls the OnKeyDown RPC.
 func (c *BaseKeyListenerClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
+	resp, err := c.svc.OnKeyDown(ctx, &pb.BaseKeyListenerOnKeyDownRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -795,7 +354,7 @@ func (c *BaseKeyListenerClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 
 
 // OnKeyOther calls the OnKeyOther RPC.
 func (c *BaseKeyListenerClient) OnKeyOther(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnKeyOther(ctx, &pb.OnKeyOtherRequest{
+	resp, err := c.svc.OnKeyOther(ctx, &pb.BaseKeyListenerOnKeyOtherRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -804,6 +363,42 @@ func (c *BaseKeyListenerClient) OnKeyOther(ctx context.Context, arg0 int64, arg1
 		return false, err
 	}
 	return resp.GetResult(), nil
+}
+
+// TransformationMethodClient wraps the gRPC TransformationMethodService client.
+type TransformationMethodClient struct {
+	svc pb.TransformationMethodServiceClient
+}
+
+// NewTransformationMethodClient creates a new TransformationMethod client.
+func NewTransformationMethodClient(cc grpc.ClientConnInterface) *TransformationMethodClient {
+	return &TransformationMethodClient{
+		svc: pb.NewTransformationMethodServiceClient(cc),
+	}
+}
+
+// GetTransformation calls the GetTransformation RPC.
+func (c *TransformationMethodClient) GetTransformation(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetTransformation(ctx, &pb.GetTransformationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnFocusChanged calls the OnFocusChanged RPC.
+func (c *TransformationMethodClient) OnFocusChanged(ctx context.Context, arg0 int64, arg1 string, arg2 bool, arg3 int32, arg4 int64) error {
+	_, err := c.svc.OnFocusChanged(ctx, &pb.OnFocusChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
 }
 
 // MetaKeyKeyListenerClient wraps the gRPC MetaKeyKeyListenerService client.
@@ -842,7 +437,7 @@ func (c *MetaKeyKeyListenerClient) ClearMetaKeyState2_2(ctx context.Context, arg
 
 // OnKeyDown calls the OnKeyDown RPC.
 func (c *MetaKeyKeyListenerClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
+	resp, err := c.svc.OnKeyDown(ctx, &pb.MetaKeyKeyListenerOnKeyDownRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -856,7 +451,7 @@ func (c *MetaKeyKeyListenerClient) OnKeyDown(ctx context.Context, arg0 int64, ar
 
 // OnKeyUp calls the OnKeyUp RPC.
 func (c *MetaKeyKeyListenerClient) OnKeyUp(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyUp(ctx, &pb.OnKeyUpRequest{
+	resp, err := c.svc.OnKeyUp(ctx, &pb.MetaKeyKeyListenerOnKeyUpRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -1036,23 +631,45 @@ func (c *MetaKeyKeyListenerClient) ResetMetaState(ctx context.Context, arg0 int6
 	return err
 }
 
-// TransformationMethodClient wraps the gRPC TransformationMethodService client.
-type TransformationMethodClient struct {
-	svc pb.TransformationMethodServiceClient
+// PasswordTransformationMethodClient wraps the gRPC PasswordTransformationMethodService client.
+type PasswordTransformationMethodClient struct {
+	svc pb.PasswordTransformationMethodServiceClient
 }
 
-// NewTransformationMethodClient creates a new TransformationMethod client.
-func NewTransformationMethodClient(cc grpc.ClientConnInterface) *TransformationMethodClient {
-	return &TransformationMethodClient{
-		svc: pb.NewTransformationMethodServiceClient(cc),
+// NewPasswordTransformationMethodClient creates a new PasswordTransformationMethod client.
+func NewPasswordTransformationMethodClient(cc grpc.ClientConnInterface) *PasswordTransformationMethodClient {
+	return &PasswordTransformationMethodClient{
+		svc: pb.NewPasswordTransformationMethodServiceClient(cc),
 	}
 }
 
+// AfterTextChanged calls the AfterTextChanged RPC.
+func (c *PasswordTransformationMethodClient) AfterTextChanged(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AfterTextChanged(ctx, &pb.AfterTextChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// BeforeTextChanged calls the BeforeTextChanged RPC.
+func (c *PasswordTransformationMethodClient) BeforeTextChanged(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.BeforeTextChanged(ctx, &pb.BeforeTextChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
 // GetTransformation calls the GetTransformation RPC.
-func (c *TransformationMethodClient) GetTransformation(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetTransformation(ctx, &pb.GetTransformationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+func (c *PasswordTransformationMethodClient) GetTransformation(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetTransformation(ctx, &pb.PasswordTransformationMethodGetTransformationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -1061,13 +678,539 @@ func (c *TransformationMethodClient) GetTransformation(ctx context.Context, arg0
 }
 
 // OnFocusChanged calls the OnFocusChanged RPC.
-func (c *TransformationMethodClient) OnFocusChanged(ctx context.Context, arg0 int64, arg1 string, arg2 bool, arg3 int32, arg4 int64) error {
-	_, err := c.svc.OnFocusChanged(ctx, &pb.OnFocusChangedRequest{
+func (c *PasswordTransformationMethodClient) OnFocusChanged(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 bool, arg3 int32, arg4 int64) error {
+	_, err := c.svc.OnFocusChanged(ctx, &pb.PasswordTransformationMethodOnFocusChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// OnTextChanged calls the OnTextChanged RPC.
+func (c *PasswordTransformationMethodClient) OnTextChanged(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnTextChanged(ctx, &pb.OnTextChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *PasswordTransformationMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.PasswordTransformationMethodGetInstanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ArrowKeyMovementMethodClient wraps the gRPC ArrowKeyMovementMethodService client.
+type ArrowKeyMovementMethodClient struct {
+	svc pb.ArrowKeyMovementMethodServiceClient
+}
+
+// NewArrowKeyMovementMethodClient creates a new ArrowKeyMovementMethod client.
+func NewArrowKeyMovementMethodClient(cc grpc.ClientConnInterface) *ArrowKeyMovementMethodClient {
+	return &ArrowKeyMovementMethodClient{
+		svc: pb.NewArrowKeyMovementMethodServiceClient(cc),
+	}
+}
+
+// CanSelectArbitrarily calls the CanSelectArbitrarily RPC.
+func (c *ArrowKeyMovementMethodClient) CanSelectArbitrarily(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanSelectArbitrarily(ctx, &pb.CanSelectArbitrarilyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Initialize calls the Initialize RPC.
+func (c *ArrowKeyMovementMethodClient) Initialize(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NextParagraph calls the NextParagraph RPC.
+func (c *ArrowKeyMovementMethodClient) NextParagraph(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.NextParagraph(ctx, &pb.NextParagraphRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTakeFocus calls the OnTakeFocus RPC.
+func (c *ArrowKeyMovementMethodClient) OnTakeFocus(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnTakeFocus(ctx, &pb.OnTakeFocusRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// OnTouchEvent calls the OnTouchEvent RPC.
+func (c *ArrowKeyMovementMethodClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviousParagraph calls the PreviousParagraph RPC.
+func (c *ArrowKeyMovementMethodClient) PreviousParagraph(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.PreviousParagraph(ctx, &pb.PreviousParagraphRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *ArrowKeyMovementMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.ArrowKeyMovementMethodGetInstanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DateTimeKeyListenerClient wraps the gRPC DateTimeKeyListenerService client.
+type DateTimeKeyListenerClient struct {
+	svc pb.DateTimeKeyListenerServiceClient
+}
+
+// NewDateTimeKeyListenerClient creates a new DateTimeKeyListener client.
+func NewDateTimeKeyListenerClient(cc grpc.ClientConnInterface) *DateTimeKeyListenerClient {
+	return &DateTimeKeyListenerClient{
+		svc: pb.NewDateTimeKeyListenerServiceClient(cc),
+	}
+}
+
+// GetInputType calls the GetInputType RPC.
+func (c *DateTimeKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *DateTimeKeyListenerClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *DateTimeKeyListenerClient) GetInstance1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScrollingMovementMethodClient wraps the gRPC ScrollingMovementMethodService client.
+type ScrollingMovementMethodClient struct {
+	svc pb.ScrollingMovementMethodServiceClient
+}
+
+// NewScrollingMovementMethodClient creates a new ScrollingMovementMethod client.
+func NewScrollingMovementMethodClient(cc grpc.ClientConnInterface) *ScrollingMovementMethodClient {
+	return &ScrollingMovementMethodClient{
+		svc: pb.NewScrollingMovementMethodServiceClient(cc),
+	}
+}
+
+// OnTakeFocus calls the OnTakeFocus RPC.
+func (c *ScrollingMovementMethodClient) OnTakeFocus(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnTakeFocus(ctx, &pb.OnTakeFocusRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// OnTouchEvent calls the OnTouchEvent RPC.
+func (c *ScrollingMovementMethodClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *ScrollingMovementMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.ScrollingMovementMethodGetInstanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeKeyListenerClient wraps the gRPC TimeKeyListenerService client.
+type TimeKeyListenerClient struct {
+	svc pb.TimeKeyListenerServiceClient
+}
+
+// NewTimeKeyListenerClient creates a new TimeKeyListener client.
+func NewTimeKeyListenerClient(cc grpc.ClientConnInterface) *TimeKeyListenerClient {
+	return &TimeKeyListenerClient{
+		svc: pb.NewTimeKeyListenerServiceClient(cc),
+	}
+}
+
+// GetInputType calls the GetInputType RPC.
+func (c *TimeKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *TimeKeyListenerClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_1 calls the GetInstance1_1 RPC.
+func (c *TimeKeyListenerClient) GetInstance1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NumberKeyListenerClient wraps the gRPC NumberKeyListenerService client.
+type NumberKeyListenerClient struct {
+	svc pb.NumberKeyListenerServiceClient
+}
+
+// NewNumberKeyListenerClient creates a new NumberKeyListener client.
+func NewNumberKeyListenerClient(cc grpc.ClientConnInterface) *NumberKeyListenerClient {
+	return &NumberKeyListenerClient{
+		svc: pb.NewNumberKeyListenerServiceClient(cc),
+	}
+}
+
+// Filter calls the Filter RPC.
+func (c *NumberKeyListenerClient) Filter(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
+	resp, err := c.svc.Filter(ctx, &pb.FilterRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 		Arg3: arg3,
 		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyDown calls the OnKeyDown RPC.
+func (c *NumberKeyListenerClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnKeyDown(ctx, &pb.NumberKeyListenerOnKeyDownRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MovementMethodClient wraps the gRPC MovementMethodService client.
+type MovementMethodClient struct {
+	svc pb.MovementMethodServiceClient
+}
+
+// NewMovementMethodClient creates a new MovementMethod client.
+func NewMovementMethodClient(cc grpc.ClientConnInterface) *MovementMethodClient {
+	return &MovementMethodClient{
+		svc: pb.NewMovementMethodServiceClient(cc),
+	}
+}
+
+// CanSelectArbitrarily calls the CanSelectArbitrarily RPC.
+func (c *MovementMethodClient) CanSelectArbitrarily(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanSelectArbitrarily(ctx, &pb.MovementMethodCanSelectArbitrarilyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Initialize calls the Initialize RPC.
+func (c *MovementMethodClient) Initialize(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Initialize(ctx, &pb.MovementMethodInitializeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnGenericMotionEvent calls the OnGenericMotionEvent RPC.
+func (c *MovementMethodClient) OnGenericMotionEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnGenericMotionEvent(ctx, &pb.MovementMethodOnGenericMotionEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyDown calls the OnKeyDown RPC.
+func (c *MovementMethodClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnKeyDown(ctx, &pb.MovementMethodOnKeyDownRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyOther calls the OnKeyOther RPC.
+func (c *MovementMethodClient) OnKeyOther(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnKeyOther(ctx, &pb.MovementMethodOnKeyOtherRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyUp calls the OnKeyUp RPC.
+func (c *MovementMethodClient) OnKeyUp(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnKeyUp(ctx, &pb.MovementMethodOnKeyUpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTakeFocus calls the OnTakeFocus RPC.
+func (c *MovementMethodClient) OnTakeFocus(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnTakeFocus(ctx, &pb.MovementMethodOnTakeFocusRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnTouchEvent calls the OnTouchEvent RPC.
+func (c *MovementMethodClient) OnTouchEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.MovementMethodOnTouchEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTrackballEvent calls the OnTrackballEvent RPC.
+func (c *MovementMethodClient) OnTrackballEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnTrackballEvent(ctx, &pb.MovementMethodOnTrackballEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyListenerClient wraps the gRPC KeyListenerService client.
+type KeyListenerClient struct {
+	svc pb.KeyListenerServiceClient
+}
+
+// NewKeyListenerClient creates a new KeyListener client.
+func NewKeyListenerClient(cc grpc.ClientConnInterface) *KeyListenerClient {
+	return &KeyListenerClient{
+		svc: pb.NewKeyListenerServiceClient(cc),
+	}
+}
+
+// ClearMetaKeyState calls the ClearMetaKeyState RPC.
+func (c *KeyListenerClient) ClearMetaKeyState(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.ClearMetaKeyState(ctx, &pb.ClearMetaKeyStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetInputType calls the GetInputType RPC.
+func (c *KeyListenerClient) GetInputType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInputType(ctx, &pb.KeyListenerGetInputTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyDown calls the OnKeyDown RPC.
+func (c *KeyListenerClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnKeyDown(ctx, &pb.KeyListenerOnKeyDownRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyOther calls the OnKeyOther RPC.
+func (c *KeyListenerClient) OnKeyOther(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnKeyOther(ctx, &pb.KeyListenerOnKeyOtherRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyUp calls the OnKeyUp RPC.
+func (c *KeyListenerClient) OnKeyUp(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnKeyUp(ctx, &pb.KeyListenerOnKeyUpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CharacterPickerDialogClient wraps the gRPC CharacterPickerDialogService client.
+type CharacterPickerDialogClient struct {
+	svc pb.CharacterPickerDialogServiceClient
+}
+
+// NewCharacterPickerDialogClient creates a new CharacterPickerDialog client.
+func NewCharacterPickerDialogClient(cc grpc.ClientConnInterface) *CharacterPickerDialogClient {
+	return &CharacterPickerDialogClient{
+		svc: pb.NewCharacterPickerDialogServiceClient(cc),
+	}
+}
+
+// OnClick calls the OnClick RPC.
+func (c *CharacterPickerDialogClient) OnClick(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnItemClick calls the OnItemClick RPC.
+func (c *CharacterPickerDialogClient) OnItemClick(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) error {
+	_, err := c.svc.OnItemClick(ctx, &pb.OnItemClickRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
@@ -1097,7 +1240,7 @@ func (c *TextKeyListenerClient) GetInputType(ctx context.Context, handle int64) 
 
 // OnKeyDown calls the OnKeyDown RPC.
 func (c *TextKeyListenerClient) OnKeyDown(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyDown(ctx, &pb.TextKeyListenerOnKeyDownRequest{
+	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1112,7 +1255,7 @@ func (c *TextKeyListenerClient) OnKeyDown(ctx context.Context, handle int64, arg
 
 // OnKeyOther calls the OnKeyOther RPC.
 func (c *TextKeyListenerClient) OnKeyOther(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnKeyOther(ctx, &pb.TextKeyListenerOnKeyOtherRequest{
+	resp, err := c.svc.OnKeyOther(ctx, &pb.OnKeyOtherRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1126,7 +1269,7 @@ func (c *TextKeyListenerClient) OnKeyOther(ctx context.Context, handle int64, ar
 
 // OnKeyUp calls the OnKeyUp RPC.
 func (c *TextKeyListenerClient) OnKeyUp(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyUp(ctx, &pb.TextKeyListenerOnKeyUpRequest{
+	resp, err := c.svc.OnKeyUp(ctx, &pb.OnKeyUpRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1207,7 +1350,7 @@ func (c *TextKeyListenerClient) GetInstance0(ctx context.Context, handle int64) 
 
 // GetInstance2_1 calls the GetInstance2_1 RPC.
 func (c *TextKeyListenerClient) GetInstance2_1(ctx context.Context, handle int64, arg0 bool, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetInstance2_1(ctx, &pb.TextKeyListenerGetInstance2_1Request{
+	resp, err := c.svc.GetInstance2_1(ctx, &pb.GetInstance2_1Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1264,219 +1407,6 @@ func (c *TextKeyListenerCapitalizeClient) ValueOf(ctx context.Context, arg0 stri
 	return resp.GetResult(), nil
 }
 
-// ArrowKeyMovementMethodClient wraps the gRPC ArrowKeyMovementMethodService client.
-type ArrowKeyMovementMethodClient struct {
-	svc pb.ArrowKeyMovementMethodServiceClient
-}
-
-// NewArrowKeyMovementMethodClient creates a new ArrowKeyMovementMethod client.
-func NewArrowKeyMovementMethodClient(cc grpc.ClientConnInterface) *ArrowKeyMovementMethodClient {
-	return &ArrowKeyMovementMethodClient{
-		svc: pb.NewArrowKeyMovementMethodServiceClient(cc),
-	}
-}
-
-// CanSelectArbitrarily calls the CanSelectArbitrarily RPC.
-func (c *ArrowKeyMovementMethodClient) CanSelectArbitrarily(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanSelectArbitrarily(ctx, &pb.ArrowKeyMovementMethodCanSelectArbitrarilyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Initialize calls the Initialize RPC.
-func (c *ArrowKeyMovementMethodClient) Initialize(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Initialize(ctx, &pb.ArrowKeyMovementMethodInitializeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NextParagraph calls the NextParagraph RPC.
-func (c *ArrowKeyMovementMethodClient) NextParagraph(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.NextParagraph(ctx, &pb.NextParagraphRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnTakeFocus calls the OnTakeFocus RPC.
-func (c *ArrowKeyMovementMethodClient) OnTakeFocus(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnTakeFocus(ctx, &pb.ArrowKeyMovementMethodOnTakeFocusRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// OnTouchEvent calls the OnTouchEvent RPC.
-func (c *ArrowKeyMovementMethodClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnTouchEvent(ctx, &pb.ArrowKeyMovementMethodOnTouchEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PreviousParagraph calls the PreviousParagraph RPC.
-func (c *ArrowKeyMovementMethodClient) PreviousParagraph(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.PreviousParagraph(ctx, &pb.PreviousParagraphRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *ArrowKeyMovementMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyListenerClient wraps the gRPC KeyListenerService client.
-type KeyListenerClient struct {
-	svc pb.KeyListenerServiceClient
-}
-
-// NewKeyListenerClient creates a new KeyListener client.
-func NewKeyListenerClient(cc grpc.ClientConnInterface) *KeyListenerClient {
-	return &KeyListenerClient{
-		svc: pb.NewKeyListenerServiceClient(cc),
-	}
-}
-
-// ClearMetaKeyState calls the ClearMetaKeyState RPC.
-func (c *KeyListenerClient) ClearMetaKeyState(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.ClearMetaKeyState(ctx, &pb.ClearMetaKeyStateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GetInputType calls the GetInputType RPC.
-func (c *KeyListenerClient) GetInputType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetInputType(ctx, &pb.KeyListenerGetInputTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyDown calls the OnKeyDown RPC.
-func (c *KeyListenerClient) OnKeyDown(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyOther calls the OnKeyOther RPC.
-func (c *KeyListenerClient) OnKeyOther(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnKeyOther(ctx, &pb.OnKeyOtherRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyUp calls the OnKeyUp RPC.
-func (c *KeyListenerClient) OnKeyUp(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyUp(ctx, &pb.OnKeyUpRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DateTimeKeyListenerClient wraps the gRPC DateTimeKeyListenerService client.
-type DateTimeKeyListenerClient struct {
-	svc pb.DateTimeKeyListenerServiceClient
-}
-
-// NewDateTimeKeyListenerClient creates a new DateTimeKeyListener client.
-func NewDateTimeKeyListenerClient(cc grpc.ClientConnInterface) *DateTimeKeyListenerClient {
-	return &DateTimeKeyListenerClient{
-		svc: pb.NewDateTimeKeyListenerServiceClient(cc),
-	}
-}
-
-// GetInputType calls the GetInputType RPC.
-func (c *DateTimeKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance0 calls the GetInstance0 RPC.
-func (c *DateTimeKeyListenerClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance1_1 calls the GetInstance1_1 RPC.
-func (c *DateTimeKeyListenerClient) GetInstance1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance1_1(ctx, &pb.GetInstance1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // DateKeyListenerClient wraps the gRPC DateKeyListenerService client.
 type DateKeyListenerClient struct {
 	svc pb.DateKeyListenerServiceClient
@@ -1523,45 +1453,22 @@ func (c *DateKeyListenerClient) GetInstance1_1(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// PasswordTransformationMethodClient wraps the gRPC PasswordTransformationMethodService client.
-type PasswordTransformationMethodClient struct {
-	svc pb.PasswordTransformationMethodServiceClient
+// DialerKeyListenerClient wraps the gRPC DialerKeyListenerService client.
+type DialerKeyListenerClient struct {
+	svc pb.DialerKeyListenerServiceClient
 }
 
-// NewPasswordTransformationMethodClient creates a new PasswordTransformationMethod client.
-func NewPasswordTransformationMethodClient(cc grpc.ClientConnInterface) *PasswordTransformationMethodClient {
-	return &PasswordTransformationMethodClient{
-		svc: pb.NewPasswordTransformationMethodServiceClient(cc),
+// NewDialerKeyListenerClient creates a new DialerKeyListener client.
+func NewDialerKeyListenerClient(cc grpc.ClientConnInterface) *DialerKeyListenerClient {
+	return &DialerKeyListenerClient{
+		svc: pb.NewDialerKeyListenerServiceClient(cc),
 	}
 }
 
-// AfterTextChanged calls the AfterTextChanged RPC.
-func (c *PasswordTransformationMethodClient) AfterTextChanged(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AfterTextChanged(ctx, &pb.AfterTextChangedRequest{
+// GetInputType calls the GetInputType RPC.
+func (c *DialerKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
 		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// BeforeTextChanged calls the BeforeTextChanged RPC.
-func (c *PasswordTransformationMethodClient) BeforeTextChanged(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.BeforeTextChanged(ctx, &pb.BeforeTextChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GetTransformation calls the GetTransformation RPC.
-func (c *PasswordTransformationMethodClient) GetTransformation(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetTransformation(ctx, &pb.PasswordTransformationMethodGetTransformationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -1569,22 +1476,84 @@ func (c *PasswordTransformationMethodClient) GetTransformation(ctx context.Conte
 	return resp.GetResult(), nil
 }
 
-// OnFocusChanged calls the OnFocusChanged RPC.
-func (c *PasswordTransformationMethodClient) OnFocusChanged(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 bool, arg3 int32, arg4 int64) error {
-	_, err := c.svc.OnFocusChanged(ctx, &pb.PasswordTransformationMethodOnFocusChangedRequest{
+// GetInstance calls the GetInstance RPC.
+func (c *DialerKeyListenerClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.DialerKeyListenerGetInstanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MultiTapKeyListenerClient wraps the gRPC MultiTapKeyListenerService client.
+type MultiTapKeyListenerClient struct {
+	svc pb.MultiTapKeyListenerServiceClient
+}
+
+// NewMultiTapKeyListenerClient creates a new MultiTapKeyListener client.
+func NewMultiTapKeyListenerClient(cc grpc.ClientConnInterface) *MultiTapKeyListenerClient {
+	return &MultiTapKeyListenerClient{
+		svc: pb.NewMultiTapKeyListenerServiceClient(cc),
+	}
+}
+
+// GetInputType calls the GetInputType RPC.
+func (c *MultiTapKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyDown calls the OnKeyDown RPC.
+func (c *MultiTapKeyListenerClient) OnKeyDown(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnSpanAdded calls the OnSpanAdded RPC.
+func (c *MultiTapKeyListenerClient) OnSpanAdded(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnSpanAdded(ctx, &pb.OnSpanAddedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// OnSpanChanged calls the OnSpanChanged RPC.
+func (c *MultiTapKeyListenerClient) OnSpanChanged(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.OnSpanChanged(ctx, &pb.OnSpanChangedRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 		Arg2:   arg2,
 		Arg3:   arg3,
 		Arg4:   arg4,
+		Arg5:   arg5,
 	})
 	return err
 }
 
-// OnTextChanged calls the OnTextChanged RPC.
-func (c *PasswordTransformationMethodClient) OnTextChanged(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnTextChanged(ctx, &pb.OnTextChangedRequest{
+// OnSpanRemoved calls the OnSpanRemoved RPC.
+func (c *MultiTapKeyListenerClient) OnSpanRemoved(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnSpanRemoved(ctx, &pb.OnSpanRemovedRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1595,9 +1564,173 @@ func (c *PasswordTransformationMethodClient) OnTextChanged(ctx context.Context, 
 }
 
 // GetInstance calls the GetInstance RPC.
-func (c *PasswordTransformationMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
+func (c *MultiTapKeyListenerClient) GetInstance(ctx context.Context, handle int64, arg0 bool, arg1 int64) (int64, error) {
 	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
 		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TouchClient wraps the gRPC TouchService client.
+type TouchClient struct {
+	svc pb.TouchServiceClient
+}
+
+// NewTouchClient creates a new Touch client.
+func NewTouchClient(cc grpc.ClientConnInterface) *TouchClient {
+	return &TouchClient{
+		svc: pb.NewTouchServiceClient(cc),
+	}
+}
+
+// GetInitialScrollX calls the GetInitialScrollX RPC.
+func (c *TouchClient) GetInitialScrollX(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.GetInitialScrollX(ctx, &pb.GetInitialScrollXRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitialScrollY calls the GetInitialScrollY RPC.
+func (c *TouchClient) GetInitialScrollY(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.GetInitialScrollY(ctx, &pb.GetInitialScrollYRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTouchEvent calls the OnTouchEvent RPC.
+func (c *TouchClient) OnTouchEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.TouchOnTouchEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScrollTo calls the ScrollTo RPC.
+func (c *TouchClient) ScrollTo(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) error {
+	_, err := c.svc.ScrollTo(ctx, &pb.ScrollToRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// DigitsKeyListenerClient wraps the gRPC DigitsKeyListenerService client.
+type DigitsKeyListenerClient struct {
+	svc pb.DigitsKeyListenerServiceClient
+}
+
+// NewDigitsKeyListenerClient creates a new DigitsKeyListener client.
+func NewDigitsKeyListenerClient(cc grpc.ClientConnInterface) *DigitsKeyListenerClient {
+	return &DigitsKeyListenerClient{
+		svc: pb.NewDigitsKeyListenerServiceClient(cc),
+	}
+}
+
+// Filter calls the Filter RPC.
+func (c *DigitsKeyListenerClient) Filter(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
+	resp, err := c.svc.Filter(ctx, &pb.DigitsKeyListenerFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputType calls the GetInputType RPC.
+func (c *DigitsKeyListenerClient) GetInputType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInputType(ctx, &pb.GetInputTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance0 calls the GetInstance0 RPC.
+func (c *DigitsKeyListenerClient) GetInstance0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance0(ctx, &pb.GetInstance0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance2_1 calls the GetInstance2_1 RPC.
+func (c *DigitsKeyListenerClient) GetInstance2_1(ctx context.Context, handle int64, arg0 bool, arg1 bool) (int64, error) {
+	resp, err := c.svc.GetInstance2_1(ctx, &pb.DigitsKeyListenerGetInstance2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_2 calls the GetInstance1_2 RPC.
+func (c *DigitsKeyListenerClient) GetInstance1_2(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetInstance1_2(ctx, &pb.GetInstance1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance1_3 calls the GetInstance1_3 RPC.
+func (c *DigitsKeyListenerClient) GetInstance1_3(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1_3(ctx, &pb.GetInstance1_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance3_4 calls the GetInstance3_4 RPC.
+func (c *DigitsKeyListenerClient) GetInstance3_4(ctx context.Context, handle int64, arg0 int64, arg1 bool, arg2 bool) (int64, error) {
+	resp, err := c.svc.GetInstance3_4(ctx, &pb.GetInstance3_4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -1619,7 +1752,7 @@ func NewLinkMovementMethodClient(cc grpc.ClientConnInterface) *LinkMovementMetho
 
 // CanSelectArbitrarily calls the CanSelectArbitrarily RPC.
 func (c *LinkMovementMethodClient) CanSelectArbitrarily(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanSelectArbitrarily(ctx, &pb.LinkMovementMethodCanSelectArbitrarilyRequest{
+	resp, err := c.svc.CanSelectArbitrarily(ctx, &pb.CanSelectArbitrarilyRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1630,7 +1763,7 @@ func (c *LinkMovementMethodClient) CanSelectArbitrarily(ctx context.Context, han
 
 // Initialize calls the Initialize RPC.
 func (c *LinkMovementMethodClient) Initialize(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Initialize(ctx, &pb.LinkMovementMethodInitializeRequest{
+	_, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1640,7 +1773,7 @@ func (c *LinkMovementMethodClient) Initialize(ctx context.Context, handle int64,
 
 // OnTakeFocus calls the OnTakeFocus RPC.
 func (c *LinkMovementMethodClient) OnTakeFocus(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnTakeFocus(ctx, &pb.LinkMovementMethodOnTakeFocusRequest{
+	_, err := c.svc.OnTakeFocus(ctx, &pb.OnTakeFocusRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1651,7 +1784,7 @@ func (c *LinkMovementMethodClient) OnTakeFocus(ctx context.Context, handle int64
 
 // OnTouchEvent calls the OnTouchEvent RPC.
 func (c *LinkMovementMethodClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnTouchEvent(ctx, &pb.LinkMovementMethodOnTouchEventRequest{
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1665,7 +1798,7 @@ func (c *LinkMovementMethodClient) OnTouchEvent(ctx context.Context, handle int6
 
 // GetInstance calls the GetInstance RPC.
 func (c *LinkMovementMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
+	resp, err := c.svc.GetInstance(ctx, &pb.LinkMovementMethodGetInstanceRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1674,158 +1807,25 @@ func (c *LinkMovementMethodClient) GetInstance(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// BaseMovementMethodClient wraps the gRPC BaseMovementMethodService client.
-type BaseMovementMethodClient struct {
-	svc pb.BaseMovementMethodServiceClient
+// HideReturnsTransformationMethodClient wraps the gRPC HideReturnsTransformationMethodService client.
+type HideReturnsTransformationMethodClient struct {
+	svc pb.HideReturnsTransformationMethodServiceClient
 }
 
-// NewBaseMovementMethodClient creates a new BaseMovementMethod client.
-func NewBaseMovementMethodClient(cc grpc.ClientConnInterface) *BaseMovementMethodClient {
-	return &BaseMovementMethodClient{
-		svc: pb.NewBaseMovementMethodServiceClient(cc),
+// NewHideReturnsTransformationMethodClient creates a new HideReturnsTransformationMethod client.
+func NewHideReturnsTransformationMethodClient(cc grpc.ClientConnInterface) *HideReturnsTransformationMethodClient {
+	return &HideReturnsTransformationMethodClient{
+		svc: pb.NewHideReturnsTransformationMethodServiceClient(cc),
 	}
 }
 
-// CanSelectArbitrarily calls the CanSelectArbitrarily RPC.
-func (c *BaseMovementMethodClient) CanSelectArbitrarily(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanSelectArbitrarily(ctx, &pb.BaseMovementMethodCanSelectArbitrarilyRequest{
+// GetInstance calls the GetInstance RPC.
+func (c *HideReturnsTransformationMethodClient) GetInstance(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.HideReturnsTransformationMethodGetInstanceRequest{
 		Handle: handle,
 	})
 	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Initialize calls the Initialize RPC.
-func (c *BaseMovementMethodClient) Initialize(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Initialize(ctx, &pb.BaseMovementMethodInitializeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NextParagraph calls the NextParagraph RPC.
-func (c *BaseMovementMethodClient) NextParagraph(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.NextParagraph(ctx, &pb.NextParagraphRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnGenericMotionEvent calls the OnGenericMotionEvent RPC.
-func (c *BaseMovementMethodClient) OnGenericMotionEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnGenericMotionEvent(ctx, &pb.BaseMovementMethodOnGenericMotionEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyDown calls the OnKeyDown RPC.
-func (c *BaseMovementMethodClient) OnKeyDown(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyDown(ctx, &pb.BaseMovementMethodOnKeyDownRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyOther calls the OnKeyOther RPC.
-func (c *BaseMovementMethodClient) OnKeyOther(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnKeyOther(ctx, &pb.BaseMovementMethodOnKeyOtherRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnKeyUp calls the OnKeyUp RPC.
-func (c *BaseMovementMethodClient) OnKeyUp(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnKeyUp(ctx, &pb.BaseMovementMethodOnKeyUpRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnTakeFocus calls the OnTakeFocus RPC.
-func (c *BaseMovementMethodClient) OnTakeFocus(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnTakeFocus(ctx, &pb.BaseMovementMethodOnTakeFocusRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// OnTouchEvent calls the OnTouchEvent RPC.
-func (c *BaseMovementMethodClient) OnTouchEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnTouchEvent(ctx, &pb.BaseMovementMethodOnTouchEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnTrackballEvent calls the OnTrackballEvent RPC.
-func (c *BaseMovementMethodClient) OnTrackballEvent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnTrackballEvent(ctx, &pb.BaseMovementMethodOnTrackballEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PreviousParagraph calls the PreviousParagraph RPC.
-func (c *BaseMovementMethodClient) PreviousParagraph(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.PreviousParagraph(ctx, &pb.PreviousParagraphRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

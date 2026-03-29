@@ -32,6 +32,17 @@ func (c *TvInteractiveAppServiceInfoClient) DescribeContents(ctx context.Context
 	return resp.GetResult(), nil
 }
 
+// GetCustomSupportedTypes calls the GetCustomSupportedTypes RPC.
+func (c *TvInteractiveAppServiceInfoClient) GetCustomSupportedTypes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCustomSupportedTypes(ctx, &pb.GetCustomSupportedTypesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetId calls the GetId RPC.
 func (c *TvInteractiveAppServiceInfoClient) GetId(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
@@ -71,6 +82,836 @@ func (c *TvInteractiveAppServiceInfoClient) WriteToParcel(ctx context.Context, h
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
+	})
+	return err
+}
+
+// TvInteractiveAppViewClient wraps the gRPC TvInteractiveAppViewService client.
+type TvInteractiveAppViewClient struct {
+	svc pb.TvInteractiveAppViewServiceClient
+}
+
+// NewTvInteractiveAppViewClient creates a new TvInteractiveAppView client.
+func NewTvInteractiveAppViewClient(cc grpc.ClientConnInterface) *TvInteractiveAppViewClient {
+	return &TvInteractiveAppViewClient{
+		svc: pb.NewTvInteractiveAppViewServiceClient(cc),
+	}
+}
+
+// ClearCallback calls the ClearCallback RPC.
+func (c *TvInteractiveAppViewClient) ClearCallback(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearCallback(ctx, &pb.ClearCallbackRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ClearOnUnhandledInputEventListener calls the ClearOnUnhandledInputEventListener RPC.
+func (c *TvInteractiveAppViewClient) ClearOnUnhandledInputEventListener(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearOnUnhandledInputEventListener(ctx, &pb.ClearOnUnhandledInputEventListenerRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CreateBiInteractiveApp calls the CreateBiInteractiveApp RPC.
+func (c *TvInteractiveAppViewClient) CreateBiInteractiveApp(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.CreateBiInteractiveApp(ctx, &pb.CreateBiInteractiveAppRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// DestroyBiInteractiveApp calls the DestroyBiInteractiveApp RPC.
+func (c *TvInteractiveAppViewClient) DestroyBiInteractiveApp(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.DestroyBiInteractiveApp(ctx, &pb.DestroyBiInteractiveAppRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DispatchKeyEvent calls the DispatchKeyEvent RPC.
+func (c *TvInteractiveAppViewClient) DispatchKeyEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchKeyEvent(ctx, &pb.DispatchKeyEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchUnhandledInputEvent calls the DispatchUnhandledInputEvent RPC.
+func (c *TvInteractiveAppViewClient) DispatchUnhandledInputEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchUnhandledInputEvent(ctx, &pb.DispatchUnhandledInputEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOnUnhandledInputEventListener calls the GetOnUnhandledInputEventListener RPC.
+func (c *TvInteractiveAppViewClient) GetOnUnhandledInputEventListener(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOnUnhandledInputEventListener(ctx, &pb.GetOnUnhandledInputEventListenerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifyError calls the NotifyError RPC.
+func (c *TvInteractiveAppViewClient) NotifyError(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.NotifyError(ctx, &pb.NotifyErrorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NotifyRecordingScheduled calls the NotifyRecordingScheduled RPC.
+func (c *TvInteractiveAppViewClient) NotifyRecordingScheduled(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.NotifyRecordingScheduled(ctx, &pb.NotifyRecordingScheduledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NotifyRecordingStarted calls the NotifyRecordingStarted RPC.
+func (c *TvInteractiveAppViewClient) NotifyRecordingStarted(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.NotifyRecordingStarted(ctx, &pb.NotifyRecordingStartedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NotifyRecordingStopped calls the NotifyRecordingStopped RPC.
+func (c *TvInteractiveAppViewClient) NotifyRecordingStopped(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.NotifyRecordingStopped(ctx, &pb.NotifyRecordingStoppedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// NotifyTimeShiftCurrentPositionChanged calls the NotifyTimeShiftCurrentPositionChanged RPC.
+func (c *TvInteractiveAppViewClient) NotifyTimeShiftCurrentPositionChanged(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.NotifyTimeShiftCurrentPositionChanged(ctx, &pb.NotifyTimeShiftCurrentPositionChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NotifyTimeShiftPlaybackParams calls the NotifyTimeShiftPlaybackParams RPC.
+func (c *TvInteractiveAppViewClient) NotifyTimeShiftPlaybackParams(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.NotifyTimeShiftPlaybackParams(ctx, &pb.NotifyTimeShiftPlaybackParamsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// NotifyTimeShiftStartPositionChanged calls the NotifyTimeShiftStartPositionChanged RPC.
+func (c *TvInteractiveAppViewClient) NotifyTimeShiftStartPositionChanged(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.NotifyTimeShiftStartPositionChanged(ctx, &pb.NotifyTimeShiftStartPositionChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NotifyTimeShiftStatusChanged calls the NotifyTimeShiftStatusChanged RPC.
+func (c *TvInteractiveAppViewClient) NotifyTimeShiftStatusChanged(ctx context.Context, handle int64, arg0 string, arg1 int32) error {
+	_, err := c.svc.NotifyTimeShiftStatusChanged(ctx, &pb.NotifyTimeShiftStatusChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NotifyTvMessage calls the NotifyTvMessage RPC.
+func (c *TvInteractiveAppViewClient) NotifyTvMessage(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.NotifyTvMessage(ctx, &pb.NotifyTvMessageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NotifyVideoFreezeUpdated calls the NotifyVideoFreezeUpdated RPC.
+func (c *TvInteractiveAppViewClient) NotifyVideoFreezeUpdated(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.NotifyVideoFreezeUpdated(ctx, &pb.NotifyVideoFreezeUpdatedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnAttachedToWindow calls the OnAttachedToWindow RPC.
+func (c *TvInteractiveAppViewClient) OnAttachedToWindow(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnAttachedToWindow(ctx, &pb.OnAttachedToWindowRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnDetachedFromWindow calls the OnDetachedFromWindow RPC.
+func (c *TvInteractiveAppViewClient) OnDetachedFromWindow(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnDetachedFromWindow(ctx, &pb.OnDetachedFromWindowRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnLayout calls the OnLayout RPC.
+func (c *TvInteractiveAppViewClient) OnLayout(ctx context.Context, handle int64, arg0 bool, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.OnLayout(ctx, &pb.OnLayoutRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// OnMeasure calls the OnMeasure RPC.
+func (c *TvInteractiveAppViewClient) OnMeasure(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.OnMeasure(ctx, &pb.OnMeasureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnUnhandledInputEvent calls the OnUnhandledInputEvent RPC.
+func (c *TvInteractiveAppViewClient) OnUnhandledInputEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnUnhandledInputEvent(ctx, &pb.OnUnhandledInputEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnVisibilityChanged calls the OnVisibilityChanged RPC.
+func (c *TvInteractiveAppViewClient) OnVisibilityChanged(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnVisibilityChanged(ctx, &pb.OnVisibilityChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PrepareInteractiveApp calls the PrepareInteractiveApp RPC.
+func (c *TvInteractiveAppViewClient) PrepareInteractiveApp(ctx context.Context, handle int64, arg0 string, arg1 int32) error {
+	_, err := c.svc.PrepareInteractiveApp(ctx, &pb.PrepareInteractiveAppRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Reset calls the Reset RPC.
+func (c *TvInteractiveAppViewClient) Reset(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ResetInteractiveApp calls the ResetInteractiveApp RPC.
+func (c *TvInteractiveAppViewClient) ResetInteractiveApp(ctx context.Context, handle int64) error {
+	_, err := c.svc.ResetInteractiveApp(ctx, &pb.ResetInteractiveAppRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SendAvailableSpeeds calls the SendAvailableSpeeds RPC.
+func (c *TvInteractiveAppViewClient) SendAvailableSpeeds(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SendAvailableSpeeds(ctx, &pb.SendAvailableSpeedsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendCertificate calls the SendCertificate RPC.
+func (c *TvInteractiveAppViewClient) SendCertificate(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) error {
+	_, err := c.svc.SendCertificate(ctx, &pb.SendCertificateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SendCurrentChannelLcn calls the SendCurrentChannelLcn RPC.
+func (c *TvInteractiveAppViewClient) SendCurrentChannelLcn(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SendCurrentChannelLcn(ctx, &pb.SendCurrentChannelLcnRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendCurrentChannelUri calls the SendCurrentChannelUri RPC.
+func (c *TvInteractiveAppViewClient) SendCurrentChannelUri(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SendCurrentChannelUri(ctx, &pb.SendCurrentChannelUriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendCurrentTvInputId calls the SendCurrentTvInputId RPC.
+func (c *TvInteractiveAppViewClient) SendCurrentTvInputId(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SendCurrentTvInputId(ctx, &pb.SendCurrentTvInputIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendCurrentVideoBounds calls the SendCurrentVideoBounds RPC.
+func (c *TvInteractiveAppViewClient) SendCurrentVideoBounds(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SendCurrentVideoBounds(ctx, &pb.SendCurrentVideoBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendSigningResult calls the SendSigningResult RPC.
+func (c *TvInteractiveAppViewClient) SendSigningResult(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.SendSigningResult(ctx, &pb.SendSigningResultRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SendStreamVolume calls the SendStreamVolume RPC.
+func (c *TvInteractiveAppViewClient) SendStreamVolume(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SendStreamVolume(ctx, &pb.SendStreamVolumeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendTimeShiftMode calls the SendTimeShiftMode RPC.
+func (c *TvInteractiveAppViewClient) SendTimeShiftMode(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SendTimeShiftMode(ctx, &pb.SendTimeShiftModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendTvRecordingInfo calls the SendTvRecordingInfo RPC.
+func (c *TvInteractiveAppViewClient) SendTvRecordingInfo(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SendTvRecordingInfo(ctx, &pb.SendTvRecordingInfoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCallback calls the SetCallback RPC.
+func (c *TvInteractiveAppViewClient) SetCallback(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetCallback(ctx, &pb.SetCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOnUnhandledInputEventListener calls the SetOnUnhandledInputEventListener RPC.
+func (c *TvInteractiveAppViewClient) SetOnUnhandledInputEventListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetOnUnhandledInputEventListener(ctx, &pb.SetOnUnhandledInputEventListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetTeletextAppEnabled calls the SetTeletextAppEnabled RPC.
+func (c *TvInteractiveAppViewClient) SetTeletextAppEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetTeletextAppEnabled(ctx, &pb.SetTeletextAppEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTvView calls the SetTvView RPC.
+func (c *TvInteractiveAppViewClient) SetTvView(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.SetTvView(ctx, &pb.SetTvViewRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZOrderMediaOverlay calls the SetZOrderMediaOverlay RPC.
+func (c *TvInteractiveAppViewClient) SetZOrderMediaOverlay(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetZOrderMediaOverlay(ctx, &pb.SetZOrderMediaOverlayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetZOrderOnTop calls the SetZOrderOnTop RPC.
+func (c *TvInteractiveAppViewClient) SetZOrderOnTop(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetZOrderOnTop(ctx, &pb.SetZOrderOnTopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartInteractiveApp calls the StartInteractiveApp RPC.
+func (c *TvInteractiveAppViewClient) StartInteractiveApp(ctx context.Context, handle int64) error {
+	_, err := c.svc.StartInteractiveApp(ctx, &pb.StartInteractiveAppRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// StopInteractiveApp calls the StopInteractiveApp RPC.
+func (c *TvInteractiveAppViewClient) StopInteractiveApp(ctx context.Context, handle int64) error {
+	_, err := c.svc.StopInteractiveApp(ctx, &pb.StopInteractiveAppRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// TvInteractiveAppViewOnUnhandledInputEventListenerClient wraps the gRPC TvInteractiveAppViewOnUnhandledInputEventListenerService client.
+type TvInteractiveAppViewOnUnhandledInputEventListenerClient struct {
+	svc pb.TvInteractiveAppViewOnUnhandledInputEventListenerServiceClient
+}
+
+// NewTvInteractiveAppViewOnUnhandledInputEventListenerClient creates a new TvInteractiveAppViewOnUnhandledInputEventListener client.
+func NewTvInteractiveAppViewOnUnhandledInputEventListenerClient(cc grpc.ClientConnInterface) *TvInteractiveAppViewOnUnhandledInputEventListenerClient {
+	return &TvInteractiveAppViewOnUnhandledInputEventListenerClient{
+		svc: pb.NewTvInteractiveAppViewOnUnhandledInputEventListenerServiceClient(cc),
+	}
+}
+
+// OnUnhandledInputEvent calls the OnUnhandledInputEvent RPC.
+func (c *TvInteractiveAppViewOnUnhandledInputEventListenerClient) OnUnhandledInputEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnUnhandledInputEvent(ctx, &pb.TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TvInteractiveAppViewTvInteractiveAppCallbackClient wraps the gRPC TvInteractiveAppViewTvInteractiveAppCallbackService client.
+type TvInteractiveAppViewTvInteractiveAppCallbackClient struct {
+	svc pb.TvInteractiveAppViewTvInteractiveAppCallbackServiceClient
+}
+
+// NewTvInteractiveAppViewTvInteractiveAppCallbackClient creates a new TvInteractiveAppViewTvInteractiveAppCallback client.
+func NewTvInteractiveAppViewTvInteractiveAppCallbackClient(cc grpc.ClientConnInterface) *TvInteractiveAppViewTvInteractiveAppCallbackClient {
+	return &TvInteractiveAppViewTvInteractiveAppCallbackClient{
+		svc: pb.NewTvInteractiveAppViewTvInteractiveAppCallbackServiceClient(cc),
+	}
+}
+
+// OnBiInteractiveAppCreated calls the OnBiInteractiveAppCreated RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnBiInteractiveAppCreated(ctx context.Context, arg0 string, arg1 int64, arg2 string) error {
+	_, err := c.svc.OnBiInteractiveAppCreated(ctx, &pb.OnBiInteractiveAppCreatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnPlaybackCommandRequest calls the OnPlaybackCommandRequest RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnPlaybackCommandRequest(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
+	_, err := c.svc.OnPlaybackCommandRequest(ctx, &pb.OnPlaybackCommandRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRequestAvailableSpeeds calls the OnRequestAvailableSpeeds RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestAvailableSpeeds(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestAvailableSpeeds(ctx, &pb.OnRequestAvailableSpeedsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestCertificate calls the OnRequestCertificate RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCertificate(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
+	_, err := c.svc.OnRequestCertificate(ctx, &pb.OnRequestCertificateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRequestCurrentChannelLcn calls the OnRequestCurrentChannelLcn RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCurrentChannelLcn(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestCurrentChannelLcn(ctx, &pb.OnRequestCurrentChannelLcnRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestCurrentChannelUri calls the OnRequestCurrentChannelUri RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCurrentChannelUri(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestCurrentChannelUri(ctx, &pb.OnRequestCurrentChannelUriRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestCurrentTvInputId calls the OnRequestCurrentTvInputId RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCurrentTvInputId(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestCurrentTvInputId(ctx, &pb.OnRequestCurrentTvInputIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestCurrentVideoBounds calls the OnRequestCurrentVideoBounds RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCurrentVideoBounds(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestCurrentVideoBounds(ctx, &pb.OnRequestCurrentVideoBoundsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestScheduleRecording6 calls the OnRequestScheduleRecording6 RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestScheduleRecording6(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64, arg4 int64, arg5 int64) error {
+	_, err := c.svc.OnRequestScheduleRecording6(ctx, &pb.OnRequestScheduleRecording6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// OnRequestScheduleRecording8_1 calls the OnRequestScheduleRecording8_1 RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestScheduleRecording8_1(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64, arg4 int64, arg5 int64, arg6 int32, arg7 int64) error {
+	_, err := c.svc.OnRequestScheduleRecording8_1(ctx, &pb.OnRequestScheduleRecording8_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+	})
+	return err
+}
+
+// OnRequestSelectedTrackInfo calls the OnRequestSelectedTrackInfo RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestSelectedTrackInfo(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestSelectedTrackInfo(ctx, &pb.OnRequestSelectedTrackInfoRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestSigning5 calls the OnRequestSigning5 RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestSigning5(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string, arg4 int64) error {
+	_, err := c.svc.OnRequestSigning5(ctx, &pb.OnRequestSigning5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// OnRequestSigning6_1 calls the OnRequestSigning6_1 RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestSigning6_1(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string, arg4 int32, arg5 int64) error {
+	_, err := c.svc.OnRequestSigning6_1(ctx, &pb.OnRequestSigning6_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// OnRequestStartRecording calls the OnRequestStartRecording RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestStartRecording(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
+	_, err := c.svc.OnRequestStartRecording(ctx, &pb.OnRequestStartRecordingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRequestStopRecording calls the OnRequestStopRecording RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestStopRecording(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.OnRequestStopRecording(ctx, &pb.OnRequestStopRecordingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRequestStreamVolume calls the OnRequestStreamVolume RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestStreamVolume(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestStreamVolume(ctx, &pb.OnRequestStreamVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestTimeShiftMode calls the OnRequestTimeShiftMode RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestTimeShiftMode(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestTimeShiftMode(ctx, &pb.OnRequestTimeShiftModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestTrackInfoList calls the OnRequestTrackInfoList RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestTrackInfoList(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestTrackInfoList(ctx, &pb.OnRequestTrackInfoListRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestTvRecordingInfo calls the OnRequestTvRecordingInfo RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestTvRecordingInfo(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.OnRequestTvRecordingInfo(ctx, &pb.OnRequestTvRecordingInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRequestTvRecordingInfoList calls the OnRequestTvRecordingInfoList RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestTvRecordingInfoList(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.OnRequestTvRecordingInfoList(ctx, &pb.OnRequestTvRecordingInfoListRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSetTvRecordingInfo calls the OnSetTvRecordingInfo RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnSetTvRecordingInfo(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
+	_, err := c.svc.OnSetTvRecordingInfo(ctx, &pb.OnSetTvRecordingInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnSetVideoBounds calls the OnSetVideoBounds RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnSetVideoBounds(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnSetVideoBounds(ctx, &pb.OnSetVideoBoundsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnStateChanged calls the OnStateChanged RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnStateChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnStateChanged(ctx, &pb.OnStateChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnTeletextAppStateChanged calls the OnTeletextAppStateChanged RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnTeletextAppStateChanged(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.OnTeletextAppStateChanged(ctx, &pb.OnTeletextAppStateChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnTimeShiftCommandRequest calls the OnTimeShiftCommandRequest RPC.
+func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnTimeShiftCommandRequest(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
+	_, err := c.svc.OnTimeShiftCommandRequest(ctx, &pb.OnTimeShiftCommandRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// TvInteractiveAppManagerClient wraps the gRPC TvInteractiveAppManagerService client.
+type TvInteractiveAppManagerClient struct {
+	svc pb.TvInteractiveAppManagerServiceClient
+}
+
+// NewTvInteractiveAppManagerClient creates a new TvInteractiveAppManager client.
+func NewTvInteractiveAppManagerClient(cc grpc.ClientConnInterface) *TvInteractiveAppManagerClient {
+	return &TvInteractiveAppManagerClient{
+		svc: pb.NewTvInteractiveAppManagerServiceClient(cc),
+	}
+}
+
+// GetAppLinkInfoList calls the GetAppLinkInfoList RPC.
+func (c *TvInteractiveAppManagerClient) GetAppLinkInfoList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppLinkInfoList(ctx, &pb.GetAppLinkInfoListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTvInteractiveAppServiceList calls the GetTvInteractiveAppServiceList RPC.
+func (c *TvInteractiveAppManagerClient) GetTvInteractiveAppServiceList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTvInteractiveAppServiceList(ctx, &pb.GetTvInteractiveAppServiceListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterAppLinkInfo calls the RegisterAppLinkInfo RPC.
+func (c *TvInteractiveAppManagerClient) RegisterAppLinkInfo(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.RegisterAppLinkInfo(ctx, &pb.RegisterAppLinkInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RegisterCallback calls the RegisterCallback RPC.
+func (c *TvInteractiveAppManagerClient) RegisterCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterCallback(ctx, &pb.RegisterCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SendAppLinkCommand calls the SendAppLinkCommand RPC.
+func (c *TvInteractiveAppManagerClient) SendAppLinkCommand(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.SendAppLinkCommand(ctx, &pb.SendAppLinkCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnregisterAppLinkInfo calls the UnregisterAppLinkInfo RPC.
+func (c *TvInteractiveAppManagerClient) UnregisterAppLinkInfo(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.UnregisterAppLinkInfo(ctx, &pb.UnregisterAppLinkInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnregisterCallback calls the UnregisterCallback RPC.
+func (c *TvInteractiveAppManagerClient) UnregisterCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterCallback(ctx, &pb.UnregisterCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TvInteractiveAppManagerTvInteractiveAppCallbackClient wraps the gRPC TvInteractiveAppManagerTvInteractiveAppCallbackService client.
+type TvInteractiveAppManagerTvInteractiveAppCallbackClient struct {
+	svc pb.TvInteractiveAppManagerTvInteractiveAppCallbackServiceClient
+}
+
+// NewTvInteractiveAppManagerTvInteractiveAppCallbackClient creates a new TvInteractiveAppManagerTvInteractiveAppCallback client.
+func NewTvInteractiveAppManagerTvInteractiveAppCallbackClient(cc grpc.ClientConnInterface) *TvInteractiveAppManagerTvInteractiveAppCallbackClient {
+	return &TvInteractiveAppManagerTvInteractiveAppCallbackClient{
+		svc: pb.NewTvInteractiveAppManagerTvInteractiveAppCallbackServiceClient(cc),
+	}
+}
+
+// OnInteractiveAppServiceAdded calls the OnInteractiveAppServiceAdded RPC.
+func (c *TvInteractiveAppManagerTvInteractiveAppCallbackClient) OnInteractiveAppServiceAdded(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnInteractiveAppServiceAdded(ctx, &pb.OnInteractiveAppServiceAddedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnInteractiveAppServiceRemoved calls the OnInteractiveAppServiceRemoved RPC.
+func (c *TvInteractiveAppManagerTvInteractiveAppCallbackClient) OnInteractiveAppServiceRemoved(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnInteractiveAppServiceRemoved(ctx, &pb.OnInteractiveAppServiceRemovedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnInteractiveAppServiceUpdated calls the OnInteractiveAppServiceUpdated RPC.
+func (c *TvInteractiveAppManagerTvInteractiveAppCallbackClient) OnInteractiveAppServiceUpdated(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnInteractiveAppServiceUpdated(ctx, &pb.OnInteractiveAppServiceUpdatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTvInteractiveAppServiceStateChanged calls the OnTvInteractiveAppServiceStateChanged RPC.
+func (c *TvInteractiveAppManagerTvInteractiveAppCallbackClient) OnTvInteractiveAppServiceStateChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.OnTvInteractiveAppServiceStateChanged(ctx, &pb.OnTvInteractiveAppServiceStateChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
 	return err
 }
@@ -871,818 +1712,6 @@ func (c *TvInteractiveAppServiceSessionClient) SetTvRecordingInfo(ctx context.Co
 func (c *TvInteractiveAppServiceSessionClient) SetVideoBounds(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetVideoBounds(ctx, &pb.SetVideoBoundsRequest{
 		Arg0: arg0,
-	})
-	return err
-}
-
-// TvInteractiveAppViewClient wraps the gRPC TvInteractiveAppViewService client.
-type TvInteractiveAppViewClient struct {
-	svc pb.TvInteractiveAppViewServiceClient
-}
-
-// NewTvInteractiveAppViewClient creates a new TvInteractiveAppView client.
-func NewTvInteractiveAppViewClient(cc grpc.ClientConnInterface) *TvInteractiveAppViewClient {
-	return &TvInteractiveAppViewClient{
-		svc: pb.NewTvInteractiveAppViewServiceClient(cc),
-	}
-}
-
-// ClearCallback calls the ClearCallback RPC.
-func (c *TvInteractiveAppViewClient) ClearCallback(ctx context.Context, handle int64) error {
-	_, err := c.svc.ClearCallback(ctx, &pb.ClearCallbackRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// ClearOnUnhandledInputEventListener calls the ClearOnUnhandledInputEventListener RPC.
-func (c *TvInteractiveAppViewClient) ClearOnUnhandledInputEventListener(ctx context.Context, handle int64) error {
-	_, err := c.svc.ClearOnUnhandledInputEventListener(ctx, &pb.ClearOnUnhandledInputEventListenerRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// CreateBiInteractiveApp calls the CreateBiInteractiveApp RPC.
-func (c *TvInteractiveAppViewClient) CreateBiInteractiveApp(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.CreateBiInteractiveApp(ctx, &pb.CreateBiInteractiveAppRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// DestroyBiInteractiveApp calls the DestroyBiInteractiveApp RPC.
-func (c *TvInteractiveAppViewClient) DestroyBiInteractiveApp(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.DestroyBiInteractiveApp(ctx, &pb.DestroyBiInteractiveAppRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// DispatchKeyEvent calls the DispatchKeyEvent RPC.
-func (c *TvInteractiveAppViewClient) DispatchKeyEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.DispatchKeyEvent(ctx, &pb.DispatchKeyEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DispatchUnhandledInputEvent calls the DispatchUnhandledInputEvent RPC.
-func (c *TvInteractiveAppViewClient) DispatchUnhandledInputEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.DispatchUnhandledInputEvent(ctx, &pb.DispatchUnhandledInputEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOnUnhandledInputEventListener calls the GetOnUnhandledInputEventListener RPC.
-func (c *TvInteractiveAppViewClient) GetOnUnhandledInputEventListener(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetOnUnhandledInputEventListener(ctx, &pb.GetOnUnhandledInputEventListenerRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NotifyError calls the NotifyError RPC.
-func (c *TvInteractiveAppViewClient) NotifyError(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.NotifyError(ctx, &pb.NotifyErrorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NotifyRecordingScheduled calls the NotifyRecordingScheduled RPC.
-func (c *TvInteractiveAppViewClient) NotifyRecordingScheduled(ctx context.Context, handle int64, arg0 string, arg1 string) error {
-	_, err := c.svc.NotifyRecordingScheduled(ctx, &pb.NotifyRecordingScheduledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NotifyRecordingStarted calls the NotifyRecordingStarted RPC.
-func (c *TvInteractiveAppViewClient) NotifyRecordingStarted(ctx context.Context, handle int64, arg0 string, arg1 string) error {
-	_, err := c.svc.NotifyRecordingStarted(ctx, &pb.NotifyRecordingStartedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NotifyRecordingStopped calls the NotifyRecordingStopped RPC.
-func (c *TvInteractiveAppViewClient) NotifyRecordingStopped(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.NotifyRecordingStopped(ctx, &pb.NotifyRecordingStoppedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// NotifyTimeShiftCurrentPositionChanged calls the NotifyTimeShiftCurrentPositionChanged RPC.
-func (c *TvInteractiveAppViewClient) NotifyTimeShiftCurrentPositionChanged(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.NotifyTimeShiftCurrentPositionChanged(ctx, &pb.NotifyTimeShiftCurrentPositionChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NotifyTimeShiftPlaybackParams calls the NotifyTimeShiftPlaybackParams RPC.
-func (c *TvInteractiveAppViewClient) NotifyTimeShiftPlaybackParams(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.NotifyTimeShiftPlaybackParams(ctx, &pb.NotifyTimeShiftPlaybackParamsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// NotifyTimeShiftStartPositionChanged calls the NotifyTimeShiftStartPositionChanged RPC.
-func (c *TvInteractiveAppViewClient) NotifyTimeShiftStartPositionChanged(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.NotifyTimeShiftStartPositionChanged(ctx, &pb.NotifyTimeShiftStartPositionChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NotifyTimeShiftStatusChanged calls the NotifyTimeShiftStatusChanged RPC.
-func (c *TvInteractiveAppViewClient) NotifyTimeShiftStatusChanged(ctx context.Context, handle int64, arg0 string, arg1 int32) error {
-	_, err := c.svc.NotifyTimeShiftStatusChanged(ctx, &pb.NotifyTimeShiftStatusChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NotifyTvMessage calls the NotifyTvMessage RPC.
-func (c *TvInteractiveAppViewClient) NotifyTvMessage(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.NotifyTvMessage(ctx, &pb.NotifyTvMessageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// NotifyVideoFreezeUpdated calls the NotifyVideoFreezeUpdated RPC.
-func (c *TvInteractiveAppViewClient) NotifyVideoFreezeUpdated(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.NotifyVideoFreezeUpdated(ctx, &pb.NotifyVideoFreezeUpdatedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnAttachedToWindow calls the OnAttachedToWindow RPC.
-func (c *TvInteractiveAppViewClient) OnAttachedToWindow(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnAttachedToWindow(ctx, &pb.OnAttachedToWindowRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnDetachedFromWindow calls the OnDetachedFromWindow RPC.
-func (c *TvInteractiveAppViewClient) OnDetachedFromWindow(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnDetachedFromWindow(ctx, &pb.OnDetachedFromWindowRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnLayout calls the OnLayout RPC.
-func (c *TvInteractiveAppViewClient) OnLayout(ctx context.Context, handle int64, arg0 bool, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.OnLayout(ctx, &pb.OnLayoutRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// OnMeasure calls the OnMeasure RPC.
-func (c *TvInteractiveAppViewClient) OnMeasure(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.OnMeasure(ctx, &pb.OnMeasureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnUnhandledInputEvent calls the OnUnhandledInputEvent RPC.
-func (c *TvInteractiveAppViewClient) OnUnhandledInputEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnUnhandledInputEvent(ctx, &pb.OnUnhandledInputEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnVisibilityChanged calls the OnVisibilityChanged RPC.
-func (c *TvInteractiveAppViewClient) OnVisibilityChanged(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnVisibilityChanged(ctx, &pb.OnVisibilityChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// PrepareInteractiveApp calls the PrepareInteractiveApp RPC.
-func (c *TvInteractiveAppViewClient) PrepareInteractiveApp(ctx context.Context, handle int64, arg0 string, arg1 int32) error {
-	_, err := c.svc.PrepareInteractiveApp(ctx, &pb.PrepareInteractiveAppRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Reset calls the Reset RPC.
-func (c *TvInteractiveAppViewClient) Reset(ctx context.Context, handle int64) error {
-	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// ResetInteractiveApp calls the ResetInteractiveApp RPC.
-func (c *TvInteractiveAppViewClient) ResetInteractiveApp(ctx context.Context, handle int64) error {
-	_, err := c.svc.ResetInteractiveApp(ctx, &pb.ResetInteractiveAppRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SendAvailableSpeeds calls the SendAvailableSpeeds RPC.
-func (c *TvInteractiveAppViewClient) SendAvailableSpeeds(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SendAvailableSpeeds(ctx, &pb.SendAvailableSpeedsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SendCertificate calls the SendCertificate RPC.
-func (c *TvInteractiveAppViewClient) SendCertificate(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) error {
-	_, err := c.svc.SendCertificate(ctx, &pb.SendCertificateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// SendCurrentChannelLcn calls the SendCurrentChannelLcn RPC.
-func (c *TvInteractiveAppViewClient) SendCurrentChannelLcn(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SendCurrentChannelLcn(ctx, &pb.SendCurrentChannelLcnRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SendCurrentChannelUri calls the SendCurrentChannelUri RPC.
-func (c *TvInteractiveAppViewClient) SendCurrentChannelUri(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SendCurrentChannelUri(ctx, &pb.SendCurrentChannelUriRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SendCurrentTvInputId calls the SendCurrentTvInputId RPC.
-func (c *TvInteractiveAppViewClient) SendCurrentTvInputId(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SendCurrentTvInputId(ctx, &pb.SendCurrentTvInputIdRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SendCurrentVideoBounds calls the SendCurrentVideoBounds RPC.
-func (c *TvInteractiveAppViewClient) SendCurrentVideoBounds(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SendCurrentVideoBounds(ctx, &pb.SendCurrentVideoBoundsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SendSigningResult calls the SendSigningResult RPC.
-func (c *TvInteractiveAppViewClient) SendSigningResult(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.SendSigningResult(ctx, &pb.SendSigningResultRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SendStreamVolume calls the SendStreamVolume RPC.
-func (c *TvInteractiveAppViewClient) SendStreamVolume(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SendStreamVolume(ctx, &pb.SendStreamVolumeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SendTimeShiftMode calls the SendTimeShiftMode RPC.
-func (c *TvInteractiveAppViewClient) SendTimeShiftMode(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SendTimeShiftMode(ctx, &pb.SendTimeShiftModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SendTvRecordingInfo calls the SendTvRecordingInfo RPC.
-func (c *TvInteractiveAppViewClient) SendTvRecordingInfo(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SendTvRecordingInfo(ctx, &pb.SendTvRecordingInfoRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCallback calls the SetCallback RPC.
-func (c *TvInteractiveAppViewClient) SetCallback(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetCallback(ctx, &pb.SetCallbackRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetOnUnhandledInputEventListener calls the SetOnUnhandledInputEventListener RPC.
-func (c *TvInteractiveAppViewClient) SetOnUnhandledInputEventListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetOnUnhandledInputEventListener(ctx, &pb.SetOnUnhandledInputEventListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetTeletextAppEnabled calls the SetTeletextAppEnabled RPC.
-func (c *TvInteractiveAppViewClient) SetTeletextAppEnabled(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetTeletextAppEnabled(ctx, &pb.SetTeletextAppEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTvView calls the SetTvView RPC.
-func (c *TvInteractiveAppViewClient) SetTvView(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.SetTvView(ctx, &pb.SetTvViewRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZOrderMediaOverlay calls the SetZOrderMediaOverlay RPC.
-func (c *TvInteractiveAppViewClient) SetZOrderMediaOverlay(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetZOrderMediaOverlay(ctx, &pb.SetZOrderMediaOverlayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetZOrderOnTop calls the SetZOrderOnTop RPC.
-func (c *TvInteractiveAppViewClient) SetZOrderOnTop(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetZOrderOnTop(ctx, &pb.SetZOrderOnTopRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// StartInteractiveApp calls the StartInteractiveApp RPC.
-func (c *TvInteractiveAppViewClient) StartInteractiveApp(ctx context.Context, handle int64) error {
-	_, err := c.svc.StartInteractiveApp(ctx, &pb.StartInteractiveAppRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// StopInteractiveApp calls the StopInteractiveApp RPC.
-func (c *TvInteractiveAppViewClient) StopInteractiveApp(ctx context.Context, handle int64) error {
-	_, err := c.svc.StopInteractiveApp(ctx, &pb.StopInteractiveAppRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// TvInteractiveAppViewOnUnhandledInputEventListenerClient wraps the gRPC TvInteractiveAppViewOnUnhandledInputEventListenerService client.
-type TvInteractiveAppViewOnUnhandledInputEventListenerClient struct {
-	svc pb.TvInteractiveAppViewOnUnhandledInputEventListenerServiceClient
-}
-
-// NewTvInteractiveAppViewOnUnhandledInputEventListenerClient creates a new TvInteractiveAppViewOnUnhandledInputEventListener client.
-func NewTvInteractiveAppViewOnUnhandledInputEventListenerClient(cc grpc.ClientConnInterface) *TvInteractiveAppViewOnUnhandledInputEventListenerClient {
-	return &TvInteractiveAppViewOnUnhandledInputEventListenerClient{
-		svc: pb.NewTvInteractiveAppViewOnUnhandledInputEventListenerServiceClient(cc),
-	}
-}
-
-// OnUnhandledInputEvent calls the OnUnhandledInputEvent RPC.
-func (c *TvInteractiveAppViewOnUnhandledInputEventListenerClient) OnUnhandledInputEvent(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnUnhandledInputEvent(ctx, &pb.TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TvInteractiveAppViewTvInteractiveAppCallbackClient wraps the gRPC TvInteractiveAppViewTvInteractiveAppCallbackService client.
-type TvInteractiveAppViewTvInteractiveAppCallbackClient struct {
-	svc pb.TvInteractiveAppViewTvInteractiveAppCallbackServiceClient
-}
-
-// NewTvInteractiveAppViewTvInteractiveAppCallbackClient creates a new TvInteractiveAppViewTvInteractiveAppCallback client.
-func NewTvInteractiveAppViewTvInteractiveAppCallbackClient(cc grpc.ClientConnInterface) *TvInteractiveAppViewTvInteractiveAppCallbackClient {
-	return &TvInteractiveAppViewTvInteractiveAppCallbackClient{
-		svc: pb.NewTvInteractiveAppViewTvInteractiveAppCallbackServiceClient(cc),
-	}
-}
-
-// OnBiInteractiveAppCreated calls the OnBiInteractiveAppCreated RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnBiInteractiveAppCreated(ctx context.Context, arg0 string, arg1 int64, arg2 string) error {
-	_, err := c.svc.OnBiInteractiveAppCreated(ctx, &pb.OnBiInteractiveAppCreatedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnPlaybackCommandRequest calls the OnPlaybackCommandRequest RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnPlaybackCommandRequest(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
-	_, err := c.svc.OnPlaybackCommandRequest(ctx, &pb.OnPlaybackCommandRequestRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnRequestAvailableSpeeds calls the OnRequestAvailableSpeeds RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestAvailableSpeeds(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestAvailableSpeeds(ctx, &pb.OnRequestAvailableSpeedsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestCertificate calls the OnRequestCertificate RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCertificate(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
-	_, err := c.svc.OnRequestCertificate(ctx, &pb.OnRequestCertificateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnRequestCurrentChannelLcn calls the OnRequestCurrentChannelLcn RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCurrentChannelLcn(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestCurrentChannelLcn(ctx, &pb.OnRequestCurrentChannelLcnRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestCurrentChannelUri calls the OnRequestCurrentChannelUri RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCurrentChannelUri(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestCurrentChannelUri(ctx, &pb.OnRequestCurrentChannelUriRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestCurrentTvInputId calls the OnRequestCurrentTvInputId RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCurrentTvInputId(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestCurrentTvInputId(ctx, &pb.OnRequestCurrentTvInputIdRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestCurrentVideoBounds calls the OnRequestCurrentVideoBounds RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestCurrentVideoBounds(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestCurrentVideoBounds(ctx, &pb.OnRequestCurrentVideoBoundsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestScheduleRecording6 calls the OnRequestScheduleRecording6 RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestScheduleRecording6(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64, arg4 int64, arg5 int64) error {
-	_, err := c.svc.OnRequestScheduleRecording6(ctx, &pb.OnRequestScheduleRecording6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// OnRequestScheduleRecording8_1 calls the OnRequestScheduleRecording8_1 RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestScheduleRecording8_1(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64, arg4 int64, arg5 int64, arg6 int32, arg7 int64) error {
-	_, err := c.svc.OnRequestScheduleRecording8_1(ctx, &pb.OnRequestScheduleRecording8_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-	})
-	return err
-}
-
-// OnRequestSelectedTrackInfo calls the OnRequestSelectedTrackInfo RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestSelectedTrackInfo(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestSelectedTrackInfo(ctx, &pb.OnRequestSelectedTrackInfoRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestSigning5 calls the OnRequestSigning5 RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestSigning5(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string, arg4 int64) error {
-	_, err := c.svc.OnRequestSigning5(ctx, &pb.OnRequestSigning5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// OnRequestSigning6_1 calls the OnRequestSigning6_1 RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestSigning6_1(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string, arg4 int32, arg5 int64) error {
-	_, err := c.svc.OnRequestSigning6_1(ctx, &pb.OnRequestSigning6_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// OnRequestStartRecording calls the OnRequestStartRecording RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestStartRecording(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
-	_, err := c.svc.OnRequestStartRecording(ctx, &pb.OnRequestStartRecordingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnRequestStopRecording calls the OnRequestStopRecording RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestStopRecording(ctx context.Context, arg0 string, arg1 string) error {
-	_, err := c.svc.OnRequestStopRecording(ctx, &pb.OnRequestStopRecordingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnRequestStreamVolume calls the OnRequestStreamVolume RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestStreamVolume(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestStreamVolume(ctx, &pb.OnRequestStreamVolumeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestTimeShiftMode calls the OnRequestTimeShiftMode RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestTimeShiftMode(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestTimeShiftMode(ctx, &pb.OnRequestTimeShiftModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestTrackInfoList calls the OnRequestTrackInfoList RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestTrackInfoList(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnRequestTrackInfoList(ctx, &pb.OnRequestTrackInfoListRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRequestTvRecordingInfo calls the OnRequestTvRecordingInfo RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestTvRecordingInfo(ctx context.Context, arg0 string, arg1 string) error {
-	_, err := c.svc.OnRequestTvRecordingInfo(ctx, &pb.OnRequestTvRecordingInfoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnRequestTvRecordingInfoList calls the OnRequestTvRecordingInfoList RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnRequestTvRecordingInfoList(ctx context.Context, arg0 string, arg1 int32) error {
-	_, err := c.svc.OnRequestTvRecordingInfoList(ctx, &pb.OnRequestTvRecordingInfoListRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnSetTvRecordingInfo calls the OnSetTvRecordingInfo RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnSetTvRecordingInfo(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
-	_, err := c.svc.OnSetTvRecordingInfo(ctx, &pb.OnSetTvRecordingInfoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnSetVideoBounds calls the OnSetVideoBounds RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnSetVideoBounds(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.OnSetVideoBounds(ctx, &pb.OnSetVideoBoundsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnStateChanged calls the OnStateChanged RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnStateChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32) error {
-	_, err := c.svc.OnStateChanged(ctx, &pb.OnStateChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnTeletextAppStateChanged calls the OnTeletextAppStateChanged RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnTeletextAppStateChanged(ctx context.Context, arg0 string, arg1 int32) error {
-	_, err := c.svc.OnTeletextAppStateChanged(ctx, &pb.OnTeletextAppStateChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnTimeShiftCommandRequest calls the OnTimeShiftCommandRequest RPC.
-func (c *TvInteractiveAppViewTvInteractiveAppCallbackClient) OnTimeShiftCommandRequest(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
-	_, err := c.svc.OnTimeShiftCommandRequest(ctx, &pb.OnTimeShiftCommandRequestRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// TvInteractiveAppManagerClient wraps the gRPC TvInteractiveAppManagerService client.
-type TvInteractiveAppManagerClient struct {
-	svc pb.TvInteractiveAppManagerServiceClient
-}
-
-// NewTvInteractiveAppManagerClient creates a new TvInteractiveAppManager client.
-func NewTvInteractiveAppManagerClient(cc grpc.ClientConnInterface) *TvInteractiveAppManagerClient {
-	return &TvInteractiveAppManagerClient{
-		svc: pb.NewTvInteractiveAppManagerServiceClient(cc),
-	}
-}
-
-// RegisterAppLinkInfo calls the RegisterAppLinkInfo RPC.
-func (c *TvInteractiveAppManagerClient) RegisterAppLinkInfo(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.RegisterAppLinkInfo(ctx, &pb.RegisterAppLinkInfoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// RegisterCallback calls the RegisterCallback RPC.
-func (c *TvInteractiveAppManagerClient) RegisterCallback(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.RegisterCallback(ctx, &pb.RegisterCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SendAppLinkCommand calls the SendAppLinkCommand RPC.
-func (c *TvInteractiveAppManagerClient) SendAppLinkCommand(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.SendAppLinkCommand(ctx, &pb.SendAppLinkCommandRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UnregisterAppLinkInfo calls the UnregisterAppLinkInfo RPC.
-func (c *TvInteractiveAppManagerClient) UnregisterAppLinkInfo(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.UnregisterAppLinkInfo(ctx, &pb.UnregisterAppLinkInfoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UnregisterCallback calls the UnregisterCallback RPC.
-func (c *TvInteractiveAppManagerClient) UnregisterCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterCallback(ctx, &pb.UnregisterCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// TvInteractiveAppManagerTvInteractiveAppCallbackClient wraps the gRPC TvInteractiveAppManagerTvInteractiveAppCallbackService client.
-type TvInteractiveAppManagerTvInteractiveAppCallbackClient struct {
-	svc pb.TvInteractiveAppManagerTvInteractiveAppCallbackServiceClient
-}
-
-// NewTvInteractiveAppManagerTvInteractiveAppCallbackClient creates a new TvInteractiveAppManagerTvInteractiveAppCallback client.
-func NewTvInteractiveAppManagerTvInteractiveAppCallbackClient(cc grpc.ClientConnInterface) *TvInteractiveAppManagerTvInteractiveAppCallbackClient {
-	return &TvInteractiveAppManagerTvInteractiveAppCallbackClient{
-		svc: pb.NewTvInteractiveAppManagerTvInteractiveAppCallbackServiceClient(cc),
-	}
-}
-
-// OnInteractiveAppServiceAdded calls the OnInteractiveAppServiceAdded RPC.
-func (c *TvInteractiveAppManagerTvInteractiveAppCallbackClient) OnInteractiveAppServiceAdded(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnInteractiveAppServiceAdded(ctx, &pb.OnInteractiveAppServiceAddedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnInteractiveAppServiceRemoved calls the OnInteractiveAppServiceRemoved RPC.
-func (c *TvInteractiveAppManagerTvInteractiveAppCallbackClient) OnInteractiveAppServiceRemoved(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnInteractiveAppServiceRemoved(ctx, &pb.OnInteractiveAppServiceRemovedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnInteractiveAppServiceUpdated calls the OnInteractiveAppServiceUpdated RPC.
-func (c *TvInteractiveAppManagerTvInteractiveAppCallbackClient) OnInteractiveAppServiceUpdated(ctx context.Context, arg0 string) error {
-	_, err := c.svc.OnInteractiveAppServiceUpdated(ctx, &pb.OnInteractiveAppServiceUpdatedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTvInteractiveAppServiceStateChanged calls the OnTvInteractiveAppServiceStateChanged RPC.
-func (c *TvInteractiveAppManagerTvInteractiveAppCallbackClient) OnTvInteractiveAppServiceStateChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.OnTvInteractiveAppServiceStateChanged(ctx, &pb.OnTvInteractiveAppServiceStateChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
 	})
 	return err
 }

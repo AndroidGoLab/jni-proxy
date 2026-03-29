@@ -9,29 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// ConfigClient wraps the gRPC ConfigService client.
-type ConfigClient struct {
-	svc pb.ConfigServiceClient
+// WifiUnderlyingNetworkTemplateClient wraps the gRPC WifiUnderlyingNetworkTemplateService client.
+type WifiUnderlyingNetworkTemplateClient struct {
+	svc pb.WifiUnderlyingNetworkTemplateServiceClient
 }
 
-// NewConfigClient creates a new Config client.
-func NewConfigClient(cc grpc.ClientConnInterface) *ConfigClient {
-	return &ConfigClient{
-		svc: pb.NewConfigServiceClient(cc),
+// NewWifiUnderlyingNetworkTemplateClient creates a new WifiUnderlyingNetworkTemplate client.
+func NewWifiUnderlyingNetworkTemplateClient(cc grpc.ClientConnInterface) *WifiUnderlyingNetworkTemplateClient {
+	return &WifiUnderlyingNetworkTemplateClient{
+		svc: pb.NewWifiUnderlyingNetworkTemplateServiceClient(cc),
 	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ConfigClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // Equals calls the Equals RPC.
-func (c *ConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *WifiUnderlyingNetworkTemplateClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -41,8 +32,17 @@ func (c *ConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	return resp.GetResult(), nil
 }
 
+// GetSsids calls the GetSsids RPC.
+func (c *WifiUnderlyingNetworkTemplateClient) GetSsids(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSsids(ctx, &pb.GetSsidsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HashCode calls the HashCode RPC.
-func (c *ConfigClient) HashCode(ctx context.Context) (int32, error) {
+func (c *WifiUnderlyingNetworkTemplateClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -50,30 +50,30 @@ func (c *ConfigClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
+// WifiUnderlyingNetworkTemplateBuilderClient wraps the gRPC WifiUnderlyingNetworkTemplateBuilderService client.
+type WifiUnderlyingNetworkTemplateBuilderClient struct {
+	svc pb.WifiUnderlyingNetworkTemplateBuilderServiceClient
 }
 
-// ConfigBuilderClient wraps the gRPC ConfigBuilderService client.
-type ConfigBuilderClient struct {
-	svc pb.ConfigBuilderServiceClient
-}
-
-// NewConfigBuilderClient creates a new ConfigBuilder client.
-func NewConfigBuilderClient(cc grpc.ClientConnInterface) *ConfigBuilderClient {
-	return &ConfigBuilderClient{
-		svc: pb.NewConfigBuilderServiceClient(cc),
+// NewWifiUnderlyingNetworkTemplateBuilderClient creates a new WifiUnderlyingNetworkTemplateBuilder client.
+func NewWifiUnderlyingNetworkTemplateBuilderClient(cc grpc.ClientConnInterface) *WifiUnderlyingNetworkTemplateBuilderClient {
+	return &WifiUnderlyingNetworkTemplateBuilderClient{
+		svc: pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(cc),
 	}
 }
 
-// AddGatewayConnectionConfig calls the AddGatewayConnectionConfig RPC.
-func (c *ConfigBuilderClient) AddGatewayConnectionConfig(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddGatewayConnectionConfig(ctx, &pb.AddGatewayConnectionConfigRequest{
+// Build calls the Build RPC.
+func (c *WifiUnderlyingNetworkTemplateBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMetered calls the SetMetered RPC.
+func (c *WifiUnderlyingNetworkTemplateBuilderClient) SetMetered(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMetered(ctx, &pb.SetMeteredRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -82,9 +82,24 @@ func (c *ConfigBuilderClient) AddGatewayConnectionConfig(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// Build calls the Build RPC.
-func (c *ConfigBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+// SetMinDownstreamBandwidthKbps calls the SetMinDownstreamBandwidthKbps RPC.
+func (c *WifiUnderlyingNetworkTemplateBuilderClient) SetMinDownstreamBandwidthKbps(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetMinDownstreamBandwidthKbps(ctx, &pb.SetMinDownstreamBandwidthKbpsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinUpstreamBandwidthKbps calls the SetMinUpstreamBandwidthKbps RPC.
+func (c *WifiUnderlyingNetworkTemplateBuilderClient) SetMinUpstreamBandwidthKbps(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetMinUpstreamBandwidthKbps(ctx, &pb.SetMinUpstreamBandwidthKbpsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -159,6 +174,15 @@ func (c *CellUnderlyingNetworkTemplateClient) GetMms(ctx context.Context) (int32
 	return resp.GetResult(), nil
 }
 
+// GetOperatorPlmnIds calls the GetOperatorPlmnIds RPC.
+func (c *CellUnderlyingNetworkTemplateClient) GetOperatorPlmnIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOperatorPlmnIds(ctx, &pb.GetOperatorPlmnIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetOpportunistic calls the GetOpportunistic RPC.
 func (c *CellUnderlyingNetworkTemplateClient) GetOpportunistic(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetOpportunistic(ctx, &pb.GetOpportunisticRequest{})
@@ -180,6 +204,15 @@ func (c *CellUnderlyingNetworkTemplateClient) GetRcs(ctx context.Context) (int32
 // GetRoaming calls the GetRoaming RPC.
 func (c *CellUnderlyingNetworkTemplateClient) GetRoaming(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetRoaming(ctx, &pb.GetRoamingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSimSpecificCarrierIds calls the GetSimSpecificCarrierIds RPC.
+func (c *CellUnderlyingNetworkTemplateClient) GetSimSpecificCarrierIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSimSpecificCarrierIds(ctx, &pb.GetSimSpecificCarrierIdsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -339,20 +372,29 @@ func (c *CellUnderlyingNetworkTemplateBuilderClient) SetRoaming(ctx context.Cont
 	return resp.GetResult(), nil
 }
 
-// WifiUnderlyingNetworkTemplateClient wraps the gRPC WifiUnderlyingNetworkTemplateService client.
-type WifiUnderlyingNetworkTemplateClient struct {
-	svc pb.WifiUnderlyingNetworkTemplateServiceClient
+// ConfigClient wraps the gRPC ConfigService client.
+type ConfigClient struct {
+	svc pb.ConfigServiceClient
 }
 
-// NewWifiUnderlyingNetworkTemplateClient creates a new WifiUnderlyingNetworkTemplate client.
-func NewWifiUnderlyingNetworkTemplateClient(cc grpc.ClientConnInterface) *WifiUnderlyingNetworkTemplateClient {
-	return &WifiUnderlyingNetworkTemplateClient{
-		svc: pb.NewWifiUnderlyingNetworkTemplateServiceClient(cc),
+// NewConfigClient creates a new Config client.
+func NewConfigClient(cc grpc.ClientConnInterface) *ConfigClient {
+	return &ConfigClient{
+		svc: pb.NewConfigServiceClient(cc),
 	}
 }
 
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Equals calls the Equals RPC.
-func (c *WifiUnderlyingNetworkTemplateClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -362,8 +404,26 @@ func (c *WifiUnderlyingNetworkTemplateClient) Equals(ctx context.Context, arg0 i
 	return resp.GetResult(), nil
 }
 
+// GetGatewayConnectionConfigs calls the GetGatewayConnectionConfigs RPC.
+func (c *ConfigClient) GetGatewayConnectionConfigs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGatewayConnectionConfigs(ctx, &pb.GetGatewayConnectionConfigsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRestrictedUnderlyingNetworkTransports calls the GetRestrictedUnderlyingNetworkTransports RPC.
+func (c *ConfigClient) GetRestrictedUnderlyingNetworkTransports(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRestrictedUnderlyingNetworkTransports(ctx, &pb.GetRestrictedUnderlyingNetworkTransportsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HashCode calls the HashCode RPC.
-func (c *WifiUnderlyingNetworkTemplateClient) HashCode(ctx context.Context) (int32, error) {
+func (c *ConfigClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -371,20 +431,40 @@ func (c *WifiUnderlyingNetworkTemplateClient) HashCode(ctx context.Context) (int
 	return resp.GetResult(), nil
 }
 
-// WifiUnderlyingNetworkTemplateBuilderClient wraps the gRPC WifiUnderlyingNetworkTemplateBuilderService client.
-type WifiUnderlyingNetworkTemplateBuilderClient struct {
-	svc pb.WifiUnderlyingNetworkTemplateBuilderServiceClient
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
 }
 
-// NewWifiUnderlyingNetworkTemplateBuilderClient creates a new WifiUnderlyingNetworkTemplateBuilder client.
-func NewWifiUnderlyingNetworkTemplateBuilderClient(cc grpc.ClientConnInterface) *WifiUnderlyingNetworkTemplateBuilderClient {
-	return &WifiUnderlyingNetworkTemplateBuilderClient{
-		svc: pb.NewWifiUnderlyingNetworkTemplateBuilderServiceClient(cc),
+// ConfigBuilderClient wraps the gRPC ConfigBuilderService client.
+type ConfigBuilderClient struct {
+	svc pb.ConfigBuilderServiceClient
+}
+
+// NewConfigBuilderClient creates a new ConfigBuilder client.
+func NewConfigBuilderClient(cc grpc.ClientConnInterface) *ConfigBuilderClient {
+	return &ConfigBuilderClient{
+		svc: pb.NewConfigBuilderServiceClient(cc),
 	}
 }
 
+// AddGatewayConnectionConfig calls the AddGatewayConnectionConfig RPC.
+func (c *ConfigBuilderClient) AddGatewayConnectionConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddGatewayConnectionConfig(ctx, &pb.AddGatewayConnectionConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Build calls the Build RPC.
-func (c *WifiUnderlyingNetworkTemplateBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *ConfigBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -392,39 +472,90 @@ func (c *WifiUnderlyingNetworkTemplateBuilderClient) Build(ctx context.Context) 
 	return resp.GetResult(), nil
 }
 
-// SetMetered calls the SetMetered RPC.
-func (c *WifiUnderlyingNetworkTemplateBuilderClient) SetMetered(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMetered(ctx, &pb.SetMeteredRequest{
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// ClearVcnConfig calls the ClearVcnConfig RPC.
+func (c *ManagerClient) ClearVcnConfig(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ClearVcnConfig(ctx, &pb.ClearVcnConfigRequest{
 		Arg0: arg0,
 	})
+	return err
+}
+
+// GetConfiguredSubscriptionGroups calls the GetConfiguredSubscriptionGroups RPC.
+func (c *ManagerClient) GetConfiguredSubscriptionGroups(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConfiguredSubscriptionGroups(ctx, &pb.GetConfiguredSubscriptionGroupsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetMinDownstreamBandwidthKbps calls the SetMinDownstreamBandwidthKbps RPC.
-func (c *WifiUnderlyingNetworkTemplateBuilderClient) SetMinDownstreamBandwidthKbps(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetMinDownstreamBandwidthKbps(ctx, &pb.SetMinDownstreamBandwidthKbpsRequest{
+// RegisterVcnStatusCallback calls the RegisterVcnStatusCallback RPC.
+func (c *ManagerClient) RegisterVcnStatusCallback(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.RegisterVcnStatusCallback(ctx, &pb.RegisterVcnStatusCallbackRequest{
 		Arg0: arg0,
 		Arg1: arg1,
+		Arg2: arg2,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// SetMinUpstreamBandwidthKbps calls the SetMinUpstreamBandwidthKbps RPC.
-func (c *WifiUnderlyingNetworkTemplateBuilderClient) SetMinUpstreamBandwidthKbps(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetMinUpstreamBandwidthKbps(ctx, &pb.SetMinUpstreamBandwidthKbpsRequest{
+// SetVcnConfig calls the SetVcnConfig RPC.
+func (c *ManagerClient) SetVcnConfig(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetVcnConfig(ctx, &pb.SetVcnConfigRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
-	if err != nil {
-		return 0, err
+	return err
+}
+
+// UnregisterVcnStatusCallback calls the UnregisterVcnStatusCallback RPC.
+func (c *ManagerClient) UnregisterVcnStatusCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterVcnStatusCallback(ctx, &pb.UnregisterVcnStatusCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerVcnStatusCallbackClient wraps the gRPC ManagerVcnStatusCallbackService client.
+type ManagerVcnStatusCallbackClient struct {
+	svc pb.ManagerVcnStatusCallbackServiceClient
+}
+
+// NewManagerVcnStatusCallbackClient creates a new ManagerVcnStatusCallback client.
+func NewManagerVcnStatusCallbackClient(cc grpc.ClientConnInterface) *ManagerVcnStatusCallbackClient {
+	return &ManagerVcnStatusCallbackClient{
+		svc: pb.NewManagerVcnStatusCallbackServiceClient(cc),
 	}
-	return resp.GetResult(), nil
+}
+
+// OnGatewayConnectionError calls the OnGatewayConnectionError RPC.
+func (c *ManagerVcnStatusCallbackClient) OnGatewayConnectionError(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
+	_, err := c.svc.OnGatewayConnectionError(ctx, &pb.OnGatewayConnectionErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnStatusChanged calls the OnStatusChanged RPC.
+func (c *ManagerVcnStatusCallbackClient) OnStatusChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnStatusChanged(ctx, &pb.OnStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
 }
 
 // GatewayConnectionConfigClient wraps the gRPC GatewayConnectionConfigService client.
@@ -489,6 +620,15 @@ func (c *GatewayConnectionConfigClient) GetMinUdpPort4500NatTimeoutSeconds(ctx c
 // GetRetryIntervalsMillis calls the GetRetryIntervalsMillis RPC.
 func (c *GatewayConnectionConfigClient) GetRetryIntervalsMillis(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetRetryIntervalsMillis(ctx, &pb.GetRetryIntervalsMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVcnUnderlyingNetworkPriorities calls the GetVcnUnderlyingNetworkPriorities RPC.
+func (c *GatewayConnectionConfigClient) GetVcnUnderlyingNetworkPriorities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVcnUnderlyingNetworkPriorities(ctx, &pb.GetVcnUnderlyingNetworkPrioritiesRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -631,83 +771,6 @@ func (c *GatewayConnectionConfigBuilderClient) SetSafeModeEnabled(ctx context.Co
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// ClearVcnConfig calls the ClearVcnConfig RPC.
-func (c *ManagerClient) ClearVcnConfig(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ClearVcnConfig(ctx, &pb.ClearVcnConfigRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RegisterVcnStatusCallback calls the RegisterVcnStatusCallback RPC.
-func (c *ManagerClient) RegisterVcnStatusCallback(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.RegisterVcnStatusCallback(ctx, &pb.RegisterVcnStatusCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// SetVcnConfig calls the SetVcnConfig RPC.
-func (c *ManagerClient) SetVcnConfig(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetVcnConfig(ctx, &pb.SetVcnConfigRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UnregisterVcnStatusCallback calls the UnregisterVcnStatusCallback RPC.
-func (c *ManagerClient) UnregisterVcnStatusCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterVcnStatusCallback(ctx, &pb.UnregisterVcnStatusCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ManagerVcnStatusCallbackClient wraps the gRPC ManagerVcnStatusCallbackService client.
-type ManagerVcnStatusCallbackClient struct {
-	svc pb.ManagerVcnStatusCallbackServiceClient
-}
-
-// NewManagerVcnStatusCallbackClient creates a new ManagerVcnStatusCallback client.
-func NewManagerVcnStatusCallbackClient(cc grpc.ClientConnInterface) *ManagerVcnStatusCallbackClient {
-	return &ManagerVcnStatusCallbackClient{
-		svc: pb.NewManagerVcnStatusCallbackServiceClient(cc),
-	}
-}
-
-// OnGatewayConnectionError calls the OnGatewayConnectionError RPC.
-func (c *ManagerVcnStatusCallbackClient) OnGatewayConnectionError(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
-	_, err := c.svc.OnGatewayConnectionError(ctx, &pb.OnGatewayConnectionErrorRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnStatusChanged calls the OnStatusChanged RPC.
-func (c *ManagerVcnStatusCallbackClient) OnStatusChanged(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnStatusChanged(ctx, &pb.OnStatusChangedRequest{
-		Arg0: arg0,
-	})
-	return err
 }
 
 // UnderlyingNetworkTemplateClient wraps the gRPC UnderlyingNetworkTemplateService client.

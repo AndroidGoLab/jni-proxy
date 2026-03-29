@@ -21,6 +21,185 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_FullMethodName = "/sdksandbox.RequestSurfacePackageExceptionService/NewRequestSurfacePackageException"
+	RequestSurfacePackageExceptionService_GetExtraErrorInformation_FullMethodName          = "/sdksandbox.RequestSurfacePackageExceptionService/GetExtraErrorInformation"
+	RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_FullMethodName = "/sdksandbox.RequestSurfacePackageExceptionService/GetRequestSurfacePackageErrorCode"
+)
+
+// RequestSurfacePackageExceptionServiceClient is the client API for RequestSurfacePackageExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RequestSurfacePackageExceptionServiceClient interface {
+	NewRequestSurfacePackageException(ctx context.Context, in *NewRequestSurfacePackageExceptionRequest, opts ...grpc.CallOption) (*NewRequestSurfacePackageExceptionResponse, error)
+	GetExtraErrorInformation(ctx context.Context, in *GetExtraErrorInformationRequest, opts ...grpc.CallOption) (*GetExtraErrorInformationResponse, error)
+	GetRequestSurfacePackageErrorCode(ctx context.Context, in *GetRequestSurfacePackageErrorCodeRequest, opts ...grpc.CallOption) (*GetRequestSurfacePackageErrorCodeResponse, error)
+}
+
+type requestSurfacePackageExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRequestSurfacePackageExceptionServiceClient(cc grpc.ClientConnInterface) RequestSurfacePackageExceptionServiceClient {
+	return &requestSurfacePackageExceptionServiceClient{cc}
+}
+
+func (c *requestSurfacePackageExceptionServiceClient) NewRequestSurfacePackageException(ctx context.Context, in *NewRequestSurfacePackageExceptionRequest, opts ...grpc.CallOption) (*NewRequestSurfacePackageExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRequestSurfacePackageExceptionResponse)
+	err := c.cc.Invoke(ctx, RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestSurfacePackageExceptionServiceClient) GetExtraErrorInformation(ctx context.Context, in *GetExtraErrorInformationRequest, opts ...grpc.CallOption) (*GetExtraErrorInformationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtraErrorInformationResponse)
+	err := c.cc.Invoke(ctx, RequestSurfacePackageExceptionService_GetExtraErrorInformation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestSurfacePackageExceptionServiceClient) GetRequestSurfacePackageErrorCode(ctx context.Context, in *GetRequestSurfacePackageErrorCodeRequest, opts ...grpc.CallOption) (*GetRequestSurfacePackageErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRequestSurfacePackageErrorCodeResponse)
+	err := c.cc.Invoke(ctx, RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RequestSurfacePackageExceptionServiceServer is the server API for RequestSurfacePackageExceptionService service.
+// All implementations must embed UnimplementedRequestSurfacePackageExceptionServiceServer
+// for forward compatibility.
+type RequestSurfacePackageExceptionServiceServer interface {
+	NewRequestSurfacePackageException(context.Context, *NewRequestSurfacePackageExceptionRequest) (*NewRequestSurfacePackageExceptionResponse, error)
+	GetExtraErrorInformation(context.Context, *GetExtraErrorInformationRequest) (*GetExtraErrorInformationResponse, error)
+	GetRequestSurfacePackageErrorCode(context.Context, *GetRequestSurfacePackageErrorCodeRequest) (*GetRequestSurfacePackageErrorCodeResponse, error)
+	mustEmbedUnimplementedRequestSurfacePackageExceptionServiceServer()
+}
+
+// UnimplementedRequestSurfacePackageExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRequestSurfacePackageExceptionServiceServer struct{}
+
+func (UnimplementedRequestSurfacePackageExceptionServiceServer) NewRequestSurfacePackageException(context.Context, *NewRequestSurfacePackageExceptionRequest) (*NewRequestSurfacePackageExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRequestSurfacePackageException not implemented")
+}
+func (UnimplementedRequestSurfacePackageExceptionServiceServer) GetExtraErrorInformation(context.Context, *GetExtraErrorInformationRequest) (*GetExtraErrorInformationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtraErrorInformation not implemented")
+}
+func (UnimplementedRequestSurfacePackageExceptionServiceServer) GetRequestSurfacePackageErrorCode(context.Context, *GetRequestSurfacePackageErrorCodeRequest) (*GetRequestSurfacePackageErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRequestSurfacePackageErrorCode not implemented")
+}
+func (UnimplementedRequestSurfacePackageExceptionServiceServer) mustEmbedUnimplementedRequestSurfacePackageExceptionServiceServer() {
+}
+func (UnimplementedRequestSurfacePackageExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRequestSurfacePackageExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RequestSurfacePackageExceptionServiceServer will
+// result in compilation errors.
+type UnsafeRequestSurfacePackageExceptionServiceServer interface {
+	mustEmbedUnimplementedRequestSurfacePackageExceptionServiceServer()
+}
+
+func RegisterRequestSurfacePackageExceptionServiceServer(s grpc.ServiceRegistrar, srv RequestSurfacePackageExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedRequestSurfacePackageExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RequestSurfacePackageExceptionService_ServiceDesc, srv)
+}
+
+func _RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRequestSurfacePackageExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestSurfacePackageExceptionServiceServer).NewRequestSurfacePackageException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestSurfacePackageExceptionServiceServer).NewRequestSurfacePackageException(ctx, req.(*NewRequestSurfacePackageExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestSurfacePackageExceptionService_GetExtraErrorInformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtraErrorInformationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestSurfacePackageExceptionServiceServer).GetExtraErrorInformation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestSurfacePackageExceptionService_GetExtraErrorInformation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestSurfacePackageExceptionServiceServer).GetExtraErrorInformation(ctx, req.(*GetExtraErrorInformationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequestSurfacePackageErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestSurfacePackageExceptionServiceServer).GetRequestSurfacePackageErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestSurfacePackageExceptionServiceServer).GetRequestSurfacePackageErrorCode(ctx, req.(*GetRequestSurfacePackageErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RequestSurfacePackageExceptionService_ServiceDesc is the grpc.ServiceDesc for RequestSurfacePackageExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RequestSurfacePackageExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sdksandbox.RequestSurfacePackageExceptionService",
+	HandlerType: (*RequestSurfacePackageExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRequestSurfacePackageException",
+			Handler:    _RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_Handler,
+		},
+		{
+			MethodName: "GetExtraErrorInformation",
+			Handler:    _RequestSurfacePackageExceptionService_GetExtraErrorInformation_Handler,
+		},
+		{
+			MethodName: "GetRequestSurfacePackageErrorCode",
+			Handler:    _RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sdksandbox/sdksandbox.proto",
+}
+
+const (
 	SandboxedSdkProviderService_AttachContext_FullMethodName   = "/sdksandbox.SandboxedSdkProviderService/AttachContext"
 	SandboxedSdkProviderService_BeforeUnloadSdk_FullMethodName = "/sdksandbox.SandboxedSdkProviderService/BeforeUnloadSdk"
 	SandboxedSdkProviderService_GetContext_FullMethodName      = "/sdksandbox.SandboxedSdkProviderService/GetContext"
@@ -277,6 +456,9 @@ var SandboxedSdkProviderService_ServiceDesc = grpc.ServiceDesc{
 
 const (
 	SdkSandboxManagerService_AddSdkSandboxProcessDeathCallback_FullMethodName     = "/sdksandbox.SdkSandboxManagerService/AddSdkSandboxProcessDeathCallback"
+	SdkSandboxManagerService_GetAppOwnedSdkSandboxInterfaces_FullMethodName       = "/sdksandbox.SdkSandboxManagerService/GetAppOwnedSdkSandboxInterfaces"
+	SdkSandboxManagerService_GetSandboxedSdks_FullMethodName                      = "/sdksandbox.SdkSandboxManagerService/GetSandboxedSdks"
+	SdkSandboxManagerService_GetSyncedSharedPreferencesKeys_FullMethodName        = "/sdksandbox.SdkSandboxManagerService/GetSyncedSharedPreferencesKeys"
 	SdkSandboxManagerService_RegisterAppOwnedSdkSandboxInterface_FullMethodName   = "/sdksandbox.SdkSandboxManagerService/RegisterAppOwnedSdkSandboxInterface"
 	SdkSandboxManagerService_RemoveSdkSandboxProcessDeathCallback_FullMethodName  = "/sdksandbox.SdkSandboxManagerService/RemoveSdkSandboxProcessDeathCallback"
 	SdkSandboxManagerService_StartSdkSandboxActivity_FullMethodName               = "/sdksandbox.SdkSandboxManagerService/StartSdkSandboxActivity"
@@ -290,6 +472,9 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SdkSandboxManagerServiceClient interface {
 	AddSdkSandboxProcessDeathCallback(ctx context.Context, in *AddSdkSandboxProcessDeathCallbackRequest, opts ...grpc.CallOption) (*AddSdkSandboxProcessDeathCallbackResponse, error)
+	GetAppOwnedSdkSandboxInterfaces(ctx context.Context, in *GetAppOwnedSdkSandboxInterfacesRequest, opts ...grpc.CallOption) (*GetAppOwnedSdkSandboxInterfacesResponse, error)
+	GetSandboxedSdks(ctx context.Context, in *GetSandboxedSdksRequest, opts ...grpc.CallOption) (*GetSandboxedSdksResponse, error)
+	GetSyncedSharedPreferencesKeys(ctx context.Context, in *GetSyncedSharedPreferencesKeysRequest, opts ...grpc.CallOption) (*GetSyncedSharedPreferencesKeysResponse, error)
 	RegisterAppOwnedSdkSandboxInterface(ctx context.Context, in *RegisterAppOwnedSdkSandboxInterfaceRequest, opts ...grpc.CallOption) (*RegisterAppOwnedSdkSandboxInterfaceResponse, error)
 	RemoveSdkSandboxProcessDeathCallback(ctx context.Context, in *RemoveSdkSandboxProcessDeathCallbackRequest, opts ...grpc.CallOption) (*RemoveSdkSandboxProcessDeathCallbackResponse, error)
 	StartSdkSandboxActivity(ctx context.Context, in *StartSdkSandboxActivityRequest, opts ...grpc.CallOption) (*StartSdkSandboxActivityResponse, error)
@@ -310,6 +495,36 @@ func (c *sdkSandboxManagerServiceClient) AddSdkSandboxProcessDeathCallback(ctx c
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddSdkSandboxProcessDeathCallbackResponse)
 	err := c.cc.Invoke(ctx, SdkSandboxManagerService_AddSdkSandboxProcessDeathCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sdkSandboxManagerServiceClient) GetAppOwnedSdkSandboxInterfaces(ctx context.Context, in *GetAppOwnedSdkSandboxInterfacesRequest, opts ...grpc.CallOption) (*GetAppOwnedSdkSandboxInterfacesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppOwnedSdkSandboxInterfacesResponse)
+	err := c.cc.Invoke(ctx, SdkSandboxManagerService_GetAppOwnedSdkSandboxInterfaces_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sdkSandboxManagerServiceClient) GetSandboxedSdks(ctx context.Context, in *GetSandboxedSdksRequest, opts ...grpc.CallOption) (*GetSandboxedSdksResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSandboxedSdksResponse)
+	err := c.cc.Invoke(ctx, SdkSandboxManagerService_GetSandboxedSdks_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sdkSandboxManagerServiceClient) GetSyncedSharedPreferencesKeys(ctx context.Context, in *GetSyncedSharedPreferencesKeysRequest, opts ...grpc.CallOption) (*GetSyncedSharedPreferencesKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSyncedSharedPreferencesKeysResponse)
+	err := c.cc.Invoke(ctx, SdkSandboxManagerService_GetSyncedSharedPreferencesKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -381,6 +596,9 @@ func (c *sdkSandboxManagerServiceClient) GetSdkSandboxState(ctx context.Context,
 // for forward compatibility.
 type SdkSandboxManagerServiceServer interface {
 	AddSdkSandboxProcessDeathCallback(context.Context, *AddSdkSandboxProcessDeathCallbackRequest) (*AddSdkSandboxProcessDeathCallbackResponse, error)
+	GetAppOwnedSdkSandboxInterfaces(context.Context, *GetAppOwnedSdkSandboxInterfacesRequest) (*GetAppOwnedSdkSandboxInterfacesResponse, error)
+	GetSandboxedSdks(context.Context, *GetSandboxedSdksRequest) (*GetSandboxedSdksResponse, error)
+	GetSyncedSharedPreferencesKeys(context.Context, *GetSyncedSharedPreferencesKeysRequest) (*GetSyncedSharedPreferencesKeysResponse, error)
 	RegisterAppOwnedSdkSandboxInterface(context.Context, *RegisterAppOwnedSdkSandboxInterfaceRequest) (*RegisterAppOwnedSdkSandboxInterfaceResponse, error)
 	RemoveSdkSandboxProcessDeathCallback(context.Context, *RemoveSdkSandboxProcessDeathCallbackRequest) (*RemoveSdkSandboxProcessDeathCallbackResponse, error)
 	StartSdkSandboxActivity(context.Context, *StartSdkSandboxActivityRequest) (*StartSdkSandboxActivityResponse, error)
@@ -399,6 +617,15 @@ type UnimplementedSdkSandboxManagerServiceServer struct{}
 
 func (UnimplementedSdkSandboxManagerServiceServer) AddSdkSandboxProcessDeathCallback(context.Context, *AddSdkSandboxProcessDeathCallbackRequest) (*AddSdkSandboxProcessDeathCallbackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddSdkSandboxProcessDeathCallback not implemented")
+}
+func (UnimplementedSdkSandboxManagerServiceServer) GetAppOwnedSdkSandboxInterfaces(context.Context, *GetAppOwnedSdkSandboxInterfacesRequest) (*GetAppOwnedSdkSandboxInterfacesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppOwnedSdkSandboxInterfaces not implemented")
+}
+func (UnimplementedSdkSandboxManagerServiceServer) GetSandboxedSdks(context.Context, *GetSandboxedSdksRequest) (*GetSandboxedSdksResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSandboxedSdks not implemented")
+}
+func (UnimplementedSdkSandboxManagerServiceServer) GetSyncedSharedPreferencesKeys(context.Context, *GetSyncedSharedPreferencesKeysRequest) (*GetSyncedSharedPreferencesKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSyncedSharedPreferencesKeys not implemented")
 }
 func (UnimplementedSdkSandboxManagerServiceServer) RegisterAppOwnedSdkSandboxInterface(context.Context, *RegisterAppOwnedSdkSandboxInterfaceRequest) (*RegisterAppOwnedSdkSandboxInterfaceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RegisterAppOwnedSdkSandboxInterface not implemented")
@@ -454,6 +681,60 @@ func _SdkSandboxManagerService_AddSdkSandboxProcessDeathCallback_Handler(srv int
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SdkSandboxManagerServiceServer).AddSdkSandboxProcessDeathCallback(ctx, req.(*AddSdkSandboxProcessDeathCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SdkSandboxManagerService_GetAppOwnedSdkSandboxInterfaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppOwnedSdkSandboxInterfacesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SdkSandboxManagerServiceServer).GetAppOwnedSdkSandboxInterfaces(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SdkSandboxManagerService_GetAppOwnedSdkSandboxInterfaces_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SdkSandboxManagerServiceServer).GetAppOwnedSdkSandboxInterfaces(ctx, req.(*GetAppOwnedSdkSandboxInterfacesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SdkSandboxManagerService_GetSandboxedSdks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSandboxedSdksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SdkSandboxManagerServiceServer).GetSandboxedSdks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SdkSandboxManagerService_GetSandboxedSdks_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SdkSandboxManagerServiceServer).GetSandboxedSdks(ctx, req.(*GetSandboxedSdksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SdkSandboxManagerService_GetSyncedSharedPreferencesKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSyncedSharedPreferencesKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SdkSandboxManagerServiceServer).GetSyncedSharedPreferencesKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SdkSandboxManagerService_GetSyncedSharedPreferencesKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SdkSandboxManagerServiceServer).GetSyncedSharedPreferencesKeys(ctx, req.(*GetSyncedSharedPreferencesKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -576,6 +857,18 @@ var SdkSandboxManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddSdkSandboxProcessDeathCallback",
 			Handler:    _SdkSandboxManagerService_AddSdkSandboxProcessDeathCallback_Handler,
+		},
+		{
+			MethodName: "GetAppOwnedSdkSandboxInterfaces",
+			Handler:    _SdkSandboxManagerService_GetAppOwnedSdkSandboxInterfaces_Handler,
+		},
+		{
+			MethodName: "GetSandboxedSdks",
+			Handler:    _SdkSandboxManagerService_GetSandboxedSdks_Handler,
+		},
+		{
+			MethodName: "GetSyncedSharedPreferencesKeys",
+			Handler:    _SdkSandboxManagerService_GetSyncedSharedPreferencesKeys_Handler,
 		},
 		{
 			MethodName: "RegisterAppOwnedSdkSandboxInterface",
@@ -704,6 +997,260 @@ var SdkSandboxManagerSdkSandboxProcessDeathCallbackService_ServiceDesc = grpc.Se
 		{
 			MethodName: "OnSdkSandboxDied",
 			Handler:    _SdkSandboxManagerSdkSandboxProcessDeathCallbackService_OnSdkSandboxDied_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sdksandbox/sdksandbox.proto",
+}
+
+const (
+	SandboxedSdkService_NewSandboxedSdk_FullMethodName      = "/sdksandbox.SandboxedSdkService/NewSandboxedSdk"
+	SandboxedSdkService_DescribeContents_FullMethodName     = "/sdksandbox.SandboxedSdkService/DescribeContents"
+	SandboxedSdkService_GetInterface_FullMethodName         = "/sdksandbox.SandboxedSdkService/GetInterface"
+	SandboxedSdkService_GetSharedLibraryInfo_FullMethodName = "/sdksandbox.SandboxedSdkService/GetSharedLibraryInfo"
+	SandboxedSdkService_WriteToParcel_FullMethodName        = "/sdksandbox.SandboxedSdkService/WriteToParcel"
+)
+
+// SandboxedSdkServiceClient is the client API for SandboxedSdkService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SandboxedSdkServiceClient interface {
+	NewSandboxedSdk(ctx context.Context, in *NewSandboxedSdkRequest, opts ...grpc.CallOption) (*NewSandboxedSdkResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetInterface(ctx context.Context, in *GetInterfaceRequest, opts ...grpc.CallOption) (*GetInterfaceResponse, error)
+	GetSharedLibraryInfo(ctx context.Context, in *GetSharedLibraryInfoRequest, opts ...grpc.CallOption) (*GetSharedLibraryInfoResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type sandboxedSdkServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSandboxedSdkServiceClient(cc grpc.ClientConnInterface) SandboxedSdkServiceClient {
+	return &sandboxedSdkServiceClient{cc}
+}
+
+func (c *sandboxedSdkServiceClient) NewSandboxedSdk(ctx context.Context, in *NewSandboxedSdkRequest, opts ...grpc.CallOption) (*NewSandboxedSdkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSandboxedSdkResponse)
+	err := c.cc.Invoke(ctx, SandboxedSdkService_NewSandboxedSdk_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sandboxedSdkServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SandboxedSdkService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sandboxedSdkServiceClient) GetInterface(ctx context.Context, in *GetInterfaceRequest, opts ...grpc.CallOption) (*GetInterfaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInterfaceResponse)
+	err := c.cc.Invoke(ctx, SandboxedSdkService_GetInterface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sandboxedSdkServiceClient) GetSharedLibraryInfo(ctx context.Context, in *GetSharedLibraryInfoRequest, opts ...grpc.CallOption) (*GetSharedLibraryInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSharedLibraryInfoResponse)
+	err := c.cc.Invoke(ctx, SandboxedSdkService_GetSharedLibraryInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sandboxedSdkServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SandboxedSdkService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SandboxedSdkServiceServer is the server API for SandboxedSdkService service.
+// All implementations must embed UnimplementedSandboxedSdkServiceServer
+// for forward compatibility.
+type SandboxedSdkServiceServer interface {
+	NewSandboxedSdk(context.Context, *NewSandboxedSdkRequest) (*NewSandboxedSdkResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetInterface(context.Context, *GetInterfaceRequest) (*GetInterfaceResponse, error)
+	GetSharedLibraryInfo(context.Context, *GetSharedLibraryInfoRequest) (*GetSharedLibraryInfoResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSandboxedSdkServiceServer()
+}
+
+// UnimplementedSandboxedSdkServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSandboxedSdkServiceServer struct{}
+
+func (UnimplementedSandboxedSdkServiceServer) NewSandboxedSdk(context.Context, *NewSandboxedSdkRequest) (*NewSandboxedSdkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSandboxedSdk not implemented")
+}
+func (UnimplementedSandboxedSdkServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSandboxedSdkServiceServer) GetInterface(context.Context, *GetInterfaceRequest) (*GetInterfaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInterface not implemented")
+}
+func (UnimplementedSandboxedSdkServiceServer) GetSharedLibraryInfo(context.Context, *GetSharedLibraryInfoRequest) (*GetSharedLibraryInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSharedLibraryInfo not implemented")
+}
+func (UnimplementedSandboxedSdkServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSandboxedSdkServiceServer) mustEmbedUnimplementedSandboxedSdkServiceServer() {}
+func (UnimplementedSandboxedSdkServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeSandboxedSdkServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SandboxedSdkServiceServer will
+// result in compilation errors.
+type UnsafeSandboxedSdkServiceServer interface {
+	mustEmbedUnimplementedSandboxedSdkServiceServer()
+}
+
+func RegisterSandboxedSdkServiceServer(s grpc.ServiceRegistrar, srv SandboxedSdkServiceServer) {
+	// If the following call panics, it indicates UnimplementedSandboxedSdkServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SandboxedSdkService_ServiceDesc, srv)
+}
+
+func _SandboxedSdkService_NewSandboxedSdk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSandboxedSdkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SandboxedSdkServiceServer).NewSandboxedSdk(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SandboxedSdkService_NewSandboxedSdk_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SandboxedSdkServiceServer).NewSandboxedSdk(ctx, req.(*NewSandboxedSdkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SandboxedSdkService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SandboxedSdkServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SandboxedSdkService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SandboxedSdkServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SandboxedSdkService_GetInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInterfaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SandboxedSdkServiceServer).GetInterface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SandboxedSdkService_GetInterface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SandboxedSdkServiceServer).GetInterface(ctx, req.(*GetInterfaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SandboxedSdkService_GetSharedLibraryInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSharedLibraryInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SandboxedSdkServiceServer).GetSharedLibraryInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SandboxedSdkService_GetSharedLibraryInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SandboxedSdkServiceServer).GetSharedLibraryInfo(ctx, req.(*GetSharedLibraryInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SandboxedSdkService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SandboxedSdkServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SandboxedSdkService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SandboxedSdkServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SandboxedSdkService_ServiceDesc is the grpc.ServiceDesc for SandboxedSdkService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SandboxedSdkService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sdksandbox.SandboxedSdkService",
+	HandlerType: (*SandboxedSdkServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSandboxedSdk",
+			Handler:    _SandboxedSdkService_NewSandboxedSdk_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SandboxedSdkService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetInterface",
+			Handler:    _SandboxedSdkService_GetInterface_Handler,
+		},
+		{
+			MethodName: "GetSharedLibraryInfo",
+			Handler:    _SandboxedSdkService_GetSharedLibraryInfo_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SandboxedSdkService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -997,439 +1544,6 @@ var AppOwnedSdkSandboxInterfaceService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _AppOwnedSdkSandboxInterfaceService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sdksandbox/sdksandbox.proto",
-}
-
-const (
-	RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_FullMethodName = "/sdksandbox.RequestSurfacePackageExceptionService/NewRequestSurfacePackageException"
-	RequestSurfacePackageExceptionService_GetExtraErrorInformation_FullMethodName          = "/sdksandbox.RequestSurfacePackageExceptionService/GetExtraErrorInformation"
-	RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_FullMethodName = "/sdksandbox.RequestSurfacePackageExceptionService/GetRequestSurfacePackageErrorCode"
-)
-
-// RequestSurfacePackageExceptionServiceClient is the client API for RequestSurfacePackageExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RequestSurfacePackageExceptionServiceClient interface {
-	NewRequestSurfacePackageException(ctx context.Context, in *NewRequestSurfacePackageExceptionRequest, opts ...grpc.CallOption) (*NewRequestSurfacePackageExceptionResponse, error)
-	GetExtraErrorInformation(ctx context.Context, in *GetExtraErrorInformationRequest, opts ...grpc.CallOption) (*GetExtraErrorInformationResponse, error)
-	GetRequestSurfacePackageErrorCode(ctx context.Context, in *GetRequestSurfacePackageErrorCodeRequest, opts ...grpc.CallOption) (*GetRequestSurfacePackageErrorCodeResponse, error)
-}
-
-type requestSurfacePackageExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRequestSurfacePackageExceptionServiceClient(cc grpc.ClientConnInterface) RequestSurfacePackageExceptionServiceClient {
-	return &requestSurfacePackageExceptionServiceClient{cc}
-}
-
-func (c *requestSurfacePackageExceptionServiceClient) NewRequestSurfacePackageException(ctx context.Context, in *NewRequestSurfacePackageExceptionRequest, opts ...grpc.CallOption) (*NewRequestSurfacePackageExceptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRequestSurfacePackageExceptionResponse)
-	err := c.cc.Invoke(ctx, RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestSurfacePackageExceptionServiceClient) GetExtraErrorInformation(ctx context.Context, in *GetExtraErrorInformationRequest, opts ...grpc.CallOption) (*GetExtraErrorInformationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtraErrorInformationResponse)
-	err := c.cc.Invoke(ctx, RequestSurfacePackageExceptionService_GetExtraErrorInformation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestSurfacePackageExceptionServiceClient) GetRequestSurfacePackageErrorCode(ctx context.Context, in *GetRequestSurfacePackageErrorCodeRequest, opts ...grpc.CallOption) (*GetRequestSurfacePackageErrorCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRequestSurfacePackageErrorCodeResponse)
-	err := c.cc.Invoke(ctx, RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RequestSurfacePackageExceptionServiceServer is the server API for RequestSurfacePackageExceptionService service.
-// All implementations must embed UnimplementedRequestSurfacePackageExceptionServiceServer
-// for forward compatibility.
-type RequestSurfacePackageExceptionServiceServer interface {
-	NewRequestSurfacePackageException(context.Context, *NewRequestSurfacePackageExceptionRequest) (*NewRequestSurfacePackageExceptionResponse, error)
-	GetExtraErrorInformation(context.Context, *GetExtraErrorInformationRequest) (*GetExtraErrorInformationResponse, error)
-	GetRequestSurfacePackageErrorCode(context.Context, *GetRequestSurfacePackageErrorCodeRequest) (*GetRequestSurfacePackageErrorCodeResponse, error)
-	mustEmbedUnimplementedRequestSurfacePackageExceptionServiceServer()
-}
-
-// UnimplementedRequestSurfacePackageExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRequestSurfacePackageExceptionServiceServer struct{}
-
-func (UnimplementedRequestSurfacePackageExceptionServiceServer) NewRequestSurfacePackageException(context.Context, *NewRequestSurfacePackageExceptionRequest) (*NewRequestSurfacePackageExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRequestSurfacePackageException not implemented")
-}
-func (UnimplementedRequestSurfacePackageExceptionServiceServer) GetExtraErrorInformation(context.Context, *GetExtraErrorInformationRequest) (*GetExtraErrorInformationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtraErrorInformation not implemented")
-}
-func (UnimplementedRequestSurfacePackageExceptionServiceServer) GetRequestSurfacePackageErrorCode(context.Context, *GetRequestSurfacePackageErrorCodeRequest) (*GetRequestSurfacePackageErrorCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRequestSurfacePackageErrorCode not implemented")
-}
-func (UnimplementedRequestSurfacePackageExceptionServiceServer) mustEmbedUnimplementedRequestSurfacePackageExceptionServiceServer() {
-}
-func (UnimplementedRequestSurfacePackageExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRequestSurfacePackageExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RequestSurfacePackageExceptionServiceServer will
-// result in compilation errors.
-type UnsafeRequestSurfacePackageExceptionServiceServer interface {
-	mustEmbedUnimplementedRequestSurfacePackageExceptionServiceServer()
-}
-
-func RegisterRequestSurfacePackageExceptionServiceServer(s grpc.ServiceRegistrar, srv RequestSurfacePackageExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedRequestSurfacePackageExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RequestSurfacePackageExceptionService_ServiceDesc, srv)
-}
-
-func _RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRequestSurfacePackageExceptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestSurfacePackageExceptionServiceServer).NewRequestSurfacePackageException(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestSurfacePackageExceptionServiceServer).NewRequestSurfacePackageException(ctx, req.(*NewRequestSurfacePackageExceptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestSurfacePackageExceptionService_GetExtraErrorInformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExtraErrorInformationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestSurfacePackageExceptionServiceServer).GetExtraErrorInformation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestSurfacePackageExceptionService_GetExtraErrorInformation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestSurfacePackageExceptionServiceServer).GetExtraErrorInformation(ctx, req.(*GetExtraErrorInformationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequestSurfacePackageErrorCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestSurfacePackageExceptionServiceServer).GetRequestSurfacePackageErrorCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestSurfacePackageExceptionServiceServer).GetRequestSurfacePackageErrorCode(ctx, req.(*GetRequestSurfacePackageErrorCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RequestSurfacePackageExceptionService_ServiceDesc is the grpc.ServiceDesc for RequestSurfacePackageExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RequestSurfacePackageExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sdksandbox.RequestSurfacePackageExceptionService",
-	HandlerType: (*RequestSurfacePackageExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRequestSurfacePackageException",
-			Handler:    _RequestSurfacePackageExceptionService_NewRequestSurfacePackageException_Handler,
-		},
-		{
-			MethodName: "GetExtraErrorInformation",
-			Handler:    _RequestSurfacePackageExceptionService_GetExtraErrorInformation_Handler,
-		},
-		{
-			MethodName: "GetRequestSurfacePackageErrorCode",
-			Handler:    _RequestSurfacePackageExceptionService_GetRequestSurfacePackageErrorCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sdksandbox/sdksandbox.proto",
-}
-
-const (
-	SandboxedSdkService_NewSandboxedSdk_FullMethodName      = "/sdksandbox.SandboxedSdkService/NewSandboxedSdk"
-	SandboxedSdkService_DescribeContents_FullMethodName     = "/sdksandbox.SandboxedSdkService/DescribeContents"
-	SandboxedSdkService_GetInterface_FullMethodName         = "/sdksandbox.SandboxedSdkService/GetInterface"
-	SandboxedSdkService_GetSharedLibraryInfo_FullMethodName = "/sdksandbox.SandboxedSdkService/GetSharedLibraryInfo"
-	SandboxedSdkService_WriteToParcel_FullMethodName        = "/sdksandbox.SandboxedSdkService/WriteToParcel"
-)
-
-// SandboxedSdkServiceClient is the client API for SandboxedSdkService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SandboxedSdkServiceClient interface {
-	NewSandboxedSdk(ctx context.Context, in *NewSandboxedSdkRequest, opts ...grpc.CallOption) (*NewSandboxedSdkResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetInterface(ctx context.Context, in *GetInterfaceRequest, opts ...grpc.CallOption) (*GetInterfaceResponse, error)
-	GetSharedLibraryInfo(ctx context.Context, in *GetSharedLibraryInfoRequest, opts ...grpc.CallOption) (*GetSharedLibraryInfoResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type sandboxedSdkServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSandboxedSdkServiceClient(cc grpc.ClientConnInterface) SandboxedSdkServiceClient {
-	return &sandboxedSdkServiceClient{cc}
-}
-
-func (c *sandboxedSdkServiceClient) NewSandboxedSdk(ctx context.Context, in *NewSandboxedSdkRequest, opts ...grpc.CallOption) (*NewSandboxedSdkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSandboxedSdkResponse)
-	err := c.cc.Invoke(ctx, SandboxedSdkService_NewSandboxedSdk_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sandboxedSdkServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SandboxedSdkService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sandboxedSdkServiceClient) GetInterface(ctx context.Context, in *GetInterfaceRequest, opts ...grpc.CallOption) (*GetInterfaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInterfaceResponse)
-	err := c.cc.Invoke(ctx, SandboxedSdkService_GetInterface_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sandboxedSdkServiceClient) GetSharedLibraryInfo(ctx context.Context, in *GetSharedLibraryInfoRequest, opts ...grpc.CallOption) (*GetSharedLibraryInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSharedLibraryInfoResponse)
-	err := c.cc.Invoke(ctx, SandboxedSdkService_GetSharedLibraryInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sandboxedSdkServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SandboxedSdkService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SandboxedSdkServiceServer is the server API for SandboxedSdkService service.
-// All implementations must embed UnimplementedSandboxedSdkServiceServer
-// for forward compatibility.
-type SandboxedSdkServiceServer interface {
-	NewSandboxedSdk(context.Context, *NewSandboxedSdkRequest) (*NewSandboxedSdkResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetInterface(context.Context, *GetInterfaceRequest) (*GetInterfaceResponse, error)
-	GetSharedLibraryInfo(context.Context, *GetSharedLibraryInfoRequest) (*GetSharedLibraryInfoResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSandboxedSdkServiceServer()
-}
-
-// UnimplementedSandboxedSdkServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSandboxedSdkServiceServer struct{}
-
-func (UnimplementedSandboxedSdkServiceServer) NewSandboxedSdk(context.Context, *NewSandboxedSdkRequest) (*NewSandboxedSdkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSandboxedSdk not implemented")
-}
-func (UnimplementedSandboxedSdkServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSandboxedSdkServiceServer) GetInterface(context.Context, *GetInterfaceRequest) (*GetInterfaceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInterface not implemented")
-}
-func (UnimplementedSandboxedSdkServiceServer) GetSharedLibraryInfo(context.Context, *GetSharedLibraryInfoRequest) (*GetSharedLibraryInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSharedLibraryInfo not implemented")
-}
-func (UnimplementedSandboxedSdkServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSandboxedSdkServiceServer) mustEmbedUnimplementedSandboxedSdkServiceServer() {}
-func (UnimplementedSandboxedSdkServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeSandboxedSdkServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SandboxedSdkServiceServer will
-// result in compilation errors.
-type UnsafeSandboxedSdkServiceServer interface {
-	mustEmbedUnimplementedSandboxedSdkServiceServer()
-}
-
-func RegisterSandboxedSdkServiceServer(s grpc.ServiceRegistrar, srv SandboxedSdkServiceServer) {
-	// If the following call panics, it indicates UnimplementedSandboxedSdkServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SandboxedSdkService_ServiceDesc, srv)
-}
-
-func _SandboxedSdkService_NewSandboxedSdk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSandboxedSdkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SandboxedSdkServiceServer).NewSandboxedSdk(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SandboxedSdkService_NewSandboxedSdk_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SandboxedSdkServiceServer).NewSandboxedSdk(ctx, req.(*NewSandboxedSdkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SandboxedSdkService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SandboxedSdkServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SandboxedSdkService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SandboxedSdkServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SandboxedSdkService_GetInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInterfaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SandboxedSdkServiceServer).GetInterface(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SandboxedSdkService_GetInterface_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SandboxedSdkServiceServer).GetInterface(ctx, req.(*GetInterfaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SandboxedSdkService_GetSharedLibraryInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSharedLibraryInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SandboxedSdkServiceServer).GetSharedLibraryInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SandboxedSdkService_GetSharedLibraryInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SandboxedSdkServiceServer).GetSharedLibraryInfo(ctx, req.(*GetSharedLibraryInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SandboxedSdkService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SandboxedSdkServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SandboxedSdkService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SandboxedSdkServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SandboxedSdkService_ServiceDesc is the grpc.ServiceDesc for SandboxedSdkService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SandboxedSdkService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sdksandbox.SandboxedSdkService",
-	HandlerType: (*SandboxedSdkServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSandboxedSdk",
-			Handler:    _SandboxedSdkService_NewSandboxedSdk_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SandboxedSdkService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetInterface",
-			Handler:    _SandboxedSdkService_GetInterface_Handler,
-		},
-		{
-			MethodName: "GetSharedLibraryInfo",
-			Handler:    _SandboxedSdkService_GetSharedLibraryInfo_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SandboxedSdkService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

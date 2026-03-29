@@ -1507,6 +1507,7 @@ var SmsMessageSubmitPduService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	SmsManagerService_DivideMessage_FullMethodName   = "/gsm.SmsManagerService/DivideMessage"
 	SmsManagerService_SendDataMessage_FullMethodName = "/gsm.SmsManagerService/SendDataMessage"
 	SmsManagerService_SendTextMessage_FullMethodName = "/gsm.SmsManagerService/SendTextMessage"
 	SmsManagerService_GetDefault_FullMethodName      = "/gsm.SmsManagerService/GetDefault"
@@ -1516,6 +1517,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SmsManagerServiceClient interface {
+	DivideMessage(ctx context.Context, in *DivideMessageRequest, opts ...grpc.CallOption) (*DivideMessageResponse, error)
 	SendDataMessage(ctx context.Context, in *SendDataMessageRequest, opts ...grpc.CallOption) (*SendDataMessageResponse, error)
 	SendTextMessage(ctx context.Context, in *SendTextMessageRequest, opts ...grpc.CallOption) (*SendTextMessageResponse, error)
 	GetDefault(ctx context.Context, in *GetDefaultRequest, opts ...grpc.CallOption) (*GetDefaultResponse, error)
@@ -1527,6 +1529,16 @@ type smsManagerServiceClient struct {
 
 func NewSmsManagerServiceClient(cc grpc.ClientConnInterface) SmsManagerServiceClient {
 	return &smsManagerServiceClient{cc}
+}
+
+func (c *smsManagerServiceClient) DivideMessage(ctx context.Context, in *DivideMessageRequest, opts ...grpc.CallOption) (*DivideMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DivideMessageResponse)
+	err := c.cc.Invoke(ctx, SmsManagerService_DivideMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *smsManagerServiceClient) SendDataMessage(ctx context.Context, in *SendDataMessageRequest, opts ...grpc.CallOption) (*SendDataMessageResponse, error) {
@@ -1563,6 +1575,7 @@ func (c *smsManagerServiceClient) GetDefault(ctx context.Context, in *GetDefault
 // All implementations must embed UnimplementedSmsManagerServiceServer
 // for forward compatibility.
 type SmsManagerServiceServer interface {
+	DivideMessage(context.Context, *DivideMessageRequest) (*DivideMessageResponse, error)
 	SendDataMessage(context.Context, *SendDataMessageRequest) (*SendDataMessageResponse, error)
 	SendTextMessage(context.Context, *SendTextMessageRequest) (*SendTextMessageResponse, error)
 	GetDefault(context.Context, *GetDefaultRequest) (*GetDefaultResponse, error)
@@ -1576,6 +1589,9 @@ type SmsManagerServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSmsManagerServiceServer struct{}
 
+func (UnimplementedSmsManagerServiceServer) DivideMessage(context.Context, *DivideMessageRequest) (*DivideMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DivideMessage not implemented")
+}
 func (UnimplementedSmsManagerServiceServer) SendDataMessage(context.Context, *SendDataMessageRequest) (*SendDataMessageResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SendDataMessage not implemented")
 }
@@ -1604,6 +1620,24 @@ func RegisterSmsManagerServiceServer(s grpc.ServiceRegistrar, srv SmsManagerServ
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&SmsManagerService_ServiceDesc, srv)
+}
+
+func _SmsManagerService_DivideMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DivideMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SmsManagerServiceServer).DivideMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SmsManagerService_DivideMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SmsManagerServiceServer).DivideMessage(ctx, req.(*DivideMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _SmsManagerService_SendDataMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1667,6 +1701,10 @@ var SmsManagerService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "gsm.SmsManagerService",
 	HandlerType: (*SmsManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DivideMessage",
+			Handler:    _SmsManagerService_DivideMessage_Handler,
+		},
 		{
 			MethodName: "SendDataMessage",
 			Handler:    _SmsManagerService_SendDataMessage_Handler,

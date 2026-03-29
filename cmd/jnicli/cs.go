@@ -12,65 +12,6 @@ var csCmd = &cobra.Command{
 	Short: "cs service operations",
 }
 
-var csBleCsRangingCapabilitiesCmd = &cobra.Command{
-	Use:   "ble-cs-ranging-capabilities",
-	Short: "BleCsRangingCapabilitiesService operations",
-}
-
-var csBleCsRangingCapabilitiesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBleCsRangingCapabilitiesServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var csBleCsRangingCapabilitiesToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBleCsRangingCapabilitiesServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var csBleCsRangingCapabilitiesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBleCsRangingCapabilitiesServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var csBleCsRangingParamsCmd = &cobra.Command{
 	Use:   "ble-cs-ranging-params",
 	Short: "BleCsRangingParamsService operations",
@@ -326,13 +267,82 @@ var csBleCsRangingParamsBuilderSetSightTypeCmd = &cobra.Command{
 	},
 }
 
+var csBleCsRangingCapabilitiesCmd = &cobra.Command{
+	Use:   "ble-cs-ranging-capabilities",
+	Short: "BleCsRangingCapabilitiesService operations",
+}
+
+var csBleCsRangingCapabilitiesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBleCsRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var csBleCsRangingCapabilitiesGetSupportedSecurityLevelsCmd = &cobra.Command{
+	Use:   "get-supported-security-levels",
+	Short: "GetSupportedSecurityLevels RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBleCsRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.GetSupportedSecurityLevelsRequest{}
+		resp, err := client.GetSupportedSecurityLevels(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var csBleCsRangingCapabilitiesToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBleCsRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var csBleCsRangingCapabilitiesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBleCsRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	csBleCsRangingCapabilitiesCmd.AddCommand(csBleCsRangingCapabilitiesDescribeContentsCmd)
-	csBleCsRangingCapabilitiesCmd.AddCommand(csBleCsRangingCapabilitiesToStringCmd)
-	csBleCsRangingCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	csBleCsRangingCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	csBleCsRangingCapabilitiesCmd.AddCommand(csBleCsRangingCapabilitiesWriteToParcelCmd)
-	csCmd.AddCommand(csBleCsRangingCapabilitiesCmd)
 	csBleCsRangingParamsCmd.AddCommand(csBleCsRangingParamsDescribeContentsCmd)
 	csBleCsRangingParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	csBleCsRangingParamsCmd.AddCommand(csBleCsRangingParamsEqualsCmd)
@@ -356,5 +366,12 @@ func init() {
 	csBleCsRangingParamsBuilderSetSightTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	csBleCsRangingParamsBuilderCmd.AddCommand(csBleCsRangingParamsBuilderSetSightTypeCmd)
 	csCmd.AddCommand(csBleCsRangingParamsBuilderCmd)
+	csBleCsRangingCapabilitiesCmd.AddCommand(csBleCsRangingCapabilitiesDescribeContentsCmd)
+	csBleCsRangingCapabilitiesCmd.AddCommand(csBleCsRangingCapabilitiesGetSupportedSecurityLevelsCmd)
+	csBleCsRangingCapabilitiesCmd.AddCommand(csBleCsRangingCapabilitiesToStringCmd)
+	csBleCsRangingCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	csBleCsRangingCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	csBleCsRangingCapabilitiesCmd.AddCommand(csBleCsRangingCapabilitiesWriteToParcelCmd)
+	csCmd.AddCommand(csBleCsRangingCapabilitiesCmd)
 	rootCmd.AddCommand(csCmd)
 }

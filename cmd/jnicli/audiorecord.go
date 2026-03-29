@@ -48,6 +48,25 @@ var audiorecordAudioRecordNewAudioRecordCmd = &cobra.Command{
 	},
 }
 
+var audiorecordAudioRecordGetActiveMicrophonesCmd = &cobra.Command{
+	Use:   "get-active-microphones",
+	Short: "GetActiveMicrophones RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioRecordServiceClient(grpcConn)
+		req := &pb.GetActiveMicrophonesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetActiveMicrophones(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var audiorecordAudioRecordGetActiveRecordingConfigurationCmd = &cobra.Command{
 	Use:   "get-active-recording-configuration",
 	Short: "GetActiveRecordingConfiguration RPC",
@@ -326,6 +345,25 @@ var audiorecordAudioRecordGetRoutedDeviceCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetRoutedDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiorecordAudioRecordGetRoutedDevicesCmd = &cobra.Command{
+	Use:   "get-routed-devices",
+	Short: "GetRoutedDevices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioRecordServiceClient(grpcConn)
+		req := &pb.GetRoutedDevicesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRoutedDevices(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1125,6 +1163,8 @@ func init() {
 	audiorecordAudioRecordNewAudioRecordCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
 	audiorecordAudioRecordNewAudioRecordCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
 	audiorecordAudioRecordCmd.AddCommand(audiorecordAudioRecordNewAudioRecordCmd)
+	audiorecordAudioRecordGetActiveMicrophonesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiorecordAudioRecordCmd.AddCommand(audiorecordAudioRecordGetActiveMicrophonesCmd)
 	audiorecordAudioRecordGetActiveRecordingConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
 	audiorecordAudioRecordCmd.AddCommand(audiorecordAudioRecordGetActiveRecordingConfigurationCmd)
 	audiorecordAudioRecordGetAudioFormatCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -1155,6 +1195,8 @@ func init() {
 	audiorecordAudioRecordCmd.AddCommand(audiorecordAudioRecordGetRecordingStateCmd)
 	audiorecordAudioRecordGetRoutedDeviceCmd.Flags().Int64("handle", 0, "handle (int64)")
 	audiorecordAudioRecordCmd.AddCommand(audiorecordAudioRecordGetRoutedDeviceCmd)
+	audiorecordAudioRecordGetRoutedDevicesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiorecordAudioRecordCmd.AddCommand(audiorecordAudioRecordGetRoutedDevicesCmd)
 	audiorecordAudioRecordGetSampleRateCmd.Flags().Int64("handle", 0, "handle (int64)")
 	audiorecordAudioRecordCmd.AddCommand(audiorecordAudioRecordGetSampleRateCmd)
 	audiorecordAudioRecordGetStateCmd.Flags().Int64("handle", 0, "handle (int64)")

@@ -6,14 +6,6 @@ package measurement;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/measurement";
 
-message GetRequest {
-  int64 arg0 = 1;
-}
-
-message GetResponse {
-  int64 result = 1;
-}
-
 message DescribeContentsRequest {
 }
 
@@ -29,10 +21,10 @@ message EqualsResponse {
   bool result = 1;
 }
 
-message GetInputEventRequest {
+message GetRegistrationUriRequest {
 }
 
-message GetInputEventResponse {
+message GetRegistrationUriResponse {
   int64 result = 1;
 }
 
@@ -41,6 +33,13 @@ message HashCodeRequest {
 
 message HashCodeResponse {
   int32 result = 1;
+}
+
+message IsDebugKeyAllowedRequest {
+}
+
+message IsDebugKeyAllowedResponse {
+  bool result = 1;
 }
 
 message WriteToParcelRequest {
@@ -58,11 +57,11 @@ message BuildResponse {
   int64 result = 1;
 }
 
-message SetInputEventRequest {
-  int64 arg0 = 1;
+message SetDebugKeyAllowedRequest {
+  bool arg0 = 1;
 }
 
-message SetInputEventResponse {
+message SetDebugKeyAllowedResponse {
   int64 result = 1;
 }
 
@@ -71,6 +70,13 @@ message GetDeletionModeRequest {
 
 message GetDeletionModeResponse {
   int32 result = 1;
+}
+
+message GetDomainUrisRequest {
+}
+
+message GetDomainUrisResponse {
+  int64 result = 1;
 }
 
 message GetEndRequest {
@@ -85,6 +91,13 @@ message GetMatchBehaviorRequest {
 
 message GetMatchBehaviorResponse {
   int32 result = 1;
+}
+
+message GetOriginUrisRequest {
+}
+
+message GetOriginUrisResponse {
+  int64 result = 1;
 }
 
 message GetStartRequest {
@@ -126,28 +139,6 @@ message SetStartResponse {
   int64 result = 1;
 }
 
-message GetRegistrationUriRequest {
-}
-
-message GetRegistrationUriResponse {
-  int64 result = 1;
-}
-
-message IsDebugKeyAllowedRequest {
-}
-
-message IsDebugKeyAllowedResponse {
-  bool result = 1;
-}
-
-message SetDebugKeyAllowedRequest {
-  bool arg0 = 1;
-}
-
-message SetDebugKeyAllowedResponse {
-  int64 result = 1;
-}
-
 message GetDestinationRequest {
 }
 
@@ -155,10 +146,39 @@ message GetDestinationResponse {
   int64 result = 1;
 }
 
+message GetTriggerParamsRequest {
+}
+
+message GetTriggerParamsResponse {
+  int64 result = 1;
+}
+
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
 message GetAppDestinationRequest {
 }
 
 message GetAppDestinationResponse {
+  int64 result = 1;
+}
+
+message GetInputEventRequest {
+}
+
+message GetInputEventResponse {
+  int64 result = 1;
+}
+
+message GetSourceParamsRequest {
+}
+
+message GetSourceParamsResponse {
   int64 result = 1;
 }
 
@@ -191,6 +211,14 @@ message SetAppDestinationResponse {
   int64 result = 1;
 }
 
+message SetInputEventRequest {
+  int64 arg0 = 1;
+}
+
+message SetInputEventResponse {
+  int64 result = 1;
+}
+
 message SetVerifiedDestinationRequest {
   int64 arg0 = 1;
 }
@@ -207,27 +235,33 @@ message SetWebDestinationResponse {
   int64 result = 1;
 }
 
-service ManagerService {
-  rpc Get (GetRequest) returns (GetResponse);
+message GetRegistrationUrisRequest {
 }
 
-service SourceRegistrationRequestService {
+message GetRegistrationUrisResponse {
+  int64 result = 1;
+}
+
+service WebSourceParamsService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetInputEvent (GetInputEventRequest) returns (GetInputEventResponse);
+  rpc GetRegistrationUri (GetRegistrationUriRequest) returns (GetRegistrationUriResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsDebugKeyAllowed (IsDebugKeyAllowedRequest) returns (IsDebugKeyAllowedResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SourceRegistrationRequestBuilderService {
+service WebSourceParamsBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetInputEvent (SetInputEventRequest) returns (SetInputEventResponse);
+  rpc SetDebugKeyAllowed (SetDebugKeyAllowedRequest) returns (SetDebugKeyAllowedResponse);
 }
 
 service DeletionRequestService {
   rpc GetDeletionMode (GetDeletionModeRequest) returns (GetDeletionModeResponse);
+  rpc GetDomainUris (GetDomainUrisRequest) returns (GetDomainUrisResponse);
   rpc GetEnd (GetEndRequest) returns (GetEndResponse);
   rpc GetMatchBehavior (GetMatchBehaviorRequest) returns (GetMatchBehaviorResponse);
+  rpc GetOriginUris (GetOriginUrisRequest) returns (GetOriginUrisResponse);
   rpc GetStart (GetStartRequest) returns (GetStartResponse);
 }
 
@@ -253,24 +287,11 @@ service WebTriggerParamsBuilderService {
   rpc SetDebugKeyAllowed (SetDebugKeyAllowedRequest) returns (SetDebugKeyAllowedResponse);
 }
 
-service WebSourceParamsService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetRegistrationUri (GetRegistrationUriRequest) returns (GetRegistrationUriResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsDebugKeyAllowed (IsDebugKeyAllowedRequest) returns (IsDebugKeyAllowedResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WebSourceParamsBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetDebugKeyAllowed (SetDebugKeyAllowedRequest) returns (SetDebugKeyAllowedResponse);
-}
-
 service WebTriggerRegistrationRequestService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetDestination (GetDestinationRequest) returns (GetDestinationResponse);
+  rpc GetTriggerParams (GetTriggerParamsRequest) returns (GetTriggerParamsResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
@@ -279,11 +300,16 @@ service WebTriggerRegistrationRequestBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
 }
 
+service ManagerService {
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
 service WebSourceRegistrationRequestService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetAppDestination (GetAppDestinationRequest) returns (GetAppDestinationResponse);
   rpc GetInputEvent (GetInputEventRequest) returns (GetInputEventResponse);
+  rpc GetSourceParams (GetSourceParamsRequest) returns (GetSourceParamsResponse);
   rpc GetTopOriginUri (GetTopOriginUriRequest) returns (GetTopOriginUriResponse);
   rpc GetVerifiedDestination (GetVerifiedDestinationRequest) returns (GetVerifiedDestinationResponse);
   rpc GetWebDestination (GetWebDestinationRequest) returns (GetWebDestinationResponse);
@@ -297,4 +323,18 @@ service WebSourceRegistrationRequestBuilderService {
   rpc SetInputEvent (SetInputEventRequest) returns (SetInputEventResponse);
   rpc SetVerifiedDestination (SetVerifiedDestinationRequest) returns (SetVerifiedDestinationResponse);
   rpc SetWebDestination (SetWebDestinationRequest) returns (SetWebDestinationResponse);
+}
+
+service SourceRegistrationRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInputEvent (GetInputEventRequest) returns (GetInputEventResponse);
+  rpc GetRegistrationUris (GetRegistrationUrisRequest) returns (GetRegistrationUrisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SourceRegistrationRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetInputEvent (SetInputEventRequest) returns (SetInputEventResponse);
 }

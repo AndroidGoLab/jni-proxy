@@ -309,6 +309,25 @@ var drmManagerClientGetAvailableDrmEnginesCmd = &cobra.Command{
 	},
 }
 
+var drmManagerClientGetAvailableDrmSupportInfoCmd = &cobra.Command{
+	Use:   "get-available-drm-support-info",
+	Short: "GetAvailableDrmSupportInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerClientServiceClient(grpcConn)
+		req := &pb.GetAvailableDrmSupportInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAvailableDrmSupportInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var drmManagerClientGetConstraints2Cmd = &cobra.Command{
 	Use:   "get-constraints2",
 	Short: "GetConstraints2 RPC",
@@ -732,20 +751,20 @@ var drmManagerClientOnInfoListenerOnInfoCmd = &cobra.Command{
 	},
 }
 
-var drmUtilsCmd = &cobra.Command{
-	Use:   "utils",
-	Short: "UtilsService operations",
+var drmProcessedDataCmd = &cobra.Command{
+	Use:   "processed-data",
+	Short: "ProcessedDataService operations",
 }
 
-var drmUtilsNewUtilsCmd = &cobra.Command{
-	Use:   "new-utils",
-	Short: "NewUtils RPC",
+var drmProcessedDataGetAccountIdCmd = &cobra.Command{
+	Use:   "get-account-id",
+	Short: "GetAccountId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.NewUtilsRequest{}
-		resp, err := client.NewUtils(ctx, req)
+		client := pb.NewProcessedDataServiceClient(grpcConn)
+		req := &pb.GetAccountIdRequest{}
+		resp, err := client.GetAccountId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -753,21 +772,15 @@ var drmUtilsNewUtilsCmd = &cobra.Command{
 	},
 }
 
-var drmUtilsGetExtendedMetadataParserCmd = &cobra.Command{
-	Use:   "get-extended-metadata-parser",
-	Short: "GetExtendedMetadataParser RPC",
+var drmProcessedDataGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.GetExtendedMetadataParserRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetExtendedMetadataParser(ctx, req)
+		client := pb.NewProcessedDataServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		resp, err := client.GetData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -775,23 +788,87 @@ var drmUtilsGetExtendedMetadataParserCmd = &cobra.Command{
 	},
 }
 
-var drmUtilsExtendedMetadataParserCmd = &cobra.Command{
-	Use:   "utils-extended-metadata-parser",
-	Short: "UtilsExtendedMetadataParserService operations",
-}
-
-var drmUtilsExtendedMetadataParserGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
+var drmProcessedDataGetSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-subscription-id",
+	Short: "GetSubscriptionId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUtilsExtendedMetadataParserServiceClient(grpcConn)
-		req := &pb.GetRequest{}
+		client := pb.NewProcessedDataServiceClient(grpcConn)
+		req := &pb.GetSubscriptionIdRequest{}
+		resp, err := client.GetSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmEventCmd = &cobra.Command{
+	Use:   "event",
+	Short: "EventService operations",
+}
+
+var drmEventGetAttributeCmd = &cobra.Command{
+	Use:   "get-attribute",
+	Short: "GetAttribute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventServiceClient(grpcConn)
+		req := &pb.GetAttributeRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Get(ctx, req)
+		resp, err := client.GetAttribute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmEventGetMessageCmd = &cobra.Command{
+	Use:   "get-message",
+	Short: "GetMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventServiceClient(grpcConn)
+		req := &pb.GetMessageRequest{}
+		resp, err := client.GetMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmEventGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmEventGetUniqueIdCmd = &cobra.Command{
+	Use:   "get-unique-id",
+	Short: "GetUniqueId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventServiceClient(grpcConn)
+		req := &pb.GetUniqueIdRequest{}
+		resp, err := client.GetUniqueId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -924,6 +1001,44 @@ var drmSupportInfoGetDescriptionCmd = &cobra.Command{
 	},
 }
 
+var drmSupportInfoGetFileSuffixIteratorCmd = &cobra.Command{
+	Use:   "get-file-suffix-iterator",
+	Short: "GetFileSuffixIterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSupportInfoServiceClient(grpcConn)
+		req := &pb.GetFileSuffixIteratorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFileSuffixIterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmSupportInfoGetMimeTypeIteratorCmd = &cobra.Command{
+	Use:   "get-mime-type-iterator",
+	Short: "GetMimeTypeIterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSupportInfoServiceClient(grpcConn)
+		req := &pb.GetMimeTypeIteratorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMimeTypeIterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var drmSupportInfoHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
@@ -965,6 +1080,380 @@ var drmSupportInfoSetDescriptionCmd = &cobra.Command{
 	},
 }
 
+var drmRightsCmd = &cobra.Command{
+	Use:   "rights",
+	Short: "RightsService operations",
+}
+
+var drmRightsNewRightsCmd = &cobra.Command{
+	Use:   "new-rights",
+	Short: "NewRights RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRightsServiceClient(grpcConn)
+		req := &pb.NewRightsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewRights(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmRightsGetAccountIdCmd = &cobra.Command{
+	Use:   "get-account-id",
+	Short: "GetAccountId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRightsServiceClient(grpcConn)
+		req := &pb.RightsGetAccountIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAccountId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmRightsGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRightsServiceClient(grpcConn)
+		req := &pb.RightsGetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmRightsGetMimeTypeCmd = &cobra.Command{
+	Use:   "get-mime-type",
+	Short: "GetMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRightsServiceClient(grpcConn)
+		req := &pb.GetMimeTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmRightsGetSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-subscription-id",
+	Short: "GetSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRightsServiceClient(grpcConn)
+		req := &pb.RightsGetSubscriptionIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoCmd = &cobra.Command{
+	Use:   "info",
+	Short: "InfoService operations",
+}
+
+var drmInfoNewInfoCmd = &cobra.Command{
+	Use:   "new-info",
+	Short: "NewInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.NewInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.InfoGetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoGetInfoTypeCmd = &cobra.Command{
+	Use:   "get-info-type",
+	Short: "GetInfoType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.GetInfoTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInfoType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoGetMimeTypeCmd = &cobra.Command{
+	Use:   "get-mime-type",
+	Short: "GetMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.GetMimeTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoIteratorCmd = &cobra.Command{
+	Use:   "iterator",
+	Short: "Iterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.IteratorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Iterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoKeyIteratorCmd = &cobra.Command{
+	Use:   "key-iterator",
+	Short: "KeyIterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.KeyIteratorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.KeyIterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoPutCmd = &cobra.Command{
+	Use:   "put",
+	Short: "Put RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.PutRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmUtilsCmd = &cobra.Command{
+	Use:   "utils",
+	Short: "UtilsService operations",
+}
+
+var drmUtilsNewUtilsCmd = &cobra.Command{
+	Use:   "new-utils",
+	Short: "NewUtils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.NewUtilsRequest{}
+		resp, err := client.NewUtils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmUtilsGetExtendedMetadataParserCmd = &cobra.Command{
+	Use:   "get-extended-metadata-parser",
+	Short: "GetExtendedMetadataParser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.GetExtendedMetadataParserRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetExtendedMetadataParser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmUtilsExtendedMetadataParserCmd = &cobra.Command{
+	Use:   "utils-extended-metadata-parser",
+	Short: "UtilsExtendedMetadataParserService operations",
+}
+
+var drmUtilsExtendedMetadataParserGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsExtendedMetadataParserServiceClient(grpcConn)
+		req := &pb.UtilsExtendedMetadataParserGetRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmUtilsExtendedMetadataParserIteratorCmd = &cobra.Command{
+	Use:   "iterator",
+	Short: "Iterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsExtendedMetadataParserServiceClient(grpcConn)
+		req := &pb.UtilsExtendedMetadataParserIteratorRequest{}
+		resp, err := client.Iterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmUtilsExtendedMetadataParserKeyIteratorCmd = &cobra.Command{
+	Use:   "key-iterator",
+	Short: "KeyIterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsExtendedMetadataParserServiceClient(grpcConn)
+		req := &pb.UtilsExtendedMetadataParserKeyIteratorRequest{}
+		resp, err := client.KeyIterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var drmInfoRequestCmd = &cobra.Command{
 	Use:   "info-request",
 	Short: "InfoRequestService operations",
@@ -999,7 +1488,7 @@ var drmInfoRequestGetCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInfoRequestServiceClient(grpcConn)
-		req := &pb.InfoRequestGetRequest{}
+		req := &pb.GetRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1052,6 +1541,44 @@ var drmInfoRequestGetMimeTypeCmd = &cobra.Command{
 	},
 }
 
+var drmInfoRequestIteratorCmd = &cobra.Command{
+	Use:   "iterator",
+	Short: "Iterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoRequestServiceClient(grpcConn)
+		req := &pb.IteratorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Iterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var drmInfoRequestKeyIteratorCmd = &cobra.Command{
+	Use:   "key-iterator",
+	Short: "KeyIterator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoRequestServiceClient(grpcConn)
+		req := &pb.KeyIteratorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.KeyIterator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var drmInfoRequestPutCmd = &cobra.Command{
 	Use:   "put",
 	Short: "Put RPC",
@@ -1070,368 +1597,6 @@ var drmInfoRequestPutCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.Put(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmEventCmd = &cobra.Command{
-	Use:   "event",
-	Short: "EventService operations",
-}
-
-var drmEventGetAttributeCmd = &cobra.Command{
-	Use:   "get-attribute",
-	Short: "GetAttribute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventServiceClient(grpcConn)
-		req := &pb.GetAttributeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetAttribute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmEventGetMessageCmd = &cobra.Command{
-	Use:   "get-message",
-	Short: "GetMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventServiceClient(grpcConn)
-		req := &pb.GetMessageRequest{}
-		resp, err := client.GetMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmEventGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmEventGetUniqueIdCmd = &cobra.Command{
-	Use:   "get-unique-id",
-	Short: "GetUniqueId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventServiceClient(grpcConn)
-		req := &pb.GetUniqueIdRequest{}
-		resp, err := client.GetUniqueId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmRightsCmd = &cobra.Command{
-	Use:   "rights",
-	Short: "RightsService operations",
-}
-
-var drmRightsNewRightsCmd = &cobra.Command{
-	Use:   "new-rights",
-	Short: "NewRights RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRightsServiceClient(grpcConn)
-		req := &pb.NewRightsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewRights(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmRightsGetAccountIdCmd = &cobra.Command{
-	Use:   "get-account-id",
-	Short: "GetAccountId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRightsServiceClient(grpcConn)
-		req := &pb.GetAccountIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAccountId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmRightsGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRightsServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmRightsGetMimeTypeCmd = &cobra.Command{
-	Use:   "get-mime-type",
-	Short: "GetMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRightsServiceClient(grpcConn)
-		req := &pb.GetMimeTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmRightsGetSubscriptionIdCmd = &cobra.Command{
-	Use:   "get-subscription-id",
-	Short: "GetSubscriptionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRightsServiceClient(grpcConn)
-		req := &pb.GetSubscriptionIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSubscriptionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmInfoCmd = &cobra.Command{
-	Use:   "info",
-	Short: "InfoService operations",
-}
-
-var drmInfoNewInfoCmd = &cobra.Command{
-	Use:   "new-info",
-	Short: "NewInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.NewInfoRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmInfoGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.InfoGetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmInfoGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmInfoGetInfoTypeCmd = &cobra.Command{
-	Use:   "get-info-type",
-	Short: "GetInfoType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.GetInfoTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInfoType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmInfoGetMimeTypeCmd = &cobra.Command{
-	Use:   "get-mime-type",
-	Short: "GetMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.GetMimeTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmInfoPutCmd = &cobra.Command{
-	Use:   "put",
-	Short: "Put RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInfoServiceClient(grpcConn)
-		req := &pb.PutRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Put(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmProcessedDataCmd = &cobra.Command{
-	Use:   "processed-data",
-	Short: "ProcessedDataService operations",
-}
-
-var drmProcessedDataGetAccountIdCmd = &cobra.Command{
-	Use:   "get-account-id",
-	Short: "GetAccountId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProcessedDataServiceClient(grpcConn)
-		req := &pb.ProcessedDataGetAccountIdRequest{}
-		resp, err := client.GetAccountId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmProcessedDataGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProcessedDataServiceClient(grpcConn)
-		req := &pb.ProcessedDataGetDataRequest{}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var drmProcessedDataGetSubscriptionIdCmd = &cobra.Command{
-	Use:   "get-subscription-id",
-	Short: "GetSubscriptionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProcessedDataServiceClient(grpcConn)
-		req := &pb.ProcessedDataGetSubscriptionIdRequest{}
-		resp, err := client.GetSubscriptionId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1481,6 +1646,8 @@ func init() {
 	drmManagerClientCmd.AddCommand(drmManagerClientConvertDataCmd)
 	drmManagerClientGetAvailableDrmEnginesCmd.Flags().Int64("handle", 0, "handle (int64)")
 	drmManagerClientCmd.AddCommand(drmManagerClientGetAvailableDrmEnginesCmd)
+	drmManagerClientGetAvailableDrmSupportInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmManagerClientCmd.AddCommand(drmManagerClientGetAvailableDrmSupportInfoCmd)
 	drmManagerClientGetConstraints2Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	drmManagerClientGetConstraints2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	drmManagerClientGetConstraints2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
@@ -1543,14 +1710,16 @@ func init() {
 	drmManagerClientOnInfoListenerOnInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	drmManagerClientOnInfoListenerCmd.AddCommand(drmManagerClientOnInfoListenerOnInfoCmd)
 	drmCmd.AddCommand(drmManagerClientOnInfoListenerCmd)
-	drmUtilsCmd.AddCommand(drmUtilsNewUtilsCmd)
-	drmUtilsGetExtendedMetadataParserCmd.Flags().Int64("handle", 0, "handle (int64)")
-	drmUtilsGetExtendedMetadataParserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	drmUtilsCmd.AddCommand(drmUtilsGetExtendedMetadataParserCmd)
-	drmCmd.AddCommand(drmUtilsCmd)
-	drmUtilsExtendedMetadataParserGetCmd.Flags().String("arg0", "", "arg0 (string)")
-	drmUtilsExtendedMetadataParserCmd.AddCommand(drmUtilsExtendedMetadataParserGetCmd)
-	drmCmd.AddCommand(drmUtilsExtendedMetadataParserCmd)
+	drmProcessedDataCmd.AddCommand(drmProcessedDataGetAccountIdCmd)
+	drmProcessedDataCmd.AddCommand(drmProcessedDataGetDataCmd)
+	drmProcessedDataCmd.AddCommand(drmProcessedDataGetSubscriptionIdCmd)
+	drmCmd.AddCommand(drmProcessedDataCmd)
+	drmEventGetAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
+	drmEventCmd.AddCommand(drmEventGetAttributeCmd)
+	drmEventCmd.AddCommand(drmEventGetMessageCmd)
+	drmEventCmd.AddCommand(drmEventGetTypeCmd)
+	drmEventCmd.AddCommand(drmEventGetUniqueIdCmd)
+	drmCmd.AddCommand(drmEventCmd)
 	drmSupportInfoCmd.AddCommand(drmSupportInfoNewSupportInfoCmd)
 	drmSupportInfoAddFileSuffixCmd.Flags().Int64("handle", 0, "handle (int64)")
 	drmSupportInfoAddFileSuffixCmd.Flags().String("arg0", "", "arg0 (string)")
@@ -1565,33 +1734,16 @@ func init() {
 	drmSupportInfoCmd.AddCommand(drmSupportInfoGetDescripritionCmd)
 	drmSupportInfoGetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
 	drmSupportInfoCmd.AddCommand(drmSupportInfoGetDescriptionCmd)
+	drmSupportInfoGetFileSuffixIteratorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmSupportInfoCmd.AddCommand(drmSupportInfoGetFileSuffixIteratorCmd)
+	drmSupportInfoGetMimeTypeIteratorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmSupportInfoCmd.AddCommand(drmSupportInfoGetMimeTypeIteratorCmd)
 	drmSupportInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	drmSupportInfoCmd.AddCommand(drmSupportInfoHashCodeCmd)
 	drmSupportInfoSetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
 	drmSupportInfoSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
 	drmSupportInfoCmd.AddCommand(drmSupportInfoSetDescriptionCmd)
 	drmCmd.AddCommand(drmSupportInfoCmd)
-	drmInfoRequestNewInfoRequestOpCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	drmInfoRequestNewInfoRequestOpCmd.Flags().String("arg1", "", "arg1 (string)")
-	drmInfoRequestCmd.AddCommand(drmInfoRequestNewInfoRequestOpCmd)
-	drmInfoRequestGetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	drmInfoRequestGetCmd.Flags().String("arg0", "", "arg0 (string)")
-	drmInfoRequestCmd.AddCommand(drmInfoRequestGetCmd)
-	drmInfoRequestGetInfoTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	drmInfoRequestCmd.AddCommand(drmInfoRequestGetInfoTypeCmd)
-	drmInfoRequestGetMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	drmInfoRequestCmd.AddCommand(drmInfoRequestGetMimeTypeCmd)
-	drmInfoRequestPutCmd.Flags().Int64("handle", 0, "handle (int64)")
-	drmInfoRequestPutCmd.Flags().String("arg0", "", "arg0 (string)")
-	drmInfoRequestPutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	drmInfoRequestCmd.AddCommand(drmInfoRequestPutCmd)
-	drmCmd.AddCommand(drmInfoRequestCmd)
-	drmEventGetAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
-	drmEventCmd.AddCommand(drmEventGetAttributeCmd)
-	drmEventCmd.AddCommand(drmEventGetMessageCmd)
-	drmEventCmd.AddCommand(drmEventGetTypeCmd)
-	drmEventCmd.AddCommand(drmEventGetUniqueIdCmd)
-	drmCmd.AddCommand(drmEventCmd)
 	drmRightsNewRightsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	drmRightsNewRightsCmd.Flags().String("arg1", "", "arg1 (string)")
 	drmRightsCmd.AddCommand(drmRightsNewRightsCmd)
@@ -1617,14 +1769,43 @@ func init() {
 	drmInfoCmd.AddCommand(drmInfoGetInfoTypeCmd)
 	drmInfoGetMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	drmInfoCmd.AddCommand(drmInfoGetMimeTypeCmd)
+	drmInfoIteratorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmInfoCmd.AddCommand(drmInfoIteratorCmd)
+	drmInfoKeyIteratorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmInfoCmd.AddCommand(drmInfoKeyIteratorCmd)
 	drmInfoPutCmd.Flags().Int64("handle", 0, "handle (int64)")
 	drmInfoPutCmd.Flags().String("arg0", "", "arg0 (string)")
 	drmInfoPutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	drmInfoCmd.AddCommand(drmInfoPutCmd)
 	drmCmd.AddCommand(drmInfoCmd)
-	drmProcessedDataCmd.AddCommand(drmProcessedDataGetAccountIdCmd)
-	drmProcessedDataCmd.AddCommand(drmProcessedDataGetDataCmd)
-	drmProcessedDataCmd.AddCommand(drmProcessedDataGetSubscriptionIdCmd)
-	drmCmd.AddCommand(drmProcessedDataCmd)
+	drmUtilsCmd.AddCommand(drmUtilsNewUtilsCmd)
+	drmUtilsGetExtendedMetadataParserCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmUtilsGetExtendedMetadataParserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	drmUtilsCmd.AddCommand(drmUtilsGetExtendedMetadataParserCmd)
+	drmCmd.AddCommand(drmUtilsCmd)
+	drmUtilsExtendedMetadataParserGetCmd.Flags().String("arg0", "", "arg0 (string)")
+	drmUtilsExtendedMetadataParserCmd.AddCommand(drmUtilsExtendedMetadataParserGetCmd)
+	drmUtilsExtendedMetadataParserCmd.AddCommand(drmUtilsExtendedMetadataParserIteratorCmd)
+	drmUtilsExtendedMetadataParserCmd.AddCommand(drmUtilsExtendedMetadataParserKeyIteratorCmd)
+	drmCmd.AddCommand(drmUtilsExtendedMetadataParserCmd)
+	drmInfoRequestNewInfoRequestOpCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	drmInfoRequestNewInfoRequestOpCmd.Flags().String("arg1", "", "arg1 (string)")
+	drmInfoRequestCmd.AddCommand(drmInfoRequestNewInfoRequestOpCmd)
+	drmInfoRequestGetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmInfoRequestGetCmd.Flags().String("arg0", "", "arg0 (string)")
+	drmInfoRequestCmd.AddCommand(drmInfoRequestGetCmd)
+	drmInfoRequestGetInfoTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmInfoRequestCmd.AddCommand(drmInfoRequestGetInfoTypeCmd)
+	drmInfoRequestGetMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmInfoRequestCmd.AddCommand(drmInfoRequestGetMimeTypeCmd)
+	drmInfoRequestIteratorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmInfoRequestCmd.AddCommand(drmInfoRequestIteratorCmd)
+	drmInfoRequestKeyIteratorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmInfoRequestCmd.AddCommand(drmInfoRequestKeyIteratorCmd)
+	drmInfoRequestPutCmd.Flags().Int64("handle", 0, "handle (int64)")
+	drmInfoRequestPutCmd.Flags().String("arg0", "", "arg0 (string)")
+	drmInfoRequestPutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	drmInfoRequestCmd.AddCommand(drmInfoRequestPutCmd)
+	drmCmd.AddCommand(drmInfoRequestCmd)
 	rootCmd.AddCommand(drmCmd)
 }

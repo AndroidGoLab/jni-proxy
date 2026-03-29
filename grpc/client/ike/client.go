@@ -9,23 +9,58 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Ipv6AddrIdentificationClient wraps the gRPC Ipv6AddrIdentificationService client.
-type Ipv6AddrIdentificationClient struct {
-	svc pb.Ipv6AddrIdentificationServiceClient
+// SessionConfigurationClient wraps the gRPC SessionConfigurationService client.
+type SessionConfigurationClient struct {
+	svc pb.SessionConfigurationServiceClient
 }
 
-// NewIpv6AddrIdentificationClient creates a new Ipv6AddrIdentification client.
-func NewIpv6AddrIdentificationClient(cc grpc.ClientConnInterface) *Ipv6AddrIdentificationClient {
-	return &Ipv6AddrIdentificationClient{
-		svc: pb.NewIpv6AddrIdentificationServiceClient(cc),
+// NewSessionConfigurationClient creates a new SessionConfiguration client.
+func NewSessionConfigurationClient(cc grpc.ClientConnInterface) *SessionConfigurationClient {
+	return &SessionConfigurationClient{
+		svc: pb.NewSessionConfigurationServiceClient(cc),
 	}
 }
 
-// Equals calls the Equals RPC.
-func (c *Ipv6AddrIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// GetEapInfo calls the GetEapInfo RPC.
+func (c *SessionConfigurationClient) GetEapInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEapInfo(ctx, &pb.GetEapInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIkeSessionConnectionInfo calls the GetIkeSessionConnectionInfo RPC.
+func (c *SessionConfigurationClient) GetIkeSessionConnectionInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIkeSessionConnectionInfo(ctx, &pb.GetIkeSessionConnectionInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRemoteApplicationVersion calls the GetRemoteApplicationVersion RPC.
+func (c *SessionConfigurationClient) GetRemoteApplicationVersion(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetRemoteApplicationVersion(ctx, &pb.GetRemoteApplicationVersionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRemoteVendorIds calls the GetRemoteVendorIds RPC.
+func (c *SessionConfigurationClient) GetRemoteVendorIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRemoteVendorIds(ctx, &pb.GetRemoteVendorIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsIkeExtensionEnabled calls the IsIkeExtensionEnabled RPC.
+func (c *SessionConfigurationClient) IsIkeExtensionEnabled(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsIkeExtensionEnabled(ctx, &pb.IsIkeExtensionEnabledRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return false, err
@@ -33,153 +68,21 @@ func (c *Ipv6AddrIdentificationClient) Equals(ctx context.Context, handle int64,
 	return resp.GetResult(), nil
 }
 
-// HashCode calls the HashCode RPC.
-func (c *Ipv6AddrIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// SessionConfigurationBuilderClient wraps the gRPC SessionConfigurationBuilderService client.
+type SessionConfigurationBuilderClient struct {
+	svc pb.SessionConfigurationBuilderServiceClient
 }
 
-// SessionClient wraps the gRPC SessionService client.
-type SessionClient struct {
-	svc pb.SessionServiceClient
-}
-
-// NewSessionClient creates a new Session client.
-func NewSessionClient(cc grpc.ClientConnInterface) *SessionClient {
-	return &SessionClient{
-		svc: pb.NewSessionServiceClient(cc),
+// NewSessionConfigurationBuilderClient creates a new SessionConfigurationBuilder client.
+func NewSessionConfigurationBuilderClient(cc grpc.ClientConnInterface) *SessionConfigurationBuilderClient {
+	return &SessionConfigurationBuilderClient{
+		svc: pb.NewSessionConfigurationBuilderServiceClient(cc),
 	}
 }
 
-// Close calls the Close RPC.
-func (c *SessionClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// CloseChildSession calls the CloseChildSession RPC.
-func (c *SessionClient) CloseChildSession(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CloseChildSession(ctx, &pb.CloseChildSessionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Dump calls the Dump RPC.
-func (c *SessionClient) Dump(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Finalize calls the Finalize RPC.
-func (c *SessionClient) Finalize(ctx context.Context, handle int64) error {
-	_, err := c.svc.Finalize(ctx, &pb.FinalizeRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Kill calls the Kill RPC.
-func (c *SessionClient) Kill(ctx context.Context, handle int64) error {
-	_, err := c.svc.Kill(ctx, &pb.KillRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OpenChildSession calls the OpenChildSession RPC.
-func (c *SessionClient) OpenChildSession(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OpenChildSession(ctx, &pb.OpenChildSessionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// TunnelConnectionParamsClient wraps the gRPC TunnelConnectionParamsService client.
-type TunnelConnectionParamsClient struct {
-	svc pb.TunnelConnectionParamsServiceClient
-}
-
-// NewTunnelConnectionParamsClient creates a new TunnelConnectionParams client.
-func NewTunnelConnectionParamsClient(cc grpc.ClientConnInterface) *TunnelConnectionParamsClient {
-	return &TunnelConnectionParamsClient{
-		svc: pb.NewTunnelConnectionParamsServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *TunnelConnectionParamsClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIkeSessionParams calls the GetIkeSessionParams RPC.
-func (c *TunnelConnectionParamsClient) GetIkeSessionParams(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIkeSessionParams(ctx, &pb.GetIkeSessionParamsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTunnelModeChildSessionParams calls the GetTunnelModeChildSessionParams RPC.
-func (c *TunnelConnectionParamsClient) GetTunnelModeChildSessionParams(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTunnelModeChildSessionParams(ctx, &pb.GetTunnelModeChildSessionParamsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *TunnelConnectionParamsClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TransportModeChildSessionParamsBuilderClient wraps the gRPC TransportModeChildSessionParamsBuilderService client.
-type TransportModeChildSessionParamsBuilderClient struct {
-	svc pb.TransportModeChildSessionParamsBuilderServiceClient
-}
-
-// NewTransportModeChildSessionParamsBuilderClient creates a new TransportModeChildSessionParamsBuilder client.
-func NewTransportModeChildSessionParamsBuilderClient(cc grpc.ClientConnInterface) *TransportModeChildSessionParamsBuilderClient {
-	return &TransportModeChildSessionParamsBuilderClient{
-		svc: pb.NewTransportModeChildSessionParamsBuilderServiceClient(cc),
-	}
-}
-
-// AddChildSaProposal calls the AddChildSaProposal RPC.
-func (c *TransportModeChildSessionParamsBuilderClient) AddChildSaProposal(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddChildSaProposal(ctx, &pb.AddChildSaProposalRequest{
+// AddIkeExtension calls the AddIkeExtension RPC.
+func (c *SessionConfigurationBuilderClient) AddIkeExtension(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddIkeExtension(ctx, &pb.AddIkeExtensionRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -188,20 +91,9 @@ func (c *TransportModeChildSessionParamsBuilderClient) AddChildSaProposal(ctx co
 	return resp.GetResult(), nil
 }
 
-// AddInboundTrafficSelectors calls the AddInboundTrafficSelectors RPC.
-func (c *TransportModeChildSessionParamsBuilderClient) AddInboundTrafficSelectors(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddInboundTrafficSelectors(ctx, &pb.AddInboundTrafficSelectorsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddOutboundTrafficSelectors calls the AddOutboundTrafficSelectors RPC.
-func (c *TransportModeChildSessionParamsBuilderClient) AddOutboundTrafficSelectors(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddOutboundTrafficSelectors(ctx, &pb.AddOutboundTrafficSelectorsRequest{
+// AddRemoteVendorId calls the AddRemoteVendorId RPC.
+func (c *SessionConfigurationBuilderClient) AddRemoteVendorId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddRemoteVendorId(ctx, &pb.AddRemoteVendorIdRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -211,7 +103,7 @@ func (c *TransportModeChildSessionParamsBuilderClient) AddOutboundTrafficSelecto
 }
 
 // Build calls the Build RPC.
-func (c *TransportModeChildSessionParamsBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *SessionConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -219,9 +111,176 @@ func (c *TransportModeChildSessionParamsBuilderClient) Build(ctx context.Context
 	return resp.GetResult(), nil
 }
 
-// SetLifetimeSeconds calls the SetLifetimeSeconds RPC.
-func (c *TransportModeChildSessionParamsBuilderClient) SetLifetimeSeconds(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetLifetimeSeconds(ctx, &pb.SetLifetimeSecondsRequest{
+// ClearIkeExtensions calls the ClearIkeExtensions RPC.
+func (c *SessionConfigurationBuilderClient) ClearIkeExtensions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearIkeExtensions(ctx, &pb.ClearIkeExtensionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearRemoteApplicationVersion calls the ClearRemoteApplicationVersion RPC.
+func (c *SessionConfigurationBuilderClient) ClearRemoteApplicationVersion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearRemoteApplicationVersion(ctx, &pb.ClearRemoteApplicationVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearRemoteVendorIds calls the ClearRemoteVendorIds RPC.
+func (c *SessionConfigurationBuilderClient) ClearRemoteVendorIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearRemoteVendorIds(ctx, &pb.ClearRemoteVendorIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEapInfo calls the SetEapInfo RPC.
+func (c *SessionConfigurationBuilderClient) SetEapInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEapInfo(ctx, &pb.SetEapInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRemoteApplicationVersion calls the SetRemoteApplicationVersion RPC.
+func (c *SessionConfigurationBuilderClient) SetRemoteApplicationVersion(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetRemoteApplicationVersion(ctx, &pb.SetRemoteApplicationVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SessionConnectionInfoClient wraps the gRPC SessionConnectionInfoService client.
+type SessionConnectionInfoClient struct {
+	svc pb.SessionConnectionInfoServiceClient
+}
+
+// NewSessionConnectionInfoClient creates a new SessionConnectionInfo client.
+func NewSessionConnectionInfoClient(cc grpc.ClientConnInterface) *SessionConnectionInfoClient {
+	return &SessionConnectionInfoClient{
+		svc: pb.NewSessionConnectionInfoServiceClient(cc),
+	}
+}
+
+// GetLocalAddress calls the GetLocalAddress RPC.
+func (c *SessionConnectionInfoClient) GetLocalAddress(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocalAddress(ctx, &pb.GetLocalAddressRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetwork calls the GetNetwork RPC.
+func (c *SessionConnectionInfoClient) GetNetwork(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNetwork(ctx, &pb.GetNetworkRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRemoteAddress calls the GetRemoteAddress RPC.
+func (c *SessionConnectionInfoClient) GetRemoteAddress(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRemoteAddress(ctx, &pb.GetRemoteAddressRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ChildSaProposalClient wraps the gRPC ChildSaProposalService client.
+type ChildSaProposalClient struct {
+	svc pb.ChildSaProposalServiceClient
+}
+
+// NewChildSaProposalClient creates a new ChildSaProposal client.
+func NewChildSaProposalClient(cc grpc.ClientConnInterface) *ChildSaProposalClient {
+	return &ChildSaProposalClient{
+		svc: pb.NewChildSaProposalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ChildSaProposalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ChildSaProposalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedEncryptionAlgorithms calls the GetSupportedEncryptionAlgorithms RPC.
+func (c *ChildSaProposalClient) GetSupportedEncryptionAlgorithms(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedEncryptionAlgorithms(ctx, &pb.GetSupportedEncryptionAlgorithmsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedIntegrityAlgorithms calls the GetSupportedIntegrityAlgorithms RPC.
+func (c *ChildSaProposalClient) GetSupportedIntegrityAlgorithms(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedIntegrityAlgorithms(ctx, &pb.GetSupportedIntegrityAlgorithmsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ChildSaProposalBuilderClient wraps the gRPC ChildSaProposalBuilderService client.
+type ChildSaProposalBuilderClient struct {
+	svc pb.ChildSaProposalBuilderServiceClient
+}
+
+// NewChildSaProposalBuilderClient creates a new ChildSaProposalBuilder client.
+func NewChildSaProposalBuilderClient(cc grpc.ClientConnInterface) *ChildSaProposalBuilderClient {
+	return &ChildSaProposalBuilderClient{
+		svc: pb.NewChildSaProposalBuilderServiceClient(cc),
+	}
+}
+
+// AddDhGroup calls the AddDhGroup RPC.
+func (c *ChildSaProposalBuilderClient) AddDhGroup(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddDhGroup(ctx, &pb.AddDhGroupRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddEncryptionAlgorithm calls the AddEncryptionAlgorithm RPC.
+func (c *ChildSaProposalBuilderClient) AddEncryptionAlgorithm(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.AddEncryptionAlgorithm(ctx, &pb.AddEncryptionAlgorithmRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -231,48 +290,127 @@ func (c *TransportModeChildSessionParamsBuilderClient) SetLifetimeSeconds(ctx co
 	return resp.GetResult(), nil
 }
 
-// ChildSessionCallbackClient wraps the gRPC ChildSessionCallbackService client.
-type ChildSessionCallbackClient struct {
-	svc pb.ChildSessionCallbackServiceClient
+// AddIntegrityAlgorithm calls the AddIntegrityAlgorithm RPC.
+func (c *ChildSaProposalBuilderClient) AddIntegrityAlgorithm(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddIntegrityAlgorithm(ctx, &pb.AddIntegrityAlgorithmRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewChildSessionCallbackClient creates a new ChildSessionCallback client.
-func NewChildSessionCallbackClient(cc grpc.ClientConnInterface) *ChildSessionCallbackClient {
-	return &ChildSessionCallbackClient{
-		svc: pb.NewChildSessionCallbackServiceClient(cc),
+// Build calls the Build RPC.
+func (c *ChildSaProposalBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DerAsn1DnIdentificationClient wraps the gRPC DerAsn1DnIdentificationService client.
+type DerAsn1DnIdentificationClient struct {
+	svc pb.DerAsn1DnIdentificationServiceClient
+}
+
+// NewDerAsn1DnIdentificationClient creates a new DerAsn1DnIdentification client.
+func NewDerAsn1DnIdentificationClient(cc grpc.ClientConnInterface) *DerAsn1DnIdentificationClient {
+	return &DerAsn1DnIdentificationClient{
+		svc: pb.NewDerAsn1DnIdentificationServiceClient(cc),
 	}
 }
 
-// OnClosed calls the OnClosed RPC.
-func (c *ChildSessionCallbackClient) OnClosed(ctx context.Context) error {
-	_, err := c.svc.OnClosed(ctx, &pb.OnClosedRequest{})
-	return err
+// Equals calls the Equals RPC.
+func (c *DerAsn1DnIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.DerAsn1DnIdentificationEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }
 
-// OnIpSecTransformCreated calls the OnIpSecTransformCreated RPC.
-func (c *ChildSessionCallbackClient) OnIpSecTransformCreated(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnIpSecTransformCreated(ctx, &pb.OnIpSecTransformCreatedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// HashCode calls the HashCode RPC.
+func (c *DerAsn1DnIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.DerAsn1DnIdentificationHashCodeRequest{
+		Handle: handle,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// OnIpSecTransformDeleted calls the OnIpSecTransformDeleted RPC.
-func (c *ChildSessionCallbackClient) OnIpSecTransformDeleted(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnIpSecTransformDeleted(ctx, &pb.OnIpSecTransformDeletedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
+// SaProposalClient wraps the gRPC SaProposalService client.
+type SaProposalClient struct {
+	svc pb.SaProposalServiceClient
 }
 
-// OnOpened calls the OnOpened RPC.
-func (c *ChildSessionCallbackClient) OnOpened(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnOpened(ctx, &pb.OnOpenedRequest{
+// NewSaProposalClient creates a new SaProposal client.
+func NewSaProposalClient(cc grpc.ClientConnInterface) *SaProposalClient {
+	return &SaProposalClient{
+		svc: pb.NewSaProposalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SaProposalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
-	return err
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDhGroups calls the GetDhGroups RPC.
+func (c *SaProposalClient) GetDhGroups(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDhGroups(ctx, &pb.GetDhGroupsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntegrityAlgorithms calls the GetIntegrityAlgorithms RPC.
+func (c *SaProposalClient) GetIntegrityAlgorithms(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntegrityAlgorithms(ctx, &pb.GetIntegrityAlgorithmsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SaProposalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SaProposalClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedDhGroups calls the GetSupportedDhGroups RPC.
+func (c *SaProposalClient) GetSupportedDhGroups(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedDhGroups(ctx, &pb.GetSupportedDhGroupsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // SessionParamsClient wraps the gRPC SessionParamsService client.
@@ -289,7 +427,7 @@ func NewSessionParamsClient(cc grpc.ClientConnInterface) *SessionParamsClient {
 
 // Equals calls the Equals RPC.
 func (c *SessionParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SessionParamsEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -310,6 +448,24 @@ func (c *SessionParamsClient) GetDpdDelaySeconds(ctx context.Context) (int32, er
 // GetHardLifetimeSeconds calls the GetHardLifetimeSeconds RPC.
 func (c *SessionParamsClient) GetHardLifetimeSeconds(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetHardLifetimeSeconds(ctx, &pb.GetHardLifetimeSecondsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIkeOptions calls the GetIkeOptions RPC.
+func (c *SessionParamsClient) GetIkeOptions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIkeOptions(ctx, &pb.GetIkeOptionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIkeSaProposals calls the GetIkeSaProposals RPC.
+func (c *SessionParamsClient) GetIkeSaProposals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIkeSaProposals(ctx, &pb.GetIkeSaProposalsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -345,7 +501,7 @@ func (c *SessionParamsClient) GetNattKeepAliveDelaySeconds(ctx context.Context) 
 
 // GetNetwork calls the GetNetwork RPC.
 func (c *SessionParamsClient) GetNetwork(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNetwork(ctx, &pb.GetNetworkRequest{})
+	resp, err := c.svc.GetNetwork(ctx, &pb.SessionParamsGetNetworkRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -410,7 +566,7 @@ func (c *SessionParamsClient) HasIkeOption(ctx context.Context, arg0 int32) (boo
 
 // HashCode calls the HashCode RPC.
 func (c *SessionParamsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SessionParamsHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -610,7 +766,7 @@ func NewSessionParamsIkeAuthConfigClient(cc grpc.ClientConnInterface) *SessionPa
 
 // Equals calls the Equals RPC.
 func (c *SessionParamsIkeAuthConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SessionParamsIkeAuthConfigEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -621,7 +777,7 @@ func (c *SessionParamsIkeAuthConfigClient) Equals(ctx context.Context, arg0 int6
 
 // HashCode calls the HashCode RPC.
 func (c *SessionParamsIkeAuthConfigClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SessionParamsIkeAuthConfigHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -642,7 +798,7 @@ func NewSessionParamsIkeAuthDigitalSignLocalConfigClient(cc grpc.ClientConnInter
 
 // Equals calls the Equals RPC.
 func (c *SessionParamsIkeAuthDigitalSignLocalConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -660,6 +816,15 @@ func (c *SessionParamsIkeAuthDigitalSignLocalConfigClient) GetClientEndCertifica
 	return resp.GetResult(), nil
 }
 
+// GetIntermediateCertificates calls the GetIntermediateCertificates RPC.
+func (c *SessionParamsIkeAuthDigitalSignLocalConfigClient) GetIntermediateCertificates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntermediateCertificates(ctx, &pb.GetIntermediateCertificatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetPrivateKey calls the GetPrivateKey RPC.
 func (c *SessionParamsIkeAuthDigitalSignLocalConfigClient) GetPrivateKey(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetPrivateKey(ctx, &pb.GetPrivateKeyRequest{})
@@ -671,7 +836,7 @@ func (c *SessionParamsIkeAuthDigitalSignLocalConfigClient) GetPrivateKey(ctx con
 
 // HashCode calls the HashCode RPC.
 func (c *SessionParamsIkeAuthDigitalSignLocalConfigClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -692,7 +857,7 @@ func NewSessionParamsIkeAuthDigitalSignRemoteConfigClient(cc grpc.ClientConnInte
 
 // Equals calls the Equals RPC.
 func (c *SessionParamsIkeAuthDigitalSignRemoteConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -712,7 +877,7 @@ func (c *SessionParamsIkeAuthDigitalSignRemoteConfigClient) GetRemoteCaCert(ctx 
 
 // HashCode calls the HashCode RPC.
 func (c *SessionParamsIkeAuthDigitalSignRemoteConfigClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -733,7 +898,7 @@ func NewSessionParamsIkeAuthEapConfigClient(cc grpc.ClientConnInterface) *Sessio
 
 // Equals calls the Equals RPC.
 func (c *SessionParamsIkeAuthEapConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SessionParamsIkeAuthEapConfigEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -753,7 +918,7 @@ func (c *SessionParamsIkeAuthEapConfigClient) GetEapConfig(ctx context.Context) 
 
 // HashCode calls the HashCode RPC.
 func (c *SessionParamsIkeAuthEapConfigClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SessionParamsIkeAuthEapConfigHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -774,7 +939,7 @@ func NewSessionParamsIkeAuthPskConfigClient(cc grpc.ClientConnInterface) *Sessio
 
 // Equals calls the Equals RPC.
 func (c *SessionParamsIkeAuthPskConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SessionParamsIkeAuthPskConfigEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -794,229 +959,7 @@ func (c *SessionParamsIkeAuthPskConfigClient) GetPsk(ctx context.Context) (int64
 
 // HashCode calls the HashCode RPC.
 func (c *SessionParamsIkeAuthPskConfigClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SessionParamsIkeAuthPskConfigHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SessionConfigurationClient wraps the gRPC SessionConfigurationService client.
-type SessionConfigurationClient struct {
-	svc pb.SessionConfigurationServiceClient
-}
-
-// NewSessionConfigurationClient creates a new SessionConfiguration client.
-func NewSessionConfigurationClient(cc grpc.ClientConnInterface) *SessionConfigurationClient {
-	return &SessionConfigurationClient{
-		svc: pb.NewSessionConfigurationServiceClient(cc),
-	}
-}
-
-// GetEapInfo calls the GetEapInfo RPC.
-func (c *SessionConfigurationClient) GetEapInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEapInfo(ctx, &pb.GetEapInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIkeSessionConnectionInfo calls the GetIkeSessionConnectionInfo RPC.
-func (c *SessionConfigurationClient) GetIkeSessionConnectionInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIkeSessionConnectionInfo(ctx, &pb.GetIkeSessionConnectionInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRemoteApplicationVersion calls the GetRemoteApplicationVersion RPC.
-func (c *SessionConfigurationClient) GetRemoteApplicationVersion(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetRemoteApplicationVersion(ctx, &pb.GetRemoteApplicationVersionRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsIkeExtensionEnabled calls the IsIkeExtensionEnabled RPC.
-func (c *SessionConfigurationClient) IsIkeExtensionEnabled(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsIkeExtensionEnabled(ctx, &pb.IsIkeExtensionEnabledRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SessionConfigurationBuilderClient wraps the gRPC SessionConfigurationBuilderService client.
-type SessionConfigurationBuilderClient struct {
-	svc pb.SessionConfigurationBuilderServiceClient
-}
-
-// NewSessionConfigurationBuilderClient creates a new SessionConfigurationBuilder client.
-func NewSessionConfigurationBuilderClient(cc grpc.ClientConnInterface) *SessionConfigurationBuilderClient {
-	return &SessionConfigurationBuilderClient{
-		svc: pb.NewSessionConfigurationBuilderServiceClient(cc),
-	}
-}
-
-// AddIkeExtension calls the AddIkeExtension RPC.
-func (c *SessionConfigurationBuilderClient) AddIkeExtension(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddIkeExtension(ctx, &pb.AddIkeExtensionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddRemoteVendorId calls the AddRemoteVendorId RPC.
-func (c *SessionConfigurationBuilderClient) AddRemoteVendorId(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddRemoteVendorId(ctx, &pb.AddRemoteVendorIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SessionConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearIkeExtensions calls the ClearIkeExtensions RPC.
-func (c *SessionConfigurationBuilderClient) ClearIkeExtensions(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearIkeExtensions(ctx, &pb.ClearIkeExtensionsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearRemoteApplicationVersion calls the ClearRemoteApplicationVersion RPC.
-func (c *SessionConfigurationBuilderClient) ClearRemoteApplicationVersion(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearRemoteApplicationVersion(ctx, &pb.ClearRemoteApplicationVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearRemoteVendorIds calls the ClearRemoteVendorIds RPC.
-func (c *SessionConfigurationBuilderClient) ClearRemoteVendorIds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearRemoteVendorIds(ctx, &pb.ClearRemoteVendorIdsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEapInfo calls the SetEapInfo RPC.
-func (c *SessionConfigurationBuilderClient) SetEapInfo(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEapInfo(ctx, &pb.SetEapInfoRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRemoteApplicationVersion calls the SetRemoteApplicationVersion RPC.
-func (c *SessionConfigurationBuilderClient) SetRemoteApplicationVersion(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetRemoteApplicationVersion(ctx, &pb.SetRemoteApplicationVersionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Ipv4AddrIdentificationClient wraps the gRPC Ipv4AddrIdentificationService client.
-type Ipv4AddrIdentificationClient struct {
-	svc pb.Ipv4AddrIdentificationServiceClient
-}
-
-// NewIpv4AddrIdentificationClient creates a new Ipv4AddrIdentification client.
-func NewIpv4AddrIdentificationClient(cc grpc.ClientConnInterface) *Ipv4AddrIdentificationClient {
-	return &Ipv4AddrIdentificationClient{
-		svc: pb.NewIpv4AddrIdentificationServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *Ipv4AddrIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *Ipv4AddrIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SessionConnectionInfoClient wraps the gRPC SessionConnectionInfoService client.
-type SessionConnectionInfoClient struct {
-	svc pb.SessionConnectionInfoServiceClient
-}
-
-// NewSessionConnectionInfoClient creates a new SessionConnectionInfo client.
-func NewSessionConnectionInfoClient(cc grpc.ClientConnInterface) *SessionConnectionInfoClient {
-	return &SessionConnectionInfoClient{
-		svc: pb.NewSessionConnectionInfoServiceClient(cc),
-	}
-}
-
-// GetLocalAddress calls the GetLocalAddress RPC.
-func (c *SessionConnectionInfoClient) GetLocalAddress(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocalAddress(ctx, &pb.GetLocalAddressRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNetwork calls the GetNetwork RPC.
-func (c *SessionConnectionInfoClient) GetNetwork(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetNetwork(ctx, &pb.SessionConnectionInfoGetNetworkRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRemoteAddress calls the GetRemoteAddress RPC.
-func (c *SessionConnectionInfoClient) GetRemoteAddress(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetRemoteAddress(ctx, &pb.GetRemoteAddressRequest{
-		Handle: handle,
-	})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1037,7 +980,7 @@ func NewRfc822AddrIdentificationClient(cc grpc.ClientConnInterface) *Rfc822AddrI
 
 // Equals calls the Equals RPC.
 func (c *Rfc822AddrIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.Rfc822AddrIdentificationEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1049,7 +992,7 @@ func (c *Rfc822AddrIdentificationClient) Equals(ctx context.Context, handle int6
 
 // HashCode calls the HashCode RPC.
 func (c *Rfc822AddrIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+	resp, err := c.svc.HashCode(ctx, &pb.Rfc822AddrIdentificationHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1058,22 +1001,23 @@ func (c *Rfc822AddrIdentificationClient) HashCode(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
-// SaProposalClient wraps the gRPC SaProposalService client.
-type SaProposalClient struct {
-	svc pb.SaProposalServiceClient
+// TrafficSelectorClient wraps the gRPC TrafficSelectorService client.
+type TrafficSelectorClient struct {
+	svc pb.TrafficSelectorServiceClient
 }
 
-// NewSaProposalClient creates a new SaProposal client.
-func NewSaProposalClient(cc grpc.ClientConnInterface) *SaProposalClient {
-	return &SaProposalClient{
-		svc: pb.NewSaProposalServiceClient(cc),
+// NewTrafficSelectorClient creates a new TrafficSelector client.
+func NewTrafficSelectorClient(cc grpc.ClientConnInterface) *TrafficSelectorClient {
+	return &TrafficSelectorClient{
+		svc: pb.NewTrafficSelectorServiceClient(cc),
 	}
 }
 
 // Equals calls the Equals RPC.
-func (c *SaProposalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SaProposalEqualsRequest{
-		Arg0: arg0,
+func (c *TrafficSelectorClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.TrafficSelectorEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -1082,19 +1026,388 @@ func (c *SaProposalClient) Equals(ctx context.Context, arg0 int64) (bool, error)
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SaProposalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SaProposalHashCodeRequest{})
+func (c *TrafficSelectorClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.TrafficSelectorHashCodeRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ToString calls the ToString RPC.
-func (c *SaProposalClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+// ChildSessionConfigurationClient wraps the gRPC ChildSessionConfigurationService client.
+type ChildSessionConfigurationClient struct {
+	svc pb.ChildSessionConfigurationServiceClient
+}
+
+// NewChildSessionConfigurationClient creates a new ChildSessionConfiguration client.
+func NewChildSessionConfigurationClient(cc grpc.ClientConnInterface) *ChildSessionConfigurationClient {
+	return &ChildSessionConfigurationClient{
+		svc: pb.NewChildSessionConfigurationServiceClient(cc),
+	}
+}
+
+// GetInboundTrafficSelectors calls the GetInboundTrafficSelectors RPC.
+func (c *ChildSessionConfigurationClient) GetInboundTrafficSelectors(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInboundTrafficSelectors(ctx, &pb.GetInboundTrafficSelectorsRequest{})
 	if err != nil {
-		return "", err
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutboundTrafficSelectors calls the GetOutboundTrafficSelectors RPC.
+func (c *ChildSessionConfigurationClient) GetOutboundTrafficSelectors(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutboundTrafficSelectors(ctx, &pb.GetOutboundTrafficSelectorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ChildSessionConfigurationBuilderClient wraps the gRPC ChildSessionConfigurationBuilderService client.
+type ChildSessionConfigurationBuilderClient struct {
+	svc pb.ChildSessionConfigurationBuilderServiceClient
+}
+
+// NewChildSessionConfigurationBuilderClient creates a new ChildSessionConfigurationBuilder client.
+func NewChildSessionConfigurationBuilderClient(cc grpc.ClientConnInterface) *ChildSessionConfigurationBuilderClient {
+	return &ChildSessionConfigurationBuilderClient{
+		svc: pb.NewChildSessionConfigurationBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ChildSessionConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IkeSaProposalClient wraps the gRPC IkeSaProposalService client.
+type IkeSaProposalClient struct {
+	svc pb.IkeSaProposalServiceClient
+}
+
+// NewIkeSaProposalClient creates a new IkeSaProposal client.
+func NewIkeSaProposalClient(cc grpc.ClientConnInterface) *IkeSaProposalClient {
+	return &IkeSaProposalClient{
+		svc: pb.NewIkeSaProposalServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *IkeSaProposalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPseudorandomFunctions calls the GetPseudorandomFunctions RPC.
+func (c *IkeSaProposalClient) GetPseudorandomFunctions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPseudorandomFunctions(ctx, &pb.GetPseudorandomFunctionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *IkeSaProposalClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedEncryptionAlgorithms calls the GetSupportedEncryptionAlgorithms RPC.
+func (c *IkeSaProposalClient) GetSupportedEncryptionAlgorithms(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedEncryptionAlgorithms(ctx, &pb.GetSupportedEncryptionAlgorithmsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedIntegrityAlgorithms calls the GetSupportedIntegrityAlgorithms RPC.
+func (c *IkeSaProposalClient) GetSupportedIntegrityAlgorithms(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedIntegrityAlgorithms(ctx, &pb.GetSupportedIntegrityAlgorithmsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedPseudorandomFunctions calls the GetSupportedPseudorandomFunctions RPC.
+func (c *IkeSaProposalClient) GetSupportedPseudorandomFunctions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedPseudorandomFunctions(ctx, &pb.GetSupportedPseudorandomFunctionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SaProposalBuilderClient wraps the gRPC SaProposalBuilderService client.
+type SaProposalBuilderClient struct {
+	svc pb.SaProposalBuilderServiceClient
+}
+
+// NewSaProposalBuilderClient creates a new SaProposalBuilder client.
+func NewSaProposalBuilderClient(cc grpc.ClientConnInterface) *SaProposalBuilderClient {
+	return &SaProposalBuilderClient{
+		svc: pb.NewSaProposalBuilderServiceClient(cc),
+	}
+}
+
+// AddDhGroup calls the AddDhGroup RPC.
+func (c *SaProposalBuilderClient) AddDhGroup(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddDhGroup(ctx, &pb.AddDhGroupRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddEncryptionAlgorithm calls the AddEncryptionAlgorithm RPC.
+func (c *SaProposalBuilderClient) AddEncryptionAlgorithm(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.AddEncryptionAlgorithm(ctx, &pb.AddEncryptionAlgorithmRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddIntegrityAlgorithm calls the AddIntegrityAlgorithm RPC.
+func (c *SaProposalBuilderClient) AddIntegrityAlgorithm(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddIntegrityAlgorithm(ctx, &pb.AddIntegrityAlgorithmRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddPseudorandomFunction calls the AddPseudorandomFunction RPC.
+func (c *SaProposalBuilderClient) AddPseudorandomFunction(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddPseudorandomFunction(ctx, &pb.AddPseudorandomFunctionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *SaProposalBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SessionClient wraps the gRPC SessionService client.
+type SessionClient struct {
+	svc pb.SessionServiceClient
+}
+
+// NewSessionClient creates a new Session client.
+func NewSessionClient(cc grpc.ClientConnInterface) *SessionClient {
+	return &SessionClient{
+		svc: pb.NewSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *SessionClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CloseChildSession calls the CloseChildSession RPC.
+func (c *SessionClient) CloseChildSession(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CloseChildSession(ctx, &pb.CloseChildSessionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Dump calls the Dump RPC.
+func (c *SessionClient) Dump(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Finalize calls the Finalize RPC.
+func (c *SessionClient) Finalize(ctx context.Context, handle int64) error {
+	_, err := c.svc.Finalize(ctx, &pb.FinalizeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Kill calls the Kill RPC.
+func (c *SessionClient) Kill(ctx context.Context, handle int64) error {
+	_, err := c.svc.Kill(ctx, &pb.KillRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OpenChildSession calls the OpenChildSession RPC.
+func (c *SessionClient) OpenChildSession(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OpenChildSession(ctx, &pb.OpenChildSessionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Ipv4AddrIdentificationClient wraps the gRPC Ipv4AddrIdentificationService client.
+type Ipv4AddrIdentificationClient struct {
+	svc pb.Ipv4AddrIdentificationServiceClient
+}
+
+// NewIpv4AddrIdentificationClient creates a new Ipv4AddrIdentification client.
+func NewIpv4AddrIdentificationClient(cc grpc.ClientConnInterface) *Ipv4AddrIdentificationClient {
+	return &Ipv4AddrIdentificationClient{
+		svc: pb.NewIpv4AddrIdentificationServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *Ipv4AddrIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.Ipv4AddrIdentificationEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *Ipv4AddrIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.Ipv4AddrIdentificationHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Ipv6AddrIdentificationClient wraps the gRPC Ipv6AddrIdentificationService client.
+type Ipv6AddrIdentificationClient struct {
+	svc pb.Ipv6AddrIdentificationServiceClient
+}
+
+// NewIpv6AddrIdentificationClient creates a new Ipv6AddrIdentification client.
+func NewIpv6AddrIdentificationClient(cc grpc.ClientConnInterface) *Ipv6AddrIdentificationClient {
+	return &Ipv6AddrIdentificationClient{
+		svc: pb.NewIpv6AddrIdentificationServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *Ipv6AddrIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.Ipv6AddrIdentificationEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *Ipv6AddrIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.Ipv6AddrIdentificationHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TunnelConnectionParamsClient wraps the gRPC TunnelConnectionParamsService client.
+type TunnelConnectionParamsClient struct {
+	svc pb.TunnelConnectionParamsServiceClient
+}
+
+// NewTunnelConnectionParamsClient creates a new TunnelConnectionParams client.
+func NewTunnelConnectionParamsClient(cc grpc.ClientConnInterface) *TunnelConnectionParamsClient {
+	return &TunnelConnectionParamsClient{
+		svc: pb.NewTunnelConnectionParamsServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *TunnelConnectionParamsClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.TunnelConnectionParamsEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIkeSessionParams calls the GetIkeSessionParams RPC.
+func (c *TunnelConnectionParamsClient) GetIkeSessionParams(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIkeSessionParams(ctx, &pb.GetIkeSessionParamsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTunnelModeChildSessionParams calls the GetTunnelModeChildSessionParams RPC.
+func (c *TunnelConnectionParamsClient) GetTunnelModeChildSessionParams(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTunnelModeChildSessionParams(ctx, &pb.GetTunnelModeChildSessionParamsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *TunnelConnectionParamsClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.TunnelConnectionParamsHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1125,6 +1438,85 @@ func (c *SessionCallbackClient) OnOpened(ctx context.Context, arg0 int64) error 
 	return err
 }
 
+// ChildSessionCallbackClient wraps the gRPC ChildSessionCallbackService client.
+type ChildSessionCallbackClient struct {
+	svc pb.ChildSessionCallbackServiceClient
+}
+
+// NewChildSessionCallbackClient creates a new ChildSessionCallback client.
+func NewChildSessionCallbackClient(cc grpc.ClientConnInterface) *ChildSessionCallbackClient {
+	return &ChildSessionCallbackClient{
+		svc: pb.NewChildSessionCallbackServiceClient(cc),
+	}
+}
+
+// OnClosed calls the OnClosed RPC.
+func (c *ChildSessionCallbackClient) OnClosed(ctx context.Context) error {
+	_, err := c.svc.OnClosed(ctx, &pb.OnClosedRequest{})
+	return err
+}
+
+// OnIpSecTransformCreated calls the OnIpSecTransformCreated RPC.
+func (c *ChildSessionCallbackClient) OnIpSecTransformCreated(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnIpSecTransformCreated(ctx, &pb.OnIpSecTransformCreatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnIpSecTransformDeleted calls the OnIpSecTransformDeleted RPC.
+func (c *ChildSessionCallbackClient) OnIpSecTransformDeleted(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnIpSecTransformDeleted(ctx, &pb.OnIpSecTransformDeletedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnOpened calls the OnOpened RPC.
+func (c *ChildSessionCallbackClient) OnOpened(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnOpened(ctx, &pb.OnOpenedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// KeyIdIdentificationClient wraps the gRPC KeyIdIdentificationService client.
+type KeyIdIdentificationClient struct {
+	svc pb.KeyIdIdentificationServiceClient
+}
+
+// NewKeyIdIdentificationClient creates a new KeyIdIdentification client.
+func NewKeyIdIdentificationClient(cc grpc.ClientConnInterface) *KeyIdIdentificationClient {
+	return &KeyIdIdentificationClient{
+		svc: pb.NewKeyIdIdentificationServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *KeyIdIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.KeyIdIdentificationEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *KeyIdIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.KeyIdIdentificationHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // FqdnIdentificationClient wraps the gRPC FqdnIdentificationService client.
 type FqdnIdentificationClient struct {
 	svc pb.FqdnIdentificationServiceClient
@@ -1139,7 +1531,7 @@ func NewFqdnIdentificationClient(cc grpc.ClientConnInterface) *FqdnIdentificatio
 
 // Equals calls the Equals RPC.
 func (c *FqdnIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.FqdnIdentificationEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1151,96 +1543,9 @@ func (c *FqdnIdentificationClient) Equals(ctx context.Context, handle int64, arg
 
 // HashCode calls the HashCode RPC.
 func (c *FqdnIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+	resp, err := c.svc.HashCode(ctx, &pb.FqdnIdentificationHashCodeRequest{
 		Handle: handle,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ChildSaProposalClient wraps the gRPC ChildSaProposalService client.
-type ChildSaProposalClient struct {
-	svc pb.ChildSaProposalServiceClient
-}
-
-// NewChildSaProposalClient creates a new ChildSaProposal client.
-func NewChildSaProposalClient(cc grpc.ClientConnInterface) *ChildSaProposalClient {
-	return &ChildSaProposalClient{
-		svc: pb.NewChildSaProposalServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ChildSaProposalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ChildSaProposalEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ChildSaProposalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ChildSaProposalHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ChildSaProposalBuilderClient wraps the gRPC ChildSaProposalBuilderService client.
-type ChildSaProposalBuilderClient struct {
-	svc pb.ChildSaProposalBuilderServiceClient
-}
-
-// NewChildSaProposalBuilderClient creates a new ChildSaProposalBuilder client.
-func NewChildSaProposalBuilderClient(cc grpc.ClientConnInterface) *ChildSaProposalBuilderClient {
-	return &ChildSaProposalBuilderClient{
-		svc: pb.NewChildSaProposalBuilderServiceClient(cc),
-	}
-}
-
-// AddDhGroup calls the AddDhGroup RPC.
-func (c *ChildSaProposalBuilderClient) AddDhGroup(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddDhGroup(ctx, &pb.AddDhGroupRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddEncryptionAlgorithm calls the AddEncryptionAlgorithm RPC.
-func (c *ChildSaProposalBuilderClient) AddEncryptionAlgorithm(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.AddEncryptionAlgorithm(ctx, &pb.AddEncryptionAlgorithmRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddIntegrityAlgorithm calls the AddIntegrityAlgorithm RPC.
-func (c *ChildSaProposalBuilderClient) AddIntegrityAlgorithm(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddIntegrityAlgorithm(ctx, &pb.AddIntegrityAlgorithmRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *ChildSaProposalBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1261,7 +1566,7 @@ func NewChildSessionParamsClient(cc grpc.ClientConnInterface) *ChildSessionParam
 
 // Equals calls the Equals RPC.
 func (c *ChildSessionParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ChildSessionParamsEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1270,9 +1575,36 @@ func (c *ChildSessionParamsClient) Equals(ctx context.Context, arg0 int64) (bool
 	return resp.GetResult(), nil
 }
 
+// GetChildSaProposals calls the GetChildSaProposals RPC.
+func (c *ChildSessionParamsClient) GetChildSaProposals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChildSaProposals(ctx, &pb.GetChildSaProposalsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetHardLifetimeSeconds calls the GetHardLifetimeSeconds RPC.
 func (c *ChildSessionParamsClient) GetHardLifetimeSeconds(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetHardLifetimeSeconds(ctx, &pb.GetHardLifetimeSecondsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInboundTrafficSelectors calls the GetInboundTrafficSelectors RPC.
+func (c *ChildSessionParamsClient) GetInboundTrafficSelectors(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInboundTrafficSelectors(ctx, &pb.GetInboundTrafficSelectorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutboundTrafficSelectors calls the GetOutboundTrafficSelectors RPC.
+func (c *ChildSessionParamsClient) GetOutboundTrafficSelectors(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutboundTrafficSelectors(ctx, &pb.GetOutboundTrafficSelectorsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1290,7 +1622,7 @@ func (c *ChildSessionParamsClient) GetSoftLifetimeSeconds(ctx context.Context) (
 
 // HashCode calls the HashCode RPC.
 func (c *ChildSessionParamsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ChildSessionParamsHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1311,7 +1643,7 @@ func NewTunnelModeChildSessionParamsClient(cc grpc.ClientConnInterface) *TunnelM
 
 // Equals calls the Equals RPC.
 func (c *TunnelModeChildSessionParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.TunnelModeChildSessionParamsEqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1320,9 +1652,18 @@ func (c *TunnelModeChildSessionParamsClient) Equals(ctx context.Context, arg0 in
 	return resp.GetResult(), nil
 }
 
+// GetConfigurationRequests calls the GetConfigurationRequests RPC.
+func (c *TunnelModeChildSessionParamsClient) GetConfigurationRequests(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConfigurationRequests(ctx, &pb.GetConfigurationRequestsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HashCode calls the HashCode RPC.
 func (c *TunnelModeChildSessionParamsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.TunnelModeChildSessionParamsHashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1502,53 +1843,21 @@ func (c *TunnelModeChildSessionParamsConfigRequestIpv6AddressClient) GetPrefixLe
 	return resp.GetResult(), nil
 }
 
-// IkeSaProposalClient wraps the gRPC IkeSaProposalService client.
-type IkeSaProposalClient struct {
-	svc pb.IkeSaProposalServiceClient
+// TransportModeChildSessionParamsBuilderClient wraps the gRPC TransportModeChildSessionParamsBuilderService client.
+type TransportModeChildSessionParamsBuilderClient struct {
+	svc pb.TransportModeChildSessionParamsBuilderServiceClient
 }
 
-// NewIkeSaProposalClient creates a new IkeSaProposal client.
-func NewIkeSaProposalClient(cc grpc.ClientConnInterface) *IkeSaProposalClient {
-	return &IkeSaProposalClient{
-		svc: pb.NewIkeSaProposalServiceClient(cc),
+// NewTransportModeChildSessionParamsBuilderClient creates a new TransportModeChildSessionParamsBuilder client.
+func NewTransportModeChildSessionParamsBuilderClient(cc grpc.ClientConnInterface) *TransportModeChildSessionParamsBuilderClient {
+	return &TransportModeChildSessionParamsBuilderClient{
+		svc: pb.NewTransportModeChildSessionParamsBuilderServiceClient(cc),
 	}
 }
 
-// Equals calls the Equals RPC.
-func (c *IkeSaProposalClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.IkeSaProposalEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *IkeSaProposalClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.IkeSaProposalHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SaProposalBuilderClient wraps the gRPC SaProposalBuilderService client.
-type SaProposalBuilderClient struct {
-	svc pb.SaProposalBuilderServiceClient
-}
-
-// NewSaProposalBuilderClient creates a new SaProposalBuilder client.
-func NewSaProposalBuilderClient(cc grpc.ClientConnInterface) *SaProposalBuilderClient {
-	return &SaProposalBuilderClient{
-		svc: pb.NewSaProposalBuilderServiceClient(cc),
-	}
-}
-
-// AddDhGroup calls the AddDhGroup RPC.
-func (c *SaProposalBuilderClient) AddDhGroup(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddDhGroup(ctx, &pb.AddDhGroupRequest{
+// AddChildSaProposal calls the AddChildSaProposal RPC.
+func (c *TransportModeChildSessionParamsBuilderClient) AddChildSaProposal(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddChildSaProposal(ctx, &pb.AddChildSaProposalRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1557,169 +1866,43 @@ func (c *SaProposalBuilderClient) AddDhGroup(ctx context.Context, arg0 int32) (i
 	return resp.GetResult(), nil
 }
 
-// AddEncryptionAlgorithm calls the AddEncryptionAlgorithm RPC.
-func (c *SaProposalBuilderClient) AddEncryptionAlgorithm(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.AddEncryptionAlgorithm(ctx, &pb.AddEncryptionAlgorithmRequest{
+// AddInboundTrafficSelectors calls the AddInboundTrafficSelectors RPC.
+func (c *TransportModeChildSessionParamsBuilderClient) AddInboundTrafficSelectors(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddInboundTrafficSelectors(ctx, &pb.AddInboundTrafficSelectorsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddOutboundTrafficSelectors calls the AddOutboundTrafficSelectors RPC.
+func (c *TransportModeChildSessionParamsBuilderClient) AddOutboundTrafficSelectors(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddOutboundTrafficSelectors(ctx, &pb.AddOutboundTrafficSelectorsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *TransportModeChildSessionParamsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLifetimeSeconds calls the SetLifetimeSeconds RPC.
+func (c *TransportModeChildSessionParamsBuilderClient) SetLifetimeSeconds(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetLifetimeSeconds(ctx, &pb.SetLifetimeSecondsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddIntegrityAlgorithm calls the AddIntegrityAlgorithm RPC.
-func (c *SaProposalBuilderClient) AddIntegrityAlgorithm(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddIntegrityAlgorithm(ctx, &pb.AddIntegrityAlgorithmRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddPseudorandomFunction calls the AddPseudorandomFunction RPC.
-func (c *SaProposalBuilderClient) AddPseudorandomFunction(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddPseudorandomFunction(ctx, &pb.AddPseudorandomFunctionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SaProposalBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DerAsn1DnIdentificationClient wraps the gRPC DerAsn1DnIdentificationService client.
-type DerAsn1DnIdentificationClient struct {
-	svc pb.DerAsn1DnIdentificationServiceClient
-}
-
-// NewDerAsn1DnIdentificationClient creates a new DerAsn1DnIdentification client.
-func NewDerAsn1DnIdentificationClient(cc grpc.ClientConnInterface) *DerAsn1DnIdentificationClient {
-	return &DerAsn1DnIdentificationClient{
-		svc: pb.NewDerAsn1DnIdentificationServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *DerAsn1DnIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *DerAsn1DnIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TrafficSelectorClient wraps the gRPC TrafficSelectorService client.
-type TrafficSelectorClient struct {
-	svc pb.TrafficSelectorServiceClient
-}
-
-// NewTrafficSelectorClient creates a new TrafficSelector client.
-func NewTrafficSelectorClient(cc grpc.ClientConnInterface) *TrafficSelectorClient {
-	return &TrafficSelectorClient{
-		svc: pb.NewTrafficSelectorServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *TrafficSelectorClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *TrafficSelectorClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyIdIdentificationClient wraps the gRPC KeyIdIdentificationService client.
-type KeyIdIdentificationClient struct {
-	svc pb.KeyIdIdentificationServiceClient
-}
-
-// NewKeyIdIdentificationClient creates a new KeyIdIdentification client.
-func NewKeyIdIdentificationClient(cc grpc.ClientConnInterface) *KeyIdIdentificationClient {
-	return &KeyIdIdentificationClient{
-		svc: pb.NewKeyIdIdentificationServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *KeyIdIdentificationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *KeyIdIdentificationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ChildSessionConfigurationBuilderClient wraps the gRPC ChildSessionConfigurationBuilderService client.
-type ChildSessionConfigurationBuilderClient struct {
-	svc pb.ChildSessionConfigurationBuilderServiceClient
-}
-
-// NewChildSessionConfigurationBuilderClient creates a new ChildSessionConfigurationBuilder client.
-func NewChildSessionConfigurationBuilderClient(cc grpc.ClientConnInterface) *ChildSessionConfigurationBuilderClient {
-	return &ChildSessionConfigurationBuilderClient{
-		svc: pb.NewChildSessionConfigurationBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ChildSessionConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
 	}

@@ -21,6 +21,438 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	AudioCodecService_GetCodec_FullMethodName  = "/rtp.AudioCodecService/GetCodec"
+	AudioCodecService_GetCodecs_FullMethodName = "/rtp.AudioCodecService/GetCodecs"
+)
+
+// AudioCodecServiceClient is the client API for AudioCodecService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AudioCodecServiceClient interface {
+	GetCodec(ctx context.Context, in *GetCodecRequest, opts ...grpc.CallOption) (*GetCodecResponse, error)
+	GetCodecs(ctx context.Context, in *GetCodecsRequest, opts ...grpc.CallOption) (*GetCodecsResponse, error)
+}
+
+type audioCodecServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAudioCodecServiceClient(cc grpc.ClientConnInterface) AudioCodecServiceClient {
+	return &audioCodecServiceClient{cc}
+}
+
+func (c *audioCodecServiceClient) GetCodec(ctx context.Context, in *GetCodecRequest, opts ...grpc.CallOption) (*GetCodecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCodecResponse)
+	err := c.cc.Invoke(ctx, AudioCodecService_GetCodec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCodecServiceClient) GetCodecs(ctx context.Context, in *GetCodecsRequest, opts ...grpc.CallOption) (*GetCodecsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCodecsResponse)
+	err := c.cc.Invoke(ctx, AudioCodecService_GetCodecs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AudioCodecServiceServer is the server API for AudioCodecService service.
+// All implementations must embed UnimplementedAudioCodecServiceServer
+// for forward compatibility.
+type AudioCodecServiceServer interface {
+	GetCodec(context.Context, *GetCodecRequest) (*GetCodecResponse, error)
+	GetCodecs(context.Context, *GetCodecsRequest) (*GetCodecsResponse, error)
+	mustEmbedUnimplementedAudioCodecServiceServer()
+}
+
+// UnimplementedAudioCodecServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAudioCodecServiceServer struct{}
+
+func (UnimplementedAudioCodecServiceServer) GetCodec(context.Context, *GetCodecRequest) (*GetCodecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCodec not implemented")
+}
+func (UnimplementedAudioCodecServiceServer) GetCodecs(context.Context, *GetCodecsRequest) (*GetCodecsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCodecs not implemented")
+}
+func (UnimplementedAudioCodecServiceServer) mustEmbedUnimplementedAudioCodecServiceServer() {}
+func (UnimplementedAudioCodecServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeAudioCodecServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AudioCodecServiceServer will
+// result in compilation errors.
+type UnsafeAudioCodecServiceServer interface {
+	mustEmbedUnimplementedAudioCodecServiceServer()
+}
+
+func RegisterAudioCodecServiceServer(s grpc.ServiceRegistrar, srv AudioCodecServiceServer) {
+	// If the following call panics, it indicates UnimplementedAudioCodecServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AudioCodecService_ServiceDesc, srv)
+}
+
+func _AudioCodecService_GetCodec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCodecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCodecServiceServer).GetCodec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCodecService_GetCodec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCodecServiceServer).GetCodec(ctx, req.(*GetCodecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCodecService_GetCodecs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCodecsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCodecServiceServer).GetCodecs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCodecService_GetCodecs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCodecServiceServer).GetCodecs(ctx, req.(*GetCodecsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AudioCodecService_ServiceDesc is the grpc.ServiceDesc for AudioCodecService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AudioCodecService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "rtp.AudioCodecService",
+	HandlerType: (*AudioCodecServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCodec",
+			Handler:    _AudioCodecService_GetCodec_Handler,
+		},
+		{
+			MethodName: "GetCodecs",
+			Handler:    _AudioCodecService_GetCodecs_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/rtp/rtp.proto",
+}
+
+const (
+	AudioGroupService_NewAudioGroup_FullMethodName = "/rtp.AudioGroupService/NewAudioGroup"
+	AudioGroupService_Clear_FullMethodName         = "/rtp.AudioGroupService/Clear"
+	AudioGroupService_GetMode_FullMethodName       = "/rtp.AudioGroupService/GetMode"
+	AudioGroupService_GetStreams_FullMethodName    = "/rtp.AudioGroupService/GetStreams"
+	AudioGroupService_SendDtmf_FullMethodName      = "/rtp.AudioGroupService/SendDtmf"
+	AudioGroupService_SetMode_FullMethodName       = "/rtp.AudioGroupService/SetMode"
+)
+
+// AudioGroupServiceClient is the client API for AudioGroupService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AudioGroupServiceClient interface {
+	NewAudioGroup(ctx context.Context, in *NewAudioGroupRequest, opts ...grpc.CallOption) (*NewAudioGroupResponse, error)
+	Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error)
+	GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
+	GetStreams(ctx context.Context, in *GetStreamsRequest, opts ...grpc.CallOption) (*GetStreamsResponse, error)
+	SendDtmf(ctx context.Context, in *SendDtmfRequest, opts ...grpc.CallOption) (*SendDtmfResponse, error)
+	SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error)
+}
+
+type audioGroupServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAudioGroupServiceClient(cc grpc.ClientConnInterface) AudioGroupServiceClient {
+	return &audioGroupServiceClient{cc}
+}
+
+func (c *audioGroupServiceClient) NewAudioGroup(ctx context.Context, in *NewAudioGroupRequest, opts ...grpc.CallOption) (*NewAudioGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAudioGroupResponse)
+	err := c.cc.Invoke(ctx, AudioGroupService_NewAudioGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioGroupServiceClient) Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearResponse)
+	err := c.cc.Invoke(ctx, AudioGroupService_Clear_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioGroupServiceClient) GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetModeResponse)
+	err := c.cc.Invoke(ctx, AudioGroupService_GetMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioGroupServiceClient) GetStreams(ctx context.Context, in *GetStreamsRequest, opts ...grpc.CallOption) (*GetStreamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStreamsResponse)
+	err := c.cc.Invoke(ctx, AudioGroupService_GetStreams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioGroupServiceClient) SendDtmf(ctx context.Context, in *SendDtmfRequest, opts ...grpc.CallOption) (*SendDtmfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendDtmfResponse)
+	err := c.cc.Invoke(ctx, AudioGroupService_SendDtmf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioGroupServiceClient) SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetModeResponse)
+	err := c.cc.Invoke(ctx, AudioGroupService_SetMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AudioGroupServiceServer is the server API for AudioGroupService service.
+// All implementations must embed UnimplementedAudioGroupServiceServer
+// for forward compatibility.
+type AudioGroupServiceServer interface {
+	NewAudioGroup(context.Context, *NewAudioGroupRequest) (*NewAudioGroupResponse, error)
+	Clear(context.Context, *ClearRequest) (*ClearResponse, error)
+	GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error)
+	GetStreams(context.Context, *GetStreamsRequest) (*GetStreamsResponse, error)
+	SendDtmf(context.Context, *SendDtmfRequest) (*SendDtmfResponse, error)
+	SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error)
+	mustEmbedUnimplementedAudioGroupServiceServer()
+}
+
+// UnimplementedAudioGroupServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAudioGroupServiceServer struct{}
+
+func (UnimplementedAudioGroupServiceServer) NewAudioGroup(context.Context, *NewAudioGroupRequest) (*NewAudioGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAudioGroup not implemented")
+}
+func (UnimplementedAudioGroupServiceServer) Clear(context.Context, *ClearRequest) (*ClearResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clear not implemented")
+}
+func (UnimplementedAudioGroupServiceServer) GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMode not implemented")
+}
+func (UnimplementedAudioGroupServiceServer) GetStreams(context.Context, *GetStreamsRequest) (*GetStreamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStreams not implemented")
+}
+func (UnimplementedAudioGroupServiceServer) SendDtmf(context.Context, *SendDtmfRequest) (*SendDtmfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendDtmf not implemented")
+}
+func (UnimplementedAudioGroupServiceServer) SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMode not implemented")
+}
+func (UnimplementedAudioGroupServiceServer) mustEmbedUnimplementedAudioGroupServiceServer() {}
+func (UnimplementedAudioGroupServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeAudioGroupServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AudioGroupServiceServer will
+// result in compilation errors.
+type UnsafeAudioGroupServiceServer interface {
+	mustEmbedUnimplementedAudioGroupServiceServer()
+}
+
+func RegisterAudioGroupServiceServer(s grpc.ServiceRegistrar, srv AudioGroupServiceServer) {
+	// If the following call panics, it indicates UnimplementedAudioGroupServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AudioGroupService_ServiceDesc, srv)
+}
+
+func _AudioGroupService_NewAudioGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAudioGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioGroupServiceServer).NewAudioGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioGroupService_NewAudioGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioGroupServiceServer).NewAudioGroup(ctx, req.(*NewAudioGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioGroupService_Clear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioGroupServiceServer).Clear(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioGroupService_Clear_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioGroupServiceServer).Clear(ctx, req.(*ClearRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioGroupService_GetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioGroupServiceServer).GetMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioGroupService_GetMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioGroupServiceServer).GetMode(ctx, req.(*GetModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioGroupService_GetStreams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStreamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioGroupServiceServer).GetStreams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioGroupService_GetStreams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioGroupServiceServer).GetStreams(ctx, req.(*GetStreamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioGroupService_SendDtmf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendDtmfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioGroupServiceServer).SendDtmf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioGroupService_SendDtmf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioGroupServiceServer).SendDtmf(ctx, req.(*SendDtmfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioGroupService_SetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioGroupServiceServer).SetMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioGroupService_SetMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioGroupServiceServer).SetMode(ctx, req.(*SetModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AudioGroupService_ServiceDesc is the grpc.ServiceDesc for AudioGroupService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AudioGroupService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "rtp.AudioGroupService",
+	HandlerType: (*AudioGroupServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAudioGroup",
+			Handler:    _AudioGroupService_NewAudioGroup_Handler,
+		},
+		{
+			MethodName: "Clear",
+			Handler:    _AudioGroupService_Clear_Handler,
+		},
+		{
+			MethodName: "GetMode",
+			Handler:    _AudioGroupService_GetMode_Handler,
+		},
+		{
+			MethodName: "GetStreams",
+			Handler:    _AudioGroupService_GetStreams_Handler,
+		},
+		{
+			MethodName: "SendDtmf",
+			Handler:    _AudioGroupService_SendDtmf_Handler,
+		},
+		{
+			MethodName: "SetMode",
+			Handler:    _AudioGroupService_SetMode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/rtp/rtp.proto",
+}
+
+const (
 	AudioStreamService_NewAudioStream_FullMethodName = "/rtp.AudioStreamService/NewAudioStream"
 	AudioStreamService_GetCodec_FullMethodName       = "/rtp.AudioStreamService/GetCodec"
 	AudioStreamService_GetDtmfType_FullMethodName    = "/rtp.AudioStreamService/GetDtmfType"
@@ -36,7 +468,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AudioStreamServiceClient interface {
 	NewAudioStream(ctx context.Context, in *NewAudioStreamRequest, opts ...grpc.CallOption) (*NewAudioStreamResponse, error)
-	GetCodec(ctx context.Context, in *GetCodecRequest, opts ...grpc.CallOption) (*GetCodecResponse, error)
+	GetCodec(ctx context.Context, in *AudioStreamGetCodecRequest, opts ...grpc.CallOption) (*GetCodecResponse, error)
 	GetDtmfType(ctx context.Context, in *GetDtmfTypeRequest, opts ...grpc.CallOption) (*GetDtmfTypeResponse, error)
 	GetGroup(ctx context.Context, in *GetGroupRequest, opts ...grpc.CallOption) (*GetGroupResponse, error)
 	IsBusy(ctx context.Context, in *IsBusyRequest, opts ...grpc.CallOption) (*IsBusyResponse, error)
@@ -63,7 +495,7 @@ func (c *audioStreamServiceClient) NewAudioStream(ctx context.Context, in *NewAu
 	return out, nil
 }
 
-func (c *audioStreamServiceClient) GetCodec(ctx context.Context, in *GetCodecRequest, opts ...grpc.CallOption) (*GetCodecResponse, error) {
+func (c *audioStreamServiceClient) GetCodec(ctx context.Context, in *AudioStreamGetCodecRequest, opts ...grpc.CallOption) (*GetCodecResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCodecResponse)
 	err := c.cc.Invoke(ctx, AudioStreamService_GetCodec_FullMethodName, in, out, cOpts...)
@@ -138,7 +570,7 @@ func (c *audioStreamServiceClient) SetDtmfType(ctx context.Context, in *SetDtmfT
 // for forward compatibility.
 type AudioStreamServiceServer interface {
 	NewAudioStream(context.Context, *NewAudioStreamRequest) (*NewAudioStreamResponse, error)
-	GetCodec(context.Context, *GetCodecRequest) (*GetCodecResponse, error)
+	GetCodec(context.Context, *AudioStreamGetCodecRequest) (*GetCodecResponse, error)
 	GetDtmfType(context.Context, *GetDtmfTypeRequest) (*GetDtmfTypeResponse, error)
 	GetGroup(context.Context, *GetGroupRequest) (*GetGroupResponse, error)
 	IsBusy(context.Context, *IsBusyRequest) (*IsBusyResponse, error)
@@ -158,7 +590,7 @@ type UnimplementedAudioStreamServiceServer struct{}
 func (UnimplementedAudioStreamServiceServer) NewAudioStream(context.Context, *NewAudioStreamRequest) (*NewAudioStreamResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewAudioStream not implemented")
 }
-func (UnimplementedAudioStreamServiceServer) GetCodec(context.Context, *GetCodecRequest) (*GetCodecResponse, error) {
+func (UnimplementedAudioStreamServiceServer) GetCodec(context.Context, *AudioStreamGetCodecRequest) (*GetCodecResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCodec not implemented")
 }
 func (UnimplementedAudioStreamServiceServer) GetDtmfType(context.Context, *GetDtmfTypeRequest) (*GetDtmfTypeResponse, error) {
@@ -219,7 +651,7 @@ func _AudioStreamService_NewAudioStream_Handler(srv interface{}, ctx context.Con
 }
 
 func _AudioStreamService_GetCodec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCodecRequest)
+	in := new(AudioStreamGetCodecRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -231,7 +663,7 @@ func _AudioStreamService_GetCodec_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AudioStreamService_GetCodec_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioStreamServiceServer).GetCodec(ctx, req.(*GetCodecRequest))
+		return srv.(AudioStreamServiceServer).GetCodec(ctx, req.(*AudioStreamGetCodecRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -407,12 +839,12 @@ type StreamServiceClient interface {
 	Associate(ctx context.Context, in *AssociateRequest, opts ...grpc.CallOption) (*AssociateResponse, error)
 	GetLocalAddress(ctx context.Context, in *GetLocalAddressRequest, opts ...grpc.CallOption) (*GetLocalAddressResponse, error)
 	GetLocalPort(ctx context.Context, in *GetLocalPortRequest, opts ...grpc.CallOption) (*GetLocalPortResponse, error)
-	GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
+	GetMode(ctx context.Context, in *StreamGetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
 	GetRemoteAddress(ctx context.Context, in *GetRemoteAddressRequest, opts ...grpc.CallOption) (*GetRemoteAddressResponse, error)
 	GetRemotePort(ctx context.Context, in *GetRemotePortRequest, opts ...grpc.CallOption) (*GetRemotePortResponse, error)
 	IsBusy(ctx context.Context, in *StreamIsBusyRequest, opts ...grpc.CallOption) (*IsBusyResponse, error)
 	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
-	SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error)
+	SetMode(ctx context.Context, in *StreamSetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error)
 }
 
 type streamServiceClient struct {
@@ -453,7 +885,7 @@ func (c *streamServiceClient) GetLocalPort(ctx context.Context, in *GetLocalPort
 	return out, nil
 }
 
-func (c *streamServiceClient) GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error) {
+func (c *streamServiceClient) GetMode(ctx context.Context, in *StreamGetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetModeResponse)
 	err := c.cc.Invoke(ctx, StreamService_GetMode_FullMethodName, in, out, cOpts...)
@@ -503,7 +935,7 @@ func (c *streamServiceClient) Release(ctx context.Context, in *ReleaseRequest, o
 	return out, nil
 }
 
-func (c *streamServiceClient) SetMode(ctx context.Context, in *SetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error) {
+func (c *streamServiceClient) SetMode(ctx context.Context, in *StreamSetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetModeResponse)
 	err := c.cc.Invoke(ctx, StreamService_SetMode_FullMethodName, in, out, cOpts...)
@@ -520,12 +952,12 @@ type StreamServiceServer interface {
 	Associate(context.Context, *AssociateRequest) (*AssociateResponse, error)
 	GetLocalAddress(context.Context, *GetLocalAddressRequest) (*GetLocalAddressResponse, error)
 	GetLocalPort(context.Context, *GetLocalPortRequest) (*GetLocalPortResponse, error)
-	GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error)
+	GetMode(context.Context, *StreamGetModeRequest) (*GetModeResponse, error)
 	GetRemoteAddress(context.Context, *GetRemoteAddressRequest) (*GetRemoteAddressResponse, error)
 	GetRemotePort(context.Context, *GetRemotePortRequest) (*GetRemotePortResponse, error)
 	IsBusy(context.Context, *StreamIsBusyRequest) (*IsBusyResponse, error)
 	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
-	SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error)
+	SetMode(context.Context, *StreamSetModeRequest) (*SetModeResponse, error)
 	mustEmbedUnimplementedStreamServiceServer()
 }
 
@@ -545,7 +977,7 @@ func (UnimplementedStreamServiceServer) GetLocalAddress(context.Context, *GetLoc
 func (UnimplementedStreamServiceServer) GetLocalPort(context.Context, *GetLocalPortRequest) (*GetLocalPortResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLocalPort not implemented")
 }
-func (UnimplementedStreamServiceServer) GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error) {
+func (UnimplementedStreamServiceServer) GetMode(context.Context, *StreamGetModeRequest) (*GetModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMode not implemented")
 }
 func (UnimplementedStreamServiceServer) GetRemoteAddress(context.Context, *GetRemoteAddressRequest) (*GetRemoteAddressResponse, error) {
@@ -560,7 +992,7 @@ func (UnimplementedStreamServiceServer) IsBusy(context.Context, *StreamIsBusyReq
 func (UnimplementedStreamServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
 }
-func (UnimplementedStreamServiceServer) SetMode(context.Context, *SetModeRequest) (*SetModeResponse, error) {
+func (UnimplementedStreamServiceServer) SetMode(context.Context, *StreamSetModeRequest) (*SetModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetMode not implemented")
 }
 func (UnimplementedStreamServiceServer) mustEmbedUnimplementedStreamServiceServer() {}
@@ -639,7 +1071,7 @@ func _StreamService_GetLocalPort_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _StreamService_GetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetModeRequest)
+	in := new(StreamGetModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -651,7 +1083,7 @@ func _StreamService_GetMode_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: StreamService_GetMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StreamServiceServer).GetMode(ctx, req.(*GetModeRequest))
+		return srv.(StreamServiceServer).GetMode(ctx, req.(*StreamGetModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -729,7 +1161,7 @@ func _StreamService_Release_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _StreamService_SetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetModeRequest)
+	in := new(StreamSetModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -741,7 +1173,7 @@ func _StreamService_SetMode_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: StreamService_SetMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StreamServiceServer).SetMode(ctx, req.(*SetModeRequest))
+		return srv.(StreamServiceServer).SetMode(ctx, req.(*StreamSetModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -788,438 +1220,6 @@ var StreamService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetMode",
 			Handler:    _StreamService_SetMode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/rtp/rtp.proto",
-}
-
-const (
-	AudioGroupService_NewAudioGroup_FullMethodName = "/rtp.AudioGroupService/NewAudioGroup"
-	AudioGroupService_Clear_FullMethodName         = "/rtp.AudioGroupService/Clear"
-	AudioGroupService_GetMode_FullMethodName       = "/rtp.AudioGroupService/GetMode"
-	AudioGroupService_GetStreams_FullMethodName    = "/rtp.AudioGroupService/GetStreams"
-	AudioGroupService_SendDtmf_FullMethodName      = "/rtp.AudioGroupService/SendDtmf"
-	AudioGroupService_SetMode_FullMethodName       = "/rtp.AudioGroupService/SetMode"
-)
-
-// AudioGroupServiceClient is the client API for AudioGroupService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioGroupServiceClient interface {
-	NewAudioGroup(ctx context.Context, in *NewAudioGroupRequest, opts ...grpc.CallOption) (*NewAudioGroupResponse, error)
-	Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error)
-	GetMode(ctx context.Context, in *AudioGroupGetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
-	GetStreams(ctx context.Context, in *GetStreamsRequest, opts ...grpc.CallOption) (*GetStreamsResponse, error)
-	SendDtmf(ctx context.Context, in *SendDtmfRequest, opts ...grpc.CallOption) (*SendDtmfResponse, error)
-	SetMode(ctx context.Context, in *AudioGroupSetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error)
-}
-
-type audioGroupServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAudioGroupServiceClient(cc grpc.ClientConnInterface) AudioGroupServiceClient {
-	return &audioGroupServiceClient{cc}
-}
-
-func (c *audioGroupServiceClient) NewAudioGroup(ctx context.Context, in *NewAudioGroupRequest, opts ...grpc.CallOption) (*NewAudioGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAudioGroupResponse)
-	err := c.cc.Invoke(ctx, AudioGroupService_NewAudioGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioGroupServiceClient) Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearResponse)
-	err := c.cc.Invoke(ctx, AudioGroupService_Clear_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioGroupServiceClient) GetMode(ctx context.Context, in *AudioGroupGetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetModeResponse)
-	err := c.cc.Invoke(ctx, AudioGroupService_GetMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioGroupServiceClient) GetStreams(ctx context.Context, in *GetStreamsRequest, opts ...grpc.CallOption) (*GetStreamsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStreamsResponse)
-	err := c.cc.Invoke(ctx, AudioGroupService_GetStreams_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioGroupServiceClient) SendDtmf(ctx context.Context, in *SendDtmfRequest, opts ...grpc.CallOption) (*SendDtmfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendDtmfResponse)
-	err := c.cc.Invoke(ctx, AudioGroupService_SendDtmf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioGroupServiceClient) SetMode(ctx context.Context, in *AudioGroupSetModeRequest, opts ...grpc.CallOption) (*SetModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetModeResponse)
-	err := c.cc.Invoke(ctx, AudioGroupService_SetMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioGroupServiceServer is the server API for AudioGroupService service.
-// All implementations must embed UnimplementedAudioGroupServiceServer
-// for forward compatibility.
-type AudioGroupServiceServer interface {
-	NewAudioGroup(context.Context, *NewAudioGroupRequest) (*NewAudioGroupResponse, error)
-	Clear(context.Context, *ClearRequest) (*ClearResponse, error)
-	GetMode(context.Context, *AudioGroupGetModeRequest) (*GetModeResponse, error)
-	GetStreams(context.Context, *GetStreamsRequest) (*GetStreamsResponse, error)
-	SendDtmf(context.Context, *SendDtmfRequest) (*SendDtmfResponse, error)
-	SetMode(context.Context, *AudioGroupSetModeRequest) (*SetModeResponse, error)
-	mustEmbedUnimplementedAudioGroupServiceServer()
-}
-
-// UnimplementedAudioGroupServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAudioGroupServiceServer struct{}
-
-func (UnimplementedAudioGroupServiceServer) NewAudioGroup(context.Context, *NewAudioGroupRequest) (*NewAudioGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAudioGroup not implemented")
-}
-func (UnimplementedAudioGroupServiceServer) Clear(context.Context, *ClearRequest) (*ClearResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clear not implemented")
-}
-func (UnimplementedAudioGroupServiceServer) GetMode(context.Context, *AudioGroupGetModeRequest) (*GetModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMode not implemented")
-}
-func (UnimplementedAudioGroupServiceServer) GetStreams(context.Context, *GetStreamsRequest) (*GetStreamsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStreams not implemented")
-}
-func (UnimplementedAudioGroupServiceServer) SendDtmf(context.Context, *SendDtmfRequest) (*SendDtmfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendDtmf not implemented")
-}
-func (UnimplementedAudioGroupServiceServer) SetMode(context.Context, *AudioGroupSetModeRequest) (*SetModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMode not implemented")
-}
-func (UnimplementedAudioGroupServiceServer) mustEmbedUnimplementedAudioGroupServiceServer() {}
-func (UnimplementedAudioGroupServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeAudioGroupServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioGroupServiceServer will
-// result in compilation errors.
-type UnsafeAudioGroupServiceServer interface {
-	mustEmbedUnimplementedAudioGroupServiceServer()
-}
-
-func RegisterAudioGroupServiceServer(s grpc.ServiceRegistrar, srv AudioGroupServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioGroupServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AudioGroupService_ServiceDesc, srv)
-}
-
-func _AudioGroupService_NewAudioGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAudioGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioGroupServiceServer).NewAudioGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioGroupService_NewAudioGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioGroupServiceServer).NewAudioGroup(ctx, req.(*NewAudioGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioGroupService_Clear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioGroupServiceServer).Clear(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioGroupService_Clear_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioGroupServiceServer).Clear(ctx, req.(*ClearRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioGroupService_GetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioGroupGetModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioGroupServiceServer).GetMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioGroupService_GetMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioGroupServiceServer).GetMode(ctx, req.(*AudioGroupGetModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioGroupService_GetStreams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStreamsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioGroupServiceServer).GetStreams(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioGroupService_GetStreams_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioGroupServiceServer).GetStreams(ctx, req.(*GetStreamsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioGroupService_SendDtmf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendDtmfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioGroupServiceServer).SendDtmf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioGroupService_SendDtmf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioGroupServiceServer).SendDtmf(ctx, req.(*SendDtmfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioGroupService_SetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioGroupSetModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioGroupServiceServer).SetMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioGroupService_SetMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioGroupServiceServer).SetMode(ctx, req.(*AudioGroupSetModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioGroupService_ServiceDesc is the grpc.ServiceDesc for AudioGroupService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AudioGroupService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rtp.AudioGroupService",
-	HandlerType: (*AudioGroupServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAudioGroup",
-			Handler:    _AudioGroupService_NewAudioGroup_Handler,
-		},
-		{
-			MethodName: "Clear",
-			Handler:    _AudioGroupService_Clear_Handler,
-		},
-		{
-			MethodName: "GetMode",
-			Handler:    _AudioGroupService_GetMode_Handler,
-		},
-		{
-			MethodName: "GetStreams",
-			Handler:    _AudioGroupService_GetStreams_Handler,
-		},
-		{
-			MethodName: "SendDtmf",
-			Handler:    _AudioGroupService_SendDtmf_Handler,
-		},
-		{
-			MethodName: "SetMode",
-			Handler:    _AudioGroupService_SetMode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/rtp/rtp.proto",
-}
-
-const (
-	AudioCodecService_GetCodec_FullMethodName  = "/rtp.AudioCodecService/GetCodec"
-	AudioCodecService_GetCodecs_FullMethodName = "/rtp.AudioCodecService/GetCodecs"
-)
-
-// AudioCodecServiceClient is the client API for AudioCodecService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioCodecServiceClient interface {
-	GetCodec(ctx context.Context, in *AudioCodecGetCodecRequest, opts ...grpc.CallOption) (*GetCodecResponse, error)
-	GetCodecs(ctx context.Context, in *GetCodecsRequest, opts ...grpc.CallOption) (*GetCodecsResponse, error)
-}
-
-type audioCodecServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAudioCodecServiceClient(cc grpc.ClientConnInterface) AudioCodecServiceClient {
-	return &audioCodecServiceClient{cc}
-}
-
-func (c *audioCodecServiceClient) GetCodec(ctx context.Context, in *AudioCodecGetCodecRequest, opts ...grpc.CallOption) (*GetCodecResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCodecResponse)
-	err := c.cc.Invoke(ctx, AudioCodecService_GetCodec_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCodecServiceClient) GetCodecs(ctx context.Context, in *GetCodecsRequest, opts ...grpc.CallOption) (*GetCodecsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCodecsResponse)
-	err := c.cc.Invoke(ctx, AudioCodecService_GetCodecs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioCodecServiceServer is the server API for AudioCodecService service.
-// All implementations must embed UnimplementedAudioCodecServiceServer
-// for forward compatibility.
-type AudioCodecServiceServer interface {
-	GetCodec(context.Context, *AudioCodecGetCodecRequest) (*GetCodecResponse, error)
-	GetCodecs(context.Context, *GetCodecsRequest) (*GetCodecsResponse, error)
-	mustEmbedUnimplementedAudioCodecServiceServer()
-}
-
-// UnimplementedAudioCodecServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAudioCodecServiceServer struct{}
-
-func (UnimplementedAudioCodecServiceServer) GetCodec(context.Context, *AudioCodecGetCodecRequest) (*GetCodecResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCodec not implemented")
-}
-func (UnimplementedAudioCodecServiceServer) GetCodecs(context.Context, *GetCodecsRequest) (*GetCodecsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCodecs not implemented")
-}
-func (UnimplementedAudioCodecServiceServer) mustEmbedUnimplementedAudioCodecServiceServer() {}
-func (UnimplementedAudioCodecServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeAudioCodecServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioCodecServiceServer will
-// result in compilation errors.
-type UnsafeAudioCodecServiceServer interface {
-	mustEmbedUnimplementedAudioCodecServiceServer()
-}
-
-func RegisterAudioCodecServiceServer(s grpc.ServiceRegistrar, srv AudioCodecServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioCodecServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AudioCodecService_ServiceDesc, srv)
-}
-
-func _AudioCodecService_GetCodec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCodecGetCodecRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCodecServiceServer).GetCodec(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCodecService_GetCodec_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCodecServiceServer).GetCodec(ctx, req.(*AudioCodecGetCodecRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCodecService_GetCodecs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCodecsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCodecServiceServer).GetCodecs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCodecService_GetCodecs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCodecServiceServer).GetCodecs(ctx, req.(*GetCodecsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioCodecService_ServiceDesc is the grpc.ServiceDesc for AudioCodecService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AudioCodecService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rtp.AudioCodecService",
-	HandlerType: (*AudioCodecServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetCodec",
-			Handler:    _AudioCodecService_GetCodec_Handler,
-		},
-		{
-			MethodName: "GetCodecs",
-			Handler:    _AudioCodecService_GetCodecs_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -9,459 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// RouteSelectionDescriptorClient wraps the gRPC RouteSelectionDescriptorService client.
-type RouteSelectionDescriptorClient struct {
-	svc pb.RouteSelectionDescriptorServiceClient
-}
-
-// NewRouteSelectionDescriptorClient creates a new RouteSelectionDescriptor client.
-func NewRouteSelectionDescriptorClient(cc grpc.ClientConnInterface) *RouteSelectionDescriptorClient {
-	return &RouteSelectionDescriptorClient{
-		svc: pb.NewRouteSelectionDescriptorServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RouteSelectionDescriptorClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *RouteSelectionDescriptorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPrecedence calls the GetPrecedence RPC.
-func (c *RouteSelectionDescriptorClient) GetPrecedence(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPrecedence(ctx, &pb.GetPrecedenceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionType calls the GetSessionType RPC.
-func (c *RouteSelectionDescriptorClient) GetSessionType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSessionType(ctx, &pb.GetSessionTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSscMode calls the GetSscMode RPC.
-func (c *RouteSelectionDescriptorClient) GetSscMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSscMode(ctx, &pb.GetSscModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RouteSelectionDescriptorClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *RouteSelectionDescriptorClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RouteSelectionDescriptorClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// NetworkSlicingConfigClient wraps the gRPC NetworkSlicingConfigService client.
-type NetworkSlicingConfigClient struct {
-	svc pb.NetworkSlicingConfigServiceClient
-}
-
-// NewNetworkSlicingConfigClient creates a new NetworkSlicingConfig client.
-func NewNetworkSlicingConfigClient(cc grpc.ClientConnInterface) *NetworkSlicingConfigClient {
-	return &NetworkSlicingConfigClient{
-		svc: pb.NewNetworkSlicingConfigServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *NetworkSlicingConfigClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.NetworkSlicingConfigDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *NetworkSlicingConfigClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.NetworkSlicingConfigEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *NetworkSlicingConfigClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.NetworkSlicingConfigHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *NetworkSlicingConfigClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.NetworkSlicingConfigToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *NetworkSlicingConfigClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.NetworkSlicingConfigWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// TrafficDescriptorClient wraps the gRPC TrafficDescriptorService client.
-type TrafficDescriptorClient struct {
-	svc pb.TrafficDescriptorServiceClient
-}
-
-// NewTrafficDescriptorClient creates a new TrafficDescriptor client.
-func NewTrafficDescriptorClient(cc grpc.ClientConnInterface) *TrafficDescriptorClient {
-	return &TrafficDescriptorClient{
-		svc: pb.NewTrafficDescriptorServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *TrafficDescriptorClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *TrafficDescriptorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDataNetworkName calls the GetDataNetworkName RPC.
-func (c *TrafficDescriptorClient) GetDataNetworkName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDataNetworkName(ctx, &pb.GetDataNetworkNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOsAppId calls the GetOsAppId RPC.
-func (c *TrafficDescriptorClient) GetOsAppId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOsAppId(ctx, &pb.GetOsAppIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *TrafficDescriptorClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *TrafficDescriptorClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *TrafficDescriptorClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// TrafficDescriptorBuilderClient wraps the gRPC TrafficDescriptorBuilderService client.
-type TrafficDescriptorBuilderClient struct {
-	svc pb.TrafficDescriptorBuilderServiceClient
-}
-
-// NewTrafficDescriptorBuilderClient creates a new TrafficDescriptorBuilder client.
-func NewTrafficDescriptorBuilderClient(cc grpc.ClientConnInterface) *TrafficDescriptorBuilderClient {
-	return &TrafficDescriptorBuilderClient{
-		svc: pb.NewTrafficDescriptorBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *TrafficDescriptorBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDataNetworkName calls the SetDataNetworkName RPC.
-func (c *TrafficDescriptorBuilderClient) SetDataNetworkName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDataNetworkName(ctx, &pb.SetDataNetworkNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetOsAppId calls the SetOsAppId RPC.
-func (c *TrafficDescriptorBuilderClient) SetOsAppId(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetOsAppId(ctx, &pb.SetOsAppIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NetworkSliceInfoClient wraps the gRPC NetworkSliceInfoService client.
-type NetworkSliceInfoClient struct {
-	svc pb.NetworkSliceInfoServiceClient
-}
-
-// NewNetworkSliceInfoClient creates a new NetworkSliceInfo client.
-func NewNetworkSliceInfoClient(cc grpc.ClientConnInterface) *NetworkSliceInfoClient {
-	return &NetworkSliceInfoClient{
-		svc: pb.NewNetworkSliceInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *NetworkSliceInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *NetworkSliceInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMappedHplmnSliceDifferentiator calls the GetMappedHplmnSliceDifferentiator RPC.
-func (c *NetworkSliceInfoClient) GetMappedHplmnSliceDifferentiator(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMappedHplmnSliceDifferentiator(ctx, &pb.GetMappedHplmnSliceDifferentiatorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMappedHplmnSliceServiceType calls the GetMappedHplmnSliceServiceType RPC.
-func (c *NetworkSliceInfoClient) GetMappedHplmnSliceServiceType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMappedHplmnSliceServiceType(ctx, &pb.GetMappedHplmnSliceServiceTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSliceDifferentiator calls the GetSliceDifferentiator RPC.
-func (c *NetworkSliceInfoClient) GetSliceDifferentiator(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSliceDifferentiator(ctx, &pb.GetSliceDifferentiatorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSliceServiceType calls the GetSliceServiceType RPC.
-func (c *NetworkSliceInfoClient) GetSliceServiceType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSliceServiceType(ctx, &pb.GetSliceServiceTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStatus calls the GetStatus RPC.
-func (c *NetworkSliceInfoClient) GetStatus(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *NetworkSliceInfoClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *NetworkSliceInfoClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *NetworkSliceInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// NetworkSliceInfoBuilderClient wraps the gRPC NetworkSliceInfoBuilderService client.
-type NetworkSliceInfoBuilderClient struct {
-	svc pb.NetworkSliceInfoBuilderServiceClient
-}
-
-// NewNetworkSliceInfoBuilderClient creates a new NetworkSliceInfoBuilder client.
-func NewNetworkSliceInfoBuilderClient(cc grpc.ClientConnInterface) *NetworkSliceInfoBuilderClient {
-	return &NetworkSliceInfoBuilderClient{
-		svc: pb.NewNetworkSliceInfoBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *NetworkSliceInfoBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMappedHplmnSliceDifferentiator calls the SetMappedHplmnSliceDifferentiator RPC.
-func (c *NetworkSliceInfoBuilderClient) SetMappedHplmnSliceDifferentiator(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMappedHplmnSliceDifferentiator(ctx, &pb.SetMappedHplmnSliceDifferentiatorRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMappedHplmnSliceServiceType calls the SetMappedHplmnSliceServiceType RPC.
-func (c *NetworkSliceInfoBuilderClient) SetMappedHplmnSliceServiceType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMappedHplmnSliceServiceType(ctx, &pb.SetMappedHplmnSliceServiceTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSliceDifferentiator calls the SetSliceDifferentiator RPC.
-func (c *NetworkSliceInfoBuilderClient) SetSliceDifferentiator(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetSliceDifferentiator(ctx, &pb.SetSliceDifferentiatorRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSliceServiceType calls the SetSliceServiceType RPC.
-func (c *NetworkSliceInfoBuilderClient) SetSliceServiceType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetSliceServiceType(ctx, &pb.SetSliceServiceTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStatus calls the SetStatus RPC.
-func (c *NetworkSliceInfoBuilderClient) SetStatus(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetStatus(ctx, &pb.SetStatusRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // UrspRuleClient wraps the gRPC UrspRuleService client.
 type UrspRuleClient struct {
 	svc pb.UrspRuleServiceClient
@@ -497,6 +44,24 @@ func (c *UrspRuleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 // GetPrecedence calls the GetPrecedence RPC.
 func (c *UrspRuleClient) GetPrecedence(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetPrecedence(ctx, &pb.GetPrecedenceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRouteSelectionDescriptor calls the GetRouteSelectionDescriptor RPC.
+func (c *UrspRuleClient) GetRouteSelectionDescriptor(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRouteSelectionDescriptor(ctx, &pb.GetRouteSelectionDescriptorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrafficDescriptors calls the GetTrafficDescriptors RPC.
+func (c *UrspRuleClient) GetTrafficDescriptors(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTrafficDescriptors(ctx, &pb.GetTrafficDescriptorsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1117,4 +682,497 @@ func (c *ApnSettingBuilderClient) SetUser(ctx context.Context, arg0 string) (int
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// RouteSelectionDescriptorClient wraps the gRPC RouteSelectionDescriptorService client.
+type RouteSelectionDescriptorClient struct {
+	svc pb.RouteSelectionDescriptorServiceClient
+}
+
+// NewRouteSelectionDescriptorClient creates a new RouteSelectionDescriptor client.
+func NewRouteSelectionDescriptorClient(cc grpc.ClientConnInterface) *RouteSelectionDescriptorClient {
+	return &RouteSelectionDescriptorClient{
+		svc: pb.NewRouteSelectionDescriptorServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RouteSelectionDescriptorClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RouteSelectionDescriptorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataNetworkName calls the GetDataNetworkName RPC.
+func (c *RouteSelectionDescriptorClient) GetDataNetworkName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataNetworkName(ctx, &pb.GetDataNetworkNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrecedence calls the GetPrecedence RPC.
+func (c *RouteSelectionDescriptorClient) GetPrecedence(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPrecedence(ctx, &pb.GetPrecedenceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionType calls the GetSessionType RPC.
+func (c *RouteSelectionDescriptorClient) GetSessionType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSessionType(ctx, &pb.GetSessionTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSliceInfo calls the GetSliceInfo RPC.
+func (c *RouteSelectionDescriptorClient) GetSliceInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSliceInfo(ctx, &pb.GetSliceInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSscMode calls the GetSscMode RPC.
+func (c *RouteSelectionDescriptorClient) GetSscMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSscMode(ctx, &pb.GetSscModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RouteSelectionDescriptorClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RouteSelectionDescriptorClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RouteSelectionDescriptorClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TrafficDescriptorClient wraps the gRPC TrafficDescriptorService client.
+type TrafficDescriptorClient struct {
+	svc pb.TrafficDescriptorServiceClient
+}
+
+// NewTrafficDescriptorClient creates a new TrafficDescriptor client.
+func NewTrafficDescriptorClient(cc grpc.ClientConnInterface) *TrafficDescriptorClient {
+	return &TrafficDescriptorClient{
+		svc: pb.NewTrafficDescriptorServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TrafficDescriptorClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *TrafficDescriptorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataNetworkName calls the GetDataNetworkName RPC.
+func (c *TrafficDescriptorClient) GetDataNetworkName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDataNetworkName(ctx, &pb.GetDataNetworkNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOsAppId calls the GetOsAppId RPC.
+func (c *TrafficDescriptorClient) GetOsAppId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOsAppId(ctx, &pb.GetOsAppIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *TrafficDescriptorClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TrafficDescriptorClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TrafficDescriptorClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TrafficDescriptorBuilderClient wraps the gRPC TrafficDescriptorBuilderService client.
+type TrafficDescriptorBuilderClient struct {
+	svc pb.TrafficDescriptorBuilderServiceClient
+}
+
+// NewTrafficDescriptorBuilderClient creates a new TrafficDescriptorBuilder client.
+func NewTrafficDescriptorBuilderClient(cc grpc.ClientConnInterface) *TrafficDescriptorBuilderClient {
+	return &TrafficDescriptorBuilderClient{
+		svc: pb.NewTrafficDescriptorBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TrafficDescriptorBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDataNetworkName calls the SetDataNetworkName RPC.
+func (c *TrafficDescriptorBuilderClient) SetDataNetworkName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDataNetworkName(ctx, &pb.SetDataNetworkNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOsAppId calls the SetOsAppId RPC.
+func (c *TrafficDescriptorBuilderClient) SetOsAppId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetOsAppId(ctx, &pb.SetOsAppIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NetworkSliceInfoClient wraps the gRPC NetworkSliceInfoService client.
+type NetworkSliceInfoClient struct {
+	svc pb.NetworkSliceInfoServiceClient
+}
+
+// NewNetworkSliceInfoClient creates a new NetworkSliceInfo client.
+func NewNetworkSliceInfoClient(cc grpc.ClientConnInterface) *NetworkSliceInfoClient {
+	return &NetworkSliceInfoClient{
+		svc: pb.NewNetworkSliceInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *NetworkSliceInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *NetworkSliceInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMappedHplmnSliceDifferentiator calls the GetMappedHplmnSliceDifferentiator RPC.
+func (c *NetworkSliceInfoClient) GetMappedHplmnSliceDifferentiator(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMappedHplmnSliceDifferentiator(ctx, &pb.GetMappedHplmnSliceDifferentiatorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMappedHplmnSliceServiceType calls the GetMappedHplmnSliceServiceType RPC.
+func (c *NetworkSliceInfoClient) GetMappedHplmnSliceServiceType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMappedHplmnSliceServiceType(ctx, &pb.GetMappedHplmnSliceServiceTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSliceDifferentiator calls the GetSliceDifferentiator RPC.
+func (c *NetworkSliceInfoClient) GetSliceDifferentiator(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSliceDifferentiator(ctx, &pb.GetSliceDifferentiatorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSliceServiceType calls the GetSliceServiceType RPC.
+func (c *NetworkSliceInfoClient) GetSliceServiceType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSliceServiceType(ctx, &pb.GetSliceServiceTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatus calls the GetStatus RPC.
+func (c *NetworkSliceInfoClient) GetStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *NetworkSliceInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *NetworkSliceInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *NetworkSliceInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NetworkSliceInfoBuilderClient wraps the gRPC NetworkSliceInfoBuilderService client.
+type NetworkSliceInfoBuilderClient struct {
+	svc pb.NetworkSliceInfoBuilderServiceClient
+}
+
+// NewNetworkSliceInfoBuilderClient creates a new NetworkSliceInfoBuilder client.
+func NewNetworkSliceInfoBuilderClient(cc grpc.ClientConnInterface) *NetworkSliceInfoBuilderClient {
+	return &NetworkSliceInfoBuilderClient{
+		svc: pb.NewNetworkSliceInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *NetworkSliceInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMappedHplmnSliceDifferentiator calls the SetMappedHplmnSliceDifferentiator RPC.
+func (c *NetworkSliceInfoBuilderClient) SetMappedHplmnSliceDifferentiator(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMappedHplmnSliceDifferentiator(ctx, &pb.SetMappedHplmnSliceDifferentiatorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMappedHplmnSliceServiceType calls the SetMappedHplmnSliceServiceType RPC.
+func (c *NetworkSliceInfoBuilderClient) SetMappedHplmnSliceServiceType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMappedHplmnSliceServiceType(ctx, &pb.SetMappedHplmnSliceServiceTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSliceDifferentiator calls the SetSliceDifferentiator RPC.
+func (c *NetworkSliceInfoBuilderClient) SetSliceDifferentiator(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSliceDifferentiator(ctx, &pb.SetSliceDifferentiatorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSliceServiceType calls the SetSliceServiceType RPC.
+func (c *NetworkSliceInfoBuilderClient) SetSliceServiceType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSliceServiceType(ctx, &pb.SetSliceServiceTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStatus calls the SetStatus RPC.
+func (c *NetworkSliceInfoBuilderClient) SetStatus(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetStatus(ctx, &pb.SetStatusRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NetworkSlicingConfigClient wraps the gRPC NetworkSlicingConfigService client.
+type NetworkSlicingConfigClient struct {
+	svc pb.NetworkSlicingConfigServiceClient
+}
+
+// NewNetworkSlicingConfigClient creates a new NetworkSlicingConfig client.
+func NewNetworkSlicingConfigClient(cc grpc.ClientConnInterface) *NetworkSlicingConfigClient {
+	return &NetworkSlicingConfigClient{
+		svc: pb.NewNetworkSlicingConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *NetworkSlicingConfigClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.NetworkSlicingConfigDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *NetworkSlicingConfigClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.NetworkSlicingConfigEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSliceInfo calls the GetSliceInfo RPC.
+func (c *NetworkSlicingConfigClient) GetSliceInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSliceInfo(ctx, &pb.NetworkSlicingConfigGetSliceInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUrspRules calls the GetUrspRules RPC.
+func (c *NetworkSlicingConfigClient) GetUrspRules(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetUrspRules(ctx, &pb.GetUrspRulesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *NetworkSlicingConfigClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.NetworkSlicingConfigHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *NetworkSlicingConfigClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.NetworkSlicingConfigToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *NetworkSlicingConfigClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.NetworkSlicingConfigWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
 }

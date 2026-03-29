@@ -21,223 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ResourcesLoaderService_NewResourcesLoader_FullMethodName = "/loader.ResourcesLoaderService/NewResourcesLoader"
-	ResourcesLoaderService_AddProvider_FullMethodName        = "/loader.ResourcesLoaderService/AddProvider"
-	ResourcesLoaderService_ClearProviders_FullMethodName     = "/loader.ResourcesLoaderService/ClearProviders"
-	ResourcesLoaderService_RemoveProvider_FullMethodName     = "/loader.ResourcesLoaderService/RemoveProvider"
-)
-
-// ResourcesLoaderServiceClient is the client API for ResourcesLoaderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResourcesLoaderServiceClient interface {
-	NewResourcesLoader(ctx context.Context, in *NewResourcesLoaderRequest, opts ...grpc.CallOption) (*NewResourcesLoaderResponse, error)
-	AddProvider(ctx context.Context, in *AddProviderRequest, opts ...grpc.CallOption) (*AddProviderResponse, error)
-	ClearProviders(ctx context.Context, in *ClearProvidersRequest, opts ...grpc.CallOption) (*ClearProvidersResponse, error)
-	RemoveProvider(ctx context.Context, in *RemoveProviderRequest, opts ...grpc.CallOption) (*RemoveProviderResponse, error)
-}
-
-type resourcesLoaderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewResourcesLoaderServiceClient(cc grpc.ClientConnInterface) ResourcesLoaderServiceClient {
-	return &resourcesLoaderServiceClient{cc}
-}
-
-func (c *resourcesLoaderServiceClient) NewResourcesLoader(ctx context.Context, in *NewResourcesLoaderRequest, opts ...grpc.CallOption) (*NewResourcesLoaderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewResourcesLoaderResponse)
-	err := c.cc.Invoke(ctx, ResourcesLoaderService_NewResourcesLoader_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcesLoaderServiceClient) AddProvider(ctx context.Context, in *AddProviderRequest, opts ...grpc.CallOption) (*AddProviderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddProviderResponse)
-	err := c.cc.Invoke(ctx, ResourcesLoaderService_AddProvider_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcesLoaderServiceClient) ClearProviders(ctx context.Context, in *ClearProvidersRequest, opts ...grpc.CallOption) (*ClearProvidersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearProvidersResponse)
-	err := c.cc.Invoke(ctx, ResourcesLoaderService_ClearProviders_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcesLoaderServiceClient) RemoveProvider(ctx context.Context, in *RemoveProviderRequest, opts ...grpc.CallOption) (*RemoveProviderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveProviderResponse)
-	err := c.cc.Invoke(ctx, ResourcesLoaderService_RemoveProvider_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResourcesLoaderServiceServer is the server API for ResourcesLoaderService service.
-// All implementations must embed UnimplementedResourcesLoaderServiceServer
-// for forward compatibility.
-type ResourcesLoaderServiceServer interface {
-	NewResourcesLoader(context.Context, *NewResourcesLoaderRequest) (*NewResourcesLoaderResponse, error)
-	AddProvider(context.Context, *AddProviderRequest) (*AddProviderResponse, error)
-	ClearProviders(context.Context, *ClearProvidersRequest) (*ClearProvidersResponse, error)
-	RemoveProvider(context.Context, *RemoveProviderRequest) (*RemoveProviderResponse, error)
-	mustEmbedUnimplementedResourcesLoaderServiceServer()
-}
-
-// UnimplementedResourcesLoaderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedResourcesLoaderServiceServer struct{}
-
-func (UnimplementedResourcesLoaderServiceServer) NewResourcesLoader(context.Context, *NewResourcesLoaderRequest) (*NewResourcesLoaderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewResourcesLoader not implemented")
-}
-func (UnimplementedResourcesLoaderServiceServer) AddProvider(context.Context, *AddProviderRequest) (*AddProviderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddProvider not implemented")
-}
-func (UnimplementedResourcesLoaderServiceServer) ClearProviders(context.Context, *ClearProvidersRequest) (*ClearProvidersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearProviders not implemented")
-}
-func (UnimplementedResourcesLoaderServiceServer) RemoveProvider(context.Context, *RemoveProviderRequest) (*RemoveProviderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveProvider not implemented")
-}
-func (UnimplementedResourcesLoaderServiceServer) mustEmbedUnimplementedResourcesLoaderServiceServer() {
-}
-func (UnimplementedResourcesLoaderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeResourcesLoaderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResourcesLoaderServiceServer will
-// result in compilation errors.
-type UnsafeResourcesLoaderServiceServer interface {
-	mustEmbedUnimplementedResourcesLoaderServiceServer()
-}
-
-func RegisterResourcesLoaderServiceServer(s grpc.ServiceRegistrar, srv ResourcesLoaderServiceServer) {
-	// If the following call panics, it indicates UnimplementedResourcesLoaderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ResourcesLoaderService_ServiceDesc, srv)
-}
-
-func _ResourcesLoaderService_NewResourcesLoader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewResourcesLoaderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesLoaderServiceServer).NewResourcesLoader(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesLoaderService_NewResourcesLoader_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesLoaderServiceServer).NewResourcesLoader(ctx, req.(*NewResourcesLoaderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcesLoaderService_AddProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddProviderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesLoaderServiceServer).AddProvider(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesLoaderService_AddProvider_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesLoaderServiceServer).AddProvider(ctx, req.(*AddProviderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcesLoaderService_ClearProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearProvidersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesLoaderServiceServer).ClearProviders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesLoaderService_ClearProviders_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesLoaderServiceServer).ClearProviders(ctx, req.(*ClearProvidersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcesLoaderService_RemoveProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveProviderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcesLoaderServiceServer).RemoveProvider(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcesLoaderService_RemoveProvider_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcesLoaderServiceServer).RemoveProvider(ctx, req.(*RemoveProviderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResourcesLoaderService_ServiceDesc is the grpc.ServiceDesc for ResourcesLoaderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ResourcesLoaderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "loader.ResourcesLoaderService",
-	HandlerType: (*ResourcesLoaderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewResourcesLoader",
-			Handler:    _ResourcesLoaderService_NewResourcesLoader_Handler,
-		},
-		{
-			MethodName: "AddProvider",
-			Handler:    _ResourcesLoaderService_AddProvider_Handler,
-		},
-		{
-			MethodName: "ClearProviders",
-			Handler:    _ResourcesLoaderService_ClearProviders_Handler,
-		},
-		{
-			MethodName: "RemoveProvider",
-			Handler:    _ResourcesLoaderService_RemoveProvider_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/loader/loader.proto",
-}
-
-const (
 	ResourcesProviderService_Close_FullMethodName             = "/loader.ResourcesProviderService/Close"
 	ResourcesProviderService_Empty_FullMethodName             = "/loader.ResourcesProviderService/Empty"
 	ResourcesProviderService_LoadFromApk1_FullMethodName      = "/loader.ResourcesProviderService/LoadFromApk1"
@@ -600,6 +383,261 @@ var ResourcesProviderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "LoadOverlay",
 			Handler:    _ResourcesProviderService_LoadOverlay_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/loader/loader.proto",
+}
+
+const (
+	ResourcesLoaderService_NewResourcesLoader_FullMethodName = "/loader.ResourcesLoaderService/NewResourcesLoader"
+	ResourcesLoaderService_AddProvider_FullMethodName        = "/loader.ResourcesLoaderService/AddProvider"
+	ResourcesLoaderService_ClearProviders_FullMethodName     = "/loader.ResourcesLoaderService/ClearProviders"
+	ResourcesLoaderService_GetProviders_FullMethodName       = "/loader.ResourcesLoaderService/GetProviders"
+	ResourcesLoaderService_RemoveProvider_FullMethodName     = "/loader.ResourcesLoaderService/RemoveProvider"
+)
+
+// ResourcesLoaderServiceClient is the client API for ResourcesLoaderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ResourcesLoaderServiceClient interface {
+	NewResourcesLoader(ctx context.Context, in *NewResourcesLoaderRequest, opts ...grpc.CallOption) (*NewResourcesLoaderResponse, error)
+	AddProvider(ctx context.Context, in *AddProviderRequest, opts ...grpc.CallOption) (*AddProviderResponse, error)
+	ClearProviders(ctx context.Context, in *ClearProvidersRequest, opts ...grpc.CallOption) (*ClearProvidersResponse, error)
+	GetProviders(ctx context.Context, in *GetProvidersRequest, opts ...grpc.CallOption) (*GetProvidersResponse, error)
+	RemoveProvider(ctx context.Context, in *RemoveProviderRequest, opts ...grpc.CallOption) (*RemoveProviderResponse, error)
+}
+
+type resourcesLoaderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewResourcesLoaderServiceClient(cc grpc.ClientConnInterface) ResourcesLoaderServiceClient {
+	return &resourcesLoaderServiceClient{cc}
+}
+
+func (c *resourcesLoaderServiceClient) NewResourcesLoader(ctx context.Context, in *NewResourcesLoaderRequest, opts ...grpc.CallOption) (*NewResourcesLoaderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewResourcesLoaderResponse)
+	err := c.cc.Invoke(ctx, ResourcesLoaderService_NewResourcesLoader_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resourcesLoaderServiceClient) AddProvider(ctx context.Context, in *AddProviderRequest, opts ...grpc.CallOption) (*AddProviderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddProviderResponse)
+	err := c.cc.Invoke(ctx, ResourcesLoaderService_AddProvider_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resourcesLoaderServiceClient) ClearProviders(ctx context.Context, in *ClearProvidersRequest, opts ...grpc.CallOption) (*ClearProvidersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearProvidersResponse)
+	err := c.cc.Invoke(ctx, ResourcesLoaderService_ClearProviders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resourcesLoaderServiceClient) GetProviders(ctx context.Context, in *GetProvidersRequest, opts ...grpc.CallOption) (*GetProvidersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProvidersResponse)
+	err := c.cc.Invoke(ctx, ResourcesLoaderService_GetProviders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resourcesLoaderServiceClient) RemoveProvider(ctx context.Context, in *RemoveProviderRequest, opts ...grpc.CallOption) (*RemoveProviderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveProviderResponse)
+	err := c.cc.Invoke(ctx, ResourcesLoaderService_RemoveProvider_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResourcesLoaderServiceServer is the server API for ResourcesLoaderService service.
+// All implementations must embed UnimplementedResourcesLoaderServiceServer
+// for forward compatibility.
+type ResourcesLoaderServiceServer interface {
+	NewResourcesLoader(context.Context, *NewResourcesLoaderRequest) (*NewResourcesLoaderResponse, error)
+	AddProvider(context.Context, *AddProviderRequest) (*AddProviderResponse, error)
+	ClearProviders(context.Context, *ClearProvidersRequest) (*ClearProvidersResponse, error)
+	GetProviders(context.Context, *GetProvidersRequest) (*GetProvidersResponse, error)
+	RemoveProvider(context.Context, *RemoveProviderRequest) (*RemoveProviderResponse, error)
+	mustEmbedUnimplementedResourcesLoaderServiceServer()
+}
+
+// UnimplementedResourcesLoaderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedResourcesLoaderServiceServer struct{}
+
+func (UnimplementedResourcesLoaderServiceServer) NewResourcesLoader(context.Context, *NewResourcesLoaderRequest) (*NewResourcesLoaderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewResourcesLoader not implemented")
+}
+func (UnimplementedResourcesLoaderServiceServer) AddProvider(context.Context, *AddProviderRequest) (*AddProviderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddProvider not implemented")
+}
+func (UnimplementedResourcesLoaderServiceServer) ClearProviders(context.Context, *ClearProvidersRequest) (*ClearProvidersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearProviders not implemented")
+}
+func (UnimplementedResourcesLoaderServiceServer) GetProviders(context.Context, *GetProvidersRequest) (*GetProvidersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProviders not implemented")
+}
+func (UnimplementedResourcesLoaderServiceServer) RemoveProvider(context.Context, *RemoveProviderRequest) (*RemoveProviderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveProvider not implemented")
+}
+func (UnimplementedResourcesLoaderServiceServer) mustEmbedUnimplementedResourcesLoaderServiceServer() {
+}
+func (UnimplementedResourcesLoaderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeResourcesLoaderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResourcesLoaderServiceServer will
+// result in compilation errors.
+type UnsafeResourcesLoaderServiceServer interface {
+	mustEmbedUnimplementedResourcesLoaderServiceServer()
+}
+
+func RegisterResourcesLoaderServiceServer(s grpc.ServiceRegistrar, srv ResourcesLoaderServiceServer) {
+	// If the following call panics, it indicates UnimplementedResourcesLoaderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ResourcesLoaderService_ServiceDesc, srv)
+}
+
+func _ResourcesLoaderService_NewResourcesLoader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewResourcesLoaderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcesLoaderServiceServer).NewResourcesLoader(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcesLoaderService_NewResourcesLoader_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcesLoaderServiceServer).NewResourcesLoader(ctx, req.(*NewResourcesLoaderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResourcesLoaderService_AddProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddProviderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcesLoaderServiceServer).AddProvider(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcesLoaderService_AddProvider_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcesLoaderServiceServer).AddProvider(ctx, req.(*AddProviderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResourcesLoaderService_ClearProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearProvidersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcesLoaderServiceServer).ClearProviders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcesLoaderService_ClearProviders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcesLoaderServiceServer).ClearProviders(ctx, req.(*ClearProvidersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResourcesLoaderService_GetProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProvidersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcesLoaderServiceServer).GetProviders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcesLoaderService_GetProviders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcesLoaderServiceServer).GetProviders(ctx, req.(*GetProvidersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResourcesLoaderService_RemoveProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveProviderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcesLoaderServiceServer).RemoveProvider(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcesLoaderService_RemoveProvider_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcesLoaderServiceServer).RemoveProvider(ctx, req.(*RemoveProviderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResourcesLoaderService_ServiceDesc is the grpc.ServiceDesc for ResourcesLoaderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ResourcesLoaderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "loader.ResourcesLoaderService",
+	HandlerType: (*ResourcesLoaderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewResourcesLoader",
+			Handler:    _ResourcesLoaderService_NewResourcesLoader_Handler,
+		},
+		{
+			MethodName: "AddProvider",
+			Handler:    _ResourcesLoaderService_AddProvider_Handler,
+		},
+		{
+			MethodName: "ClearProviders",
+			Handler:    _ResourcesLoaderService_ClearProviders_Handler,
+		},
+		{
+			MethodName: "GetProviders",
+			Handler:    _ResourcesLoaderService_GetProviders_Handler,
+		},
+		{
+			MethodName: "RemoveProvider",
+			Handler:    _ResourcesLoaderService_RemoveProvider_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

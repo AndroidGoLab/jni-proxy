@@ -21,6 +21,223 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	RangingCapabilitiesService_DescribeContents_FullMethodName                  = "/rtt.RangingCapabilitiesService/DescribeContents"
+	RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_FullMethodName = "/rtt.RangingCapabilitiesService/HasPeriodicRangingHardwareFeature"
+	RangingCapabilitiesService_ToString_FullMethodName                          = "/rtt.RangingCapabilitiesService/ToString"
+	RangingCapabilitiesService_WriteToParcel_FullMethodName                     = "/rtt.RangingCapabilitiesService/WriteToParcel"
+)
+
+// RangingCapabilitiesServiceClient is the client API for RangingCapabilitiesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangingCapabilitiesServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	HasPeriodicRangingHardwareFeature(ctx context.Context, in *HasPeriodicRangingHardwareFeatureRequest, opts ...grpc.CallOption) (*HasPeriodicRangingHardwareFeatureResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type rangingCapabilitiesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangingCapabilitiesServiceClient(cc grpc.ClientConnInterface) RangingCapabilitiesServiceClient {
+	return &rangingCapabilitiesServiceClient{cc}
+}
+
+func (c *rangingCapabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) HasPeriodicRangingHardwareFeature(ctx context.Context, in *HasPeriodicRangingHardwareFeatureRequest, opts ...grpc.CallOption) (*HasPeriodicRangingHardwareFeatureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasPeriodicRangingHardwareFeatureResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingCapabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, RangingCapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangingCapabilitiesServiceServer is the server API for RangingCapabilitiesService service.
+// All implementations must embed UnimplementedRangingCapabilitiesServiceServer
+// for forward compatibility.
+type RangingCapabilitiesServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	HasPeriodicRangingHardwareFeature(context.Context, *HasPeriodicRangingHardwareFeatureRequest) (*HasPeriodicRangingHardwareFeatureResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedRangingCapabilitiesServiceServer()
+}
+
+// UnimplementedRangingCapabilitiesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangingCapabilitiesServiceServer struct{}
+
+func (UnimplementedRangingCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) HasPeriodicRangingHardwareFeature(context.Context, *HasPeriodicRangingHardwareFeatureRequest) (*HasPeriodicRangingHardwareFeatureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasPeriodicRangingHardwareFeature not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedRangingCapabilitiesServiceServer) mustEmbedUnimplementedRangingCapabilitiesServiceServer() {
+}
+func (UnimplementedRangingCapabilitiesServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRangingCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangingCapabilitiesServiceServer will
+// result in compilation errors.
+type UnsafeRangingCapabilitiesServiceServer interface {
+	mustEmbedUnimplementedRangingCapabilitiesServiceServer()
+}
+
+func RegisterRangingCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv RangingCapabilitiesServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangingCapabilitiesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangingCapabilitiesService_ServiceDesc, srv)
+}
+
+func _RangingCapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasPeriodicRangingHardwareFeatureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).HasPeriodicRangingHardwareFeature(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).HasPeriodicRangingHardwareFeature(ctx, req.(*HasPeriodicRangingHardwareFeatureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingCapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingCapabilitiesServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingCapabilitiesService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingCapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangingCapabilitiesService_ServiceDesc is the grpc.ServiceDesc for RangingCapabilitiesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangingCapabilitiesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "rtt.RangingCapabilitiesService",
+	HandlerType: (*RangingCapabilitiesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _RangingCapabilitiesService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "HasPeriodicRangingHardwareFeature",
+			Handler:    _RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _RangingCapabilitiesService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _RangingCapabilitiesService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/rtt/rtt.proto",
+}
+
+const (
 	RangingParamsService_DescribeContents_FullMethodName                  = "/rtt.RangingParamsService/DescribeContents"
 	RangingParamsService_Equals_FullMethodName                            = "/rtt.RangingParamsService/Equals"
 	RangingParamsService_GetMatchFilter_FullMethodName                    = "/rtt.RangingParamsService/GetMatchFilter"
@@ -637,223 +854,6 @@ var RangingParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetRangingUpdateRate",
 			Handler:    _RangingParamsBuilderService_SetRangingUpdateRate_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/rtt/rtt.proto",
-}
-
-const (
-	RangingCapabilitiesService_DescribeContents_FullMethodName                  = "/rtt.RangingCapabilitiesService/DescribeContents"
-	RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_FullMethodName = "/rtt.RangingCapabilitiesService/HasPeriodicRangingHardwareFeature"
-	RangingCapabilitiesService_ToString_FullMethodName                          = "/rtt.RangingCapabilitiesService/ToString"
-	RangingCapabilitiesService_WriteToParcel_FullMethodName                     = "/rtt.RangingCapabilitiesService/WriteToParcel"
-)
-
-// RangingCapabilitiesServiceClient is the client API for RangingCapabilitiesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangingCapabilitiesServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	HasPeriodicRangingHardwareFeature(ctx context.Context, in *HasPeriodicRangingHardwareFeatureRequest, opts ...grpc.CallOption) (*HasPeriodicRangingHardwareFeatureResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type rangingCapabilitiesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangingCapabilitiesServiceClient(cc grpc.ClientConnInterface) RangingCapabilitiesServiceClient {
-	return &rangingCapabilitiesServiceClient{cc}
-}
-
-func (c *rangingCapabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RangingCapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingCapabilitiesServiceClient) HasPeriodicRangingHardwareFeature(ctx context.Context, in *HasPeriodicRangingHardwareFeatureRequest, opts ...grpc.CallOption) (*HasPeriodicRangingHardwareFeatureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasPeriodicRangingHardwareFeatureResponse)
-	err := c.cc.Invoke(ctx, RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingCapabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, RangingCapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingCapabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RangingCapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangingCapabilitiesServiceServer is the server API for RangingCapabilitiesService service.
-// All implementations must embed UnimplementedRangingCapabilitiesServiceServer
-// for forward compatibility.
-type RangingCapabilitiesServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	HasPeriodicRangingHardwareFeature(context.Context, *HasPeriodicRangingHardwareFeatureRequest) (*HasPeriodicRangingHardwareFeatureResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedRangingCapabilitiesServiceServer()
-}
-
-// UnimplementedRangingCapabilitiesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangingCapabilitiesServiceServer struct{}
-
-func (UnimplementedRangingCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedRangingCapabilitiesServiceServer) HasPeriodicRangingHardwareFeature(context.Context, *HasPeriodicRangingHardwareFeatureRequest) (*HasPeriodicRangingHardwareFeatureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasPeriodicRangingHardwareFeature not implemented")
-}
-func (UnimplementedRangingCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedRangingCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedRangingCapabilitiesServiceServer) mustEmbedUnimplementedRangingCapabilitiesServiceServer() {
-}
-func (UnimplementedRangingCapabilitiesServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRangingCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangingCapabilitiesServiceServer will
-// result in compilation errors.
-type UnsafeRangingCapabilitiesServiceServer interface {
-	mustEmbedUnimplementedRangingCapabilitiesServiceServer()
-}
-
-func RegisterRangingCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv RangingCapabilitiesServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangingCapabilitiesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangingCapabilitiesService_ServiceDesc, srv)
-}
-
-func _RangingCapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingCapabilitiesServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingCapabilitiesService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingCapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasPeriodicRangingHardwareFeatureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingCapabilitiesServiceServer).HasPeriodicRangingHardwareFeature(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingCapabilitiesServiceServer).HasPeriodicRangingHardwareFeature(ctx, req.(*HasPeriodicRangingHardwareFeatureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingCapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingCapabilitiesServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingCapabilitiesService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingCapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingCapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingCapabilitiesServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingCapabilitiesService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingCapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangingCapabilitiesService_ServiceDesc is the grpc.ServiceDesc for RangingCapabilitiesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangingCapabilitiesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rtt.RangingCapabilitiesService",
-	HandlerType: (*RangingCapabilitiesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _RangingCapabilitiesService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "HasPeriodicRangingHardwareFeature",
-			Handler:    _RangingCapabilitiesService_HasPeriodicRangingHardwareFeature_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _RangingCapabilitiesService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _RangingCapabilitiesService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

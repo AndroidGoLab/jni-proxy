@@ -12,6 +12,200 @@ var chooserCmd = &cobra.Command{
 	Short: "chooser service operations",
 }
 
+var chooserTargetCmd = &cobra.Command{
+	Use:   "target",
+	Short: "TargetService operations",
+}
+
+var chooserTargetNewTargetCmd = &cobra.Command{
+	Use:   "new-target",
+	Short: "NewTarget RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.NewTargetRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.NewTarget(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetGetComponentNameCmd = &cobra.Command{
+	Use:   "get-component-name",
+	Short: "GetComponentName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.GetComponentNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetComponentName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.GetIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetGetIntentExtrasCmd = &cobra.Command{
+	Use:   "get-intent-extras",
+	Short: "GetIntentExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.GetIntentExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIntentExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetGetScoreCmd = &cobra.Command{
+	Use:   "get-score",
+	Short: "GetScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.GetScoreRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var chooserActionCmd = &cobra.Command{
 	Use:   "action",
 	Short: "ActionService operations",
@@ -24,7 +218,7 @@ var chooserActionDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewActionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.ActionDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -56,7 +250,7 @@ var chooserActionGetIconCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewActionServiceClient(grpcConn)
-		req := &pb.GetIconRequest{}
+		req := &pb.ActionGetIconRequest{}
 		resp, err := client.GetIcon(ctx, req)
 		if err != nil {
 			return err
@@ -88,7 +282,7 @@ var chooserActionToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewActionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.ActionToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -104,7 +298,7 @@ var chooserActionWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewActionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.ActionWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -140,6 +334,52 @@ var chooserActionBuilderBuildCmd = &cobra.Command{
 	},
 }
 
+var chooserTargetServiceCmd = &cobra.Command{
+	Use:   "target-service",
+	Short: "TargetServiceService operations",
+}
+
+var chooserTargetServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var chooserTargetServiceOnGetChooserTargetsCmd = &cobra.Command{
+	Use:   "on-get-chooser-targets",
+	Short: "OnGetChooserTargets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetServiceServiceClient(grpcConn)
+		req := &pb.OnGetChooserTargetsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnGetChooserTargets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var chooserResultCmd = &cobra.Command{
 	Use:   "result",
 	Short: "ResultService operations",
@@ -152,7 +392,7 @@ var chooserResultDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewResultServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.ResultDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -251,225 +491,7 @@ var chooserResultWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewResultServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetServiceCmd = &cobra.Command{
-	Use:   "target-service",
-	Short: "TargetServiceService operations",
-}
-
-var chooserTargetServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetCmd = &cobra.Command{
-	Use:   "target",
-	Short: "TargetService operations",
-}
-
-var chooserTargetNewTargetCmd = &cobra.Command{
-	Use:   "new-target",
-	Short: "NewTarget RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.NewTargetRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.NewTarget(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.TargetDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetGetComponentNameCmd = &cobra.Command{
-	Use:   "get-component-name",
-	Short: "GetComponentName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.GetComponentNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetComponentName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.TargetGetIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetGetIntentExtrasCmd = &cobra.Command{
-	Use:   "get-intent-extras",
-	Short: "GetIntentExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.GetIntentExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIntentExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetGetScoreCmd = &cobra.Command{
-	Use:   "get-score",
-	Short: "GetScore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.GetScoreRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetScore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.GetTitleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.TargetToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var chooserTargetWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTargetServiceClient(grpcConn)
-		req := &pb.TargetWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		req := &pb.ResultWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -485,31 +507,6 @@ var chooserTargetWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
-	chooserActionCmd.AddCommand(chooserActionDescribeContentsCmd)
-	chooserActionCmd.AddCommand(chooserActionGetActionCmd)
-	chooserActionCmd.AddCommand(chooserActionGetIconCmd)
-	chooserActionCmd.AddCommand(chooserActionGetLabelCmd)
-	chooserActionCmd.AddCommand(chooserActionToStringCmd)
-	chooserActionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	chooserActionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	chooserActionCmd.AddCommand(chooserActionWriteToParcelCmd)
-	chooserCmd.AddCommand(chooserActionCmd)
-	chooserActionBuilderCmd.AddCommand(chooserActionBuilderBuildCmd)
-	chooserCmd.AddCommand(chooserActionBuilderCmd)
-	chooserResultCmd.AddCommand(chooserResultDescribeContentsCmd)
-	chooserResultEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	chooserResultCmd.AddCommand(chooserResultEqualsCmd)
-	chooserResultCmd.AddCommand(chooserResultGetSelectedComponentCmd)
-	chooserResultCmd.AddCommand(chooserResultGetTypeCmd)
-	chooserResultCmd.AddCommand(chooserResultHashCodeCmd)
-	chooserResultCmd.AddCommand(chooserResultIsShortcutCmd)
-	chooserResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	chooserResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	chooserResultCmd.AddCommand(chooserResultWriteToParcelCmd)
-	chooserCmd.AddCommand(chooserResultCmd)
-	chooserTargetServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	chooserTargetServiceCmd.AddCommand(chooserTargetServiceOnBindCmd)
-	chooserCmd.AddCommand(chooserTargetServiceCmd)
 	chooserTargetNewTargetCmd.Flags().String("arg0", "", "arg0 (string)")
 	chooserTargetNewTargetCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	chooserTargetNewTargetCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
@@ -535,5 +532,33 @@ func init() {
 	chooserTargetWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	chooserTargetCmd.AddCommand(chooserTargetWriteToParcelCmd)
 	chooserCmd.AddCommand(chooserTargetCmd)
+	chooserActionCmd.AddCommand(chooserActionDescribeContentsCmd)
+	chooserActionCmd.AddCommand(chooserActionGetActionCmd)
+	chooserActionCmd.AddCommand(chooserActionGetIconCmd)
+	chooserActionCmd.AddCommand(chooserActionGetLabelCmd)
+	chooserActionCmd.AddCommand(chooserActionToStringCmd)
+	chooserActionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	chooserActionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	chooserActionCmd.AddCommand(chooserActionWriteToParcelCmd)
+	chooserCmd.AddCommand(chooserActionCmd)
+	chooserActionBuilderCmd.AddCommand(chooserActionBuilderBuildCmd)
+	chooserCmd.AddCommand(chooserActionBuilderCmd)
+	chooserTargetServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	chooserTargetServiceCmd.AddCommand(chooserTargetServiceOnBindCmd)
+	chooserTargetServiceOnGetChooserTargetsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	chooserTargetServiceOnGetChooserTargetsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	chooserTargetServiceCmd.AddCommand(chooserTargetServiceOnGetChooserTargetsCmd)
+	chooserCmd.AddCommand(chooserTargetServiceCmd)
+	chooserResultCmd.AddCommand(chooserResultDescribeContentsCmd)
+	chooserResultEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	chooserResultCmd.AddCommand(chooserResultEqualsCmd)
+	chooserResultCmd.AddCommand(chooserResultGetSelectedComponentCmd)
+	chooserResultCmd.AddCommand(chooserResultGetTypeCmd)
+	chooserResultCmd.AddCommand(chooserResultHashCodeCmd)
+	chooserResultCmd.AddCommand(chooserResultIsShortcutCmd)
+	chooserResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	chooserResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	chooserResultCmd.AddCommand(chooserResultWriteToParcelCmd)
+	chooserCmd.AddCommand(chooserResultCmd)
 	rootCmd.AddCommand(chooserCmd)
 }

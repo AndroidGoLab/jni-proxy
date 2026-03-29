@@ -31,6 +31,14 @@ message GetAutofillIdResponse {
   int64 result = 1;
 }
 
+message GetHintsRequest {
+  int64 handle = 1;
+}
+
+message GetHintsResponse {
+  int64 result = 1;
+}
+
 message ToStringRequest {
   int64 handle = 1;
 }
@@ -52,6 +60,7 @@ service FieldClassificationService {
   rpc NewFieldClassification (NewFieldClassificationRequest) returns (NewFieldClassificationResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetAutofillId (GetAutofillIdRequest) returns (GetAutofillIdResponse);
+  rpc GetHints (GetHintsRequest) returns (GetHintsResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

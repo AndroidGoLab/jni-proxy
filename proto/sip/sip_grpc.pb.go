@@ -21,3497 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SessionService_AnswerCall_FullMethodName      = "/sip.SessionService/AnswerCall"
-	SessionService_ChangeCall_FullMethodName      = "/sip.SessionService/ChangeCall"
-	SessionService_EndCall_FullMethodName         = "/sip.SessionService/EndCall"
-	SessionService_GetCallId_FullMethodName       = "/sip.SessionService/GetCallId"
-	SessionService_GetLocalIp_FullMethodName      = "/sip.SessionService/GetLocalIp"
-	SessionService_GetLocalProfile_FullMethodName = "/sip.SessionService/GetLocalProfile"
-	SessionService_GetPeerProfile_FullMethodName  = "/sip.SessionService/GetPeerProfile"
-	SessionService_GetState_FullMethodName        = "/sip.SessionService/GetState"
-	SessionService_IsInCall_FullMethodName        = "/sip.SessionService/IsInCall"
-	SessionService_MakeCall_FullMethodName        = "/sip.SessionService/MakeCall"
-	SessionService_Register_FullMethodName        = "/sip.SessionService/Register"
-	SessionService_SetListener_FullMethodName     = "/sip.SessionService/SetListener"
-	SessionService_Unregister_FullMethodName      = "/sip.SessionService/Unregister"
-)
-
-// SessionServiceClient is the client API for SessionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionServiceClient interface {
-	AnswerCall(ctx context.Context, in *AnswerCallRequest, opts ...grpc.CallOption) (*AnswerCallResponse, error)
-	ChangeCall(ctx context.Context, in *ChangeCallRequest, opts ...grpc.CallOption) (*ChangeCallResponse, error)
-	EndCall(ctx context.Context, in *EndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error)
-	GetCallId(ctx context.Context, in *GetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error)
-	GetLocalIp(ctx context.Context, in *GetLocalIpRequest, opts ...grpc.CallOption) (*GetLocalIpResponse, error)
-	GetLocalProfile(ctx context.Context, in *GetLocalProfileRequest, opts ...grpc.CallOption) (*GetLocalProfileResponse, error)
-	GetPeerProfile(ctx context.Context, in *GetPeerProfileRequest, opts ...grpc.CallOption) (*GetPeerProfileResponse, error)
-	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
-	IsInCall(ctx context.Context, in *IsInCallRequest, opts ...grpc.CallOption) (*IsInCallResponse, error)
-	MakeCall(ctx context.Context, in *MakeCallRequest, opts ...grpc.CallOption) (*MakeCallResponse, error)
-	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
-	SetListener(ctx context.Context, in *SetListenerRequest, opts ...grpc.CallOption) (*SetListenerResponse, error)
-	Unregister(ctx context.Context, in *UnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error)
-}
-
-type sessionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionServiceClient(cc grpc.ClientConnInterface) SessionServiceClient {
-	return &sessionServiceClient{cc}
-}
-
-func (c *sessionServiceClient) AnswerCall(ctx context.Context, in *AnswerCallRequest, opts ...grpc.CallOption) (*AnswerCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AnswerCallResponse)
-	err := c.cc.Invoke(ctx, SessionService_AnswerCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) ChangeCall(ctx context.Context, in *ChangeCallRequest, opts ...grpc.CallOption) (*ChangeCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ChangeCallResponse)
-	err := c.cc.Invoke(ctx, SessionService_ChangeCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) EndCall(ctx context.Context, in *EndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EndCallResponse)
-	err := c.cc.Invoke(ctx, SessionService_EndCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) GetCallId(ctx context.Context, in *GetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCallIdResponse)
-	err := c.cc.Invoke(ctx, SessionService_GetCallId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) GetLocalIp(ctx context.Context, in *GetLocalIpRequest, opts ...grpc.CallOption) (*GetLocalIpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocalIpResponse)
-	err := c.cc.Invoke(ctx, SessionService_GetLocalIp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) GetLocalProfile(ctx context.Context, in *GetLocalProfileRequest, opts ...grpc.CallOption) (*GetLocalProfileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocalProfileResponse)
-	err := c.cc.Invoke(ctx, SessionService_GetLocalProfile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) GetPeerProfile(ctx context.Context, in *GetPeerProfileRequest, opts ...grpc.CallOption) (*GetPeerProfileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPeerProfileResponse)
-	err := c.cc.Invoke(ctx, SessionService_GetPeerProfile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStateResponse)
-	err := c.cc.Invoke(ctx, SessionService_GetState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) IsInCall(ctx context.Context, in *IsInCallRequest, opts ...grpc.CallOption) (*IsInCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInCallResponse)
-	err := c.cc.Invoke(ctx, SessionService_IsInCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) MakeCall(ctx context.Context, in *MakeCallRequest, opts ...grpc.CallOption) (*MakeCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MakeCallResponse)
-	err := c.cc.Invoke(ctx, SessionService_MakeCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterResponse)
-	err := c.cc.Invoke(ctx, SessionService_Register_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) SetListener(ctx context.Context, in *SetListenerRequest, opts ...grpc.CallOption) (*SetListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetListenerResponse)
-	err := c.cc.Invoke(ctx, SessionService_SetListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionServiceClient) Unregister(ctx context.Context, in *UnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterResponse)
-	err := c.cc.Invoke(ctx, SessionService_Unregister_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionServiceServer is the server API for SessionService service.
-// All implementations must embed UnimplementedSessionServiceServer
-// for forward compatibility.
-type SessionServiceServer interface {
-	AnswerCall(context.Context, *AnswerCallRequest) (*AnswerCallResponse, error)
-	ChangeCall(context.Context, *ChangeCallRequest) (*ChangeCallResponse, error)
-	EndCall(context.Context, *EndCallRequest) (*EndCallResponse, error)
-	GetCallId(context.Context, *GetCallIdRequest) (*GetCallIdResponse, error)
-	GetLocalIp(context.Context, *GetLocalIpRequest) (*GetLocalIpResponse, error)
-	GetLocalProfile(context.Context, *GetLocalProfileRequest) (*GetLocalProfileResponse, error)
-	GetPeerProfile(context.Context, *GetPeerProfileRequest) (*GetPeerProfileResponse, error)
-	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
-	IsInCall(context.Context, *IsInCallRequest) (*IsInCallResponse, error)
-	MakeCall(context.Context, *MakeCallRequest) (*MakeCallResponse, error)
-	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
-	SetListener(context.Context, *SetListenerRequest) (*SetListenerResponse, error)
-	Unregister(context.Context, *UnregisterRequest) (*UnregisterResponse, error)
-	mustEmbedUnimplementedSessionServiceServer()
-}
-
-// UnimplementedSessionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionServiceServer struct{}
-
-func (UnimplementedSessionServiceServer) AnswerCall(context.Context, *AnswerCallRequest) (*AnswerCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AnswerCall not implemented")
-}
-func (UnimplementedSessionServiceServer) ChangeCall(context.Context, *ChangeCallRequest) (*ChangeCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ChangeCall not implemented")
-}
-func (UnimplementedSessionServiceServer) EndCall(context.Context, *EndCallRequest) (*EndCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method EndCall not implemented")
-}
-func (UnimplementedSessionServiceServer) GetCallId(context.Context, *GetCallIdRequest) (*GetCallIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCallId not implemented")
-}
-func (UnimplementedSessionServiceServer) GetLocalIp(context.Context, *GetLocalIpRequest) (*GetLocalIpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocalIp not implemented")
-}
-func (UnimplementedSessionServiceServer) GetLocalProfile(context.Context, *GetLocalProfileRequest) (*GetLocalProfileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocalProfile not implemented")
-}
-func (UnimplementedSessionServiceServer) GetPeerProfile(context.Context, *GetPeerProfileRequest) (*GetPeerProfileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPeerProfile not implemented")
-}
-func (UnimplementedSessionServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
-}
-func (UnimplementedSessionServiceServer) IsInCall(context.Context, *IsInCallRequest) (*IsInCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInCall not implemented")
-}
-func (UnimplementedSessionServiceServer) MakeCall(context.Context, *MakeCallRequest) (*MakeCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MakeCall not implemented")
-}
-func (UnimplementedSessionServiceServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Register not implemented")
-}
-func (UnimplementedSessionServiceServer) SetListener(context.Context, *SetListenerRequest) (*SetListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetListener not implemented")
-}
-func (UnimplementedSessionServiceServer) Unregister(context.Context, *UnregisterRequest) (*UnregisterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Unregister not implemented")
-}
-func (UnimplementedSessionServiceServer) mustEmbedUnimplementedSessionServiceServer() {}
-func (UnimplementedSessionServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeSessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionServiceServer will
-// result in compilation errors.
-type UnsafeSessionServiceServer interface {
-	mustEmbedUnimplementedSessionServiceServer()
-}
-
-func RegisterSessionServiceServer(s grpc.ServiceRegistrar, srv SessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionService_ServiceDesc, srv)
-}
-
-func _SessionService_AnswerCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AnswerCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).AnswerCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_AnswerCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).AnswerCall(ctx, req.(*AnswerCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_ChangeCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChangeCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).ChangeCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_ChangeCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).ChangeCall(ctx, req.(*ChangeCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_EndCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).EndCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_EndCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).EndCall(ctx, req.(*EndCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_GetCallId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCallIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).GetCallId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_GetCallId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).GetCallId(ctx, req.(*GetCallIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_GetLocalIp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocalIpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).GetLocalIp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_GetLocalIp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).GetLocalIp(ctx, req.(*GetLocalIpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_GetLocalProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocalProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).GetLocalProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_GetLocalProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).GetLocalProfile(ctx, req.(*GetLocalProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_GetPeerProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPeerProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).GetPeerProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_GetPeerProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).GetPeerProfile(ctx, req.(*GetPeerProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).GetState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_GetState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).GetState(ctx, req.(*GetStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_IsInCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).IsInCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_IsInCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).IsInCall(ctx, req.(*IsInCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_MakeCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MakeCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).MakeCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_MakeCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).MakeCall(ctx, req.(*MakeCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Register(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Register_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Register(ctx, req.(*RegisterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_SetListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).SetListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_SetListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).SetListener(ctx, req.(*SetListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionService_Unregister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionServiceServer).Unregister(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionService_Unregister_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).Unregister(ctx, req.(*UnregisterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionService_ServiceDesc is the grpc.ServiceDesc for SessionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sip.SessionService",
-	HandlerType: (*SessionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AnswerCall",
-			Handler:    _SessionService_AnswerCall_Handler,
-		},
-		{
-			MethodName: "ChangeCall",
-			Handler:    _SessionService_ChangeCall_Handler,
-		},
-		{
-			MethodName: "EndCall",
-			Handler:    _SessionService_EndCall_Handler,
-		},
-		{
-			MethodName: "GetCallId",
-			Handler:    _SessionService_GetCallId_Handler,
-		},
-		{
-			MethodName: "GetLocalIp",
-			Handler:    _SessionService_GetLocalIp_Handler,
-		},
-		{
-			MethodName: "GetLocalProfile",
-			Handler:    _SessionService_GetLocalProfile_Handler,
-		},
-		{
-			MethodName: "GetPeerProfile",
-			Handler:    _SessionService_GetPeerProfile_Handler,
-		},
-		{
-			MethodName: "GetState",
-			Handler:    _SessionService_GetState_Handler,
-		},
-		{
-			MethodName: "IsInCall",
-			Handler:    _SessionService_IsInCall_Handler,
-		},
-		{
-			MethodName: "MakeCall",
-			Handler:    _SessionService_MakeCall_Handler,
-		},
-		{
-			MethodName: "Register",
-			Handler:    _SessionService_Register_Handler,
-		},
-		{
-			MethodName: "SetListener",
-			Handler:    _SessionService_SetListener_Handler,
-		},
-		{
-			MethodName: "Unregister",
-			Handler:    _SessionService_Unregister_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sip/sip.proto",
-}
-
-const (
-	SessionListenerService_OnCallBusy_FullMethodName            = "/sip.SessionListenerService/OnCallBusy"
-	SessionListenerService_OnCallChangeFailed_FullMethodName    = "/sip.SessionListenerService/OnCallChangeFailed"
-	SessionListenerService_OnCallEnded_FullMethodName           = "/sip.SessionListenerService/OnCallEnded"
-	SessionListenerService_OnCallEstablished_FullMethodName     = "/sip.SessionListenerService/OnCallEstablished"
-	SessionListenerService_OnCalling_FullMethodName             = "/sip.SessionListenerService/OnCalling"
-	SessionListenerService_OnError_FullMethodName               = "/sip.SessionListenerService/OnError"
-	SessionListenerService_OnRegistering_FullMethodName         = "/sip.SessionListenerService/OnRegistering"
-	SessionListenerService_OnRegistrationDone_FullMethodName    = "/sip.SessionListenerService/OnRegistrationDone"
-	SessionListenerService_OnRegistrationFailed_FullMethodName  = "/sip.SessionListenerService/OnRegistrationFailed"
-	SessionListenerService_OnRegistrationTimeout_FullMethodName = "/sip.SessionListenerService/OnRegistrationTimeout"
-	SessionListenerService_OnRinging_FullMethodName             = "/sip.SessionListenerService/OnRinging"
-	SessionListenerService_OnRingingBack_FullMethodName         = "/sip.SessionListenerService/OnRingingBack"
-)
-
-// SessionListenerServiceClient is the client API for SessionListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionListenerServiceClient interface {
-	OnCallBusy(ctx context.Context, in *OnCallBusyRequest, opts ...grpc.CallOption) (*OnCallBusyResponse, error)
-	OnCallChangeFailed(ctx context.Context, in *OnCallChangeFailedRequest, opts ...grpc.CallOption) (*OnCallChangeFailedResponse, error)
-	OnCallEnded(ctx context.Context, in *OnCallEndedRequest, opts ...grpc.CallOption) (*OnCallEndedResponse, error)
-	OnCallEstablished(ctx context.Context, in *OnCallEstablishedRequest, opts ...grpc.CallOption) (*OnCallEstablishedResponse, error)
-	OnCalling(ctx context.Context, in *OnCallingRequest, opts ...grpc.CallOption) (*OnCallingResponse, error)
-	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
-	OnRegistering(ctx context.Context, in *OnRegisteringRequest, opts ...grpc.CallOption) (*OnRegisteringResponse, error)
-	OnRegistrationDone(ctx context.Context, in *OnRegistrationDoneRequest, opts ...grpc.CallOption) (*OnRegistrationDoneResponse, error)
-	OnRegistrationFailed(ctx context.Context, in *OnRegistrationFailedRequest, opts ...grpc.CallOption) (*OnRegistrationFailedResponse, error)
-	OnRegistrationTimeout(ctx context.Context, in *OnRegistrationTimeoutRequest, opts ...grpc.CallOption) (*OnRegistrationTimeoutResponse, error)
-	OnRinging(ctx context.Context, in *OnRingingRequest, opts ...grpc.CallOption) (*OnRingingResponse, error)
-	OnRingingBack(ctx context.Context, in *OnRingingBackRequest, opts ...grpc.CallOption) (*OnRingingBackResponse, error)
-}
-
-type sessionListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionListenerServiceClient(cc grpc.ClientConnInterface) SessionListenerServiceClient {
-	return &sessionListenerServiceClient{cc}
-}
-
-func (c *sessionListenerServiceClient) OnCallBusy(ctx context.Context, in *OnCallBusyRequest, opts ...grpc.CallOption) (*OnCallBusyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallBusyResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnCallBusy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnCallChangeFailed(ctx context.Context, in *OnCallChangeFailedRequest, opts ...grpc.CallOption) (*OnCallChangeFailedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallChangeFailedResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnCallChangeFailed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnCallEnded(ctx context.Context, in *OnCallEndedRequest, opts ...grpc.CallOption) (*OnCallEndedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallEndedResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnCallEnded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnCallEstablished(ctx context.Context, in *OnCallEstablishedRequest, opts ...grpc.CallOption) (*OnCallEstablishedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallEstablishedResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnCallEstablished_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnCalling(ctx context.Context, in *OnCallingRequest, opts ...grpc.CallOption) (*OnCallingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallingResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnCalling_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnErrorResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnRegistering(ctx context.Context, in *OnRegisteringRequest, opts ...grpc.CallOption) (*OnRegisteringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRegisteringResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnRegistering_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnRegistrationDone(ctx context.Context, in *OnRegistrationDoneRequest, opts ...grpc.CallOption) (*OnRegistrationDoneResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRegistrationDoneResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnRegistrationDone_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnRegistrationFailed(ctx context.Context, in *OnRegistrationFailedRequest, opts ...grpc.CallOption) (*OnRegistrationFailedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRegistrationFailedResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnRegistrationFailed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnRegistrationTimeout(ctx context.Context, in *OnRegistrationTimeoutRequest, opts ...grpc.CallOption) (*OnRegistrationTimeoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRegistrationTimeoutResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnRegistrationTimeout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnRinging(ctx context.Context, in *OnRingingRequest, opts ...grpc.CallOption) (*OnRingingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRingingResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnRinging_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sessionListenerServiceClient) OnRingingBack(ctx context.Context, in *OnRingingBackRequest, opts ...grpc.CallOption) (*OnRingingBackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRingingBackResponse)
-	err := c.cc.Invoke(ctx, SessionListenerService_OnRingingBack_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionListenerServiceServer is the server API for SessionListenerService service.
-// All implementations must embed UnimplementedSessionListenerServiceServer
-// for forward compatibility.
-type SessionListenerServiceServer interface {
-	OnCallBusy(context.Context, *OnCallBusyRequest) (*OnCallBusyResponse, error)
-	OnCallChangeFailed(context.Context, *OnCallChangeFailedRequest) (*OnCallChangeFailedResponse, error)
-	OnCallEnded(context.Context, *OnCallEndedRequest) (*OnCallEndedResponse, error)
-	OnCallEstablished(context.Context, *OnCallEstablishedRequest) (*OnCallEstablishedResponse, error)
-	OnCalling(context.Context, *OnCallingRequest) (*OnCallingResponse, error)
-	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
-	OnRegistering(context.Context, *OnRegisteringRequest) (*OnRegisteringResponse, error)
-	OnRegistrationDone(context.Context, *OnRegistrationDoneRequest) (*OnRegistrationDoneResponse, error)
-	OnRegistrationFailed(context.Context, *OnRegistrationFailedRequest) (*OnRegistrationFailedResponse, error)
-	OnRegistrationTimeout(context.Context, *OnRegistrationTimeoutRequest) (*OnRegistrationTimeoutResponse, error)
-	OnRinging(context.Context, *OnRingingRequest) (*OnRingingResponse, error)
-	OnRingingBack(context.Context, *OnRingingBackRequest) (*OnRingingBackResponse, error)
-	mustEmbedUnimplementedSessionListenerServiceServer()
-}
-
-// UnimplementedSessionListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionListenerServiceServer struct{}
-
-func (UnimplementedSessionListenerServiceServer) OnCallBusy(context.Context, *OnCallBusyRequest) (*OnCallBusyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCallBusy not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnCallChangeFailed(context.Context, *OnCallChangeFailedRequest) (*OnCallChangeFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCallChangeFailed not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnCallEnded(context.Context, *OnCallEndedRequest) (*OnCallEndedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCallEnded not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnCallEstablished(context.Context, *OnCallEstablishedRequest) (*OnCallEstablishedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCallEstablished not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnCalling(context.Context, *OnCallingRequest) (*OnCallingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCalling not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnRegistering(context.Context, *OnRegisteringRequest) (*OnRegisteringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRegistering not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnRegistrationDone(context.Context, *OnRegistrationDoneRequest) (*OnRegistrationDoneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRegistrationDone not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnRegistrationFailed(context.Context, *OnRegistrationFailedRequest) (*OnRegistrationFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRegistrationFailed not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnRegistrationTimeout(context.Context, *OnRegistrationTimeoutRequest) (*OnRegistrationTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRegistrationTimeout not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnRinging(context.Context, *OnRingingRequest) (*OnRingingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRinging not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) OnRingingBack(context.Context, *OnRingingBackRequest) (*OnRingingBackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRingingBack not implemented")
-}
-func (UnimplementedSessionListenerServiceServer) mustEmbedUnimplementedSessionListenerServiceServer() {
-}
-func (UnimplementedSessionListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSessionListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionListenerServiceServer will
-// result in compilation errors.
-type UnsafeSessionListenerServiceServer interface {
-	mustEmbedUnimplementedSessionListenerServiceServer()
-}
-
-func RegisterSessionListenerServiceServer(s grpc.ServiceRegistrar, srv SessionListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionListenerService_ServiceDesc, srv)
-}
-
-func _SessionListenerService_OnCallBusy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallBusyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnCallBusy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnCallBusy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnCallBusy(ctx, req.(*OnCallBusyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnCallChangeFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallChangeFailedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnCallChangeFailed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnCallChangeFailed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnCallChangeFailed(ctx, req.(*OnCallChangeFailedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnCallEnded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallEndedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnCallEnded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnCallEnded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnCallEnded(ctx, req.(*OnCallEndedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnCallEstablished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallEstablishedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnCallEstablished(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnCallEstablished_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnCallEstablished(ctx, req.(*OnCallEstablishedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnCalling_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnCalling(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnCalling_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnCalling(ctx, req.(*OnCallingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnError(ctx, req.(*OnErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnRegistering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRegisteringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnRegistering(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnRegistering_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnRegistering(ctx, req.(*OnRegisteringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnRegistrationDone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRegistrationDoneRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnRegistrationDone(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnRegistrationDone_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnRegistrationDone(ctx, req.(*OnRegistrationDoneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnRegistrationFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRegistrationFailedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnRegistrationFailed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnRegistrationFailed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnRegistrationFailed(ctx, req.(*OnRegistrationFailedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnRegistrationTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRegistrationTimeoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnRegistrationTimeout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnRegistrationTimeout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnRegistrationTimeout(ctx, req.(*OnRegistrationTimeoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnRinging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRingingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnRinging(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnRinging_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnRinging(ctx, req.(*OnRingingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SessionListenerService_OnRingingBack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRingingBackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionListenerServiceServer).OnRingingBack(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionListenerService_OnRingingBack_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionListenerServiceServer).OnRingingBack(ctx, req.(*OnRingingBackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionListenerService_ServiceDesc is the grpc.ServiceDesc for SessionListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sip.SessionListenerService",
-	HandlerType: (*SessionListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnCallBusy",
-			Handler:    _SessionListenerService_OnCallBusy_Handler,
-		},
-		{
-			MethodName: "OnCallChangeFailed",
-			Handler:    _SessionListenerService_OnCallChangeFailed_Handler,
-		},
-		{
-			MethodName: "OnCallEnded",
-			Handler:    _SessionListenerService_OnCallEnded_Handler,
-		},
-		{
-			MethodName: "OnCallEstablished",
-			Handler:    _SessionListenerService_OnCallEstablished_Handler,
-		},
-		{
-			MethodName: "OnCalling",
-			Handler:    _SessionListenerService_OnCalling_Handler,
-		},
-		{
-			MethodName: "OnError",
-			Handler:    _SessionListenerService_OnError_Handler,
-		},
-		{
-			MethodName: "OnRegistering",
-			Handler:    _SessionListenerService_OnRegistering_Handler,
-		},
-		{
-			MethodName: "OnRegistrationDone",
-			Handler:    _SessionListenerService_OnRegistrationDone_Handler,
-		},
-		{
-			MethodName: "OnRegistrationFailed",
-			Handler:    _SessionListenerService_OnRegistrationFailed_Handler,
-		},
-		{
-			MethodName: "OnRegistrationTimeout",
-			Handler:    _SessionListenerService_OnRegistrationTimeout_Handler,
-		},
-		{
-			MethodName: "OnRinging",
-			Handler:    _SessionListenerService_OnRinging_Handler,
-		},
-		{
-			MethodName: "OnRingingBack",
-			Handler:    _SessionListenerService_OnRingingBack_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sip/sip.proto",
-}
-
-const (
-	SessionStateService_ToString_FullMethodName = "/sip.SessionStateService/ToString"
-)
-
-// SessionStateServiceClient is the client API for SessionStateService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SessionStateServiceClient interface {
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type sessionStateServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSessionStateServiceClient(cc grpc.ClientConnInterface) SessionStateServiceClient {
-	return &sessionStateServiceClient{cc}
-}
-
-func (c *sessionStateServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SessionStateService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SessionStateServiceServer is the server API for SessionStateService service.
-// All implementations must embed UnimplementedSessionStateServiceServer
-// for forward compatibility.
-type SessionStateServiceServer interface {
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedSessionStateServiceServer()
-}
-
-// UnimplementedSessionStateServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSessionStateServiceServer struct{}
-
-func (UnimplementedSessionStateServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSessionStateServiceServer) mustEmbedUnimplementedSessionStateServiceServer() {}
-func (UnimplementedSessionStateServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeSessionStateServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SessionStateServiceServer will
-// result in compilation errors.
-type UnsafeSessionStateServiceServer interface {
-	mustEmbedUnimplementedSessionStateServiceServer()
-}
-
-func RegisterSessionStateServiceServer(s grpc.ServiceRegistrar, srv SessionStateServiceServer) {
-	// If the following call panics, it indicates UnimplementedSessionStateServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SessionStateService_ServiceDesc, srv)
-}
-
-func _SessionStateService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SessionStateServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SessionStateService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionStateServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SessionStateService_ServiceDesc is the grpc.ServiceDesc for SessionStateService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SessionStateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sip.SessionStateService",
-	HandlerType: (*SessionStateServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ToString",
-			Handler:    _SessionStateService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sip/sip.proto",
-}
-
-const (
-	ManagerService_Close_FullMethodName                      = "/sip.ManagerService/Close"
-	ManagerService_CreateSipSession_FullMethodName           = "/sip.ManagerService/CreateSipSession"
-	ManagerService_GetSessionFor_FullMethodName              = "/sip.ManagerService/GetSessionFor"
-	ManagerService_IsOpened_FullMethodName                   = "/sip.ManagerService/IsOpened"
-	ManagerService_IsRegistered_FullMethodName               = "/sip.ManagerService/IsRegistered"
-	ManagerService_MakeAudioCall4_FullMethodName             = "/sip.ManagerService/MakeAudioCall4"
-	ManagerService_MakeAudioCall4_1_FullMethodName           = "/sip.ManagerService/MakeAudioCall4_1"
-	ManagerService_Open1_FullMethodName                      = "/sip.ManagerService/Open1"
-	ManagerService_Open3_1_FullMethodName                    = "/sip.ManagerService/Open3_1"
-	ManagerService_Register_FullMethodName                   = "/sip.ManagerService/Register"
-	ManagerService_SetRegistrationListener_FullMethodName    = "/sip.ManagerService/SetRegistrationListener"
-	ManagerService_TakeAudioCall_FullMethodName              = "/sip.ManagerService/TakeAudioCall"
-	ManagerService_Unregister_FullMethodName                 = "/sip.ManagerService/Unregister"
-	ManagerService_GetCallId_FullMethodName                  = "/sip.ManagerService/GetCallId"
-	ManagerService_GetOfferSessionDescription_FullMethodName = "/sip.ManagerService/GetOfferSessionDescription"
-	ManagerService_IsApiSupported_FullMethodName             = "/sip.ManagerService/IsApiSupported"
-	ManagerService_IsIncomingCallIntent_FullMethodName       = "/sip.ManagerService/IsIncomingCallIntent"
-	ManagerService_IsSipWifiOnly_FullMethodName              = "/sip.ManagerService/IsSipWifiOnly"
-	ManagerService_IsVoipSupported_FullMethodName            = "/sip.ManagerService/IsVoipSupported"
-	ManagerService_NewInstance_FullMethodName                = "/sip.ManagerService/NewInstance"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	CreateSipSession(ctx context.Context, in *CreateSipSessionRequest, opts ...grpc.CallOption) (*CreateSipSessionResponse, error)
-	GetSessionFor(ctx context.Context, in *GetSessionForRequest, opts ...grpc.CallOption) (*GetSessionForResponse, error)
-	IsOpened(ctx context.Context, in *IsOpenedRequest, opts ...grpc.CallOption) (*IsOpenedResponse, error)
-	IsRegistered(ctx context.Context, in *IsRegisteredRequest, opts ...grpc.CallOption) (*IsRegisteredResponse, error)
-	MakeAudioCall4(ctx context.Context, in *MakeAudioCall4Request, opts ...grpc.CallOption) (*MakeAudioCall4Response, error)
-	MakeAudioCall4_1(ctx context.Context, in *MakeAudioCall4_1Request, opts ...grpc.CallOption) (*MakeAudioCall4_1Response, error)
-	Open1(ctx context.Context, in *Open1Request, opts ...grpc.CallOption) (*Open1Response, error)
-	Open3_1(ctx context.Context, in *Open3_1Request, opts ...grpc.CallOption) (*Open3_1Response, error)
-	Register(ctx context.Context, in *ManagerRegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
-	SetRegistrationListener(ctx context.Context, in *SetRegistrationListenerRequest, opts ...grpc.CallOption) (*SetRegistrationListenerResponse, error)
-	TakeAudioCall(ctx context.Context, in *TakeAudioCallRequest, opts ...grpc.CallOption) (*TakeAudioCallResponse, error)
-	Unregister(ctx context.Context, in *ManagerUnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error)
-	GetCallId(ctx context.Context, in *ManagerGetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error)
-	GetOfferSessionDescription(ctx context.Context, in *GetOfferSessionDescriptionRequest, opts ...grpc.CallOption) (*GetOfferSessionDescriptionResponse, error)
-	IsApiSupported(ctx context.Context, in *IsApiSupportedRequest, opts ...grpc.CallOption) (*IsApiSupportedResponse, error)
-	IsIncomingCallIntent(ctx context.Context, in *IsIncomingCallIntentRequest, opts ...grpc.CallOption) (*IsIncomingCallIntentResponse, error)
-	IsSipWifiOnly(ctx context.Context, in *IsSipWifiOnlyRequest, opts ...grpc.CallOption) (*IsSipWifiOnlyResponse, error)
-	IsVoipSupported(ctx context.Context, in *IsVoipSupportedRequest, opts ...grpc.CallOption) (*IsVoipSupportedResponse, error)
-	NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, ManagerService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) CreateSipSession(ctx context.Context, in *CreateSipSessionRequest, opts ...grpc.CallOption) (*CreateSipSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateSipSessionResponse)
-	err := c.cc.Invoke(ctx, ManagerService_CreateSipSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetSessionFor(ctx context.Context, in *GetSessionForRequest, opts ...grpc.CallOption) (*GetSessionForResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSessionForResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetSessionFor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsOpened(ctx context.Context, in *IsOpenedRequest, opts ...grpc.CallOption) (*IsOpenedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOpenedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsOpened_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsRegistered(ctx context.Context, in *IsRegisteredRequest, opts ...grpc.CallOption) (*IsRegisteredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRegisteredResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsRegistered_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) MakeAudioCall4(ctx context.Context, in *MakeAudioCall4Request, opts ...grpc.CallOption) (*MakeAudioCall4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MakeAudioCall4Response)
-	err := c.cc.Invoke(ctx, ManagerService_MakeAudioCall4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) MakeAudioCall4_1(ctx context.Context, in *MakeAudioCall4_1Request, opts ...grpc.CallOption) (*MakeAudioCall4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MakeAudioCall4_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_MakeAudioCall4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) Open1(ctx context.Context, in *Open1Request, opts ...grpc.CallOption) (*Open1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Open1Response)
-	err := c.cc.Invoke(ctx, ManagerService_Open1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) Open3_1(ctx context.Context, in *Open3_1Request, opts ...grpc.CallOption) (*Open3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Open3_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_Open3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) Register(ctx context.Context, in *ManagerRegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterResponse)
-	err := c.cc.Invoke(ctx, ManagerService_Register_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetRegistrationListener(ctx context.Context, in *SetRegistrationListenerRequest, opts ...grpc.CallOption) (*SetRegistrationListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRegistrationListenerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetRegistrationListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) TakeAudioCall(ctx context.Context, in *TakeAudioCallRequest, opts ...grpc.CallOption) (*TakeAudioCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TakeAudioCallResponse)
-	err := c.cc.Invoke(ctx, ManagerService_TakeAudioCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) Unregister(ctx context.Context, in *ManagerUnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterResponse)
-	err := c.cc.Invoke(ctx, ManagerService_Unregister_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetCallId(ctx context.Context, in *ManagerGetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCallIdResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetCallId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetOfferSessionDescription(ctx context.Context, in *GetOfferSessionDescriptionRequest, opts ...grpc.CallOption) (*GetOfferSessionDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOfferSessionDescriptionResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetOfferSessionDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsApiSupported(ctx context.Context, in *IsApiSupportedRequest, opts ...grpc.CallOption) (*IsApiSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsApiSupportedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsApiSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsIncomingCallIntent(ctx context.Context, in *IsIncomingCallIntentRequest, opts ...grpc.CallOption) (*IsIncomingCallIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsIncomingCallIntentResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsIncomingCallIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsSipWifiOnly(ctx context.Context, in *IsSipWifiOnlyRequest, opts ...grpc.CallOption) (*IsSipWifiOnlyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSipWifiOnlyResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsSipWifiOnly_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsVoipSupported(ctx context.Context, in *IsVoipSupportedRequest, opts ...grpc.CallOption) (*IsVoipSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsVoipSupportedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsVoipSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInstanceResponse)
-	err := c.cc.Invoke(ctx, ManagerService_NewInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	CreateSipSession(context.Context, *CreateSipSessionRequest) (*CreateSipSessionResponse, error)
-	GetSessionFor(context.Context, *GetSessionForRequest) (*GetSessionForResponse, error)
-	IsOpened(context.Context, *IsOpenedRequest) (*IsOpenedResponse, error)
-	IsRegistered(context.Context, *IsRegisteredRequest) (*IsRegisteredResponse, error)
-	MakeAudioCall4(context.Context, *MakeAudioCall4Request) (*MakeAudioCall4Response, error)
-	MakeAudioCall4_1(context.Context, *MakeAudioCall4_1Request) (*MakeAudioCall4_1Response, error)
-	Open1(context.Context, *Open1Request) (*Open1Response, error)
-	Open3_1(context.Context, *Open3_1Request) (*Open3_1Response, error)
-	Register(context.Context, *ManagerRegisterRequest) (*RegisterResponse, error)
-	SetRegistrationListener(context.Context, *SetRegistrationListenerRequest) (*SetRegistrationListenerResponse, error)
-	TakeAudioCall(context.Context, *TakeAudioCallRequest) (*TakeAudioCallResponse, error)
-	Unregister(context.Context, *ManagerUnregisterRequest) (*UnregisterResponse, error)
-	GetCallId(context.Context, *ManagerGetCallIdRequest) (*GetCallIdResponse, error)
-	GetOfferSessionDescription(context.Context, *GetOfferSessionDescriptionRequest) (*GetOfferSessionDescriptionResponse, error)
-	IsApiSupported(context.Context, *IsApiSupportedRequest) (*IsApiSupportedResponse, error)
-	IsIncomingCallIntent(context.Context, *IsIncomingCallIntentRequest) (*IsIncomingCallIntentResponse, error)
-	IsSipWifiOnly(context.Context, *IsSipWifiOnlyRequest) (*IsSipWifiOnlyResponse, error)
-	IsVoipSupported(context.Context, *IsVoipSupportedRequest) (*IsVoipSupportedResponse, error)
-	NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedManagerServiceServer) CreateSipSession(context.Context, *CreateSipSessionRequest) (*CreateSipSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateSipSession not implemented")
-}
-func (UnimplementedManagerServiceServer) GetSessionFor(context.Context, *GetSessionForRequest) (*GetSessionForResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSessionFor not implemented")
-}
-func (UnimplementedManagerServiceServer) IsOpened(context.Context, *IsOpenedRequest) (*IsOpenedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOpened not implemented")
-}
-func (UnimplementedManagerServiceServer) IsRegistered(context.Context, *IsRegisteredRequest) (*IsRegisteredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRegistered not implemented")
-}
-func (UnimplementedManagerServiceServer) MakeAudioCall4(context.Context, *MakeAudioCall4Request) (*MakeAudioCall4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method MakeAudioCall4 not implemented")
-}
-func (UnimplementedManagerServiceServer) MakeAudioCall4_1(context.Context, *MakeAudioCall4_1Request) (*MakeAudioCall4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method MakeAudioCall4_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) Open1(context.Context, *Open1Request) (*Open1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Open1 not implemented")
-}
-func (UnimplementedManagerServiceServer) Open3_1(context.Context, *Open3_1Request) (*Open3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Open3_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) Register(context.Context, *ManagerRegisterRequest) (*RegisterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Register not implemented")
-}
-func (UnimplementedManagerServiceServer) SetRegistrationListener(context.Context, *SetRegistrationListenerRequest) (*SetRegistrationListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRegistrationListener not implemented")
-}
-func (UnimplementedManagerServiceServer) TakeAudioCall(context.Context, *TakeAudioCallRequest) (*TakeAudioCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method TakeAudioCall not implemented")
-}
-func (UnimplementedManagerServiceServer) Unregister(context.Context, *ManagerUnregisterRequest) (*UnregisterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Unregister not implemented")
-}
-func (UnimplementedManagerServiceServer) GetCallId(context.Context, *ManagerGetCallIdRequest) (*GetCallIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCallId not implemented")
-}
-func (UnimplementedManagerServiceServer) GetOfferSessionDescription(context.Context, *GetOfferSessionDescriptionRequest) (*GetOfferSessionDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOfferSessionDescription not implemented")
-}
-func (UnimplementedManagerServiceServer) IsApiSupported(context.Context, *IsApiSupportedRequest) (*IsApiSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsApiSupported not implemented")
-}
-func (UnimplementedManagerServiceServer) IsIncomingCallIntent(context.Context, *IsIncomingCallIntentRequest) (*IsIncomingCallIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsIncomingCallIntent not implemented")
-}
-func (UnimplementedManagerServiceServer) IsSipWifiOnly(context.Context, *IsSipWifiOnlyRequest) (*IsSipWifiOnlyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSipWifiOnly not implemented")
-}
-func (UnimplementedManagerServiceServer) IsVoipSupported(context.Context, *IsVoipSupportedRequest) (*IsVoipSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsVoipSupported not implemented")
-}
-func (UnimplementedManagerServiceServer) NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInstance not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_CreateSipSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateSipSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).CreateSipSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_CreateSipSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).CreateSipSession(ctx, req.(*CreateSipSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetSessionFor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSessionForRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetSessionFor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetSessionFor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetSessionFor(ctx, req.(*GetSessionForRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsOpened_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOpenedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsOpened(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsOpened_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsOpened(ctx, req.(*IsOpenedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsRegistered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRegisteredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsRegistered(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsRegistered_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsRegistered(ctx, req.(*IsRegisteredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_MakeAudioCall4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MakeAudioCall4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).MakeAudioCall4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_MakeAudioCall4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).MakeAudioCall4(ctx, req.(*MakeAudioCall4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_MakeAudioCall4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MakeAudioCall4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).MakeAudioCall4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_MakeAudioCall4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).MakeAudioCall4_1(ctx, req.(*MakeAudioCall4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_Open1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Open1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).Open1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_Open1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).Open1(ctx, req.(*Open1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_Open3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Open3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).Open3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_Open3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).Open3_1(ctx, req.(*Open3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagerRegisterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).Register(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_Register_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).Register(ctx, req.(*ManagerRegisterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetRegistrationListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRegistrationListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetRegistrationListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetRegistrationListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetRegistrationListener(ctx, req.(*SetRegistrationListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_TakeAudioCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TakeAudioCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).TakeAudioCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_TakeAudioCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).TakeAudioCall(ctx, req.(*TakeAudioCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_Unregister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagerUnregisterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).Unregister(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_Unregister_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).Unregister(ctx, req.(*ManagerUnregisterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetCallId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagerGetCallIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetCallId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetCallId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetCallId(ctx, req.(*ManagerGetCallIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetOfferSessionDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOfferSessionDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetOfferSessionDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetOfferSessionDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetOfferSessionDescription(ctx, req.(*GetOfferSessionDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsApiSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsApiSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsApiSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsApiSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsApiSupported(ctx, req.(*IsApiSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsIncomingCallIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsIncomingCallIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsIncomingCallIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsIncomingCallIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsIncomingCallIntent(ctx, req.(*IsIncomingCallIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsSipWifiOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSipWifiOnlyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsSipWifiOnly(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsSipWifiOnly_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsSipWifiOnly(ctx, req.(*IsSipWifiOnlyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsVoipSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsVoipSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsVoipSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsVoipSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsVoipSupported(ctx, req.(*IsVoipSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_NewInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).NewInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_NewInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).NewInstance(ctx, req.(*NewInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sip.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _ManagerService_Close_Handler,
-		},
-		{
-			MethodName: "CreateSipSession",
-			Handler:    _ManagerService_CreateSipSession_Handler,
-		},
-		{
-			MethodName: "GetSessionFor",
-			Handler:    _ManagerService_GetSessionFor_Handler,
-		},
-		{
-			MethodName: "IsOpened",
-			Handler:    _ManagerService_IsOpened_Handler,
-		},
-		{
-			MethodName: "IsRegistered",
-			Handler:    _ManagerService_IsRegistered_Handler,
-		},
-		{
-			MethodName: "MakeAudioCall4",
-			Handler:    _ManagerService_MakeAudioCall4_Handler,
-		},
-		{
-			MethodName: "MakeAudioCall4_1",
-			Handler:    _ManagerService_MakeAudioCall4_1_Handler,
-		},
-		{
-			MethodName: "Open1",
-			Handler:    _ManagerService_Open1_Handler,
-		},
-		{
-			MethodName: "Open3_1",
-			Handler:    _ManagerService_Open3_1_Handler,
-		},
-		{
-			MethodName: "Register",
-			Handler:    _ManagerService_Register_Handler,
-		},
-		{
-			MethodName: "SetRegistrationListener",
-			Handler:    _ManagerService_SetRegistrationListener_Handler,
-		},
-		{
-			MethodName: "TakeAudioCall",
-			Handler:    _ManagerService_TakeAudioCall_Handler,
-		},
-		{
-			MethodName: "Unregister",
-			Handler:    _ManagerService_Unregister_Handler,
-		},
-		{
-			MethodName: "GetCallId",
-			Handler:    _ManagerService_GetCallId_Handler,
-		},
-		{
-			MethodName: "GetOfferSessionDescription",
-			Handler:    _ManagerService_GetOfferSessionDescription_Handler,
-		},
-		{
-			MethodName: "IsApiSupported",
-			Handler:    _ManagerService_IsApiSupported_Handler,
-		},
-		{
-			MethodName: "IsIncomingCallIntent",
-			Handler:    _ManagerService_IsIncomingCallIntent_Handler,
-		},
-		{
-			MethodName: "IsSipWifiOnly",
-			Handler:    _ManagerService_IsSipWifiOnly_Handler,
-		},
-		{
-			MethodName: "IsVoipSupported",
-			Handler:    _ManagerService_IsVoipSupported_Handler,
-		},
-		{
-			MethodName: "NewInstance",
-			Handler:    _ManagerService_NewInstance_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sip/sip.proto",
-}
-
-const (
-	AudioCallService_NewAudioCall_FullMethodName    = "/sip.AudioCallService/NewAudioCall"
-	AudioCallService_AnswerCall_FullMethodName      = "/sip.AudioCallService/AnswerCall"
-	AudioCallService_AttachCall_FullMethodName      = "/sip.AudioCallService/AttachCall"
-	AudioCallService_Close_FullMethodName           = "/sip.AudioCallService/Close"
-	AudioCallService_ContinueCall_FullMethodName    = "/sip.AudioCallService/ContinueCall"
-	AudioCallService_EndCall_FullMethodName         = "/sip.AudioCallService/EndCall"
-	AudioCallService_GetLocalProfile_FullMethodName = "/sip.AudioCallService/GetLocalProfile"
-	AudioCallService_GetPeerProfile_FullMethodName  = "/sip.AudioCallService/GetPeerProfile"
-	AudioCallService_GetState_FullMethodName        = "/sip.AudioCallService/GetState"
-	AudioCallService_HoldCall_FullMethodName        = "/sip.AudioCallService/HoldCall"
-	AudioCallService_IsInCall_FullMethodName        = "/sip.AudioCallService/IsInCall"
-	AudioCallService_IsMuted_FullMethodName         = "/sip.AudioCallService/IsMuted"
-	AudioCallService_IsOnHold_FullMethodName        = "/sip.AudioCallService/IsOnHold"
-	AudioCallService_MakeCall_FullMethodName        = "/sip.AudioCallService/MakeCall"
-	AudioCallService_SendDtmf1_FullMethodName       = "/sip.AudioCallService/SendDtmf1"
-	AudioCallService_SendDtmf2_1_FullMethodName     = "/sip.AudioCallService/SendDtmf2_1"
-	AudioCallService_SetListener1_FullMethodName    = "/sip.AudioCallService/SetListener1"
-	AudioCallService_SetListener2_1_FullMethodName  = "/sip.AudioCallService/SetListener2_1"
-	AudioCallService_SetSpeakerMode_FullMethodName  = "/sip.AudioCallService/SetSpeakerMode"
-	AudioCallService_StartAudio_FullMethodName      = "/sip.AudioCallService/StartAudio"
-	AudioCallService_ToggleMute_FullMethodName      = "/sip.AudioCallService/ToggleMute"
-)
-
-// AudioCallServiceClient is the client API for AudioCallService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioCallServiceClient interface {
-	NewAudioCall(ctx context.Context, in *NewAudioCallRequest, opts ...grpc.CallOption) (*NewAudioCallResponse, error)
-	AnswerCall(ctx context.Context, in *AudioCallAnswerCallRequest, opts ...grpc.CallOption) (*AnswerCallResponse, error)
-	AttachCall(ctx context.Context, in *AttachCallRequest, opts ...grpc.CallOption) (*AttachCallResponse, error)
-	Close(ctx context.Context, in *AudioCallCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	ContinueCall(ctx context.Context, in *ContinueCallRequest, opts ...grpc.CallOption) (*ContinueCallResponse, error)
-	EndCall(ctx context.Context, in *AudioCallEndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error)
-	GetLocalProfile(ctx context.Context, in *AudioCallGetLocalProfileRequest, opts ...grpc.CallOption) (*GetLocalProfileResponse, error)
-	GetPeerProfile(ctx context.Context, in *AudioCallGetPeerProfileRequest, opts ...grpc.CallOption) (*GetPeerProfileResponse, error)
-	GetState(ctx context.Context, in *AudioCallGetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
-	HoldCall(ctx context.Context, in *HoldCallRequest, opts ...grpc.CallOption) (*HoldCallResponse, error)
-	IsInCall(ctx context.Context, in *AudioCallIsInCallRequest, opts ...grpc.CallOption) (*IsInCallResponse, error)
-	IsMuted(ctx context.Context, in *IsMutedRequest, opts ...grpc.CallOption) (*IsMutedResponse, error)
-	IsOnHold(ctx context.Context, in *IsOnHoldRequest, opts ...grpc.CallOption) (*IsOnHoldResponse, error)
-	MakeCall(ctx context.Context, in *AudioCallMakeCallRequest, opts ...grpc.CallOption) (*MakeCallResponse, error)
-	SendDtmf1(ctx context.Context, in *SendDtmf1Request, opts ...grpc.CallOption) (*SendDtmf1Response, error)
-	SendDtmf2_1(ctx context.Context, in *SendDtmf2_1Request, opts ...grpc.CallOption) (*SendDtmf2_1Response, error)
-	SetListener1(ctx context.Context, in *SetListener1Request, opts ...grpc.CallOption) (*SetListener1Response, error)
-	SetListener2_1(ctx context.Context, in *SetListener2_1Request, opts ...grpc.CallOption) (*SetListener2_1Response, error)
-	SetSpeakerMode(ctx context.Context, in *SetSpeakerModeRequest, opts ...grpc.CallOption) (*SetSpeakerModeResponse, error)
-	StartAudio(ctx context.Context, in *StartAudioRequest, opts ...grpc.CallOption) (*StartAudioResponse, error)
-	ToggleMute(ctx context.Context, in *ToggleMuteRequest, opts ...grpc.CallOption) (*ToggleMuteResponse, error)
-}
-
-type audioCallServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAudioCallServiceClient(cc grpc.ClientConnInterface) AudioCallServiceClient {
-	return &audioCallServiceClient{cc}
-}
-
-func (c *audioCallServiceClient) NewAudioCall(ctx context.Context, in *NewAudioCallRequest, opts ...grpc.CallOption) (*NewAudioCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAudioCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_NewAudioCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) AnswerCall(ctx context.Context, in *AudioCallAnswerCallRequest, opts ...grpc.CallOption) (*AnswerCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AnswerCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_AnswerCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) AttachCall(ctx context.Context, in *AttachCallRequest, opts ...grpc.CallOption) (*AttachCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AttachCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_AttachCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) Close(ctx context.Context, in *AudioCallCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) ContinueCall(ctx context.Context, in *ContinueCallRequest, opts ...grpc.CallOption) (*ContinueCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ContinueCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_ContinueCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) EndCall(ctx context.Context, in *AudioCallEndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EndCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_EndCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) GetLocalProfile(ctx context.Context, in *AudioCallGetLocalProfileRequest, opts ...grpc.CallOption) (*GetLocalProfileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocalProfileResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_GetLocalProfile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) GetPeerProfile(ctx context.Context, in *AudioCallGetPeerProfileRequest, opts ...grpc.CallOption) (*GetPeerProfileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPeerProfileResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_GetPeerProfile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) GetState(ctx context.Context, in *AudioCallGetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStateResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_GetState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) HoldCall(ctx context.Context, in *HoldCallRequest, opts ...grpc.CallOption) (*HoldCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HoldCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_HoldCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) IsInCall(ctx context.Context, in *AudioCallIsInCallRequest, opts ...grpc.CallOption) (*IsInCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_IsInCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) IsMuted(ctx context.Context, in *IsMutedRequest, opts ...grpc.CallOption) (*IsMutedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsMutedResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_IsMuted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) IsOnHold(ctx context.Context, in *IsOnHoldRequest, opts ...grpc.CallOption) (*IsOnHoldResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOnHoldResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_IsOnHold_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) MakeCall(ctx context.Context, in *AudioCallMakeCallRequest, opts ...grpc.CallOption) (*MakeCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MakeCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_MakeCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) SendDtmf1(ctx context.Context, in *SendDtmf1Request, opts ...grpc.CallOption) (*SendDtmf1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendDtmf1Response)
-	err := c.cc.Invoke(ctx, AudioCallService_SendDtmf1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) SendDtmf2_1(ctx context.Context, in *SendDtmf2_1Request, opts ...grpc.CallOption) (*SendDtmf2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendDtmf2_1Response)
-	err := c.cc.Invoke(ctx, AudioCallService_SendDtmf2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) SetListener1(ctx context.Context, in *SetListener1Request, opts ...grpc.CallOption) (*SetListener1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetListener1Response)
-	err := c.cc.Invoke(ctx, AudioCallService_SetListener1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) SetListener2_1(ctx context.Context, in *SetListener2_1Request, opts ...grpc.CallOption) (*SetListener2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetListener2_1Response)
-	err := c.cc.Invoke(ctx, AudioCallService_SetListener2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) SetSpeakerMode(ctx context.Context, in *SetSpeakerModeRequest, opts ...grpc.CallOption) (*SetSpeakerModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSpeakerModeResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_SetSpeakerMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) StartAudio(ctx context.Context, in *StartAudioRequest, opts ...grpc.CallOption) (*StartAudioResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartAudioResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_StartAudio_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallServiceClient) ToggleMute(ctx context.Context, in *ToggleMuteRequest, opts ...grpc.CallOption) (*ToggleMuteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToggleMuteResponse)
-	err := c.cc.Invoke(ctx, AudioCallService_ToggleMute_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioCallServiceServer is the server API for AudioCallService service.
-// All implementations must embed UnimplementedAudioCallServiceServer
-// for forward compatibility.
-type AudioCallServiceServer interface {
-	NewAudioCall(context.Context, *NewAudioCallRequest) (*NewAudioCallResponse, error)
-	AnswerCall(context.Context, *AudioCallAnswerCallRequest) (*AnswerCallResponse, error)
-	AttachCall(context.Context, *AttachCallRequest) (*AttachCallResponse, error)
-	Close(context.Context, *AudioCallCloseRequest) (*CloseResponse, error)
-	ContinueCall(context.Context, *ContinueCallRequest) (*ContinueCallResponse, error)
-	EndCall(context.Context, *AudioCallEndCallRequest) (*EndCallResponse, error)
-	GetLocalProfile(context.Context, *AudioCallGetLocalProfileRequest) (*GetLocalProfileResponse, error)
-	GetPeerProfile(context.Context, *AudioCallGetPeerProfileRequest) (*GetPeerProfileResponse, error)
-	GetState(context.Context, *AudioCallGetStateRequest) (*GetStateResponse, error)
-	HoldCall(context.Context, *HoldCallRequest) (*HoldCallResponse, error)
-	IsInCall(context.Context, *AudioCallIsInCallRequest) (*IsInCallResponse, error)
-	IsMuted(context.Context, *IsMutedRequest) (*IsMutedResponse, error)
-	IsOnHold(context.Context, *IsOnHoldRequest) (*IsOnHoldResponse, error)
-	MakeCall(context.Context, *AudioCallMakeCallRequest) (*MakeCallResponse, error)
-	SendDtmf1(context.Context, *SendDtmf1Request) (*SendDtmf1Response, error)
-	SendDtmf2_1(context.Context, *SendDtmf2_1Request) (*SendDtmf2_1Response, error)
-	SetListener1(context.Context, *SetListener1Request) (*SetListener1Response, error)
-	SetListener2_1(context.Context, *SetListener2_1Request) (*SetListener2_1Response, error)
-	SetSpeakerMode(context.Context, *SetSpeakerModeRequest) (*SetSpeakerModeResponse, error)
-	StartAudio(context.Context, *StartAudioRequest) (*StartAudioResponse, error)
-	ToggleMute(context.Context, *ToggleMuteRequest) (*ToggleMuteResponse, error)
-	mustEmbedUnimplementedAudioCallServiceServer()
-}
-
-// UnimplementedAudioCallServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAudioCallServiceServer struct{}
-
-func (UnimplementedAudioCallServiceServer) NewAudioCall(context.Context, *NewAudioCallRequest) (*NewAudioCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAudioCall not implemented")
-}
-func (UnimplementedAudioCallServiceServer) AnswerCall(context.Context, *AudioCallAnswerCallRequest) (*AnswerCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AnswerCall not implemented")
-}
-func (UnimplementedAudioCallServiceServer) AttachCall(context.Context, *AttachCallRequest) (*AttachCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AttachCall not implemented")
-}
-func (UnimplementedAudioCallServiceServer) Close(context.Context, *AudioCallCloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedAudioCallServiceServer) ContinueCall(context.Context, *ContinueCallRequest) (*ContinueCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ContinueCall not implemented")
-}
-func (UnimplementedAudioCallServiceServer) EndCall(context.Context, *AudioCallEndCallRequest) (*EndCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method EndCall not implemented")
-}
-func (UnimplementedAudioCallServiceServer) GetLocalProfile(context.Context, *AudioCallGetLocalProfileRequest) (*GetLocalProfileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocalProfile not implemented")
-}
-func (UnimplementedAudioCallServiceServer) GetPeerProfile(context.Context, *AudioCallGetPeerProfileRequest) (*GetPeerProfileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPeerProfile not implemented")
-}
-func (UnimplementedAudioCallServiceServer) GetState(context.Context, *AudioCallGetStateRequest) (*GetStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
-}
-func (UnimplementedAudioCallServiceServer) HoldCall(context.Context, *HoldCallRequest) (*HoldCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HoldCall not implemented")
-}
-func (UnimplementedAudioCallServiceServer) IsInCall(context.Context, *AudioCallIsInCallRequest) (*IsInCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInCall not implemented")
-}
-func (UnimplementedAudioCallServiceServer) IsMuted(context.Context, *IsMutedRequest) (*IsMutedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsMuted not implemented")
-}
-func (UnimplementedAudioCallServiceServer) IsOnHold(context.Context, *IsOnHoldRequest) (*IsOnHoldResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOnHold not implemented")
-}
-func (UnimplementedAudioCallServiceServer) MakeCall(context.Context, *AudioCallMakeCallRequest) (*MakeCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MakeCall not implemented")
-}
-func (UnimplementedAudioCallServiceServer) SendDtmf1(context.Context, *SendDtmf1Request) (*SendDtmf1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendDtmf1 not implemented")
-}
-func (UnimplementedAudioCallServiceServer) SendDtmf2_1(context.Context, *SendDtmf2_1Request) (*SendDtmf2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendDtmf2_1 not implemented")
-}
-func (UnimplementedAudioCallServiceServer) SetListener1(context.Context, *SetListener1Request) (*SetListener1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetListener1 not implemented")
-}
-func (UnimplementedAudioCallServiceServer) SetListener2_1(context.Context, *SetListener2_1Request) (*SetListener2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetListener2_1 not implemented")
-}
-func (UnimplementedAudioCallServiceServer) SetSpeakerMode(context.Context, *SetSpeakerModeRequest) (*SetSpeakerModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSpeakerMode not implemented")
-}
-func (UnimplementedAudioCallServiceServer) StartAudio(context.Context, *StartAudioRequest) (*StartAudioResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartAudio not implemented")
-}
-func (UnimplementedAudioCallServiceServer) ToggleMute(context.Context, *ToggleMuteRequest) (*ToggleMuteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToggleMute not implemented")
-}
-func (UnimplementedAudioCallServiceServer) mustEmbedUnimplementedAudioCallServiceServer() {}
-func (UnimplementedAudioCallServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeAudioCallServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioCallServiceServer will
-// result in compilation errors.
-type UnsafeAudioCallServiceServer interface {
-	mustEmbedUnimplementedAudioCallServiceServer()
-}
-
-func RegisterAudioCallServiceServer(s grpc.ServiceRegistrar, srv AudioCallServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioCallServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AudioCallService_ServiceDesc, srv)
-}
-
-func _AudioCallService_NewAudioCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAudioCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).NewAudioCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_NewAudioCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).NewAudioCall(ctx, req.(*NewAudioCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_AnswerCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallAnswerCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).AnswerCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_AnswerCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).AnswerCall(ctx, req.(*AudioCallAnswerCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_AttachCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AttachCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).AttachCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_AttachCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).AttachCall(ctx, req.(*AttachCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallCloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).Close(ctx, req.(*AudioCallCloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_ContinueCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContinueCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).ContinueCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_ContinueCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).ContinueCall(ctx, req.(*ContinueCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_EndCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallEndCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).EndCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_EndCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).EndCall(ctx, req.(*AudioCallEndCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_GetLocalProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallGetLocalProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).GetLocalProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_GetLocalProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).GetLocalProfile(ctx, req.(*AudioCallGetLocalProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_GetPeerProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallGetPeerProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).GetPeerProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_GetPeerProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).GetPeerProfile(ctx, req.(*AudioCallGetPeerProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallGetStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).GetState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_GetState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).GetState(ctx, req.(*AudioCallGetStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_HoldCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HoldCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).HoldCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_HoldCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).HoldCall(ctx, req.(*HoldCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_IsInCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallIsInCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).IsInCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_IsInCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).IsInCall(ctx, req.(*AudioCallIsInCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_IsMuted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsMutedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).IsMuted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_IsMuted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).IsMuted(ctx, req.(*IsMutedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_IsOnHold_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOnHoldRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).IsOnHold(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_IsOnHold_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).IsOnHold(ctx, req.(*IsOnHoldRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_MakeCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallMakeCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).MakeCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_MakeCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).MakeCall(ctx, req.(*AudioCallMakeCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_SendDtmf1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendDtmf1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).SendDtmf1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_SendDtmf1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).SendDtmf1(ctx, req.(*SendDtmf1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_SendDtmf2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendDtmf2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).SendDtmf2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_SendDtmf2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).SendDtmf2_1(ctx, req.(*SendDtmf2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_SetListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetListener1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).SetListener1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_SetListener1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).SetListener1(ctx, req.(*SetListener1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_SetListener2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetListener2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).SetListener2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_SetListener2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).SetListener2_1(ctx, req.(*SetListener2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_SetSpeakerMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSpeakerModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).SetSpeakerMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_SetSpeakerMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).SetSpeakerMode(ctx, req.(*SetSpeakerModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_StartAudio_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartAudioRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).StartAudio(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_StartAudio_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).StartAudio(ctx, req.(*StartAudioRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallService_ToggleMute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToggleMuteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallServiceServer).ToggleMute(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallService_ToggleMute_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallServiceServer).ToggleMute(ctx, req.(*ToggleMuteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioCallService_ServiceDesc is the grpc.ServiceDesc for AudioCallService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AudioCallService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sip.AudioCallService",
-	HandlerType: (*AudioCallServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAudioCall",
-			Handler:    _AudioCallService_NewAudioCall_Handler,
-		},
-		{
-			MethodName: "AnswerCall",
-			Handler:    _AudioCallService_AnswerCall_Handler,
-		},
-		{
-			MethodName: "AttachCall",
-			Handler:    _AudioCallService_AttachCall_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _AudioCallService_Close_Handler,
-		},
-		{
-			MethodName: "ContinueCall",
-			Handler:    _AudioCallService_ContinueCall_Handler,
-		},
-		{
-			MethodName: "EndCall",
-			Handler:    _AudioCallService_EndCall_Handler,
-		},
-		{
-			MethodName: "GetLocalProfile",
-			Handler:    _AudioCallService_GetLocalProfile_Handler,
-		},
-		{
-			MethodName: "GetPeerProfile",
-			Handler:    _AudioCallService_GetPeerProfile_Handler,
-		},
-		{
-			MethodName: "GetState",
-			Handler:    _AudioCallService_GetState_Handler,
-		},
-		{
-			MethodName: "HoldCall",
-			Handler:    _AudioCallService_HoldCall_Handler,
-		},
-		{
-			MethodName: "IsInCall",
-			Handler:    _AudioCallService_IsInCall_Handler,
-		},
-		{
-			MethodName: "IsMuted",
-			Handler:    _AudioCallService_IsMuted_Handler,
-		},
-		{
-			MethodName: "IsOnHold",
-			Handler:    _AudioCallService_IsOnHold_Handler,
-		},
-		{
-			MethodName: "MakeCall",
-			Handler:    _AudioCallService_MakeCall_Handler,
-		},
-		{
-			MethodName: "SendDtmf1",
-			Handler:    _AudioCallService_SendDtmf1_Handler,
-		},
-		{
-			MethodName: "SendDtmf2_1",
-			Handler:    _AudioCallService_SendDtmf2_1_Handler,
-		},
-		{
-			MethodName: "SetListener1",
-			Handler:    _AudioCallService_SetListener1_Handler,
-		},
-		{
-			MethodName: "SetListener2_1",
-			Handler:    _AudioCallService_SetListener2_1_Handler,
-		},
-		{
-			MethodName: "SetSpeakerMode",
-			Handler:    _AudioCallService_SetSpeakerMode_Handler,
-		},
-		{
-			MethodName: "StartAudio",
-			Handler:    _AudioCallService_StartAudio_Handler,
-		},
-		{
-			MethodName: "ToggleMute",
-			Handler:    _AudioCallService_ToggleMute_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sip/sip.proto",
-}
-
-const (
-	AudioCallListenerService_OnCallBusy_FullMethodName        = "/sip.AudioCallListenerService/OnCallBusy"
-	AudioCallListenerService_OnCallEnded_FullMethodName       = "/sip.AudioCallListenerService/OnCallEnded"
-	AudioCallListenerService_OnCallEstablished_FullMethodName = "/sip.AudioCallListenerService/OnCallEstablished"
-	AudioCallListenerService_OnCallHeld_FullMethodName        = "/sip.AudioCallListenerService/OnCallHeld"
-	AudioCallListenerService_OnCalling_FullMethodName         = "/sip.AudioCallListenerService/OnCalling"
-	AudioCallListenerService_OnChanged_FullMethodName         = "/sip.AudioCallListenerService/OnChanged"
-	AudioCallListenerService_OnError_FullMethodName           = "/sip.AudioCallListenerService/OnError"
-	AudioCallListenerService_OnReadyToCall_FullMethodName     = "/sip.AudioCallListenerService/OnReadyToCall"
-	AudioCallListenerService_OnRinging_FullMethodName         = "/sip.AudioCallListenerService/OnRinging"
-	AudioCallListenerService_OnRingingBack_FullMethodName     = "/sip.AudioCallListenerService/OnRingingBack"
-)
-
-// AudioCallListenerServiceClient is the client API for AudioCallListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioCallListenerServiceClient interface {
-	OnCallBusy(ctx context.Context, in *OnCallBusyRequest, opts ...grpc.CallOption) (*OnCallBusyResponse, error)
-	OnCallEnded(ctx context.Context, in *OnCallEndedRequest, opts ...grpc.CallOption) (*OnCallEndedResponse, error)
-	OnCallEstablished(ctx context.Context, in *AudioCallListenerOnCallEstablishedRequest, opts ...grpc.CallOption) (*OnCallEstablishedResponse, error)
-	OnCallHeld(ctx context.Context, in *OnCallHeldRequest, opts ...grpc.CallOption) (*OnCallHeldResponse, error)
-	OnCalling(ctx context.Context, in *OnCallingRequest, opts ...grpc.CallOption) (*OnCallingResponse, error)
-	OnChanged(ctx context.Context, in *OnChangedRequest, opts ...grpc.CallOption) (*OnChangedResponse, error)
-	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
-	OnReadyToCall(ctx context.Context, in *OnReadyToCallRequest, opts ...grpc.CallOption) (*OnReadyToCallResponse, error)
-	OnRinging(ctx context.Context, in *AudioCallListenerOnRingingRequest, opts ...grpc.CallOption) (*OnRingingResponse, error)
-	OnRingingBack(ctx context.Context, in *OnRingingBackRequest, opts ...grpc.CallOption) (*OnRingingBackResponse, error)
-}
-
-type audioCallListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAudioCallListenerServiceClient(cc grpc.ClientConnInterface) AudioCallListenerServiceClient {
-	return &audioCallListenerServiceClient{cc}
-}
-
-func (c *audioCallListenerServiceClient) OnCallBusy(ctx context.Context, in *OnCallBusyRequest, opts ...grpc.CallOption) (*OnCallBusyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallBusyResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCallBusy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnCallEnded(ctx context.Context, in *OnCallEndedRequest, opts ...grpc.CallOption) (*OnCallEndedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallEndedResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCallEnded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnCallEstablished(ctx context.Context, in *AudioCallListenerOnCallEstablishedRequest, opts ...grpc.CallOption) (*OnCallEstablishedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallEstablishedResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCallEstablished_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnCallHeld(ctx context.Context, in *OnCallHeldRequest, opts ...grpc.CallOption) (*OnCallHeldResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallHeldResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCallHeld_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnCalling(ctx context.Context, in *OnCallingRequest, opts ...grpc.CallOption) (*OnCallingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCallingResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCalling_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnChanged(ctx context.Context, in *OnChangedRequest, opts ...grpc.CallOption) (*OnChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnChangedResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnErrorResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnReadyToCall(ctx context.Context, in *OnReadyToCallRequest, opts ...grpc.CallOption) (*OnReadyToCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnReadyToCallResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnReadyToCall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnRinging(ctx context.Context, in *AudioCallListenerOnRingingRequest, opts ...grpc.CallOption) (*OnRingingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRingingResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnRinging_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioCallListenerServiceClient) OnRingingBack(ctx context.Context, in *OnRingingBackRequest, opts ...grpc.CallOption) (*OnRingingBackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRingingBackResponse)
-	err := c.cc.Invoke(ctx, AudioCallListenerService_OnRingingBack_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioCallListenerServiceServer is the server API for AudioCallListenerService service.
-// All implementations must embed UnimplementedAudioCallListenerServiceServer
-// for forward compatibility.
-type AudioCallListenerServiceServer interface {
-	OnCallBusy(context.Context, *OnCallBusyRequest) (*OnCallBusyResponse, error)
-	OnCallEnded(context.Context, *OnCallEndedRequest) (*OnCallEndedResponse, error)
-	OnCallEstablished(context.Context, *AudioCallListenerOnCallEstablishedRequest) (*OnCallEstablishedResponse, error)
-	OnCallHeld(context.Context, *OnCallHeldRequest) (*OnCallHeldResponse, error)
-	OnCalling(context.Context, *OnCallingRequest) (*OnCallingResponse, error)
-	OnChanged(context.Context, *OnChangedRequest) (*OnChangedResponse, error)
-	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
-	OnReadyToCall(context.Context, *OnReadyToCallRequest) (*OnReadyToCallResponse, error)
-	OnRinging(context.Context, *AudioCallListenerOnRingingRequest) (*OnRingingResponse, error)
-	OnRingingBack(context.Context, *OnRingingBackRequest) (*OnRingingBackResponse, error)
-	mustEmbedUnimplementedAudioCallListenerServiceServer()
-}
-
-// UnimplementedAudioCallListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAudioCallListenerServiceServer struct{}
-
-func (UnimplementedAudioCallListenerServiceServer) OnCallBusy(context.Context, *OnCallBusyRequest) (*OnCallBusyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCallBusy not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnCallEnded(context.Context, *OnCallEndedRequest) (*OnCallEndedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCallEnded not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnCallEstablished(context.Context, *AudioCallListenerOnCallEstablishedRequest) (*OnCallEstablishedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCallEstablished not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnCallHeld(context.Context, *OnCallHeldRequest) (*OnCallHeldResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCallHeld not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnCalling(context.Context, *OnCallingRequest) (*OnCallingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCalling not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnChanged(context.Context, *OnChangedRequest) (*OnChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnChanged not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnReadyToCall(context.Context, *OnReadyToCallRequest) (*OnReadyToCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnReadyToCall not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnRinging(context.Context, *AudioCallListenerOnRingingRequest) (*OnRingingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRinging not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) OnRingingBack(context.Context, *OnRingingBackRequest) (*OnRingingBackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRingingBack not implemented")
-}
-func (UnimplementedAudioCallListenerServiceServer) mustEmbedUnimplementedAudioCallListenerServiceServer() {
-}
-func (UnimplementedAudioCallListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAudioCallListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioCallListenerServiceServer will
-// result in compilation errors.
-type UnsafeAudioCallListenerServiceServer interface {
-	mustEmbedUnimplementedAudioCallListenerServiceServer()
-}
-
-func RegisterAudioCallListenerServiceServer(s grpc.ServiceRegistrar, srv AudioCallListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioCallListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AudioCallListenerService_ServiceDesc, srv)
-}
-
-func _AudioCallListenerService_OnCallBusy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallBusyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnCallBusy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnCallBusy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnCallBusy(ctx, req.(*OnCallBusyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnCallEnded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallEndedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnCallEnded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnCallEnded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnCallEnded(ctx, req.(*OnCallEndedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnCallEstablished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallListenerOnCallEstablishedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnCallEstablished(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnCallEstablished_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnCallEstablished(ctx, req.(*AudioCallListenerOnCallEstablishedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnCallHeld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallHeldRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnCallHeld(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnCallHeld_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnCallHeld(ctx, req.(*OnCallHeldRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnCalling_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCallingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnCalling(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnCalling_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnCalling(ctx, req.(*OnCallingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnChanged(ctx, req.(*OnChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnError(ctx, req.(*OnErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnReadyToCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnReadyToCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnReadyToCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnReadyToCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnReadyToCall(ctx, req.(*OnReadyToCallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnRinging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioCallListenerOnRingingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnRinging(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnRinging_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnRinging(ctx, req.(*AudioCallListenerOnRingingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioCallListenerService_OnRingingBack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRingingBackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioCallListenerServiceServer).OnRingingBack(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioCallListenerService_OnRingingBack_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioCallListenerServiceServer).OnRingingBack(ctx, req.(*OnRingingBackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioCallListenerService_ServiceDesc is the grpc.ServiceDesc for AudioCallListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AudioCallListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sip.AudioCallListenerService",
-	HandlerType: (*AudioCallListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnCallBusy",
-			Handler:    _AudioCallListenerService_OnCallBusy_Handler,
-		},
-		{
-			MethodName: "OnCallEnded",
-			Handler:    _AudioCallListenerService_OnCallEnded_Handler,
-		},
-		{
-			MethodName: "OnCallEstablished",
-			Handler:    _AudioCallListenerService_OnCallEstablished_Handler,
-		},
-		{
-			MethodName: "OnCallHeld",
-			Handler:    _AudioCallListenerService_OnCallHeld_Handler,
-		},
-		{
-			MethodName: "OnCalling",
-			Handler:    _AudioCallListenerService_OnCalling_Handler,
-		},
-		{
-			MethodName: "OnChanged",
-			Handler:    _AudioCallListenerService_OnChanged_Handler,
-		},
-		{
-			MethodName: "OnError",
-			Handler:    _AudioCallListenerService_OnError_Handler,
-		},
-		{
-			MethodName: "OnReadyToCall",
-			Handler:    _AudioCallListenerService_OnReadyToCall_Handler,
-		},
-		{
-			MethodName: "OnRinging",
-			Handler:    _AudioCallListenerService_OnRinging_Handler,
-		},
-		{
-			MethodName: "OnRingingBack",
-			Handler:    _AudioCallListenerService_OnRingingBack_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sip/sip.proto",
-}
-
-const (
-	RegistrationListenerService_OnRegistering_FullMethodName        = "/sip.RegistrationListenerService/OnRegistering"
-	RegistrationListenerService_OnRegistrationDone_FullMethodName   = "/sip.RegistrationListenerService/OnRegistrationDone"
-	RegistrationListenerService_OnRegistrationFailed_FullMethodName = "/sip.RegistrationListenerService/OnRegistrationFailed"
-)
-
-// RegistrationListenerServiceClient is the client API for RegistrationListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RegistrationListenerServiceClient interface {
-	OnRegistering(ctx context.Context, in *RegistrationListenerOnRegisteringRequest, opts ...grpc.CallOption) (*OnRegisteringResponse, error)
-	OnRegistrationDone(ctx context.Context, in *RegistrationListenerOnRegistrationDoneRequest, opts ...grpc.CallOption) (*OnRegistrationDoneResponse, error)
-	OnRegistrationFailed(ctx context.Context, in *RegistrationListenerOnRegistrationFailedRequest, opts ...grpc.CallOption) (*OnRegistrationFailedResponse, error)
-}
-
-type registrationListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRegistrationListenerServiceClient(cc grpc.ClientConnInterface) RegistrationListenerServiceClient {
-	return &registrationListenerServiceClient{cc}
-}
-
-func (c *registrationListenerServiceClient) OnRegistering(ctx context.Context, in *RegistrationListenerOnRegisteringRequest, opts ...grpc.CallOption) (*OnRegisteringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRegisteringResponse)
-	err := c.cc.Invoke(ctx, RegistrationListenerService_OnRegistering_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *registrationListenerServiceClient) OnRegistrationDone(ctx context.Context, in *RegistrationListenerOnRegistrationDoneRequest, opts ...grpc.CallOption) (*OnRegistrationDoneResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRegistrationDoneResponse)
-	err := c.cc.Invoke(ctx, RegistrationListenerService_OnRegistrationDone_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *registrationListenerServiceClient) OnRegistrationFailed(ctx context.Context, in *RegistrationListenerOnRegistrationFailedRequest, opts ...grpc.CallOption) (*OnRegistrationFailedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRegistrationFailedResponse)
-	err := c.cc.Invoke(ctx, RegistrationListenerService_OnRegistrationFailed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RegistrationListenerServiceServer is the server API for RegistrationListenerService service.
-// All implementations must embed UnimplementedRegistrationListenerServiceServer
-// for forward compatibility.
-type RegistrationListenerServiceServer interface {
-	OnRegistering(context.Context, *RegistrationListenerOnRegisteringRequest) (*OnRegisteringResponse, error)
-	OnRegistrationDone(context.Context, *RegistrationListenerOnRegistrationDoneRequest) (*OnRegistrationDoneResponse, error)
-	OnRegistrationFailed(context.Context, *RegistrationListenerOnRegistrationFailedRequest) (*OnRegistrationFailedResponse, error)
-	mustEmbedUnimplementedRegistrationListenerServiceServer()
-}
-
-// UnimplementedRegistrationListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRegistrationListenerServiceServer struct{}
-
-func (UnimplementedRegistrationListenerServiceServer) OnRegistering(context.Context, *RegistrationListenerOnRegisteringRequest) (*OnRegisteringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRegistering not implemented")
-}
-func (UnimplementedRegistrationListenerServiceServer) OnRegistrationDone(context.Context, *RegistrationListenerOnRegistrationDoneRequest) (*OnRegistrationDoneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRegistrationDone not implemented")
-}
-func (UnimplementedRegistrationListenerServiceServer) OnRegistrationFailed(context.Context, *RegistrationListenerOnRegistrationFailedRequest) (*OnRegistrationFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRegistrationFailed not implemented")
-}
-func (UnimplementedRegistrationListenerServiceServer) mustEmbedUnimplementedRegistrationListenerServiceServer() {
-}
-func (UnimplementedRegistrationListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRegistrationListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RegistrationListenerServiceServer will
-// result in compilation errors.
-type UnsafeRegistrationListenerServiceServer interface {
-	mustEmbedUnimplementedRegistrationListenerServiceServer()
-}
-
-func RegisterRegistrationListenerServiceServer(s grpc.ServiceRegistrar, srv RegistrationListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedRegistrationListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RegistrationListenerService_ServiceDesc, srv)
-}
-
-func _RegistrationListenerService_OnRegistering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegistrationListenerOnRegisteringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RegistrationListenerServiceServer).OnRegistering(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RegistrationListenerService_OnRegistering_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationListenerServiceServer).OnRegistering(ctx, req.(*RegistrationListenerOnRegisteringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RegistrationListenerService_OnRegistrationDone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegistrationListenerOnRegistrationDoneRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RegistrationListenerServiceServer).OnRegistrationDone(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RegistrationListenerService_OnRegistrationDone_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationListenerServiceServer).OnRegistrationDone(ctx, req.(*RegistrationListenerOnRegistrationDoneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RegistrationListenerService_OnRegistrationFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegistrationListenerOnRegistrationFailedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RegistrationListenerServiceServer).OnRegistrationFailed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RegistrationListenerService_OnRegistrationFailed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegistrationListenerServiceServer).OnRegistrationFailed(ctx, req.(*RegistrationListenerOnRegistrationFailedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RegistrationListenerService_ServiceDesc is the grpc.ServiceDesc for RegistrationListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RegistrationListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sip.RegistrationListenerService",
-	HandlerType: (*RegistrationListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnRegistering",
-			Handler:    _RegistrationListenerService_OnRegistering_Handler,
-		},
-		{
-			MethodName: "OnRegistrationDone",
-			Handler:    _RegistrationListenerService_OnRegistrationDone_Handler,
-		},
-		{
-			MethodName: "OnRegistrationFailed",
-			Handler:    _RegistrationListenerService_OnRegistrationFailed_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sip/sip.proto",
-}
-
-const (
 	ProfileService_DescribeContents_FullMethodName    = "/sip.ProfileService/DescribeContents"
 	ProfileService_GetAuthUserName_FullMethodName     = "/sip.ProfileService/GetAuthUserName"
 	ProfileService_GetAutoRegistration_FullMethodName = "/sip.ProfileService/GetAutoRegistration"
@@ -4590,6 +1099,2673 @@ var ProfileBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	RegistrationListenerService_OnRegistering_FullMethodName        = "/sip.RegistrationListenerService/OnRegistering"
+	RegistrationListenerService_OnRegistrationDone_FullMethodName   = "/sip.RegistrationListenerService/OnRegistrationDone"
+	RegistrationListenerService_OnRegistrationFailed_FullMethodName = "/sip.RegistrationListenerService/OnRegistrationFailed"
+)
+
+// RegistrationListenerServiceClient is the client API for RegistrationListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RegistrationListenerServiceClient interface {
+	OnRegistering(ctx context.Context, in *OnRegisteringRequest, opts ...grpc.CallOption) (*OnRegisteringResponse, error)
+	OnRegistrationDone(ctx context.Context, in *OnRegistrationDoneRequest, opts ...grpc.CallOption) (*OnRegistrationDoneResponse, error)
+	OnRegistrationFailed(ctx context.Context, in *OnRegistrationFailedRequest, opts ...grpc.CallOption) (*OnRegistrationFailedResponse, error)
+}
+
+type registrationListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRegistrationListenerServiceClient(cc grpc.ClientConnInterface) RegistrationListenerServiceClient {
+	return &registrationListenerServiceClient{cc}
+}
+
+func (c *registrationListenerServiceClient) OnRegistering(ctx context.Context, in *OnRegisteringRequest, opts ...grpc.CallOption) (*OnRegisteringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRegisteringResponse)
+	err := c.cc.Invoke(ctx, RegistrationListenerService_OnRegistering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationListenerServiceClient) OnRegistrationDone(ctx context.Context, in *OnRegistrationDoneRequest, opts ...grpc.CallOption) (*OnRegistrationDoneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRegistrationDoneResponse)
+	err := c.cc.Invoke(ctx, RegistrationListenerService_OnRegistrationDone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *registrationListenerServiceClient) OnRegistrationFailed(ctx context.Context, in *OnRegistrationFailedRequest, opts ...grpc.CallOption) (*OnRegistrationFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRegistrationFailedResponse)
+	err := c.cc.Invoke(ctx, RegistrationListenerService_OnRegistrationFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RegistrationListenerServiceServer is the server API for RegistrationListenerService service.
+// All implementations must embed UnimplementedRegistrationListenerServiceServer
+// for forward compatibility.
+type RegistrationListenerServiceServer interface {
+	OnRegistering(context.Context, *OnRegisteringRequest) (*OnRegisteringResponse, error)
+	OnRegistrationDone(context.Context, *OnRegistrationDoneRequest) (*OnRegistrationDoneResponse, error)
+	OnRegistrationFailed(context.Context, *OnRegistrationFailedRequest) (*OnRegistrationFailedResponse, error)
+	mustEmbedUnimplementedRegistrationListenerServiceServer()
+}
+
+// UnimplementedRegistrationListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRegistrationListenerServiceServer struct{}
+
+func (UnimplementedRegistrationListenerServiceServer) OnRegistering(context.Context, *OnRegisteringRequest) (*OnRegisteringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRegistering not implemented")
+}
+func (UnimplementedRegistrationListenerServiceServer) OnRegistrationDone(context.Context, *OnRegistrationDoneRequest) (*OnRegistrationDoneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRegistrationDone not implemented")
+}
+func (UnimplementedRegistrationListenerServiceServer) OnRegistrationFailed(context.Context, *OnRegistrationFailedRequest) (*OnRegistrationFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRegistrationFailed not implemented")
+}
+func (UnimplementedRegistrationListenerServiceServer) mustEmbedUnimplementedRegistrationListenerServiceServer() {
+}
+func (UnimplementedRegistrationListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRegistrationListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RegistrationListenerServiceServer will
+// result in compilation errors.
+type UnsafeRegistrationListenerServiceServer interface {
+	mustEmbedUnimplementedRegistrationListenerServiceServer()
+}
+
+func RegisterRegistrationListenerServiceServer(s grpc.ServiceRegistrar, srv RegistrationListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedRegistrationListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RegistrationListenerService_ServiceDesc, srv)
+}
+
+func _RegistrationListenerService_OnRegistering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRegisteringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationListenerServiceServer).OnRegistering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationListenerService_OnRegistering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationListenerServiceServer).OnRegistering(ctx, req.(*OnRegisteringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationListenerService_OnRegistrationDone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRegistrationDoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationListenerServiceServer).OnRegistrationDone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationListenerService_OnRegistrationDone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationListenerServiceServer).OnRegistrationDone(ctx, req.(*OnRegistrationDoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RegistrationListenerService_OnRegistrationFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRegistrationFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegistrationListenerServiceServer).OnRegistrationFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RegistrationListenerService_OnRegistrationFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegistrationListenerServiceServer).OnRegistrationFailed(ctx, req.(*OnRegistrationFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RegistrationListenerService_ServiceDesc is the grpc.ServiceDesc for RegistrationListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RegistrationListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sip.RegistrationListenerService",
+	HandlerType: (*RegistrationListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnRegistering",
+			Handler:    _RegistrationListenerService_OnRegistering_Handler,
+		},
+		{
+			MethodName: "OnRegistrationDone",
+			Handler:    _RegistrationListenerService_OnRegistrationDone_Handler,
+		},
+		{
+			MethodName: "OnRegistrationFailed",
+			Handler:    _RegistrationListenerService_OnRegistrationFailed_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sip/sip.proto",
+}
+
+const (
+	AudioCallService_NewAudioCall_FullMethodName    = "/sip.AudioCallService/NewAudioCall"
+	AudioCallService_AnswerCall_FullMethodName      = "/sip.AudioCallService/AnswerCall"
+	AudioCallService_AttachCall_FullMethodName      = "/sip.AudioCallService/AttachCall"
+	AudioCallService_Close_FullMethodName           = "/sip.AudioCallService/Close"
+	AudioCallService_ContinueCall_FullMethodName    = "/sip.AudioCallService/ContinueCall"
+	AudioCallService_EndCall_FullMethodName         = "/sip.AudioCallService/EndCall"
+	AudioCallService_GetLocalProfile_FullMethodName = "/sip.AudioCallService/GetLocalProfile"
+	AudioCallService_GetPeerProfile_FullMethodName  = "/sip.AudioCallService/GetPeerProfile"
+	AudioCallService_GetState_FullMethodName        = "/sip.AudioCallService/GetState"
+	AudioCallService_HoldCall_FullMethodName        = "/sip.AudioCallService/HoldCall"
+	AudioCallService_IsInCall_FullMethodName        = "/sip.AudioCallService/IsInCall"
+	AudioCallService_IsMuted_FullMethodName         = "/sip.AudioCallService/IsMuted"
+	AudioCallService_IsOnHold_FullMethodName        = "/sip.AudioCallService/IsOnHold"
+	AudioCallService_MakeCall_FullMethodName        = "/sip.AudioCallService/MakeCall"
+	AudioCallService_SendDtmf1_FullMethodName       = "/sip.AudioCallService/SendDtmf1"
+	AudioCallService_SendDtmf2_1_FullMethodName     = "/sip.AudioCallService/SendDtmf2_1"
+	AudioCallService_SetListener1_FullMethodName    = "/sip.AudioCallService/SetListener1"
+	AudioCallService_SetListener2_1_FullMethodName  = "/sip.AudioCallService/SetListener2_1"
+	AudioCallService_SetSpeakerMode_FullMethodName  = "/sip.AudioCallService/SetSpeakerMode"
+	AudioCallService_StartAudio_FullMethodName      = "/sip.AudioCallService/StartAudio"
+	AudioCallService_ToggleMute_FullMethodName      = "/sip.AudioCallService/ToggleMute"
+)
+
+// AudioCallServiceClient is the client API for AudioCallService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AudioCallServiceClient interface {
+	NewAudioCall(ctx context.Context, in *NewAudioCallRequest, opts ...grpc.CallOption) (*NewAudioCallResponse, error)
+	AnswerCall(ctx context.Context, in *AnswerCallRequest, opts ...grpc.CallOption) (*AnswerCallResponse, error)
+	AttachCall(ctx context.Context, in *AttachCallRequest, opts ...grpc.CallOption) (*AttachCallResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	ContinueCall(ctx context.Context, in *ContinueCallRequest, opts ...grpc.CallOption) (*ContinueCallResponse, error)
+	EndCall(ctx context.Context, in *EndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error)
+	GetLocalProfile(ctx context.Context, in *GetLocalProfileRequest, opts ...grpc.CallOption) (*GetLocalProfileResponse, error)
+	GetPeerProfile(ctx context.Context, in *GetPeerProfileRequest, opts ...grpc.CallOption) (*GetPeerProfileResponse, error)
+	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
+	HoldCall(ctx context.Context, in *HoldCallRequest, opts ...grpc.CallOption) (*HoldCallResponse, error)
+	IsInCall(ctx context.Context, in *IsInCallRequest, opts ...grpc.CallOption) (*IsInCallResponse, error)
+	IsMuted(ctx context.Context, in *IsMutedRequest, opts ...grpc.CallOption) (*IsMutedResponse, error)
+	IsOnHold(ctx context.Context, in *IsOnHoldRequest, opts ...grpc.CallOption) (*IsOnHoldResponse, error)
+	MakeCall(ctx context.Context, in *MakeCallRequest, opts ...grpc.CallOption) (*MakeCallResponse, error)
+	SendDtmf1(ctx context.Context, in *SendDtmf1Request, opts ...grpc.CallOption) (*SendDtmf1Response, error)
+	SendDtmf2_1(ctx context.Context, in *SendDtmf2_1Request, opts ...grpc.CallOption) (*SendDtmf2_1Response, error)
+	SetListener1(ctx context.Context, in *SetListener1Request, opts ...grpc.CallOption) (*SetListener1Response, error)
+	SetListener2_1(ctx context.Context, in *SetListener2_1Request, opts ...grpc.CallOption) (*SetListener2_1Response, error)
+	SetSpeakerMode(ctx context.Context, in *SetSpeakerModeRequest, opts ...grpc.CallOption) (*SetSpeakerModeResponse, error)
+	StartAudio(ctx context.Context, in *StartAudioRequest, opts ...grpc.CallOption) (*StartAudioResponse, error)
+	ToggleMute(ctx context.Context, in *ToggleMuteRequest, opts ...grpc.CallOption) (*ToggleMuteResponse, error)
+}
+
+type audioCallServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAudioCallServiceClient(cc grpc.ClientConnInterface) AudioCallServiceClient {
+	return &audioCallServiceClient{cc}
+}
+
+func (c *audioCallServiceClient) NewAudioCall(ctx context.Context, in *NewAudioCallRequest, opts ...grpc.CallOption) (*NewAudioCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAudioCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_NewAudioCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) AnswerCall(ctx context.Context, in *AnswerCallRequest, opts ...grpc.CallOption) (*AnswerCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AnswerCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_AnswerCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) AttachCall(ctx context.Context, in *AttachCallRequest, opts ...grpc.CallOption) (*AttachCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AttachCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_AttachCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) ContinueCall(ctx context.Context, in *ContinueCallRequest, opts ...grpc.CallOption) (*ContinueCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ContinueCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_ContinueCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) EndCall(ctx context.Context, in *EndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EndCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_EndCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) GetLocalProfile(ctx context.Context, in *GetLocalProfileRequest, opts ...grpc.CallOption) (*GetLocalProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalProfileResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_GetLocalProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) GetPeerProfile(ctx context.Context, in *GetPeerProfileRequest, opts ...grpc.CallOption) (*GetPeerProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPeerProfileResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_GetPeerProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStateResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_GetState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) HoldCall(ctx context.Context, in *HoldCallRequest, opts ...grpc.CallOption) (*HoldCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HoldCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_HoldCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) IsInCall(ctx context.Context, in *IsInCallRequest, opts ...grpc.CallOption) (*IsInCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_IsInCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) IsMuted(ctx context.Context, in *IsMutedRequest, opts ...grpc.CallOption) (*IsMutedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMutedResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_IsMuted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) IsOnHold(ctx context.Context, in *IsOnHoldRequest, opts ...grpc.CallOption) (*IsOnHoldResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOnHoldResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_IsOnHold_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) MakeCall(ctx context.Context, in *MakeCallRequest, opts ...grpc.CallOption) (*MakeCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MakeCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_MakeCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) SendDtmf1(ctx context.Context, in *SendDtmf1Request, opts ...grpc.CallOption) (*SendDtmf1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendDtmf1Response)
+	err := c.cc.Invoke(ctx, AudioCallService_SendDtmf1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) SendDtmf2_1(ctx context.Context, in *SendDtmf2_1Request, opts ...grpc.CallOption) (*SendDtmf2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendDtmf2_1Response)
+	err := c.cc.Invoke(ctx, AudioCallService_SendDtmf2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) SetListener1(ctx context.Context, in *SetListener1Request, opts ...grpc.CallOption) (*SetListener1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetListener1Response)
+	err := c.cc.Invoke(ctx, AudioCallService_SetListener1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) SetListener2_1(ctx context.Context, in *SetListener2_1Request, opts ...grpc.CallOption) (*SetListener2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetListener2_1Response)
+	err := c.cc.Invoke(ctx, AudioCallService_SetListener2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) SetSpeakerMode(ctx context.Context, in *SetSpeakerModeRequest, opts ...grpc.CallOption) (*SetSpeakerModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSpeakerModeResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_SetSpeakerMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) StartAudio(ctx context.Context, in *StartAudioRequest, opts ...grpc.CallOption) (*StartAudioResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartAudioResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_StartAudio_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallServiceClient) ToggleMute(ctx context.Context, in *ToggleMuteRequest, opts ...grpc.CallOption) (*ToggleMuteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToggleMuteResponse)
+	err := c.cc.Invoke(ctx, AudioCallService_ToggleMute_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AudioCallServiceServer is the server API for AudioCallService service.
+// All implementations must embed UnimplementedAudioCallServiceServer
+// for forward compatibility.
+type AudioCallServiceServer interface {
+	NewAudioCall(context.Context, *NewAudioCallRequest) (*NewAudioCallResponse, error)
+	AnswerCall(context.Context, *AnswerCallRequest) (*AnswerCallResponse, error)
+	AttachCall(context.Context, *AttachCallRequest) (*AttachCallResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	ContinueCall(context.Context, *ContinueCallRequest) (*ContinueCallResponse, error)
+	EndCall(context.Context, *EndCallRequest) (*EndCallResponse, error)
+	GetLocalProfile(context.Context, *GetLocalProfileRequest) (*GetLocalProfileResponse, error)
+	GetPeerProfile(context.Context, *GetPeerProfileRequest) (*GetPeerProfileResponse, error)
+	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
+	HoldCall(context.Context, *HoldCallRequest) (*HoldCallResponse, error)
+	IsInCall(context.Context, *IsInCallRequest) (*IsInCallResponse, error)
+	IsMuted(context.Context, *IsMutedRequest) (*IsMutedResponse, error)
+	IsOnHold(context.Context, *IsOnHoldRequest) (*IsOnHoldResponse, error)
+	MakeCall(context.Context, *MakeCallRequest) (*MakeCallResponse, error)
+	SendDtmf1(context.Context, *SendDtmf1Request) (*SendDtmf1Response, error)
+	SendDtmf2_1(context.Context, *SendDtmf2_1Request) (*SendDtmf2_1Response, error)
+	SetListener1(context.Context, *SetListener1Request) (*SetListener1Response, error)
+	SetListener2_1(context.Context, *SetListener2_1Request) (*SetListener2_1Response, error)
+	SetSpeakerMode(context.Context, *SetSpeakerModeRequest) (*SetSpeakerModeResponse, error)
+	StartAudio(context.Context, *StartAudioRequest) (*StartAudioResponse, error)
+	ToggleMute(context.Context, *ToggleMuteRequest) (*ToggleMuteResponse, error)
+	mustEmbedUnimplementedAudioCallServiceServer()
+}
+
+// UnimplementedAudioCallServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAudioCallServiceServer struct{}
+
+func (UnimplementedAudioCallServiceServer) NewAudioCall(context.Context, *NewAudioCallRequest) (*NewAudioCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAudioCall not implemented")
+}
+func (UnimplementedAudioCallServiceServer) AnswerCall(context.Context, *AnswerCallRequest) (*AnswerCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AnswerCall not implemented")
+}
+func (UnimplementedAudioCallServiceServer) AttachCall(context.Context, *AttachCallRequest) (*AttachCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AttachCall not implemented")
+}
+func (UnimplementedAudioCallServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedAudioCallServiceServer) ContinueCall(context.Context, *ContinueCallRequest) (*ContinueCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ContinueCall not implemented")
+}
+func (UnimplementedAudioCallServiceServer) EndCall(context.Context, *EndCallRequest) (*EndCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EndCall not implemented")
+}
+func (UnimplementedAudioCallServiceServer) GetLocalProfile(context.Context, *GetLocalProfileRequest) (*GetLocalProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocalProfile not implemented")
+}
+func (UnimplementedAudioCallServiceServer) GetPeerProfile(context.Context, *GetPeerProfileRequest) (*GetPeerProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPeerProfile not implemented")
+}
+func (UnimplementedAudioCallServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
+}
+func (UnimplementedAudioCallServiceServer) HoldCall(context.Context, *HoldCallRequest) (*HoldCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HoldCall not implemented")
+}
+func (UnimplementedAudioCallServiceServer) IsInCall(context.Context, *IsInCallRequest) (*IsInCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInCall not implemented")
+}
+func (UnimplementedAudioCallServiceServer) IsMuted(context.Context, *IsMutedRequest) (*IsMutedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMuted not implemented")
+}
+func (UnimplementedAudioCallServiceServer) IsOnHold(context.Context, *IsOnHoldRequest) (*IsOnHoldResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOnHold not implemented")
+}
+func (UnimplementedAudioCallServiceServer) MakeCall(context.Context, *MakeCallRequest) (*MakeCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MakeCall not implemented")
+}
+func (UnimplementedAudioCallServiceServer) SendDtmf1(context.Context, *SendDtmf1Request) (*SendDtmf1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendDtmf1 not implemented")
+}
+func (UnimplementedAudioCallServiceServer) SendDtmf2_1(context.Context, *SendDtmf2_1Request) (*SendDtmf2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendDtmf2_1 not implemented")
+}
+func (UnimplementedAudioCallServiceServer) SetListener1(context.Context, *SetListener1Request) (*SetListener1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetListener1 not implemented")
+}
+func (UnimplementedAudioCallServiceServer) SetListener2_1(context.Context, *SetListener2_1Request) (*SetListener2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetListener2_1 not implemented")
+}
+func (UnimplementedAudioCallServiceServer) SetSpeakerMode(context.Context, *SetSpeakerModeRequest) (*SetSpeakerModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSpeakerMode not implemented")
+}
+func (UnimplementedAudioCallServiceServer) StartAudio(context.Context, *StartAudioRequest) (*StartAudioResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartAudio not implemented")
+}
+func (UnimplementedAudioCallServiceServer) ToggleMute(context.Context, *ToggleMuteRequest) (*ToggleMuteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToggleMute not implemented")
+}
+func (UnimplementedAudioCallServiceServer) mustEmbedUnimplementedAudioCallServiceServer() {}
+func (UnimplementedAudioCallServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeAudioCallServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AudioCallServiceServer will
+// result in compilation errors.
+type UnsafeAudioCallServiceServer interface {
+	mustEmbedUnimplementedAudioCallServiceServer()
+}
+
+func RegisterAudioCallServiceServer(s grpc.ServiceRegistrar, srv AudioCallServiceServer) {
+	// If the following call panics, it indicates UnimplementedAudioCallServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AudioCallService_ServiceDesc, srv)
+}
+
+func _AudioCallService_NewAudioCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAudioCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).NewAudioCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_NewAudioCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).NewAudioCall(ctx, req.(*NewAudioCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_AnswerCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AnswerCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).AnswerCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_AnswerCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).AnswerCall(ctx, req.(*AnswerCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_AttachCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttachCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).AttachCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_AttachCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).AttachCall(ctx, req.(*AttachCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_ContinueCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContinueCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).ContinueCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_ContinueCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).ContinueCall(ctx, req.(*ContinueCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_EndCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).EndCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_EndCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).EndCall(ctx, req.(*EndCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_GetLocalProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocalProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).GetLocalProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_GetLocalProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).GetLocalProfile(ctx, req.(*GetLocalProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_GetPeerProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPeerProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).GetPeerProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_GetPeerProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).GetPeerProfile(ctx, req.(*GetPeerProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).GetState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_GetState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).GetState(ctx, req.(*GetStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_HoldCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HoldCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).HoldCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_HoldCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).HoldCall(ctx, req.(*HoldCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_IsInCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).IsInCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_IsInCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).IsInCall(ctx, req.(*IsInCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_IsMuted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMutedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).IsMuted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_IsMuted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).IsMuted(ctx, req.(*IsMutedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_IsOnHold_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOnHoldRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).IsOnHold(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_IsOnHold_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).IsOnHold(ctx, req.(*IsOnHoldRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_MakeCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MakeCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).MakeCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_MakeCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).MakeCall(ctx, req.(*MakeCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_SendDtmf1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendDtmf1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).SendDtmf1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_SendDtmf1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).SendDtmf1(ctx, req.(*SendDtmf1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_SendDtmf2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendDtmf2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).SendDtmf2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_SendDtmf2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).SendDtmf2_1(ctx, req.(*SendDtmf2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_SetListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetListener1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).SetListener1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_SetListener1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).SetListener1(ctx, req.(*SetListener1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_SetListener2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetListener2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).SetListener2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_SetListener2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).SetListener2_1(ctx, req.(*SetListener2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_SetSpeakerMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSpeakerModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).SetSpeakerMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_SetSpeakerMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).SetSpeakerMode(ctx, req.(*SetSpeakerModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_StartAudio_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartAudioRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).StartAudio(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_StartAudio_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).StartAudio(ctx, req.(*StartAudioRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallService_ToggleMute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToggleMuteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallServiceServer).ToggleMute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallService_ToggleMute_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallServiceServer).ToggleMute(ctx, req.(*ToggleMuteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AudioCallService_ServiceDesc is the grpc.ServiceDesc for AudioCallService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AudioCallService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sip.AudioCallService",
+	HandlerType: (*AudioCallServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAudioCall",
+			Handler:    _AudioCallService_NewAudioCall_Handler,
+		},
+		{
+			MethodName: "AnswerCall",
+			Handler:    _AudioCallService_AnswerCall_Handler,
+		},
+		{
+			MethodName: "AttachCall",
+			Handler:    _AudioCallService_AttachCall_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _AudioCallService_Close_Handler,
+		},
+		{
+			MethodName: "ContinueCall",
+			Handler:    _AudioCallService_ContinueCall_Handler,
+		},
+		{
+			MethodName: "EndCall",
+			Handler:    _AudioCallService_EndCall_Handler,
+		},
+		{
+			MethodName: "GetLocalProfile",
+			Handler:    _AudioCallService_GetLocalProfile_Handler,
+		},
+		{
+			MethodName: "GetPeerProfile",
+			Handler:    _AudioCallService_GetPeerProfile_Handler,
+		},
+		{
+			MethodName: "GetState",
+			Handler:    _AudioCallService_GetState_Handler,
+		},
+		{
+			MethodName: "HoldCall",
+			Handler:    _AudioCallService_HoldCall_Handler,
+		},
+		{
+			MethodName: "IsInCall",
+			Handler:    _AudioCallService_IsInCall_Handler,
+		},
+		{
+			MethodName: "IsMuted",
+			Handler:    _AudioCallService_IsMuted_Handler,
+		},
+		{
+			MethodName: "IsOnHold",
+			Handler:    _AudioCallService_IsOnHold_Handler,
+		},
+		{
+			MethodName: "MakeCall",
+			Handler:    _AudioCallService_MakeCall_Handler,
+		},
+		{
+			MethodName: "SendDtmf1",
+			Handler:    _AudioCallService_SendDtmf1_Handler,
+		},
+		{
+			MethodName: "SendDtmf2_1",
+			Handler:    _AudioCallService_SendDtmf2_1_Handler,
+		},
+		{
+			MethodName: "SetListener1",
+			Handler:    _AudioCallService_SetListener1_Handler,
+		},
+		{
+			MethodName: "SetListener2_1",
+			Handler:    _AudioCallService_SetListener2_1_Handler,
+		},
+		{
+			MethodName: "SetSpeakerMode",
+			Handler:    _AudioCallService_SetSpeakerMode_Handler,
+		},
+		{
+			MethodName: "StartAudio",
+			Handler:    _AudioCallService_StartAudio_Handler,
+		},
+		{
+			MethodName: "ToggleMute",
+			Handler:    _AudioCallService_ToggleMute_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sip/sip.proto",
+}
+
+const (
+	AudioCallListenerService_OnCallBusy_FullMethodName        = "/sip.AudioCallListenerService/OnCallBusy"
+	AudioCallListenerService_OnCallEnded_FullMethodName       = "/sip.AudioCallListenerService/OnCallEnded"
+	AudioCallListenerService_OnCallEstablished_FullMethodName = "/sip.AudioCallListenerService/OnCallEstablished"
+	AudioCallListenerService_OnCallHeld_FullMethodName        = "/sip.AudioCallListenerService/OnCallHeld"
+	AudioCallListenerService_OnCalling_FullMethodName         = "/sip.AudioCallListenerService/OnCalling"
+	AudioCallListenerService_OnChanged_FullMethodName         = "/sip.AudioCallListenerService/OnChanged"
+	AudioCallListenerService_OnError_FullMethodName           = "/sip.AudioCallListenerService/OnError"
+	AudioCallListenerService_OnReadyToCall_FullMethodName     = "/sip.AudioCallListenerService/OnReadyToCall"
+	AudioCallListenerService_OnRinging_FullMethodName         = "/sip.AudioCallListenerService/OnRinging"
+	AudioCallListenerService_OnRingingBack_FullMethodName     = "/sip.AudioCallListenerService/OnRingingBack"
+)
+
+// AudioCallListenerServiceClient is the client API for AudioCallListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AudioCallListenerServiceClient interface {
+	OnCallBusy(ctx context.Context, in *OnCallBusyRequest, opts ...grpc.CallOption) (*OnCallBusyResponse, error)
+	OnCallEnded(ctx context.Context, in *OnCallEndedRequest, opts ...grpc.CallOption) (*OnCallEndedResponse, error)
+	OnCallEstablished(ctx context.Context, in *OnCallEstablishedRequest, opts ...grpc.CallOption) (*OnCallEstablishedResponse, error)
+	OnCallHeld(ctx context.Context, in *OnCallHeldRequest, opts ...grpc.CallOption) (*OnCallHeldResponse, error)
+	OnCalling(ctx context.Context, in *OnCallingRequest, opts ...grpc.CallOption) (*OnCallingResponse, error)
+	OnChanged(ctx context.Context, in *OnChangedRequest, opts ...grpc.CallOption) (*OnChangedResponse, error)
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+	OnReadyToCall(ctx context.Context, in *OnReadyToCallRequest, opts ...grpc.CallOption) (*OnReadyToCallResponse, error)
+	OnRinging(ctx context.Context, in *OnRingingRequest, opts ...grpc.CallOption) (*OnRingingResponse, error)
+	OnRingingBack(ctx context.Context, in *OnRingingBackRequest, opts ...grpc.CallOption) (*OnRingingBackResponse, error)
+}
+
+type audioCallListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAudioCallListenerServiceClient(cc grpc.ClientConnInterface) AudioCallListenerServiceClient {
+	return &audioCallListenerServiceClient{cc}
+}
+
+func (c *audioCallListenerServiceClient) OnCallBusy(ctx context.Context, in *OnCallBusyRequest, opts ...grpc.CallOption) (*OnCallBusyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallBusyResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCallBusy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnCallEnded(ctx context.Context, in *OnCallEndedRequest, opts ...grpc.CallOption) (*OnCallEndedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallEndedResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCallEnded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnCallEstablished(ctx context.Context, in *OnCallEstablishedRequest, opts ...grpc.CallOption) (*OnCallEstablishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallEstablishedResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCallEstablished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnCallHeld(ctx context.Context, in *OnCallHeldRequest, opts ...grpc.CallOption) (*OnCallHeldResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallHeldResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCallHeld_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnCalling(ctx context.Context, in *OnCallingRequest, opts ...grpc.CallOption) (*OnCallingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallingResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnCalling_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnChanged(ctx context.Context, in *OnChangedRequest, opts ...grpc.CallOption) (*OnChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnChangedResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnReadyToCall(ctx context.Context, in *OnReadyToCallRequest, opts ...grpc.CallOption) (*OnReadyToCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReadyToCallResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnReadyToCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnRinging(ctx context.Context, in *OnRingingRequest, opts ...grpc.CallOption) (*OnRingingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRingingResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnRinging_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioCallListenerServiceClient) OnRingingBack(ctx context.Context, in *OnRingingBackRequest, opts ...grpc.CallOption) (*OnRingingBackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRingingBackResponse)
+	err := c.cc.Invoke(ctx, AudioCallListenerService_OnRingingBack_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AudioCallListenerServiceServer is the server API for AudioCallListenerService service.
+// All implementations must embed UnimplementedAudioCallListenerServiceServer
+// for forward compatibility.
+type AudioCallListenerServiceServer interface {
+	OnCallBusy(context.Context, *OnCallBusyRequest) (*OnCallBusyResponse, error)
+	OnCallEnded(context.Context, *OnCallEndedRequest) (*OnCallEndedResponse, error)
+	OnCallEstablished(context.Context, *OnCallEstablishedRequest) (*OnCallEstablishedResponse, error)
+	OnCallHeld(context.Context, *OnCallHeldRequest) (*OnCallHeldResponse, error)
+	OnCalling(context.Context, *OnCallingRequest) (*OnCallingResponse, error)
+	OnChanged(context.Context, *OnChangedRequest) (*OnChangedResponse, error)
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	OnReadyToCall(context.Context, *OnReadyToCallRequest) (*OnReadyToCallResponse, error)
+	OnRinging(context.Context, *OnRingingRequest) (*OnRingingResponse, error)
+	OnRingingBack(context.Context, *OnRingingBackRequest) (*OnRingingBackResponse, error)
+	mustEmbedUnimplementedAudioCallListenerServiceServer()
+}
+
+// UnimplementedAudioCallListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAudioCallListenerServiceServer struct{}
+
+func (UnimplementedAudioCallListenerServiceServer) OnCallBusy(context.Context, *OnCallBusyRequest) (*OnCallBusyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCallBusy not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnCallEnded(context.Context, *OnCallEndedRequest) (*OnCallEndedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCallEnded not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnCallEstablished(context.Context, *OnCallEstablishedRequest) (*OnCallEstablishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCallEstablished not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnCallHeld(context.Context, *OnCallHeldRequest) (*OnCallHeldResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCallHeld not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnCalling(context.Context, *OnCallingRequest) (*OnCallingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCalling not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnChanged(context.Context, *OnChangedRequest) (*OnChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnChanged not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnReadyToCall(context.Context, *OnReadyToCallRequest) (*OnReadyToCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnReadyToCall not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnRinging(context.Context, *OnRingingRequest) (*OnRingingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRinging not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) OnRingingBack(context.Context, *OnRingingBackRequest) (*OnRingingBackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRingingBack not implemented")
+}
+func (UnimplementedAudioCallListenerServiceServer) mustEmbedUnimplementedAudioCallListenerServiceServer() {
+}
+func (UnimplementedAudioCallListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAudioCallListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AudioCallListenerServiceServer will
+// result in compilation errors.
+type UnsafeAudioCallListenerServiceServer interface {
+	mustEmbedUnimplementedAudioCallListenerServiceServer()
+}
+
+func RegisterAudioCallListenerServiceServer(s grpc.ServiceRegistrar, srv AudioCallListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAudioCallListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AudioCallListenerService_ServiceDesc, srv)
+}
+
+func _AudioCallListenerService_OnCallBusy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallBusyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnCallBusy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnCallBusy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnCallBusy(ctx, req.(*OnCallBusyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnCallEnded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallEndedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnCallEnded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnCallEnded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnCallEnded(ctx, req.(*OnCallEndedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnCallEstablished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallEstablishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnCallEstablished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnCallEstablished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnCallEstablished(ctx, req.(*OnCallEstablishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnCallHeld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallHeldRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnCallHeld(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnCallHeld_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnCallHeld(ctx, req.(*OnCallHeldRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnCalling_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnCalling(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnCalling_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnCalling(ctx, req.(*OnCallingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnChanged(ctx, req.(*OnChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnReadyToCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReadyToCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnReadyToCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnReadyToCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnReadyToCall(ctx, req.(*OnReadyToCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnRinging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRingingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnRinging(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnRinging_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnRinging(ctx, req.(*OnRingingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioCallListenerService_OnRingingBack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRingingBackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioCallListenerServiceServer).OnRingingBack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioCallListenerService_OnRingingBack_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioCallListenerServiceServer).OnRingingBack(ctx, req.(*OnRingingBackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AudioCallListenerService_ServiceDesc is the grpc.ServiceDesc for AudioCallListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AudioCallListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sip.AudioCallListenerService",
+	HandlerType: (*AudioCallListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnCallBusy",
+			Handler:    _AudioCallListenerService_OnCallBusy_Handler,
+		},
+		{
+			MethodName: "OnCallEnded",
+			Handler:    _AudioCallListenerService_OnCallEnded_Handler,
+		},
+		{
+			MethodName: "OnCallEstablished",
+			Handler:    _AudioCallListenerService_OnCallEstablished_Handler,
+		},
+		{
+			MethodName: "OnCallHeld",
+			Handler:    _AudioCallListenerService_OnCallHeld_Handler,
+		},
+		{
+			MethodName: "OnCalling",
+			Handler:    _AudioCallListenerService_OnCalling_Handler,
+		},
+		{
+			MethodName: "OnChanged",
+			Handler:    _AudioCallListenerService_OnChanged_Handler,
+		},
+		{
+			MethodName: "OnError",
+			Handler:    _AudioCallListenerService_OnError_Handler,
+		},
+		{
+			MethodName: "OnReadyToCall",
+			Handler:    _AudioCallListenerService_OnReadyToCall_Handler,
+		},
+		{
+			MethodName: "OnRinging",
+			Handler:    _AudioCallListenerService_OnRinging_Handler,
+		},
+		{
+			MethodName: "OnRingingBack",
+			Handler:    _AudioCallListenerService_OnRingingBack_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sip/sip.proto",
+}
+
+const (
+	SessionService_AnswerCall_FullMethodName      = "/sip.SessionService/AnswerCall"
+	SessionService_ChangeCall_FullMethodName      = "/sip.SessionService/ChangeCall"
+	SessionService_EndCall_FullMethodName         = "/sip.SessionService/EndCall"
+	SessionService_GetCallId_FullMethodName       = "/sip.SessionService/GetCallId"
+	SessionService_GetLocalIp_FullMethodName      = "/sip.SessionService/GetLocalIp"
+	SessionService_GetLocalProfile_FullMethodName = "/sip.SessionService/GetLocalProfile"
+	SessionService_GetPeerProfile_FullMethodName  = "/sip.SessionService/GetPeerProfile"
+	SessionService_GetState_FullMethodName        = "/sip.SessionService/GetState"
+	SessionService_IsInCall_FullMethodName        = "/sip.SessionService/IsInCall"
+	SessionService_MakeCall_FullMethodName        = "/sip.SessionService/MakeCall"
+	SessionService_Register_FullMethodName        = "/sip.SessionService/Register"
+	SessionService_SetListener_FullMethodName     = "/sip.SessionService/SetListener"
+	SessionService_Unregister_FullMethodName      = "/sip.SessionService/Unregister"
+)
+
+// SessionServiceClient is the client API for SessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SessionServiceClient interface {
+	AnswerCall(ctx context.Context, in *SessionAnswerCallRequest, opts ...grpc.CallOption) (*AnswerCallResponse, error)
+	ChangeCall(ctx context.Context, in *ChangeCallRequest, opts ...grpc.CallOption) (*ChangeCallResponse, error)
+	EndCall(ctx context.Context, in *SessionEndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error)
+	GetCallId(ctx context.Context, in *GetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error)
+	GetLocalIp(ctx context.Context, in *GetLocalIpRequest, opts ...grpc.CallOption) (*GetLocalIpResponse, error)
+	GetLocalProfile(ctx context.Context, in *SessionGetLocalProfileRequest, opts ...grpc.CallOption) (*GetLocalProfileResponse, error)
+	GetPeerProfile(ctx context.Context, in *SessionGetPeerProfileRequest, opts ...grpc.CallOption) (*GetPeerProfileResponse, error)
+	GetState(ctx context.Context, in *SessionGetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
+	IsInCall(ctx context.Context, in *SessionIsInCallRequest, opts ...grpc.CallOption) (*IsInCallResponse, error)
+	MakeCall(ctx context.Context, in *SessionMakeCallRequest, opts ...grpc.CallOption) (*MakeCallResponse, error)
+	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	SetListener(ctx context.Context, in *SetListenerRequest, opts ...grpc.CallOption) (*SetListenerResponse, error)
+	Unregister(ctx context.Context, in *UnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error)
+}
+
+type sessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSessionServiceClient(cc grpc.ClientConnInterface) SessionServiceClient {
+	return &sessionServiceClient{cc}
+}
+
+func (c *sessionServiceClient) AnswerCall(ctx context.Context, in *SessionAnswerCallRequest, opts ...grpc.CallOption) (*AnswerCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AnswerCallResponse)
+	err := c.cc.Invoke(ctx, SessionService_AnswerCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) ChangeCall(ctx context.Context, in *ChangeCallRequest, opts ...grpc.CallOption) (*ChangeCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ChangeCallResponse)
+	err := c.cc.Invoke(ctx, SessionService_ChangeCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) EndCall(ctx context.Context, in *SessionEndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EndCallResponse)
+	err := c.cc.Invoke(ctx, SessionService_EndCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) GetCallId(ctx context.Context, in *GetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallIdResponse)
+	err := c.cc.Invoke(ctx, SessionService_GetCallId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) GetLocalIp(ctx context.Context, in *GetLocalIpRequest, opts ...grpc.CallOption) (*GetLocalIpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalIpResponse)
+	err := c.cc.Invoke(ctx, SessionService_GetLocalIp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) GetLocalProfile(ctx context.Context, in *SessionGetLocalProfileRequest, opts ...grpc.CallOption) (*GetLocalProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalProfileResponse)
+	err := c.cc.Invoke(ctx, SessionService_GetLocalProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) GetPeerProfile(ctx context.Context, in *SessionGetPeerProfileRequest, opts ...grpc.CallOption) (*GetPeerProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPeerProfileResponse)
+	err := c.cc.Invoke(ctx, SessionService_GetPeerProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) GetState(ctx context.Context, in *SessionGetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStateResponse)
+	err := c.cc.Invoke(ctx, SessionService_GetState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) IsInCall(ctx context.Context, in *SessionIsInCallRequest, opts ...grpc.CallOption) (*IsInCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInCallResponse)
+	err := c.cc.Invoke(ctx, SessionService_IsInCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) MakeCall(ctx context.Context, in *SessionMakeCallRequest, opts ...grpc.CallOption) (*MakeCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MakeCallResponse)
+	err := c.cc.Invoke(ctx, SessionService_MakeCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterResponse)
+	err := c.cc.Invoke(ctx, SessionService_Register_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) SetListener(ctx context.Context, in *SetListenerRequest, opts ...grpc.CallOption) (*SetListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetListenerResponse)
+	err := c.cc.Invoke(ctx, SessionService_SetListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionServiceClient) Unregister(ctx context.Context, in *UnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterResponse)
+	err := c.cc.Invoke(ctx, SessionService_Unregister_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SessionServiceServer is the server API for SessionService service.
+// All implementations must embed UnimplementedSessionServiceServer
+// for forward compatibility.
+type SessionServiceServer interface {
+	AnswerCall(context.Context, *SessionAnswerCallRequest) (*AnswerCallResponse, error)
+	ChangeCall(context.Context, *ChangeCallRequest) (*ChangeCallResponse, error)
+	EndCall(context.Context, *SessionEndCallRequest) (*EndCallResponse, error)
+	GetCallId(context.Context, *GetCallIdRequest) (*GetCallIdResponse, error)
+	GetLocalIp(context.Context, *GetLocalIpRequest) (*GetLocalIpResponse, error)
+	GetLocalProfile(context.Context, *SessionGetLocalProfileRequest) (*GetLocalProfileResponse, error)
+	GetPeerProfile(context.Context, *SessionGetPeerProfileRequest) (*GetPeerProfileResponse, error)
+	GetState(context.Context, *SessionGetStateRequest) (*GetStateResponse, error)
+	IsInCall(context.Context, *SessionIsInCallRequest) (*IsInCallResponse, error)
+	MakeCall(context.Context, *SessionMakeCallRequest) (*MakeCallResponse, error)
+	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	SetListener(context.Context, *SetListenerRequest) (*SetListenerResponse, error)
+	Unregister(context.Context, *UnregisterRequest) (*UnregisterResponse, error)
+	mustEmbedUnimplementedSessionServiceServer()
+}
+
+// UnimplementedSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSessionServiceServer struct{}
+
+func (UnimplementedSessionServiceServer) AnswerCall(context.Context, *SessionAnswerCallRequest) (*AnswerCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AnswerCall not implemented")
+}
+func (UnimplementedSessionServiceServer) ChangeCall(context.Context, *ChangeCallRequest) (*ChangeCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ChangeCall not implemented")
+}
+func (UnimplementedSessionServiceServer) EndCall(context.Context, *SessionEndCallRequest) (*EndCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EndCall not implemented")
+}
+func (UnimplementedSessionServiceServer) GetCallId(context.Context, *GetCallIdRequest) (*GetCallIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallId not implemented")
+}
+func (UnimplementedSessionServiceServer) GetLocalIp(context.Context, *GetLocalIpRequest) (*GetLocalIpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocalIp not implemented")
+}
+func (UnimplementedSessionServiceServer) GetLocalProfile(context.Context, *SessionGetLocalProfileRequest) (*GetLocalProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocalProfile not implemented")
+}
+func (UnimplementedSessionServiceServer) GetPeerProfile(context.Context, *SessionGetPeerProfileRequest) (*GetPeerProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPeerProfile not implemented")
+}
+func (UnimplementedSessionServiceServer) GetState(context.Context, *SessionGetStateRequest) (*GetStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
+}
+func (UnimplementedSessionServiceServer) IsInCall(context.Context, *SessionIsInCallRequest) (*IsInCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInCall not implemented")
+}
+func (UnimplementedSessionServiceServer) MakeCall(context.Context, *SessionMakeCallRequest) (*MakeCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MakeCall not implemented")
+}
+func (UnimplementedSessionServiceServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Register not implemented")
+}
+func (UnimplementedSessionServiceServer) SetListener(context.Context, *SetListenerRequest) (*SetListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetListener not implemented")
+}
+func (UnimplementedSessionServiceServer) Unregister(context.Context, *UnregisterRequest) (*UnregisterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Unregister not implemented")
+}
+func (UnimplementedSessionServiceServer) mustEmbedUnimplementedSessionServiceServer() {}
+func (UnimplementedSessionServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionServiceServer will
+// result in compilation errors.
+type UnsafeSessionServiceServer interface {
+	mustEmbedUnimplementedSessionServiceServer()
+}
+
+func RegisterSessionServiceServer(s grpc.ServiceRegistrar, srv SessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SessionService_ServiceDesc, srv)
+}
+
+func _SessionService_AnswerCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionAnswerCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).AnswerCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_AnswerCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).AnswerCall(ctx, req.(*SessionAnswerCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_ChangeCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).ChangeCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_ChangeCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).ChangeCall(ctx, req.(*ChangeCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_EndCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionEndCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).EndCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_EndCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).EndCall(ctx, req.(*SessionEndCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_GetCallId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).GetCallId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_GetCallId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).GetCallId(ctx, req.(*GetCallIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_GetLocalIp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocalIpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).GetLocalIp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_GetLocalIp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).GetLocalIp(ctx, req.(*GetLocalIpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_GetLocalProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionGetLocalProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).GetLocalProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_GetLocalProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).GetLocalProfile(ctx, req.(*SessionGetLocalProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_GetPeerProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionGetPeerProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).GetPeerProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_GetPeerProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).GetPeerProfile(ctx, req.(*SessionGetPeerProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionGetStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).GetState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_GetState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).GetState(ctx, req.(*SessionGetStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_IsInCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionIsInCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).IsInCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_IsInCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).IsInCall(ctx, req.(*SessionIsInCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_MakeCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionMakeCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).MakeCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_MakeCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).MakeCall(ctx, req.(*SessionMakeCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Register(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Register_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Register(ctx, req.(*RegisterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_SetListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).SetListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_SetListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).SetListener(ctx, req.(*SetListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionService_Unregister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionServiceServer).Unregister(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionService_Unregister_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionServiceServer).Unregister(ctx, req.(*UnregisterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SessionService_ServiceDesc is the grpc.ServiceDesc for SessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sip.SessionService",
+	HandlerType: (*SessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AnswerCall",
+			Handler:    _SessionService_AnswerCall_Handler,
+		},
+		{
+			MethodName: "ChangeCall",
+			Handler:    _SessionService_ChangeCall_Handler,
+		},
+		{
+			MethodName: "EndCall",
+			Handler:    _SessionService_EndCall_Handler,
+		},
+		{
+			MethodName: "GetCallId",
+			Handler:    _SessionService_GetCallId_Handler,
+		},
+		{
+			MethodName: "GetLocalIp",
+			Handler:    _SessionService_GetLocalIp_Handler,
+		},
+		{
+			MethodName: "GetLocalProfile",
+			Handler:    _SessionService_GetLocalProfile_Handler,
+		},
+		{
+			MethodName: "GetPeerProfile",
+			Handler:    _SessionService_GetPeerProfile_Handler,
+		},
+		{
+			MethodName: "GetState",
+			Handler:    _SessionService_GetState_Handler,
+		},
+		{
+			MethodName: "IsInCall",
+			Handler:    _SessionService_IsInCall_Handler,
+		},
+		{
+			MethodName: "MakeCall",
+			Handler:    _SessionService_MakeCall_Handler,
+		},
+		{
+			MethodName: "Register",
+			Handler:    _SessionService_Register_Handler,
+		},
+		{
+			MethodName: "SetListener",
+			Handler:    _SessionService_SetListener_Handler,
+		},
+		{
+			MethodName: "Unregister",
+			Handler:    _SessionService_Unregister_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sip/sip.proto",
+}
+
+const (
+	SessionListenerService_OnCallBusy_FullMethodName            = "/sip.SessionListenerService/OnCallBusy"
+	SessionListenerService_OnCallChangeFailed_FullMethodName    = "/sip.SessionListenerService/OnCallChangeFailed"
+	SessionListenerService_OnCallEnded_FullMethodName           = "/sip.SessionListenerService/OnCallEnded"
+	SessionListenerService_OnCallEstablished_FullMethodName     = "/sip.SessionListenerService/OnCallEstablished"
+	SessionListenerService_OnCalling_FullMethodName             = "/sip.SessionListenerService/OnCalling"
+	SessionListenerService_OnError_FullMethodName               = "/sip.SessionListenerService/OnError"
+	SessionListenerService_OnRegistering_FullMethodName         = "/sip.SessionListenerService/OnRegistering"
+	SessionListenerService_OnRegistrationDone_FullMethodName    = "/sip.SessionListenerService/OnRegistrationDone"
+	SessionListenerService_OnRegistrationFailed_FullMethodName  = "/sip.SessionListenerService/OnRegistrationFailed"
+	SessionListenerService_OnRegistrationTimeout_FullMethodName = "/sip.SessionListenerService/OnRegistrationTimeout"
+	SessionListenerService_OnRinging_FullMethodName             = "/sip.SessionListenerService/OnRinging"
+	SessionListenerService_OnRingingBack_FullMethodName         = "/sip.SessionListenerService/OnRingingBack"
+)
+
+// SessionListenerServiceClient is the client API for SessionListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SessionListenerServiceClient interface {
+	OnCallBusy(ctx context.Context, in *OnCallBusyRequest, opts ...grpc.CallOption) (*OnCallBusyResponse, error)
+	OnCallChangeFailed(ctx context.Context, in *OnCallChangeFailedRequest, opts ...grpc.CallOption) (*OnCallChangeFailedResponse, error)
+	OnCallEnded(ctx context.Context, in *OnCallEndedRequest, opts ...grpc.CallOption) (*OnCallEndedResponse, error)
+	OnCallEstablished(ctx context.Context, in *SessionListenerOnCallEstablishedRequest, opts ...grpc.CallOption) (*OnCallEstablishedResponse, error)
+	OnCalling(ctx context.Context, in *OnCallingRequest, opts ...grpc.CallOption) (*OnCallingResponse, error)
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+	OnRegistering(ctx context.Context, in *SessionListenerOnRegisteringRequest, opts ...grpc.CallOption) (*OnRegisteringResponse, error)
+	OnRegistrationDone(ctx context.Context, in *SessionListenerOnRegistrationDoneRequest, opts ...grpc.CallOption) (*OnRegistrationDoneResponse, error)
+	OnRegistrationFailed(ctx context.Context, in *SessionListenerOnRegistrationFailedRequest, opts ...grpc.CallOption) (*OnRegistrationFailedResponse, error)
+	OnRegistrationTimeout(ctx context.Context, in *OnRegistrationTimeoutRequest, opts ...grpc.CallOption) (*OnRegistrationTimeoutResponse, error)
+	OnRinging(ctx context.Context, in *SessionListenerOnRingingRequest, opts ...grpc.CallOption) (*OnRingingResponse, error)
+	OnRingingBack(ctx context.Context, in *OnRingingBackRequest, opts ...grpc.CallOption) (*OnRingingBackResponse, error)
+}
+
+type sessionListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSessionListenerServiceClient(cc grpc.ClientConnInterface) SessionListenerServiceClient {
+	return &sessionListenerServiceClient{cc}
+}
+
+func (c *sessionListenerServiceClient) OnCallBusy(ctx context.Context, in *OnCallBusyRequest, opts ...grpc.CallOption) (*OnCallBusyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallBusyResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnCallBusy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnCallChangeFailed(ctx context.Context, in *OnCallChangeFailedRequest, opts ...grpc.CallOption) (*OnCallChangeFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallChangeFailedResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnCallChangeFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnCallEnded(ctx context.Context, in *OnCallEndedRequest, opts ...grpc.CallOption) (*OnCallEndedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallEndedResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnCallEnded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnCallEstablished(ctx context.Context, in *SessionListenerOnCallEstablishedRequest, opts ...grpc.CallOption) (*OnCallEstablishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallEstablishedResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnCallEstablished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnCalling(ctx context.Context, in *OnCallingRequest, opts ...grpc.CallOption) (*OnCallingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCallingResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnCalling_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnRegistering(ctx context.Context, in *SessionListenerOnRegisteringRequest, opts ...grpc.CallOption) (*OnRegisteringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRegisteringResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnRegistering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnRegistrationDone(ctx context.Context, in *SessionListenerOnRegistrationDoneRequest, opts ...grpc.CallOption) (*OnRegistrationDoneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRegistrationDoneResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnRegistrationDone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnRegistrationFailed(ctx context.Context, in *SessionListenerOnRegistrationFailedRequest, opts ...grpc.CallOption) (*OnRegistrationFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRegistrationFailedResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnRegistrationFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnRegistrationTimeout(ctx context.Context, in *OnRegistrationTimeoutRequest, opts ...grpc.CallOption) (*OnRegistrationTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRegistrationTimeoutResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnRegistrationTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnRinging(ctx context.Context, in *SessionListenerOnRingingRequest, opts ...grpc.CallOption) (*OnRingingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRingingResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnRinging_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sessionListenerServiceClient) OnRingingBack(ctx context.Context, in *OnRingingBackRequest, opts ...grpc.CallOption) (*OnRingingBackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRingingBackResponse)
+	err := c.cc.Invoke(ctx, SessionListenerService_OnRingingBack_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SessionListenerServiceServer is the server API for SessionListenerService service.
+// All implementations must embed UnimplementedSessionListenerServiceServer
+// for forward compatibility.
+type SessionListenerServiceServer interface {
+	OnCallBusy(context.Context, *OnCallBusyRequest) (*OnCallBusyResponse, error)
+	OnCallChangeFailed(context.Context, *OnCallChangeFailedRequest) (*OnCallChangeFailedResponse, error)
+	OnCallEnded(context.Context, *OnCallEndedRequest) (*OnCallEndedResponse, error)
+	OnCallEstablished(context.Context, *SessionListenerOnCallEstablishedRequest) (*OnCallEstablishedResponse, error)
+	OnCalling(context.Context, *OnCallingRequest) (*OnCallingResponse, error)
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	OnRegistering(context.Context, *SessionListenerOnRegisteringRequest) (*OnRegisteringResponse, error)
+	OnRegistrationDone(context.Context, *SessionListenerOnRegistrationDoneRequest) (*OnRegistrationDoneResponse, error)
+	OnRegistrationFailed(context.Context, *SessionListenerOnRegistrationFailedRequest) (*OnRegistrationFailedResponse, error)
+	OnRegistrationTimeout(context.Context, *OnRegistrationTimeoutRequest) (*OnRegistrationTimeoutResponse, error)
+	OnRinging(context.Context, *SessionListenerOnRingingRequest) (*OnRingingResponse, error)
+	OnRingingBack(context.Context, *OnRingingBackRequest) (*OnRingingBackResponse, error)
+	mustEmbedUnimplementedSessionListenerServiceServer()
+}
+
+// UnimplementedSessionListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSessionListenerServiceServer struct{}
+
+func (UnimplementedSessionListenerServiceServer) OnCallBusy(context.Context, *OnCallBusyRequest) (*OnCallBusyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCallBusy not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnCallChangeFailed(context.Context, *OnCallChangeFailedRequest) (*OnCallChangeFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCallChangeFailed not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnCallEnded(context.Context, *OnCallEndedRequest) (*OnCallEndedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCallEnded not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnCallEstablished(context.Context, *SessionListenerOnCallEstablishedRequest) (*OnCallEstablishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCallEstablished not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnCalling(context.Context, *OnCallingRequest) (*OnCallingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCalling not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnRegistering(context.Context, *SessionListenerOnRegisteringRequest) (*OnRegisteringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRegistering not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnRegistrationDone(context.Context, *SessionListenerOnRegistrationDoneRequest) (*OnRegistrationDoneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRegistrationDone not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnRegistrationFailed(context.Context, *SessionListenerOnRegistrationFailedRequest) (*OnRegistrationFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRegistrationFailed not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnRegistrationTimeout(context.Context, *OnRegistrationTimeoutRequest) (*OnRegistrationTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRegistrationTimeout not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnRinging(context.Context, *SessionListenerOnRingingRequest) (*OnRingingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRinging not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) OnRingingBack(context.Context, *OnRingingBackRequest) (*OnRingingBackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRingingBack not implemented")
+}
+func (UnimplementedSessionListenerServiceServer) mustEmbedUnimplementedSessionListenerServiceServer() {
+}
+func (UnimplementedSessionListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSessionListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionListenerServiceServer will
+// result in compilation errors.
+type UnsafeSessionListenerServiceServer interface {
+	mustEmbedUnimplementedSessionListenerServiceServer()
+}
+
+func RegisterSessionListenerServiceServer(s grpc.ServiceRegistrar, srv SessionListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SessionListenerService_ServiceDesc, srv)
+}
+
+func _SessionListenerService_OnCallBusy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallBusyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnCallBusy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnCallBusy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnCallBusy(ctx, req.(*OnCallBusyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnCallChangeFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallChangeFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnCallChangeFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnCallChangeFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnCallChangeFailed(ctx, req.(*OnCallChangeFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnCallEnded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallEndedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnCallEnded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnCallEnded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnCallEnded(ctx, req.(*OnCallEndedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnCallEstablished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionListenerOnCallEstablishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnCallEstablished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnCallEstablished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnCallEstablished(ctx, req.(*SessionListenerOnCallEstablishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnCalling_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCallingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnCalling(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnCalling_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnCalling(ctx, req.(*OnCallingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnRegistering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionListenerOnRegisteringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnRegistering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnRegistering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnRegistering(ctx, req.(*SessionListenerOnRegisteringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnRegistrationDone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionListenerOnRegistrationDoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnRegistrationDone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnRegistrationDone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnRegistrationDone(ctx, req.(*SessionListenerOnRegistrationDoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnRegistrationFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionListenerOnRegistrationFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnRegistrationFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnRegistrationFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnRegistrationFailed(ctx, req.(*SessionListenerOnRegistrationFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnRegistrationTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRegistrationTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnRegistrationTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnRegistrationTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnRegistrationTimeout(ctx, req.(*OnRegistrationTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnRinging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SessionListenerOnRingingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnRinging(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnRinging_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnRinging(ctx, req.(*SessionListenerOnRingingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SessionListenerService_OnRingingBack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRingingBackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionListenerServiceServer).OnRingingBack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionListenerService_OnRingingBack_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionListenerServiceServer).OnRingingBack(ctx, req.(*OnRingingBackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SessionListenerService_ServiceDesc is the grpc.ServiceDesc for SessionListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SessionListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sip.SessionListenerService",
+	HandlerType: (*SessionListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnCallBusy",
+			Handler:    _SessionListenerService_OnCallBusy_Handler,
+		},
+		{
+			MethodName: "OnCallChangeFailed",
+			Handler:    _SessionListenerService_OnCallChangeFailed_Handler,
+		},
+		{
+			MethodName: "OnCallEnded",
+			Handler:    _SessionListenerService_OnCallEnded_Handler,
+		},
+		{
+			MethodName: "OnCallEstablished",
+			Handler:    _SessionListenerService_OnCallEstablished_Handler,
+		},
+		{
+			MethodName: "OnCalling",
+			Handler:    _SessionListenerService_OnCalling_Handler,
+		},
+		{
+			MethodName: "OnError",
+			Handler:    _SessionListenerService_OnError_Handler,
+		},
+		{
+			MethodName: "OnRegistering",
+			Handler:    _SessionListenerService_OnRegistering_Handler,
+		},
+		{
+			MethodName: "OnRegistrationDone",
+			Handler:    _SessionListenerService_OnRegistrationDone_Handler,
+		},
+		{
+			MethodName: "OnRegistrationFailed",
+			Handler:    _SessionListenerService_OnRegistrationFailed_Handler,
+		},
+		{
+			MethodName: "OnRegistrationTimeout",
+			Handler:    _SessionListenerService_OnRegistrationTimeout_Handler,
+		},
+		{
+			MethodName: "OnRinging",
+			Handler:    _SessionListenerService_OnRinging_Handler,
+		},
+		{
+			MethodName: "OnRingingBack",
+			Handler:    _SessionListenerService_OnRingingBack_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sip/sip.proto",
+}
+
+const (
+	SessionStateService_ToString_FullMethodName = "/sip.SessionStateService/ToString"
+)
+
+// SessionStateServiceClient is the client API for SessionStateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SessionStateServiceClient interface {
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type sessionStateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSessionStateServiceClient(cc grpc.ClientConnInterface) SessionStateServiceClient {
+	return &sessionStateServiceClient{cc}
+}
+
+func (c *sessionStateServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SessionStateService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SessionStateServiceServer is the server API for SessionStateService service.
+// All implementations must embed UnimplementedSessionStateServiceServer
+// for forward compatibility.
+type SessionStateServiceServer interface {
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedSessionStateServiceServer()
+}
+
+// UnimplementedSessionStateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSessionStateServiceServer struct{}
+
+func (UnimplementedSessionStateServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSessionStateServiceServer) mustEmbedUnimplementedSessionStateServiceServer() {}
+func (UnimplementedSessionStateServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeSessionStateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SessionStateServiceServer will
+// result in compilation errors.
+type UnsafeSessionStateServiceServer interface {
+	mustEmbedUnimplementedSessionStateServiceServer()
+}
+
+func RegisterSessionStateServiceServer(s grpc.ServiceRegistrar, srv SessionStateServiceServer) {
+	// If the following call panics, it indicates UnimplementedSessionStateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SessionStateService_ServiceDesc, srv)
+}
+
+func _SessionStateService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SessionStateServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SessionStateService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SessionStateServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SessionStateService_ServiceDesc is the grpc.ServiceDesc for SessionStateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SessionStateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sip.SessionStateService",
+	HandlerType: (*SessionStateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ToString",
+			Handler:    _SessionStateService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sip/sip.proto",
+}
+
+const (
 	ErrorCodeService_ToString_FullMethodName = "/sip.ErrorCodeService/ToString"
 )
 
@@ -4685,6 +3861,830 @@ var ErrorCodeService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _ErrorCodeService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sip/sip.proto",
+}
+
+const (
+	ManagerService_Close_FullMethodName                      = "/sip.ManagerService/Close"
+	ManagerService_CreateSipSession_FullMethodName           = "/sip.ManagerService/CreateSipSession"
+	ManagerService_GetSessionFor_FullMethodName              = "/sip.ManagerService/GetSessionFor"
+	ManagerService_IsOpened_FullMethodName                   = "/sip.ManagerService/IsOpened"
+	ManagerService_IsRegistered_FullMethodName               = "/sip.ManagerService/IsRegistered"
+	ManagerService_MakeAudioCall4_FullMethodName             = "/sip.ManagerService/MakeAudioCall4"
+	ManagerService_MakeAudioCall4_1_FullMethodName           = "/sip.ManagerService/MakeAudioCall4_1"
+	ManagerService_Open1_FullMethodName                      = "/sip.ManagerService/Open1"
+	ManagerService_Open3_1_FullMethodName                    = "/sip.ManagerService/Open3_1"
+	ManagerService_Register_FullMethodName                   = "/sip.ManagerService/Register"
+	ManagerService_SetRegistrationListener_FullMethodName    = "/sip.ManagerService/SetRegistrationListener"
+	ManagerService_TakeAudioCall_FullMethodName              = "/sip.ManagerService/TakeAudioCall"
+	ManagerService_Unregister_FullMethodName                 = "/sip.ManagerService/Unregister"
+	ManagerService_GetCallId_FullMethodName                  = "/sip.ManagerService/GetCallId"
+	ManagerService_GetOfferSessionDescription_FullMethodName = "/sip.ManagerService/GetOfferSessionDescription"
+	ManagerService_IsApiSupported_FullMethodName             = "/sip.ManagerService/IsApiSupported"
+	ManagerService_IsIncomingCallIntent_FullMethodName       = "/sip.ManagerService/IsIncomingCallIntent"
+	ManagerService_IsSipWifiOnly_FullMethodName              = "/sip.ManagerService/IsSipWifiOnly"
+	ManagerService_IsVoipSupported_FullMethodName            = "/sip.ManagerService/IsVoipSupported"
+	ManagerService_NewInstance_FullMethodName                = "/sip.ManagerService/NewInstance"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	Close(ctx context.Context, in *ManagerCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	CreateSipSession(ctx context.Context, in *CreateSipSessionRequest, opts ...grpc.CallOption) (*CreateSipSessionResponse, error)
+	GetSessionFor(ctx context.Context, in *GetSessionForRequest, opts ...grpc.CallOption) (*GetSessionForResponse, error)
+	IsOpened(ctx context.Context, in *IsOpenedRequest, opts ...grpc.CallOption) (*IsOpenedResponse, error)
+	IsRegistered(ctx context.Context, in *IsRegisteredRequest, opts ...grpc.CallOption) (*IsRegisteredResponse, error)
+	MakeAudioCall4(ctx context.Context, in *MakeAudioCall4Request, opts ...grpc.CallOption) (*MakeAudioCall4Response, error)
+	MakeAudioCall4_1(ctx context.Context, in *MakeAudioCall4_1Request, opts ...grpc.CallOption) (*MakeAudioCall4_1Response, error)
+	Open1(ctx context.Context, in *Open1Request, opts ...grpc.CallOption) (*Open1Response, error)
+	Open3_1(ctx context.Context, in *Open3_1Request, opts ...grpc.CallOption) (*Open3_1Response, error)
+	Register(ctx context.Context, in *ManagerRegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	SetRegistrationListener(ctx context.Context, in *SetRegistrationListenerRequest, opts ...grpc.CallOption) (*SetRegistrationListenerResponse, error)
+	TakeAudioCall(ctx context.Context, in *TakeAudioCallRequest, opts ...grpc.CallOption) (*TakeAudioCallResponse, error)
+	Unregister(ctx context.Context, in *ManagerUnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error)
+	GetCallId(ctx context.Context, in *ManagerGetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error)
+	GetOfferSessionDescription(ctx context.Context, in *GetOfferSessionDescriptionRequest, opts ...grpc.CallOption) (*GetOfferSessionDescriptionResponse, error)
+	IsApiSupported(ctx context.Context, in *IsApiSupportedRequest, opts ...grpc.CallOption) (*IsApiSupportedResponse, error)
+	IsIncomingCallIntent(ctx context.Context, in *IsIncomingCallIntentRequest, opts ...grpc.CallOption) (*IsIncomingCallIntentResponse, error)
+	IsSipWifiOnly(ctx context.Context, in *IsSipWifiOnlyRequest, opts ...grpc.CallOption) (*IsSipWifiOnlyResponse, error)
+	IsVoipSupported(ctx context.Context, in *IsVoipSupportedRequest, opts ...grpc.CallOption) (*IsVoipSupportedResponse, error)
+	NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) Close(ctx context.Context, in *ManagerCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, ManagerService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) CreateSipSession(ctx context.Context, in *CreateSipSessionRequest, opts ...grpc.CallOption) (*CreateSipSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSipSessionResponse)
+	err := c.cc.Invoke(ctx, ManagerService_CreateSipSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetSessionFor(ctx context.Context, in *GetSessionForRequest, opts ...grpc.CallOption) (*GetSessionForResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionForResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetSessionFor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsOpened(ctx context.Context, in *IsOpenedRequest, opts ...grpc.CallOption) (*IsOpenedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOpenedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsOpened_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsRegistered(ctx context.Context, in *IsRegisteredRequest, opts ...grpc.CallOption) (*IsRegisteredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRegisteredResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsRegistered_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) MakeAudioCall4(ctx context.Context, in *MakeAudioCall4Request, opts ...grpc.CallOption) (*MakeAudioCall4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MakeAudioCall4Response)
+	err := c.cc.Invoke(ctx, ManagerService_MakeAudioCall4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) MakeAudioCall4_1(ctx context.Context, in *MakeAudioCall4_1Request, opts ...grpc.CallOption) (*MakeAudioCall4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MakeAudioCall4_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_MakeAudioCall4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) Open1(ctx context.Context, in *Open1Request, opts ...grpc.CallOption) (*Open1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Open1Response)
+	err := c.cc.Invoke(ctx, ManagerService_Open1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) Open3_1(ctx context.Context, in *Open3_1Request, opts ...grpc.CallOption) (*Open3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Open3_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_Open3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) Register(ctx context.Context, in *ManagerRegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterResponse)
+	err := c.cc.Invoke(ctx, ManagerService_Register_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetRegistrationListener(ctx context.Context, in *SetRegistrationListenerRequest, opts ...grpc.CallOption) (*SetRegistrationListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRegistrationListenerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetRegistrationListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) TakeAudioCall(ctx context.Context, in *TakeAudioCallRequest, opts ...grpc.CallOption) (*TakeAudioCallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TakeAudioCallResponse)
+	err := c.cc.Invoke(ctx, ManagerService_TakeAudioCall_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) Unregister(ctx context.Context, in *ManagerUnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterResponse)
+	err := c.cc.Invoke(ctx, ManagerService_Unregister_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetCallId(ctx context.Context, in *ManagerGetCallIdRequest, opts ...grpc.CallOption) (*GetCallIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallIdResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetCallId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetOfferSessionDescription(ctx context.Context, in *GetOfferSessionDescriptionRequest, opts ...grpc.CallOption) (*GetOfferSessionDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOfferSessionDescriptionResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetOfferSessionDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsApiSupported(ctx context.Context, in *IsApiSupportedRequest, opts ...grpc.CallOption) (*IsApiSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsApiSupportedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsApiSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsIncomingCallIntent(ctx context.Context, in *IsIncomingCallIntentRequest, opts ...grpc.CallOption) (*IsIncomingCallIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsIncomingCallIntentResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsIncomingCallIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsSipWifiOnly(ctx context.Context, in *IsSipWifiOnlyRequest, opts ...grpc.CallOption) (*IsSipWifiOnlyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSipWifiOnlyResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsSipWifiOnly_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsVoipSupported(ctx context.Context, in *IsVoipSupportedRequest, opts ...grpc.CallOption) (*IsVoipSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsVoipSupportedResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsVoipSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) NewInstance(ctx context.Context, in *NewInstanceRequest, opts ...grpc.CallOption) (*NewInstanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInstanceResponse)
+	err := c.cc.Invoke(ctx, ManagerService_NewInstance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	Close(context.Context, *ManagerCloseRequest) (*CloseResponse, error)
+	CreateSipSession(context.Context, *CreateSipSessionRequest) (*CreateSipSessionResponse, error)
+	GetSessionFor(context.Context, *GetSessionForRequest) (*GetSessionForResponse, error)
+	IsOpened(context.Context, *IsOpenedRequest) (*IsOpenedResponse, error)
+	IsRegistered(context.Context, *IsRegisteredRequest) (*IsRegisteredResponse, error)
+	MakeAudioCall4(context.Context, *MakeAudioCall4Request) (*MakeAudioCall4Response, error)
+	MakeAudioCall4_1(context.Context, *MakeAudioCall4_1Request) (*MakeAudioCall4_1Response, error)
+	Open1(context.Context, *Open1Request) (*Open1Response, error)
+	Open3_1(context.Context, *Open3_1Request) (*Open3_1Response, error)
+	Register(context.Context, *ManagerRegisterRequest) (*RegisterResponse, error)
+	SetRegistrationListener(context.Context, *SetRegistrationListenerRequest) (*SetRegistrationListenerResponse, error)
+	TakeAudioCall(context.Context, *TakeAudioCallRequest) (*TakeAudioCallResponse, error)
+	Unregister(context.Context, *ManagerUnregisterRequest) (*UnregisterResponse, error)
+	GetCallId(context.Context, *ManagerGetCallIdRequest) (*GetCallIdResponse, error)
+	GetOfferSessionDescription(context.Context, *GetOfferSessionDescriptionRequest) (*GetOfferSessionDescriptionResponse, error)
+	IsApiSupported(context.Context, *IsApiSupportedRequest) (*IsApiSupportedResponse, error)
+	IsIncomingCallIntent(context.Context, *IsIncomingCallIntentRequest) (*IsIncomingCallIntentResponse, error)
+	IsSipWifiOnly(context.Context, *IsSipWifiOnlyRequest) (*IsSipWifiOnlyResponse, error)
+	IsVoipSupported(context.Context, *IsVoipSupportedRequest) (*IsVoipSupportedResponse, error)
+	NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) Close(context.Context, *ManagerCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedManagerServiceServer) CreateSipSession(context.Context, *CreateSipSessionRequest) (*CreateSipSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSipSession not implemented")
+}
+func (UnimplementedManagerServiceServer) GetSessionFor(context.Context, *GetSessionForRequest) (*GetSessionForResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionFor not implemented")
+}
+func (UnimplementedManagerServiceServer) IsOpened(context.Context, *IsOpenedRequest) (*IsOpenedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOpened not implemented")
+}
+func (UnimplementedManagerServiceServer) IsRegistered(context.Context, *IsRegisteredRequest) (*IsRegisteredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRegistered not implemented")
+}
+func (UnimplementedManagerServiceServer) MakeAudioCall4(context.Context, *MakeAudioCall4Request) (*MakeAudioCall4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method MakeAudioCall4 not implemented")
+}
+func (UnimplementedManagerServiceServer) MakeAudioCall4_1(context.Context, *MakeAudioCall4_1Request) (*MakeAudioCall4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method MakeAudioCall4_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) Open1(context.Context, *Open1Request) (*Open1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Open1 not implemented")
+}
+func (UnimplementedManagerServiceServer) Open3_1(context.Context, *Open3_1Request) (*Open3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Open3_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) Register(context.Context, *ManagerRegisterRequest) (*RegisterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Register not implemented")
+}
+func (UnimplementedManagerServiceServer) SetRegistrationListener(context.Context, *SetRegistrationListenerRequest) (*SetRegistrationListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRegistrationListener not implemented")
+}
+func (UnimplementedManagerServiceServer) TakeAudioCall(context.Context, *TakeAudioCallRequest) (*TakeAudioCallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TakeAudioCall not implemented")
+}
+func (UnimplementedManagerServiceServer) Unregister(context.Context, *ManagerUnregisterRequest) (*UnregisterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Unregister not implemented")
+}
+func (UnimplementedManagerServiceServer) GetCallId(context.Context, *ManagerGetCallIdRequest) (*GetCallIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallId not implemented")
+}
+func (UnimplementedManagerServiceServer) GetOfferSessionDescription(context.Context, *GetOfferSessionDescriptionRequest) (*GetOfferSessionDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOfferSessionDescription not implemented")
+}
+func (UnimplementedManagerServiceServer) IsApiSupported(context.Context, *IsApiSupportedRequest) (*IsApiSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsApiSupported not implemented")
+}
+func (UnimplementedManagerServiceServer) IsIncomingCallIntent(context.Context, *IsIncomingCallIntentRequest) (*IsIncomingCallIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsIncomingCallIntent not implemented")
+}
+func (UnimplementedManagerServiceServer) IsSipWifiOnly(context.Context, *IsSipWifiOnlyRequest) (*IsSipWifiOnlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSipWifiOnly not implemented")
+}
+func (UnimplementedManagerServiceServer) IsVoipSupported(context.Context, *IsVoipSupportedRequest) (*IsVoipSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsVoipSupported not implemented")
+}
+func (UnimplementedManagerServiceServer) NewInstance(context.Context, *NewInstanceRequest) (*NewInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInstance not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagerCloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).Close(ctx, req.(*ManagerCloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_CreateSipSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSipSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).CreateSipSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_CreateSipSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).CreateSipSession(ctx, req.(*CreateSipSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetSessionFor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionForRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetSessionFor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetSessionFor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetSessionFor(ctx, req.(*GetSessionForRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsOpened_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOpenedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsOpened(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsOpened_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsOpened(ctx, req.(*IsOpenedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsRegistered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRegisteredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsRegistered(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsRegistered_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsRegistered(ctx, req.(*IsRegisteredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_MakeAudioCall4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MakeAudioCall4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).MakeAudioCall4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_MakeAudioCall4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).MakeAudioCall4(ctx, req.(*MakeAudioCall4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_MakeAudioCall4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MakeAudioCall4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).MakeAudioCall4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_MakeAudioCall4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).MakeAudioCall4_1(ctx, req.(*MakeAudioCall4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_Open1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Open1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).Open1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_Open1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).Open1(ctx, req.(*Open1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_Open3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Open3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).Open3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_Open3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).Open3_1(ctx, req.(*Open3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagerRegisterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).Register(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_Register_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).Register(ctx, req.(*ManagerRegisterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetRegistrationListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRegistrationListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetRegistrationListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetRegistrationListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetRegistrationListener(ctx, req.(*SetRegistrationListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_TakeAudioCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TakeAudioCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).TakeAudioCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_TakeAudioCall_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).TakeAudioCall(ctx, req.(*TakeAudioCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_Unregister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagerUnregisterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).Unregister(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_Unregister_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).Unregister(ctx, req.(*ManagerUnregisterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetCallId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagerGetCallIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetCallId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetCallId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetCallId(ctx, req.(*ManagerGetCallIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetOfferSessionDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOfferSessionDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetOfferSessionDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetOfferSessionDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetOfferSessionDescription(ctx, req.(*GetOfferSessionDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsApiSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsApiSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsApiSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsApiSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsApiSupported(ctx, req.(*IsApiSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsIncomingCallIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsIncomingCallIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsIncomingCallIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsIncomingCallIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsIncomingCallIntent(ctx, req.(*IsIncomingCallIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsSipWifiOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSipWifiOnlyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsSipWifiOnly(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsSipWifiOnly_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsSipWifiOnly(ctx, req.(*IsSipWifiOnlyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsVoipSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsVoipSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsVoipSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsVoipSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsVoipSupported(ctx, req.(*IsVoipSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_NewInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInstanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).NewInstance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_NewInstance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).NewInstance(ctx, req.(*NewInstanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sip.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _ManagerService_Close_Handler,
+		},
+		{
+			MethodName: "CreateSipSession",
+			Handler:    _ManagerService_CreateSipSession_Handler,
+		},
+		{
+			MethodName: "GetSessionFor",
+			Handler:    _ManagerService_GetSessionFor_Handler,
+		},
+		{
+			MethodName: "IsOpened",
+			Handler:    _ManagerService_IsOpened_Handler,
+		},
+		{
+			MethodName: "IsRegistered",
+			Handler:    _ManagerService_IsRegistered_Handler,
+		},
+		{
+			MethodName: "MakeAudioCall4",
+			Handler:    _ManagerService_MakeAudioCall4_Handler,
+		},
+		{
+			MethodName: "MakeAudioCall4_1",
+			Handler:    _ManagerService_MakeAudioCall4_1_Handler,
+		},
+		{
+			MethodName: "Open1",
+			Handler:    _ManagerService_Open1_Handler,
+		},
+		{
+			MethodName: "Open3_1",
+			Handler:    _ManagerService_Open3_1_Handler,
+		},
+		{
+			MethodName: "Register",
+			Handler:    _ManagerService_Register_Handler,
+		},
+		{
+			MethodName: "SetRegistrationListener",
+			Handler:    _ManagerService_SetRegistrationListener_Handler,
+		},
+		{
+			MethodName: "TakeAudioCall",
+			Handler:    _ManagerService_TakeAudioCall_Handler,
+		},
+		{
+			MethodName: "Unregister",
+			Handler:    _ManagerService_Unregister_Handler,
+		},
+		{
+			MethodName: "GetCallId",
+			Handler:    _ManagerService_GetCallId_Handler,
+		},
+		{
+			MethodName: "GetOfferSessionDescription",
+			Handler:    _ManagerService_GetOfferSessionDescription_Handler,
+		},
+		{
+			MethodName: "IsApiSupported",
+			Handler:    _ManagerService_IsApiSupported_Handler,
+		},
+		{
+			MethodName: "IsIncomingCallIntent",
+			Handler:    _ManagerService_IsIncomingCallIntent_Handler,
+		},
+		{
+			MethodName: "IsSipWifiOnly",
+			Handler:    _ManagerService_IsSipWifiOnly_Handler,
+		},
+		{
+			MethodName: "IsVoipSupported",
+			Handler:    _ManagerService_IsVoipSupported_Handler,
+		},
+		{
+			MethodName: "NewInstance",
+			Handler:    _ManagerService_NewInstance_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

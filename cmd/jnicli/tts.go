@@ -166,6 +166,263 @@ var ttsSynthesisCallbackStartCmd = &cobra.Command{
 	},
 }
 
+var ttsVoiceCmd = &cobra.Command{
+	Use:   "voice",
+	Short: "VoiceService operations",
+}
+
+var ttsVoiceNewVoiceCmd = &cobra.Command{
+	Use:   "new-voice",
+	Short: "NewVoice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.NewVoiceRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.NewVoice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceGetFeaturesCmd = &cobra.Command{
+	Use:   "get-features",
+	Short: "GetFeatures RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.GetFeaturesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFeatures(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceGetLatencyCmd = &cobra.Command{
+	Use:   "get-latency",
+	Short: "GetLatency RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.GetLatencyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLatency(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.GetLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceGetQualityCmd = &cobra.Command{
+	Use:   "get-quality",
+	Short: "GetQuality RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.GetQualityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetQuality(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceIsNetworkConnectionRequiredCmd = &cobra.Command{
+	Use:   "is-network-connection-required",
+	Short: "IsNetworkConnectionRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.IsNetworkConnectionRequiredRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsNetworkConnectionRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ttsVoiceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVoiceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var ttsSynthesisRequestCmd = &cobra.Command{
 	Use:   "synthesis-request",
 	Short: "SynthesisRequestService operations",
@@ -648,6 +905,22 @@ var ttsTextToSpeechServiceOnGetDefaultVoiceNameForCmd = &cobra.Command{
 	},
 }
 
+var ttsTextToSpeechServiceOnGetVoicesCmd = &cobra.Command{
+	Use:   "on-get-voices",
+	Short: "OnGetVoices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextToSpeechServiceServiceClient(grpcConn)
+		req := &pb.OnGetVoicesRequest{}
+		resp, err := client.OnGetVoices(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var ttsTextToSpeechServiceOnIsValidVoiceNameCmd = &cobra.Command{
 	Use:   "on-is-valid-voice-name",
 	Short: "OnIsValidVoiceName RPC",
@@ -686,244 +959,6 @@ var ttsTextToSpeechServiceOnLoadVoiceCmd = &cobra.Command{
 	},
 }
 
-var ttsVoiceCmd = &cobra.Command{
-	Use:   "voice",
-	Short: "VoiceService operations",
-}
-
-var ttsVoiceNewVoiceCmd = &cobra.Command{
-	Use:   "new-voice",
-	Short: "NewVoice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.NewVoiceRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.NewVoice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceGetLatencyCmd = &cobra.Command{
-	Use:   "get-latency",
-	Short: "GetLatency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.GetLatencyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLatency(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceGetLocaleCmd = &cobra.Command{
-	Use:   "get-locale",
-	Short: "GetLocale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.GetLocaleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceGetQualityCmd = &cobra.Command{
-	Use:   "get-quality",
-	Short: "GetQuality RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.GetQualityRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetQuality(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceIsNetworkConnectionRequiredCmd = &cobra.Command{
-	Use:   "is-network-connection-required",
-	Short: "IsNetworkConnectionRequired RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.IsNetworkConnectionRequiredRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsNetworkConnectionRequired(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ttsVoiceWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVoiceServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
 	ttsSynthesisCallbackAudioAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ttsSynthesisCallbackAudioAvailableCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
@@ -941,6 +976,39 @@ func init() {
 	ttsSynthesisCallbackStartCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
 	ttsSynthesisCallbackCmd.AddCommand(ttsSynthesisCallbackStartCmd)
 	ttsCmd.AddCommand(ttsSynthesisCallbackCmd)
+	ttsVoiceNewVoiceCmd.Flags().String("arg0", "", "arg0 (string)")
+	ttsVoiceNewVoiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ttsVoiceNewVoiceCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	ttsVoiceNewVoiceCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	ttsVoiceNewVoiceCmd.Flags().Bool("arg4", false, "arg4 (bool)")
+	ttsVoiceNewVoiceCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceNewVoiceCmd)
+	ttsVoiceDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceDescribeContentsCmd)
+	ttsVoiceEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceEqualsCmd)
+	ttsVoiceGetFeaturesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceGetFeaturesCmd)
+	ttsVoiceGetLatencyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceGetLatencyCmd)
+	ttsVoiceGetLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceGetLocaleCmd)
+	ttsVoiceGetNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceGetNameCmd)
+	ttsVoiceGetQualityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceGetQualityCmd)
+	ttsVoiceHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceHashCodeCmd)
+	ttsVoiceIsNetworkConnectionRequiredCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceIsNetworkConnectionRequiredCmd)
+	ttsVoiceToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceCmd.AddCommand(ttsVoiceToStringCmd)
+	ttsVoiceWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ttsVoiceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ttsVoiceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ttsVoiceCmd.AddCommand(ttsVoiceWriteToParcelCmd)
+	ttsCmd.AddCommand(ttsVoiceCmd)
 	ttsSynthesisRequestNewSynthesisRequestCmd.Flags().String("arg0", "", "arg0 (string)")
 	ttsSynthesisRequestNewSynthesisRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	ttsSynthesisRequestCmd.AddCommand(ttsSynthesisRequestNewSynthesisRequestCmd)
@@ -999,41 +1067,11 @@ func init() {
 	ttsTextToSpeechServiceOnGetDefaultVoiceNameForCmd.Flags().String("arg1", "", "arg1 (string)")
 	ttsTextToSpeechServiceOnGetDefaultVoiceNameForCmd.Flags().String("arg2", "", "arg2 (string)")
 	ttsTextToSpeechServiceCmd.AddCommand(ttsTextToSpeechServiceOnGetDefaultVoiceNameForCmd)
+	ttsTextToSpeechServiceCmd.AddCommand(ttsTextToSpeechServiceOnGetVoicesCmd)
 	ttsTextToSpeechServiceOnIsValidVoiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
 	ttsTextToSpeechServiceCmd.AddCommand(ttsTextToSpeechServiceOnIsValidVoiceNameCmd)
 	ttsTextToSpeechServiceOnLoadVoiceCmd.Flags().String("arg0", "", "arg0 (string)")
 	ttsTextToSpeechServiceCmd.AddCommand(ttsTextToSpeechServiceOnLoadVoiceCmd)
 	ttsCmd.AddCommand(ttsTextToSpeechServiceCmd)
-	ttsVoiceNewVoiceCmd.Flags().String("arg0", "", "arg0 (string)")
-	ttsVoiceNewVoiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ttsVoiceNewVoiceCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	ttsVoiceNewVoiceCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	ttsVoiceNewVoiceCmd.Flags().Bool("arg4", false, "arg4 (bool)")
-	ttsVoiceNewVoiceCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceNewVoiceCmd)
-	ttsVoiceDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceDescribeContentsCmd)
-	ttsVoiceEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceEqualsCmd)
-	ttsVoiceGetLatencyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceGetLatencyCmd)
-	ttsVoiceGetLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceGetLocaleCmd)
-	ttsVoiceGetNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceGetNameCmd)
-	ttsVoiceGetQualityCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceGetQualityCmd)
-	ttsVoiceHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceHashCodeCmd)
-	ttsVoiceIsNetworkConnectionRequiredCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceIsNetworkConnectionRequiredCmd)
-	ttsVoiceToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceCmd.AddCommand(ttsVoiceToStringCmd)
-	ttsVoiceWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ttsVoiceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ttsVoiceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ttsVoiceCmd.AddCommand(ttsVoiceWriteToParcelCmd)
-	ttsCmd.AddCommand(ttsVoiceCmd)
 	rootCmd.AddCommand(ttsCmd)
 }

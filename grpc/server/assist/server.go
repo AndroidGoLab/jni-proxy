@@ -15,157 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// StructureServer implements pb.StructureServiceServer.
-type StructureServer struct {
-	pb.UnimplementedStructureServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *StructureServer) NewStructure(_ context.Context, req *pb.NewStructureRequest) (*pb.NewStructureResponse, error) {
-	obj, err := jnipkg.NewStructure(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewStructureResponse{Result: handle}, nil
-}
-
-func (s *StructureServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *StructureServer) GetAcquisitionEndTime(_ context.Context, req *pb.GetAcquisitionEndTimeRequest) (*pb.GetAcquisitionEndTimeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAcquisitionEndTime()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetAcquisitionEndTimeResponse{Result: result}, nil
-}
-
-func (s *StructureServer) GetAcquisitionStartTime(_ context.Context, req *pb.GetAcquisitionStartTimeRequest) (*pb.GetAcquisitionStartTimeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAcquisitionStartTime()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetAcquisitionStartTimeResponse{Result: result}, nil
-}
-
-func (s *StructureServer) GetActivityComponent(_ context.Context, req *pb.GetActivityComponentRequest) (*pb.GetActivityComponentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetActivityComponent()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetActivityComponentResponse{Result: handle}, nil
-}
-
-func (s *StructureServer) GetWindowNodeAt(_ context.Context, req *pb.GetWindowNodeAtRequest) (*pb.GetWindowNodeAtResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWindowNodeAt(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetWindowNodeAtResponse{Result: handle}, nil
-}
-
-func (s *StructureServer) GetWindowNodeCount(_ context.Context, req *pb.GetWindowNodeCountRequest) (*pb.GetWindowNodeCountResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWindowNodeCount()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetWindowNodeCountResponse{Result: result}, nil
-}
-
-func (s *StructureServer) IsHomeActivity(_ context.Context, req *pb.IsHomeActivityRequest) (*pb.IsHomeActivityResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsHomeActivity()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsHomeActivityResponse{Result: result}, nil
-}
-
-func (s *StructureServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
 // ContentServer implements pb.ContentServiceServer.
 type ContentServer struct {
 	pb.UnimplementedContentServiceServer
@@ -225,7 +74,7 @@ func (s *ContentServer) GetClipData(_ context.Context, req *pb.GetClipDataReques
 	return &pb.GetClipDataResponse{Result: handle}, nil
 }
 
-func (s *ContentServer) GetExtras(_ context.Context, req *pb.ContentGetExtrasRequest) (*pb.GetExtrasResponse, error) {
+func (s *ContentServer) GetExtras(_ context.Context, req *pb.GetExtrasRequest) (*pb.GetExtrasResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -430,6 +279,157 @@ func (s *ContentServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRe
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.Content{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// StructureServer implements pb.StructureServiceServer.
+type StructureServer struct {
+	pb.UnimplementedStructureServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *StructureServer) NewStructure(_ context.Context, req *pb.NewStructureRequest) (*pb.NewStructureResponse, error) {
+	obj, err := jnipkg.NewStructure(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewStructureResponse{Result: handle}, nil
+}
+
+func (s *StructureServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *StructureServer) GetAcquisitionEndTime(_ context.Context, req *pb.GetAcquisitionEndTimeRequest) (*pb.GetAcquisitionEndTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAcquisitionEndTime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAcquisitionEndTimeResponse{Result: result}, nil
+}
+
+func (s *StructureServer) GetAcquisitionStartTime(_ context.Context, req *pb.GetAcquisitionStartTimeRequest) (*pb.GetAcquisitionStartTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAcquisitionStartTime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAcquisitionStartTimeResponse{Result: result}, nil
+}
+
+func (s *StructureServer) GetActivityComponent(_ context.Context, req *pb.GetActivityComponentRequest) (*pb.GetActivityComponentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActivityComponent()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetActivityComponentResponse{Result: handle}, nil
+}
+
+func (s *StructureServer) GetWindowNodeAt(_ context.Context, req *pb.GetWindowNodeAtRequest) (*pb.GetWindowNodeAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWindowNodeAt(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetWindowNodeAtResponse{Result: handle}, nil
+}
+
+func (s *StructureServer) GetWindowNodeCount(_ context.Context, req *pb.GetWindowNodeCountRequest) (*pb.GetWindowNodeCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWindowNodeCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWindowNodeCountResponse{Result: result}, nil
+}
+
+func (s *StructureServer) IsHomeActivity(_ context.Context, req *pb.IsHomeActivityRequest) (*pb.IsHomeActivityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsHomeActivity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsHomeActivityResponse{Result: result}, nil
+}
+
+func (s *StructureServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Structure{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

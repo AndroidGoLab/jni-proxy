@@ -232,18 +232,18 @@ var commonKeyedFrequencyCapBuilderSetMaxCountCmd = &cobra.Command{
 	},
 }
 
-var commonAdFiltersCmd = &cobra.Command{
-	Use:   "ad-filters",
-	Short: "AdFiltersService operations",
+var commonAdSelectionSignalsCmd = &cobra.Command{
+	Use:   "ad-selection-signals",
+	Short: "AdSelectionSignalsService operations",
 }
 
-var commonAdFiltersDescribeContentsCmd = &cobra.Command{
+var commonAdSelectionSignalsDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdFiltersServiceClient(grpcConn)
+		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -253,13 +253,13 @@ var commonAdFiltersDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var commonAdFiltersEqualsCmd = &cobra.Command{
+var commonAdSelectionSignalsEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdFiltersServiceClient(grpcConn)
+		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -272,45 +272,13 @@ var commonAdFiltersEqualsCmd = &cobra.Command{
 	},
 }
 
-var commonAdFiltersGetAppInstallFiltersCmd = &cobra.Command{
-	Use:   "get-app-install-filters",
-	Short: "GetAppInstallFilters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdFiltersServiceClient(grpcConn)
-		req := &pb.GetAppInstallFiltersRequest{}
-		resp, err := client.GetAppInstallFilters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAdFiltersGetFrequencyCapFiltersCmd = &cobra.Command{
-	Use:   "get-frequency-cap-filters",
-	Short: "GetFrequencyCapFilters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdFiltersServiceClient(grpcConn)
-		req := &pb.GetFrequencyCapFiltersRequest{}
-		resp, err := client.GetFrequencyCapFilters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAdFiltersHashCodeCmd = &cobra.Command{
+var commonAdSelectionSignalsHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdFiltersServiceClient(grpcConn)
+		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -320,13 +288,13 @@ var commonAdFiltersHashCodeCmd = &cobra.Command{
 	},
 }
 
-var commonAdFiltersToStringCmd = &cobra.Command{
+var commonAdSelectionSignalsToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdFiltersServiceClient(grpcConn)
+		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -336,13 +304,13 @@ var commonAdFiltersToStringCmd = &cobra.Command{
 	},
 }
 
-var commonAdFiltersWriteToParcelCmd = &cobra.Command{
+var commonAdSelectionSignalsWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdFiltersServiceClient(grpcConn)
+		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -358,58 +326,197 @@ var commonAdFiltersWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var commonAdFiltersBuilderCmd = &cobra.Command{
-	Use:   "ad-filters-builder",
-	Short: "AdFiltersBuilderService operations",
+var commonAdSelectionSignalsFromStringCmd = &cobra.Command{
+	Use:   "from-string",
+	Short: "FromString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
+		req := &pb.FromStringRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var commonAdFiltersBuilderBuildCmd = &cobra.Command{
+var commonFrequencyCapFiltersCmd = &cobra.Command{
+	Use:   "frequency-cap-filters",
+	Short: "FrequencyCapFiltersService operations",
+}
+
+var commonFrequencyCapFiltersDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersGetKeyedFrequencyCapsForClickEventsCmd = &cobra.Command{
+	Use:   "get-keyed-frequency-caps-for-click-events",
+	Short: "GetKeyedFrequencyCapsForClickEvents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.GetKeyedFrequencyCapsForClickEventsRequest{}
+		resp, err := client.GetKeyedFrequencyCapsForClickEvents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersGetKeyedFrequencyCapsForImpressionEventsCmd = &cobra.Command{
+	Use:   "get-keyed-frequency-caps-for-impression-events",
+	Short: "GetKeyedFrequencyCapsForImpressionEvents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.GetKeyedFrequencyCapsForImpressionEventsRequest{}
+		resp, err := client.GetKeyedFrequencyCapsForImpressionEvents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersGetKeyedFrequencyCapsForViewEventsCmd = &cobra.Command{
+	Use:   "get-keyed-frequency-caps-for-view-events",
+	Short: "GetKeyedFrequencyCapsForViewEvents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.GetKeyedFrequencyCapsForViewEventsRequest{}
+		resp, err := client.GetKeyedFrequencyCapsForViewEvents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersGetKeyedFrequencyCapsForWinEventsCmd = &cobra.Command{
+	Use:   "get-keyed-frequency-caps-for-win-events",
+	Short: "GetKeyedFrequencyCapsForWinEvents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.GetKeyedFrequencyCapsForWinEventsRequest{}
+		resp, err := client.GetKeyedFrequencyCapsForWinEvents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonFrequencyCapFiltersBuilderCmd = &cobra.Command{
+	Use:   "frequency-cap-filters-builder",
+	Short: "FrequencyCapFiltersBuilderService operations",
+}
+
+var commonFrequencyCapFiltersBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdFiltersBuilderServiceClient(grpcConn)
+		client := pb.NewFrequencyCapFiltersBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAdFiltersBuilderSetAppInstallFiltersCmd = &cobra.Command{
-	Use:   "set-app-install-filters",
-	Short: "SetAppInstallFilters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdFiltersBuilderServiceClient(grpcConn)
-		req := &pb.SetAppInstallFiltersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAppInstallFilters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAdFiltersBuilderSetFrequencyCapFiltersCmd = &cobra.Command{
-	Use:   "set-frequency-cap-filters",
-	Short: "SetFrequencyCapFilters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdFiltersBuilderServiceClient(grpcConn)
-		req := &pb.SetFrequencyCapFiltersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFrequencyCapFilters(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -699,236 +806,6 @@ var commonAdTechIdentifierFromStringCmd = &cobra.Command{
 	},
 }
 
-var commonAppInstallFiltersCmd = &cobra.Command{
-	Use:   "app-install-filters",
-	Short: "AppInstallFiltersService operations",
-}
-
-var commonAppInstallFiltersDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAppInstallFiltersEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAppInstallFiltersHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAppInstallFiltersToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAppInstallFiltersWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonAppInstallFiltersBuilderCmd = &cobra.Command{
-	Use:   "app-install-filters-builder",
-	Short: "AppInstallFiltersBuilderService operations",
-}
-
-var commonAppInstallFiltersBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInstallFiltersBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonFrequencyCapFiltersCmd = &cobra.Command{
-	Use:   "frequency-cap-filters",
-	Short: "FrequencyCapFiltersService operations",
-}
-
-var commonFrequencyCapFiltersDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonFrequencyCapFiltersEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonFrequencyCapFiltersHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonFrequencyCapFiltersToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonFrequencyCapFiltersWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFrequencyCapFiltersServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var commonFrequencyCapFiltersBuilderCmd = &cobra.Command{
-	Use:   "frequency-cap-filters-builder",
-	Short: "FrequencyCapFiltersBuilderService operations",
-}
-
-var commonFrequencyCapFiltersBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFrequencyCapFiltersBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var commonAdDataCmd = &cobra.Command{
 	Use:   "ad-data",
 	Short: "AdDataService operations",
@@ -962,6 +839,22 @@ var commonAdDataEqualsCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAdDataGetAdCounterKeysCmd = &cobra.Command{
+	Use:   "get-ad-counter-keys",
+	Short: "GetAdCounterKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdDataServiceClient(grpcConn)
+		req := &pb.GetAdCounterKeysRequest{}
+		resp, err := client.GetAdCounterKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1184,18 +1077,18 @@ var commonAdDataBuilderSetRenderUriCmd = &cobra.Command{
 	},
 }
 
-var commonAdSelectionSignalsCmd = &cobra.Command{
-	Use:   "ad-selection-signals",
-	Short: "AdSelectionSignalsService operations",
+var commonAdFiltersCmd = &cobra.Command{
+	Use:   "ad-filters",
+	Short: "AdFiltersService operations",
 }
 
-var commonAdSelectionSignalsDescribeContentsCmd = &cobra.Command{
+var commonAdFiltersDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
+		client := pb.NewAdFiltersServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -1205,13 +1098,13 @@ var commonAdSelectionSignalsDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var commonAdSelectionSignalsEqualsCmd = &cobra.Command{
+var commonAdFiltersEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
+		client := pb.NewAdFiltersServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1224,13 +1117,45 @@ var commonAdSelectionSignalsEqualsCmd = &cobra.Command{
 	},
 }
 
-var commonAdSelectionSignalsHashCodeCmd = &cobra.Command{
+var commonAdFiltersGetAppInstallFiltersCmd = &cobra.Command{
+	Use:   "get-app-install-filters",
+	Short: "GetAppInstallFilters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdFiltersServiceClient(grpcConn)
+		req := &pb.GetAppInstallFiltersRequest{}
+		resp, err := client.GetAppInstallFilters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAdFiltersGetFrequencyCapFiltersCmd = &cobra.Command{
+	Use:   "get-frequency-cap-filters",
+	Short: "GetFrequencyCapFilters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdFiltersServiceClient(grpcConn)
+		req := &pb.GetFrequencyCapFiltersRequest{}
+		resp, err := client.GetFrequencyCapFilters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAdFiltersHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
+		client := pb.NewAdFiltersServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -1240,13 +1165,13 @@ var commonAdSelectionSignalsHashCodeCmd = &cobra.Command{
 	},
 }
 
-var commonAdSelectionSignalsToStringCmd = &cobra.Command{
+var commonAdFiltersToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
+		client := pb.NewAdFiltersServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -1256,13 +1181,13 @@ var commonAdSelectionSignalsToStringCmd = &cobra.Command{
 	},
 }
 
-var commonAdSelectionSignalsWriteToParcelCmd = &cobra.Command{
+var commonAdFiltersWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
+		client := pb.NewAdFiltersServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1278,18 +1203,189 @@ var commonAdSelectionSignalsWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var commonAdSelectionSignalsFromStringCmd = &cobra.Command{
-	Use:   "from-string",
-	Short: "FromString RPC",
+var commonAdFiltersBuilderCmd = &cobra.Command{
+	Use:   "ad-filters-builder",
+	Short: "AdFiltersBuilderService operations",
+}
+
+var commonAdFiltersBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAdSelectionSignalsServiceClient(grpcConn)
-		req := &pb.FromStringRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+		client := pb.NewAdFiltersBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAdFiltersBuilderSetAppInstallFiltersCmd = &cobra.Command{
+	Use:   "set-app-install-filters",
+	Short: "SetAppInstallFilters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdFiltersBuilderServiceClient(grpcConn)
+		req := &pb.SetAppInstallFiltersRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.FromString(ctx, req)
+		resp, err := client.SetAppInstallFilters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAdFiltersBuilderSetFrequencyCapFiltersCmd = &cobra.Command{
+	Use:   "set-frequency-cap-filters",
+	Short: "SetFrequencyCapFilters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdFiltersBuilderServiceClient(grpcConn)
+		req := &pb.SetFrequencyCapFiltersRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFrequencyCapFilters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAppInstallFiltersCmd = &cobra.Command{
+	Use:   "app-install-filters",
+	Short: "AppInstallFiltersService operations",
+}
+
+var commonAppInstallFiltersDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAppInstallFiltersEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAppInstallFiltersGetPackageNamesCmd = &cobra.Command{
+	Use:   "get-package-names",
+	Short: "GetPackageNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
+		req := &pb.GetPackageNamesRequest{}
+		resp, err := client.GetPackageNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAppInstallFiltersHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAppInstallFiltersToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAppInstallFiltersWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInstallFiltersServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var commonAppInstallFiltersBuilderCmd = &cobra.Command{
+	Use:   "app-install-filters-builder",
+	Short: "AppInstallFiltersBuilderService operations",
+}
+
+var commonAppInstallFiltersBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInstallFiltersBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1318,23 +1414,32 @@ func init() {
 	commonKeyedFrequencyCapBuilderSetMaxCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	commonKeyedFrequencyCapBuilderCmd.AddCommand(commonKeyedFrequencyCapBuilderSetMaxCountCmd)
 	commonCmd.AddCommand(commonKeyedFrequencyCapBuilderCmd)
-	commonAdFiltersCmd.AddCommand(commonAdFiltersDescribeContentsCmd)
-	commonAdFiltersEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonAdFiltersCmd.AddCommand(commonAdFiltersEqualsCmd)
-	commonAdFiltersCmd.AddCommand(commonAdFiltersGetAppInstallFiltersCmd)
-	commonAdFiltersCmd.AddCommand(commonAdFiltersGetFrequencyCapFiltersCmd)
-	commonAdFiltersCmd.AddCommand(commonAdFiltersHashCodeCmd)
-	commonAdFiltersCmd.AddCommand(commonAdFiltersToStringCmd)
-	commonAdFiltersWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonAdFiltersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	commonAdFiltersCmd.AddCommand(commonAdFiltersWriteToParcelCmd)
-	commonCmd.AddCommand(commonAdFiltersCmd)
-	commonAdFiltersBuilderCmd.AddCommand(commonAdFiltersBuilderBuildCmd)
-	commonAdFiltersBuilderSetAppInstallFiltersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonAdFiltersBuilderCmd.AddCommand(commonAdFiltersBuilderSetAppInstallFiltersCmd)
-	commonAdFiltersBuilderSetFrequencyCapFiltersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonAdFiltersBuilderCmd.AddCommand(commonAdFiltersBuilderSetFrequencyCapFiltersCmd)
-	commonCmd.AddCommand(commonAdFiltersBuilderCmd)
+	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsDescribeContentsCmd)
+	commonAdSelectionSignalsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsEqualsCmd)
+	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsHashCodeCmd)
+	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsToStringCmd)
+	commonAdSelectionSignalsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonAdSelectionSignalsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsWriteToParcelCmd)
+	commonAdSelectionSignalsFromStringCmd.Flags().String("arg0", "", "arg0 (string)")
+	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsFromStringCmd)
+	commonCmd.AddCommand(commonAdSelectionSignalsCmd)
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersDescribeContentsCmd)
+	commonFrequencyCapFiltersEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersEqualsCmd)
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersGetKeyedFrequencyCapsForClickEventsCmd)
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersGetKeyedFrequencyCapsForImpressionEventsCmd)
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersGetKeyedFrequencyCapsForViewEventsCmd)
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersGetKeyedFrequencyCapsForWinEventsCmd)
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersHashCodeCmd)
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersToStringCmd)
+	commonFrequencyCapFiltersWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonFrequencyCapFiltersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersWriteToParcelCmd)
+	commonCmd.AddCommand(commonFrequencyCapFiltersCmd)
+	commonFrequencyCapFiltersBuilderCmd.AddCommand(commonFrequencyCapFiltersBuilderBuildCmd)
+	commonCmd.AddCommand(commonFrequencyCapFiltersBuilderCmd)
 	commonComponentAdDataNewComponentAdDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	commonComponentAdDataNewComponentAdDataCmd.Flags().String("arg1", "", "arg1 (string)")
 	commonComponentAdDataCmd.AddCommand(commonComponentAdDataNewComponentAdDataCmd)
@@ -1367,31 +1472,10 @@ func init() {
 	commonAdTechIdentifierFromStringCmd.Flags().String("arg0", "", "arg0 (string)")
 	commonAdTechIdentifierCmd.AddCommand(commonAdTechIdentifierFromStringCmd)
 	commonCmd.AddCommand(commonAdTechIdentifierCmd)
-	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersDescribeContentsCmd)
-	commonAppInstallFiltersEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersEqualsCmd)
-	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersHashCodeCmd)
-	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersToStringCmd)
-	commonAppInstallFiltersWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonAppInstallFiltersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersWriteToParcelCmd)
-	commonCmd.AddCommand(commonAppInstallFiltersCmd)
-	commonAppInstallFiltersBuilderCmd.AddCommand(commonAppInstallFiltersBuilderBuildCmd)
-	commonCmd.AddCommand(commonAppInstallFiltersBuilderCmd)
-	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersDescribeContentsCmd)
-	commonFrequencyCapFiltersEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersEqualsCmd)
-	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersHashCodeCmd)
-	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersToStringCmd)
-	commonFrequencyCapFiltersWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonFrequencyCapFiltersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	commonFrequencyCapFiltersCmd.AddCommand(commonFrequencyCapFiltersWriteToParcelCmd)
-	commonCmd.AddCommand(commonFrequencyCapFiltersCmd)
-	commonFrequencyCapFiltersBuilderCmd.AddCommand(commonFrequencyCapFiltersBuilderBuildCmd)
-	commonCmd.AddCommand(commonFrequencyCapFiltersBuilderCmd)
 	commonAdDataCmd.AddCommand(commonAdDataDescribeContentsCmd)
 	commonAdDataEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	commonAdDataCmd.AddCommand(commonAdDataEqualsCmd)
+	commonAdDataCmd.AddCommand(commonAdDataGetAdCounterKeysCmd)
 	commonAdDataCmd.AddCommand(commonAdDataGetAdFiltersCmd)
 	commonAdDataCmd.AddCommand(commonAdDataGetAdRenderIdCmd)
 	commonAdDataCmd.AddCommand(commonAdDataGetMetadataCmd)
@@ -1412,16 +1496,34 @@ func init() {
 	commonAdDataBuilderSetRenderUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	commonAdDataBuilderCmd.AddCommand(commonAdDataBuilderSetRenderUriCmd)
 	commonCmd.AddCommand(commonAdDataBuilderCmd)
-	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsDescribeContentsCmd)
-	commonAdSelectionSignalsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsEqualsCmd)
-	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsHashCodeCmd)
-	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsToStringCmd)
-	commonAdSelectionSignalsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	commonAdSelectionSignalsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsWriteToParcelCmd)
-	commonAdSelectionSignalsFromStringCmd.Flags().String("arg0", "", "arg0 (string)")
-	commonAdSelectionSignalsCmd.AddCommand(commonAdSelectionSignalsFromStringCmd)
-	commonCmd.AddCommand(commonAdSelectionSignalsCmd)
+	commonAdFiltersCmd.AddCommand(commonAdFiltersDescribeContentsCmd)
+	commonAdFiltersEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonAdFiltersCmd.AddCommand(commonAdFiltersEqualsCmd)
+	commonAdFiltersCmd.AddCommand(commonAdFiltersGetAppInstallFiltersCmd)
+	commonAdFiltersCmd.AddCommand(commonAdFiltersGetFrequencyCapFiltersCmd)
+	commonAdFiltersCmd.AddCommand(commonAdFiltersHashCodeCmd)
+	commonAdFiltersCmd.AddCommand(commonAdFiltersToStringCmd)
+	commonAdFiltersWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonAdFiltersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	commonAdFiltersCmd.AddCommand(commonAdFiltersWriteToParcelCmd)
+	commonCmd.AddCommand(commonAdFiltersCmd)
+	commonAdFiltersBuilderCmd.AddCommand(commonAdFiltersBuilderBuildCmd)
+	commonAdFiltersBuilderSetAppInstallFiltersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonAdFiltersBuilderCmd.AddCommand(commonAdFiltersBuilderSetAppInstallFiltersCmd)
+	commonAdFiltersBuilderSetFrequencyCapFiltersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonAdFiltersBuilderCmd.AddCommand(commonAdFiltersBuilderSetFrequencyCapFiltersCmd)
+	commonCmd.AddCommand(commonAdFiltersBuilderCmd)
+	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersDescribeContentsCmd)
+	commonAppInstallFiltersEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersEqualsCmd)
+	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersGetPackageNamesCmd)
+	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersHashCodeCmd)
+	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersToStringCmd)
+	commonAppInstallFiltersWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	commonAppInstallFiltersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	commonAppInstallFiltersCmd.AddCommand(commonAppInstallFiltersWriteToParcelCmd)
+	commonCmd.AddCommand(commonAppInstallFiltersCmd)
+	commonAppInstallFiltersBuilderCmd.AddCommand(commonAppInstallFiltersBuilderBuildCmd)
+	commonCmd.AddCommand(commonAppInstallFiltersBuilderCmd)
 	rootCmd.AddCommand(commonCmd)
 }

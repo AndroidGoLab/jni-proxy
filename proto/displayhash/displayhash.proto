@@ -6,28 +6,6 @@ package displayhash;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/displayhash";
 
-message VerifyDisplayHashRequest {
-  int64 arg0 = 1;
-}
-
-message VerifyDisplayHashResponse {
-  int64 result = 1;
-}
-
-message OnDisplayHashErrorRequest {
-  int32 arg0 = 1;
-}
-
-message OnDisplayHashErrorResponse {
-}
-
-message OnDisplayHashResultRequest {
-  int64 arg0 = 1;
-}
-
-message OnDisplayHashResultResponse {
-}
-
 message NewVerifiedDisplayHashRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -107,13 +85,33 @@ message DisplayHashWriteToParcelRequest {
   int32 arg1 = 2;
 }
 
-service DisplayHashManagerService {
-  rpc VerifyDisplayHash (VerifyDisplayHashRequest) returns (VerifyDisplayHashResponse);
+message OnDisplayHashErrorRequest {
+  int32 arg0 = 1;
 }
 
-service DisplayHashResultCallbackService {
-  rpc OnDisplayHashError (OnDisplayHashErrorRequest) returns (OnDisplayHashErrorResponse);
-  rpc OnDisplayHashResult (OnDisplayHashResultRequest) returns (OnDisplayHashResultResponse);
+message OnDisplayHashErrorResponse {
+}
+
+message OnDisplayHashResultRequest {
+  int64 arg0 = 1;
+}
+
+message OnDisplayHashResultResponse {
+}
+
+message GetSupportedHashAlgorithmsRequest {
+}
+
+message GetSupportedHashAlgorithmsResponse {
+  int64 result = 1;
+}
+
+message VerifyDisplayHashRequest {
+  int64 arg0 = 1;
+}
+
+message VerifyDisplayHashResponse {
+  int64 result = 1;
 }
 
 service VerifiedDisplayHashService {
@@ -131,4 +129,14 @@ service DisplayHashService {
   rpc DescribeContents (DisplayHashDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc ToString (DisplayHashToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (DisplayHashWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DisplayHashResultCallbackService {
+  rpc OnDisplayHashError (OnDisplayHashErrorRequest) returns (OnDisplayHashErrorResponse);
+  rpc OnDisplayHashResult (OnDisplayHashResultRequest) returns (OnDisplayHashResultResponse);
+}
+
+service DisplayHashManagerService {
+  rpc GetSupportedHashAlgorithms (GetSupportedHashAlgorithmsRequest) returns (GetSupportedHashAlgorithmsResponse);
+  rpc VerifyDisplayHash (VerifyDisplayHashRequest) returns (VerifyDisplayHashResponse);
 }

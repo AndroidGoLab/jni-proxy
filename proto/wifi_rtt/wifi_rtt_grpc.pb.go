@@ -21,2770 +21,1052 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ResponderConfigService_DescribeContents_FullMethodName       = "/wifi_rtt.ResponderConfigService/DescribeContents"
-	ResponderConfigService_Equals_FullMethodName                 = "/wifi_rtt.ResponderConfigService/Equals"
-	ResponderConfigService_GetCenterFreq0Mhz_FullMethodName      = "/wifi_rtt.ResponderConfigService/GetCenterFreq0Mhz"
-	ResponderConfigService_GetCenterFreq1Mhz_FullMethodName      = "/wifi_rtt.ResponderConfigService/GetCenterFreq1Mhz"
-	ResponderConfigService_GetChannelWidth_FullMethodName        = "/wifi_rtt.ResponderConfigService/GetChannelWidth"
-	ResponderConfigService_GetFrequencyMhz_FullMethodName        = "/wifi_rtt.ResponderConfigService/GetFrequencyMhz"
-	ResponderConfigService_GetMacAddress_FullMethodName          = "/wifi_rtt.ResponderConfigService/GetMacAddress"
-	ResponderConfigService_GetPreamble_FullMethodName            = "/wifi_rtt.ResponderConfigService/GetPreamble"
-	ResponderConfigService_GetResponderType_FullMethodName       = "/wifi_rtt.ResponderConfigService/GetResponderType"
-	ResponderConfigService_GetSecureRangingConfig_FullMethodName = "/wifi_rtt.ResponderConfigService/GetSecureRangingConfig"
-	ResponderConfigService_HashCode_FullMethodName               = "/wifi_rtt.ResponderConfigService/HashCode"
-	ResponderConfigService_Is80211AzNtbSupported_FullMethodName  = "/wifi_rtt.ResponderConfigService/Is80211azNtbSupported"
-	ResponderConfigService_Is80211McSupported_FullMethodName     = "/wifi_rtt.ResponderConfigService/Is80211mcSupported"
-	ResponderConfigService_ToString_FullMethodName               = "/wifi_rtt.ResponderConfigService/ToString"
-	ResponderConfigService_WriteToParcel_FullMethodName          = "/wifi_rtt.ResponderConfigService/WriteToParcel"
-	ResponderConfigService_FromScanResult_FullMethodName         = "/wifi_rtt.ResponderConfigService/FromScanResult"
+	ResponderLocationService_DescribeContents_FullMethodName                         = "/wifi_rtt.ResponderLocationService/DescribeContents"
+	ResponderLocationService_Equals_FullMethodName                                   = "/wifi_rtt.ResponderLocationService/Equals"
+	ResponderLocationService_GetAltitude_FullMethodName                              = "/wifi_rtt.ResponderLocationService/GetAltitude"
+	ResponderLocationService_GetAltitudeType_FullMethodName                          = "/wifi_rtt.ResponderLocationService/GetAltitudeType"
+	ResponderLocationService_GetAltitudeUncertainty_FullMethodName                   = "/wifi_rtt.ResponderLocationService/GetAltitudeUncertainty"
+	ResponderLocationService_GetColocatedBssids_FullMethodName                       = "/wifi_rtt.ResponderLocationService/GetColocatedBssids"
+	ResponderLocationService_GetDatum_FullMethodName                                 = "/wifi_rtt.ResponderLocationService/GetDatum"
+	ResponderLocationService_GetExpectedToMove_FullMethodName                        = "/wifi_rtt.ResponderLocationService/GetExpectedToMove"
+	ResponderLocationService_GetFloorNumber_FullMethodName                           = "/wifi_rtt.ResponderLocationService/GetFloorNumber"
+	ResponderLocationService_GetHeightAboveFloorMeters_FullMethodName                = "/wifi_rtt.ResponderLocationService/GetHeightAboveFloorMeters"
+	ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_FullMethodName     = "/wifi_rtt.ResponderLocationService/GetHeightAboveFloorUncertaintyMeters"
+	ResponderLocationService_GetLatitude_FullMethodName                              = "/wifi_rtt.ResponderLocationService/GetLatitude"
+	ResponderLocationService_GetLatitudeUncertainty_FullMethodName                   = "/wifi_rtt.ResponderLocationService/GetLatitudeUncertainty"
+	ResponderLocationService_GetLciVersion_FullMethodName                            = "/wifi_rtt.ResponderLocationService/GetLciVersion"
+	ResponderLocationService_GetLongitude_FullMethodName                             = "/wifi_rtt.ResponderLocationService/GetLongitude"
+	ResponderLocationService_GetLongitudeUncertainty_FullMethodName                  = "/wifi_rtt.ResponderLocationService/GetLongitudeUncertainty"
+	ResponderLocationService_GetMapImageMimeType_FullMethodName                      = "/wifi_rtt.ResponderLocationService/GetMapImageMimeType"
+	ResponderLocationService_GetMapImageUri_FullMethodName                           = "/wifi_rtt.ResponderLocationService/GetMapImageUri"
+	ResponderLocationService_GetRegisteredLocationAgreementIndication_FullMethodName = "/wifi_rtt.ResponderLocationService/GetRegisteredLocationAgreementIndication"
+	ResponderLocationService_HashCode_FullMethodName                                 = "/wifi_rtt.ResponderLocationService/HashCode"
+	ResponderLocationService_IsLciSubelementValid_FullMethodName                     = "/wifi_rtt.ResponderLocationService/IsLciSubelementValid"
+	ResponderLocationService_IsZaxisSubelementValid_FullMethodName                   = "/wifi_rtt.ResponderLocationService/IsZaxisSubelementValid"
+	ResponderLocationService_ToCivicLocationAddress_FullMethodName                   = "/wifi_rtt.ResponderLocationService/ToCivicLocationAddress"
+	ResponderLocationService_ToCivicLocationSparseArray_FullMethodName               = "/wifi_rtt.ResponderLocationService/ToCivicLocationSparseArray"
+	ResponderLocationService_ToLocation_FullMethodName                               = "/wifi_rtt.ResponderLocationService/ToLocation"
+	ResponderLocationService_WriteToParcel_FullMethodName                            = "/wifi_rtt.ResponderLocationService/WriteToParcel"
 )
 
-// ResponderConfigServiceClient is the client API for ResponderConfigService service.
+// ResponderLocationServiceClient is the client API for ResponderLocationService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResponderConfigServiceClient interface {
+type ResponderLocationServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetCenterFreq0Mhz(ctx context.Context, in *GetCenterFreq0MhzRequest, opts ...grpc.CallOption) (*GetCenterFreq0MhzResponse, error)
-	GetCenterFreq1Mhz(ctx context.Context, in *GetCenterFreq1MhzRequest, opts ...grpc.CallOption) (*GetCenterFreq1MhzResponse, error)
-	GetChannelWidth(ctx context.Context, in *GetChannelWidthRequest, opts ...grpc.CallOption) (*GetChannelWidthResponse, error)
-	GetFrequencyMhz(ctx context.Context, in *GetFrequencyMhzRequest, opts ...grpc.CallOption) (*GetFrequencyMhzResponse, error)
-	GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error)
-	GetPreamble(ctx context.Context, in *GetPreambleRequest, opts ...grpc.CallOption) (*GetPreambleResponse, error)
-	GetResponderType(ctx context.Context, in *GetResponderTypeRequest, opts ...grpc.CallOption) (*GetResponderTypeResponse, error)
-	GetSecureRangingConfig(ctx context.Context, in *GetSecureRangingConfigRequest, opts ...grpc.CallOption) (*GetSecureRangingConfigResponse, error)
+	GetAltitude(ctx context.Context, in *GetAltitudeRequest, opts ...grpc.CallOption) (*GetAltitudeResponse, error)
+	GetAltitudeType(ctx context.Context, in *GetAltitudeTypeRequest, opts ...grpc.CallOption) (*GetAltitudeTypeResponse, error)
+	GetAltitudeUncertainty(ctx context.Context, in *GetAltitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetAltitudeUncertaintyResponse, error)
+	GetColocatedBssids(ctx context.Context, in *GetColocatedBssidsRequest, opts ...grpc.CallOption) (*GetColocatedBssidsResponse, error)
+	GetDatum(ctx context.Context, in *GetDatumRequest, opts ...grpc.CallOption) (*GetDatumResponse, error)
+	GetExpectedToMove(ctx context.Context, in *GetExpectedToMoveRequest, opts ...grpc.CallOption) (*GetExpectedToMoveResponse, error)
+	GetFloorNumber(ctx context.Context, in *GetFloorNumberRequest, opts ...grpc.CallOption) (*GetFloorNumberResponse, error)
+	GetHeightAboveFloorMeters(ctx context.Context, in *GetHeightAboveFloorMetersRequest, opts ...grpc.CallOption) (*GetHeightAboveFloorMetersResponse, error)
+	GetHeightAboveFloorUncertaintyMeters(ctx context.Context, in *GetHeightAboveFloorUncertaintyMetersRequest, opts ...grpc.CallOption) (*GetHeightAboveFloorUncertaintyMetersResponse, error)
+	GetLatitude(ctx context.Context, in *GetLatitudeRequest, opts ...grpc.CallOption) (*GetLatitudeResponse, error)
+	GetLatitudeUncertainty(ctx context.Context, in *GetLatitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetLatitudeUncertaintyResponse, error)
+	GetLciVersion(ctx context.Context, in *GetLciVersionRequest, opts ...grpc.CallOption) (*GetLciVersionResponse, error)
+	GetLongitude(ctx context.Context, in *GetLongitudeRequest, opts ...grpc.CallOption) (*GetLongitudeResponse, error)
+	GetLongitudeUncertainty(ctx context.Context, in *GetLongitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetLongitudeUncertaintyResponse, error)
+	GetMapImageMimeType(ctx context.Context, in *GetMapImageMimeTypeRequest, opts ...grpc.CallOption) (*GetMapImageMimeTypeResponse, error)
+	GetMapImageUri(ctx context.Context, in *GetMapImageUriRequest, opts ...grpc.CallOption) (*GetMapImageUriResponse, error)
+	GetRegisteredLocationAgreementIndication(ctx context.Context, in *GetRegisteredLocationAgreementIndicationRequest, opts ...grpc.CallOption) (*GetRegisteredLocationAgreementIndicationResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	Is80211AzNtbSupported(ctx context.Context, in *Is80211AzNtbSupportedRequest, opts ...grpc.CallOption) (*Is80211AzNtbSupportedResponse, error)
-	Is80211McSupported(ctx context.Context, in *Is80211McSupportedRequest, opts ...grpc.CallOption) (*Is80211McSupportedResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	IsLciSubelementValid(ctx context.Context, in *IsLciSubelementValidRequest, opts ...grpc.CallOption) (*IsLciSubelementValidResponse, error)
+	IsZaxisSubelementValid(ctx context.Context, in *IsZaxisSubelementValidRequest, opts ...grpc.CallOption) (*IsZaxisSubelementValidResponse, error)
+	ToCivicLocationAddress(ctx context.Context, in *ToCivicLocationAddressRequest, opts ...grpc.CallOption) (*ToCivicLocationAddressResponse, error)
+	ToCivicLocationSparseArray(ctx context.Context, in *ToCivicLocationSparseArrayRequest, opts ...grpc.CallOption) (*ToCivicLocationSparseArrayResponse, error)
+	ToLocation(ctx context.Context, in *ToLocationRequest, opts ...grpc.CallOption) (*ToLocationResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	FromScanResult(ctx context.Context, in *FromScanResultRequest, opts ...grpc.CallOption) (*FromScanResultResponse, error)
 }
 
-type responderConfigServiceClient struct {
+type responderLocationServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewResponderConfigServiceClient(cc grpc.ClientConnInterface) ResponderConfigServiceClient {
-	return &responderConfigServiceClient{cc}
+func NewResponderLocationServiceClient(cc grpc.ClientConnInterface) ResponderLocationServiceClient {
+	return &responderLocationServiceClient{cc}
 }
 
-func (c *responderConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *responderLocationServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResponderLocationService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *responderLocationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResponderLocationService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) GetCenterFreq0Mhz(ctx context.Context, in *GetCenterFreq0MhzRequest, opts ...grpc.CallOption) (*GetCenterFreq0MhzResponse, error) {
+func (c *responderLocationServiceClient) GetAltitude(ctx context.Context, in *GetAltitudeRequest, opts ...grpc.CallOption) (*GetAltitudeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCenterFreq0MhzResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_GetCenterFreq0Mhz_FullMethodName, in, out, cOpts...)
+	out := new(GetAltitudeResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetAltitude_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) GetCenterFreq1Mhz(ctx context.Context, in *GetCenterFreq1MhzRequest, opts ...grpc.CallOption) (*GetCenterFreq1MhzResponse, error) {
+func (c *responderLocationServiceClient) GetAltitudeType(ctx context.Context, in *GetAltitudeTypeRequest, opts ...grpc.CallOption) (*GetAltitudeTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCenterFreq1MhzResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_GetCenterFreq1Mhz_FullMethodName, in, out, cOpts...)
+	out := new(GetAltitudeTypeResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetAltitudeType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) GetChannelWidth(ctx context.Context, in *GetChannelWidthRequest, opts ...grpc.CallOption) (*GetChannelWidthResponse, error) {
+func (c *responderLocationServiceClient) GetAltitudeUncertainty(ctx context.Context, in *GetAltitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetAltitudeUncertaintyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChannelWidthResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_GetChannelWidth_FullMethodName, in, out, cOpts...)
+	out := new(GetAltitudeUncertaintyResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetAltitudeUncertainty_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) GetFrequencyMhz(ctx context.Context, in *GetFrequencyMhzRequest, opts ...grpc.CallOption) (*GetFrequencyMhzResponse, error) {
+func (c *responderLocationServiceClient) GetColocatedBssids(ctx context.Context, in *GetColocatedBssidsRequest, opts ...grpc.CallOption) (*GetColocatedBssidsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFrequencyMhzResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_GetFrequencyMhz_FullMethodName, in, out, cOpts...)
+	out := new(GetColocatedBssidsResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetColocatedBssids_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error) {
+func (c *responderLocationServiceClient) GetDatum(ctx context.Context, in *GetDatumRequest, opts ...grpc.CallOption) (*GetDatumResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMacAddressResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_GetMacAddress_FullMethodName, in, out, cOpts...)
+	out := new(GetDatumResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetDatum_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) GetPreamble(ctx context.Context, in *GetPreambleRequest, opts ...grpc.CallOption) (*GetPreambleResponse, error) {
+func (c *responderLocationServiceClient) GetExpectedToMove(ctx context.Context, in *GetExpectedToMoveRequest, opts ...grpc.CallOption) (*GetExpectedToMoveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreambleResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_GetPreamble_FullMethodName, in, out, cOpts...)
+	out := new(GetExpectedToMoveResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetExpectedToMove_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) GetResponderType(ctx context.Context, in *GetResponderTypeRequest, opts ...grpc.CallOption) (*GetResponderTypeResponse, error) {
+func (c *responderLocationServiceClient) GetFloorNumber(ctx context.Context, in *GetFloorNumberRequest, opts ...grpc.CallOption) (*GetFloorNumberResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponderTypeResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_GetResponderType_FullMethodName, in, out, cOpts...)
+	out := new(GetFloorNumberResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetFloorNumber_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) GetSecureRangingConfig(ctx context.Context, in *GetSecureRangingConfigRequest, opts ...grpc.CallOption) (*GetSecureRangingConfigResponse, error) {
+func (c *responderLocationServiceClient) GetHeightAboveFloorMeters(ctx context.Context, in *GetHeightAboveFloorMetersRequest, opts ...grpc.CallOption) (*GetHeightAboveFloorMetersResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSecureRangingConfigResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_GetSecureRangingConfig_FullMethodName, in, out, cOpts...)
+	out := new(GetHeightAboveFloorMetersResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetHeightAboveFloorMeters_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *responderLocationServiceClient) GetHeightAboveFloorUncertaintyMeters(ctx context.Context, in *GetHeightAboveFloorUncertaintyMetersRequest, opts ...grpc.CallOption) (*GetHeightAboveFloorUncertaintyMetersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeightAboveFloorUncertaintyMetersResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) GetLatitude(ctx context.Context, in *GetLatitudeRequest, opts ...grpc.CallOption) (*GetLatitudeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLatitudeResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetLatitude_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) GetLatitudeUncertainty(ctx context.Context, in *GetLatitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetLatitudeUncertaintyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLatitudeUncertaintyResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetLatitudeUncertainty_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) GetLciVersion(ctx context.Context, in *GetLciVersionRequest, opts ...grpc.CallOption) (*GetLciVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLciVersionResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetLciVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) GetLongitude(ctx context.Context, in *GetLongitudeRequest, opts ...grpc.CallOption) (*GetLongitudeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongitudeResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetLongitude_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) GetLongitudeUncertainty(ctx context.Context, in *GetLongitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetLongitudeUncertaintyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongitudeUncertaintyResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetLongitudeUncertainty_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) GetMapImageMimeType(ctx context.Context, in *GetMapImageMimeTypeRequest, opts ...grpc.CallOption) (*GetMapImageMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMapImageMimeTypeResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetMapImageMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) GetMapImageUri(ctx context.Context, in *GetMapImageUriRequest, opts ...grpc.CallOption) (*GetMapImageUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMapImageUriResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetMapImageUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) GetRegisteredLocationAgreementIndication(ctx context.Context, in *GetRegisteredLocationAgreementIndicationRequest, opts ...grpc.CallOption) (*GetRegisteredLocationAgreementIndicationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRegisteredLocationAgreementIndicationResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_GetRegisteredLocationAgreementIndication_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResponderLocationService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) Is80211AzNtbSupported(ctx context.Context, in *Is80211AzNtbSupportedRequest, opts ...grpc.CallOption) (*Is80211AzNtbSupportedResponse, error) {
+func (c *responderLocationServiceClient) IsLciSubelementValid(ctx context.Context, in *IsLciSubelementValidRequest, opts ...grpc.CallOption) (*IsLciSubelementValidResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Is80211AzNtbSupportedResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_Is80211AzNtbSupported_FullMethodName, in, out, cOpts...)
+	out := new(IsLciSubelementValidResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_IsLciSubelementValid_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) Is80211McSupported(ctx context.Context, in *Is80211McSupportedRequest, opts ...grpc.CallOption) (*Is80211McSupportedResponse, error) {
+func (c *responderLocationServiceClient) IsZaxisSubelementValid(ctx context.Context, in *IsZaxisSubelementValidRequest, opts ...grpc.CallOption) (*IsZaxisSubelementValidResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Is80211McSupportedResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_Is80211McSupported_FullMethodName, in, out, cOpts...)
+	out := new(IsZaxisSubelementValidResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_IsZaxisSubelementValid_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *responderLocationServiceClient) ToCivicLocationAddress(ctx context.Context, in *ToCivicLocationAddressRequest, opts ...grpc.CallOption) (*ToCivicLocationAddressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_ToString_FullMethodName, in, out, cOpts...)
+	out := new(ToCivicLocationAddressResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_ToCivicLocationAddress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *responderLocationServiceClient) ToCivicLocationSparseArray(ctx context.Context, in *ToCivicLocationSparseArrayRequest, opts ...grpc.CallOption) (*ToCivicLocationSparseArrayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToCivicLocationSparseArrayResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_ToCivicLocationSparseArray_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) ToLocation(ctx context.Context, in *ToLocationRequest, opts ...grpc.CallOption) (*ToLocationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToLocationResponse)
+	err := c.cc.Invoke(ctx, ResponderLocationService_ToLocation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderLocationServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResponderLocationService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderConfigServiceClient) FromScanResult(ctx context.Context, in *FromScanResultRequest, opts ...grpc.CallOption) (*FromScanResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromScanResultResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigService_FromScanResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResponderConfigServiceServer is the server API for ResponderConfigService service.
-// All implementations must embed UnimplementedResponderConfigServiceServer
+// ResponderLocationServiceServer is the server API for ResponderLocationService service.
+// All implementations must embed UnimplementedResponderLocationServiceServer
 // for forward compatibility.
-type ResponderConfigServiceServer interface {
+type ResponderLocationServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetCenterFreq0Mhz(context.Context, *GetCenterFreq0MhzRequest) (*GetCenterFreq0MhzResponse, error)
-	GetCenterFreq1Mhz(context.Context, *GetCenterFreq1MhzRequest) (*GetCenterFreq1MhzResponse, error)
-	GetChannelWidth(context.Context, *GetChannelWidthRequest) (*GetChannelWidthResponse, error)
-	GetFrequencyMhz(context.Context, *GetFrequencyMhzRequest) (*GetFrequencyMhzResponse, error)
-	GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error)
-	GetPreamble(context.Context, *GetPreambleRequest) (*GetPreambleResponse, error)
-	GetResponderType(context.Context, *GetResponderTypeRequest) (*GetResponderTypeResponse, error)
-	GetSecureRangingConfig(context.Context, *GetSecureRangingConfigRequest) (*GetSecureRangingConfigResponse, error)
+	GetAltitude(context.Context, *GetAltitudeRequest) (*GetAltitudeResponse, error)
+	GetAltitudeType(context.Context, *GetAltitudeTypeRequest) (*GetAltitudeTypeResponse, error)
+	GetAltitudeUncertainty(context.Context, *GetAltitudeUncertaintyRequest) (*GetAltitudeUncertaintyResponse, error)
+	GetColocatedBssids(context.Context, *GetColocatedBssidsRequest) (*GetColocatedBssidsResponse, error)
+	GetDatum(context.Context, *GetDatumRequest) (*GetDatumResponse, error)
+	GetExpectedToMove(context.Context, *GetExpectedToMoveRequest) (*GetExpectedToMoveResponse, error)
+	GetFloorNumber(context.Context, *GetFloorNumberRequest) (*GetFloorNumberResponse, error)
+	GetHeightAboveFloorMeters(context.Context, *GetHeightAboveFloorMetersRequest) (*GetHeightAboveFloorMetersResponse, error)
+	GetHeightAboveFloorUncertaintyMeters(context.Context, *GetHeightAboveFloorUncertaintyMetersRequest) (*GetHeightAboveFloorUncertaintyMetersResponse, error)
+	GetLatitude(context.Context, *GetLatitudeRequest) (*GetLatitudeResponse, error)
+	GetLatitudeUncertainty(context.Context, *GetLatitudeUncertaintyRequest) (*GetLatitudeUncertaintyResponse, error)
+	GetLciVersion(context.Context, *GetLciVersionRequest) (*GetLciVersionResponse, error)
+	GetLongitude(context.Context, *GetLongitudeRequest) (*GetLongitudeResponse, error)
+	GetLongitudeUncertainty(context.Context, *GetLongitudeUncertaintyRequest) (*GetLongitudeUncertaintyResponse, error)
+	GetMapImageMimeType(context.Context, *GetMapImageMimeTypeRequest) (*GetMapImageMimeTypeResponse, error)
+	GetMapImageUri(context.Context, *GetMapImageUriRequest) (*GetMapImageUriResponse, error)
+	GetRegisteredLocationAgreementIndication(context.Context, *GetRegisteredLocationAgreementIndicationRequest) (*GetRegisteredLocationAgreementIndicationResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	Is80211AzNtbSupported(context.Context, *Is80211AzNtbSupportedRequest) (*Is80211AzNtbSupportedResponse, error)
-	Is80211McSupported(context.Context, *Is80211McSupportedRequest) (*Is80211McSupportedResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	IsLciSubelementValid(context.Context, *IsLciSubelementValidRequest) (*IsLciSubelementValidResponse, error)
+	IsZaxisSubelementValid(context.Context, *IsZaxisSubelementValidRequest) (*IsZaxisSubelementValidResponse, error)
+	ToCivicLocationAddress(context.Context, *ToCivicLocationAddressRequest) (*ToCivicLocationAddressResponse, error)
+	ToCivicLocationSparseArray(context.Context, *ToCivicLocationSparseArrayRequest) (*ToCivicLocationSparseArrayResponse, error)
+	ToLocation(context.Context, *ToLocationRequest) (*ToLocationResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	FromScanResult(context.Context, *FromScanResultRequest) (*FromScanResultResponse, error)
-	mustEmbedUnimplementedResponderConfigServiceServer()
+	mustEmbedUnimplementedResponderLocationServiceServer()
 }
 
-// UnimplementedResponderConfigServiceServer must be embedded to have
+// UnimplementedResponderLocationServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedResponderConfigServiceServer struct{}
+type UnimplementedResponderLocationServiceServer struct{}
 
-func (UnimplementedResponderConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedResponderLocationServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedResponderLocationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) GetCenterFreq0Mhz(context.Context, *GetCenterFreq0MhzRequest) (*GetCenterFreq0MhzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCenterFreq0Mhz not implemented")
+func (UnimplementedResponderLocationServiceServer) GetAltitude(context.Context, *GetAltitudeRequest) (*GetAltitudeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAltitude not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) GetCenterFreq1Mhz(context.Context, *GetCenterFreq1MhzRequest) (*GetCenterFreq1MhzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCenterFreq1Mhz not implemented")
+func (UnimplementedResponderLocationServiceServer) GetAltitudeType(context.Context, *GetAltitudeTypeRequest) (*GetAltitudeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAltitudeType not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) GetChannelWidth(context.Context, *GetChannelWidthRequest) (*GetChannelWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChannelWidth not implemented")
+func (UnimplementedResponderLocationServiceServer) GetAltitudeUncertainty(context.Context, *GetAltitudeUncertaintyRequest) (*GetAltitudeUncertaintyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAltitudeUncertainty not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) GetFrequencyMhz(context.Context, *GetFrequencyMhzRequest) (*GetFrequencyMhzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFrequencyMhz not implemented")
+func (UnimplementedResponderLocationServiceServer) GetColocatedBssids(context.Context, *GetColocatedBssidsRequest) (*GetColocatedBssidsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColocatedBssids not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMacAddress not implemented")
+func (UnimplementedResponderLocationServiceServer) GetDatum(context.Context, *GetDatumRequest) (*GetDatumResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDatum not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) GetPreamble(context.Context, *GetPreambleRequest) (*GetPreambleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreamble not implemented")
+func (UnimplementedResponderLocationServiceServer) GetExpectedToMove(context.Context, *GetExpectedToMoveRequest) (*GetExpectedToMoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExpectedToMove not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) GetResponderType(context.Context, *GetResponderTypeRequest) (*GetResponderTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResponderType not implemented")
+func (UnimplementedResponderLocationServiceServer) GetFloorNumber(context.Context, *GetFloorNumberRequest) (*GetFloorNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFloorNumber not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) GetSecureRangingConfig(context.Context, *GetSecureRangingConfigRequest) (*GetSecureRangingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSecureRangingConfig not implemented")
+func (UnimplementedResponderLocationServiceServer) GetHeightAboveFloorMeters(context.Context, *GetHeightAboveFloorMetersRequest) (*GetHeightAboveFloorMetersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeightAboveFloorMeters not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedResponderLocationServiceServer) GetHeightAboveFloorUncertaintyMeters(context.Context, *GetHeightAboveFloorUncertaintyMetersRequest) (*GetHeightAboveFloorUncertaintyMetersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeightAboveFloorUncertaintyMeters not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) GetLatitude(context.Context, *GetLatitudeRequest) (*GetLatitudeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLatitude not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) GetLatitudeUncertainty(context.Context, *GetLatitudeUncertaintyRequest) (*GetLatitudeUncertaintyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLatitudeUncertainty not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) GetLciVersion(context.Context, *GetLciVersionRequest) (*GetLciVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLciVersion not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) GetLongitude(context.Context, *GetLongitudeRequest) (*GetLongitudeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLongitude not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) GetLongitudeUncertainty(context.Context, *GetLongitudeUncertaintyRequest) (*GetLongitudeUncertaintyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLongitudeUncertainty not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) GetMapImageMimeType(context.Context, *GetMapImageMimeTypeRequest) (*GetMapImageMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMapImageMimeType not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) GetMapImageUri(context.Context, *GetMapImageUriRequest) (*GetMapImageUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMapImageUri not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) GetRegisteredLocationAgreementIndication(context.Context, *GetRegisteredLocationAgreementIndicationRequest) (*GetRegisteredLocationAgreementIndicationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRegisteredLocationAgreementIndication not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) Is80211AzNtbSupported(context.Context, *Is80211AzNtbSupportedRequest) (*Is80211AzNtbSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Is80211AzNtbSupported not implemented")
+func (UnimplementedResponderLocationServiceServer) IsLciSubelementValid(context.Context, *IsLciSubelementValidRequest) (*IsLciSubelementValidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLciSubelementValid not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) Is80211McSupported(context.Context, *Is80211McSupportedRequest) (*Is80211McSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Is80211McSupported not implemented")
+func (UnimplementedResponderLocationServiceServer) IsZaxisSubelementValid(context.Context, *IsZaxisSubelementValidRequest) (*IsZaxisSubelementValidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsZaxisSubelementValid not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+func (UnimplementedResponderLocationServiceServer) ToCivicLocationAddress(context.Context, *ToCivicLocationAddressRequest) (*ToCivicLocationAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToCivicLocationAddress not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedResponderLocationServiceServer) ToCivicLocationSparseArray(context.Context, *ToCivicLocationSparseArrayRequest) (*ToCivicLocationSparseArrayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToCivicLocationSparseArray not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) ToLocation(context.Context, *ToLocationRequest) (*ToLocationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToLocation not implemented")
+}
+func (UnimplementedResponderLocationServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedResponderConfigServiceServer) FromScanResult(context.Context, *FromScanResultRequest) (*FromScanResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromScanResult not implemented")
+func (UnimplementedResponderLocationServiceServer) mustEmbedUnimplementedResponderLocationServiceServer() {
 }
-func (UnimplementedResponderConfigServiceServer) mustEmbedUnimplementedResponderConfigServiceServer() {
-}
-func (UnimplementedResponderConfigServiceServer) testEmbeddedByValue() {}
+func (UnimplementedResponderLocationServiceServer) testEmbeddedByValue() {}
 
-// UnsafeResponderConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResponderConfigServiceServer will
+// UnsafeResponderLocationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResponderLocationServiceServer will
 // result in compilation errors.
-type UnsafeResponderConfigServiceServer interface {
-	mustEmbedUnimplementedResponderConfigServiceServer()
+type UnsafeResponderLocationServiceServer interface {
+	mustEmbedUnimplementedResponderLocationServiceServer()
 }
 
-func RegisterResponderConfigServiceServer(s grpc.ServiceRegistrar, srv ResponderConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedResponderConfigServiceServer was
+func RegisterResponderLocationServiceServer(s grpc.ServiceRegistrar, srv ResponderLocationServiceServer) {
+	// If the following call panics, it indicates UnimplementedResponderLocationServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ResponderConfigService_ServiceDesc, srv)
+	s.RegisterService(&ResponderLocationService_ServiceDesc, srv)
 }
 
-func _ResponderConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResponderLocationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).DescribeContents(ctx, in)
+		return srv.(ResponderLocationServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_DescribeContents_FullMethodName,
+		FullMethod: ResponderLocationService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ResponderLocationServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResponderLocationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).Equals(ctx, in)
+		return srv.(ResponderLocationServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_Equals_FullMethodName,
+		FullMethod: ResponderLocationService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(ResponderLocationServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_GetCenterFreq0Mhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCenterFreq0MhzRequest)
+func _ResponderLocationService_GetAltitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAltitudeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).GetCenterFreq0Mhz(ctx, in)
+		return srv.(ResponderLocationServiceServer).GetAltitude(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_GetCenterFreq0Mhz_FullMethodName,
+		FullMethod: ResponderLocationService_GetAltitude_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).GetCenterFreq0Mhz(ctx, req.(*GetCenterFreq0MhzRequest))
+		return srv.(ResponderLocationServiceServer).GetAltitude(ctx, req.(*GetAltitudeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_GetCenterFreq1Mhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCenterFreq1MhzRequest)
+func _ResponderLocationService_GetAltitudeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAltitudeTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).GetCenterFreq1Mhz(ctx, in)
+		return srv.(ResponderLocationServiceServer).GetAltitudeType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_GetCenterFreq1Mhz_FullMethodName,
+		FullMethod: ResponderLocationService_GetAltitudeType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).GetCenterFreq1Mhz(ctx, req.(*GetCenterFreq1MhzRequest))
+		return srv.(ResponderLocationServiceServer).GetAltitudeType(ctx, req.(*GetAltitudeTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_GetChannelWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelWidthRequest)
+func _ResponderLocationService_GetAltitudeUncertainty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAltitudeUncertaintyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).GetChannelWidth(ctx, in)
+		return srv.(ResponderLocationServiceServer).GetAltitudeUncertainty(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_GetChannelWidth_FullMethodName,
+		FullMethod: ResponderLocationService_GetAltitudeUncertainty_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).GetChannelWidth(ctx, req.(*GetChannelWidthRequest))
+		return srv.(ResponderLocationServiceServer).GetAltitudeUncertainty(ctx, req.(*GetAltitudeUncertaintyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_GetFrequencyMhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFrequencyMhzRequest)
+func _ResponderLocationService_GetColocatedBssids_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColocatedBssidsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).GetFrequencyMhz(ctx, in)
+		return srv.(ResponderLocationServiceServer).GetColocatedBssids(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_GetFrequencyMhz_FullMethodName,
+		FullMethod: ResponderLocationService_GetColocatedBssids_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).GetFrequencyMhz(ctx, req.(*GetFrequencyMhzRequest))
+		return srv.(ResponderLocationServiceServer).GetColocatedBssids(ctx, req.(*GetColocatedBssidsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_GetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMacAddressRequest)
+func _ResponderLocationService_GetDatum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDatumRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).GetMacAddress(ctx, in)
+		return srv.(ResponderLocationServiceServer).GetDatum(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_GetMacAddress_FullMethodName,
+		FullMethod: ResponderLocationService_GetDatum_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).GetMacAddress(ctx, req.(*GetMacAddressRequest))
+		return srv.(ResponderLocationServiceServer).GetDatum(ctx, req.(*GetDatumRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_GetPreamble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreambleRequest)
+func _ResponderLocationService_GetExpectedToMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpectedToMoveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).GetPreamble(ctx, in)
+		return srv.(ResponderLocationServiceServer).GetExpectedToMove(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_GetPreamble_FullMethodName,
+		FullMethod: ResponderLocationService_GetExpectedToMove_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).GetPreamble(ctx, req.(*GetPreambleRequest))
+		return srv.(ResponderLocationServiceServer).GetExpectedToMove(ctx, req.(*GetExpectedToMoveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_GetResponderType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResponderTypeRequest)
+func _ResponderLocationService_GetFloorNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFloorNumberRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).GetResponderType(ctx, in)
+		return srv.(ResponderLocationServiceServer).GetFloorNumber(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_GetResponderType_FullMethodName,
+		FullMethod: ResponderLocationService_GetFloorNumber_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).GetResponderType(ctx, req.(*GetResponderTypeRequest))
+		return srv.(ResponderLocationServiceServer).GetFloorNumber(ctx, req.(*GetFloorNumberRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_GetSecureRangingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSecureRangingConfigRequest)
+func _ResponderLocationService_GetHeightAboveFloorMeters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeightAboveFloorMetersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).GetSecureRangingConfig(ctx, in)
+		return srv.(ResponderLocationServiceServer).GetHeightAboveFloorMeters(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_GetSecureRangingConfig_FullMethodName,
+		FullMethod: ResponderLocationService_GetHeightAboveFloorMeters_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).GetSecureRangingConfig(ctx, req.(*GetSecureRangingConfigRequest))
+		return srv.(ResponderLocationServiceServer).GetHeightAboveFloorMeters(ctx, req.(*GetHeightAboveFloorMetersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeightAboveFloorUncertaintyMetersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetHeightAboveFloorUncertaintyMeters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetHeightAboveFloorUncertaintyMeters(ctx, req.(*GetHeightAboveFloorUncertaintyMetersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_GetLatitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLatitudeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetLatitude(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetLatitude_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetLatitude(ctx, req.(*GetLatitudeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_GetLatitudeUncertainty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLatitudeUncertaintyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetLatitudeUncertainty(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetLatitudeUncertainty_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetLatitudeUncertainty(ctx, req.(*GetLatitudeUncertaintyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_GetLciVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLciVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetLciVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetLciVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetLciVersion(ctx, req.(*GetLciVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_GetLongitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLongitudeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetLongitude(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetLongitude_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetLongitude(ctx, req.(*GetLongitudeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_GetLongitudeUncertainty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLongitudeUncertaintyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetLongitudeUncertainty(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetLongitudeUncertainty_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetLongitudeUncertainty(ctx, req.(*GetLongitudeUncertaintyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_GetMapImageMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMapImageMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetMapImageMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetMapImageMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetMapImageMimeType(ctx, req.(*GetMapImageMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_GetMapImageUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMapImageUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetMapImageUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetMapImageUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetMapImageUri(ctx, req.(*GetMapImageUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_GetRegisteredLocationAgreementIndication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRegisteredLocationAgreementIndicationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).GetRegisteredLocationAgreementIndication(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_GetRegisteredLocationAgreementIndication_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).GetRegisteredLocationAgreementIndication(ctx, req.(*GetRegisteredLocationAgreementIndicationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).HashCode(ctx, in)
+		return srv.(ResponderLocationServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_HashCode_FullMethodName,
+		FullMethod: ResponderLocationService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(ResponderLocationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_Is80211AzNtbSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Is80211AzNtbSupportedRequest)
+func _ResponderLocationService_IsLciSubelementValid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLciSubelementValidRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).Is80211AzNtbSupported(ctx, in)
+		return srv.(ResponderLocationServiceServer).IsLciSubelementValid(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_Is80211AzNtbSupported_FullMethodName,
+		FullMethod: ResponderLocationService_IsLciSubelementValid_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).Is80211AzNtbSupported(ctx, req.(*Is80211AzNtbSupportedRequest))
+		return srv.(ResponderLocationServiceServer).IsLciSubelementValid(ctx, req.(*IsLciSubelementValidRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_Is80211McSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Is80211McSupportedRequest)
+func _ResponderLocationService_IsZaxisSubelementValid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsZaxisSubelementValidRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).Is80211McSupported(ctx, in)
+		return srv.(ResponderLocationServiceServer).IsZaxisSubelementValid(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_Is80211McSupported_FullMethodName,
+		FullMethod: ResponderLocationService_IsZaxisSubelementValid_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).Is80211McSupported(ctx, req.(*Is80211McSupportedRequest))
+		return srv.(ResponderLocationServiceServer).IsZaxisSubelementValid(ctx, req.(*IsZaxisSubelementValidRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+func _ResponderLocationService_ToCivicLocationAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToCivicLocationAddressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).ToString(ctx, in)
+		return srv.(ResponderLocationServiceServer).ToCivicLocationAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_ToString_FullMethodName,
+		FullMethod: ResponderLocationService_ToCivicLocationAddress_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(ResponderLocationServiceServer).ToCivicLocationAddress(ctx, req.(*ToCivicLocationAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResponderLocationService_ToCivicLocationSparseArray_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToCivicLocationSparseArrayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).ToCivicLocationSparseArray(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_ToCivicLocationSparseArray_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).ToCivicLocationSparseArray(ctx, req.(*ToCivicLocationSparseArrayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_ToLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToLocationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderLocationServiceServer).ToLocation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderLocationService_ToLocation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderLocationServiceServer).ToLocation(ctx, req.(*ToLocationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderLocationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).WriteToParcel(ctx, in)
+		return srv.(ResponderLocationServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderConfigService_WriteToParcel_FullMethodName,
+		FullMethod: ResponderLocationService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(ResponderLocationServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderConfigService_FromScanResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromScanResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigServiceServer).FromScanResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigService_FromScanResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigServiceServer).FromScanResult(ctx, req.(*FromScanResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResponderConfigService_ServiceDesc is the grpc.ServiceDesc for ResponderConfigService service.
+// ResponderLocationService_ServiceDesc is the grpc.ServiceDesc for ResponderLocationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ResponderConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_rtt.ResponderConfigService",
-	HandlerType: (*ResponderConfigServiceServer)(nil),
+var ResponderLocationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_rtt.ResponderLocationService",
+	HandlerType: (*ResponderLocationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _ResponderConfigService_DescribeContents_Handler,
+			Handler:    _ResponderLocationService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _ResponderConfigService_Equals_Handler,
+			Handler:    _ResponderLocationService_Equals_Handler,
 		},
 		{
-			MethodName: "GetCenterFreq0Mhz",
-			Handler:    _ResponderConfigService_GetCenterFreq0Mhz_Handler,
+			MethodName: "GetAltitude",
+			Handler:    _ResponderLocationService_GetAltitude_Handler,
 		},
 		{
-			MethodName: "GetCenterFreq1Mhz",
-			Handler:    _ResponderConfigService_GetCenterFreq1Mhz_Handler,
+			MethodName: "GetAltitudeType",
+			Handler:    _ResponderLocationService_GetAltitudeType_Handler,
 		},
 		{
-			MethodName: "GetChannelWidth",
-			Handler:    _ResponderConfigService_GetChannelWidth_Handler,
+			MethodName: "GetAltitudeUncertainty",
+			Handler:    _ResponderLocationService_GetAltitudeUncertainty_Handler,
 		},
 		{
-			MethodName: "GetFrequencyMhz",
-			Handler:    _ResponderConfigService_GetFrequencyMhz_Handler,
+			MethodName: "GetColocatedBssids",
+			Handler:    _ResponderLocationService_GetColocatedBssids_Handler,
 		},
 		{
-			MethodName: "GetMacAddress",
-			Handler:    _ResponderConfigService_GetMacAddress_Handler,
+			MethodName: "GetDatum",
+			Handler:    _ResponderLocationService_GetDatum_Handler,
 		},
 		{
-			MethodName: "GetPreamble",
-			Handler:    _ResponderConfigService_GetPreamble_Handler,
+			MethodName: "GetExpectedToMove",
+			Handler:    _ResponderLocationService_GetExpectedToMove_Handler,
 		},
 		{
-			MethodName: "GetResponderType",
-			Handler:    _ResponderConfigService_GetResponderType_Handler,
+			MethodName: "GetFloorNumber",
+			Handler:    _ResponderLocationService_GetFloorNumber_Handler,
 		},
 		{
-			MethodName: "GetSecureRangingConfig",
-			Handler:    _ResponderConfigService_GetSecureRangingConfig_Handler,
+			MethodName: "GetHeightAboveFloorMeters",
+			Handler:    _ResponderLocationService_GetHeightAboveFloorMeters_Handler,
 		},
 		{
-			MethodName: "HashCode",
-			Handler:    _ResponderConfigService_HashCode_Handler,
+			MethodName: "GetHeightAboveFloorUncertaintyMeters",
+			Handler:    _ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_Handler,
 		},
 		{
-			MethodName: "Is80211azNtbSupported",
-			Handler:    _ResponderConfigService_Is80211AzNtbSupported_Handler,
+			MethodName: "GetLatitude",
+			Handler:    _ResponderLocationService_GetLatitude_Handler,
 		},
 		{
-			MethodName: "Is80211mcSupported",
-			Handler:    _ResponderConfigService_Is80211McSupported_Handler,
+			MethodName: "GetLatitudeUncertainty",
+			Handler:    _ResponderLocationService_GetLatitudeUncertainty_Handler,
 		},
 		{
-			MethodName: "ToString",
-			Handler:    _ResponderConfigService_ToString_Handler,
+			MethodName: "GetLciVersion",
+			Handler:    _ResponderLocationService_GetLciVersion_Handler,
 		},
 		{
-			MethodName: "WriteToParcel",
-			Handler:    _ResponderConfigService_WriteToParcel_Handler,
+			MethodName: "GetLongitude",
+			Handler:    _ResponderLocationService_GetLongitude_Handler,
 		},
 		{
-			MethodName: "FromScanResult",
-			Handler:    _ResponderConfigService_FromScanResult_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
-}
-
-const (
-	ResponderConfigBuilderService_Build_FullMethodName                  = "/wifi_rtt.ResponderConfigBuilderService/Build"
-	ResponderConfigBuilderService_Set80211AzNtbSupported_FullMethodName = "/wifi_rtt.ResponderConfigBuilderService/Set80211azNtbSupported"
-	ResponderConfigBuilderService_Set80211McSupported_FullMethodName    = "/wifi_rtt.ResponderConfigBuilderService/Set80211mcSupported"
-	ResponderConfigBuilderService_SetCenterFreq0Mhz_FullMethodName      = "/wifi_rtt.ResponderConfigBuilderService/SetCenterFreq0Mhz"
-	ResponderConfigBuilderService_SetCenterFreq1Mhz_FullMethodName      = "/wifi_rtt.ResponderConfigBuilderService/SetCenterFreq1Mhz"
-	ResponderConfigBuilderService_SetChannelWidth_FullMethodName        = "/wifi_rtt.ResponderConfigBuilderService/SetChannelWidth"
-	ResponderConfigBuilderService_SetFrequencyMhz_FullMethodName        = "/wifi_rtt.ResponderConfigBuilderService/SetFrequencyMhz"
-	ResponderConfigBuilderService_SetMacAddress_FullMethodName          = "/wifi_rtt.ResponderConfigBuilderService/SetMacAddress"
-	ResponderConfigBuilderService_SetPreamble_FullMethodName            = "/wifi_rtt.ResponderConfigBuilderService/SetPreamble"
-	ResponderConfigBuilderService_SetResponderType_FullMethodName       = "/wifi_rtt.ResponderConfigBuilderService/SetResponderType"
-	ResponderConfigBuilderService_SetSecureRangingConfig_FullMethodName = "/wifi_rtt.ResponderConfigBuilderService/SetSecureRangingConfig"
-)
-
-// ResponderConfigBuilderServiceClient is the client API for ResponderConfigBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResponderConfigBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	Set80211AzNtbSupported(ctx context.Context, in *Set80211AzNtbSupportedRequest, opts ...grpc.CallOption) (*Set80211AzNtbSupportedResponse, error)
-	Set80211McSupported(ctx context.Context, in *Set80211McSupportedRequest, opts ...grpc.CallOption) (*Set80211McSupportedResponse, error)
-	SetCenterFreq0Mhz(ctx context.Context, in *SetCenterFreq0MhzRequest, opts ...grpc.CallOption) (*SetCenterFreq0MhzResponse, error)
-	SetCenterFreq1Mhz(ctx context.Context, in *SetCenterFreq1MhzRequest, opts ...grpc.CallOption) (*SetCenterFreq1MhzResponse, error)
-	SetChannelWidth(ctx context.Context, in *SetChannelWidthRequest, opts ...grpc.CallOption) (*SetChannelWidthResponse, error)
-	SetFrequencyMhz(ctx context.Context, in *SetFrequencyMhzRequest, opts ...grpc.CallOption) (*SetFrequencyMhzResponse, error)
-	SetMacAddress(ctx context.Context, in *SetMacAddressRequest, opts ...grpc.CallOption) (*SetMacAddressResponse, error)
-	SetPreamble(ctx context.Context, in *SetPreambleRequest, opts ...grpc.CallOption) (*SetPreambleResponse, error)
-	SetResponderType(ctx context.Context, in *SetResponderTypeRequest, opts ...grpc.CallOption) (*SetResponderTypeResponse, error)
-	SetSecureRangingConfig(ctx context.Context, in *SetSecureRangingConfigRequest, opts ...grpc.CallOption) (*SetSecureRangingConfigResponse, error)
-}
-
-type responderConfigBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewResponderConfigBuilderServiceClient(cc grpc.ClientConnInterface) ResponderConfigBuilderServiceClient {
-	return &responderConfigBuilderServiceClient{cc}
-}
-
-func (c *responderConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) Set80211AzNtbSupported(ctx context.Context, in *Set80211AzNtbSupportedRequest, opts ...grpc.CallOption) (*Set80211AzNtbSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Set80211AzNtbSupportedResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_Set80211AzNtbSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) Set80211McSupported(ctx context.Context, in *Set80211McSupportedRequest, opts ...grpc.CallOption) (*Set80211McSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Set80211McSupportedResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_Set80211McSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) SetCenterFreq0Mhz(ctx context.Context, in *SetCenterFreq0MhzRequest, opts ...grpc.CallOption) (*SetCenterFreq0MhzResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCenterFreq0MhzResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetCenterFreq0Mhz_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) SetCenterFreq1Mhz(ctx context.Context, in *SetCenterFreq1MhzRequest, opts ...grpc.CallOption) (*SetCenterFreq1MhzResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCenterFreq1MhzResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetCenterFreq1Mhz_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) SetChannelWidth(ctx context.Context, in *SetChannelWidthRequest, opts ...grpc.CallOption) (*SetChannelWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetChannelWidthResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetChannelWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) SetFrequencyMhz(ctx context.Context, in *SetFrequencyMhzRequest, opts ...grpc.CallOption) (*SetFrequencyMhzResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFrequencyMhzResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetFrequencyMhz_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) SetMacAddress(ctx context.Context, in *SetMacAddressRequest, opts ...grpc.CallOption) (*SetMacAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMacAddressResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetMacAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) SetPreamble(ctx context.Context, in *SetPreambleRequest, opts ...grpc.CallOption) (*SetPreambleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPreambleResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetPreamble_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) SetResponderType(ctx context.Context, in *SetResponderTypeRequest, opts ...grpc.CallOption) (*SetResponderTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetResponderTypeResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetResponderType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderConfigBuilderServiceClient) SetSecureRangingConfig(ctx context.Context, in *SetSecureRangingConfigRequest, opts ...grpc.CallOption) (*SetSecureRangingConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSecureRangingConfigResponse)
-	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetSecureRangingConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResponderConfigBuilderServiceServer is the server API for ResponderConfigBuilderService service.
-// All implementations must embed UnimplementedResponderConfigBuilderServiceServer
-// for forward compatibility.
-type ResponderConfigBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	Set80211AzNtbSupported(context.Context, *Set80211AzNtbSupportedRequest) (*Set80211AzNtbSupportedResponse, error)
-	Set80211McSupported(context.Context, *Set80211McSupportedRequest) (*Set80211McSupportedResponse, error)
-	SetCenterFreq0Mhz(context.Context, *SetCenterFreq0MhzRequest) (*SetCenterFreq0MhzResponse, error)
-	SetCenterFreq1Mhz(context.Context, *SetCenterFreq1MhzRequest) (*SetCenterFreq1MhzResponse, error)
-	SetChannelWidth(context.Context, *SetChannelWidthRequest) (*SetChannelWidthResponse, error)
-	SetFrequencyMhz(context.Context, *SetFrequencyMhzRequest) (*SetFrequencyMhzResponse, error)
-	SetMacAddress(context.Context, *SetMacAddressRequest) (*SetMacAddressResponse, error)
-	SetPreamble(context.Context, *SetPreambleRequest) (*SetPreambleResponse, error)
-	SetResponderType(context.Context, *SetResponderTypeRequest) (*SetResponderTypeResponse, error)
-	SetSecureRangingConfig(context.Context, *SetSecureRangingConfigRequest) (*SetSecureRangingConfigResponse, error)
-	mustEmbedUnimplementedResponderConfigBuilderServiceServer()
-}
-
-// UnimplementedResponderConfigBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedResponderConfigBuilderServiceServer struct{}
-
-func (UnimplementedResponderConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) Set80211AzNtbSupported(context.Context, *Set80211AzNtbSupportedRequest) (*Set80211AzNtbSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Set80211AzNtbSupported not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) Set80211McSupported(context.Context, *Set80211McSupportedRequest) (*Set80211McSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Set80211McSupported not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) SetCenterFreq0Mhz(context.Context, *SetCenterFreq0MhzRequest) (*SetCenterFreq0MhzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCenterFreq0Mhz not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) SetCenterFreq1Mhz(context.Context, *SetCenterFreq1MhzRequest) (*SetCenterFreq1MhzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCenterFreq1Mhz not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) SetChannelWidth(context.Context, *SetChannelWidthRequest) (*SetChannelWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetChannelWidth not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) SetFrequencyMhz(context.Context, *SetFrequencyMhzRequest) (*SetFrequencyMhzResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFrequencyMhz not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) SetMacAddress(context.Context, *SetMacAddressRequest) (*SetMacAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMacAddress not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) SetPreamble(context.Context, *SetPreambleRequest) (*SetPreambleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreamble not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) SetResponderType(context.Context, *SetResponderTypeRequest) (*SetResponderTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetResponderType not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) SetSecureRangingConfig(context.Context, *SetSecureRangingConfigRequest) (*SetSecureRangingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSecureRangingConfig not implemented")
-}
-func (UnimplementedResponderConfigBuilderServiceServer) mustEmbedUnimplementedResponderConfigBuilderServiceServer() {
-}
-func (UnimplementedResponderConfigBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeResponderConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResponderConfigBuilderServiceServer will
-// result in compilation errors.
-type UnsafeResponderConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedResponderConfigBuilderServiceServer()
-}
-
-func RegisterResponderConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv ResponderConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedResponderConfigBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ResponderConfigBuilderService_ServiceDesc, srv)
-}
-
-func _ResponderConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_Set80211AzNtbSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Set80211AzNtbSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).Set80211AzNtbSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_Set80211AzNtbSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).Set80211AzNtbSupported(ctx, req.(*Set80211AzNtbSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_Set80211McSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Set80211McSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).Set80211McSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_Set80211McSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).Set80211McSupported(ctx, req.(*Set80211McSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_SetCenterFreq0Mhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCenterFreq0MhzRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).SetCenterFreq0Mhz(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_SetCenterFreq0Mhz_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).SetCenterFreq0Mhz(ctx, req.(*SetCenterFreq0MhzRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_SetCenterFreq1Mhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCenterFreq1MhzRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).SetCenterFreq1Mhz(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_SetCenterFreq1Mhz_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).SetCenterFreq1Mhz(ctx, req.(*SetCenterFreq1MhzRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_SetChannelWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetChannelWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).SetChannelWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_SetChannelWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).SetChannelWidth(ctx, req.(*SetChannelWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_SetFrequencyMhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFrequencyMhzRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).SetFrequencyMhz(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_SetFrequencyMhz_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).SetFrequencyMhz(ctx, req.(*SetFrequencyMhzRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_SetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMacAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).SetMacAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_SetMacAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).SetMacAddress(ctx, req.(*SetMacAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_SetPreamble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPreambleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).SetPreamble(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_SetPreamble_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).SetPreamble(ctx, req.(*SetPreambleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_SetResponderType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetResponderTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).SetResponderType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_SetResponderType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).SetResponderType(ctx, req.(*SetResponderTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderConfigBuilderService_SetSecureRangingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSecureRangingConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderConfigBuilderServiceServer).SetSecureRangingConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderConfigBuilderService_SetSecureRangingConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderConfigBuilderServiceServer).SetSecureRangingConfig(ctx, req.(*SetSecureRangingConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResponderConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for ResponderConfigBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ResponderConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_rtt.ResponderConfigBuilderService",
-	HandlerType: (*ResponderConfigBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _ResponderConfigBuilderService_Build_Handler,
+			MethodName: "GetLongitudeUncertainty",
+			Handler:    _ResponderLocationService_GetLongitudeUncertainty_Handler,
 		},
 		{
-			MethodName: "Set80211azNtbSupported",
-			Handler:    _ResponderConfigBuilderService_Set80211AzNtbSupported_Handler,
+			MethodName: "GetMapImageMimeType",
+			Handler:    _ResponderLocationService_GetMapImageMimeType_Handler,
 		},
 		{
-			MethodName: "Set80211mcSupported",
-			Handler:    _ResponderConfigBuilderService_Set80211McSupported_Handler,
+			MethodName: "GetMapImageUri",
+			Handler:    _ResponderLocationService_GetMapImageUri_Handler,
 		},
 		{
-			MethodName: "SetCenterFreq0Mhz",
-			Handler:    _ResponderConfigBuilderService_SetCenterFreq0Mhz_Handler,
-		},
-		{
-			MethodName: "SetCenterFreq1Mhz",
-			Handler:    _ResponderConfigBuilderService_SetCenterFreq1Mhz_Handler,
-		},
-		{
-			MethodName: "SetChannelWidth",
-			Handler:    _ResponderConfigBuilderService_SetChannelWidth_Handler,
-		},
-		{
-			MethodName: "SetFrequencyMhz",
-			Handler:    _ResponderConfigBuilderService_SetFrequencyMhz_Handler,
-		},
-		{
-			MethodName: "SetMacAddress",
-			Handler:    _ResponderConfigBuilderService_SetMacAddress_Handler,
-		},
-		{
-			MethodName: "SetPreamble",
-			Handler:    _ResponderConfigBuilderService_SetPreamble_Handler,
-		},
-		{
-			MethodName: "SetResponderType",
-			Handler:    _ResponderConfigBuilderService_SetResponderType_Handler,
-		},
-		{
-			MethodName: "SetSecureRangingConfig",
-			Handler:    _ResponderConfigBuilderService_SetSecureRangingConfig_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
-}
-
-const (
-	RangingRequestService_DescribeContents_FullMethodName       = "/wifi_rtt.RangingRequestService/DescribeContents"
-	RangingRequestService_Equals_FullMethodName                 = "/wifi_rtt.RangingRequestService/Equals"
-	RangingRequestService_GetRttBurstSize_FullMethodName        = "/wifi_rtt.RangingRequestService/GetRttBurstSize"
-	RangingRequestService_GetSecurityMode_FullMethodName        = "/wifi_rtt.RangingRequestService/GetSecurityMode"
-	RangingRequestService_HashCode_FullMethodName               = "/wifi_rtt.RangingRequestService/HashCode"
-	RangingRequestService_ToString_FullMethodName               = "/wifi_rtt.RangingRequestService/ToString"
-	RangingRequestService_WriteToParcel_FullMethodName          = "/wifi_rtt.RangingRequestService/WriteToParcel"
-	RangingRequestService_GetDefaultRttBurstSize_FullMethodName = "/wifi_rtt.RangingRequestService/GetDefaultRttBurstSize"
-	RangingRequestService_GetMaxPeers_FullMethodName            = "/wifi_rtt.RangingRequestService/GetMaxPeers"
-	RangingRequestService_GetMaxRttBurstSize_FullMethodName     = "/wifi_rtt.RangingRequestService/GetMaxRttBurstSize"
-	RangingRequestService_GetMinRttBurstSize_FullMethodName     = "/wifi_rtt.RangingRequestService/GetMinRttBurstSize"
-)
-
-// RangingRequestServiceClient is the client API for RangingRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangingRequestServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetRttBurstSize(ctx context.Context, in *GetRttBurstSizeRequest, opts ...grpc.CallOption) (*GetRttBurstSizeResponse, error)
-	GetSecurityMode(ctx context.Context, in *GetSecurityModeRequest, opts ...grpc.CallOption) (*GetSecurityModeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	GetDefaultRttBurstSize(ctx context.Context, in *GetDefaultRttBurstSizeRequest, opts ...grpc.CallOption) (*GetDefaultRttBurstSizeResponse, error)
-	GetMaxPeers(ctx context.Context, in *GetMaxPeersRequest, opts ...grpc.CallOption) (*GetMaxPeersResponse, error)
-	GetMaxRttBurstSize(ctx context.Context, in *GetMaxRttBurstSizeRequest, opts ...grpc.CallOption) (*GetMaxRttBurstSizeResponse, error)
-	GetMinRttBurstSize(ctx context.Context, in *GetMinRttBurstSizeRequest, opts ...grpc.CallOption) (*GetMinRttBurstSizeResponse, error)
-}
-
-type rangingRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangingRequestServiceClient(cc grpc.ClientConnInterface) RangingRequestServiceClient {
-	return &rangingRequestServiceClient{cc}
-}
-
-func (c *rangingRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) GetRttBurstSize(ctx context.Context, in *GetRttBurstSizeRequest, opts ...grpc.CallOption) (*GetRttBurstSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRttBurstSizeResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_GetRttBurstSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) GetSecurityMode(ctx context.Context, in *GetSecurityModeRequest, opts ...grpc.CallOption) (*GetSecurityModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSecurityModeResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_GetSecurityMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) GetDefaultRttBurstSize(ctx context.Context, in *GetDefaultRttBurstSizeRequest, opts ...grpc.CallOption) (*GetDefaultRttBurstSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultRttBurstSizeResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_GetDefaultRttBurstSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) GetMaxPeers(ctx context.Context, in *GetMaxPeersRequest, opts ...grpc.CallOption) (*GetMaxPeersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxPeersResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_GetMaxPeers_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) GetMaxRttBurstSize(ctx context.Context, in *GetMaxRttBurstSizeRequest, opts ...grpc.CallOption) (*GetMaxRttBurstSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxRttBurstSizeResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_GetMaxRttBurstSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestServiceClient) GetMinRttBurstSize(ctx context.Context, in *GetMinRttBurstSizeRequest, opts ...grpc.CallOption) (*GetMinRttBurstSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinRttBurstSizeResponse)
-	err := c.cc.Invoke(ctx, RangingRequestService_GetMinRttBurstSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangingRequestServiceServer is the server API for RangingRequestService service.
-// All implementations must embed UnimplementedRangingRequestServiceServer
-// for forward compatibility.
-type RangingRequestServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetRttBurstSize(context.Context, *GetRttBurstSizeRequest) (*GetRttBurstSizeResponse, error)
-	GetSecurityMode(context.Context, *GetSecurityModeRequest) (*GetSecurityModeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	GetDefaultRttBurstSize(context.Context, *GetDefaultRttBurstSizeRequest) (*GetDefaultRttBurstSizeResponse, error)
-	GetMaxPeers(context.Context, *GetMaxPeersRequest) (*GetMaxPeersResponse, error)
-	GetMaxRttBurstSize(context.Context, *GetMaxRttBurstSizeRequest) (*GetMaxRttBurstSizeResponse, error)
-	GetMinRttBurstSize(context.Context, *GetMinRttBurstSizeRequest) (*GetMinRttBurstSizeResponse, error)
-	mustEmbedUnimplementedRangingRequestServiceServer()
-}
-
-// UnimplementedRangingRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangingRequestServiceServer struct{}
-
-func (UnimplementedRangingRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) GetRttBurstSize(context.Context, *GetRttBurstSizeRequest) (*GetRttBurstSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRttBurstSize not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) GetSecurityMode(context.Context, *GetSecurityModeRequest) (*GetSecurityModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSecurityMode not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) GetDefaultRttBurstSize(context.Context, *GetDefaultRttBurstSizeRequest) (*GetDefaultRttBurstSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultRttBurstSize not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) GetMaxPeers(context.Context, *GetMaxPeersRequest) (*GetMaxPeersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxPeers not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) GetMaxRttBurstSize(context.Context, *GetMaxRttBurstSizeRequest) (*GetMaxRttBurstSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxRttBurstSize not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) GetMinRttBurstSize(context.Context, *GetMinRttBurstSizeRequest) (*GetMinRttBurstSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinRttBurstSize not implemented")
-}
-func (UnimplementedRangingRequestServiceServer) mustEmbedUnimplementedRangingRequestServiceServer() {}
-func (UnimplementedRangingRequestServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeRangingRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangingRequestServiceServer will
-// result in compilation errors.
-type UnsafeRangingRequestServiceServer interface {
-	mustEmbedUnimplementedRangingRequestServiceServer()
-}
-
-func RegisterRangingRequestServiceServer(s grpc.ServiceRegistrar, srv RangingRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangingRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangingRequestService_ServiceDesc, srv)
-}
-
-func _RangingRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_GetRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRttBurstSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).GetRttBurstSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_GetRttBurstSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).GetRttBurstSize(ctx, req.(*GetRttBurstSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_GetSecurityMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSecurityModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).GetSecurityMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_GetSecurityMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).GetSecurityMode(ctx, req.(*GetSecurityModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_GetDefaultRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultRttBurstSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).GetDefaultRttBurstSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_GetDefaultRttBurstSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).GetDefaultRttBurstSize(ctx, req.(*GetDefaultRttBurstSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_GetMaxPeers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxPeersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).GetMaxPeers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_GetMaxPeers_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).GetMaxPeers(ctx, req.(*GetMaxPeersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_GetMaxRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxRttBurstSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).GetMaxRttBurstSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_GetMaxRttBurstSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).GetMaxRttBurstSize(ctx, req.(*GetMaxRttBurstSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestService_GetMinRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinRttBurstSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestServiceServer).GetMinRttBurstSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestService_GetMinRttBurstSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestServiceServer).GetMinRttBurstSize(ctx, req.(*GetMinRttBurstSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangingRequestService_ServiceDesc is the grpc.ServiceDesc for RangingRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangingRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_rtt.RangingRequestService",
-	HandlerType: (*RangingRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _RangingRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _RangingRequestService_Equals_Handler,
-		},
-		{
-			MethodName: "GetRttBurstSize",
-			Handler:    _RangingRequestService_GetRttBurstSize_Handler,
-		},
-		{
-			MethodName: "GetSecurityMode",
-			Handler:    _RangingRequestService_GetSecurityMode_Handler,
+			MethodName: "GetRegisteredLocationAgreementIndication",
+			Handler:    _ResponderLocationService_GetRegisteredLocationAgreementIndication_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _RangingRequestService_HashCode_Handler,
+			Handler:    _ResponderLocationService_HashCode_Handler,
 		},
 		{
-			MethodName: "ToString",
-			Handler:    _RangingRequestService_ToString_Handler,
+			MethodName: "IsLciSubelementValid",
+			Handler:    _ResponderLocationService_IsLciSubelementValid_Handler,
 		},
 		{
-			MethodName: "WriteToParcel",
-			Handler:    _RangingRequestService_WriteToParcel_Handler,
+			MethodName: "IsZaxisSubelementValid",
+			Handler:    _ResponderLocationService_IsZaxisSubelementValid_Handler,
 		},
 		{
-			MethodName: "GetDefaultRttBurstSize",
-			Handler:    _RangingRequestService_GetDefaultRttBurstSize_Handler,
+			MethodName: "ToCivicLocationAddress",
+			Handler:    _ResponderLocationService_ToCivicLocationAddress_Handler,
 		},
 		{
-			MethodName: "GetMaxPeers",
-			Handler:    _RangingRequestService_GetMaxPeers_Handler,
+			MethodName: "ToCivicLocationSparseArray",
+			Handler:    _ResponderLocationService_ToCivicLocationSparseArray_Handler,
 		},
 		{
-			MethodName: "GetMaxRttBurstSize",
-			Handler:    _RangingRequestService_GetMaxRttBurstSize_Handler,
-		},
-		{
-			MethodName: "GetMinRttBurstSize",
-			Handler:    _RangingRequestService_GetMinRttBurstSize_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
-}
-
-const (
-	RangingRequestBuilderService_AddAccessPoint_FullMethodName                  = "/wifi_rtt.RangingRequestBuilderService/AddAccessPoint"
-	RangingRequestBuilderService_AddNon80211McCapableAccessPoint_FullMethodName = "/wifi_rtt.RangingRequestBuilderService/AddNon80211mcCapableAccessPoint"
-	RangingRequestBuilderService_AddResponder_FullMethodName                    = "/wifi_rtt.RangingRequestBuilderService/AddResponder"
-	RangingRequestBuilderService_AddWifiAwarePeer1_FullMethodName               = "/wifi_rtt.RangingRequestBuilderService/AddWifiAwarePeer1"
-	RangingRequestBuilderService_AddWifiAwarePeer1_1_FullMethodName             = "/wifi_rtt.RangingRequestBuilderService/AddWifiAwarePeer1_1"
-	RangingRequestBuilderService_Build_FullMethodName                           = "/wifi_rtt.RangingRequestBuilderService/Build"
-	RangingRequestBuilderService_SetRttBurstSize_FullMethodName                 = "/wifi_rtt.RangingRequestBuilderService/SetRttBurstSize"
-	RangingRequestBuilderService_SetSecurityMode_FullMethodName                 = "/wifi_rtt.RangingRequestBuilderService/SetSecurityMode"
-)
-
-// RangingRequestBuilderServiceClient is the client API for RangingRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangingRequestBuilderServiceClient interface {
-	AddAccessPoint(ctx context.Context, in *AddAccessPointRequest, opts ...grpc.CallOption) (*AddAccessPointResponse, error)
-	AddNon80211McCapableAccessPoint(ctx context.Context, in *AddNon80211McCapableAccessPointRequest, opts ...grpc.CallOption) (*AddNon80211McCapableAccessPointResponse, error)
-	AddResponder(ctx context.Context, in *AddResponderRequest, opts ...grpc.CallOption) (*AddResponderResponse, error)
-	AddWifiAwarePeer1(ctx context.Context, in *AddWifiAwarePeer1Request, opts ...grpc.CallOption) (*AddWifiAwarePeer1Response, error)
-	AddWifiAwarePeer1_1(ctx context.Context, in *AddWifiAwarePeer1_1Request, opts ...grpc.CallOption) (*AddWifiAwarePeer1_1Response, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetRttBurstSize(ctx context.Context, in *SetRttBurstSizeRequest, opts ...grpc.CallOption) (*SetRttBurstSizeResponse, error)
-	SetSecurityMode(ctx context.Context, in *SetSecurityModeRequest, opts ...grpc.CallOption) (*SetSecurityModeResponse, error)
-}
-
-type rangingRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangingRequestBuilderServiceClient(cc grpc.ClientConnInterface) RangingRequestBuilderServiceClient {
-	return &rangingRequestBuilderServiceClient{cc}
-}
-
-func (c *rangingRequestBuilderServiceClient) AddAccessPoint(ctx context.Context, in *AddAccessPointRequest, opts ...grpc.CallOption) (*AddAccessPointResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddAccessPointResponse)
-	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddAccessPoint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestBuilderServiceClient) AddNon80211McCapableAccessPoint(ctx context.Context, in *AddNon80211McCapableAccessPointRequest, opts ...grpc.CallOption) (*AddNon80211McCapableAccessPointResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddNon80211McCapableAccessPointResponse)
-	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddNon80211McCapableAccessPoint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestBuilderServiceClient) AddResponder(ctx context.Context, in *AddResponderRequest, opts ...grpc.CallOption) (*AddResponderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddResponderResponse)
-	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddResponder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestBuilderServiceClient) AddWifiAwarePeer1(ctx context.Context, in *AddWifiAwarePeer1Request, opts ...grpc.CallOption) (*AddWifiAwarePeer1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddWifiAwarePeer1Response)
-	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddWifiAwarePeer1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestBuilderServiceClient) AddWifiAwarePeer1_1(ctx context.Context, in *AddWifiAwarePeer1_1Request, opts ...grpc.CallOption) (*AddWifiAwarePeer1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddWifiAwarePeer1_1Response)
-	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddWifiAwarePeer1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, RangingRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestBuilderServiceClient) SetRttBurstSize(ctx context.Context, in *SetRttBurstSizeRequest, opts ...grpc.CallOption) (*SetRttBurstSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRttBurstSizeResponse)
-	err := c.cc.Invoke(ctx, RangingRequestBuilderService_SetRttBurstSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangingRequestBuilderServiceClient) SetSecurityMode(ctx context.Context, in *SetSecurityModeRequest, opts ...grpc.CallOption) (*SetSecurityModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSecurityModeResponse)
-	err := c.cc.Invoke(ctx, RangingRequestBuilderService_SetSecurityMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangingRequestBuilderServiceServer is the server API for RangingRequestBuilderService service.
-// All implementations must embed UnimplementedRangingRequestBuilderServiceServer
-// for forward compatibility.
-type RangingRequestBuilderServiceServer interface {
-	AddAccessPoint(context.Context, *AddAccessPointRequest) (*AddAccessPointResponse, error)
-	AddNon80211McCapableAccessPoint(context.Context, *AddNon80211McCapableAccessPointRequest) (*AddNon80211McCapableAccessPointResponse, error)
-	AddResponder(context.Context, *AddResponderRequest) (*AddResponderResponse, error)
-	AddWifiAwarePeer1(context.Context, *AddWifiAwarePeer1Request) (*AddWifiAwarePeer1Response, error)
-	AddWifiAwarePeer1_1(context.Context, *AddWifiAwarePeer1_1Request) (*AddWifiAwarePeer1_1Response, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetRttBurstSize(context.Context, *SetRttBurstSizeRequest) (*SetRttBurstSizeResponse, error)
-	SetSecurityMode(context.Context, *SetSecurityModeRequest) (*SetSecurityModeResponse, error)
-	mustEmbedUnimplementedRangingRequestBuilderServiceServer()
-}
-
-// UnimplementedRangingRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangingRequestBuilderServiceServer struct{}
-
-func (UnimplementedRangingRequestBuilderServiceServer) AddAccessPoint(context.Context, *AddAccessPointRequest) (*AddAccessPointResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddAccessPoint not implemented")
-}
-func (UnimplementedRangingRequestBuilderServiceServer) AddNon80211McCapableAccessPoint(context.Context, *AddNon80211McCapableAccessPointRequest) (*AddNon80211McCapableAccessPointResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddNon80211McCapableAccessPoint not implemented")
-}
-func (UnimplementedRangingRequestBuilderServiceServer) AddResponder(context.Context, *AddResponderRequest) (*AddResponderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddResponder not implemented")
-}
-func (UnimplementedRangingRequestBuilderServiceServer) AddWifiAwarePeer1(context.Context, *AddWifiAwarePeer1Request) (*AddWifiAwarePeer1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddWifiAwarePeer1 not implemented")
-}
-func (UnimplementedRangingRequestBuilderServiceServer) AddWifiAwarePeer1_1(context.Context, *AddWifiAwarePeer1_1Request) (*AddWifiAwarePeer1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddWifiAwarePeer1_1 not implemented")
-}
-func (UnimplementedRangingRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedRangingRequestBuilderServiceServer) SetRttBurstSize(context.Context, *SetRttBurstSizeRequest) (*SetRttBurstSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRttBurstSize not implemented")
-}
-func (UnimplementedRangingRequestBuilderServiceServer) SetSecurityMode(context.Context, *SetSecurityModeRequest) (*SetSecurityModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSecurityMode not implemented")
-}
-func (UnimplementedRangingRequestBuilderServiceServer) mustEmbedUnimplementedRangingRequestBuilderServiceServer() {
-}
-func (UnimplementedRangingRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRangingRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangingRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeRangingRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedRangingRequestBuilderServiceServer()
-}
-
-func RegisterRangingRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv RangingRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangingRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangingRequestBuilderService_ServiceDesc, srv)
-}
-
-func _RangingRequestBuilderService_AddAccessPoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddAccessPointRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestBuilderServiceServer).AddAccessPoint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestBuilderService_AddAccessPoint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestBuilderServiceServer).AddAccessPoint(ctx, req.(*AddAccessPointRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestBuilderService_AddNon80211McCapableAccessPoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddNon80211McCapableAccessPointRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestBuilderServiceServer).AddNon80211McCapableAccessPoint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestBuilderService_AddNon80211McCapableAccessPoint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestBuilderServiceServer).AddNon80211McCapableAccessPoint(ctx, req.(*AddNon80211McCapableAccessPointRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestBuilderService_AddResponder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddResponderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestBuilderServiceServer).AddResponder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestBuilderService_AddResponder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestBuilderServiceServer).AddResponder(ctx, req.(*AddResponderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestBuilderService_AddWifiAwarePeer1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddWifiAwarePeer1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestBuilderServiceServer).AddWifiAwarePeer1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestBuilderService_AddWifiAwarePeer1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestBuilderServiceServer).AddWifiAwarePeer1(ctx, req.(*AddWifiAwarePeer1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestBuilderService_AddWifiAwarePeer1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddWifiAwarePeer1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestBuilderServiceServer).AddWifiAwarePeer1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestBuilderService_AddWifiAwarePeer1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestBuilderServiceServer).AddWifiAwarePeer1_1(ctx, req.(*AddWifiAwarePeer1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestBuilderService_SetRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRttBurstSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestBuilderServiceServer).SetRttBurstSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestBuilderService_SetRttBurstSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestBuilderServiceServer).SetRttBurstSize(ctx, req.(*SetRttBurstSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangingRequestBuilderService_SetSecurityMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSecurityModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingRequestBuilderServiceServer).SetSecurityMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingRequestBuilderService_SetSecurityMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingRequestBuilderServiceServer).SetSecurityMode(ctx, req.(*SetSecurityModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangingRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for RangingRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangingRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_rtt.RangingRequestBuilderService",
-	HandlerType: (*RangingRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddAccessPoint",
-			Handler:    _RangingRequestBuilderService_AddAccessPoint_Handler,
-		},
-		{
-			MethodName: "AddNon80211mcCapableAccessPoint",
-			Handler:    _RangingRequestBuilderService_AddNon80211McCapableAccessPoint_Handler,
-		},
-		{
-			MethodName: "AddResponder",
-			Handler:    _RangingRequestBuilderService_AddResponder_Handler,
-		},
-		{
-			MethodName: "AddWifiAwarePeer1",
-			Handler:    _RangingRequestBuilderService_AddWifiAwarePeer1_Handler,
-		},
-		{
-			MethodName: "AddWifiAwarePeer1_1",
-			Handler:    _RangingRequestBuilderService_AddWifiAwarePeer1_1_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _RangingRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetRttBurstSize",
-			Handler:    _RangingRequestBuilderService_SetRttBurstSize_Handler,
-		},
-		{
-			MethodName: "SetSecurityMode",
-			Handler:    _RangingRequestBuilderService_SetSecurityMode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
-}
-
-const (
-	RangingResultCallbackService_OnRangingFailure_FullMethodName = "/wifi_rtt.RangingResultCallbackService/OnRangingFailure"
-)
-
-// RangingResultCallbackServiceClient is the client API for RangingResultCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangingResultCallbackServiceClient interface {
-	OnRangingFailure(ctx context.Context, in *OnRangingFailureRequest, opts ...grpc.CallOption) (*OnRangingFailureResponse, error)
-}
-
-type rangingResultCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangingResultCallbackServiceClient(cc grpc.ClientConnInterface) RangingResultCallbackServiceClient {
-	return &rangingResultCallbackServiceClient{cc}
-}
-
-func (c *rangingResultCallbackServiceClient) OnRangingFailure(ctx context.Context, in *OnRangingFailureRequest, opts ...grpc.CallOption) (*OnRangingFailureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRangingFailureResponse)
-	err := c.cc.Invoke(ctx, RangingResultCallbackService_OnRangingFailure_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangingResultCallbackServiceServer is the server API for RangingResultCallbackService service.
-// All implementations must embed UnimplementedRangingResultCallbackServiceServer
-// for forward compatibility.
-type RangingResultCallbackServiceServer interface {
-	OnRangingFailure(context.Context, *OnRangingFailureRequest) (*OnRangingFailureResponse, error)
-	mustEmbedUnimplementedRangingResultCallbackServiceServer()
-}
-
-// UnimplementedRangingResultCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangingResultCallbackServiceServer struct{}
-
-func (UnimplementedRangingResultCallbackServiceServer) OnRangingFailure(context.Context, *OnRangingFailureRequest) (*OnRangingFailureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRangingFailure not implemented")
-}
-func (UnimplementedRangingResultCallbackServiceServer) mustEmbedUnimplementedRangingResultCallbackServiceServer() {
-}
-func (UnimplementedRangingResultCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRangingResultCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangingResultCallbackServiceServer will
-// result in compilation errors.
-type UnsafeRangingResultCallbackServiceServer interface {
-	mustEmbedUnimplementedRangingResultCallbackServiceServer()
-}
-
-func RegisterRangingResultCallbackServiceServer(s grpc.ServiceRegistrar, srv RangingResultCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangingResultCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangingResultCallbackService_ServiceDesc, srv)
-}
-
-func _RangingResultCallbackService_OnRangingFailure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRangingFailureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangingResultCallbackServiceServer).OnRangingFailure(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangingResultCallbackService_OnRangingFailure_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangingResultCallbackServiceServer).OnRangingFailure(ctx, req.(*OnRangingFailureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangingResultCallbackService_ServiceDesc is the grpc.ServiceDesc for RangingResultCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangingResultCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_rtt.RangingResultCallbackService",
-	HandlerType: (*RangingResultCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnRangingFailure",
-			Handler:    _RangingResultCallbackService_OnRangingFailure_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
-}
-
-const (
-	PasnConfigService_DescribeContents_FullMethodName      = "/wifi_rtt.PasnConfigService/DescribeContents"
-	PasnConfigService_Equals_FullMethodName                = "/wifi_rtt.PasnConfigService/Equals"
-	PasnConfigService_GetBaseAkms_FullMethodName           = "/wifi_rtt.PasnConfigService/GetBaseAkms"
-	PasnConfigService_GetCiphers_FullMethodName            = "/wifi_rtt.PasnConfigService/GetCiphers"
-	PasnConfigService_GetPasnComebackCookie_FullMethodName = "/wifi_rtt.PasnConfigService/GetPasnComebackCookie"
-	PasnConfigService_GetPassword_FullMethodName           = "/wifi_rtt.PasnConfigService/GetPassword"
-	PasnConfigService_GetWifiSsid_FullMethodName           = "/wifi_rtt.PasnConfigService/GetWifiSsid"
-	PasnConfigService_HashCode_FullMethodName              = "/wifi_rtt.PasnConfigService/HashCode"
-	PasnConfigService_ToString_FullMethodName              = "/wifi_rtt.PasnConfigService/ToString"
-	PasnConfigService_WriteToParcel_FullMethodName         = "/wifi_rtt.PasnConfigService/WriteToParcel"
-)
-
-// PasnConfigServiceClient is the client API for PasnConfigService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PasnConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetBaseAkms(ctx context.Context, in *GetBaseAkmsRequest, opts ...grpc.CallOption) (*GetBaseAkmsResponse, error)
-	GetCiphers(ctx context.Context, in *GetCiphersRequest, opts ...grpc.CallOption) (*GetCiphersResponse, error)
-	GetPasnComebackCookie(ctx context.Context, in *GetPasnComebackCookieRequest, opts ...grpc.CallOption) (*GetPasnComebackCookieResponse, error)
-	GetPassword(ctx context.Context, in *GetPasswordRequest, opts ...grpc.CallOption) (*GetPasswordResponse, error)
-	GetWifiSsid(ctx context.Context, in *GetWifiSsidRequest, opts ...grpc.CallOption) (*GetWifiSsidResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type pasnConfigServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPasnConfigServiceClient(cc grpc.ClientConnInterface) PasnConfigServiceClient {
-	return &pasnConfigServiceClient{cc}
-}
-
-func (c *pasnConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) GetBaseAkms(ctx context.Context, in *GetBaseAkmsRequest, opts ...grpc.CallOption) (*GetBaseAkmsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBaseAkmsResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_GetBaseAkms_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) GetCiphers(ctx context.Context, in *GetCiphersRequest, opts ...grpc.CallOption) (*GetCiphersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCiphersResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_GetCiphers_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) GetPasnComebackCookie(ctx context.Context, in *GetPasnComebackCookieRequest, opts ...grpc.CallOption) (*GetPasnComebackCookieResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPasnComebackCookieResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_GetPasnComebackCookie_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) GetPassword(ctx context.Context, in *GetPasswordRequest, opts ...grpc.CallOption) (*GetPasswordResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPasswordResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_GetPassword_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) GetWifiSsid(ctx context.Context, in *GetWifiSsidRequest, opts ...grpc.CallOption) (*GetWifiSsidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWifiSsidResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_GetWifiSsid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PasnConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PasnConfigServiceServer is the server API for PasnConfigService service.
-// All implementations must embed UnimplementedPasnConfigServiceServer
-// for forward compatibility.
-type PasnConfigServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetBaseAkms(context.Context, *GetBaseAkmsRequest) (*GetBaseAkmsResponse, error)
-	GetCiphers(context.Context, *GetCiphersRequest) (*GetCiphersResponse, error)
-	GetPasnComebackCookie(context.Context, *GetPasnComebackCookieRequest) (*GetPasnComebackCookieResponse, error)
-	GetPassword(context.Context, *GetPasswordRequest) (*GetPasswordResponse, error)
-	GetWifiSsid(context.Context, *GetWifiSsidRequest) (*GetWifiSsidResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPasnConfigServiceServer()
-}
-
-// UnimplementedPasnConfigServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPasnConfigServiceServer struct{}
-
-func (UnimplementedPasnConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) GetBaseAkms(context.Context, *GetBaseAkmsRequest) (*GetBaseAkmsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBaseAkms not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) GetCiphers(context.Context, *GetCiphersRequest) (*GetCiphersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCiphers not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) GetPasnComebackCookie(context.Context, *GetPasnComebackCookieRequest) (*GetPasnComebackCookieResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPasnComebackCookie not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) GetPassword(context.Context, *GetPasswordRequest) (*GetPasswordResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPassword not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) GetWifiSsid(context.Context, *GetWifiSsidRequest) (*GetWifiSsidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWifiSsid not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPasnConfigServiceServer) mustEmbedUnimplementedPasnConfigServiceServer() {}
-func (UnimplementedPasnConfigServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafePasnConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PasnConfigServiceServer will
-// result in compilation errors.
-type UnsafePasnConfigServiceServer interface {
-	mustEmbedUnimplementedPasnConfigServiceServer()
-}
-
-func RegisterPasnConfigServiceServer(s grpc.ServiceRegistrar, srv PasnConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedPasnConfigServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PasnConfigService_ServiceDesc, srv)
-}
-
-func _PasnConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_GetBaseAkms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBaseAkmsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).GetBaseAkms(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_GetBaseAkms_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).GetBaseAkms(ctx, req.(*GetBaseAkmsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_GetCiphers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCiphersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).GetCiphers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_GetCiphers_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).GetCiphers(ctx, req.(*GetCiphersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_GetPasnComebackCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPasnComebackCookieRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).GetPasnComebackCookie(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_GetPasnComebackCookie_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).GetPasnComebackCookie(ctx, req.(*GetPasnComebackCookieRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_GetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPasswordRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).GetPassword(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_GetPassword_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).GetPassword(ctx, req.(*GetPasswordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_GetWifiSsid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWifiSsidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).GetWifiSsid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_GetWifiSsid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).GetWifiSsid(ctx, req.(*GetWifiSsidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PasnConfigService_ServiceDesc is the grpc.ServiceDesc for PasnConfigService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PasnConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_rtt.PasnConfigService",
-	HandlerType: (*PasnConfigServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _PasnConfigService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _PasnConfigService_Equals_Handler,
-		},
-		{
-			MethodName: "GetBaseAkms",
-			Handler:    _PasnConfigService_GetBaseAkms_Handler,
-		},
-		{
-			MethodName: "GetCiphers",
-			Handler:    _PasnConfigService_GetCiphers_Handler,
-		},
-		{
-			MethodName: "GetPasnComebackCookie",
-			Handler:    _PasnConfigService_GetPasnComebackCookie_Handler,
-		},
-		{
-			MethodName: "GetPassword",
-			Handler:    _PasnConfigService_GetPassword_Handler,
-		},
-		{
-			MethodName: "GetWifiSsid",
-			Handler:    _PasnConfigService_GetWifiSsid_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PasnConfigService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PasnConfigService_ToString_Handler,
+			MethodName: "ToLocation",
+			Handler:    _ResponderLocationService_ToLocation_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _PasnConfigService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
-}
-
-const (
-	PasnConfigBuilderService_Build_FullMethodName                 = "/wifi_rtt.PasnConfigBuilderService/Build"
-	PasnConfigBuilderService_SetPasnComebackCookie_FullMethodName = "/wifi_rtt.PasnConfigBuilderService/SetPasnComebackCookie"
-	PasnConfigBuilderService_SetPassword_FullMethodName           = "/wifi_rtt.PasnConfigBuilderService/SetPassword"
-	PasnConfigBuilderService_SetWifiSsid_FullMethodName           = "/wifi_rtt.PasnConfigBuilderService/SetWifiSsid"
-)
-
-// PasnConfigBuilderServiceClient is the client API for PasnConfigBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PasnConfigBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetPasnComebackCookie(ctx context.Context, in *SetPasnComebackCookieRequest, opts ...grpc.CallOption) (*SetPasnComebackCookieResponse, error)
-	SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error)
-	SetWifiSsid(ctx context.Context, in *SetWifiSsidRequest, opts ...grpc.CallOption) (*SetWifiSsidResponse, error)
-}
-
-type pasnConfigBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPasnConfigBuilderServiceClient(cc grpc.ClientConnInterface) PasnConfigBuilderServiceClient {
-	return &pasnConfigBuilderServiceClient{cc}
-}
-
-func (c *pasnConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, PasnConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigBuilderServiceClient) SetPasnComebackCookie(ctx context.Context, in *SetPasnComebackCookieRequest, opts ...grpc.CallOption) (*SetPasnComebackCookieResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPasnComebackCookieResponse)
-	err := c.cc.Invoke(ctx, PasnConfigBuilderService_SetPasnComebackCookie_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigBuilderServiceClient) SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPasswordResponse)
-	err := c.cc.Invoke(ctx, PasnConfigBuilderService_SetPassword_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pasnConfigBuilderServiceClient) SetWifiSsid(ctx context.Context, in *SetWifiSsidRequest, opts ...grpc.CallOption) (*SetWifiSsidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWifiSsidResponse)
-	err := c.cc.Invoke(ctx, PasnConfigBuilderService_SetWifiSsid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PasnConfigBuilderServiceServer is the server API for PasnConfigBuilderService service.
-// All implementations must embed UnimplementedPasnConfigBuilderServiceServer
-// for forward compatibility.
-type PasnConfigBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetPasnComebackCookie(context.Context, *SetPasnComebackCookieRequest) (*SetPasnComebackCookieResponse, error)
-	SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error)
-	SetWifiSsid(context.Context, *SetWifiSsidRequest) (*SetWifiSsidResponse, error)
-	mustEmbedUnimplementedPasnConfigBuilderServiceServer()
-}
-
-// UnimplementedPasnConfigBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPasnConfigBuilderServiceServer struct{}
-
-func (UnimplementedPasnConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedPasnConfigBuilderServiceServer) SetPasnComebackCookie(context.Context, *SetPasnComebackCookieRequest) (*SetPasnComebackCookieResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPasnComebackCookie not implemented")
-}
-func (UnimplementedPasnConfigBuilderServiceServer) SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPassword not implemented")
-}
-func (UnimplementedPasnConfigBuilderServiceServer) SetWifiSsid(context.Context, *SetWifiSsidRequest) (*SetWifiSsidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWifiSsid not implemented")
-}
-func (UnimplementedPasnConfigBuilderServiceServer) mustEmbedUnimplementedPasnConfigBuilderServiceServer() {
-}
-func (UnimplementedPasnConfigBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafePasnConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PasnConfigBuilderServiceServer will
-// result in compilation errors.
-type UnsafePasnConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedPasnConfigBuilderServiceServer()
-}
-
-func RegisterPasnConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv PasnConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedPasnConfigBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PasnConfigBuilderService_ServiceDesc, srv)
-}
-
-func _PasnConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigBuilderService_SetPasnComebackCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPasnComebackCookieRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigBuilderServiceServer).SetPasnComebackCookie(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigBuilderService_SetPasnComebackCookie_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigBuilderServiceServer).SetPasnComebackCookie(ctx, req.(*SetPasnComebackCookieRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigBuilderService_SetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPasswordRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigBuilderServiceServer).SetPassword(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigBuilderService_SetPassword_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigBuilderServiceServer).SetPassword(ctx, req.(*SetPasswordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PasnConfigBuilderService_SetWifiSsid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWifiSsidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PasnConfigBuilderServiceServer).SetWifiSsid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PasnConfigBuilderService_SetWifiSsid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasnConfigBuilderServiceServer).SetWifiSsid(ctx, req.(*SetWifiSsidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PasnConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for PasnConfigBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PasnConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_rtt.PasnConfigBuilderService",
-	HandlerType: (*PasnConfigBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _PasnConfigBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetPasnComebackCookie",
-			Handler:    _PasnConfigBuilderService_SetPasnComebackCookie_Handler,
-		},
-		{
-			MethodName: "SetPassword",
-			Handler:    _PasnConfigBuilderService_SetPassword_Handler,
-		},
-		{
-			MethodName: "SetWifiSsid",
-			Handler:    _PasnConfigBuilderService_SetWifiSsid_Handler,
+			Handler:    _ResponderLocationService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -5825,983 +4107,6 @@ var SecureRangingConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ResponderLocationService_DescribeContents_FullMethodName                         = "/wifi_rtt.ResponderLocationService/DescribeContents"
-	ResponderLocationService_Equals_FullMethodName                                   = "/wifi_rtt.ResponderLocationService/Equals"
-	ResponderLocationService_GetAltitude_FullMethodName                              = "/wifi_rtt.ResponderLocationService/GetAltitude"
-	ResponderLocationService_GetAltitudeType_FullMethodName                          = "/wifi_rtt.ResponderLocationService/GetAltitudeType"
-	ResponderLocationService_GetAltitudeUncertainty_FullMethodName                   = "/wifi_rtt.ResponderLocationService/GetAltitudeUncertainty"
-	ResponderLocationService_GetDatum_FullMethodName                                 = "/wifi_rtt.ResponderLocationService/GetDatum"
-	ResponderLocationService_GetExpectedToMove_FullMethodName                        = "/wifi_rtt.ResponderLocationService/GetExpectedToMove"
-	ResponderLocationService_GetFloorNumber_FullMethodName                           = "/wifi_rtt.ResponderLocationService/GetFloorNumber"
-	ResponderLocationService_GetHeightAboveFloorMeters_FullMethodName                = "/wifi_rtt.ResponderLocationService/GetHeightAboveFloorMeters"
-	ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_FullMethodName     = "/wifi_rtt.ResponderLocationService/GetHeightAboveFloorUncertaintyMeters"
-	ResponderLocationService_GetLatitude_FullMethodName                              = "/wifi_rtt.ResponderLocationService/GetLatitude"
-	ResponderLocationService_GetLatitudeUncertainty_FullMethodName                   = "/wifi_rtt.ResponderLocationService/GetLatitudeUncertainty"
-	ResponderLocationService_GetLciVersion_FullMethodName                            = "/wifi_rtt.ResponderLocationService/GetLciVersion"
-	ResponderLocationService_GetLongitude_FullMethodName                             = "/wifi_rtt.ResponderLocationService/GetLongitude"
-	ResponderLocationService_GetLongitudeUncertainty_FullMethodName                  = "/wifi_rtt.ResponderLocationService/GetLongitudeUncertainty"
-	ResponderLocationService_GetMapImageMimeType_FullMethodName                      = "/wifi_rtt.ResponderLocationService/GetMapImageMimeType"
-	ResponderLocationService_GetMapImageUri_FullMethodName                           = "/wifi_rtt.ResponderLocationService/GetMapImageUri"
-	ResponderLocationService_GetRegisteredLocationAgreementIndication_FullMethodName = "/wifi_rtt.ResponderLocationService/GetRegisteredLocationAgreementIndication"
-	ResponderLocationService_HashCode_FullMethodName                                 = "/wifi_rtt.ResponderLocationService/HashCode"
-	ResponderLocationService_IsLciSubelementValid_FullMethodName                     = "/wifi_rtt.ResponderLocationService/IsLciSubelementValid"
-	ResponderLocationService_IsZaxisSubelementValid_FullMethodName                   = "/wifi_rtt.ResponderLocationService/IsZaxisSubelementValid"
-	ResponderLocationService_ToCivicLocationAddress_FullMethodName                   = "/wifi_rtt.ResponderLocationService/ToCivicLocationAddress"
-	ResponderLocationService_ToLocation_FullMethodName                               = "/wifi_rtt.ResponderLocationService/ToLocation"
-	ResponderLocationService_WriteToParcel_FullMethodName                            = "/wifi_rtt.ResponderLocationService/WriteToParcel"
-)
-
-// ResponderLocationServiceClient is the client API for ResponderLocationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResponderLocationServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAltitude(ctx context.Context, in *GetAltitudeRequest, opts ...grpc.CallOption) (*GetAltitudeResponse, error)
-	GetAltitudeType(ctx context.Context, in *GetAltitudeTypeRequest, opts ...grpc.CallOption) (*GetAltitudeTypeResponse, error)
-	GetAltitudeUncertainty(ctx context.Context, in *GetAltitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetAltitudeUncertaintyResponse, error)
-	GetDatum(ctx context.Context, in *GetDatumRequest, opts ...grpc.CallOption) (*GetDatumResponse, error)
-	GetExpectedToMove(ctx context.Context, in *GetExpectedToMoveRequest, opts ...grpc.CallOption) (*GetExpectedToMoveResponse, error)
-	GetFloorNumber(ctx context.Context, in *GetFloorNumberRequest, opts ...grpc.CallOption) (*GetFloorNumberResponse, error)
-	GetHeightAboveFloorMeters(ctx context.Context, in *GetHeightAboveFloorMetersRequest, opts ...grpc.CallOption) (*GetHeightAboveFloorMetersResponse, error)
-	GetHeightAboveFloorUncertaintyMeters(ctx context.Context, in *GetHeightAboveFloorUncertaintyMetersRequest, opts ...grpc.CallOption) (*GetHeightAboveFloorUncertaintyMetersResponse, error)
-	GetLatitude(ctx context.Context, in *GetLatitudeRequest, opts ...grpc.CallOption) (*GetLatitudeResponse, error)
-	GetLatitudeUncertainty(ctx context.Context, in *GetLatitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetLatitudeUncertaintyResponse, error)
-	GetLciVersion(ctx context.Context, in *GetLciVersionRequest, opts ...grpc.CallOption) (*GetLciVersionResponse, error)
-	GetLongitude(ctx context.Context, in *GetLongitudeRequest, opts ...grpc.CallOption) (*GetLongitudeResponse, error)
-	GetLongitudeUncertainty(ctx context.Context, in *GetLongitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetLongitudeUncertaintyResponse, error)
-	GetMapImageMimeType(ctx context.Context, in *GetMapImageMimeTypeRequest, opts ...grpc.CallOption) (*GetMapImageMimeTypeResponse, error)
-	GetMapImageUri(ctx context.Context, in *GetMapImageUriRequest, opts ...grpc.CallOption) (*GetMapImageUriResponse, error)
-	GetRegisteredLocationAgreementIndication(ctx context.Context, in *GetRegisteredLocationAgreementIndicationRequest, opts ...grpc.CallOption) (*GetRegisteredLocationAgreementIndicationResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsLciSubelementValid(ctx context.Context, in *IsLciSubelementValidRequest, opts ...grpc.CallOption) (*IsLciSubelementValidResponse, error)
-	IsZaxisSubelementValid(ctx context.Context, in *IsZaxisSubelementValidRequest, opts ...grpc.CallOption) (*IsZaxisSubelementValidResponse, error)
-	ToCivicLocationAddress(ctx context.Context, in *ToCivicLocationAddressRequest, opts ...grpc.CallOption) (*ToCivicLocationAddressResponse, error)
-	ToLocation(ctx context.Context, in *ToLocationRequest, opts ...grpc.CallOption) (*ToLocationResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type responderLocationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewResponderLocationServiceClient(cc grpc.ClientConnInterface) ResponderLocationServiceClient {
-	return &responderLocationServiceClient{cc}
-}
-
-func (c *responderLocationServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetAltitude(ctx context.Context, in *GetAltitudeRequest, opts ...grpc.CallOption) (*GetAltitudeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAltitudeResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetAltitude_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetAltitudeType(ctx context.Context, in *GetAltitudeTypeRequest, opts ...grpc.CallOption) (*GetAltitudeTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAltitudeTypeResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetAltitudeType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetAltitudeUncertainty(ctx context.Context, in *GetAltitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetAltitudeUncertaintyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAltitudeUncertaintyResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetAltitudeUncertainty_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetDatum(ctx context.Context, in *GetDatumRequest, opts ...grpc.CallOption) (*GetDatumResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDatumResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetDatum_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetExpectedToMove(ctx context.Context, in *GetExpectedToMoveRequest, opts ...grpc.CallOption) (*GetExpectedToMoveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExpectedToMoveResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetExpectedToMove_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetFloorNumber(ctx context.Context, in *GetFloorNumberRequest, opts ...grpc.CallOption) (*GetFloorNumberResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFloorNumberResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetFloorNumber_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetHeightAboveFloorMeters(ctx context.Context, in *GetHeightAboveFloorMetersRequest, opts ...grpc.CallOption) (*GetHeightAboveFloorMetersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeightAboveFloorMetersResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetHeightAboveFloorMeters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetHeightAboveFloorUncertaintyMeters(ctx context.Context, in *GetHeightAboveFloorUncertaintyMetersRequest, opts ...grpc.CallOption) (*GetHeightAboveFloorUncertaintyMetersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeightAboveFloorUncertaintyMetersResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetLatitude(ctx context.Context, in *GetLatitudeRequest, opts ...grpc.CallOption) (*GetLatitudeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLatitudeResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetLatitude_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetLatitudeUncertainty(ctx context.Context, in *GetLatitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetLatitudeUncertaintyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLatitudeUncertaintyResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetLatitudeUncertainty_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetLciVersion(ctx context.Context, in *GetLciVersionRequest, opts ...grpc.CallOption) (*GetLciVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLciVersionResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetLciVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetLongitude(ctx context.Context, in *GetLongitudeRequest, opts ...grpc.CallOption) (*GetLongitudeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongitudeResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetLongitude_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetLongitudeUncertainty(ctx context.Context, in *GetLongitudeUncertaintyRequest, opts ...grpc.CallOption) (*GetLongitudeUncertaintyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongitudeUncertaintyResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetLongitudeUncertainty_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetMapImageMimeType(ctx context.Context, in *GetMapImageMimeTypeRequest, opts ...grpc.CallOption) (*GetMapImageMimeTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMapImageMimeTypeResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetMapImageMimeType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetMapImageUri(ctx context.Context, in *GetMapImageUriRequest, opts ...grpc.CallOption) (*GetMapImageUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMapImageUriResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetMapImageUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) GetRegisteredLocationAgreementIndication(ctx context.Context, in *GetRegisteredLocationAgreementIndicationRequest, opts ...grpc.CallOption) (*GetRegisteredLocationAgreementIndicationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRegisteredLocationAgreementIndicationResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_GetRegisteredLocationAgreementIndication_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) IsLciSubelementValid(ctx context.Context, in *IsLciSubelementValidRequest, opts ...grpc.CallOption) (*IsLciSubelementValidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsLciSubelementValidResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_IsLciSubelementValid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) IsZaxisSubelementValid(ctx context.Context, in *IsZaxisSubelementValidRequest, opts ...grpc.CallOption) (*IsZaxisSubelementValidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsZaxisSubelementValidResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_IsZaxisSubelementValid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) ToCivicLocationAddress(ctx context.Context, in *ToCivicLocationAddressRequest, opts ...grpc.CallOption) (*ToCivicLocationAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToCivicLocationAddressResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_ToCivicLocationAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) ToLocation(ctx context.Context, in *ToLocationRequest, opts ...grpc.CallOption) (*ToLocationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToLocationResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_ToLocation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responderLocationServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ResponderLocationService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResponderLocationServiceServer is the server API for ResponderLocationService service.
-// All implementations must embed UnimplementedResponderLocationServiceServer
-// for forward compatibility.
-type ResponderLocationServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAltitude(context.Context, *GetAltitudeRequest) (*GetAltitudeResponse, error)
-	GetAltitudeType(context.Context, *GetAltitudeTypeRequest) (*GetAltitudeTypeResponse, error)
-	GetAltitudeUncertainty(context.Context, *GetAltitudeUncertaintyRequest) (*GetAltitudeUncertaintyResponse, error)
-	GetDatum(context.Context, *GetDatumRequest) (*GetDatumResponse, error)
-	GetExpectedToMove(context.Context, *GetExpectedToMoveRequest) (*GetExpectedToMoveResponse, error)
-	GetFloorNumber(context.Context, *GetFloorNumberRequest) (*GetFloorNumberResponse, error)
-	GetHeightAboveFloorMeters(context.Context, *GetHeightAboveFloorMetersRequest) (*GetHeightAboveFloorMetersResponse, error)
-	GetHeightAboveFloorUncertaintyMeters(context.Context, *GetHeightAboveFloorUncertaintyMetersRequest) (*GetHeightAboveFloorUncertaintyMetersResponse, error)
-	GetLatitude(context.Context, *GetLatitudeRequest) (*GetLatitudeResponse, error)
-	GetLatitudeUncertainty(context.Context, *GetLatitudeUncertaintyRequest) (*GetLatitudeUncertaintyResponse, error)
-	GetLciVersion(context.Context, *GetLciVersionRequest) (*GetLciVersionResponse, error)
-	GetLongitude(context.Context, *GetLongitudeRequest) (*GetLongitudeResponse, error)
-	GetLongitudeUncertainty(context.Context, *GetLongitudeUncertaintyRequest) (*GetLongitudeUncertaintyResponse, error)
-	GetMapImageMimeType(context.Context, *GetMapImageMimeTypeRequest) (*GetMapImageMimeTypeResponse, error)
-	GetMapImageUri(context.Context, *GetMapImageUriRequest) (*GetMapImageUriResponse, error)
-	GetRegisteredLocationAgreementIndication(context.Context, *GetRegisteredLocationAgreementIndicationRequest) (*GetRegisteredLocationAgreementIndicationResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsLciSubelementValid(context.Context, *IsLciSubelementValidRequest) (*IsLciSubelementValidResponse, error)
-	IsZaxisSubelementValid(context.Context, *IsZaxisSubelementValidRequest) (*IsZaxisSubelementValidResponse, error)
-	ToCivicLocationAddress(context.Context, *ToCivicLocationAddressRequest) (*ToCivicLocationAddressResponse, error)
-	ToLocation(context.Context, *ToLocationRequest) (*ToLocationResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedResponderLocationServiceServer()
-}
-
-// UnimplementedResponderLocationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedResponderLocationServiceServer struct{}
-
-func (UnimplementedResponderLocationServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetAltitude(context.Context, *GetAltitudeRequest) (*GetAltitudeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAltitude not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetAltitudeType(context.Context, *GetAltitudeTypeRequest) (*GetAltitudeTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAltitudeType not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetAltitudeUncertainty(context.Context, *GetAltitudeUncertaintyRequest) (*GetAltitudeUncertaintyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAltitudeUncertainty not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetDatum(context.Context, *GetDatumRequest) (*GetDatumResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDatum not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetExpectedToMove(context.Context, *GetExpectedToMoveRequest) (*GetExpectedToMoveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExpectedToMove not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetFloorNumber(context.Context, *GetFloorNumberRequest) (*GetFloorNumberResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFloorNumber not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetHeightAboveFloorMeters(context.Context, *GetHeightAboveFloorMetersRequest) (*GetHeightAboveFloorMetersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeightAboveFloorMeters not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetHeightAboveFloorUncertaintyMeters(context.Context, *GetHeightAboveFloorUncertaintyMetersRequest) (*GetHeightAboveFloorUncertaintyMetersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeightAboveFloorUncertaintyMeters not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetLatitude(context.Context, *GetLatitudeRequest) (*GetLatitudeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLatitude not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetLatitudeUncertainty(context.Context, *GetLatitudeUncertaintyRequest) (*GetLatitudeUncertaintyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLatitudeUncertainty not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetLciVersion(context.Context, *GetLciVersionRequest) (*GetLciVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLciVersion not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetLongitude(context.Context, *GetLongitudeRequest) (*GetLongitudeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLongitude not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetLongitudeUncertainty(context.Context, *GetLongitudeUncertaintyRequest) (*GetLongitudeUncertaintyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLongitudeUncertainty not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetMapImageMimeType(context.Context, *GetMapImageMimeTypeRequest) (*GetMapImageMimeTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMapImageMimeType not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetMapImageUri(context.Context, *GetMapImageUriRequest) (*GetMapImageUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMapImageUri not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) GetRegisteredLocationAgreementIndication(context.Context, *GetRegisteredLocationAgreementIndicationRequest) (*GetRegisteredLocationAgreementIndicationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRegisteredLocationAgreementIndication not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) IsLciSubelementValid(context.Context, *IsLciSubelementValidRequest) (*IsLciSubelementValidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsLciSubelementValid not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) IsZaxisSubelementValid(context.Context, *IsZaxisSubelementValidRequest) (*IsZaxisSubelementValidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsZaxisSubelementValid not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) ToCivicLocationAddress(context.Context, *ToCivicLocationAddressRequest) (*ToCivicLocationAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToCivicLocationAddress not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) ToLocation(context.Context, *ToLocationRequest) (*ToLocationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToLocation not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedResponderLocationServiceServer) mustEmbedUnimplementedResponderLocationServiceServer() {
-}
-func (UnimplementedResponderLocationServiceServer) testEmbeddedByValue() {}
-
-// UnsafeResponderLocationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResponderLocationServiceServer will
-// result in compilation errors.
-type UnsafeResponderLocationServiceServer interface {
-	mustEmbedUnimplementedResponderLocationServiceServer()
-}
-
-func RegisterResponderLocationServiceServer(s grpc.ServiceRegistrar, srv ResponderLocationServiceServer) {
-	// If the following call panics, it indicates UnimplementedResponderLocationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ResponderLocationService_ServiceDesc, srv)
-}
-
-func _ResponderLocationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetAltitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAltitudeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetAltitude(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetAltitude_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetAltitude(ctx, req.(*GetAltitudeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetAltitudeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAltitudeTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetAltitudeType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetAltitudeType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetAltitudeType(ctx, req.(*GetAltitudeTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetAltitudeUncertainty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAltitudeUncertaintyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetAltitudeUncertainty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetAltitudeUncertainty_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetAltitudeUncertainty(ctx, req.(*GetAltitudeUncertaintyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetDatum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDatumRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetDatum(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetDatum_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetDatum(ctx, req.(*GetDatumRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetExpectedToMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExpectedToMoveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetExpectedToMove(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetExpectedToMove_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetExpectedToMove(ctx, req.(*GetExpectedToMoveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetFloorNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFloorNumberRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetFloorNumber(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetFloorNumber_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetFloorNumber(ctx, req.(*GetFloorNumberRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetHeightAboveFloorMeters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeightAboveFloorMetersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetHeightAboveFloorMeters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetHeightAboveFloorMeters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetHeightAboveFloorMeters(ctx, req.(*GetHeightAboveFloorMetersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeightAboveFloorUncertaintyMetersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetHeightAboveFloorUncertaintyMeters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetHeightAboveFloorUncertaintyMeters(ctx, req.(*GetHeightAboveFloorUncertaintyMetersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetLatitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLatitudeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetLatitude(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetLatitude_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetLatitude(ctx, req.(*GetLatitudeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetLatitudeUncertainty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLatitudeUncertaintyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetLatitudeUncertainty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetLatitudeUncertainty_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetLatitudeUncertainty(ctx, req.(*GetLatitudeUncertaintyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetLciVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLciVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetLciVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetLciVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetLciVersion(ctx, req.(*GetLciVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetLongitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLongitudeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetLongitude(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetLongitude_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetLongitude(ctx, req.(*GetLongitudeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetLongitudeUncertainty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLongitudeUncertaintyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetLongitudeUncertainty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetLongitudeUncertainty_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetLongitudeUncertainty(ctx, req.(*GetLongitudeUncertaintyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetMapImageMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMapImageMimeTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetMapImageMimeType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetMapImageMimeType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetMapImageMimeType(ctx, req.(*GetMapImageMimeTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetMapImageUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMapImageUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetMapImageUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetMapImageUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetMapImageUri(ctx, req.(*GetMapImageUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_GetRegisteredLocationAgreementIndication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRegisteredLocationAgreementIndicationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).GetRegisteredLocationAgreementIndication(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_GetRegisteredLocationAgreementIndication_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).GetRegisteredLocationAgreementIndication(ctx, req.(*GetRegisteredLocationAgreementIndicationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_IsLciSubelementValid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsLciSubelementValidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).IsLciSubelementValid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_IsLciSubelementValid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).IsLciSubelementValid(ctx, req.(*IsLciSubelementValidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_IsZaxisSubelementValid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsZaxisSubelementValidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).IsZaxisSubelementValid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_IsZaxisSubelementValid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).IsZaxisSubelementValid(ctx, req.(*IsZaxisSubelementValidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_ToCivicLocationAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToCivicLocationAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).ToCivicLocationAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_ToCivicLocationAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).ToCivicLocationAddress(ctx, req.(*ToCivicLocationAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_ToLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToLocationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).ToLocation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_ToLocation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).ToLocation(ctx, req.(*ToLocationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponderLocationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponderLocationServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponderLocationService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderLocationServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResponderLocationService_ServiceDesc is the grpc.ServiceDesc for ResponderLocationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ResponderLocationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_rtt.ResponderLocationService",
-	HandlerType: (*ResponderLocationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ResponderLocationService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _ResponderLocationService_Equals_Handler,
-		},
-		{
-			MethodName: "GetAltitude",
-			Handler:    _ResponderLocationService_GetAltitude_Handler,
-		},
-		{
-			MethodName: "GetAltitudeType",
-			Handler:    _ResponderLocationService_GetAltitudeType_Handler,
-		},
-		{
-			MethodName: "GetAltitudeUncertainty",
-			Handler:    _ResponderLocationService_GetAltitudeUncertainty_Handler,
-		},
-		{
-			MethodName: "GetDatum",
-			Handler:    _ResponderLocationService_GetDatum_Handler,
-		},
-		{
-			MethodName: "GetExpectedToMove",
-			Handler:    _ResponderLocationService_GetExpectedToMove_Handler,
-		},
-		{
-			MethodName: "GetFloorNumber",
-			Handler:    _ResponderLocationService_GetFloorNumber_Handler,
-		},
-		{
-			MethodName: "GetHeightAboveFloorMeters",
-			Handler:    _ResponderLocationService_GetHeightAboveFloorMeters_Handler,
-		},
-		{
-			MethodName: "GetHeightAboveFloorUncertaintyMeters",
-			Handler:    _ResponderLocationService_GetHeightAboveFloorUncertaintyMeters_Handler,
-		},
-		{
-			MethodName: "GetLatitude",
-			Handler:    _ResponderLocationService_GetLatitude_Handler,
-		},
-		{
-			MethodName: "GetLatitudeUncertainty",
-			Handler:    _ResponderLocationService_GetLatitudeUncertainty_Handler,
-		},
-		{
-			MethodName: "GetLciVersion",
-			Handler:    _ResponderLocationService_GetLciVersion_Handler,
-		},
-		{
-			MethodName: "GetLongitude",
-			Handler:    _ResponderLocationService_GetLongitude_Handler,
-		},
-		{
-			MethodName: "GetLongitudeUncertainty",
-			Handler:    _ResponderLocationService_GetLongitudeUncertainty_Handler,
-		},
-		{
-			MethodName: "GetMapImageMimeType",
-			Handler:    _ResponderLocationService_GetMapImageMimeType_Handler,
-		},
-		{
-			MethodName: "GetMapImageUri",
-			Handler:    _ResponderLocationService_GetMapImageUri_Handler,
-		},
-		{
-			MethodName: "GetRegisteredLocationAgreementIndication",
-			Handler:    _ResponderLocationService_GetRegisteredLocationAgreementIndication_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ResponderLocationService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsLciSubelementValid",
-			Handler:    _ResponderLocationService_IsLciSubelementValid_Handler,
-		},
-		{
-			MethodName: "IsZaxisSubelementValid",
-			Handler:    _ResponderLocationService_IsZaxisSubelementValid_Handler,
-		},
-		{
-			MethodName: "ToCivicLocationAddress",
-			Handler:    _ResponderLocationService_ToCivicLocationAddress_Handler,
-		},
-		{
-			MethodName: "ToLocation",
-			Handler:    _ResponderLocationService_ToLocation_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ResponderLocationService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
-}
-
-const (
 	WifiRttManagerService_GetRttCharacteristics_FullMethodName = "/wifi_rtt.WifiRttManagerService/GetRttCharacteristics"
 	WifiRttManagerService_IsAvailable_FullMethodName           = "/wifi_rtt.WifiRttManagerService/IsAvailable"
 	WifiRttManagerService_StartRanging_FullMethodName          = "/wifi_rtt.WifiRttManagerService/StartRanging"
@@ -6973,6 +4278,2777 @@ var WifiRttManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "StartRanging",
 			Handler:    _WifiRttManagerService_StartRanging_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
+}
+
+const (
+	RangingRequestService_DescribeContents_FullMethodName       = "/wifi_rtt.RangingRequestService/DescribeContents"
+	RangingRequestService_Equals_FullMethodName                 = "/wifi_rtt.RangingRequestService/Equals"
+	RangingRequestService_GetRttBurstSize_FullMethodName        = "/wifi_rtt.RangingRequestService/GetRttBurstSize"
+	RangingRequestService_GetSecurityMode_FullMethodName        = "/wifi_rtt.RangingRequestService/GetSecurityMode"
+	RangingRequestService_HashCode_FullMethodName               = "/wifi_rtt.RangingRequestService/HashCode"
+	RangingRequestService_ToString_FullMethodName               = "/wifi_rtt.RangingRequestService/ToString"
+	RangingRequestService_WriteToParcel_FullMethodName          = "/wifi_rtt.RangingRequestService/WriteToParcel"
+	RangingRequestService_GetDefaultRttBurstSize_FullMethodName = "/wifi_rtt.RangingRequestService/GetDefaultRttBurstSize"
+	RangingRequestService_GetMaxPeers_FullMethodName            = "/wifi_rtt.RangingRequestService/GetMaxPeers"
+	RangingRequestService_GetMaxRttBurstSize_FullMethodName     = "/wifi_rtt.RangingRequestService/GetMaxRttBurstSize"
+	RangingRequestService_GetMinRttBurstSize_FullMethodName     = "/wifi_rtt.RangingRequestService/GetMinRttBurstSize"
+)
+
+// RangingRequestServiceClient is the client API for RangingRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangingRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetRttBurstSize(ctx context.Context, in *GetRttBurstSizeRequest, opts ...grpc.CallOption) (*GetRttBurstSizeResponse, error)
+	GetSecurityMode(ctx context.Context, in *GetSecurityModeRequest, opts ...grpc.CallOption) (*GetSecurityModeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	GetDefaultRttBurstSize(ctx context.Context, in *GetDefaultRttBurstSizeRequest, opts ...grpc.CallOption) (*GetDefaultRttBurstSizeResponse, error)
+	GetMaxPeers(ctx context.Context, in *GetMaxPeersRequest, opts ...grpc.CallOption) (*GetMaxPeersResponse, error)
+	GetMaxRttBurstSize(ctx context.Context, in *GetMaxRttBurstSizeRequest, opts ...grpc.CallOption) (*GetMaxRttBurstSizeResponse, error)
+	GetMinRttBurstSize(ctx context.Context, in *GetMinRttBurstSizeRequest, opts ...grpc.CallOption) (*GetMinRttBurstSizeResponse, error)
+}
+
+type rangingRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangingRequestServiceClient(cc grpc.ClientConnInterface) RangingRequestServiceClient {
+	return &rangingRequestServiceClient{cc}
+}
+
+func (c *rangingRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) GetRttBurstSize(ctx context.Context, in *GetRttBurstSizeRequest, opts ...grpc.CallOption) (*GetRttBurstSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRttBurstSizeResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_GetRttBurstSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) GetSecurityMode(ctx context.Context, in *GetSecurityModeRequest, opts ...grpc.CallOption) (*GetSecurityModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSecurityModeResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_GetSecurityMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) GetDefaultRttBurstSize(ctx context.Context, in *GetDefaultRttBurstSizeRequest, opts ...grpc.CallOption) (*GetDefaultRttBurstSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultRttBurstSizeResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_GetDefaultRttBurstSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) GetMaxPeers(ctx context.Context, in *GetMaxPeersRequest, opts ...grpc.CallOption) (*GetMaxPeersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxPeersResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_GetMaxPeers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) GetMaxRttBurstSize(ctx context.Context, in *GetMaxRttBurstSizeRequest, opts ...grpc.CallOption) (*GetMaxRttBurstSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxRttBurstSizeResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_GetMaxRttBurstSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestServiceClient) GetMinRttBurstSize(ctx context.Context, in *GetMinRttBurstSizeRequest, opts ...grpc.CallOption) (*GetMinRttBurstSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinRttBurstSizeResponse)
+	err := c.cc.Invoke(ctx, RangingRequestService_GetMinRttBurstSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangingRequestServiceServer is the server API for RangingRequestService service.
+// All implementations must embed UnimplementedRangingRequestServiceServer
+// for forward compatibility.
+type RangingRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetRttBurstSize(context.Context, *GetRttBurstSizeRequest) (*GetRttBurstSizeResponse, error)
+	GetSecurityMode(context.Context, *GetSecurityModeRequest) (*GetSecurityModeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	GetDefaultRttBurstSize(context.Context, *GetDefaultRttBurstSizeRequest) (*GetDefaultRttBurstSizeResponse, error)
+	GetMaxPeers(context.Context, *GetMaxPeersRequest) (*GetMaxPeersResponse, error)
+	GetMaxRttBurstSize(context.Context, *GetMaxRttBurstSizeRequest) (*GetMaxRttBurstSizeResponse, error)
+	GetMinRttBurstSize(context.Context, *GetMinRttBurstSizeRequest) (*GetMinRttBurstSizeResponse, error)
+	mustEmbedUnimplementedRangingRequestServiceServer()
+}
+
+// UnimplementedRangingRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangingRequestServiceServer struct{}
+
+func (UnimplementedRangingRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) GetRttBurstSize(context.Context, *GetRttBurstSizeRequest) (*GetRttBurstSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRttBurstSize not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) GetSecurityMode(context.Context, *GetSecurityModeRequest) (*GetSecurityModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSecurityMode not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) GetDefaultRttBurstSize(context.Context, *GetDefaultRttBurstSizeRequest) (*GetDefaultRttBurstSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultRttBurstSize not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) GetMaxPeers(context.Context, *GetMaxPeersRequest) (*GetMaxPeersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxPeers not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) GetMaxRttBurstSize(context.Context, *GetMaxRttBurstSizeRequest) (*GetMaxRttBurstSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxRttBurstSize not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) GetMinRttBurstSize(context.Context, *GetMinRttBurstSizeRequest) (*GetMinRttBurstSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinRttBurstSize not implemented")
+}
+func (UnimplementedRangingRequestServiceServer) mustEmbedUnimplementedRangingRequestServiceServer() {}
+func (UnimplementedRangingRequestServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeRangingRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangingRequestServiceServer will
+// result in compilation errors.
+type UnsafeRangingRequestServiceServer interface {
+	mustEmbedUnimplementedRangingRequestServiceServer()
+}
+
+func RegisterRangingRequestServiceServer(s grpc.ServiceRegistrar, srv RangingRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangingRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangingRequestService_ServiceDesc, srv)
+}
+
+func _RangingRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_GetRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRttBurstSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).GetRttBurstSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_GetRttBurstSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).GetRttBurstSize(ctx, req.(*GetRttBurstSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_GetSecurityMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSecurityModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).GetSecurityMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_GetSecurityMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).GetSecurityMode(ctx, req.(*GetSecurityModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_GetDefaultRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultRttBurstSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).GetDefaultRttBurstSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_GetDefaultRttBurstSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).GetDefaultRttBurstSize(ctx, req.(*GetDefaultRttBurstSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_GetMaxPeers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxPeersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).GetMaxPeers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_GetMaxPeers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).GetMaxPeers(ctx, req.(*GetMaxPeersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_GetMaxRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxRttBurstSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).GetMaxRttBurstSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_GetMaxRttBurstSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).GetMaxRttBurstSize(ctx, req.(*GetMaxRttBurstSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestService_GetMinRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinRttBurstSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestServiceServer).GetMinRttBurstSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestService_GetMinRttBurstSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestServiceServer).GetMinRttBurstSize(ctx, req.(*GetMinRttBurstSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangingRequestService_ServiceDesc is the grpc.ServiceDesc for RangingRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangingRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_rtt.RangingRequestService",
+	HandlerType: (*RangingRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _RangingRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _RangingRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetRttBurstSize",
+			Handler:    _RangingRequestService_GetRttBurstSize_Handler,
+		},
+		{
+			MethodName: "GetSecurityMode",
+			Handler:    _RangingRequestService_GetSecurityMode_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _RangingRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _RangingRequestService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _RangingRequestService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "GetDefaultRttBurstSize",
+			Handler:    _RangingRequestService_GetDefaultRttBurstSize_Handler,
+		},
+		{
+			MethodName: "GetMaxPeers",
+			Handler:    _RangingRequestService_GetMaxPeers_Handler,
+		},
+		{
+			MethodName: "GetMaxRttBurstSize",
+			Handler:    _RangingRequestService_GetMaxRttBurstSize_Handler,
+		},
+		{
+			MethodName: "GetMinRttBurstSize",
+			Handler:    _RangingRequestService_GetMinRttBurstSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
+}
+
+const (
+	RangingRequestBuilderService_AddAccessPoint_FullMethodName                  = "/wifi_rtt.RangingRequestBuilderService/AddAccessPoint"
+	RangingRequestBuilderService_AddNon80211McCapableAccessPoint_FullMethodName = "/wifi_rtt.RangingRequestBuilderService/AddNon80211mcCapableAccessPoint"
+	RangingRequestBuilderService_AddResponder_FullMethodName                    = "/wifi_rtt.RangingRequestBuilderService/AddResponder"
+	RangingRequestBuilderService_AddWifiAwarePeer1_FullMethodName               = "/wifi_rtt.RangingRequestBuilderService/AddWifiAwarePeer1"
+	RangingRequestBuilderService_AddWifiAwarePeer1_1_FullMethodName             = "/wifi_rtt.RangingRequestBuilderService/AddWifiAwarePeer1_1"
+	RangingRequestBuilderService_Build_FullMethodName                           = "/wifi_rtt.RangingRequestBuilderService/Build"
+	RangingRequestBuilderService_SetRttBurstSize_FullMethodName                 = "/wifi_rtt.RangingRequestBuilderService/SetRttBurstSize"
+	RangingRequestBuilderService_SetSecurityMode_FullMethodName                 = "/wifi_rtt.RangingRequestBuilderService/SetSecurityMode"
+)
+
+// RangingRequestBuilderServiceClient is the client API for RangingRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangingRequestBuilderServiceClient interface {
+	AddAccessPoint(ctx context.Context, in *AddAccessPointRequest, opts ...grpc.CallOption) (*AddAccessPointResponse, error)
+	AddNon80211McCapableAccessPoint(ctx context.Context, in *AddNon80211McCapableAccessPointRequest, opts ...grpc.CallOption) (*AddNon80211McCapableAccessPointResponse, error)
+	AddResponder(ctx context.Context, in *AddResponderRequest, opts ...grpc.CallOption) (*AddResponderResponse, error)
+	AddWifiAwarePeer1(ctx context.Context, in *AddWifiAwarePeer1Request, opts ...grpc.CallOption) (*AddWifiAwarePeer1Response, error)
+	AddWifiAwarePeer1_1(ctx context.Context, in *AddWifiAwarePeer1_1Request, opts ...grpc.CallOption) (*AddWifiAwarePeer1_1Response, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetRttBurstSize(ctx context.Context, in *SetRttBurstSizeRequest, opts ...grpc.CallOption) (*SetRttBurstSizeResponse, error)
+	SetSecurityMode(ctx context.Context, in *SetSecurityModeRequest, opts ...grpc.CallOption) (*SetSecurityModeResponse, error)
+}
+
+type rangingRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangingRequestBuilderServiceClient(cc grpc.ClientConnInterface) RangingRequestBuilderServiceClient {
+	return &rangingRequestBuilderServiceClient{cc}
+}
+
+func (c *rangingRequestBuilderServiceClient) AddAccessPoint(ctx context.Context, in *AddAccessPointRequest, opts ...grpc.CallOption) (*AddAccessPointResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAccessPointResponse)
+	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddAccessPoint_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestBuilderServiceClient) AddNon80211McCapableAccessPoint(ctx context.Context, in *AddNon80211McCapableAccessPointRequest, opts ...grpc.CallOption) (*AddNon80211McCapableAccessPointResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddNon80211McCapableAccessPointResponse)
+	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddNon80211McCapableAccessPoint_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestBuilderServiceClient) AddResponder(ctx context.Context, in *AddResponderRequest, opts ...grpc.CallOption) (*AddResponderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddResponderResponse)
+	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddResponder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestBuilderServiceClient) AddWifiAwarePeer1(ctx context.Context, in *AddWifiAwarePeer1Request, opts ...grpc.CallOption) (*AddWifiAwarePeer1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddWifiAwarePeer1Response)
+	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddWifiAwarePeer1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestBuilderServiceClient) AddWifiAwarePeer1_1(ctx context.Context, in *AddWifiAwarePeer1_1Request, opts ...grpc.CallOption) (*AddWifiAwarePeer1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddWifiAwarePeer1_1Response)
+	err := c.cc.Invoke(ctx, RangingRequestBuilderService_AddWifiAwarePeer1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, RangingRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestBuilderServiceClient) SetRttBurstSize(ctx context.Context, in *SetRttBurstSizeRequest, opts ...grpc.CallOption) (*SetRttBurstSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRttBurstSizeResponse)
+	err := c.cc.Invoke(ctx, RangingRequestBuilderService_SetRttBurstSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangingRequestBuilderServiceClient) SetSecurityMode(ctx context.Context, in *SetSecurityModeRequest, opts ...grpc.CallOption) (*SetSecurityModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSecurityModeResponse)
+	err := c.cc.Invoke(ctx, RangingRequestBuilderService_SetSecurityMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangingRequestBuilderServiceServer is the server API for RangingRequestBuilderService service.
+// All implementations must embed UnimplementedRangingRequestBuilderServiceServer
+// for forward compatibility.
+type RangingRequestBuilderServiceServer interface {
+	AddAccessPoint(context.Context, *AddAccessPointRequest) (*AddAccessPointResponse, error)
+	AddNon80211McCapableAccessPoint(context.Context, *AddNon80211McCapableAccessPointRequest) (*AddNon80211McCapableAccessPointResponse, error)
+	AddResponder(context.Context, *AddResponderRequest) (*AddResponderResponse, error)
+	AddWifiAwarePeer1(context.Context, *AddWifiAwarePeer1Request) (*AddWifiAwarePeer1Response, error)
+	AddWifiAwarePeer1_1(context.Context, *AddWifiAwarePeer1_1Request) (*AddWifiAwarePeer1_1Response, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetRttBurstSize(context.Context, *SetRttBurstSizeRequest) (*SetRttBurstSizeResponse, error)
+	SetSecurityMode(context.Context, *SetSecurityModeRequest) (*SetSecurityModeResponse, error)
+	mustEmbedUnimplementedRangingRequestBuilderServiceServer()
+}
+
+// UnimplementedRangingRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangingRequestBuilderServiceServer struct{}
+
+func (UnimplementedRangingRequestBuilderServiceServer) AddAccessPoint(context.Context, *AddAccessPointRequest) (*AddAccessPointResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAccessPoint not implemented")
+}
+func (UnimplementedRangingRequestBuilderServiceServer) AddNon80211McCapableAccessPoint(context.Context, *AddNon80211McCapableAccessPointRequest) (*AddNon80211McCapableAccessPointResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddNon80211McCapableAccessPoint not implemented")
+}
+func (UnimplementedRangingRequestBuilderServiceServer) AddResponder(context.Context, *AddResponderRequest) (*AddResponderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddResponder not implemented")
+}
+func (UnimplementedRangingRequestBuilderServiceServer) AddWifiAwarePeer1(context.Context, *AddWifiAwarePeer1Request) (*AddWifiAwarePeer1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddWifiAwarePeer1 not implemented")
+}
+func (UnimplementedRangingRequestBuilderServiceServer) AddWifiAwarePeer1_1(context.Context, *AddWifiAwarePeer1_1Request) (*AddWifiAwarePeer1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddWifiAwarePeer1_1 not implemented")
+}
+func (UnimplementedRangingRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedRangingRequestBuilderServiceServer) SetRttBurstSize(context.Context, *SetRttBurstSizeRequest) (*SetRttBurstSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRttBurstSize not implemented")
+}
+func (UnimplementedRangingRequestBuilderServiceServer) SetSecurityMode(context.Context, *SetSecurityModeRequest) (*SetSecurityModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSecurityMode not implemented")
+}
+func (UnimplementedRangingRequestBuilderServiceServer) mustEmbedUnimplementedRangingRequestBuilderServiceServer() {
+}
+func (UnimplementedRangingRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRangingRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangingRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeRangingRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedRangingRequestBuilderServiceServer()
+}
+
+func RegisterRangingRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv RangingRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangingRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangingRequestBuilderService_ServiceDesc, srv)
+}
+
+func _RangingRequestBuilderService_AddAccessPoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAccessPointRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestBuilderServiceServer).AddAccessPoint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestBuilderService_AddAccessPoint_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestBuilderServiceServer).AddAccessPoint(ctx, req.(*AddAccessPointRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestBuilderService_AddNon80211McCapableAccessPoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddNon80211McCapableAccessPointRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestBuilderServiceServer).AddNon80211McCapableAccessPoint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestBuilderService_AddNon80211McCapableAccessPoint_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestBuilderServiceServer).AddNon80211McCapableAccessPoint(ctx, req.(*AddNon80211McCapableAccessPointRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestBuilderService_AddResponder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddResponderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestBuilderServiceServer).AddResponder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestBuilderService_AddResponder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestBuilderServiceServer).AddResponder(ctx, req.(*AddResponderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestBuilderService_AddWifiAwarePeer1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddWifiAwarePeer1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestBuilderServiceServer).AddWifiAwarePeer1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestBuilderService_AddWifiAwarePeer1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestBuilderServiceServer).AddWifiAwarePeer1(ctx, req.(*AddWifiAwarePeer1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestBuilderService_AddWifiAwarePeer1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddWifiAwarePeer1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestBuilderServiceServer).AddWifiAwarePeer1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestBuilderService_AddWifiAwarePeer1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestBuilderServiceServer).AddWifiAwarePeer1_1(ctx, req.(*AddWifiAwarePeer1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestBuilderService_SetRttBurstSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRttBurstSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestBuilderServiceServer).SetRttBurstSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestBuilderService_SetRttBurstSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestBuilderServiceServer).SetRttBurstSize(ctx, req.(*SetRttBurstSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangingRequestBuilderService_SetSecurityMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSecurityModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingRequestBuilderServiceServer).SetSecurityMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingRequestBuilderService_SetSecurityMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingRequestBuilderServiceServer).SetSecurityMode(ctx, req.(*SetSecurityModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangingRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for RangingRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangingRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_rtt.RangingRequestBuilderService",
+	HandlerType: (*RangingRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddAccessPoint",
+			Handler:    _RangingRequestBuilderService_AddAccessPoint_Handler,
+		},
+		{
+			MethodName: "AddNon80211mcCapableAccessPoint",
+			Handler:    _RangingRequestBuilderService_AddNon80211McCapableAccessPoint_Handler,
+		},
+		{
+			MethodName: "AddResponder",
+			Handler:    _RangingRequestBuilderService_AddResponder_Handler,
+		},
+		{
+			MethodName: "AddWifiAwarePeer1",
+			Handler:    _RangingRequestBuilderService_AddWifiAwarePeer1_Handler,
+		},
+		{
+			MethodName: "AddWifiAwarePeer1_1",
+			Handler:    _RangingRequestBuilderService_AddWifiAwarePeer1_1_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _RangingRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetRttBurstSize",
+			Handler:    _RangingRequestBuilderService_SetRttBurstSize_Handler,
+		},
+		{
+			MethodName: "SetSecurityMode",
+			Handler:    _RangingRequestBuilderService_SetSecurityMode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
+}
+
+const (
+	RangingResultCallbackService_OnRangingFailure_FullMethodName = "/wifi_rtt.RangingResultCallbackService/OnRangingFailure"
+)
+
+// RangingResultCallbackServiceClient is the client API for RangingResultCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangingResultCallbackServiceClient interface {
+	OnRangingFailure(ctx context.Context, in *OnRangingFailureRequest, opts ...grpc.CallOption) (*OnRangingFailureResponse, error)
+}
+
+type rangingResultCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangingResultCallbackServiceClient(cc grpc.ClientConnInterface) RangingResultCallbackServiceClient {
+	return &rangingResultCallbackServiceClient{cc}
+}
+
+func (c *rangingResultCallbackServiceClient) OnRangingFailure(ctx context.Context, in *OnRangingFailureRequest, opts ...grpc.CallOption) (*OnRangingFailureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRangingFailureResponse)
+	err := c.cc.Invoke(ctx, RangingResultCallbackService_OnRangingFailure_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangingResultCallbackServiceServer is the server API for RangingResultCallbackService service.
+// All implementations must embed UnimplementedRangingResultCallbackServiceServer
+// for forward compatibility.
+type RangingResultCallbackServiceServer interface {
+	OnRangingFailure(context.Context, *OnRangingFailureRequest) (*OnRangingFailureResponse, error)
+	mustEmbedUnimplementedRangingResultCallbackServiceServer()
+}
+
+// UnimplementedRangingResultCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangingResultCallbackServiceServer struct{}
+
+func (UnimplementedRangingResultCallbackServiceServer) OnRangingFailure(context.Context, *OnRangingFailureRequest) (*OnRangingFailureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRangingFailure not implemented")
+}
+func (UnimplementedRangingResultCallbackServiceServer) mustEmbedUnimplementedRangingResultCallbackServiceServer() {
+}
+func (UnimplementedRangingResultCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRangingResultCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangingResultCallbackServiceServer will
+// result in compilation errors.
+type UnsafeRangingResultCallbackServiceServer interface {
+	mustEmbedUnimplementedRangingResultCallbackServiceServer()
+}
+
+func RegisterRangingResultCallbackServiceServer(s grpc.ServiceRegistrar, srv RangingResultCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangingResultCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangingResultCallbackService_ServiceDesc, srv)
+}
+
+func _RangingResultCallbackService_OnRangingFailure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRangingFailureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangingResultCallbackServiceServer).OnRangingFailure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangingResultCallbackService_OnRangingFailure_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangingResultCallbackServiceServer).OnRangingFailure(ctx, req.(*OnRangingFailureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangingResultCallbackService_ServiceDesc is the grpc.ServiceDesc for RangingResultCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangingResultCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_rtt.RangingResultCallbackService",
+	HandlerType: (*RangingResultCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnRangingFailure",
+			Handler:    _RangingResultCallbackService_OnRangingFailure_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
+}
+
+const (
+	ResponderConfigService_DescribeContents_FullMethodName       = "/wifi_rtt.ResponderConfigService/DescribeContents"
+	ResponderConfigService_Equals_FullMethodName                 = "/wifi_rtt.ResponderConfigService/Equals"
+	ResponderConfigService_GetCenterFreq0Mhz_FullMethodName      = "/wifi_rtt.ResponderConfigService/GetCenterFreq0Mhz"
+	ResponderConfigService_GetCenterFreq1Mhz_FullMethodName      = "/wifi_rtt.ResponderConfigService/GetCenterFreq1Mhz"
+	ResponderConfigService_GetChannelWidth_FullMethodName        = "/wifi_rtt.ResponderConfigService/GetChannelWidth"
+	ResponderConfigService_GetFrequencyMhz_FullMethodName        = "/wifi_rtt.ResponderConfigService/GetFrequencyMhz"
+	ResponderConfigService_GetMacAddress_FullMethodName          = "/wifi_rtt.ResponderConfigService/GetMacAddress"
+	ResponderConfigService_GetPreamble_FullMethodName            = "/wifi_rtt.ResponderConfigService/GetPreamble"
+	ResponderConfigService_GetResponderType_FullMethodName       = "/wifi_rtt.ResponderConfigService/GetResponderType"
+	ResponderConfigService_GetSecureRangingConfig_FullMethodName = "/wifi_rtt.ResponderConfigService/GetSecureRangingConfig"
+	ResponderConfigService_HashCode_FullMethodName               = "/wifi_rtt.ResponderConfigService/HashCode"
+	ResponderConfigService_Is80211AzNtbSupported_FullMethodName  = "/wifi_rtt.ResponderConfigService/Is80211azNtbSupported"
+	ResponderConfigService_Is80211McSupported_FullMethodName     = "/wifi_rtt.ResponderConfigService/Is80211mcSupported"
+	ResponderConfigService_ToString_FullMethodName               = "/wifi_rtt.ResponderConfigService/ToString"
+	ResponderConfigService_WriteToParcel_FullMethodName          = "/wifi_rtt.ResponderConfigService/WriteToParcel"
+	ResponderConfigService_FromScanResult_FullMethodName         = "/wifi_rtt.ResponderConfigService/FromScanResult"
+)
+
+// ResponderConfigServiceClient is the client API for ResponderConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ResponderConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetCenterFreq0Mhz(ctx context.Context, in *GetCenterFreq0MhzRequest, opts ...grpc.CallOption) (*GetCenterFreq0MhzResponse, error)
+	GetCenterFreq1Mhz(ctx context.Context, in *GetCenterFreq1MhzRequest, opts ...grpc.CallOption) (*GetCenterFreq1MhzResponse, error)
+	GetChannelWidth(ctx context.Context, in *GetChannelWidthRequest, opts ...grpc.CallOption) (*GetChannelWidthResponse, error)
+	GetFrequencyMhz(ctx context.Context, in *GetFrequencyMhzRequest, opts ...grpc.CallOption) (*GetFrequencyMhzResponse, error)
+	GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error)
+	GetPreamble(ctx context.Context, in *GetPreambleRequest, opts ...grpc.CallOption) (*GetPreambleResponse, error)
+	GetResponderType(ctx context.Context, in *GetResponderTypeRequest, opts ...grpc.CallOption) (*GetResponderTypeResponse, error)
+	GetSecureRangingConfig(ctx context.Context, in *GetSecureRangingConfigRequest, opts ...grpc.CallOption) (*GetSecureRangingConfigResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Is80211AzNtbSupported(ctx context.Context, in *Is80211AzNtbSupportedRequest, opts ...grpc.CallOption) (*Is80211AzNtbSupportedResponse, error)
+	Is80211McSupported(ctx context.Context, in *Is80211McSupportedRequest, opts ...grpc.CallOption) (*Is80211McSupportedResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	FromScanResult(ctx context.Context, in *FromScanResultRequest, opts ...grpc.CallOption) (*FromScanResultResponse, error)
+}
+
+type responderConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewResponderConfigServiceClient(cc grpc.ClientConnInterface) ResponderConfigServiceClient {
+	return &responderConfigServiceClient{cc}
+}
+
+func (c *responderConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) GetCenterFreq0Mhz(ctx context.Context, in *GetCenterFreq0MhzRequest, opts ...grpc.CallOption) (*GetCenterFreq0MhzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCenterFreq0MhzResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_GetCenterFreq0Mhz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) GetCenterFreq1Mhz(ctx context.Context, in *GetCenterFreq1MhzRequest, opts ...grpc.CallOption) (*GetCenterFreq1MhzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCenterFreq1MhzResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_GetCenterFreq1Mhz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) GetChannelWidth(ctx context.Context, in *GetChannelWidthRequest, opts ...grpc.CallOption) (*GetChannelWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChannelWidthResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_GetChannelWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) GetFrequencyMhz(ctx context.Context, in *GetFrequencyMhzRequest, opts ...grpc.CallOption) (*GetFrequencyMhzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFrequencyMhzResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_GetFrequencyMhz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMacAddressResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_GetMacAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) GetPreamble(ctx context.Context, in *GetPreambleRequest, opts ...grpc.CallOption) (*GetPreambleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreambleResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_GetPreamble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) GetResponderType(ctx context.Context, in *GetResponderTypeRequest, opts ...grpc.CallOption) (*GetResponderTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponderTypeResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_GetResponderType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) GetSecureRangingConfig(ctx context.Context, in *GetSecureRangingConfigRequest, opts ...grpc.CallOption) (*GetSecureRangingConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSecureRangingConfigResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_GetSecureRangingConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) Is80211AzNtbSupported(ctx context.Context, in *Is80211AzNtbSupportedRequest, opts ...grpc.CallOption) (*Is80211AzNtbSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Is80211AzNtbSupportedResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_Is80211AzNtbSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) Is80211McSupported(ctx context.Context, in *Is80211McSupportedRequest, opts ...grpc.CallOption) (*Is80211McSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Is80211McSupportedResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_Is80211McSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigServiceClient) FromScanResult(ctx context.Context, in *FromScanResultRequest, opts ...grpc.CallOption) (*FromScanResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromScanResultResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigService_FromScanResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResponderConfigServiceServer is the server API for ResponderConfigService service.
+// All implementations must embed UnimplementedResponderConfigServiceServer
+// for forward compatibility.
+type ResponderConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetCenterFreq0Mhz(context.Context, *GetCenterFreq0MhzRequest) (*GetCenterFreq0MhzResponse, error)
+	GetCenterFreq1Mhz(context.Context, *GetCenterFreq1MhzRequest) (*GetCenterFreq1MhzResponse, error)
+	GetChannelWidth(context.Context, *GetChannelWidthRequest) (*GetChannelWidthResponse, error)
+	GetFrequencyMhz(context.Context, *GetFrequencyMhzRequest) (*GetFrequencyMhzResponse, error)
+	GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error)
+	GetPreamble(context.Context, *GetPreambleRequest) (*GetPreambleResponse, error)
+	GetResponderType(context.Context, *GetResponderTypeRequest) (*GetResponderTypeResponse, error)
+	GetSecureRangingConfig(context.Context, *GetSecureRangingConfigRequest) (*GetSecureRangingConfigResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	Is80211AzNtbSupported(context.Context, *Is80211AzNtbSupportedRequest) (*Is80211AzNtbSupportedResponse, error)
+	Is80211McSupported(context.Context, *Is80211McSupportedRequest) (*Is80211McSupportedResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	FromScanResult(context.Context, *FromScanResultRequest) (*FromScanResultResponse, error)
+	mustEmbedUnimplementedResponderConfigServiceServer()
+}
+
+// UnimplementedResponderConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedResponderConfigServiceServer struct{}
+
+func (UnimplementedResponderConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) GetCenterFreq0Mhz(context.Context, *GetCenterFreq0MhzRequest) (*GetCenterFreq0MhzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCenterFreq0Mhz not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) GetCenterFreq1Mhz(context.Context, *GetCenterFreq1MhzRequest) (*GetCenterFreq1MhzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCenterFreq1Mhz not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) GetChannelWidth(context.Context, *GetChannelWidthRequest) (*GetChannelWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChannelWidth not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) GetFrequencyMhz(context.Context, *GetFrequencyMhzRequest) (*GetFrequencyMhzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFrequencyMhz not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMacAddress not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) GetPreamble(context.Context, *GetPreambleRequest) (*GetPreambleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreamble not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) GetResponderType(context.Context, *GetResponderTypeRequest) (*GetResponderTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResponderType not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) GetSecureRangingConfig(context.Context, *GetSecureRangingConfigRequest) (*GetSecureRangingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSecureRangingConfig not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) Is80211AzNtbSupported(context.Context, *Is80211AzNtbSupportedRequest) (*Is80211AzNtbSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Is80211AzNtbSupported not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) Is80211McSupported(context.Context, *Is80211McSupportedRequest) (*Is80211McSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Is80211McSupported not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) FromScanResult(context.Context, *FromScanResultRequest) (*FromScanResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromScanResult not implemented")
+}
+func (UnimplementedResponderConfigServiceServer) mustEmbedUnimplementedResponderConfigServiceServer() {
+}
+func (UnimplementedResponderConfigServiceServer) testEmbeddedByValue() {}
+
+// UnsafeResponderConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResponderConfigServiceServer will
+// result in compilation errors.
+type UnsafeResponderConfigServiceServer interface {
+	mustEmbedUnimplementedResponderConfigServiceServer()
+}
+
+func RegisterResponderConfigServiceServer(s grpc.ServiceRegistrar, srv ResponderConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedResponderConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ResponderConfigService_ServiceDesc, srv)
+}
+
+func _ResponderConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_GetCenterFreq0Mhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCenterFreq0MhzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).GetCenterFreq0Mhz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_GetCenterFreq0Mhz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).GetCenterFreq0Mhz(ctx, req.(*GetCenterFreq0MhzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_GetCenterFreq1Mhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCenterFreq1MhzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).GetCenterFreq1Mhz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_GetCenterFreq1Mhz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).GetCenterFreq1Mhz(ctx, req.(*GetCenterFreq1MhzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_GetChannelWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChannelWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).GetChannelWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_GetChannelWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).GetChannelWidth(ctx, req.(*GetChannelWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_GetFrequencyMhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFrequencyMhzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).GetFrequencyMhz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_GetFrequencyMhz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).GetFrequencyMhz(ctx, req.(*GetFrequencyMhzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_GetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMacAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).GetMacAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_GetMacAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).GetMacAddress(ctx, req.(*GetMacAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_GetPreamble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreambleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).GetPreamble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_GetPreamble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).GetPreamble(ctx, req.(*GetPreambleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_GetResponderType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResponderTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).GetResponderType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_GetResponderType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).GetResponderType(ctx, req.(*GetResponderTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_GetSecureRangingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSecureRangingConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).GetSecureRangingConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_GetSecureRangingConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).GetSecureRangingConfig(ctx, req.(*GetSecureRangingConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_Is80211AzNtbSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Is80211AzNtbSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).Is80211AzNtbSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_Is80211AzNtbSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).Is80211AzNtbSupported(ctx, req.(*Is80211AzNtbSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_Is80211McSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Is80211McSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).Is80211McSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_Is80211McSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).Is80211McSupported(ctx, req.(*Is80211McSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigService_FromScanResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromScanResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigServiceServer).FromScanResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigService_FromScanResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigServiceServer).FromScanResult(ctx, req.(*FromScanResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResponderConfigService_ServiceDesc is the grpc.ServiceDesc for ResponderConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ResponderConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_rtt.ResponderConfigService",
+	HandlerType: (*ResponderConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ResponderConfigService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ResponderConfigService_Equals_Handler,
+		},
+		{
+			MethodName: "GetCenterFreq0Mhz",
+			Handler:    _ResponderConfigService_GetCenterFreq0Mhz_Handler,
+		},
+		{
+			MethodName: "GetCenterFreq1Mhz",
+			Handler:    _ResponderConfigService_GetCenterFreq1Mhz_Handler,
+		},
+		{
+			MethodName: "GetChannelWidth",
+			Handler:    _ResponderConfigService_GetChannelWidth_Handler,
+		},
+		{
+			MethodName: "GetFrequencyMhz",
+			Handler:    _ResponderConfigService_GetFrequencyMhz_Handler,
+		},
+		{
+			MethodName: "GetMacAddress",
+			Handler:    _ResponderConfigService_GetMacAddress_Handler,
+		},
+		{
+			MethodName: "GetPreamble",
+			Handler:    _ResponderConfigService_GetPreamble_Handler,
+		},
+		{
+			MethodName: "GetResponderType",
+			Handler:    _ResponderConfigService_GetResponderType_Handler,
+		},
+		{
+			MethodName: "GetSecureRangingConfig",
+			Handler:    _ResponderConfigService_GetSecureRangingConfig_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ResponderConfigService_HashCode_Handler,
+		},
+		{
+			MethodName: "Is80211azNtbSupported",
+			Handler:    _ResponderConfigService_Is80211AzNtbSupported_Handler,
+		},
+		{
+			MethodName: "Is80211mcSupported",
+			Handler:    _ResponderConfigService_Is80211McSupported_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ResponderConfigService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ResponderConfigService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "FromScanResult",
+			Handler:    _ResponderConfigService_FromScanResult_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
+}
+
+const (
+	ResponderConfigBuilderService_Build_FullMethodName                  = "/wifi_rtt.ResponderConfigBuilderService/Build"
+	ResponderConfigBuilderService_Set80211AzNtbSupported_FullMethodName = "/wifi_rtt.ResponderConfigBuilderService/Set80211azNtbSupported"
+	ResponderConfigBuilderService_Set80211McSupported_FullMethodName    = "/wifi_rtt.ResponderConfigBuilderService/Set80211mcSupported"
+	ResponderConfigBuilderService_SetCenterFreq0Mhz_FullMethodName      = "/wifi_rtt.ResponderConfigBuilderService/SetCenterFreq0Mhz"
+	ResponderConfigBuilderService_SetCenterFreq1Mhz_FullMethodName      = "/wifi_rtt.ResponderConfigBuilderService/SetCenterFreq1Mhz"
+	ResponderConfigBuilderService_SetChannelWidth_FullMethodName        = "/wifi_rtt.ResponderConfigBuilderService/SetChannelWidth"
+	ResponderConfigBuilderService_SetFrequencyMhz_FullMethodName        = "/wifi_rtt.ResponderConfigBuilderService/SetFrequencyMhz"
+	ResponderConfigBuilderService_SetMacAddress_FullMethodName          = "/wifi_rtt.ResponderConfigBuilderService/SetMacAddress"
+	ResponderConfigBuilderService_SetPreamble_FullMethodName            = "/wifi_rtt.ResponderConfigBuilderService/SetPreamble"
+	ResponderConfigBuilderService_SetResponderType_FullMethodName       = "/wifi_rtt.ResponderConfigBuilderService/SetResponderType"
+	ResponderConfigBuilderService_SetSecureRangingConfig_FullMethodName = "/wifi_rtt.ResponderConfigBuilderService/SetSecureRangingConfig"
+)
+
+// ResponderConfigBuilderServiceClient is the client API for ResponderConfigBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ResponderConfigBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	Set80211AzNtbSupported(ctx context.Context, in *Set80211AzNtbSupportedRequest, opts ...grpc.CallOption) (*Set80211AzNtbSupportedResponse, error)
+	Set80211McSupported(ctx context.Context, in *Set80211McSupportedRequest, opts ...grpc.CallOption) (*Set80211McSupportedResponse, error)
+	SetCenterFreq0Mhz(ctx context.Context, in *SetCenterFreq0MhzRequest, opts ...grpc.CallOption) (*SetCenterFreq0MhzResponse, error)
+	SetCenterFreq1Mhz(ctx context.Context, in *SetCenterFreq1MhzRequest, opts ...grpc.CallOption) (*SetCenterFreq1MhzResponse, error)
+	SetChannelWidth(ctx context.Context, in *SetChannelWidthRequest, opts ...grpc.CallOption) (*SetChannelWidthResponse, error)
+	SetFrequencyMhz(ctx context.Context, in *SetFrequencyMhzRequest, opts ...grpc.CallOption) (*SetFrequencyMhzResponse, error)
+	SetMacAddress(ctx context.Context, in *SetMacAddressRequest, opts ...grpc.CallOption) (*SetMacAddressResponse, error)
+	SetPreamble(ctx context.Context, in *SetPreambleRequest, opts ...grpc.CallOption) (*SetPreambleResponse, error)
+	SetResponderType(ctx context.Context, in *SetResponderTypeRequest, opts ...grpc.CallOption) (*SetResponderTypeResponse, error)
+	SetSecureRangingConfig(ctx context.Context, in *SetSecureRangingConfigRequest, opts ...grpc.CallOption) (*SetSecureRangingConfigResponse, error)
+}
+
+type responderConfigBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewResponderConfigBuilderServiceClient(cc grpc.ClientConnInterface) ResponderConfigBuilderServiceClient {
+	return &responderConfigBuilderServiceClient{cc}
+}
+
+func (c *responderConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) Set80211AzNtbSupported(ctx context.Context, in *Set80211AzNtbSupportedRequest, opts ...grpc.CallOption) (*Set80211AzNtbSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Set80211AzNtbSupportedResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_Set80211AzNtbSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) Set80211McSupported(ctx context.Context, in *Set80211McSupportedRequest, opts ...grpc.CallOption) (*Set80211McSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Set80211McSupportedResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_Set80211McSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) SetCenterFreq0Mhz(ctx context.Context, in *SetCenterFreq0MhzRequest, opts ...grpc.CallOption) (*SetCenterFreq0MhzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCenterFreq0MhzResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetCenterFreq0Mhz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) SetCenterFreq1Mhz(ctx context.Context, in *SetCenterFreq1MhzRequest, opts ...grpc.CallOption) (*SetCenterFreq1MhzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCenterFreq1MhzResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetCenterFreq1Mhz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) SetChannelWidth(ctx context.Context, in *SetChannelWidthRequest, opts ...grpc.CallOption) (*SetChannelWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetChannelWidthResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetChannelWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) SetFrequencyMhz(ctx context.Context, in *SetFrequencyMhzRequest, opts ...grpc.CallOption) (*SetFrequencyMhzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFrequencyMhzResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetFrequencyMhz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) SetMacAddress(ctx context.Context, in *SetMacAddressRequest, opts ...grpc.CallOption) (*SetMacAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMacAddressResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetMacAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) SetPreamble(ctx context.Context, in *SetPreambleRequest, opts ...grpc.CallOption) (*SetPreambleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreambleResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetPreamble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) SetResponderType(ctx context.Context, in *SetResponderTypeRequest, opts ...grpc.CallOption) (*SetResponderTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetResponderTypeResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetResponderType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderConfigBuilderServiceClient) SetSecureRangingConfig(ctx context.Context, in *SetSecureRangingConfigRequest, opts ...grpc.CallOption) (*SetSecureRangingConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSecureRangingConfigResponse)
+	err := c.cc.Invoke(ctx, ResponderConfigBuilderService_SetSecureRangingConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResponderConfigBuilderServiceServer is the server API for ResponderConfigBuilderService service.
+// All implementations must embed UnimplementedResponderConfigBuilderServiceServer
+// for forward compatibility.
+type ResponderConfigBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	Set80211AzNtbSupported(context.Context, *Set80211AzNtbSupportedRequest) (*Set80211AzNtbSupportedResponse, error)
+	Set80211McSupported(context.Context, *Set80211McSupportedRequest) (*Set80211McSupportedResponse, error)
+	SetCenterFreq0Mhz(context.Context, *SetCenterFreq0MhzRequest) (*SetCenterFreq0MhzResponse, error)
+	SetCenterFreq1Mhz(context.Context, *SetCenterFreq1MhzRequest) (*SetCenterFreq1MhzResponse, error)
+	SetChannelWidth(context.Context, *SetChannelWidthRequest) (*SetChannelWidthResponse, error)
+	SetFrequencyMhz(context.Context, *SetFrequencyMhzRequest) (*SetFrequencyMhzResponse, error)
+	SetMacAddress(context.Context, *SetMacAddressRequest) (*SetMacAddressResponse, error)
+	SetPreamble(context.Context, *SetPreambleRequest) (*SetPreambleResponse, error)
+	SetResponderType(context.Context, *SetResponderTypeRequest) (*SetResponderTypeResponse, error)
+	SetSecureRangingConfig(context.Context, *SetSecureRangingConfigRequest) (*SetSecureRangingConfigResponse, error)
+	mustEmbedUnimplementedResponderConfigBuilderServiceServer()
+}
+
+// UnimplementedResponderConfigBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedResponderConfigBuilderServiceServer struct{}
+
+func (UnimplementedResponderConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) Set80211AzNtbSupported(context.Context, *Set80211AzNtbSupportedRequest) (*Set80211AzNtbSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set80211AzNtbSupported not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) Set80211McSupported(context.Context, *Set80211McSupportedRequest) (*Set80211McSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set80211McSupported not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) SetCenterFreq0Mhz(context.Context, *SetCenterFreq0MhzRequest) (*SetCenterFreq0MhzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCenterFreq0Mhz not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) SetCenterFreq1Mhz(context.Context, *SetCenterFreq1MhzRequest) (*SetCenterFreq1MhzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCenterFreq1Mhz not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) SetChannelWidth(context.Context, *SetChannelWidthRequest) (*SetChannelWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetChannelWidth not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) SetFrequencyMhz(context.Context, *SetFrequencyMhzRequest) (*SetFrequencyMhzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFrequencyMhz not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) SetMacAddress(context.Context, *SetMacAddressRequest) (*SetMacAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMacAddress not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) SetPreamble(context.Context, *SetPreambleRequest) (*SetPreambleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreamble not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) SetResponderType(context.Context, *SetResponderTypeRequest) (*SetResponderTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetResponderType not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) SetSecureRangingConfig(context.Context, *SetSecureRangingConfigRequest) (*SetSecureRangingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSecureRangingConfig not implemented")
+}
+func (UnimplementedResponderConfigBuilderServiceServer) mustEmbedUnimplementedResponderConfigBuilderServiceServer() {
+}
+func (UnimplementedResponderConfigBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeResponderConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResponderConfigBuilderServiceServer will
+// result in compilation errors.
+type UnsafeResponderConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedResponderConfigBuilderServiceServer()
+}
+
+func RegisterResponderConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv ResponderConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedResponderConfigBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ResponderConfigBuilderService_ServiceDesc, srv)
+}
+
+func _ResponderConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_Set80211AzNtbSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Set80211AzNtbSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).Set80211AzNtbSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_Set80211AzNtbSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).Set80211AzNtbSupported(ctx, req.(*Set80211AzNtbSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_Set80211McSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Set80211McSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).Set80211McSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_Set80211McSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).Set80211McSupported(ctx, req.(*Set80211McSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_SetCenterFreq0Mhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCenterFreq0MhzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).SetCenterFreq0Mhz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_SetCenterFreq0Mhz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).SetCenterFreq0Mhz(ctx, req.(*SetCenterFreq0MhzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_SetCenterFreq1Mhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCenterFreq1MhzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).SetCenterFreq1Mhz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_SetCenterFreq1Mhz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).SetCenterFreq1Mhz(ctx, req.(*SetCenterFreq1MhzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_SetChannelWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetChannelWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).SetChannelWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_SetChannelWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).SetChannelWidth(ctx, req.(*SetChannelWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_SetFrequencyMhz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFrequencyMhzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).SetFrequencyMhz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_SetFrequencyMhz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).SetFrequencyMhz(ctx, req.(*SetFrequencyMhzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_SetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMacAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).SetMacAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_SetMacAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).SetMacAddress(ctx, req.(*SetMacAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_SetPreamble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreambleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).SetPreamble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_SetPreamble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).SetPreamble(ctx, req.(*SetPreambleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_SetResponderType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetResponderTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).SetResponderType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_SetResponderType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).SetResponderType(ctx, req.(*SetResponderTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderConfigBuilderService_SetSecureRangingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSecureRangingConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderConfigBuilderServiceServer).SetSecureRangingConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderConfigBuilderService_SetSecureRangingConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderConfigBuilderServiceServer).SetSecureRangingConfig(ctx, req.(*SetSecureRangingConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResponderConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for ResponderConfigBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ResponderConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_rtt.ResponderConfigBuilderService",
+	HandlerType: (*ResponderConfigBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ResponderConfigBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "Set80211azNtbSupported",
+			Handler:    _ResponderConfigBuilderService_Set80211AzNtbSupported_Handler,
+		},
+		{
+			MethodName: "Set80211mcSupported",
+			Handler:    _ResponderConfigBuilderService_Set80211McSupported_Handler,
+		},
+		{
+			MethodName: "SetCenterFreq0Mhz",
+			Handler:    _ResponderConfigBuilderService_SetCenterFreq0Mhz_Handler,
+		},
+		{
+			MethodName: "SetCenterFreq1Mhz",
+			Handler:    _ResponderConfigBuilderService_SetCenterFreq1Mhz_Handler,
+		},
+		{
+			MethodName: "SetChannelWidth",
+			Handler:    _ResponderConfigBuilderService_SetChannelWidth_Handler,
+		},
+		{
+			MethodName: "SetFrequencyMhz",
+			Handler:    _ResponderConfigBuilderService_SetFrequencyMhz_Handler,
+		},
+		{
+			MethodName: "SetMacAddress",
+			Handler:    _ResponderConfigBuilderService_SetMacAddress_Handler,
+		},
+		{
+			MethodName: "SetPreamble",
+			Handler:    _ResponderConfigBuilderService_SetPreamble_Handler,
+		},
+		{
+			MethodName: "SetResponderType",
+			Handler:    _ResponderConfigBuilderService_SetResponderType_Handler,
+		},
+		{
+			MethodName: "SetSecureRangingConfig",
+			Handler:    _ResponderConfigBuilderService_SetSecureRangingConfig_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
+}
+
+const (
+	PasnConfigService_DescribeContents_FullMethodName      = "/wifi_rtt.PasnConfigService/DescribeContents"
+	PasnConfigService_Equals_FullMethodName                = "/wifi_rtt.PasnConfigService/Equals"
+	PasnConfigService_GetBaseAkms_FullMethodName           = "/wifi_rtt.PasnConfigService/GetBaseAkms"
+	PasnConfigService_GetCiphers_FullMethodName            = "/wifi_rtt.PasnConfigService/GetCiphers"
+	PasnConfigService_GetPasnComebackCookie_FullMethodName = "/wifi_rtt.PasnConfigService/GetPasnComebackCookie"
+	PasnConfigService_GetPassword_FullMethodName           = "/wifi_rtt.PasnConfigService/GetPassword"
+	PasnConfigService_GetWifiSsid_FullMethodName           = "/wifi_rtt.PasnConfigService/GetWifiSsid"
+	PasnConfigService_HashCode_FullMethodName              = "/wifi_rtt.PasnConfigService/HashCode"
+	PasnConfigService_ToString_FullMethodName              = "/wifi_rtt.PasnConfigService/ToString"
+	PasnConfigService_WriteToParcel_FullMethodName         = "/wifi_rtt.PasnConfigService/WriteToParcel"
+)
+
+// PasnConfigServiceClient is the client API for PasnConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PasnConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetBaseAkms(ctx context.Context, in *GetBaseAkmsRequest, opts ...grpc.CallOption) (*GetBaseAkmsResponse, error)
+	GetCiphers(ctx context.Context, in *GetCiphersRequest, opts ...grpc.CallOption) (*GetCiphersResponse, error)
+	GetPasnComebackCookie(ctx context.Context, in *GetPasnComebackCookieRequest, opts ...grpc.CallOption) (*GetPasnComebackCookieResponse, error)
+	GetPassword(ctx context.Context, in *GetPasswordRequest, opts ...grpc.CallOption) (*GetPasswordResponse, error)
+	GetWifiSsid(ctx context.Context, in *GetWifiSsidRequest, opts ...grpc.CallOption) (*GetWifiSsidResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type pasnConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPasnConfigServiceClient(cc grpc.ClientConnInterface) PasnConfigServiceClient {
+	return &pasnConfigServiceClient{cc}
+}
+
+func (c *pasnConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) GetBaseAkms(ctx context.Context, in *GetBaseAkmsRequest, opts ...grpc.CallOption) (*GetBaseAkmsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBaseAkmsResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_GetBaseAkms_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) GetCiphers(ctx context.Context, in *GetCiphersRequest, opts ...grpc.CallOption) (*GetCiphersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCiphersResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_GetCiphers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) GetPasnComebackCookie(ctx context.Context, in *GetPasnComebackCookieRequest, opts ...grpc.CallOption) (*GetPasnComebackCookieResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPasnComebackCookieResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_GetPasnComebackCookie_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) GetPassword(ctx context.Context, in *GetPasswordRequest, opts ...grpc.CallOption) (*GetPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPasswordResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_GetPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) GetWifiSsid(ctx context.Context, in *GetWifiSsidRequest, opts ...grpc.CallOption) (*GetWifiSsidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWifiSsidResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_GetWifiSsid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PasnConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PasnConfigServiceServer is the server API for PasnConfigService service.
+// All implementations must embed UnimplementedPasnConfigServiceServer
+// for forward compatibility.
+type PasnConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetBaseAkms(context.Context, *GetBaseAkmsRequest) (*GetBaseAkmsResponse, error)
+	GetCiphers(context.Context, *GetCiphersRequest) (*GetCiphersResponse, error)
+	GetPasnComebackCookie(context.Context, *GetPasnComebackCookieRequest) (*GetPasnComebackCookieResponse, error)
+	GetPassword(context.Context, *GetPasswordRequest) (*GetPasswordResponse, error)
+	GetWifiSsid(context.Context, *GetWifiSsidRequest) (*GetWifiSsidResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPasnConfigServiceServer()
+}
+
+// UnimplementedPasnConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPasnConfigServiceServer struct{}
+
+func (UnimplementedPasnConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) GetBaseAkms(context.Context, *GetBaseAkmsRequest) (*GetBaseAkmsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBaseAkms not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) GetCiphers(context.Context, *GetCiphersRequest) (*GetCiphersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCiphers not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) GetPasnComebackCookie(context.Context, *GetPasnComebackCookieRequest) (*GetPasnComebackCookieResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPasnComebackCookie not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) GetPassword(context.Context, *GetPasswordRequest) (*GetPasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPassword not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) GetWifiSsid(context.Context, *GetWifiSsidRequest) (*GetWifiSsidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWifiSsid not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPasnConfigServiceServer) mustEmbedUnimplementedPasnConfigServiceServer() {}
+func (UnimplementedPasnConfigServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafePasnConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PasnConfigServiceServer will
+// result in compilation errors.
+type UnsafePasnConfigServiceServer interface {
+	mustEmbedUnimplementedPasnConfigServiceServer()
+}
+
+func RegisterPasnConfigServiceServer(s grpc.ServiceRegistrar, srv PasnConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedPasnConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PasnConfigService_ServiceDesc, srv)
+}
+
+func _PasnConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_GetBaseAkms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBaseAkmsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).GetBaseAkms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_GetBaseAkms_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).GetBaseAkms(ctx, req.(*GetBaseAkmsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_GetCiphers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCiphersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).GetCiphers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_GetCiphers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).GetCiphers(ctx, req.(*GetCiphersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_GetPasnComebackCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPasnComebackCookieRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).GetPasnComebackCookie(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_GetPasnComebackCookie_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).GetPasnComebackCookie(ctx, req.(*GetPasnComebackCookieRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_GetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).GetPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_GetPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).GetPassword(ctx, req.(*GetPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_GetWifiSsid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWifiSsidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).GetWifiSsid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_GetWifiSsid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).GetWifiSsid(ctx, req.(*GetWifiSsidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PasnConfigService_ServiceDesc is the grpc.ServiceDesc for PasnConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PasnConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_rtt.PasnConfigService",
+	HandlerType: (*PasnConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PasnConfigService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PasnConfigService_Equals_Handler,
+		},
+		{
+			MethodName: "GetBaseAkms",
+			Handler:    _PasnConfigService_GetBaseAkms_Handler,
+		},
+		{
+			MethodName: "GetCiphers",
+			Handler:    _PasnConfigService_GetCiphers_Handler,
+		},
+		{
+			MethodName: "GetPasnComebackCookie",
+			Handler:    _PasnConfigService_GetPasnComebackCookie_Handler,
+		},
+		{
+			MethodName: "GetPassword",
+			Handler:    _PasnConfigService_GetPassword_Handler,
+		},
+		{
+			MethodName: "GetWifiSsid",
+			Handler:    _PasnConfigService_GetWifiSsid_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PasnConfigService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PasnConfigService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PasnConfigService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_rtt/wifi_rtt.proto",
+}
+
+const (
+	PasnConfigBuilderService_Build_FullMethodName                 = "/wifi_rtt.PasnConfigBuilderService/Build"
+	PasnConfigBuilderService_SetPasnComebackCookie_FullMethodName = "/wifi_rtt.PasnConfigBuilderService/SetPasnComebackCookie"
+	PasnConfigBuilderService_SetPassword_FullMethodName           = "/wifi_rtt.PasnConfigBuilderService/SetPassword"
+	PasnConfigBuilderService_SetWifiSsid_FullMethodName           = "/wifi_rtt.PasnConfigBuilderService/SetWifiSsid"
+)
+
+// PasnConfigBuilderServiceClient is the client API for PasnConfigBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PasnConfigBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetPasnComebackCookie(ctx context.Context, in *SetPasnComebackCookieRequest, opts ...grpc.CallOption) (*SetPasnComebackCookieResponse, error)
+	SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error)
+	SetWifiSsid(ctx context.Context, in *SetWifiSsidRequest, opts ...grpc.CallOption) (*SetWifiSsidResponse, error)
+}
+
+type pasnConfigBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPasnConfigBuilderServiceClient(cc grpc.ClientConnInterface) PasnConfigBuilderServiceClient {
+	return &pasnConfigBuilderServiceClient{cc}
+}
+
+func (c *pasnConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PasnConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigBuilderServiceClient) SetPasnComebackCookie(ctx context.Context, in *SetPasnComebackCookieRequest, opts ...grpc.CallOption) (*SetPasnComebackCookieResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPasnComebackCookieResponse)
+	err := c.cc.Invoke(ctx, PasnConfigBuilderService_SetPasnComebackCookie_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigBuilderServiceClient) SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPasswordResponse)
+	err := c.cc.Invoke(ctx, PasnConfigBuilderService_SetPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pasnConfigBuilderServiceClient) SetWifiSsid(ctx context.Context, in *SetWifiSsidRequest, opts ...grpc.CallOption) (*SetWifiSsidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWifiSsidResponse)
+	err := c.cc.Invoke(ctx, PasnConfigBuilderService_SetWifiSsid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PasnConfigBuilderServiceServer is the server API for PasnConfigBuilderService service.
+// All implementations must embed UnimplementedPasnConfigBuilderServiceServer
+// for forward compatibility.
+type PasnConfigBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetPasnComebackCookie(context.Context, *SetPasnComebackCookieRequest) (*SetPasnComebackCookieResponse, error)
+	SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error)
+	SetWifiSsid(context.Context, *SetWifiSsidRequest) (*SetWifiSsidResponse, error)
+	mustEmbedUnimplementedPasnConfigBuilderServiceServer()
+}
+
+// UnimplementedPasnConfigBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPasnConfigBuilderServiceServer struct{}
+
+func (UnimplementedPasnConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPasnConfigBuilderServiceServer) SetPasnComebackCookie(context.Context, *SetPasnComebackCookieRequest) (*SetPasnComebackCookieResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPasnComebackCookie not implemented")
+}
+func (UnimplementedPasnConfigBuilderServiceServer) SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPassword not implemented")
+}
+func (UnimplementedPasnConfigBuilderServiceServer) SetWifiSsid(context.Context, *SetWifiSsidRequest) (*SetWifiSsidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWifiSsid not implemented")
+}
+func (UnimplementedPasnConfigBuilderServiceServer) mustEmbedUnimplementedPasnConfigBuilderServiceServer() {
+}
+func (UnimplementedPasnConfigBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePasnConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PasnConfigBuilderServiceServer will
+// result in compilation errors.
+type UnsafePasnConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedPasnConfigBuilderServiceServer()
+}
+
+func RegisterPasnConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv PasnConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPasnConfigBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PasnConfigBuilderService_ServiceDesc, srv)
+}
+
+func _PasnConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigBuilderService_SetPasnComebackCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPasnComebackCookieRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigBuilderServiceServer).SetPasnComebackCookie(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigBuilderService_SetPasnComebackCookie_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigBuilderServiceServer).SetPasnComebackCookie(ctx, req.(*SetPasnComebackCookieRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigBuilderService_SetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigBuilderServiceServer).SetPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigBuilderService_SetPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigBuilderServiceServer).SetPassword(ctx, req.(*SetPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasnConfigBuilderService_SetWifiSsid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWifiSsidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasnConfigBuilderServiceServer).SetWifiSsid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasnConfigBuilderService_SetWifiSsid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasnConfigBuilderServiceServer).SetWifiSsid(ctx, req.(*SetWifiSsidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PasnConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for PasnConfigBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PasnConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_rtt.PasnConfigBuilderService",
+	HandlerType: (*PasnConfigBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PasnConfigBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetPasnComebackCookie",
+			Handler:    _PasnConfigBuilderService_SetPasnComebackCookie_Handler,
+		},
+		{
+			MethodName: "SetPassword",
+			Handler:    _PasnConfigBuilderService_SetPassword_Handler,
+		},
+		{
+			MethodName: "SetWifiSsid",
+			Handler:    _PasnConfigBuilderService_SetWifiSsid_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

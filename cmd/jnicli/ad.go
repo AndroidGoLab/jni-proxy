@@ -12,136 +12,6 @@ var adCmd = &cobra.Command{
 	Short: "ad service operations",
 }
 
-var adTvAdManagerCmd = &cobra.Command{
-	Use:   "tv-ad-manager",
-	Short: "TvAdManagerService operations",
-}
-
-var adTvAdManagerRegisterCallbackCmd = &cobra.Command{
-	Use:   "register-callback",
-	Short: "RegisterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTvAdManagerServiceClient(grpcConn)
-		req := &pb.RegisterCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RegisterCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adTvAdManagerSendAppLinkCommandCmd = &cobra.Command{
-	Use:   "send-app-link-command",
-	Short: "SendAppLinkCommand RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTvAdManagerServiceClient(grpcConn)
-		req := &pb.SendAppLinkCommandRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SendAppLinkCommand(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adTvAdManagerUnregisterCallbackCmd = &cobra.Command{
-	Use:   "unregister-callback",
-	Short: "UnregisterCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTvAdManagerServiceClient(grpcConn)
-		req := &pb.UnregisterCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adTvAdManagerTvAdServiceCallbackCmd = &cobra.Command{
-	Use:   "tv-ad-manager-tv-ad-service-callback",
-	Short: "TvAdManagerTvAdServiceCallbackService operations",
-}
-
-var adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd = &cobra.Command{
-	Use:   "on-ad-service-added",
-	Short: "OnAdServiceAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
-		req := &pb.OnAdServiceAddedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAdServiceAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd = &cobra.Command{
-	Use:   "on-ad-service-removed",
-	Short: "OnAdServiceRemoved RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
-		req := &pb.OnAdServiceRemovedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAdServiceRemoved(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd = &cobra.Command{
-	Use:   "on-ad-service-updated",
-	Short: "OnAdServiceUpdated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
-		req := &pb.OnAdServiceUpdatedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAdServiceUpdated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adTvAdServiceInfoCmd = &cobra.Command{
 	Use:   "tv-ad-service-info",
 	Short: "TvAdServiceInfoService operations",
@@ -219,6 +89,25 @@ var adTvAdServiceInfoGetServiceInfoCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetServiceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceInfoGetSupportedTypesCmd = &cobra.Command{
+	Use:   "get-supported-types",
+	Short: "GetSupportedTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceInfoServiceClient(grpcConn)
+		req := &pb.GetSupportedTypesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSupportedTypes(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1036,6 +925,152 @@ var adTvAdViewTvAdCallbackOnStateChangedCmd = &cobra.Command{
 	},
 }
 
+var adTvAdManagerCmd = &cobra.Command{
+	Use:   "tv-ad-manager",
+	Short: "TvAdManagerService operations",
+}
+
+var adTvAdManagerGetTvAdServiceListCmd = &cobra.Command{
+	Use:   "get-tv-ad-service-list",
+	Short: "GetTvAdServiceList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerServiceClient(grpcConn)
+		req := &pb.GetTvAdServiceListRequest{}
+		resp, err := client.GetTvAdServiceList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdManagerRegisterCallbackCmd = &cobra.Command{
+	Use:   "register-callback",
+	Short: "RegisterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerServiceClient(grpcConn)
+		req := &pb.RegisterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdManagerSendAppLinkCommandCmd = &cobra.Command{
+	Use:   "send-app-link-command",
+	Short: "SendAppLinkCommand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerServiceClient(grpcConn)
+		req := &pb.SendAppLinkCommandRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendAppLinkCommand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdManagerUnregisterCallbackCmd = &cobra.Command{
+	Use:   "unregister-callback",
+	Short: "UnregisterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerServiceClient(grpcConn)
+		req := &pb.UnregisterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdManagerTvAdServiceCallbackCmd = &cobra.Command{
+	Use:   "tv-ad-manager-tv-ad-service-callback",
+	Short: "TvAdManagerTvAdServiceCallbackService operations",
+}
+
+var adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd = &cobra.Command{
+	Use:   "on-ad-service-added",
+	Short: "OnAdServiceAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
+		req := &pb.OnAdServiceAddedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAdServiceAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd = &cobra.Command{
+	Use:   "on-ad-service-removed",
+	Short: "OnAdServiceRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
+		req := &pb.OnAdServiceRemovedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAdServiceRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd = &cobra.Command{
+	Use:   "on-ad-service-updated",
+	Short: "OnAdServiceUpdated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
+		req := &pb.OnAdServiceUpdatedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAdServiceUpdated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var adTvAdServiceCmd = &cobra.Command{
 	Use:   "tv-ad-service",
 	Short: "TvAdServiceService operations",
@@ -1745,22 +1780,6 @@ var adTvAdServiceSessionSetMediaViewEnabledCmd = &cobra.Command{
 }
 
 func init() {
-	adTvAdManagerRegisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adTvAdManagerRegisterCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adTvAdManagerCmd.AddCommand(adTvAdManagerRegisterCallbackCmd)
-	adTvAdManagerSendAppLinkCommandCmd.Flags().String("arg0", "", "arg0 (string)")
-	adTvAdManagerSendAppLinkCommandCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adTvAdManagerCmd.AddCommand(adTvAdManagerSendAppLinkCommandCmd)
-	adTvAdManagerUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adTvAdManagerCmd.AddCommand(adTvAdManagerUnregisterCallbackCmd)
-	adCmd.AddCommand(adTvAdManagerCmd)
-	adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd.Flags().String("arg0", "", "arg0 (string)")
-	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd)
-	adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd.Flags().String("arg0", "", "arg0 (string)")
-	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd)
-	adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd.Flags().String("arg0", "", "arg0 (string)")
-	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd)
-	adCmd.AddCommand(adTvAdManagerTvAdServiceCallbackCmd)
 	adTvAdServiceInfoNewTvAdServiceInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adTvAdServiceInfoNewTvAdServiceInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoNewTvAdServiceInfoCmd)
@@ -1770,6 +1789,8 @@ func init() {
 	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoGetIdCmd)
 	adTvAdServiceInfoGetServiceInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
 	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoGetServiceInfoCmd)
+	adTvAdServiceInfoGetSupportedTypesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoGetSupportedTypesCmd)
 	adTvAdServiceInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
 	adTvAdServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adTvAdServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
@@ -1883,6 +1904,23 @@ func init() {
 	adTvAdViewTvAdCallbackOnStateChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
 	adTvAdViewTvAdCallbackCmd.AddCommand(adTvAdViewTvAdCallbackOnStateChangedCmd)
 	adCmd.AddCommand(adTvAdViewTvAdCallbackCmd)
+	adTvAdManagerCmd.AddCommand(adTvAdManagerGetTvAdServiceListCmd)
+	adTvAdManagerRegisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdManagerRegisterCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdManagerCmd.AddCommand(adTvAdManagerRegisterCallbackCmd)
+	adTvAdManagerSendAppLinkCommandCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdManagerSendAppLinkCommandCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdManagerCmd.AddCommand(adTvAdManagerSendAppLinkCommandCmd)
+	adTvAdManagerUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdManagerCmd.AddCommand(adTvAdManagerUnregisterCallbackCmd)
+	adCmd.AddCommand(adTvAdManagerCmd)
+	adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd)
+	adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd)
+	adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd)
+	adCmd.AddCommand(adTvAdManagerTvAdServiceCallbackCmd)
 	adTvAdServiceOnAppLinkCommandCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adTvAdServiceCmd.AddCommand(adTvAdServiceOnAppLinkCommandCmd)
 	adTvAdServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")

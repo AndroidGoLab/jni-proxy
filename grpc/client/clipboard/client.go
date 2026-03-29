@@ -9,6 +9,119 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// AddPrimaryClipChangedListener calls the AddPrimaryClipChangedListener RPC.
+func (c *ManagerClient) AddPrimaryClipChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddPrimaryClipChangedListener(ctx, &pb.AddPrimaryClipChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ClearPrimaryClip calls the ClearPrimaryClip RPC.
+func (c *ManagerClient) ClearPrimaryClip(ctx context.Context) error {
+	_, err := c.svc.ClearPrimaryClip(ctx, &pb.ClearPrimaryClipRequest{})
+	return err
+}
+
+// GetPrimaryClip calls the GetPrimaryClip RPC.
+func (c *ManagerClient) GetPrimaryClip(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPrimaryClip(ctx, &pb.GetPrimaryClipRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrimaryClipDescription calls the GetPrimaryClipDescription RPC.
+func (c *ManagerClient) GetPrimaryClipDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPrimaryClipDescription(ctx, &pb.GetPrimaryClipDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *ManagerClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPrimaryClip calls the HasPrimaryClip RPC.
+func (c *ManagerClient) HasPrimaryClip(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPrimaryClip(ctx, &pb.HasPrimaryClipRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasText calls the HasText RPC.
+func (c *ManagerClient) HasText(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasText(ctx, &pb.HasTextRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemovePrimaryClipChangedListener calls the RemovePrimaryClipChangedListener RPC.
+func (c *ManagerClient) RemovePrimaryClipChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemovePrimaryClipChangedListener(ctx, &pb.RemovePrimaryClipChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPrimaryClip calls the SetPrimaryClip RPC.
+func (c *ManagerClient) SetPrimaryClip(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPrimaryClip(ctx, &pb.SetPrimaryClipRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetText calls the SetText RPC.
+func (c *ManagerClient) SetText(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetText(ctx, &pb.SetTextRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerOnPrimaryClipChangedListenerClient wraps the gRPC ManagerOnPrimaryClipChangedListenerService client.
+type ManagerOnPrimaryClipChangedListenerClient struct {
+	svc pb.ManagerOnPrimaryClipChangedListenerServiceClient
+}
+
+// NewManagerOnPrimaryClipChangedListenerClient creates a new ManagerOnPrimaryClipChangedListener client.
+func NewManagerOnPrimaryClipChangedListenerClient(cc grpc.ClientConnInterface) *ManagerOnPrimaryClipChangedListenerClient {
+	return &ManagerOnPrimaryClipChangedListenerClient{
+		svc: pb.NewManagerOnPrimaryClipChangedListenerServiceClient(cc),
+	}
+}
+
+// OnPrimaryClipChanged calls the OnPrimaryClipChanged RPC.
+func (c *ManagerOnPrimaryClipChangedListenerClient) OnPrimaryClipChanged(ctx context.Context) error {
+	_, err := c.svc.OnPrimaryClipChanged(ctx, &pb.OnPrimaryClipChangedRequest{})
+	return err
+}
+
 // ClipDataClient wraps the gRPC ClipDataService client.
 type ClipDataClient struct {
 	svc pb.ClipDataServiceClient
@@ -279,117 +392,4 @@ func (c *ClipDataItemClient) ToString(ctx context.Context) (string, error) {
 		return "", err
 	}
 	return resp.GetResult(), nil
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// AddPrimaryClipChangedListener calls the AddPrimaryClipChangedListener RPC.
-func (c *ManagerClient) AddPrimaryClipChangedListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AddPrimaryClipChangedListener(ctx, &pb.AddPrimaryClipChangedListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ClearPrimaryClip calls the ClearPrimaryClip RPC.
-func (c *ManagerClient) ClearPrimaryClip(ctx context.Context) error {
-	_, err := c.svc.ClearPrimaryClip(ctx, &pb.ClearPrimaryClipRequest{})
-	return err
-}
-
-// GetPrimaryClip calls the GetPrimaryClip RPC.
-func (c *ManagerClient) GetPrimaryClip(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPrimaryClip(ctx, &pb.GetPrimaryClipRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPrimaryClipDescription calls the GetPrimaryClipDescription RPC.
-func (c *ManagerClient) GetPrimaryClipDescription(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPrimaryClipDescription(ctx, &pb.GetPrimaryClipDescriptionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetText calls the GetText RPC.
-func (c *ManagerClient) GetText(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasPrimaryClip calls the HasPrimaryClip RPC.
-func (c *ManagerClient) HasPrimaryClip(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasPrimaryClip(ctx, &pb.HasPrimaryClipRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasText calls the HasText RPC.
-func (c *ManagerClient) HasText(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasText(ctx, &pb.HasTextRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemovePrimaryClipChangedListener calls the RemovePrimaryClipChangedListener RPC.
-func (c *ManagerClient) RemovePrimaryClipChangedListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemovePrimaryClipChangedListener(ctx, &pb.RemovePrimaryClipChangedListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetPrimaryClip calls the SetPrimaryClip RPC.
-func (c *ManagerClient) SetPrimaryClip(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetPrimaryClip(ctx, &pb.SetPrimaryClipRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetText calls the SetText RPC.
-func (c *ManagerClient) SetText(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetText(ctx, &pb.SetTextRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ManagerOnPrimaryClipChangedListenerClient wraps the gRPC ManagerOnPrimaryClipChangedListenerService client.
-type ManagerOnPrimaryClipChangedListenerClient struct {
-	svc pb.ManagerOnPrimaryClipChangedListenerServiceClient
-}
-
-// NewManagerOnPrimaryClipChangedListenerClient creates a new ManagerOnPrimaryClipChangedListener client.
-func NewManagerOnPrimaryClipChangedListenerClient(cc grpc.ClientConnInterface) *ManagerOnPrimaryClipChangedListenerClient {
-	return &ManagerOnPrimaryClipChangedListenerClient{
-		svc: pb.NewManagerOnPrimaryClipChangedListenerServiceClient(cc),
-	}
-}
-
-// OnPrimaryClipChanged calls the OnPrimaryClipChanged RPC.
-func (c *ManagerOnPrimaryClipChangedListenerClient) OnPrimaryClipChanged(ctx context.Context) error {
-	_, err := c.svc.OnPrimaryClipChanged(ctx, &pb.OnPrimaryClipChangedRequest{})
-	return err
 }

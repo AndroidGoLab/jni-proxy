@@ -351,401 +351,6 @@ var ChannelService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SEServiceService_NewSEService_FullMethodName  = "/omapi.SEServiceService/NewSEService"
-	SEServiceService_GetReaders_FullMethodName    = "/omapi.SEServiceService/GetReaders"
-	SEServiceService_GetUiccReader_FullMethodName = "/omapi.SEServiceService/GetUiccReader"
-	SEServiceService_GetVersion_FullMethodName    = "/omapi.SEServiceService/GetVersion"
-	SEServiceService_IsConnected_FullMethodName   = "/omapi.SEServiceService/IsConnected"
-	SEServiceService_Shutdown_FullMethodName      = "/omapi.SEServiceService/Shutdown"
-)
-
-// SEServiceServiceClient is the client API for SEServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SEServiceServiceClient interface {
-	NewSEService(ctx context.Context, in *NewSEServiceRequest, opts ...grpc.CallOption) (*NewSEServiceResponse, error)
-	GetReaders(ctx context.Context, in *GetReadersRequest, opts ...grpc.CallOption) (*GetReadersResponse, error)
-	GetUiccReader(ctx context.Context, in *GetUiccReaderRequest, opts ...grpc.CallOption) (*GetUiccReaderResponse, error)
-	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
-	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
-	Shutdown(ctx context.Context, in *ShutdownRequest, opts ...grpc.CallOption) (*ShutdownResponse, error)
-}
-
-type sEServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSEServiceServiceClient(cc grpc.ClientConnInterface) SEServiceServiceClient {
-	return &sEServiceServiceClient{cc}
-}
-
-func (c *sEServiceServiceClient) NewSEService(ctx context.Context, in *NewSEServiceRequest, opts ...grpc.CallOption) (*NewSEServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSEServiceResponse)
-	err := c.cc.Invoke(ctx, SEServiceService_NewSEService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sEServiceServiceClient) GetReaders(ctx context.Context, in *GetReadersRequest, opts ...grpc.CallOption) (*GetReadersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReadersResponse)
-	err := c.cc.Invoke(ctx, SEServiceService_GetReaders_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sEServiceServiceClient) GetUiccReader(ctx context.Context, in *GetUiccReaderRequest, opts ...grpc.CallOption) (*GetUiccReaderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUiccReaderResponse)
-	err := c.cc.Invoke(ctx, SEServiceService_GetUiccReader_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sEServiceServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVersionResponse)
-	err := c.cc.Invoke(ctx, SEServiceService_GetVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sEServiceServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsConnectedResponse)
-	err := c.cc.Invoke(ctx, SEServiceService_IsConnected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sEServiceServiceClient) Shutdown(ctx context.Context, in *ShutdownRequest, opts ...grpc.CallOption) (*ShutdownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShutdownResponse)
-	err := c.cc.Invoke(ctx, SEServiceService_Shutdown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SEServiceServiceServer is the server API for SEServiceService service.
-// All implementations must embed UnimplementedSEServiceServiceServer
-// for forward compatibility.
-type SEServiceServiceServer interface {
-	NewSEService(context.Context, *NewSEServiceRequest) (*NewSEServiceResponse, error)
-	GetReaders(context.Context, *GetReadersRequest) (*GetReadersResponse, error)
-	GetUiccReader(context.Context, *GetUiccReaderRequest) (*GetUiccReaderResponse, error)
-	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
-	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
-	Shutdown(context.Context, *ShutdownRequest) (*ShutdownResponse, error)
-	mustEmbedUnimplementedSEServiceServiceServer()
-}
-
-// UnimplementedSEServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSEServiceServiceServer struct{}
-
-func (UnimplementedSEServiceServiceServer) NewSEService(context.Context, *NewSEServiceRequest) (*NewSEServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSEService not implemented")
-}
-func (UnimplementedSEServiceServiceServer) GetReaders(context.Context, *GetReadersRequest) (*GetReadersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReaders not implemented")
-}
-func (UnimplementedSEServiceServiceServer) GetUiccReader(context.Context, *GetUiccReaderRequest) (*GetUiccReaderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUiccReader not implemented")
-}
-func (UnimplementedSEServiceServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
-}
-func (UnimplementedSEServiceServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
-}
-func (UnimplementedSEServiceServiceServer) Shutdown(context.Context, *ShutdownRequest) (*ShutdownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Shutdown not implemented")
-}
-func (UnimplementedSEServiceServiceServer) mustEmbedUnimplementedSEServiceServiceServer() {}
-func (UnimplementedSEServiceServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeSEServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SEServiceServiceServer will
-// result in compilation errors.
-type UnsafeSEServiceServiceServer interface {
-	mustEmbedUnimplementedSEServiceServiceServer()
-}
-
-func RegisterSEServiceServiceServer(s grpc.ServiceRegistrar, srv SEServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedSEServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SEServiceService_ServiceDesc, srv)
-}
-
-func _SEServiceService_NewSEService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSEServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SEServiceServiceServer).NewSEService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SEServiceService_NewSEService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SEServiceServiceServer).NewSEService(ctx, req.(*NewSEServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SEServiceService_GetReaders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReadersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SEServiceServiceServer).GetReaders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SEServiceService_GetReaders_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SEServiceServiceServer).GetReaders(ctx, req.(*GetReadersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SEServiceService_GetUiccReader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUiccReaderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SEServiceServiceServer).GetUiccReader(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SEServiceService_GetUiccReader_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SEServiceServiceServer).GetUiccReader(ctx, req.(*GetUiccReaderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SEServiceService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SEServiceServiceServer).GetVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SEServiceService_GetVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SEServiceServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SEServiceService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsConnectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SEServiceServiceServer).IsConnected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SEServiceService_IsConnected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SEServiceServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SEServiceService_Shutdown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShutdownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SEServiceServiceServer).Shutdown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SEServiceService_Shutdown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SEServiceServiceServer).Shutdown(ctx, req.(*ShutdownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SEServiceService_ServiceDesc is the grpc.ServiceDesc for SEServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SEServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "omapi.SEServiceService",
-	HandlerType: (*SEServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSEService",
-			Handler:    _SEServiceService_NewSEService_Handler,
-		},
-		{
-			MethodName: "GetReaders",
-			Handler:    _SEServiceService_GetReaders_Handler,
-		},
-		{
-			MethodName: "GetUiccReader",
-			Handler:    _SEServiceService_GetUiccReader_Handler,
-		},
-		{
-			MethodName: "GetVersion",
-			Handler:    _SEServiceService_GetVersion_Handler,
-		},
-		{
-			MethodName: "IsConnected",
-			Handler:    _SEServiceService_IsConnected_Handler,
-		},
-		{
-			MethodName: "Shutdown",
-			Handler:    _SEServiceService_Shutdown_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/omapi/omapi.proto",
-}
-
-const (
-	SEServiceOnConnectedListenerService_OnConnected_FullMethodName = "/omapi.SEServiceOnConnectedListenerService/OnConnected"
-)
-
-// SEServiceOnConnectedListenerServiceClient is the client API for SEServiceOnConnectedListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SEServiceOnConnectedListenerServiceClient interface {
-	OnConnected(ctx context.Context, in *OnConnectedRequest, opts ...grpc.CallOption) (*OnConnectedResponse, error)
-}
-
-type sEServiceOnConnectedListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSEServiceOnConnectedListenerServiceClient(cc grpc.ClientConnInterface) SEServiceOnConnectedListenerServiceClient {
-	return &sEServiceOnConnectedListenerServiceClient{cc}
-}
-
-func (c *sEServiceOnConnectedListenerServiceClient) OnConnected(ctx context.Context, in *OnConnectedRequest, opts ...grpc.CallOption) (*OnConnectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnConnectedResponse)
-	err := c.cc.Invoke(ctx, SEServiceOnConnectedListenerService_OnConnected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SEServiceOnConnectedListenerServiceServer is the server API for SEServiceOnConnectedListenerService service.
-// All implementations must embed UnimplementedSEServiceOnConnectedListenerServiceServer
-// for forward compatibility.
-type SEServiceOnConnectedListenerServiceServer interface {
-	OnConnected(context.Context, *OnConnectedRequest) (*OnConnectedResponse, error)
-	mustEmbedUnimplementedSEServiceOnConnectedListenerServiceServer()
-}
-
-// UnimplementedSEServiceOnConnectedListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSEServiceOnConnectedListenerServiceServer struct{}
-
-func (UnimplementedSEServiceOnConnectedListenerServiceServer) OnConnected(context.Context, *OnConnectedRequest) (*OnConnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnConnected not implemented")
-}
-func (UnimplementedSEServiceOnConnectedListenerServiceServer) mustEmbedUnimplementedSEServiceOnConnectedListenerServiceServer() {
-}
-func (UnimplementedSEServiceOnConnectedListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSEServiceOnConnectedListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SEServiceOnConnectedListenerServiceServer will
-// result in compilation errors.
-type UnsafeSEServiceOnConnectedListenerServiceServer interface {
-	mustEmbedUnimplementedSEServiceOnConnectedListenerServiceServer()
-}
-
-func RegisterSEServiceOnConnectedListenerServiceServer(s grpc.ServiceRegistrar, srv SEServiceOnConnectedListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSEServiceOnConnectedListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SEServiceOnConnectedListenerService_ServiceDesc, srv)
-}
-
-func _SEServiceOnConnectedListenerService_OnConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnConnectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SEServiceOnConnectedListenerServiceServer).OnConnected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SEServiceOnConnectedListenerService_OnConnected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SEServiceOnConnectedListenerServiceServer).OnConnected(ctx, req.(*OnConnectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SEServiceOnConnectedListenerService_ServiceDesc is the grpc.ServiceDesc for SEServiceOnConnectedListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SEServiceOnConnectedListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "omapi.SEServiceOnConnectedListenerService",
-	HandlerType: (*SEServiceOnConnectedListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnConnected",
-			Handler:    _SEServiceOnConnectedListenerService_OnConnected_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/omapi/omapi.proto",
-}
-
-const (
 	SessionService_Close_FullMethodName                 = "/omapi.SessionService/Close"
 	SessionService_CloseChannels_FullMethodName         = "/omapi.SessionService/CloseChannels"
 	SessionService_GetATR_FullMethodName                = "/omapi.SessionService/GetATR"
@@ -1145,6 +750,401 @@ var SessionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OpenLogicalChannel2_1",
 			Handler:    _SessionService_OpenLogicalChannel2_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/omapi/omapi.proto",
+}
+
+const (
+	SEServiceService_NewSEService_FullMethodName  = "/omapi.SEServiceService/NewSEService"
+	SEServiceService_GetReaders_FullMethodName    = "/omapi.SEServiceService/GetReaders"
+	SEServiceService_GetUiccReader_FullMethodName = "/omapi.SEServiceService/GetUiccReader"
+	SEServiceService_GetVersion_FullMethodName    = "/omapi.SEServiceService/GetVersion"
+	SEServiceService_IsConnected_FullMethodName   = "/omapi.SEServiceService/IsConnected"
+	SEServiceService_Shutdown_FullMethodName      = "/omapi.SEServiceService/Shutdown"
+)
+
+// SEServiceServiceClient is the client API for SEServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SEServiceServiceClient interface {
+	NewSEService(ctx context.Context, in *NewSEServiceRequest, opts ...grpc.CallOption) (*NewSEServiceResponse, error)
+	GetReaders(ctx context.Context, in *GetReadersRequest, opts ...grpc.CallOption) (*GetReadersResponse, error)
+	GetUiccReader(ctx context.Context, in *GetUiccReaderRequest, opts ...grpc.CallOption) (*GetUiccReaderResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
+	Shutdown(ctx context.Context, in *ShutdownRequest, opts ...grpc.CallOption) (*ShutdownResponse, error)
+}
+
+type sEServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSEServiceServiceClient(cc grpc.ClientConnInterface) SEServiceServiceClient {
+	return &sEServiceServiceClient{cc}
+}
+
+func (c *sEServiceServiceClient) NewSEService(ctx context.Context, in *NewSEServiceRequest, opts ...grpc.CallOption) (*NewSEServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSEServiceResponse)
+	err := c.cc.Invoke(ctx, SEServiceService_NewSEService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sEServiceServiceClient) GetReaders(ctx context.Context, in *GetReadersRequest, opts ...grpc.CallOption) (*GetReadersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReadersResponse)
+	err := c.cc.Invoke(ctx, SEServiceService_GetReaders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sEServiceServiceClient) GetUiccReader(ctx context.Context, in *GetUiccReaderRequest, opts ...grpc.CallOption) (*GetUiccReaderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUiccReaderResponse)
+	err := c.cc.Invoke(ctx, SEServiceService_GetUiccReader_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sEServiceServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, SEServiceService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sEServiceServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsConnectedResponse)
+	err := c.cc.Invoke(ctx, SEServiceService_IsConnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sEServiceServiceClient) Shutdown(ctx context.Context, in *ShutdownRequest, opts ...grpc.CallOption) (*ShutdownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShutdownResponse)
+	err := c.cc.Invoke(ctx, SEServiceService_Shutdown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SEServiceServiceServer is the server API for SEServiceService service.
+// All implementations must embed UnimplementedSEServiceServiceServer
+// for forward compatibility.
+type SEServiceServiceServer interface {
+	NewSEService(context.Context, *NewSEServiceRequest) (*NewSEServiceResponse, error)
+	GetReaders(context.Context, *GetReadersRequest) (*GetReadersResponse, error)
+	GetUiccReader(context.Context, *GetUiccReaderRequest) (*GetUiccReaderResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
+	Shutdown(context.Context, *ShutdownRequest) (*ShutdownResponse, error)
+	mustEmbedUnimplementedSEServiceServiceServer()
+}
+
+// UnimplementedSEServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSEServiceServiceServer struct{}
+
+func (UnimplementedSEServiceServiceServer) NewSEService(context.Context, *NewSEServiceRequest) (*NewSEServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSEService not implemented")
+}
+func (UnimplementedSEServiceServiceServer) GetReaders(context.Context, *GetReadersRequest) (*GetReadersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReaders not implemented")
+}
+func (UnimplementedSEServiceServiceServer) GetUiccReader(context.Context, *GetUiccReaderRequest) (*GetUiccReaderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUiccReader not implemented")
+}
+func (UnimplementedSEServiceServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedSEServiceServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
+}
+func (UnimplementedSEServiceServiceServer) Shutdown(context.Context, *ShutdownRequest) (*ShutdownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Shutdown not implemented")
+}
+func (UnimplementedSEServiceServiceServer) mustEmbedUnimplementedSEServiceServiceServer() {}
+func (UnimplementedSEServiceServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeSEServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SEServiceServiceServer will
+// result in compilation errors.
+type UnsafeSEServiceServiceServer interface {
+	mustEmbedUnimplementedSEServiceServiceServer()
+}
+
+func RegisterSEServiceServiceServer(s grpc.ServiceRegistrar, srv SEServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedSEServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SEServiceService_ServiceDesc, srv)
+}
+
+func _SEServiceService_NewSEService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSEServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SEServiceServiceServer).NewSEService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SEServiceService_NewSEService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SEServiceServiceServer).NewSEService(ctx, req.(*NewSEServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SEServiceService_GetReaders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReadersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SEServiceServiceServer).GetReaders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SEServiceService_GetReaders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SEServiceServiceServer).GetReaders(ctx, req.(*GetReadersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SEServiceService_GetUiccReader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUiccReaderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SEServiceServiceServer).GetUiccReader(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SEServiceService_GetUiccReader_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SEServiceServiceServer).GetUiccReader(ctx, req.(*GetUiccReaderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SEServiceService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SEServiceServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SEServiceService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SEServiceServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SEServiceService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsConnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SEServiceServiceServer).IsConnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SEServiceService_IsConnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SEServiceServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SEServiceService_Shutdown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShutdownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SEServiceServiceServer).Shutdown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SEServiceService_Shutdown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SEServiceServiceServer).Shutdown(ctx, req.(*ShutdownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SEServiceService_ServiceDesc is the grpc.ServiceDesc for SEServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SEServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "omapi.SEServiceService",
+	HandlerType: (*SEServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSEService",
+			Handler:    _SEServiceService_NewSEService_Handler,
+		},
+		{
+			MethodName: "GetReaders",
+			Handler:    _SEServiceService_GetReaders_Handler,
+		},
+		{
+			MethodName: "GetUiccReader",
+			Handler:    _SEServiceService_GetUiccReader_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _SEServiceService_GetVersion_Handler,
+		},
+		{
+			MethodName: "IsConnected",
+			Handler:    _SEServiceService_IsConnected_Handler,
+		},
+		{
+			MethodName: "Shutdown",
+			Handler:    _SEServiceService_Shutdown_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/omapi/omapi.proto",
+}
+
+const (
+	SEServiceOnConnectedListenerService_OnConnected_FullMethodName = "/omapi.SEServiceOnConnectedListenerService/OnConnected"
+)
+
+// SEServiceOnConnectedListenerServiceClient is the client API for SEServiceOnConnectedListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SEServiceOnConnectedListenerServiceClient interface {
+	OnConnected(ctx context.Context, in *OnConnectedRequest, opts ...grpc.CallOption) (*OnConnectedResponse, error)
+}
+
+type sEServiceOnConnectedListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSEServiceOnConnectedListenerServiceClient(cc grpc.ClientConnInterface) SEServiceOnConnectedListenerServiceClient {
+	return &sEServiceOnConnectedListenerServiceClient{cc}
+}
+
+func (c *sEServiceOnConnectedListenerServiceClient) OnConnected(ctx context.Context, in *OnConnectedRequest, opts ...grpc.CallOption) (*OnConnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnConnectedResponse)
+	err := c.cc.Invoke(ctx, SEServiceOnConnectedListenerService_OnConnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SEServiceOnConnectedListenerServiceServer is the server API for SEServiceOnConnectedListenerService service.
+// All implementations must embed UnimplementedSEServiceOnConnectedListenerServiceServer
+// for forward compatibility.
+type SEServiceOnConnectedListenerServiceServer interface {
+	OnConnected(context.Context, *OnConnectedRequest) (*OnConnectedResponse, error)
+	mustEmbedUnimplementedSEServiceOnConnectedListenerServiceServer()
+}
+
+// UnimplementedSEServiceOnConnectedListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSEServiceOnConnectedListenerServiceServer struct{}
+
+func (UnimplementedSEServiceOnConnectedListenerServiceServer) OnConnected(context.Context, *OnConnectedRequest) (*OnConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnConnected not implemented")
+}
+func (UnimplementedSEServiceOnConnectedListenerServiceServer) mustEmbedUnimplementedSEServiceOnConnectedListenerServiceServer() {
+}
+func (UnimplementedSEServiceOnConnectedListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSEServiceOnConnectedListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SEServiceOnConnectedListenerServiceServer will
+// result in compilation errors.
+type UnsafeSEServiceOnConnectedListenerServiceServer interface {
+	mustEmbedUnimplementedSEServiceOnConnectedListenerServiceServer()
+}
+
+func RegisterSEServiceOnConnectedListenerServiceServer(s grpc.ServiceRegistrar, srv SEServiceOnConnectedListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSEServiceOnConnectedListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SEServiceOnConnectedListenerService_ServiceDesc, srv)
+}
+
+func _SEServiceOnConnectedListenerService_OnConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnConnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SEServiceOnConnectedListenerServiceServer).OnConnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SEServiceOnConnectedListenerService_OnConnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SEServiceOnConnectedListenerServiceServer).OnConnected(ctx, req.(*OnConnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SEServiceOnConnectedListenerService_ServiceDesc is the grpc.ServiceDesc for SEServiceOnConnectedListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SEServiceOnConnectedListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "omapi.SEServiceOnConnectedListenerService",
+	HandlerType: (*SEServiceOnConnectedListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnConnected",
+			Handler:    _SEServiceOnConnectedListenerService_OnConnected_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

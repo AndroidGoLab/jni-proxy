@@ -13,6 +13,28 @@ message DescribeContentsResponse {
   int32 result = 1;
 }
 
+message HasPeriodicRangingHardwareFeatureRequest {
+}
+
+message HasPeriodicRangingHardwareFeatureResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
 message EqualsRequest {
   int64 arg0 = 1;
 }
@@ -56,21 +78,6 @@ message IsPeriodicRangingHwFeatureEnabledResponse {
   bool result = 1;
 }
 
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
 message BuildRequest {
 }
 
@@ -102,11 +109,11 @@ message SetRangingUpdateRateResponse {
   int64 result = 1;
 }
 
-message HasPeriodicRangingHardwareFeatureRequest {
-}
-
-message HasPeriodicRangingHardwareFeatureResponse {
-  bool result = 1;
+service RangingCapabilitiesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc HasPeriodicRangingHardwareFeature (HasPeriodicRangingHardwareFeatureRequest) returns (HasPeriodicRangingHardwareFeatureResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service RangingParamsService {
@@ -126,11 +133,4 @@ service RangingParamsBuilderService {
   rpc SetMatchFilter (SetMatchFilterRequest) returns (SetMatchFilterResponse);
   rpc SetPeriodicRangingHwFeatureEnabled (SetPeriodicRangingHwFeatureEnabledRequest) returns (SetPeriodicRangingHwFeatureEnabledResponse);
   rpc SetRangingUpdateRate (SetRangingUpdateRateRequest) returns (SetRangingUpdateRateResponse);
-}
-
-service RangingCapabilitiesService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc HasPeriodicRangingHardwareFeature (HasPeriodicRangingHardwareFeatureRequest) returns (HasPeriodicRangingHardwareFeatureResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

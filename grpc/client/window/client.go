@@ -27,84 +27,20 @@ func (c *OnBackInvokedCallbackClient) OnBackInvoked(ctx context.Context) error {
 	return err
 }
 
-// SplashScreenViewClient wraps the gRPC SplashScreenViewService client.
-type SplashScreenViewClient struct {
-	svc pb.SplashScreenViewServiceClient
+// BackEventClient wraps the gRPC BackEventService client.
+type BackEventClient struct {
+	svc pb.BackEventServiceClient
 }
 
-// NewSplashScreenViewClient creates a new SplashScreenView client.
-func NewSplashScreenViewClient(cc grpc.ClientConnInterface) *SplashScreenViewClient {
-	return &SplashScreenViewClient{
-		svc: pb.NewSplashScreenViewServiceClient(cc),
+// NewBackEventClient creates a new BackEvent client.
+func NewBackEventClient(cc grpc.ClientConnInterface) *BackEventClient {
+	return &BackEventClient{
+		svc: pb.NewBackEventServiceClient(cc),
 	}
-}
-
-// GetIconAnimationDuration calls the GetIconAnimationDuration RPC.
-func (c *SplashScreenViewClient) GetIconAnimationDuration(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIconAnimationDuration(ctx, &pb.GetIconAnimationDurationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIconAnimationStart calls the GetIconAnimationStart RPC.
-func (c *SplashScreenViewClient) GetIconAnimationStart(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIconAnimationStart(ctx, &pb.GetIconAnimationStartRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIconView calls the GetIconView RPC.
-func (c *SplashScreenViewClient) GetIconView(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIconView(ctx, &pb.GetIconViewRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Remove calls the Remove RPC.
-func (c *SplashScreenViewClient) Remove(ctx context.Context) error {
-	_, err := c.svc.Remove(ctx, &pb.RemoveRequest{})
-	return err
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *SplashScreenViewClient) SetAlpha(ctx context.Context, arg0 float32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// TrustedPresentationThresholdsClient wraps the gRPC TrustedPresentationThresholdsService client.
-type TrustedPresentationThresholdsClient struct {
-	svc pb.TrustedPresentationThresholdsServiceClient
-}
-
-// NewTrustedPresentationThresholdsClient creates a new TrustedPresentationThresholds client.
-func NewTrustedPresentationThresholdsClient(cc grpc.ClientConnInterface) *TrustedPresentationThresholdsClient {
-	return &TrustedPresentationThresholdsClient{
-		svc: pb.NewTrustedPresentationThresholdsServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *TrustedPresentationThresholdsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // Equals calls the Equals RPC.
-func (c *TrustedPresentationThresholdsClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+func (c *BackEventClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -115,9 +51,9 @@ func (c *TrustedPresentationThresholdsClient) Equals(ctx context.Context, handle
 	return resp.GetResult(), nil
 }
 
-// GetMinAlpha calls the GetMinAlpha RPC.
-func (c *TrustedPresentationThresholdsClient) GetMinAlpha(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetMinAlpha(ctx, &pb.GetMinAlphaRequest{
+// GetFrameTimeMillis calls the GetFrameTimeMillis RPC.
+func (c *BackEventClient) GetFrameTimeMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFrameTimeMillis(ctx, &pb.GetFrameTimeMillisRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -126,9 +62,9 @@ func (c *TrustedPresentationThresholdsClient) GetMinAlpha(ctx context.Context, h
 	return resp.GetResult(), nil
 }
 
-// GetMinFractionRendered calls the GetMinFractionRendered RPC.
-func (c *TrustedPresentationThresholdsClient) GetMinFractionRendered(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetMinFractionRendered(ctx, &pb.GetMinFractionRenderedRequest{
+// GetProgress calls the GetProgress RPC.
+func (c *BackEventClient) GetProgress(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetProgress(ctx, &pb.GetProgressRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -137,9 +73,9 @@ func (c *TrustedPresentationThresholdsClient) GetMinFractionRendered(ctx context
 	return resp.GetResult(), nil
 }
 
-// GetStabilityRequirementMillis calls the GetStabilityRequirementMillis RPC.
-func (c *TrustedPresentationThresholdsClient) GetStabilityRequirementMillis(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStabilityRequirementMillis(ctx, &pb.GetStabilityRequirementMillisRequest{
+// GetSwipeEdge calls the GetSwipeEdge RPC.
+func (c *BackEventClient) GetSwipeEdge(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSwipeEdge(ctx, &pb.GetSwipeEdgeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -148,9 +84,20 @@ func (c *TrustedPresentationThresholdsClient) GetStabilityRequirementMillis(ctx 
 	return resp.GetResult(), nil
 }
 
-// HashCode calls the HashCode RPC.
-func (c *TrustedPresentationThresholdsClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+// GetTouchX calls the GetTouchX RPC.
+func (c *BackEventClient) GetTouchX(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetTouchX(ctx, &pb.GetTouchXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTouchY calls the GetTouchY RPC.
+func (c *BackEventClient) GetTouchY(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetTouchY(ctx, &pb.GetTouchYRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -160,161 +107,12 @@ func (c *TrustedPresentationThresholdsClient) HashCode(ctx context.Context, hand
 }
 
 // ToString calls the ToString RPC.
-func (c *TrustedPresentationThresholdsClient) ToString(ctx context.Context, handle int64) (string, error) {
+func (c *BackEventClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
 		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *TrustedPresentationThresholdsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SurfaceSyncGroupClient wraps the gRPC SurfaceSyncGroupService client.
-type SurfaceSyncGroupClient struct {
-	svc pb.SurfaceSyncGroupServiceClient
-}
-
-// NewSurfaceSyncGroupClient creates a new SurfaceSyncGroup client.
-func NewSurfaceSyncGroupClient(cc grpc.ClientConnInterface) *SurfaceSyncGroupClient {
-	return &SurfaceSyncGroupClient{
-		svc: pb.NewSurfaceSyncGroupServiceClient(cc),
-	}
-}
-
-// Add2 calls the Add2 RPC.
-func (c *SurfaceSyncGroupClient) Add2(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.Add2(ctx, &pb.Add2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Add2_1 calls the Add2_1 RPC.
-func (c *SurfaceSyncGroupClient) Add2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.Add2_1(ctx, &pb.Add2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddTransaction calls the AddTransaction RPC.
-func (c *SurfaceSyncGroupClient) AddTransaction(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddTransaction(ctx, &pb.AddTransactionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// MarkSyncReady calls the MarkSyncReady RPC.
-func (c *SurfaceSyncGroupClient) MarkSyncReady(ctx context.Context, handle int64) error {
-	_, err := c.svc.MarkSyncReady(ctx, &pb.MarkSyncReadyRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// InputTransferTokenClient wraps the gRPC InputTransferTokenService client.
-type InputTransferTokenClient struct {
-	svc pb.InputTransferTokenServiceClient
-}
-
-// NewInputTransferTokenClient creates a new InputTransferToken client.
-func NewInputTransferTokenClient(cc grpc.ClientConnInterface) *InputTransferTokenClient {
-	return &InputTransferTokenClient{
-		svc: pb.NewInputTransferTokenServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *InputTransferTokenClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.InputTransferTokenDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *InputTransferTokenClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.InputTransferTokenEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *InputTransferTokenClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.InputTransferTokenHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *InputTransferTokenClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.InputTransferTokenWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SystemOnBackInvokedCallbacksClient wraps the gRPC SystemOnBackInvokedCallbacksService client.
-type SystemOnBackInvokedCallbacksClient struct {
-	svc pb.SystemOnBackInvokedCallbacksServiceClient
-}
-
-// NewSystemOnBackInvokedCallbacksClient creates a new SystemOnBackInvokedCallbacks client.
-func NewSystemOnBackInvokedCallbacksClient(cc grpc.ClientConnInterface) *SystemOnBackInvokedCallbacksClient {
-	return &SystemOnBackInvokedCallbacksClient{
-		svc: pb.NewSystemOnBackInvokedCallbacksServiceClient(cc),
-	}
-}
-
-// FinishAndRemoveTaskCallback calls the FinishAndRemoveTaskCallback RPC.
-func (c *SystemOnBackInvokedCallbacksClient) FinishAndRemoveTaskCallback(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.FinishAndRemoveTaskCallback(ctx, &pb.FinishAndRemoveTaskCallbackRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveTaskToBackCallback calls the MoveTaskToBackCallback RPC.
-func (c *SystemOnBackInvokedCallbacksClient) MoveTaskToBackCallback(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.MoveTaskToBackCallback(ctx, &pb.MoveTaskToBackCallbackRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -402,20 +200,81 @@ func (c *SplashScreenOnExitAnimationListenerClient) OnSplashScreenExit(ctx conte
 	return err
 }
 
-// BackEventClient wraps the gRPC BackEventService client.
-type BackEventClient struct {
-	svc pb.BackEventServiceClient
+// InputTransferTokenClient wraps the gRPC InputTransferTokenService client.
+type InputTransferTokenClient struct {
+	svc pb.InputTransferTokenServiceClient
 }
 
-// NewBackEventClient creates a new BackEvent client.
-func NewBackEventClient(cc grpc.ClientConnInterface) *BackEventClient {
-	return &BackEventClient{
-		svc: pb.NewBackEventServiceClient(cc),
+// NewInputTransferTokenClient creates a new InputTransferToken client.
+func NewInputTransferTokenClient(cc grpc.ClientConnInterface) *InputTransferTokenClient {
+	return &InputTransferTokenClient{
+		svc: pb.NewInputTransferTokenServiceClient(cc),
 	}
 }
 
+// DescribeContents calls the DescribeContents RPC.
+func (c *InputTransferTokenClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Equals calls the Equals RPC.
-func (c *BackEventClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+func (c *InputTransferTokenClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.InputTransferTokenEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InputTransferTokenClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InputTransferTokenClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TrustedPresentationThresholdsClient wraps the gRPC TrustedPresentationThresholdsService client.
+type TrustedPresentationThresholdsClient struct {
+	svc pb.TrustedPresentationThresholdsServiceClient
+}
+
+// NewTrustedPresentationThresholdsClient creates a new TrustedPresentationThresholds client.
+func NewTrustedPresentationThresholdsClient(cc grpc.ClientConnInterface) *TrustedPresentationThresholdsClient {
+	return &TrustedPresentationThresholdsClient{
+		svc: pb.NewTrustedPresentationThresholdsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TrustedPresentationThresholdsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.TrustedPresentationThresholdsDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *TrustedPresentationThresholdsClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -426,9 +285,9 @@ func (c *BackEventClient) Equals(ctx context.Context, handle int64, arg0 int64) 
 	return resp.GetResult(), nil
 }
 
-// GetFrameTimeMillis calls the GetFrameTimeMillis RPC.
-func (c *BackEventClient) GetFrameTimeMillis(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFrameTimeMillis(ctx, &pb.GetFrameTimeMillisRequest{
+// GetMinAlpha calls the GetMinAlpha RPC.
+func (c *TrustedPresentationThresholdsClient) GetMinAlpha(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMinAlpha(ctx, &pb.GetMinAlphaRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -437,9 +296,9 @@ func (c *BackEventClient) GetFrameTimeMillis(ctx context.Context, handle int64) 
 	return resp.GetResult(), nil
 }
 
-// GetProgress calls the GetProgress RPC.
-func (c *BackEventClient) GetProgress(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetProgress(ctx, &pb.GetProgressRequest{
+// GetMinFractionRendered calls the GetMinFractionRendered RPC.
+func (c *TrustedPresentationThresholdsClient) GetMinFractionRendered(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMinFractionRendered(ctx, &pb.GetMinFractionRenderedRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -448,9 +307,9 @@ func (c *BackEventClient) GetProgress(ctx context.Context, handle int64) (float3
 	return resp.GetResult(), nil
 }
 
-// GetSwipeEdge calls the GetSwipeEdge RPC.
-func (c *BackEventClient) GetSwipeEdge(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSwipeEdge(ctx, &pb.GetSwipeEdgeRequest{
+// GetStabilityRequirementMillis calls the GetStabilityRequirementMillis RPC.
+func (c *TrustedPresentationThresholdsClient) GetStabilityRequirementMillis(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStabilityRequirementMillis(ctx, &pb.GetStabilityRequirementMillisRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -459,20 +318,9 @@ func (c *BackEventClient) GetSwipeEdge(ctx context.Context, handle int64) (int32
 	return resp.GetResult(), nil
 }
 
-// GetTouchX calls the GetTouchX RPC.
-func (c *BackEventClient) GetTouchX(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetTouchX(ctx, &pb.GetTouchXRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTouchY calls the GetTouchY RPC.
-func (c *BackEventClient) GetTouchY(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetTouchY(ctx, &pb.GetTouchYRequest{
+// HashCode calls the HashCode RPC.
+func (c *TrustedPresentationThresholdsClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.TrustedPresentationThresholdsHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -482,12 +330,164 @@ func (c *BackEventClient) GetTouchY(ctx context.Context, handle int64) (float32,
 }
 
 // ToString calls the ToString RPC.
-func (c *BackEventClient) ToString(ctx context.Context, handle int64) (string, error) {
+func (c *TrustedPresentationThresholdsClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TrustedPresentationThresholdsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.TrustedPresentationThresholdsWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SurfaceSyncGroupClient wraps the gRPC SurfaceSyncGroupService client.
+type SurfaceSyncGroupClient struct {
+	svc pb.SurfaceSyncGroupServiceClient
+}
+
+// NewSurfaceSyncGroupClient creates a new SurfaceSyncGroup client.
+func NewSurfaceSyncGroupClient(cc grpc.ClientConnInterface) *SurfaceSyncGroupClient {
+	return &SurfaceSyncGroupClient{
+		svc: pb.NewSurfaceSyncGroupServiceClient(cc),
+	}
+}
+
+// Add2 calls the Add2 RPC.
+func (c *SurfaceSyncGroupClient) Add2(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.Add2(ctx, &pb.Add2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Add2_1 calls the Add2_1 RPC.
+func (c *SurfaceSyncGroupClient) Add2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.Add2_1(ctx, &pb.Add2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTransaction calls the AddTransaction RPC.
+func (c *SurfaceSyncGroupClient) AddTransaction(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddTransaction(ctx, &pb.AddTransactionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// MarkSyncReady calls the MarkSyncReady RPC.
+func (c *SurfaceSyncGroupClient) MarkSyncReady(ctx context.Context, handle int64) error {
+	_, err := c.svc.MarkSyncReady(ctx, &pb.MarkSyncReadyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SplashScreenViewClient wraps the gRPC SplashScreenViewService client.
+type SplashScreenViewClient struct {
+	svc pb.SplashScreenViewServiceClient
+}
+
+// NewSplashScreenViewClient creates a new SplashScreenView client.
+func NewSplashScreenViewClient(cc grpc.ClientConnInterface) *SplashScreenViewClient {
+	return &SplashScreenViewClient{
+		svc: pb.NewSplashScreenViewServiceClient(cc),
+	}
+}
+
+// GetIconAnimationDuration calls the GetIconAnimationDuration RPC.
+func (c *SplashScreenViewClient) GetIconAnimationDuration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIconAnimationDuration(ctx, &pb.GetIconAnimationDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconAnimationStart calls the GetIconAnimationStart RPC.
+func (c *SplashScreenViewClient) GetIconAnimationStart(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIconAnimationStart(ctx, &pb.GetIconAnimationStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconView calls the GetIconView RPC.
+func (c *SplashScreenViewClient) GetIconView(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIconView(ctx, &pb.GetIconViewRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Remove calls the Remove RPC.
+func (c *SplashScreenViewClient) Remove(ctx context.Context) error {
+	_, err := c.svc.Remove(ctx, &pb.RemoveRequest{})
+	return err
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *SplashScreenViewClient) SetAlpha(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SystemOnBackInvokedCallbacksClient wraps the gRPC SystemOnBackInvokedCallbacksService client.
+type SystemOnBackInvokedCallbacksClient struct {
+	svc pb.SystemOnBackInvokedCallbacksServiceClient
+}
+
+// NewSystemOnBackInvokedCallbacksClient creates a new SystemOnBackInvokedCallbacks client.
+func NewSystemOnBackInvokedCallbacksClient(cc grpc.ClientConnInterface) *SystemOnBackInvokedCallbacksClient {
+	return &SystemOnBackInvokedCallbacksClient{
+		svc: pb.NewSystemOnBackInvokedCallbacksServiceClient(cc),
+	}
+}
+
+// FinishAndRemoveTaskCallback calls the FinishAndRemoveTaskCallback RPC.
+func (c *SystemOnBackInvokedCallbacksClient) FinishAndRemoveTaskCallback(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FinishAndRemoveTaskCallback(ctx, &pb.FinishAndRemoveTaskCallbackRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveTaskToBackCallback calls the MoveTaskToBackCallback RPC.
+func (c *SystemOnBackInvokedCallbacksClient) MoveTaskToBackCallback(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MoveTaskToBackCallback(ctx, &pb.MoveTaskToBackCallbackRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

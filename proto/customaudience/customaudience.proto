@@ -6,6 +6,13 @@ package customaudience;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/customaudience";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
 message EqualsRequest {
   int64 arg0 = 1;
 }
@@ -21,115 +28,11 @@ message GetActivationTimeResponse {
   int64 result = 1;
 }
 
-message GetExpirationTimeRequest {
+message GetAdsRequest {
 }
 
-message GetExpirationTimeResponse {
+message GetAdsResponse {
   int64 result = 1;
-}
-
-message GetFetchUriRequest {
-}
-
-message GetFetchUriResponse {
-  int64 result = 1;
-}
-
-message GetNameRequest {
-}
-
-message GetNameResponse {
-  string result = 1;
-}
-
-message GetUserBiddingSignalsRequest {
-}
-
-message GetUserBiddingSignalsResponse {
-  int64 result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetActivationTimeRequest {
-  int64 arg0 = 1;
-}
-
-message SetActivationTimeResponse {
-  int64 result = 1;
-}
-
-message SetExpirationTimeRequest {
-  int64 arg0 = 1;
-}
-
-message SetExpirationTimeResponse {
-  int64 result = 1;
-}
-
-message SetFetchUriRequest {
-  int64 arg0 = 1;
-}
-
-message SetFetchUriResponse {
-  int64 result = 1;
-}
-
-message SetNameRequest {
-  string arg0 = 1;
-}
-
-message SetNameResponse {
-  int64 result = 1;
-}
-
-message SetUserBiddingSignalsRequest {
-  int64 arg0 = 1;
-}
-
-message SetUserBiddingSignalsResponse {
-  int64 result = 1;
-}
-
-message GetTestCustomAudienceManagerRequest {
-}
-
-message GetTestCustomAudienceManagerResponse {
-  int64 result = 1;
-}
-
-message GetRequest {
-  int64 arg0 = 1;
-}
-
-message GetResponse {
-  int64 result = 1;
-}
-
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
 }
 
 message GetAuctionServerRequestFlagsRequest {
@@ -153,11 +56,32 @@ message GetBuyerResponse {
   int64 result = 1;
 }
 
+message GetComponentAdsRequest {
+}
+
+message GetComponentAdsResponse {
+  int64 result = 1;
+}
+
 message GetDailyUpdateUriRequest {
 }
 
 message GetDailyUpdateUriResponse {
   int64 result = 1;
+}
+
+message GetExpirationTimeRequest {
+}
+
+message GetExpirationTimeResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
 }
 
 message GetPriorityRequest {
@@ -174,12 +98,48 @@ message GetTrustedBiddingDataResponse {
   int64 result = 1;
 }
 
+message GetUserBiddingSignalsRequest {
+}
+
+message GetUserBiddingSignalsResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
 message WriteToParcelRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
 }
 
 message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetActivationTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetActivationTimeResponse {
+  int64 result = 1;
 }
 
 message SetAuctionServerRequestFlagsRequest {
@@ -214,6 +174,22 @@ message SetDailyUpdateUriResponse {
   int64 result = 1;
 }
 
+message SetExpirationTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetExpirationTimeResponse {
+  int64 result = 1;
+}
+
+message SetNameRequest {
+  string arg0 = 1;
+}
+
+message SetNameResponse {
+  int64 result = 1;
+}
+
 message SetPriorityRequest {
   double arg0 = 1;
 }
@@ -227,6 +203,98 @@ message SetTrustedBiddingDataRequest {
 }
 
 message SetTrustedBiddingDataResponse {
+  int64 result = 1;
+}
+
+message SetUserBiddingSignalsRequest {
+  int64 arg0 = 1;
+}
+
+message SetUserBiddingSignalsResponse {
+  int64 result = 1;
+}
+
+message NewRemoveCustomAudienceOverrideRequestRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewRemoveCustomAudienceOverrideRequestResponse {
+  int64 result = 1;
+}
+
+message RemoveCustomAudienceOverrideRequestGetBuyerRequest {
+  int64 handle = 1;
+}
+
+message RemoveCustomAudienceOverrideRequestGetNameRequest {
+  int64 handle = 1;
+}
+
+message GetMinDelayRequest {
+}
+
+message GetMinDelayResponse {
+  int64 result = 1;
+}
+
+message GetPartialCustomAudienceListRequest {
+}
+
+message GetPartialCustomAudienceListResponse {
+  int64 result = 1;
+}
+
+message GetUpdateUriRequest {
+}
+
+message GetUpdateUriResponse {
+  int64 result = 1;
+}
+
+message ShouldReplacePendingUpdatesRequest {
+}
+
+message ShouldReplacePendingUpdatesResponse {
+  bool result = 1;
+}
+
+message SetMinDelayRequest {
+  int64 arg0 = 1;
+}
+
+message SetMinDelayResponse {
+  int64 result = 1;
+}
+
+message SetShouldReplacePendingUpdatesRequest {
+  bool arg0 = 1;
+}
+
+message SetShouldReplacePendingUpdatesResponse {
+  int64 result = 1;
+}
+
+message SetUpdateUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetUpdateUriResponse {
+  int64 result = 1;
+}
+
+message GetFetchUriRequest {
+}
+
+message GetFetchUriResponse {
+  int64 result = 1;
+}
+
+message SetFetchUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetFetchUriResponse {
   int64 result = 1;
 }
 
@@ -312,66 +380,26 @@ message SetCustomAudienceResponse {
   int64 result = 1;
 }
 
-message GetMinDelayRequest {
+message GetTestCustomAudienceManagerRequest {
 }
 
-message GetMinDelayResponse {
+message GetTestCustomAudienceManagerResponse {
   int64 result = 1;
 }
 
-message GetUpdateUriRequest {
-}
-
-message GetUpdateUriResponse {
-  int64 result = 1;
-}
-
-message ShouldReplacePendingUpdatesRequest {
-}
-
-message ShouldReplacePendingUpdatesResponse {
-  bool result = 1;
-}
-
-message SetMinDelayRequest {
+message GetRequest {
   int64 arg0 = 1;
 }
 
-message SetMinDelayResponse {
+message GetResponse {
   int64 result = 1;
 }
 
-message SetShouldReplacePendingUpdatesRequest {
-  bool arg0 = 1;
+message GetTrustedBiddingKeysRequest {
 }
 
-message SetShouldReplacePendingUpdatesResponse {
+message GetTrustedBiddingKeysResponse {
   int64 result = 1;
-}
-
-message SetUpdateUriRequest {
-  int64 arg0 = 1;
-}
-
-message SetUpdateUriResponse {
-  int64 result = 1;
-}
-
-message NewRemoveCustomAudienceOverrideRequestRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message NewRemoveCustomAudienceOverrideRequestResponse {
-  int64 result = 1;
-}
-
-message RemoveCustomAudienceOverrideRequestGetBuyerRequest {
-  int64 handle = 1;
-}
-
-message RemoveCustomAudienceOverrideRequestGetNameRequest {
-  int64 handle = 1;
 }
 
 message GetTrustedBiddingUriRequest {
@@ -389,38 +417,15 @@ message SetTrustedBiddingUriResponse {
   int64 result = 1;
 }
 
-service FetchAndJoinCustomAudienceRequestService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetActivationTime (GetActivationTimeRequest) returns (GetActivationTimeResponse);
-  rpc GetExpirationTime (GetExpirationTimeRequest) returns (GetExpirationTimeResponse);
-  rpc GetFetchUri (GetFetchUriRequest) returns (GetFetchUriResponse);
-  rpc GetName (GetNameRequest) returns (GetNameResponse);
-  rpc GetUserBiddingSignals (GetUserBiddingSignalsRequest) returns (GetUserBiddingSignalsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service FetchAndJoinCustomAudienceRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetActivationTime (SetActivationTimeRequest) returns (SetActivationTimeResponse);
-  rpc SetExpirationTime (SetExpirationTimeRequest) returns (SetExpirationTimeResponse);
-  rpc SetFetchUri (SetFetchUriRequest) returns (SetFetchUriResponse);
-  rpc SetName (SetNameRequest) returns (SetNameResponse);
-  rpc SetUserBiddingSignals (SetUserBiddingSignalsRequest) returns (SetUserBiddingSignalsResponse);
-}
-
-service CustomAudienceManagerService {
-  rpc GetTestCustomAudienceManager (GetTestCustomAudienceManagerRequest) returns (GetTestCustomAudienceManagerResponse);
-  rpc Get (GetRequest) returns (GetResponse);
-}
-
 service CustomAudienceService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetActivationTime (GetActivationTimeRequest) returns (GetActivationTimeResponse);
+  rpc GetAds (GetAdsRequest) returns (GetAdsResponse);
   rpc GetAuctionServerRequestFlags (GetAuctionServerRequestFlagsRequest) returns (GetAuctionServerRequestFlagsResponse);
   rpc GetBiddingLogicUri (GetBiddingLogicUriRequest) returns (GetBiddingLogicUriResponse);
   rpc GetBuyer (GetBuyerRequest) returns (GetBuyerResponse);
+  rpc GetComponentAds (GetComponentAdsRequest) returns (GetComponentAdsResponse);
   rpc GetDailyUpdateUri (GetDailyUpdateUriRequest) returns (GetDailyUpdateUriResponse);
   rpc GetExpirationTime (GetExpirationTimeRequest) returns (GetExpirationTimeResponse);
   rpc GetName (GetNameRequest) returns (GetNameResponse);
@@ -446,62 +451,16 @@ service CustomAudienceBuilderService {
   rpc SetUserBiddingSignals (SetUserBiddingSignalsRequest) returns (SetUserBiddingSignalsResponse);
 }
 
-service AddCustomAudienceOverrideRequestService {
-  rpc NewAddCustomAudienceOverrideRequest (NewAddCustomAudienceOverrideRequestRequest) returns (NewAddCustomAudienceOverrideRequestResponse);
-  rpc GetBiddingLogicJs (GetBiddingLogicJsRequest) returns (GetBiddingLogicJsResponse);
-  rpc GetBiddingLogicJsVersion (GetBiddingLogicJsVersionRequest) returns (GetBiddingLogicJsVersionResponse);
-  rpc GetBuyer (AddCustomAudienceOverrideRequestGetBuyerRequest) returns (GetBuyerResponse);
-  rpc GetName (AddCustomAudienceOverrideRequestGetNameRequest) returns (GetNameResponse);
-  rpc GetTrustedBiddingSignals (GetTrustedBiddingSignalsRequest) returns (GetTrustedBiddingSignalsResponse);
+service RemoveCustomAudienceOverrideRequestService {
+  rpc NewRemoveCustomAudienceOverrideRequest (NewRemoveCustomAudienceOverrideRequestRequest) returns (NewRemoveCustomAudienceOverrideRequestResponse);
+  rpc GetBuyer (RemoveCustomAudienceOverrideRequestGetBuyerRequest) returns (GetBuyerResponse);
+  rpc GetName (RemoveCustomAudienceOverrideRequestGetNameRequest) returns (GetNameResponse);
 }
 
-service AddCustomAudienceOverrideRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetBiddingLogicJs (SetBiddingLogicJsRequest) returns (SetBiddingLogicJsResponse);
-  rpc SetBiddingLogicJsVersion (SetBiddingLogicJsVersionRequest) returns (SetBiddingLogicJsVersionResponse);
-  rpc SetBuyer (SetBuyerRequest) returns (SetBuyerResponse);
-  rpc SetName (SetNameRequest) returns (SetNameResponse);
-  rpc SetTrustedBiddingSignals (SetTrustedBiddingSignalsRequest) returns (SetTrustedBiddingSignalsResponse);
-}
-
-service JoinCustomAudienceRequestService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetCustomAudience (GetCustomAudienceRequest) returns (GetCustomAudienceResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service JoinCustomAudienceRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetCustomAudience (SetCustomAudienceRequest) returns (SetCustomAudienceResponse);
-}
-
-service LeaveCustomAudienceRequestService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetBuyer (GetBuyerRequest) returns (GetBuyerResponse);
-  rpc GetName (GetNameRequest) returns (GetNameResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service LeaveCustomAudienceRequestBuilderService {
+service RemoveCustomAudienceOverrideRequestBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetBuyer (SetBuyerRequest) returns (SetBuyerResponse);
   rpc SetName (SetNameRequest) returns (SetNameResponse);
-}
-
-service ScheduleCustomAudienceUpdateRequestService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetMinDelay (GetMinDelayRequest) returns (GetMinDelayResponse);
-  rpc GetUpdateUri (GetUpdateUriRequest) returns (GetUpdateUriResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ShouldReplacePendingUpdates (ShouldReplacePendingUpdatesRequest) returns (ShouldReplacePendingUpdatesResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service ScheduleCustomAudienceUpdateRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetMinDelay (SetMinDelayRequest) returns (SetMinDelayResponse);
-  rpc SetShouldReplacePendingUpdates (SetShouldReplacePendingUpdatesRequest) returns (SetShouldReplacePendingUpdatesResponse);
-  rpc SetUpdateUri (SetUpdateUriRequest) returns (SetUpdateUriResponse);
 }
 
 service PartialCustomAudienceService {
@@ -523,21 +482,94 @@ service PartialCustomAudienceBuilderService {
   rpc SetUserBiddingSignals (SetUserBiddingSignalsRequest) returns (SetUserBiddingSignalsResponse);
 }
 
-service RemoveCustomAudienceOverrideRequestService {
-  rpc NewRemoveCustomAudienceOverrideRequest (NewRemoveCustomAudienceOverrideRequestRequest) returns (NewRemoveCustomAudienceOverrideRequestResponse);
-  rpc GetBuyer (RemoveCustomAudienceOverrideRequestGetBuyerRequest) returns (GetBuyerResponse);
-  rpc GetName (RemoveCustomAudienceOverrideRequestGetNameRequest) returns (GetNameResponse);
+service ScheduleCustomAudienceUpdateRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMinDelay (GetMinDelayRequest) returns (GetMinDelayResponse);
+  rpc GetPartialCustomAudienceList (GetPartialCustomAudienceListRequest) returns (GetPartialCustomAudienceListResponse);
+  rpc GetUpdateUri (GetUpdateUriRequest) returns (GetUpdateUriResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ShouldReplacePendingUpdates (ShouldReplacePendingUpdatesRequest) returns (ShouldReplacePendingUpdatesResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
-service RemoveCustomAudienceOverrideRequestBuilderService {
+service ScheduleCustomAudienceUpdateRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMinDelay (SetMinDelayRequest) returns (SetMinDelayResponse);
+  rpc SetShouldReplacePendingUpdates (SetShouldReplacePendingUpdatesRequest) returns (SetShouldReplacePendingUpdatesResponse);
+  rpc SetUpdateUri (SetUpdateUriRequest) returns (SetUpdateUriResponse);
+}
+
+service FetchAndJoinCustomAudienceRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetActivationTime (GetActivationTimeRequest) returns (GetActivationTimeResponse);
+  rpc GetExpirationTime (GetExpirationTimeRequest) returns (GetExpirationTimeResponse);
+  rpc GetFetchUri (GetFetchUriRequest) returns (GetFetchUriResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetUserBiddingSignals (GetUserBiddingSignalsRequest) returns (GetUserBiddingSignalsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service FetchAndJoinCustomAudienceRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetActivationTime (SetActivationTimeRequest) returns (SetActivationTimeResponse);
+  rpc SetExpirationTime (SetExpirationTimeRequest) returns (SetExpirationTimeResponse);
+  rpc SetFetchUri (SetFetchUriRequest) returns (SetFetchUriResponse);
+  rpc SetName (SetNameRequest) returns (SetNameResponse);
+  rpc SetUserBiddingSignals (SetUserBiddingSignalsRequest) returns (SetUserBiddingSignalsResponse);
+}
+
+service AddCustomAudienceOverrideRequestService {
+  rpc NewAddCustomAudienceOverrideRequest (NewAddCustomAudienceOverrideRequestRequest) returns (NewAddCustomAudienceOverrideRequestResponse);
+  rpc GetBiddingLogicJs (GetBiddingLogicJsRequest) returns (GetBiddingLogicJsResponse);
+  rpc GetBiddingLogicJsVersion (GetBiddingLogicJsVersionRequest) returns (GetBiddingLogicJsVersionResponse);
+  rpc GetBuyer (AddCustomAudienceOverrideRequestGetBuyerRequest) returns (GetBuyerResponse);
+  rpc GetName (AddCustomAudienceOverrideRequestGetNameRequest) returns (GetNameResponse);
+  rpc GetTrustedBiddingSignals (GetTrustedBiddingSignalsRequest) returns (GetTrustedBiddingSignalsResponse);
+}
+
+service AddCustomAudienceOverrideRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBiddingLogicJs (SetBiddingLogicJsRequest) returns (SetBiddingLogicJsResponse);
+  rpc SetBiddingLogicJsVersion (SetBiddingLogicJsVersionRequest) returns (SetBiddingLogicJsVersionResponse);
+  rpc SetBuyer (SetBuyerRequest) returns (SetBuyerResponse);
+  rpc SetName (SetNameRequest) returns (SetNameResponse);
+  rpc SetTrustedBiddingSignals (SetTrustedBiddingSignalsRequest) returns (SetTrustedBiddingSignalsResponse);
+}
+
+service LeaveCustomAudienceRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBuyer (GetBuyerRequest) returns (GetBuyerResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service LeaveCustomAudienceRequestBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetBuyer (SetBuyerRequest) returns (SetBuyerResponse);
   rpc SetName (SetNameRequest) returns (SetNameResponse);
 }
 
+service JoinCustomAudienceRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCustomAudience (GetCustomAudienceRequest) returns (GetCustomAudienceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service JoinCustomAudienceRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCustomAudience (SetCustomAudienceRequest) returns (SetCustomAudienceResponse);
+}
+
+service CustomAudienceManagerService {
+  rpc GetTestCustomAudienceManager (GetTestCustomAudienceManagerRequest) returns (GetTestCustomAudienceManagerResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
 service TrustedBiddingDataService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetTrustedBiddingKeys (GetTrustedBiddingKeysRequest) returns (GetTrustedBiddingKeysResponse);
   rpc GetTrustedBiddingUri (GetTrustedBiddingUriRequest) returns (GetTrustedBiddingUriResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);

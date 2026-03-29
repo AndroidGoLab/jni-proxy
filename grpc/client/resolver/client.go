@@ -549,6 +549,24 @@ func (c *ContentResolverClient) Delete3_1(ctx context.Context, arg0 int64, arg1 
 	return resp.GetResult(), nil
 }
 
+// GetOutgoingPersistedUriPermissions calls the GetOutgoingPersistedUriPermissions RPC.
+func (c *ContentResolverClient) GetOutgoingPersistedUriPermissions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutgoingPersistedUriPermissions(ctx, &pb.GetOutgoingPersistedUriPermissionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPersistedUriPermissions calls the GetPersistedUriPermissions RPC.
+func (c *ContentResolverClient) GetPersistedUriPermissions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPersistedUriPermissions(ctx, &pb.GetPersistedUriPermissionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetStreamTypes calls the GetStreamTypes RPC.
 func (c *ContentResolverClient) GetStreamTypes(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
 	resp, err := c.svc.GetStreamTypes(ctx, &pb.GetStreamTypesRequest{
@@ -991,6 +1009,15 @@ func (c *ContentResolverClient) GetCurrentSync(ctx context.Context) (int64, erro
 	return resp.GetResult(), nil
 }
 
+// GetCurrentSyncs calls the GetCurrentSyncs RPC.
+func (c *ContentResolverClient) GetCurrentSyncs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrentSyncs(ctx, &pb.GetCurrentSyncsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetIsSyncable calls the GetIsSyncable RPC.
 func (c *ContentResolverClient) GetIsSyncable(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
 	resp, err := c.svc.GetIsSyncable(ctx, &pb.GetIsSyncableRequest{
@@ -1008,6 +1035,18 @@ func (c *ContentResolverClient) GetMasterSyncAutomatically(ctx context.Context) 
 	resp, err := c.svc.GetMasterSyncAutomatically(ctx, &pb.GetMasterSyncAutomaticallyRequest{})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPeriodicSyncs calls the GetPeriodicSyncs RPC.
+func (c *ContentResolverClient) GetPeriodicSyncs(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetPeriodicSyncs(ctx, &pb.GetPeriodicSyncsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1344,6 +1383,15 @@ func (c *UriClient) GetPath(ctx context.Context) (string, error) {
 	return resp.GetResult(), nil
 }
 
+// GetPathSegments calls the GetPathSegments RPC.
+func (c *UriClient) GetPathSegments(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPathSegments(ctx, &pb.GetPathSegmentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetPort calls the GetPort RPC.
 func (c *UriClient) GetPort(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetPort(ctx, &pb.GetPortRequest{})
@@ -1369,6 +1417,26 @@ func (c *UriClient) GetQueryParameter(ctx context.Context, arg0 string) (string,
 	})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQueryParameterNames calls the GetQueryParameterNames RPC.
+func (c *UriClient) GetQueryParameterNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetQueryParameterNames(ctx, &pb.GetQueryParameterNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQueryParameters calls the GetQueryParameters RPC.
+func (c *UriClient) GetQueryParameters(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetQueryParameters(ctx, &pb.GetQueryParametersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

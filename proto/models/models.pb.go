@@ -191,26 +191,26 @@ func (x *EqualsResponse) GetResult() bool {
 	return false
 }
 
-type GetAccessibilityLabelRequest struct {
+type GetClickPointRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAccessibilityLabelRequest) Reset() {
-	*x = GetAccessibilityLabelRequest{}
+func (x *GetClickPointRequest) Reset() {
+	*x = GetClickPointRequest{}
 	mi := &file_proto_models_models_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAccessibilityLabelRequest) String() string {
+func (x *GetClickPointRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAccessibilityLabelRequest) ProtoMessage() {}
+func (*GetClickPointRequest) ProtoMessage() {}
 
-func (x *GetAccessibilityLabelRequest) ProtoReflect() protoreflect.Message {
+func (x *GetClickPointRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_models_models_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -222,32 +222,32 @@ func (x *GetAccessibilityLabelRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAccessibilityLabelRequest.ProtoReflect.Descriptor instead.
-func (*GetAccessibilityLabelRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetClickPointRequest.ProtoReflect.Descriptor instead.
+func (*GetClickPointRequest) Descriptor() ([]byte, []int) {
 	return file_proto_models_models_proto_rawDescGZIP(), []int{4}
 }
 
-type GetAccessibilityLabelResponse struct {
+type GetClickPointResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAccessibilityLabelResponse) Reset() {
-	*x = GetAccessibilityLabelResponse{}
+func (x *GetClickPointResponse) Reset() {
+	*x = GetClickPointResponse{}
 	mi := &file_proto_models_models_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAccessibilityLabelResponse) String() string {
+func (x *GetClickPointResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAccessibilityLabelResponse) ProtoMessage() {}
+func (*GetClickPointResponse) ProtoMessage() {}
 
-func (x *GetAccessibilityLabelResponse) ProtoReflect() protoreflect.Message {
+func (x *GetClickPointResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_models_models_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -259,119 +259,39 @@ func (x *GetAccessibilityLabelResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAccessibilityLabelResponse.ProtoReflect.Descriptor instead.
-func (*GetAccessibilityLabelResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetClickPointResponse.ProtoReflect.Descriptor instead.
+func (*GetClickPointResponse) Descriptor() ([]byte, []int) {
 	return file_proto_models_models_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetAccessibilityLabelResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetFontSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFontSizeRequest) Reset() {
-	*x = GetFontSizeRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFontSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFontSizeRequest) ProtoMessage() {}
-
-func (x *GetFontSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFontSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetFontSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{6}
-}
-
-type GetFontSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFontSizeResponse) Reset() {
-	*x = GetFontSizeResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFontSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFontSizeResponse) ProtoMessage() {}
-
-func (x *GetFontSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFontSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetFontSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetFontSizeResponse) GetResult() float32 {
+func (x *GetClickPointResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetMaxLengthRequest struct {
+type GetPageNumberRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMaxLengthRequest) Reset() {
-	*x = GetMaxLengthRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[8]
+func (x *GetPageNumberRequest) Reset() {
+	*x = GetPageNumberRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMaxLengthRequest) String() string {
+func (x *GetPageNumberRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMaxLengthRequest) ProtoMessage() {}
+func (*GetPageNumberRequest) ProtoMessage() {}
 
-func (x *GetMaxLengthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[8]
+func (x *GetPageNumberRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -382,33 +302,33 @@ func (x *GetMaxLengthRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMaxLengthRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxLengthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{8}
+// Deprecated: Use GetPageNumberRequest.ProtoReflect.Descriptor instead.
+func (*GetPageNumberRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{6}
 }
 
-type GetMaxLengthResponse struct {
+type GetPageNumberResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMaxLengthResponse) Reset() {
-	*x = GetMaxLengthResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[9]
+func (x *GetPageNumberResponse) Reset() {
+	*x = GetPageNumberResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMaxLengthResponse) String() string {
+func (x *GetPageNumberResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMaxLengthResponse) ProtoMessage() {}
+func (*GetPageNumberResponse) ProtoMessage() {}
 
-func (x *GetMaxLengthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[9]
+func (x *GetPageNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -419,38 +339,118 @@ func (x *GetMaxLengthResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMaxLengthResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxLengthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{9}
+// Deprecated: Use GetPageNumberResponse.ProtoReflect.Descriptor instead.
+func (*GetPageNumberResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *GetMaxLengthResponse) GetResult() int32 {
+func (x *GetPageNumberResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetTextValueRequest struct {
+type GetSelectedIndicesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTextValueRequest) Reset() {
-	*x = GetTextValueRequest{}
+func (x *GetSelectedIndicesRequest) Reset() {
+	*x = GetSelectedIndicesRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectedIndicesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectedIndicesRequest) ProtoMessage() {}
+
+func (x *GetSelectedIndicesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectedIndicesRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectedIndicesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{8}
+}
+
+type GetSelectedIndicesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectedIndicesResponse) Reset() {
+	*x = GetSelectedIndicesResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectedIndicesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectedIndicesResponse) ProtoMessage() {}
+
+func (x *GetSelectedIndicesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectedIndicesResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectedIndicesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetSelectedIndicesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextRequest) Reset() {
+	*x = GetTextRequest{}
 	mi := &file_proto_models_models_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTextValueRequest) String() string {
+func (x *GetTextRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTextValueRequest) ProtoMessage() {}
+func (*GetTextRequest) ProtoMessage() {}
 
-func (x *GetTextValueRequest) ProtoReflect() protoreflect.Message {
+func (x *GetTextRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_models_models_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -462,32 +462,32 @@ func (x *GetTextValueRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTextValueRequest.ProtoReflect.Descriptor instead.
-func (*GetTextValueRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetTextRequest.ProtoReflect.Descriptor instead.
+func (*GetTextRequest) Descriptor() ([]byte, []int) {
 	return file_proto_models_models_proto_rawDescGZIP(), []int{10}
 }
 
-type GetTextValueResponse struct {
+type GetTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTextValueResponse) Reset() {
-	*x = GetTextValueResponse{}
+func (x *GetTextResponse) Reset() {
+	*x = GetTextResponse{}
 	mi := &file_proto_models_models_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTextValueResponse) String() string {
+func (x *GetTextResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTextValueResponse) ProtoMessage() {}
+func (*GetTextResponse) ProtoMessage() {}
 
-func (x *GetTextValueResponse) ProtoReflect() protoreflect.Message {
+func (x *GetTextResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_models_models_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -499,16 +499,96 @@ func (x *GetTextValueResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTextValueResponse.ProtoReflect.Descriptor instead.
-func (*GetTextValueResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetTextResponse.ProtoReflect.Descriptor instead.
+func (*GetTextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_models_models_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *GetTextValueResponse) GetResult() string {
+func (x *GetTextResponse) GetResult() string {
 	if x != nil {
 		return x.Result
 	}
 	return ""
+}
+
+type GetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeRequest) ProtoMessage() {}
+
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{12}
+}
+
+type GetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeResponse) ProtoMessage() {}
+
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetWidgetIndexRequest struct {
@@ -519,7 +599,7 @@ type GetWidgetIndexRequest struct {
 
 func (x *GetWidgetIndexRequest) Reset() {
 	*x = GetWidgetIndexRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[12]
+	mi := &file_proto_models_models_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -531,7 +611,7 @@ func (x *GetWidgetIndexRequest) String() string {
 func (*GetWidgetIndexRequest) ProtoMessage() {}
 
 func (x *GetWidgetIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[12]
+	mi := &file_proto_models_models_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -544,7 +624,7 @@ func (x *GetWidgetIndexRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWidgetIndexRequest.ProtoReflect.Descriptor instead.
 func (*GetWidgetIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{12}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{14}
 }
 
 type GetWidgetIndexResponse struct {
@@ -556,7 +636,7 @@ type GetWidgetIndexResponse struct {
 
 func (x *GetWidgetIndexResponse) Reset() {
 	*x = GetWidgetIndexResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[13]
+	mi := &file_proto_models_models_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -568,7 +648,7 @@ func (x *GetWidgetIndexResponse) String() string {
 func (*GetWidgetIndexResponse) ProtoMessage() {}
 
 func (x *GetWidgetIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[13]
+	mi := &file_proto_models_models_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -581,170 +661,10 @@ func (x *GetWidgetIndexResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWidgetIndexResponse.ProtoReflect.Descriptor instead.
 func (*GetWidgetIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetWidgetIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetWidgetRectRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidgetRectRequest) Reset() {
-	*x = GetWidgetRectRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidgetRectRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidgetRectRequest) ProtoMessage() {}
-
-func (x *GetWidgetRectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidgetRectRequest.ProtoReflect.Descriptor instead.
-func (*GetWidgetRectRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{14}
-}
-
-type GetWidgetRectResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidgetRectResponse) Reset() {
-	*x = GetWidgetRectResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidgetRectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidgetRectResponse) ProtoMessage() {}
-
-func (x *GetWidgetRectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidgetRectResponse.ProtoReflect.Descriptor instead.
-func (*GetWidgetRectResponse) Descriptor() ([]byte, []int) {
 	return file_proto_models_models_proto_rawDescGZIP(), []int{15}
 }
 
-func (x *GetWidgetRectResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetWidgetTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidgetTypeRequest) Reset() {
-	*x = GetWidgetTypeRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidgetTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidgetTypeRequest) ProtoMessage() {}
-
-func (x *GetWidgetTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidgetTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetWidgetTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{16}
-}
-
-type GetWidgetTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidgetTypeResponse) Reset() {
-	*x = GetWidgetTypeResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidgetTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidgetTypeResponse) ProtoMessage() {}
-
-func (x *GetWidgetTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidgetTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetWidgetTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetWidgetTypeResponse) GetResult() int32 {
+func (x *GetWidgetIndexResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -759,7 +679,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[18]
+	mi := &file_proto_models_models_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -771,7 +691,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[18]
+	mi := &file_proto_models_models_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -784,7 +704,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{18}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{16}
 }
 
 type HashCodeResponse struct {
@@ -796,7 +716,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[19]
+	mi := &file_proto_models_models_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -808,7 +728,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[19]
+	mi := &file_proto_models_models_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -821,7 +741,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{19}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -829,406 +749,6 @@ func (x *HashCodeResponse) GetResult() int32 {
 		return x.Result
 	}
 	return 0
-}
-
-type IsEditableTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsEditableTextRequest) Reset() {
-	*x = IsEditableTextRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsEditableTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsEditableTextRequest) ProtoMessage() {}
-
-func (x *IsEditableTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsEditableTextRequest.ProtoReflect.Descriptor instead.
-func (*IsEditableTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{20}
-}
-
-type IsEditableTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsEditableTextResponse) Reset() {
-	*x = IsEditableTextResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsEditableTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsEditableTextResponse) ProtoMessage() {}
-
-func (x *IsEditableTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsEditableTextResponse.ProtoReflect.Descriptor instead.
-func (*IsEditableTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *IsEditableTextResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsMultiLineTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMultiLineTextRequest) Reset() {
-	*x = IsMultiLineTextRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMultiLineTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMultiLineTextRequest) ProtoMessage() {}
-
-func (x *IsMultiLineTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMultiLineTextRequest.ProtoReflect.Descriptor instead.
-func (*IsMultiLineTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{22}
-}
-
-type IsMultiLineTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMultiLineTextResponse) Reset() {
-	*x = IsMultiLineTextResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMultiLineTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMultiLineTextResponse) ProtoMessage() {}
-
-func (x *IsMultiLineTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMultiLineTextResponse.ProtoReflect.Descriptor instead.
-func (*IsMultiLineTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *IsMultiLineTextResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsMultiSelectRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMultiSelectRequest) Reset() {
-	*x = IsMultiSelectRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMultiSelectRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMultiSelectRequest) ProtoMessage() {}
-
-func (x *IsMultiSelectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMultiSelectRequest.ProtoReflect.Descriptor instead.
-func (*IsMultiSelectRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{24}
-}
-
-type IsMultiSelectResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMultiSelectResponse) Reset() {
-	*x = IsMultiSelectResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMultiSelectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMultiSelectResponse) ProtoMessage() {}
-
-func (x *IsMultiSelectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMultiSelectResponse.ProtoReflect.Descriptor instead.
-func (*IsMultiSelectResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *IsMultiSelectResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsReadOnlyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsReadOnlyRequest) Reset() {
-	*x = IsReadOnlyRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsReadOnlyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsReadOnlyRequest) ProtoMessage() {}
-
-func (x *IsReadOnlyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsReadOnlyRequest.ProtoReflect.Descriptor instead.
-func (*IsReadOnlyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{26}
-}
-
-type IsReadOnlyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsReadOnlyResponse) Reset() {
-	*x = IsReadOnlyResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsReadOnlyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsReadOnlyResponse) ProtoMessage() {}
-
-func (x *IsReadOnlyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsReadOnlyResponse.ProtoReflect.Descriptor instead.
-func (*IsReadOnlyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *IsReadOnlyResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{28}
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
 }
 
 type WriteToParcelRequest struct {
@@ -1241,7 +761,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[30]
+	mi := &file_proto_models_models_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1253,7 +773,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[30]
+	mi := &file_proto_models_models_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1266,7 +786,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{30}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -1291,7 +811,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[31]
+	mi := &file_proto_models_models_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1303,7 +823,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[31]
+	mi := &file_proto_models_models_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1316,7 +836,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{31}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{19}
 }
 
 type BuildRequest struct {
@@ -1327,7 +847,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[32]
+	mi := &file_proto_models_models_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1339,7 +859,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[32]
+	mi := &file_proto_models_models_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1352,7 +872,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{32}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{20}
 }
 
 type BuildResponse struct {
@@ -1364,7 +884,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[33]
+	mi := &file_proto_models_models_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1376,7 +896,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[33]
+	mi := &file_proto_models_models_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1389,1454 +909,10 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{33}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetEditableTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEditableTextRequest) Reset() {
-	*x = SetEditableTextRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEditableTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEditableTextRequest) ProtoMessage() {}
-
-func (x *SetEditableTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEditableTextRequest.ProtoReflect.Descriptor instead.
-func (*SetEditableTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{34}
-}
-
-func (x *SetEditableTextRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetEditableTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEditableTextResponse) Reset() {
-	*x = SetEditableTextResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEditableTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEditableTextResponse) ProtoMessage() {}
-
-func (x *SetEditableTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEditableTextResponse.ProtoReflect.Descriptor instead.
-func (*SetEditableTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *SetEditableTextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetFontSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetFontSizeRequest) Reset() {
-	*x = SetFontSizeRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetFontSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetFontSizeRequest) ProtoMessage() {}
-
-func (x *SetFontSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetFontSizeRequest.ProtoReflect.Descriptor instead.
-func (*SetFontSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *SetFontSizeRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetFontSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetFontSizeResponse) Reset() {
-	*x = SetFontSizeResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetFontSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetFontSizeResponse) ProtoMessage() {}
-
-func (x *SetFontSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetFontSizeResponse.ProtoReflect.Descriptor instead.
-func (*SetFontSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *SetFontSizeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetMaxLengthRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMaxLengthRequest) Reset() {
-	*x = SetMaxLengthRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMaxLengthRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMaxLengthRequest) ProtoMessage() {}
-
-func (x *SetMaxLengthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMaxLengthRequest.ProtoReflect.Descriptor instead.
-func (*SetMaxLengthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *SetMaxLengthRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMaxLengthResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMaxLengthResponse) Reset() {
-	*x = SetMaxLengthResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMaxLengthResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMaxLengthResponse) ProtoMessage() {}
-
-func (x *SetMaxLengthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMaxLengthResponse.ProtoReflect.Descriptor instead.
-func (*SetMaxLengthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *SetMaxLengthResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetMultiLineTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMultiLineTextRequest) Reset() {
-	*x = SetMultiLineTextRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMultiLineTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMultiLineTextRequest) ProtoMessage() {}
-
-func (x *SetMultiLineTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMultiLineTextRequest.ProtoReflect.Descriptor instead.
-func (*SetMultiLineTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *SetMultiLineTextRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetMultiLineTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMultiLineTextResponse) Reset() {
-	*x = SetMultiLineTextResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMultiLineTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMultiLineTextResponse) ProtoMessage() {}
-
-func (x *SetMultiLineTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMultiLineTextResponse.ProtoReflect.Descriptor instead.
-func (*SetMultiLineTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *SetMultiLineTextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetMultiSelectRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMultiSelectRequest) Reset() {
-	*x = SetMultiSelectRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMultiSelectRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMultiSelectRequest) ProtoMessage() {}
-
-func (x *SetMultiSelectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMultiSelectRequest.ProtoReflect.Descriptor instead.
-func (*SetMultiSelectRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *SetMultiSelectRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetMultiSelectResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMultiSelectResponse) Reset() {
-	*x = SetMultiSelectResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMultiSelectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMultiSelectResponse) ProtoMessage() {}
-
-func (x *SetMultiSelectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMultiSelectResponse.ProtoReflect.Descriptor instead.
-func (*SetMultiSelectResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *SetMultiSelectResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetReadOnlyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetReadOnlyRequest) Reset() {
-	*x = SetReadOnlyRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetReadOnlyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetReadOnlyRequest) ProtoMessage() {}
-
-func (x *SetReadOnlyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetReadOnlyRequest.ProtoReflect.Descriptor instead.
-func (*SetReadOnlyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *SetReadOnlyRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetReadOnlyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetReadOnlyResponse) Reset() {
-	*x = SetReadOnlyResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetReadOnlyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetReadOnlyResponse) ProtoMessage() {}
-
-func (x *SetReadOnlyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetReadOnlyResponse.ProtoReflect.Descriptor instead.
-func (*SetReadOnlyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *SetReadOnlyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewListItemRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewListItemRequest) Reset() {
-	*x = NewListItemRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewListItemRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewListItemRequest) ProtoMessage() {}
-
-func (x *NewListItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewListItemRequest.ProtoReflect.Descriptor instead.
-func (*NewListItemRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *NewListItemRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *NewListItemRequest) GetArg1() bool {
-	if x != nil {
-		return x.Arg1
-	}
-	return false
-}
-
-type NewListItemResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewListItemResponse) Reset() {
-	*x = NewListItemResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewListItemResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewListItemResponse) ProtoMessage() {}
-
-func (x *NewListItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewListItemResponse.ProtoReflect.Descriptor instead.
-func (*NewListItemResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *NewListItemResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ListItemDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListItemDescribeContentsRequest) Reset() {
-	*x = ListItemDescribeContentsRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListItemDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListItemDescribeContentsRequest) ProtoMessage() {}
-
-func (x *ListItemDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListItemDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*ListItemDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{48}
-}
-
-func (x *ListItemDescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ListItemEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListItemEqualsRequest) Reset() {
-	*x = ListItemEqualsRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListItemEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListItemEqualsRequest) ProtoMessage() {}
-
-func (x *ListItemEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListItemEqualsRequest.ProtoReflect.Descriptor instead.
-func (*ListItemEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *ListItemEqualsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ListItemEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetLabelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLabelRequest) Reset() {
-	*x = GetLabelRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLabelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLabelRequest) ProtoMessage() {}
-
-func (x *GetLabelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLabelRequest.ProtoReflect.Descriptor instead.
-func (*GetLabelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{50}
-}
-
-func (x *GetLabelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetLabelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLabelResponse) Reset() {
-	*x = GetLabelResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLabelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLabelResponse) ProtoMessage() {}
-
-func (x *GetLabelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLabelResponse.ProtoReflect.Descriptor instead.
-func (*GetLabelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *GetLabelResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type ListItemHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListItemHashCodeRequest) Reset() {
-	*x = ListItemHashCodeRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListItemHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListItemHashCodeRequest) ProtoMessage() {}
-
-func (x *ListItemHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListItemHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*ListItemHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *ListItemHashCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsSelectedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSelectedRequest) Reset() {
-	*x = IsSelectedRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSelectedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSelectedRequest) ProtoMessage() {}
-
-func (x *IsSelectedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSelectedRequest.ProtoReflect.Descriptor instead.
-func (*IsSelectedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *IsSelectedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsSelectedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSelectedResponse) Reset() {
-	*x = IsSelectedResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSelectedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSelectedResponse) ProtoMessage() {}
-
-func (x *IsSelectedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSelectedResponse.ProtoReflect.Descriptor instead.
-func (*IsSelectedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *IsSelectedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ListItemToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListItemToStringRequest) Reset() {
-	*x = ListItemToStringRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListItemToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListItemToStringRequest) ProtoMessage() {}
-
-func (x *ListItemToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListItemToStringRequest.ProtoReflect.Descriptor instead.
-func (*ListItemToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *ListItemToStringRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ListItemWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListItemWriteToParcelRequest) Reset() {
-	*x = ListItemWriteToParcelRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListItemWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListItemWriteToParcelRequest) ProtoMessage() {}
-
-func (x *ListItemWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListItemWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*ListItemWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *ListItemWriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ListItemWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ListItemWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetClickPointRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetClickPointRequest) Reset() {
-	*x = GetClickPointRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetClickPointRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetClickPointRequest) ProtoMessage() {}
-
-func (x *GetClickPointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetClickPointRequest.ProtoReflect.Descriptor instead.
-func (*GetClickPointRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{57}
-}
-
-type GetClickPointResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetClickPointResponse) Reset() {
-	*x = GetClickPointResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetClickPointResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetClickPointResponse) ProtoMessage() {}
-
-func (x *GetClickPointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetClickPointResponse.ProtoReflect.Descriptor instead.
-func (*GetClickPointResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{58}
-}
-
-func (x *GetClickPointResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPageNumberRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPageNumberRequest) Reset() {
-	*x = GetPageNumberRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPageNumberRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPageNumberRequest) ProtoMessage() {}
-
-func (x *GetPageNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPageNumberRequest.ProtoReflect.Descriptor instead.
-func (*GetPageNumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{59}
-}
-
-type GetPageNumberResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPageNumberResponse) Reset() {
-	*x = GetPageNumberResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPageNumberResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPageNumberResponse) ProtoMessage() {}
-
-func (x *GetPageNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPageNumberResponse.ProtoReflect.Descriptor instead.
-func (*GetPageNumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{60}
-}
-
-func (x *GetPageNumberResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSelectedIndicesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectedIndicesRequest) Reset() {
-	*x = GetSelectedIndicesRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectedIndicesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectedIndicesRequest) ProtoMessage() {}
-
-func (x *GetSelectedIndicesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectedIndicesRequest.ProtoReflect.Descriptor instead.
-func (*GetSelectedIndicesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{61}
-}
-
-type GetSelectedIndicesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectedIndicesResponse) Reset() {
-	*x = GetSelectedIndicesResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectedIndicesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectedIndicesResponse) ProtoMessage() {}
-
-func (x *GetSelectedIndicesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectedIndicesResponse.ProtoReflect.Descriptor instead.
-func (*GetSelectedIndicesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *GetSelectedIndicesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextRequest) Reset() {
-	*x = GetTextRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextRequest) ProtoMessage() {}
-
-func (x *GetTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextRequest.ProtoReflect.Descriptor instead.
-func (*GetTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{63}
-}
-
-type GetTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextResponse) Reset() {
-	*x = GetTextResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextResponse) ProtoMessage() {}
-
-func (x *GetTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextResponse.ProtoReflect.Descriptor instead.
-func (*GetTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *GetTextResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTypeRequest) Reset() {
-	*x = GetTypeRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTypeRequest) ProtoMessage() {}
-
-func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{65}
-}
-
-type GetTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTypeResponse) Reset() {
-	*x = GetTypeResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTypeResponse) ProtoMessage() {}
-
-func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *GetTypeResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -2852,7 +928,7 @@ type SetClickPointRequest struct {
 
 func (x *SetClickPointRequest) Reset() {
 	*x = SetClickPointRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[67]
+	mi := &file_proto_models_models_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2864,7 +940,7 @@ func (x *SetClickPointRequest) String() string {
 func (*SetClickPointRequest) ProtoMessage() {}
 
 func (x *SetClickPointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[67]
+	mi := &file_proto_models_models_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2877,7 +953,7 @@ func (x *SetClickPointRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetClickPointRequest.ProtoReflect.Descriptor instead.
 func (*SetClickPointRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{67}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *SetClickPointRequest) GetArg0() int64 {
@@ -2896,7 +972,7 @@ type SetClickPointResponse struct {
 
 func (x *SetClickPointResponse) Reset() {
 	*x = SetClickPointResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[68]
+	mi := &file_proto_models_models_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2908,7 +984,7 @@ func (x *SetClickPointResponse) String() string {
 func (*SetClickPointResponse) ProtoMessage() {}
 
 func (x *SetClickPointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[68]
+	mi := &file_proto_models_models_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2921,7 +997,7 @@ func (x *SetClickPointResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetClickPointResponse.ProtoReflect.Descriptor instead.
 func (*SetClickPointResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{68}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *SetClickPointResponse) GetResult() int64 {
@@ -2940,7 +1016,7 @@ type SetSelectedIndicesRequest struct {
 
 func (x *SetSelectedIndicesRequest) Reset() {
 	*x = SetSelectedIndicesRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[69]
+	mi := &file_proto_models_models_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2952,7 +1028,7 @@ func (x *SetSelectedIndicesRequest) String() string {
 func (*SetSelectedIndicesRequest) ProtoMessage() {}
 
 func (x *SetSelectedIndicesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[69]
+	mi := &file_proto_models_models_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2965,7 +1041,7 @@ func (x *SetSelectedIndicesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSelectedIndicesRequest.ProtoReflect.Descriptor instead.
 func (*SetSelectedIndicesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{69}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *SetSelectedIndicesRequest) GetArg0() int64 {
@@ -2984,7 +1060,7 @@ type SetSelectedIndicesResponse struct {
 
 func (x *SetSelectedIndicesResponse) Reset() {
 	*x = SetSelectedIndicesResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[70]
+	mi := &file_proto_models_models_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2996,7 +1072,7 @@ func (x *SetSelectedIndicesResponse) String() string {
 func (*SetSelectedIndicesResponse) ProtoMessage() {}
 
 func (x *SetSelectedIndicesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[70]
+	mi := &file_proto_models_models_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3009,7 +1085,7 @@ func (x *SetSelectedIndicesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSelectedIndicesResponse.ProtoReflect.Descriptor instead.
 func (*SetSelectedIndicesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{70}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *SetSelectedIndicesResponse) GetResult() int64 {
@@ -3028,7 +1104,7 @@ type SetTextRequest struct {
 
 func (x *SetTextRequest) Reset() {
 	*x = SetTextRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[71]
+	mi := &file_proto_models_models_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3040,7 +1116,7 @@ func (x *SetTextRequest) String() string {
 func (*SetTextRequest) ProtoMessage() {}
 
 func (x *SetTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[71]
+	mi := &file_proto_models_models_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3053,7 +1129,7 @@ func (x *SetTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTextRequest.ProtoReflect.Descriptor instead.
 func (*SetTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{71}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *SetTextRequest) GetArg0() string {
@@ -3072,7 +1148,7 @@ type SetTextResponse struct {
 
 func (x *SetTextResponse) Reset() {
 	*x = SetTextResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[72]
+	mi := &file_proto_models_models_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3084,7 +1160,7 @@ func (x *SetTextResponse) String() string {
 func (*SetTextResponse) ProtoMessage() {}
 
 func (x *SetTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[72]
+	mi := &file_proto_models_models_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3097,7 +1173,7 @@ func (x *SetTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTextResponse.ProtoReflect.Descriptor instead.
 func (*SetTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{72}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *SetTextResponse) GetResult() int64 {
@@ -3117,7 +1193,7 @@ type NewPageMatchBoundsRequest struct {
 
 func (x *NewPageMatchBoundsRequest) Reset() {
 	*x = NewPageMatchBoundsRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[73]
+	mi := &file_proto_models_models_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3129,7 +1205,7 @@ func (x *NewPageMatchBoundsRequest) String() string {
 func (*NewPageMatchBoundsRequest) ProtoMessage() {}
 
 func (x *NewPageMatchBoundsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[73]
+	mi := &file_proto_models_models_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3142,7 +1218,7 @@ func (x *NewPageMatchBoundsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewPageMatchBoundsRequest.ProtoReflect.Descriptor instead.
 func (*NewPageMatchBoundsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{73}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *NewPageMatchBoundsRequest) GetArg0() int64 {
@@ -3168,7 +1244,7 @@ type NewPageMatchBoundsResponse struct {
 
 func (x *NewPageMatchBoundsResponse) Reset() {
 	*x = NewPageMatchBoundsResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[74]
+	mi := &file_proto_models_models_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3180,7 +1256,7 @@ func (x *NewPageMatchBoundsResponse) String() string {
 func (*NewPageMatchBoundsResponse) ProtoMessage() {}
 
 func (x *NewPageMatchBoundsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[74]
+	mi := &file_proto_models_models_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3193,7 +1269,7 @@ func (x *NewPageMatchBoundsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewPageMatchBoundsResponse.ProtoReflect.Descriptor instead.
 func (*NewPageMatchBoundsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{74}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *NewPageMatchBoundsResponse) GetResult() int64 {
@@ -3212,7 +1288,7 @@ type PageMatchBoundsDescribeContentsRequest struct {
 
 func (x *PageMatchBoundsDescribeContentsRequest) Reset() {
 	*x = PageMatchBoundsDescribeContentsRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[75]
+	mi := &file_proto_models_models_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3224,7 +1300,7 @@ func (x *PageMatchBoundsDescribeContentsRequest) String() string {
 func (*PageMatchBoundsDescribeContentsRequest) ProtoMessage() {}
 
 func (x *PageMatchBoundsDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[75]
+	mi := &file_proto_models_models_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3237,12 +1313,100 @@ func (x *PageMatchBoundsDescribeContentsRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use PageMatchBoundsDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*PageMatchBoundsDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{75}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *PageMatchBoundsDescribeContentsRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
+	}
+	return 0
+}
+
+type GetBoundsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBoundsRequest) Reset() {
+	*x = GetBoundsRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBoundsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBoundsRequest) ProtoMessage() {}
+
+func (x *GetBoundsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBoundsRequest.ProtoReflect.Descriptor instead.
+func (*GetBoundsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetBoundsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBoundsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBoundsResponse) Reset() {
+	*x = GetBoundsResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBoundsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBoundsResponse) ProtoMessage() {}
+
+func (x *GetBoundsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBoundsResponse.ProtoReflect.Descriptor instead.
+func (*GetBoundsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetBoundsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
 	}
 	return 0
 }
@@ -3256,7 +1420,7 @@ type GetTextStartIndexRequest struct {
 
 func (x *GetTextStartIndexRequest) Reset() {
 	*x = GetTextStartIndexRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[76]
+	mi := &file_proto_models_models_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3268,7 +1432,7 @@ func (x *GetTextStartIndexRequest) String() string {
 func (*GetTextStartIndexRequest) ProtoMessage() {}
 
 func (x *GetTextStartIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[76]
+	mi := &file_proto_models_models_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3281,7 +1445,7 @@ func (x *GetTextStartIndexRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTextStartIndexRequest.ProtoReflect.Descriptor instead.
 func (*GetTextStartIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{76}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetTextStartIndexRequest) GetHandle() int64 {
@@ -3300,7 +1464,7 @@ type GetTextStartIndexResponse struct {
 
 func (x *GetTextStartIndexResponse) Reset() {
 	*x = GetTextStartIndexResponse{}
-	mi := &file_proto_models_models_proto_msgTypes[77]
+	mi := &file_proto_models_models_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3312,7 +1476,7 @@ func (x *GetTextStartIndexResponse) String() string {
 func (*GetTextStartIndexResponse) ProtoMessage() {}
 
 func (x *GetTextStartIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[77]
+	mi := &file_proto_models_models_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3325,7 +1489,7 @@ func (x *GetTextStartIndexResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTextStartIndexResponse.ProtoReflect.Descriptor instead.
 func (*GetTextStartIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{77}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *GetTextStartIndexResponse) GetResult() int32 {
@@ -3346,7 +1510,7 @@ type PageMatchBoundsWriteToParcelRequest struct {
 
 func (x *PageMatchBoundsWriteToParcelRequest) Reset() {
 	*x = PageMatchBoundsWriteToParcelRequest{}
-	mi := &file_proto_models_models_proto_msgTypes[78]
+	mi := &file_proto_models_models_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3358,7 +1522,7 @@ func (x *PageMatchBoundsWriteToParcelRequest) String() string {
 func (*PageMatchBoundsWriteToParcelRequest) ProtoMessage() {}
 
 func (x *PageMatchBoundsWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_models_models_proto_msgTypes[78]
+	mi := &file_proto_models_models_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3371,7 +1535,7 @@ func (x *PageMatchBoundsWriteToParcelRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use PageMatchBoundsWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*PageMatchBoundsWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_models_models_proto_rawDescGZIP(), []int{78}
+	return file_proto_models_models_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *PageMatchBoundsWriteToParcelRequest) GetHandle() int64 {
@@ -3395,6 +1559,2010 @@ func (x *PageMatchBoundsWriteToParcelRequest) GetArg1() int32 {
 	return 0
 }
 
+type NewListItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewListItemRequest) Reset() {
+	*x = NewListItemRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewListItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewListItemRequest) ProtoMessage() {}
+
+func (x *NewListItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewListItemRequest.ProtoReflect.Descriptor instead.
+func (*NewListItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *NewListItemRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewListItemRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type NewListItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewListItemResponse) Reset() {
+	*x = NewListItemResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewListItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewListItemResponse) ProtoMessage() {}
+
+func (x *NewListItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewListItemResponse.ProtoReflect.Descriptor instead.
+func (*NewListItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *NewListItemResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ListItemDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListItemDescribeContentsRequest) Reset() {
+	*x = ListItemDescribeContentsRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListItemDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListItemDescribeContentsRequest) ProtoMessage() {}
+
+func (x *ListItemDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListItemDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*ListItemDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *ListItemDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ListItemEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListItemEqualsRequest) Reset() {
+	*x = ListItemEqualsRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListItemEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListItemEqualsRequest) ProtoMessage() {}
+
+func (x *ListItemEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListItemEqualsRequest.ProtoReflect.Descriptor instead.
+func (*ListItemEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *ListItemEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ListItemEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLabelRequest) Reset() {
+	*x = GetLabelRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLabelRequest) ProtoMessage() {}
+
+func (x *GetLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLabelRequest.ProtoReflect.Descriptor instead.
+func (*GetLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetLabelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetLabelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLabelResponse) Reset() {
+	*x = GetLabelResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLabelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLabelResponse) ProtoMessage() {}
+
+func (x *GetLabelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLabelResponse.ProtoReflect.Descriptor instead.
+func (*GetLabelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetLabelResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type ListItemHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListItemHashCodeRequest) Reset() {
+	*x = ListItemHashCodeRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListItemHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListItemHashCodeRequest) ProtoMessage() {}
+
+func (x *ListItemHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListItemHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*ListItemHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *ListItemHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsSelectedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSelectedRequest) Reset() {
+	*x = IsSelectedRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSelectedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSelectedRequest) ProtoMessage() {}
+
+func (x *IsSelectedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSelectedRequest.ProtoReflect.Descriptor instead.
+func (*IsSelectedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *IsSelectedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsSelectedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSelectedResponse) Reset() {
+	*x = IsSelectedResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSelectedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSelectedResponse) ProtoMessage() {}
+
+func (x *IsSelectedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSelectedResponse.ProtoReflect.Descriptor instead.
+func (*IsSelectedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *IsSelectedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type ListItemWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListItemWriteToParcelRequest) Reset() {
+	*x = ListItemWriteToParcelRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListItemWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListItemWriteToParcelRequest) ProtoMessage() {}
+
+func (x *ListItemWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListItemWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*ListItemWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *ListItemWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ListItemWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ListItemWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetAccessibilityLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccessibilityLabelRequest) Reset() {
+	*x = GetAccessibilityLabelRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccessibilityLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccessibilityLabelRequest) ProtoMessage() {}
+
+func (x *GetAccessibilityLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccessibilityLabelRequest.ProtoReflect.Descriptor instead.
+func (*GetAccessibilityLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{48}
+}
+
+type GetAccessibilityLabelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccessibilityLabelResponse) Reset() {
+	*x = GetAccessibilityLabelResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccessibilityLabelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccessibilityLabelResponse) ProtoMessage() {}
+
+func (x *GetAccessibilityLabelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccessibilityLabelResponse.ProtoReflect.Descriptor instead.
+func (*GetAccessibilityLabelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetAccessibilityLabelResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetFontSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFontSizeRequest) Reset() {
+	*x = GetFontSizeRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFontSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFontSizeRequest) ProtoMessage() {}
+
+func (x *GetFontSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFontSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetFontSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{50}
+}
+
+type GetFontSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFontSizeResponse) Reset() {
+	*x = GetFontSizeResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFontSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFontSizeResponse) ProtoMessage() {}
+
+func (x *GetFontSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFontSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetFontSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetFontSizeResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetListItemsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetListItemsRequest) Reset() {
+	*x = GetListItemsRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetListItemsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetListItemsRequest) ProtoMessage() {}
+
+func (x *GetListItemsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetListItemsRequest.ProtoReflect.Descriptor instead.
+func (*GetListItemsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{52}
+}
+
+type GetListItemsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetListItemsResponse) Reset() {
+	*x = GetListItemsResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetListItemsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetListItemsResponse) ProtoMessage() {}
+
+func (x *GetListItemsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetListItemsResponse.ProtoReflect.Descriptor instead.
+func (*GetListItemsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetListItemsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxLengthRequest) Reset() {
+	*x = GetMaxLengthRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxLengthRequest) ProtoMessage() {}
+
+func (x *GetMaxLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{54}
+}
+
+type GetMaxLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxLengthResponse) Reset() {
+	*x = GetMaxLengthResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxLengthResponse) ProtoMessage() {}
+
+func (x *GetMaxLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetMaxLengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTextValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextValueRequest) Reset() {
+	*x = GetTextValueRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextValueRequest) ProtoMessage() {}
+
+func (x *GetTextValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextValueRequest.ProtoReflect.Descriptor instead.
+func (*GetTextValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{56}
+}
+
+type GetTextValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextValueResponse) Reset() {
+	*x = GetTextValueResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextValueResponse) ProtoMessage() {}
+
+func (x *GetTextValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextValueResponse.ProtoReflect.Descriptor instead.
+func (*GetTextValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *GetTextValueResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetWidgetRectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidgetRectRequest) Reset() {
+	*x = GetWidgetRectRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidgetRectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidgetRectRequest) ProtoMessage() {}
+
+func (x *GetWidgetRectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidgetRectRequest.ProtoReflect.Descriptor instead.
+func (*GetWidgetRectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{58}
+}
+
+type GetWidgetRectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidgetRectResponse) Reset() {
+	*x = GetWidgetRectResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidgetRectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidgetRectResponse) ProtoMessage() {}
+
+func (x *GetWidgetRectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidgetRectResponse.ProtoReflect.Descriptor instead.
+func (*GetWidgetRectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetWidgetRectResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWidgetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidgetTypeRequest) Reset() {
+	*x = GetWidgetTypeRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidgetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidgetTypeRequest) ProtoMessage() {}
+
+func (x *GetWidgetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidgetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetWidgetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{60}
+}
+
+type GetWidgetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidgetTypeResponse) Reset() {
+	*x = GetWidgetTypeResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidgetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidgetTypeResponse) ProtoMessage() {}
+
+func (x *GetWidgetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidgetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetWidgetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetWidgetTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsEditableTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEditableTextRequest) Reset() {
+	*x = IsEditableTextRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEditableTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEditableTextRequest) ProtoMessage() {}
+
+func (x *IsEditableTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEditableTextRequest.ProtoReflect.Descriptor instead.
+func (*IsEditableTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{62}
+}
+
+type IsEditableTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEditableTextResponse) Reset() {
+	*x = IsEditableTextResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEditableTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEditableTextResponse) ProtoMessage() {}
+
+func (x *IsEditableTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEditableTextResponse.ProtoReflect.Descriptor instead.
+func (*IsEditableTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *IsEditableTextResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsMultiLineTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMultiLineTextRequest) Reset() {
+	*x = IsMultiLineTextRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMultiLineTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMultiLineTextRequest) ProtoMessage() {}
+
+func (x *IsMultiLineTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMultiLineTextRequest.ProtoReflect.Descriptor instead.
+func (*IsMultiLineTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{64}
+}
+
+type IsMultiLineTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMultiLineTextResponse) Reset() {
+	*x = IsMultiLineTextResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMultiLineTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMultiLineTextResponse) ProtoMessage() {}
+
+func (x *IsMultiLineTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMultiLineTextResponse.ProtoReflect.Descriptor instead.
+func (*IsMultiLineTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *IsMultiLineTextResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsMultiSelectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMultiSelectRequest) Reset() {
+	*x = IsMultiSelectRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMultiSelectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMultiSelectRequest) ProtoMessage() {}
+
+func (x *IsMultiSelectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMultiSelectRequest.ProtoReflect.Descriptor instead.
+func (*IsMultiSelectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{66}
+}
+
+type IsMultiSelectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMultiSelectResponse) Reset() {
+	*x = IsMultiSelectResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMultiSelectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMultiSelectResponse) ProtoMessage() {}
+
+func (x *IsMultiSelectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMultiSelectResponse.ProtoReflect.Descriptor instead.
+func (*IsMultiSelectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *IsMultiSelectResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsReadOnlyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsReadOnlyRequest) Reset() {
+	*x = IsReadOnlyRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsReadOnlyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsReadOnlyRequest) ProtoMessage() {}
+
+func (x *IsReadOnlyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsReadOnlyRequest.ProtoReflect.Descriptor instead.
+func (*IsReadOnlyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{68}
+}
+
+type IsReadOnlyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsReadOnlyResponse) Reset() {
+	*x = IsReadOnlyResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsReadOnlyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsReadOnlyResponse) ProtoMessage() {}
+
+func (x *IsReadOnlyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsReadOnlyResponse.ProtoReflect.Descriptor instead.
+func (*IsReadOnlyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *IsReadOnlyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type FormWidgetInfoToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FormWidgetInfoToStringRequest) Reset() {
+	*x = FormWidgetInfoToStringRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FormWidgetInfoToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FormWidgetInfoToStringRequest) ProtoMessage() {}
+
+func (x *FormWidgetInfoToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FormWidgetInfoToStringRequest.ProtoReflect.Descriptor instead.
+func (*FormWidgetInfoToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{70}
+}
+
+type SetEditableTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEditableTextRequest) Reset() {
+	*x = SetEditableTextRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEditableTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEditableTextRequest) ProtoMessage() {}
+
+func (x *SetEditableTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEditableTextRequest.ProtoReflect.Descriptor instead.
+func (*SetEditableTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *SetEditableTextRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetEditableTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEditableTextResponse) Reset() {
+	*x = SetEditableTextResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEditableTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEditableTextResponse) ProtoMessage() {}
+
+func (x *SetEditableTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEditableTextResponse.ProtoReflect.Descriptor instead.
+func (*SetEditableTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *SetEditableTextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFontSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFontSizeRequest) Reset() {
+	*x = SetFontSizeRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFontSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFontSizeRequest) ProtoMessage() {}
+
+func (x *SetFontSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFontSizeRequest.ProtoReflect.Descriptor instead.
+func (*SetFontSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *SetFontSizeRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFontSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFontSizeResponse) Reset() {
+	*x = SetFontSizeResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFontSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFontSizeResponse) ProtoMessage() {}
+
+func (x *SetFontSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFontSizeResponse.ProtoReflect.Descriptor instead.
+func (*SetFontSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *SetFontSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMaxLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxLengthRequest) Reset() {
+	*x = SetMaxLengthRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxLengthRequest) ProtoMessage() {}
+
+func (x *SetMaxLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxLengthRequest.ProtoReflect.Descriptor instead.
+func (*SetMaxLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *SetMaxLengthRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaxLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxLengthResponse) Reset() {
+	*x = SetMaxLengthResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxLengthResponse) ProtoMessage() {}
+
+func (x *SetMaxLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxLengthResponse.ProtoReflect.Descriptor instead.
+func (*SetMaxLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *SetMaxLengthResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMultiLineTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMultiLineTextRequest) Reset() {
+	*x = SetMultiLineTextRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMultiLineTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMultiLineTextRequest) ProtoMessage() {}
+
+func (x *SetMultiLineTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMultiLineTextRequest.ProtoReflect.Descriptor instead.
+func (*SetMultiLineTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *SetMultiLineTextRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetMultiLineTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMultiLineTextResponse) Reset() {
+	*x = SetMultiLineTextResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMultiLineTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMultiLineTextResponse) ProtoMessage() {}
+
+func (x *SetMultiLineTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMultiLineTextResponse.ProtoReflect.Descriptor instead.
+func (*SetMultiLineTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *SetMultiLineTextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMultiSelectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMultiSelectRequest) Reset() {
+	*x = SetMultiSelectRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMultiSelectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMultiSelectRequest) ProtoMessage() {}
+
+func (x *SetMultiSelectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMultiSelectRequest.ProtoReflect.Descriptor instead.
+func (*SetMultiSelectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *SetMultiSelectRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetMultiSelectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMultiSelectResponse) Reset() {
+	*x = SetMultiSelectResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMultiSelectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMultiSelectResponse) ProtoMessage() {}
+
+func (x *SetMultiSelectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMultiSelectResponse.ProtoReflect.Descriptor instead.
+func (*SetMultiSelectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *SetMultiSelectResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetReadOnlyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReadOnlyRequest) Reset() {
+	*x = SetReadOnlyRequest{}
+	mi := &file_proto_models_models_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReadOnlyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReadOnlyRequest) ProtoMessage() {}
+
+func (x *SetReadOnlyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReadOnlyRequest.ProtoReflect.Descriptor instead.
+func (*SetReadOnlyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *SetReadOnlyRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetReadOnlyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReadOnlyResponse) Reset() {
+	*x = SetReadOnlyResponse{}
+	mi := &file_proto_models_models_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReadOnlyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReadOnlyResponse) ProtoMessage() {}
+
+func (x *SetReadOnlyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_models_models_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReadOnlyResponse.ProtoReflect.Descriptor instead.
+func (*SetReadOnlyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_models_models_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *SetReadOnlyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_models_models_proto protoreflect.FileDescriptor
 
 const file_proto_models_models_proto_rawDesc = "" +
@@ -3406,30 +3574,114 @@ const file_proto_models_models_proto_rawDesc = "" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
+	"\x14GetClickPointRequest\"/\n" +
+	"\x15GetClickPointResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetPageNumberRequest\"/\n" +
+	"\x15GetPageNumberResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetSelectedIndicesRequest\"4\n" +
+	"\x1aGetSelectedIndicesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetTextRequest\")\n" +
+	"\x0fGetTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
+	"\x0eGetTypeRequest\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetWidgetIndexRequest\"0\n" +
+	"\x16GetWidgetIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetClickPointRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15SetClickPointResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetSelectedIndicesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetSelectedIndicesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eSetTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fSetTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x19NewPageMatchBoundsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"4\n" +
+	"\x1aNewPageMatchBoundsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"&PageMatchBoundsDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetBoundsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetBoundsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetTextStartIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetTextStartIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"e\n" +
+	"#PageMatchBoundsWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"<\n" +
+	"\x12NewListItemRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"-\n" +
+	"\x13NewListItemResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\x1fListItemDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"C\n" +
+	"\x15ListItemEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"\x0fGetLabelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetLabelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"1\n" +
+	"\x17ListItemHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11IsSelectedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12IsSelectedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"^\n" +
+	"\x1cListItemWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x1e\n" +
 	"\x1cGetAccessibilityLabelRequest\"7\n" +
 	"\x1dGetAccessibilityLabelResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
 	"\x12GetFontSizeRequest\"-\n" +
 	"\x13GetFontSizeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x02R\x06result\"\x15\n" +
+	"\x13GetListItemsRequest\".\n" +
+	"\x14GetListItemsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
 	"\x13GetMaxLengthRequest\".\n" +
 	"\x14GetMaxLengthResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
 	"\x13GetTextValueRequest\".\n" +
 	"\x14GetTextValueResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
-	"\x15GetWidgetIndexRequest\"0\n" +
-	"\x16GetWidgetIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
 	"\x14GetWidgetRectRequest\"/\n" +
 	"\x15GetWidgetRectResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetWidgetTypeRequest\"/\n" +
 	"\x15GetWidgetTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fHashCodeRequest\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
 	"\x15IsEditableTextRequest\"0\n" +
 	"\x16IsEditableTextResponse\x12\x16\n" +
@@ -3442,17 +3694,8 @@ const file_proto_models_models_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
 	"\x11IsReadOnlyRequest\",\n" +
 	"\x12IsReadOnlyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
+	"\x1dFormWidgetInfoToStringRequest\",\n" +
 	"\x16SetEditableTextRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"1\n" +
 	"\x17SetEditableTextResponse\x12\x16\n" +
@@ -3476,111 +3719,7 @@ const file_proto_models_models_proto_rawDesc = "" +
 	"\x12SetReadOnlyRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"-\n" +
 	"\x13SetReadOnlyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
-	"\x12NewListItemRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"-\n" +
-	"\x13NewListItemResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
-	"\x1fListItemDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"C\n" +
-	"\x15ListItemEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
-	"\x0fGetLabelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10GetLabelResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"1\n" +
-	"\x17ListItemHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
-	"\x11IsSelectedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
-	"\x12IsSelectedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"1\n" +
-	"\x17ListItemToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"^\n" +
-	"\x1cListItemWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x16\n" +
-	"\x14GetClickPointRequest\"/\n" +
-	"\x15GetClickPointResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
-	"\x14GetPageNumberRequest\"/\n" +
-	"\x15GetPageNumberResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
-	"\x19GetSelectedIndicesRequest\"4\n" +
-	"\x1aGetSelectedIndicesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
-	"\x0eGetTextRequest\")\n" +
-	"\x0fGetTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
-	"\x0eGetTypeRequest\")\n" +
-	"\x0fGetTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
-	"\x14SetClickPointRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
-	"\x15SetClickPointResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19SetSelectedIndicesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
-	"\x1aSetSelectedIndicesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eSetTextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
-	"\x0fSetTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"\x19NewPageMatchBoundsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"4\n" +
-	"\x1aNewPageMatchBoundsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
-	"&PageMatchBoundsDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
-	"\x18GetTextStartIndexRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
-	"\x19GetTextStartIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"e\n" +
-	"#PageMatchBoundsWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg12\xdc\t\n" +
-	"\x15FormWidgetInfoService\x12U\n" +
-	"\x10DescribeContents\x12\x1f.models.DescribeContentsRequest\x1a .models.DescribeContentsResponse\x127\n" +
-	"\x06Equals\x12\x15.models.EqualsRequest\x1a\x16.models.EqualsResponse\x12d\n" +
-	"\x15GetAccessibilityLabel\x12$.models.GetAccessibilityLabelRequest\x1a%.models.GetAccessibilityLabelResponse\x12F\n" +
-	"\vGetFontSize\x12\x1a.models.GetFontSizeRequest\x1a\x1b.models.GetFontSizeResponse\x12I\n" +
-	"\fGetMaxLength\x12\x1b.models.GetMaxLengthRequest\x1a\x1c.models.GetMaxLengthResponse\x12I\n" +
-	"\fGetTextValue\x12\x1b.models.GetTextValueRequest\x1a\x1c.models.GetTextValueResponse\x12O\n" +
-	"\x0eGetWidgetIndex\x12\x1d.models.GetWidgetIndexRequest\x1a\x1e.models.GetWidgetIndexResponse\x12L\n" +
-	"\rGetWidgetRect\x12\x1c.models.GetWidgetRectRequest\x1a\x1d.models.GetWidgetRectResponse\x12L\n" +
-	"\rGetWidgetType\x12\x1c.models.GetWidgetTypeRequest\x1a\x1d.models.GetWidgetTypeResponse\x12=\n" +
-	"\bHashCode\x12\x17.models.HashCodeRequest\x1a\x18.models.HashCodeResponse\x12O\n" +
-	"\x0eIsEditableText\x12\x1d.models.IsEditableTextRequest\x1a\x1e.models.IsEditableTextResponse\x12R\n" +
-	"\x0fIsMultiLineText\x12\x1e.models.IsMultiLineTextRequest\x1a\x1f.models.IsMultiLineTextResponse\x12L\n" +
-	"\rIsMultiSelect\x12\x1c.models.IsMultiSelectRequest\x1a\x1d.models.IsMultiSelectResponse\x12C\n" +
-	"\n" +
-	"IsReadOnly\x12\x19.models.IsReadOnlyRequest\x1a\x1a.models.IsReadOnlyResponse\x12=\n" +
-	"\bToString\x12\x17.models.ToStringRequest\x1a\x18.models.ToStringResponse\x12L\n" +
-	"\rWriteToParcel\x12\x1c.models.WriteToParcelRequest\x1a\x1d.models.WriteToParcelResponse2\xab\x04\n" +
-	"\x1cFormWidgetInfoBuilderService\x124\n" +
-	"\x05Build\x12\x14.models.BuildRequest\x1a\x15.models.BuildResponse\x12R\n" +
-	"\x0fSetEditableText\x12\x1e.models.SetEditableTextRequest\x1a\x1f.models.SetEditableTextResponse\x12F\n" +
-	"\vSetFontSize\x12\x1a.models.SetFontSizeRequest\x1a\x1b.models.SetFontSizeResponse\x12I\n" +
-	"\fSetMaxLength\x12\x1b.models.SetMaxLengthRequest\x1a\x1c.models.SetMaxLengthResponse\x12U\n" +
-	"\x10SetMultiLineText\x12\x1f.models.SetMultiLineTextRequest\x1a .models.SetMultiLineTextResponse\x12O\n" +
-	"\x0eSetMultiSelect\x12\x1d.models.SetMultiSelectRequest\x1a\x1e.models.SetMultiSelectResponse\x12F\n" +
-	"\vSetReadOnly\x12\x1a.models.SetReadOnlyRequest\x1a\x1b.models.SetReadOnlyResponse2\xe1\x04\n" +
-	"\x0fListItemService\x12F\n" +
-	"\vNewListItem\x12\x1a.models.NewListItemRequest\x1a\x1b.models.NewListItemResponse\x12]\n" +
-	"\x10DescribeContents\x12'.models.ListItemDescribeContentsRequest\x1a .models.DescribeContentsResponse\x12?\n" +
-	"\x06Equals\x12\x1d.models.ListItemEqualsRequest\x1a\x16.models.EqualsResponse\x12=\n" +
-	"\bGetLabel\x12\x17.models.GetLabelRequest\x1a\x18.models.GetLabelResponse\x12E\n" +
-	"\bHashCode\x12\x1f.models.ListItemHashCodeRequest\x1a\x18.models.HashCodeResponse\x12C\n" +
-	"\n" +
-	"IsSelected\x12\x19.models.IsSelectedRequest\x1a\x1a.models.IsSelectedResponse\x12E\n" +
-	"\bToString\x12\x1f.models.ListItemToStringRequest\x1a\x18.models.ToStringResponse\x12T\n" +
-	"\rWriteToParcel\x12$.models.ListItemWriteToParcelRequest\x1a\x1d.models.WriteToParcelResponse2\xf6\x05\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xf6\x05\n" +
 	"\x15FormEditRecordService\x12U\n" +
 	"\x10DescribeContents\x12\x1f.models.DescribeContentsRequest\x1a .models.DescribeContentsResponse\x127\n" +
 	"\x06Equals\x12\x15.models.EqualsRequest\x1a\x16.models.EqualsResponse\x12L\n" +
@@ -3596,12 +3735,51 @@ const file_proto_models_models_proto_rawDesc = "" +
 	"\x05Build\x12\x14.models.BuildRequest\x1a\x15.models.BuildResponse\x12L\n" +
 	"\rSetClickPoint\x12\x1c.models.SetClickPointRequest\x1a\x1d.models.SetClickPointResponse\x12[\n" +
 	"\x12SetSelectedIndices\x12!.models.SetSelectedIndicesRequest\x1a\".models.SetSelectedIndicesResponse\x12:\n" +
-	"\aSetText\x12\x16.models.SetTextRequest\x1a\x17.models.SetTextResponse2\x92\x03\n" +
+	"\aSetText\x12\x16.models.SetTextRequest\x1a\x17.models.SetTextResponse2\xd4\x03\n" +
 	"\x16PageMatchBoundsService\x12[\n" +
 	"\x12NewPageMatchBounds\x12!.models.NewPageMatchBoundsRequest\x1a\".models.NewPageMatchBoundsResponse\x12d\n" +
-	"\x10DescribeContents\x12..models.PageMatchBoundsDescribeContentsRequest\x1a .models.DescribeContentsResponse\x12X\n" +
+	"\x10DescribeContents\x12..models.PageMatchBoundsDescribeContentsRequest\x1a .models.DescribeContentsResponse\x12@\n" +
+	"\tGetBounds\x12\x18.models.GetBoundsRequest\x1a\x19.models.GetBoundsResponse\x12X\n" +
 	"\x11GetTextStartIndex\x12 .models.GetTextStartIndexRequest\x1a!.models.GetTextStartIndexResponse\x12[\n" +
-	"\rWriteToParcel\x12+.models.PageMatchBoundsWriteToParcelRequest\x1a\x1d.models.WriteToParcelResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/modelsb\x06proto3"
+	"\rWriteToParcel\x12+.models.PageMatchBoundsWriteToParcelRequest\x1a\x1d.models.WriteToParcelResponse2\xd9\x04\n" +
+	"\x0fListItemService\x12F\n" +
+	"\vNewListItem\x12\x1a.models.NewListItemRequest\x1a\x1b.models.NewListItemResponse\x12]\n" +
+	"\x10DescribeContents\x12'.models.ListItemDescribeContentsRequest\x1a .models.DescribeContentsResponse\x12?\n" +
+	"\x06Equals\x12\x1d.models.ListItemEqualsRequest\x1a\x16.models.EqualsResponse\x12=\n" +
+	"\bGetLabel\x12\x17.models.GetLabelRequest\x1a\x18.models.GetLabelResponse\x12E\n" +
+	"\bHashCode\x12\x1f.models.ListItemHashCodeRequest\x1a\x18.models.HashCodeResponse\x12C\n" +
+	"\n" +
+	"IsSelected\x12\x19.models.IsSelectedRequest\x1a\x1a.models.IsSelectedResponse\x12=\n" +
+	"\bToString\x12\x17.models.ToStringRequest\x1a\x18.models.ToStringResponse\x12T\n" +
+	"\rWriteToParcel\x12$.models.ListItemWriteToParcelRequest\x1a\x1d.models.WriteToParcelResponse2\xb5\n" +
+	"\n" +
+	"\x15FormWidgetInfoService\x12U\n" +
+	"\x10DescribeContents\x12\x1f.models.DescribeContentsRequest\x1a .models.DescribeContentsResponse\x127\n" +
+	"\x06Equals\x12\x15.models.EqualsRequest\x1a\x16.models.EqualsResponse\x12d\n" +
+	"\x15GetAccessibilityLabel\x12$.models.GetAccessibilityLabelRequest\x1a%.models.GetAccessibilityLabelResponse\x12F\n" +
+	"\vGetFontSize\x12\x1a.models.GetFontSizeRequest\x1a\x1b.models.GetFontSizeResponse\x12I\n" +
+	"\fGetListItems\x12\x1b.models.GetListItemsRequest\x1a\x1c.models.GetListItemsResponse\x12I\n" +
+	"\fGetMaxLength\x12\x1b.models.GetMaxLengthRequest\x1a\x1c.models.GetMaxLengthResponse\x12I\n" +
+	"\fGetTextValue\x12\x1b.models.GetTextValueRequest\x1a\x1c.models.GetTextValueResponse\x12O\n" +
+	"\x0eGetWidgetIndex\x12\x1d.models.GetWidgetIndexRequest\x1a\x1e.models.GetWidgetIndexResponse\x12L\n" +
+	"\rGetWidgetRect\x12\x1c.models.GetWidgetRectRequest\x1a\x1d.models.GetWidgetRectResponse\x12L\n" +
+	"\rGetWidgetType\x12\x1c.models.GetWidgetTypeRequest\x1a\x1d.models.GetWidgetTypeResponse\x12=\n" +
+	"\bHashCode\x12\x17.models.HashCodeRequest\x1a\x18.models.HashCodeResponse\x12O\n" +
+	"\x0eIsEditableText\x12\x1d.models.IsEditableTextRequest\x1a\x1e.models.IsEditableTextResponse\x12R\n" +
+	"\x0fIsMultiLineText\x12\x1e.models.IsMultiLineTextRequest\x1a\x1f.models.IsMultiLineTextResponse\x12L\n" +
+	"\rIsMultiSelect\x12\x1c.models.IsMultiSelectRequest\x1a\x1d.models.IsMultiSelectResponse\x12C\n" +
+	"\n" +
+	"IsReadOnly\x12\x19.models.IsReadOnlyRequest\x1a\x1a.models.IsReadOnlyResponse\x12K\n" +
+	"\bToString\x12%.models.FormWidgetInfoToStringRequest\x1a\x18.models.ToStringResponse\x12L\n" +
+	"\rWriteToParcel\x12\x1c.models.WriteToParcelRequest\x1a\x1d.models.WriteToParcelResponse2\xab\x04\n" +
+	"\x1cFormWidgetInfoBuilderService\x124\n" +
+	"\x05Build\x12\x14.models.BuildRequest\x1a\x15.models.BuildResponse\x12R\n" +
+	"\x0fSetEditableText\x12\x1e.models.SetEditableTextRequest\x1a\x1f.models.SetEditableTextResponse\x12F\n" +
+	"\vSetFontSize\x12\x1a.models.SetFontSizeRequest\x1a\x1b.models.SetFontSizeResponse\x12I\n" +
+	"\fSetMaxLength\x12\x1b.models.SetMaxLengthRequest\x1a\x1c.models.SetMaxLengthResponse\x12U\n" +
+	"\x10SetMultiLineText\x12\x1f.models.SetMultiLineTextRequest\x1a .models.SetMultiLineTextResponse\x12O\n" +
+	"\x0eSetMultiSelect\x12\x1d.models.SetMultiSelectRequest\x1a\x1e.models.SetMultiSelectResponse\x12F\n" +
+	"\vSetReadOnly\x12\x1a.models.SetReadOnlyRequest\x1a\x1b.models.SetReadOnlyResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/modelsb\x06proto3"
 
 var (
 	file_proto_models_models_proto_rawDescOnce sync.Once
@@ -3615,189 +3793,197 @@ func file_proto_models_models_proto_rawDescGZIP() []byte {
 	return file_proto_models_models_proto_rawDescData
 }
 
-var file_proto_models_models_proto_msgTypes = make([]protoimpl.MessageInfo, 79)
+var file_proto_models_models_proto_msgTypes = make([]protoimpl.MessageInfo, 83)
 var file_proto_models_models_proto_goTypes = []any{
 	(*DescribeContentsRequest)(nil),                // 0: models.DescribeContentsRequest
 	(*DescribeContentsResponse)(nil),               // 1: models.DescribeContentsResponse
 	(*EqualsRequest)(nil),                          // 2: models.EqualsRequest
 	(*EqualsResponse)(nil),                         // 3: models.EqualsResponse
-	(*GetAccessibilityLabelRequest)(nil),           // 4: models.GetAccessibilityLabelRequest
-	(*GetAccessibilityLabelResponse)(nil),          // 5: models.GetAccessibilityLabelResponse
-	(*GetFontSizeRequest)(nil),                     // 6: models.GetFontSizeRequest
-	(*GetFontSizeResponse)(nil),                    // 7: models.GetFontSizeResponse
-	(*GetMaxLengthRequest)(nil),                    // 8: models.GetMaxLengthRequest
-	(*GetMaxLengthResponse)(nil),                   // 9: models.GetMaxLengthResponse
-	(*GetTextValueRequest)(nil),                    // 10: models.GetTextValueRequest
-	(*GetTextValueResponse)(nil),                   // 11: models.GetTextValueResponse
-	(*GetWidgetIndexRequest)(nil),                  // 12: models.GetWidgetIndexRequest
-	(*GetWidgetIndexResponse)(nil),                 // 13: models.GetWidgetIndexResponse
-	(*GetWidgetRectRequest)(nil),                   // 14: models.GetWidgetRectRequest
-	(*GetWidgetRectResponse)(nil),                  // 15: models.GetWidgetRectResponse
-	(*GetWidgetTypeRequest)(nil),                   // 16: models.GetWidgetTypeRequest
-	(*GetWidgetTypeResponse)(nil),                  // 17: models.GetWidgetTypeResponse
-	(*HashCodeRequest)(nil),                        // 18: models.HashCodeRequest
-	(*HashCodeResponse)(nil),                       // 19: models.HashCodeResponse
-	(*IsEditableTextRequest)(nil),                  // 20: models.IsEditableTextRequest
-	(*IsEditableTextResponse)(nil),                 // 21: models.IsEditableTextResponse
-	(*IsMultiLineTextRequest)(nil),                 // 22: models.IsMultiLineTextRequest
-	(*IsMultiLineTextResponse)(nil),                // 23: models.IsMultiLineTextResponse
-	(*IsMultiSelectRequest)(nil),                   // 24: models.IsMultiSelectRequest
-	(*IsMultiSelectResponse)(nil),                  // 25: models.IsMultiSelectResponse
-	(*IsReadOnlyRequest)(nil),                      // 26: models.IsReadOnlyRequest
-	(*IsReadOnlyResponse)(nil),                     // 27: models.IsReadOnlyResponse
-	(*ToStringRequest)(nil),                        // 28: models.ToStringRequest
-	(*ToStringResponse)(nil),                       // 29: models.ToStringResponse
-	(*WriteToParcelRequest)(nil),                   // 30: models.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                  // 31: models.WriteToParcelResponse
-	(*BuildRequest)(nil),                           // 32: models.BuildRequest
-	(*BuildResponse)(nil),                          // 33: models.BuildResponse
-	(*SetEditableTextRequest)(nil),                 // 34: models.SetEditableTextRequest
-	(*SetEditableTextResponse)(nil),                // 35: models.SetEditableTextResponse
-	(*SetFontSizeRequest)(nil),                     // 36: models.SetFontSizeRequest
-	(*SetFontSizeResponse)(nil),                    // 37: models.SetFontSizeResponse
-	(*SetMaxLengthRequest)(nil),                    // 38: models.SetMaxLengthRequest
-	(*SetMaxLengthResponse)(nil),                   // 39: models.SetMaxLengthResponse
-	(*SetMultiLineTextRequest)(nil),                // 40: models.SetMultiLineTextRequest
-	(*SetMultiLineTextResponse)(nil),               // 41: models.SetMultiLineTextResponse
-	(*SetMultiSelectRequest)(nil),                  // 42: models.SetMultiSelectRequest
-	(*SetMultiSelectResponse)(nil),                 // 43: models.SetMultiSelectResponse
-	(*SetReadOnlyRequest)(nil),                     // 44: models.SetReadOnlyRequest
-	(*SetReadOnlyResponse)(nil),                    // 45: models.SetReadOnlyResponse
-	(*NewListItemRequest)(nil),                     // 46: models.NewListItemRequest
-	(*NewListItemResponse)(nil),                    // 47: models.NewListItemResponse
-	(*ListItemDescribeContentsRequest)(nil),        // 48: models.ListItemDescribeContentsRequest
-	(*ListItemEqualsRequest)(nil),                  // 49: models.ListItemEqualsRequest
-	(*GetLabelRequest)(nil),                        // 50: models.GetLabelRequest
-	(*GetLabelResponse)(nil),                       // 51: models.GetLabelResponse
-	(*ListItemHashCodeRequest)(nil),                // 52: models.ListItemHashCodeRequest
-	(*IsSelectedRequest)(nil),                      // 53: models.IsSelectedRequest
-	(*IsSelectedResponse)(nil),                     // 54: models.IsSelectedResponse
-	(*ListItemToStringRequest)(nil),                // 55: models.ListItemToStringRequest
-	(*ListItemWriteToParcelRequest)(nil),           // 56: models.ListItemWriteToParcelRequest
-	(*GetClickPointRequest)(nil),                   // 57: models.GetClickPointRequest
-	(*GetClickPointResponse)(nil),                  // 58: models.GetClickPointResponse
-	(*GetPageNumberRequest)(nil),                   // 59: models.GetPageNumberRequest
-	(*GetPageNumberResponse)(nil),                  // 60: models.GetPageNumberResponse
-	(*GetSelectedIndicesRequest)(nil),              // 61: models.GetSelectedIndicesRequest
-	(*GetSelectedIndicesResponse)(nil),             // 62: models.GetSelectedIndicesResponse
-	(*GetTextRequest)(nil),                         // 63: models.GetTextRequest
-	(*GetTextResponse)(nil),                        // 64: models.GetTextResponse
-	(*GetTypeRequest)(nil),                         // 65: models.GetTypeRequest
-	(*GetTypeResponse)(nil),                        // 66: models.GetTypeResponse
-	(*SetClickPointRequest)(nil),                   // 67: models.SetClickPointRequest
-	(*SetClickPointResponse)(nil),                  // 68: models.SetClickPointResponse
-	(*SetSelectedIndicesRequest)(nil),              // 69: models.SetSelectedIndicesRequest
-	(*SetSelectedIndicesResponse)(nil),             // 70: models.SetSelectedIndicesResponse
-	(*SetTextRequest)(nil),                         // 71: models.SetTextRequest
-	(*SetTextResponse)(nil),                        // 72: models.SetTextResponse
-	(*NewPageMatchBoundsRequest)(nil),              // 73: models.NewPageMatchBoundsRequest
-	(*NewPageMatchBoundsResponse)(nil),             // 74: models.NewPageMatchBoundsResponse
-	(*PageMatchBoundsDescribeContentsRequest)(nil), // 75: models.PageMatchBoundsDescribeContentsRequest
-	(*GetTextStartIndexRequest)(nil),               // 76: models.GetTextStartIndexRequest
-	(*GetTextStartIndexResponse)(nil),              // 77: models.GetTextStartIndexResponse
-	(*PageMatchBoundsWriteToParcelRequest)(nil),    // 78: models.PageMatchBoundsWriteToParcelRequest
+	(*GetClickPointRequest)(nil),                   // 4: models.GetClickPointRequest
+	(*GetClickPointResponse)(nil),                  // 5: models.GetClickPointResponse
+	(*GetPageNumberRequest)(nil),                   // 6: models.GetPageNumberRequest
+	(*GetPageNumberResponse)(nil),                  // 7: models.GetPageNumberResponse
+	(*GetSelectedIndicesRequest)(nil),              // 8: models.GetSelectedIndicesRequest
+	(*GetSelectedIndicesResponse)(nil),             // 9: models.GetSelectedIndicesResponse
+	(*GetTextRequest)(nil),                         // 10: models.GetTextRequest
+	(*GetTextResponse)(nil),                        // 11: models.GetTextResponse
+	(*GetTypeRequest)(nil),                         // 12: models.GetTypeRequest
+	(*GetTypeResponse)(nil),                        // 13: models.GetTypeResponse
+	(*GetWidgetIndexRequest)(nil),                  // 14: models.GetWidgetIndexRequest
+	(*GetWidgetIndexResponse)(nil),                 // 15: models.GetWidgetIndexResponse
+	(*HashCodeRequest)(nil),                        // 16: models.HashCodeRequest
+	(*HashCodeResponse)(nil),                       // 17: models.HashCodeResponse
+	(*WriteToParcelRequest)(nil),                   // 18: models.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                  // 19: models.WriteToParcelResponse
+	(*BuildRequest)(nil),                           // 20: models.BuildRequest
+	(*BuildResponse)(nil),                          // 21: models.BuildResponse
+	(*SetClickPointRequest)(nil),                   // 22: models.SetClickPointRequest
+	(*SetClickPointResponse)(nil),                  // 23: models.SetClickPointResponse
+	(*SetSelectedIndicesRequest)(nil),              // 24: models.SetSelectedIndicesRequest
+	(*SetSelectedIndicesResponse)(nil),             // 25: models.SetSelectedIndicesResponse
+	(*SetTextRequest)(nil),                         // 26: models.SetTextRequest
+	(*SetTextResponse)(nil),                        // 27: models.SetTextResponse
+	(*NewPageMatchBoundsRequest)(nil),              // 28: models.NewPageMatchBoundsRequest
+	(*NewPageMatchBoundsResponse)(nil),             // 29: models.NewPageMatchBoundsResponse
+	(*PageMatchBoundsDescribeContentsRequest)(nil), // 30: models.PageMatchBoundsDescribeContentsRequest
+	(*GetBoundsRequest)(nil),                       // 31: models.GetBoundsRequest
+	(*GetBoundsResponse)(nil),                      // 32: models.GetBoundsResponse
+	(*GetTextStartIndexRequest)(nil),               // 33: models.GetTextStartIndexRequest
+	(*GetTextStartIndexResponse)(nil),              // 34: models.GetTextStartIndexResponse
+	(*PageMatchBoundsWriteToParcelRequest)(nil),    // 35: models.PageMatchBoundsWriteToParcelRequest
+	(*NewListItemRequest)(nil),                     // 36: models.NewListItemRequest
+	(*NewListItemResponse)(nil),                    // 37: models.NewListItemResponse
+	(*ListItemDescribeContentsRequest)(nil),        // 38: models.ListItemDescribeContentsRequest
+	(*ListItemEqualsRequest)(nil),                  // 39: models.ListItemEqualsRequest
+	(*GetLabelRequest)(nil),                        // 40: models.GetLabelRequest
+	(*GetLabelResponse)(nil),                       // 41: models.GetLabelResponse
+	(*ListItemHashCodeRequest)(nil),                // 42: models.ListItemHashCodeRequest
+	(*IsSelectedRequest)(nil),                      // 43: models.IsSelectedRequest
+	(*IsSelectedResponse)(nil),                     // 44: models.IsSelectedResponse
+	(*ToStringRequest)(nil),                        // 45: models.ToStringRequest
+	(*ToStringResponse)(nil),                       // 46: models.ToStringResponse
+	(*ListItemWriteToParcelRequest)(nil),           // 47: models.ListItemWriteToParcelRequest
+	(*GetAccessibilityLabelRequest)(nil),           // 48: models.GetAccessibilityLabelRequest
+	(*GetAccessibilityLabelResponse)(nil),          // 49: models.GetAccessibilityLabelResponse
+	(*GetFontSizeRequest)(nil),                     // 50: models.GetFontSizeRequest
+	(*GetFontSizeResponse)(nil),                    // 51: models.GetFontSizeResponse
+	(*GetListItemsRequest)(nil),                    // 52: models.GetListItemsRequest
+	(*GetListItemsResponse)(nil),                   // 53: models.GetListItemsResponse
+	(*GetMaxLengthRequest)(nil),                    // 54: models.GetMaxLengthRequest
+	(*GetMaxLengthResponse)(nil),                   // 55: models.GetMaxLengthResponse
+	(*GetTextValueRequest)(nil),                    // 56: models.GetTextValueRequest
+	(*GetTextValueResponse)(nil),                   // 57: models.GetTextValueResponse
+	(*GetWidgetRectRequest)(nil),                   // 58: models.GetWidgetRectRequest
+	(*GetWidgetRectResponse)(nil),                  // 59: models.GetWidgetRectResponse
+	(*GetWidgetTypeRequest)(nil),                   // 60: models.GetWidgetTypeRequest
+	(*GetWidgetTypeResponse)(nil),                  // 61: models.GetWidgetTypeResponse
+	(*IsEditableTextRequest)(nil),                  // 62: models.IsEditableTextRequest
+	(*IsEditableTextResponse)(nil),                 // 63: models.IsEditableTextResponse
+	(*IsMultiLineTextRequest)(nil),                 // 64: models.IsMultiLineTextRequest
+	(*IsMultiLineTextResponse)(nil),                // 65: models.IsMultiLineTextResponse
+	(*IsMultiSelectRequest)(nil),                   // 66: models.IsMultiSelectRequest
+	(*IsMultiSelectResponse)(nil),                  // 67: models.IsMultiSelectResponse
+	(*IsReadOnlyRequest)(nil),                      // 68: models.IsReadOnlyRequest
+	(*IsReadOnlyResponse)(nil),                     // 69: models.IsReadOnlyResponse
+	(*FormWidgetInfoToStringRequest)(nil),          // 70: models.FormWidgetInfoToStringRequest
+	(*SetEditableTextRequest)(nil),                 // 71: models.SetEditableTextRequest
+	(*SetEditableTextResponse)(nil),                // 72: models.SetEditableTextResponse
+	(*SetFontSizeRequest)(nil),                     // 73: models.SetFontSizeRequest
+	(*SetFontSizeResponse)(nil),                    // 74: models.SetFontSizeResponse
+	(*SetMaxLengthRequest)(nil),                    // 75: models.SetMaxLengthRequest
+	(*SetMaxLengthResponse)(nil),                   // 76: models.SetMaxLengthResponse
+	(*SetMultiLineTextRequest)(nil),                // 77: models.SetMultiLineTextRequest
+	(*SetMultiLineTextResponse)(nil),               // 78: models.SetMultiLineTextResponse
+	(*SetMultiSelectRequest)(nil),                  // 79: models.SetMultiSelectRequest
+	(*SetMultiSelectResponse)(nil),                 // 80: models.SetMultiSelectResponse
+	(*SetReadOnlyRequest)(nil),                     // 81: models.SetReadOnlyRequest
+	(*SetReadOnlyResponse)(nil),                    // 82: models.SetReadOnlyResponse
 }
 var file_proto_models_models_proto_depIdxs = []int32{
-	0,  // 0: models.FormWidgetInfoService.DescribeContents:input_type -> models.DescribeContentsRequest
-	2,  // 1: models.FormWidgetInfoService.Equals:input_type -> models.EqualsRequest
-	4,  // 2: models.FormWidgetInfoService.GetAccessibilityLabel:input_type -> models.GetAccessibilityLabelRequest
-	6,  // 3: models.FormWidgetInfoService.GetFontSize:input_type -> models.GetFontSizeRequest
-	8,  // 4: models.FormWidgetInfoService.GetMaxLength:input_type -> models.GetMaxLengthRequest
-	10, // 5: models.FormWidgetInfoService.GetTextValue:input_type -> models.GetTextValueRequest
-	12, // 6: models.FormWidgetInfoService.GetWidgetIndex:input_type -> models.GetWidgetIndexRequest
-	14, // 7: models.FormWidgetInfoService.GetWidgetRect:input_type -> models.GetWidgetRectRequest
-	16, // 8: models.FormWidgetInfoService.GetWidgetType:input_type -> models.GetWidgetTypeRequest
-	18, // 9: models.FormWidgetInfoService.HashCode:input_type -> models.HashCodeRequest
-	20, // 10: models.FormWidgetInfoService.IsEditableText:input_type -> models.IsEditableTextRequest
-	22, // 11: models.FormWidgetInfoService.IsMultiLineText:input_type -> models.IsMultiLineTextRequest
-	24, // 12: models.FormWidgetInfoService.IsMultiSelect:input_type -> models.IsMultiSelectRequest
-	26, // 13: models.FormWidgetInfoService.IsReadOnly:input_type -> models.IsReadOnlyRequest
-	28, // 14: models.FormWidgetInfoService.ToString:input_type -> models.ToStringRequest
-	30, // 15: models.FormWidgetInfoService.WriteToParcel:input_type -> models.WriteToParcelRequest
-	32, // 16: models.FormWidgetInfoBuilderService.Build:input_type -> models.BuildRequest
-	34, // 17: models.FormWidgetInfoBuilderService.SetEditableText:input_type -> models.SetEditableTextRequest
-	36, // 18: models.FormWidgetInfoBuilderService.SetFontSize:input_type -> models.SetFontSizeRequest
-	38, // 19: models.FormWidgetInfoBuilderService.SetMaxLength:input_type -> models.SetMaxLengthRequest
-	40, // 20: models.FormWidgetInfoBuilderService.SetMultiLineText:input_type -> models.SetMultiLineTextRequest
-	42, // 21: models.FormWidgetInfoBuilderService.SetMultiSelect:input_type -> models.SetMultiSelectRequest
-	44, // 22: models.FormWidgetInfoBuilderService.SetReadOnly:input_type -> models.SetReadOnlyRequest
-	46, // 23: models.ListItemService.NewListItem:input_type -> models.NewListItemRequest
-	48, // 24: models.ListItemService.DescribeContents:input_type -> models.ListItemDescribeContentsRequest
-	49, // 25: models.ListItemService.Equals:input_type -> models.ListItemEqualsRequest
-	50, // 26: models.ListItemService.GetLabel:input_type -> models.GetLabelRequest
-	52, // 27: models.ListItemService.HashCode:input_type -> models.ListItemHashCodeRequest
-	53, // 28: models.ListItemService.IsSelected:input_type -> models.IsSelectedRequest
-	55, // 29: models.ListItemService.ToString:input_type -> models.ListItemToStringRequest
-	56, // 30: models.ListItemService.WriteToParcel:input_type -> models.ListItemWriteToParcelRequest
-	0,  // 31: models.FormEditRecordService.DescribeContents:input_type -> models.DescribeContentsRequest
-	2,  // 32: models.FormEditRecordService.Equals:input_type -> models.EqualsRequest
-	57, // 33: models.FormEditRecordService.GetClickPoint:input_type -> models.GetClickPointRequest
-	59, // 34: models.FormEditRecordService.GetPageNumber:input_type -> models.GetPageNumberRequest
-	61, // 35: models.FormEditRecordService.GetSelectedIndices:input_type -> models.GetSelectedIndicesRequest
-	63, // 36: models.FormEditRecordService.GetText:input_type -> models.GetTextRequest
-	65, // 37: models.FormEditRecordService.GetType:input_type -> models.GetTypeRequest
-	12, // 38: models.FormEditRecordService.GetWidgetIndex:input_type -> models.GetWidgetIndexRequest
-	18, // 39: models.FormEditRecordService.HashCode:input_type -> models.HashCodeRequest
-	30, // 40: models.FormEditRecordService.WriteToParcel:input_type -> models.WriteToParcelRequest
-	32, // 41: models.FormEditRecordBuilderService.Build:input_type -> models.BuildRequest
-	67, // 42: models.FormEditRecordBuilderService.SetClickPoint:input_type -> models.SetClickPointRequest
-	69, // 43: models.FormEditRecordBuilderService.SetSelectedIndices:input_type -> models.SetSelectedIndicesRequest
-	71, // 44: models.FormEditRecordBuilderService.SetText:input_type -> models.SetTextRequest
-	73, // 45: models.PageMatchBoundsService.NewPageMatchBounds:input_type -> models.NewPageMatchBoundsRequest
-	75, // 46: models.PageMatchBoundsService.DescribeContents:input_type -> models.PageMatchBoundsDescribeContentsRequest
-	76, // 47: models.PageMatchBoundsService.GetTextStartIndex:input_type -> models.GetTextStartIndexRequest
-	78, // 48: models.PageMatchBoundsService.WriteToParcel:input_type -> models.PageMatchBoundsWriteToParcelRequest
-	1,  // 49: models.FormWidgetInfoService.DescribeContents:output_type -> models.DescribeContentsResponse
-	3,  // 50: models.FormWidgetInfoService.Equals:output_type -> models.EqualsResponse
-	5,  // 51: models.FormWidgetInfoService.GetAccessibilityLabel:output_type -> models.GetAccessibilityLabelResponse
-	7,  // 52: models.FormWidgetInfoService.GetFontSize:output_type -> models.GetFontSizeResponse
-	9,  // 53: models.FormWidgetInfoService.GetMaxLength:output_type -> models.GetMaxLengthResponse
-	11, // 54: models.FormWidgetInfoService.GetTextValue:output_type -> models.GetTextValueResponse
-	13, // 55: models.FormWidgetInfoService.GetWidgetIndex:output_type -> models.GetWidgetIndexResponse
-	15, // 56: models.FormWidgetInfoService.GetWidgetRect:output_type -> models.GetWidgetRectResponse
-	17, // 57: models.FormWidgetInfoService.GetWidgetType:output_type -> models.GetWidgetTypeResponse
-	19, // 58: models.FormWidgetInfoService.HashCode:output_type -> models.HashCodeResponse
-	21, // 59: models.FormWidgetInfoService.IsEditableText:output_type -> models.IsEditableTextResponse
-	23, // 60: models.FormWidgetInfoService.IsMultiLineText:output_type -> models.IsMultiLineTextResponse
-	25, // 61: models.FormWidgetInfoService.IsMultiSelect:output_type -> models.IsMultiSelectResponse
-	27, // 62: models.FormWidgetInfoService.IsReadOnly:output_type -> models.IsReadOnlyResponse
-	29, // 63: models.FormWidgetInfoService.ToString:output_type -> models.ToStringResponse
-	31, // 64: models.FormWidgetInfoService.WriteToParcel:output_type -> models.WriteToParcelResponse
-	33, // 65: models.FormWidgetInfoBuilderService.Build:output_type -> models.BuildResponse
-	35, // 66: models.FormWidgetInfoBuilderService.SetEditableText:output_type -> models.SetEditableTextResponse
-	37, // 67: models.FormWidgetInfoBuilderService.SetFontSize:output_type -> models.SetFontSizeResponse
-	39, // 68: models.FormWidgetInfoBuilderService.SetMaxLength:output_type -> models.SetMaxLengthResponse
-	41, // 69: models.FormWidgetInfoBuilderService.SetMultiLineText:output_type -> models.SetMultiLineTextResponse
-	43, // 70: models.FormWidgetInfoBuilderService.SetMultiSelect:output_type -> models.SetMultiSelectResponse
-	45, // 71: models.FormWidgetInfoBuilderService.SetReadOnly:output_type -> models.SetReadOnlyResponse
-	47, // 72: models.ListItemService.NewListItem:output_type -> models.NewListItemResponse
-	1,  // 73: models.ListItemService.DescribeContents:output_type -> models.DescribeContentsResponse
-	3,  // 74: models.ListItemService.Equals:output_type -> models.EqualsResponse
-	51, // 75: models.ListItemService.GetLabel:output_type -> models.GetLabelResponse
-	19, // 76: models.ListItemService.HashCode:output_type -> models.HashCodeResponse
-	54, // 77: models.ListItemService.IsSelected:output_type -> models.IsSelectedResponse
-	29, // 78: models.ListItemService.ToString:output_type -> models.ToStringResponse
-	31, // 79: models.ListItemService.WriteToParcel:output_type -> models.WriteToParcelResponse
-	1,  // 80: models.FormEditRecordService.DescribeContents:output_type -> models.DescribeContentsResponse
-	3,  // 81: models.FormEditRecordService.Equals:output_type -> models.EqualsResponse
-	58, // 82: models.FormEditRecordService.GetClickPoint:output_type -> models.GetClickPointResponse
-	60, // 83: models.FormEditRecordService.GetPageNumber:output_type -> models.GetPageNumberResponse
-	62, // 84: models.FormEditRecordService.GetSelectedIndices:output_type -> models.GetSelectedIndicesResponse
-	64, // 85: models.FormEditRecordService.GetText:output_type -> models.GetTextResponse
-	66, // 86: models.FormEditRecordService.GetType:output_type -> models.GetTypeResponse
-	13, // 87: models.FormEditRecordService.GetWidgetIndex:output_type -> models.GetWidgetIndexResponse
-	19, // 88: models.FormEditRecordService.HashCode:output_type -> models.HashCodeResponse
-	31, // 89: models.FormEditRecordService.WriteToParcel:output_type -> models.WriteToParcelResponse
-	33, // 90: models.FormEditRecordBuilderService.Build:output_type -> models.BuildResponse
-	68, // 91: models.FormEditRecordBuilderService.SetClickPoint:output_type -> models.SetClickPointResponse
-	70, // 92: models.FormEditRecordBuilderService.SetSelectedIndices:output_type -> models.SetSelectedIndicesResponse
-	72, // 93: models.FormEditRecordBuilderService.SetText:output_type -> models.SetTextResponse
-	74, // 94: models.PageMatchBoundsService.NewPageMatchBounds:output_type -> models.NewPageMatchBoundsResponse
-	1,  // 95: models.PageMatchBoundsService.DescribeContents:output_type -> models.DescribeContentsResponse
-	77, // 96: models.PageMatchBoundsService.GetTextStartIndex:output_type -> models.GetTextStartIndexResponse
-	31, // 97: models.PageMatchBoundsService.WriteToParcel:output_type -> models.WriteToParcelResponse
-	49, // [49:98] is the sub-list for method output_type
-	0,  // [0:49] is the sub-list for method input_type
+	0,  // 0: models.FormEditRecordService.DescribeContents:input_type -> models.DescribeContentsRequest
+	2,  // 1: models.FormEditRecordService.Equals:input_type -> models.EqualsRequest
+	4,  // 2: models.FormEditRecordService.GetClickPoint:input_type -> models.GetClickPointRequest
+	6,  // 3: models.FormEditRecordService.GetPageNumber:input_type -> models.GetPageNumberRequest
+	8,  // 4: models.FormEditRecordService.GetSelectedIndices:input_type -> models.GetSelectedIndicesRequest
+	10, // 5: models.FormEditRecordService.GetText:input_type -> models.GetTextRequest
+	12, // 6: models.FormEditRecordService.GetType:input_type -> models.GetTypeRequest
+	14, // 7: models.FormEditRecordService.GetWidgetIndex:input_type -> models.GetWidgetIndexRequest
+	16, // 8: models.FormEditRecordService.HashCode:input_type -> models.HashCodeRequest
+	18, // 9: models.FormEditRecordService.WriteToParcel:input_type -> models.WriteToParcelRequest
+	20, // 10: models.FormEditRecordBuilderService.Build:input_type -> models.BuildRequest
+	22, // 11: models.FormEditRecordBuilderService.SetClickPoint:input_type -> models.SetClickPointRequest
+	24, // 12: models.FormEditRecordBuilderService.SetSelectedIndices:input_type -> models.SetSelectedIndicesRequest
+	26, // 13: models.FormEditRecordBuilderService.SetText:input_type -> models.SetTextRequest
+	28, // 14: models.PageMatchBoundsService.NewPageMatchBounds:input_type -> models.NewPageMatchBoundsRequest
+	30, // 15: models.PageMatchBoundsService.DescribeContents:input_type -> models.PageMatchBoundsDescribeContentsRequest
+	31, // 16: models.PageMatchBoundsService.GetBounds:input_type -> models.GetBoundsRequest
+	33, // 17: models.PageMatchBoundsService.GetTextStartIndex:input_type -> models.GetTextStartIndexRequest
+	35, // 18: models.PageMatchBoundsService.WriteToParcel:input_type -> models.PageMatchBoundsWriteToParcelRequest
+	36, // 19: models.ListItemService.NewListItem:input_type -> models.NewListItemRequest
+	38, // 20: models.ListItemService.DescribeContents:input_type -> models.ListItemDescribeContentsRequest
+	39, // 21: models.ListItemService.Equals:input_type -> models.ListItemEqualsRequest
+	40, // 22: models.ListItemService.GetLabel:input_type -> models.GetLabelRequest
+	42, // 23: models.ListItemService.HashCode:input_type -> models.ListItemHashCodeRequest
+	43, // 24: models.ListItemService.IsSelected:input_type -> models.IsSelectedRequest
+	45, // 25: models.ListItemService.ToString:input_type -> models.ToStringRequest
+	47, // 26: models.ListItemService.WriteToParcel:input_type -> models.ListItemWriteToParcelRequest
+	0,  // 27: models.FormWidgetInfoService.DescribeContents:input_type -> models.DescribeContentsRequest
+	2,  // 28: models.FormWidgetInfoService.Equals:input_type -> models.EqualsRequest
+	48, // 29: models.FormWidgetInfoService.GetAccessibilityLabel:input_type -> models.GetAccessibilityLabelRequest
+	50, // 30: models.FormWidgetInfoService.GetFontSize:input_type -> models.GetFontSizeRequest
+	52, // 31: models.FormWidgetInfoService.GetListItems:input_type -> models.GetListItemsRequest
+	54, // 32: models.FormWidgetInfoService.GetMaxLength:input_type -> models.GetMaxLengthRequest
+	56, // 33: models.FormWidgetInfoService.GetTextValue:input_type -> models.GetTextValueRequest
+	14, // 34: models.FormWidgetInfoService.GetWidgetIndex:input_type -> models.GetWidgetIndexRequest
+	58, // 35: models.FormWidgetInfoService.GetWidgetRect:input_type -> models.GetWidgetRectRequest
+	60, // 36: models.FormWidgetInfoService.GetWidgetType:input_type -> models.GetWidgetTypeRequest
+	16, // 37: models.FormWidgetInfoService.HashCode:input_type -> models.HashCodeRequest
+	62, // 38: models.FormWidgetInfoService.IsEditableText:input_type -> models.IsEditableTextRequest
+	64, // 39: models.FormWidgetInfoService.IsMultiLineText:input_type -> models.IsMultiLineTextRequest
+	66, // 40: models.FormWidgetInfoService.IsMultiSelect:input_type -> models.IsMultiSelectRequest
+	68, // 41: models.FormWidgetInfoService.IsReadOnly:input_type -> models.IsReadOnlyRequest
+	70, // 42: models.FormWidgetInfoService.ToString:input_type -> models.FormWidgetInfoToStringRequest
+	18, // 43: models.FormWidgetInfoService.WriteToParcel:input_type -> models.WriteToParcelRequest
+	20, // 44: models.FormWidgetInfoBuilderService.Build:input_type -> models.BuildRequest
+	71, // 45: models.FormWidgetInfoBuilderService.SetEditableText:input_type -> models.SetEditableTextRequest
+	73, // 46: models.FormWidgetInfoBuilderService.SetFontSize:input_type -> models.SetFontSizeRequest
+	75, // 47: models.FormWidgetInfoBuilderService.SetMaxLength:input_type -> models.SetMaxLengthRequest
+	77, // 48: models.FormWidgetInfoBuilderService.SetMultiLineText:input_type -> models.SetMultiLineTextRequest
+	79, // 49: models.FormWidgetInfoBuilderService.SetMultiSelect:input_type -> models.SetMultiSelectRequest
+	81, // 50: models.FormWidgetInfoBuilderService.SetReadOnly:input_type -> models.SetReadOnlyRequest
+	1,  // 51: models.FormEditRecordService.DescribeContents:output_type -> models.DescribeContentsResponse
+	3,  // 52: models.FormEditRecordService.Equals:output_type -> models.EqualsResponse
+	5,  // 53: models.FormEditRecordService.GetClickPoint:output_type -> models.GetClickPointResponse
+	7,  // 54: models.FormEditRecordService.GetPageNumber:output_type -> models.GetPageNumberResponse
+	9,  // 55: models.FormEditRecordService.GetSelectedIndices:output_type -> models.GetSelectedIndicesResponse
+	11, // 56: models.FormEditRecordService.GetText:output_type -> models.GetTextResponse
+	13, // 57: models.FormEditRecordService.GetType:output_type -> models.GetTypeResponse
+	15, // 58: models.FormEditRecordService.GetWidgetIndex:output_type -> models.GetWidgetIndexResponse
+	17, // 59: models.FormEditRecordService.HashCode:output_type -> models.HashCodeResponse
+	19, // 60: models.FormEditRecordService.WriteToParcel:output_type -> models.WriteToParcelResponse
+	21, // 61: models.FormEditRecordBuilderService.Build:output_type -> models.BuildResponse
+	23, // 62: models.FormEditRecordBuilderService.SetClickPoint:output_type -> models.SetClickPointResponse
+	25, // 63: models.FormEditRecordBuilderService.SetSelectedIndices:output_type -> models.SetSelectedIndicesResponse
+	27, // 64: models.FormEditRecordBuilderService.SetText:output_type -> models.SetTextResponse
+	29, // 65: models.PageMatchBoundsService.NewPageMatchBounds:output_type -> models.NewPageMatchBoundsResponse
+	1,  // 66: models.PageMatchBoundsService.DescribeContents:output_type -> models.DescribeContentsResponse
+	32, // 67: models.PageMatchBoundsService.GetBounds:output_type -> models.GetBoundsResponse
+	34, // 68: models.PageMatchBoundsService.GetTextStartIndex:output_type -> models.GetTextStartIndexResponse
+	19, // 69: models.PageMatchBoundsService.WriteToParcel:output_type -> models.WriteToParcelResponse
+	37, // 70: models.ListItemService.NewListItem:output_type -> models.NewListItemResponse
+	1,  // 71: models.ListItemService.DescribeContents:output_type -> models.DescribeContentsResponse
+	3,  // 72: models.ListItemService.Equals:output_type -> models.EqualsResponse
+	41, // 73: models.ListItemService.GetLabel:output_type -> models.GetLabelResponse
+	17, // 74: models.ListItemService.HashCode:output_type -> models.HashCodeResponse
+	44, // 75: models.ListItemService.IsSelected:output_type -> models.IsSelectedResponse
+	46, // 76: models.ListItemService.ToString:output_type -> models.ToStringResponse
+	19, // 77: models.ListItemService.WriteToParcel:output_type -> models.WriteToParcelResponse
+	1,  // 78: models.FormWidgetInfoService.DescribeContents:output_type -> models.DescribeContentsResponse
+	3,  // 79: models.FormWidgetInfoService.Equals:output_type -> models.EqualsResponse
+	49, // 80: models.FormWidgetInfoService.GetAccessibilityLabel:output_type -> models.GetAccessibilityLabelResponse
+	51, // 81: models.FormWidgetInfoService.GetFontSize:output_type -> models.GetFontSizeResponse
+	53, // 82: models.FormWidgetInfoService.GetListItems:output_type -> models.GetListItemsResponse
+	55, // 83: models.FormWidgetInfoService.GetMaxLength:output_type -> models.GetMaxLengthResponse
+	57, // 84: models.FormWidgetInfoService.GetTextValue:output_type -> models.GetTextValueResponse
+	15, // 85: models.FormWidgetInfoService.GetWidgetIndex:output_type -> models.GetWidgetIndexResponse
+	59, // 86: models.FormWidgetInfoService.GetWidgetRect:output_type -> models.GetWidgetRectResponse
+	61, // 87: models.FormWidgetInfoService.GetWidgetType:output_type -> models.GetWidgetTypeResponse
+	17, // 88: models.FormWidgetInfoService.HashCode:output_type -> models.HashCodeResponse
+	63, // 89: models.FormWidgetInfoService.IsEditableText:output_type -> models.IsEditableTextResponse
+	65, // 90: models.FormWidgetInfoService.IsMultiLineText:output_type -> models.IsMultiLineTextResponse
+	67, // 91: models.FormWidgetInfoService.IsMultiSelect:output_type -> models.IsMultiSelectResponse
+	69, // 92: models.FormWidgetInfoService.IsReadOnly:output_type -> models.IsReadOnlyResponse
+	46, // 93: models.FormWidgetInfoService.ToString:output_type -> models.ToStringResponse
+	19, // 94: models.FormWidgetInfoService.WriteToParcel:output_type -> models.WriteToParcelResponse
+	21, // 95: models.FormWidgetInfoBuilderService.Build:output_type -> models.BuildResponse
+	72, // 96: models.FormWidgetInfoBuilderService.SetEditableText:output_type -> models.SetEditableTextResponse
+	74, // 97: models.FormWidgetInfoBuilderService.SetFontSize:output_type -> models.SetFontSizeResponse
+	76, // 98: models.FormWidgetInfoBuilderService.SetMaxLength:output_type -> models.SetMaxLengthResponse
+	78, // 99: models.FormWidgetInfoBuilderService.SetMultiLineText:output_type -> models.SetMultiLineTextResponse
+	80, // 100: models.FormWidgetInfoBuilderService.SetMultiSelect:output_type -> models.SetMultiSelectResponse
+	82, // 101: models.FormWidgetInfoBuilderService.SetReadOnly:output_type -> models.SetReadOnlyResponse
+	51, // [51:102] is the sub-list for method output_type
+	0,  // [0:51] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -3814,7 +4000,7 @@ func file_proto_models_models_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_models_models_proto_rawDesc), len(file_proto_models_models_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   79,
+			NumMessages:   83,
 			NumExtensions: 0,
 			NumServices:   6,
 		},

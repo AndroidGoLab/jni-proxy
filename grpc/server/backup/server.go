@@ -15,6 +15,67 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// AgentHelperServer implements pb.AgentHelperServiceServer.
+type AgentHelperServer struct {
+	pb.UnimplementedAgentHelperServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AgentHelperServer) NewAgentHelper(_ context.Context, req *pb.NewAgentHelperRequest) (*pb.NewAgentHelperResponse, error) {
+	obj, err := jnipkg.NewAgentHelper(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAgentHelperResponse{Result: handle}, nil
+}
+
+func (s *AgentHelperServer) AddHelper(_ context.Context, req *pb.AddHelperRequest) (*pb.AddHelperResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AgentHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AddHelper(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddHelperResponse{}, nil
+}
+
+func (s *AgentHelperServer) OnBackup(_ context.Context, req *pb.OnBackupRequest) (*pb.OnBackupResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AgentHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnBackup(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnBackupResponse{}, nil
+}
+
+func (s *AgentHelperServer) OnRestore(_ context.Context, req *pb.OnRestoreRequest) (*pb.OnRestoreResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AgentHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnRestore(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnRestoreResponse{}, nil
+}
+
 // ManagerServer implements pb.ManagerServiceServer.
 type ManagerServer struct {
 	pb.UnimplementedManagerServiceServer
@@ -100,67 +161,6 @@ func (s *ManagerServer) DataChanged1_1(_ context.Context, req *pb.DataChanged1_1
 	return &pb.DataChanged1_1Response{}, nil
 }
 
-// FileBackupHelperServer implements pb.FileBackupHelperServiceServer.
-type FileBackupHelperServer struct {
-	pb.UnimplementedFileBackupHelperServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *FileBackupHelperServer) NewFileBackupHelper(_ context.Context, req *pb.NewFileBackupHelperRequest) (*pb.NewFileBackupHelperResponse, error) {
-	obj, err := jnipkg.NewFileBackupHelper(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewFileBackupHelperResponse{Result: handle}, nil
-}
-
-func (s *FileBackupHelperServer) PerformBackup(_ context.Context, req *pb.PerformBackupRequest) (*pb.PerformBackupResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FileBackupHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.PerformBackup(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PerformBackupResponse{}, nil
-}
-
-func (s *FileBackupHelperServer) RestoreEntity(_ context.Context, req *pb.RestoreEntityRequest) (*pb.RestoreEntityResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FileBackupHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RestoreEntity(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RestoreEntityResponse{}, nil
-}
-
-func (s *FileBackupHelperServer) WriteNewStateDescription(_ context.Context, req *pb.WriteNewStateDescriptionRequest) (*pb.WriteNewStateDescriptionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FileBackupHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteNewStateDescription(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteNewStateDescriptionResponse{}, nil
-}
-
 // SharedPreferencesBackupHelperServer implements pb.SharedPreferencesBackupHelperServiceServer.
 type SharedPreferencesBackupHelperServer struct {
 	pb.UnimplementedSharedPreferencesBackupHelperServiceServer
@@ -183,7 +183,7 @@ func (s *SharedPreferencesBackupHelperServer) NewSharedPreferencesBackupHelper(_
 	return &pb.NewSharedPreferencesBackupHelperResponse{Result: handle}, nil
 }
 
-func (s *SharedPreferencesBackupHelperServer) PerformBackup(_ context.Context, req *pb.PerformBackupRequest) (*pb.PerformBackupResponse, error) {
+func (s *SharedPreferencesBackupHelperServer) PerformBackup(_ context.Context, req *pb.SharedPreferencesBackupHelperPerformBackupRequest) (*pb.PerformBackupResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -196,7 +196,7 @@ func (s *SharedPreferencesBackupHelperServer) PerformBackup(_ context.Context, r
 	return &pb.PerformBackupResponse{}, nil
 }
 
-func (s *SharedPreferencesBackupHelperServer) RestoreEntity(_ context.Context, req *pb.RestoreEntityRequest) (*pb.RestoreEntityResponse, error) {
+func (s *SharedPreferencesBackupHelperServer) RestoreEntity(_ context.Context, req *pb.SharedPreferencesBackupHelperRestoreEntityRequest) (*pb.RestoreEntityResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -209,7 +209,7 @@ func (s *SharedPreferencesBackupHelperServer) RestoreEntity(_ context.Context, r
 	return &pb.RestoreEntityResponse{}, nil
 }
 
-func (s *SharedPreferencesBackupHelperServer) WriteNewStateDescription(_ context.Context, req *pb.WriteNewStateDescriptionRequest) (*pb.WriteNewStateDescriptionResponse, error) {
+func (s *SharedPreferencesBackupHelperServer) WriteNewStateDescription(_ context.Context, req *pb.SharedPreferencesBackupHelperWriteNewStateDescriptionRequest) (*pb.WriteNewStateDescriptionResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -222,15 +222,15 @@ func (s *SharedPreferencesBackupHelperServer) WriteNewStateDescription(_ context
 	return &pb.WriteNewStateDescriptionResponse{}, nil
 }
 
-// AgentHelperServer implements pb.AgentHelperServiceServer.
-type AgentHelperServer struct {
-	pb.UnimplementedAgentHelperServiceServer
+// FileBackupHelperServer implements pb.FileBackupHelperServiceServer.
+type FileBackupHelperServer struct {
+	pb.UnimplementedFileBackupHelperServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *AgentHelperServer) NewAgentHelper(_ context.Context, req *pb.NewAgentHelperRequest) (*pb.NewAgentHelperResponse, error) {
-	obj, err := jnipkg.NewAgentHelper(s.Ctx.VM)
+func (s *FileBackupHelperServer) NewFileBackupHelper(_ context.Context, req *pb.NewFileBackupHelperRequest) (*pb.NewFileBackupHelperResponse, error) {
+	obj, err := jnipkg.NewFileBackupHelper(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -241,44 +241,44 @@ func (s *AgentHelperServer) NewAgentHelper(_ context.Context, req *pb.NewAgentHe
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewAgentHelperResponse{Result: handle}, nil
+	return &pb.NewFileBackupHelperResponse{Result: handle}, nil
 }
 
-func (s *AgentHelperServer) AddHelper(_ context.Context, req *pb.AddHelperRequest) (*pb.AddHelperResponse, error) {
+func (s *FileBackupHelperServer) PerformBackup(_ context.Context, req *pb.FileBackupHelperPerformBackupRequest) (*pb.PerformBackupResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.AgentHelper{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.FileBackupHelper{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.AddHelper(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+	if err := mgr.PerformBackup(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.AddHelperResponse{}, nil
+	return &pb.PerformBackupResponse{}, nil
 }
 
-func (s *AgentHelperServer) OnBackup(_ context.Context, req *pb.AgentHelperOnBackupRequest) (*pb.OnBackupResponse, error) {
+func (s *FileBackupHelperServer) RestoreEntity(_ context.Context, req *pb.FileBackupHelperRestoreEntityRequest) (*pb.RestoreEntityResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.AgentHelper{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.FileBackupHelper{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.OnBackup(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.RestoreEntity(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.OnBackupResponse{}, nil
+	return &pb.RestoreEntityResponse{}, nil
 }
 
-func (s *AgentHelperServer) OnRestore(_ context.Context, req *pb.OnRestoreRequest) (*pb.OnRestoreResponse, error) {
+func (s *FileBackupHelperServer) WriteNewStateDescription(_ context.Context, req *pb.FileBackupHelperWriteNewStateDescriptionRequest) (*pb.WriteNewStateDescriptionResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.AgentHelper{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.FileBackupHelper{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.OnRestore(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.WriteNewStateDescription(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.OnRestoreResponse{}, nil
+	return &pb.WriteNewStateDescriptionResponse{}, nil
 }

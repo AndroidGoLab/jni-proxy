@@ -21,6 +21,2729 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	CustomAudienceService_DescribeContents_FullMethodName             = "/customaudience.CustomAudienceService/DescribeContents"
+	CustomAudienceService_Equals_FullMethodName                       = "/customaudience.CustomAudienceService/Equals"
+	CustomAudienceService_GetActivationTime_FullMethodName            = "/customaudience.CustomAudienceService/GetActivationTime"
+	CustomAudienceService_GetAds_FullMethodName                       = "/customaudience.CustomAudienceService/GetAds"
+	CustomAudienceService_GetAuctionServerRequestFlags_FullMethodName = "/customaudience.CustomAudienceService/GetAuctionServerRequestFlags"
+	CustomAudienceService_GetBiddingLogicUri_FullMethodName           = "/customaudience.CustomAudienceService/GetBiddingLogicUri"
+	CustomAudienceService_GetBuyer_FullMethodName                     = "/customaudience.CustomAudienceService/GetBuyer"
+	CustomAudienceService_GetComponentAds_FullMethodName              = "/customaudience.CustomAudienceService/GetComponentAds"
+	CustomAudienceService_GetDailyUpdateUri_FullMethodName            = "/customaudience.CustomAudienceService/GetDailyUpdateUri"
+	CustomAudienceService_GetExpirationTime_FullMethodName            = "/customaudience.CustomAudienceService/GetExpirationTime"
+	CustomAudienceService_GetName_FullMethodName                      = "/customaudience.CustomAudienceService/GetName"
+	CustomAudienceService_GetPriority_FullMethodName                  = "/customaudience.CustomAudienceService/GetPriority"
+	CustomAudienceService_GetTrustedBiddingData_FullMethodName        = "/customaudience.CustomAudienceService/GetTrustedBiddingData"
+	CustomAudienceService_GetUserBiddingSignals_FullMethodName        = "/customaudience.CustomAudienceService/GetUserBiddingSignals"
+	CustomAudienceService_HashCode_FullMethodName                     = "/customaudience.CustomAudienceService/HashCode"
+	CustomAudienceService_ToString_FullMethodName                     = "/customaudience.CustomAudienceService/ToString"
+	CustomAudienceService_WriteToParcel_FullMethodName                = "/customaudience.CustomAudienceService/WriteToParcel"
+)
+
+// CustomAudienceServiceClient is the client API for CustomAudienceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CustomAudienceServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetActivationTime(ctx context.Context, in *GetActivationTimeRequest, opts ...grpc.CallOption) (*GetActivationTimeResponse, error)
+	GetAds(ctx context.Context, in *GetAdsRequest, opts ...grpc.CallOption) (*GetAdsResponse, error)
+	GetAuctionServerRequestFlags(ctx context.Context, in *GetAuctionServerRequestFlagsRequest, opts ...grpc.CallOption) (*GetAuctionServerRequestFlagsResponse, error)
+	GetBiddingLogicUri(ctx context.Context, in *GetBiddingLogicUriRequest, opts ...grpc.CallOption) (*GetBiddingLogicUriResponse, error)
+	GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error)
+	GetComponentAds(ctx context.Context, in *GetComponentAdsRequest, opts ...grpc.CallOption) (*GetComponentAdsResponse, error)
+	GetDailyUpdateUri(ctx context.Context, in *GetDailyUpdateUriRequest, opts ...grpc.CallOption) (*GetDailyUpdateUriResponse, error)
+	GetExpirationTime(ctx context.Context, in *GetExpirationTimeRequest, opts ...grpc.CallOption) (*GetExpirationTimeResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetPriority(ctx context.Context, in *GetPriorityRequest, opts ...grpc.CallOption) (*GetPriorityResponse, error)
+	GetTrustedBiddingData(ctx context.Context, in *GetTrustedBiddingDataRequest, opts ...grpc.CallOption) (*GetTrustedBiddingDataResponse, error)
+	GetUserBiddingSignals(ctx context.Context, in *GetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*GetUserBiddingSignalsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type customAudienceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCustomAudienceServiceClient(cc grpc.ClientConnInterface) CustomAudienceServiceClient {
+	return &customAudienceServiceClient{cc}
+}
+
+func (c *customAudienceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetActivationTime(ctx context.Context, in *GetActivationTimeRequest, opts ...grpc.CallOption) (*GetActivationTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActivationTimeResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetActivationTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetAds(ctx context.Context, in *GetAdsRequest, opts ...grpc.CallOption) (*GetAdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdsResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetAds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetAuctionServerRequestFlags(ctx context.Context, in *GetAuctionServerRequestFlagsRequest, opts ...grpc.CallOption) (*GetAuctionServerRequestFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuctionServerRequestFlagsResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetAuctionServerRequestFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetBiddingLogicUri(ctx context.Context, in *GetBiddingLogicUriRequest, opts ...grpc.CallOption) (*GetBiddingLogicUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBiddingLogicUriResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetBiddingLogicUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBuyerResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetBuyer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetComponentAds(ctx context.Context, in *GetComponentAdsRequest, opts ...grpc.CallOption) (*GetComponentAdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetComponentAdsResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetComponentAds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetDailyUpdateUri(ctx context.Context, in *GetDailyUpdateUriRequest, opts ...grpc.CallOption) (*GetDailyUpdateUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDailyUpdateUriResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetDailyUpdateUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetExpirationTime(ctx context.Context, in *GetExpirationTimeRequest, opts ...grpc.CallOption) (*GetExpirationTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExpirationTimeResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetExpirationTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetPriority(ctx context.Context, in *GetPriorityRequest, opts ...grpc.CallOption) (*GetPriorityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPriorityResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetPriority_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetTrustedBiddingData(ctx context.Context, in *GetTrustedBiddingDataRequest, opts ...grpc.CallOption) (*GetTrustedBiddingDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrustedBiddingDataResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetTrustedBiddingData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) GetUserBiddingSignals(ctx context.Context, in *GetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*GetUserBiddingSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserBiddingSignalsResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_GetUserBiddingSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CustomAudienceServiceServer is the server API for CustomAudienceService service.
+// All implementations must embed UnimplementedCustomAudienceServiceServer
+// for forward compatibility.
+type CustomAudienceServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetActivationTime(context.Context, *GetActivationTimeRequest) (*GetActivationTimeResponse, error)
+	GetAds(context.Context, *GetAdsRequest) (*GetAdsResponse, error)
+	GetAuctionServerRequestFlags(context.Context, *GetAuctionServerRequestFlagsRequest) (*GetAuctionServerRequestFlagsResponse, error)
+	GetBiddingLogicUri(context.Context, *GetBiddingLogicUriRequest) (*GetBiddingLogicUriResponse, error)
+	GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error)
+	GetComponentAds(context.Context, *GetComponentAdsRequest) (*GetComponentAdsResponse, error)
+	GetDailyUpdateUri(context.Context, *GetDailyUpdateUriRequest) (*GetDailyUpdateUriResponse, error)
+	GetExpirationTime(context.Context, *GetExpirationTimeRequest) (*GetExpirationTimeResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetPriority(context.Context, *GetPriorityRequest) (*GetPriorityResponse, error)
+	GetTrustedBiddingData(context.Context, *GetTrustedBiddingDataRequest) (*GetTrustedBiddingDataResponse, error)
+	GetUserBiddingSignals(context.Context, *GetUserBiddingSignalsRequest) (*GetUserBiddingSignalsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCustomAudienceServiceServer()
+}
+
+// UnimplementedCustomAudienceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCustomAudienceServiceServer struct{}
+
+func (UnimplementedCustomAudienceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetActivationTime(context.Context, *GetActivationTimeRequest) (*GetActivationTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActivationTime not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetAds(context.Context, *GetAdsRequest) (*GetAdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAds not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetAuctionServerRequestFlags(context.Context, *GetAuctionServerRequestFlagsRequest) (*GetAuctionServerRequestFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuctionServerRequestFlags not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetBiddingLogicUri(context.Context, *GetBiddingLogicUriRequest) (*GetBiddingLogicUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBiddingLogicUri not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBuyer not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetComponentAds(context.Context, *GetComponentAdsRequest) (*GetComponentAdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetComponentAds not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetDailyUpdateUri(context.Context, *GetDailyUpdateUriRequest) (*GetDailyUpdateUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDailyUpdateUri not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetExpirationTime(context.Context, *GetExpirationTimeRequest) (*GetExpirationTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExpirationTime not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetPriority(context.Context, *GetPriorityRequest) (*GetPriorityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPriority not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetTrustedBiddingData(context.Context, *GetTrustedBiddingDataRequest) (*GetTrustedBiddingDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrustedBiddingData not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) GetUserBiddingSignals(context.Context, *GetUserBiddingSignalsRequest) (*GetUserBiddingSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserBiddingSignals not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCustomAudienceServiceServer) mustEmbedUnimplementedCustomAudienceServiceServer() {}
+func (UnimplementedCustomAudienceServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeCustomAudienceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CustomAudienceServiceServer will
+// result in compilation errors.
+type UnsafeCustomAudienceServiceServer interface {
+	mustEmbedUnimplementedCustomAudienceServiceServer()
+}
+
+func RegisterCustomAudienceServiceServer(s grpc.ServiceRegistrar, srv CustomAudienceServiceServer) {
+	// If the following call panics, it indicates UnimplementedCustomAudienceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CustomAudienceService_ServiceDesc, srv)
+}
+
+func _CustomAudienceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetActivationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivationTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetActivationTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetActivationTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetActivationTime(ctx, req.(*GetActivationTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetAds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetAds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetAds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetAds(ctx, req.(*GetAdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetAuctionServerRequestFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuctionServerRequestFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetAuctionServerRequestFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetAuctionServerRequestFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetAuctionServerRequestFlags(ctx, req.(*GetAuctionServerRequestFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetBiddingLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBiddingLogicUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetBiddingLogicUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetBiddingLogicUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetBiddingLogicUri(ctx, req.(*GetBiddingLogicUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBuyerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetBuyer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetBuyer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetBuyer(ctx, req.(*GetBuyerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetComponentAds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetComponentAdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetComponentAds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetComponentAds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetComponentAds(ctx, req.(*GetComponentAdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetDailyUpdateUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDailyUpdateUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetDailyUpdateUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetDailyUpdateUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetDailyUpdateUri(ctx, req.(*GetDailyUpdateUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetExpirationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpirationTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetExpirationTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetExpirationTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetExpirationTime(ctx, req.(*GetExpirationTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetPriority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPriorityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetPriority(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetPriority_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetPriority(ctx, req.(*GetPriorityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetTrustedBiddingData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrustedBiddingDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetTrustedBiddingData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetTrustedBiddingData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetTrustedBiddingData(ctx, req.(*GetTrustedBiddingDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_GetUserBiddingSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserBiddingSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).GetUserBiddingSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_GetUserBiddingSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).GetUserBiddingSignals(ctx, req.(*GetUserBiddingSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CustomAudienceService_ServiceDesc is the grpc.ServiceDesc for CustomAudienceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CustomAudienceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.CustomAudienceService",
+	HandlerType: (*CustomAudienceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CustomAudienceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _CustomAudienceService_Equals_Handler,
+		},
+		{
+			MethodName: "GetActivationTime",
+			Handler:    _CustomAudienceService_GetActivationTime_Handler,
+		},
+		{
+			MethodName: "GetAds",
+			Handler:    _CustomAudienceService_GetAds_Handler,
+		},
+		{
+			MethodName: "GetAuctionServerRequestFlags",
+			Handler:    _CustomAudienceService_GetAuctionServerRequestFlags_Handler,
+		},
+		{
+			MethodName: "GetBiddingLogicUri",
+			Handler:    _CustomAudienceService_GetBiddingLogicUri_Handler,
+		},
+		{
+			MethodName: "GetBuyer",
+			Handler:    _CustomAudienceService_GetBuyer_Handler,
+		},
+		{
+			MethodName: "GetComponentAds",
+			Handler:    _CustomAudienceService_GetComponentAds_Handler,
+		},
+		{
+			MethodName: "GetDailyUpdateUri",
+			Handler:    _CustomAudienceService_GetDailyUpdateUri_Handler,
+		},
+		{
+			MethodName: "GetExpirationTime",
+			Handler:    _CustomAudienceService_GetExpirationTime_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _CustomAudienceService_GetName_Handler,
+		},
+		{
+			MethodName: "GetPriority",
+			Handler:    _CustomAudienceService_GetPriority_Handler,
+		},
+		{
+			MethodName: "GetTrustedBiddingData",
+			Handler:    _CustomAudienceService_GetTrustedBiddingData_Handler,
+		},
+		{
+			MethodName: "GetUserBiddingSignals",
+			Handler:    _CustomAudienceService_GetUserBiddingSignals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _CustomAudienceService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CustomAudienceService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CustomAudienceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customaudience/customaudience.proto",
+}
+
+const (
+	CustomAudienceBuilderService_Build_FullMethodName                        = "/customaudience.CustomAudienceBuilderService/Build"
+	CustomAudienceBuilderService_SetActivationTime_FullMethodName            = "/customaudience.CustomAudienceBuilderService/SetActivationTime"
+	CustomAudienceBuilderService_SetAuctionServerRequestFlags_FullMethodName = "/customaudience.CustomAudienceBuilderService/SetAuctionServerRequestFlags"
+	CustomAudienceBuilderService_SetBiddingLogicUri_FullMethodName           = "/customaudience.CustomAudienceBuilderService/SetBiddingLogicUri"
+	CustomAudienceBuilderService_SetBuyer_FullMethodName                     = "/customaudience.CustomAudienceBuilderService/SetBuyer"
+	CustomAudienceBuilderService_SetDailyUpdateUri_FullMethodName            = "/customaudience.CustomAudienceBuilderService/SetDailyUpdateUri"
+	CustomAudienceBuilderService_SetExpirationTime_FullMethodName            = "/customaudience.CustomAudienceBuilderService/SetExpirationTime"
+	CustomAudienceBuilderService_SetName_FullMethodName                      = "/customaudience.CustomAudienceBuilderService/SetName"
+	CustomAudienceBuilderService_SetPriority_FullMethodName                  = "/customaudience.CustomAudienceBuilderService/SetPriority"
+	CustomAudienceBuilderService_SetTrustedBiddingData_FullMethodName        = "/customaudience.CustomAudienceBuilderService/SetTrustedBiddingData"
+	CustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName        = "/customaudience.CustomAudienceBuilderService/SetUserBiddingSignals"
+)
+
+// CustomAudienceBuilderServiceClient is the client API for CustomAudienceBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CustomAudienceBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetActivationTime(ctx context.Context, in *SetActivationTimeRequest, opts ...grpc.CallOption) (*SetActivationTimeResponse, error)
+	SetAuctionServerRequestFlags(ctx context.Context, in *SetAuctionServerRequestFlagsRequest, opts ...grpc.CallOption) (*SetAuctionServerRequestFlagsResponse, error)
+	SetBiddingLogicUri(ctx context.Context, in *SetBiddingLogicUriRequest, opts ...grpc.CallOption) (*SetBiddingLogicUriResponse, error)
+	SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error)
+	SetDailyUpdateUri(ctx context.Context, in *SetDailyUpdateUriRequest, opts ...grpc.CallOption) (*SetDailyUpdateUriResponse, error)
+	SetExpirationTime(ctx context.Context, in *SetExpirationTimeRequest, opts ...grpc.CallOption) (*SetExpirationTimeResponse, error)
+	SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error)
+	SetPriority(ctx context.Context, in *SetPriorityRequest, opts ...grpc.CallOption) (*SetPriorityResponse, error)
+	SetTrustedBiddingData(ctx context.Context, in *SetTrustedBiddingDataRequest, opts ...grpc.CallOption) (*SetTrustedBiddingDataResponse, error)
+	SetUserBiddingSignals(ctx context.Context, in *SetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*SetUserBiddingSignalsResponse, error)
+}
+
+type customAudienceBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCustomAudienceBuilderServiceClient(cc grpc.ClientConnInterface) CustomAudienceBuilderServiceClient {
+	return &customAudienceBuilderServiceClient{cc}
+}
+
+func (c *customAudienceBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetActivationTime(ctx context.Context, in *SetActivationTimeRequest, opts ...grpc.CallOption) (*SetActivationTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetActivationTimeResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetActivationTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetAuctionServerRequestFlags(ctx context.Context, in *SetAuctionServerRequestFlagsRequest, opts ...grpc.CallOption) (*SetAuctionServerRequestFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAuctionServerRequestFlagsResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetAuctionServerRequestFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetBiddingLogicUri(ctx context.Context, in *SetBiddingLogicUriRequest, opts ...grpc.CallOption) (*SetBiddingLogicUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBiddingLogicUriResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetBiddingLogicUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBuyerResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetBuyer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetDailyUpdateUri(ctx context.Context, in *SetDailyUpdateUriRequest, opts ...grpc.CallOption) (*SetDailyUpdateUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDailyUpdateUriResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetDailyUpdateUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetExpirationTime(ctx context.Context, in *SetExpirationTimeRequest, opts ...grpc.CallOption) (*SetExpirationTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExpirationTimeResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetExpirationTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNameResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetPriority(ctx context.Context, in *SetPriorityRequest, opts ...grpc.CallOption) (*SetPriorityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPriorityResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetPriority_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetTrustedBiddingData(ctx context.Context, in *SetTrustedBiddingDataRequest, opts ...grpc.CallOption) (*SetTrustedBiddingDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTrustedBiddingDataResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetTrustedBiddingData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customAudienceBuilderServiceClient) SetUserBiddingSignals(ctx context.Context, in *SetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*SetUserBiddingSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserBiddingSignalsResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CustomAudienceBuilderServiceServer is the server API for CustomAudienceBuilderService service.
+// All implementations must embed UnimplementedCustomAudienceBuilderServiceServer
+// for forward compatibility.
+type CustomAudienceBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetActivationTime(context.Context, *SetActivationTimeRequest) (*SetActivationTimeResponse, error)
+	SetAuctionServerRequestFlags(context.Context, *SetAuctionServerRequestFlagsRequest) (*SetAuctionServerRequestFlagsResponse, error)
+	SetBiddingLogicUri(context.Context, *SetBiddingLogicUriRequest) (*SetBiddingLogicUriResponse, error)
+	SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error)
+	SetDailyUpdateUri(context.Context, *SetDailyUpdateUriRequest) (*SetDailyUpdateUriResponse, error)
+	SetExpirationTime(context.Context, *SetExpirationTimeRequest) (*SetExpirationTimeResponse, error)
+	SetName(context.Context, *SetNameRequest) (*SetNameResponse, error)
+	SetPriority(context.Context, *SetPriorityRequest) (*SetPriorityResponse, error)
+	SetTrustedBiddingData(context.Context, *SetTrustedBiddingDataRequest) (*SetTrustedBiddingDataResponse, error)
+	SetUserBiddingSignals(context.Context, *SetUserBiddingSignalsRequest) (*SetUserBiddingSignalsResponse, error)
+	mustEmbedUnimplementedCustomAudienceBuilderServiceServer()
+}
+
+// UnimplementedCustomAudienceBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCustomAudienceBuilderServiceServer struct{}
+
+func (UnimplementedCustomAudienceBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetActivationTime(context.Context, *SetActivationTimeRequest) (*SetActivationTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetActivationTime not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetAuctionServerRequestFlags(context.Context, *SetAuctionServerRequestFlagsRequest) (*SetAuctionServerRequestFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAuctionServerRequestFlags not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetBiddingLogicUri(context.Context, *SetBiddingLogicUriRequest) (*SetBiddingLogicUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBiddingLogicUri not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBuyer not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetDailyUpdateUri(context.Context, *SetDailyUpdateUriRequest) (*SetDailyUpdateUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDailyUpdateUri not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetExpirationTime(context.Context, *SetExpirationTimeRequest) (*SetExpirationTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExpirationTime not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetName(context.Context, *SetNameRequest) (*SetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetName not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetPriority(context.Context, *SetPriorityRequest) (*SetPriorityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPriority not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetTrustedBiddingData(context.Context, *SetTrustedBiddingDataRequest) (*SetTrustedBiddingDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTrustedBiddingData not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) SetUserBiddingSignals(context.Context, *SetUserBiddingSignalsRequest) (*SetUserBiddingSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserBiddingSignals not implemented")
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) mustEmbedUnimplementedCustomAudienceBuilderServiceServer() {
+}
+func (UnimplementedCustomAudienceBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCustomAudienceBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CustomAudienceBuilderServiceServer will
+// result in compilation errors.
+type UnsafeCustomAudienceBuilderServiceServer interface {
+	mustEmbedUnimplementedCustomAudienceBuilderServiceServer()
+}
+
+func RegisterCustomAudienceBuilderServiceServer(s grpc.ServiceRegistrar, srv CustomAudienceBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedCustomAudienceBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CustomAudienceBuilderService_ServiceDesc, srv)
+}
+
+func _CustomAudienceBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetActivationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetActivationTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetActivationTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetActivationTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetActivationTime(ctx, req.(*SetActivationTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetAuctionServerRequestFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAuctionServerRequestFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetAuctionServerRequestFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetAuctionServerRequestFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetAuctionServerRequestFlags(ctx, req.(*SetAuctionServerRequestFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetBiddingLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBiddingLogicUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetBiddingLogicUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetBiddingLogicUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetBiddingLogicUri(ctx, req.(*SetBiddingLogicUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBuyerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetBuyer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetBuyer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetBuyer(ctx, req.(*SetBuyerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetDailyUpdateUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDailyUpdateUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetDailyUpdateUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetDailyUpdateUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetDailyUpdateUri(ctx, req.(*SetDailyUpdateUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetExpirationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExpirationTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetExpirationTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetExpirationTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetExpirationTime(ctx, req.(*SetExpirationTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetName(ctx, req.(*SetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetPriority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPriorityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetPriority(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetPriority_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetPriority(ctx, req.(*SetPriorityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetTrustedBiddingData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTrustedBiddingDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetTrustedBiddingData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetTrustedBiddingData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetTrustedBiddingData(ctx, req.(*SetTrustedBiddingDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomAudienceBuilderService_SetUserBiddingSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserBiddingSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomAudienceBuilderServiceServer).SetUserBiddingSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomAudienceBuilderServiceServer).SetUserBiddingSignals(ctx, req.(*SetUserBiddingSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CustomAudienceBuilderService_ServiceDesc is the grpc.ServiceDesc for CustomAudienceBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CustomAudienceBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.CustomAudienceBuilderService",
+	HandlerType: (*CustomAudienceBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _CustomAudienceBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetActivationTime",
+			Handler:    _CustomAudienceBuilderService_SetActivationTime_Handler,
+		},
+		{
+			MethodName: "SetAuctionServerRequestFlags",
+			Handler:    _CustomAudienceBuilderService_SetAuctionServerRequestFlags_Handler,
+		},
+		{
+			MethodName: "SetBiddingLogicUri",
+			Handler:    _CustomAudienceBuilderService_SetBiddingLogicUri_Handler,
+		},
+		{
+			MethodName: "SetBuyer",
+			Handler:    _CustomAudienceBuilderService_SetBuyer_Handler,
+		},
+		{
+			MethodName: "SetDailyUpdateUri",
+			Handler:    _CustomAudienceBuilderService_SetDailyUpdateUri_Handler,
+		},
+		{
+			MethodName: "SetExpirationTime",
+			Handler:    _CustomAudienceBuilderService_SetExpirationTime_Handler,
+		},
+		{
+			MethodName: "SetName",
+			Handler:    _CustomAudienceBuilderService_SetName_Handler,
+		},
+		{
+			MethodName: "SetPriority",
+			Handler:    _CustomAudienceBuilderService_SetPriority_Handler,
+		},
+		{
+			MethodName: "SetTrustedBiddingData",
+			Handler:    _CustomAudienceBuilderService_SetTrustedBiddingData_Handler,
+		},
+		{
+			MethodName: "SetUserBiddingSignals",
+			Handler:    _CustomAudienceBuilderService_SetUserBiddingSignals_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customaudience/customaudience.proto",
+}
+
+const (
+	RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_FullMethodName = "/customaudience.RemoveCustomAudienceOverrideRequestService/NewRemoveCustomAudienceOverrideRequest"
+	RemoveCustomAudienceOverrideRequestService_GetBuyer_FullMethodName                               = "/customaudience.RemoveCustomAudienceOverrideRequestService/GetBuyer"
+	RemoveCustomAudienceOverrideRequestService_GetName_FullMethodName                                = "/customaudience.RemoveCustomAudienceOverrideRequestService/GetName"
+)
+
+// RemoveCustomAudienceOverrideRequestServiceClient is the client API for RemoveCustomAudienceOverrideRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RemoveCustomAudienceOverrideRequestServiceClient interface {
+	NewRemoveCustomAudienceOverrideRequest(ctx context.Context, in *NewRemoveCustomAudienceOverrideRequestRequest, opts ...grpc.CallOption) (*NewRemoveCustomAudienceOverrideRequestResponse, error)
+	GetBuyer(ctx context.Context, in *RemoveCustomAudienceOverrideRequestGetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error)
+	GetName(ctx context.Context, in *RemoveCustomAudienceOverrideRequestGetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+}
+
+type removeCustomAudienceOverrideRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRemoveCustomAudienceOverrideRequestServiceClient(cc grpc.ClientConnInterface) RemoveCustomAudienceOverrideRequestServiceClient {
+	return &removeCustomAudienceOverrideRequestServiceClient{cc}
+}
+
+func (c *removeCustomAudienceOverrideRequestServiceClient) NewRemoveCustomAudienceOverrideRequest(ctx context.Context, in *NewRemoveCustomAudienceOverrideRequestRequest, opts ...grpc.CallOption) (*NewRemoveCustomAudienceOverrideRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRemoveCustomAudienceOverrideRequestResponse)
+	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *removeCustomAudienceOverrideRequestServiceClient) GetBuyer(ctx context.Context, in *RemoveCustomAudienceOverrideRequestGetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBuyerResponse)
+	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestService_GetBuyer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *removeCustomAudienceOverrideRequestServiceClient) GetName(ctx context.Context, in *RemoveCustomAudienceOverrideRequestGetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RemoveCustomAudienceOverrideRequestServiceServer is the server API for RemoveCustomAudienceOverrideRequestService service.
+// All implementations must embed UnimplementedRemoveCustomAudienceOverrideRequestServiceServer
+// for forward compatibility.
+type RemoveCustomAudienceOverrideRequestServiceServer interface {
+	NewRemoveCustomAudienceOverrideRequest(context.Context, *NewRemoveCustomAudienceOverrideRequestRequest) (*NewRemoveCustomAudienceOverrideRequestResponse, error)
+	GetBuyer(context.Context, *RemoveCustomAudienceOverrideRequestGetBuyerRequest) (*GetBuyerResponse, error)
+	GetName(context.Context, *RemoveCustomAudienceOverrideRequestGetNameRequest) (*GetNameResponse, error)
+	mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestServiceServer()
+}
+
+// UnimplementedRemoveCustomAudienceOverrideRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRemoveCustomAudienceOverrideRequestServiceServer struct{}
+
+func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) NewRemoveCustomAudienceOverrideRequest(context.Context, *NewRemoveCustomAudienceOverrideRequestRequest) (*NewRemoveCustomAudienceOverrideRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRemoveCustomAudienceOverrideRequest not implemented")
+}
+func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) GetBuyer(context.Context, *RemoveCustomAudienceOverrideRequestGetBuyerRequest) (*GetBuyerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBuyer not implemented")
+}
+func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) GetName(context.Context, *RemoveCustomAudienceOverrideRequestGetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestServiceServer() {
+}
+func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRemoveCustomAudienceOverrideRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RemoveCustomAudienceOverrideRequestServiceServer will
+// result in compilation errors.
+type UnsafeRemoveCustomAudienceOverrideRequestServiceServer interface {
+	mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestServiceServer()
+}
+
+func RegisterRemoveCustomAudienceOverrideRequestServiceServer(s grpc.ServiceRegistrar, srv RemoveCustomAudienceOverrideRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedRemoveCustomAudienceOverrideRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RemoveCustomAudienceOverrideRequestService_ServiceDesc, srv)
+}
+
+func _RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRemoveCustomAudienceOverrideRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).NewRemoveCustomAudienceOverrideRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).NewRemoveCustomAudienceOverrideRequest(ctx, req.(*NewRemoveCustomAudienceOverrideRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RemoveCustomAudienceOverrideRequestService_GetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveCustomAudienceOverrideRequestGetBuyerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).GetBuyer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoveCustomAudienceOverrideRequestService_GetBuyer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).GetBuyer(ctx, req.(*RemoveCustomAudienceOverrideRequestGetBuyerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RemoveCustomAudienceOverrideRequestService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveCustomAudienceOverrideRequestGetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoveCustomAudienceOverrideRequestService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).GetName(ctx, req.(*RemoveCustomAudienceOverrideRequestGetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RemoveCustomAudienceOverrideRequestService_ServiceDesc is the grpc.ServiceDesc for RemoveCustomAudienceOverrideRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RemoveCustomAudienceOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.RemoveCustomAudienceOverrideRequestService",
+	HandlerType: (*RemoveCustomAudienceOverrideRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRemoveCustomAudienceOverrideRequest",
+			Handler:    _RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_Handler,
+		},
+		{
+			MethodName: "GetBuyer",
+			Handler:    _RemoveCustomAudienceOverrideRequestService_GetBuyer_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _RemoveCustomAudienceOverrideRequestService_GetName_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customaudience/customaudience.proto",
+}
+
+const (
+	RemoveCustomAudienceOverrideRequestBuilderService_Build_FullMethodName    = "/customaudience.RemoveCustomAudienceOverrideRequestBuilderService/Build"
+	RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_FullMethodName = "/customaudience.RemoveCustomAudienceOverrideRequestBuilderService/SetBuyer"
+	RemoveCustomAudienceOverrideRequestBuilderService_SetName_FullMethodName  = "/customaudience.RemoveCustomAudienceOverrideRequestBuilderService/SetName"
+)
+
+// RemoveCustomAudienceOverrideRequestBuilderServiceClient is the client API for RemoveCustomAudienceOverrideRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RemoveCustomAudienceOverrideRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error)
+	SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error)
+}
+
+type removeCustomAudienceOverrideRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(cc grpc.ClientConnInterface) RemoveCustomAudienceOverrideRequestBuilderServiceClient {
+	return &removeCustomAudienceOverrideRequestBuilderServiceClient{cc}
+}
+
+func (c *removeCustomAudienceOverrideRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *removeCustomAudienceOverrideRequestBuilderServiceClient) SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBuyerResponse)
+	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *removeCustomAudienceOverrideRequestBuilderServiceClient) SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNameResponse)
+	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestBuilderService_SetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RemoveCustomAudienceOverrideRequestBuilderServiceServer is the server API for RemoveCustomAudienceOverrideRequestBuilderService service.
+// All implementations must embed UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer
+// for forward compatibility.
+type RemoveCustomAudienceOverrideRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error)
+	SetName(context.Context, *SetNameRequest) (*SetNameResponse, error)
+	mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer()
+}
+
+// UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer struct{}
+
+func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBuyer not implemented")
+}
+func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) SetName(context.Context, *SetNameRequest) (*SetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetName not implemented")
+}
+func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer() {
+}
+func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRemoveCustomAudienceOverrideRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RemoveCustomAudienceOverrideRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeRemoveCustomAudienceOverrideRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer()
+}
+
+func RegisterRemoveCustomAudienceOverrideRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv RemoveCustomAudienceOverrideRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RemoveCustomAudienceOverrideRequestBuilderService_ServiceDesc, srv)
+}
+
+func _RemoveCustomAudienceOverrideRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoveCustomAudienceOverrideRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBuyerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).SetBuyer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).SetBuyer(ctx, req.(*SetBuyerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RemoveCustomAudienceOverrideRequestBuilderService_SetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).SetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoveCustomAudienceOverrideRequestBuilderService_SetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).SetName(ctx, req.(*SetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RemoveCustomAudienceOverrideRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for RemoveCustomAudienceOverrideRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RemoveCustomAudienceOverrideRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.RemoveCustomAudienceOverrideRequestBuilderService",
+	HandlerType: (*RemoveCustomAudienceOverrideRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _RemoveCustomAudienceOverrideRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetBuyer",
+			Handler:    _RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_Handler,
+		},
+		{
+			MethodName: "SetName",
+			Handler:    _RemoveCustomAudienceOverrideRequestBuilderService_SetName_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customaudience/customaudience.proto",
+}
+
+const (
+	PartialCustomAudienceService_DescribeContents_FullMethodName      = "/customaudience.PartialCustomAudienceService/DescribeContents"
+	PartialCustomAudienceService_Equals_FullMethodName                = "/customaudience.PartialCustomAudienceService/Equals"
+	PartialCustomAudienceService_GetActivationTime_FullMethodName     = "/customaudience.PartialCustomAudienceService/GetActivationTime"
+	PartialCustomAudienceService_GetExpirationTime_FullMethodName     = "/customaudience.PartialCustomAudienceService/GetExpirationTime"
+	PartialCustomAudienceService_GetName_FullMethodName               = "/customaudience.PartialCustomAudienceService/GetName"
+	PartialCustomAudienceService_GetUserBiddingSignals_FullMethodName = "/customaudience.PartialCustomAudienceService/GetUserBiddingSignals"
+	PartialCustomAudienceService_HashCode_FullMethodName              = "/customaudience.PartialCustomAudienceService/HashCode"
+	PartialCustomAudienceService_ToString_FullMethodName              = "/customaudience.PartialCustomAudienceService/ToString"
+	PartialCustomAudienceService_WriteToParcel_FullMethodName         = "/customaudience.PartialCustomAudienceService/WriteToParcel"
+)
+
+// PartialCustomAudienceServiceClient is the client API for PartialCustomAudienceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PartialCustomAudienceServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetActivationTime(ctx context.Context, in *GetActivationTimeRequest, opts ...grpc.CallOption) (*GetActivationTimeResponse, error)
+	GetExpirationTime(ctx context.Context, in *GetExpirationTimeRequest, opts ...grpc.CallOption) (*GetExpirationTimeResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetUserBiddingSignals(ctx context.Context, in *GetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*GetUserBiddingSignalsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type partialCustomAudienceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPartialCustomAudienceServiceClient(cc grpc.ClientConnInterface) PartialCustomAudienceServiceClient {
+	return &partialCustomAudienceServiceClient{cc}
+}
+
+func (c *partialCustomAudienceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceServiceClient) GetActivationTime(ctx context.Context, in *GetActivationTimeRequest, opts ...grpc.CallOption) (*GetActivationTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActivationTimeResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_GetActivationTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceServiceClient) GetExpirationTime(ctx context.Context, in *GetExpirationTimeRequest, opts ...grpc.CallOption) (*GetExpirationTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExpirationTimeResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_GetExpirationTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceServiceClient) GetUserBiddingSignals(ctx context.Context, in *GetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*GetUserBiddingSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserBiddingSignalsResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_GetUserBiddingSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PartialCustomAudienceServiceServer is the server API for PartialCustomAudienceService service.
+// All implementations must embed UnimplementedPartialCustomAudienceServiceServer
+// for forward compatibility.
+type PartialCustomAudienceServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetActivationTime(context.Context, *GetActivationTimeRequest) (*GetActivationTimeResponse, error)
+	GetExpirationTime(context.Context, *GetExpirationTimeRequest) (*GetExpirationTimeResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetUserBiddingSignals(context.Context, *GetUserBiddingSignalsRequest) (*GetUserBiddingSignalsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPartialCustomAudienceServiceServer()
+}
+
+// UnimplementedPartialCustomAudienceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPartialCustomAudienceServiceServer struct{}
+
+func (UnimplementedPartialCustomAudienceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) GetActivationTime(context.Context, *GetActivationTimeRequest) (*GetActivationTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActivationTime not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) GetExpirationTime(context.Context, *GetExpirationTimeRequest) (*GetExpirationTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExpirationTime not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) GetUserBiddingSignals(context.Context, *GetUserBiddingSignalsRequest) (*GetUserBiddingSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserBiddingSignals not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPartialCustomAudienceServiceServer) mustEmbedUnimplementedPartialCustomAudienceServiceServer() {
+}
+func (UnimplementedPartialCustomAudienceServiceServer) testEmbeddedByValue() {}
+
+// UnsafePartialCustomAudienceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PartialCustomAudienceServiceServer will
+// result in compilation errors.
+type UnsafePartialCustomAudienceServiceServer interface {
+	mustEmbedUnimplementedPartialCustomAudienceServiceServer()
+}
+
+func RegisterPartialCustomAudienceServiceServer(s grpc.ServiceRegistrar, srv PartialCustomAudienceServiceServer) {
+	// If the following call panics, it indicates UnimplementedPartialCustomAudienceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PartialCustomAudienceService_ServiceDesc, srv)
+}
+
+func _PartialCustomAudienceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceService_GetActivationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivationTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).GetActivationTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_GetActivationTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).GetActivationTime(ctx, req.(*GetActivationTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceService_GetExpirationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpirationTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).GetExpirationTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_GetExpirationTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).GetExpirationTime(ctx, req.(*GetExpirationTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceService_GetUserBiddingSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserBiddingSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).GetUserBiddingSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_GetUserBiddingSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).GetUserBiddingSignals(ctx, req.(*GetUserBiddingSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PartialCustomAudienceService_ServiceDesc is the grpc.ServiceDesc for PartialCustomAudienceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PartialCustomAudienceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.PartialCustomAudienceService",
+	HandlerType: (*PartialCustomAudienceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PartialCustomAudienceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PartialCustomAudienceService_Equals_Handler,
+		},
+		{
+			MethodName: "GetActivationTime",
+			Handler:    _PartialCustomAudienceService_GetActivationTime_Handler,
+		},
+		{
+			MethodName: "GetExpirationTime",
+			Handler:    _PartialCustomAudienceService_GetExpirationTime_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _PartialCustomAudienceService_GetName_Handler,
+		},
+		{
+			MethodName: "GetUserBiddingSignals",
+			Handler:    _PartialCustomAudienceService_GetUserBiddingSignals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PartialCustomAudienceService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PartialCustomAudienceService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PartialCustomAudienceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customaudience/customaudience.proto",
+}
+
+const (
+	PartialCustomAudienceBuilderService_Build_FullMethodName                 = "/customaudience.PartialCustomAudienceBuilderService/Build"
+	PartialCustomAudienceBuilderService_SetActivationTime_FullMethodName     = "/customaudience.PartialCustomAudienceBuilderService/SetActivationTime"
+	PartialCustomAudienceBuilderService_SetExpirationTime_FullMethodName     = "/customaudience.PartialCustomAudienceBuilderService/SetExpirationTime"
+	PartialCustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName = "/customaudience.PartialCustomAudienceBuilderService/SetUserBiddingSignals"
+)
+
+// PartialCustomAudienceBuilderServiceClient is the client API for PartialCustomAudienceBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PartialCustomAudienceBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetActivationTime(ctx context.Context, in *SetActivationTimeRequest, opts ...grpc.CallOption) (*SetActivationTimeResponse, error)
+	SetExpirationTime(ctx context.Context, in *SetExpirationTimeRequest, opts ...grpc.CallOption) (*SetExpirationTimeResponse, error)
+	SetUserBiddingSignals(ctx context.Context, in *SetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*SetUserBiddingSignalsResponse, error)
+}
+
+type partialCustomAudienceBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPartialCustomAudienceBuilderServiceClient(cc grpc.ClientConnInterface) PartialCustomAudienceBuilderServiceClient {
+	return &partialCustomAudienceBuilderServiceClient{cc}
+}
+
+func (c *partialCustomAudienceBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceBuilderServiceClient) SetActivationTime(ctx context.Context, in *SetActivationTimeRequest, opts ...grpc.CallOption) (*SetActivationTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetActivationTimeResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceBuilderService_SetActivationTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceBuilderServiceClient) SetExpirationTime(ctx context.Context, in *SetExpirationTimeRequest, opts ...grpc.CallOption) (*SetExpirationTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExpirationTimeResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceBuilderService_SetExpirationTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partialCustomAudienceBuilderServiceClient) SetUserBiddingSignals(ctx context.Context, in *SetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*SetUserBiddingSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserBiddingSignalsResponse)
+	err := c.cc.Invoke(ctx, PartialCustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PartialCustomAudienceBuilderServiceServer is the server API for PartialCustomAudienceBuilderService service.
+// All implementations must embed UnimplementedPartialCustomAudienceBuilderServiceServer
+// for forward compatibility.
+type PartialCustomAudienceBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetActivationTime(context.Context, *SetActivationTimeRequest) (*SetActivationTimeResponse, error)
+	SetExpirationTime(context.Context, *SetExpirationTimeRequest) (*SetExpirationTimeResponse, error)
+	SetUserBiddingSignals(context.Context, *SetUserBiddingSignalsRequest) (*SetUserBiddingSignalsResponse, error)
+	mustEmbedUnimplementedPartialCustomAudienceBuilderServiceServer()
+}
+
+// UnimplementedPartialCustomAudienceBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPartialCustomAudienceBuilderServiceServer struct{}
+
+func (UnimplementedPartialCustomAudienceBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPartialCustomAudienceBuilderServiceServer) SetActivationTime(context.Context, *SetActivationTimeRequest) (*SetActivationTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetActivationTime not implemented")
+}
+func (UnimplementedPartialCustomAudienceBuilderServiceServer) SetExpirationTime(context.Context, *SetExpirationTimeRequest) (*SetExpirationTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExpirationTime not implemented")
+}
+func (UnimplementedPartialCustomAudienceBuilderServiceServer) SetUserBiddingSignals(context.Context, *SetUserBiddingSignalsRequest) (*SetUserBiddingSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserBiddingSignals not implemented")
+}
+func (UnimplementedPartialCustomAudienceBuilderServiceServer) mustEmbedUnimplementedPartialCustomAudienceBuilderServiceServer() {
+}
+func (UnimplementedPartialCustomAudienceBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePartialCustomAudienceBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PartialCustomAudienceBuilderServiceServer will
+// result in compilation errors.
+type UnsafePartialCustomAudienceBuilderServiceServer interface {
+	mustEmbedUnimplementedPartialCustomAudienceBuilderServiceServer()
+}
+
+func RegisterPartialCustomAudienceBuilderServiceServer(s grpc.ServiceRegistrar, srv PartialCustomAudienceBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPartialCustomAudienceBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PartialCustomAudienceBuilderService_ServiceDesc, srv)
+}
+
+func _PartialCustomAudienceBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceBuilderService_SetActivationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetActivationTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceBuilderServiceServer).SetActivationTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceBuilderService_SetActivationTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceBuilderServiceServer).SetActivationTime(ctx, req.(*SetActivationTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceBuilderService_SetExpirationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExpirationTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceBuilderServiceServer).SetExpirationTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceBuilderService_SetExpirationTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceBuilderServiceServer).SetExpirationTime(ctx, req.(*SetExpirationTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartialCustomAudienceBuilderService_SetUserBiddingSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserBiddingSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartialCustomAudienceBuilderServiceServer).SetUserBiddingSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartialCustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartialCustomAudienceBuilderServiceServer).SetUserBiddingSignals(ctx, req.(*SetUserBiddingSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PartialCustomAudienceBuilderService_ServiceDesc is the grpc.ServiceDesc for PartialCustomAudienceBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PartialCustomAudienceBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.PartialCustomAudienceBuilderService",
+	HandlerType: (*PartialCustomAudienceBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PartialCustomAudienceBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetActivationTime",
+			Handler:    _PartialCustomAudienceBuilderService_SetActivationTime_Handler,
+		},
+		{
+			MethodName: "SetExpirationTime",
+			Handler:    _PartialCustomAudienceBuilderService_SetExpirationTime_Handler,
+		},
+		{
+			MethodName: "SetUserBiddingSignals",
+			Handler:    _PartialCustomAudienceBuilderService_SetUserBiddingSignals_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customaudience/customaudience.proto",
+}
+
+const (
+	ScheduleCustomAudienceUpdateRequestService_Equals_FullMethodName                       = "/customaudience.ScheduleCustomAudienceUpdateRequestService/Equals"
+	ScheduleCustomAudienceUpdateRequestService_GetMinDelay_FullMethodName                  = "/customaudience.ScheduleCustomAudienceUpdateRequestService/GetMinDelay"
+	ScheduleCustomAudienceUpdateRequestService_GetPartialCustomAudienceList_FullMethodName = "/customaudience.ScheduleCustomAudienceUpdateRequestService/GetPartialCustomAudienceList"
+	ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_FullMethodName                 = "/customaudience.ScheduleCustomAudienceUpdateRequestService/GetUpdateUri"
+	ScheduleCustomAudienceUpdateRequestService_HashCode_FullMethodName                     = "/customaudience.ScheduleCustomAudienceUpdateRequestService/HashCode"
+	ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_FullMethodName  = "/customaudience.ScheduleCustomAudienceUpdateRequestService/ShouldReplacePendingUpdates"
+	ScheduleCustomAudienceUpdateRequestService_ToString_FullMethodName                     = "/customaudience.ScheduleCustomAudienceUpdateRequestService/ToString"
+)
+
+// ScheduleCustomAudienceUpdateRequestServiceClient is the client API for ScheduleCustomAudienceUpdateRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ScheduleCustomAudienceUpdateRequestServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMinDelay(ctx context.Context, in *GetMinDelayRequest, opts ...grpc.CallOption) (*GetMinDelayResponse, error)
+	GetPartialCustomAudienceList(ctx context.Context, in *GetPartialCustomAudienceListRequest, opts ...grpc.CallOption) (*GetPartialCustomAudienceListResponse, error)
+	GetUpdateUri(ctx context.Context, in *GetUpdateUriRequest, opts ...grpc.CallOption) (*GetUpdateUriResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ShouldReplacePendingUpdates(ctx context.Context, in *ShouldReplacePendingUpdatesRequest, opts ...grpc.CallOption) (*ShouldReplacePendingUpdatesResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type scheduleCustomAudienceUpdateRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewScheduleCustomAudienceUpdateRequestServiceClient(cc grpc.ClientConnInterface) ScheduleCustomAudienceUpdateRequestServiceClient {
+	return &scheduleCustomAudienceUpdateRequestServiceClient{cc}
+}
+
+func (c *scheduleCustomAudienceUpdateRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestServiceClient) GetMinDelay(ctx context.Context, in *GetMinDelayRequest, opts ...grpc.CallOption) (*GetMinDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinDelayResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_GetMinDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestServiceClient) GetPartialCustomAudienceList(ctx context.Context, in *GetPartialCustomAudienceListRequest, opts ...grpc.CallOption) (*GetPartialCustomAudienceListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPartialCustomAudienceListResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_GetPartialCustomAudienceList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestServiceClient) GetUpdateUri(ctx context.Context, in *GetUpdateUriRequest, opts ...grpc.CallOption) (*GetUpdateUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUpdateUriResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestServiceClient) ShouldReplacePendingUpdates(ctx context.Context, in *ShouldReplacePendingUpdatesRequest, opts ...grpc.CallOption) (*ShouldReplacePendingUpdatesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShouldReplacePendingUpdatesResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ScheduleCustomAudienceUpdateRequestServiceServer is the server API for ScheduleCustomAudienceUpdateRequestService service.
+// All implementations must embed UnimplementedScheduleCustomAudienceUpdateRequestServiceServer
+// for forward compatibility.
+type ScheduleCustomAudienceUpdateRequestServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetMinDelay(context.Context, *GetMinDelayRequest) (*GetMinDelayResponse, error)
+	GetPartialCustomAudienceList(context.Context, *GetPartialCustomAudienceListRequest) (*GetPartialCustomAudienceListResponse, error)
+	GetUpdateUri(context.Context, *GetUpdateUriRequest) (*GetUpdateUriResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ShouldReplacePendingUpdates(context.Context, *ShouldReplacePendingUpdatesRequest) (*ShouldReplacePendingUpdatesResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestServiceServer()
+}
+
+// UnimplementedScheduleCustomAudienceUpdateRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedScheduleCustomAudienceUpdateRequestServiceServer struct{}
+
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) GetMinDelay(context.Context, *GetMinDelayRequest) (*GetMinDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinDelay not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) GetPartialCustomAudienceList(context.Context, *GetPartialCustomAudienceListRequest) (*GetPartialCustomAudienceListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPartialCustomAudienceList not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) GetUpdateUri(context.Context, *GetUpdateUriRequest) (*GetUpdateUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUpdateUri not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) ShouldReplacePendingUpdates(context.Context, *ShouldReplacePendingUpdatesRequest) (*ShouldReplacePendingUpdatesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldReplacePendingUpdates not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestServiceServer() {
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeScheduleCustomAudienceUpdateRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ScheduleCustomAudienceUpdateRequestServiceServer will
+// result in compilation errors.
+type UnsafeScheduleCustomAudienceUpdateRequestServiceServer interface {
+	mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestServiceServer()
+}
+
+func RegisterScheduleCustomAudienceUpdateRequestServiceServer(s grpc.ServiceRegistrar, srv ScheduleCustomAudienceUpdateRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedScheduleCustomAudienceUpdateRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ScheduleCustomAudienceUpdateRequestService_ServiceDesc, srv)
+}
+
+func _ScheduleCustomAudienceUpdateRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestService_GetMinDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetMinDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestService_GetMinDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetMinDelay(ctx, req.(*GetMinDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestService_GetPartialCustomAudienceList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPartialCustomAudienceListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetPartialCustomAudienceList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestService_GetPartialCustomAudienceList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetPartialCustomAudienceList(ctx, req.(*GetPartialCustomAudienceListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUpdateUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetUpdateUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetUpdateUri(ctx, req.(*GetUpdateUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldReplacePendingUpdatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).ShouldReplacePendingUpdates(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).ShouldReplacePendingUpdates(ctx, req.(*ShouldReplacePendingUpdatesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ScheduleCustomAudienceUpdateRequestService_ServiceDesc is the grpc.ServiceDesc for ScheduleCustomAudienceUpdateRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ScheduleCustomAudienceUpdateRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.ScheduleCustomAudienceUpdateRequestService",
+	HandlerType: (*ScheduleCustomAudienceUpdateRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _ScheduleCustomAudienceUpdateRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetMinDelay",
+			Handler:    _ScheduleCustomAudienceUpdateRequestService_GetMinDelay_Handler,
+		},
+		{
+			MethodName: "GetPartialCustomAudienceList",
+			Handler:    _ScheduleCustomAudienceUpdateRequestService_GetPartialCustomAudienceList_Handler,
+		},
+		{
+			MethodName: "GetUpdateUri",
+			Handler:    _ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ScheduleCustomAudienceUpdateRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "ShouldReplacePendingUpdates",
+			Handler:    _ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ScheduleCustomAudienceUpdateRequestService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customaudience/customaudience.proto",
+}
+
+const (
+	ScheduleCustomAudienceUpdateRequestBuilderService_Build_FullMethodName                          = "/customaudience.ScheduleCustomAudienceUpdateRequestBuilderService/Build"
+	ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_FullMethodName                    = "/customaudience.ScheduleCustomAudienceUpdateRequestBuilderService/SetMinDelay"
+	ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_FullMethodName = "/customaudience.ScheduleCustomAudienceUpdateRequestBuilderService/SetShouldReplacePendingUpdates"
+	ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_FullMethodName                   = "/customaudience.ScheduleCustomAudienceUpdateRequestBuilderService/SetUpdateUri"
+)
+
+// ScheduleCustomAudienceUpdateRequestBuilderServiceClient is the client API for ScheduleCustomAudienceUpdateRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ScheduleCustomAudienceUpdateRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetMinDelay(ctx context.Context, in *SetMinDelayRequest, opts ...grpc.CallOption) (*SetMinDelayResponse, error)
+	SetShouldReplacePendingUpdates(ctx context.Context, in *SetShouldReplacePendingUpdatesRequest, opts ...grpc.CallOption) (*SetShouldReplacePendingUpdatesResponse, error)
+	SetUpdateUri(ctx context.Context, in *SetUpdateUriRequest, opts ...grpc.CallOption) (*SetUpdateUriResponse, error)
+}
+
+type scheduleCustomAudienceUpdateRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(cc grpc.ClientConnInterface) ScheduleCustomAudienceUpdateRequestBuilderServiceClient {
+	return &scheduleCustomAudienceUpdateRequestBuilderServiceClient{cc}
+}
+
+func (c *scheduleCustomAudienceUpdateRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestBuilderServiceClient) SetMinDelay(ctx context.Context, in *SetMinDelayRequest, opts ...grpc.CallOption) (*SetMinDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinDelayResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestBuilderServiceClient) SetShouldReplacePendingUpdates(ctx context.Context, in *SetShouldReplacePendingUpdatesRequest, opts ...grpc.CallOption) (*SetShouldReplacePendingUpdatesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShouldReplacePendingUpdatesResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleCustomAudienceUpdateRequestBuilderServiceClient) SetUpdateUri(ctx context.Context, in *SetUpdateUriRequest, opts ...grpc.CallOption) (*SetUpdateUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUpdateUriResponse)
+	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ScheduleCustomAudienceUpdateRequestBuilderServiceServer is the server API for ScheduleCustomAudienceUpdateRequestBuilderService service.
+// All implementations must embed UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer
+// for forward compatibility.
+type ScheduleCustomAudienceUpdateRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetMinDelay(context.Context, *SetMinDelayRequest) (*SetMinDelayResponse, error)
+	SetShouldReplacePendingUpdates(context.Context, *SetShouldReplacePendingUpdatesRequest) (*SetShouldReplacePendingUpdatesResponse, error)
+	SetUpdateUri(context.Context, *SetUpdateUriRequest) (*SetUpdateUriResponse, error)
+	mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer()
+}
+
+// UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer struct{}
+
+func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) SetMinDelay(context.Context, *SetMinDelayRequest) (*SetMinDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinDelay not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) SetShouldReplacePendingUpdates(context.Context, *SetShouldReplacePendingUpdatesRequest) (*SetShouldReplacePendingUpdatesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShouldReplacePendingUpdates not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) SetUpdateUri(context.Context, *SetUpdateUriRequest) (*SetUpdateUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUpdateUri not implemented")
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer() {
+}
+func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeScheduleCustomAudienceUpdateRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ScheduleCustomAudienceUpdateRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeScheduleCustomAudienceUpdateRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer()
+}
+
+func RegisterScheduleCustomAudienceUpdateRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv ScheduleCustomAudienceUpdateRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ScheduleCustomAudienceUpdateRequestBuilderService_ServiceDesc, srv)
+}
+
+func _ScheduleCustomAudienceUpdateRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetMinDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetMinDelay(ctx, req.(*SetMinDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShouldReplacePendingUpdatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetShouldReplacePendingUpdates(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetShouldReplacePendingUpdates(ctx, req.(*SetShouldReplacePendingUpdatesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUpdateUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetUpdateUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetUpdateUri(ctx, req.(*SetUpdateUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ScheduleCustomAudienceUpdateRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for ScheduleCustomAudienceUpdateRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ScheduleCustomAudienceUpdateRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.ScheduleCustomAudienceUpdateRequestBuilderService",
+	HandlerType: (*ScheduleCustomAudienceUpdateRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ScheduleCustomAudienceUpdateRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetMinDelay",
+			Handler:    _ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_Handler,
+		},
+		{
+			MethodName: "SetShouldReplacePendingUpdates",
+			Handler:    _ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_Handler,
+		},
+		{
+			MethodName: "SetUpdateUri",
+			Handler:    _ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customaudience/customaudience.proto",
+}
+
+const (
 	FetchAndJoinCustomAudienceRequestService_Equals_FullMethodName                = "/customaudience.FetchAndJoinCustomAudienceRequestService/Equals"
 	FetchAndJoinCustomAudienceRequestService_GetActivationTime_FullMethodName     = "/customaudience.FetchAndJoinCustomAudienceRequestService/GetActivationTime"
 	FetchAndJoinCustomAudienceRequestService_GetExpirationTime_FullMethodName     = "/customaudience.FetchAndJoinCustomAudienceRequestService/GetExpirationTime"
@@ -683,1264 +3406,6 @@ var FetchAndJoinCustomAudienceRequestBuilderService_ServiceDesc = grpc.ServiceDe
 }
 
 const (
-	CustomAudienceManagerService_GetTestCustomAudienceManager_FullMethodName = "/customaudience.CustomAudienceManagerService/GetTestCustomAudienceManager"
-	CustomAudienceManagerService_Get_FullMethodName                          = "/customaudience.CustomAudienceManagerService/Get"
-)
-
-// CustomAudienceManagerServiceClient is the client API for CustomAudienceManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CustomAudienceManagerServiceClient interface {
-	GetTestCustomAudienceManager(ctx context.Context, in *GetTestCustomAudienceManagerRequest, opts ...grpc.CallOption) (*GetTestCustomAudienceManagerResponse, error)
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type customAudienceManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCustomAudienceManagerServiceClient(cc grpc.ClientConnInterface) CustomAudienceManagerServiceClient {
-	return &customAudienceManagerServiceClient{cc}
-}
-
-func (c *customAudienceManagerServiceClient) GetTestCustomAudienceManager(ctx context.Context, in *GetTestCustomAudienceManagerRequest, opts ...grpc.CallOption) (*GetTestCustomAudienceManagerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTestCustomAudienceManagerResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceManagerService_GetTestCustomAudienceManager_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceManagerService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CustomAudienceManagerServiceServer is the server API for CustomAudienceManagerService service.
-// All implementations must embed UnimplementedCustomAudienceManagerServiceServer
-// for forward compatibility.
-type CustomAudienceManagerServiceServer interface {
-	GetTestCustomAudienceManager(context.Context, *GetTestCustomAudienceManagerRequest) (*GetTestCustomAudienceManagerResponse, error)
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedCustomAudienceManagerServiceServer()
-}
-
-// UnimplementedCustomAudienceManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCustomAudienceManagerServiceServer struct{}
-
-func (UnimplementedCustomAudienceManagerServiceServer) GetTestCustomAudienceManager(context.Context, *GetTestCustomAudienceManagerRequest) (*GetTestCustomAudienceManagerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTestCustomAudienceManager not implemented")
-}
-func (UnimplementedCustomAudienceManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedCustomAudienceManagerServiceServer) mustEmbedUnimplementedCustomAudienceManagerServiceServer() {
-}
-func (UnimplementedCustomAudienceManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCustomAudienceManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CustomAudienceManagerServiceServer will
-// result in compilation errors.
-type UnsafeCustomAudienceManagerServiceServer interface {
-	mustEmbedUnimplementedCustomAudienceManagerServiceServer()
-}
-
-func RegisterCustomAudienceManagerServiceServer(s grpc.ServiceRegistrar, srv CustomAudienceManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedCustomAudienceManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CustomAudienceManagerService_ServiceDesc, srv)
-}
-
-func _CustomAudienceManagerService_GetTestCustomAudienceManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTestCustomAudienceManagerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceManagerServiceServer).GetTestCustomAudienceManager(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceManagerService_GetTestCustomAudienceManager_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceManagerServiceServer).GetTestCustomAudienceManager(ctx, req.(*GetTestCustomAudienceManagerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceManagerServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceManagerService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceManagerServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CustomAudienceManagerService_ServiceDesc is the grpc.ServiceDesc for CustomAudienceManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CustomAudienceManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.CustomAudienceManagerService",
-	HandlerType: (*CustomAudienceManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetTestCustomAudienceManager",
-			Handler:    _CustomAudienceManagerService_GetTestCustomAudienceManager_Handler,
-		},
-		{
-			MethodName: "Get",
-			Handler:    _CustomAudienceManagerService_Get_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/customaudience/customaudience.proto",
-}
-
-const (
-	CustomAudienceService_DescribeContents_FullMethodName             = "/customaudience.CustomAudienceService/DescribeContents"
-	CustomAudienceService_Equals_FullMethodName                       = "/customaudience.CustomAudienceService/Equals"
-	CustomAudienceService_GetActivationTime_FullMethodName            = "/customaudience.CustomAudienceService/GetActivationTime"
-	CustomAudienceService_GetAuctionServerRequestFlags_FullMethodName = "/customaudience.CustomAudienceService/GetAuctionServerRequestFlags"
-	CustomAudienceService_GetBiddingLogicUri_FullMethodName           = "/customaudience.CustomAudienceService/GetBiddingLogicUri"
-	CustomAudienceService_GetBuyer_FullMethodName                     = "/customaudience.CustomAudienceService/GetBuyer"
-	CustomAudienceService_GetDailyUpdateUri_FullMethodName            = "/customaudience.CustomAudienceService/GetDailyUpdateUri"
-	CustomAudienceService_GetExpirationTime_FullMethodName            = "/customaudience.CustomAudienceService/GetExpirationTime"
-	CustomAudienceService_GetName_FullMethodName                      = "/customaudience.CustomAudienceService/GetName"
-	CustomAudienceService_GetPriority_FullMethodName                  = "/customaudience.CustomAudienceService/GetPriority"
-	CustomAudienceService_GetTrustedBiddingData_FullMethodName        = "/customaudience.CustomAudienceService/GetTrustedBiddingData"
-	CustomAudienceService_GetUserBiddingSignals_FullMethodName        = "/customaudience.CustomAudienceService/GetUserBiddingSignals"
-	CustomAudienceService_HashCode_FullMethodName                     = "/customaudience.CustomAudienceService/HashCode"
-	CustomAudienceService_ToString_FullMethodName                     = "/customaudience.CustomAudienceService/ToString"
-	CustomAudienceService_WriteToParcel_FullMethodName                = "/customaudience.CustomAudienceService/WriteToParcel"
-)
-
-// CustomAudienceServiceClient is the client API for CustomAudienceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CustomAudienceServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetActivationTime(ctx context.Context, in *GetActivationTimeRequest, opts ...grpc.CallOption) (*GetActivationTimeResponse, error)
-	GetAuctionServerRequestFlags(ctx context.Context, in *GetAuctionServerRequestFlagsRequest, opts ...grpc.CallOption) (*GetAuctionServerRequestFlagsResponse, error)
-	GetBiddingLogicUri(ctx context.Context, in *GetBiddingLogicUriRequest, opts ...grpc.CallOption) (*GetBiddingLogicUriResponse, error)
-	GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error)
-	GetDailyUpdateUri(ctx context.Context, in *GetDailyUpdateUriRequest, opts ...grpc.CallOption) (*GetDailyUpdateUriResponse, error)
-	GetExpirationTime(ctx context.Context, in *GetExpirationTimeRequest, opts ...grpc.CallOption) (*GetExpirationTimeResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	GetPriority(ctx context.Context, in *GetPriorityRequest, opts ...grpc.CallOption) (*GetPriorityResponse, error)
-	GetTrustedBiddingData(ctx context.Context, in *GetTrustedBiddingDataRequest, opts ...grpc.CallOption) (*GetTrustedBiddingDataResponse, error)
-	GetUserBiddingSignals(ctx context.Context, in *GetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*GetUserBiddingSignalsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type customAudienceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCustomAudienceServiceClient(cc grpc.ClientConnInterface) CustomAudienceServiceClient {
-	return &customAudienceServiceClient{cc}
-}
-
-func (c *customAudienceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetActivationTime(ctx context.Context, in *GetActivationTimeRequest, opts ...grpc.CallOption) (*GetActivationTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivationTimeResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetActivationTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetAuctionServerRequestFlags(ctx context.Context, in *GetAuctionServerRequestFlagsRequest, opts ...grpc.CallOption) (*GetAuctionServerRequestFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAuctionServerRequestFlagsResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetAuctionServerRequestFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetBiddingLogicUri(ctx context.Context, in *GetBiddingLogicUriRequest, opts ...grpc.CallOption) (*GetBiddingLogicUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBiddingLogicUriResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetBiddingLogicUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBuyerResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetBuyer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetDailyUpdateUri(ctx context.Context, in *GetDailyUpdateUriRequest, opts ...grpc.CallOption) (*GetDailyUpdateUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDailyUpdateUriResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetDailyUpdateUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetExpirationTime(ctx context.Context, in *GetExpirationTimeRequest, opts ...grpc.CallOption) (*GetExpirationTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExpirationTimeResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetExpirationTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetPriority(ctx context.Context, in *GetPriorityRequest, opts ...grpc.CallOption) (*GetPriorityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPriorityResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetPriority_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetTrustedBiddingData(ctx context.Context, in *GetTrustedBiddingDataRequest, opts ...grpc.CallOption) (*GetTrustedBiddingDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTrustedBiddingDataResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetTrustedBiddingData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) GetUserBiddingSignals(ctx context.Context, in *GetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*GetUserBiddingSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserBiddingSignalsResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_GetUserBiddingSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CustomAudienceServiceServer is the server API for CustomAudienceService service.
-// All implementations must embed UnimplementedCustomAudienceServiceServer
-// for forward compatibility.
-type CustomAudienceServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetActivationTime(context.Context, *GetActivationTimeRequest) (*GetActivationTimeResponse, error)
-	GetAuctionServerRequestFlags(context.Context, *GetAuctionServerRequestFlagsRequest) (*GetAuctionServerRequestFlagsResponse, error)
-	GetBiddingLogicUri(context.Context, *GetBiddingLogicUriRequest) (*GetBiddingLogicUriResponse, error)
-	GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error)
-	GetDailyUpdateUri(context.Context, *GetDailyUpdateUriRequest) (*GetDailyUpdateUriResponse, error)
-	GetExpirationTime(context.Context, *GetExpirationTimeRequest) (*GetExpirationTimeResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	GetPriority(context.Context, *GetPriorityRequest) (*GetPriorityResponse, error)
-	GetTrustedBiddingData(context.Context, *GetTrustedBiddingDataRequest) (*GetTrustedBiddingDataResponse, error)
-	GetUserBiddingSignals(context.Context, *GetUserBiddingSignalsRequest) (*GetUserBiddingSignalsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCustomAudienceServiceServer()
-}
-
-// UnimplementedCustomAudienceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCustomAudienceServiceServer struct{}
-
-func (UnimplementedCustomAudienceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetActivationTime(context.Context, *GetActivationTimeRequest) (*GetActivationTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivationTime not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetAuctionServerRequestFlags(context.Context, *GetAuctionServerRequestFlagsRequest) (*GetAuctionServerRequestFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAuctionServerRequestFlags not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetBiddingLogicUri(context.Context, *GetBiddingLogicUriRequest) (*GetBiddingLogicUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBiddingLogicUri not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBuyer not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetDailyUpdateUri(context.Context, *GetDailyUpdateUriRequest) (*GetDailyUpdateUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDailyUpdateUri not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetExpirationTime(context.Context, *GetExpirationTimeRequest) (*GetExpirationTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExpirationTime not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetPriority(context.Context, *GetPriorityRequest) (*GetPriorityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPriority not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetTrustedBiddingData(context.Context, *GetTrustedBiddingDataRequest) (*GetTrustedBiddingDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTrustedBiddingData not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) GetUserBiddingSignals(context.Context, *GetUserBiddingSignalsRequest) (*GetUserBiddingSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUserBiddingSignals not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCustomAudienceServiceServer) mustEmbedUnimplementedCustomAudienceServiceServer() {}
-func (UnimplementedCustomAudienceServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeCustomAudienceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CustomAudienceServiceServer will
-// result in compilation errors.
-type UnsafeCustomAudienceServiceServer interface {
-	mustEmbedUnimplementedCustomAudienceServiceServer()
-}
-
-func RegisterCustomAudienceServiceServer(s grpc.ServiceRegistrar, srv CustomAudienceServiceServer) {
-	// If the following call panics, it indicates UnimplementedCustomAudienceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CustomAudienceService_ServiceDesc, srv)
-}
-
-func _CustomAudienceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetActivationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivationTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetActivationTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetActivationTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetActivationTime(ctx, req.(*GetActivationTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetAuctionServerRequestFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAuctionServerRequestFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetAuctionServerRequestFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetAuctionServerRequestFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetAuctionServerRequestFlags(ctx, req.(*GetAuctionServerRequestFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetBiddingLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBiddingLogicUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetBiddingLogicUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetBiddingLogicUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetBiddingLogicUri(ctx, req.(*GetBiddingLogicUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBuyerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetBuyer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetBuyer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetBuyer(ctx, req.(*GetBuyerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetDailyUpdateUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDailyUpdateUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetDailyUpdateUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetDailyUpdateUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetDailyUpdateUri(ctx, req.(*GetDailyUpdateUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetExpirationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExpirationTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetExpirationTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetExpirationTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetExpirationTime(ctx, req.(*GetExpirationTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetPriority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPriorityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetPriority(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetPriority_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetPriority(ctx, req.(*GetPriorityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetTrustedBiddingData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTrustedBiddingDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetTrustedBiddingData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetTrustedBiddingData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetTrustedBiddingData(ctx, req.(*GetTrustedBiddingDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_GetUserBiddingSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserBiddingSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).GetUserBiddingSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_GetUserBiddingSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).GetUserBiddingSignals(ctx, req.(*GetUserBiddingSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CustomAudienceService_ServiceDesc is the grpc.ServiceDesc for CustomAudienceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CustomAudienceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.CustomAudienceService",
-	HandlerType: (*CustomAudienceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CustomAudienceService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _CustomAudienceService_Equals_Handler,
-		},
-		{
-			MethodName: "GetActivationTime",
-			Handler:    _CustomAudienceService_GetActivationTime_Handler,
-		},
-		{
-			MethodName: "GetAuctionServerRequestFlags",
-			Handler:    _CustomAudienceService_GetAuctionServerRequestFlags_Handler,
-		},
-		{
-			MethodName: "GetBiddingLogicUri",
-			Handler:    _CustomAudienceService_GetBiddingLogicUri_Handler,
-		},
-		{
-			MethodName: "GetBuyer",
-			Handler:    _CustomAudienceService_GetBuyer_Handler,
-		},
-		{
-			MethodName: "GetDailyUpdateUri",
-			Handler:    _CustomAudienceService_GetDailyUpdateUri_Handler,
-		},
-		{
-			MethodName: "GetExpirationTime",
-			Handler:    _CustomAudienceService_GetExpirationTime_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _CustomAudienceService_GetName_Handler,
-		},
-		{
-			MethodName: "GetPriority",
-			Handler:    _CustomAudienceService_GetPriority_Handler,
-		},
-		{
-			MethodName: "GetTrustedBiddingData",
-			Handler:    _CustomAudienceService_GetTrustedBiddingData_Handler,
-		},
-		{
-			MethodName: "GetUserBiddingSignals",
-			Handler:    _CustomAudienceService_GetUserBiddingSignals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _CustomAudienceService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CustomAudienceService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CustomAudienceService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/customaudience/customaudience.proto",
-}
-
-const (
-	CustomAudienceBuilderService_Build_FullMethodName                        = "/customaudience.CustomAudienceBuilderService/Build"
-	CustomAudienceBuilderService_SetActivationTime_FullMethodName            = "/customaudience.CustomAudienceBuilderService/SetActivationTime"
-	CustomAudienceBuilderService_SetAuctionServerRequestFlags_FullMethodName = "/customaudience.CustomAudienceBuilderService/SetAuctionServerRequestFlags"
-	CustomAudienceBuilderService_SetBiddingLogicUri_FullMethodName           = "/customaudience.CustomAudienceBuilderService/SetBiddingLogicUri"
-	CustomAudienceBuilderService_SetBuyer_FullMethodName                     = "/customaudience.CustomAudienceBuilderService/SetBuyer"
-	CustomAudienceBuilderService_SetDailyUpdateUri_FullMethodName            = "/customaudience.CustomAudienceBuilderService/SetDailyUpdateUri"
-	CustomAudienceBuilderService_SetExpirationTime_FullMethodName            = "/customaudience.CustomAudienceBuilderService/SetExpirationTime"
-	CustomAudienceBuilderService_SetName_FullMethodName                      = "/customaudience.CustomAudienceBuilderService/SetName"
-	CustomAudienceBuilderService_SetPriority_FullMethodName                  = "/customaudience.CustomAudienceBuilderService/SetPriority"
-	CustomAudienceBuilderService_SetTrustedBiddingData_FullMethodName        = "/customaudience.CustomAudienceBuilderService/SetTrustedBiddingData"
-	CustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName        = "/customaudience.CustomAudienceBuilderService/SetUserBiddingSignals"
-)
-
-// CustomAudienceBuilderServiceClient is the client API for CustomAudienceBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CustomAudienceBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetActivationTime(ctx context.Context, in *SetActivationTimeRequest, opts ...grpc.CallOption) (*SetActivationTimeResponse, error)
-	SetAuctionServerRequestFlags(ctx context.Context, in *SetAuctionServerRequestFlagsRequest, opts ...grpc.CallOption) (*SetAuctionServerRequestFlagsResponse, error)
-	SetBiddingLogicUri(ctx context.Context, in *SetBiddingLogicUriRequest, opts ...grpc.CallOption) (*SetBiddingLogicUriResponse, error)
-	SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error)
-	SetDailyUpdateUri(ctx context.Context, in *SetDailyUpdateUriRequest, opts ...grpc.CallOption) (*SetDailyUpdateUriResponse, error)
-	SetExpirationTime(ctx context.Context, in *SetExpirationTimeRequest, opts ...grpc.CallOption) (*SetExpirationTimeResponse, error)
-	SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error)
-	SetPriority(ctx context.Context, in *SetPriorityRequest, opts ...grpc.CallOption) (*SetPriorityResponse, error)
-	SetTrustedBiddingData(ctx context.Context, in *SetTrustedBiddingDataRequest, opts ...grpc.CallOption) (*SetTrustedBiddingDataResponse, error)
-	SetUserBiddingSignals(ctx context.Context, in *SetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*SetUserBiddingSignalsResponse, error)
-}
-
-type customAudienceBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCustomAudienceBuilderServiceClient(cc grpc.ClientConnInterface) CustomAudienceBuilderServiceClient {
-	return &customAudienceBuilderServiceClient{cc}
-}
-
-func (c *customAudienceBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetActivationTime(ctx context.Context, in *SetActivationTimeRequest, opts ...grpc.CallOption) (*SetActivationTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetActivationTimeResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetActivationTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetAuctionServerRequestFlags(ctx context.Context, in *SetAuctionServerRequestFlagsRequest, opts ...grpc.CallOption) (*SetAuctionServerRequestFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAuctionServerRequestFlagsResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetAuctionServerRequestFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetBiddingLogicUri(ctx context.Context, in *SetBiddingLogicUriRequest, opts ...grpc.CallOption) (*SetBiddingLogicUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBiddingLogicUriResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetBiddingLogicUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBuyerResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetBuyer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetDailyUpdateUri(ctx context.Context, in *SetDailyUpdateUriRequest, opts ...grpc.CallOption) (*SetDailyUpdateUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDailyUpdateUriResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetDailyUpdateUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetExpirationTime(ctx context.Context, in *SetExpirationTimeRequest, opts ...grpc.CallOption) (*SetExpirationTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetExpirationTimeResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetExpirationTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetNameResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetPriority(ctx context.Context, in *SetPriorityRequest, opts ...grpc.CallOption) (*SetPriorityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPriorityResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetPriority_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetTrustedBiddingData(ctx context.Context, in *SetTrustedBiddingDataRequest, opts ...grpc.CallOption) (*SetTrustedBiddingDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTrustedBiddingDataResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetTrustedBiddingData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customAudienceBuilderServiceClient) SetUserBiddingSignals(ctx context.Context, in *SetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*SetUserBiddingSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUserBiddingSignalsResponse)
-	err := c.cc.Invoke(ctx, CustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CustomAudienceBuilderServiceServer is the server API for CustomAudienceBuilderService service.
-// All implementations must embed UnimplementedCustomAudienceBuilderServiceServer
-// for forward compatibility.
-type CustomAudienceBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetActivationTime(context.Context, *SetActivationTimeRequest) (*SetActivationTimeResponse, error)
-	SetAuctionServerRequestFlags(context.Context, *SetAuctionServerRequestFlagsRequest) (*SetAuctionServerRequestFlagsResponse, error)
-	SetBiddingLogicUri(context.Context, *SetBiddingLogicUriRequest) (*SetBiddingLogicUriResponse, error)
-	SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error)
-	SetDailyUpdateUri(context.Context, *SetDailyUpdateUriRequest) (*SetDailyUpdateUriResponse, error)
-	SetExpirationTime(context.Context, *SetExpirationTimeRequest) (*SetExpirationTimeResponse, error)
-	SetName(context.Context, *SetNameRequest) (*SetNameResponse, error)
-	SetPriority(context.Context, *SetPriorityRequest) (*SetPriorityResponse, error)
-	SetTrustedBiddingData(context.Context, *SetTrustedBiddingDataRequest) (*SetTrustedBiddingDataResponse, error)
-	SetUserBiddingSignals(context.Context, *SetUserBiddingSignalsRequest) (*SetUserBiddingSignalsResponse, error)
-	mustEmbedUnimplementedCustomAudienceBuilderServiceServer()
-}
-
-// UnimplementedCustomAudienceBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCustomAudienceBuilderServiceServer struct{}
-
-func (UnimplementedCustomAudienceBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetActivationTime(context.Context, *SetActivationTimeRequest) (*SetActivationTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetActivationTime not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetAuctionServerRequestFlags(context.Context, *SetAuctionServerRequestFlagsRequest) (*SetAuctionServerRequestFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAuctionServerRequestFlags not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetBiddingLogicUri(context.Context, *SetBiddingLogicUriRequest) (*SetBiddingLogicUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBiddingLogicUri not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBuyer not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetDailyUpdateUri(context.Context, *SetDailyUpdateUriRequest) (*SetDailyUpdateUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDailyUpdateUri not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetExpirationTime(context.Context, *SetExpirationTimeRequest) (*SetExpirationTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetExpirationTime not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetName(context.Context, *SetNameRequest) (*SetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetName not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetPriority(context.Context, *SetPriorityRequest) (*SetPriorityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPriority not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetTrustedBiddingData(context.Context, *SetTrustedBiddingDataRequest) (*SetTrustedBiddingDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTrustedBiddingData not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) SetUserBiddingSignals(context.Context, *SetUserBiddingSignalsRequest) (*SetUserBiddingSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUserBiddingSignals not implemented")
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) mustEmbedUnimplementedCustomAudienceBuilderServiceServer() {
-}
-func (UnimplementedCustomAudienceBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCustomAudienceBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CustomAudienceBuilderServiceServer will
-// result in compilation errors.
-type UnsafeCustomAudienceBuilderServiceServer interface {
-	mustEmbedUnimplementedCustomAudienceBuilderServiceServer()
-}
-
-func RegisterCustomAudienceBuilderServiceServer(s grpc.ServiceRegistrar, srv CustomAudienceBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedCustomAudienceBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CustomAudienceBuilderService_ServiceDesc, srv)
-}
-
-func _CustomAudienceBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetActivationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetActivationTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetActivationTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetActivationTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetActivationTime(ctx, req.(*SetActivationTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetAuctionServerRequestFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAuctionServerRequestFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetAuctionServerRequestFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetAuctionServerRequestFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetAuctionServerRequestFlags(ctx, req.(*SetAuctionServerRequestFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetBiddingLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBiddingLogicUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetBiddingLogicUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetBiddingLogicUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetBiddingLogicUri(ctx, req.(*SetBiddingLogicUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBuyerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetBuyer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetBuyer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetBuyer(ctx, req.(*SetBuyerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetDailyUpdateUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDailyUpdateUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetDailyUpdateUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetDailyUpdateUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetDailyUpdateUri(ctx, req.(*SetDailyUpdateUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetExpirationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetExpirationTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetExpirationTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetExpirationTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetExpirationTime(ctx, req.(*SetExpirationTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetName(ctx, req.(*SetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetPriority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPriorityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetPriority(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetPriority_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetPriority(ctx, req.(*SetPriorityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetTrustedBiddingData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTrustedBiddingDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetTrustedBiddingData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetTrustedBiddingData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetTrustedBiddingData(ctx, req.(*SetTrustedBiddingDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomAudienceBuilderService_SetUserBiddingSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUserBiddingSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomAudienceBuilderServiceServer).SetUserBiddingSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomAudienceBuilderServiceServer).SetUserBiddingSignals(ctx, req.(*SetUserBiddingSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CustomAudienceBuilderService_ServiceDesc is the grpc.ServiceDesc for CustomAudienceBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CustomAudienceBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.CustomAudienceBuilderService",
-	HandlerType: (*CustomAudienceBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _CustomAudienceBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetActivationTime",
-			Handler:    _CustomAudienceBuilderService_SetActivationTime_Handler,
-		},
-		{
-			MethodName: "SetAuctionServerRequestFlags",
-			Handler:    _CustomAudienceBuilderService_SetAuctionServerRequestFlags_Handler,
-		},
-		{
-			MethodName: "SetBiddingLogicUri",
-			Handler:    _CustomAudienceBuilderService_SetBiddingLogicUri_Handler,
-		},
-		{
-			MethodName: "SetBuyer",
-			Handler:    _CustomAudienceBuilderService_SetBuyer_Handler,
-		},
-		{
-			MethodName: "SetDailyUpdateUri",
-			Handler:    _CustomAudienceBuilderService_SetDailyUpdateUri_Handler,
-		},
-		{
-			MethodName: "SetExpirationTime",
-			Handler:    _CustomAudienceBuilderService_SetExpirationTime_Handler,
-		},
-		{
-			MethodName: "SetName",
-			Handler:    _CustomAudienceBuilderService_SetName_Handler,
-		},
-		{
-			MethodName: "SetPriority",
-			Handler:    _CustomAudienceBuilderService_SetPriority_Handler,
-		},
-		{
-			MethodName: "SetTrustedBiddingData",
-			Handler:    _CustomAudienceBuilderService_SetTrustedBiddingData_Handler,
-		},
-		{
-			MethodName: "SetUserBiddingSignals",
-			Handler:    _CustomAudienceBuilderService_SetUserBiddingSignals_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/customaudience/customaudience.proto",
-}
-
-const (
 	AddCustomAudienceOverrideRequestService_NewAddCustomAudienceOverrideRequest_FullMethodName = "/customaudience.AddCustomAudienceOverrideRequestService/NewAddCustomAudienceOverrideRequest"
 	AddCustomAudienceOverrideRequestService_GetBiddingLogicJs_FullMethodName                   = "/customaudience.AddCustomAudienceOverrideRequestService/GetBiddingLogicJs"
 	AddCustomAudienceOverrideRequestService_GetBiddingLogicJsVersion_FullMethodName            = "/customaudience.AddCustomAudienceOverrideRequestService/GetBiddingLogicJsVersion"
@@ -2527,326 +3992,6 @@ var AddCustomAudienceOverrideRequestBuilderService_ServiceDesc = grpc.ServiceDes
 }
 
 const (
-	JoinCustomAudienceRequestService_Equals_FullMethodName            = "/customaudience.JoinCustomAudienceRequestService/Equals"
-	JoinCustomAudienceRequestService_GetCustomAudience_FullMethodName = "/customaudience.JoinCustomAudienceRequestService/GetCustomAudience"
-	JoinCustomAudienceRequestService_HashCode_FullMethodName          = "/customaudience.JoinCustomAudienceRequestService/HashCode"
-)
-
-// JoinCustomAudienceRequestServiceClient is the client API for JoinCustomAudienceRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type JoinCustomAudienceRequestServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetCustomAudience(ctx context.Context, in *GetCustomAudienceRequest, opts ...grpc.CallOption) (*GetCustomAudienceResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type joinCustomAudienceRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewJoinCustomAudienceRequestServiceClient(cc grpc.ClientConnInterface) JoinCustomAudienceRequestServiceClient {
-	return &joinCustomAudienceRequestServiceClient{cc}
-}
-
-func (c *joinCustomAudienceRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *joinCustomAudienceRequestServiceClient) GetCustomAudience(ctx context.Context, in *GetCustomAudienceRequest, opts ...grpc.CallOption) (*GetCustomAudienceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCustomAudienceResponse)
-	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestService_GetCustomAudience_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *joinCustomAudienceRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// JoinCustomAudienceRequestServiceServer is the server API for JoinCustomAudienceRequestService service.
-// All implementations must embed UnimplementedJoinCustomAudienceRequestServiceServer
-// for forward compatibility.
-type JoinCustomAudienceRequestServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetCustomAudience(context.Context, *GetCustomAudienceRequest) (*GetCustomAudienceResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedJoinCustomAudienceRequestServiceServer()
-}
-
-// UnimplementedJoinCustomAudienceRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedJoinCustomAudienceRequestServiceServer struct{}
-
-func (UnimplementedJoinCustomAudienceRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedJoinCustomAudienceRequestServiceServer) GetCustomAudience(context.Context, *GetCustomAudienceRequest) (*GetCustomAudienceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCustomAudience not implemented")
-}
-func (UnimplementedJoinCustomAudienceRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedJoinCustomAudienceRequestServiceServer) mustEmbedUnimplementedJoinCustomAudienceRequestServiceServer() {
-}
-func (UnimplementedJoinCustomAudienceRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeJoinCustomAudienceRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to JoinCustomAudienceRequestServiceServer will
-// result in compilation errors.
-type UnsafeJoinCustomAudienceRequestServiceServer interface {
-	mustEmbedUnimplementedJoinCustomAudienceRequestServiceServer()
-}
-
-func RegisterJoinCustomAudienceRequestServiceServer(s grpc.ServiceRegistrar, srv JoinCustomAudienceRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedJoinCustomAudienceRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&JoinCustomAudienceRequestService_ServiceDesc, srv)
-}
-
-func _JoinCustomAudienceRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JoinCustomAudienceRequestServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JoinCustomAudienceRequestService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JoinCustomAudienceRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _JoinCustomAudienceRequestService_GetCustomAudience_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCustomAudienceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JoinCustomAudienceRequestServiceServer).GetCustomAudience(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JoinCustomAudienceRequestService_GetCustomAudience_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JoinCustomAudienceRequestServiceServer).GetCustomAudience(ctx, req.(*GetCustomAudienceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _JoinCustomAudienceRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JoinCustomAudienceRequestServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JoinCustomAudienceRequestService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JoinCustomAudienceRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// JoinCustomAudienceRequestService_ServiceDesc is the grpc.ServiceDesc for JoinCustomAudienceRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var JoinCustomAudienceRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.JoinCustomAudienceRequestService",
-	HandlerType: (*JoinCustomAudienceRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _JoinCustomAudienceRequestService_Equals_Handler,
-		},
-		{
-			MethodName: "GetCustomAudience",
-			Handler:    _JoinCustomAudienceRequestService_GetCustomAudience_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _JoinCustomAudienceRequestService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/customaudience/customaudience.proto",
-}
-
-const (
-	JoinCustomAudienceRequestBuilderService_Build_FullMethodName             = "/customaudience.JoinCustomAudienceRequestBuilderService/Build"
-	JoinCustomAudienceRequestBuilderService_SetCustomAudience_FullMethodName = "/customaudience.JoinCustomAudienceRequestBuilderService/SetCustomAudience"
-)
-
-// JoinCustomAudienceRequestBuilderServiceClient is the client API for JoinCustomAudienceRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type JoinCustomAudienceRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetCustomAudience(ctx context.Context, in *SetCustomAudienceRequest, opts ...grpc.CallOption) (*SetCustomAudienceResponse, error)
-}
-
-type joinCustomAudienceRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewJoinCustomAudienceRequestBuilderServiceClient(cc grpc.ClientConnInterface) JoinCustomAudienceRequestBuilderServiceClient {
-	return &joinCustomAudienceRequestBuilderServiceClient{cc}
-}
-
-func (c *joinCustomAudienceRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *joinCustomAudienceRequestBuilderServiceClient) SetCustomAudience(ctx context.Context, in *SetCustomAudienceRequest, opts ...grpc.CallOption) (*SetCustomAudienceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCustomAudienceResponse)
-	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestBuilderService_SetCustomAudience_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// JoinCustomAudienceRequestBuilderServiceServer is the server API for JoinCustomAudienceRequestBuilderService service.
-// All implementations must embed UnimplementedJoinCustomAudienceRequestBuilderServiceServer
-// for forward compatibility.
-type JoinCustomAudienceRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetCustomAudience(context.Context, *SetCustomAudienceRequest) (*SetCustomAudienceResponse, error)
-	mustEmbedUnimplementedJoinCustomAudienceRequestBuilderServiceServer()
-}
-
-// UnimplementedJoinCustomAudienceRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedJoinCustomAudienceRequestBuilderServiceServer struct{}
-
-func (UnimplementedJoinCustomAudienceRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedJoinCustomAudienceRequestBuilderServiceServer) SetCustomAudience(context.Context, *SetCustomAudienceRequest) (*SetCustomAudienceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCustomAudience not implemented")
-}
-func (UnimplementedJoinCustomAudienceRequestBuilderServiceServer) mustEmbedUnimplementedJoinCustomAudienceRequestBuilderServiceServer() {
-}
-func (UnimplementedJoinCustomAudienceRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeJoinCustomAudienceRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to JoinCustomAudienceRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeJoinCustomAudienceRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedJoinCustomAudienceRequestBuilderServiceServer()
-}
-
-func RegisterJoinCustomAudienceRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv JoinCustomAudienceRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedJoinCustomAudienceRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&JoinCustomAudienceRequestBuilderService_ServiceDesc, srv)
-}
-
-func _JoinCustomAudienceRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JoinCustomAudienceRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JoinCustomAudienceRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JoinCustomAudienceRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _JoinCustomAudienceRequestBuilderService_SetCustomAudience_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCustomAudienceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JoinCustomAudienceRequestBuilderServiceServer).SetCustomAudience(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: JoinCustomAudienceRequestBuilderService_SetCustomAudience_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JoinCustomAudienceRequestBuilderServiceServer).SetCustomAudience(ctx, req.(*SetCustomAudienceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// JoinCustomAudienceRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for JoinCustomAudienceRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var JoinCustomAudienceRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.JoinCustomAudienceRequestBuilderService",
-	HandlerType: (*JoinCustomAudienceRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _JoinCustomAudienceRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetCustomAudience",
-			Handler:    _JoinCustomAudienceRequestBuilderService_SetCustomAudience_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/customaudience/customaudience.proto",
-}
-
-const (
 	LeaveCustomAudienceRequestService_Equals_FullMethodName   = "/customaudience.LeaveCustomAudienceRequestService/Equals"
 	LeaveCustomAudienceRequestService_GetBuyer_FullMethodName = "/customaudience.LeaveCustomAudienceRequestService/GetBuyer"
 	LeaveCustomAudienceRequestService_GetName_FullMethodName  = "/customaudience.LeaveCustomAudienceRequestService/GetName"
@@ -3243,292 +4388,178 @@ var LeaveCustomAudienceRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ScheduleCustomAudienceUpdateRequestService_Equals_FullMethodName                      = "/customaudience.ScheduleCustomAudienceUpdateRequestService/Equals"
-	ScheduleCustomAudienceUpdateRequestService_GetMinDelay_FullMethodName                 = "/customaudience.ScheduleCustomAudienceUpdateRequestService/GetMinDelay"
-	ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_FullMethodName                = "/customaudience.ScheduleCustomAudienceUpdateRequestService/GetUpdateUri"
-	ScheduleCustomAudienceUpdateRequestService_HashCode_FullMethodName                    = "/customaudience.ScheduleCustomAudienceUpdateRequestService/HashCode"
-	ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_FullMethodName = "/customaudience.ScheduleCustomAudienceUpdateRequestService/ShouldReplacePendingUpdates"
-	ScheduleCustomAudienceUpdateRequestService_ToString_FullMethodName                    = "/customaudience.ScheduleCustomAudienceUpdateRequestService/ToString"
+	JoinCustomAudienceRequestService_Equals_FullMethodName            = "/customaudience.JoinCustomAudienceRequestService/Equals"
+	JoinCustomAudienceRequestService_GetCustomAudience_FullMethodName = "/customaudience.JoinCustomAudienceRequestService/GetCustomAudience"
+	JoinCustomAudienceRequestService_HashCode_FullMethodName          = "/customaudience.JoinCustomAudienceRequestService/HashCode"
 )
 
-// ScheduleCustomAudienceUpdateRequestServiceClient is the client API for ScheduleCustomAudienceUpdateRequestService service.
+// JoinCustomAudienceRequestServiceClient is the client API for JoinCustomAudienceRequestService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ScheduleCustomAudienceUpdateRequestServiceClient interface {
+type JoinCustomAudienceRequestServiceClient interface {
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetMinDelay(ctx context.Context, in *GetMinDelayRequest, opts ...grpc.CallOption) (*GetMinDelayResponse, error)
-	GetUpdateUri(ctx context.Context, in *GetUpdateUriRequest, opts ...grpc.CallOption) (*GetUpdateUriResponse, error)
+	GetCustomAudience(ctx context.Context, in *GetCustomAudienceRequest, opts ...grpc.CallOption) (*GetCustomAudienceResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ShouldReplacePendingUpdates(ctx context.Context, in *ShouldReplacePendingUpdatesRequest, opts ...grpc.CallOption) (*ShouldReplacePendingUpdatesResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
-type scheduleCustomAudienceUpdateRequestServiceClient struct {
+type joinCustomAudienceRequestServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewScheduleCustomAudienceUpdateRequestServiceClient(cc grpc.ClientConnInterface) ScheduleCustomAudienceUpdateRequestServiceClient {
-	return &scheduleCustomAudienceUpdateRequestServiceClient{cc}
+func NewJoinCustomAudienceRequestServiceClient(cc grpc.ClientConnInterface) JoinCustomAudienceRequestServiceClient {
+	return &joinCustomAudienceRequestServiceClient{cc}
 }
 
-func (c *scheduleCustomAudienceUpdateRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *joinCustomAudienceRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleCustomAudienceUpdateRequestServiceClient) GetMinDelay(ctx context.Context, in *GetMinDelayRequest, opts ...grpc.CallOption) (*GetMinDelayResponse, error) {
+func (c *joinCustomAudienceRequestServiceClient) GetCustomAudience(ctx context.Context, in *GetCustomAudienceRequest, opts ...grpc.CallOption) (*GetCustomAudienceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinDelayResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_GetMinDelay_FullMethodName, in, out, cOpts...)
+	out := new(GetCustomAudienceResponse)
+	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestService_GetCustomAudience_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleCustomAudienceUpdateRequestServiceClient) GetUpdateUri(ctx context.Context, in *GetUpdateUriRequest, opts ...grpc.CallOption) (*GetUpdateUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUpdateUriResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scheduleCustomAudienceUpdateRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *joinCustomAudienceRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleCustomAudienceUpdateRequestServiceClient) ShouldReplacePendingUpdates(ctx context.Context, in *ShouldReplacePendingUpdatesRequest, opts ...grpc.CallOption) (*ShouldReplacePendingUpdatesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShouldReplacePendingUpdatesResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scheduleCustomAudienceUpdateRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ScheduleCustomAudienceUpdateRequestServiceServer is the server API for ScheduleCustomAudienceUpdateRequestService service.
-// All implementations must embed UnimplementedScheduleCustomAudienceUpdateRequestServiceServer
+// JoinCustomAudienceRequestServiceServer is the server API for JoinCustomAudienceRequestService service.
+// All implementations must embed UnimplementedJoinCustomAudienceRequestServiceServer
 // for forward compatibility.
-type ScheduleCustomAudienceUpdateRequestServiceServer interface {
+type JoinCustomAudienceRequestServiceServer interface {
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetMinDelay(context.Context, *GetMinDelayRequest) (*GetMinDelayResponse, error)
-	GetUpdateUri(context.Context, *GetUpdateUriRequest) (*GetUpdateUriResponse, error)
+	GetCustomAudience(context.Context, *GetCustomAudienceRequest) (*GetCustomAudienceResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ShouldReplacePendingUpdates(context.Context, *ShouldReplacePendingUpdatesRequest) (*ShouldReplacePendingUpdatesResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestServiceServer()
+	mustEmbedUnimplementedJoinCustomAudienceRequestServiceServer()
 }
 
-// UnimplementedScheduleCustomAudienceUpdateRequestServiceServer must be embedded to have
+// UnimplementedJoinCustomAudienceRequestServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedScheduleCustomAudienceUpdateRequestServiceServer struct{}
+type UnimplementedJoinCustomAudienceRequestServiceServer struct{}
 
-func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedJoinCustomAudienceRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) GetMinDelay(context.Context, *GetMinDelayRequest) (*GetMinDelayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinDelay not implemented")
+func (UnimplementedJoinCustomAudienceRequestServiceServer) GetCustomAudience(context.Context, *GetCustomAudienceRequest) (*GetCustomAudienceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCustomAudience not implemented")
 }
-func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) GetUpdateUri(context.Context, *GetUpdateUriRequest) (*GetUpdateUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUpdateUri not implemented")
-}
-func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedJoinCustomAudienceRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) ShouldReplacePendingUpdates(context.Context, *ShouldReplacePendingUpdatesRequest) (*ShouldReplacePendingUpdatesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ShouldReplacePendingUpdates not implemented")
+func (UnimplementedJoinCustomAudienceRequestServiceServer) mustEmbedUnimplementedJoinCustomAudienceRequestServiceServer() {
 }
-func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestServiceServer() {
-}
-func (UnimplementedScheduleCustomAudienceUpdateRequestServiceServer) testEmbeddedByValue() {}
+func (UnimplementedJoinCustomAudienceRequestServiceServer) testEmbeddedByValue() {}
 
-// UnsafeScheduleCustomAudienceUpdateRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ScheduleCustomAudienceUpdateRequestServiceServer will
+// UnsafeJoinCustomAudienceRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to JoinCustomAudienceRequestServiceServer will
 // result in compilation errors.
-type UnsafeScheduleCustomAudienceUpdateRequestServiceServer interface {
-	mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestServiceServer()
+type UnsafeJoinCustomAudienceRequestServiceServer interface {
+	mustEmbedUnimplementedJoinCustomAudienceRequestServiceServer()
 }
 
-func RegisterScheduleCustomAudienceUpdateRequestServiceServer(s grpc.ServiceRegistrar, srv ScheduleCustomAudienceUpdateRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedScheduleCustomAudienceUpdateRequestServiceServer was
+func RegisterJoinCustomAudienceRequestServiceServer(s grpc.ServiceRegistrar, srv JoinCustomAudienceRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedJoinCustomAudienceRequestServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ScheduleCustomAudienceUpdateRequestService_ServiceDesc, srv)
+	s.RegisterService(&JoinCustomAudienceRequestService_ServiceDesc, srv)
 }
 
-func _ScheduleCustomAudienceUpdateRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JoinCustomAudienceRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).Equals(ctx, in)
+		return srv.(JoinCustomAudienceRequestServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestService_Equals_FullMethodName,
+		FullMethod: JoinCustomAudienceRequestService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(JoinCustomAudienceRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleCustomAudienceUpdateRequestService_GetMinDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinDelayRequest)
+func _JoinCustomAudienceRequestService_GetCustomAudience_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCustomAudienceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetMinDelay(ctx, in)
+		return srv.(JoinCustomAudienceRequestServiceServer).GetCustomAudience(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestService_GetMinDelay_FullMethodName,
+		FullMethod: JoinCustomAudienceRequestService_GetCustomAudience_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetMinDelay(ctx, req.(*GetMinDelayRequest))
+		return srv.(JoinCustomAudienceRequestServiceServer).GetCustomAudience(ctx, req.(*GetCustomAudienceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUpdateUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetUpdateUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).GetUpdateUri(ctx, req.(*GetUpdateUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScheduleCustomAudienceUpdateRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JoinCustomAudienceRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).HashCode(ctx, in)
+		return srv.(JoinCustomAudienceRequestServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestService_HashCode_FullMethodName,
+		FullMethod: JoinCustomAudienceRequestService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(JoinCustomAudienceRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShouldReplacePendingUpdatesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).ShouldReplacePendingUpdates(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).ShouldReplacePendingUpdates(ctx, req.(*ShouldReplacePendingUpdatesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScheduleCustomAudienceUpdateRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ScheduleCustomAudienceUpdateRequestService_ServiceDesc is the grpc.ServiceDesc for ScheduleCustomAudienceUpdateRequestService service.
+// JoinCustomAudienceRequestService_ServiceDesc is the grpc.ServiceDesc for JoinCustomAudienceRequestService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ScheduleCustomAudienceUpdateRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.ScheduleCustomAudienceUpdateRequestService",
-	HandlerType: (*ScheduleCustomAudienceUpdateRequestServiceServer)(nil),
+var JoinCustomAudienceRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.JoinCustomAudienceRequestService",
+	HandlerType: (*JoinCustomAudienceRequestServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Equals",
-			Handler:    _ScheduleCustomAudienceUpdateRequestService_Equals_Handler,
+			Handler:    _JoinCustomAudienceRequestService_Equals_Handler,
 		},
 		{
-			MethodName: "GetMinDelay",
-			Handler:    _ScheduleCustomAudienceUpdateRequestService_GetMinDelay_Handler,
-		},
-		{
-			MethodName: "GetUpdateUri",
-			Handler:    _ScheduleCustomAudienceUpdateRequestService_GetUpdateUri_Handler,
+			MethodName: "GetCustomAudience",
+			Handler:    _JoinCustomAudienceRequestService_GetCustomAudience_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _ScheduleCustomAudienceUpdateRequestService_HashCode_Handler,
-		},
-		{
-			MethodName: "ShouldReplacePendingUpdates",
-			Handler:    _ScheduleCustomAudienceUpdateRequestService_ShouldReplacePendingUpdates_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ScheduleCustomAudienceUpdateRequestService_ToString_Handler,
+			Handler:    _JoinCustomAudienceRequestService_HashCode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3536,216 +4567,140 @@ var ScheduleCustomAudienceUpdateRequestService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ScheduleCustomAudienceUpdateRequestBuilderService_Build_FullMethodName                          = "/customaudience.ScheduleCustomAudienceUpdateRequestBuilderService/Build"
-	ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_FullMethodName                    = "/customaudience.ScheduleCustomAudienceUpdateRequestBuilderService/SetMinDelay"
-	ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_FullMethodName = "/customaudience.ScheduleCustomAudienceUpdateRequestBuilderService/SetShouldReplacePendingUpdates"
-	ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_FullMethodName                   = "/customaudience.ScheduleCustomAudienceUpdateRequestBuilderService/SetUpdateUri"
+	JoinCustomAudienceRequestBuilderService_Build_FullMethodName             = "/customaudience.JoinCustomAudienceRequestBuilderService/Build"
+	JoinCustomAudienceRequestBuilderService_SetCustomAudience_FullMethodName = "/customaudience.JoinCustomAudienceRequestBuilderService/SetCustomAudience"
 )
 
-// ScheduleCustomAudienceUpdateRequestBuilderServiceClient is the client API for ScheduleCustomAudienceUpdateRequestBuilderService service.
+// JoinCustomAudienceRequestBuilderServiceClient is the client API for JoinCustomAudienceRequestBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ScheduleCustomAudienceUpdateRequestBuilderServiceClient interface {
+type JoinCustomAudienceRequestBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetMinDelay(ctx context.Context, in *SetMinDelayRequest, opts ...grpc.CallOption) (*SetMinDelayResponse, error)
-	SetShouldReplacePendingUpdates(ctx context.Context, in *SetShouldReplacePendingUpdatesRequest, opts ...grpc.CallOption) (*SetShouldReplacePendingUpdatesResponse, error)
-	SetUpdateUri(ctx context.Context, in *SetUpdateUriRequest, opts ...grpc.CallOption) (*SetUpdateUriResponse, error)
+	SetCustomAudience(ctx context.Context, in *SetCustomAudienceRequest, opts ...grpc.CallOption) (*SetCustomAudienceResponse, error)
 }
 
-type scheduleCustomAudienceUpdateRequestBuilderServiceClient struct {
+type joinCustomAudienceRequestBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewScheduleCustomAudienceUpdateRequestBuilderServiceClient(cc grpc.ClientConnInterface) ScheduleCustomAudienceUpdateRequestBuilderServiceClient {
-	return &scheduleCustomAudienceUpdateRequestBuilderServiceClient{cc}
+func NewJoinCustomAudienceRequestBuilderServiceClient(cc grpc.ClientConnInterface) JoinCustomAudienceRequestBuilderServiceClient {
+	return &joinCustomAudienceRequestBuilderServiceClient{cc}
 }
 
-func (c *scheduleCustomAudienceUpdateRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *joinCustomAudienceRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleCustomAudienceUpdateRequestBuilderServiceClient) SetMinDelay(ctx context.Context, in *SetMinDelayRequest, opts ...grpc.CallOption) (*SetMinDelayResponse, error) {
+func (c *joinCustomAudienceRequestBuilderServiceClient) SetCustomAudience(ctx context.Context, in *SetCustomAudienceRequest, opts ...grpc.CallOption) (*SetCustomAudienceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMinDelayResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_FullMethodName, in, out, cOpts...)
+	out := new(SetCustomAudienceResponse)
+	err := c.cc.Invoke(ctx, JoinCustomAudienceRequestBuilderService_SetCustomAudience_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleCustomAudienceUpdateRequestBuilderServiceClient) SetShouldReplacePendingUpdates(ctx context.Context, in *SetShouldReplacePendingUpdatesRequest, opts ...grpc.CallOption) (*SetShouldReplacePendingUpdatesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShouldReplacePendingUpdatesResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scheduleCustomAudienceUpdateRequestBuilderServiceClient) SetUpdateUri(ctx context.Context, in *SetUpdateUriRequest, opts ...grpc.CallOption) (*SetUpdateUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUpdateUriResponse)
-	err := c.cc.Invoke(ctx, ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ScheduleCustomAudienceUpdateRequestBuilderServiceServer is the server API for ScheduleCustomAudienceUpdateRequestBuilderService service.
-// All implementations must embed UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer
+// JoinCustomAudienceRequestBuilderServiceServer is the server API for JoinCustomAudienceRequestBuilderService service.
+// All implementations must embed UnimplementedJoinCustomAudienceRequestBuilderServiceServer
 // for forward compatibility.
-type ScheduleCustomAudienceUpdateRequestBuilderServiceServer interface {
+type JoinCustomAudienceRequestBuilderServiceServer interface {
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetMinDelay(context.Context, *SetMinDelayRequest) (*SetMinDelayResponse, error)
-	SetShouldReplacePendingUpdates(context.Context, *SetShouldReplacePendingUpdatesRequest) (*SetShouldReplacePendingUpdatesResponse, error)
-	SetUpdateUri(context.Context, *SetUpdateUriRequest) (*SetUpdateUriResponse, error)
-	mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer()
+	SetCustomAudience(context.Context, *SetCustomAudienceRequest) (*SetCustomAudienceResponse, error)
+	mustEmbedUnimplementedJoinCustomAudienceRequestBuilderServiceServer()
 }
 
-// UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer must be embedded to have
+// UnimplementedJoinCustomAudienceRequestBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer struct{}
+type UnimplementedJoinCustomAudienceRequestBuilderServiceServer struct{}
 
-func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedJoinCustomAudienceRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) SetMinDelay(context.Context, *SetMinDelayRequest) (*SetMinDelayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMinDelay not implemented")
+func (UnimplementedJoinCustomAudienceRequestBuilderServiceServer) SetCustomAudience(context.Context, *SetCustomAudienceRequest) (*SetCustomAudienceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCustomAudience not implemented")
 }
-func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) SetShouldReplacePendingUpdates(context.Context, *SetShouldReplacePendingUpdatesRequest) (*SetShouldReplacePendingUpdatesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShouldReplacePendingUpdates not implemented")
+func (UnimplementedJoinCustomAudienceRequestBuilderServiceServer) mustEmbedUnimplementedJoinCustomAudienceRequestBuilderServiceServer() {
 }
-func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) SetUpdateUri(context.Context, *SetUpdateUriRequest) (*SetUpdateUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUpdateUri not implemented")
-}
-func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer() {
-}
-func (UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedJoinCustomAudienceRequestBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeScheduleCustomAudienceUpdateRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ScheduleCustomAudienceUpdateRequestBuilderServiceServer will
+// UnsafeJoinCustomAudienceRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to JoinCustomAudienceRequestBuilderServiceServer will
 // result in compilation errors.
-type UnsafeScheduleCustomAudienceUpdateRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer()
+type UnsafeJoinCustomAudienceRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedJoinCustomAudienceRequestBuilderServiceServer()
 }
 
-func RegisterScheduleCustomAudienceUpdateRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv ScheduleCustomAudienceUpdateRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedScheduleCustomAudienceUpdateRequestBuilderServiceServer was
+func RegisterJoinCustomAudienceRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv JoinCustomAudienceRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedJoinCustomAudienceRequestBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ScheduleCustomAudienceUpdateRequestBuilderService_ServiceDesc, srv)
+	s.RegisterService(&JoinCustomAudienceRequestBuilderService_ServiceDesc, srv)
 }
 
-func _ScheduleCustomAudienceUpdateRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JoinCustomAudienceRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).Build(ctx, in)
+		return srv.(JoinCustomAudienceRequestBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestBuilderService_Build_FullMethodName,
+		FullMethod: JoinCustomAudienceRequestBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(JoinCustomAudienceRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMinDelayRequest)
+func _JoinCustomAudienceRequestBuilderService_SetCustomAudience_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCustomAudienceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetMinDelay(ctx, in)
+		return srv.(JoinCustomAudienceRequestBuilderServiceServer).SetCustomAudience(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_FullMethodName,
+		FullMethod: JoinCustomAudienceRequestBuilderService_SetCustomAudience_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetMinDelay(ctx, req.(*SetMinDelayRequest))
+		return srv.(JoinCustomAudienceRequestBuilderServiceServer).SetCustomAudience(ctx, req.(*SetCustomAudienceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShouldReplacePendingUpdatesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetShouldReplacePendingUpdates(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetShouldReplacePendingUpdates(ctx, req.(*SetShouldReplacePendingUpdatesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUpdateUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetUpdateUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleCustomAudienceUpdateRequestBuilderServiceServer).SetUpdateUri(ctx, req.(*SetUpdateUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ScheduleCustomAudienceUpdateRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for ScheduleCustomAudienceUpdateRequestBuilderService service.
+// JoinCustomAudienceRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for JoinCustomAudienceRequestBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ScheduleCustomAudienceUpdateRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.ScheduleCustomAudienceUpdateRequestBuilderService",
-	HandlerType: (*ScheduleCustomAudienceUpdateRequestBuilderServiceServer)(nil),
+var JoinCustomAudienceRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.JoinCustomAudienceRequestBuilderService",
+	HandlerType: (*JoinCustomAudienceRequestBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _ScheduleCustomAudienceUpdateRequestBuilderService_Build_Handler,
+			Handler:    _JoinCustomAudienceRequestBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "SetMinDelay",
-			Handler:    _ScheduleCustomAudienceUpdateRequestBuilderService_SetMinDelay_Handler,
-		},
-		{
-			MethodName: "SetShouldReplacePendingUpdates",
-			Handler:    _ScheduleCustomAudienceUpdateRequestBuilderService_SetShouldReplacePendingUpdates_Handler,
-		},
-		{
-			MethodName: "SetUpdateUri",
-			Handler:    _ScheduleCustomAudienceUpdateRequestBuilderService_SetUpdateUri_Handler,
+			MethodName: "SetCustomAudience",
+			Handler:    _JoinCustomAudienceRequestBuilderService_SetCustomAudience_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3753,406 +4708,140 @@ var ScheduleCustomAudienceUpdateRequestBuilderService_ServiceDesc = grpc.Service
 }
 
 const (
-	PartialCustomAudienceService_DescribeContents_FullMethodName      = "/customaudience.PartialCustomAudienceService/DescribeContents"
-	PartialCustomAudienceService_Equals_FullMethodName                = "/customaudience.PartialCustomAudienceService/Equals"
-	PartialCustomAudienceService_GetActivationTime_FullMethodName     = "/customaudience.PartialCustomAudienceService/GetActivationTime"
-	PartialCustomAudienceService_GetExpirationTime_FullMethodName     = "/customaudience.PartialCustomAudienceService/GetExpirationTime"
-	PartialCustomAudienceService_GetName_FullMethodName               = "/customaudience.PartialCustomAudienceService/GetName"
-	PartialCustomAudienceService_GetUserBiddingSignals_FullMethodName = "/customaudience.PartialCustomAudienceService/GetUserBiddingSignals"
-	PartialCustomAudienceService_HashCode_FullMethodName              = "/customaudience.PartialCustomAudienceService/HashCode"
-	PartialCustomAudienceService_ToString_FullMethodName              = "/customaudience.PartialCustomAudienceService/ToString"
-	PartialCustomAudienceService_WriteToParcel_FullMethodName         = "/customaudience.PartialCustomAudienceService/WriteToParcel"
+	CustomAudienceManagerService_GetTestCustomAudienceManager_FullMethodName = "/customaudience.CustomAudienceManagerService/GetTestCustomAudienceManager"
+	CustomAudienceManagerService_Get_FullMethodName                          = "/customaudience.CustomAudienceManagerService/Get"
 )
 
-// PartialCustomAudienceServiceClient is the client API for PartialCustomAudienceService service.
+// CustomAudienceManagerServiceClient is the client API for CustomAudienceManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PartialCustomAudienceServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetActivationTime(ctx context.Context, in *GetActivationTimeRequest, opts ...grpc.CallOption) (*GetActivationTimeResponse, error)
-	GetExpirationTime(ctx context.Context, in *GetExpirationTimeRequest, opts ...grpc.CallOption) (*GetExpirationTimeResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	GetUserBiddingSignals(ctx context.Context, in *GetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*GetUserBiddingSignalsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type CustomAudienceManagerServiceClient interface {
+	GetTestCustomAudienceManager(ctx context.Context, in *GetTestCustomAudienceManagerRequest, opts ...grpc.CallOption) (*GetTestCustomAudienceManagerResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 }
 
-type partialCustomAudienceServiceClient struct {
+type customAudienceManagerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPartialCustomAudienceServiceClient(cc grpc.ClientConnInterface) PartialCustomAudienceServiceClient {
-	return &partialCustomAudienceServiceClient{cc}
+func NewCustomAudienceManagerServiceClient(cc grpc.ClientConnInterface) CustomAudienceManagerServiceClient {
+	return &customAudienceManagerServiceClient{cc}
 }
 
-func (c *partialCustomAudienceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *customAudienceManagerServiceClient) GetTestCustomAudienceManager(ctx context.Context, in *GetTestCustomAudienceManagerRequest, opts ...grpc.CallOption) (*GetTestCustomAudienceManagerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(GetTestCustomAudienceManagerResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceManagerService_GetTestCustomAudienceManager_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *partialCustomAudienceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *customAudienceManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_Equals_FullMethodName, in, out, cOpts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, CustomAudienceManagerService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *partialCustomAudienceServiceClient) GetActivationTime(ctx context.Context, in *GetActivationTimeRequest, opts ...grpc.CallOption) (*GetActivationTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivationTimeResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_GetActivationTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceServiceClient) GetExpirationTime(ctx context.Context, in *GetExpirationTimeRequest, opts ...grpc.CallOption) (*GetExpirationTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExpirationTimeResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_GetExpirationTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceServiceClient) GetUserBiddingSignals(ctx context.Context, in *GetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*GetUserBiddingSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserBiddingSignalsResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_GetUserBiddingSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PartialCustomAudienceServiceServer is the server API for PartialCustomAudienceService service.
-// All implementations must embed UnimplementedPartialCustomAudienceServiceServer
+// CustomAudienceManagerServiceServer is the server API for CustomAudienceManagerService service.
+// All implementations must embed UnimplementedCustomAudienceManagerServiceServer
 // for forward compatibility.
-type PartialCustomAudienceServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetActivationTime(context.Context, *GetActivationTimeRequest) (*GetActivationTimeResponse, error)
-	GetExpirationTime(context.Context, *GetExpirationTimeRequest) (*GetExpirationTimeResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	GetUserBiddingSignals(context.Context, *GetUserBiddingSignalsRequest) (*GetUserBiddingSignalsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPartialCustomAudienceServiceServer()
+type CustomAudienceManagerServiceServer interface {
+	GetTestCustomAudienceManager(context.Context, *GetTestCustomAudienceManagerRequest) (*GetTestCustomAudienceManagerResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedCustomAudienceManagerServiceServer()
 }
 
-// UnimplementedPartialCustomAudienceServiceServer must be embedded to have
+// UnimplementedCustomAudienceManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPartialCustomAudienceServiceServer struct{}
+type UnimplementedCustomAudienceManagerServiceServer struct{}
 
-func (UnimplementedPartialCustomAudienceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedCustomAudienceManagerServiceServer) GetTestCustomAudienceManager(context.Context, *GetTestCustomAudienceManagerRequest) (*GetTestCustomAudienceManagerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTestCustomAudienceManager not implemented")
 }
-func (UnimplementedPartialCustomAudienceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedCustomAudienceManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedPartialCustomAudienceServiceServer) GetActivationTime(context.Context, *GetActivationTimeRequest) (*GetActivationTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivationTime not implemented")
+func (UnimplementedCustomAudienceManagerServiceServer) mustEmbedUnimplementedCustomAudienceManagerServiceServer() {
 }
-func (UnimplementedPartialCustomAudienceServiceServer) GetExpirationTime(context.Context, *GetExpirationTimeRequest) (*GetExpirationTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExpirationTime not implemented")
-}
-func (UnimplementedPartialCustomAudienceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedPartialCustomAudienceServiceServer) GetUserBiddingSignals(context.Context, *GetUserBiddingSignalsRequest) (*GetUserBiddingSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUserBiddingSignals not implemented")
-}
-func (UnimplementedPartialCustomAudienceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPartialCustomAudienceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPartialCustomAudienceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPartialCustomAudienceServiceServer) mustEmbedUnimplementedPartialCustomAudienceServiceServer() {
-}
-func (UnimplementedPartialCustomAudienceServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCustomAudienceManagerServiceServer) testEmbeddedByValue() {}
 
-// UnsafePartialCustomAudienceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PartialCustomAudienceServiceServer will
+// UnsafeCustomAudienceManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CustomAudienceManagerServiceServer will
 // result in compilation errors.
-type UnsafePartialCustomAudienceServiceServer interface {
-	mustEmbedUnimplementedPartialCustomAudienceServiceServer()
+type UnsafeCustomAudienceManagerServiceServer interface {
+	mustEmbedUnimplementedCustomAudienceManagerServiceServer()
 }
 
-func RegisterPartialCustomAudienceServiceServer(s grpc.ServiceRegistrar, srv PartialCustomAudienceServiceServer) {
-	// If the following call panics, it indicates UnimplementedPartialCustomAudienceServiceServer was
+func RegisterCustomAudienceManagerServiceServer(s grpc.ServiceRegistrar, srv CustomAudienceManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCustomAudienceManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PartialCustomAudienceService_ServiceDesc, srv)
+	s.RegisterService(&CustomAudienceManagerService_ServiceDesc, srv)
 }
 
-func _PartialCustomAudienceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _CustomAudienceManagerService_GetTestCustomAudienceManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTestCustomAudienceManagerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).DescribeContents(ctx, in)
+		return srv.(CustomAudienceManagerServiceServer).GetTestCustomAudienceManager(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PartialCustomAudienceService_DescribeContents_FullMethodName,
+		FullMethod: CustomAudienceManagerService_GetTestCustomAudienceManager_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(CustomAudienceManagerServiceServer).GetTestCustomAudienceManager(ctx, req.(*GetTestCustomAudienceManagerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PartialCustomAudienceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+func _CustomAudienceManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).Equals(ctx, in)
+		return srv.(CustomAudienceManagerServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PartialCustomAudienceService_Equals_FullMethodName,
+		FullMethod: CustomAudienceManagerService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(CustomAudienceManagerServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PartialCustomAudienceService_GetActivationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivationTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).GetActivationTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceService_GetActivationTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).GetActivationTime(ctx, req.(*GetActivationTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceService_GetExpirationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExpirationTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).GetExpirationTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceService_GetExpirationTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).GetExpirationTime(ctx, req.(*GetExpirationTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceService_GetUserBiddingSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserBiddingSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).GetUserBiddingSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceService_GetUserBiddingSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).GetUserBiddingSignals(ctx, req.(*GetUserBiddingSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PartialCustomAudienceService_ServiceDesc is the grpc.ServiceDesc for PartialCustomAudienceService service.
+// CustomAudienceManagerService_ServiceDesc is the grpc.ServiceDesc for CustomAudienceManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PartialCustomAudienceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.PartialCustomAudienceService",
-	HandlerType: (*PartialCustomAudienceServiceServer)(nil),
+var CustomAudienceManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customaudience.CustomAudienceManagerService",
+	HandlerType: (*CustomAudienceManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "DescribeContents",
-			Handler:    _PartialCustomAudienceService_DescribeContents_Handler,
+			MethodName: "GetTestCustomAudienceManager",
+			Handler:    _CustomAudienceManagerService_GetTestCustomAudienceManager_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _PartialCustomAudienceService_Equals_Handler,
-		},
-		{
-			MethodName: "GetActivationTime",
-			Handler:    _PartialCustomAudienceService_GetActivationTime_Handler,
-		},
-		{
-			MethodName: "GetExpirationTime",
-			Handler:    _PartialCustomAudienceService_GetExpirationTime_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _PartialCustomAudienceService_GetName_Handler,
-		},
-		{
-			MethodName: "GetUserBiddingSignals",
-			Handler:    _PartialCustomAudienceService_GetUserBiddingSignals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PartialCustomAudienceService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PartialCustomAudienceService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _PartialCustomAudienceService_WriteToParcel_Handler,
+			MethodName: "Get",
+			Handler:    _CustomAudienceManagerService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4160,586 +4849,12 @@ var PartialCustomAudienceService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PartialCustomAudienceBuilderService_Build_FullMethodName                 = "/customaudience.PartialCustomAudienceBuilderService/Build"
-	PartialCustomAudienceBuilderService_SetActivationTime_FullMethodName     = "/customaudience.PartialCustomAudienceBuilderService/SetActivationTime"
-	PartialCustomAudienceBuilderService_SetExpirationTime_FullMethodName     = "/customaudience.PartialCustomAudienceBuilderService/SetExpirationTime"
-	PartialCustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName = "/customaudience.PartialCustomAudienceBuilderService/SetUserBiddingSignals"
-)
-
-// PartialCustomAudienceBuilderServiceClient is the client API for PartialCustomAudienceBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PartialCustomAudienceBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetActivationTime(ctx context.Context, in *SetActivationTimeRequest, opts ...grpc.CallOption) (*SetActivationTimeResponse, error)
-	SetExpirationTime(ctx context.Context, in *SetExpirationTimeRequest, opts ...grpc.CallOption) (*SetExpirationTimeResponse, error)
-	SetUserBiddingSignals(ctx context.Context, in *SetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*SetUserBiddingSignalsResponse, error)
-}
-
-type partialCustomAudienceBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPartialCustomAudienceBuilderServiceClient(cc grpc.ClientConnInterface) PartialCustomAudienceBuilderServiceClient {
-	return &partialCustomAudienceBuilderServiceClient{cc}
-}
-
-func (c *partialCustomAudienceBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceBuilderServiceClient) SetActivationTime(ctx context.Context, in *SetActivationTimeRequest, opts ...grpc.CallOption) (*SetActivationTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetActivationTimeResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceBuilderService_SetActivationTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceBuilderServiceClient) SetExpirationTime(ctx context.Context, in *SetExpirationTimeRequest, opts ...grpc.CallOption) (*SetExpirationTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetExpirationTimeResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceBuilderService_SetExpirationTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *partialCustomAudienceBuilderServiceClient) SetUserBiddingSignals(ctx context.Context, in *SetUserBiddingSignalsRequest, opts ...grpc.CallOption) (*SetUserBiddingSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUserBiddingSignalsResponse)
-	err := c.cc.Invoke(ctx, PartialCustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PartialCustomAudienceBuilderServiceServer is the server API for PartialCustomAudienceBuilderService service.
-// All implementations must embed UnimplementedPartialCustomAudienceBuilderServiceServer
-// for forward compatibility.
-type PartialCustomAudienceBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetActivationTime(context.Context, *SetActivationTimeRequest) (*SetActivationTimeResponse, error)
-	SetExpirationTime(context.Context, *SetExpirationTimeRequest) (*SetExpirationTimeResponse, error)
-	SetUserBiddingSignals(context.Context, *SetUserBiddingSignalsRequest) (*SetUserBiddingSignalsResponse, error)
-	mustEmbedUnimplementedPartialCustomAudienceBuilderServiceServer()
-}
-
-// UnimplementedPartialCustomAudienceBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPartialCustomAudienceBuilderServiceServer struct{}
-
-func (UnimplementedPartialCustomAudienceBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedPartialCustomAudienceBuilderServiceServer) SetActivationTime(context.Context, *SetActivationTimeRequest) (*SetActivationTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetActivationTime not implemented")
-}
-func (UnimplementedPartialCustomAudienceBuilderServiceServer) SetExpirationTime(context.Context, *SetExpirationTimeRequest) (*SetExpirationTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetExpirationTime not implemented")
-}
-func (UnimplementedPartialCustomAudienceBuilderServiceServer) SetUserBiddingSignals(context.Context, *SetUserBiddingSignalsRequest) (*SetUserBiddingSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUserBiddingSignals not implemented")
-}
-func (UnimplementedPartialCustomAudienceBuilderServiceServer) mustEmbedUnimplementedPartialCustomAudienceBuilderServiceServer() {
-}
-func (UnimplementedPartialCustomAudienceBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafePartialCustomAudienceBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PartialCustomAudienceBuilderServiceServer will
-// result in compilation errors.
-type UnsafePartialCustomAudienceBuilderServiceServer interface {
-	mustEmbedUnimplementedPartialCustomAudienceBuilderServiceServer()
-}
-
-func RegisterPartialCustomAudienceBuilderServiceServer(s grpc.ServiceRegistrar, srv PartialCustomAudienceBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedPartialCustomAudienceBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PartialCustomAudienceBuilderService_ServiceDesc, srv)
-}
-
-func _PartialCustomAudienceBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceBuilderService_SetActivationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetActivationTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceBuilderServiceServer).SetActivationTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceBuilderService_SetActivationTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceBuilderServiceServer).SetActivationTime(ctx, req.(*SetActivationTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceBuilderService_SetExpirationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetExpirationTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceBuilderServiceServer).SetExpirationTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceBuilderService_SetExpirationTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceBuilderServiceServer).SetExpirationTime(ctx, req.(*SetExpirationTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PartialCustomAudienceBuilderService_SetUserBiddingSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUserBiddingSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PartialCustomAudienceBuilderServiceServer).SetUserBiddingSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PartialCustomAudienceBuilderService_SetUserBiddingSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PartialCustomAudienceBuilderServiceServer).SetUserBiddingSignals(ctx, req.(*SetUserBiddingSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PartialCustomAudienceBuilderService_ServiceDesc is the grpc.ServiceDesc for PartialCustomAudienceBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PartialCustomAudienceBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.PartialCustomAudienceBuilderService",
-	HandlerType: (*PartialCustomAudienceBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _PartialCustomAudienceBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetActivationTime",
-			Handler:    _PartialCustomAudienceBuilderService_SetActivationTime_Handler,
-		},
-		{
-			MethodName: "SetExpirationTime",
-			Handler:    _PartialCustomAudienceBuilderService_SetExpirationTime_Handler,
-		},
-		{
-			MethodName: "SetUserBiddingSignals",
-			Handler:    _PartialCustomAudienceBuilderService_SetUserBiddingSignals_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/customaudience/customaudience.proto",
-}
-
-const (
-	RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_FullMethodName = "/customaudience.RemoveCustomAudienceOverrideRequestService/NewRemoveCustomAudienceOverrideRequest"
-	RemoveCustomAudienceOverrideRequestService_GetBuyer_FullMethodName                               = "/customaudience.RemoveCustomAudienceOverrideRequestService/GetBuyer"
-	RemoveCustomAudienceOverrideRequestService_GetName_FullMethodName                                = "/customaudience.RemoveCustomAudienceOverrideRequestService/GetName"
-)
-
-// RemoveCustomAudienceOverrideRequestServiceClient is the client API for RemoveCustomAudienceOverrideRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RemoveCustomAudienceOverrideRequestServiceClient interface {
-	NewRemoveCustomAudienceOverrideRequest(ctx context.Context, in *NewRemoveCustomAudienceOverrideRequestRequest, opts ...grpc.CallOption) (*NewRemoveCustomAudienceOverrideRequestResponse, error)
-	GetBuyer(ctx context.Context, in *RemoveCustomAudienceOverrideRequestGetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error)
-	GetName(ctx context.Context, in *RemoveCustomAudienceOverrideRequestGetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-}
-
-type removeCustomAudienceOverrideRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRemoveCustomAudienceOverrideRequestServiceClient(cc grpc.ClientConnInterface) RemoveCustomAudienceOverrideRequestServiceClient {
-	return &removeCustomAudienceOverrideRequestServiceClient{cc}
-}
-
-func (c *removeCustomAudienceOverrideRequestServiceClient) NewRemoveCustomAudienceOverrideRequest(ctx context.Context, in *NewRemoveCustomAudienceOverrideRequestRequest, opts ...grpc.CallOption) (*NewRemoveCustomAudienceOverrideRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRemoveCustomAudienceOverrideRequestResponse)
-	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *removeCustomAudienceOverrideRequestServiceClient) GetBuyer(ctx context.Context, in *RemoveCustomAudienceOverrideRequestGetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBuyerResponse)
-	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestService_GetBuyer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *removeCustomAudienceOverrideRequestServiceClient) GetName(ctx context.Context, in *RemoveCustomAudienceOverrideRequestGetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RemoveCustomAudienceOverrideRequestServiceServer is the server API for RemoveCustomAudienceOverrideRequestService service.
-// All implementations must embed UnimplementedRemoveCustomAudienceOverrideRequestServiceServer
-// for forward compatibility.
-type RemoveCustomAudienceOverrideRequestServiceServer interface {
-	NewRemoveCustomAudienceOverrideRequest(context.Context, *NewRemoveCustomAudienceOverrideRequestRequest) (*NewRemoveCustomAudienceOverrideRequestResponse, error)
-	GetBuyer(context.Context, *RemoveCustomAudienceOverrideRequestGetBuyerRequest) (*GetBuyerResponse, error)
-	GetName(context.Context, *RemoveCustomAudienceOverrideRequestGetNameRequest) (*GetNameResponse, error)
-	mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestServiceServer()
-}
-
-// UnimplementedRemoveCustomAudienceOverrideRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRemoveCustomAudienceOverrideRequestServiceServer struct{}
-
-func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) NewRemoveCustomAudienceOverrideRequest(context.Context, *NewRemoveCustomAudienceOverrideRequestRequest) (*NewRemoveCustomAudienceOverrideRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRemoveCustomAudienceOverrideRequest not implemented")
-}
-func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) GetBuyer(context.Context, *RemoveCustomAudienceOverrideRequestGetBuyerRequest) (*GetBuyerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBuyer not implemented")
-}
-func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) GetName(context.Context, *RemoveCustomAudienceOverrideRequestGetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestServiceServer() {
-}
-func (UnimplementedRemoveCustomAudienceOverrideRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRemoveCustomAudienceOverrideRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RemoveCustomAudienceOverrideRequestServiceServer will
-// result in compilation errors.
-type UnsafeRemoveCustomAudienceOverrideRequestServiceServer interface {
-	mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestServiceServer()
-}
-
-func RegisterRemoveCustomAudienceOverrideRequestServiceServer(s grpc.ServiceRegistrar, srv RemoveCustomAudienceOverrideRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedRemoveCustomAudienceOverrideRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RemoveCustomAudienceOverrideRequestService_ServiceDesc, srv)
-}
-
-func _RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRemoveCustomAudienceOverrideRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).NewRemoveCustomAudienceOverrideRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).NewRemoveCustomAudienceOverrideRequest(ctx, req.(*NewRemoveCustomAudienceOverrideRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RemoveCustomAudienceOverrideRequestService_GetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveCustomAudienceOverrideRequestGetBuyerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).GetBuyer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RemoveCustomAudienceOverrideRequestService_GetBuyer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).GetBuyer(ctx, req.(*RemoveCustomAudienceOverrideRequestGetBuyerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RemoveCustomAudienceOverrideRequestService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveCustomAudienceOverrideRequestGetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RemoveCustomAudienceOverrideRequestService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoveCustomAudienceOverrideRequestServiceServer).GetName(ctx, req.(*RemoveCustomAudienceOverrideRequestGetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RemoveCustomAudienceOverrideRequestService_ServiceDesc is the grpc.ServiceDesc for RemoveCustomAudienceOverrideRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RemoveCustomAudienceOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.RemoveCustomAudienceOverrideRequestService",
-	HandlerType: (*RemoveCustomAudienceOverrideRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRemoveCustomAudienceOverrideRequest",
-			Handler:    _RemoveCustomAudienceOverrideRequestService_NewRemoveCustomAudienceOverrideRequest_Handler,
-		},
-		{
-			MethodName: "GetBuyer",
-			Handler:    _RemoveCustomAudienceOverrideRequestService_GetBuyer_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _RemoveCustomAudienceOverrideRequestService_GetName_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/customaudience/customaudience.proto",
-}
-
-const (
-	RemoveCustomAudienceOverrideRequestBuilderService_Build_FullMethodName    = "/customaudience.RemoveCustomAudienceOverrideRequestBuilderService/Build"
-	RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_FullMethodName = "/customaudience.RemoveCustomAudienceOverrideRequestBuilderService/SetBuyer"
-	RemoveCustomAudienceOverrideRequestBuilderService_SetName_FullMethodName  = "/customaudience.RemoveCustomAudienceOverrideRequestBuilderService/SetName"
-)
-
-// RemoveCustomAudienceOverrideRequestBuilderServiceClient is the client API for RemoveCustomAudienceOverrideRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RemoveCustomAudienceOverrideRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error)
-	SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error)
-}
-
-type removeCustomAudienceOverrideRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRemoveCustomAudienceOverrideRequestBuilderServiceClient(cc grpc.ClientConnInterface) RemoveCustomAudienceOverrideRequestBuilderServiceClient {
-	return &removeCustomAudienceOverrideRequestBuilderServiceClient{cc}
-}
-
-func (c *removeCustomAudienceOverrideRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *removeCustomAudienceOverrideRequestBuilderServiceClient) SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBuyerResponse)
-	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *removeCustomAudienceOverrideRequestBuilderServiceClient) SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetNameResponse)
-	err := c.cc.Invoke(ctx, RemoveCustomAudienceOverrideRequestBuilderService_SetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RemoveCustomAudienceOverrideRequestBuilderServiceServer is the server API for RemoveCustomAudienceOverrideRequestBuilderService service.
-// All implementations must embed UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer
-// for forward compatibility.
-type RemoveCustomAudienceOverrideRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error)
-	SetName(context.Context, *SetNameRequest) (*SetNameResponse, error)
-	mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer()
-}
-
-// UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer struct{}
-
-func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBuyer not implemented")
-}
-func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) SetName(context.Context, *SetNameRequest) (*SetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetName not implemented")
-}
-func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer() {
-}
-func (UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRemoveCustomAudienceOverrideRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RemoveCustomAudienceOverrideRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeRemoveCustomAudienceOverrideRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer()
-}
-
-func RegisterRemoveCustomAudienceOverrideRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv RemoveCustomAudienceOverrideRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedRemoveCustomAudienceOverrideRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RemoveCustomAudienceOverrideRequestBuilderService_ServiceDesc, srv)
-}
-
-func _RemoveCustomAudienceOverrideRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RemoveCustomAudienceOverrideRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBuyerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).SetBuyer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).SetBuyer(ctx, req.(*SetBuyerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RemoveCustomAudienceOverrideRequestBuilderService_SetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).SetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RemoveCustomAudienceOverrideRequestBuilderService_SetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoveCustomAudienceOverrideRequestBuilderServiceServer).SetName(ctx, req.(*SetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RemoveCustomAudienceOverrideRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for RemoveCustomAudienceOverrideRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RemoveCustomAudienceOverrideRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "customaudience.RemoveCustomAudienceOverrideRequestBuilderService",
-	HandlerType: (*RemoveCustomAudienceOverrideRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _RemoveCustomAudienceOverrideRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetBuyer",
-			Handler:    _RemoveCustomAudienceOverrideRequestBuilderService_SetBuyer_Handler,
-		},
-		{
-			MethodName: "SetName",
-			Handler:    _RemoveCustomAudienceOverrideRequestBuilderService_SetName_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/customaudience/customaudience.proto",
-}
-
-const (
-	TrustedBiddingDataService_DescribeContents_FullMethodName     = "/customaudience.TrustedBiddingDataService/DescribeContents"
-	TrustedBiddingDataService_Equals_FullMethodName               = "/customaudience.TrustedBiddingDataService/Equals"
-	TrustedBiddingDataService_GetTrustedBiddingUri_FullMethodName = "/customaudience.TrustedBiddingDataService/GetTrustedBiddingUri"
-	TrustedBiddingDataService_HashCode_FullMethodName             = "/customaudience.TrustedBiddingDataService/HashCode"
-	TrustedBiddingDataService_WriteToParcel_FullMethodName        = "/customaudience.TrustedBiddingDataService/WriteToParcel"
+	TrustedBiddingDataService_DescribeContents_FullMethodName      = "/customaudience.TrustedBiddingDataService/DescribeContents"
+	TrustedBiddingDataService_Equals_FullMethodName                = "/customaudience.TrustedBiddingDataService/Equals"
+	TrustedBiddingDataService_GetTrustedBiddingKeys_FullMethodName = "/customaudience.TrustedBiddingDataService/GetTrustedBiddingKeys"
+	TrustedBiddingDataService_GetTrustedBiddingUri_FullMethodName  = "/customaudience.TrustedBiddingDataService/GetTrustedBiddingUri"
+	TrustedBiddingDataService_HashCode_FullMethodName              = "/customaudience.TrustedBiddingDataService/HashCode"
+	TrustedBiddingDataService_WriteToParcel_FullMethodName         = "/customaudience.TrustedBiddingDataService/WriteToParcel"
 )
 
 // TrustedBiddingDataServiceClient is the client API for TrustedBiddingDataService service.
@@ -4748,6 +4863,7 @@ const (
 type TrustedBiddingDataServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetTrustedBiddingKeys(ctx context.Context, in *GetTrustedBiddingKeysRequest, opts ...grpc.CallOption) (*GetTrustedBiddingKeysResponse, error)
 	GetTrustedBiddingUri(ctx context.Context, in *GetTrustedBiddingUriRequest, opts ...grpc.CallOption) (*GetTrustedBiddingUriResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
@@ -4775,6 +4891,16 @@ func (c *trustedBiddingDataServiceClient) Equals(ctx context.Context, in *Equals
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, TrustedBiddingDataService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trustedBiddingDataServiceClient) GetTrustedBiddingKeys(ctx context.Context, in *GetTrustedBiddingKeysRequest, opts ...grpc.CallOption) (*GetTrustedBiddingKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrustedBiddingKeysResponse)
+	err := c.cc.Invoke(ctx, TrustedBiddingDataService_GetTrustedBiddingKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -4817,6 +4943,7 @@ func (c *trustedBiddingDataServiceClient) WriteToParcel(ctx context.Context, in 
 type TrustedBiddingDataServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetTrustedBiddingKeys(context.Context, *GetTrustedBiddingKeysRequest) (*GetTrustedBiddingKeysResponse, error)
 	GetTrustedBiddingUri(context.Context, *GetTrustedBiddingUriRequest) (*GetTrustedBiddingUriResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
@@ -4835,6 +4962,9 @@ func (UnimplementedTrustedBiddingDataServiceServer) DescribeContents(context.Con
 }
 func (UnimplementedTrustedBiddingDataServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTrustedBiddingDataServiceServer) GetTrustedBiddingKeys(context.Context, *GetTrustedBiddingKeysRequest) (*GetTrustedBiddingKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrustedBiddingKeys not implemented")
 }
 func (UnimplementedTrustedBiddingDataServiceServer) GetTrustedBiddingUri(context.Context, *GetTrustedBiddingUriRequest) (*GetTrustedBiddingUriResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTrustedBiddingUri not implemented")
@@ -4899,6 +5029,24 @@ func _TrustedBiddingDataService_Equals_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TrustedBiddingDataServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrustedBiddingDataService_GetTrustedBiddingKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrustedBiddingKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrustedBiddingDataServiceServer).GetTrustedBiddingKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrustedBiddingDataService_GetTrustedBiddingKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrustedBiddingDataServiceServer).GetTrustedBiddingKeys(ctx, req.(*GetTrustedBiddingKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4971,6 +5119,10 @@ var TrustedBiddingDataService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Equals",
 			Handler:    _TrustedBiddingDataService_Equals_Handler,
+		},
+		{
+			MethodName: "GetTrustedBiddingKeys",
+			Handler:    _TrustedBiddingDataService_GetTrustedBiddingKeys_Handler,
 		},
 		{
 			MethodName: "GetTrustedBiddingUri",

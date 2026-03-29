@@ -15,106 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// FloatActionServer implements pb.FloatActionServiceServer.
-type FloatActionServer struct {
-	pb.UnimplementedFloatActionServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *FloatActionServer) NewFloatAction(_ context.Context, req *pb.NewFloatActionRequest) (*pb.NewFloatActionResponse, error) {
-	obj, err := jnipkg.NewFloatAction(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewFloatActionResponse{Result: handle}, nil
-}
-
-func (s *FloatActionServer) GetActionType(_ context.Context, req *pb.GetActionTypeRequest) (*pb.GetActionTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FloatAction{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetActionType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetActionTypeResponse{Result: result}, nil
-}
-
-func (s *FloatActionServer) GetNewValue(_ context.Context, req *pb.GetNewValueRequest) (*pb.GetNewValueResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FloatAction{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNewValue()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNewValueResponse{Result: result}, nil
-}
-
-// ModeActionServer implements pb.ModeActionServiceServer.
-type ModeActionServer struct {
-	pb.UnimplementedModeActionServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ModeActionServer) NewModeAction(_ context.Context, req *pb.NewModeActionRequest) (*pb.NewModeActionResponse, error) {
-	obj, err := jnipkg.NewModeAction(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewModeActionResponse{Result: handle}, nil
-}
-
-func (s *ModeActionServer) GetActionType(_ context.Context, req *pb.GetActionTypeRequest) (*pb.GetActionTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ModeAction{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetActionType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetActionTypeResponse{Result: result}, nil
-}
-
-func (s *ModeActionServer) GetNewMode(_ context.Context, req *pb.GetNewModeRequest) (*pb.GetNewModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ModeAction{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNewMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNewModeResponse{Result: result}, nil
-}
-
 // BooleanActionServer implements pb.BooleanActionServiceServer.
 type BooleanActionServer struct {
 	pb.UnimplementedBooleanActionServiceServer
@@ -165,6 +65,56 @@ func (s *BooleanActionServer) GetNewState(_ context.Context, req *pb.GetNewState
 	return &pb.GetNewStateResponse{Result: result}, nil
 }
 
+// FloatActionServer implements pb.FloatActionServiceServer.
+type FloatActionServer struct {
+	pb.UnimplementedFloatActionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *FloatActionServer) NewFloatAction(_ context.Context, req *pb.NewFloatActionRequest) (*pb.NewFloatActionResponse, error) {
+	obj, err := jnipkg.NewFloatAction(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewFloatActionResponse{Result: handle}, nil
+}
+
+func (s *FloatActionServer) GetActionType(_ context.Context, req *pb.GetActionTypeRequest) (*pb.GetActionTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FloatAction{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActionType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetActionTypeResponse{Result: result}, nil
+}
+
+func (s *FloatActionServer) GetNewValue(_ context.Context, req *pb.GetNewValueRequest) (*pb.GetNewValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FloatAction{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNewValue()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNewValueResponse{Result: result}, nil
+}
+
 // CommandActionServer implements pb.CommandActionServiceServer.
 type CommandActionServer struct {
 	pb.UnimplementedCommandActionServiceServer
@@ -199,4 +149,54 @@ func (s *CommandActionServer) GetActionType(_ context.Context, req *pb.GetAction
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetActionTypeResponse{Result: result}, nil
+}
+
+// ModeActionServer implements pb.ModeActionServiceServer.
+type ModeActionServer struct {
+	pb.UnimplementedModeActionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ModeActionServer) NewModeAction(_ context.Context, req *pb.NewModeActionRequest) (*pb.NewModeActionResponse, error) {
+	obj, err := jnipkg.NewModeAction(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewModeActionResponse{Result: handle}, nil
+}
+
+func (s *ModeActionServer) GetActionType(_ context.Context, req *pb.GetActionTypeRequest) (*pb.GetActionTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ModeAction{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActionType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetActionTypeResponse{Result: result}, nil
+}
+
+func (s *ModeActionServer) GetNewMode(_ context.Context, req *pb.GetNewModeRequest) (*pb.GetNewModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ModeAction{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNewMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNewModeResponse{Result: result}, nil
 }

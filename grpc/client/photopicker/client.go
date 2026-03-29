@@ -9,96 +9,28 @@ import (
 	"google.golang.org/grpc"
 )
 
-// EmbeddedPhotoPickerClientClient wraps the gRPC EmbeddedPhotoPickerClientService client.
-type EmbeddedPhotoPickerClientClient struct {
-	svc pb.EmbeddedPhotoPickerClientServiceClient
+// EmbeddedPhotoPickerProviderClient wraps the gRPC EmbeddedPhotoPickerProviderService client.
+type EmbeddedPhotoPickerProviderClient struct {
+	svc pb.EmbeddedPhotoPickerProviderServiceClient
 }
 
-// NewEmbeddedPhotoPickerClientClient creates a new EmbeddedPhotoPickerClient client.
-func NewEmbeddedPhotoPickerClientClient(cc grpc.ClientConnInterface) *EmbeddedPhotoPickerClientClient {
-	return &EmbeddedPhotoPickerClientClient{
-		svc: pb.NewEmbeddedPhotoPickerClientServiceClient(cc),
+// NewEmbeddedPhotoPickerProviderClient creates a new EmbeddedPhotoPickerProvider client.
+func NewEmbeddedPhotoPickerProviderClient(cc grpc.ClientConnInterface) *EmbeddedPhotoPickerProviderClient {
+	return &EmbeddedPhotoPickerProviderClient{
+		svc: pb.NewEmbeddedPhotoPickerProviderServiceClient(cc),
 	}
 }
 
-// OnSelectionComplete calls the OnSelectionComplete RPC.
-func (c *EmbeddedPhotoPickerClientClient) OnSelectionComplete(ctx context.Context) error {
-	_, err := c.svc.OnSelectionComplete(ctx, &pb.OnSelectionCompleteRequest{})
-	return err
-}
-
-// OnSessionError calls the OnSessionError RPC.
-func (c *EmbeddedPhotoPickerClientClient) OnSessionError(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSessionError(ctx, &pb.OnSessionErrorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnSessionOpened calls the OnSessionOpened RPC.
-func (c *EmbeddedPhotoPickerClientClient) OnSessionOpened(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSessionOpened(ctx, &pb.OnSessionOpenedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// EmbeddedPhotoPickerSessionClient wraps the gRPC EmbeddedPhotoPickerSessionService client.
-type EmbeddedPhotoPickerSessionClient struct {
-	svc pb.EmbeddedPhotoPickerSessionServiceClient
-}
-
-// NewEmbeddedPhotoPickerSessionClient creates a new EmbeddedPhotoPickerSession client.
-func NewEmbeddedPhotoPickerSessionClient(cc grpc.ClientConnInterface) *EmbeddedPhotoPickerSessionClient {
-	return &EmbeddedPhotoPickerSessionClient{
-		svc: pb.NewEmbeddedPhotoPickerSessionServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *EmbeddedPhotoPickerSessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// GetSurfacePackage calls the GetSurfacePackage RPC.
-func (c *EmbeddedPhotoPickerSessionClient) GetSurfacePackage(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSurfacePackage(ctx, &pb.GetSurfacePackageRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NotifyConfigurationChanged calls the NotifyConfigurationChanged RPC.
-func (c *EmbeddedPhotoPickerSessionClient) NotifyConfigurationChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.NotifyConfigurationChanged(ctx, &pb.NotifyConfigurationChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// NotifyPhotoPickerExpanded calls the NotifyPhotoPickerExpanded RPC.
-func (c *EmbeddedPhotoPickerSessionClient) NotifyPhotoPickerExpanded(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.NotifyPhotoPickerExpanded(ctx, &pb.NotifyPhotoPickerExpandedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// NotifyResized calls the NotifyResized RPC.
-func (c *EmbeddedPhotoPickerSessionClient) NotifyResized(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.NotifyResized(ctx, &pb.NotifyResizedRequest{
+// OpenSession calls the OpenSession RPC.
+func (c *EmbeddedPhotoPickerProviderClient) OpenSession(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int64, arg6 int64) error {
+	_, err := c.svc.OpenSession(ctx, &pb.OpenSessionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
-	})
-	return err
-}
-
-// NotifyVisibilityChanged calls the NotifyVisibilityChanged RPC.
-func (c *EmbeddedPhotoPickerSessionClient) NotifyVisibilityChanged(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.NotifyVisibilityChanged(ctx, &pb.NotifyVisibilityChangedRequest{
-		Arg0: arg0,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
 	})
 	return err
 }
@@ -136,6 +68,24 @@ func (c *EmbeddedPhotoPickerFeatureInfoClient) GetAccentColor(ctx context.Contex
 // GetMaxSelectionLimit calls the GetMaxSelectionLimit RPC.
 func (c *EmbeddedPhotoPickerFeatureInfoClient) GetMaxSelectionLimit(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMaxSelectionLimit(ctx, &pb.GetMaxSelectionLimitRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeTypes calls the GetMimeTypes RPC.
+func (c *EmbeddedPhotoPickerFeatureInfoClient) GetMimeTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMimeTypes(ctx, &pb.GetMimeTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreSelectedUris calls the GetPreSelectedUris RPC.
+func (c *EmbeddedPhotoPickerFeatureInfoClient) GetPreSelectedUris(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreSelectedUris(ctx, &pb.GetPreSelectedUrisRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -243,6 +193,66 @@ func (c *EmbeddedPhotoPickerFeatureInfoBuilderClient) SetThemeNightMode(ctx cont
 	return resp.GetResult(), nil
 }
 
+// EmbeddedPhotoPickerSessionClient wraps the gRPC EmbeddedPhotoPickerSessionService client.
+type EmbeddedPhotoPickerSessionClient struct {
+	svc pb.EmbeddedPhotoPickerSessionServiceClient
+}
+
+// NewEmbeddedPhotoPickerSessionClient creates a new EmbeddedPhotoPickerSession client.
+func NewEmbeddedPhotoPickerSessionClient(cc grpc.ClientConnInterface) *EmbeddedPhotoPickerSessionClient {
+	return &EmbeddedPhotoPickerSessionClient{
+		svc: pb.NewEmbeddedPhotoPickerSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *EmbeddedPhotoPickerSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetSurfacePackage calls the GetSurfacePackage RPC.
+func (c *EmbeddedPhotoPickerSessionClient) GetSurfacePackage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurfacePackage(ctx, &pb.GetSurfacePackageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifyConfigurationChanged calls the NotifyConfigurationChanged RPC.
+func (c *EmbeddedPhotoPickerSessionClient) NotifyConfigurationChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.NotifyConfigurationChanged(ctx, &pb.NotifyConfigurationChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NotifyPhotoPickerExpanded calls the NotifyPhotoPickerExpanded RPC.
+func (c *EmbeddedPhotoPickerSessionClient) NotifyPhotoPickerExpanded(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.NotifyPhotoPickerExpanded(ctx, &pb.NotifyPhotoPickerExpandedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NotifyResized calls the NotifyResized RPC.
+func (c *EmbeddedPhotoPickerSessionClient) NotifyResized(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.NotifyResized(ctx, &pb.NotifyResizedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NotifyVisibilityChanged calls the NotifyVisibilityChanged RPC.
+func (c *EmbeddedPhotoPickerSessionClient) NotifyVisibilityChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.NotifyVisibilityChanged(ctx, &pb.NotifyVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // EmbeddedPhotoPickerProviderFactoryClient wraps the gRPC EmbeddedPhotoPickerProviderFactoryService client.
 type EmbeddedPhotoPickerProviderFactoryClient struct {
 	svc pb.EmbeddedPhotoPickerProviderFactoryServiceClient
@@ -266,28 +276,36 @@ func (c *EmbeddedPhotoPickerProviderFactoryClient) Create(ctx context.Context, a
 	return resp.GetResult(), nil
 }
 
-// EmbeddedPhotoPickerProviderClient wraps the gRPC EmbeddedPhotoPickerProviderService client.
-type EmbeddedPhotoPickerProviderClient struct {
-	svc pb.EmbeddedPhotoPickerProviderServiceClient
+// EmbeddedPhotoPickerClientClient wraps the gRPC EmbeddedPhotoPickerClientService client.
+type EmbeddedPhotoPickerClientClient struct {
+	svc pb.EmbeddedPhotoPickerClientServiceClient
 }
 
-// NewEmbeddedPhotoPickerProviderClient creates a new EmbeddedPhotoPickerProvider client.
-func NewEmbeddedPhotoPickerProviderClient(cc grpc.ClientConnInterface) *EmbeddedPhotoPickerProviderClient {
-	return &EmbeddedPhotoPickerProviderClient{
-		svc: pb.NewEmbeddedPhotoPickerProviderServiceClient(cc),
+// NewEmbeddedPhotoPickerClientClient creates a new EmbeddedPhotoPickerClient client.
+func NewEmbeddedPhotoPickerClientClient(cc grpc.ClientConnInterface) *EmbeddedPhotoPickerClientClient {
+	return &EmbeddedPhotoPickerClientClient{
+		svc: pb.NewEmbeddedPhotoPickerClientServiceClient(cc),
 	}
 }
 
-// OpenSession calls the OpenSession RPC.
-func (c *EmbeddedPhotoPickerProviderClient) OpenSession(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int64, arg6 int64) error {
-	_, err := c.svc.OpenSession(ctx, &pb.OpenSessionRequest{
+// OnSelectionComplete calls the OnSelectionComplete RPC.
+func (c *EmbeddedPhotoPickerClientClient) OnSelectionComplete(ctx context.Context) error {
+	_, err := c.svc.OnSelectionComplete(ctx, &pb.OnSelectionCompleteRequest{})
+	return err
+}
+
+// OnSessionError calls the OnSessionError RPC.
+func (c *EmbeddedPhotoPickerClientClient) OnSessionError(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSessionError(ctx, &pb.OnSessionErrorRequest{
 		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
+	})
+	return err
+}
+
+// OnSessionOpened calls the OnSessionOpened RPC.
+func (c *EmbeddedPhotoPickerClientClient) OnSessionOpened(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSessionOpened(ctx, &pb.OnSessionOpenedRequest{
+		Arg0: arg0,
 	})
 	return err
 }

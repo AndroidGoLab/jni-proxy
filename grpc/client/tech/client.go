@@ -9,51 +9,33 @@ import (
 	"google.golang.org/grpc"
 )
 
-// NfcFClient wraps the gRPC NfcFService client.
-type NfcFClient struct {
-	svc pb.NfcFServiceClient
+// NfcBarcodeClient wraps the gRPC NfcBarcodeService client.
+type NfcBarcodeClient struct {
+	svc pb.NfcBarcodeServiceClient
 }
 
-// NewNfcFClient creates a new NfcF client.
-func NewNfcFClient(cc grpc.ClientConnInterface) *NfcFClient {
-	return &NfcFClient{
-		svc: pb.NewNfcFServiceClient(cc),
+// NewNfcBarcodeClient creates a new NfcBarcode client.
+func NewNfcBarcodeClient(cc grpc.ClientConnInterface) *NfcBarcodeClient {
+	return &NfcBarcodeClient{
+		svc: pb.NewNfcBarcodeServiceClient(cc),
 	}
 }
 
 // Close calls the Close RPC.
-func (c *NfcFClient) Close(ctx context.Context) error {
+func (c *NfcBarcodeClient) Close(ctx context.Context) error {
 	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
 	return err
 }
 
 // Connect calls the Connect RPC.
-func (c *NfcFClient) Connect(ctx context.Context) error {
+func (c *NfcBarcodeClient) Connect(ctx context.Context) error {
 	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{})
 	return err
 }
 
-// GetManufacturer calls the GetManufacturer RPC.
-func (c *NfcFClient) GetManufacturer(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetManufacturer(ctx, &pb.GetManufacturerRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxTransceiveLength calls the GetMaxTransceiveLength RPC.
-func (c *NfcFClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxTransceiveLength(ctx, &pb.GetMaxTransceiveLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSystemCode calls the GetSystemCode RPC.
-func (c *NfcFClient) GetSystemCode(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSystemCode(ctx, &pb.GetSystemCodeRequest{})
+// GetBarcode calls the GetBarcode RPC.
+func (c *NfcBarcodeClient) GetBarcode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBarcode(ctx, &pb.GetBarcodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -61,7 +43,7 @@ func (c *NfcFClient) GetSystemCode(ctx context.Context) (int64, error) {
 }
 
 // GetTag calls the GetTag RPC.
-func (c *NfcFClient) GetTag(ctx context.Context) (int64, error) {
+func (c *NfcBarcodeClient) GetTag(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
 	if err != nil {
 		return 0, err
@@ -69,9 +51,9 @@ func (c *NfcFClient) GetTag(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetTimeout calls the GetTimeout RPC.
-func (c *NfcFClient) GetTimeout(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTimeout(ctx, &pb.GetTimeoutRequest{})
+// GetType calls the GetType RPC.
+func (c *NfcBarcodeClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -79,7 +61,7 @@ func (c *NfcFClient) GetTimeout(ctx context.Context) (int32, error) {
 }
 
 // IsConnected calls the IsConnected RPC.
-func (c *NfcFClient) IsConnected(ctx context.Context) (bool, error) {
+func (c *NfcBarcodeClient) IsConnected(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
 	if err != nil {
 		return false, err
@@ -87,17 +69,9 @@ func (c *NfcFClient) IsConnected(ctx context.Context) (bool, error) {
 	return resp.GetResult(), nil
 }
 
-// SetTimeout calls the SetTimeout RPC.
-func (c *NfcFClient) SetTimeout(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetTimeout(ctx, &pb.SetTimeoutRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Transceive calls the Transceive RPC.
-func (c *NfcFClient) Transceive(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Transceive(ctx, &pb.TransceiveRequest{
+// Get calls the Get RPC.
+func (c *NfcBarcodeClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -106,8 +80,66 @@ func (c *NfcFClient) Transceive(ctx context.Context, arg0 int64) (int64, error) 
 	return resp.GetResult(), nil
 }
 
+// NdefFormatableClient wraps the gRPC NdefFormatableService client.
+type NdefFormatableClient struct {
+	svc pb.NdefFormatableServiceClient
+}
+
+// NewNdefFormatableClient creates a new NdefFormatable client.
+func NewNdefFormatableClient(cc grpc.ClientConnInterface) *NdefFormatableClient {
+	return &NdefFormatableClient{
+		svc: pb.NewNdefFormatableServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *NdefFormatableClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Connect calls the Connect RPC.
+func (c *NdefFormatableClient) Connect(ctx context.Context) error {
+	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{})
+	return err
+}
+
+// Format calls the Format RPC.
+func (c *NdefFormatableClient) Format(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Format(ctx, &pb.FormatRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// FormatReadOnly calls the FormatReadOnly RPC.
+func (c *NdefFormatableClient) FormatReadOnly(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.FormatReadOnly(ctx, &pb.FormatReadOnlyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetTag calls the GetTag RPC.
+func (c *NdefFormatableClient) GetTag(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConnected calls the IsConnected RPC.
+func (c *NdefFormatableClient) IsConnected(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Get calls the Get RPC.
-func (c *NfcFClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+func (c *NdefFormatableClient) Get(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Arg0: arg0,
 	})
@@ -236,33 +268,33 @@ func (c *MifareUltralightClient) Get(ctx context.Context, arg0 int64) (int64, er
 	return resp.GetResult(), nil
 }
 
-// NfcBClient wraps the gRPC NfcBService client.
-type NfcBClient struct {
-	svc pb.NfcBServiceClient
+// NfcAClient wraps the gRPC NfcAService client.
+type NfcAClient struct {
+	svc pb.NfcAServiceClient
 }
 
-// NewNfcBClient creates a new NfcB client.
-func NewNfcBClient(cc grpc.ClientConnInterface) *NfcBClient {
-	return &NfcBClient{
-		svc: pb.NewNfcBServiceClient(cc),
+// NewNfcAClient creates a new NfcA client.
+func NewNfcAClient(cc grpc.ClientConnInterface) *NfcAClient {
+	return &NfcAClient{
+		svc: pb.NewNfcAServiceClient(cc),
 	}
 }
 
 // Close calls the Close RPC.
-func (c *NfcBClient) Close(ctx context.Context) error {
+func (c *NfcAClient) Close(ctx context.Context) error {
 	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
 	return err
 }
 
 // Connect calls the Connect RPC.
-func (c *NfcBClient) Connect(ctx context.Context) error {
+func (c *NfcAClient) Connect(ctx context.Context) error {
 	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{})
 	return err
 }
 
-// GetApplicationData calls the GetApplicationData RPC.
-func (c *NfcBClient) GetApplicationData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetApplicationData(ctx, &pb.GetApplicationDataRequest{})
+// GetAtqa calls the GetAtqa RPC.
+func (c *NfcAClient) GetAtqa(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAtqa(ctx, &pb.GetAtqaRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -270,7 +302,7 @@ func (c *NfcBClient) GetApplicationData(ctx context.Context) (int64, error) {
 }
 
 // GetMaxTransceiveLength calls the GetMaxTransceiveLength RPC.
-func (c *NfcBClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) {
+func (c *NfcAClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMaxTransceiveLength(ctx, &pb.GetMaxTransceiveLengthRequest{})
 	if err != nil {
 		return 0, err
@@ -278,17 +310,17 @@ func (c *NfcBClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) 
 	return resp.GetResult(), nil
 }
 
-// GetProtocolInfo calls the GetProtocolInfo RPC.
-func (c *NfcBClient) GetProtocolInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetProtocolInfo(ctx, &pb.GetProtocolInfoRequest{})
+// GetSak calls the GetSak RPC.
+func (c *NfcAClient) GetSak(ctx context.Context) (int16, error) {
+	resp, err := c.svc.GetSak(ctx, &pb.GetSakRequest{})
 	if err != nil {
 		return 0, err
 	}
-	return resp.GetResult(), nil
+	return int16(resp.GetResult()), nil
 }
 
 // GetTag calls the GetTag RPC.
-func (c *NfcBClient) GetTag(ctx context.Context) (int64, error) {
+func (c *NfcAClient) GetTag(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
 	if err != nil {
 		return 0, err
@@ -296,8 +328,17 @@ func (c *NfcBClient) GetTag(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
+// GetTimeout calls the GetTimeout RPC.
+func (c *NfcAClient) GetTimeout(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTimeout(ctx, &pb.GetTimeoutRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // IsConnected calls the IsConnected RPC.
-func (c *NfcBClient) IsConnected(ctx context.Context) (bool, error) {
+func (c *NfcAClient) IsConnected(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
 	if err != nil {
 		return false, err
@@ -305,8 +346,16 @@ func (c *NfcBClient) IsConnected(ctx context.Context) (bool, error) {
 	return resp.GetResult(), nil
 }
 
+// SetTimeout calls the SetTimeout RPC.
+func (c *NfcAClient) SetTimeout(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetTimeout(ctx, &pb.SetTimeoutRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // Transceive calls the Transceive RPC.
-func (c *NfcBClient) Transceive(ctx context.Context, arg0 int64) (int64, error) {
+func (c *NfcAClient) Transceive(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Transceive(ctx, &pb.TransceiveRequest{
 		Arg0: arg0,
 	})
@@ -317,98 +366,7 @@ func (c *NfcBClient) Transceive(ctx context.Context, arg0 int64) (int64, error) 
 }
 
 // Get calls the Get RPC.
-func (c *NfcBClient) Get(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NfcVClient wraps the gRPC NfcVService client.
-type NfcVClient struct {
-	svc pb.NfcVServiceClient
-}
-
-// NewNfcVClient creates a new NfcV client.
-func NewNfcVClient(cc grpc.ClientConnInterface) *NfcVClient {
-	return &NfcVClient{
-		svc: pb.NewNfcVServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *NfcVClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// Connect calls the Connect RPC.
-func (c *NfcVClient) Connect(ctx context.Context) error {
-	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{})
-	return err
-}
-
-// GetDsfId calls the GetDsfId RPC.
-func (c *NfcVClient) GetDsfId(ctx context.Context) (int8, error) {
-	resp, err := c.svc.GetDsfId(ctx, &pb.GetDsfIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// GetMaxTransceiveLength calls the GetMaxTransceiveLength RPC.
-func (c *NfcVClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxTransceiveLength(ctx, &pb.GetMaxTransceiveLengthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResponseFlags calls the GetResponseFlags RPC.
-func (c *NfcVClient) GetResponseFlags(ctx context.Context) (int8, error) {
-	resp, err := c.svc.GetResponseFlags(ctx, &pb.GetResponseFlagsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// GetTag calls the GetTag RPC.
-func (c *NfcVClient) GetTag(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsConnected calls the IsConnected RPC.
-func (c *NfcVClient) IsConnected(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Transceive calls the Transceive RPC.
-func (c *NfcVClient) Transceive(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Transceive(ctx, &pb.TransceiveRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Get calls the Get RPC.
-func (c *NfcVClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+func (c *NfcAClient) Get(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Arg0: arg0,
 	})
@@ -655,110 +613,41 @@ func (c *MifareClassicClient) Get(ctx context.Context, arg0 int64) (int64, error
 	return resp.GetResult(), nil
 }
 
-// NdefFormatableClient wraps the gRPC NdefFormatableService client.
-type NdefFormatableClient struct {
-	svc pb.NdefFormatableServiceClient
+// NfcVClient wraps the gRPC NfcVService client.
+type NfcVClient struct {
+	svc pb.NfcVServiceClient
 }
 
-// NewNdefFormatableClient creates a new NdefFormatable client.
-func NewNdefFormatableClient(cc grpc.ClientConnInterface) *NdefFormatableClient {
-	return &NdefFormatableClient{
-		svc: pb.NewNdefFormatableServiceClient(cc),
+// NewNfcVClient creates a new NfcV client.
+func NewNfcVClient(cc grpc.ClientConnInterface) *NfcVClient {
+	return &NfcVClient{
+		svc: pb.NewNfcVServiceClient(cc),
 	}
 }
 
 // Close calls the Close RPC.
-func (c *NdefFormatableClient) Close(ctx context.Context) error {
+func (c *NfcVClient) Close(ctx context.Context) error {
 	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
 	return err
 }
 
 // Connect calls the Connect RPC.
-func (c *NdefFormatableClient) Connect(ctx context.Context) error {
+func (c *NfcVClient) Connect(ctx context.Context) error {
 	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{})
 	return err
 }
 
-// Format calls the Format RPC.
-func (c *NdefFormatableClient) Format(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Format(ctx, &pb.FormatRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// FormatReadOnly calls the FormatReadOnly RPC.
-func (c *NdefFormatableClient) FormatReadOnly(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.FormatReadOnly(ctx, &pb.FormatReadOnlyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetTag calls the GetTag RPC.
-func (c *NdefFormatableClient) GetTag(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
+// GetDsfId calls the GetDsfId RPC.
+func (c *NfcVClient) GetDsfId(ctx context.Context) (int8, error) {
+	resp, err := c.svc.GetDsfId(ctx, &pb.GetDsfIdRequest{})
 	if err != nil {
 		return 0, err
 	}
-	return resp.GetResult(), nil
-}
-
-// IsConnected calls the IsConnected RPC.
-func (c *NdefFormatableClient) IsConnected(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Get calls the Get RPC.
-func (c *NdefFormatableClient) Get(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NfcAClient wraps the gRPC NfcAService client.
-type NfcAClient struct {
-	svc pb.NfcAServiceClient
-}
-
-// NewNfcAClient creates a new NfcA client.
-func NewNfcAClient(cc grpc.ClientConnInterface) *NfcAClient {
-	return &NfcAClient{
-		svc: pb.NewNfcAServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *NfcAClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// Connect calls the Connect RPC.
-func (c *NfcAClient) Connect(ctx context.Context) error {
-	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{})
-	return err
-}
-
-// GetAtqa calls the GetAtqa RPC.
-func (c *NfcAClient) GetAtqa(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAtqa(ctx, &pb.GetAtqaRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return int8(resp.GetResult()), nil
 }
 
 // GetMaxTransceiveLength calls the GetMaxTransceiveLength RPC.
-func (c *NfcAClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) {
+func (c *NfcVClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMaxTransceiveLength(ctx, &pb.GetMaxTransceiveLengthRequest{})
 	if err != nil {
 		return 0, err
@@ -766,17 +655,17 @@ func (c *NfcAClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) 
 	return resp.GetResult(), nil
 }
 
-// GetSak calls the GetSak RPC.
-func (c *NfcAClient) GetSak(ctx context.Context) (int16, error) {
-	resp, err := c.svc.GetSak(ctx, &pb.GetSakRequest{})
+// GetResponseFlags calls the GetResponseFlags RPC.
+func (c *NfcVClient) GetResponseFlags(ctx context.Context) (int8, error) {
+	resp, err := c.svc.GetResponseFlags(ctx, &pb.GetResponseFlagsRequest{})
 	if err != nil {
 		return 0, err
 	}
-	return int16(resp.GetResult()), nil
+	return int8(resp.GetResult()), nil
 }
 
 // GetTag calls the GetTag RPC.
-func (c *NfcAClient) GetTag(ctx context.Context) (int64, error) {
+func (c *NfcVClient) GetTag(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
 	if err != nil {
 		return 0, err
@@ -784,17 +673,8 @@ func (c *NfcAClient) GetTag(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetTimeout calls the GetTimeout RPC.
-func (c *NfcAClient) GetTimeout(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTimeout(ctx, &pb.GetTimeoutRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // IsConnected calls the IsConnected RPC.
-func (c *NfcAClient) IsConnected(ctx context.Context) (bool, error) {
+func (c *NfcVClient) IsConnected(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
 	if err != nil {
 		return false, err
@@ -802,16 +682,8 @@ func (c *NfcAClient) IsConnected(ctx context.Context) (bool, error) {
 	return resp.GetResult(), nil
 }
 
-// SetTimeout calls the SetTimeout RPC.
-func (c *NfcAClient) SetTimeout(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetTimeout(ctx, &pb.SetTimeoutRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // Transceive calls the Transceive RPC.
-func (c *NfcAClient) Transceive(ctx context.Context, arg0 int64) (int64, error) {
+func (c *NfcVClient) Transceive(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Transceive(ctx, &pb.TransceiveRequest{
 		Arg0: arg0,
 	})
@@ -822,7 +694,7 @@ func (c *NfcAClient) Transceive(ctx context.Context, arg0 int64) (int64, error) 
 }
 
 // Get calls the Get RPC.
-func (c *NfcAClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+func (c *NfcVClient) Get(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Arg0: arg0,
 	})
@@ -832,33 +704,51 @@ func (c *NfcAClient) Get(ctx context.Context, arg0 int64) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// NfcBarcodeClient wraps the gRPC NfcBarcodeService client.
-type NfcBarcodeClient struct {
-	svc pb.NfcBarcodeServiceClient
+// NfcBClient wraps the gRPC NfcBService client.
+type NfcBClient struct {
+	svc pb.NfcBServiceClient
 }
 
-// NewNfcBarcodeClient creates a new NfcBarcode client.
-func NewNfcBarcodeClient(cc grpc.ClientConnInterface) *NfcBarcodeClient {
-	return &NfcBarcodeClient{
-		svc: pb.NewNfcBarcodeServiceClient(cc),
+// NewNfcBClient creates a new NfcB client.
+func NewNfcBClient(cc grpc.ClientConnInterface) *NfcBClient {
+	return &NfcBClient{
+		svc: pb.NewNfcBServiceClient(cc),
 	}
 }
 
 // Close calls the Close RPC.
-func (c *NfcBarcodeClient) Close(ctx context.Context) error {
+func (c *NfcBClient) Close(ctx context.Context) error {
 	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
 	return err
 }
 
 // Connect calls the Connect RPC.
-func (c *NfcBarcodeClient) Connect(ctx context.Context) error {
+func (c *NfcBClient) Connect(ctx context.Context) error {
 	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{})
 	return err
 }
 
-// GetBarcode calls the GetBarcode RPC.
-func (c *NfcBarcodeClient) GetBarcode(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBarcode(ctx, &pb.GetBarcodeRequest{})
+// GetApplicationData calls the GetApplicationData RPC.
+func (c *NfcBClient) GetApplicationData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetApplicationData(ctx, &pb.GetApplicationDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxTransceiveLength calls the GetMaxTransceiveLength RPC.
+func (c *NfcBClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxTransceiveLength(ctx, &pb.GetMaxTransceiveLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProtocolInfo calls the GetProtocolInfo RPC.
+func (c *NfcBClient) GetProtocolInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProtocolInfo(ctx, &pb.GetProtocolInfoRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -866,7 +756,7 @@ func (c *NfcBarcodeClient) GetBarcode(ctx context.Context) (int64, error) {
 }
 
 // GetTag calls the GetTag RPC.
-func (c *NfcBarcodeClient) GetTag(ctx context.Context) (int64, error) {
+func (c *NfcBClient) GetTag(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
 	if err != nil {
 		return 0, err
@@ -874,17 +764,8 @@ func (c *NfcBarcodeClient) GetTag(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetType calls the GetType RPC.
-func (c *NfcBarcodeClient) GetType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // IsConnected calls the IsConnected RPC.
-func (c *NfcBarcodeClient) IsConnected(ctx context.Context) (bool, error) {
+func (c *NfcBClient) IsConnected(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
 	if err != nil {
 		return false, err
@@ -892,8 +773,19 @@ func (c *NfcBarcodeClient) IsConnected(ctx context.Context) (bool, error) {
 	return resp.GetResult(), nil
 }
 
+// Transceive calls the Transceive RPC.
+func (c *NfcBClient) Transceive(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Transceive(ctx, &pb.TransceiveRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Get calls the Get RPC.
-func (c *NfcBarcodeClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+func (c *NfcBClient) Get(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Arg0: arg0,
 	})
@@ -941,6 +833,114 @@ func (c *TagTechnologyClient) IsConnected(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NfcFClient wraps the gRPC NfcFService client.
+type NfcFClient struct {
+	svc pb.NfcFServiceClient
+}
+
+// NewNfcFClient creates a new NfcF client.
+func NewNfcFClient(cc grpc.ClientConnInterface) *NfcFClient {
+	return &NfcFClient{
+		svc: pb.NewNfcFServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *NfcFClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Connect calls the Connect RPC.
+func (c *NfcFClient) Connect(ctx context.Context) error {
+	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{})
+	return err
+}
+
+// GetManufacturer calls the GetManufacturer RPC.
+func (c *NfcFClient) GetManufacturer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetManufacturer(ctx, &pb.GetManufacturerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxTransceiveLength calls the GetMaxTransceiveLength RPC.
+func (c *NfcFClient) GetMaxTransceiveLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxTransceiveLength(ctx, &pb.GetMaxTransceiveLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemCode calls the GetSystemCode RPC.
+func (c *NfcFClient) GetSystemCode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSystemCode(ctx, &pb.GetSystemCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *NfcFClient) GetTag(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeout calls the GetTimeout RPC.
+func (c *NfcFClient) GetTimeout(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTimeout(ctx, &pb.GetTimeoutRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConnected calls the IsConnected RPC.
+func (c *NfcFClient) IsConnected(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTimeout calls the SetTimeout RPC.
+func (c *NfcFClient) SetTimeout(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetTimeout(ctx, &pb.SetTimeoutRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Transceive calls the Transceive RPC.
+func (c *NfcFClient) Transceive(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Transceive(ctx, &pb.TransceiveRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get calls the Get RPC.
+func (c *NfcFClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

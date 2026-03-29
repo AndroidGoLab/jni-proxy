@@ -9,6 +9,105 @@ import (
 	"google.golang.org/grpc"
 )
 
+// TargetClient wraps the gRPC TargetService client.
+type TargetClient struct {
+	svc pb.TargetServiceClient
+}
+
+// NewTargetClient creates a new Target client.
+func NewTargetClient(cc grpc.ClientConnInterface) *TargetClient {
+	return &TargetClient{
+		svc: pb.NewTargetServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TargetClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComponentName calls the GetComponentName RPC.
+func (c *TargetClient) GetComponentName(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetComponentName(ctx, &pb.GetComponentNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *TargetClient) GetIcon(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntentExtras calls the GetIntentExtras RPC.
+func (c *TargetClient) GetIntentExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIntentExtras(ctx, &pb.GetIntentExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScore calls the GetScore RPC.
+func (c *TargetClient) GetScore(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetScore(ctx, &pb.GetScoreRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *TargetClient) GetTitle(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TargetClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TargetClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // ActionClient wraps the gRPC ActionService client.
 type ActionClient struct {
 	svc pb.ActionServiceClient
@@ -23,7 +122,7 @@ func NewActionClient(cc grpc.ClientConnInterface) *ActionClient {
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *ActionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.ActionDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -41,7 +140,7 @@ func (c *ActionClient) GetAction(ctx context.Context) (int64, error) {
 
 // GetIcon calls the GetIcon RPC.
 func (c *ActionClient) GetIcon(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
+	resp, err := c.svc.GetIcon(ctx, &pb.ActionGetIconRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -59,7 +158,7 @@ func (c *ActionClient) GetLabel(ctx context.Context) (int64, error) {
 
 // ToString calls the ToString RPC.
 func (c *ActionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.ActionToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -68,7 +167,7 @@ func (c *ActionClient) ToString(ctx context.Context) (string, error) {
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *ActionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.ActionWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -96,6 +195,41 @@ func (c *ActionBuilderClient) Build(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
+// TargetServiceClient wraps the gRPC TargetServiceService client.
+type TargetServiceClient struct {
+	svc pb.TargetServiceServiceClient
+}
+
+// NewTargetServiceClient creates a new TargetService client.
+func NewTargetServiceClient(cc grpc.ClientConnInterface) *TargetServiceClient {
+	return &TargetServiceClient{
+		svc: pb.NewTargetServiceServiceClient(cc),
+	}
+}
+
+// OnBind calls the OnBind RPC.
+func (c *TargetServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnGetChooserTargets calls the OnGetChooserTargets RPC.
+func (c *TargetServiceClient) OnGetChooserTargets(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.OnGetChooserTargets(ctx, &pb.OnGetChooserTargetsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ResultClient wraps the gRPC ResultService client.
 type ResultClient struct {
 	svc pb.ResultServiceClient
@@ -110,7 +244,7 @@ func NewResultClient(cc grpc.ClientConnInterface) *ResultClient {
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *ResultClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.ResultDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -166,131 +300,9 @@ func (c *ResultClient) IsShortcut(ctx context.Context) (bool, error) {
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *ResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.ResultWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
-	})
-	return err
-}
-
-// TargetServiceClient wraps the gRPC TargetServiceService client.
-type TargetServiceClient struct {
-	svc pb.TargetServiceServiceClient
-}
-
-// NewTargetServiceClient creates a new TargetService client.
-func NewTargetServiceClient(cc grpc.ClientConnInterface) *TargetServiceClient {
-	return &TargetServiceClient{
-		svc: pb.NewTargetServiceServiceClient(cc),
-	}
-}
-
-// OnBind calls the OnBind RPC.
-func (c *TargetServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TargetClient wraps the gRPC TargetService client.
-type TargetClient struct {
-	svc pb.TargetServiceClient
-}
-
-// NewTargetClient creates a new Target client.
-func NewTargetClient(cc grpc.ClientConnInterface) *TargetClient {
-	return &TargetClient{
-		svc: pb.NewTargetServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *TargetClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.TargetDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetComponentName calls the GetComponentName RPC.
-func (c *TargetClient) GetComponentName(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetComponentName(ctx, &pb.GetComponentNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIcon calls the GetIcon RPC.
-func (c *TargetClient) GetIcon(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIcon(ctx, &pb.TargetGetIconRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntentExtras calls the GetIntentExtras RPC.
-func (c *TargetClient) GetIntentExtras(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIntentExtras(ctx, &pb.GetIntentExtrasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScore calls the GetScore RPC.
-func (c *TargetClient) GetScore(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetScore(ctx, &pb.GetScoreRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *TargetClient) GetTitle(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *TargetClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.TargetToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *TargetClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.TargetWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
 	})
 	return err
 }

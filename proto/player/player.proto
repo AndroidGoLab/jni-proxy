@@ -165,6 +165,14 @@ message GetRoutedDeviceResponse {
   int64 result = 1;
 }
 
+message GetRoutedDevicesRequest {
+  int64 handle = 1;
+}
+
+message GetRoutedDevicesResponse {
+  int64 result = 1;
+}
+
 message GetSelectedTrackRequest {
   int64 handle = 1;
   int32 arg0 = 2;
@@ -879,6 +887,7 @@ service MediaPlayerService {
   rpc GetPlaybackParams (GetPlaybackParamsRequest) returns (GetPlaybackParamsResponse);
   rpc GetPreferredDevice (GetPreferredDeviceRequest) returns (GetPreferredDeviceResponse);
   rpc GetRoutedDevice (GetRoutedDeviceRequest) returns (GetRoutedDeviceResponse);
+  rpc GetRoutedDevices (GetRoutedDevicesRequest) returns (GetRoutedDevicesResponse);
   rpc GetSelectedTrack (GetSelectedTrackRequest) returns (GetSelectedTrackResponse);
   rpc GetSyncParams (GetSyncParamsRequest) returns (GetSyncParamsResponse);
   rpc GetTimestamp (GetTimestampRequest) returns (GetTimestampResponse);

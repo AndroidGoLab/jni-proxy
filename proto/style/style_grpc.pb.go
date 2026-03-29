@@ -21,6 +21,1300 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	TypefaceSpanService_NewTypefaceSpan_FullMethodName    = "/style.TypefaceSpanService/NewTypefaceSpan"
+	TypefaceSpanService_DescribeContents_FullMethodName   = "/style.TypefaceSpanService/DescribeContents"
+	TypefaceSpanService_GetFamily_FullMethodName          = "/style.TypefaceSpanService/GetFamily"
+	TypefaceSpanService_GetSpanTypeId_FullMethodName      = "/style.TypefaceSpanService/GetSpanTypeId"
+	TypefaceSpanService_GetTypeface_FullMethodName        = "/style.TypefaceSpanService/GetTypeface"
+	TypefaceSpanService_ToString_FullMethodName           = "/style.TypefaceSpanService/ToString"
+	TypefaceSpanService_UpdateDrawState_FullMethodName    = "/style.TypefaceSpanService/UpdateDrawState"
+	TypefaceSpanService_UpdateMeasureState_FullMethodName = "/style.TypefaceSpanService/UpdateMeasureState"
+	TypefaceSpanService_WriteToParcel_FullMethodName      = "/style.TypefaceSpanService/WriteToParcel"
+)
+
+// TypefaceSpanServiceClient is the client API for TypefaceSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TypefaceSpanServiceClient interface {
+	NewTypefaceSpan(ctx context.Context, in *NewTypefaceSpanRequest, opts ...grpc.CallOption) (*NewTypefaceSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetFamily(ctx context.Context, in *GetFamilyRequest, opts ...grpc.CallOption) (*GetFamilyResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type typefaceSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTypefaceSpanServiceClient(cc grpc.ClientConnInterface) TypefaceSpanServiceClient {
+	return &typefaceSpanServiceClient{cc}
+}
+
+func (c *typefaceSpanServiceClient) NewTypefaceSpan(ctx context.Context, in *NewTypefaceSpanRequest, opts ...grpc.CallOption) (*NewTypefaceSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTypefaceSpanResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_NewTypefaceSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *typefaceSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *typefaceSpanServiceClient) GetFamily(ctx context.Context, in *GetFamilyRequest, opts ...grpc.CallOption) (*GetFamilyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFamilyResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_GetFamily_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *typefaceSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *typefaceSpanServiceClient) GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypefaceResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_GetTypeface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *typefaceSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *typefaceSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *typefaceSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMeasureStateResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *typefaceSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TypefaceSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TypefaceSpanServiceServer is the server API for TypefaceSpanService service.
+// All implementations must embed UnimplementedTypefaceSpanServiceServer
+// for forward compatibility.
+type TypefaceSpanServiceServer interface {
+	NewTypefaceSpan(context.Context, *NewTypefaceSpanRequest) (*NewTypefaceSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetFamily(context.Context, *GetFamilyRequest) (*GetFamilyResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTypefaceSpanServiceServer()
+}
+
+// UnimplementedTypefaceSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTypefaceSpanServiceServer struct{}
+
+func (UnimplementedTypefaceSpanServiceServer) NewTypefaceSpan(context.Context, *NewTypefaceSpanRequest) (*NewTypefaceSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTypefaceSpan not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) GetFamily(context.Context, *GetFamilyRequest) (*GetFamilyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFamily not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTypeface not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTypefaceSpanServiceServer) mustEmbedUnimplementedTypefaceSpanServiceServer() {}
+func (UnimplementedTypefaceSpanServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeTypefaceSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TypefaceSpanServiceServer will
+// result in compilation errors.
+type UnsafeTypefaceSpanServiceServer interface {
+	mustEmbedUnimplementedTypefaceSpanServiceServer()
+}
+
+func RegisterTypefaceSpanServiceServer(s grpc.ServiceRegistrar, srv TypefaceSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedTypefaceSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TypefaceSpanService_ServiceDesc, srv)
+}
+
+func _TypefaceSpanService_NewTypefaceSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTypefaceSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).NewTypefaceSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_NewTypefaceSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).NewTypefaceSpan(ctx, req.(*NewTypefaceSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TypefaceSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TypefaceSpanService_GetFamily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFamilyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).GetFamily(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_GetFamily_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).GetFamily(ctx, req.(*GetFamilyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TypefaceSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TypefaceSpanService_GetTypeface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypefaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).GetTypeface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_GetTypeface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).GetTypeface(ctx, req.(*GetTypefaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TypefaceSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TypefaceSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TypefaceSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMeasureStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).UpdateMeasureState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_UpdateMeasureState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TypefaceSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TypefaceSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TypefaceSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TypefaceSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TypefaceSpanService_ServiceDesc is the grpc.ServiceDesc for TypefaceSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TypefaceSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.TypefaceSpanService",
+	HandlerType: (*TypefaceSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTypefaceSpan",
+			Handler:    _TypefaceSpanService_NewTypefaceSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TypefaceSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetFamily",
+			Handler:    _TypefaceSpanService_GetFamily_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _TypefaceSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "GetTypeface",
+			Handler:    _TypefaceSpanService_GetTypeface_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TypefaceSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _TypefaceSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "UpdateMeasureState",
+			Handler:    _TypefaceSpanService_UpdateMeasureState_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TypefaceSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	IconMarginSpanService_NewIconMarginSpan_FullMethodName = "/style.IconMarginSpanService/NewIconMarginSpan"
+	IconMarginSpanService_ChooseHeight_FullMethodName      = "/style.IconMarginSpanService/ChooseHeight"
+	IconMarginSpanService_DrawLeadingMargin_FullMethodName = "/style.IconMarginSpanService/DrawLeadingMargin"
+	IconMarginSpanService_GetBitmap_FullMethodName         = "/style.IconMarginSpanService/GetBitmap"
+	IconMarginSpanService_GetLeadingMargin_FullMethodName  = "/style.IconMarginSpanService/GetLeadingMargin"
+	IconMarginSpanService_GetPadding_FullMethodName        = "/style.IconMarginSpanService/GetPadding"
+	IconMarginSpanService_ToString_FullMethodName          = "/style.IconMarginSpanService/ToString"
+)
+
+// IconMarginSpanServiceClient is the client API for IconMarginSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type IconMarginSpanServiceClient interface {
+	NewIconMarginSpan(ctx context.Context, in *NewIconMarginSpanRequest, opts ...grpc.CallOption) (*NewIconMarginSpanResponse, error)
+	ChooseHeight(ctx context.Context, in *ChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
+	DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
+	GetBitmap(ctx context.Context, in *GetBitmapRequest, opts ...grpc.CallOption) (*GetBitmapResponse, error)
+	GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
+	GetPadding(ctx context.Context, in *GetPaddingRequest, opts ...grpc.CallOption) (*GetPaddingResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type iconMarginSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIconMarginSpanServiceClient(cc grpc.ClientConnInterface) IconMarginSpanServiceClient {
+	return &iconMarginSpanServiceClient{cc}
+}
+
+func (c *iconMarginSpanServiceClient) NewIconMarginSpan(ctx context.Context, in *NewIconMarginSpanRequest, opts ...grpc.CallOption) (*NewIconMarginSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewIconMarginSpanResponse)
+	err := c.cc.Invoke(ctx, IconMarginSpanService_NewIconMarginSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *iconMarginSpanServiceClient) ChooseHeight(ctx context.Context, in *ChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ChooseHeightResponse)
+	err := c.cc.Invoke(ctx, IconMarginSpanService_ChooseHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *iconMarginSpanServiceClient) DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, IconMarginSpanService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *iconMarginSpanServiceClient) GetBitmap(ctx context.Context, in *GetBitmapRequest, opts ...grpc.CallOption) (*GetBitmapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBitmapResponse)
+	err := c.cc.Invoke(ctx, IconMarginSpanService_GetBitmap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *iconMarginSpanServiceClient) GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, IconMarginSpanService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *iconMarginSpanServiceClient) GetPadding(ctx context.Context, in *GetPaddingRequest, opts ...grpc.CallOption) (*GetPaddingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPaddingResponse)
+	err := c.cc.Invoke(ctx, IconMarginSpanService_GetPadding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *iconMarginSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, IconMarginSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// IconMarginSpanServiceServer is the server API for IconMarginSpanService service.
+// All implementations must embed UnimplementedIconMarginSpanServiceServer
+// for forward compatibility.
+type IconMarginSpanServiceServer interface {
+	NewIconMarginSpan(context.Context, *NewIconMarginSpanRequest) (*NewIconMarginSpanResponse, error)
+	ChooseHeight(context.Context, *ChooseHeightRequest) (*ChooseHeightResponse, error)
+	DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
+	GetBitmap(context.Context, *GetBitmapRequest) (*GetBitmapResponse, error)
+	GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
+	GetPadding(context.Context, *GetPaddingRequest) (*GetPaddingResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedIconMarginSpanServiceServer()
+}
+
+// UnimplementedIconMarginSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIconMarginSpanServiceServer struct{}
+
+func (UnimplementedIconMarginSpanServiceServer) NewIconMarginSpan(context.Context, *NewIconMarginSpanRequest) (*NewIconMarginSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewIconMarginSpan not implemented")
+}
+func (UnimplementedIconMarginSpanServiceServer) ChooseHeight(context.Context, *ChooseHeightRequest) (*ChooseHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
+}
+func (UnimplementedIconMarginSpanServiceServer) DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
+}
+func (UnimplementedIconMarginSpanServiceServer) GetBitmap(context.Context, *GetBitmapRequest) (*GetBitmapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBitmap not implemented")
+}
+func (UnimplementedIconMarginSpanServiceServer) GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
+}
+func (UnimplementedIconMarginSpanServiceServer) GetPadding(context.Context, *GetPaddingRequest) (*GetPaddingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPadding not implemented")
+}
+func (UnimplementedIconMarginSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedIconMarginSpanServiceServer) mustEmbedUnimplementedIconMarginSpanServiceServer() {}
+func (UnimplementedIconMarginSpanServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeIconMarginSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to IconMarginSpanServiceServer will
+// result in compilation errors.
+type UnsafeIconMarginSpanServiceServer interface {
+	mustEmbedUnimplementedIconMarginSpanServiceServer()
+}
+
+func RegisterIconMarginSpanServiceServer(s grpc.ServiceRegistrar, srv IconMarginSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedIconMarginSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&IconMarginSpanService_ServiceDesc, srv)
+}
+
+func _IconMarginSpanService_NewIconMarginSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewIconMarginSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IconMarginSpanServiceServer).NewIconMarginSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IconMarginSpanService_NewIconMarginSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IconMarginSpanServiceServer).NewIconMarginSpan(ctx, req.(*NewIconMarginSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IconMarginSpanService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChooseHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IconMarginSpanServiceServer).ChooseHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IconMarginSpanService_ChooseHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IconMarginSpanServiceServer).ChooseHeight(ctx, req.(*ChooseHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IconMarginSpanService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IconMarginSpanServiceServer).DrawLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IconMarginSpanService_DrawLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IconMarginSpanServiceServer).DrawLeadingMargin(ctx, req.(*DrawLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IconMarginSpanService_GetBitmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBitmapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IconMarginSpanServiceServer).GetBitmap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IconMarginSpanService_GetBitmap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IconMarginSpanServiceServer).GetBitmap(ctx, req.(*GetBitmapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IconMarginSpanService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IconMarginSpanServiceServer).GetLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IconMarginSpanService_GetLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IconMarginSpanServiceServer).GetLeadingMargin(ctx, req.(*GetLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IconMarginSpanService_GetPadding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPaddingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IconMarginSpanServiceServer).GetPadding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IconMarginSpanService_GetPadding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IconMarginSpanServiceServer).GetPadding(ctx, req.(*GetPaddingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IconMarginSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IconMarginSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IconMarginSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IconMarginSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// IconMarginSpanService_ServiceDesc is the grpc.ServiceDesc for IconMarginSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var IconMarginSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.IconMarginSpanService",
+	HandlerType: (*IconMarginSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewIconMarginSpan",
+			Handler:    _IconMarginSpanService_NewIconMarginSpan_Handler,
+		},
+		{
+			MethodName: "ChooseHeight",
+			Handler:    _IconMarginSpanService_ChooseHeight_Handler,
+		},
+		{
+			MethodName: "DrawLeadingMargin",
+			Handler:    _IconMarginSpanService_DrawLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetBitmap",
+			Handler:    _IconMarginSpanService_GetBitmap_Handler,
+		},
+		{
+			MethodName: "GetLeadingMargin",
+			Handler:    _IconMarginSpanService_GetLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetPadding",
+			Handler:    _IconMarginSpanService_GetPadding_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _IconMarginSpanService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	SuggestionSpanService_NewSuggestionSpan_FullMethodName = "/style.SuggestionSpanService/NewSuggestionSpan"
+	SuggestionSpanService_DescribeContents_FullMethodName  = "/style.SuggestionSpanService/DescribeContents"
+	SuggestionSpanService_Equals_FullMethodName            = "/style.SuggestionSpanService/Equals"
+	SuggestionSpanService_GetFlags_FullMethodName          = "/style.SuggestionSpanService/GetFlags"
+	SuggestionSpanService_GetLocale_FullMethodName         = "/style.SuggestionSpanService/GetLocale"
+	SuggestionSpanService_GetLocaleObject_FullMethodName   = "/style.SuggestionSpanService/GetLocaleObject"
+	SuggestionSpanService_GetSpanTypeId_FullMethodName     = "/style.SuggestionSpanService/GetSpanTypeId"
+	SuggestionSpanService_GetSuggestions_FullMethodName    = "/style.SuggestionSpanService/GetSuggestions"
+	SuggestionSpanService_GetUnderlineColor_FullMethodName = "/style.SuggestionSpanService/GetUnderlineColor"
+	SuggestionSpanService_HashCode_FullMethodName          = "/style.SuggestionSpanService/HashCode"
+	SuggestionSpanService_SetFlags_FullMethodName          = "/style.SuggestionSpanService/SetFlags"
+	SuggestionSpanService_UpdateDrawState_FullMethodName   = "/style.SuggestionSpanService/UpdateDrawState"
+	SuggestionSpanService_WriteToParcel_FullMethodName     = "/style.SuggestionSpanService/WriteToParcel"
+)
+
+// SuggestionSpanServiceClient is the client API for SuggestionSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SuggestionSpanServiceClient interface {
+	NewSuggestionSpan(ctx context.Context, in *NewSuggestionSpanRequest, opts ...grpc.CallOption) (*NewSuggestionSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
+	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
+	GetLocaleObject(ctx context.Context, in *GetLocaleObjectRequest, opts ...grpc.CallOption) (*GetLocaleObjectResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	GetSuggestions(ctx context.Context, in *GetSuggestionsRequest, opts ...grpc.CallOption) (*GetSuggestionsResponse, error)
+	GetUnderlineColor(ctx context.Context, in *GetUnderlineColorRequest, opts ...grpc.CallOption) (*GetUnderlineColorResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error)
+	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type suggestionSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSuggestionSpanServiceClient(cc grpc.ClientConnInterface) SuggestionSpanServiceClient {
+	return &suggestionSpanServiceClient{cc}
+}
+
+func (c *suggestionSpanServiceClient) NewSuggestionSpan(ctx context.Context, in *NewSuggestionSpanRequest, opts ...grpc.CallOption) (*NewSuggestionSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSuggestionSpanResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_NewSuggestionSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFlagsResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_GetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) GetLocaleObject(ctx context.Context, in *GetLocaleObjectRequest, opts ...grpc.CallOption) (*GetLocaleObjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleObjectResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_GetLocaleObject_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) GetSuggestions(ctx context.Context, in *GetSuggestionsRequest, opts ...grpc.CallOption) (*GetSuggestionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSuggestionsResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_GetSuggestions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) GetUnderlineColor(ctx context.Context, in *GetUnderlineColorRequest, opts ...grpc.CallOption) (*GetUnderlineColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUnderlineColorResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_GetUnderlineColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFlagsResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_SetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SuggestionSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SuggestionSpanServiceServer is the server API for SuggestionSpanService service.
+// All implementations must embed UnimplementedSuggestionSpanServiceServer
+// for forward compatibility.
+type SuggestionSpanServiceServer interface {
+	NewSuggestionSpan(context.Context, *NewSuggestionSpanRequest) (*NewSuggestionSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
+	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
+	GetLocaleObject(context.Context, *GetLocaleObjectRequest) (*GetLocaleObjectResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	GetSuggestions(context.Context, *GetSuggestionsRequest) (*GetSuggestionsResponse, error)
+	GetUnderlineColor(context.Context, *GetUnderlineColorRequest) (*GetUnderlineColorResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error)
+	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSuggestionSpanServiceServer()
+}
+
+// UnimplementedSuggestionSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSuggestionSpanServiceServer struct{}
+
+func (UnimplementedSuggestionSpanServiceServer) NewSuggestionSpan(context.Context, *NewSuggestionSpanRequest) (*NewSuggestionSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSuggestionSpan not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) GetLocaleObject(context.Context, *GetLocaleObjectRequest) (*GetLocaleObjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocaleObject not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) GetSuggestions(context.Context, *GetSuggestionsRequest) (*GetSuggestionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuggestions not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) GetUnderlineColor(context.Context, *GetUnderlineColorRequest) (*GetUnderlineColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUnderlineColor not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFlags not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSuggestionSpanServiceServer) mustEmbedUnimplementedSuggestionSpanServiceServer() {}
+func (UnimplementedSuggestionSpanServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeSuggestionSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SuggestionSpanServiceServer will
+// result in compilation errors.
+type UnsafeSuggestionSpanServiceServer interface {
+	mustEmbedUnimplementedSuggestionSpanServiceServer()
+}
+
+func RegisterSuggestionSpanServiceServer(s grpc.ServiceRegistrar, srv SuggestionSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedSuggestionSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SuggestionSpanService_ServiceDesc, srv)
+}
+
+func _SuggestionSpanService_NewSuggestionSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSuggestionSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).NewSuggestionSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_NewSuggestionSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).NewSuggestionSpan(ctx, req.(*NewSuggestionSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).GetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_GetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_GetLocaleObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocaleObjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).GetLocaleObject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_GetLocaleObject_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).GetLocaleObject(ctx, req.(*GetLocaleObjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_GetSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuggestionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).GetSuggestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_GetSuggestions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).GetSuggestions(ctx, req.(*GetSuggestionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_GetUnderlineColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnderlineColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).GetUnderlineColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_GetUnderlineColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).GetUnderlineColor(ctx, req.(*GetUnderlineColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_SetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).SetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_SetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).SetFlags(ctx, req.(*SetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SuggestionSpanService_ServiceDesc is the grpc.ServiceDesc for SuggestionSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SuggestionSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.SuggestionSpanService",
+	HandlerType: (*SuggestionSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSuggestionSpan",
+			Handler:    _SuggestionSpanService_NewSuggestionSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SuggestionSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _SuggestionSpanService_Equals_Handler,
+		},
+		{
+			MethodName: "GetFlags",
+			Handler:    _SuggestionSpanService_GetFlags_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _SuggestionSpanService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetLocaleObject",
+			Handler:    _SuggestionSpanService_GetLocaleObject_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _SuggestionSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "GetSuggestions",
+			Handler:    _SuggestionSpanService_GetSuggestions_Handler,
+		},
+		{
+			MethodName: "GetUnderlineColor",
+			Handler:    _SuggestionSpanService_GetUnderlineColor_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _SuggestionSpanService_HashCode_Handler,
+		},
+		{
+			MethodName: "SetFlags",
+			Handler:    _SuggestionSpanService_SetFlags_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _SuggestionSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SuggestionSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
 	TextAppearanceSpanService_NewTextAppearanceSpan_FullMethodName    = "/style.TextAppearanceSpanService/NewTextAppearanceSpan"
 	TextAppearanceSpanService_DescribeContents_FullMethodName         = "/style.TextAppearanceSpanService/DescribeContents"
 	TextAppearanceSpanService_GetFamily_FullMethodName                = "/style.TextAppearanceSpanService/GetFamily"
@@ -960,4065 +2254,6 @@ var TextAppearanceSpanService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	NoWritingToolsSpanService_NewNoWritingToolsSpan_FullMethodName = "/style.NoWritingToolsSpanService/NewNoWritingToolsSpan"
-	NoWritingToolsSpanService_DescribeContents_FullMethodName      = "/style.NoWritingToolsSpanService/DescribeContents"
-	NoWritingToolsSpanService_GetSpanTypeId_FullMethodName         = "/style.NoWritingToolsSpanService/GetSpanTypeId"
-	NoWritingToolsSpanService_ToString_FullMethodName              = "/style.NoWritingToolsSpanService/ToString"
-	NoWritingToolsSpanService_WriteToParcel_FullMethodName         = "/style.NoWritingToolsSpanService/WriteToParcel"
-)
-
-// NoWritingToolsSpanServiceClient is the client API for NoWritingToolsSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NoWritingToolsSpanServiceClient interface {
-	NewNoWritingToolsSpan(ctx context.Context, in *NewNoWritingToolsSpanRequest, opts ...grpc.CallOption) (*NewNoWritingToolsSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type noWritingToolsSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNoWritingToolsSpanServiceClient(cc grpc.ClientConnInterface) NoWritingToolsSpanServiceClient {
-	return &noWritingToolsSpanServiceClient{cc}
-}
-
-func (c *noWritingToolsSpanServiceClient) NewNoWritingToolsSpan(ctx context.Context, in *NewNoWritingToolsSpanRequest, opts ...grpc.CallOption) (*NewNoWritingToolsSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewNoWritingToolsSpanResponse)
-	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_NewNoWritingToolsSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noWritingToolsSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noWritingToolsSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noWritingToolsSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noWritingToolsSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NoWritingToolsSpanServiceServer is the server API for NoWritingToolsSpanService service.
-// All implementations must embed UnimplementedNoWritingToolsSpanServiceServer
-// for forward compatibility.
-type NoWritingToolsSpanServiceServer interface {
-	NewNoWritingToolsSpan(context.Context, *NewNoWritingToolsSpanRequest) (*NewNoWritingToolsSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedNoWritingToolsSpanServiceServer()
-}
-
-// UnimplementedNoWritingToolsSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNoWritingToolsSpanServiceServer struct{}
-
-func (UnimplementedNoWritingToolsSpanServiceServer) NewNoWritingToolsSpan(context.Context, *NewNoWritingToolsSpanRequest) (*NewNoWritingToolsSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewNoWritingToolsSpan not implemented")
-}
-func (UnimplementedNoWritingToolsSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedNoWritingToolsSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedNoWritingToolsSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedNoWritingToolsSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedNoWritingToolsSpanServiceServer) mustEmbedUnimplementedNoWritingToolsSpanServiceServer() {
-}
-func (UnimplementedNoWritingToolsSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeNoWritingToolsSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NoWritingToolsSpanServiceServer will
-// result in compilation errors.
-type UnsafeNoWritingToolsSpanServiceServer interface {
-	mustEmbedUnimplementedNoWritingToolsSpanServiceServer()
-}
-
-func RegisterNoWritingToolsSpanServiceServer(s grpc.ServiceRegistrar, srv NoWritingToolsSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedNoWritingToolsSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NoWritingToolsSpanService_ServiceDesc, srv)
-}
-
-func _NoWritingToolsSpanService_NewNoWritingToolsSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewNoWritingToolsSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoWritingToolsSpanServiceServer).NewNoWritingToolsSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NoWritingToolsSpanService_NewNoWritingToolsSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoWritingToolsSpanServiceServer).NewNoWritingToolsSpan(ctx, req.(*NewNoWritingToolsSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoWritingToolsSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoWritingToolsSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NoWritingToolsSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoWritingToolsSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoWritingToolsSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoWritingToolsSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NoWritingToolsSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoWritingToolsSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoWritingToolsSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoWritingToolsSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NoWritingToolsSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoWritingToolsSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoWritingToolsSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoWritingToolsSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NoWritingToolsSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoWritingToolsSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NoWritingToolsSpanService_ServiceDesc is the grpc.ServiceDesc for NoWritingToolsSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NoWritingToolsSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.NoWritingToolsSpanService",
-	HandlerType: (*NoWritingToolsSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewNoWritingToolsSpan",
-			Handler:    _NoWritingToolsSpanService_NewNoWritingToolsSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _NoWritingToolsSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _NoWritingToolsSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _NoWritingToolsSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _NoWritingToolsSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	QuoteSpanService_NewQuoteSpan_FullMethodName      = "/style.QuoteSpanService/NewQuoteSpan"
-	QuoteSpanService_DescribeContents_FullMethodName  = "/style.QuoteSpanService/DescribeContents"
-	QuoteSpanService_DrawLeadingMargin_FullMethodName = "/style.QuoteSpanService/DrawLeadingMargin"
-	QuoteSpanService_GetColor_FullMethodName          = "/style.QuoteSpanService/GetColor"
-	QuoteSpanService_GetGapWidth_FullMethodName       = "/style.QuoteSpanService/GetGapWidth"
-	QuoteSpanService_GetLeadingMargin_FullMethodName  = "/style.QuoteSpanService/GetLeadingMargin"
-	QuoteSpanService_GetSpanTypeId_FullMethodName     = "/style.QuoteSpanService/GetSpanTypeId"
-	QuoteSpanService_GetStripeWidth_FullMethodName    = "/style.QuoteSpanService/GetStripeWidth"
-	QuoteSpanService_ToString_FullMethodName          = "/style.QuoteSpanService/ToString"
-	QuoteSpanService_WriteToParcel_FullMethodName     = "/style.QuoteSpanService/WriteToParcel"
-)
-
-// QuoteSpanServiceClient is the client API for QuoteSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type QuoteSpanServiceClient interface {
-	NewQuoteSpan(ctx context.Context, in *NewQuoteSpanRequest, opts ...grpc.CallOption) (*NewQuoteSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
-	GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error)
-	GetGapWidth(ctx context.Context, in *GetGapWidthRequest, opts ...grpc.CallOption) (*GetGapWidthResponse, error)
-	GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	GetStripeWidth(ctx context.Context, in *GetStripeWidthRequest, opts ...grpc.CallOption) (*GetStripeWidthResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type quoteSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewQuoteSpanServiceClient(cc grpc.ClientConnInterface) QuoteSpanServiceClient {
-	return &quoteSpanServiceClient{cc}
-}
-
-func (c *quoteSpanServiceClient) NewQuoteSpan(ctx context.Context, in *NewQuoteSpanRequest, opts ...grpc.CallOption) (*NewQuoteSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewQuoteSpanResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_NewQuoteSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_GetColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) GetGapWidth(ctx context.Context, in *GetGapWidthRequest, opts ...grpc.CallOption) (*GetGapWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGapWidthResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_GetGapWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) GetStripeWidth(ctx context.Context, in *GetStripeWidthRequest, opts ...grpc.CallOption) (*GetStripeWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStripeWidthResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_GetStripeWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quoteSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, QuoteSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// QuoteSpanServiceServer is the server API for QuoteSpanService service.
-// All implementations must embed UnimplementedQuoteSpanServiceServer
-// for forward compatibility.
-type QuoteSpanServiceServer interface {
-	NewQuoteSpan(context.Context, *NewQuoteSpanRequest) (*NewQuoteSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
-	GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error)
-	GetGapWidth(context.Context, *GetGapWidthRequest) (*GetGapWidthResponse, error)
-	GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	GetStripeWidth(context.Context, *GetStripeWidthRequest) (*GetStripeWidthResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedQuoteSpanServiceServer()
-}
-
-// UnimplementedQuoteSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedQuoteSpanServiceServer struct{}
-
-func (UnimplementedQuoteSpanServiceServer) NewQuoteSpan(context.Context, *NewQuoteSpanRequest) (*NewQuoteSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewQuoteSpan not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColor not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) GetGapWidth(context.Context, *GetGapWidthRequest) (*GetGapWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGapWidth not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) GetStripeWidth(context.Context, *GetStripeWidthRequest) (*GetStripeWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStripeWidth not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedQuoteSpanServiceServer) mustEmbedUnimplementedQuoteSpanServiceServer() {}
-func (UnimplementedQuoteSpanServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeQuoteSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to QuoteSpanServiceServer will
-// result in compilation errors.
-type UnsafeQuoteSpanServiceServer interface {
-	mustEmbedUnimplementedQuoteSpanServiceServer()
-}
-
-func RegisterQuoteSpanServiceServer(s grpc.ServiceRegistrar, srv QuoteSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedQuoteSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&QuoteSpanService_ServiceDesc, srv)
-}
-
-func _QuoteSpanService_NewQuoteSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewQuoteSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).NewQuoteSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_NewQuoteSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).NewQuoteSpan(ctx, req.(*NewQuoteSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).DrawLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_DrawLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).DrawLeadingMargin(ctx, req.(*DrawLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_GetColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).GetColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_GetColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).GetColor(ctx, req.(*GetColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_GetGapWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGapWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).GetGapWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_GetGapWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).GetGapWidth(ctx, req.(*GetGapWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).GetLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_GetLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).GetLeadingMargin(ctx, req.(*GetLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_GetStripeWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStripeWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).GetStripeWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_GetStripeWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).GetStripeWidth(ctx, req.(*GetStripeWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuoteSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuoteSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuoteSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuoteSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// QuoteSpanService_ServiceDesc is the grpc.ServiceDesc for QuoteSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var QuoteSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.QuoteSpanService",
-	HandlerType: (*QuoteSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewQuoteSpan",
-			Handler:    _QuoteSpanService_NewQuoteSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _QuoteSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "DrawLeadingMargin",
-			Handler:    _QuoteSpanService_DrawLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetColor",
-			Handler:    _QuoteSpanService_GetColor_Handler,
-		},
-		{
-			MethodName: "GetGapWidth",
-			Handler:    _QuoteSpanService_GetGapWidth_Handler,
-		},
-		{
-			MethodName: "GetLeadingMargin",
-			Handler:    _QuoteSpanService_GetLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _QuoteSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "GetStripeWidth",
-			Handler:    _QuoteSpanService_GetStripeWidth_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _QuoteSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _QuoteSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	CharacterStyleService_GetUnderlying_FullMethodName   = "/style.CharacterStyleService/GetUnderlying"
-	CharacterStyleService_UpdateDrawState_FullMethodName = "/style.CharacterStyleService/UpdateDrawState"
-	CharacterStyleService_Wrap_FullMethodName            = "/style.CharacterStyleService/Wrap"
-)
-
-// CharacterStyleServiceClient is the client API for CharacterStyleService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CharacterStyleServiceClient interface {
-	GetUnderlying(ctx context.Context, in *GetUnderlyingRequest, opts ...grpc.CallOption) (*GetUnderlyingResponse, error)
-	UpdateDrawState(ctx context.Context, in *CharacterStyleUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	Wrap(ctx context.Context, in *WrapRequest, opts ...grpc.CallOption) (*WrapResponse, error)
-}
-
-type characterStyleServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCharacterStyleServiceClient(cc grpc.ClientConnInterface) CharacterStyleServiceClient {
-	return &characterStyleServiceClient{cc}
-}
-
-func (c *characterStyleServiceClient) GetUnderlying(ctx context.Context, in *GetUnderlyingRequest, opts ...grpc.CallOption) (*GetUnderlyingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUnderlyingResponse)
-	err := c.cc.Invoke(ctx, CharacterStyleService_GetUnderlying_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characterStyleServiceClient) UpdateDrawState(ctx context.Context, in *CharacterStyleUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, CharacterStyleService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *characterStyleServiceClient) Wrap(ctx context.Context, in *WrapRequest, opts ...grpc.CallOption) (*WrapResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WrapResponse)
-	err := c.cc.Invoke(ctx, CharacterStyleService_Wrap_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CharacterStyleServiceServer is the server API for CharacterStyleService service.
-// All implementations must embed UnimplementedCharacterStyleServiceServer
-// for forward compatibility.
-type CharacterStyleServiceServer interface {
-	GetUnderlying(context.Context, *GetUnderlyingRequest) (*GetUnderlyingResponse, error)
-	UpdateDrawState(context.Context, *CharacterStyleUpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	Wrap(context.Context, *WrapRequest) (*WrapResponse, error)
-	mustEmbedUnimplementedCharacterStyleServiceServer()
-}
-
-// UnimplementedCharacterStyleServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCharacterStyleServiceServer struct{}
-
-func (UnimplementedCharacterStyleServiceServer) GetUnderlying(context.Context, *GetUnderlyingRequest) (*GetUnderlyingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUnderlying not implemented")
-}
-func (UnimplementedCharacterStyleServiceServer) UpdateDrawState(context.Context, *CharacterStyleUpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedCharacterStyleServiceServer) Wrap(context.Context, *WrapRequest) (*WrapResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Wrap not implemented")
-}
-func (UnimplementedCharacterStyleServiceServer) mustEmbedUnimplementedCharacterStyleServiceServer() {}
-func (UnimplementedCharacterStyleServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeCharacterStyleServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CharacterStyleServiceServer will
-// result in compilation errors.
-type UnsafeCharacterStyleServiceServer interface {
-	mustEmbedUnimplementedCharacterStyleServiceServer()
-}
-
-func RegisterCharacterStyleServiceServer(s grpc.ServiceRegistrar, srv CharacterStyleServiceServer) {
-	// If the following call panics, it indicates UnimplementedCharacterStyleServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CharacterStyleService_ServiceDesc, srv)
-}
-
-func _CharacterStyleService_GetUnderlying_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUnderlyingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacterStyleServiceServer).GetUnderlying(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacterStyleService_GetUnderlying_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacterStyleServiceServer).GetUnderlying(ctx, req.(*GetUnderlyingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacterStyleService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CharacterStyleUpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacterStyleServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacterStyleService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacterStyleServiceServer).UpdateDrawState(ctx, req.(*CharacterStyleUpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CharacterStyleService_Wrap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WrapRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CharacterStyleServiceServer).Wrap(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CharacterStyleService_Wrap_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacterStyleServiceServer).Wrap(ctx, req.(*WrapRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CharacterStyleService_ServiceDesc is the grpc.ServiceDesc for CharacterStyleService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CharacterStyleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.CharacterStyleService",
-	HandlerType: (*CharacterStyleServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetUnderlying",
-			Handler:    _CharacterStyleService_GetUnderlying_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _CharacterStyleService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "Wrap",
-			Handler:    _CharacterStyleService_Wrap_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	LineHeightSpanService_ChooseHeight_FullMethodName = "/style.LineHeightSpanService/ChooseHeight"
-)
-
-// LineHeightSpanServiceClient is the client API for LineHeightSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LineHeightSpanServiceClient interface {
-	ChooseHeight(ctx context.Context, in *ChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
-}
-
-type lineHeightSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLineHeightSpanServiceClient(cc grpc.ClientConnInterface) LineHeightSpanServiceClient {
-	return &lineHeightSpanServiceClient{cc}
-}
-
-func (c *lineHeightSpanServiceClient) ChooseHeight(ctx context.Context, in *ChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ChooseHeightResponse)
-	err := c.cc.Invoke(ctx, LineHeightSpanService_ChooseHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LineHeightSpanServiceServer is the server API for LineHeightSpanService service.
-// All implementations must embed UnimplementedLineHeightSpanServiceServer
-// for forward compatibility.
-type LineHeightSpanServiceServer interface {
-	ChooseHeight(context.Context, *ChooseHeightRequest) (*ChooseHeightResponse, error)
-	mustEmbedUnimplementedLineHeightSpanServiceServer()
-}
-
-// UnimplementedLineHeightSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLineHeightSpanServiceServer struct{}
-
-func (UnimplementedLineHeightSpanServiceServer) ChooseHeight(context.Context, *ChooseHeightRequest) (*ChooseHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
-}
-func (UnimplementedLineHeightSpanServiceServer) mustEmbedUnimplementedLineHeightSpanServiceServer() {}
-func (UnimplementedLineHeightSpanServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeLineHeightSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LineHeightSpanServiceServer will
-// result in compilation errors.
-type UnsafeLineHeightSpanServiceServer interface {
-	mustEmbedUnimplementedLineHeightSpanServiceServer()
-}
-
-func RegisterLineHeightSpanServiceServer(s grpc.ServiceRegistrar, srv LineHeightSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedLineHeightSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LineHeightSpanService_ServiceDesc, srv)
-}
-
-func _LineHeightSpanService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChooseHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineHeightSpanServiceServer).ChooseHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineHeightSpanService_ChooseHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineHeightSpanServiceServer).ChooseHeight(ctx, req.(*ChooseHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LineHeightSpanService_ServiceDesc is the grpc.ServiceDesc for LineHeightSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LineHeightSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LineHeightSpanService",
-	HandlerType: (*LineHeightSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ChooseHeight",
-			Handler:    _LineHeightSpanService_ChooseHeight_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	LineHeightSpanStandardService_ChooseHeight_FullMethodName     = "/style.LineHeightSpanStandardService/ChooseHeight"
-	LineHeightSpanStandardService_DescribeContents_FullMethodName = "/style.LineHeightSpanStandardService/DescribeContents"
-	LineHeightSpanStandardService_GetHeight_FullMethodName        = "/style.LineHeightSpanStandardService/GetHeight"
-	LineHeightSpanStandardService_GetSpanTypeId_FullMethodName    = "/style.LineHeightSpanStandardService/GetSpanTypeId"
-	LineHeightSpanStandardService_WriteToParcel_FullMethodName    = "/style.LineHeightSpanStandardService/WriteToParcel"
-)
-
-// LineHeightSpanStandardServiceClient is the client API for LineHeightSpanStandardService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LineHeightSpanStandardServiceClient interface {
-	ChooseHeight(ctx context.Context, in *ChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
-	DescribeContents(ctx context.Context, in *LineHeightSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
-	GetSpanTypeId(ctx context.Context, in *LineHeightSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	WriteToParcel(ctx context.Context, in *LineHeightSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type lineHeightSpanStandardServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLineHeightSpanStandardServiceClient(cc grpc.ClientConnInterface) LineHeightSpanStandardServiceClient {
-	return &lineHeightSpanStandardServiceClient{cc}
-}
-
-func (c *lineHeightSpanStandardServiceClient) ChooseHeight(ctx context.Context, in *ChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ChooseHeightResponse)
-	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_ChooseHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lineHeightSpanStandardServiceClient) DescribeContents(ctx context.Context, in *LineHeightSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lineHeightSpanStandardServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeightResponse)
-	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_GetHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lineHeightSpanStandardServiceClient) GetSpanTypeId(ctx context.Context, in *LineHeightSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lineHeightSpanStandardServiceClient) WriteToParcel(ctx context.Context, in *LineHeightSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LineHeightSpanStandardServiceServer is the server API for LineHeightSpanStandardService service.
-// All implementations must embed UnimplementedLineHeightSpanStandardServiceServer
-// for forward compatibility.
-type LineHeightSpanStandardServiceServer interface {
-	ChooseHeight(context.Context, *ChooseHeightRequest) (*ChooseHeightResponse, error)
-	DescribeContents(context.Context, *LineHeightSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
-	GetSpanTypeId(context.Context, *LineHeightSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	WriteToParcel(context.Context, *LineHeightSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedLineHeightSpanStandardServiceServer()
-}
-
-// UnimplementedLineHeightSpanStandardServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLineHeightSpanStandardServiceServer struct{}
-
-func (UnimplementedLineHeightSpanStandardServiceServer) ChooseHeight(context.Context, *ChooseHeightRequest) (*ChooseHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
-}
-func (UnimplementedLineHeightSpanStandardServiceServer) DescribeContents(context.Context, *LineHeightSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedLineHeightSpanStandardServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
-}
-func (UnimplementedLineHeightSpanStandardServiceServer) GetSpanTypeId(context.Context, *LineHeightSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedLineHeightSpanStandardServiceServer) WriteToParcel(context.Context, *LineHeightSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedLineHeightSpanStandardServiceServer) mustEmbedUnimplementedLineHeightSpanStandardServiceServer() {
-}
-func (UnimplementedLineHeightSpanStandardServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLineHeightSpanStandardServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LineHeightSpanStandardServiceServer will
-// result in compilation errors.
-type UnsafeLineHeightSpanStandardServiceServer interface {
-	mustEmbedUnimplementedLineHeightSpanStandardServiceServer()
-}
-
-func RegisterLineHeightSpanStandardServiceServer(s grpc.ServiceRegistrar, srv LineHeightSpanStandardServiceServer) {
-	// If the following call panics, it indicates UnimplementedLineHeightSpanStandardServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LineHeightSpanStandardService_ServiceDesc, srv)
-}
-
-func _LineHeightSpanStandardService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChooseHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineHeightSpanStandardServiceServer).ChooseHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineHeightSpanStandardService_ChooseHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineHeightSpanStandardServiceServer).ChooseHeight(ctx, req.(*ChooseHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LineHeightSpanStandardService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LineHeightSpanStandardDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineHeightSpanStandardServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineHeightSpanStandardService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineHeightSpanStandardServiceServer).DescribeContents(ctx, req.(*LineHeightSpanStandardDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LineHeightSpanStandardService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineHeightSpanStandardServiceServer).GetHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineHeightSpanStandardService_GetHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineHeightSpanStandardServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LineHeightSpanStandardService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LineHeightSpanStandardGetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineHeightSpanStandardServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineHeightSpanStandardService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineHeightSpanStandardServiceServer).GetSpanTypeId(ctx, req.(*LineHeightSpanStandardGetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LineHeightSpanStandardService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LineHeightSpanStandardWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineHeightSpanStandardServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineHeightSpanStandardService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineHeightSpanStandardServiceServer).WriteToParcel(ctx, req.(*LineHeightSpanStandardWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LineHeightSpanStandardService_ServiceDesc is the grpc.ServiceDesc for LineHeightSpanStandardService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LineHeightSpanStandardService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LineHeightSpanStandardService",
-	HandlerType: (*LineHeightSpanStandardServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ChooseHeight",
-			Handler:    _LineHeightSpanStandardService_ChooseHeight_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _LineHeightSpanStandardService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetHeight",
-			Handler:    _LineHeightSpanStandardService_GetHeight_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _LineHeightSpanStandardService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _LineHeightSpanStandardService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	LineHeightSpanWithDensityService_ChooseHeight_FullMethodName = "/style.LineHeightSpanWithDensityService/ChooseHeight"
-)
-
-// LineHeightSpanWithDensityServiceClient is the client API for LineHeightSpanWithDensityService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LineHeightSpanWithDensityServiceClient interface {
-	ChooseHeight(ctx context.Context, in *LineHeightSpanWithDensityChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
-}
-
-type lineHeightSpanWithDensityServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLineHeightSpanWithDensityServiceClient(cc grpc.ClientConnInterface) LineHeightSpanWithDensityServiceClient {
-	return &lineHeightSpanWithDensityServiceClient{cc}
-}
-
-func (c *lineHeightSpanWithDensityServiceClient) ChooseHeight(ctx context.Context, in *LineHeightSpanWithDensityChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ChooseHeightResponse)
-	err := c.cc.Invoke(ctx, LineHeightSpanWithDensityService_ChooseHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LineHeightSpanWithDensityServiceServer is the server API for LineHeightSpanWithDensityService service.
-// All implementations must embed UnimplementedLineHeightSpanWithDensityServiceServer
-// for forward compatibility.
-type LineHeightSpanWithDensityServiceServer interface {
-	ChooseHeight(context.Context, *LineHeightSpanWithDensityChooseHeightRequest) (*ChooseHeightResponse, error)
-	mustEmbedUnimplementedLineHeightSpanWithDensityServiceServer()
-}
-
-// UnimplementedLineHeightSpanWithDensityServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLineHeightSpanWithDensityServiceServer struct{}
-
-func (UnimplementedLineHeightSpanWithDensityServiceServer) ChooseHeight(context.Context, *LineHeightSpanWithDensityChooseHeightRequest) (*ChooseHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
-}
-func (UnimplementedLineHeightSpanWithDensityServiceServer) mustEmbedUnimplementedLineHeightSpanWithDensityServiceServer() {
-}
-func (UnimplementedLineHeightSpanWithDensityServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLineHeightSpanWithDensityServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LineHeightSpanWithDensityServiceServer will
-// result in compilation errors.
-type UnsafeLineHeightSpanWithDensityServiceServer interface {
-	mustEmbedUnimplementedLineHeightSpanWithDensityServiceServer()
-}
-
-func RegisterLineHeightSpanWithDensityServiceServer(s grpc.ServiceRegistrar, srv LineHeightSpanWithDensityServiceServer) {
-	// If the following call panics, it indicates UnimplementedLineHeightSpanWithDensityServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LineHeightSpanWithDensityService_ServiceDesc, srv)
-}
-
-func _LineHeightSpanWithDensityService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LineHeightSpanWithDensityChooseHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineHeightSpanWithDensityServiceServer).ChooseHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineHeightSpanWithDensityService_ChooseHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineHeightSpanWithDensityServiceServer).ChooseHeight(ctx, req.(*LineHeightSpanWithDensityChooseHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LineHeightSpanWithDensityService_ServiceDesc is the grpc.ServiceDesc for LineHeightSpanWithDensityService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LineHeightSpanWithDensityService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LineHeightSpanWithDensityService",
-	HandlerType: (*LineHeightSpanWithDensityServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ChooseHeight",
-			Handler:    _LineHeightSpanWithDensityService_ChooseHeight_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	RelativeSizeSpanService_NewRelativeSizeSpan_FullMethodName = "/style.RelativeSizeSpanService/NewRelativeSizeSpan"
-	RelativeSizeSpanService_DescribeContents_FullMethodName    = "/style.RelativeSizeSpanService/DescribeContents"
-	RelativeSizeSpanService_GetSizeChange_FullMethodName       = "/style.RelativeSizeSpanService/GetSizeChange"
-	RelativeSizeSpanService_GetSpanTypeId_FullMethodName       = "/style.RelativeSizeSpanService/GetSpanTypeId"
-	RelativeSizeSpanService_ToString_FullMethodName            = "/style.RelativeSizeSpanService/ToString"
-	RelativeSizeSpanService_UpdateDrawState_FullMethodName     = "/style.RelativeSizeSpanService/UpdateDrawState"
-	RelativeSizeSpanService_UpdateMeasureState_FullMethodName  = "/style.RelativeSizeSpanService/UpdateMeasureState"
-	RelativeSizeSpanService_WriteToParcel_FullMethodName       = "/style.RelativeSizeSpanService/WriteToParcel"
-)
-
-// RelativeSizeSpanServiceClient is the client API for RelativeSizeSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RelativeSizeSpanServiceClient interface {
-	NewRelativeSizeSpan(ctx context.Context, in *NewRelativeSizeSpanRequest, opts ...grpc.CallOption) (*NewRelativeSizeSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSizeChange(ctx context.Context, in *GetSizeChangeRequest, opts ...grpc.CallOption) (*GetSizeChangeResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type relativeSizeSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRelativeSizeSpanServiceClient(cc grpc.ClientConnInterface) RelativeSizeSpanServiceClient {
-	return &relativeSizeSpanServiceClient{cc}
-}
-
-func (c *relativeSizeSpanServiceClient) NewRelativeSizeSpan(ctx context.Context, in *NewRelativeSizeSpanRequest, opts ...grpc.CallOption) (*NewRelativeSizeSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRelativeSizeSpanResponse)
-	err := c.cc.Invoke(ctx, RelativeSizeSpanService_NewRelativeSizeSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeSizeSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RelativeSizeSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeSizeSpanServiceClient) GetSizeChange(ctx context.Context, in *GetSizeChangeRequest, opts ...grpc.CallOption) (*GetSizeChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSizeChangeResponse)
-	err := c.cc.Invoke(ctx, RelativeSizeSpanService_GetSizeChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeSizeSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, RelativeSizeSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeSizeSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, RelativeSizeSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeSizeSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, RelativeSizeSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeSizeSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, RelativeSizeSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *relativeSizeSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RelativeSizeSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RelativeSizeSpanServiceServer is the server API for RelativeSizeSpanService service.
-// All implementations must embed UnimplementedRelativeSizeSpanServiceServer
-// for forward compatibility.
-type RelativeSizeSpanServiceServer interface {
-	NewRelativeSizeSpan(context.Context, *NewRelativeSizeSpanRequest) (*NewRelativeSizeSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSizeChange(context.Context, *GetSizeChangeRequest) (*GetSizeChangeResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedRelativeSizeSpanServiceServer()
-}
-
-// UnimplementedRelativeSizeSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRelativeSizeSpanServiceServer struct{}
-
-func (UnimplementedRelativeSizeSpanServiceServer) NewRelativeSizeSpan(context.Context, *NewRelativeSizeSpanRequest) (*NewRelativeSizeSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRelativeSizeSpan not implemented")
-}
-func (UnimplementedRelativeSizeSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedRelativeSizeSpanServiceServer) GetSizeChange(context.Context, *GetSizeChangeRequest) (*GetSizeChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSizeChange not implemented")
-}
-func (UnimplementedRelativeSizeSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedRelativeSizeSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedRelativeSizeSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedRelativeSizeSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
-}
-func (UnimplementedRelativeSizeSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedRelativeSizeSpanServiceServer) mustEmbedUnimplementedRelativeSizeSpanServiceServer() {
-}
-func (UnimplementedRelativeSizeSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRelativeSizeSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RelativeSizeSpanServiceServer will
-// result in compilation errors.
-type UnsafeRelativeSizeSpanServiceServer interface {
-	mustEmbedUnimplementedRelativeSizeSpanServiceServer()
-}
-
-func RegisterRelativeSizeSpanServiceServer(s grpc.ServiceRegistrar, srv RelativeSizeSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedRelativeSizeSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RelativeSizeSpanService_ServiceDesc, srv)
-}
-
-func _RelativeSizeSpanService_NewRelativeSizeSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRelativeSizeSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeSizeSpanServiceServer).NewRelativeSizeSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeSizeSpanService_NewRelativeSizeSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeSizeSpanServiceServer).NewRelativeSizeSpan(ctx, req.(*NewRelativeSizeSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeSizeSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeSizeSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeSizeSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeSizeSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeSizeSpanService_GetSizeChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSizeChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeSizeSpanServiceServer).GetSizeChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeSizeSpanService_GetSizeChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeSizeSpanServiceServer).GetSizeChange(ctx, req.(*GetSizeChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeSizeSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeSizeSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeSizeSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeSizeSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeSizeSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeSizeSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeSizeSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeSizeSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeSizeSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeSizeSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeSizeSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeSizeSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeSizeSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateMeasureStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeSizeSpanServiceServer).UpdateMeasureState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeSizeSpanService_UpdateMeasureState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeSizeSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RelativeSizeSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RelativeSizeSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RelativeSizeSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RelativeSizeSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RelativeSizeSpanService_ServiceDesc is the grpc.ServiceDesc for RelativeSizeSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RelativeSizeSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.RelativeSizeSpanService",
-	HandlerType: (*RelativeSizeSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRelativeSizeSpan",
-			Handler:    _RelativeSizeSpanService_NewRelativeSizeSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _RelativeSizeSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSizeChange",
-			Handler:    _RelativeSizeSpanService_GetSizeChange_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _RelativeSizeSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _RelativeSizeSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _RelativeSizeSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "UpdateMeasureState",
-			Handler:    _RelativeSizeSpanService_UpdateMeasureState_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _RelativeSizeSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	AbsoluteSizeSpanService_NewAbsoluteSizeSpan_FullMethodName = "/style.AbsoluteSizeSpanService/NewAbsoluteSizeSpan"
-	AbsoluteSizeSpanService_DescribeContents_FullMethodName    = "/style.AbsoluteSizeSpanService/DescribeContents"
-	AbsoluteSizeSpanService_GetDip_FullMethodName              = "/style.AbsoluteSizeSpanService/GetDip"
-	AbsoluteSizeSpanService_GetSize_FullMethodName             = "/style.AbsoluteSizeSpanService/GetSize"
-	AbsoluteSizeSpanService_GetSpanTypeId_FullMethodName       = "/style.AbsoluteSizeSpanService/GetSpanTypeId"
-	AbsoluteSizeSpanService_ToString_FullMethodName            = "/style.AbsoluteSizeSpanService/ToString"
-	AbsoluteSizeSpanService_UpdateDrawState_FullMethodName     = "/style.AbsoluteSizeSpanService/UpdateDrawState"
-	AbsoluteSizeSpanService_UpdateMeasureState_FullMethodName  = "/style.AbsoluteSizeSpanService/UpdateMeasureState"
-	AbsoluteSizeSpanService_WriteToParcel_FullMethodName       = "/style.AbsoluteSizeSpanService/WriteToParcel"
-)
-
-// AbsoluteSizeSpanServiceClient is the client API for AbsoluteSizeSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AbsoluteSizeSpanServiceClient interface {
-	NewAbsoluteSizeSpan(ctx context.Context, in *NewAbsoluteSizeSpanRequest, opts ...grpc.CallOption) (*NewAbsoluteSizeSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetDip(ctx context.Context, in *GetDipRequest, opts ...grpc.CallOption) (*GetDipResponse, error)
-	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type absoluteSizeSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAbsoluteSizeSpanServiceClient(cc grpc.ClientConnInterface) AbsoluteSizeSpanServiceClient {
-	return &absoluteSizeSpanServiceClient{cc}
-}
-
-func (c *absoluteSizeSpanServiceClient) NewAbsoluteSizeSpan(ctx context.Context, in *NewAbsoluteSizeSpanRequest, opts ...grpc.CallOption) (*NewAbsoluteSizeSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAbsoluteSizeSpanResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_NewAbsoluteSizeSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *absoluteSizeSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *absoluteSizeSpanServiceClient) GetDip(ctx context.Context, in *GetDipRequest, opts ...grpc.CallOption) (*GetDipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDipResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_GetDip_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *absoluteSizeSpanServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSizeResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_GetSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *absoluteSizeSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *absoluteSizeSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *absoluteSizeSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *absoluteSizeSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *absoluteSizeSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AbsoluteSizeSpanServiceServer is the server API for AbsoluteSizeSpanService service.
-// All implementations must embed UnimplementedAbsoluteSizeSpanServiceServer
-// for forward compatibility.
-type AbsoluteSizeSpanServiceServer interface {
-	NewAbsoluteSizeSpan(context.Context, *NewAbsoluteSizeSpanRequest) (*NewAbsoluteSizeSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetDip(context.Context, *GetDipRequest) (*GetDipResponse, error)
-	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAbsoluteSizeSpanServiceServer()
-}
-
-// UnimplementedAbsoluteSizeSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAbsoluteSizeSpanServiceServer struct{}
-
-func (UnimplementedAbsoluteSizeSpanServiceServer) NewAbsoluteSizeSpan(context.Context, *NewAbsoluteSizeSpanRequest) (*NewAbsoluteSizeSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAbsoluteSizeSpan not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) GetDip(context.Context, *GetDipRequest) (*GetDipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDip not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) mustEmbedUnimplementedAbsoluteSizeSpanServiceServer() {
-}
-func (UnimplementedAbsoluteSizeSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAbsoluteSizeSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AbsoluteSizeSpanServiceServer will
-// result in compilation errors.
-type UnsafeAbsoluteSizeSpanServiceServer interface {
-	mustEmbedUnimplementedAbsoluteSizeSpanServiceServer()
-}
-
-func RegisterAbsoluteSizeSpanServiceServer(s grpc.ServiceRegistrar, srv AbsoluteSizeSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedAbsoluteSizeSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AbsoluteSizeSpanService_ServiceDesc, srv)
-}
-
-func _AbsoluteSizeSpanService_NewAbsoluteSizeSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAbsoluteSizeSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).NewAbsoluteSizeSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_NewAbsoluteSizeSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).NewAbsoluteSizeSpan(ctx, req.(*NewAbsoluteSizeSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbsoluteSizeSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbsoluteSizeSpanService_GetDip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).GetDip(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_GetDip_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).GetDip(ctx, req.(*GetDipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbsoluteSizeSpanService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).GetSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_GetSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).GetSize(ctx, req.(*GetSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbsoluteSizeSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbsoluteSizeSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbsoluteSizeSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbsoluteSizeSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateMeasureStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).UpdateMeasureState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_UpdateMeasureState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AbsoluteSizeSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AbsoluteSizeSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AbsoluteSizeSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AbsoluteSizeSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AbsoluteSizeSpanService_ServiceDesc is the grpc.ServiceDesc for AbsoluteSizeSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AbsoluteSizeSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.AbsoluteSizeSpanService",
-	HandlerType: (*AbsoluteSizeSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAbsoluteSizeSpan",
-			Handler:    _AbsoluteSizeSpanService_NewAbsoluteSizeSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _AbsoluteSizeSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetDip",
-			Handler:    _AbsoluteSizeSpanService_GetDip_Handler,
-		},
-		{
-			MethodName: "GetSize",
-			Handler:    _AbsoluteSizeSpanService_GetSize_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _AbsoluteSizeSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AbsoluteSizeSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _AbsoluteSizeSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "UpdateMeasureState",
-			Handler:    _AbsoluteSizeSpanService_UpdateMeasureState_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _AbsoluteSizeSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	SubscriptSpanService_NewSubscriptSpan_FullMethodName   = "/style.SubscriptSpanService/NewSubscriptSpan"
-	SubscriptSpanService_DescribeContents_FullMethodName   = "/style.SubscriptSpanService/DescribeContents"
-	SubscriptSpanService_GetSpanTypeId_FullMethodName      = "/style.SubscriptSpanService/GetSpanTypeId"
-	SubscriptSpanService_ToString_FullMethodName           = "/style.SubscriptSpanService/ToString"
-	SubscriptSpanService_UpdateDrawState_FullMethodName    = "/style.SubscriptSpanService/UpdateDrawState"
-	SubscriptSpanService_UpdateMeasureState_FullMethodName = "/style.SubscriptSpanService/UpdateMeasureState"
-	SubscriptSpanService_WriteToParcel_FullMethodName      = "/style.SubscriptSpanService/WriteToParcel"
-)
-
-// SubscriptSpanServiceClient is the client API for SubscriptSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SubscriptSpanServiceClient interface {
-	NewSubscriptSpan(ctx context.Context, in *NewSubscriptSpanRequest, opts ...grpc.CallOption) (*NewSubscriptSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type subscriptSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSubscriptSpanServiceClient(cc grpc.ClientConnInterface) SubscriptSpanServiceClient {
-	return &subscriptSpanServiceClient{cc}
-}
-
-func (c *subscriptSpanServiceClient) NewSubscriptSpan(ctx context.Context, in *NewSubscriptSpanRequest, opts ...grpc.CallOption) (*NewSubscriptSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSubscriptSpanResponse)
-	err := c.cc.Invoke(ctx, SubscriptSpanService_NewSubscriptSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscriptSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SubscriptSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscriptSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, SubscriptSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscriptSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SubscriptSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscriptSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, SubscriptSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscriptSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, SubscriptSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *subscriptSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SubscriptSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SubscriptSpanServiceServer is the server API for SubscriptSpanService service.
-// All implementations must embed UnimplementedSubscriptSpanServiceServer
-// for forward compatibility.
-type SubscriptSpanServiceServer interface {
-	NewSubscriptSpan(context.Context, *NewSubscriptSpanRequest) (*NewSubscriptSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSubscriptSpanServiceServer()
-}
-
-// UnimplementedSubscriptSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSubscriptSpanServiceServer struct{}
-
-func (UnimplementedSubscriptSpanServiceServer) NewSubscriptSpan(context.Context, *NewSubscriptSpanRequest) (*NewSubscriptSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSubscriptSpan not implemented")
-}
-func (UnimplementedSubscriptSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSubscriptSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedSubscriptSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSubscriptSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedSubscriptSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
-}
-func (UnimplementedSubscriptSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSubscriptSpanServiceServer) mustEmbedUnimplementedSubscriptSpanServiceServer() {}
-func (UnimplementedSubscriptSpanServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeSubscriptSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SubscriptSpanServiceServer will
-// result in compilation errors.
-type UnsafeSubscriptSpanServiceServer interface {
-	mustEmbedUnimplementedSubscriptSpanServiceServer()
-}
-
-func RegisterSubscriptSpanServiceServer(s grpc.ServiceRegistrar, srv SubscriptSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedSubscriptSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SubscriptSpanService_ServiceDesc, srv)
-}
-
-func _SubscriptSpanService_NewSubscriptSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSubscriptSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscriptSpanServiceServer).NewSubscriptSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscriptSpanService_NewSubscriptSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscriptSpanServiceServer).NewSubscriptSpan(ctx, req.(*NewSubscriptSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscriptSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscriptSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscriptSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscriptSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscriptSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscriptSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscriptSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscriptSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscriptSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscriptSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscriptSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscriptSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscriptSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscriptSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscriptSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscriptSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscriptSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateMeasureStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscriptSpanServiceServer).UpdateMeasureState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscriptSpanService_UpdateMeasureState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscriptSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SubscriptSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SubscriptSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SubscriptSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscriptSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SubscriptSpanService_ServiceDesc is the grpc.ServiceDesc for SubscriptSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SubscriptSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.SubscriptSpanService",
-	HandlerType: (*SubscriptSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSubscriptSpan",
-			Handler:    _SubscriptSpanService_NewSubscriptSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SubscriptSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _SubscriptSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SubscriptSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _SubscriptSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "UpdateMeasureState",
-			Handler:    _SubscriptSpanService_UpdateMeasureState_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SubscriptSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	DrawableMarginSpanService_NewDrawableMarginSpan_FullMethodName = "/style.DrawableMarginSpanService/NewDrawableMarginSpan"
-	DrawableMarginSpanService_ChooseHeight_FullMethodName          = "/style.DrawableMarginSpanService/ChooseHeight"
-	DrawableMarginSpanService_DrawLeadingMargin_FullMethodName     = "/style.DrawableMarginSpanService/DrawLeadingMargin"
-	DrawableMarginSpanService_GetDrawable_FullMethodName           = "/style.DrawableMarginSpanService/GetDrawable"
-	DrawableMarginSpanService_GetLeadingMargin_FullMethodName      = "/style.DrawableMarginSpanService/GetLeadingMargin"
-	DrawableMarginSpanService_GetPadding_FullMethodName            = "/style.DrawableMarginSpanService/GetPadding"
-	DrawableMarginSpanService_ToString_FullMethodName              = "/style.DrawableMarginSpanService/ToString"
-)
-
-// DrawableMarginSpanServiceClient is the client API for DrawableMarginSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DrawableMarginSpanServiceClient interface {
-	NewDrawableMarginSpan(ctx context.Context, in *NewDrawableMarginSpanRequest, opts ...grpc.CallOption) (*NewDrawableMarginSpanResponse, error)
-	ChooseHeight(ctx context.Context, in *DrawableMarginSpanChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
-	DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
-	GetDrawable(ctx context.Context, in *GetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error)
-	GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
-	GetPadding(ctx context.Context, in *GetPaddingRequest, opts ...grpc.CallOption) (*GetPaddingResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type drawableMarginSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDrawableMarginSpanServiceClient(cc grpc.ClientConnInterface) DrawableMarginSpanServiceClient {
-	return &drawableMarginSpanServiceClient{cc}
-}
-
-func (c *drawableMarginSpanServiceClient) NewDrawableMarginSpan(ctx context.Context, in *NewDrawableMarginSpanRequest, opts ...grpc.CallOption) (*NewDrawableMarginSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDrawableMarginSpanResponse)
-	err := c.cc.Invoke(ctx, DrawableMarginSpanService_NewDrawableMarginSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *drawableMarginSpanServiceClient) ChooseHeight(ctx context.Context, in *DrawableMarginSpanChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ChooseHeightResponse)
-	err := c.cc.Invoke(ctx, DrawableMarginSpanService_ChooseHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *drawableMarginSpanServiceClient) DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, DrawableMarginSpanService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *drawableMarginSpanServiceClient) GetDrawable(ctx context.Context, in *GetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDrawableResponse)
-	err := c.cc.Invoke(ctx, DrawableMarginSpanService_GetDrawable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *drawableMarginSpanServiceClient) GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, DrawableMarginSpanService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *drawableMarginSpanServiceClient) GetPadding(ctx context.Context, in *GetPaddingRequest, opts ...grpc.CallOption) (*GetPaddingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPaddingResponse)
-	err := c.cc.Invoke(ctx, DrawableMarginSpanService_GetPadding_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *drawableMarginSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DrawableMarginSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DrawableMarginSpanServiceServer is the server API for DrawableMarginSpanService service.
-// All implementations must embed UnimplementedDrawableMarginSpanServiceServer
-// for forward compatibility.
-type DrawableMarginSpanServiceServer interface {
-	NewDrawableMarginSpan(context.Context, *NewDrawableMarginSpanRequest) (*NewDrawableMarginSpanResponse, error)
-	ChooseHeight(context.Context, *DrawableMarginSpanChooseHeightRequest) (*ChooseHeightResponse, error)
-	DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
-	GetDrawable(context.Context, *GetDrawableRequest) (*GetDrawableResponse, error)
-	GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
-	GetPadding(context.Context, *GetPaddingRequest) (*GetPaddingResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedDrawableMarginSpanServiceServer()
-}
-
-// UnimplementedDrawableMarginSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDrawableMarginSpanServiceServer struct{}
-
-func (UnimplementedDrawableMarginSpanServiceServer) NewDrawableMarginSpan(context.Context, *NewDrawableMarginSpanRequest) (*NewDrawableMarginSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDrawableMarginSpan not implemented")
-}
-func (UnimplementedDrawableMarginSpanServiceServer) ChooseHeight(context.Context, *DrawableMarginSpanChooseHeightRequest) (*ChooseHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
-}
-func (UnimplementedDrawableMarginSpanServiceServer) DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
-}
-func (UnimplementedDrawableMarginSpanServiceServer) GetDrawable(context.Context, *GetDrawableRequest) (*GetDrawableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDrawable not implemented")
-}
-func (UnimplementedDrawableMarginSpanServiceServer) GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
-}
-func (UnimplementedDrawableMarginSpanServiceServer) GetPadding(context.Context, *GetPaddingRequest) (*GetPaddingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPadding not implemented")
-}
-func (UnimplementedDrawableMarginSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDrawableMarginSpanServiceServer) mustEmbedUnimplementedDrawableMarginSpanServiceServer() {
-}
-func (UnimplementedDrawableMarginSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDrawableMarginSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DrawableMarginSpanServiceServer will
-// result in compilation errors.
-type UnsafeDrawableMarginSpanServiceServer interface {
-	mustEmbedUnimplementedDrawableMarginSpanServiceServer()
-}
-
-func RegisterDrawableMarginSpanServiceServer(s grpc.ServiceRegistrar, srv DrawableMarginSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedDrawableMarginSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DrawableMarginSpanService_ServiceDesc, srv)
-}
-
-func _DrawableMarginSpanService_NewDrawableMarginSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDrawableMarginSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DrawableMarginSpanServiceServer).NewDrawableMarginSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DrawableMarginSpanService_NewDrawableMarginSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DrawableMarginSpanServiceServer).NewDrawableMarginSpan(ctx, req.(*NewDrawableMarginSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DrawableMarginSpanService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawableMarginSpanChooseHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DrawableMarginSpanServiceServer).ChooseHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DrawableMarginSpanService_ChooseHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DrawableMarginSpanServiceServer).ChooseHeight(ctx, req.(*DrawableMarginSpanChooseHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DrawableMarginSpanService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DrawableMarginSpanServiceServer).DrawLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DrawableMarginSpanService_DrawLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DrawableMarginSpanServiceServer).DrawLeadingMargin(ctx, req.(*DrawLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DrawableMarginSpanService_GetDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDrawableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DrawableMarginSpanServiceServer).GetDrawable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DrawableMarginSpanService_GetDrawable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DrawableMarginSpanServiceServer).GetDrawable(ctx, req.(*GetDrawableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DrawableMarginSpanService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DrawableMarginSpanServiceServer).GetLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DrawableMarginSpanService_GetLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DrawableMarginSpanServiceServer).GetLeadingMargin(ctx, req.(*GetLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DrawableMarginSpanService_GetPadding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPaddingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DrawableMarginSpanServiceServer).GetPadding(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DrawableMarginSpanService_GetPadding_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DrawableMarginSpanServiceServer).GetPadding(ctx, req.(*GetPaddingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DrawableMarginSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DrawableMarginSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DrawableMarginSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DrawableMarginSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DrawableMarginSpanService_ServiceDesc is the grpc.ServiceDesc for DrawableMarginSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DrawableMarginSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.DrawableMarginSpanService",
-	HandlerType: (*DrawableMarginSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDrawableMarginSpan",
-			Handler:    _DrawableMarginSpanService_NewDrawableMarginSpan_Handler,
-		},
-		{
-			MethodName: "ChooseHeight",
-			Handler:    _DrawableMarginSpanService_ChooseHeight_Handler,
-		},
-		{
-			MethodName: "DrawLeadingMargin",
-			Handler:    _DrawableMarginSpanService_DrawLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetDrawable",
-			Handler:    _DrawableMarginSpanService_GetDrawable_Handler,
-		},
-		{
-			MethodName: "GetLeadingMargin",
-			Handler:    _DrawableMarginSpanService_GetLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetPadding",
-			Handler:    _DrawableMarginSpanService_GetPadding_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DrawableMarginSpanService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	ReplacementSpanService_Draw_FullMethodName                  = "/style.ReplacementSpanService/Draw"
-	ReplacementSpanService_GetContentDescription_FullMethodName = "/style.ReplacementSpanService/GetContentDescription"
-	ReplacementSpanService_GetSize_FullMethodName               = "/style.ReplacementSpanService/GetSize"
-	ReplacementSpanService_SetContentDescription_FullMethodName = "/style.ReplacementSpanService/SetContentDescription"
-	ReplacementSpanService_UpdateDrawState_FullMethodName       = "/style.ReplacementSpanService/UpdateDrawState"
-	ReplacementSpanService_UpdateMeasureState_FullMethodName    = "/style.ReplacementSpanService/UpdateMeasureState"
-)
-
-// ReplacementSpanServiceClient is the client API for ReplacementSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReplacementSpanServiceClient interface {
-	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
-	GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error)
-	GetSize(ctx context.Context, in *ReplacementSpanGetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
-	SetContentDescription(ctx context.Context, in *SetContentDescriptionRequest, opts ...grpc.CallOption) (*SetContentDescriptionResponse, error)
-	UpdateDrawState(ctx context.Context, in *ReplacementSpanUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(ctx context.Context, in *ReplacementSpanUpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
-}
-
-type replacementSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReplacementSpanServiceClient(cc grpc.ClientConnInterface) ReplacementSpanServiceClient {
-	return &replacementSpanServiceClient{cc}
-}
-
-func (c *replacementSpanServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawResponse)
-	err := c.cc.Invoke(ctx, ReplacementSpanService_Draw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *replacementSpanServiceClient) GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetContentDescriptionResponse)
-	err := c.cc.Invoke(ctx, ReplacementSpanService_GetContentDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *replacementSpanServiceClient) GetSize(ctx context.Context, in *ReplacementSpanGetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSizeResponse)
-	err := c.cc.Invoke(ctx, ReplacementSpanService_GetSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *replacementSpanServiceClient) SetContentDescription(ctx context.Context, in *SetContentDescriptionRequest, opts ...grpc.CallOption) (*SetContentDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetContentDescriptionResponse)
-	err := c.cc.Invoke(ctx, ReplacementSpanService_SetContentDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *replacementSpanServiceClient) UpdateDrawState(ctx context.Context, in *ReplacementSpanUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, ReplacementSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *replacementSpanServiceClient) UpdateMeasureState(ctx context.Context, in *ReplacementSpanUpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, ReplacementSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReplacementSpanServiceServer is the server API for ReplacementSpanService service.
-// All implementations must embed UnimplementedReplacementSpanServiceServer
-// for forward compatibility.
-type ReplacementSpanServiceServer interface {
-	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
-	GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error)
-	GetSize(context.Context, *ReplacementSpanGetSizeRequest) (*GetSizeResponse, error)
-	SetContentDescription(context.Context, *SetContentDescriptionRequest) (*SetContentDescriptionResponse, error)
-	UpdateDrawState(context.Context, *ReplacementSpanUpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(context.Context, *ReplacementSpanUpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
-	mustEmbedUnimplementedReplacementSpanServiceServer()
-}
-
-// UnimplementedReplacementSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReplacementSpanServiceServer struct{}
-
-func (UnimplementedReplacementSpanServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
-}
-func (UnimplementedReplacementSpanServiceServer) GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetContentDescription not implemented")
-}
-func (UnimplementedReplacementSpanServiceServer) GetSize(context.Context, *ReplacementSpanGetSizeRequest) (*GetSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
-}
-func (UnimplementedReplacementSpanServiceServer) SetContentDescription(context.Context, *SetContentDescriptionRequest) (*SetContentDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetContentDescription not implemented")
-}
-func (UnimplementedReplacementSpanServiceServer) UpdateDrawState(context.Context, *ReplacementSpanUpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedReplacementSpanServiceServer) UpdateMeasureState(context.Context, *ReplacementSpanUpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
-}
-func (UnimplementedReplacementSpanServiceServer) mustEmbedUnimplementedReplacementSpanServiceServer() {
-}
-func (UnimplementedReplacementSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeReplacementSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReplacementSpanServiceServer will
-// result in compilation errors.
-type UnsafeReplacementSpanServiceServer interface {
-	mustEmbedUnimplementedReplacementSpanServiceServer()
-}
-
-func RegisterReplacementSpanServiceServer(s grpc.ServiceRegistrar, srv ReplacementSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedReplacementSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReplacementSpanService_ServiceDesc, srv)
-}
-
-func _ReplacementSpanService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReplacementSpanServiceServer).Draw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReplacementSpanService_Draw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReplacementSpanServiceServer).Draw(ctx, req.(*DrawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReplacementSpanService_GetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetContentDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReplacementSpanServiceServer).GetContentDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReplacementSpanService_GetContentDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReplacementSpanServiceServer).GetContentDescription(ctx, req.(*GetContentDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReplacementSpanService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReplacementSpanGetSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReplacementSpanServiceServer).GetSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReplacementSpanService_GetSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReplacementSpanServiceServer).GetSize(ctx, req.(*ReplacementSpanGetSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReplacementSpanService_SetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetContentDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReplacementSpanServiceServer).SetContentDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReplacementSpanService_SetContentDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReplacementSpanServiceServer).SetContentDescription(ctx, req.(*SetContentDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReplacementSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReplacementSpanUpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReplacementSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReplacementSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReplacementSpanServiceServer).UpdateDrawState(ctx, req.(*ReplacementSpanUpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReplacementSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReplacementSpanUpdateMeasureStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReplacementSpanServiceServer).UpdateMeasureState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReplacementSpanService_UpdateMeasureState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReplacementSpanServiceServer).UpdateMeasureState(ctx, req.(*ReplacementSpanUpdateMeasureStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReplacementSpanService_ServiceDesc is the grpc.ServiceDesc for ReplacementSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReplacementSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.ReplacementSpanService",
-	HandlerType: (*ReplacementSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Draw",
-			Handler:    _ReplacementSpanService_Draw_Handler,
-		},
-		{
-			MethodName: "GetContentDescription",
-			Handler:    _ReplacementSpanService_GetContentDescription_Handler,
-		},
-		{
-			MethodName: "GetSize",
-			Handler:    _ReplacementSpanService_GetSize_Handler,
-		},
-		{
-			MethodName: "SetContentDescription",
-			Handler:    _ReplacementSpanService_SetContentDescription_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _ReplacementSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "UpdateMeasureState",
-			Handler:    _ReplacementSpanService_UpdateMeasureState_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	ForegroundColorSpanService_NewForegroundColorSpan_FullMethodName = "/style.ForegroundColorSpanService/NewForegroundColorSpan"
-	ForegroundColorSpanService_DescribeContents_FullMethodName       = "/style.ForegroundColorSpanService/DescribeContents"
-	ForegroundColorSpanService_GetForegroundColor_FullMethodName     = "/style.ForegroundColorSpanService/GetForegroundColor"
-	ForegroundColorSpanService_GetSpanTypeId_FullMethodName          = "/style.ForegroundColorSpanService/GetSpanTypeId"
-	ForegroundColorSpanService_ToString_FullMethodName               = "/style.ForegroundColorSpanService/ToString"
-	ForegroundColorSpanService_UpdateDrawState_FullMethodName        = "/style.ForegroundColorSpanService/UpdateDrawState"
-	ForegroundColorSpanService_WriteToParcel_FullMethodName          = "/style.ForegroundColorSpanService/WriteToParcel"
-)
-
-// ForegroundColorSpanServiceClient is the client API for ForegroundColorSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ForegroundColorSpanServiceClient interface {
-	NewForegroundColorSpan(ctx context.Context, in *NewForegroundColorSpanRequest, opts ...grpc.CallOption) (*NewForegroundColorSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetForegroundColor(ctx context.Context, in *GetForegroundColorRequest, opts ...grpc.CallOption) (*GetForegroundColorResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type foregroundColorSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewForegroundColorSpanServiceClient(cc grpc.ClientConnInterface) ForegroundColorSpanServiceClient {
-	return &foregroundColorSpanServiceClient{cc}
-}
-
-func (c *foregroundColorSpanServiceClient) NewForegroundColorSpan(ctx context.Context, in *NewForegroundColorSpanRequest, opts ...grpc.CallOption) (*NewForegroundColorSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewForegroundColorSpanResponse)
-	err := c.cc.Invoke(ctx, ForegroundColorSpanService_NewForegroundColorSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *foregroundColorSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ForegroundColorSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *foregroundColorSpanServiceClient) GetForegroundColor(ctx context.Context, in *GetForegroundColorRequest, opts ...grpc.CallOption) (*GetForegroundColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetForegroundColorResponse)
-	err := c.cc.Invoke(ctx, ForegroundColorSpanService_GetForegroundColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *foregroundColorSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, ForegroundColorSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *foregroundColorSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ForegroundColorSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *foregroundColorSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, ForegroundColorSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *foregroundColorSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ForegroundColorSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ForegroundColorSpanServiceServer is the server API for ForegroundColorSpanService service.
-// All implementations must embed UnimplementedForegroundColorSpanServiceServer
-// for forward compatibility.
-type ForegroundColorSpanServiceServer interface {
-	NewForegroundColorSpan(context.Context, *NewForegroundColorSpanRequest) (*NewForegroundColorSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetForegroundColor(context.Context, *GetForegroundColorRequest) (*GetForegroundColorResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedForegroundColorSpanServiceServer()
-}
-
-// UnimplementedForegroundColorSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedForegroundColorSpanServiceServer struct{}
-
-func (UnimplementedForegroundColorSpanServiceServer) NewForegroundColorSpan(context.Context, *NewForegroundColorSpanRequest) (*NewForegroundColorSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewForegroundColorSpan not implemented")
-}
-func (UnimplementedForegroundColorSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedForegroundColorSpanServiceServer) GetForegroundColor(context.Context, *GetForegroundColorRequest) (*GetForegroundColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetForegroundColor not implemented")
-}
-func (UnimplementedForegroundColorSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedForegroundColorSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedForegroundColorSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedForegroundColorSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedForegroundColorSpanServiceServer) mustEmbedUnimplementedForegroundColorSpanServiceServer() {
-}
-func (UnimplementedForegroundColorSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeForegroundColorSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ForegroundColorSpanServiceServer will
-// result in compilation errors.
-type UnsafeForegroundColorSpanServiceServer interface {
-	mustEmbedUnimplementedForegroundColorSpanServiceServer()
-}
-
-func RegisterForegroundColorSpanServiceServer(s grpc.ServiceRegistrar, srv ForegroundColorSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedForegroundColorSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ForegroundColorSpanService_ServiceDesc, srv)
-}
-
-func _ForegroundColorSpanService_NewForegroundColorSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewForegroundColorSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ForegroundColorSpanServiceServer).NewForegroundColorSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ForegroundColorSpanService_NewForegroundColorSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForegroundColorSpanServiceServer).NewForegroundColorSpan(ctx, req.(*NewForegroundColorSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ForegroundColorSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ForegroundColorSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ForegroundColorSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForegroundColorSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ForegroundColorSpanService_GetForegroundColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetForegroundColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ForegroundColorSpanServiceServer).GetForegroundColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ForegroundColorSpanService_GetForegroundColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForegroundColorSpanServiceServer).GetForegroundColor(ctx, req.(*GetForegroundColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ForegroundColorSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ForegroundColorSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ForegroundColorSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForegroundColorSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ForegroundColorSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ForegroundColorSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ForegroundColorSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForegroundColorSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ForegroundColorSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ForegroundColorSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ForegroundColorSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForegroundColorSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ForegroundColorSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ForegroundColorSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ForegroundColorSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForegroundColorSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ForegroundColorSpanService_ServiceDesc is the grpc.ServiceDesc for ForegroundColorSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ForegroundColorSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.ForegroundColorSpanService",
-	HandlerType: (*ForegroundColorSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewForegroundColorSpan",
-			Handler:    _ForegroundColorSpanService_NewForegroundColorSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ForegroundColorSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetForegroundColor",
-			Handler:    _ForegroundColorSpanService_GetForegroundColor_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _ForegroundColorSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ForegroundColorSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _ForegroundColorSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ForegroundColorSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	TypefaceSpanService_NewTypefaceSpan_FullMethodName    = "/style.TypefaceSpanService/NewTypefaceSpan"
-	TypefaceSpanService_DescribeContents_FullMethodName   = "/style.TypefaceSpanService/DescribeContents"
-	TypefaceSpanService_GetFamily_FullMethodName          = "/style.TypefaceSpanService/GetFamily"
-	TypefaceSpanService_GetSpanTypeId_FullMethodName      = "/style.TypefaceSpanService/GetSpanTypeId"
-	TypefaceSpanService_GetTypeface_FullMethodName        = "/style.TypefaceSpanService/GetTypeface"
-	TypefaceSpanService_ToString_FullMethodName           = "/style.TypefaceSpanService/ToString"
-	TypefaceSpanService_UpdateDrawState_FullMethodName    = "/style.TypefaceSpanService/UpdateDrawState"
-	TypefaceSpanService_UpdateMeasureState_FullMethodName = "/style.TypefaceSpanService/UpdateMeasureState"
-	TypefaceSpanService_WriteToParcel_FullMethodName      = "/style.TypefaceSpanService/WriteToParcel"
-)
-
-// TypefaceSpanServiceClient is the client API for TypefaceSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TypefaceSpanServiceClient interface {
-	NewTypefaceSpan(ctx context.Context, in *NewTypefaceSpanRequest, opts ...grpc.CallOption) (*NewTypefaceSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetFamily(ctx context.Context, in *GetFamilyRequest, opts ...grpc.CallOption) (*GetFamilyResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type typefaceSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTypefaceSpanServiceClient(cc grpc.ClientConnInterface) TypefaceSpanServiceClient {
-	return &typefaceSpanServiceClient{cc}
-}
-
-func (c *typefaceSpanServiceClient) NewTypefaceSpan(ctx context.Context, in *NewTypefaceSpanRequest, opts ...grpc.CallOption) (*NewTypefaceSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTypefaceSpanResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_NewTypefaceSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *typefaceSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *typefaceSpanServiceClient) GetFamily(ctx context.Context, in *GetFamilyRequest, opts ...grpc.CallOption) (*GetFamilyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFamilyResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_GetFamily_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *typefaceSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *typefaceSpanServiceClient) GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypefaceResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_GetTypeface_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *typefaceSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *typefaceSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *typefaceSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *typefaceSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, TypefaceSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TypefaceSpanServiceServer is the server API for TypefaceSpanService service.
-// All implementations must embed UnimplementedTypefaceSpanServiceServer
-// for forward compatibility.
-type TypefaceSpanServiceServer interface {
-	NewTypefaceSpan(context.Context, *NewTypefaceSpanRequest) (*NewTypefaceSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetFamily(context.Context, *GetFamilyRequest) (*GetFamilyResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedTypefaceSpanServiceServer()
-}
-
-// UnimplementedTypefaceSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTypefaceSpanServiceServer struct{}
-
-func (UnimplementedTypefaceSpanServiceServer) NewTypefaceSpan(context.Context, *NewTypefaceSpanRequest) (*NewTypefaceSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTypefaceSpan not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) GetFamily(context.Context, *GetFamilyRequest) (*GetFamilyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFamily not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTypeface not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedTypefaceSpanServiceServer) mustEmbedUnimplementedTypefaceSpanServiceServer() {}
-func (UnimplementedTypefaceSpanServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeTypefaceSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TypefaceSpanServiceServer will
-// result in compilation errors.
-type UnsafeTypefaceSpanServiceServer interface {
-	mustEmbedUnimplementedTypefaceSpanServiceServer()
-}
-
-func RegisterTypefaceSpanServiceServer(s grpc.ServiceRegistrar, srv TypefaceSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedTypefaceSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TypefaceSpanService_ServiceDesc, srv)
-}
-
-func _TypefaceSpanService_NewTypefaceSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTypefaceSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).NewTypefaceSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_NewTypefaceSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).NewTypefaceSpan(ctx, req.(*NewTypefaceSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TypefaceSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TypefaceSpanService_GetFamily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFamilyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).GetFamily(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_GetFamily_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).GetFamily(ctx, req.(*GetFamilyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TypefaceSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TypefaceSpanService_GetTypeface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypefaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).GetTypeface(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_GetTypeface_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).GetTypeface(ctx, req.(*GetTypefaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TypefaceSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TypefaceSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TypefaceSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateMeasureStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).UpdateMeasureState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_UpdateMeasureState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TypefaceSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TypefaceSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TypefaceSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypefaceSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TypefaceSpanService_ServiceDesc is the grpc.ServiceDesc for TypefaceSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TypefaceSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.TypefaceSpanService",
-	HandlerType: (*TypefaceSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewTypefaceSpan",
-			Handler:    _TypefaceSpanService_NewTypefaceSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _TypefaceSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetFamily",
-			Handler:    _TypefaceSpanService_GetFamily_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _TypefaceSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "GetTypeface",
-			Handler:    _TypefaceSpanService_GetTypeface_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _TypefaceSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _TypefaceSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "UpdateMeasureState",
-			Handler:    _TypefaceSpanService_UpdateMeasureState_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _TypefaceSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	DynamicDrawableSpanService_Draw_FullMethodName                 = "/style.DynamicDrawableSpanService/Draw"
-	DynamicDrawableSpanService_GetDrawable_FullMethodName          = "/style.DynamicDrawableSpanService/GetDrawable"
-	DynamicDrawableSpanService_GetSize_FullMethodName              = "/style.DynamicDrawableSpanService/GetSize"
-	DynamicDrawableSpanService_GetVerticalAlignment_FullMethodName = "/style.DynamicDrawableSpanService/GetVerticalAlignment"
-	DynamicDrawableSpanService_ToString_FullMethodName             = "/style.DynamicDrawableSpanService/ToString"
-)
-
-// DynamicDrawableSpanServiceClient is the client API for DynamicDrawableSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DynamicDrawableSpanServiceClient interface {
-	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
-	GetDrawable(ctx context.Context, in *DynamicDrawableSpanGetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error)
-	GetSize(ctx context.Context, in *DynamicDrawableSpanGetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
-	GetVerticalAlignment(ctx context.Context, in *GetVerticalAlignmentRequest, opts ...grpc.CallOption) (*GetVerticalAlignmentResponse, error)
-	ToString(ctx context.Context, in *DynamicDrawableSpanToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type dynamicDrawableSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDynamicDrawableSpanServiceClient(cc grpc.ClientConnInterface) DynamicDrawableSpanServiceClient {
-	return &dynamicDrawableSpanServiceClient{cc}
-}
-
-func (c *dynamicDrawableSpanServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawResponse)
-	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_Draw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dynamicDrawableSpanServiceClient) GetDrawable(ctx context.Context, in *DynamicDrawableSpanGetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDrawableResponse)
-	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_GetDrawable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dynamicDrawableSpanServiceClient) GetSize(ctx context.Context, in *DynamicDrawableSpanGetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSizeResponse)
-	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_GetSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dynamicDrawableSpanServiceClient) GetVerticalAlignment(ctx context.Context, in *GetVerticalAlignmentRequest, opts ...grpc.CallOption) (*GetVerticalAlignmentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVerticalAlignmentResponse)
-	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_GetVerticalAlignment_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dynamicDrawableSpanServiceClient) ToString(ctx context.Context, in *DynamicDrawableSpanToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DynamicDrawableSpanServiceServer is the server API for DynamicDrawableSpanService service.
-// All implementations must embed UnimplementedDynamicDrawableSpanServiceServer
-// for forward compatibility.
-type DynamicDrawableSpanServiceServer interface {
-	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
-	GetDrawable(context.Context, *DynamicDrawableSpanGetDrawableRequest) (*GetDrawableResponse, error)
-	GetSize(context.Context, *DynamicDrawableSpanGetSizeRequest) (*GetSizeResponse, error)
-	GetVerticalAlignment(context.Context, *GetVerticalAlignmentRequest) (*GetVerticalAlignmentResponse, error)
-	ToString(context.Context, *DynamicDrawableSpanToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedDynamicDrawableSpanServiceServer()
-}
-
-// UnimplementedDynamicDrawableSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDynamicDrawableSpanServiceServer struct{}
-
-func (UnimplementedDynamicDrawableSpanServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
-}
-func (UnimplementedDynamicDrawableSpanServiceServer) GetDrawable(context.Context, *DynamicDrawableSpanGetDrawableRequest) (*GetDrawableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDrawable not implemented")
-}
-func (UnimplementedDynamicDrawableSpanServiceServer) GetSize(context.Context, *DynamicDrawableSpanGetSizeRequest) (*GetSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
-}
-func (UnimplementedDynamicDrawableSpanServiceServer) GetVerticalAlignment(context.Context, *GetVerticalAlignmentRequest) (*GetVerticalAlignmentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVerticalAlignment not implemented")
-}
-func (UnimplementedDynamicDrawableSpanServiceServer) ToString(context.Context, *DynamicDrawableSpanToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDynamicDrawableSpanServiceServer) mustEmbedUnimplementedDynamicDrawableSpanServiceServer() {
-}
-func (UnimplementedDynamicDrawableSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDynamicDrawableSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DynamicDrawableSpanServiceServer will
-// result in compilation errors.
-type UnsafeDynamicDrawableSpanServiceServer interface {
-	mustEmbedUnimplementedDynamicDrawableSpanServiceServer()
-}
-
-func RegisterDynamicDrawableSpanServiceServer(s grpc.ServiceRegistrar, srv DynamicDrawableSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedDynamicDrawableSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DynamicDrawableSpanService_ServiceDesc, srv)
-}
-
-func _DynamicDrawableSpanService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DynamicDrawableSpanServiceServer).Draw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DynamicDrawableSpanService_Draw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicDrawableSpanServiceServer).Draw(ctx, req.(*DrawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DynamicDrawableSpanService_GetDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DynamicDrawableSpanGetDrawableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DynamicDrawableSpanServiceServer).GetDrawable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DynamicDrawableSpanService_GetDrawable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicDrawableSpanServiceServer).GetDrawable(ctx, req.(*DynamicDrawableSpanGetDrawableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DynamicDrawableSpanService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DynamicDrawableSpanGetSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DynamicDrawableSpanServiceServer).GetSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DynamicDrawableSpanService_GetSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicDrawableSpanServiceServer).GetSize(ctx, req.(*DynamicDrawableSpanGetSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DynamicDrawableSpanService_GetVerticalAlignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVerticalAlignmentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DynamicDrawableSpanServiceServer).GetVerticalAlignment(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DynamicDrawableSpanService_GetVerticalAlignment_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicDrawableSpanServiceServer).GetVerticalAlignment(ctx, req.(*GetVerticalAlignmentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DynamicDrawableSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DynamicDrawableSpanToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DynamicDrawableSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DynamicDrawableSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicDrawableSpanServiceServer).ToString(ctx, req.(*DynamicDrawableSpanToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DynamicDrawableSpanService_ServiceDesc is the grpc.ServiceDesc for DynamicDrawableSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DynamicDrawableSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.DynamicDrawableSpanService",
-	HandlerType: (*DynamicDrawableSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Draw",
-			Handler:    _DynamicDrawableSpanService_Draw_Handler,
-		},
-		{
-			MethodName: "GetDrawable",
-			Handler:    _DynamicDrawableSpanService_GetDrawable_Handler,
-		},
-		{
-			MethodName: "GetSize",
-			Handler:    _DynamicDrawableSpanService_GetSize_Handler,
-		},
-		{
-			MethodName: "GetVerticalAlignment",
-			Handler:    _DynamicDrawableSpanService_GetVerticalAlignment_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DynamicDrawableSpanService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
 	BulletSpanService_NewBulletSpan_FullMethodName     = "/style.BulletSpanService/NewBulletSpan"
 	BulletSpanService_DescribeContents_FullMethodName  = "/style.BulletSpanService/DescribeContents"
 	BulletSpanService_DrawLeadingMargin_FullMethodName = "/style.BulletSpanService/DrawLeadingMargin"
@@ -5463,19 +2698,19 @@ var BulletSpanService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	UnderlineSpanService_NewUnderlineSpan_FullMethodName = "/style.UnderlineSpanService/NewUnderlineSpan"
-	UnderlineSpanService_DescribeContents_FullMethodName = "/style.UnderlineSpanService/DescribeContents"
-	UnderlineSpanService_GetSpanTypeId_FullMethodName    = "/style.UnderlineSpanService/GetSpanTypeId"
-	UnderlineSpanService_ToString_FullMethodName         = "/style.UnderlineSpanService/ToString"
-	UnderlineSpanService_UpdateDrawState_FullMethodName  = "/style.UnderlineSpanService/UpdateDrawState"
-	UnderlineSpanService_WriteToParcel_FullMethodName    = "/style.UnderlineSpanService/WriteToParcel"
+	StrikethroughSpanService_NewStrikethroughSpan_FullMethodName = "/style.StrikethroughSpanService/NewStrikethroughSpan"
+	StrikethroughSpanService_DescribeContents_FullMethodName     = "/style.StrikethroughSpanService/DescribeContents"
+	StrikethroughSpanService_GetSpanTypeId_FullMethodName        = "/style.StrikethroughSpanService/GetSpanTypeId"
+	StrikethroughSpanService_ToString_FullMethodName             = "/style.StrikethroughSpanService/ToString"
+	StrikethroughSpanService_UpdateDrawState_FullMethodName      = "/style.StrikethroughSpanService/UpdateDrawState"
+	StrikethroughSpanService_WriteToParcel_FullMethodName        = "/style.StrikethroughSpanService/WriteToParcel"
 )
 
-// UnderlineSpanServiceClient is the client API for UnderlineSpanService service.
+// StrikethroughSpanServiceClient is the client API for StrikethroughSpanService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UnderlineSpanServiceClient interface {
-	NewUnderlineSpan(ctx context.Context, in *NewUnderlineSpanRequest, opts ...grpc.CallOption) (*NewUnderlineSpanResponse, error)
+type StrikethroughSpanServiceClient interface {
+	NewStrikethroughSpan(ctx context.Context, in *NewStrikethroughSpanRequest, opts ...grpc.CallOption) (*NewStrikethroughSpanResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
@@ -5483,271 +2718,272 @@ type UnderlineSpanServiceClient interface {
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type underlineSpanServiceClient struct {
+type strikethroughSpanServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUnderlineSpanServiceClient(cc grpc.ClientConnInterface) UnderlineSpanServiceClient {
-	return &underlineSpanServiceClient{cc}
+func NewStrikethroughSpanServiceClient(cc grpc.ClientConnInterface) StrikethroughSpanServiceClient {
+	return &strikethroughSpanServiceClient{cc}
 }
 
-func (c *underlineSpanServiceClient) NewUnderlineSpan(ctx context.Context, in *NewUnderlineSpanRequest, opts ...grpc.CallOption) (*NewUnderlineSpanResponse, error) {
+func (c *strikethroughSpanServiceClient) NewStrikethroughSpan(ctx context.Context, in *NewStrikethroughSpanRequest, opts ...grpc.CallOption) (*NewStrikethroughSpanResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewUnderlineSpanResponse)
-	err := c.cc.Invoke(ctx, UnderlineSpanService_NewUnderlineSpan_FullMethodName, in, out, cOpts...)
+	out := new(NewStrikethroughSpanResponse)
+	err := c.cc.Invoke(ctx, StrikethroughSpanService_NewStrikethroughSpan_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *underlineSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *strikethroughSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, UnderlineSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StrikethroughSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *underlineSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+func (c *strikethroughSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, UnderlineSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StrikethroughSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *underlineSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *strikethroughSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, UnderlineSpanService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StrikethroughSpanService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *underlineSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+func (c *strikethroughSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, UnderlineSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StrikethroughSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *underlineSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *strikethroughSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, UnderlineSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StrikethroughSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UnderlineSpanServiceServer is the server API for UnderlineSpanService service.
-// All implementations must embed UnimplementedUnderlineSpanServiceServer
+// StrikethroughSpanServiceServer is the server API for StrikethroughSpanService service.
+// All implementations must embed UnimplementedStrikethroughSpanServiceServer
 // for forward compatibility.
-type UnderlineSpanServiceServer interface {
-	NewUnderlineSpan(context.Context, *NewUnderlineSpanRequest) (*NewUnderlineSpanResponse, error)
+type StrikethroughSpanServiceServer interface {
+	NewStrikethroughSpan(context.Context, *NewStrikethroughSpanRequest) (*NewStrikethroughSpanResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedUnderlineSpanServiceServer()
+	mustEmbedUnimplementedStrikethroughSpanServiceServer()
 }
 
-// UnimplementedUnderlineSpanServiceServer must be embedded to have
+// UnimplementedStrikethroughSpanServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUnderlineSpanServiceServer struct{}
+type UnimplementedStrikethroughSpanServiceServer struct{}
 
-func (UnimplementedUnderlineSpanServiceServer) NewUnderlineSpan(context.Context, *NewUnderlineSpanRequest) (*NewUnderlineSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewUnderlineSpan not implemented")
+func (UnimplementedStrikethroughSpanServiceServer) NewStrikethroughSpan(context.Context, *NewStrikethroughSpanRequest) (*NewStrikethroughSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStrikethroughSpan not implemented")
 }
-func (UnimplementedUnderlineSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedStrikethroughSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedUnderlineSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+func (UnimplementedStrikethroughSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
 }
-func (UnimplementedUnderlineSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedStrikethroughSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedUnderlineSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+func (UnimplementedStrikethroughSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
 }
-func (UnimplementedUnderlineSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedStrikethroughSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedUnderlineSpanServiceServer) mustEmbedUnimplementedUnderlineSpanServiceServer() {}
-func (UnimplementedUnderlineSpanServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedStrikethroughSpanServiceServer) mustEmbedUnimplementedStrikethroughSpanServiceServer() {
+}
+func (UnimplementedStrikethroughSpanServiceServer) testEmbeddedByValue() {}
 
-// UnsafeUnderlineSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UnderlineSpanServiceServer will
+// UnsafeStrikethroughSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StrikethroughSpanServiceServer will
 // result in compilation errors.
-type UnsafeUnderlineSpanServiceServer interface {
-	mustEmbedUnimplementedUnderlineSpanServiceServer()
+type UnsafeStrikethroughSpanServiceServer interface {
+	mustEmbedUnimplementedStrikethroughSpanServiceServer()
 }
 
-func RegisterUnderlineSpanServiceServer(s grpc.ServiceRegistrar, srv UnderlineSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedUnderlineSpanServiceServer was
+func RegisterStrikethroughSpanServiceServer(s grpc.ServiceRegistrar, srv StrikethroughSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedStrikethroughSpanServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UnderlineSpanService_ServiceDesc, srv)
+	s.RegisterService(&StrikethroughSpanService_ServiceDesc, srv)
 }
 
-func _UnderlineSpanService_NewUnderlineSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewUnderlineSpanRequest)
+func _StrikethroughSpanService_NewStrikethroughSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStrikethroughSpanRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UnderlineSpanServiceServer).NewUnderlineSpan(ctx, in)
+		return srv.(StrikethroughSpanServiceServer).NewStrikethroughSpan(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UnderlineSpanService_NewUnderlineSpan_FullMethodName,
+		FullMethod: StrikethroughSpanService_NewStrikethroughSpan_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnderlineSpanServiceServer).NewUnderlineSpan(ctx, req.(*NewUnderlineSpanRequest))
+		return srv.(StrikethroughSpanServiceServer).NewStrikethroughSpan(ctx, req.(*NewStrikethroughSpanRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UnderlineSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StrikethroughSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UnderlineSpanServiceServer).DescribeContents(ctx, in)
+		return srv.(StrikethroughSpanServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UnderlineSpanService_DescribeContents_FullMethodName,
+		FullMethod: StrikethroughSpanService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnderlineSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(StrikethroughSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UnderlineSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StrikethroughSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSpanTypeIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UnderlineSpanServiceServer).GetSpanTypeId(ctx, in)
+		return srv.(StrikethroughSpanServiceServer).GetSpanTypeId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UnderlineSpanService_GetSpanTypeId_FullMethodName,
+		FullMethod: StrikethroughSpanService_GetSpanTypeId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnderlineSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+		return srv.(StrikethroughSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UnderlineSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StrikethroughSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UnderlineSpanServiceServer).ToString(ctx, in)
+		return srv.(StrikethroughSpanServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UnderlineSpanService_ToString_FullMethodName,
+		FullMethod: StrikethroughSpanService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnderlineSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(StrikethroughSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UnderlineSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StrikethroughSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateDrawStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UnderlineSpanServiceServer).UpdateDrawState(ctx, in)
+		return srv.(StrikethroughSpanServiceServer).UpdateDrawState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UnderlineSpanService_UpdateDrawState_FullMethodName,
+		FullMethod: StrikethroughSpanService_UpdateDrawState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnderlineSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+		return srv.(StrikethroughSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UnderlineSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StrikethroughSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UnderlineSpanServiceServer).WriteToParcel(ctx, in)
+		return srv.(StrikethroughSpanServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UnderlineSpanService_WriteToParcel_FullMethodName,
+		FullMethod: StrikethroughSpanService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnderlineSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(StrikethroughSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UnderlineSpanService_ServiceDesc is the grpc.ServiceDesc for UnderlineSpanService service.
+// StrikethroughSpanService_ServiceDesc is the grpc.ServiceDesc for StrikethroughSpanService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UnderlineSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.UnderlineSpanService",
-	HandlerType: (*UnderlineSpanServiceServer)(nil),
+var StrikethroughSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.StrikethroughSpanService",
+	HandlerType: (*StrikethroughSpanServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewUnderlineSpan",
-			Handler:    _UnderlineSpanService_NewUnderlineSpan_Handler,
+			MethodName: "NewStrikethroughSpan",
+			Handler:    _StrikethroughSpanService_NewStrikethroughSpan_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _UnderlineSpanService_DescribeContents_Handler,
+			Handler:    _StrikethroughSpanService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "GetSpanTypeId",
-			Handler:    _UnderlineSpanService_GetSpanTypeId_Handler,
+			Handler:    _StrikethroughSpanService_GetSpanTypeId_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _UnderlineSpanService_ToString_Handler,
+			Handler:    _StrikethroughSpanService_ToString_Handler,
 		},
 		{
 			MethodName: "UpdateDrawState",
-			Handler:    _UnderlineSpanService_UpdateDrawState_Handler,
+			Handler:    _StrikethroughSpanService_UpdateDrawState_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _UnderlineSpanService_WriteToParcel_Handler,
+			Handler:    _StrikethroughSpanService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -5755,535 +2991,254 @@ var UnderlineSpanService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	LineBackgroundSpanService_DrawBackground_FullMethodName = "/style.LineBackgroundSpanService/DrawBackground"
+	DynamicDrawableSpanService_Draw_FullMethodName                 = "/style.DynamicDrawableSpanService/Draw"
+	DynamicDrawableSpanService_GetDrawable_FullMethodName          = "/style.DynamicDrawableSpanService/GetDrawable"
+	DynamicDrawableSpanService_GetSize_FullMethodName              = "/style.DynamicDrawableSpanService/GetSize"
+	DynamicDrawableSpanService_GetVerticalAlignment_FullMethodName = "/style.DynamicDrawableSpanService/GetVerticalAlignment"
+	DynamicDrawableSpanService_ToString_FullMethodName             = "/style.DynamicDrawableSpanService/ToString"
 )
 
-// LineBackgroundSpanServiceClient is the client API for LineBackgroundSpanService service.
+// DynamicDrawableSpanServiceClient is the client API for DynamicDrawableSpanService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LineBackgroundSpanServiceClient interface {
-	DrawBackground(ctx context.Context, in *DrawBackgroundRequest, opts ...grpc.CallOption) (*DrawBackgroundResponse, error)
+type DynamicDrawableSpanServiceClient interface {
+	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	GetDrawable(ctx context.Context, in *GetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error)
+	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
+	GetVerticalAlignment(ctx context.Context, in *GetVerticalAlignmentRequest, opts ...grpc.CallOption) (*GetVerticalAlignmentResponse, error)
+	ToString(ctx context.Context, in *DynamicDrawableSpanToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
-type lineBackgroundSpanServiceClient struct {
+type dynamicDrawableSpanServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewLineBackgroundSpanServiceClient(cc grpc.ClientConnInterface) LineBackgroundSpanServiceClient {
-	return &lineBackgroundSpanServiceClient{cc}
+func NewDynamicDrawableSpanServiceClient(cc grpc.ClientConnInterface) DynamicDrawableSpanServiceClient {
+	return &dynamicDrawableSpanServiceClient{cc}
 }
 
-func (c *lineBackgroundSpanServiceClient) DrawBackground(ctx context.Context, in *DrawBackgroundRequest, opts ...grpc.CallOption) (*DrawBackgroundResponse, error) {
+func (c *dynamicDrawableSpanServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawBackgroundResponse)
-	err := c.cc.Invoke(ctx, LineBackgroundSpanService_DrawBackground_FullMethodName, in, out, cOpts...)
+	out := new(DrawResponse)
+	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_Draw_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// LineBackgroundSpanServiceServer is the server API for LineBackgroundSpanService service.
-// All implementations must embed UnimplementedLineBackgroundSpanServiceServer
-// for forward compatibility.
-type LineBackgroundSpanServiceServer interface {
-	DrawBackground(context.Context, *DrawBackgroundRequest) (*DrawBackgroundResponse, error)
-	mustEmbedUnimplementedLineBackgroundSpanServiceServer()
-}
-
-// UnimplementedLineBackgroundSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLineBackgroundSpanServiceServer struct{}
-
-func (UnimplementedLineBackgroundSpanServiceServer) DrawBackground(context.Context, *DrawBackgroundRequest) (*DrawBackgroundResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DrawBackground not implemented")
-}
-func (UnimplementedLineBackgroundSpanServiceServer) mustEmbedUnimplementedLineBackgroundSpanServiceServer() {
-}
-func (UnimplementedLineBackgroundSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLineBackgroundSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LineBackgroundSpanServiceServer will
-// result in compilation errors.
-type UnsafeLineBackgroundSpanServiceServer interface {
-	mustEmbedUnimplementedLineBackgroundSpanServiceServer()
-}
-
-func RegisterLineBackgroundSpanServiceServer(s grpc.ServiceRegistrar, srv LineBackgroundSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedLineBackgroundSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LineBackgroundSpanService_ServiceDesc, srv)
-}
-
-func _LineBackgroundSpanService_DrawBackground_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawBackgroundRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineBackgroundSpanServiceServer).DrawBackground(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineBackgroundSpanService_DrawBackground_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineBackgroundSpanServiceServer).DrawBackground(ctx, req.(*DrawBackgroundRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LineBackgroundSpanService_ServiceDesc is the grpc.ServiceDesc for LineBackgroundSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LineBackgroundSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LineBackgroundSpanService",
-	HandlerType: (*LineBackgroundSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DrawBackground",
-			Handler:    _LineBackgroundSpanService_DrawBackground_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	LineBackgroundSpanStandardService_DescribeContents_FullMethodName = "/style.LineBackgroundSpanStandardService/DescribeContents"
-	LineBackgroundSpanStandardService_DrawBackground_FullMethodName   = "/style.LineBackgroundSpanStandardService/DrawBackground"
-	LineBackgroundSpanStandardService_GetColor_FullMethodName         = "/style.LineBackgroundSpanStandardService/GetColor"
-	LineBackgroundSpanStandardService_GetSpanTypeId_FullMethodName    = "/style.LineBackgroundSpanStandardService/GetSpanTypeId"
-	LineBackgroundSpanStandardService_WriteToParcel_FullMethodName    = "/style.LineBackgroundSpanStandardService/WriteToParcel"
-)
-
-// LineBackgroundSpanStandardServiceClient is the client API for LineBackgroundSpanStandardService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LineBackgroundSpanStandardServiceClient interface {
-	DescribeContents(ctx context.Context, in *LineBackgroundSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	DrawBackground(ctx context.Context, in *DrawBackgroundRequest, opts ...grpc.CallOption) (*DrawBackgroundResponse, error)
-	GetColor(ctx context.Context, in *LineBackgroundSpanStandardGetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error)
-	GetSpanTypeId(ctx context.Context, in *LineBackgroundSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	WriteToParcel(ctx context.Context, in *LineBackgroundSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type lineBackgroundSpanStandardServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLineBackgroundSpanStandardServiceClient(cc grpc.ClientConnInterface) LineBackgroundSpanStandardServiceClient {
-	return &lineBackgroundSpanStandardServiceClient{cc}
-}
-
-func (c *lineBackgroundSpanStandardServiceClient) DescribeContents(ctx context.Context, in *LineBackgroundSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *dynamicDrawableSpanServiceClient) GetDrawable(ctx context.Context, in *GetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(GetDrawableResponse)
+	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_GetDrawable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *lineBackgroundSpanStandardServiceClient) DrawBackground(ctx context.Context, in *DrawBackgroundRequest, opts ...grpc.CallOption) (*DrawBackgroundResponse, error) {
+func (c *dynamicDrawableSpanServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawBackgroundResponse)
-	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_DrawBackground_FullMethodName, in, out, cOpts...)
+	out := new(GetSizeResponse)
+	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_GetSize_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *lineBackgroundSpanStandardServiceClient) GetColor(ctx context.Context, in *LineBackgroundSpanStandardGetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error) {
+func (c *dynamicDrawableSpanServiceClient) GetVerticalAlignment(ctx context.Context, in *GetVerticalAlignmentRequest, opts ...grpc.CallOption) (*GetVerticalAlignmentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorResponse)
-	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_GetColor_FullMethodName, in, out, cOpts...)
+	out := new(GetVerticalAlignmentResponse)
+	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_GetVerticalAlignment_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *lineBackgroundSpanStandardServiceClient) GetSpanTypeId(ctx context.Context, in *LineBackgroundSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lineBackgroundSpanStandardServiceClient) WriteToParcel(ctx context.Context, in *LineBackgroundSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LineBackgroundSpanStandardServiceServer is the server API for LineBackgroundSpanStandardService service.
-// All implementations must embed UnimplementedLineBackgroundSpanStandardServiceServer
-// for forward compatibility.
-type LineBackgroundSpanStandardServiceServer interface {
-	DescribeContents(context.Context, *LineBackgroundSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error)
-	DrawBackground(context.Context, *DrawBackgroundRequest) (*DrawBackgroundResponse, error)
-	GetColor(context.Context, *LineBackgroundSpanStandardGetColorRequest) (*GetColorResponse, error)
-	GetSpanTypeId(context.Context, *LineBackgroundSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	WriteToParcel(context.Context, *LineBackgroundSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedLineBackgroundSpanStandardServiceServer()
-}
-
-// UnimplementedLineBackgroundSpanStandardServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLineBackgroundSpanStandardServiceServer struct{}
-
-func (UnimplementedLineBackgroundSpanStandardServiceServer) DescribeContents(context.Context, *LineBackgroundSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedLineBackgroundSpanStandardServiceServer) DrawBackground(context.Context, *DrawBackgroundRequest) (*DrawBackgroundResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DrawBackground not implemented")
-}
-func (UnimplementedLineBackgroundSpanStandardServiceServer) GetColor(context.Context, *LineBackgroundSpanStandardGetColorRequest) (*GetColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColor not implemented")
-}
-func (UnimplementedLineBackgroundSpanStandardServiceServer) GetSpanTypeId(context.Context, *LineBackgroundSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedLineBackgroundSpanStandardServiceServer) WriteToParcel(context.Context, *LineBackgroundSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedLineBackgroundSpanStandardServiceServer) mustEmbedUnimplementedLineBackgroundSpanStandardServiceServer() {
-}
-func (UnimplementedLineBackgroundSpanStandardServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLineBackgroundSpanStandardServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LineBackgroundSpanStandardServiceServer will
-// result in compilation errors.
-type UnsafeLineBackgroundSpanStandardServiceServer interface {
-	mustEmbedUnimplementedLineBackgroundSpanStandardServiceServer()
-}
-
-func RegisterLineBackgroundSpanStandardServiceServer(s grpc.ServiceRegistrar, srv LineBackgroundSpanStandardServiceServer) {
-	// If the following call panics, it indicates UnimplementedLineBackgroundSpanStandardServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LineBackgroundSpanStandardService_ServiceDesc, srv)
-}
-
-func _LineBackgroundSpanStandardService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LineBackgroundSpanStandardDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineBackgroundSpanStandardServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineBackgroundSpanStandardService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineBackgroundSpanStandardServiceServer).DescribeContents(ctx, req.(*LineBackgroundSpanStandardDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LineBackgroundSpanStandardService_DrawBackground_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawBackgroundRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineBackgroundSpanStandardServiceServer).DrawBackground(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineBackgroundSpanStandardService_DrawBackground_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineBackgroundSpanStandardServiceServer).DrawBackground(ctx, req.(*DrawBackgroundRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LineBackgroundSpanStandardService_GetColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LineBackgroundSpanStandardGetColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineBackgroundSpanStandardServiceServer).GetColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineBackgroundSpanStandardService_GetColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineBackgroundSpanStandardServiceServer).GetColor(ctx, req.(*LineBackgroundSpanStandardGetColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LineBackgroundSpanStandardService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LineBackgroundSpanStandardGetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineBackgroundSpanStandardServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineBackgroundSpanStandardService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineBackgroundSpanStandardServiceServer).GetSpanTypeId(ctx, req.(*LineBackgroundSpanStandardGetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LineBackgroundSpanStandardService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LineBackgroundSpanStandardWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LineBackgroundSpanStandardServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LineBackgroundSpanStandardService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LineBackgroundSpanStandardServiceServer).WriteToParcel(ctx, req.(*LineBackgroundSpanStandardWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LineBackgroundSpanStandardService_ServiceDesc is the grpc.ServiceDesc for LineBackgroundSpanStandardService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LineBackgroundSpanStandardService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LineBackgroundSpanStandardService",
-	HandlerType: (*LineBackgroundSpanStandardServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _LineBackgroundSpanStandardService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "DrawBackground",
-			Handler:    _LineBackgroundSpanStandardService_DrawBackground_Handler,
-		},
-		{
-			MethodName: "GetColor",
-			Handler:    _LineBackgroundSpanStandardService_GetColor_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _LineBackgroundSpanStandardService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _LineBackgroundSpanStandardService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	ClickableSpanService_OnClick_FullMethodName         = "/style.ClickableSpanService/OnClick"
-	ClickableSpanService_ToString_FullMethodName        = "/style.ClickableSpanService/ToString"
-	ClickableSpanService_UpdateDrawState_FullMethodName = "/style.ClickableSpanService/UpdateDrawState"
-)
-
-// ClickableSpanServiceClient is the client API for ClickableSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ClickableSpanServiceClient interface {
-	OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
-	ToString(ctx context.Context, in *ClickableSpanToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *ClickableSpanUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-}
-
-type clickableSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewClickableSpanServiceClient(cc grpc.ClientConnInterface) ClickableSpanServiceClient {
-	return &clickableSpanServiceClient{cc}
-}
-
-func (c *clickableSpanServiceClient) OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClickResponse)
-	err := c.cc.Invoke(ctx, ClickableSpanService_OnClick_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *clickableSpanServiceClient) ToString(ctx context.Context, in *ClickableSpanToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *dynamicDrawableSpanServiceClient) ToString(ctx context.Context, in *DynamicDrawableSpanToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ClickableSpanService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DynamicDrawableSpanService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *clickableSpanServiceClient) UpdateDrawState(ctx context.Context, in *ClickableSpanUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, ClickableSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ClickableSpanServiceServer is the server API for ClickableSpanService service.
-// All implementations must embed UnimplementedClickableSpanServiceServer
+// DynamicDrawableSpanServiceServer is the server API for DynamicDrawableSpanService service.
+// All implementations must embed UnimplementedDynamicDrawableSpanServiceServer
 // for forward compatibility.
-type ClickableSpanServiceServer interface {
-	OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error)
-	ToString(context.Context, *ClickableSpanToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *ClickableSpanUpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	mustEmbedUnimplementedClickableSpanServiceServer()
+type DynamicDrawableSpanServiceServer interface {
+	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
+	GetDrawable(context.Context, *GetDrawableRequest) (*GetDrawableResponse, error)
+	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
+	GetVerticalAlignment(context.Context, *GetVerticalAlignmentRequest) (*GetVerticalAlignmentResponse, error)
+	ToString(context.Context, *DynamicDrawableSpanToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedDynamicDrawableSpanServiceServer()
 }
 
-// UnimplementedClickableSpanServiceServer must be embedded to have
+// UnimplementedDynamicDrawableSpanServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedClickableSpanServiceServer struct{}
+type UnimplementedDynamicDrawableSpanServiceServer struct{}
 
-func (UnimplementedClickableSpanServiceServer) OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
+func (UnimplementedDynamicDrawableSpanServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
 }
-func (UnimplementedClickableSpanServiceServer) ToString(context.Context, *ClickableSpanToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedDynamicDrawableSpanServiceServer) GetDrawable(context.Context, *GetDrawableRequest) (*GetDrawableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDrawable not implemented")
+}
+func (UnimplementedDynamicDrawableSpanServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
+}
+func (UnimplementedDynamicDrawableSpanServiceServer) GetVerticalAlignment(context.Context, *GetVerticalAlignmentRequest) (*GetVerticalAlignmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVerticalAlignment not implemented")
+}
+func (UnimplementedDynamicDrawableSpanServiceServer) ToString(context.Context, *DynamicDrawableSpanToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedClickableSpanServiceServer) UpdateDrawState(context.Context, *ClickableSpanUpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+func (UnimplementedDynamicDrawableSpanServiceServer) mustEmbedUnimplementedDynamicDrawableSpanServiceServer() {
 }
-func (UnimplementedClickableSpanServiceServer) mustEmbedUnimplementedClickableSpanServiceServer() {}
-func (UnimplementedClickableSpanServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedDynamicDrawableSpanServiceServer) testEmbeddedByValue() {}
 
-// UnsafeClickableSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ClickableSpanServiceServer will
+// UnsafeDynamicDrawableSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DynamicDrawableSpanServiceServer will
 // result in compilation errors.
-type UnsafeClickableSpanServiceServer interface {
-	mustEmbedUnimplementedClickableSpanServiceServer()
+type UnsafeDynamicDrawableSpanServiceServer interface {
+	mustEmbedUnimplementedDynamicDrawableSpanServiceServer()
 }
 
-func RegisterClickableSpanServiceServer(s grpc.ServiceRegistrar, srv ClickableSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedClickableSpanServiceServer was
+func RegisterDynamicDrawableSpanServiceServer(s grpc.ServiceRegistrar, srv DynamicDrawableSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedDynamicDrawableSpanServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ClickableSpanService_ServiceDesc, srv)
+	s.RegisterService(&DynamicDrawableSpanService_ServiceDesc, srv)
 }
 
-func _ClickableSpanService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClickRequest)
+func _DynamicDrawableSpanService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ClickableSpanServiceServer).OnClick(ctx, in)
+		return srv.(DynamicDrawableSpanServiceServer).Draw(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ClickableSpanService_OnClick_FullMethodName,
+		FullMethod: DynamicDrawableSpanService_Draw_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClickableSpanServiceServer).OnClick(ctx, req.(*OnClickRequest))
+		return srv.(DynamicDrawableSpanServiceServer).Draw(ctx, req.(*DrawRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ClickableSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClickableSpanToStringRequest)
+func _DynamicDrawableSpanService_GetDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDrawableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ClickableSpanServiceServer).ToString(ctx, in)
+		return srv.(DynamicDrawableSpanServiceServer).GetDrawable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ClickableSpanService_ToString_FullMethodName,
+		FullMethod: DynamicDrawableSpanService_GetDrawable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClickableSpanServiceServer).ToString(ctx, req.(*ClickableSpanToStringRequest))
+		return srv.(DynamicDrawableSpanServiceServer).GetDrawable(ctx, req.(*GetDrawableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ClickableSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClickableSpanUpdateDrawStateRequest)
+func _DynamicDrawableSpanService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSizeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ClickableSpanServiceServer).UpdateDrawState(ctx, in)
+		return srv.(DynamicDrawableSpanServiceServer).GetSize(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ClickableSpanService_UpdateDrawState_FullMethodName,
+		FullMethod: DynamicDrawableSpanService_GetSize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClickableSpanServiceServer).UpdateDrawState(ctx, req.(*ClickableSpanUpdateDrawStateRequest))
+		return srv.(DynamicDrawableSpanServiceServer).GetSize(ctx, req.(*GetSizeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ClickableSpanService_ServiceDesc is the grpc.ServiceDesc for ClickableSpanService service.
+func _DynamicDrawableSpanService_GetVerticalAlignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVerticalAlignmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DynamicDrawableSpanServiceServer).GetVerticalAlignment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DynamicDrawableSpanService_GetVerticalAlignment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DynamicDrawableSpanServiceServer).GetVerticalAlignment(ctx, req.(*GetVerticalAlignmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DynamicDrawableSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DynamicDrawableSpanToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DynamicDrawableSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DynamicDrawableSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DynamicDrawableSpanServiceServer).ToString(ctx, req.(*DynamicDrawableSpanToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DynamicDrawableSpanService_ServiceDesc is the grpc.ServiceDesc for DynamicDrawableSpanService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ClickableSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.ClickableSpanService",
-	HandlerType: (*ClickableSpanServiceServer)(nil),
+var DynamicDrawableSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.DynamicDrawableSpanService",
+	HandlerType: (*DynamicDrawableSpanServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnClick",
-			Handler:    _ClickableSpanService_OnClick_Handler,
+			MethodName: "Draw",
+			Handler:    _DynamicDrawableSpanService_Draw_Handler,
+		},
+		{
+			MethodName: "GetDrawable",
+			Handler:    _DynamicDrawableSpanService_GetDrawable_Handler,
+		},
+		{
+			MethodName: "GetSize",
+			Handler:    _DynamicDrawableSpanService_GetSize_Handler,
+		},
+		{
+			MethodName: "GetVerticalAlignment",
+			Handler:    _DynamicDrawableSpanService_GetVerticalAlignment_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _ClickableSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _ClickableSpanService_UpdateDrawState_Handler,
+			Handler:    _DynamicDrawableSpanService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6291,405 +3246,572 @@ var ClickableSpanService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SpanService_NewSpan_FullMethodName                 = "/style.SpanService/NewSpan"
-	SpanService_DescribeContents_FullMethodName        = "/style.SpanService/DescribeContents"
-	SpanService_GetFontWeightAdjustment_FullMethodName = "/style.SpanService/GetFontWeightAdjustment"
-	SpanService_GetSpanTypeId_FullMethodName           = "/style.SpanService/GetSpanTypeId"
-	SpanService_GetStyle_FullMethodName                = "/style.SpanService/GetStyle"
-	SpanService_ToString_FullMethodName                = "/style.SpanService/ToString"
-	SpanService_UpdateDrawState_FullMethodName         = "/style.SpanService/UpdateDrawState"
-	SpanService_UpdateMeasureState_FullMethodName      = "/style.SpanService/UpdateMeasureState"
-	SpanService_WriteToParcel_FullMethodName           = "/style.SpanService/WriteToParcel"
+	TabStopSpanService_GetTabStop_FullMethodName = "/style.TabStopSpanService/GetTabStop"
 )
 
-// SpanServiceClient is the client API for SpanService service.
+// TabStopSpanServiceClient is the client API for TabStopSpanService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SpanServiceClient interface {
-	NewSpan(ctx context.Context, in *NewSpanRequest, opts ...grpc.CallOption) (*NewSpanResponse, error)
+type TabStopSpanServiceClient interface {
+	GetTabStop(ctx context.Context, in *GetTabStopRequest, opts ...grpc.CallOption) (*GetTabStopResponse, error)
+}
+
+type tabStopSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTabStopSpanServiceClient(cc grpc.ClientConnInterface) TabStopSpanServiceClient {
+	return &tabStopSpanServiceClient{cc}
+}
+
+func (c *tabStopSpanServiceClient) GetTabStop(ctx context.Context, in *GetTabStopRequest, opts ...grpc.CallOption) (*GetTabStopResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTabStopResponse)
+	err := c.cc.Invoke(ctx, TabStopSpanService_GetTabStop_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TabStopSpanServiceServer is the server API for TabStopSpanService service.
+// All implementations must embed UnimplementedTabStopSpanServiceServer
+// for forward compatibility.
+type TabStopSpanServiceServer interface {
+	GetTabStop(context.Context, *GetTabStopRequest) (*GetTabStopResponse, error)
+	mustEmbedUnimplementedTabStopSpanServiceServer()
+}
+
+// UnimplementedTabStopSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTabStopSpanServiceServer struct{}
+
+func (UnimplementedTabStopSpanServiceServer) GetTabStop(context.Context, *GetTabStopRequest) (*GetTabStopResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTabStop not implemented")
+}
+func (UnimplementedTabStopSpanServiceServer) mustEmbedUnimplementedTabStopSpanServiceServer() {}
+func (UnimplementedTabStopSpanServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeTabStopSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TabStopSpanServiceServer will
+// result in compilation errors.
+type UnsafeTabStopSpanServiceServer interface {
+	mustEmbedUnimplementedTabStopSpanServiceServer()
+}
+
+func RegisterTabStopSpanServiceServer(s grpc.ServiceRegistrar, srv TabStopSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedTabStopSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TabStopSpanService_ServiceDesc, srv)
+}
+
+func _TabStopSpanService_GetTabStop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTabStopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TabStopSpanServiceServer).GetTabStop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TabStopSpanService_GetTabStop_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TabStopSpanServiceServer).GetTabStop(ctx, req.(*GetTabStopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TabStopSpanService_ServiceDesc is the grpc.ServiceDesc for TabStopSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TabStopSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.TabStopSpanService",
+	HandlerType: (*TabStopSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetTabStop",
+			Handler:    _TabStopSpanService_GetTabStop_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	TabStopSpanStandardService_GetTabStop_FullMethodName = "/style.TabStopSpanStandardService/GetTabStop"
+	TabStopSpanStandardService_ToString_FullMethodName   = "/style.TabStopSpanStandardService/ToString"
+)
+
+// TabStopSpanStandardServiceClient is the client API for TabStopSpanStandardService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TabStopSpanStandardServiceClient interface {
+	GetTabStop(ctx context.Context, in *GetTabStopRequest, opts ...grpc.CallOption) (*GetTabStopResponse, error)
+	ToString(ctx context.Context, in *TabStopSpanStandardToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type tabStopSpanStandardServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTabStopSpanStandardServiceClient(cc grpc.ClientConnInterface) TabStopSpanStandardServiceClient {
+	return &tabStopSpanStandardServiceClient{cc}
+}
+
+func (c *tabStopSpanStandardServiceClient) GetTabStop(ctx context.Context, in *GetTabStopRequest, opts ...grpc.CallOption) (*GetTabStopResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTabStopResponse)
+	err := c.cc.Invoke(ctx, TabStopSpanStandardService_GetTabStop_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tabStopSpanStandardServiceClient) ToString(ctx context.Context, in *TabStopSpanStandardToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TabStopSpanStandardService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TabStopSpanStandardServiceServer is the server API for TabStopSpanStandardService service.
+// All implementations must embed UnimplementedTabStopSpanStandardServiceServer
+// for forward compatibility.
+type TabStopSpanStandardServiceServer interface {
+	GetTabStop(context.Context, *GetTabStopRequest) (*GetTabStopResponse, error)
+	ToString(context.Context, *TabStopSpanStandardToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedTabStopSpanStandardServiceServer()
+}
+
+// UnimplementedTabStopSpanStandardServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTabStopSpanStandardServiceServer struct{}
+
+func (UnimplementedTabStopSpanStandardServiceServer) GetTabStop(context.Context, *GetTabStopRequest) (*GetTabStopResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTabStop not implemented")
+}
+func (UnimplementedTabStopSpanStandardServiceServer) ToString(context.Context, *TabStopSpanStandardToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTabStopSpanStandardServiceServer) mustEmbedUnimplementedTabStopSpanStandardServiceServer() {
+}
+func (UnimplementedTabStopSpanStandardServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTabStopSpanStandardServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TabStopSpanStandardServiceServer will
+// result in compilation errors.
+type UnsafeTabStopSpanStandardServiceServer interface {
+	mustEmbedUnimplementedTabStopSpanStandardServiceServer()
+}
+
+func RegisterTabStopSpanStandardServiceServer(s grpc.ServiceRegistrar, srv TabStopSpanStandardServiceServer) {
+	// If the following call panics, it indicates UnimplementedTabStopSpanStandardServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TabStopSpanStandardService_ServiceDesc, srv)
+}
+
+func _TabStopSpanStandardService_GetTabStop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTabStopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TabStopSpanStandardServiceServer).GetTabStop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TabStopSpanStandardService_GetTabStop_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TabStopSpanStandardServiceServer).GetTabStop(ctx, req.(*GetTabStopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TabStopSpanStandardService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TabStopSpanStandardToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TabStopSpanStandardServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TabStopSpanStandardService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TabStopSpanStandardServiceServer).ToString(ctx, req.(*TabStopSpanStandardToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TabStopSpanStandardService_ServiceDesc is the grpc.ServiceDesc for TabStopSpanStandardService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TabStopSpanStandardService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.TabStopSpanStandardService",
+	HandlerType: (*TabStopSpanStandardServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetTabStop",
+			Handler:    _TabStopSpanStandardService_GetTabStop_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TabStopSpanStandardService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	SubscriptSpanService_NewSubscriptSpan_FullMethodName   = "/style.SubscriptSpanService/NewSubscriptSpan"
+	SubscriptSpanService_DescribeContents_FullMethodName   = "/style.SubscriptSpanService/DescribeContents"
+	SubscriptSpanService_GetSpanTypeId_FullMethodName      = "/style.SubscriptSpanService/GetSpanTypeId"
+	SubscriptSpanService_ToString_FullMethodName           = "/style.SubscriptSpanService/ToString"
+	SubscriptSpanService_UpdateDrawState_FullMethodName    = "/style.SubscriptSpanService/UpdateDrawState"
+	SubscriptSpanService_UpdateMeasureState_FullMethodName = "/style.SubscriptSpanService/UpdateMeasureState"
+	SubscriptSpanService_WriteToParcel_FullMethodName      = "/style.SubscriptSpanService/WriteToParcel"
+)
+
+// SubscriptSpanServiceClient is the client API for SubscriptSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SubscriptSpanServiceClient interface {
+	NewSubscriptSpan(ctx context.Context, in *NewSubscriptSpanRequest, opts ...grpc.CallOption) (*NewSubscriptSpanResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetFontWeightAdjustment(ctx context.Context, in *GetFontWeightAdjustmentRequest, opts ...grpc.CallOption) (*GetFontWeightAdjustmentResponse, error)
 	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
 	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type spanServiceClient struct {
+type subscriptSpanServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSpanServiceClient(cc grpc.ClientConnInterface) SpanServiceClient {
-	return &spanServiceClient{cc}
+func NewSubscriptSpanServiceClient(cc grpc.ClientConnInterface) SubscriptSpanServiceClient {
+	return &subscriptSpanServiceClient{cc}
 }
 
-func (c *spanServiceClient) NewSpan(ctx context.Context, in *NewSpanRequest, opts ...grpc.CallOption) (*NewSpanResponse, error) {
+func (c *subscriptSpanServiceClient) NewSubscriptSpan(ctx context.Context, in *NewSubscriptSpanRequest, opts ...grpc.CallOption) (*NewSubscriptSpanResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSpanResponse)
-	err := c.cc.Invoke(ctx, SpanService_NewSpan_FullMethodName, in, out, cOpts...)
+	out := new(NewSubscriptSpanResponse)
+	err := c.cc.Invoke(ctx, SubscriptSpanService_NewSubscriptSpan_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *spanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *subscriptSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscriptSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *spanServiceClient) GetFontWeightAdjustment(ctx context.Context, in *GetFontWeightAdjustmentRequest, opts ...grpc.CallOption) (*GetFontWeightAdjustmentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontWeightAdjustmentResponse)
-	err := c.cc.Invoke(ctx, SpanService_GetFontWeightAdjustment_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *spanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+func (c *subscriptSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, SpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscriptSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *spanServiceClient) GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStyleResponse)
-	err := c.cc.Invoke(ctx, SpanService_GetStyle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *spanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *subscriptSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SpanService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscriptSpanService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *spanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+func (c *subscriptSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, SpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscriptSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *spanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+func (c *subscriptSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, SpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscriptSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *spanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *subscriptSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SubscriptSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SpanServiceServer is the server API for SpanService service.
-// All implementations must embed UnimplementedSpanServiceServer
+// SubscriptSpanServiceServer is the server API for SubscriptSpanService service.
+// All implementations must embed UnimplementedSubscriptSpanServiceServer
 // for forward compatibility.
-type SpanServiceServer interface {
-	NewSpan(context.Context, *NewSpanRequest) (*NewSpanResponse, error)
+type SubscriptSpanServiceServer interface {
+	NewSubscriptSpan(context.Context, *NewSubscriptSpanRequest) (*NewSubscriptSpanResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetFontWeightAdjustment(context.Context, *GetFontWeightAdjustmentRequest) (*GetFontWeightAdjustmentResponse, error)
 	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
 	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSpanServiceServer()
+	mustEmbedUnimplementedSubscriptSpanServiceServer()
 }
 
-// UnimplementedSpanServiceServer must be embedded to have
+// UnimplementedSubscriptSpanServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSpanServiceServer struct{}
+type UnimplementedSubscriptSpanServiceServer struct{}
 
-func (UnimplementedSpanServiceServer) NewSpan(context.Context, *NewSpanRequest) (*NewSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSpan not implemented")
+func (UnimplementedSubscriptSpanServiceServer) NewSubscriptSpan(context.Context, *NewSubscriptSpanRequest) (*NewSubscriptSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSubscriptSpan not implemented")
 }
-func (UnimplementedSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedSubscriptSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedSpanServiceServer) GetFontWeightAdjustment(context.Context, *GetFontWeightAdjustmentRequest) (*GetFontWeightAdjustmentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontWeightAdjustment not implemented")
-}
-func (UnimplementedSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+func (UnimplementedSubscriptSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
 }
-func (UnimplementedSpanServiceServer) GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStyle not implemented")
-}
-func (UnimplementedSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedSubscriptSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+func (UnimplementedSubscriptSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
 }
-func (UnimplementedSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+func (UnimplementedSubscriptSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
 }
-func (UnimplementedSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedSubscriptSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedSpanServiceServer) mustEmbedUnimplementedSpanServiceServer() {}
-func (UnimplementedSpanServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedSubscriptSpanServiceServer) mustEmbedUnimplementedSubscriptSpanServiceServer() {}
+func (UnimplementedSubscriptSpanServiceServer) testEmbeddedByValue()                              {}
 
-// UnsafeSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SpanServiceServer will
+// UnsafeSubscriptSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SubscriptSpanServiceServer will
 // result in compilation errors.
-type UnsafeSpanServiceServer interface {
-	mustEmbedUnimplementedSpanServiceServer()
+type UnsafeSubscriptSpanServiceServer interface {
+	mustEmbedUnimplementedSubscriptSpanServiceServer()
 }
 
-func RegisterSpanServiceServer(s grpc.ServiceRegistrar, srv SpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedSpanServiceServer was
+func RegisterSubscriptSpanServiceServer(s grpc.ServiceRegistrar, srv SubscriptSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedSubscriptSpanServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SpanService_ServiceDesc, srv)
+	s.RegisterService(&SubscriptSpanService_ServiceDesc, srv)
 }
 
-func _SpanService_NewSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSpanRequest)
+func _SubscriptSpanService_NewSubscriptSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSubscriptSpanRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpanServiceServer).NewSpan(ctx, in)
+		return srv.(SubscriptSpanServiceServer).NewSubscriptSpan(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpanService_NewSpan_FullMethodName,
+		FullMethod: SubscriptSpanService_NewSubscriptSpan_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).NewSpan(ctx, req.(*NewSpanRequest))
+		return srv.(SubscriptSpanServiceServer).NewSubscriptSpan(ctx, req.(*NewSubscriptSpanRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscriptSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpanServiceServer).DescribeContents(ctx, in)
+		return srv.(SubscriptSpanServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpanService_DescribeContents_FullMethodName,
+		FullMethod: SubscriptSpanService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(SubscriptSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpanService_GetFontWeightAdjustment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontWeightAdjustmentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SpanServiceServer).GetFontWeightAdjustment(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SpanService_GetFontWeightAdjustment_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).GetFontWeightAdjustment(ctx, req.(*GetFontWeightAdjustmentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscriptSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSpanTypeIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpanServiceServer).GetSpanTypeId(ctx, in)
+		return srv.(SubscriptSpanServiceServer).GetSpanTypeId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpanService_GetSpanTypeId_FullMethodName,
+		FullMethod: SubscriptSpanService_GetSpanTypeId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+		return srv.(SubscriptSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpanService_GetStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStyleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SpanServiceServer).GetStyle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SpanService_GetStyle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).GetStyle(ctx, req.(*GetStyleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscriptSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpanServiceServer).ToString(ctx, in)
+		return srv.(SubscriptSpanServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpanService_ToString_FullMethodName,
+		FullMethod: SubscriptSpanService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(SubscriptSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscriptSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateDrawStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpanServiceServer).UpdateDrawState(ctx, in)
+		return srv.(SubscriptSpanServiceServer).UpdateDrawState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpanService_UpdateDrawState_FullMethodName,
+		FullMethod: SubscriptSpanService_UpdateDrawState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+		return srv.(SubscriptSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscriptSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateMeasureStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpanServiceServer).UpdateMeasureState(ctx, in)
+		return srv.(SubscriptSpanServiceServer).UpdateMeasureState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpanService_UpdateMeasureState_FullMethodName,
+		FullMethod: SubscriptSpanService_UpdateMeasureState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
+		return srv.(SubscriptSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SubscriptSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpanServiceServer).WriteToParcel(ctx, in)
+		return srv.(SubscriptSpanServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpanService_WriteToParcel_FullMethodName,
+		FullMethod: SubscriptSpanService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(SubscriptSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SpanService_ServiceDesc is the grpc.ServiceDesc for SpanService service.
+// SubscriptSpanService_ServiceDesc is the grpc.ServiceDesc for SubscriptSpanService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.SpanService",
-	HandlerType: (*SpanServiceServer)(nil),
+var SubscriptSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.SubscriptSpanService",
+	HandlerType: (*SubscriptSpanServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewSpan",
-			Handler:    _SpanService_NewSpan_Handler,
+			MethodName: "NewSubscriptSpan",
+			Handler:    _SubscriptSpanService_NewSubscriptSpan_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _SpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetFontWeightAdjustment",
-			Handler:    _SpanService_GetFontWeightAdjustment_Handler,
+			Handler:    _SubscriptSpanService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "GetSpanTypeId",
-			Handler:    _SpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "GetStyle",
-			Handler:    _SpanService_GetStyle_Handler,
+			Handler:    _SubscriptSpanService_GetSpanTypeId_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _SpanService_ToString_Handler,
+			Handler:    _SubscriptSpanService_ToString_Handler,
 		},
 		{
 			MethodName: "UpdateDrawState",
-			Handler:    _SpanService_UpdateDrawState_Handler,
+			Handler:    _SubscriptSpanService_UpdateDrawState_Handler,
 		},
 		{
 			MethodName: "UpdateMeasureState",
-			Handler:    _SpanService_UpdateMeasureState_Handler,
+			Handler:    _SubscriptSpanService_UpdateMeasureState_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _SpanService_WriteToParcel_Handler,
+			Handler:    _SubscriptSpanService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6697,557 +3819,330 @@ var SpanService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SuggestionSpanService_NewSuggestionSpan_FullMethodName = "/style.SuggestionSpanService/NewSuggestionSpan"
-	SuggestionSpanService_DescribeContents_FullMethodName  = "/style.SuggestionSpanService/DescribeContents"
-	SuggestionSpanService_Equals_FullMethodName            = "/style.SuggestionSpanService/Equals"
-	SuggestionSpanService_GetFlags_FullMethodName          = "/style.SuggestionSpanService/GetFlags"
-	SuggestionSpanService_GetLocale_FullMethodName         = "/style.SuggestionSpanService/GetLocale"
-	SuggestionSpanService_GetLocaleObject_FullMethodName   = "/style.SuggestionSpanService/GetLocaleObject"
-	SuggestionSpanService_GetSpanTypeId_FullMethodName     = "/style.SuggestionSpanService/GetSpanTypeId"
-	SuggestionSpanService_GetSuggestions_FullMethodName    = "/style.SuggestionSpanService/GetSuggestions"
-	SuggestionSpanService_GetUnderlineColor_FullMethodName = "/style.SuggestionSpanService/GetUnderlineColor"
-	SuggestionSpanService_HashCode_FullMethodName          = "/style.SuggestionSpanService/HashCode"
-	SuggestionSpanService_SetFlags_FullMethodName          = "/style.SuggestionSpanService/SetFlags"
-	SuggestionSpanService_UpdateDrawState_FullMethodName   = "/style.SuggestionSpanService/UpdateDrawState"
-	SuggestionSpanService_WriteToParcel_FullMethodName     = "/style.SuggestionSpanService/WriteToParcel"
+	SuggestionRangeSpanService_NewSuggestionRangeSpan_FullMethodName = "/style.SuggestionRangeSpanService/NewSuggestionRangeSpan"
+	SuggestionRangeSpanService_DescribeContents_FullMethodName       = "/style.SuggestionRangeSpanService/DescribeContents"
+	SuggestionRangeSpanService_GetBackgroundColor_FullMethodName     = "/style.SuggestionRangeSpanService/GetBackgroundColor"
+	SuggestionRangeSpanService_GetSpanTypeId_FullMethodName          = "/style.SuggestionRangeSpanService/GetSpanTypeId"
+	SuggestionRangeSpanService_SetBackgroundColor_FullMethodName     = "/style.SuggestionRangeSpanService/SetBackgroundColor"
+	SuggestionRangeSpanService_UpdateDrawState_FullMethodName        = "/style.SuggestionRangeSpanService/UpdateDrawState"
+	SuggestionRangeSpanService_WriteToParcel_FullMethodName          = "/style.SuggestionRangeSpanService/WriteToParcel"
 )
 
-// SuggestionSpanServiceClient is the client API for SuggestionSpanService service.
+// SuggestionRangeSpanServiceClient is the client API for SuggestionRangeSpanService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SuggestionSpanServiceClient interface {
-	NewSuggestionSpan(ctx context.Context, in *NewSuggestionSpanRequest, opts ...grpc.CallOption) (*NewSuggestionSpanResponse, error)
+type SuggestionRangeSpanServiceClient interface {
+	NewSuggestionRangeSpan(ctx context.Context, in *NewSuggestionRangeSpanRequest, opts ...grpc.CallOption) (*NewSuggestionRangeSpanResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
-	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
-	GetLocaleObject(ctx context.Context, in *GetLocaleObjectRequest, opts ...grpc.CallOption) (*GetLocaleObjectResponse, error)
+	GetBackgroundColor(ctx context.Context, in *GetBackgroundColorRequest, opts ...grpc.CallOption) (*GetBackgroundColorResponse, error)
 	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	GetSuggestions(ctx context.Context, in *GetSuggestionsRequest, opts ...grpc.CallOption) (*GetSuggestionsResponse, error)
-	GetUnderlineColor(ctx context.Context, in *GetUnderlineColorRequest, opts ...grpc.CallOption) (*GetUnderlineColorResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error)
+	SetBackgroundColor(ctx context.Context, in *SetBackgroundColorRequest, opts ...grpc.CallOption) (*SetBackgroundColorResponse, error)
 	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type suggestionSpanServiceClient struct {
+type suggestionRangeSpanServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSuggestionSpanServiceClient(cc grpc.ClientConnInterface) SuggestionSpanServiceClient {
-	return &suggestionSpanServiceClient{cc}
+func NewSuggestionRangeSpanServiceClient(cc grpc.ClientConnInterface) SuggestionRangeSpanServiceClient {
+	return &suggestionRangeSpanServiceClient{cc}
 }
 
-func (c *suggestionSpanServiceClient) NewSuggestionSpan(ctx context.Context, in *NewSuggestionSpanRequest, opts ...grpc.CallOption) (*NewSuggestionSpanResponse, error) {
+func (c *suggestionRangeSpanServiceClient) NewSuggestionRangeSpan(ctx context.Context, in *NewSuggestionRangeSpanRequest, opts ...grpc.CallOption) (*NewSuggestionRangeSpanResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSuggestionSpanResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_NewSuggestionSpan_FullMethodName, in, out, cOpts...)
+	out := new(NewSuggestionRangeSpanResponse)
+	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_NewSuggestionRangeSpan_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *suggestionRangeSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionSpanServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *suggestionRangeSpanServiceClient) GetBackgroundColor(ctx context.Context, in *GetBackgroundColorRequest, opts ...grpc.CallOption) (*GetBackgroundColorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_Equals_FullMethodName, in, out, cOpts...)
+	out := new(GetBackgroundColorResponse)
+	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_GetBackgroundColor_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionSpanServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFlagsResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_GetFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *suggestionSpanServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocaleResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_GetLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *suggestionSpanServiceClient) GetLocaleObject(ctx context.Context, in *GetLocaleObjectRequest, opts ...grpc.CallOption) (*GetLocaleObjectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocaleObjectResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_GetLocaleObject_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *suggestionSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+func (c *suggestionRangeSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionSpanServiceClient) GetSuggestions(ctx context.Context, in *GetSuggestionsRequest, opts ...grpc.CallOption) (*GetSuggestionsResponse, error) {
+func (c *suggestionRangeSpanServiceClient) SetBackgroundColor(ctx context.Context, in *SetBackgroundColorRequest, opts ...grpc.CallOption) (*SetBackgroundColorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSuggestionsResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_GetSuggestions_FullMethodName, in, out, cOpts...)
+	out := new(SetBackgroundColorResponse)
+	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_SetBackgroundColor_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionSpanServiceClient) GetUnderlineColor(ctx context.Context, in *GetUnderlineColorRequest, opts ...grpc.CallOption) (*GetUnderlineColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUnderlineColorResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_GetUnderlineColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *suggestionSpanServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *suggestionSpanServiceClient) SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFlagsResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_SetFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *suggestionSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+func (c *suggestionRangeSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *suggestionRangeSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SuggestionSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SuggestionSpanServiceServer is the server API for SuggestionSpanService service.
-// All implementations must embed UnimplementedSuggestionSpanServiceServer
+// SuggestionRangeSpanServiceServer is the server API for SuggestionRangeSpanService service.
+// All implementations must embed UnimplementedSuggestionRangeSpanServiceServer
 // for forward compatibility.
-type SuggestionSpanServiceServer interface {
-	NewSuggestionSpan(context.Context, *NewSuggestionSpanRequest) (*NewSuggestionSpanResponse, error)
+type SuggestionRangeSpanServiceServer interface {
+	NewSuggestionRangeSpan(context.Context, *NewSuggestionRangeSpanRequest) (*NewSuggestionRangeSpanResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
-	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
-	GetLocaleObject(context.Context, *GetLocaleObjectRequest) (*GetLocaleObjectResponse, error)
+	GetBackgroundColor(context.Context, *GetBackgroundColorRequest) (*GetBackgroundColorResponse, error)
 	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	GetSuggestions(context.Context, *GetSuggestionsRequest) (*GetSuggestionsResponse, error)
-	GetUnderlineColor(context.Context, *GetUnderlineColorRequest) (*GetUnderlineColorResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error)
+	SetBackgroundColor(context.Context, *SetBackgroundColorRequest) (*SetBackgroundColorResponse, error)
 	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSuggestionSpanServiceServer()
+	mustEmbedUnimplementedSuggestionRangeSpanServiceServer()
 }
 
-// UnimplementedSuggestionSpanServiceServer must be embedded to have
+// UnimplementedSuggestionRangeSpanServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSuggestionSpanServiceServer struct{}
+type UnimplementedSuggestionRangeSpanServiceServer struct{}
 
-func (UnimplementedSuggestionSpanServiceServer) NewSuggestionSpan(context.Context, *NewSuggestionSpanRequest) (*NewSuggestionSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSuggestionSpan not implemented")
+func (UnimplementedSuggestionRangeSpanServiceServer) NewSuggestionRangeSpan(context.Context, *NewSuggestionRangeSpanRequest) (*NewSuggestionRangeSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSuggestionRangeSpan not implemented")
 }
-func (UnimplementedSuggestionSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedSuggestionRangeSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedSuggestionSpanServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedSuggestionRangeSpanServiceServer) GetBackgroundColor(context.Context, *GetBackgroundColorRequest) (*GetBackgroundColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBackgroundColor not implemented")
 }
-func (UnimplementedSuggestionSpanServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
-}
-func (UnimplementedSuggestionSpanServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
-}
-func (UnimplementedSuggestionSpanServiceServer) GetLocaleObject(context.Context, *GetLocaleObjectRequest) (*GetLocaleObjectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocaleObject not implemented")
-}
-func (UnimplementedSuggestionSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+func (UnimplementedSuggestionRangeSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
 }
-func (UnimplementedSuggestionSpanServiceServer) GetSuggestions(context.Context, *GetSuggestionsRequest) (*GetSuggestionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSuggestions not implemented")
+func (UnimplementedSuggestionRangeSpanServiceServer) SetBackgroundColor(context.Context, *SetBackgroundColorRequest) (*SetBackgroundColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBackgroundColor not implemented")
 }
-func (UnimplementedSuggestionSpanServiceServer) GetUnderlineColor(context.Context, *GetUnderlineColorRequest) (*GetUnderlineColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUnderlineColor not implemented")
-}
-func (UnimplementedSuggestionSpanServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedSuggestionSpanServiceServer) SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFlags not implemented")
-}
-func (UnimplementedSuggestionSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+func (UnimplementedSuggestionRangeSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
 }
-func (UnimplementedSuggestionSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedSuggestionRangeSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedSuggestionSpanServiceServer) mustEmbedUnimplementedSuggestionSpanServiceServer() {}
-func (UnimplementedSuggestionSpanServiceServer) testEmbeddedByValue()                               {}
+func (UnimplementedSuggestionRangeSpanServiceServer) mustEmbedUnimplementedSuggestionRangeSpanServiceServer() {
+}
+func (UnimplementedSuggestionRangeSpanServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSuggestionSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SuggestionSpanServiceServer will
+// UnsafeSuggestionRangeSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SuggestionRangeSpanServiceServer will
 // result in compilation errors.
-type UnsafeSuggestionSpanServiceServer interface {
-	mustEmbedUnimplementedSuggestionSpanServiceServer()
+type UnsafeSuggestionRangeSpanServiceServer interface {
+	mustEmbedUnimplementedSuggestionRangeSpanServiceServer()
 }
 
-func RegisterSuggestionSpanServiceServer(s grpc.ServiceRegistrar, srv SuggestionSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedSuggestionSpanServiceServer was
+func RegisterSuggestionRangeSpanServiceServer(s grpc.ServiceRegistrar, srv SuggestionRangeSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedSuggestionRangeSpanServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SuggestionSpanService_ServiceDesc, srv)
+	s.RegisterService(&SuggestionRangeSpanService_ServiceDesc, srv)
 }
 
-func _SuggestionSpanService_NewSuggestionSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSuggestionSpanRequest)
+func _SuggestionRangeSpanService_NewSuggestionRangeSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSuggestionRangeSpanRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).NewSuggestionSpan(ctx, in)
+		return srv.(SuggestionRangeSpanServiceServer).NewSuggestionRangeSpan(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionSpanService_NewSuggestionSpan_FullMethodName,
+		FullMethod: SuggestionRangeSpanService_NewSuggestionRangeSpan_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).NewSuggestionSpan(ctx, req.(*NewSuggestionSpanRequest))
+		return srv.(SuggestionRangeSpanServiceServer).NewSuggestionRangeSpan(ctx, req.(*NewSuggestionRangeSpanRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SuggestionRangeSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).DescribeContents(ctx, in)
+		return srv.(SuggestionRangeSpanServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionSpanService_DescribeContents_FullMethodName,
+		FullMethod: SuggestionRangeSpanService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(SuggestionRangeSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionSpanService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+func _SuggestionRangeSpanService_GetBackgroundColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBackgroundColorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).Equals(ctx, in)
+		return srv.(SuggestionRangeSpanServiceServer).GetBackgroundColor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionSpanService_Equals_FullMethodName,
+		FullMethod: SuggestionRangeSpanService_GetBackgroundColor_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(SuggestionRangeSpanServiceServer).GetBackgroundColor(ctx, req.(*GetBackgroundColorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionSpanService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).GetFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuggestionSpanService_GetFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuggestionSpanService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).GetLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuggestionSpanService_GetLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuggestionSpanService_GetLocaleObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocaleObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).GetLocaleObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuggestionSpanService_GetLocaleObject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).GetLocaleObject(ctx, req.(*GetLocaleObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuggestionSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SuggestionRangeSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSpanTypeIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).GetSpanTypeId(ctx, in)
+		return srv.(SuggestionRangeSpanServiceServer).GetSpanTypeId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionSpanService_GetSpanTypeId_FullMethodName,
+		FullMethod: SuggestionRangeSpanService_GetSpanTypeId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+		return srv.(SuggestionRangeSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionSpanService_GetSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSuggestionsRequest)
+func _SuggestionRangeSpanService_SetBackgroundColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBackgroundColorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).GetSuggestions(ctx, in)
+		return srv.(SuggestionRangeSpanServiceServer).SetBackgroundColor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionSpanService_GetSuggestions_FullMethodName,
+		FullMethod: SuggestionRangeSpanService_SetBackgroundColor_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).GetSuggestions(ctx, req.(*GetSuggestionsRequest))
+		return srv.(SuggestionRangeSpanServiceServer).SetBackgroundColor(ctx, req.(*SetBackgroundColorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionSpanService_GetUnderlineColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUnderlineColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).GetUnderlineColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuggestionSpanService_GetUnderlineColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).GetUnderlineColor(ctx, req.(*GetUnderlineColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuggestionSpanService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuggestionSpanService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuggestionSpanService_SetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).SetFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuggestionSpanService_SetFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).SetFlags(ctx, req.(*SetFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuggestionSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SuggestionRangeSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateDrawStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).UpdateDrawState(ctx, in)
+		return srv.(SuggestionRangeSpanServiceServer).UpdateDrawState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionSpanService_UpdateDrawState_FullMethodName,
+		FullMethod: SuggestionRangeSpanService_UpdateDrawState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+		return srv.(SuggestionRangeSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SuggestionRangeSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionSpanServiceServer).WriteToParcel(ctx, in)
+		return srv.(SuggestionRangeSpanServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionSpanService_WriteToParcel_FullMethodName,
+		FullMethod: SuggestionRangeSpanService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(SuggestionRangeSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SuggestionSpanService_ServiceDesc is the grpc.ServiceDesc for SuggestionSpanService service.
+// SuggestionRangeSpanService_ServiceDesc is the grpc.ServiceDesc for SuggestionRangeSpanService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SuggestionSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.SuggestionSpanService",
-	HandlerType: (*SuggestionSpanServiceServer)(nil),
+var SuggestionRangeSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.SuggestionRangeSpanService",
+	HandlerType: (*SuggestionRangeSpanServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewSuggestionSpan",
-			Handler:    _SuggestionSpanService_NewSuggestionSpan_Handler,
+			MethodName: "NewSuggestionRangeSpan",
+			Handler:    _SuggestionRangeSpanService_NewSuggestionRangeSpan_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _SuggestionSpanService_DescribeContents_Handler,
+			Handler:    _SuggestionRangeSpanService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _SuggestionSpanService_Equals_Handler,
-		},
-		{
-			MethodName: "GetFlags",
-			Handler:    _SuggestionSpanService_GetFlags_Handler,
-		},
-		{
-			MethodName: "GetLocale",
-			Handler:    _SuggestionSpanService_GetLocale_Handler,
-		},
-		{
-			MethodName: "GetLocaleObject",
-			Handler:    _SuggestionSpanService_GetLocaleObject_Handler,
+			MethodName: "GetBackgroundColor",
+			Handler:    _SuggestionRangeSpanService_GetBackgroundColor_Handler,
 		},
 		{
 			MethodName: "GetSpanTypeId",
-			Handler:    _SuggestionSpanService_GetSpanTypeId_Handler,
+			Handler:    _SuggestionRangeSpanService_GetSpanTypeId_Handler,
 		},
 		{
-			MethodName: "GetSuggestions",
-			Handler:    _SuggestionSpanService_GetSuggestions_Handler,
-		},
-		{
-			MethodName: "GetUnderlineColor",
-			Handler:    _SuggestionSpanService_GetUnderlineColor_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _SuggestionSpanService_HashCode_Handler,
-		},
-		{
-			MethodName: "SetFlags",
-			Handler:    _SuggestionSpanService_SetFlags_Handler,
+			MethodName: "SetBackgroundColor",
+			Handler:    _SuggestionRangeSpanService_SetBackgroundColor_Handler,
 		},
 		{
 			MethodName: "UpdateDrawState",
-			Handler:    _SuggestionSpanService_UpdateDrawState_Handler,
+			Handler:    _SuggestionRangeSpanService_UpdateDrawState_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _SuggestionSpanService_WriteToParcel_Handler,
+			Handler:    _SuggestionRangeSpanService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -7700,2392 +4595,405 @@ var LineBreakConfigSpanService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	TabStopSpanService_GetTabStop_FullMethodName = "/style.TabStopSpanService/GetTabStop"
+	SpanService_NewSpan_FullMethodName                 = "/style.SpanService/NewSpan"
+	SpanService_DescribeContents_FullMethodName        = "/style.SpanService/DescribeContents"
+	SpanService_GetFontWeightAdjustment_FullMethodName = "/style.SpanService/GetFontWeightAdjustment"
+	SpanService_GetSpanTypeId_FullMethodName           = "/style.SpanService/GetSpanTypeId"
+	SpanService_GetStyle_FullMethodName                = "/style.SpanService/GetStyle"
+	SpanService_ToString_FullMethodName                = "/style.SpanService/ToString"
+	SpanService_UpdateDrawState_FullMethodName         = "/style.SpanService/UpdateDrawState"
+	SpanService_UpdateMeasureState_FullMethodName      = "/style.SpanService/UpdateMeasureState"
+	SpanService_WriteToParcel_FullMethodName           = "/style.SpanService/WriteToParcel"
 )
 
-// TabStopSpanServiceClient is the client API for TabStopSpanService service.
+// SpanServiceClient is the client API for SpanService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TabStopSpanServiceClient interface {
-	GetTabStop(ctx context.Context, in *GetTabStopRequest, opts ...grpc.CallOption) (*GetTabStopResponse, error)
-}
-
-type tabStopSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTabStopSpanServiceClient(cc grpc.ClientConnInterface) TabStopSpanServiceClient {
-	return &tabStopSpanServiceClient{cc}
-}
-
-func (c *tabStopSpanServiceClient) GetTabStop(ctx context.Context, in *GetTabStopRequest, opts ...grpc.CallOption) (*GetTabStopResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTabStopResponse)
-	err := c.cc.Invoke(ctx, TabStopSpanService_GetTabStop_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TabStopSpanServiceServer is the server API for TabStopSpanService service.
-// All implementations must embed UnimplementedTabStopSpanServiceServer
-// for forward compatibility.
-type TabStopSpanServiceServer interface {
-	GetTabStop(context.Context, *GetTabStopRequest) (*GetTabStopResponse, error)
-	mustEmbedUnimplementedTabStopSpanServiceServer()
-}
-
-// UnimplementedTabStopSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTabStopSpanServiceServer struct{}
-
-func (UnimplementedTabStopSpanServiceServer) GetTabStop(context.Context, *GetTabStopRequest) (*GetTabStopResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTabStop not implemented")
-}
-func (UnimplementedTabStopSpanServiceServer) mustEmbedUnimplementedTabStopSpanServiceServer() {}
-func (UnimplementedTabStopSpanServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeTabStopSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TabStopSpanServiceServer will
-// result in compilation errors.
-type UnsafeTabStopSpanServiceServer interface {
-	mustEmbedUnimplementedTabStopSpanServiceServer()
-}
-
-func RegisterTabStopSpanServiceServer(s grpc.ServiceRegistrar, srv TabStopSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedTabStopSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TabStopSpanService_ServiceDesc, srv)
-}
-
-func _TabStopSpanService_GetTabStop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTabStopRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TabStopSpanServiceServer).GetTabStop(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TabStopSpanService_GetTabStop_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TabStopSpanServiceServer).GetTabStop(ctx, req.(*GetTabStopRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TabStopSpanService_ServiceDesc is the grpc.ServiceDesc for TabStopSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TabStopSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.TabStopSpanService",
-	HandlerType: (*TabStopSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetTabStop",
-			Handler:    _TabStopSpanService_GetTabStop_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	TabStopSpanStandardService_GetTabStop_FullMethodName = "/style.TabStopSpanStandardService/GetTabStop"
-	TabStopSpanStandardService_ToString_FullMethodName   = "/style.TabStopSpanStandardService/ToString"
-)
-
-// TabStopSpanStandardServiceClient is the client API for TabStopSpanStandardService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TabStopSpanStandardServiceClient interface {
-	GetTabStop(ctx context.Context, in *GetTabStopRequest, opts ...grpc.CallOption) (*GetTabStopResponse, error)
-	ToString(ctx context.Context, in *TabStopSpanStandardToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type tabStopSpanStandardServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTabStopSpanStandardServiceClient(cc grpc.ClientConnInterface) TabStopSpanStandardServiceClient {
-	return &tabStopSpanStandardServiceClient{cc}
-}
-
-func (c *tabStopSpanStandardServiceClient) GetTabStop(ctx context.Context, in *GetTabStopRequest, opts ...grpc.CallOption) (*GetTabStopResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTabStopResponse)
-	err := c.cc.Invoke(ctx, TabStopSpanStandardService_GetTabStop_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tabStopSpanStandardServiceClient) ToString(ctx context.Context, in *TabStopSpanStandardToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, TabStopSpanStandardService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TabStopSpanStandardServiceServer is the server API for TabStopSpanStandardService service.
-// All implementations must embed UnimplementedTabStopSpanStandardServiceServer
-// for forward compatibility.
-type TabStopSpanStandardServiceServer interface {
-	GetTabStop(context.Context, *GetTabStopRequest) (*GetTabStopResponse, error)
-	ToString(context.Context, *TabStopSpanStandardToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedTabStopSpanStandardServiceServer()
-}
-
-// UnimplementedTabStopSpanStandardServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTabStopSpanStandardServiceServer struct{}
-
-func (UnimplementedTabStopSpanStandardServiceServer) GetTabStop(context.Context, *GetTabStopRequest) (*GetTabStopResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTabStop not implemented")
-}
-func (UnimplementedTabStopSpanStandardServiceServer) ToString(context.Context, *TabStopSpanStandardToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedTabStopSpanStandardServiceServer) mustEmbedUnimplementedTabStopSpanStandardServiceServer() {
-}
-func (UnimplementedTabStopSpanStandardServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTabStopSpanStandardServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TabStopSpanStandardServiceServer will
-// result in compilation errors.
-type UnsafeTabStopSpanStandardServiceServer interface {
-	mustEmbedUnimplementedTabStopSpanStandardServiceServer()
-}
-
-func RegisterTabStopSpanStandardServiceServer(s grpc.ServiceRegistrar, srv TabStopSpanStandardServiceServer) {
-	// If the following call panics, it indicates UnimplementedTabStopSpanStandardServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TabStopSpanStandardService_ServiceDesc, srv)
-}
-
-func _TabStopSpanStandardService_GetTabStop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTabStopRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TabStopSpanStandardServiceServer).GetTabStop(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TabStopSpanStandardService_GetTabStop_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TabStopSpanStandardServiceServer).GetTabStop(ctx, req.(*GetTabStopRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TabStopSpanStandardService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TabStopSpanStandardToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TabStopSpanStandardServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TabStopSpanStandardService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TabStopSpanStandardServiceServer).ToString(ctx, req.(*TabStopSpanStandardToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TabStopSpanStandardService_ServiceDesc is the grpc.ServiceDesc for TabStopSpanStandardService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TabStopSpanStandardService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.TabStopSpanStandardService",
-	HandlerType: (*TabStopSpanStandardServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetTabStop",
-			Handler:    _TabStopSpanStandardService_GetTabStop_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _TabStopSpanStandardService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	ScaleXSpanService_NewScaleXSpan_FullMethodName      = "/style.ScaleXSpanService/NewScaleXSpan"
-	ScaleXSpanService_DescribeContents_FullMethodName   = "/style.ScaleXSpanService/DescribeContents"
-	ScaleXSpanService_GetScaleX_FullMethodName          = "/style.ScaleXSpanService/GetScaleX"
-	ScaleXSpanService_GetSpanTypeId_FullMethodName      = "/style.ScaleXSpanService/GetSpanTypeId"
-	ScaleXSpanService_ToString_FullMethodName           = "/style.ScaleXSpanService/ToString"
-	ScaleXSpanService_UpdateDrawState_FullMethodName    = "/style.ScaleXSpanService/UpdateDrawState"
-	ScaleXSpanService_UpdateMeasureState_FullMethodName = "/style.ScaleXSpanService/UpdateMeasureState"
-	ScaleXSpanService_WriteToParcel_FullMethodName      = "/style.ScaleXSpanService/WriteToParcel"
-)
-
-// ScaleXSpanServiceClient is the client API for ScaleXSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ScaleXSpanServiceClient interface {
-	NewScaleXSpan(ctx context.Context, in *NewScaleXSpanRequest, opts ...grpc.CallOption) (*NewScaleXSpanResponse, error)
+type SpanServiceClient interface {
+	NewSpan(ctx context.Context, in *NewSpanRequest, opts ...grpc.CallOption) (*NewSpanResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetScaleX(ctx context.Context, in *GetScaleXRequest, opts ...grpc.CallOption) (*GetScaleXResponse, error)
+	GetFontWeightAdjustment(ctx context.Context, in *GetFontWeightAdjustmentRequest, opts ...grpc.CallOption) (*GetFontWeightAdjustmentResponse, error)
 	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
 	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type scaleXSpanServiceClient struct {
+type spanServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewScaleXSpanServiceClient(cc grpc.ClientConnInterface) ScaleXSpanServiceClient {
-	return &scaleXSpanServiceClient{cc}
+func NewSpanServiceClient(cc grpc.ClientConnInterface) SpanServiceClient {
+	return &spanServiceClient{cc}
 }
 
-func (c *scaleXSpanServiceClient) NewScaleXSpan(ctx context.Context, in *NewScaleXSpanRequest, opts ...grpc.CallOption) (*NewScaleXSpanResponse, error) {
+func (c *spanServiceClient) NewSpan(ctx context.Context, in *NewSpanRequest, opts ...grpc.CallOption) (*NewSpanResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewScaleXSpanResponse)
-	err := c.cc.Invoke(ctx, ScaleXSpanService_NewScaleXSpan_FullMethodName, in, out, cOpts...)
+	out := new(NewSpanResponse)
+	err := c.cc.Invoke(ctx, SpanService_NewSpan_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleXSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *spanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ScaleXSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SpanService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleXSpanServiceClient) GetScaleX(ctx context.Context, in *GetScaleXRequest, opts ...grpc.CallOption) (*GetScaleXResponse, error) {
+func (c *spanServiceClient) GetFontWeightAdjustment(ctx context.Context, in *GetFontWeightAdjustmentRequest, opts ...grpc.CallOption) (*GetFontWeightAdjustmentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScaleXResponse)
-	err := c.cc.Invoke(ctx, ScaleXSpanService_GetScaleX_FullMethodName, in, out, cOpts...)
+	out := new(GetFontWeightAdjustmentResponse)
+	err := c.cc.Invoke(ctx, SpanService_GetFontWeightAdjustment_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleXSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+func (c *spanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, ScaleXSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleXSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *spanServiceClient) GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStyleResponse)
+	err := c.cc.Invoke(ctx, SpanService_GetStyle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ScaleXSpanService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SpanService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleXSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+func (c *spanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, ScaleXSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleXSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+func (c *spanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, ScaleXSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleXSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *spanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ScaleXSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ScaleXSpanServiceServer is the server API for ScaleXSpanService service.
-// All implementations must embed UnimplementedScaleXSpanServiceServer
+// SpanServiceServer is the server API for SpanService service.
+// All implementations must embed UnimplementedSpanServiceServer
 // for forward compatibility.
-type ScaleXSpanServiceServer interface {
-	NewScaleXSpan(context.Context, *NewScaleXSpanRequest) (*NewScaleXSpanResponse, error)
+type SpanServiceServer interface {
+	NewSpan(context.Context, *NewSpanRequest) (*NewSpanResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetScaleX(context.Context, *GetScaleXRequest) (*GetScaleXResponse, error)
+	GetFontWeightAdjustment(context.Context, *GetFontWeightAdjustmentRequest) (*GetFontWeightAdjustmentResponse, error)
 	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
 	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedScaleXSpanServiceServer()
+	mustEmbedUnimplementedSpanServiceServer()
 }
 
-// UnimplementedScaleXSpanServiceServer must be embedded to have
+// UnimplementedSpanServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedScaleXSpanServiceServer struct{}
+type UnimplementedSpanServiceServer struct{}
 
-func (UnimplementedScaleXSpanServiceServer) NewScaleXSpan(context.Context, *NewScaleXSpanRequest) (*NewScaleXSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewScaleXSpan not implemented")
+func (UnimplementedSpanServiceServer) NewSpan(context.Context, *NewSpanRequest) (*NewSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSpan not implemented")
 }
-func (UnimplementedScaleXSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedScaleXSpanServiceServer) GetScaleX(context.Context, *GetScaleXRequest) (*GetScaleXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScaleX not implemented")
+func (UnimplementedSpanServiceServer) GetFontWeightAdjustment(context.Context, *GetFontWeightAdjustmentRequest) (*GetFontWeightAdjustmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontWeightAdjustment not implemented")
 }
-func (UnimplementedScaleXSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+func (UnimplementedSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
 }
-func (UnimplementedScaleXSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedSpanServiceServer) GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStyle not implemented")
+}
+func (UnimplementedSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedScaleXSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+func (UnimplementedSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
 }
-func (UnimplementedScaleXSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+func (UnimplementedSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
 }
-func (UnimplementedScaleXSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedScaleXSpanServiceServer) mustEmbedUnimplementedScaleXSpanServiceServer() {}
-func (UnimplementedScaleXSpanServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedSpanServiceServer) mustEmbedUnimplementedSpanServiceServer() {}
+func (UnimplementedSpanServiceServer) testEmbeddedByValue()                     {}
 
-// UnsafeScaleXSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ScaleXSpanServiceServer will
+// UnsafeSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SpanServiceServer will
 // result in compilation errors.
-type UnsafeScaleXSpanServiceServer interface {
-	mustEmbedUnimplementedScaleXSpanServiceServer()
+type UnsafeSpanServiceServer interface {
+	mustEmbedUnimplementedSpanServiceServer()
 }
 
-func RegisterScaleXSpanServiceServer(s grpc.ServiceRegistrar, srv ScaleXSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedScaleXSpanServiceServer was
+func RegisterSpanServiceServer(s grpc.ServiceRegistrar, srv SpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedSpanServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ScaleXSpanService_ServiceDesc, srv)
+	s.RegisterService(&SpanService_ServiceDesc, srv)
 }
 
-func _ScaleXSpanService_NewScaleXSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewScaleXSpanRequest)
+func _SpanService_NewSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSpanRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleXSpanServiceServer).NewScaleXSpan(ctx, in)
+		return srv.(SpanServiceServer).NewSpan(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleXSpanService_NewScaleXSpan_FullMethodName,
+		FullMethod: SpanService_NewSpan_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleXSpanServiceServer).NewScaleXSpan(ctx, req.(*NewScaleXSpanRequest))
+		return srv.(SpanServiceServer).NewSpan(ctx, req.(*NewSpanRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleXSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleXSpanServiceServer).DescribeContents(ctx, in)
+		return srv.(SpanServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleXSpanService_DescribeContents_FullMethodName,
+		FullMethod: SpanService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleXSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(SpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleXSpanService_GetScaleX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScaleXRequest)
+func _SpanService_GetFontWeightAdjustment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontWeightAdjustmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleXSpanServiceServer).GetScaleX(ctx, in)
+		return srv.(SpanServiceServer).GetFontWeightAdjustment(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleXSpanService_GetScaleX_FullMethodName,
+		FullMethod: SpanService_GetFontWeightAdjustment_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleXSpanServiceServer).GetScaleX(ctx, req.(*GetScaleXRequest))
+		return srv.(SpanServiceServer).GetFontWeightAdjustment(ctx, req.(*GetFontWeightAdjustmentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleXSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSpanTypeIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleXSpanServiceServer).GetSpanTypeId(ctx, in)
+		return srv.(SpanServiceServer).GetSpanTypeId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleXSpanService_GetSpanTypeId_FullMethodName,
+		FullMethod: SpanService_GetSpanTypeId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleXSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+		return srv.(SpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleXSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SpanService_GetStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStyleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpanServiceServer).GetStyle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpanService_GetStyle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpanServiceServer).GetStyle(ctx, req.(*GetStyleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleXSpanServiceServer).ToString(ctx, in)
+		return srv.(SpanServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleXSpanService_ToString_FullMethodName,
+		FullMethod: SpanService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleXSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(SpanServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleXSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateDrawStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleXSpanServiceServer).UpdateDrawState(ctx, in)
+		return srv.(SpanServiceServer).UpdateDrawState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleXSpanService_UpdateDrawState_FullMethodName,
+		FullMethod: SpanService_UpdateDrawState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleXSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+		return srv.(SpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleXSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateMeasureStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleXSpanServiceServer).UpdateMeasureState(ctx, in)
+		return srv.(SpanServiceServer).UpdateMeasureState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleXSpanService_UpdateMeasureState_FullMethodName,
+		FullMethod: SpanService_UpdateMeasureState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleXSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
+		return srv.(SpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleXSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleXSpanServiceServer).WriteToParcel(ctx, in)
+		return srv.(SpanServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleXSpanService_WriteToParcel_FullMethodName,
+		FullMethod: SpanService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleXSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(SpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ScaleXSpanService_ServiceDesc is the grpc.ServiceDesc for ScaleXSpanService service.
+// SpanService_ServiceDesc is the grpc.ServiceDesc for SpanService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ScaleXSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.ScaleXSpanService",
-	HandlerType: (*ScaleXSpanServiceServer)(nil),
+var SpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.SpanService",
+	HandlerType: (*SpanServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewScaleXSpan",
-			Handler:    _ScaleXSpanService_NewScaleXSpan_Handler,
+			MethodName: "NewSpan",
+			Handler:    _SpanService_NewSpan_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _ScaleXSpanService_DescribeContents_Handler,
+			Handler:    _SpanService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetScaleX",
-			Handler:    _ScaleXSpanService_GetScaleX_Handler,
+			MethodName: "GetFontWeightAdjustment",
+			Handler:    _SpanService_GetFontWeightAdjustment_Handler,
 		},
 		{
 			MethodName: "GetSpanTypeId",
-			Handler:    _ScaleXSpanService_GetSpanTypeId_Handler,
+			Handler:    _SpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "GetStyle",
+			Handler:    _SpanService_GetStyle_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _ScaleXSpanService_ToString_Handler,
+			Handler:    _SpanService_ToString_Handler,
 		},
 		{
 			MethodName: "UpdateDrawState",
-			Handler:    _ScaleXSpanService_UpdateDrawState_Handler,
+			Handler:    _SpanService_UpdateDrawState_Handler,
 		},
 		{
 			MethodName: "UpdateMeasureState",
-			Handler:    _ScaleXSpanService_UpdateMeasureState_Handler,
+			Handler:    _SpanService_UpdateMeasureState_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _ScaleXSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	ImageSpanService_NewImageSpan_FullMethodName = "/style.ImageSpanService/NewImageSpan"
-	ImageSpanService_GetDrawable_FullMethodName  = "/style.ImageSpanService/GetDrawable"
-	ImageSpanService_GetSource_FullMethodName    = "/style.ImageSpanService/GetSource"
-	ImageSpanService_ToString_FullMethodName     = "/style.ImageSpanService/ToString"
-)
-
-// ImageSpanServiceClient is the client API for ImageSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ImageSpanServiceClient interface {
-	NewImageSpan(ctx context.Context, in *NewImageSpanRequest, opts ...grpc.CallOption) (*NewImageSpanResponse, error)
-	GetDrawable(ctx context.Context, in *GetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error)
-	GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type imageSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewImageSpanServiceClient(cc grpc.ClientConnInterface) ImageSpanServiceClient {
-	return &imageSpanServiceClient{cc}
-}
-
-func (c *imageSpanServiceClient) NewImageSpan(ctx context.Context, in *NewImageSpanRequest, opts ...grpc.CallOption) (*NewImageSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewImageSpanResponse)
-	err := c.cc.Invoke(ctx, ImageSpanService_NewImageSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *imageSpanServiceClient) GetDrawable(ctx context.Context, in *GetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDrawableResponse)
-	err := c.cc.Invoke(ctx, ImageSpanService_GetDrawable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *imageSpanServiceClient) GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSourceResponse)
-	err := c.cc.Invoke(ctx, ImageSpanService_GetSource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *imageSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ImageSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ImageSpanServiceServer is the server API for ImageSpanService service.
-// All implementations must embed UnimplementedImageSpanServiceServer
-// for forward compatibility.
-type ImageSpanServiceServer interface {
-	NewImageSpan(context.Context, *NewImageSpanRequest) (*NewImageSpanResponse, error)
-	GetDrawable(context.Context, *GetDrawableRequest) (*GetDrawableResponse, error)
-	GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedImageSpanServiceServer()
-}
-
-// UnimplementedImageSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedImageSpanServiceServer struct{}
-
-func (UnimplementedImageSpanServiceServer) NewImageSpan(context.Context, *NewImageSpanRequest) (*NewImageSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewImageSpan not implemented")
-}
-func (UnimplementedImageSpanServiceServer) GetDrawable(context.Context, *GetDrawableRequest) (*GetDrawableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDrawable not implemented")
-}
-func (UnimplementedImageSpanServiceServer) GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSource not implemented")
-}
-func (UnimplementedImageSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedImageSpanServiceServer) mustEmbedUnimplementedImageSpanServiceServer() {}
-func (UnimplementedImageSpanServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeImageSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ImageSpanServiceServer will
-// result in compilation errors.
-type UnsafeImageSpanServiceServer interface {
-	mustEmbedUnimplementedImageSpanServiceServer()
-}
-
-func RegisterImageSpanServiceServer(s grpc.ServiceRegistrar, srv ImageSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedImageSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ImageSpanService_ServiceDesc, srv)
-}
-
-func _ImageSpanService_NewImageSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewImageSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ImageSpanServiceServer).NewImageSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ImageSpanService_NewImageSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ImageSpanServiceServer).NewImageSpan(ctx, req.(*NewImageSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ImageSpanService_GetDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDrawableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ImageSpanServiceServer).GetDrawable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ImageSpanService_GetDrawable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ImageSpanServiceServer).GetDrawable(ctx, req.(*GetDrawableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ImageSpanService_GetSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ImageSpanServiceServer).GetSource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ImageSpanService_GetSource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ImageSpanServiceServer).GetSource(ctx, req.(*GetSourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ImageSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ImageSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ImageSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ImageSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ImageSpanService_ServiceDesc is the grpc.ServiceDesc for ImageSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ImageSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.ImageSpanService",
-	HandlerType: (*ImageSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewImageSpan",
-			Handler:    _ImageSpanService_NewImageSpan_Handler,
-		},
-		{
-			MethodName: "GetDrawable",
-			Handler:    _ImageSpanService_GetDrawable_Handler,
-		},
-		{
-			MethodName: "GetSource",
-			Handler:    _ImageSpanService_GetSource_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ImageSpanService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	LeadingMarginSpanService_DrawLeadingMargin_FullMethodName = "/style.LeadingMarginSpanService/DrawLeadingMargin"
-	LeadingMarginSpanService_GetLeadingMargin_FullMethodName  = "/style.LeadingMarginSpanService/GetLeadingMargin"
-)
-
-// LeadingMarginSpanServiceClient is the client API for LeadingMarginSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LeadingMarginSpanServiceClient interface {
-	DrawLeadingMargin(ctx context.Context, in *LeadingMarginSpanDrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
-	GetLeadingMargin(ctx context.Context, in *LeadingMarginSpanGetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
-}
-
-type leadingMarginSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLeadingMarginSpanServiceClient(cc grpc.ClientConnInterface) LeadingMarginSpanServiceClient {
-	return &leadingMarginSpanServiceClient{cc}
-}
-
-func (c *leadingMarginSpanServiceClient) DrawLeadingMargin(ctx context.Context, in *LeadingMarginSpanDrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, LeadingMarginSpanService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *leadingMarginSpanServiceClient) GetLeadingMargin(ctx context.Context, in *LeadingMarginSpanGetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, LeadingMarginSpanService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LeadingMarginSpanServiceServer is the server API for LeadingMarginSpanService service.
-// All implementations must embed UnimplementedLeadingMarginSpanServiceServer
-// for forward compatibility.
-type LeadingMarginSpanServiceServer interface {
-	DrawLeadingMargin(context.Context, *LeadingMarginSpanDrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
-	GetLeadingMargin(context.Context, *LeadingMarginSpanGetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
-	mustEmbedUnimplementedLeadingMarginSpanServiceServer()
-}
-
-// UnimplementedLeadingMarginSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLeadingMarginSpanServiceServer struct{}
-
-func (UnimplementedLeadingMarginSpanServiceServer) DrawLeadingMargin(context.Context, *LeadingMarginSpanDrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
-}
-func (UnimplementedLeadingMarginSpanServiceServer) GetLeadingMargin(context.Context, *LeadingMarginSpanGetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
-}
-func (UnimplementedLeadingMarginSpanServiceServer) mustEmbedUnimplementedLeadingMarginSpanServiceServer() {
-}
-func (UnimplementedLeadingMarginSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLeadingMarginSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LeadingMarginSpanServiceServer will
-// result in compilation errors.
-type UnsafeLeadingMarginSpanServiceServer interface {
-	mustEmbedUnimplementedLeadingMarginSpanServiceServer()
-}
-
-func RegisterLeadingMarginSpanServiceServer(s grpc.ServiceRegistrar, srv LeadingMarginSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedLeadingMarginSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LeadingMarginSpanService_ServiceDesc, srv)
-}
-
-func _LeadingMarginSpanService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LeadingMarginSpanDrawLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LeadingMarginSpanServiceServer).DrawLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LeadingMarginSpanService_DrawLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeadingMarginSpanServiceServer).DrawLeadingMargin(ctx, req.(*LeadingMarginSpanDrawLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LeadingMarginSpanService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LeadingMarginSpanGetLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LeadingMarginSpanServiceServer).GetLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LeadingMarginSpanService_GetLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeadingMarginSpanServiceServer).GetLeadingMargin(ctx, req.(*LeadingMarginSpanGetLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LeadingMarginSpanService_ServiceDesc is the grpc.ServiceDesc for LeadingMarginSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LeadingMarginSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LeadingMarginSpanService",
-	HandlerType: (*LeadingMarginSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DrawLeadingMargin",
-			Handler:    _LeadingMarginSpanService_DrawLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetLeadingMargin",
-			Handler:    _LeadingMarginSpanService_GetLeadingMargin_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_FullMethodName = "/style.LeadingMarginSpanLeadingMarginSpan2Service/GetLeadingMarginLineCount"
-)
-
-// LeadingMarginSpanLeadingMarginSpan2ServiceClient is the client API for LeadingMarginSpanLeadingMarginSpan2Service service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LeadingMarginSpanLeadingMarginSpan2ServiceClient interface {
-	GetLeadingMarginLineCount(ctx context.Context, in *GetLeadingMarginLineCountRequest, opts ...grpc.CallOption) (*GetLeadingMarginLineCountResponse, error)
-}
-
-type leadingMarginSpanLeadingMarginSpan2ServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLeadingMarginSpanLeadingMarginSpan2ServiceClient(cc grpc.ClientConnInterface) LeadingMarginSpanLeadingMarginSpan2ServiceClient {
-	return &leadingMarginSpanLeadingMarginSpan2ServiceClient{cc}
-}
-
-func (c *leadingMarginSpanLeadingMarginSpan2ServiceClient) GetLeadingMarginLineCount(ctx context.Context, in *GetLeadingMarginLineCountRequest, opts ...grpc.CallOption) (*GetLeadingMarginLineCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLeadingMarginLineCountResponse)
-	err := c.cc.Invoke(ctx, LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LeadingMarginSpanLeadingMarginSpan2ServiceServer is the server API for LeadingMarginSpanLeadingMarginSpan2Service service.
-// All implementations must embed UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer
-// for forward compatibility.
-type LeadingMarginSpanLeadingMarginSpan2ServiceServer interface {
-	GetLeadingMarginLineCount(context.Context, *GetLeadingMarginLineCountRequest) (*GetLeadingMarginLineCountResponse, error)
-	mustEmbedUnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer()
-}
-
-// UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer struct{}
-
-func (UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer) GetLeadingMarginLineCount(context.Context, *GetLeadingMarginLineCountRequest) (*GetLeadingMarginLineCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLeadingMarginLineCount not implemented")
-}
-func (UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer) mustEmbedUnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer() {
-}
-func (UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLeadingMarginSpanLeadingMarginSpan2ServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LeadingMarginSpanLeadingMarginSpan2ServiceServer will
-// result in compilation errors.
-type UnsafeLeadingMarginSpanLeadingMarginSpan2ServiceServer interface {
-	mustEmbedUnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer()
-}
-
-func RegisterLeadingMarginSpanLeadingMarginSpan2ServiceServer(s grpc.ServiceRegistrar, srv LeadingMarginSpanLeadingMarginSpan2ServiceServer) {
-	// If the following call panics, it indicates UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LeadingMarginSpanLeadingMarginSpan2Service_ServiceDesc, srv)
-}
-
-func _LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLeadingMarginLineCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LeadingMarginSpanLeadingMarginSpan2ServiceServer).GetLeadingMarginLineCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeadingMarginSpanLeadingMarginSpan2ServiceServer).GetLeadingMarginLineCount(ctx, req.(*GetLeadingMarginLineCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LeadingMarginSpanLeadingMarginSpan2Service_ServiceDesc is the grpc.ServiceDesc for LeadingMarginSpanLeadingMarginSpan2Service service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LeadingMarginSpanLeadingMarginSpan2Service_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LeadingMarginSpanLeadingMarginSpan2Service",
-	HandlerType: (*LeadingMarginSpanLeadingMarginSpan2ServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetLeadingMarginLineCount",
-			Handler:    _LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	LeadingMarginSpanStandardService_DescribeContents_FullMethodName  = "/style.LeadingMarginSpanStandardService/DescribeContents"
-	LeadingMarginSpanStandardService_DrawLeadingMargin_FullMethodName = "/style.LeadingMarginSpanStandardService/DrawLeadingMargin"
-	LeadingMarginSpanStandardService_GetLeadingMargin_FullMethodName  = "/style.LeadingMarginSpanStandardService/GetLeadingMargin"
-	LeadingMarginSpanStandardService_GetSpanTypeId_FullMethodName     = "/style.LeadingMarginSpanStandardService/GetSpanTypeId"
-	LeadingMarginSpanStandardService_WriteToParcel_FullMethodName     = "/style.LeadingMarginSpanStandardService/WriteToParcel"
-)
-
-// LeadingMarginSpanStandardServiceClient is the client API for LeadingMarginSpanStandardService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LeadingMarginSpanStandardServiceClient interface {
-	DescribeContents(ctx context.Context, in *LeadingMarginSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	DrawLeadingMargin(ctx context.Context, in *LeadingMarginSpanStandardDrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
-	GetLeadingMargin(ctx context.Context, in *LeadingMarginSpanStandardGetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
-	GetSpanTypeId(ctx context.Context, in *LeadingMarginSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	WriteToParcel(ctx context.Context, in *LeadingMarginSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type leadingMarginSpanStandardServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLeadingMarginSpanStandardServiceClient(cc grpc.ClientConnInterface) LeadingMarginSpanStandardServiceClient {
-	return &leadingMarginSpanStandardServiceClient{cc}
-}
-
-func (c *leadingMarginSpanStandardServiceClient) DescribeContents(ctx context.Context, in *LeadingMarginSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *leadingMarginSpanStandardServiceClient) DrawLeadingMargin(ctx context.Context, in *LeadingMarginSpanStandardDrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *leadingMarginSpanStandardServiceClient) GetLeadingMargin(ctx context.Context, in *LeadingMarginSpanStandardGetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *leadingMarginSpanStandardServiceClient) GetSpanTypeId(ctx context.Context, in *LeadingMarginSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *leadingMarginSpanStandardServiceClient) WriteToParcel(ctx context.Context, in *LeadingMarginSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LeadingMarginSpanStandardServiceServer is the server API for LeadingMarginSpanStandardService service.
-// All implementations must embed UnimplementedLeadingMarginSpanStandardServiceServer
-// for forward compatibility.
-type LeadingMarginSpanStandardServiceServer interface {
-	DescribeContents(context.Context, *LeadingMarginSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error)
-	DrawLeadingMargin(context.Context, *LeadingMarginSpanStandardDrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
-	GetLeadingMargin(context.Context, *LeadingMarginSpanStandardGetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
-	GetSpanTypeId(context.Context, *LeadingMarginSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	WriteToParcel(context.Context, *LeadingMarginSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedLeadingMarginSpanStandardServiceServer()
-}
-
-// UnimplementedLeadingMarginSpanStandardServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLeadingMarginSpanStandardServiceServer struct{}
-
-func (UnimplementedLeadingMarginSpanStandardServiceServer) DescribeContents(context.Context, *LeadingMarginSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedLeadingMarginSpanStandardServiceServer) DrawLeadingMargin(context.Context, *LeadingMarginSpanStandardDrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
-}
-func (UnimplementedLeadingMarginSpanStandardServiceServer) GetLeadingMargin(context.Context, *LeadingMarginSpanStandardGetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
-}
-func (UnimplementedLeadingMarginSpanStandardServiceServer) GetSpanTypeId(context.Context, *LeadingMarginSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedLeadingMarginSpanStandardServiceServer) WriteToParcel(context.Context, *LeadingMarginSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedLeadingMarginSpanStandardServiceServer) mustEmbedUnimplementedLeadingMarginSpanStandardServiceServer() {
-}
-func (UnimplementedLeadingMarginSpanStandardServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLeadingMarginSpanStandardServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LeadingMarginSpanStandardServiceServer will
-// result in compilation errors.
-type UnsafeLeadingMarginSpanStandardServiceServer interface {
-	mustEmbedUnimplementedLeadingMarginSpanStandardServiceServer()
-}
-
-func RegisterLeadingMarginSpanStandardServiceServer(s grpc.ServiceRegistrar, srv LeadingMarginSpanStandardServiceServer) {
-	// If the following call panics, it indicates UnimplementedLeadingMarginSpanStandardServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LeadingMarginSpanStandardService_ServiceDesc, srv)
-}
-
-func _LeadingMarginSpanStandardService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LeadingMarginSpanStandardDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LeadingMarginSpanStandardServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LeadingMarginSpanStandardService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeadingMarginSpanStandardServiceServer).DescribeContents(ctx, req.(*LeadingMarginSpanStandardDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LeadingMarginSpanStandardService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LeadingMarginSpanStandardDrawLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LeadingMarginSpanStandardServiceServer).DrawLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LeadingMarginSpanStandardService_DrawLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeadingMarginSpanStandardServiceServer).DrawLeadingMargin(ctx, req.(*LeadingMarginSpanStandardDrawLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LeadingMarginSpanStandardService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LeadingMarginSpanStandardGetLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LeadingMarginSpanStandardServiceServer).GetLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LeadingMarginSpanStandardService_GetLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeadingMarginSpanStandardServiceServer).GetLeadingMargin(ctx, req.(*LeadingMarginSpanStandardGetLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LeadingMarginSpanStandardService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LeadingMarginSpanStandardGetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LeadingMarginSpanStandardServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LeadingMarginSpanStandardService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeadingMarginSpanStandardServiceServer).GetSpanTypeId(ctx, req.(*LeadingMarginSpanStandardGetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LeadingMarginSpanStandardService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LeadingMarginSpanStandardWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LeadingMarginSpanStandardServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LeadingMarginSpanStandardService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeadingMarginSpanStandardServiceServer).WriteToParcel(ctx, req.(*LeadingMarginSpanStandardWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LeadingMarginSpanStandardService_ServiceDesc is the grpc.ServiceDesc for LeadingMarginSpanStandardService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LeadingMarginSpanStandardService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LeadingMarginSpanStandardService",
-	HandlerType: (*LeadingMarginSpanStandardServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _LeadingMarginSpanStandardService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "DrawLeadingMargin",
-			Handler:    _LeadingMarginSpanStandardService_DrawLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetLeadingMargin",
-			Handler:    _LeadingMarginSpanStandardService_GetLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _LeadingMarginSpanStandardService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _LeadingMarginSpanStandardService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	IconMarginSpanService_NewIconMarginSpan_FullMethodName = "/style.IconMarginSpanService/NewIconMarginSpan"
-	IconMarginSpanService_ChooseHeight_FullMethodName      = "/style.IconMarginSpanService/ChooseHeight"
-	IconMarginSpanService_DrawLeadingMargin_FullMethodName = "/style.IconMarginSpanService/DrawLeadingMargin"
-	IconMarginSpanService_GetBitmap_FullMethodName         = "/style.IconMarginSpanService/GetBitmap"
-	IconMarginSpanService_GetLeadingMargin_FullMethodName  = "/style.IconMarginSpanService/GetLeadingMargin"
-	IconMarginSpanService_GetPadding_FullMethodName        = "/style.IconMarginSpanService/GetPadding"
-	IconMarginSpanService_ToString_FullMethodName          = "/style.IconMarginSpanService/ToString"
-)
-
-// IconMarginSpanServiceClient is the client API for IconMarginSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type IconMarginSpanServiceClient interface {
-	NewIconMarginSpan(ctx context.Context, in *NewIconMarginSpanRequest, opts ...grpc.CallOption) (*NewIconMarginSpanResponse, error)
-	ChooseHeight(ctx context.Context, in *IconMarginSpanChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
-	DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
-	GetBitmap(ctx context.Context, in *GetBitmapRequest, opts ...grpc.CallOption) (*GetBitmapResponse, error)
-	GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
-	GetPadding(ctx context.Context, in *GetPaddingRequest, opts ...grpc.CallOption) (*GetPaddingResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type iconMarginSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewIconMarginSpanServiceClient(cc grpc.ClientConnInterface) IconMarginSpanServiceClient {
-	return &iconMarginSpanServiceClient{cc}
-}
-
-func (c *iconMarginSpanServiceClient) NewIconMarginSpan(ctx context.Context, in *NewIconMarginSpanRequest, opts ...grpc.CallOption) (*NewIconMarginSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewIconMarginSpanResponse)
-	err := c.cc.Invoke(ctx, IconMarginSpanService_NewIconMarginSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *iconMarginSpanServiceClient) ChooseHeight(ctx context.Context, in *IconMarginSpanChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ChooseHeightResponse)
-	err := c.cc.Invoke(ctx, IconMarginSpanService_ChooseHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *iconMarginSpanServiceClient) DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DrawLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, IconMarginSpanService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *iconMarginSpanServiceClient) GetBitmap(ctx context.Context, in *GetBitmapRequest, opts ...grpc.CallOption) (*GetBitmapResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBitmapResponse)
-	err := c.cc.Invoke(ctx, IconMarginSpanService_GetBitmap_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *iconMarginSpanServiceClient) GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLeadingMarginResponse)
-	err := c.cc.Invoke(ctx, IconMarginSpanService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *iconMarginSpanServiceClient) GetPadding(ctx context.Context, in *GetPaddingRequest, opts ...grpc.CallOption) (*GetPaddingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPaddingResponse)
-	err := c.cc.Invoke(ctx, IconMarginSpanService_GetPadding_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *iconMarginSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, IconMarginSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// IconMarginSpanServiceServer is the server API for IconMarginSpanService service.
-// All implementations must embed UnimplementedIconMarginSpanServiceServer
-// for forward compatibility.
-type IconMarginSpanServiceServer interface {
-	NewIconMarginSpan(context.Context, *NewIconMarginSpanRequest) (*NewIconMarginSpanResponse, error)
-	ChooseHeight(context.Context, *IconMarginSpanChooseHeightRequest) (*ChooseHeightResponse, error)
-	DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
-	GetBitmap(context.Context, *GetBitmapRequest) (*GetBitmapResponse, error)
-	GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
-	GetPadding(context.Context, *GetPaddingRequest) (*GetPaddingResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedIconMarginSpanServiceServer()
-}
-
-// UnimplementedIconMarginSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedIconMarginSpanServiceServer struct{}
-
-func (UnimplementedIconMarginSpanServiceServer) NewIconMarginSpan(context.Context, *NewIconMarginSpanRequest) (*NewIconMarginSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewIconMarginSpan not implemented")
-}
-func (UnimplementedIconMarginSpanServiceServer) ChooseHeight(context.Context, *IconMarginSpanChooseHeightRequest) (*ChooseHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
-}
-func (UnimplementedIconMarginSpanServiceServer) DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
-}
-func (UnimplementedIconMarginSpanServiceServer) GetBitmap(context.Context, *GetBitmapRequest) (*GetBitmapResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBitmap not implemented")
-}
-func (UnimplementedIconMarginSpanServiceServer) GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
-}
-func (UnimplementedIconMarginSpanServiceServer) GetPadding(context.Context, *GetPaddingRequest) (*GetPaddingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPadding not implemented")
-}
-func (UnimplementedIconMarginSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedIconMarginSpanServiceServer) mustEmbedUnimplementedIconMarginSpanServiceServer() {}
-func (UnimplementedIconMarginSpanServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeIconMarginSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to IconMarginSpanServiceServer will
-// result in compilation errors.
-type UnsafeIconMarginSpanServiceServer interface {
-	mustEmbedUnimplementedIconMarginSpanServiceServer()
-}
-
-func RegisterIconMarginSpanServiceServer(s grpc.ServiceRegistrar, srv IconMarginSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedIconMarginSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&IconMarginSpanService_ServiceDesc, srv)
-}
-
-func _IconMarginSpanService_NewIconMarginSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewIconMarginSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IconMarginSpanServiceServer).NewIconMarginSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IconMarginSpanService_NewIconMarginSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IconMarginSpanServiceServer).NewIconMarginSpan(ctx, req.(*NewIconMarginSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IconMarginSpanService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IconMarginSpanChooseHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IconMarginSpanServiceServer).ChooseHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IconMarginSpanService_ChooseHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IconMarginSpanServiceServer).ChooseHeight(ctx, req.(*IconMarginSpanChooseHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IconMarginSpanService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DrawLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IconMarginSpanServiceServer).DrawLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IconMarginSpanService_DrawLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IconMarginSpanServiceServer).DrawLeadingMargin(ctx, req.(*DrawLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IconMarginSpanService_GetBitmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBitmapRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IconMarginSpanServiceServer).GetBitmap(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IconMarginSpanService_GetBitmap_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IconMarginSpanServiceServer).GetBitmap(ctx, req.(*GetBitmapRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IconMarginSpanService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLeadingMarginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IconMarginSpanServiceServer).GetLeadingMargin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IconMarginSpanService_GetLeadingMargin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IconMarginSpanServiceServer).GetLeadingMargin(ctx, req.(*GetLeadingMarginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IconMarginSpanService_GetPadding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPaddingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IconMarginSpanServiceServer).GetPadding(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IconMarginSpanService_GetPadding_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IconMarginSpanServiceServer).GetPadding(ctx, req.(*GetPaddingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IconMarginSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IconMarginSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IconMarginSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IconMarginSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// IconMarginSpanService_ServiceDesc is the grpc.ServiceDesc for IconMarginSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var IconMarginSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.IconMarginSpanService",
-	HandlerType: (*IconMarginSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewIconMarginSpan",
-			Handler:    _IconMarginSpanService_NewIconMarginSpan_Handler,
-		},
-		{
-			MethodName: "ChooseHeight",
-			Handler:    _IconMarginSpanService_ChooseHeight_Handler,
-		},
-		{
-			MethodName: "DrawLeadingMargin",
-			Handler:    _IconMarginSpanService_DrawLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetBitmap",
-			Handler:    _IconMarginSpanService_GetBitmap_Handler,
-		},
-		{
-			MethodName: "GetLeadingMargin",
-			Handler:    _IconMarginSpanService_GetLeadingMargin_Handler,
-		},
-		{
-			MethodName: "GetPadding",
-			Handler:    _IconMarginSpanService_GetPadding_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _IconMarginSpanService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	LocaleSpanService_NewLocaleSpan_FullMethodName      = "/style.LocaleSpanService/NewLocaleSpan"
-	LocaleSpanService_DescribeContents_FullMethodName   = "/style.LocaleSpanService/DescribeContents"
-	LocaleSpanService_GetLocale_FullMethodName          = "/style.LocaleSpanService/GetLocale"
-	LocaleSpanService_GetLocales_FullMethodName         = "/style.LocaleSpanService/GetLocales"
-	LocaleSpanService_GetSpanTypeId_FullMethodName      = "/style.LocaleSpanService/GetSpanTypeId"
-	LocaleSpanService_ToString_FullMethodName           = "/style.LocaleSpanService/ToString"
-	LocaleSpanService_UpdateDrawState_FullMethodName    = "/style.LocaleSpanService/UpdateDrawState"
-	LocaleSpanService_UpdateMeasureState_FullMethodName = "/style.LocaleSpanService/UpdateMeasureState"
-	LocaleSpanService_WriteToParcel_FullMethodName      = "/style.LocaleSpanService/WriteToParcel"
-)
-
-// LocaleSpanServiceClient is the client API for LocaleSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LocaleSpanServiceClient interface {
-	NewLocaleSpan(ctx context.Context, in *NewLocaleSpanRequest, opts ...grpc.CallOption) (*NewLocaleSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*LocaleSpanGetLocaleResponse, error)
-	GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type localeSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLocaleSpanServiceClient(cc grpc.ClientConnInterface) LocaleSpanServiceClient {
-	return &localeSpanServiceClient{cc}
-}
-
-func (c *localeSpanServiceClient) NewLocaleSpan(ctx context.Context, in *NewLocaleSpanRequest, opts ...grpc.CallOption) (*NewLocaleSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewLocaleSpanResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_NewLocaleSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeSpanServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*LocaleSpanGetLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LocaleSpanGetLocaleResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_GetLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeSpanServiceClient) GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocalesResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_GetLocales_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, LocaleSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LocaleSpanServiceServer is the server API for LocaleSpanService service.
-// All implementations must embed UnimplementedLocaleSpanServiceServer
-// for forward compatibility.
-type LocaleSpanServiceServer interface {
-	NewLocaleSpan(context.Context, *NewLocaleSpanRequest) (*NewLocaleSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetLocale(context.Context, *GetLocaleRequest) (*LocaleSpanGetLocaleResponse, error)
-	GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedLocaleSpanServiceServer()
-}
-
-// UnimplementedLocaleSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLocaleSpanServiceServer struct{}
-
-func (UnimplementedLocaleSpanServiceServer) NewLocaleSpan(context.Context, *NewLocaleSpanRequest) (*NewLocaleSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewLocaleSpan not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*LocaleSpanGetLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocales not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedLocaleSpanServiceServer) mustEmbedUnimplementedLocaleSpanServiceServer() {}
-func (UnimplementedLocaleSpanServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeLocaleSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LocaleSpanServiceServer will
-// result in compilation errors.
-type UnsafeLocaleSpanServiceServer interface {
-	mustEmbedUnimplementedLocaleSpanServiceServer()
-}
-
-func RegisterLocaleSpanServiceServer(s grpc.ServiceRegistrar, srv LocaleSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedLocaleSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LocaleSpanService_ServiceDesc, srv)
-}
-
-func _LocaleSpanService_NewLocaleSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewLocaleSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).NewLocaleSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_NewLocaleSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).NewLocaleSpan(ctx, req.(*NewLocaleSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleSpanService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).GetLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_GetLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleSpanService_GetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocalesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).GetLocales(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_GetLocales_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).GetLocales(ctx, req.(*GetLocalesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateMeasureStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).UpdateMeasureState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_UpdateMeasureState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LocaleSpanService_ServiceDesc is the grpc.ServiceDesc for LocaleSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LocaleSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.LocaleSpanService",
-	HandlerType: (*LocaleSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewLocaleSpan",
-			Handler:    _LocaleSpanService_NewLocaleSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _LocaleSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetLocale",
-			Handler:    _LocaleSpanService_GetLocale_Handler,
-		},
-		{
-			MethodName: "GetLocales",
-			Handler:    _LocaleSpanService_GetLocales_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _LocaleSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _LocaleSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _LocaleSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "UpdateMeasureState",
-			Handler:    _LocaleSpanService_UpdateMeasureState_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _LocaleSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	SuperscriptSpanService_NewSuperscriptSpan_FullMethodName = "/style.SuperscriptSpanService/NewSuperscriptSpan"
-	SuperscriptSpanService_DescribeContents_FullMethodName   = "/style.SuperscriptSpanService/DescribeContents"
-	SuperscriptSpanService_GetSpanTypeId_FullMethodName      = "/style.SuperscriptSpanService/GetSpanTypeId"
-	SuperscriptSpanService_ToString_FullMethodName           = "/style.SuperscriptSpanService/ToString"
-	SuperscriptSpanService_UpdateDrawState_FullMethodName    = "/style.SuperscriptSpanService/UpdateDrawState"
-	SuperscriptSpanService_UpdateMeasureState_FullMethodName = "/style.SuperscriptSpanService/UpdateMeasureState"
-	SuperscriptSpanService_WriteToParcel_FullMethodName      = "/style.SuperscriptSpanService/WriteToParcel"
-)
-
-// SuperscriptSpanServiceClient is the client API for SuperscriptSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SuperscriptSpanServiceClient interface {
-	NewSuperscriptSpan(ctx context.Context, in *NewSuperscriptSpanRequest, opts ...grpc.CallOption) (*NewSuperscriptSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type superscriptSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSuperscriptSpanServiceClient(cc grpc.ClientConnInterface) SuperscriptSpanServiceClient {
-	return &superscriptSpanServiceClient{cc}
-}
-
-func (c *superscriptSpanServiceClient) NewSuperscriptSpan(ctx context.Context, in *NewSuperscriptSpanRequest, opts ...grpc.CallOption) (*NewSuperscriptSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSuperscriptSpanResponse)
-	err := c.cc.Invoke(ctx, SuperscriptSpanService_NewSuperscriptSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *superscriptSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SuperscriptSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *superscriptSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, SuperscriptSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *superscriptSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SuperscriptSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *superscriptSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, SuperscriptSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *superscriptSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, SuperscriptSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *superscriptSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SuperscriptSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SuperscriptSpanServiceServer is the server API for SuperscriptSpanService service.
-// All implementations must embed UnimplementedSuperscriptSpanServiceServer
-// for forward compatibility.
-type SuperscriptSpanServiceServer interface {
-	NewSuperscriptSpan(context.Context, *NewSuperscriptSpanRequest) (*NewSuperscriptSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSuperscriptSpanServiceServer()
-}
-
-// UnimplementedSuperscriptSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSuperscriptSpanServiceServer struct{}
-
-func (UnimplementedSuperscriptSpanServiceServer) NewSuperscriptSpan(context.Context, *NewSuperscriptSpanRequest) (*NewSuperscriptSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSuperscriptSpan not implemented")
-}
-func (UnimplementedSuperscriptSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSuperscriptSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedSuperscriptSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSuperscriptSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
-}
-func (UnimplementedSuperscriptSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
-}
-func (UnimplementedSuperscriptSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSuperscriptSpanServiceServer) mustEmbedUnimplementedSuperscriptSpanServiceServer() {
-}
-func (UnimplementedSuperscriptSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSuperscriptSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SuperscriptSpanServiceServer will
-// result in compilation errors.
-type UnsafeSuperscriptSpanServiceServer interface {
-	mustEmbedUnimplementedSuperscriptSpanServiceServer()
-}
-
-func RegisterSuperscriptSpanServiceServer(s grpc.ServiceRegistrar, srv SuperscriptSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedSuperscriptSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SuperscriptSpanService_ServiceDesc, srv)
-}
-
-func _SuperscriptSpanService_NewSuperscriptSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSuperscriptSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuperscriptSpanServiceServer).NewSuperscriptSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuperscriptSpanService_NewSuperscriptSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuperscriptSpanServiceServer).NewSuperscriptSpan(ctx, req.(*NewSuperscriptSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuperscriptSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuperscriptSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuperscriptSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuperscriptSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuperscriptSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuperscriptSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuperscriptSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuperscriptSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuperscriptSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuperscriptSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuperscriptSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuperscriptSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuperscriptSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuperscriptSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuperscriptSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuperscriptSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuperscriptSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateMeasureStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuperscriptSpanServiceServer).UpdateMeasureState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuperscriptSpanService_UpdateMeasureState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuperscriptSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SuperscriptSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SuperscriptSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SuperscriptSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuperscriptSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SuperscriptSpanService_ServiceDesc is the grpc.ServiceDesc for SuperscriptSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SuperscriptSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.SuperscriptSpanService",
-	HandlerType: (*SuperscriptSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSuperscriptSpan",
-			Handler:    _SuperscriptSpanService_NewSuperscriptSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SuperscriptSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _SuperscriptSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SuperscriptSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateDrawState",
-			Handler:    _SuperscriptSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "UpdateMeasureState",
-			Handler:    _SuperscriptSpanService_UpdateMeasureState_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SuperscriptSpanService_WriteToParcel_Handler,
+			Handler:    _SpanService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -13449,330 +8357,368 @@ var TtsSpanVerbatimBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SuggestionRangeSpanService_NewSuggestionRangeSpan_FullMethodName = "/style.SuggestionRangeSpanService/NewSuggestionRangeSpan"
-	SuggestionRangeSpanService_DescribeContents_FullMethodName       = "/style.SuggestionRangeSpanService/DescribeContents"
-	SuggestionRangeSpanService_GetBackgroundColor_FullMethodName     = "/style.SuggestionRangeSpanService/GetBackgroundColor"
-	SuggestionRangeSpanService_GetSpanTypeId_FullMethodName          = "/style.SuggestionRangeSpanService/GetSpanTypeId"
-	SuggestionRangeSpanService_SetBackgroundColor_FullMethodName     = "/style.SuggestionRangeSpanService/SetBackgroundColor"
-	SuggestionRangeSpanService_UpdateDrawState_FullMethodName        = "/style.SuggestionRangeSpanService/UpdateDrawState"
-	SuggestionRangeSpanService_WriteToParcel_FullMethodName          = "/style.SuggestionRangeSpanService/WriteToParcel"
+	RelativeSizeSpanService_NewRelativeSizeSpan_FullMethodName = "/style.RelativeSizeSpanService/NewRelativeSizeSpan"
+	RelativeSizeSpanService_DescribeContents_FullMethodName    = "/style.RelativeSizeSpanService/DescribeContents"
+	RelativeSizeSpanService_GetSizeChange_FullMethodName       = "/style.RelativeSizeSpanService/GetSizeChange"
+	RelativeSizeSpanService_GetSpanTypeId_FullMethodName       = "/style.RelativeSizeSpanService/GetSpanTypeId"
+	RelativeSizeSpanService_ToString_FullMethodName            = "/style.RelativeSizeSpanService/ToString"
+	RelativeSizeSpanService_UpdateDrawState_FullMethodName     = "/style.RelativeSizeSpanService/UpdateDrawState"
+	RelativeSizeSpanService_UpdateMeasureState_FullMethodName  = "/style.RelativeSizeSpanService/UpdateMeasureState"
+	RelativeSizeSpanService_WriteToParcel_FullMethodName       = "/style.RelativeSizeSpanService/WriteToParcel"
 )
 
-// SuggestionRangeSpanServiceClient is the client API for SuggestionRangeSpanService service.
+// RelativeSizeSpanServiceClient is the client API for RelativeSizeSpanService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SuggestionRangeSpanServiceClient interface {
-	NewSuggestionRangeSpan(ctx context.Context, in *NewSuggestionRangeSpanRequest, opts ...grpc.CallOption) (*NewSuggestionRangeSpanResponse, error)
+type RelativeSizeSpanServiceClient interface {
+	NewRelativeSizeSpan(ctx context.Context, in *NewRelativeSizeSpanRequest, opts ...grpc.CallOption) (*NewRelativeSizeSpanResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetBackgroundColor(ctx context.Context, in *GetBackgroundColorRequest, opts ...grpc.CallOption) (*GetBackgroundColorResponse, error)
+	GetSizeChange(ctx context.Context, in *GetSizeChangeRequest, opts ...grpc.CallOption) (*GetSizeChangeResponse, error)
 	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	SetBackgroundColor(ctx context.Context, in *SetBackgroundColorRequest, opts ...grpc.CallOption) (*SetBackgroundColorResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type suggestionRangeSpanServiceClient struct {
+type relativeSizeSpanServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSuggestionRangeSpanServiceClient(cc grpc.ClientConnInterface) SuggestionRangeSpanServiceClient {
-	return &suggestionRangeSpanServiceClient{cc}
+func NewRelativeSizeSpanServiceClient(cc grpc.ClientConnInterface) RelativeSizeSpanServiceClient {
+	return &relativeSizeSpanServiceClient{cc}
 }
 
-func (c *suggestionRangeSpanServiceClient) NewSuggestionRangeSpan(ctx context.Context, in *NewSuggestionRangeSpanRequest, opts ...grpc.CallOption) (*NewSuggestionRangeSpanResponse, error) {
+func (c *relativeSizeSpanServiceClient) NewRelativeSizeSpan(ctx context.Context, in *NewRelativeSizeSpanRequest, opts ...grpc.CallOption) (*NewRelativeSizeSpanResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSuggestionRangeSpanResponse)
-	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_NewSuggestionRangeSpan_FullMethodName, in, out, cOpts...)
+	out := new(NewRelativeSizeSpanResponse)
+	err := c.cc.Invoke(ctx, RelativeSizeSpanService_NewRelativeSizeSpan_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionRangeSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *relativeSizeSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RelativeSizeSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionRangeSpanServiceClient) GetBackgroundColor(ctx context.Context, in *GetBackgroundColorRequest, opts ...grpc.CallOption) (*GetBackgroundColorResponse, error) {
+func (c *relativeSizeSpanServiceClient) GetSizeChange(ctx context.Context, in *GetSizeChangeRequest, opts ...grpc.CallOption) (*GetSizeChangeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBackgroundColorResponse)
-	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_GetBackgroundColor_FullMethodName, in, out, cOpts...)
+	out := new(GetSizeChangeResponse)
+	err := c.cc.Invoke(ctx, RelativeSizeSpanService_GetSizeChange_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionRangeSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+func (c *relativeSizeSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RelativeSizeSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionRangeSpanServiceClient) SetBackgroundColor(ctx context.Context, in *SetBackgroundColorRequest, opts ...grpc.CallOption) (*SetBackgroundColorResponse, error) {
+func (c *relativeSizeSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBackgroundColorResponse)
-	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_SetBackgroundColor_FullMethodName, in, out, cOpts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, RelativeSizeSpanService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionRangeSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+func (c *relativeSizeSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RelativeSizeSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *suggestionRangeSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *relativeSizeSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMeasureStateResponse)
+	err := c.cc.Invoke(ctx, RelativeSizeSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *relativeSizeSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SuggestionRangeSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RelativeSizeSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SuggestionRangeSpanServiceServer is the server API for SuggestionRangeSpanService service.
-// All implementations must embed UnimplementedSuggestionRangeSpanServiceServer
+// RelativeSizeSpanServiceServer is the server API for RelativeSizeSpanService service.
+// All implementations must embed UnimplementedRelativeSizeSpanServiceServer
 // for forward compatibility.
-type SuggestionRangeSpanServiceServer interface {
-	NewSuggestionRangeSpan(context.Context, *NewSuggestionRangeSpanRequest) (*NewSuggestionRangeSpanResponse, error)
+type RelativeSizeSpanServiceServer interface {
+	NewRelativeSizeSpan(context.Context, *NewRelativeSizeSpanRequest) (*NewRelativeSizeSpanResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetBackgroundColor(context.Context, *GetBackgroundColorRequest) (*GetBackgroundColorResponse, error)
+	GetSizeChange(context.Context, *GetSizeChangeRequest) (*GetSizeChangeResponse, error)
 	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	SetBackgroundColor(context.Context, *SetBackgroundColorRequest) (*SetBackgroundColorResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSuggestionRangeSpanServiceServer()
+	mustEmbedUnimplementedRelativeSizeSpanServiceServer()
 }
 
-// UnimplementedSuggestionRangeSpanServiceServer must be embedded to have
+// UnimplementedRelativeSizeSpanServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSuggestionRangeSpanServiceServer struct{}
+type UnimplementedRelativeSizeSpanServiceServer struct{}
 
-func (UnimplementedSuggestionRangeSpanServiceServer) NewSuggestionRangeSpan(context.Context, *NewSuggestionRangeSpanRequest) (*NewSuggestionRangeSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSuggestionRangeSpan not implemented")
+func (UnimplementedRelativeSizeSpanServiceServer) NewRelativeSizeSpan(context.Context, *NewRelativeSizeSpanRequest) (*NewRelativeSizeSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRelativeSizeSpan not implemented")
 }
-func (UnimplementedSuggestionRangeSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedRelativeSizeSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedSuggestionRangeSpanServiceServer) GetBackgroundColor(context.Context, *GetBackgroundColorRequest) (*GetBackgroundColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBackgroundColor not implemented")
+func (UnimplementedRelativeSizeSpanServiceServer) GetSizeChange(context.Context, *GetSizeChangeRequest) (*GetSizeChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSizeChange not implemented")
 }
-func (UnimplementedSuggestionRangeSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+func (UnimplementedRelativeSizeSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
 }
-func (UnimplementedSuggestionRangeSpanServiceServer) SetBackgroundColor(context.Context, *SetBackgroundColorRequest) (*SetBackgroundColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBackgroundColor not implemented")
+func (UnimplementedRelativeSizeSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedSuggestionRangeSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+func (UnimplementedRelativeSizeSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
 }
-func (UnimplementedSuggestionRangeSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedRelativeSizeSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
+}
+func (UnimplementedRelativeSizeSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedSuggestionRangeSpanServiceServer) mustEmbedUnimplementedSuggestionRangeSpanServiceServer() {
+func (UnimplementedRelativeSizeSpanServiceServer) mustEmbedUnimplementedRelativeSizeSpanServiceServer() {
 }
-func (UnimplementedSuggestionRangeSpanServiceServer) testEmbeddedByValue() {}
+func (UnimplementedRelativeSizeSpanServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSuggestionRangeSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SuggestionRangeSpanServiceServer will
+// UnsafeRelativeSizeSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RelativeSizeSpanServiceServer will
 // result in compilation errors.
-type UnsafeSuggestionRangeSpanServiceServer interface {
-	mustEmbedUnimplementedSuggestionRangeSpanServiceServer()
+type UnsafeRelativeSizeSpanServiceServer interface {
+	mustEmbedUnimplementedRelativeSizeSpanServiceServer()
 }
 
-func RegisterSuggestionRangeSpanServiceServer(s grpc.ServiceRegistrar, srv SuggestionRangeSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedSuggestionRangeSpanServiceServer was
+func RegisterRelativeSizeSpanServiceServer(s grpc.ServiceRegistrar, srv RelativeSizeSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedRelativeSizeSpanServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SuggestionRangeSpanService_ServiceDesc, srv)
+	s.RegisterService(&RelativeSizeSpanService_ServiceDesc, srv)
 }
 
-func _SuggestionRangeSpanService_NewSuggestionRangeSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSuggestionRangeSpanRequest)
+func _RelativeSizeSpanService_NewRelativeSizeSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRelativeSizeSpanRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionRangeSpanServiceServer).NewSuggestionRangeSpan(ctx, in)
+		return srv.(RelativeSizeSpanServiceServer).NewRelativeSizeSpan(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionRangeSpanService_NewSuggestionRangeSpan_FullMethodName,
+		FullMethod: RelativeSizeSpanService_NewRelativeSizeSpan_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionRangeSpanServiceServer).NewSuggestionRangeSpan(ctx, req.(*NewSuggestionRangeSpanRequest))
+		return srv.(RelativeSizeSpanServiceServer).NewRelativeSizeSpan(ctx, req.(*NewRelativeSizeSpanRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionRangeSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RelativeSizeSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionRangeSpanServiceServer).DescribeContents(ctx, in)
+		return srv.(RelativeSizeSpanServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionRangeSpanService_DescribeContents_FullMethodName,
+		FullMethod: RelativeSizeSpanService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionRangeSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(RelativeSizeSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionRangeSpanService_GetBackgroundColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBackgroundColorRequest)
+func _RelativeSizeSpanService_GetSizeChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSizeChangeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionRangeSpanServiceServer).GetBackgroundColor(ctx, in)
+		return srv.(RelativeSizeSpanServiceServer).GetSizeChange(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionRangeSpanService_GetBackgroundColor_FullMethodName,
+		FullMethod: RelativeSizeSpanService_GetSizeChange_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionRangeSpanServiceServer).GetBackgroundColor(ctx, req.(*GetBackgroundColorRequest))
+		return srv.(RelativeSizeSpanServiceServer).GetSizeChange(ctx, req.(*GetSizeChangeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionRangeSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RelativeSizeSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSpanTypeIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionRangeSpanServiceServer).GetSpanTypeId(ctx, in)
+		return srv.(RelativeSizeSpanServiceServer).GetSpanTypeId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionRangeSpanService_GetSpanTypeId_FullMethodName,
+		FullMethod: RelativeSizeSpanService_GetSpanTypeId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionRangeSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+		return srv.(RelativeSizeSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionRangeSpanService_SetBackgroundColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBackgroundColorRequest)
+func _RelativeSizeSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionRangeSpanServiceServer).SetBackgroundColor(ctx, in)
+		return srv.(RelativeSizeSpanServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionRangeSpanService_SetBackgroundColor_FullMethodName,
+		FullMethod: RelativeSizeSpanService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionRangeSpanServiceServer).SetBackgroundColor(ctx, req.(*SetBackgroundColorRequest))
+		return srv.(RelativeSizeSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionRangeSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RelativeSizeSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateDrawStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionRangeSpanServiceServer).UpdateDrawState(ctx, in)
+		return srv.(RelativeSizeSpanServiceServer).UpdateDrawState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionRangeSpanService_UpdateDrawState_FullMethodName,
+		FullMethod: RelativeSizeSpanService_UpdateDrawState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionRangeSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+		return srv.(RelativeSizeSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SuggestionRangeSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RelativeSizeSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMeasureStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RelativeSizeSpanServiceServer).UpdateMeasureState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RelativeSizeSpanService_UpdateMeasureState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RelativeSizeSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RelativeSizeSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SuggestionRangeSpanServiceServer).WriteToParcel(ctx, in)
+		return srv.(RelativeSizeSpanServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SuggestionRangeSpanService_WriteToParcel_FullMethodName,
+		FullMethod: RelativeSizeSpanService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SuggestionRangeSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(RelativeSizeSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SuggestionRangeSpanService_ServiceDesc is the grpc.ServiceDesc for SuggestionRangeSpanService service.
+// RelativeSizeSpanService_ServiceDesc is the grpc.ServiceDesc for RelativeSizeSpanService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SuggestionRangeSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.SuggestionRangeSpanService",
-	HandlerType: (*SuggestionRangeSpanServiceServer)(nil),
+var RelativeSizeSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.RelativeSizeSpanService",
+	HandlerType: (*RelativeSizeSpanServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewSuggestionRangeSpan",
-			Handler:    _SuggestionRangeSpanService_NewSuggestionRangeSpan_Handler,
+			MethodName: "NewRelativeSizeSpan",
+			Handler:    _RelativeSizeSpanService_NewRelativeSizeSpan_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _SuggestionRangeSpanService_DescribeContents_Handler,
+			Handler:    _RelativeSizeSpanService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetBackgroundColor",
-			Handler:    _SuggestionRangeSpanService_GetBackgroundColor_Handler,
+			MethodName: "GetSizeChange",
+			Handler:    _RelativeSizeSpanService_GetSizeChange_Handler,
 		},
 		{
 			MethodName: "GetSpanTypeId",
-			Handler:    _SuggestionRangeSpanService_GetSpanTypeId_Handler,
+			Handler:    _RelativeSizeSpanService_GetSpanTypeId_Handler,
 		},
 		{
-			MethodName: "SetBackgroundColor",
-			Handler:    _SuggestionRangeSpanService_SetBackgroundColor_Handler,
+			MethodName: "ToString",
+			Handler:    _RelativeSizeSpanService_ToString_Handler,
 		},
 		{
 			MethodName: "UpdateDrawState",
-			Handler:    _SuggestionRangeSpanService_UpdateDrawState_Handler,
+			Handler:    _RelativeSizeSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "UpdateMeasureState",
+			Handler:    _RelativeSizeSpanService_UpdateMeasureState_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _SuggestionRangeSpanService_WriteToParcel_Handler,
+			Handler:    _RelativeSizeSpanService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -13989,6 +8935,1420 @@ var EasyEditSpanService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _EasyEditSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	URLSpanService_NewURLSpan_FullMethodName       = "/style.URLSpanService/NewURLSpan"
+	URLSpanService_DescribeContents_FullMethodName = "/style.URLSpanService/DescribeContents"
+	URLSpanService_GetSpanTypeId_FullMethodName    = "/style.URLSpanService/GetSpanTypeId"
+	URLSpanService_GetURL_FullMethodName           = "/style.URLSpanService/GetURL"
+	URLSpanService_OnClick_FullMethodName          = "/style.URLSpanService/OnClick"
+	URLSpanService_ToString_FullMethodName         = "/style.URLSpanService/ToString"
+	URLSpanService_WriteToParcel_FullMethodName    = "/style.URLSpanService/WriteToParcel"
+)
+
+// URLSpanServiceClient is the client API for URLSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type URLSpanServiceClient interface {
+	NewURLSpan(ctx context.Context, in *NewURLSpanRequest, opts ...grpc.CallOption) (*NewURLSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	GetURL(ctx context.Context, in *GetURLRequest, opts ...grpc.CallOption) (*GetURLResponse, error)
+	OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type uRLSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewURLSpanServiceClient(cc grpc.ClientConnInterface) URLSpanServiceClient {
+	return &uRLSpanServiceClient{cc}
+}
+
+func (c *uRLSpanServiceClient) NewURLSpan(ctx context.Context, in *NewURLSpanRequest, opts ...grpc.CallOption) (*NewURLSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewURLSpanResponse)
+	err := c.cc.Invoke(ctx, URLSpanService_NewURLSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uRLSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, URLSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uRLSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, URLSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uRLSpanServiceClient) GetURL(ctx context.Context, in *GetURLRequest, opts ...grpc.CallOption) (*GetURLResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetURLResponse)
+	err := c.cc.Invoke(ctx, URLSpanService_GetURL_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uRLSpanServiceClient) OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClickResponse)
+	err := c.cc.Invoke(ctx, URLSpanService_OnClick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uRLSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, URLSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uRLSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, URLSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// URLSpanServiceServer is the server API for URLSpanService service.
+// All implementations must embed UnimplementedURLSpanServiceServer
+// for forward compatibility.
+type URLSpanServiceServer interface {
+	NewURLSpan(context.Context, *NewURLSpanRequest) (*NewURLSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	GetURL(context.Context, *GetURLRequest) (*GetURLResponse, error)
+	OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedURLSpanServiceServer()
+}
+
+// UnimplementedURLSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedURLSpanServiceServer struct{}
+
+func (UnimplementedURLSpanServiceServer) NewURLSpan(context.Context, *NewURLSpanRequest) (*NewURLSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewURLSpan not implemented")
+}
+func (UnimplementedURLSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedURLSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedURLSpanServiceServer) GetURL(context.Context, *GetURLRequest) (*GetURLResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetURL not implemented")
+}
+func (UnimplementedURLSpanServiceServer) OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
+}
+func (UnimplementedURLSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedURLSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedURLSpanServiceServer) mustEmbedUnimplementedURLSpanServiceServer() {}
+func (UnimplementedURLSpanServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeURLSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to URLSpanServiceServer will
+// result in compilation errors.
+type UnsafeURLSpanServiceServer interface {
+	mustEmbedUnimplementedURLSpanServiceServer()
+}
+
+func RegisterURLSpanServiceServer(s grpc.ServiceRegistrar, srv URLSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedURLSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&URLSpanService_ServiceDesc, srv)
+}
+
+func _URLSpanService_NewURLSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewURLSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(URLSpanServiceServer).NewURLSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: URLSpanService_NewURLSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(URLSpanServiceServer).NewURLSpan(ctx, req.(*NewURLSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _URLSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(URLSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: URLSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(URLSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _URLSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(URLSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: URLSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(URLSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _URLSpanService_GetURL_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetURLRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(URLSpanServiceServer).GetURL(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: URLSpanService_GetURL_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(URLSpanServiceServer).GetURL(ctx, req.(*GetURLRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _URLSpanService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(URLSpanServiceServer).OnClick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: URLSpanService_OnClick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(URLSpanServiceServer).OnClick(ctx, req.(*OnClickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _URLSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(URLSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: URLSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(URLSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _URLSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(URLSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: URLSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(URLSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// URLSpanService_ServiceDesc is the grpc.ServiceDesc for URLSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var URLSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.URLSpanService",
+	HandlerType: (*URLSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewURLSpan",
+			Handler:    _URLSpanService_NewURLSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _URLSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _URLSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "GetURL",
+			Handler:    _URLSpanService_GetURL_Handler,
+		},
+		{
+			MethodName: "OnClick",
+			Handler:    _URLSpanService_OnClick_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _URLSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _URLSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	ForegroundColorSpanService_NewForegroundColorSpan_FullMethodName = "/style.ForegroundColorSpanService/NewForegroundColorSpan"
+	ForegroundColorSpanService_DescribeContents_FullMethodName       = "/style.ForegroundColorSpanService/DescribeContents"
+	ForegroundColorSpanService_GetForegroundColor_FullMethodName     = "/style.ForegroundColorSpanService/GetForegroundColor"
+	ForegroundColorSpanService_GetSpanTypeId_FullMethodName          = "/style.ForegroundColorSpanService/GetSpanTypeId"
+	ForegroundColorSpanService_ToString_FullMethodName               = "/style.ForegroundColorSpanService/ToString"
+	ForegroundColorSpanService_UpdateDrawState_FullMethodName        = "/style.ForegroundColorSpanService/UpdateDrawState"
+	ForegroundColorSpanService_WriteToParcel_FullMethodName          = "/style.ForegroundColorSpanService/WriteToParcel"
+)
+
+// ForegroundColorSpanServiceClient is the client API for ForegroundColorSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ForegroundColorSpanServiceClient interface {
+	NewForegroundColorSpan(ctx context.Context, in *NewForegroundColorSpanRequest, opts ...grpc.CallOption) (*NewForegroundColorSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetForegroundColor(ctx context.Context, in *GetForegroundColorRequest, opts ...grpc.CallOption) (*GetForegroundColorResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type foregroundColorSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewForegroundColorSpanServiceClient(cc grpc.ClientConnInterface) ForegroundColorSpanServiceClient {
+	return &foregroundColorSpanServiceClient{cc}
+}
+
+func (c *foregroundColorSpanServiceClient) NewForegroundColorSpan(ctx context.Context, in *NewForegroundColorSpanRequest, opts ...grpc.CallOption) (*NewForegroundColorSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewForegroundColorSpanResponse)
+	err := c.cc.Invoke(ctx, ForegroundColorSpanService_NewForegroundColorSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *foregroundColorSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ForegroundColorSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *foregroundColorSpanServiceClient) GetForegroundColor(ctx context.Context, in *GetForegroundColorRequest, opts ...grpc.CallOption) (*GetForegroundColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetForegroundColorResponse)
+	err := c.cc.Invoke(ctx, ForegroundColorSpanService_GetForegroundColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *foregroundColorSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, ForegroundColorSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *foregroundColorSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ForegroundColorSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *foregroundColorSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, ForegroundColorSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *foregroundColorSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ForegroundColorSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ForegroundColorSpanServiceServer is the server API for ForegroundColorSpanService service.
+// All implementations must embed UnimplementedForegroundColorSpanServiceServer
+// for forward compatibility.
+type ForegroundColorSpanServiceServer interface {
+	NewForegroundColorSpan(context.Context, *NewForegroundColorSpanRequest) (*NewForegroundColorSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetForegroundColor(context.Context, *GetForegroundColorRequest) (*GetForegroundColorResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedForegroundColorSpanServiceServer()
+}
+
+// UnimplementedForegroundColorSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedForegroundColorSpanServiceServer struct{}
+
+func (UnimplementedForegroundColorSpanServiceServer) NewForegroundColorSpan(context.Context, *NewForegroundColorSpanRequest) (*NewForegroundColorSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewForegroundColorSpan not implemented")
+}
+func (UnimplementedForegroundColorSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedForegroundColorSpanServiceServer) GetForegroundColor(context.Context, *GetForegroundColorRequest) (*GetForegroundColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetForegroundColor not implemented")
+}
+func (UnimplementedForegroundColorSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedForegroundColorSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedForegroundColorSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedForegroundColorSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedForegroundColorSpanServiceServer) mustEmbedUnimplementedForegroundColorSpanServiceServer() {
+}
+func (UnimplementedForegroundColorSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeForegroundColorSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ForegroundColorSpanServiceServer will
+// result in compilation errors.
+type UnsafeForegroundColorSpanServiceServer interface {
+	mustEmbedUnimplementedForegroundColorSpanServiceServer()
+}
+
+func RegisterForegroundColorSpanServiceServer(s grpc.ServiceRegistrar, srv ForegroundColorSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedForegroundColorSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ForegroundColorSpanService_ServiceDesc, srv)
+}
+
+func _ForegroundColorSpanService_NewForegroundColorSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewForegroundColorSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForegroundColorSpanServiceServer).NewForegroundColorSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForegroundColorSpanService_NewForegroundColorSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForegroundColorSpanServiceServer).NewForegroundColorSpan(ctx, req.(*NewForegroundColorSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ForegroundColorSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForegroundColorSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForegroundColorSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForegroundColorSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ForegroundColorSpanService_GetForegroundColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetForegroundColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForegroundColorSpanServiceServer).GetForegroundColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForegroundColorSpanService_GetForegroundColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForegroundColorSpanServiceServer).GetForegroundColor(ctx, req.(*GetForegroundColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ForegroundColorSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForegroundColorSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForegroundColorSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForegroundColorSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ForegroundColorSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForegroundColorSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForegroundColorSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForegroundColorSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ForegroundColorSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForegroundColorSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForegroundColorSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForegroundColorSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ForegroundColorSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForegroundColorSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForegroundColorSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForegroundColorSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ForegroundColorSpanService_ServiceDesc is the grpc.ServiceDesc for ForegroundColorSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ForegroundColorSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.ForegroundColorSpanService",
+	HandlerType: (*ForegroundColorSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewForegroundColorSpan",
+			Handler:    _ForegroundColorSpanService_NewForegroundColorSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ForegroundColorSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetForegroundColor",
+			Handler:    _ForegroundColorSpanService_GetForegroundColor_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _ForegroundColorSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ForegroundColorSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _ForegroundColorSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ForegroundColorSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	ReplacementSpanService_Draw_FullMethodName                  = "/style.ReplacementSpanService/Draw"
+	ReplacementSpanService_GetContentDescription_FullMethodName = "/style.ReplacementSpanService/GetContentDescription"
+	ReplacementSpanService_GetSize_FullMethodName               = "/style.ReplacementSpanService/GetSize"
+	ReplacementSpanService_SetContentDescription_FullMethodName = "/style.ReplacementSpanService/SetContentDescription"
+	ReplacementSpanService_UpdateDrawState_FullMethodName       = "/style.ReplacementSpanService/UpdateDrawState"
+	ReplacementSpanService_UpdateMeasureState_FullMethodName    = "/style.ReplacementSpanService/UpdateMeasureState"
+)
+
+// ReplacementSpanServiceClient is the client API for ReplacementSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReplacementSpanServiceClient interface {
+	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error)
+	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
+	SetContentDescription(ctx context.Context, in *SetContentDescriptionRequest, opts ...grpc.CallOption) (*SetContentDescriptionResponse, error)
+	UpdateDrawState(ctx context.Context, in *ReplacementSpanUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(ctx context.Context, in *ReplacementSpanUpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
+}
+
+type replacementSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReplacementSpanServiceClient(cc grpc.ClientConnInterface) ReplacementSpanServiceClient {
+	return &replacementSpanServiceClient{cc}
+}
+
+func (c *replacementSpanServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawResponse)
+	err := c.cc.Invoke(ctx, ReplacementSpanService_Draw_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *replacementSpanServiceClient) GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentDescriptionResponse)
+	err := c.cc.Invoke(ctx, ReplacementSpanService_GetContentDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *replacementSpanServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSizeResponse)
+	err := c.cc.Invoke(ctx, ReplacementSpanService_GetSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *replacementSpanServiceClient) SetContentDescription(ctx context.Context, in *SetContentDescriptionRequest, opts ...grpc.CallOption) (*SetContentDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContentDescriptionResponse)
+	err := c.cc.Invoke(ctx, ReplacementSpanService_SetContentDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *replacementSpanServiceClient) UpdateDrawState(ctx context.Context, in *ReplacementSpanUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, ReplacementSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *replacementSpanServiceClient) UpdateMeasureState(ctx context.Context, in *ReplacementSpanUpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMeasureStateResponse)
+	err := c.cc.Invoke(ctx, ReplacementSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReplacementSpanServiceServer is the server API for ReplacementSpanService service.
+// All implementations must embed UnimplementedReplacementSpanServiceServer
+// for forward compatibility.
+type ReplacementSpanServiceServer interface {
+	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
+	GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error)
+	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
+	SetContentDescription(context.Context, *SetContentDescriptionRequest) (*SetContentDescriptionResponse, error)
+	UpdateDrawState(context.Context, *ReplacementSpanUpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(context.Context, *ReplacementSpanUpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
+	mustEmbedUnimplementedReplacementSpanServiceServer()
+}
+
+// UnimplementedReplacementSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReplacementSpanServiceServer struct{}
+
+func (UnimplementedReplacementSpanServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
+}
+func (UnimplementedReplacementSpanServiceServer) GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentDescription not implemented")
+}
+func (UnimplementedReplacementSpanServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
+}
+func (UnimplementedReplacementSpanServiceServer) SetContentDescription(context.Context, *SetContentDescriptionRequest) (*SetContentDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentDescription not implemented")
+}
+func (UnimplementedReplacementSpanServiceServer) UpdateDrawState(context.Context, *ReplacementSpanUpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedReplacementSpanServiceServer) UpdateMeasureState(context.Context, *ReplacementSpanUpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
+}
+func (UnimplementedReplacementSpanServiceServer) mustEmbedUnimplementedReplacementSpanServiceServer() {
+}
+func (UnimplementedReplacementSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReplacementSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReplacementSpanServiceServer will
+// result in compilation errors.
+type UnsafeReplacementSpanServiceServer interface {
+	mustEmbedUnimplementedReplacementSpanServiceServer()
+}
+
+func RegisterReplacementSpanServiceServer(s grpc.ServiceRegistrar, srv ReplacementSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedReplacementSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReplacementSpanService_ServiceDesc, srv)
+}
+
+func _ReplacementSpanService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReplacementSpanServiceServer).Draw(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReplacementSpanService_Draw_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReplacementSpanServiceServer).Draw(ctx, req.(*DrawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReplacementSpanService_GetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReplacementSpanServiceServer).GetContentDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReplacementSpanService_GetContentDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReplacementSpanServiceServer).GetContentDescription(ctx, req.(*GetContentDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReplacementSpanService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReplacementSpanServiceServer).GetSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReplacementSpanService_GetSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReplacementSpanServiceServer).GetSize(ctx, req.(*GetSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReplacementSpanService_SetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReplacementSpanServiceServer).SetContentDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReplacementSpanService_SetContentDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReplacementSpanServiceServer).SetContentDescription(ctx, req.(*SetContentDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReplacementSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReplacementSpanUpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReplacementSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReplacementSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReplacementSpanServiceServer).UpdateDrawState(ctx, req.(*ReplacementSpanUpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReplacementSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReplacementSpanUpdateMeasureStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReplacementSpanServiceServer).UpdateMeasureState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReplacementSpanService_UpdateMeasureState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReplacementSpanServiceServer).UpdateMeasureState(ctx, req.(*ReplacementSpanUpdateMeasureStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReplacementSpanService_ServiceDesc is the grpc.ServiceDesc for ReplacementSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReplacementSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.ReplacementSpanService",
+	HandlerType: (*ReplacementSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Draw",
+			Handler:    _ReplacementSpanService_Draw_Handler,
+		},
+		{
+			MethodName: "GetContentDescription",
+			Handler:    _ReplacementSpanService_GetContentDescription_Handler,
+		},
+		{
+			MethodName: "GetSize",
+			Handler:    _ReplacementSpanService_GetSize_Handler,
+		},
+		{
+			MethodName: "SetContentDescription",
+			Handler:    _ReplacementSpanService_SetContentDescription_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _ReplacementSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "UpdateMeasureState",
+			Handler:    _ReplacementSpanService_UpdateMeasureState_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	LineHeightSpanService_ChooseHeight_FullMethodName = "/style.LineHeightSpanService/ChooseHeight"
+)
+
+// LineHeightSpanServiceClient is the client API for LineHeightSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LineHeightSpanServiceClient interface {
+	ChooseHeight(ctx context.Context, in *LineHeightSpanChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
+}
+
+type lineHeightSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLineHeightSpanServiceClient(cc grpc.ClientConnInterface) LineHeightSpanServiceClient {
+	return &lineHeightSpanServiceClient{cc}
+}
+
+func (c *lineHeightSpanServiceClient) ChooseHeight(ctx context.Context, in *LineHeightSpanChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ChooseHeightResponse)
+	err := c.cc.Invoke(ctx, LineHeightSpanService_ChooseHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LineHeightSpanServiceServer is the server API for LineHeightSpanService service.
+// All implementations must embed UnimplementedLineHeightSpanServiceServer
+// for forward compatibility.
+type LineHeightSpanServiceServer interface {
+	ChooseHeight(context.Context, *LineHeightSpanChooseHeightRequest) (*ChooseHeightResponse, error)
+	mustEmbedUnimplementedLineHeightSpanServiceServer()
+}
+
+// UnimplementedLineHeightSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLineHeightSpanServiceServer struct{}
+
+func (UnimplementedLineHeightSpanServiceServer) ChooseHeight(context.Context, *LineHeightSpanChooseHeightRequest) (*ChooseHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
+}
+func (UnimplementedLineHeightSpanServiceServer) mustEmbedUnimplementedLineHeightSpanServiceServer() {}
+func (UnimplementedLineHeightSpanServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeLineHeightSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LineHeightSpanServiceServer will
+// result in compilation errors.
+type UnsafeLineHeightSpanServiceServer interface {
+	mustEmbedUnimplementedLineHeightSpanServiceServer()
+}
+
+func RegisterLineHeightSpanServiceServer(s grpc.ServiceRegistrar, srv LineHeightSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedLineHeightSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LineHeightSpanService_ServiceDesc, srv)
+}
+
+func _LineHeightSpanService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineHeightSpanChooseHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineHeightSpanServiceServer).ChooseHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineHeightSpanService_ChooseHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineHeightSpanServiceServer).ChooseHeight(ctx, req.(*LineHeightSpanChooseHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LineHeightSpanService_ServiceDesc is the grpc.ServiceDesc for LineHeightSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LineHeightSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LineHeightSpanService",
+	HandlerType: (*LineHeightSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ChooseHeight",
+			Handler:    _LineHeightSpanService_ChooseHeight_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	LineHeightSpanStandardService_ChooseHeight_FullMethodName     = "/style.LineHeightSpanStandardService/ChooseHeight"
+	LineHeightSpanStandardService_DescribeContents_FullMethodName = "/style.LineHeightSpanStandardService/DescribeContents"
+	LineHeightSpanStandardService_GetHeight_FullMethodName        = "/style.LineHeightSpanStandardService/GetHeight"
+	LineHeightSpanStandardService_GetSpanTypeId_FullMethodName    = "/style.LineHeightSpanStandardService/GetSpanTypeId"
+	LineHeightSpanStandardService_WriteToParcel_FullMethodName    = "/style.LineHeightSpanStandardService/WriteToParcel"
+)
+
+// LineHeightSpanStandardServiceClient is the client API for LineHeightSpanStandardService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LineHeightSpanStandardServiceClient interface {
+	ChooseHeight(ctx context.Context, in *LineHeightSpanStandardChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
+	DescribeContents(ctx context.Context, in *LineHeightSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
+	GetSpanTypeId(ctx context.Context, in *LineHeightSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	WriteToParcel(ctx context.Context, in *LineHeightSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type lineHeightSpanStandardServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLineHeightSpanStandardServiceClient(cc grpc.ClientConnInterface) LineHeightSpanStandardServiceClient {
+	return &lineHeightSpanStandardServiceClient{cc}
+}
+
+func (c *lineHeightSpanStandardServiceClient) ChooseHeight(ctx context.Context, in *LineHeightSpanStandardChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ChooseHeightResponse)
+	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_ChooseHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lineHeightSpanStandardServiceClient) DescribeContents(ctx context.Context, in *LineHeightSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lineHeightSpanStandardServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeightResponse)
+	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_GetHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lineHeightSpanStandardServiceClient) GetSpanTypeId(ctx context.Context, in *LineHeightSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lineHeightSpanStandardServiceClient) WriteToParcel(ctx context.Context, in *LineHeightSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, LineHeightSpanStandardService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LineHeightSpanStandardServiceServer is the server API for LineHeightSpanStandardService service.
+// All implementations must embed UnimplementedLineHeightSpanStandardServiceServer
+// for forward compatibility.
+type LineHeightSpanStandardServiceServer interface {
+	ChooseHeight(context.Context, *LineHeightSpanStandardChooseHeightRequest) (*ChooseHeightResponse, error)
+	DescribeContents(context.Context, *LineHeightSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
+	GetSpanTypeId(context.Context, *LineHeightSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	WriteToParcel(context.Context, *LineHeightSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedLineHeightSpanStandardServiceServer()
+}
+
+// UnimplementedLineHeightSpanStandardServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLineHeightSpanStandardServiceServer struct{}
+
+func (UnimplementedLineHeightSpanStandardServiceServer) ChooseHeight(context.Context, *LineHeightSpanStandardChooseHeightRequest) (*ChooseHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
+}
+func (UnimplementedLineHeightSpanStandardServiceServer) DescribeContents(context.Context, *LineHeightSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedLineHeightSpanStandardServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
+}
+func (UnimplementedLineHeightSpanStandardServiceServer) GetSpanTypeId(context.Context, *LineHeightSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedLineHeightSpanStandardServiceServer) WriteToParcel(context.Context, *LineHeightSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedLineHeightSpanStandardServiceServer) mustEmbedUnimplementedLineHeightSpanStandardServiceServer() {
+}
+func (UnimplementedLineHeightSpanStandardServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLineHeightSpanStandardServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LineHeightSpanStandardServiceServer will
+// result in compilation errors.
+type UnsafeLineHeightSpanStandardServiceServer interface {
+	mustEmbedUnimplementedLineHeightSpanStandardServiceServer()
+}
+
+func RegisterLineHeightSpanStandardServiceServer(s grpc.ServiceRegistrar, srv LineHeightSpanStandardServiceServer) {
+	// If the following call panics, it indicates UnimplementedLineHeightSpanStandardServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LineHeightSpanStandardService_ServiceDesc, srv)
+}
+
+func _LineHeightSpanStandardService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineHeightSpanStandardChooseHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineHeightSpanStandardServiceServer).ChooseHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineHeightSpanStandardService_ChooseHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineHeightSpanStandardServiceServer).ChooseHeight(ctx, req.(*LineHeightSpanStandardChooseHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LineHeightSpanStandardService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineHeightSpanStandardDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineHeightSpanStandardServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineHeightSpanStandardService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineHeightSpanStandardServiceServer).DescribeContents(ctx, req.(*LineHeightSpanStandardDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LineHeightSpanStandardService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineHeightSpanStandardServiceServer).GetHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineHeightSpanStandardService_GetHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineHeightSpanStandardServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LineHeightSpanStandardService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineHeightSpanStandardGetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineHeightSpanStandardServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineHeightSpanStandardService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineHeightSpanStandardServiceServer).GetSpanTypeId(ctx, req.(*LineHeightSpanStandardGetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LineHeightSpanStandardService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineHeightSpanStandardWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineHeightSpanStandardServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineHeightSpanStandardService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineHeightSpanStandardServiceServer).WriteToParcel(ctx, req.(*LineHeightSpanStandardWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LineHeightSpanStandardService_ServiceDesc is the grpc.ServiceDesc for LineHeightSpanStandardService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LineHeightSpanStandardService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LineHeightSpanStandardService",
+	HandlerType: (*LineHeightSpanStandardServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ChooseHeight",
+			Handler:    _LineHeightSpanStandardService_ChooseHeight_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _LineHeightSpanStandardService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetHeight",
+			Handler:    _LineHeightSpanStandardService_GetHeight_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _LineHeightSpanStandardService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _LineHeightSpanStandardService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	LineHeightSpanWithDensityService_ChooseHeight_FullMethodName = "/style.LineHeightSpanWithDensityService/ChooseHeight"
+)
+
+// LineHeightSpanWithDensityServiceClient is the client API for LineHeightSpanWithDensityService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LineHeightSpanWithDensityServiceClient interface {
+	ChooseHeight(ctx context.Context, in *LineHeightSpanWithDensityChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
+}
+
+type lineHeightSpanWithDensityServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLineHeightSpanWithDensityServiceClient(cc grpc.ClientConnInterface) LineHeightSpanWithDensityServiceClient {
+	return &lineHeightSpanWithDensityServiceClient{cc}
+}
+
+func (c *lineHeightSpanWithDensityServiceClient) ChooseHeight(ctx context.Context, in *LineHeightSpanWithDensityChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ChooseHeightResponse)
+	err := c.cc.Invoke(ctx, LineHeightSpanWithDensityService_ChooseHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LineHeightSpanWithDensityServiceServer is the server API for LineHeightSpanWithDensityService service.
+// All implementations must embed UnimplementedLineHeightSpanWithDensityServiceServer
+// for forward compatibility.
+type LineHeightSpanWithDensityServiceServer interface {
+	ChooseHeight(context.Context, *LineHeightSpanWithDensityChooseHeightRequest) (*ChooseHeightResponse, error)
+	mustEmbedUnimplementedLineHeightSpanWithDensityServiceServer()
+}
+
+// UnimplementedLineHeightSpanWithDensityServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLineHeightSpanWithDensityServiceServer struct{}
+
+func (UnimplementedLineHeightSpanWithDensityServiceServer) ChooseHeight(context.Context, *LineHeightSpanWithDensityChooseHeightRequest) (*ChooseHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
+}
+func (UnimplementedLineHeightSpanWithDensityServiceServer) mustEmbedUnimplementedLineHeightSpanWithDensityServiceServer() {
+}
+func (UnimplementedLineHeightSpanWithDensityServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLineHeightSpanWithDensityServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LineHeightSpanWithDensityServiceServer will
+// result in compilation errors.
+type UnsafeLineHeightSpanWithDensityServiceServer interface {
+	mustEmbedUnimplementedLineHeightSpanWithDensityServiceServer()
+}
+
+func RegisterLineHeightSpanWithDensityServiceServer(s grpc.ServiceRegistrar, srv LineHeightSpanWithDensityServiceServer) {
+	// If the following call panics, it indicates UnimplementedLineHeightSpanWithDensityServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LineHeightSpanWithDensityService_ServiceDesc, srv)
+}
+
+func _LineHeightSpanWithDensityService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineHeightSpanWithDensityChooseHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineHeightSpanWithDensityServiceServer).ChooseHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineHeightSpanWithDensityService_ChooseHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineHeightSpanWithDensityServiceServer).ChooseHeight(ctx, req.(*LineHeightSpanWithDensityChooseHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LineHeightSpanWithDensityService_ServiceDesc is the grpc.ServiceDesc for LineHeightSpanWithDensityService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LineHeightSpanWithDensityService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LineHeightSpanWithDensityService",
+	HandlerType: (*LineHeightSpanWithDensityServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ChooseHeight",
+			Handler:    _LineHeightSpanWithDensityService_ChooseHeight_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -14353,6 +10713,1779 @@ var AlignmentSpanStandardService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	LineBackgroundSpanService_DrawBackground_FullMethodName = "/style.LineBackgroundSpanService/DrawBackground"
+)
+
+// LineBackgroundSpanServiceClient is the client API for LineBackgroundSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LineBackgroundSpanServiceClient interface {
+	DrawBackground(ctx context.Context, in *DrawBackgroundRequest, opts ...grpc.CallOption) (*DrawBackgroundResponse, error)
+}
+
+type lineBackgroundSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLineBackgroundSpanServiceClient(cc grpc.ClientConnInterface) LineBackgroundSpanServiceClient {
+	return &lineBackgroundSpanServiceClient{cc}
+}
+
+func (c *lineBackgroundSpanServiceClient) DrawBackground(ctx context.Context, in *DrawBackgroundRequest, opts ...grpc.CallOption) (*DrawBackgroundResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawBackgroundResponse)
+	err := c.cc.Invoke(ctx, LineBackgroundSpanService_DrawBackground_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LineBackgroundSpanServiceServer is the server API for LineBackgroundSpanService service.
+// All implementations must embed UnimplementedLineBackgroundSpanServiceServer
+// for forward compatibility.
+type LineBackgroundSpanServiceServer interface {
+	DrawBackground(context.Context, *DrawBackgroundRequest) (*DrawBackgroundResponse, error)
+	mustEmbedUnimplementedLineBackgroundSpanServiceServer()
+}
+
+// UnimplementedLineBackgroundSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLineBackgroundSpanServiceServer struct{}
+
+func (UnimplementedLineBackgroundSpanServiceServer) DrawBackground(context.Context, *DrawBackgroundRequest) (*DrawBackgroundResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DrawBackground not implemented")
+}
+func (UnimplementedLineBackgroundSpanServiceServer) mustEmbedUnimplementedLineBackgroundSpanServiceServer() {
+}
+func (UnimplementedLineBackgroundSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLineBackgroundSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LineBackgroundSpanServiceServer will
+// result in compilation errors.
+type UnsafeLineBackgroundSpanServiceServer interface {
+	mustEmbedUnimplementedLineBackgroundSpanServiceServer()
+}
+
+func RegisterLineBackgroundSpanServiceServer(s grpc.ServiceRegistrar, srv LineBackgroundSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedLineBackgroundSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LineBackgroundSpanService_ServiceDesc, srv)
+}
+
+func _LineBackgroundSpanService_DrawBackground_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawBackgroundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineBackgroundSpanServiceServer).DrawBackground(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineBackgroundSpanService_DrawBackground_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineBackgroundSpanServiceServer).DrawBackground(ctx, req.(*DrawBackgroundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LineBackgroundSpanService_ServiceDesc is the grpc.ServiceDesc for LineBackgroundSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LineBackgroundSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LineBackgroundSpanService",
+	HandlerType: (*LineBackgroundSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DrawBackground",
+			Handler:    _LineBackgroundSpanService_DrawBackground_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	LineBackgroundSpanStandardService_DescribeContents_FullMethodName = "/style.LineBackgroundSpanStandardService/DescribeContents"
+	LineBackgroundSpanStandardService_DrawBackground_FullMethodName   = "/style.LineBackgroundSpanStandardService/DrawBackground"
+	LineBackgroundSpanStandardService_GetColor_FullMethodName         = "/style.LineBackgroundSpanStandardService/GetColor"
+	LineBackgroundSpanStandardService_GetSpanTypeId_FullMethodName    = "/style.LineBackgroundSpanStandardService/GetSpanTypeId"
+	LineBackgroundSpanStandardService_WriteToParcel_FullMethodName    = "/style.LineBackgroundSpanStandardService/WriteToParcel"
+)
+
+// LineBackgroundSpanStandardServiceClient is the client API for LineBackgroundSpanStandardService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LineBackgroundSpanStandardServiceClient interface {
+	DescribeContents(ctx context.Context, in *LineBackgroundSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DrawBackground(ctx context.Context, in *DrawBackgroundRequest, opts ...grpc.CallOption) (*DrawBackgroundResponse, error)
+	GetColor(ctx context.Context, in *LineBackgroundSpanStandardGetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error)
+	GetSpanTypeId(ctx context.Context, in *LineBackgroundSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	WriteToParcel(ctx context.Context, in *LineBackgroundSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type lineBackgroundSpanStandardServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLineBackgroundSpanStandardServiceClient(cc grpc.ClientConnInterface) LineBackgroundSpanStandardServiceClient {
+	return &lineBackgroundSpanStandardServiceClient{cc}
+}
+
+func (c *lineBackgroundSpanStandardServiceClient) DescribeContents(ctx context.Context, in *LineBackgroundSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lineBackgroundSpanStandardServiceClient) DrawBackground(ctx context.Context, in *DrawBackgroundRequest, opts ...grpc.CallOption) (*DrawBackgroundResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawBackgroundResponse)
+	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_DrawBackground_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lineBackgroundSpanStandardServiceClient) GetColor(ctx context.Context, in *LineBackgroundSpanStandardGetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorResponse)
+	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_GetColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lineBackgroundSpanStandardServiceClient) GetSpanTypeId(ctx context.Context, in *LineBackgroundSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lineBackgroundSpanStandardServiceClient) WriteToParcel(ctx context.Context, in *LineBackgroundSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, LineBackgroundSpanStandardService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LineBackgroundSpanStandardServiceServer is the server API for LineBackgroundSpanStandardService service.
+// All implementations must embed UnimplementedLineBackgroundSpanStandardServiceServer
+// for forward compatibility.
+type LineBackgroundSpanStandardServiceServer interface {
+	DescribeContents(context.Context, *LineBackgroundSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DrawBackground(context.Context, *DrawBackgroundRequest) (*DrawBackgroundResponse, error)
+	GetColor(context.Context, *LineBackgroundSpanStandardGetColorRequest) (*GetColorResponse, error)
+	GetSpanTypeId(context.Context, *LineBackgroundSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	WriteToParcel(context.Context, *LineBackgroundSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedLineBackgroundSpanStandardServiceServer()
+}
+
+// UnimplementedLineBackgroundSpanStandardServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLineBackgroundSpanStandardServiceServer struct{}
+
+func (UnimplementedLineBackgroundSpanStandardServiceServer) DescribeContents(context.Context, *LineBackgroundSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedLineBackgroundSpanStandardServiceServer) DrawBackground(context.Context, *DrawBackgroundRequest) (*DrawBackgroundResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DrawBackground not implemented")
+}
+func (UnimplementedLineBackgroundSpanStandardServiceServer) GetColor(context.Context, *LineBackgroundSpanStandardGetColorRequest) (*GetColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColor not implemented")
+}
+func (UnimplementedLineBackgroundSpanStandardServiceServer) GetSpanTypeId(context.Context, *LineBackgroundSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedLineBackgroundSpanStandardServiceServer) WriteToParcel(context.Context, *LineBackgroundSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedLineBackgroundSpanStandardServiceServer) mustEmbedUnimplementedLineBackgroundSpanStandardServiceServer() {
+}
+func (UnimplementedLineBackgroundSpanStandardServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLineBackgroundSpanStandardServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LineBackgroundSpanStandardServiceServer will
+// result in compilation errors.
+type UnsafeLineBackgroundSpanStandardServiceServer interface {
+	mustEmbedUnimplementedLineBackgroundSpanStandardServiceServer()
+}
+
+func RegisterLineBackgroundSpanStandardServiceServer(s grpc.ServiceRegistrar, srv LineBackgroundSpanStandardServiceServer) {
+	// If the following call panics, it indicates UnimplementedLineBackgroundSpanStandardServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LineBackgroundSpanStandardService_ServiceDesc, srv)
+}
+
+func _LineBackgroundSpanStandardService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineBackgroundSpanStandardDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineBackgroundSpanStandardServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineBackgroundSpanStandardService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineBackgroundSpanStandardServiceServer).DescribeContents(ctx, req.(*LineBackgroundSpanStandardDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LineBackgroundSpanStandardService_DrawBackground_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawBackgroundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineBackgroundSpanStandardServiceServer).DrawBackground(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineBackgroundSpanStandardService_DrawBackground_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineBackgroundSpanStandardServiceServer).DrawBackground(ctx, req.(*DrawBackgroundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LineBackgroundSpanStandardService_GetColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineBackgroundSpanStandardGetColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineBackgroundSpanStandardServiceServer).GetColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineBackgroundSpanStandardService_GetColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineBackgroundSpanStandardServiceServer).GetColor(ctx, req.(*LineBackgroundSpanStandardGetColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LineBackgroundSpanStandardService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineBackgroundSpanStandardGetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineBackgroundSpanStandardServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineBackgroundSpanStandardService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineBackgroundSpanStandardServiceServer).GetSpanTypeId(ctx, req.(*LineBackgroundSpanStandardGetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LineBackgroundSpanStandardService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LineBackgroundSpanStandardWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LineBackgroundSpanStandardServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LineBackgroundSpanStandardService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LineBackgroundSpanStandardServiceServer).WriteToParcel(ctx, req.(*LineBackgroundSpanStandardWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LineBackgroundSpanStandardService_ServiceDesc is the grpc.ServiceDesc for LineBackgroundSpanStandardService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LineBackgroundSpanStandardService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LineBackgroundSpanStandardService",
+	HandlerType: (*LineBackgroundSpanStandardServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _LineBackgroundSpanStandardService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "DrawBackground",
+			Handler:    _LineBackgroundSpanStandardService_DrawBackground_Handler,
+		},
+		{
+			MethodName: "GetColor",
+			Handler:    _LineBackgroundSpanStandardService_GetColor_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _LineBackgroundSpanStandardService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _LineBackgroundSpanStandardService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	DrawableMarginSpanService_NewDrawableMarginSpan_FullMethodName = "/style.DrawableMarginSpanService/NewDrawableMarginSpan"
+	DrawableMarginSpanService_ChooseHeight_FullMethodName          = "/style.DrawableMarginSpanService/ChooseHeight"
+	DrawableMarginSpanService_DrawLeadingMargin_FullMethodName     = "/style.DrawableMarginSpanService/DrawLeadingMargin"
+	DrawableMarginSpanService_GetDrawable_FullMethodName           = "/style.DrawableMarginSpanService/GetDrawable"
+	DrawableMarginSpanService_GetLeadingMargin_FullMethodName      = "/style.DrawableMarginSpanService/GetLeadingMargin"
+	DrawableMarginSpanService_GetPadding_FullMethodName            = "/style.DrawableMarginSpanService/GetPadding"
+	DrawableMarginSpanService_ToString_FullMethodName              = "/style.DrawableMarginSpanService/ToString"
+)
+
+// DrawableMarginSpanServiceClient is the client API for DrawableMarginSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DrawableMarginSpanServiceClient interface {
+	NewDrawableMarginSpan(ctx context.Context, in *NewDrawableMarginSpanRequest, opts ...grpc.CallOption) (*NewDrawableMarginSpanResponse, error)
+	ChooseHeight(ctx context.Context, in *ChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error)
+	DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
+	GetDrawable(ctx context.Context, in *DrawableMarginSpanGetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error)
+	GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
+	GetPadding(ctx context.Context, in *GetPaddingRequest, opts ...grpc.CallOption) (*GetPaddingResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type drawableMarginSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDrawableMarginSpanServiceClient(cc grpc.ClientConnInterface) DrawableMarginSpanServiceClient {
+	return &drawableMarginSpanServiceClient{cc}
+}
+
+func (c *drawableMarginSpanServiceClient) NewDrawableMarginSpan(ctx context.Context, in *NewDrawableMarginSpanRequest, opts ...grpc.CallOption) (*NewDrawableMarginSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDrawableMarginSpanResponse)
+	err := c.cc.Invoke(ctx, DrawableMarginSpanService_NewDrawableMarginSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *drawableMarginSpanServiceClient) ChooseHeight(ctx context.Context, in *ChooseHeightRequest, opts ...grpc.CallOption) (*ChooseHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ChooseHeightResponse)
+	err := c.cc.Invoke(ctx, DrawableMarginSpanService_ChooseHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *drawableMarginSpanServiceClient) DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, DrawableMarginSpanService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *drawableMarginSpanServiceClient) GetDrawable(ctx context.Context, in *DrawableMarginSpanGetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDrawableResponse)
+	err := c.cc.Invoke(ctx, DrawableMarginSpanService_GetDrawable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *drawableMarginSpanServiceClient) GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, DrawableMarginSpanService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *drawableMarginSpanServiceClient) GetPadding(ctx context.Context, in *GetPaddingRequest, opts ...grpc.CallOption) (*GetPaddingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPaddingResponse)
+	err := c.cc.Invoke(ctx, DrawableMarginSpanService_GetPadding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *drawableMarginSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DrawableMarginSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DrawableMarginSpanServiceServer is the server API for DrawableMarginSpanService service.
+// All implementations must embed UnimplementedDrawableMarginSpanServiceServer
+// for forward compatibility.
+type DrawableMarginSpanServiceServer interface {
+	NewDrawableMarginSpan(context.Context, *NewDrawableMarginSpanRequest) (*NewDrawableMarginSpanResponse, error)
+	ChooseHeight(context.Context, *ChooseHeightRequest) (*ChooseHeightResponse, error)
+	DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
+	GetDrawable(context.Context, *DrawableMarginSpanGetDrawableRequest) (*GetDrawableResponse, error)
+	GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
+	GetPadding(context.Context, *GetPaddingRequest) (*GetPaddingResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedDrawableMarginSpanServiceServer()
+}
+
+// UnimplementedDrawableMarginSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDrawableMarginSpanServiceServer struct{}
+
+func (UnimplementedDrawableMarginSpanServiceServer) NewDrawableMarginSpan(context.Context, *NewDrawableMarginSpanRequest) (*NewDrawableMarginSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDrawableMarginSpan not implemented")
+}
+func (UnimplementedDrawableMarginSpanServiceServer) ChooseHeight(context.Context, *ChooseHeightRequest) (*ChooseHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ChooseHeight not implemented")
+}
+func (UnimplementedDrawableMarginSpanServiceServer) DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
+}
+func (UnimplementedDrawableMarginSpanServiceServer) GetDrawable(context.Context, *DrawableMarginSpanGetDrawableRequest) (*GetDrawableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDrawable not implemented")
+}
+func (UnimplementedDrawableMarginSpanServiceServer) GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
+}
+func (UnimplementedDrawableMarginSpanServiceServer) GetPadding(context.Context, *GetPaddingRequest) (*GetPaddingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPadding not implemented")
+}
+func (UnimplementedDrawableMarginSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDrawableMarginSpanServiceServer) mustEmbedUnimplementedDrawableMarginSpanServiceServer() {
+}
+func (UnimplementedDrawableMarginSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDrawableMarginSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DrawableMarginSpanServiceServer will
+// result in compilation errors.
+type UnsafeDrawableMarginSpanServiceServer interface {
+	mustEmbedUnimplementedDrawableMarginSpanServiceServer()
+}
+
+func RegisterDrawableMarginSpanServiceServer(s grpc.ServiceRegistrar, srv DrawableMarginSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedDrawableMarginSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DrawableMarginSpanService_ServiceDesc, srv)
+}
+
+func _DrawableMarginSpanService_NewDrawableMarginSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDrawableMarginSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DrawableMarginSpanServiceServer).NewDrawableMarginSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DrawableMarginSpanService_NewDrawableMarginSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DrawableMarginSpanServiceServer).NewDrawableMarginSpan(ctx, req.(*NewDrawableMarginSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DrawableMarginSpanService_ChooseHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChooseHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DrawableMarginSpanServiceServer).ChooseHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DrawableMarginSpanService_ChooseHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DrawableMarginSpanServiceServer).ChooseHeight(ctx, req.(*ChooseHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DrawableMarginSpanService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DrawableMarginSpanServiceServer).DrawLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DrawableMarginSpanService_DrawLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DrawableMarginSpanServiceServer).DrawLeadingMargin(ctx, req.(*DrawLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DrawableMarginSpanService_GetDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawableMarginSpanGetDrawableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DrawableMarginSpanServiceServer).GetDrawable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DrawableMarginSpanService_GetDrawable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DrawableMarginSpanServiceServer).GetDrawable(ctx, req.(*DrawableMarginSpanGetDrawableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DrawableMarginSpanService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DrawableMarginSpanServiceServer).GetLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DrawableMarginSpanService_GetLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DrawableMarginSpanServiceServer).GetLeadingMargin(ctx, req.(*GetLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DrawableMarginSpanService_GetPadding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPaddingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DrawableMarginSpanServiceServer).GetPadding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DrawableMarginSpanService_GetPadding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DrawableMarginSpanServiceServer).GetPadding(ctx, req.(*GetPaddingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DrawableMarginSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DrawableMarginSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DrawableMarginSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DrawableMarginSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DrawableMarginSpanService_ServiceDesc is the grpc.ServiceDesc for DrawableMarginSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DrawableMarginSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.DrawableMarginSpanService",
+	HandlerType: (*DrawableMarginSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDrawableMarginSpan",
+			Handler:    _DrawableMarginSpanService_NewDrawableMarginSpan_Handler,
+		},
+		{
+			MethodName: "ChooseHeight",
+			Handler:    _DrawableMarginSpanService_ChooseHeight_Handler,
+		},
+		{
+			MethodName: "DrawLeadingMargin",
+			Handler:    _DrawableMarginSpanService_DrawLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetDrawable",
+			Handler:    _DrawableMarginSpanService_GetDrawable_Handler,
+		},
+		{
+			MethodName: "GetLeadingMargin",
+			Handler:    _DrawableMarginSpanService_GetLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetPadding",
+			Handler:    _DrawableMarginSpanService_GetPadding_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DrawableMarginSpanService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	AbsoluteSizeSpanService_NewAbsoluteSizeSpan_FullMethodName = "/style.AbsoluteSizeSpanService/NewAbsoluteSizeSpan"
+	AbsoluteSizeSpanService_DescribeContents_FullMethodName    = "/style.AbsoluteSizeSpanService/DescribeContents"
+	AbsoluteSizeSpanService_GetDip_FullMethodName              = "/style.AbsoluteSizeSpanService/GetDip"
+	AbsoluteSizeSpanService_GetSize_FullMethodName             = "/style.AbsoluteSizeSpanService/GetSize"
+	AbsoluteSizeSpanService_GetSpanTypeId_FullMethodName       = "/style.AbsoluteSizeSpanService/GetSpanTypeId"
+	AbsoluteSizeSpanService_ToString_FullMethodName            = "/style.AbsoluteSizeSpanService/ToString"
+	AbsoluteSizeSpanService_UpdateDrawState_FullMethodName     = "/style.AbsoluteSizeSpanService/UpdateDrawState"
+	AbsoluteSizeSpanService_UpdateMeasureState_FullMethodName  = "/style.AbsoluteSizeSpanService/UpdateMeasureState"
+	AbsoluteSizeSpanService_WriteToParcel_FullMethodName       = "/style.AbsoluteSizeSpanService/WriteToParcel"
+)
+
+// AbsoluteSizeSpanServiceClient is the client API for AbsoluteSizeSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AbsoluteSizeSpanServiceClient interface {
+	NewAbsoluteSizeSpan(ctx context.Context, in *NewAbsoluteSizeSpanRequest, opts ...grpc.CallOption) (*NewAbsoluteSizeSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDip(ctx context.Context, in *GetDipRequest, opts ...grpc.CallOption) (*GetDipResponse, error)
+	GetSize(ctx context.Context, in *AbsoluteSizeSpanGetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type absoluteSizeSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAbsoluteSizeSpanServiceClient(cc grpc.ClientConnInterface) AbsoluteSizeSpanServiceClient {
+	return &absoluteSizeSpanServiceClient{cc}
+}
+
+func (c *absoluteSizeSpanServiceClient) NewAbsoluteSizeSpan(ctx context.Context, in *NewAbsoluteSizeSpanRequest, opts ...grpc.CallOption) (*NewAbsoluteSizeSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAbsoluteSizeSpanResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_NewAbsoluteSizeSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *absoluteSizeSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *absoluteSizeSpanServiceClient) GetDip(ctx context.Context, in *GetDipRequest, opts ...grpc.CallOption) (*GetDipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDipResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_GetDip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *absoluteSizeSpanServiceClient) GetSize(ctx context.Context, in *AbsoluteSizeSpanGetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSizeResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_GetSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *absoluteSizeSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *absoluteSizeSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *absoluteSizeSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *absoluteSizeSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMeasureStateResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *absoluteSizeSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AbsoluteSizeSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AbsoluteSizeSpanServiceServer is the server API for AbsoluteSizeSpanService service.
+// All implementations must embed UnimplementedAbsoluteSizeSpanServiceServer
+// for forward compatibility.
+type AbsoluteSizeSpanServiceServer interface {
+	NewAbsoluteSizeSpan(context.Context, *NewAbsoluteSizeSpanRequest) (*NewAbsoluteSizeSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDip(context.Context, *GetDipRequest) (*GetDipResponse, error)
+	GetSize(context.Context, *AbsoluteSizeSpanGetSizeRequest) (*GetSizeResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAbsoluteSizeSpanServiceServer()
+}
+
+// UnimplementedAbsoluteSizeSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAbsoluteSizeSpanServiceServer struct{}
+
+func (UnimplementedAbsoluteSizeSpanServiceServer) NewAbsoluteSizeSpan(context.Context, *NewAbsoluteSizeSpanRequest) (*NewAbsoluteSizeSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAbsoluteSizeSpan not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) GetDip(context.Context, *GetDipRequest) (*GetDipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDip not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) GetSize(context.Context, *AbsoluteSizeSpanGetSizeRequest) (*GetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) mustEmbedUnimplementedAbsoluteSizeSpanServiceServer() {
+}
+func (UnimplementedAbsoluteSizeSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAbsoluteSizeSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AbsoluteSizeSpanServiceServer will
+// result in compilation errors.
+type UnsafeAbsoluteSizeSpanServiceServer interface {
+	mustEmbedUnimplementedAbsoluteSizeSpanServiceServer()
+}
+
+func RegisterAbsoluteSizeSpanServiceServer(s grpc.ServiceRegistrar, srv AbsoluteSizeSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedAbsoluteSizeSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AbsoluteSizeSpanService_ServiceDesc, srv)
+}
+
+func _AbsoluteSizeSpanService_NewAbsoluteSizeSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAbsoluteSizeSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).NewAbsoluteSizeSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_NewAbsoluteSizeSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).NewAbsoluteSizeSpan(ctx, req.(*NewAbsoluteSizeSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbsoluteSizeSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbsoluteSizeSpanService_GetDip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).GetDip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_GetDip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).GetDip(ctx, req.(*GetDipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbsoluteSizeSpanService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbsoluteSizeSpanGetSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).GetSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_GetSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).GetSize(ctx, req.(*AbsoluteSizeSpanGetSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbsoluteSizeSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbsoluteSizeSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbsoluteSizeSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbsoluteSizeSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMeasureStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).UpdateMeasureState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_UpdateMeasureState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbsoluteSizeSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbsoluteSizeSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbsoluteSizeSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbsoluteSizeSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AbsoluteSizeSpanService_ServiceDesc is the grpc.ServiceDesc for AbsoluteSizeSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AbsoluteSizeSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.AbsoluteSizeSpanService",
+	HandlerType: (*AbsoluteSizeSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAbsoluteSizeSpan",
+			Handler:    _AbsoluteSizeSpanService_NewAbsoluteSizeSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AbsoluteSizeSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDip",
+			Handler:    _AbsoluteSizeSpanService_GetDip_Handler,
+		},
+		{
+			MethodName: "GetSize",
+			Handler:    _AbsoluteSizeSpanService_GetSize_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _AbsoluteSizeSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AbsoluteSizeSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _AbsoluteSizeSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "UpdateMeasureState",
+			Handler:    _AbsoluteSizeSpanService_UpdateMeasureState_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AbsoluteSizeSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	LeadingMarginSpanService_DrawLeadingMargin_FullMethodName = "/style.LeadingMarginSpanService/DrawLeadingMargin"
+	LeadingMarginSpanService_GetLeadingMargin_FullMethodName  = "/style.LeadingMarginSpanService/GetLeadingMargin"
+)
+
+// LeadingMarginSpanServiceClient is the client API for LeadingMarginSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LeadingMarginSpanServiceClient interface {
+	DrawLeadingMargin(ctx context.Context, in *LeadingMarginSpanDrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
+	GetLeadingMargin(ctx context.Context, in *LeadingMarginSpanGetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
+}
+
+type leadingMarginSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLeadingMarginSpanServiceClient(cc grpc.ClientConnInterface) LeadingMarginSpanServiceClient {
+	return &leadingMarginSpanServiceClient{cc}
+}
+
+func (c *leadingMarginSpanServiceClient) DrawLeadingMargin(ctx context.Context, in *LeadingMarginSpanDrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, LeadingMarginSpanService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *leadingMarginSpanServiceClient) GetLeadingMargin(ctx context.Context, in *LeadingMarginSpanGetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, LeadingMarginSpanService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LeadingMarginSpanServiceServer is the server API for LeadingMarginSpanService service.
+// All implementations must embed UnimplementedLeadingMarginSpanServiceServer
+// for forward compatibility.
+type LeadingMarginSpanServiceServer interface {
+	DrawLeadingMargin(context.Context, *LeadingMarginSpanDrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
+	GetLeadingMargin(context.Context, *LeadingMarginSpanGetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
+	mustEmbedUnimplementedLeadingMarginSpanServiceServer()
+}
+
+// UnimplementedLeadingMarginSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLeadingMarginSpanServiceServer struct{}
+
+func (UnimplementedLeadingMarginSpanServiceServer) DrawLeadingMargin(context.Context, *LeadingMarginSpanDrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
+}
+func (UnimplementedLeadingMarginSpanServiceServer) GetLeadingMargin(context.Context, *LeadingMarginSpanGetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
+}
+func (UnimplementedLeadingMarginSpanServiceServer) mustEmbedUnimplementedLeadingMarginSpanServiceServer() {
+}
+func (UnimplementedLeadingMarginSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLeadingMarginSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LeadingMarginSpanServiceServer will
+// result in compilation errors.
+type UnsafeLeadingMarginSpanServiceServer interface {
+	mustEmbedUnimplementedLeadingMarginSpanServiceServer()
+}
+
+func RegisterLeadingMarginSpanServiceServer(s grpc.ServiceRegistrar, srv LeadingMarginSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedLeadingMarginSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LeadingMarginSpanService_ServiceDesc, srv)
+}
+
+func _LeadingMarginSpanService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeadingMarginSpanDrawLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LeadingMarginSpanServiceServer).DrawLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LeadingMarginSpanService_DrawLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LeadingMarginSpanServiceServer).DrawLeadingMargin(ctx, req.(*LeadingMarginSpanDrawLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LeadingMarginSpanService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeadingMarginSpanGetLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LeadingMarginSpanServiceServer).GetLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LeadingMarginSpanService_GetLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LeadingMarginSpanServiceServer).GetLeadingMargin(ctx, req.(*LeadingMarginSpanGetLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LeadingMarginSpanService_ServiceDesc is the grpc.ServiceDesc for LeadingMarginSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LeadingMarginSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LeadingMarginSpanService",
+	HandlerType: (*LeadingMarginSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DrawLeadingMargin",
+			Handler:    _LeadingMarginSpanService_DrawLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetLeadingMargin",
+			Handler:    _LeadingMarginSpanService_GetLeadingMargin_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_FullMethodName = "/style.LeadingMarginSpanLeadingMarginSpan2Service/GetLeadingMarginLineCount"
+)
+
+// LeadingMarginSpanLeadingMarginSpan2ServiceClient is the client API for LeadingMarginSpanLeadingMarginSpan2Service service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LeadingMarginSpanLeadingMarginSpan2ServiceClient interface {
+	GetLeadingMarginLineCount(ctx context.Context, in *GetLeadingMarginLineCountRequest, opts ...grpc.CallOption) (*GetLeadingMarginLineCountResponse, error)
+}
+
+type leadingMarginSpanLeadingMarginSpan2ServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLeadingMarginSpanLeadingMarginSpan2ServiceClient(cc grpc.ClientConnInterface) LeadingMarginSpanLeadingMarginSpan2ServiceClient {
+	return &leadingMarginSpanLeadingMarginSpan2ServiceClient{cc}
+}
+
+func (c *leadingMarginSpanLeadingMarginSpan2ServiceClient) GetLeadingMarginLineCount(ctx context.Context, in *GetLeadingMarginLineCountRequest, opts ...grpc.CallOption) (*GetLeadingMarginLineCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLeadingMarginLineCountResponse)
+	err := c.cc.Invoke(ctx, LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LeadingMarginSpanLeadingMarginSpan2ServiceServer is the server API for LeadingMarginSpanLeadingMarginSpan2Service service.
+// All implementations must embed UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer
+// for forward compatibility.
+type LeadingMarginSpanLeadingMarginSpan2ServiceServer interface {
+	GetLeadingMarginLineCount(context.Context, *GetLeadingMarginLineCountRequest) (*GetLeadingMarginLineCountResponse, error)
+	mustEmbedUnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer()
+}
+
+// UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer struct{}
+
+func (UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer) GetLeadingMarginLineCount(context.Context, *GetLeadingMarginLineCountRequest) (*GetLeadingMarginLineCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLeadingMarginLineCount not implemented")
+}
+func (UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer) mustEmbedUnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer() {
+}
+func (UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLeadingMarginSpanLeadingMarginSpan2ServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LeadingMarginSpanLeadingMarginSpan2ServiceServer will
+// result in compilation errors.
+type UnsafeLeadingMarginSpanLeadingMarginSpan2ServiceServer interface {
+	mustEmbedUnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer()
+}
+
+func RegisterLeadingMarginSpanLeadingMarginSpan2ServiceServer(s grpc.ServiceRegistrar, srv LeadingMarginSpanLeadingMarginSpan2ServiceServer) {
+	// If the following call panics, it indicates UnimplementedLeadingMarginSpanLeadingMarginSpan2ServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LeadingMarginSpanLeadingMarginSpan2Service_ServiceDesc, srv)
+}
+
+func _LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLeadingMarginLineCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LeadingMarginSpanLeadingMarginSpan2ServiceServer).GetLeadingMarginLineCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LeadingMarginSpanLeadingMarginSpan2ServiceServer).GetLeadingMarginLineCount(ctx, req.(*GetLeadingMarginLineCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LeadingMarginSpanLeadingMarginSpan2Service_ServiceDesc is the grpc.ServiceDesc for LeadingMarginSpanLeadingMarginSpan2Service service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LeadingMarginSpanLeadingMarginSpan2Service_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LeadingMarginSpanLeadingMarginSpan2Service",
+	HandlerType: (*LeadingMarginSpanLeadingMarginSpan2ServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetLeadingMarginLineCount",
+			Handler:    _LeadingMarginSpanLeadingMarginSpan2Service_GetLeadingMarginLineCount_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	LeadingMarginSpanStandardService_DescribeContents_FullMethodName  = "/style.LeadingMarginSpanStandardService/DescribeContents"
+	LeadingMarginSpanStandardService_DrawLeadingMargin_FullMethodName = "/style.LeadingMarginSpanStandardService/DrawLeadingMargin"
+	LeadingMarginSpanStandardService_GetLeadingMargin_FullMethodName  = "/style.LeadingMarginSpanStandardService/GetLeadingMargin"
+	LeadingMarginSpanStandardService_GetSpanTypeId_FullMethodName     = "/style.LeadingMarginSpanStandardService/GetSpanTypeId"
+	LeadingMarginSpanStandardService_WriteToParcel_FullMethodName     = "/style.LeadingMarginSpanStandardService/WriteToParcel"
+)
+
+// LeadingMarginSpanStandardServiceClient is the client API for LeadingMarginSpanStandardService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LeadingMarginSpanStandardServiceClient interface {
+	DescribeContents(ctx context.Context, in *LeadingMarginSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DrawLeadingMargin(ctx context.Context, in *LeadingMarginSpanStandardDrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
+	GetLeadingMargin(ctx context.Context, in *LeadingMarginSpanStandardGetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
+	GetSpanTypeId(ctx context.Context, in *LeadingMarginSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	WriteToParcel(ctx context.Context, in *LeadingMarginSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type leadingMarginSpanStandardServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLeadingMarginSpanStandardServiceClient(cc grpc.ClientConnInterface) LeadingMarginSpanStandardServiceClient {
+	return &leadingMarginSpanStandardServiceClient{cc}
+}
+
+func (c *leadingMarginSpanStandardServiceClient) DescribeContents(ctx context.Context, in *LeadingMarginSpanStandardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *leadingMarginSpanStandardServiceClient) DrawLeadingMargin(ctx context.Context, in *LeadingMarginSpanStandardDrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *leadingMarginSpanStandardServiceClient) GetLeadingMargin(ctx context.Context, in *LeadingMarginSpanStandardGetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *leadingMarginSpanStandardServiceClient) GetSpanTypeId(ctx context.Context, in *LeadingMarginSpanStandardGetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *leadingMarginSpanStandardServiceClient) WriteToParcel(ctx context.Context, in *LeadingMarginSpanStandardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, LeadingMarginSpanStandardService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LeadingMarginSpanStandardServiceServer is the server API for LeadingMarginSpanStandardService service.
+// All implementations must embed UnimplementedLeadingMarginSpanStandardServiceServer
+// for forward compatibility.
+type LeadingMarginSpanStandardServiceServer interface {
+	DescribeContents(context.Context, *LeadingMarginSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DrawLeadingMargin(context.Context, *LeadingMarginSpanStandardDrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
+	GetLeadingMargin(context.Context, *LeadingMarginSpanStandardGetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
+	GetSpanTypeId(context.Context, *LeadingMarginSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	WriteToParcel(context.Context, *LeadingMarginSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedLeadingMarginSpanStandardServiceServer()
+}
+
+// UnimplementedLeadingMarginSpanStandardServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLeadingMarginSpanStandardServiceServer struct{}
+
+func (UnimplementedLeadingMarginSpanStandardServiceServer) DescribeContents(context.Context, *LeadingMarginSpanStandardDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedLeadingMarginSpanStandardServiceServer) DrawLeadingMargin(context.Context, *LeadingMarginSpanStandardDrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
+}
+func (UnimplementedLeadingMarginSpanStandardServiceServer) GetLeadingMargin(context.Context, *LeadingMarginSpanStandardGetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
+}
+func (UnimplementedLeadingMarginSpanStandardServiceServer) GetSpanTypeId(context.Context, *LeadingMarginSpanStandardGetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedLeadingMarginSpanStandardServiceServer) WriteToParcel(context.Context, *LeadingMarginSpanStandardWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedLeadingMarginSpanStandardServiceServer) mustEmbedUnimplementedLeadingMarginSpanStandardServiceServer() {
+}
+func (UnimplementedLeadingMarginSpanStandardServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLeadingMarginSpanStandardServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LeadingMarginSpanStandardServiceServer will
+// result in compilation errors.
+type UnsafeLeadingMarginSpanStandardServiceServer interface {
+	mustEmbedUnimplementedLeadingMarginSpanStandardServiceServer()
+}
+
+func RegisterLeadingMarginSpanStandardServiceServer(s grpc.ServiceRegistrar, srv LeadingMarginSpanStandardServiceServer) {
+	// If the following call panics, it indicates UnimplementedLeadingMarginSpanStandardServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LeadingMarginSpanStandardService_ServiceDesc, srv)
+}
+
+func _LeadingMarginSpanStandardService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeadingMarginSpanStandardDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LeadingMarginSpanStandardServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LeadingMarginSpanStandardService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LeadingMarginSpanStandardServiceServer).DescribeContents(ctx, req.(*LeadingMarginSpanStandardDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LeadingMarginSpanStandardService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeadingMarginSpanStandardDrawLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LeadingMarginSpanStandardServiceServer).DrawLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LeadingMarginSpanStandardService_DrawLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LeadingMarginSpanStandardServiceServer).DrawLeadingMargin(ctx, req.(*LeadingMarginSpanStandardDrawLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LeadingMarginSpanStandardService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeadingMarginSpanStandardGetLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LeadingMarginSpanStandardServiceServer).GetLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LeadingMarginSpanStandardService_GetLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LeadingMarginSpanStandardServiceServer).GetLeadingMargin(ctx, req.(*LeadingMarginSpanStandardGetLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LeadingMarginSpanStandardService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeadingMarginSpanStandardGetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LeadingMarginSpanStandardServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LeadingMarginSpanStandardService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LeadingMarginSpanStandardServiceServer).GetSpanTypeId(ctx, req.(*LeadingMarginSpanStandardGetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LeadingMarginSpanStandardService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeadingMarginSpanStandardWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LeadingMarginSpanStandardServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LeadingMarginSpanStandardService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LeadingMarginSpanStandardServiceServer).WriteToParcel(ctx, req.(*LeadingMarginSpanStandardWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LeadingMarginSpanStandardService_ServiceDesc is the grpc.ServiceDesc for LeadingMarginSpanStandardService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LeadingMarginSpanStandardService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LeadingMarginSpanStandardService",
+	HandlerType: (*LeadingMarginSpanStandardServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _LeadingMarginSpanStandardService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "DrawLeadingMargin",
+			Handler:    _LeadingMarginSpanStandardService_DrawLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetLeadingMargin",
+			Handler:    _LeadingMarginSpanStandardService_GetLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _LeadingMarginSpanStandardService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _LeadingMarginSpanStandardService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	CharacterStyleService_GetUnderlying_FullMethodName   = "/style.CharacterStyleService/GetUnderlying"
+	CharacterStyleService_UpdateDrawState_FullMethodName = "/style.CharacterStyleService/UpdateDrawState"
+	CharacterStyleService_Wrap_FullMethodName            = "/style.CharacterStyleService/Wrap"
+)
+
+// CharacterStyleServiceClient is the client API for CharacterStyleService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CharacterStyleServiceClient interface {
+	GetUnderlying(ctx context.Context, in *GetUnderlyingRequest, opts ...grpc.CallOption) (*GetUnderlyingResponse, error)
+	UpdateDrawState(ctx context.Context, in *CharacterStyleUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	Wrap(ctx context.Context, in *WrapRequest, opts ...grpc.CallOption) (*WrapResponse, error)
+}
+
+type characterStyleServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCharacterStyleServiceClient(cc grpc.ClientConnInterface) CharacterStyleServiceClient {
+	return &characterStyleServiceClient{cc}
+}
+
+func (c *characterStyleServiceClient) GetUnderlying(ctx context.Context, in *GetUnderlyingRequest, opts ...grpc.CallOption) (*GetUnderlyingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUnderlyingResponse)
+	err := c.cc.Invoke(ctx, CharacterStyleService_GetUnderlying_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characterStyleServiceClient) UpdateDrawState(ctx context.Context, in *CharacterStyleUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, CharacterStyleService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characterStyleServiceClient) Wrap(ctx context.Context, in *WrapRequest, opts ...grpc.CallOption) (*WrapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WrapResponse)
+	err := c.cc.Invoke(ctx, CharacterStyleService_Wrap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CharacterStyleServiceServer is the server API for CharacterStyleService service.
+// All implementations must embed UnimplementedCharacterStyleServiceServer
+// for forward compatibility.
+type CharacterStyleServiceServer interface {
+	GetUnderlying(context.Context, *GetUnderlyingRequest) (*GetUnderlyingResponse, error)
+	UpdateDrawState(context.Context, *CharacterStyleUpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	Wrap(context.Context, *WrapRequest) (*WrapResponse, error)
+	mustEmbedUnimplementedCharacterStyleServiceServer()
+}
+
+// UnimplementedCharacterStyleServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCharacterStyleServiceServer struct{}
+
+func (UnimplementedCharacterStyleServiceServer) GetUnderlying(context.Context, *GetUnderlyingRequest) (*GetUnderlyingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUnderlying not implemented")
+}
+func (UnimplementedCharacterStyleServiceServer) UpdateDrawState(context.Context, *CharacterStyleUpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedCharacterStyleServiceServer) Wrap(context.Context, *WrapRequest) (*WrapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Wrap not implemented")
+}
+func (UnimplementedCharacterStyleServiceServer) mustEmbedUnimplementedCharacterStyleServiceServer() {}
+func (UnimplementedCharacterStyleServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeCharacterStyleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CharacterStyleServiceServer will
+// result in compilation errors.
+type UnsafeCharacterStyleServiceServer interface {
+	mustEmbedUnimplementedCharacterStyleServiceServer()
+}
+
+func RegisterCharacterStyleServiceServer(s grpc.ServiceRegistrar, srv CharacterStyleServiceServer) {
+	// If the following call panics, it indicates UnimplementedCharacterStyleServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CharacterStyleService_ServiceDesc, srv)
+}
+
+func _CharacterStyleService_GetUnderlying_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnderlyingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacterStyleServiceServer).GetUnderlying(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacterStyleService_GetUnderlying_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacterStyleServiceServer).GetUnderlying(ctx, req.(*GetUnderlyingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacterStyleService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CharacterStyleUpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacterStyleServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacterStyleService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacterStyleServiceServer).UpdateDrawState(ctx, req.(*CharacterStyleUpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacterStyleService_Wrap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WrapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacterStyleServiceServer).Wrap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacterStyleService_Wrap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacterStyleServiceServer).Wrap(ctx, req.(*WrapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CharacterStyleService_ServiceDesc is the grpc.ServiceDesc for CharacterStyleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CharacterStyleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.CharacterStyleService",
+	HandlerType: (*CharacterStyleServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetUnderlying",
+			Handler:    _CharacterStyleService_GetUnderlying_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _CharacterStyleService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "Wrap",
+			Handler:    _CharacterStyleService_Wrap_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
 	MaskFilterSpanService_NewMaskFilterSpan_FullMethodName = "/style.MaskFilterSpanService/NewMaskFilterSpan"
 	MaskFilterSpanService_GetMaskFilter_FullMethodName     = "/style.MaskFilterSpanService/GetMaskFilter"
 	MaskFilterSpanService_ToString_FullMethodName          = "/style.MaskFilterSpanService/ToString"
@@ -14562,6 +12695,2497 @@ var MaskFilterSpanService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateDrawState",
 			Handler:    _MaskFilterSpanService_UpdateDrawState_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	UnderlineSpanService_NewUnderlineSpan_FullMethodName = "/style.UnderlineSpanService/NewUnderlineSpan"
+	UnderlineSpanService_DescribeContents_FullMethodName = "/style.UnderlineSpanService/DescribeContents"
+	UnderlineSpanService_GetSpanTypeId_FullMethodName    = "/style.UnderlineSpanService/GetSpanTypeId"
+	UnderlineSpanService_ToString_FullMethodName         = "/style.UnderlineSpanService/ToString"
+	UnderlineSpanService_UpdateDrawState_FullMethodName  = "/style.UnderlineSpanService/UpdateDrawState"
+	UnderlineSpanService_WriteToParcel_FullMethodName    = "/style.UnderlineSpanService/WriteToParcel"
+)
+
+// UnderlineSpanServiceClient is the client API for UnderlineSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UnderlineSpanServiceClient interface {
+	NewUnderlineSpan(ctx context.Context, in *NewUnderlineSpanRequest, opts ...grpc.CallOption) (*NewUnderlineSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type underlineSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUnderlineSpanServiceClient(cc grpc.ClientConnInterface) UnderlineSpanServiceClient {
+	return &underlineSpanServiceClient{cc}
+}
+
+func (c *underlineSpanServiceClient) NewUnderlineSpan(ctx context.Context, in *NewUnderlineSpanRequest, opts ...grpc.CallOption) (*NewUnderlineSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewUnderlineSpanResponse)
+	err := c.cc.Invoke(ctx, UnderlineSpanService_NewUnderlineSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *underlineSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, UnderlineSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *underlineSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, UnderlineSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *underlineSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, UnderlineSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *underlineSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, UnderlineSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *underlineSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, UnderlineSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UnderlineSpanServiceServer is the server API for UnderlineSpanService service.
+// All implementations must embed UnimplementedUnderlineSpanServiceServer
+// for forward compatibility.
+type UnderlineSpanServiceServer interface {
+	NewUnderlineSpan(context.Context, *NewUnderlineSpanRequest) (*NewUnderlineSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedUnderlineSpanServiceServer()
+}
+
+// UnimplementedUnderlineSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUnderlineSpanServiceServer struct{}
+
+func (UnimplementedUnderlineSpanServiceServer) NewUnderlineSpan(context.Context, *NewUnderlineSpanRequest) (*NewUnderlineSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewUnderlineSpan not implemented")
+}
+func (UnimplementedUnderlineSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedUnderlineSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedUnderlineSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedUnderlineSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedUnderlineSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedUnderlineSpanServiceServer) mustEmbedUnimplementedUnderlineSpanServiceServer() {}
+func (UnimplementedUnderlineSpanServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeUnderlineSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UnderlineSpanServiceServer will
+// result in compilation errors.
+type UnsafeUnderlineSpanServiceServer interface {
+	mustEmbedUnimplementedUnderlineSpanServiceServer()
+}
+
+func RegisterUnderlineSpanServiceServer(s grpc.ServiceRegistrar, srv UnderlineSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedUnderlineSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UnderlineSpanService_ServiceDesc, srv)
+}
+
+func _UnderlineSpanService_NewUnderlineSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewUnderlineSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnderlineSpanServiceServer).NewUnderlineSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnderlineSpanService_NewUnderlineSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnderlineSpanServiceServer).NewUnderlineSpan(ctx, req.(*NewUnderlineSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnderlineSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnderlineSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnderlineSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnderlineSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnderlineSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnderlineSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnderlineSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnderlineSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnderlineSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnderlineSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnderlineSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnderlineSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnderlineSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnderlineSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnderlineSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnderlineSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnderlineSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnderlineSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnderlineSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnderlineSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UnderlineSpanService_ServiceDesc is the grpc.ServiceDesc for UnderlineSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UnderlineSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.UnderlineSpanService",
+	HandlerType: (*UnderlineSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewUnderlineSpan",
+			Handler:    _UnderlineSpanService_NewUnderlineSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _UnderlineSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _UnderlineSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _UnderlineSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _UnderlineSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _UnderlineSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	NoWritingToolsSpanService_NewNoWritingToolsSpan_FullMethodName = "/style.NoWritingToolsSpanService/NewNoWritingToolsSpan"
+	NoWritingToolsSpanService_DescribeContents_FullMethodName      = "/style.NoWritingToolsSpanService/DescribeContents"
+	NoWritingToolsSpanService_GetSpanTypeId_FullMethodName         = "/style.NoWritingToolsSpanService/GetSpanTypeId"
+	NoWritingToolsSpanService_ToString_FullMethodName              = "/style.NoWritingToolsSpanService/ToString"
+	NoWritingToolsSpanService_WriteToParcel_FullMethodName         = "/style.NoWritingToolsSpanService/WriteToParcel"
+)
+
+// NoWritingToolsSpanServiceClient is the client API for NoWritingToolsSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NoWritingToolsSpanServiceClient interface {
+	NewNoWritingToolsSpan(ctx context.Context, in *NewNoWritingToolsSpanRequest, opts ...grpc.CallOption) (*NewNoWritingToolsSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type noWritingToolsSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNoWritingToolsSpanServiceClient(cc grpc.ClientConnInterface) NoWritingToolsSpanServiceClient {
+	return &noWritingToolsSpanServiceClient{cc}
+}
+
+func (c *noWritingToolsSpanServiceClient) NewNoWritingToolsSpan(ctx context.Context, in *NewNoWritingToolsSpanRequest, opts ...grpc.CallOption) (*NewNoWritingToolsSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewNoWritingToolsSpanResponse)
+	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_NewNoWritingToolsSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noWritingToolsSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noWritingToolsSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noWritingToolsSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noWritingToolsSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NoWritingToolsSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NoWritingToolsSpanServiceServer is the server API for NoWritingToolsSpanService service.
+// All implementations must embed UnimplementedNoWritingToolsSpanServiceServer
+// for forward compatibility.
+type NoWritingToolsSpanServiceServer interface {
+	NewNoWritingToolsSpan(context.Context, *NewNoWritingToolsSpanRequest) (*NewNoWritingToolsSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedNoWritingToolsSpanServiceServer()
+}
+
+// UnimplementedNoWritingToolsSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNoWritingToolsSpanServiceServer struct{}
+
+func (UnimplementedNoWritingToolsSpanServiceServer) NewNoWritingToolsSpan(context.Context, *NewNoWritingToolsSpanRequest) (*NewNoWritingToolsSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewNoWritingToolsSpan not implemented")
+}
+func (UnimplementedNoWritingToolsSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNoWritingToolsSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedNoWritingToolsSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedNoWritingToolsSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNoWritingToolsSpanServiceServer) mustEmbedUnimplementedNoWritingToolsSpanServiceServer() {
+}
+func (UnimplementedNoWritingToolsSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNoWritingToolsSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NoWritingToolsSpanServiceServer will
+// result in compilation errors.
+type UnsafeNoWritingToolsSpanServiceServer interface {
+	mustEmbedUnimplementedNoWritingToolsSpanServiceServer()
+}
+
+func RegisterNoWritingToolsSpanServiceServer(s grpc.ServiceRegistrar, srv NoWritingToolsSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedNoWritingToolsSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NoWritingToolsSpanService_ServiceDesc, srv)
+}
+
+func _NoWritingToolsSpanService_NewNoWritingToolsSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewNoWritingToolsSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoWritingToolsSpanServiceServer).NewNoWritingToolsSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NoWritingToolsSpanService_NewNoWritingToolsSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoWritingToolsSpanServiceServer).NewNoWritingToolsSpan(ctx, req.(*NewNoWritingToolsSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoWritingToolsSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoWritingToolsSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NoWritingToolsSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoWritingToolsSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoWritingToolsSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoWritingToolsSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NoWritingToolsSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoWritingToolsSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoWritingToolsSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoWritingToolsSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NoWritingToolsSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoWritingToolsSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoWritingToolsSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoWritingToolsSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NoWritingToolsSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoWritingToolsSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NoWritingToolsSpanService_ServiceDesc is the grpc.ServiceDesc for NoWritingToolsSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NoWritingToolsSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.NoWritingToolsSpanService",
+	HandlerType: (*NoWritingToolsSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewNoWritingToolsSpan",
+			Handler:    _NoWritingToolsSpanService_NewNoWritingToolsSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NoWritingToolsSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _NoWritingToolsSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _NoWritingToolsSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NoWritingToolsSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	QuoteSpanService_NewQuoteSpan_FullMethodName      = "/style.QuoteSpanService/NewQuoteSpan"
+	QuoteSpanService_DescribeContents_FullMethodName  = "/style.QuoteSpanService/DescribeContents"
+	QuoteSpanService_DrawLeadingMargin_FullMethodName = "/style.QuoteSpanService/DrawLeadingMargin"
+	QuoteSpanService_GetColor_FullMethodName          = "/style.QuoteSpanService/GetColor"
+	QuoteSpanService_GetGapWidth_FullMethodName       = "/style.QuoteSpanService/GetGapWidth"
+	QuoteSpanService_GetLeadingMargin_FullMethodName  = "/style.QuoteSpanService/GetLeadingMargin"
+	QuoteSpanService_GetSpanTypeId_FullMethodName     = "/style.QuoteSpanService/GetSpanTypeId"
+	QuoteSpanService_GetStripeWidth_FullMethodName    = "/style.QuoteSpanService/GetStripeWidth"
+	QuoteSpanService_ToString_FullMethodName          = "/style.QuoteSpanService/ToString"
+	QuoteSpanService_WriteToParcel_FullMethodName     = "/style.QuoteSpanService/WriteToParcel"
+)
+
+// QuoteSpanServiceClient is the client API for QuoteSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type QuoteSpanServiceClient interface {
+	NewQuoteSpan(ctx context.Context, in *NewQuoteSpanRequest, opts ...grpc.CallOption) (*NewQuoteSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error)
+	GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error)
+	GetGapWidth(ctx context.Context, in *GetGapWidthRequest, opts ...grpc.CallOption) (*GetGapWidthResponse, error)
+	GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	GetStripeWidth(ctx context.Context, in *GetStripeWidthRequest, opts ...grpc.CallOption) (*GetStripeWidthResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type quoteSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewQuoteSpanServiceClient(cc grpc.ClientConnInterface) QuoteSpanServiceClient {
+	return &quoteSpanServiceClient{cc}
+}
+
+func (c *quoteSpanServiceClient) NewQuoteSpan(ctx context.Context, in *NewQuoteSpanRequest, opts ...grpc.CallOption) (*NewQuoteSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewQuoteSpanResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_NewQuoteSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) DrawLeadingMargin(ctx context.Context, in *DrawLeadingMarginRequest, opts ...grpc.CallOption) (*DrawLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_DrawLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_GetColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) GetGapWidth(ctx context.Context, in *GetGapWidthRequest, opts ...grpc.CallOption) (*GetGapWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGapWidthResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_GetGapWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) GetLeadingMargin(ctx context.Context, in *GetLeadingMarginRequest, opts ...grpc.CallOption) (*GetLeadingMarginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLeadingMarginResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_GetLeadingMargin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) GetStripeWidth(ctx context.Context, in *GetStripeWidthRequest, opts ...grpc.CallOption) (*GetStripeWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStripeWidthResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_GetStripeWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quoteSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, QuoteSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// QuoteSpanServiceServer is the server API for QuoteSpanService service.
+// All implementations must embed UnimplementedQuoteSpanServiceServer
+// for forward compatibility.
+type QuoteSpanServiceServer interface {
+	NewQuoteSpan(context.Context, *NewQuoteSpanRequest) (*NewQuoteSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error)
+	GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error)
+	GetGapWidth(context.Context, *GetGapWidthRequest) (*GetGapWidthResponse, error)
+	GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	GetStripeWidth(context.Context, *GetStripeWidthRequest) (*GetStripeWidthResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedQuoteSpanServiceServer()
+}
+
+// UnimplementedQuoteSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedQuoteSpanServiceServer struct{}
+
+func (UnimplementedQuoteSpanServiceServer) NewQuoteSpan(context.Context, *NewQuoteSpanRequest) (*NewQuoteSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewQuoteSpan not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) DrawLeadingMargin(context.Context, *DrawLeadingMarginRequest) (*DrawLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DrawLeadingMargin not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColor not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) GetGapWidth(context.Context, *GetGapWidthRequest) (*GetGapWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGapWidth not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) GetLeadingMargin(context.Context, *GetLeadingMarginRequest) (*GetLeadingMarginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLeadingMargin not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) GetStripeWidth(context.Context, *GetStripeWidthRequest) (*GetStripeWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStripeWidth not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedQuoteSpanServiceServer) mustEmbedUnimplementedQuoteSpanServiceServer() {}
+func (UnimplementedQuoteSpanServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeQuoteSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to QuoteSpanServiceServer will
+// result in compilation errors.
+type UnsafeQuoteSpanServiceServer interface {
+	mustEmbedUnimplementedQuoteSpanServiceServer()
+}
+
+func RegisterQuoteSpanServiceServer(s grpc.ServiceRegistrar, srv QuoteSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedQuoteSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&QuoteSpanService_ServiceDesc, srv)
+}
+
+func _QuoteSpanService_NewQuoteSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewQuoteSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).NewQuoteSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_NewQuoteSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).NewQuoteSpan(ctx, req.(*NewQuoteSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_DrawLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).DrawLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_DrawLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).DrawLeadingMargin(ctx, req.(*DrawLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_GetColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).GetColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_GetColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).GetColor(ctx, req.(*GetColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_GetGapWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGapWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).GetGapWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_GetGapWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).GetGapWidth(ctx, req.(*GetGapWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_GetLeadingMargin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLeadingMarginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).GetLeadingMargin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_GetLeadingMargin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).GetLeadingMargin(ctx, req.(*GetLeadingMarginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_GetStripeWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStripeWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).GetStripeWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_GetStripeWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).GetStripeWidth(ctx, req.(*GetStripeWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuoteSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuoteSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuoteSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuoteSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// QuoteSpanService_ServiceDesc is the grpc.ServiceDesc for QuoteSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var QuoteSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.QuoteSpanService",
+	HandlerType: (*QuoteSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewQuoteSpan",
+			Handler:    _QuoteSpanService_NewQuoteSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _QuoteSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "DrawLeadingMargin",
+			Handler:    _QuoteSpanService_DrawLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetColor",
+			Handler:    _QuoteSpanService_GetColor_Handler,
+		},
+		{
+			MethodName: "GetGapWidth",
+			Handler:    _QuoteSpanService_GetGapWidth_Handler,
+		},
+		{
+			MethodName: "GetLeadingMargin",
+			Handler:    _QuoteSpanService_GetLeadingMargin_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _QuoteSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "GetStripeWidth",
+			Handler:    _QuoteSpanService_GetStripeWidth_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _QuoteSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _QuoteSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	SuperscriptSpanService_NewSuperscriptSpan_FullMethodName = "/style.SuperscriptSpanService/NewSuperscriptSpan"
+	SuperscriptSpanService_DescribeContents_FullMethodName   = "/style.SuperscriptSpanService/DescribeContents"
+	SuperscriptSpanService_GetSpanTypeId_FullMethodName      = "/style.SuperscriptSpanService/GetSpanTypeId"
+	SuperscriptSpanService_ToString_FullMethodName           = "/style.SuperscriptSpanService/ToString"
+	SuperscriptSpanService_UpdateDrawState_FullMethodName    = "/style.SuperscriptSpanService/UpdateDrawState"
+	SuperscriptSpanService_UpdateMeasureState_FullMethodName = "/style.SuperscriptSpanService/UpdateMeasureState"
+	SuperscriptSpanService_WriteToParcel_FullMethodName      = "/style.SuperscriptSpanService/WriteToParcel"
+)
+
+// SuperscriptSpanServiceClient is the client API for SuperscriptSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SuperscriptSpanServiceClient interface {
+	NewSuperscriptSpan(ctx context.Context, in *NewSuperscriptSpanRequest, opts ...grpc.CallOption) (*NewSuperscriptSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type superscriptSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSuperscriptSpanServiceClient(cc grpc.ClientConnInterface) SuperscriptSpanServiceClient {
+	return &superscriptSpanServiceClient{cc}
+}
+
+func (c *superscriptSpanServiceClient) NewSuperscriptSpan(ctx context.Context, in *NewSuperscriptSpanRequest, opts ...grpc.CallOption) (*NewSuperscriptSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSuperscriptSpanResponse)
+	err := c.cc.Invoke(ctx, SuperscriptSpanService_NewSuperscriptSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *superscriptSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SuperscriptSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *superscriptSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, SuperscriptSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *superscriptSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SuperscriptSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *superscriptSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, SuperscriptSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *superscriptSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMeasureStateResponse)
+	err := c.cc.Invoke(ctx, SuperscriptSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *superscriptSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SuperscriptSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SuperscriptSpanServiceServer is the server API for SuperscriptSpanService service.
+// All implementations must embed UnimplementedSuperscriptSpanServiceServer
+// for forward compatibility.
+type SuperscriptSpanServiceServer interface {
+	NewSuperscriptSpan(context.Context, *NewSuperscriptSpanRequest) (*NewSuperscriptSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSuperscriptSpanServiceServer()
+}
+
+// UnimplementedSuperscriptSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSuperscriptSpanServiceServer struct{}
+
+func (UnimplementedSuperscriptSpanServiceServer) NewSuperscriptSpan(context.Context, *NewSuperscriptSpanRequest) (*NewSuperscriptSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSuperscriptSpan not implemented")
+}
+func (UnimplementedSuperscriptSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSuperscriptSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedSuperscriptSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSuperscriptSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedSuperscriptSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
+}
+func (UnimplementedSuperscriptSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSuperscriptSpanServiceServer) mustEmbedUnimplementedSuperscriptSpanServiceServer() {
+}
+func (UnimplementedSuperscriptSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSuperscriptSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SuperscriptSpanServiceServer will
+// result in compilation errors.
+type UnsafeSuperscriptSpanServiceServer interface {
+	mustEmbedUnimplementedSuperscriptSpanServiceServer()
+}
+
+func RegisterSuperscriptSpanServiceServer(s grpc.ServiceRegistrar, srv SuperscriptSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedSuperscriptSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SuperscriptSpanService_ServiceDesc, srv)
+}
+
+func _SuperscriptSpanService_NewSuperscriptSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSuperscriptSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuperscriptSpanServiceServer).NewSuperscriptSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuperscriptSpanService_NewSuperscriptSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuperscriptSpanServiceServer).NewSuperscriptSpan(ctx, req.(*NewSuperscriptSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuperscriptSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuperscriptSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuperscriptSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuperscriptSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuperscriptSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuperscriptSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuperscriptSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuperscriptSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuperscriptSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuperscriptSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuperscriptSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuperscriptSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuperscriptSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuperscriptSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuperscriptSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuperscriptSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuperscriptSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMeasureStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuperscriptSpanServiceServer).UpdateMeasureState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuperscriptSpanService_UpdateMeasureState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuperscriptSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuperscriptSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuperscriptSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuperscriptSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuperscriptSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SuperscriptSpanService_ServiceDesc is the grpc.ServiceDesc for SuperscriptSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SuperscriptSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.SuperscriptSpanService",
+	HandlerType: (*SuperscriptSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSuperscriptSpan",
+			Handler:    _SuperscriptSpanService_NewSuperscriptSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SuperscriptSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _SuperscriptSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SuperscriptSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _SuperscriptSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "UpdateMeasureState",
+			Handler:    _SuperscriptSpanService_UpdateMeasureState_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SuperscriptSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	MetricAffectingSpanService_GetUnderlying0_FullMethodName     = "/style.MetricAffectingSpanService/GetUnderlying0"
+	MetricAffectingSpanService_UpdateMeasureState_FullMethodName = "/style.MetricAffectingSpanService/UpdateMeasureState"
+	MetricAffectingSpanService_GetUnderlying0_1_FullMethodName   = "/style.MetricAffectingSpanService/GetUnderlying0_1"
+)
+
+// MetricAffectingSpanServiceClient is the client API for MetricAffectingSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MetricAffectingSpanServiceClient interface {
+	GetUnderlying0(ctx context.Context, in *GetUnderlying0Request, opts ...grpc.CallOption) (*GetUnderlying0Response, error)
+	UpdateMeasureState(ctx context.Context, in *MetricAffectingSpanUpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
+	GetUnderlying0_1(ctx context.Context, in *GetUnderlying0_1Request, opts ...grpc.CallOption) (*GetUnderlying0_1Response, error)
+}
+
+type metricAffectingSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMetricAffectingSpanServiceClient(cc grpc.ClientConnInterface) MetricAffectingSpanServiceClient {
+	return &metricAffectingSpanServiceClient{cc}
+}
+
+func (c *metricAffectingSpanServiceClient) GetUnderlying0(ctx context.Context, in *GetUnderlying0Request, opts ...grpc.CallOption) (*GetUnderlying0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUnderlying0Response)
+	err := c.cc.Invoke(ctx, MetricAffectingSpanService_GetUnderlying0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *metricAffectingSpanServiceClient) UpdateMeasureState(ctx context.Context, in *MetricAffectingSpanUpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMeasureStateResponse)
+	err := c.cc.Invoke(ctx, MetricAffectingSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *metricAffectingSpanServiceClient) GetUnderlying0_1(ctx context.Context, in *GetUnderlying0_1Request, opts ...grpc.CallOption) (*GetUnderlying0_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUnderlying0_1Response)
+	err := c.cc.Invoke(ctx, MetricAffectingSpanService_GetUnderlying0_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MetricAffectingSpanServiceServer is the server API for MetricAffectingSpanService service.
+// All implementations must embed UnimplementedMetricAffectingSpanServiceServer
+// for forward compatibility.
+type MetricAffectingSpanServiceServer interface {
+	GetUnderlying0(context.Context, *GetUnderlying0Request) (*GetUnderlying0Response, error)
+	UpdateMeasureState(context.Context, *MetricAffectingSpanUpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
+	GetUnderlying0_1(context.Context, *GetUnderlying0_1Request) (*GetUnderlying0_1Response, error)
+	mustEmbedUnimplementedMetricAffectingSpanServiceServer()
+}
+
+// UnimplementedMetricAffectingSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMetricAffectingSpanServiceServer struct{}
+
+func (UnimplementedMetricAffectingSpanServiceServer) GetUnderlying0(context.Context, *GetUnderlying0Request) (*GetUnderlying0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUnderlying0 not implemented")
+}
+func (UnimplementedMetricAffectingSpanServiceServer) UpdateMeasureState(context.Context, *MetricAffectingSpanUpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
+}
+func (UnimplementedMetricAffectingSpanServiceServer) GetUnderlying0_1(context.Context, *GetUnderlying0_1Request) (*GetUnderlying0_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUnderlying0_1 not implemented")
+}
+func (UnimplementedMetricAffectingSpanServiceServer) mustEmbedUnimplementedMetricAffectingSpanServiceServer() {
+}
+func (UnimplementedMetricAffectingSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeMetricAffectingSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MetricAffectingSpanServiceServer will
+// result in compilation errors.
+type UnsafeMetricAffectingSpanServiceServer interface {
+	mustEmbedUnimplementedMetricAffectingSpanServiceServer()
+}
+
+func RegisterMetricAffectingSpanServiceServer(s grpc.ServiceRegistrar, srv MetricAffectingSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedMetricAffectingSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MetricAffectingSpanService_ServiceDesc, srv)
+}
+
+func _MetricAffectingSpanService_GetUnderlying0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnderlying0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetricAffectingSpanServiceServer).GetUnderlying0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetricAffectingSpanService_GetUnderlying0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetricAffectingSpanServiceServer).GetUnderlying0(ctx, req.(*GetUnderlying0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MetricAffectingSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MetricAffectingSpanUpdateMeasureStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetricAffectingSpanServiceServer).UpdateMeasureState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetricAffectingSpanService_UpdateMeasureState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetricAffectingSpanServiceServer).UpdateMeasureState(ctx, req.(*MetricAffectingSpanUpdateMeasureStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MetricAffectingSpanService_GetUnderlying0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnderlying0_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetricAffectingSpanServiceServer).GetUnderlying0_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetricAffectingSpanService_GetUnderlying0_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetricAffectingSpanServiceServer).GetUnderlying0_1(ctx, req.(*GetUnderlying0_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MetricAffectingSpanService_ServiceDesc is the grpc.ServiceDesc for MetricAffectingSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MetricAffectingSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.MetricAffectingSpanService",
+	HandlerType: (*MetricAffectingSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetUnderlying0",
+			Handler:    _MetricAffectingSpanService_GetUnderlying0_Handler,
+		},
+		{
+			MethodName: "UpdateMeasureState",
+			Handler:    _MetricAffectingSpanService_UpdateMeasureState_Handler,
+		},
+		{
+			MethodName: "GetUnderlying0_1",
+			Handler:    _MetricAffectingSpanService_GetUnderlying0_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	LocaleSpanService_NewLocaleSpan_FullMethodName      = "/style.LocaleSpanService/NewLocaleSpan"
+	LocaleSpanService_DescribeContents_FullMethodName   = "/style.LocaleSpanService/DescribeContents"
+	LocaleSpanService_GetLocale_FullMethodName          = "/style.LocaleSpanService/GetLocale"
+	LocaleSpanService_GetLocales_FullMethodName         = "/style.LocaleSpanService/GetLocales"
+	LocaleSpanService_GetSpanTypeId_FullMethodName      = "/style.LocaleSpanService/GetSpanTypeId"
+	LocaleSpanService_ToString_FullMethodName           = "/style.LocaleSpanService/ToString"
+	LocaleSpanService_UpdateDrawState_FullMethodName    = "/style.LocaleSpanService/UpdateDrawState"
+	LocaleSpanService_UpdateMeasureState_FullMethodName = "/style.LocaleSpanService/UpdateMeasureState"
+	LocaleSpanService_WriteToParcel_FullMethodName      = "/style.LocaleSpanService/WriteToParcel"
+)
+
+// LocaleSpanServiceClient is the client API for LocaleSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LocaleSpanServiceClient interface {
+	NewLocaleSpan(ctx context.Context, in *NewLocaleSpanRequest, opts ...grpc.CallOption) (*NewLocaleSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*LocaleSpanGetLocaleResponse, error)
+	GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type localeSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLocaleSpanServiceClient(cc grpc.ClientConnInterface) LocaleSpanServiceClient {
+	return &localeSpanServiceClient{cc}
+}
+
+func (c *localeSpanServiceClient) NewLocaleSpan(ctx context.Context, in *NewLocaleSpanRequest, opts ...grpc.CallOption) (*NewLocaleSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewLocaleSpanResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_NewLocaleSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeSpanServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*LocaleSpanGetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LocaleSpanGetLocaleResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeSpanServiceClient) GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalesResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_GetLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMeasureStateResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, LocaleSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LocaleSpanServiceServer is the server API for LocaleSpanService service.
+// All implementations must embed UnimplementedLocaleSpanServiceServer
+// for forward compatibility.
+type LocaleSpanServiceServer interface {
+	NewLocaleSpan(context.Context, *NewLocaleSpanRequest) (*NewLocaleSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetLocale(context.Context, *GetLocaleRequest) (*LocaleSpanGetLocaleResponse, error)
+	GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedLocaleSpanServiceServer()
+}
+
+// UnimplementedLocaleSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLocaleSpanServiceServer struct{}
+
+func (UnimplementedLocaleSpanServiceServer) NewLocaleSpan(context.Context, *NewLocaleSpanRequest) (*NewLocaleSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewLocaleSpan not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*LocaleSpanGetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocales not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedLocaleSpanServiceServer) mustEmbedUnimplementedLocaleSpanServiceServer() {}
+func (UnimplementedLocaleSpanServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeLocaleSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LocaleSpanServiceServer will
+// result in compilation errors.
+type UnsafeLocaleSpanServiceServer interface {
+	mustEmbedUnimplementedLocaleSpanServiceServer()
+}
+
+func RegisterLocaleSpanServiceServer(s grpc.ServiceRegistrar, srv LocaleSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedLocaleSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LocaleSpanService_ServiceDesc, srv)
+}
+
+func _LocaleSpanService_NewLocaleSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewLocaleSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).NewLocaleSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_NewLocaleSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).NewLocaleSpan(ctx, req.(*NewLocaleSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleSpanService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleSpanService_GetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).GetLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_GetLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).GetLocales(ctx, req.(*GetLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMeasureStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).UpdateMeasureState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_UpdateMeasureState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LocaleSpanService_ServiceDesc is the grpc.ServiceDesc for LocaleSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LocaleSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.LocaleSpanService",
+	HandlerType: (*LocaleSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewLocaleSpan",
+			Handler:    _LocaleSpanService_NewLocaleSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _LocaleSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _LocaleSpanService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetLocales",
+			Handler:    _LocaleSpanService_GetLocales_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _LocaleSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _LocaleSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _LocaleSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "UpdateMeasureState",
+			Handler:    _LocaleSpanService_UpdateMeasureState_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _LocaleSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	ScaleXSpanService_NewScaleXSpan_FullMethodName      = "/style.ScaleXSpanService/NewScaleXSpan"
+	ScaleXSpanService_DescribeContents_FullMethodName   = "/style.ScaleXSpanService/DescribeContents"
+	ScaleXSpanService_GetScaleX_FullMethodName          = "/style.ScaleXSpanService/GetScaleX"
+	ScaleXSpanService_GetSpanTypeId_FullMethodName      = "/style.ScaleXSpanService/GetSpanTypeId"
+	ScaleXSpanService_ToString_FullMethodName           = "/style.ScaleXSpanService/ToString"
+	ScaleXSpanService_UpdateDrawState_FullMethodName    = "/style.ScaleXSpanService/UpdateDrawState"
+	ScaleXSpanService_UpdateMeasureState_FullMethodName = "/style.ScaleXSpanService/UpdateMeasureState"
+	ScaleXSpanService_WriteToParcel_FullMethodName      = "/style.ScaleXSpanService/WriteToParcel"
+)
+
+// ScaleXSpanServiceClient is the client API for ScaleXSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ScaleXSpanServiceClient interface {
+	NewScaleXSpan(ctx context.Context, in *NewScaleXSpanRequest, opts ...grpc.CallOption) (*NewScaleXSpanResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetScaleX(ctx context.Context, in *GetScaleXRequest, opts ...grpc.CallOption) (*GetScaleXResponse, error)
+	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type scaleXSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewScaleXSpanServiceClient(cc grpc.ClientConnInterface) ScaleXSpanServiceClient {
+	return &scaleXSpanServiceClient{cc}
+}
+
+func (c *scaleXSpanServiceClient) NewScaleXSpan(ctx context.Context, in *NewScaleXSpanRequest, opts ...grpc.CallOption) (*NewScaleXSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewScaleXSpanResponse)
+	err := c.cc.Invoke(ctx, ScaleXSpanService_NewScaleXSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleXSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ScaleXSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleXSpanServiceClient) GetScaleX(ctx context.Context, in *GetScaleXRequest, opts ...grpc.CallOption) (*GetScaleXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScaleXResponse)
+	err := c.cc.Invoke(ctx, ScaleXSpanService_GetScaleX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleXSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpanTypeIdResponse)
+	err := c.cc.Invoke(ctx, ScaleXSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleXSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ScaleXSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleXSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDrawStateResponse)
+	err := c.cc.Invoke(ctx, ScaleXSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleXSpanServiceClient) UpdateMeasureState(ctx context.Context, in *UpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMeasureStateResponse)
+	err := c.cc.Invoke(ctx, ScaleXSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleXSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ScaleXSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ScaleXSpanServiceServer is the server API for ScaleXSpanService service.
+// All implementations must embed UnimplementedScaleXSpanServiceServer
+// for forward compatibility.
+type ScaleXSpanServiceServer interface {
+	NewScaleXSpan(context.Context, *NewScaleXSpanRequest) (*NewScaleXSpanResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetScaleX(context.Context, *GetScaleXRequest) (*GetScaleXResponse, error)
+	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedScaleXSpanServiceServer()
+}
+
+// UnimplementedScaleXSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedScaleXSpanServiceServer struct{}
+
+func (UnimplementedScaleXSpanServiceServer) NewScaleXSpan(context.Context, *NewScaleXSpanRequest) (*NewScaleXSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewScaleXSpan not implemented")
+}
+func (UnimplementedScaleXSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedScaleXSpanServiceServer) GetScaleX(context.Context, *GetScaleXRequest) (*GetScaleXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScaleX not implemented")
+}
+func (UnimplementedScaleXSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
+}
+func (UnimplementedScaleXSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedScaleXSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
+}
+func (UnimplementedScaleXSpanServiceServer) UpdateMeasureState(context.Context, *UpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
+}
+func (UnimplementedScaleXSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedScaleXSpanServiceServer) mustEmbedUnimplementedScaleXSpanServiceServer() {}
+func (UnimplementedScaleXSpanServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeScaleXSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ScaleXSpanServiceServer will
+// result in compilation errors.
+type UnsafeScaleXSpanServiceServer interface {
+	mustEmbedUnimplementedScaleXSpanServiceServer()
+}
+
+func RegisterScaleXSpanServiceServer(s grpc.ServiceRegistrar, srv ScaleXSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedScaleXSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ScaleXSpanService_ServiceDesc, srv)
+}
+
+func _ScaleXSpanService_NewScaleXSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewScaleXSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleXSpanServiceServer).NewScaleXSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleXSpanService_NewScaleXSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleXSpanServiceServer).NewScaleXSpan(ctx, req.(*NewScaleXSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleXSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleXSpanServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleXSpanService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleXSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleXSpanService_GetScaleX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScaleXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleXSpanServiceServer).GetScaleX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleXSpanService_GetScaleX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleXSpanServiceServer).GetScaleX(ctx, req.(*GetScaleXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleXSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpanTypeIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleXSpanServiceServer).GetSpanTypeId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleXSpanService_GetSpanTypeId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleXSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleXSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleXSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleXSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleXSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleXSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDrawStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleXSpanServiceServer).UpdateDrawState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleXSpanService_UpdateDrawState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleXSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleXSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMeasureStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleXSpanServiceServer).UpdateMeasureState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleXSpanService_UpdateMeasureState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleXSpanServiceServer).UpdateMeasureState(ctx, req.(*UpdateMeasureStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleXSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleXSpanServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleXSpanService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleXSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ScaleXSpanService_ServiceDesc is the grpc.ServiceDesc for ScaleXSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ScaleXSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.ScaleXSpanService",
+	HandlerType: (*ScaleXSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewScaleXSpan",
+			Handler:    _ScaleXSpanService_NewScaleXSpan_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ScaleXSpanService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetScaleX",
+			Handler:    _ScaleXSpanService_GetScaleX_Handler,
+		},
+		{
+			MethodName: "GetSpanTypeId",
+			Handler:    _ScaleXSpanService_GetSpanTypeId_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ScaleXSpanService_ToString_Handler,
+		},
+		{
+			MethodName: "UpdateDrawState",
+			Handler:    _ScaleXSpanService_UpdateDrawState_Handler,
+		},
+		{
+			MethodName: "UpdateMeasureState",
+			Handler:    _ScaleXSpanService_UpdateMeasureState_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ScaleXSpanService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/style/style.proto",
+}
+
+const (
+	ImageSpanService_NewImageSpan_FullMethodName = "/style.ImageSpanService/NewImageSpan"
+	ImageSpanService_GetDrawable_FullMethodName  = "/style.ImageSpanService/GetDrawable"
+	ImageSpanService_GetSource_FullMethodName    = "/style.ImageSpanService/GetSource"
+	ImageSpanService_ToString_FullMethodName     = "/style.ImageSpanService/ToString"
+)
+
+// ImageSpanServiceClient is the client API for ImageSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ImageSpanServiceClient interface {
+	NewImageSpan(ctx context.Context, in *NewImageSpanRequest, opts ...grpc.CallOption) (*NewImageSpanResponse, error)
+	GetDrawable(ctx context.Context, in *ImageSpanGetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error)
+	GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type imageSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewImageSpanServiceClient(cc grpc.ClientConnInterface) ImageSpanServiceClient {
+	return &imageSpanServiceClient{cc}
+}
+
+func (c *imageSpanServiceClient) NewImageSpan(ctx context.Context, in *NewImageSpanRequest, opts ...grpc.CallOption) (*NewImageSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewImageSpanResponse)
+	err := c.cc.Invoke(ctx, ImageSpanService_NewImageSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *imageSpanServiceClient) GetDrawable(ctx context.Context, in *ImageSpanGetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDrawableResponse)
+	err := c.cc.Invoke(ctx, ImageSpanService_GetDrawable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *imageSpanServiceClient) GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSourceResponse)
+	err := c.cc.Invoke(ctx, ImageSpanService_GetSource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *imageSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ImageSpanService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ImageSpanServiceServer is the server API for ImageSpanService service.
+// All implementations must embed UnimplementedImageSpanServiceServer
+// for forward compatibility.
+type ImageSpanServiceServer interface {
+	NewImageSpan(context.Context, *NewImageSpanRequest) (*NewImageSpanResponse, error)
+	GetDrawable(context.Context, *ImageSpanGetDrawableRequest) (*GetDrawableResponse, error)
+	GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedImageSpanServiceServer()
+}
+
+// UnimplementedImageSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedImageSpanServiceServer struct{}
+
+func (UnimplementedImageSpanServiceServer) NewImageSpan(context.Context, *NewImageSpanRequest) (*NewImageSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewImageSpan not implemented")
+}
+func (UnimplementedImageSpanServiceServer) GetDrawable(context.Context, *ImageSpanGetDrawableRequest) (*GetDrawableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDrawable not implemented")
+}
+func (UnimplementedImageSpanServiceServer) GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSource not implemented")
+}
+func (UnimplementedImageSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedImageSpanServiceServer) mustEmbedUnimplementedImageSpanServiceServer() {}
+func (UnimplementedImageSpanServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeImageSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ImageSpanServiceServer will
+// result in compilation errors.
+type UnsafeImageSpanServiceServer interface {
+	mustEmbedUnimplementedImageSpanServiceServer()
+}
+
+func RegisterImageSpanServiceServer(s grpc.ServiceRegistrar, srv ImageSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedImageSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ImageSpanService_ServiceDesc, srv)
+}
+
+func _ImageSpanService_NewImageSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewImageSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ImageSpanServiceServer).NewImageSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ImageSpanService_NewImageSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ImageSpanServiceServer).NewImageSpan(ctx, req.(*NewImageSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ImageSpanService_GetDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ImageSpanGetDrawableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ImageSpanServiceServer).GetDrawable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ImageSpanService_GetDrawable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ImageSpanServiceServer).GetDrawable(ctx, req.(*ImageSpanGetDrawableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ImageSpanService_GetSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ImageSpanServiceServer).GetSource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ImageSpanService_GetSource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ImageSpanServiceServer).GetSource(ctx, req.(*GetSourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ImageSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ImageSpanServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ImageSpanService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ImageSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ImageSpanService_ServiceDesc is the grpc.ServiceDesc for ImageSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ImageSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.ImageSpanService",
+	HandlerType: (*ImageSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewImageSpan",
+			Handler:    _ImageSpanService_NewImageSpan_Handler,
+		},
+		{
+			MethodName: "GetDrawable",
+			Handler:    _ImageSpanService_GetDrawable_Handler,
+		},
+		{
+			MethodName: "GetSource",
+			Handler:    _ImageSpanService_GetSource_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ImageSpanService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -14900,801 +15524,177 @@ var BackgroundColorSpanService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	StrikethroughSpanService_NewStrikethroughSpan_FullMethodName = "/style.StrikethroughSpanService/NewStrikethroughSpan"
-	StrikethroughSpanService_DescribeContents_FullMethodName     = "/style.StrikethroughSpanService/DescribeContents"
-	StrikethroughSpanService_GetSpanTypeId_FullMethodName        = "/style.StrikethroughSpanService/GetSpanTypeId"
-	StrikethroughSpanService_ToString_FullMethodName             = "/style.StrikethroughSpanService/ToString"
-	StrikethroughSpanService_UpdateDrawState_FullMethodName      = "/style.StrikethroughSpanService/UpdateDrawState"
-	StrikethroughSpanService_WriteToParcel_FullMethodName        = "/style.StrikethroughSpanService/WriteToParcel"
+	ClickableSpanService_OnClick_FullMethodName         = "/style.ClickableSpanService/OnClick"
+	ClickableSpanService_ToString_FullMethodName        = "/style.ClickableSpanService/ToString"
+	ClickableSpanService_UpdateDrawState_FullMethodName = "/style.ClickableSpanService/UpdateDrawState"
 )
 
-// StrikethroughSpanServiceClient is the client API for StrikethroughSpanService service.
+// ClickableSpanServiceClient is the client API for ClickableSpanService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StrikethroughSpanServiceClient interface {
-	NewStrikethroughSpan(ctx context.Context, in *NewStrikethroughSpanRequest, opts ...grpc.CallOption) (*NewStrikethroughSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type ClickableSpanServiceClient interface {
+	OnClick(ctx context.Context, in *ClickableSpanOnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
+	ToString(ctx context.Context, in *ClickableSpanToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateDrawState(ctx context.Context, in *ClickableSpanUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error)
 }
 
-type strikethroughSpanServiceClient struct {
+type clickableSpanServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewStrikethroughSpanServiceClient(cc grpc.ClientConnInterface) StrikethroughSpanServiceClient {
-	return &strikethroughSpanServiceClient{cc}
+func NewClickableSpanServiceClient(cc grpc.ClientConnInterface) ClickableSpanServiceClient {
+	return &clickableSpanServiceClient{cc}
 }
 
-func (c *strikethroughSpanServiceClient) NewStrikethroughSpan(ctx context.Context, in *NewStrikethroughSpanRequest, opts ...grpc.CallOption) (*NewStrikethroughSpanResponse, error) {
+func (c *clickableSpanServiceClient) OnClick(ctx context.Context, in *ClickableSpanOnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewStrikethroughSpanResponse)
-	err := c.cc.Invoke(ctx, StrikethroughSpanService_NewStrikethroughSpan_FullMethodName, in, out, cOpts...)
+	out := new(OnClickResponse)
+	err := c.cc.Invoke(ctx, ClickableSpanService_OnClick_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *strikethroughSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, StrikethroughSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *strikethroughSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, StrikethroughSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *strikethroughSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *clickableSpanServiceClient) ToString(ctx context.Context, in *ClickableSpanToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, StrikethroughSpanService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ClickableSpanService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *strikethroughSpanServiceClient) UpdateDrawState(ctx context.Context, in *UpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
+func (c *clickableSpanServiceClient) UpdateDrawState(ctx context.Context, in *ClickableSpanUpdateDrawStateRequest, opts ...grpc.CallOption) (*UpdateDrawStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateDrawStateResponse)
-	err := c.cc.Invoke(ctx, StrikethroughSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ClickableSpanService_UpdateDrawState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *strikethroughSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, StrikethroughSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StrikethroughSpanServiceServer is the server API for StrikethroughSpanService service.
-// All implementations must embed UnimplementedStrikethroughSpanServiceServer
+// ClickableSpanServiceServer is the server API for ClickableSpanService service.
+// All implementations must embed UnimplementedClickableSpanServiceServer
 // for forward compatibility.
-type StrikethroughSpanServiceServer interface {
-	NewStrikethroughSpan(context.Context, *NewStrikethroughSpanRequest) (*NewStrikethroughSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedStrikethroughSpanServiceServer()
+type ClickableSpanServiceServer interface {
+	OnClick(context.Context, *ClickableSpanOnClickRequest) (*OnClickResponse, error)
+	ToString(context.Context, *ClickableSpanToStringRequest) (*ToStringResponse, error)
+	UpdateDrawState(context.Context, *ClickableSpanUpdateDrawStateRequest) (*UpdateDrawStateResponse, error)
+	mustEmbedUnimplementedClickableSpanServiceServer()
 }
 
-// UnimplementedStrikethroughSpanServiceServer must be embedded to have
+// UnimplementedClickableSpanServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedStrikethroughSpanServiceServer struct{}
+type UnimplementedClickableSpanServiceServer struct{}
 
-func (UnimplementedStrikethroughSpanServiceServer) NewStrikethroughSpan(context.Context, *NewStrikethroughSpanRequest) (*NewStrikethroughSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewStrikethroughSpan not implemented")
+func (UnimplementedClickableSpanServiceServer) OnClick(context.Context, *ClickableSpanOnClickRequest) (*OnClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
 }
-func (UnimplementedStrikethroughSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedStrikethroughSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedStrikethroughSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedClickableSpanServiceServer) ToString(context.Context, *ClickableSpanToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedStrikethroughSpanServiceServer) UpdateDrawState(context.Context, *UpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
+func (UnimplementedClickableSpanServiceServer) UpdateDrawState(context.Context, *ClickableSpanUpdateDrawStateRequest) (*UpdateDrawStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateDrawState not implemented")
 }
-func (UnimplementedStrikethroughSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedStrikethroughSpanServiceServer) mustEmbedUnimplementedStrikethroughSpanServiceServer() {
-}
-func (UnimplementedStrikethroughSpanServiceServer) testEmbeddedByValue() {}
+func (UnimplementedClickableSpanServiceServer) mustEmbedUnimplementedClickableSpanServiceServer() {}
+func (UnimplementedClickableSpanServiceServer) testEmbeddedByValue()                              {}
 
-// UnsafeStrikethroughSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StrikethroughSpanServiceServer will
+// UnsafeClickableSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ClickableSpanServiceServer will
 // result in compilation errors.
-type UnsafeStrikethroughSpanServiceServer interface {
-	mustEmbedUnimplementedStrikethroughSpanServiceServer()
+type UnsafeClickableSpanServiceServer interface {
+	mustEmbedUnimplementedClickableSpanServiceServer()
 }
 
-func RegisterStrikethroughSpanServiceServer(s grpc.ServiceRegistrar, srv StrikethroughSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedStrikethroughSpanServiceServer was
+func RegisterClickableSpanServiceServer(s grpc.ServiceRegistrar, srv ClickableSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedClickableSpanServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&StrikethroughSpanService_ServiceDesc, srv)
+	s.RegisterService(&ClickableSpanService_ServiceDesc, srv)
 }
 
-func _StrikethroughSpanService_NewStrikethroughSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewStrikethroughSpanRequest)
+func _ClickableSpanService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClickableSpanOnClickRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrikethroughSpanServiceServer).NewStrikethroughSpan(ctx, in)
+		return srv.(ClickableSpanServiceServer).OnClick(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrikethroughSpanService_NewStrikethroughSpan_FullMethodName,
+		FullMethod: ClickableSpanService_OnClick_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrikethroughSpanServiceServer).NewStrikethroughSpan(ctx, req.(*NewStrikethroughSpanRequest))
+		return srv.(ClickableSpanServiceServer).OnClick(ctx, req.(*ClickableSpanOnClickRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrikethroughSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _ClickableSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClickableSpanToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrikethroughSpanServiceServer).DescribeContents(ctx, in)
+		return srv.(ClickableSpanServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrikethroughSpanService_DescribeContents_FullMethodName,
+		FullMethod: ClickableSpanService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrikethroughSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ClickableSpanServiceServer).ToString(ctx, req.(*ClickableSpanToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrikethroughSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
+func _ClickableSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClickableSpanUpdateDrawStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StrikethroughSpanServiceServer).GetSpanTypeId(ctx, in)
+		return srv.(ClickableSpanServiceServer).UpdateDrawState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: StrikethroughSpanService_GetSpanTypeId_FullMethodName,
+		FullMethod: ClickableSpanService_UpdateDrawState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrikethroughSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
+		return srv.(ClickableSpanServiceServer).UpdateDrawState(ctx, req.(*ClickableSpanUpdateDrawStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrikethroughSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StrikethroughSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StrikethroughSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrikethroughSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StrikethroughSpanService_UpdateDrawState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDrawStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StrikethroughSpanServiceServer).UpdateDrawState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StrikethroughSpanService_UpdateDrawState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrikethroughSpanServiceServer).UpdateDrawState(ctx, req.(*UpdateDrawStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StrikethroughSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StrikethroughSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StrikethroughSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrikethroughSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StrikethroughSpanService_ServiceDesc is the grpc.ServiceDesc for StrikethroughSpanService service.
+// ClickableSpanService_ServiceDesc is the grpc.ServiceDesc for ClickableSpanService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var StrikethroughSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.StrikethroughSpanService",
-	HandlerType: (*StrikethroughSpanServiceServer)(nil),
+var ClickableSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "style.ClickableSpanService",
+	HandlerType: (*ClickableSpanServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewStrikethroughSpan",
-			Handler:    _StrikethroughSpanService_NewStrikethroughSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _StrikethroughSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _StrikethroughSpanService_GetSpanTypeId_Handler,
+			MethodName: "OnClick",
+			Handler:    _ClickableSpanService_OnClick_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _StrikethroughSpanService_ToString_Handler,
+			Handler:    _ClickableSpanService_ToString_Handler,
 		},
 		{
 			MethodName: "UpdateDrawState",
-			Handler:    _StrikethroughSpanService_UpdateDrawState_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _StrikethroughSpanService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	MetricAffectingSpanService_GetUnderlying0_FullMethodName     = "/style.MetricAffectingSpanService/GetUnderlying0"
-	MetricAffectingSpanService_UpdateMeasureState_FullMethodName = "/style.MetricAffectingSpanService/UpdateMeasureState"
-	MetricAffectingSpanService_GetUnderlying0_1_FullMethodName   = "/style.MetricAffectingSpanService/GetUnderlying0_1"
-)
-
-// MetricAffectingSpanServiceClient is the client API for MetricAffectingSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MetricAffectingSpanServiceClient interface {
-	GetUnderlying0(ctx context.Context, in *GetUnderlying0Request, opts ...grpc.CallOption) (*GetUnderlying0Response, error)
-	UpdateMeasureState(ctx context.Context, in *MetricAffectingSpanUpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error)
-	GetUnderlying0_1(ctx context.Context, in *GetUnderlying0_1Request, opts ...grpc.CallOption) (*GetUnderlying0_1Response, error)
-}
-
-type metricAffectingSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMetricAffectingSpanServiceClient(cc grpc.ClientConnInterface) MetricAffectingSpanServiceClient {
-	return &metricAffectingSpanServiceClient{cc}
-}
-
-func (c *metricAffectingSpanServiceClient) GetUnderlying0(ctx context.Context, in *GetUnderlying0Request, opts ...grpc.CallOption) (*GetUnderlying0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUnderlying0Response)
-	err := c.cc.Invoke(ctx, MetricAffectingSpanService_GetUnderlying0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *metricAffectingSpanServiceClient) UpdateMeasureState(ctx context.Context, in *MetricAffectingSpanUpdateMeasureStateRequest, opts ...grpc.CallOption) (*UpdateMeasureStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateMeasureStateResponse)
-	err := c.cc.Invoke(ctx, MetricAffectingSpanService_UpdateMeasureState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *metricAffectingSpanServiceClient) GetUnderlying0_1(ctx context.Context, in *GetUnderlying0_1Request, opts ...grpc.CallOption) (*GetUnderlying0_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUnderlying0_1Response)
-	err := c.cc.Invoke(ctx, MetricAffectingSpanService_GetUnderlying0_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MetricAffectingSpanServiceServer is the server API for MetricAffectingSpanService service.
-// All implementations must embed UnimplementedMetricAffectingSpanServiceServer
-// for forward compatibility.
-type MetricAffectingSpanServiceServer interface {
-	GetUnderlying0(context.Context, *GetUnderlying0Request) (*GetUnderlying0Response, error)
-	UpdateMeasureState(context.Context, *MetricAffectingSpanUpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error)
-	GetUnderlying0_1(context.Context, *GetUnderlying0_1Request) (*GetUnderlying0_1Response, error)
-	mustEmbedUnimplementedMetricAffectingSpanServiceServer()
-}
-
-// UnimplementedMetricAffectingSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMetricAffectingSpanServiceServer struct{}
-
-func (UnimplementedMetricAffectingSpanServiceServer) GetUnderlying0(context.Context, *GetUnderlying0Request) (*GetUnderlying0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUnderlying0 not implemented")
-}
-func (UnimplementedMetricAffectingSpanServiceServer) UpdateMeasureState(context.Context, *MetricAffectingSpanUpdateMeasureStateRequest) (*UpdateMeasureStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateMeasureState not implemented")
-}
-func (UnimplementedMetricAffectingSpanServiceServer) GetUnderlying0_1(context.Context, *GetUnderlying0_1Request) (*GetUnderlying0_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUnderlying0_1 not implemented")
-}
-func (UnimplementedMetricAffectingSpanServiceServer) mustEmbedUnimplementedMetricAffectingSpanServiceServer() {
-}
-func (UnimplementedMetricAffectingSpanServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMetricAffectingSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MetricAffectingSpanServiceServer will
-// result in compilation errors.
-type UnsafeMetricAffectingSpanServiceServer interface {
-	mustEmbedUnimplementedMetricAffectingSpanServiceServer()
-}
-
-func RegisterMetricAffectingSpanServiceServer(s grpc.ServiceRegistrar, srv MetricAffectingSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedMetricAffectingSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MetricAffectingSpanService_ServiceDesc, srv)
-}
-
-func _MetricAffectingSpanService_GetUnderlying0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUnderlying0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetricAffectingSpanServiceServer).GetUnderlying0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetricAffectingSpanService_GetUnderlying0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricAffectingSpanServiceServer).GetUnderlying0(ctx, req.(*GetUnderlying0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MetricAffectingSpanService_UpdateMeasureState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MetricAffectingSpanUpdateMeasureStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetricAffectingSpanServiceServer).UpdateMeasureState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetricAffectingSpanService_UpdateMeasureState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricAffectingSpanServiceServer).UpdateMeasureState(ctx, req.(*MetricAffectingSpanUpdateMeasureStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MetricAffectingSpanService_GetUnderlying0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUnderlying0_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetricAffectingSpanServiceServer).GetUnderlying0_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetricAffectingSpanService_GetUnderlying0_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricAffectingSpanServiceServer).GetUnderlying0_1(ctx, req.(*GetUnderlying0_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MetricAffectingSpanService_ServiceDesc is the grpc.ServiceDesc for MetricAffectingSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MetricAffectingSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.MetricAffectingSpanService",
-	HandlerType: (*MetricAffectingSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetUnderlying0",
-			Handler:    _MetricAffectingSpanService_GetUnderlying0_Handler,
-		},
-		{
-			MethodName: "UpdateMeasureState",
-			Handler:    _MetricAffectingSpanService_UpdateMeasureState_Handler,
-		},
-		{
-			MethodName: "GetUnderlying0_1",
-			Handler:    _MetricAffectingSpanService_GetUnderlying0_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/style/style.proto",
-}
-
-const (
-	URLSpanService_NewURLSpan_FullMethodName       = "/style.URLSpanService/NewURLSpan"
-	URLSpanService_DescribeContents_FullMethodName = "/style.URLSpanService/DescribeContents"
-	URLSpanService_GetSpanTypeId_FullMethodName    = "/style.URLSpanService/GetSpanTypeId"
-	URLSpanService_GetURL_FullMethodName           = "/style.URLSpanService/GetURL"
-	URLSpanService_OnClick_FullMethodName          = "/style.URLSpanService/OnClick"
-	URLSpanService_ToString_FullMethodName         = "/style.URLSpanService/ToString"
-	URLSpanService_WriteToParcel_FullMethodName    = "/style.URLSpanService/WriteToParcel"
-)
-
-// URLSpanServiceClient is the client API for URLSpanService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type URLSpanServiceClient interface {
-	NewURLSpan(ctx context.Context, in *NewURLSpanRequest, opts ...grpc.CallOption) (*NewURLSpanResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error)
-	GetURL(ctx context.Context, in *GetURLRequest, opts ...grpc.CallOption) (*GetURLResponse, error)
-	OnClick(ctx context.Context, in *URLSpanOnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type uRLSpanServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewURLSpanServiceClient(cc grpc.ClientConnInterface) URLSpanServiceClient {
-	return &uRLSpanServiceClient{cc}
-}
-
-func (c *uRLSpanServiceClient) NewURLSpan(ctx context.Context, in *NewURLSpanRequest, opts ...grpc.CallOption) (*NewURLSpanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewURLSpanResponse)
-	err := c.cc.Invoke(ctx, URLSpanService_NewURLSpan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uRLSpanServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, URLSpanService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uRLSpanServiceClient) GetSpanTypeId(ctx context.Context, in *GetSpanTypeIdRequest, opts ...grpc.CallOption) (*GetSpanTypeIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpanTypeIdResponse)
-	err := c.cc.Invoke(ctx, URLSpanService_GetSpanTypeId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uRLSpanServiceClient) GetURL(ctx context.Context, in *GetURLRequest, opts ...grpc.CallOption) (*GetURLResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetURLResponse)
-	err := c.cc.Invoke(ctx, URLSpanService_GetURL_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uRLSpanServiceClient) OnClick(ctx context.Context, in *URLSpanOnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClickResponse)
-	err := c.cc.Invoke(ctx, URLSpanService_OnClick_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uRLSpanServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, URLSpanService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uRLSpanServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, URLSpanService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// URLSpanServiceServer is the server API for URLSpanService service.
-// All implementations must embed UnimplementedURLSpanServiceServer
-// for forward compatibility.
-type URLSpanServiceServer interface {
-	NewURLSpan(context.Context, *NewURLSpanRequest) (*NewURLSpanResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error)
-	GetURL(context.Context, *GetURLRequest) (*GetURLResponse, error)
-	OnClick(context.Context, *URLSpanOnClickRequest) (*OnClickResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedURLSpanServiceServer()
-}
-
-// UnimplementedURLSpanServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedURLSpanServiceServer struct{}
-
-func (UnimplementedURLSpanServiceServer) NewURLSpan(context.Context, *NewURLSpanRequest) (*NewURLSpanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewURLSpan not implemented")
-}
-func (UnimplementedURLSpanServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedURLSpanServiceServer) GetSpanTypeId(context.Context, *GetSpanTypeIdRequest) (*GetSpanTypeIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpanTypeId not implemented")
-}
-func (UnimplementedURLSpanServiceServer) GetURL(context.Context, *GetURLRequest) (*GetURLResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetURL not implemented")
-}
-func (UnimplementedURLSpanServiceServer) OnClick(context.Context, *URLSpanOnClickRequest) (*OnClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
-}
-func (UnimplementedURLSpanServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedURLSpanServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedURLSpanServiceServer) mustEmbedUnimplementedURLSpanServiceServer() {}
-func (UnimplementedURLSpanServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeURLSpanServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to URLSpanServiceServer will
-// result in compilation errors.
-type UnsafeURLSpanServiceServer interface {
-	mustEmbedUnimplementedURLSpanServiceServer()
-}
-
-func RegisterURLSpanServiceServer(s grpc.ServiceRegistrar, srv URLSpanServiceServer) {
-	// If the following call panics, it indicates UnimplementedURLSpanServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&URLSpanService_ServiceDesc, srv)
-}
-
-func _URLSpanService_NewURLSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewURLSpanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(URLSpanServiceServer).NewURLSpan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: URLSpanService_NewURLSpan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(URLSpanServiceServer).NewURLSpan(ctx, req.(*NewURLSpanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _URLSpanService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(URLSpanServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: URLSpanService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(URLSpanServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _URLSpanService_GetSpanTypeId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpanTypeIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(URLSpanServiceServer).GetSpanTypeId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: URLSpanService_GetSpanTypeId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(URLSpanServiceServer).GetSpanTypeId(ctx, req.(*GetSpanTypeIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _URLSpanService_GetURL_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetURLRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(URLSpanServiceServer).GetURL(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: URLSpanService_GetURL_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(URLSpanServiceServer).GetURL(ctx, req.(*GetURLRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _URLSpanService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(URLSpanOnClickRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(URLSpanServiceServer).OnClick(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: URLSpanService_OnClick_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(URLSpanServiceServer).OnClick(ctx, req.(*URLSpanOnClickRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _URLSpanService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(URLSpanServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: URLSpanService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(URLSpanServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _URLSpanService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(URLSpanServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: URLSpanService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(URLSpanServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// URLSpanService_ServiceDesc is the grpc.ServiceDesc for URLSpanService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var URLSpanService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "style.URLSpanService",
-	HandlerType: (*URLSpanServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewURLSpan",
-			Handler:    _URLSpanService_NewURLSpan_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _URLSpanService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSpanTypeId",
-			Handler:    _URLSpanService_GetSpanTypeId_Handler,
-		},
-		{
-			MethodName: "GetURL",
-			Handler:    _URLSpanService_GetURL_Handler,
-		},
-		{
-			MethodName: "OnClick",
-			Handler:    _URLSpanService_OnClick_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _URLSpanService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _URLSpanService_WriteToParcel_Handler,
+			Handler:    _ClickableSpanService_UpdateDrawState_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -12,580 +12,6 @@ var modelsCmd = &cobra.Command{
 	Short: "models service operations",
 }
 
-var modelsFormWidgetInfoCmd = &cobra.Command{
-	Use:   "form-widget-info",
-	Short: "FormWidgetInfoService operations",
-}
-
-var modelsFormWidgetInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoGetAccessibilityLabelCmd = &cobra.Command{
-	Use:   "get-accessibility-label",
-	Short: "GetAccessibilityLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.GetAccessibilityLabelRequest{}
-		resp, err := client.GetAccessibilityLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoGetFontSizeCmd = &cobra.Command{
-	Use:   "get-font-size",
-	Short: "GetFontSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.GetFontSizeRequest{}
-		resp, err := client.GetFontSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoGetMaxLengthCmd = &cobra.Command{
-	Use:   "get-max-length",
-	Short: "GetMaxLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.GetMaxLengthRequest{}
-		resp, err := client.GetMaxLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoGetTextValueCmd = &cobra.Command{
-	Use:   "get-text-value",
-	Short: "GetTextValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.GetTextValueRequest{}
-		resp, err := client.GetTextValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoGetWidgetIndexCmd = &cobra.Command{
-	Use:   "get-widget-index",
-	Short: "GetWidgetIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.GetWidgetIndexRequest{}
-		resp, err := client.GetWidgetIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoGetWidgetRectCmd = &cobra.Command{
-	Use:   "get-widget-rect",
-	Short: "GetWidgetRect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.GetWidgetRectRequest{}
-		resp, err := client.GetWidgetRect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoGetWidgetTypeCmd = &cobra.Command{
-	Use:   "get-widget-type",
-	Short: "GetWidgetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.GetWidgetTypeRequest{}
-		resp, err := client.GetWidgetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoIsEditableTextCmd = &cobra.Command{
-	Use:   "is-editable-text",
-	Short: "IsEditableText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.IsEditableTextRequest{}
-		resp, err := client.IsEditableText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoIsMultiLineTextCmd = &cobra.Command{
-	Use:   "is-multi-line-text",
-	Short: "IsMultiLineText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.IsMultiLineTextRequest{}
-		resp, err := client.IsMultiLineText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoIsMultiSelectCmd = &cobra.Command{
-	Use:   "is-multi-select",
-	Short: "IsMultiSelect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.IsMultiSelectRequest{}
-		resp, err := client.IsMultiSelect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoIsReadOnlyCmd = &cobra.Command{
-	Use:   "is-read-only",
-	Short: "IsReadOnly RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.IsReadOnlyRequest{}
-		resp, err := client.IsReadOnly(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoBuilderCmd = &cobra.Command{
-	Use:   "form-widget-info-builder",
-	Short: "FormWidgetInfoBuilderService operations",
-}
-
-var modelsFormWidgetInfoBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoBuilderSetEditableTextCmd = &cobra.Command{
-	Use:   "set-editable-text",
-	Short: "SetEditableText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetEditableTextRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEditableText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoBuilderSetFontSizeCmd = &cobra.Command{
-	Use:   "set-font-size",
-	Short: "SetFontSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetFontSizeRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFontSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoBuilderSetMaxLengthCmd = &cobra.Command{
-	Use:   "set-max-length",
-	Short: "SetMaxLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetMaxLengthRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMaxLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoBuilderSetMultiLineTextCmd = &cobra.Command{
-	Use:   "set-multi-line-text",
-	Short: "SetMultiLineText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetMultiLineTextRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMultiLineText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoBuilderSetMultiSelectCmd = &cobra.Command{
-	Use:   "set-multi-select",
-	Short: "SetMultiSelect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetMultiSelectRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMultiSelect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsFormWidgetInfoBuilderSetReadOnlyCmd = &cobra.Command{
-	Use:   "set-read-only",
-	Short: "SetReadOnly RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetReadOnlyRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReadOnly(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsListItemCmd = &cobra.Command{
-	Use:   "list-item",
-	Short: "ListItemService operations",
-}
-
-var modelsListItemNewListItemCmd = &cobra.Command{
-	Use:   "new-list-item",
-	Short: "NewListItem RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListItemServiceClient(grpcConn)
-		req := &pb.NewListItemRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewListItem(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsListItemDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListItemServiceClient(grpcConn)
-		req := &pb.ListItemDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsListItemEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListItemServiceClient(grpcConn)
-		req := &pb.ListItemEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsListItemGetLabelCmd = &cobra.Command{
-	Use:   "get-label",
-	Short: "GetLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListItemServiceClient(grpcConn)
-		req := &pb.GetLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsListItemHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListItemServiceClient(grpcConn)
-		req := &pb.ListItemHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsListItemIsSelectedCmd = &cobra.Command{
-	Use:   "is-selected",
-	Short: "IsSelected RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListItemServiceClient(grpcConn)
-		req := &pb.IsSelectedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsSelected(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsListItemToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListItemServiceClient(grpcConn)
-		req := &pb.ListItemToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var modelsListItemWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewListItemServiceClient(grpcConn)
-		req := &pb.ListItemWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var modelsFormEditRecordCmd = &cobra.Command{
 	Use:   "form-edit-record",
 	Short: "FormEditRecordService operations",
@@ -884,6 +310,25 @@ var modelsPageMatchBoundsDescribeContentsCmd = &cobra.Command{
 	},
 }
 
+var modelsPageMatchBoundsGetBoundsCmd = &cobra.Command{
+	Use:   "get-bounds",
+	Short: "GetBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageMatchBoundsServiceClient(grpcConn)
+		req := &pb.GetBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var modelsPageMatchBoundsGetTextStartIndexCmd = &cobra.Command{
 	Use:   "get-text-start-index",
 	Short: "GetTextStartIndex RPC",
@@ -928,12 +373,660 @@ var modelsPageMatchBoundsWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var modelsListItemCmd = &cobra.Command{
+	Use:   "list-item",
+	Short: "ListItemService operations",
+}
+
+var modelsListItemNewListItemCmd = &cobra.Command{
+	Use:   "new-list-item",
+	Short: "NewListItem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListItemServiceClient(grpcConn)
+		req := &pb.NewListItemRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewListItem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsListItemDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListItemServiceClient(grpcConn)
+		req := &pb.ListItemDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsListItemEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListItemServiceClient(grpcConn)
+		req := &pb.ListItemEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsListItemGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListItemServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsListItemHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListItemServiceClient(grpcConn)
+		req := &pb.ListItemHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsListItemIsSelectedCmd = &cobra.Command{
+	Use:   "is-selected",
+	Short: "IsSelected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListItemServiceClient(grpcConn)
+		req := &pb.IsSelectedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsSelected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsListItemToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListItemServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsListItemWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewListItemServiceClient(grpcConn)
+		req := &pb.ListItemWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoCmd = &cobra.Command{
+	Use:   "form-widget-info",
+	Short: "FormWidgetInfoService operations",
+}
+
+var modelsFormWidgetInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoGetAccessibilityLabelCmd = &cobra.Command{
+	Use:   "get-accessibility-label",
+	Short: "GetAccessibilityLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.GetAccessibilityLabelRequest{}
+		resp, err := client.GetAccessibilityLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoGetFontSizeCmd = &cobra.Command{
+	Use:   "get-font-size",
+	Short: "GetFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.GetFontSizeRequest{}
+		resp, err := client.GetFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoGetListItemsCmd = &cobra.Command{
+	Use:   "get-list-items",
+	Short: "GetListItems RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.GetListItemsRequest{}
+		resp, err := client.GetListItems(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoGetMaxLengthCmd = &cobra.Command{
+	Use:   "get-max-length",
+	Short: "GetMaxLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.GetMaxLengthRequest{}
+		resp, err := client.GetMaxLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoGetTextValueCmd = &cobra.Command{
+	Use:   "get-text-value",
+	Short: "GetTextValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.GetTextValueRequest{}
+		resp, err := client.GetTextValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoGetWidgetIndexCmd = &cobra.Command{
+	Use:   "get-widget-index",
+	Short: "GetWidgetIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.GetWidgetIndexRequest{}
+		resp, err := client.GetWidgetIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoGetWidgetRectCmd = &cobra.Command{
+	Use:   "get-widget-rect",
+	Short: "GetWidgetRect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.GetWidgetRectRequest{}
+		resp, err := client.GetWidgetRect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoGetWidgetTypeCmd = &cobra.Command{
+	Use:   "get-widget-type",
+	Short: "GetWidgetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.GetWidgetTypeRequest{}
+		resp, err := client.GetWidgetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoIsEditableTextCmd = &cobra.Command{
+	Use:   "is-editable-text",
+	Short: "IsEditableText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.IsEditableTextRequest{}
+		resp, err := client.IsEditableText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoIsMultiLineTextCmd = &cobra.Command{
+	Use:   "is-multi-line-text",
+	Short: "IsMultiLineText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.IsMultiLineTextRequest{}
+		resp, err := client.IsMultiLineText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoIsMultiSelectCmd = &cobra.Command{
+	Use:   "is-multi-select",
+	Short: "IsMultiSelect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.IsMultiSelectRequest{}
+		resp, err := client.IsMultiSelect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoIsReadOnlyCmd = &cobra.Command{
+	Use:   "is-read-only",
+	Short: "IsReadOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.IsReadOnlyRequest{}
+		resp, err := client.IsReadOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.FormWidgetInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoBuilderCmd = &cobra.Command{
+	Use:   "form-widget-info-builder",
+	Short: "FormWidgetInfoBuilderService operations",
+}
+
+var modelsFormWidgetInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoBuilderSetEditableTextCmd = &cobra.Command{
+	Use:   "set-editable-text",
+	Short: "SetEditableText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetEditableTextRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEditableText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoBuilderSetFontSizeCmd = &cobra.Command{
+	Use:   "set-font-size",
+	Short: "SetFontSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetFontSizeRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFontSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoBuilderSetMaxLengthCmd = &cobra.Command{
+	Use:   "set-max-length",
+	Short: "SetMaxLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetMaxLengthRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMaxLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoBuilderSetMultiLineTextCmd = &cobra.Command{
+	Use:   "set-multi-line-text",
+	Short: "SetMultiLineText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetMultiLineTextRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMultiLineText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoBuilderSetMultiSelectCmd = &cobra.Command{
+	Use:   "set-multi-select",
+	Short: "SetMultiSelect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetMultiSelectRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMultiSelect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var modelsFormWidgetInfoBuilderSetReadOnlyCmd = &cobra.Command{
+	Use:   "set-read-only",
+	Short: "SetReadOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFormWidgetInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetReadOnlyRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReadOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordDescribeContentsCmd)
+	modelsFormEditRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordEqualsCmd)
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetClickPointCmd)
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetPageNumberCmd)
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetSelectedIndicesCmd)
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetTextCmd)
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetTypeCmd)
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetWidgetIndexCmd)
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordHashCodeCmd)
+	modelsFormEditRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	modelsFormEditRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordWriteToParcelCmd)
+	modelsCmd.AddCommand(modelsFormEditRecordCmd)
+	modelsFormEditRecordBuilderCmd.AddCommand(modelsFormEditRecordBuilderBuildCmd)
+	modelsFormEditRecordBuilderSetClickPointCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	modelsFormEditRecordBuilderCmd.AddCommand(modelsFormEditRecordBuilderSetClickPointCmd)
+	modelsFormEditRecordBuilderSetSelectedIndicesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	modelsFormEditRecordBuilderCmd.AddCommand(modelsFormEditRecordBuilderSetSelectedIndicesCmd)
+	modelsFormEditRecordBuilderSetTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	modelsFormEditRecordBuilderCmd.AddCommand(modelsFormEditRecordBuilderSetTextCmd)
+	modelsCmd.AddCommand(modelsFormEditRecordBuilderCmd)
+	modelsPageMatchBoundsNewPageMatchBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	modelsPageMatchBoundsNewPageMatchBoundsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsNewPageMatchBoundsCmd)
+	modelsPageMatchBoundsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsDescribeContentsCmd)
+	modelsPageMatchBoundsGetBoundsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsGetBoundsCmd)
+	modelsPageMatchBoundsGetTextStartIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsGetTextStartIndexCmd)
+	modelsPageMatchBoundsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsPageMatchBoundsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	modelsPageMatchBoundsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsWriteToParcelCmd)
+	modelsCmd.AddCommand(modelsPageMatchBoundsCmd)
+	modelsListItemNewListItemCmd.Flags().String("arg0", "", "arg0 (string)")
+	modelsListItemNewListItemCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	modelsListItemCmd.AddCommand(modelsListItemNewListItemCmd)
+	modelsListItemDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsListItemCmd.AddCommand(modelsListItemDescribeContentsCmd)
+	modelsListItemEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsListItemEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	modelsListItemCmd.AddCommand(modelsListItemEqualsCmd)
+	modelsListItemGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsListItemCmd.AddCommand(modelsListItemGetLabelCmd)
+	modelsListItemHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsListItemCmd.AddCommand(modelsListItemHashCodeCmd)
+	modelsListItemIsSelectedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsListItemCmd.AddCommand(modelsListItemIsSelectedCmd)
+	modelsListItemToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsListItemCmd.AddCommand(modelsListItemToStringCmd)
+	modelsListItemWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	modelsListItemWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	modelsListItemWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	modelsListItemCmd.AddCommand(modelsListItemWriteToParcelCmd)
+	modelsCmd.AddCommand(modelsListItemCmd)
 	modelsFormWidgetInfoCmd.AddCommand(modelsFormWidgetInfoDescribeContentsCmd)
 	modelsFormWidgetInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	modelsFormWidgetInfoCmd.AddCommand(modelsFormWidgetInfoEqualsCmd)
 	modelsFormWidgetInfoCmd.AddCommand(modelsFormWidgetInfoGetAccessibilityLabelCmd)
 	modelsFormWidgetInfoCmd.AddCommand(modelsFormWidgetInfoGetFontSizeCmd)
+	modelsFormWidgetInfoCmd.AddCommand(modelsFormWidgetInfoGetListItemsCmd)
 	modelsFormWidgetInfoCmd.AddCommand(modelsFormWidgetInfoGetMaxLengthCmd)
 	modelsFormWidgetInfoCmd.AddCommand(modelsFormWidgetInfoGetTextValueCmd)
 	modelsFormWidgetInfoCmd.AddCommand(modelsFormWidgetInfoGetWidgetIndexCmd)
@@ -963,60 +1056,5 @@ func init() {
 	modelsFormWidgetInfoBuilderSetReadOnlyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	modelsFormWidgetInfoBuilderCmd.AddCommand(modelsFormWidgetInfoBuilderSetReadOnlyCmd)
 	modelsCmd.AddCommand(modelsFormWidgetInfoBuilderCmd)
-	modelsListItemNewListItemCmd.Flags().String("arg0", "", "arg0 (string)")
-	modelsListItemNewListItemCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	modelsListItemCmd.AddCommand(modelsListItemNewListItemCmd)
-	modelsListItemDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsListItemCmd.AddCommand(modelsListItemDescribeContentsCmd)
-	modelsListItemEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsListItemEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	modelsListItemCmd.AddCommand(modelsListItemEqualsCmd)
-	modelsListItemGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsListItemCmd.AddCommand(modelsListItemGetLabelCmd)
-	modelsListItemHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsListItemCmd.AddCommand(modelsListItemHashCodeCmd)
-	modelsListItemIsSelectedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsListItemCmd.AddCommand(modelsListItemIsSelectedCmd)
-	modelsListItemToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsListItemCmd.AddCommand(modelsListItemToStringCmd)
-	modelsListItemWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsListItemWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	modelsListItemWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	modelsListItemCmd.AddCommand(modelsListItemWriteToParcelCmd)
-	modelsCmd.AddCommand(modelsListItemCmd)
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordDescribeContentsCmd)
-	modelsFormEditRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordEqualsCmd)
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetClickPointCmd)
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetPageNumberCmd)
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetSelectedIndicesCmd)
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetTextCmd)
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetTypeCmd)
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordGetWidgetIndexCmd)
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordHashCodeCmd)
-	modelsFormEditRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	modelsFormEditRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	modelsFormEditRecordCmd.AddCommand(modelsFormEditRecordWriteToParcelCmd)
-	modelsCmd.AddCommand(modelsFormEditRecordCmd)
-	modelsFormEditRecordBuilderCmd.AddCommand(modelsFormEditRecordBuilderBuildCmd)
-	modelsFormEditRecordBuilderSetClickPointCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	modelsFormEditRecordBuilderCmd.AddCommand(modelsFormEditRecordBuilderSetClickPointCmd)
-	modelsFormEditRecordBuilderSetSelectedIndicesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	modelsFormEditRecordBuilderCmd.AddCommand(modelsFormEditRecordBuilderSetSelectedIndicesCmd)
-	modelsFormEditRecordBuilderSetTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	modelsFormEditRecordBuilderCmd.AddCommand(modelsFormEditRecordBuilderSetTextCmd)
-	modelsCmd.AddCommand(modelsFormEditRecordBuilderCmd)
-	modelsPageMatchBoundsNewPageMatchBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	modelsPageMatchBoundsNewPageMatchBoundsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsNewPageMatchBoundsCmd)
-	modelsPageMatchBoundsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsDescribeContentsCmd)
-	modelsPageMatchBoundsGetTextStartIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsGetTextStartIndexCmd)
-	modelsPageMatchBoundsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	modelsPageMatchBoundsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	modelsPageMatchBoundsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	modelsPageMatchBoundsCmd.AddCommand(modelsPageMatchBoundsWriteToParcelCmd)
-	modelsCmd.AddCommand(modelsPageMatchBoundsCmd)
 	rootCmd.AddCommand(modelsCmd)
 }

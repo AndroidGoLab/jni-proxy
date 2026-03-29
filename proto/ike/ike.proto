@@ -6,136 +6,55 @@ package ike;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/ike";
 
-message NewIpv6AddrIdentificationRequest {
-  int64 arg0 = 1;
+message GetEapInfoRequest {
 }
 
-message NewIpv6AddrIdentificationResponse {
+message GetEapInfoResponse {
   int64 result = 1;
 }
 
-message EqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message GetIkeSessionConnectionInfoRequest {
 }
 
-message EqualsResponse {
+message GetIkeSessionConnectionInfoResponse {
+  int64 result = 1;
+}
+
+message GetRemoteApplicationVersionRequest {
+}
+
+message GetRemoteApplicationVersionResponse {
+  string result = 1;
+}
+
+message GetRemoteVendorIdsRequest {
+}
+
+message GetRemoteVendorIdsResponse {
+  int64 result = 1;
+}
+
+message IsIkeExtensionEnabledRequest {
+  int32 arg0 = 1;
+}
+
+message IsIkeExtensionEnabledResponse {
   bool result = 1;
 }
 
-message HashCodeRequest {
-  int64 handle = 1;
+message AddIkeExtensionRequest {
+  int32 arg0 = 1;
 }
 
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message NewSessionRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message NewSessionResponse {
+message AddIkeExtensionResponse {
   int64 result = 1;
 }
 
-message CloseRequest {
-  int64 handle = 1;
-}
-
-message CloseResponse {
-}
-
-message CloseChildSessionRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message CloseChildSessionResponse {
-}
-
-message DumpRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message DumpResponse {
-}
-
-message FinalizeRequest {
-  int64 handle = 1;
-}
-
-message FinalizeResponse {
-}
-
-message KillRequest {
-  int64 handle = 1;
-}
-
-message KillResponse {
-}
-
-message OpenChildSessionRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message OpenChildSessionResponse {
-}
-
-message NewTunnelConnectionParamsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewTunnelConnectionParamsResponse {
-  int64 result = 1;
-}
-
-message GetIkeSessionParamsRequest {
-  int64 handle = 1;
-}
-
-message GetIkeSessionParamsResponse {
-  int64 result = 1;
-}
-
-message GetTunnelModeChildSessionParamsRequest {
-  int64 handle = 1;
-}
-
-message GetTunnelModeChildSessionParamsResponse {
-  int64 result = 1;
-}
-
-message AddChildSaProposalRequest {
+message AddRemoteVendorIdRequest {
   int64 arg0 = 1;
 }
 
-message AddChildSaProposalResponse {
-  int64 result = 1;
-}
-
-message AddInboundTrafficSelectorsRequest {
-  int64 arg0 = 1;
-}
-
-message AddInboundTrafficSelectorsResponse {
-  int64 result = 1;
-}
-
-message AddOutboundTrafficSelectorsRequest {
-  int64 arg0 = 1;
-}
-
-message AddOutboundTrafficSelectorsResponse {
+message AddRemoteVendorIdResponse {
   int64 result = 1;
 }
 
@@ -146,46 +65,174 @@ message BuildResponse {
   int64 result = 1;
 }
 
-message SetLifetimeSecondsRequest {
+message ClearIkeExtensionsRequest {
+}
+
+message ClearIkeExtensionsResponse {
+  int64 result = 1;
+}
+
+message ClearRemoteApplicationVersionRequest {
+}
+
+message ClearRemoteApplicationVersionResponse {
+  int64 result = 1;
+}
+
+message ClearRemoteVendorIdsRequest {
+}
+
+message ClearRemoteVendorIdsResponse {
+  int64 result = 1;
+}
+
+message SetEapInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetEapInfoResponse {
+  int64 result = 1;
+}
+
+message SetRemoteApplicationVersionRequest {
+  string arg0 = 1;
+}
+
+message SetRemoteApplicationVersionResponse {
+  int64 result = 1;
+}
+
+message NewSessionConnectionInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewSessionConnectionInfoResponse {
+  int64 result = 1;
+}
+
+message GetLocalAddressRequest {
+  int64 handle = 1;
+}
+
+message GetLocalAddressResponse {
+  int64 result = 1;
+}
+
+message GetNetworkRequest {
+  int64 handle = 1;
+}
+
+message GetNetworkResponse {
+  int64 result = 1;
+}
+
+message GetRemoteAddressRequest {
+  int64 handle = 1;
+}
+
+message GetRemoteAddressResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message GetSupportedEncryptionAlgorithmsRequest {
+}
+
+message GetSupportedEncryptionAlgorithmsResponse {
+  int64 result = 1;
+}
+
+message GetSupportedIntegrityAlgorithmsRequest {
+}
+
+message GetSupportedIntegrityAlgorithmsResponse {
+  int64 result = 1;
+}
+
+message AddDhGroupRequest {
+  int32 arg0 = 1;
+}
+
+message AddDhGroupResponse {
+  int64 result = 1;
+}
+
+message AddEncryptionAlgorithmRequest {
   int32 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message SetLifetimeSecondsResponse {
+message AddEncryptionAlgorithmResponse {
   int64 result = 1;
 }
 
-message OnClosedRequest {
+message AddIntegrityAlgorithmRequest {
+  int32 arg0 = 1;
 }
 
-message OnClosedResponse {
+message AddIntegrityAlgorithmResponse {
+  int64 result = 1;
 }
 
-message OnIpSecTransformCreatedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnIpSecTransformCreatedResponse {
-}
-
-message OnIpSecTransformDeletedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnIpSecTransformDeletedResponse {
-}
-
-message OnOpenedRequest {
+message NewDerAsn1DnIdentificationRequest {
   int64 arg0 = 1;
 }
 
-message OnOpenedResponse {
+message NewDerAsn1DnIdentificationResponse {
+  int64 result = 1;
 }
 
-message SessionParamsEqualsRequest {
-  int64 arg0 = 1;
+message DerAsn1DnIdentificationEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DerAsn1DnIdentificationHashCodeRequest {
+  int64 handle = 1;
+}
+
+message GetDhGroupsRequest {
+}
+
+message GetDhGroupsResponse {
+  int64 result = 1;
+}
+
+message GetIntegrityAlgorithmsRequest {
+}
+
+message GetIntegrityAlgorithmsResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message GetSupportedDhGroupsRequest {
+}
+
+message GetSupportedDhGroupsResponse {
+  int64 result = 1;
 }
 
 message GetDpdDelaySecondsRequest {
@@ -200,6 +247,20 @@ message GetHardLifetimeSecondsRequest {
 
 message GetHardLifetimeSecondsResponse {
   int32 result = 1;
+}
+
+message GetIkeOptionsRequest {
+}
+
+message GetIkeOptionsResponse {
+  int64 result = 1;
+}
+
+message GetIkeSaProposalsRequest {
+}
+
+message GetIkeSaProposalsResponse {
+  int64 result = 1;
 }
 
 message GetLocalAuthConfigRequest {
@@ -223,11 +284,7 @@ message GetNattKeepAliveDelaySecondsResponse {
   int32 result = 1;
 }
 
-message GetNetworkRequest {
-}
-
-message GetNetworkResponse {
-  int64 result = 1;
+message SessionParamsGetNetworkRequest {
 }
 
 message GetRemoteAuthConfigRequest {
@@ -271,9 +328,6 @@ message HasIkeOptionRequest {
 
 message HasIkeOptionResponse {
   bool result = 1;
-}
-
-message SessionParamsHashCodeRequest {
 }
 
 message AddIkeOptionRequest {
@@ -335,6 +389,15 @@ message SetDpdDelaySecondsResponse {
   int64 result = 1;
 }
 
+message SetLifetimeSecondsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetLifetimeSecondsResponse {
+  int64 result = 1;
+}
+
 message SetLocalIdentificationRequest {
   int64 arg0 = 1;
 }
@@ -383,21 +446,17 @@ message SetServerHostnameResponse {
   int64 result = 1;
 }
 
-message SessionParamsIkeAuthConfigEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message SessionParamsIkeAuthConfigHashCodeRequest {
-}
-
-message SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest {
-  int64 arg0 = 1;
-}
-
 message GetClientEndCertificateRequest {
 }
 
 message GetClientEndCertificateResponse {
+  int64 result = 1;
+}
+
+message GetIntermediateCertificatesRequest {
+}
+
+message GetIntermediateCertificatesResponse {
   int64 result = 1;
 }
 
@@ -408,25 +467,11 @@ message GetPrivateKeyResponse {
   int64 result = 1;
 }
 
-message SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest {
-}
-
-message SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest {
-  int64 arg0 = 1;
-}
-
 message GetRemoteCaCertRequest {
 }
 
 message GetRemoteCaCertResponse {
   int64 result = 1;
-}
-
-message SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest {
-}
-
-message SessionParamsIkeAuthEapConfigEqualsRequest {
-  int64 arg0 = 1;
 }
 
 message GetEapConfigRequest {
@@ -436,140 +481,10 @@ message GetEapConfigResponse {
   int64 result = 1;
 }
 
-message SessionParamsIkeAuthEapConfigHashCodeRequest {
-}
-
-message SessionParamsIkeAuthPskConfigEqualsRequest {
-  int64 arg0 = 1;
-}
-
 message GetPskRequest {
 }
 
 message GetPskResponse {
-  int64 result = 1;
-}
-
-message SessionParamsIkeAuthPskConfigHashCodeRequest {
-}
-
-message GetEapInfoRequest {
-}
-
-message GetEapInfoResponse {
-  int64 result = 1;
-}
-
-message GetIkeSessionConnectionInfoRequest {
-}
-
-message GetIkeSessionConnectionInfoResponse {
-  int64 result = 1;
-}
-
-message GetRemoteApplicationVersionRequest {
-}
-
-message GetRemoteApplicationVersionResponse {
-  string result = 1;
-}
-
-message IsIkeExtensionEnabledRequest {
-  int32 arg0 = 1;
-}
-
-message IsIkeExtensionEnabledResponse {
-  bool result = 1;
-}
-
-message AddIkeExtensionRequest {
-  int32 arg0 = 1;
-}
-
-message AddIkeExtensionResponse {
-  int64 result = 1;
-}
-
-message AddRemoteVendorIdRequest {
-  int64 arg0 = 1;
-}
-
-message AddRemoteVendorIdResponse {
-  int64 result = 1;
-}
-
-message ClearIkeExtensionsRequest {
-}
-
-message ClearIkeExtensionsResponse {
-  int64 result = 1;
-}
-
-message ClearRemoteApplicationVersionRequest {
-}
-
-message ClearRemoteApplicationVersionResponse {
-  int64 result = 1;
-}
-
-message ClearRemoteVendorIdsRequest {
-}
-
-message ClearRemoteVendorIdsResponse {
-  int64 result = 1;
-}
-
-message SetEapInfoRequest {
-  int64 arg0 = 1;
-}
-
-message SetEapInfoResponse {
-  int64 result = 1;
-}
-
-message SetRemoteApplicationVersionRequest {
-  string arg0 = 1;
-}
-
-message SetRemoteApplicationVersionResponse {
-  int64 result = 1;
-}
-
-message NewIpv4AddrIdentificationRequest {
-  int64 arg0 = 1;
-}
-
-message NewIpv4AddrIdentificationResponse {
-  int64 result = 1;
-}
-
-message NewSessionConnectionInfoRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message NewSessionConnectionInfoResponse {
-  int64 result = 1;
-}
-
-message GetLocalAddressRequest {
-  int64 handle = 1;
-}
-
-message GetLocalAddressResponse {
-  int64 result = 1;
-}
-
-message SessionConnectionInfoGetNetworkRequest {
-  int64 handle = 1;
-}
-
-message GetRemoteAddressRequest {
-  int64 handle = 1;
-}
-
-message GetRemoteAddressResponse {
   int64 result = 1;
 }
 
@@ -581,18 +496,242 @@ message NewRfc822AddrIdentificationResponse {
   int64 result = 1;
 }
 
-message SaProposalEqualsRequest {
+message Rfc822AddrIdentificationEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Rfc822AddrIdentificationHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NewTrafficSelectorRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewTrafficSelectorResponse {
+  int64 result = 1;
+}
+
+message TrafficSelectorEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TrafficSelectorHashCodeRequest {
+  int64 handle = 1;
+}
+
+message GetInboundTrafficSelectorsRequest {
+}
+
+message GetInboundTrafficSelectorsResponse {
+  int64 result = 1;
+}
+
+message GetOutboundTrafficSelectorsRequest {
+}
+
+message GetOutboundTrafficSelectorsResponse {
+  int64 result = 1;
+}
+
+message GetPseudorandomFunctionsRequest {
+}
+
+message GetPseudorandomFunctionsResponse {
+  int64 result = 1;
+}
+
+message GetSupportedPseudorandomFunctionsRequest {
+}
+
+message GetSupportedPseudorandomFunctionsResponse {
+  int64 result = 1;
+}
+
+message AddPseudorandomFunctionRequest {
+  int32 arg0 = 1;
+}
+
+message AddPseudorandomFunctionResponse {
+  int64 result = 1;
+}
+
+message NewSessionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message NewSessionResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message CloseChildSessionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CloseChildSessionResponse {
+}
+
+message DumpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DumpResponse {
+}
+
+message FinalizeRequest {
+  int64 handle = 1;
+}
+
+message FinalizeResponse {
+}
+
+message KillRequest {
+  int64 handle = 1;
+}
+
+message KillResponse {
+}
+
+message OpenChildSessionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OpenChildSessionResponse {
+}
+
+message NewIpv4AddrIdentificationRequest {
   int64 arg0 = 1;
 }
 
-message SaProposalHashCodeRequest {
+message NewIpv4AddrIdentificationResponse {
+  int64 result = 1;
 }
 
-message ToStringRequest {
+message Ipv4AddrIdentificationEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message ToStringResponse {
-  string result = 1;
+message Ipv4AddrIdentificationHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NewIpv6AddrIdentificationRequest {
+  int64 arg0 = 1;
+}
+
+message NewIpv6AddrIdentificationResponse {
+  int64 result = 1;
+}
+
+message Ipv6AddrIdentificationEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Ipv6AddrIdentificationHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NewTunnelConnectionParamsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewTunnelConnectionParamsResponse {
+  int64 result = 1;
+}
+
+message TunnelConnectionParamsEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetIkeSessionParamsRequest {
+  int64 handle = 1;
+}
+
+message GetIkeSessionParamsResponse {
+  int64 result = 1;
+}
+
+message GetTunnelModeChildSessionParamsRequest {
+  int64 handle = 1;
+}
+
+message GetTunnelModeChildSessionParamsResponse {
+  int64 result = 1;
+}
+
+message TunnelConnectionParamsHashCodeRequest {
+  int64 handle = 1;
+}
+
+message OnClosedRequest {
+}
+
+message OnClosedResponse {
+}
+
+message OnOpenedRequest {
+  int64 arg0 = 1;
+}
+
+message OnOpenedResponse {
+}
+
+message OnIpSecTransformCreatedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnIpSecTransformCreatedResponse {
+}
+
+message OnIpSecTransformDeletedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnIpSecTransformDeletedResponse {
+}
+
+message NewKeyIdIdentificationRequest {
+  int64 arg0 = 1;
+}
+
+message NewKeyIdIdentificationResponse {
+  int64 result = 1;
+}
+
+message KeyIdIdentificationEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message KeyIdIdentificationHashCodeRequest {
+  int64 handle = 1;
 }
 
 message NewFqdnIdentificationRequest {
@@ -603,50 +742,43 @@ message NewFqdnIdentificationResponse {
   int64 result = 1;
 }
 
-message ChildSaProposalEqualsRequest {
-  int64 arg0 = 1;
+message FqdnIdentificationEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message ChildSaProposalHashCodeRequest {
+message FqdnIdentificationHashCodeRequest {
+  int64 handle = 1;
 }
 
-message AddDhGroupRequest {
-  int32 arg0 = 1;
+message GetChildSaProposalsRequest {
 }
 
-message AddDhGroupResponse {
+message GetChildSaProposalsResponse {
   int64 result = 1;
 }
 
-message AddEncryptionAlgorithmRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
+message GetConfigurationRequestsRequest {
 }
 
-message AddEncryptionAlgorithmResponse {
+message GetConfigurationRequestsResponse {
   int64 result = 1;
 }
 
-message AddIntegrityAlgorithmRequest {
-  int32 arg0 = 1;
+message AddChildSaProposalRequest {
+  int64 arg0 = 1;
 }
 
-message AddIntegrityAlgorithmResponse {
+message AddChildSaProposalResponse {
   int64 result = 1;
 }
 
-message ChildSessionParamsEqualsRequest {
+message AddInboundTrafficSelectorsRequest {
   int64 arg0 = 1;
 }
 
-message ChildSessionParamsHashCodeRequest {
-}
-
-message TunnelModeChildSessionParamsEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message TunnelModeChildSessionParamsHashCodeRequest {
+message AddInboundTrafficSelectorsResponse {
+  int64 result = 1;
 }
 
 message AddInternalAddressRequest1Request {
@@ -690,6 +822,14 @@ message AddInternalDnsServerRequestResponse {
   int64 result = 1;
 }
 
+message AddOutboundTrafficSelectorsRequest {
+  int64 arg0 = 1;
+}
+
+message AddOutboundTrafficSelectorsResponse {
+  int64 result = 1;
+}
+
 message GetAddressRequest {
 }
 
@@ -704,102 +844,78 @@ message GetPrefixLengthResponse {
   int32 result = 1;
 }
 
-message IkeSaProposalEqualsRequest {
-  int64 arg0 = 1;
+service SessionConfigurationService {
+  rpc GetEapInfo (GetEapInfoRequest) returns (GetEapInfoResponse);
+  rpc GetIkeSessionConnectionInfo (GetIkeSessionConnectionInfoRequest) returns (GetIkeSessionConnectionInfoResponse);
+  rpc GetRemoteApplicationVersion (GetRemoteApplicationVersionRequest) returns (GetRemoteApplicationVersionResponse);
+  rpc GetRemoteVendorIds (GetRemoteVendorIdsRequest) returns (GetRemoteVendorIdsResponse);
+  rpc IsIkeExtensionEnabled (IsIkeExtensionEnabledRequest) returns (IsIkeExtensionEnabledResponse);
 }
 
-message IkeSaProposalHashCodeRequest {
-}
-
-message AddPseudorandomFunctionRequest {
-  int32 arg0 = 1;
-}
-
-message AddPseudorandomFunctionResponse {
-  int64 result = 1;
-}
-
-message NewDerAsn1DnIdentificationRequest {
-  int64 arg0 = 1;
-}
-
-message NewDerAsn1DnIdentificationResponse {
-  int64 result = 1;
-}
-
-message NewTrafficSelectorRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message NewTrafficSelectorResponse {
-  int64 result = 1;
-}
-
-message NewKeyIdIdentificationRequest {
-  int64 arg0 = 1;
-}
-
-message NewKeyIdIdentificationResponse {
-  int64 result = 1;
-}
-
-service Ipv6AddrIdentificationService {
-  rpc NewIpv6AddrIdentification (NewIpv6AddrIdentificationRequest) returns (NewIpv6AddrIdentificationResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service SessionService {
-  rpc NewSession (NewSessionRequest) returns (NewSessionResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc CloseChildSession (CloseChildSessionRequest) returns (CloseChildSessionResponse);
-  rpc Dump (DumpRequest) returns (DumpResponse);
-  rpc Finalize (FinalizeRequest) returns (FinalizeResponse);
-  rpc Kill (KillRequest) returns (KillResponse);
-  rpc OpenChildSession (OpenChildSessionRequest) returns (OpenChildSessionResponse);
-}
-
-service TunnelConnectionParamsService {
-  rpc NewTunnelConnectionParams (NewTunnelConnectionParamsRequest) returns (NewTunnelConnectionParamsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetIkeSessionParams (GetIkeSessionParamsRequest) returns (GetIkeSessionParamsResponse);
-  rpc GetTunnelModeChildSessionParams (GetTunnelModeChildSessionParamsRequest) returns (GetTunnelModeChildSessionParamsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service TransportModeChildSessionParamsBuilderService {
-  rpc AddChildSaProposal (AddChildSaProposalRequest) returns (AddChildSaProposalResponse);
-  rpc AddInboundTrafficSelectors (AddInboundTrafficSelectorsRequest) returns (AddInboundTrafficSelectorsResponse);
-  rpc AddOutboundTrafficSelectors (AddOutboundTrafficSelectorsRequest) returns (AddOutboundTrafficSelectorsResponse);
+service SessionConfigurationBuilderService {
+  rpc AddIkeExtension (AddIkeExtensionRequest) returns (AddIkeExtensionResponse);
+  rpc AddRemoteVendorId (AddRemoteVendorIdRequest) returns (AddRemoteVendorIdResponse);
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetLifetimeSeconds (SetLifetimeSecondsRequest) returns (SetLifetimeSecondsResponse);
+  rpc ClearIkeExtensions (ClearIkeExtensionsRequest) returns (ClearIkeExtensionsResponse);
+  rpc ClearRemoteApplicationVersion (ClearRemoteApplicationVersionRequest) returns (ClearRemoteApplicationVersionResponse);
+  rpc ClearRemoteVendorIds (ClearRemoteVendorIdsRequest) returns (ClearRemoteVendorIdsResponse);
+  rpc SetEapInfo (SetEapInfoRequest) returns (SetEapInfoResponse);
+  rpc SetRemoteApplicationVersion (SetRemoteApplicationVersionRequest) returns (SetRemoteApplicationVersionResponse);
 }
 
-service ChildSessionCallbackService {
-  rpc OnClosed (OnClosedRequest) returns (OnClosedResponse);
-  rpc OnIpSecTransformCreated (OnIpSecTransformCreatedRequest) returns (OnIpSecTransformCreatedResponse);
-  rpc OnIpSecTransformDeleted (OnIpSecTransformDeletedRequest) returns (OnIpSecTransformDeletedResponse);
-  rpc OnOpened (OnOpenedRequest) returns (OnOpenedResponse);
+service SessionConnectionInfoService {
+  rpc NewSessionConnectionInfo (NewSessionConnectionInfoRequest) returns (NewSessionConnectionInfoResponse);
+  rpc GetLocalAddress (GetLocalAddressRequest) returns (GetLocalAddressResponse);
+  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
+  rpc GetRemoteAddress (GetRemoteAddressRequest) returns (GetRemoteAddressResponse);
+}
+
+service ChildSaProposalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc GetSupportedEncryptionAlgorithms (GetSupportedEncryptionAlgorithmsRequest) returns (GetSupportedEncryptionAlgorithmsResponse);
+  rpc GetSupportedIntegrityAlgorithms (GetSupportedIntegrityAlgorithmsRequest) returns (GetSupportedIntegrityAlgorithmsResponse);
+}
+
+service ChildSaProposalBuilderService {
+  rpc AddDhGroup (AddDhGroupRequest) returns (AddDhGroupResponse);
+  rpc AddEncryptionAlgorithm (AddEncryptionAlgorithmRequest) returns (AddEncryptionAlgorithmResponse);
+  rpc AddIntegrityAlgorithm (AddIntegrityAlgorithmRequest) returns (AddIntegrityAlgorithmResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service DerAsn1DnIdentificationService {
+  rpc NewDerAsn1DnIdentification (NewDerAsn1DnIdentificationRequest) returns (NewDerAsn1DnIdentificationResponse);
+  rpc Equals (DerAsn1DnIdentificationEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (DerAsn1DnIdentificationHashCodeRequest) returns (HashCodeResponse);
+}
+
+service SaProposalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDhGroups (GetDhGroupsRequest) returns (GetDhGroupsResponse);
+  rpc GetIntegrityAlgorithms (GetIntegrityAlgorithmsRequest) returns (GetIntegrityAlgorithmsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc GetSupportedDhGroups (GetSupportedDhGroupsRequest) returns (GetSupportedDhGroupsResponse);
 }
 
 service SessionParamsService {
-  rpc Equals (SessionParamsEqualsRequest) returns (EqualsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetDpdDelaySeconds (GetDpdDelaySecondsRequest) returns (GetDpdDelaySecondsResponse);
   rpc GetHardLifetimeSeconds (GetHardLifetimeSecondsRequest) returns (GetHardLifetimeSecondsResponse);
+  rpc GetIkeOptions (GetIkeOptionsRequest) returns (GetIkeOptionsResponse);
+  rpc GetIkeSaProposals (GetIkeSaProposalsRequest) returns (GetIkeSaProposalsResponse);
   rpc GetLocalAuthConfig (GetLocalAuthConfigRequest) returns (GetLocalAuthConfigResponse);
   rpc GetLocalIdentification (GetLocalIdentificationRequest) returns (GetLocalIdentificationResponse);
   rpc GetNattKeepAliveDelaySeconds (GetNattKeepAliveDelaySecondsRequest) returns (GetNattKeepAliveDelaySecondsResponse);
-  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
+  rpc GetNetwork (SessionParamsGetNetworkRequest) returns (GetNetworkResponse);
   rpc GetRemoteAuthConfig (GetRemoteAuthConfigRequest) returns (GetRemoteAuthConfigResponse);
   rpc GetRemoteIdentification (GetRemoteIdentificationRequest) returns (GetRemoteIdentificationResponse);
   rpc GetRetransmissionTimeoutsMillis (GetRetransmissionTimeoutsMillisRequest) returns (GetRetransmissionTimeoutsMillisResponse);
   rpc GetServerHostname (GetServerHostnameRequest) returns (GetServerHostnameResponse);
   rpc GetSoftLifetimeSeconds (GetSoftLifetimeSecondsRequest) returns (GetSoftLifetimeSecondsResponse);
   rpc HasIkeOption (HasIkeOptionRequest) returns (HasIkeOptionResponse);
-  rpc HashCode (SessionParamsHashCodeRequest) returns (HashCodeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }
 
 service SessionParamsBuilderService {
@@ -821,76 +937,102 @@ service SessionParamsBuilderService {
 }
 
 service SessionParamsIkeAuthConfigService {
-  rpc Equals (SessionParamsIkeAuthConfigEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (SessionParamsIkeAuthConfigHashCodeRequest) returns (HashCodeResponse);
-}
-
-service SessionParamsIkeAuthDigitalSignLocalConfigService {
-  rpc Equals (SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) returns (EqualsResponse);
-  rpc GetClientEndCertificate (GetClientEndCertificateRequest) returns (GetClientEndCertificateResponse);
-  rpc GetPrivateKey (GetPrivateKeyRequest) returns (GetPrivateKeyResponse);
-  rpc HashCode (SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest) returns (HashCodeResponse);
-}
-
-service SessionParamsIkeAuthDigitalSignRemoteConfigService {
-  rpc Equals (SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) returns (EqualsResponse);
-  rpc GetRemoteCaCert (GetRemoteCaCertRequest) returns (GetRemoteCaCertResponse);
-  rpc HashCode (SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest) returns (HashCodeResponse);
-}
-
-service SessionParamsIkeAuthEapConfigService {
-  rpc Equals (SessionParamsIkeAuthEapConfigEqualsRequest) returns (EqualsResponse);
-  rpc GetEapConfig (GetEapConfigRequest) returns (GetEapConfigResponse);
-  rpc HashCode (SessionParamsIkeAuthEapConfigHashCodeRequest) returns (HashCodeResponse);
-}
-
-service SessionParamsIkeAuthPskConfigService {
-  rpc Equals (SessionParamsIkeAuthPskConfigEqualsRequest) returns (EqualsResponse);
-  rpc GetPsk (GetPskRequest) returns (GetPskResponse);
-  rpc HashCode (SessionParamsIkeAuthPskConfigHashCodeRequest) returns (HashCodeResponse);
-}
-
-service SessionConfigurationService {
-  rpc GetEapInfo (GetEapInfoRequest) returns (GetEapInfoResponse);
-  rpc GetIkeSessionConnectionInfo (GetIkeSessionConnectionInfoRequest) returns (GetIkeSessionConnectionInfoResponse);
-  rpc GetRemoteApplicationVersion (GetRemoteApplicationVersionRequest) returns (GetRemoteApplicationVersionResponse);
-  rpc IsIkeExtensionEnabled (IsIkeExtensionEnabledRequest) returns (IsIkeExtensionEnabledResponse);
-}
-
-service SessionConfigurationBuilderService {
-  rpc AddIkeExtension (AddIkeExtensionRequest) returns (AddIkeExtensionResponse);
-  rpc AddRemoteVendorId (AddRemoteVendorIdRequest) returns (AddRemoteVendorIdResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc ClearIkeExtensions (ClearIkeExtensionsRequest) returns (ClearIkeExtensionsResponse);
-  rpc ClearRemoteApplicationVersion (ClearRemoteApplicationVersionRequest) returns (ClearRemoteApplicationVersionResponse);
-  rpc ClearRemoteVendorIds (ClearRemoteVendorIdsRequest) returns (ClearRemoteVendorIdsResponse);
-  rpc SetEapInfo (SetEapInfoRequest) returns (SetEapInfoResponse);
-  rpc SetRemoteApplicationVersion (SetRemoteApplicationVersionRequest) returns (SetRemoteApplicationVersionResponse);
-}
-
-service Ipv4AddrIdentificationService {
-  rpc NewIpv4AddrIdentification (NewIpv4AddrIdentificationRequest) returns (NewIpv4AddrIdentificationResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }
 
-service SessionConnectionInfoService {
-  rpc NewSessionConnectionInfo (NewSessionConnectionInfoRequest) returns (NewSessionConnectionInfoResponse);
-  rpc GetLocalAddress (GetLocalAddressRequest) returns (GetLocalAddressResponse);
-  rpc GetNetwork (SessionConnectionInfoGetNetworkRequest) returns (GetNetworkResponse);
-  rpc GetRemoteAddress (GetRemoteAddressRequest) returns (GetRemoteAddressResponse);
+service SessionParamsIkeAuthDigitalSignLocalConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetClientEndCertificate (GetClientEndCertificateRequest) returns (GetClientEndCertificateResponse);
+  rpc GetIntermediateCertificates (GetIntermediateCertificatesRequest) returns (GetIntermediateCertificatesResponse);
+  rpc GetPrivateKey (GetPrivateKeyRequest) returns (GetPrivateKeyResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionParamsIkeAuthDigitalSignRemoteConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRemoteCaCert (GetRemoteCaCertRequest) returns (GetRemoteCaCertResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionParamsIkeAuthEapConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEapConfig (GetEapConfigRequest) returns (GetEapConfigResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionParamsIkeAuthPskConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPsk (GetPskRequest) returns (GetPskResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }
 
 service Rfc822AddrIdentificationService {
   rpc NewRfc822AddrIdentification (NewRfc822AddrIdentificationRequest) returns (NewRfc822AddrIdentificationResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Equals (Rfc822AddrIdentificationEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (Rfc822AddrIdentificationHashCodeRequest) returns (HashCodeResponse);
 }
 
-service SaProposalService {
-  rpc Equals (SaProposalEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (SaProposalHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
+service TrafficSelectorService {
+  rpc NewTrafficSelector (NewTrafficSelectorRequest) returns (NewTrafficSelectorResponse);
+  rpc Equals (TrafficSelectorEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (TrafficSelectorHashCodeRequest) returns (HashCodeResponse);
+}
+
+service ChildSessionConfigurationService {
+  rpc GetInboundTrafficSelectors (GetInboundTrafficSelectorsRequest) returns (GetInboundTrafficSelectorsResponse);
+  rpc GetOutboundTrafficSelectors (GetOutboundTrafficSelectorsRequest) returns (GetOutboundTrafficSelectorsResponse);
+}
+
+service ChildSessionConfigurationBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service IkeSaProposalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPseudorandomFunctions (GetPseudorandomFunctionsRequest) returns (GetPseudorandomFunctionsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc GetSupportedEncryptionAlgorithms (GetSupportedEncryptionAlgorithmsRequest) returns (GetSupportedEncryptionAlgorithmsResponse);
+  rpc GetSupportedIntegrityAlgorithms (GetSupportedIntegrityAlgorithmsRequest) returns (GetSupportedIntegrityAlgorithmsResponse);
+  rpc GetSupportedPseudorandomFunctions (GetSupportedPseudorandomFunctionsRequest) returns (GetSupportedPseudorandomFunctionsResponse);
+}
+
+service SaProposalBuilderService {
+  rpc AddDhGroup (AddDhGroupRequest) returns (AddDhGroupResponse);
+  rpc AddEncryptionAlgorithm (AddEncryptionAlgorithmRequest) returns (AddEncryptionAlgorithmResponse);
+  rpc AddIntegrityAlgorithm (AddIntegrityAlgorithmRequest) returns (AddIntegrityAlgorithmResponse);
+  rpc AddPseudorandomFunction (AddPseudorandomFunctionRequest) returns (AddPseudorandomFunctionResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SessionService {
+  rpc NewSession (NewSessionRequest) returns (NewSessionResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc CloseChildSession (CloseChildSessionRequest) returns (CloseChildSessionResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc Finalize (FinalizeRequest) returns (FinalizeResponse);
+  rpc Kill (KillRequest) returns (KillResponse);
+  rpc OpenChildSession (OpenChildSessionRequest) returns (OpenChildSessionResponse);
+}
+
+service Ipv4AddrIdentificationService {
+  rpc NewIpv4AddrIdentification (NewIpv4AddrIdentificationRequest) returns (NewIpv4AddrIdentificationResponse);
+  rpc Equals (Ipv4AddrIdentificationEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (Ipv4AddrIdentificationHashCodeRequest) returns (HashCodeResponse);
+}
+
+service Ipv6AddrIdentificationService {
+  rpc NewIpv6AddrIdentification (NewIpv6AddrIdentificationRequest) returns (NewIpv6AddrIdentificationResponse);
+  rpc Equals (Ipv6AddrIdentificationEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (Ipv6AddrIdentificationHashCodeRequest) returns (HashCodeResponse);
+}
+
+service TunnelConnectionParamsService {
+  rpc NewTunnelConnectionParams (NewTunnelConnectionParamsRequest) returns (NewTunnelConnectionParamsResponse);
+  rpc Equals (TunnelConnectionParamsEqualsRequest) returns (EqualsResponse);
+  rpc GetIkeSessionParams (GetIkeSessionParamsRequest) returns (GetIkeSessionParamsResponse);
+  rpc GetTunnelModeChildSessionParams (GetTunnelModeChildSessionParamsRequest) returns (GetTunnelModeChildSessionParamsResponse);
+  rpc HashCode (TunnelConnectionParamsHashCodeRequest) returns (HashCodeResponse);
 }
 
 service SessionCallbackService {
@@ -898,34 +1040,39 @@ service SessionCallbackService {
   rpc OnOpened (OnOpenedRequest) returns (OnOpenedResponse);
 }
 
+service ChildSessionCallbackService {
+  rpc OnClosed (OnClosedRequest) returns (OnClosedResponse);
+  rpc OnIpSecTransformCreated (OnIpSecTransformCreatedRequest) returns (OnIpSecTransformCreatedResponse);
+  rpc OnIpSecTransformDeleted (OnIpSecTransformDeletedRequest) returns (OnIpSecTransformDeletedResponse);
+  rpc OnOpened (OnOpenedRequest) returns (OnOpenedResponse);
+}
+
+service KeyIdIdentificationService {
+  rpc NewKeyIdIdentification (NewKeyIdIdentificationRequest) returns (NewKeyIdIdentificationResponse);
+  rpc Equals (KeyIdIdentificationEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (KeyIdIdentificationHashCodeRequest) returns (HashCodeResponse);
+}
+
 service FqdnIdentificationService {
   rpc NewFqdnIdentification (NewFqdnIdentificationRequest) returns (NewFqdnIdentificationResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service ChildSaProposalService {
-  rpc Equals (ChildSaProposalEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (ChildSaProposalHashCodeRequest) returns (HashCodeResponse);
-}
-
-service ChildSaProposalBuilderService {
-  rpc AddDhGroup (AddDhGroupRequest) returns (AddDhGroupResponse);
-  rpc AddEncryptionAlgorithm (AddEncryptionAlgorithmRequest) returns (AddEncryptionAlgorithmResponse);
-  rpc AddIntegrityAlgorithm (AddIntegrityAlgorithmRequest) returns (AddIntegrityAlgorithmResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc Equals (FqdnIdentificationEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (FqdnIdentificationHashCodeRequest) returns (HashCodeResponse);
 }
 
 service ChildSessionParamsService {
-  rpc Equals (ChildSessionParamsEqualsRequest) returns (EqualsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetChildSaProposals (GetChildSaProposalsRequest) returns (GetChildSaProposalsResponse);
   rpc GetHardLifetimeSeconds (GetHardLifetimeSecondsRequest) returns (GetHardLifetimeSecondsResponse);
+  rpc GetInboundTrafficSelectors (GetInboundTrafficSelectorsRequest) returns (GetInboundTrafficSelectorsResponse);
+  rpc GetOutboundTrafficSelectors (GetOutboundTrafficSelectorsRequest) returns (GetOutboundTrafficSelectorsResponse);
   rpc GetSoftLifetimeSeconds (GetSoftLifetimeSecondsRequest) returns (GetSoftLifetimeSecondsResponse);
-  rpc HashCode (ChildSessionParamsHashCodeRequest) returns (HashCodeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }
 
 service TunnelModeChildSessionParamsService {
-  rpc Equals (TunnelModeChildSessionParamsEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (TunnelModeChildSessionParamsHashCodeRequest) returns (HashCodeResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetConfigurationRequests (GetConfigurationRequestsRequest) returns (GetConfigurationRequestsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }
 
 service TunnelModeChildSessionParamsBuilderService {
@@ -950,37 +1097,10 @@ service TunnelModeChildSessionParamsConfigRequestIpv6AddressService {
   rpc GetPrefixLength (GetPrefixLengthRequest) returns (GetPrefixLengthResponse);
 }
 
-service IkeSaProposalService {
-  rpc Equals (IkeSaProposalEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (IkeSaProposalHashCodeRequest) returns (HashCodeResponse);
-}
-
-service SaProposalBuilderService {
-  rpc AddDhGroup (AddDhGroupRequest) returns (AddDhGroupResponse);
-  rpc AddEncryptionAlgorithm (AddEncryptionAlgorithmRequest) returns (AddEncryptionAlgorithmResponse);
-  rpc AddIntegrityAlgorithm (AddIntegrityAlgorithmRequest) returns (AddIntegrityAlgorithmResponse);
-  rpc AddPseudorandomFunction (AddPseudorandomFunctionRequest) returns (AddPseudorandomFunctionResponse);
+service TransportModeChildSessionParamsBuilderService {
+  rpc AddChildSaProposal (AddChildSaProposalRequest) returns (AddChildSaProposalResponse);
+  rpc AddInboundTrafficSelectors (AddInboundTrafficSelectorsRequest) returns (AddInboundTrafficSelectorsResponse);
+  rpc AddOutboundTrafficSelectors (AddOutboundTrafficSelectorsRequest) returns (AddOutboundTrafficSelectorsResponse);
   rpc Build (BuildRequest) returns (BuildResponse);
-}
-
-service DerAsn1DnIdentificationService {
-  rpc NewDerAsn1DnIdentification (NewDerAsn1DnIdentificationRequest) returns (NewDerAsn1DnIdentificationResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service TrafficSelectorService {
-  rpc NewTrafficSelector (NewTrafficSelectorRequest) returns (NewTrafficSelectorResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service KeyIdIdentificationService {
-  rpc NewKeyIdIdentification (NewKeyIdIdentificationRequest) returns (NewKeyIdIdentificationResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-}
-
-service ChildSessionConfigurationBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetLifetimeSeconds (SetLifetimeSecondsRequest) returns (SetLifetimeSecondsResponse);
 }

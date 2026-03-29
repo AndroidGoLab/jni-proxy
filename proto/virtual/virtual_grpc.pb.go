@@ -428,6 +428,7 @@ var DeviceService_ServiceDesc = grpc.ServiceDesc{
 
 const (
 	DeviceManagerService_GetVirtualDevice_FullMethodName                = "/virtual.DeviceManagerService/GetVirtualDevice"
+	DeviceManagerService_GetVirtualDevices_FullMethodName               = "/virtual.DeviceManagerService/GetVirtualDevices"
 	DeviceManagerService_RegisterVirtualDeviceListener_FullMethodName   = "/virtual.DeviceManagerService/RegisterVirtualDeviceListener"
 	DeviceManagerService_UnregisterVirtualDeviceListener_FullMethodName = "/virtual.DeviceManagerService/UnregisterVirtualDeviceListener"
 )
@@ -437,6 +438,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DeviceManagerServiceClient interface {
 	GetVirtualDevice(ctx context.Context, in *GetVirtualDeviceRequest, opts ...grpc.CallOption) (*GetVirtualDeviceResponse, error)
+	GetVirtualDevices(ctx context.Context, in *GetVirtualDevicesRequest, opts ...grpc.CallOption) (*GetVirtualDevicesResponse, error)
 	RegisterVirtualDeviceListener(ctx context.Context, in *RegisterVirtualDeviceListenerRequest, opts ...grpc.CallOption) (*RegisterVirtualDeviceListenerResponse, error)
 	UnregisterVirtualDeviceListener(ctx context.Context, in *UnregisterVirtualDeviceListenerRequest, opts ...grpc.CallOption) (*UnregisterVirtualDeviceListenerResponse, error)
 }
@@ -453,6 +455,16 @@ func (c *deviceManagerServiceClient) GetVirtualDevice(ctx context.Context, in *G
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetVirtualDeviceResponse)
 	err := c.cc.Invoke(ctx, DeviceManagerService_GetVirtualDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceManagerServiceClient) GetVirtualDevices(ctx context.Context, in *GetVirtualDevicesRequest, opts ...grpc.CallOption) (*GetVirtualDevicesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVirtualDevicesResponse)
+	err := c.cc.Invoke(ctx, DeviceManagerService_GetVirtualDevices_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -484,6 +496,7 @@ func (c *deviceManagerServiceClient) UnregisterVirtualDeviceListener(ctx context
 // for forward compatibility.
 type DeviceManagerServiceServer interface {
 	GetVirtualDevice(context.Context, *GetVirtualDeviceRequest) (*GetVirtualDeviceResponse, error)
+	GetVirtualDevices(context.Context, *GetVirtualDevicesRequest) (*GetVirtualDevicesResponse, error)
 	RegisterVirtualDeviceListener(context.Context, *RegisterVirtualDeviceListenerRequest) (*RegisterVirtualDeviceListenerResponse, error)
 	UnregisterVirtualDeviceListener(context.Context, *UnregisterVirtualDeviceListenerRequest) (*UnregisterVirtualDeviceListenerResponse, error)
 	mustEmbedUnimplementedDeviceManagerServiceServer()
@@ -498,6 +511,9 @@ type UnimplementedDeviceManagerServiceServer struct{}
 
 func (UnimplementedDeviceManagerServiceServer) GetVirtualDevice(context.Context, *GetVirtualDeviceRequest) (*GetVirtualDeviceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetVirtualDevice not implemented")
+}
+func (UnimplementedDeviceManagerServiceServer) GetVirtualDevices(context.Context, *GetVirtualDevicesRequest) (*GetVirtualDevicesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVirtualDevices not implemented")
 }
 func (UnimplementedDeviceManagerServiceServer) RegisterVirtualDeviceListener(context.Context, *RegisterVirtualDeviceListenerRequest) (*RegisterVirtualDeviceListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RegisterVirtualDeviceListener not implemented")
@@ -540,6 +556,24 @@ func _DeviceManagerService_GetVirtualDevice_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DeviceManagerServiceServer).GetVirtualDevice(ctx, req.(*GetVirtualDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceManagerService_GetVirtualDevices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVirtualDevicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceManagerServiceServer).GetVirtualDevices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceManagerService_GetVirtualDevices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceManagerServiceServer).GetVirtualDevices(ctx, req.(*GetVirtualDevicesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -590,6 +624,10 @@ var DeviceManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetVirtualDevice",
 			Handler:    _DeviceManagerService_GetVirtualDevice_Handler,
+		},
+		{
+			MethodName: "GetVirtualDevices",
+			Handler:    _DeviceManagerService_GetVirtualDevices_Handler,
 		},
 		{
 			MethodName: "RegisterVirtualDeviceListener",

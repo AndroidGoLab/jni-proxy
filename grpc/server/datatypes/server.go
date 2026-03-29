@@ -37,7 +37,7 @@ func (s *ExerciseRouteServer) NewExerciseRoute(_ context.Context, req *pb.NewExe
 	return &pb.NewExerciseRouteResponse{Result: handle}, nil
 }
 
-func (s *ExerciseRouteServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *ExerciseRouteServer) DescribeContents(_ context.Context, req *pb.ExerciseRouteDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -65,6 +65,29 @@ func (s *ExerciseRouteServer) Equals(_ context.Context, req *pb.ExerciseRouteEqu
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
+func (s *ExerciseRouteServer) GetRouteLocations(_ context.Context, req *pb.GetRouteLocationsRequest) (*pb.GetRouteLocationsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExerciseRoute{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRouteLocations()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRouteLocationsResponse{Result: handle}, nil
+}
+
 func (s *ExerciseRouteServer) HashCode(_ context.Context, req *pb.ExerciseRouteHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -79,7 +102,7 @@ func (s *ExerciseRouteServer) HashCode(_ context.Context, req *pb.ExerciseRouteH
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *ExerciseRouteServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *ExerciseRouteServer) WriteToParcel(_ context.Context, req *pb.ExerciseRouteWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")

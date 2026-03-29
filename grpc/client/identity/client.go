@@ -9,6 +9,61 @@ import (
 	"google.golang.org/grpc"
 )
 
+// PersonalizationDataBuilderClient wraps the gRPC PersonalizationDataBuilderService client.
+type PersonalizationDataBuilderClient struct {
+	svc pb.PersonalizationDataBuilderServiceClient
+}
+
+// NewPersonalizationDataBuilderClient creates a new PersonalizationDataBuilder client.
+func NewPersonalizationDataBuilderClient(cc grpc.ClientConnInterface) *PersonalizationDataBuilderClient {
+	return &PersonalizationDataBuilderClient{
+		svc: pb.NewPersonalizationDataBuilderServiceClient(cc),
+	}
+}
+
+// AddAccessControlProfile calls the AddAccessControlProfile RPC.
+func (c *PersonalizationDataBuilderClient) AddAccessControlProfile(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddAccessControlProfile(ctx, &pb.AddAccessControlProfileRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *PersonalizationDataBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AccessControlProfileIdClient wraps the gRPC AccessControlProfileIdService client.
+type AccessControlProfileIdClient struct {
+	svc pb.AccessControlProfileIdServiceClient
+}
+
+// NewAccessControlProfileIdClient creates a new AccessControlProfileId client.
+func NewAccessControlProfileIdClient(cc grpc.ClientConnInterface) *AccessControlProfileIdClient {
+	return &AccessControlProfileIdClient{
+		svc: pb.NewAccessControlProfileIdServiceClient(cc),
+	}
+}
+
+// GetId calls the GetId RPC.
+func (c *AccessControlProfileIdClient) GetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // CredentialDataResultClient wraps the gRPC CredentialDataResultService client.
 type CredentialDataResultClient struct {
 	svc pb.CredentialDataResultServiceClient
@@ -99,6 +154,37 @@ func (c *CredentialDataResultEntriesClient) GetEntry(ctx context.Context, arg0 s
 	return resp.GetResult(), nil
 }
 
+// GetEntryNames calls the GetEntryNames RPC.
+func (c *CredentialDataResultEntriesClient) GetEntryNames(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetEntryNames(ctx, &pb.GetEntryNamesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespaces calls the GetNamespaces RPC.
+func (c *CredentialDataResultEntriesClient) GetNamespaces(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNamespaces(ctx, &pb.GetNamespacesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRetrievedEntryNames calls the GetRetrievedEntryNames RPC.
+func (c *CredentialDataResultEntriesClient) GetRetrievedEntryNames(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetRetrievedEntryNames(ctx, &pb.GetRetrievedEntryNamesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetStatus calls the GetStatus RPC.
 func (c *CredentialDataResultEntriesClient) GetStatus(ctx context.Context, arg0 string, arg1 string) (int32, error) {
 	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{
@@ -111,95 +197,30 @@ func (c *CredentialDataResultEntriesClient) GetStatus(ctx context.Context, arg0 
 	return resp.GetResult(), nil
 }
 
-// ResultDataClient wraps the gRPC ResultDataService client.
-type ResultDataClient struct {
-	svc pb.ResultDataServiceClient
+// AuthenticationKeyMetadataClient wraps the gRPC AuthenticationKeyMetadataService client.
+type AuthenticationKeyMetadataClient struct {
+	svc pb.AuthenticationKeyMetadataServiceClient
 }
 
-// NewResultDataClient creates a new ResultData client.
-func NewResultDataClient(cc grpc.ClientConnInterface) *ResultDataClient {
-	return &ResultDataClient{
-		svc: pb.NewResultDataServiceClient(cc),
+// NewAuthenticationKeyMetadataClient creates a new AuthenticationKeyMetadata client.
+func NewAuthenticationKeyMetadataClient(cc grpc.ClientConnInterface) *AuthenticationKeyMetadataClient {
+	return &AuthenticationKeyMetadataClient{
+		svc: pb.NewAuthenticationKeyMetadataServiceClient(cc),
 	}
 }
 
-// GetAuthenticatedData calls the GetAuthenticatedData RPC.
-func (c *ResultDataClient) GetAuthenticatedData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAuthenticatedData(ctx, &pb.GetAuthenticatedDataRequest{})
+// GetExpirationDate calls the GetExpirationDate RPC.
+func (c *AuthenticationKeyMetadataClient) GetExpirationDate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExpirationDate(ctx, &pb.GetExpirationDateRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetEntry calls the GetEntry RPC.
-func (c *ResultDataClient) GetEntry(ctx context.Context, arg0 string, arg1 string) (int64, error) {
-	resp, err := c.svc.GetEntry(ctx, &pb.GetEntryRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMessageAuthenticationCode calls the GetMessageAuthenticationCode RPC.
-func (c *ResultDataClient) GetMessageAuthenticationCode(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMessageAuthenticationCode(ctx, &pb.GetMessageAuthenticationCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStaticAuthenticationData calls the GetStaticAuthenticationData RPC.
-func (c *ResultDataClient) GetStaticAuthenticationData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStaticAuthenticationData(ctx, &pb.GetStaticAuthenticationDataRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStatus calls the GetStatus RPC.
-func (c *ResultDataClient) GetStatus(ctx context.Context, arg0 string, arg1 string) (int32, error) {
-	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PersonalizationDataBuilderClient wraps the gRPC PersonalizationDataBuilderService client.
-type PersonalizationDataBuilderClient struct {
-	svc pb.PersonalizationDataBuilderServiceClient
-}
-
-// NewPersonalizationDataBuilderClient creates a new PersonalizationDataBuilder client.
-func NewPersonalizationDataBuilderClient(cc grpc.ClientConnInterface) *PersonalizationDataBuilderClient {
-	return &PersonalizationDataBuilderClient{
-		svc: pb.NewPersonalizationDataBuilderServiceClient(cc),
-	}
-}
-
-// AddAccessControlProfile calls the AddAccessControlProfile RPC.
-func (c *PersonalizationDataBuilderClient) AddAccessControlProfile(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddAccessControlProfile(ctx, &pb.AddAccessControlProfileRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *PersonalizationDataBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+// GetUsageCount calls the GetUsageCount RPC.
+func (c *AuthenticationKeyMetadataClient) GetUsageCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUsageCount(ctx, &pb.GetUsageCountRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -253,216 +274,6 @@ func (c *PresentationSessionClient) SetSessionTranscript(ctx context.Context, ar
 		Arg0: arg0,
 	})
 	return err
-}
-
-// AccessControlProfileBuilderClient wraps the gRPC AccessControlProfileBuilderService client.
-type AccessControlProfileBuilderClient struct {
-	svc pb.AccessControlProfileBuilderServiceClient
-}
-
-// NewAccessControlProfileBuilderClient creates a new AccessControlProfileBuilder client.
-func NewAccessControlProfileBuilderClient(cc grpc.ClientConnInterface) *AccessControlProfileBuilderClient {
-	return &AccessControlProfileBuilderClient{
-		svc: pb.NewAccessControlProfileBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *AccessControlProfileBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetReaderCertificate calls the SetReaderCertificate RPC.
-func (c *AccessControlProfileBuilderClient) SetReaderCertificate(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetReaderCertificate(ctx, &pb.SetReaderCertificateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserAuthenticationRequired calls the SetUserAuthenticationRequired RPC.
-func (c *AccessControlProfileBuilderClient) SetUserAuthenticationRequired(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetUserAuthenticationRequired(ctx, &pb.SetUserAuthenticationRequiredRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserAuthenticationTimeout calls the SetUserAuthenticationTimeout RPC.
-func (c *AccessControlProfileBuilderClient) SetUserAuthenticationTimeout(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetUserAuthenticationTimeout(ctx, &pb.SetUserAuthenticationTimeoutRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CredentialDataRequestClient wraps the gRPC CredentialDataRequestService client.
-type CredentialDataRequestClient struct {
-	svc pb.CredentialDataRequestServiceClient
-}
-
-// NewCredentialDataRequestClient creates a new CredentialDataRequest client.
-func NewCredentialDataRequestClient(cc grpc.ClientConnInterface) *CredentialDataRequestClient {
-	return &CredentialDataRequestClient{
-		svc: pb.NewCredentialDataRequestServiceClient(cc),
-	}
-}
-
-// GetReaderSignature calls the GetReaderSignature RPC.
-func (c *CredentialDataRequestClient) GetReaderSignature(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetReaderSignature(ctx, &pb.GetReaderSignatureRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRequestMessage calls the GetRequestMessage RPC.
-func (c *CredentialDataRequestClient) GetRequestMessage(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRequestMessage(ctx, &pb.GetRequestMessageRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAllowUsingExhaustedKeys calls the IsAllowUsingExhaustedKeys RPC.
-func (c *CredentialDataRequestClient) IsAllowUsingExhaustedKeys(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAllowUsingExhaustedKeys(ctx, &pb.IsAllowUsingExhaustedKeysRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAllowUsingExpiredKeys calls the IsAllowUsingExpiredKeys RPC.
-func (c *CredentialDataRequestClient) IsAllowUsingExpiredKeys(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAllowUsingExpiredKeys(ctx, &pb.IsAllowUsingExpiredKeysRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsIncrementUseCount calls the IsIncrementUseCount RPC.
-func (c *CredentialDataRequestClient) IsIncrementUseCount(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsIncrementUseCount(ctx, &pb.IsIncrementUseCountRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CredentialDataRequestBuilderClient wraps the gRPC CredentialDataRequestBuilderService client.
-type CredentialDataRequestBuilderClient struct {
-	svc pb.CredentialDataRequestBuilderServiceClient
-}
-
-// NewCredentialDataRequestBuilderClient creates a new CredentialDataRequestBuilder client.
-func NewCredentialDataRequestBuilderClient(cc grpc.ClientConnInterface) *CredentialDataRequestBuilderClient {
-	return &CredentialDataRequestBuilderClient{
-		svc: pb.NewCredentialDataRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *CredentialDataRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAllowUsingExhaustedKeys calls the SetAllowUsingExhaustedKeys RPC.
-func (c *CredentialDataRequestBuilderClient) SetAllowUsingExhaustedKeys(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetAllowUsingExhaustedKeys(ctx, &pb.SetAllowUsingExhaustedKeysRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAllowUsingExpiredKeys calls the SetAllowUsingExpiredKeys RPC.
-func (c *CredentialDataRequestBuilderClient) SetAllowUsingExpiredKeys(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetAllowUsingExpiredKeys(ctx, &pb.SetAllowUsingExpiredKeysRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIncrementUseCount calls the SetIncrementUseCount RPC.
-func (c *CredentialDataRequestBuilderClient) SetIncrementUseCount(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIncrementUseCount(ctx, &pb.SetIncrementUseCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetReaderSignature calls the SetReaderSignature RPC.
-func (c *CredentialDataRequestBuilderClient) SetReaderSignature(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetReaderSignature(ctx, &pb.SetReaderSignatureRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRequestMessage calls the SetRequestMessage RPC.
-func (c *CredentialDataRequestBuilderClient) SetRequestMessage(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetRequestMessage(ctx, &pb.SetRequestMessageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WritableIdentityCredentialClient wraps the gRPC WritableIdentityCredentialService client.
-type WritableIdentityCredentialClient struct {
-	svc pb.WritableIdentityCredentialServiceClient
-}
-
-// NewWritableIdentityCredentialClient creates a new WritableIdentityCredential client.
-func NewWritableIdentityCredentialClient(cc grpc.ClientConnInterface) *WritableIdentityCredentialClient {
-	return &WritableIdentityCredentialClient{
-		svc: pb.NewWritableIdentityCredentialServiceClient(cc),
-	}
-}
-
-// Personalize calls the Personalize RPC.
-func (c *WritableIdentityCredentialClient) Personalize(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Personalize(ctx, &pb.PersonalizeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // CredentialClient wraps the gRPC CredentialService client.
@@ -519,9 +330,36 @@ func (c *CredentialClient) EncryptMessageToReader(ctx context.Context, arg0 int6
 	return resp.GetResult(), nil
 }
 
+// GetAuthKeysNeedingCertification calls the GetAuthKeysNeedingCertification RPC.
+func (c *CredentialClient) GetAuthKeysNeedingCertification(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAuthKeysNeedingCertification(ctx, &pb.GetAuthKeysNeedingCertificationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetAuthenticationDataUsageCount calls the GetAuthenticationDataUsageCount RPC.
 func (c *CredentialClient) GetAuthenticationDataUsageCount(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAuthenticationDataUsageCount(ctx, &pb.GetAuthenticationDataUsageCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAuthenticationKeyMetadata calls the GetAuthenticationKeyMetadata RPC.
+func (c *CredentialClient) GetAuthenticationKeyMetadata(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAuthenticationKeyMetadata(ctx, &pb.GetAuthenticationKeyMetadataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCredentialKeyCertificateChain calls the GetCredentialKeyCertificateChain RPC.
+func (c *CredentialClient) GetCredentialKeyCertificateChain(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCredentialKeyCertificateChain(ctx, &pb.GetCredentialKeyCertificateChainRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -701,52 +539,314 @@ func (c *CredentialStoreClient) GetInstance(ctx context.Context, arg0 int64) (in
 	return resp.GetResult(), nil
 }
 
-// AuthenticationKeyMetadataClient wraps the gRPC AuthenticationKeyMetadataService client.
-type AuthenticationKeyMetadataClient struct {
-	svc pb.AuthenticationKeyMetadataServiceClient
+// AccessControlProfileBuilderClient wraps the gRPC AccessControlProfileBuilderService client.
+type AccessControlProfileBuilderClient struct {
+	svc pb.AccessControlProfileBuilderServiceClient
 }
 
-// NewAuthenticationKeyMetadataClient creates a new AuthenticationKeyMetadata client.
-func NewAuthenticationKeyMetadataClient(cc grpc.ClientConnInterface) *AuthenticationKeyMetadataClient {
-	return &AuthenticationKeyMetadataClient{
-		svc: pb.NewAuthenticationKeyMetadataServiceClient(cc),
+// NewAccessControlProfileBuilderClient creates a new AccessControlProfileBuilder client.
+func NewAccessControlProfileBuilderClient(cc grpc.ClientConnInterface) *AccessControlProfileBuilderClient {
+	return &AccessControlProfileBuilderClient{
+		svc: pb.NewAccessControlProfileBuilderServiceClient(cc),
 	}
 }
 
-// GetExpirationDate calls the GetExpirationDate RPC.
-func (c *AuthenticationKeyMetadataClient) GetExpirationDate(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetExpirationDate(ctx, &pb.GetExpirationDateRequest{})
+// Build calls the Build RPC.
+func (c *AccessControlProfileBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetUsageCount calls the GetUsageCount RPC.
-func (c *AuthenticationKeyMetadataClient) GetUsageCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUsageCount(ctx, &pb.GetUsageCountRequest{})
+// SetReaderCertificate calls the SetReaderCertificate RPC.
+func (c *AccessControlProfileBuilderClient) SetReaderCertificate(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetReaderCertificate(ctx, &pb.SetReaderCertificateRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// AccessControlProfileIdClient wraps the gRPC AccessControlProfileIdService client.
-type AccessControlProfileIdClient struct {
-	svc pb.AccessControlProfileIdServiceClient
+// SetUserAuthenticationRequired calls the SetUserAuthenticationRequired RPC.
+func (c *AccessControlProfileBuilderClient) SetUserAuthenticationRequired(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUserAuthenticationRequired(ctx, &pb.SetUserAuthenticationRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewAccessControlProfileIdClient creates a new AccessControlProfileId client.
-func NewAccessControlProfileIdClient(cc grpc.ClientConnInterface) *AccessControlProfileIdClient {
-	return &AccessControlProfileIdClient{
-		svc: pb.NewAccessControlProfileIdServiceClient(cc),
+// SetUserAuthenticationTimeout calls the SetUserAuthenticationTimeout RPC.
+func (c *AccessControlProfileBuilderClient) SetUserAuthenticationTimeout(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUserAuthenticationTimeout(ctx, &pb.SetUserAuthenticationTimeoutRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResultDataClient wraps the gRPC ResultDataService client.
+type ResultDataClient struct {
+	svc pb.ResultDataServiceClient
+}
+
+// NewResultDataClient creates a new ResultData client.
+func NewResultDataClient(cc grpc.ClientConnInterface) *ResultDataClient {
+	return &ResultDataClient{
+		svc: pb.NewResultDataServiceClient(cc),
 	}
 }
 
-// GetId calls the GetId RPC.
-func (c *AccessControlProfileIdClient) GetId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
-		Handle: handle,
+// GetAuthenticatedData calls the GetAuthenticatedData RPC.
+func (c *ResultDataClient) GetAuthenticatedData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAuthenticatedData(ctx, &pb.GetAuthenticatedDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntry calls the GetEntry RPC.
+func (c *ResultDataClient) GetEntry(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.GetEntry(ctx, &pb.GetEntryRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntryNames calls the GetEntryNames RPC.
+func (c *ResultDataClient) GetEntryNames(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetEntryNames(ctx, &pb.GetEntryNamesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMessageAuthenticationCode calls the GetMessageAuthenticationCode RPC.
+func (c *ResultDataClient) GetMessageAuthenticationCode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMessageAuthenticationCode(ctx, &pb.GetMessageAuthenticationCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespaces calls the GetNamespaces RPC.
+func (c *ResultDataClient) GetNamespaces(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNamespaces(ctx, &pb.GetNamespacesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRetrievedEntryNames calls the GetRetrievedEntryNames RPC.
+func (c *ResultDataClient) GetRetrievedEntryNames(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetRetrievedEntryNames(ctx, &pb.GetRetrievedEntryNamesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStaticAuthenticationData calls the GetStaticAuthenticationData RPC.
+func (c *ResultDataClient) GetStaticAuthenticationData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStaticAuthenticationData(ctx, &pb.GetStaticAuthenticationDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatus calls the GetStatus RPC.
+func (c *ResultDataClient) GetStatus(ctx context.Context, arg0 string, arg1 string) (int32, error) {
+	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WritableIdentityCredentialClient wraps the gRPC WritableIdentityCredentialService client.
+type WritableIdentityCredentialClient struct {
+	svc pb.WritableIdentityCredentialServiceClient
+}
+
+// NewWritableIdentityCredentialClient creates a new WritableIdentityCredential client.
+func NewWritableIdentityCredentialClient(cc grpc.ClientConnInterface) *WritableIdentityCredentialClient {
+	return &WritableIdentityCredentialClient{
+		svc: pb.NewWritableIdentityCredentialServiceClient(cc),
+	}
+}
+
+// GetCredentialKeyCertificateChain calls the GetCredentialKeyCertificateChain RPC.
+func (c *WritableIdentityCredentialClient) GetCredentialKeyCertificateChain(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCredentialKeyCertificateChain(ctx, &pb.WritableIdentityCredentialGetCredentialKeyCertificateChainRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Personalize calls the Personalize RPC.
+func (c *WritableIdentityCredentialClient) Personalize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Personalize(ctx, &pb.PersonalizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CredentialDataRequestClient wraps the gRPC CredentialDataRequestService client.
+type CredentialDataRequestClient struct {
+	svc pb.CredentialDataRequestServiceClient
+}
+
+// NewCredentialDataRequestClient creates a new CredentialDataRequest client.
+func NewCredentialDataRequestClient(cc grpc.ClientConnInterface) *CredentialDataRequestClient {
+	return &CredentialDataRequestClient{
+		svc: pb.NewCredentialDataRequestServiceClient(cc),
+	}
+}
+
+// GetReaderSignature calls the GetReaderSignature RPC.
+func (c *CredentialDataRequestClient) GetReaderSignature(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReaderSignature(ctx, &pb.GetReaderSignatureRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestMessage calls the GetRequestMessage RPC.
+func (c *CredentialDataRequestClient) GetRequestMessage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRequestMessage(ctx, &pb.GetRequestMessageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAllowUsingExhaustedKeys calls the IsAllowUsingExhaustedKeys RPC.
+func (c *CredentialDataRequestClient) IsAllowUsingExhaustedKeys(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAllowUsingExhaustedKeys(ctx, &pb.IsAllowUsingExhaustedKeysRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAllowUsingExpiredKeys calls the IsAllowUsingExpiredKeys RPC.
+func (c *CredentialDataRequestClient) IsAllowUsingExpiredKeys(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAllowUsingExpiredKeys(ctx, &pb.IsAllowUsingExpiredKeysRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsIncrementUseCount calls the IsIncrementUseCount RPC.
+func (c *CredentialDataRequestClient) IsIncrementUseCount(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsIncrementUseCount(ctx, &pb.IsIncrementUseCountRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CredentialDataRequestBuilderClient wraps the gRPC CredentialDataRequestBuilderService client.
+type CredentialDataRequestBuilderClient struct {
+	svc pb.CredentialDataRequestBuilderServiceClient
+}
+
+// NewCredentialDataRequestBuilderClient creates a new CredentialDataRequestBuilder client.
+func NewCredentialDataRequestBuilderClient(cc grpc.ClientConnInterface) *CredentialDataRequestBuilderClient {
+	return &CredentialDataRequestBuilderClient{
+		svc: pb.NewCredentialDataRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *CredentialDataRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowUsingExhaustedKeys calls the SetAllowUsingExhaustedKeys RPC.
+func (c *CredentialDataRequestBuilderClient) SetAllowUsingExhaustedKeys(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAllowUsingExhaustedKeys(ctx, &pb.SetAllowUsingExhaustedKeysRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowUsingExpiredKeys calls the SetAllowUsingExpiredKeys RPC.
+func (c *CredentialDataRequestBuilderClient) SetAllowUsingExpiredKeys(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAllowUsingExpiredKeys(ctx, &pb.SetAllowUsingExpiredKeysRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIncrementUseCount calls the SetIncrementUseCount RPC.
+func (c *CredentialDataRequestBuilderClient) SetIncrementUseCount(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIncrementUseCount(ctx, &pb.SetIncrementUseCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetReaderSignature calls the SetReaderSignature RPC.
+func (c *CredentialDataRequestBuilderClient) SetReaderSignature(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetReaderSignature(ctx, &pb.SetReaderSignatureRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequestMessage calls the SetRequestMessage RPC.
+func (c *CredentialDataRequestBuilderClient) SetRequestMessage(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetRequestMessage(ctx, &pb.SetRequestMessageRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err

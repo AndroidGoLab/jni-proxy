@@ -57,64 +57,6 @@ message CreateConfigForUserChoiceResponse {
   int64 result = 1;
 }
 
-message CreateScreenCaptureIntent0Request {
-}
-
-message CreateScreenCaptureIntent0Response {
-  int64 result = 1;
-}
-
-message CreateScreenCaptureIntent1_1Request {
-  int64 arg0 = 1;
-}
-
-message CreateScreenCaptureIntent1_1Response {
-  int64 result = 1;
-}
-
-message GetMediaProjectionRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetMediaProjectionResponse {
-  int64 result = 1;
-}
-
-message StopRequest {
-}
-
-message StopResponse {
-}
-
-message UnregisterCallbackRequest {
-  int64 arg0 = 1;
-}
-
-message UnregisterCallbackResponse {
-}
-
-message OnCapturedContentResizeRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnCapturedContentResizeResponse {
-}
-
-message OnCapturedContentVisibilityChangedRequest {
-  bool arg0 = 1;
-}
-
-message OnCapturedContentVisibilityChangedResponse {
-}
-
-message OnStopRequest {
-}
-
-message OnStopResponse {
-}
-
 message GetDisplayRequest {
 }
 
@@ -176,6 +118,64 @@ message OnStoppedRequest {
 message OnStoppedResponse {
 }
 
+message CreateScreenCaptureIntent0Request {
+}
+
+message CreateScreenCaptureIntent0Response {
+  int64 result = 1;
+}
+
+message CreateScreenCaptureIntent1_1Request {
+  int64 arg0 = 1;
+}
+
+message CreateScreenCaptureIntent1_1Response {
+  int64 result = 1;
+}
+
+message GetMediaProjectionRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetMediaProjectionResponse {
+  int64 result = 1;
+}
+
+message StopRequest {
+}
+
+message StopResponse {
+}
+
+message UnregisterCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterCallbackResponse {
+}
+
+message OnCapturedContentResizeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnCapturedContentResizeResponse {
+}
+
+message OnCapturedContentVisibilityChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnCapturedContentVisibilityChangedResponse {
+}
+
+message OnStopRequest {
+}
+
+message OnStopResponse {
+}
+
 service MediaProjectionConfigService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
@@ -184,6 +184,22 @@ service MediaProjectionConfigService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
   rpc CreateConfigForDefaultDisplay (CreateConfigForDefaultDisplayRequest) returns (CreateConfigForDefaultDisplayResponse);
   rpc CreateConfigForUserChoice (CreateConfigForUserChoiceRequest) returns (CreateConfigForUserChoiceResponse);
+}
+
+service VirtualDisplayService {
+  rpc GetDisplay (GetDisplayRequest) returns (GetDisplayResponse);
+  rpc GetSurface (GetSurfaceRequest) returns (GetSurfaceResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc Resize (ResizeRequest) returns (ResizeResponse);
+  rpc SetRotation (SetRotationRequest) returns (SetRotationResponse);
+  rpc SetSurface (SetSurfaceRequest) returns (SetSurfaceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service VirtualDisplayCallbackService {
+  rpc OnPaused (OnPausedRequest) returns (OnPausedResponse);
+  rpc OnResumed (OnResumedRequest) returns (OnResumedResponse);
+  rpc OnStopped (OnStoppedRequest) returns (OnStoppedResponse);
 }
 
 service MediaProjectionManagerService {
@@ -201,20 +217,4 @@ service MediaProjectionCallbackService {
   rpc OnCapturedContentResize (OnCapturedContentResizeRequest) returns (OnCapturedContentResizeResponse);
   rpc OnCapturedContentVisibilityChanged (OnCapturedContentVisibilityChangedRequest) returns (OnCapturedContentVisibilityChangedResponse);
   rpc OnStop (OnStopRequest) returns (OnStopResponse);
-}
-
-service VirtualDisplayService {
-  rpc GetDisplay (GetDisplayRequest) returns (GetDisplayResponse);
-  rpc GetSurface (GetSurfaceRequest) returns (GetSurfaceResponse);
-  rpc Release (ReleaseRequest) returns (ReleaseResponse);
-  rpc Resize (ResizeRequest) returns (ResizeResponse);
-  rpc SetRotation (SetRotationRequest) returns (SetRotationResponse);
-  rpc SetSurface (SetSurfaceRequest) returns (SetSurfaceResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service VirtualDisplayCallbackService {
-  rpc OnPaused (OnPausedRequest) returns (OnPausedResponse);
-  rpc OnResumed (OnResumedRequest) returns (OnResumedResponse);
-  rpc OnStopped (OnStoppedRequest) returns (OnStoppedResponse);
 }

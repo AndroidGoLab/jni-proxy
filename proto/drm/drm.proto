@@ -124,6 +124,14 @@ message GetAvailableDrmEnginesResponse {
   int64 result = 1;
 }
 
+message GetAvailableDrmSupportInfoRequest {
+  int64 handle = 1;
+}
+
+message GetAvailableDrmSupportInfoResponse {
+  int64 result = 1;
+}
+
 message GetConstraints2Request {
   int64 handle = 1;
   int64 arg0 = 2;
@@ -286,28 +294,54 @@ message OnInfoRequest {
 message OnInfoResponse {
 }
 
-message NewUtilsRequest {
+message GetAccountIdRequest {
 }
 
-message NewUtilsResponse {
+message GetAccountIdResponse {
+  string result = 1;
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
   int64 result = 1;
 }
 
-message GetExtendedMetadataParserRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message GetSubscriptionIdRequest {
 }
 
-message GetExtendedMetadataParserResponse {
-  int64 result = 1;
+message GetSubscriptionIdResponse {
+  string result = 1;
 }
 
-message GetRequest {
+message GetAttributeRequest {
   string arg0 = 1;
 }
 
-message GetResponse {
+message GetAttributeResponse {
+  int64 result = 1;
+}
+
+message GetMessageRequest {
+}
+
+message GetMessageResponse {
   string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetUniqueIdRequest {
+}
+
+message GetUniqueIdResponse {
+  int32 result = 1;
 }
 
 message NewSupportInfoRequest {
@@ -358,6 +392,22 @@ message GetDescriptionResponse {
   string result = 1;
 }
 
+message GetFileSuffixIteratorRequest {
+  int64 handle = 1;
+}
+
+message GetFileSuffixIteratorResponse {
+  int64 result = 1;
+}
+
+message GetMimeTypeIteratorRequest {
+  int64 handle = 1;
+}
+
+message GetMimeTypeIteratorResponse {
+  int64 result = 1;
+}
+
 message HashCodeRequest {
   int64 handle = 1;
 }
@@ -374,30 +424,21 @@ message SetDescriptionRequest {
 message SetDescriptionResponse {
 }
 
-message NewInfoRequestRequest {
-  int32 arg0 = 1;
+message NewRightsRequest {
+  int64 arg0 = 1;
   string arg1 = 2;
 }
 
-message NewInfoRequestResponse {
+message NewRightsResponse {
   int64 result = 1;
 }
 
-message InfoRequestGetRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message InfoRequestGetResponse {
-  int64 result = 1;
-}
-
-message GetInfoTypeRequest {
+message RightsGetAccountIdRequest {
   int64 handle = 1;
 }
 
-message GetInfoTypeResponse {
-  int32 result = 1;
+message RightsGetDataRequest {
+  int64 handle = 1;
 }
 
 message GetMimeTypeRequest {
@@ -408,75 +449,8 @@ message GetMimeTypeResponse {
   string result = 1;
 }
 
-message PutRequest {
+message RightsGetSubscriptionIdRequest {
   int64 handle = 1;
-  string arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message PutResponse {
-}
-
-message GetAttributeRequest {
-  string arg0 = 1;
-}
-
-message GetAttributeResponse {
-  int64 result = 1;
-}
-
-message GetMessageRequest {
-}
-
-message GetMessageResponse {
-  string result = 1;
-}
-
-message GetTypeRequest {
-}
-
-message GetTypeResponse {
-  int32 result = 1;
-}
-
-message GetUniqueIdRequest {
-}
-
-message GetUniqueIdResponse {
-  int32 result = 1;
-}
-
-message NewRightsRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message NewRightsResponse {
-  int64 result = 1;
-}
-
-message GetAccountIdRequest {
-  int64 handle = 1;
-}
-
-message GetAccountIdResponse {
-  string result = 1;
-}
-
-message GetDataRequest {
-  int64 handle = 1;
-}
-
-message GetDataResponse {
-  int64 result = 1;
-}
-
-message GetSubscriptionIdRequest {
-  int64 handle = 1;
-}
-
-message GetSubscriptionIdResponse {
-  string result = 1;
 }
 
 message NewInfoRequest {
@@ -489,22 +463,89 @@ message NewInfoResponse {
   int64 result = 1;
 }
 
-message InfoGetRequest {
+message GetRequest {
   int64 handle = 1;
   string arg0 = 2;
 }
 
-message InfoGetResponse {
+message GetResponse {
   int64 result = 1;
 }
 
-message ProcessedDataGetAccountIdRequest {
+message InfoGetDataRequest {
+  int64 handle = 1;
 }
 
-message ProcessedDataGetDataRequest {
+message GetInfoTypeRequest {
+  int64 handle = 1;
 }
 
-message ProcessedDataGetSubscriptionIdRequest {
+message GetInfoTypeResponse {
+  int32 result = 1;
+}
+
+message IteratorRequest {
+  int64 handle = 1;
+}
+
+message IteratorResponse {
+  int64 result = 1;
+}
+
+message KeyIteratorRequest {
+  int64 handle = 1;
+}
+
+message KeyIteratorResponse {
+  int64 result = 1;
+}
+
+message PutRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message PutResponse {
+}
+
+message NewUtilsRequest {
+}
+
+message NewUtilsResponse {
+  int64 result = 1;
+}
+
+message GetExtendedMetadataParserRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetExtendedMetadataParserResponse {
+  int64 result = 1;
+}
+
+message UtilsExtendedMetadataParserGetRequest {
+  string arg0 = 1;
+}
+
+message UtilsExtendedMetadataParserGetResponse {
+  string result = 1;
+}
+
+message UtilsExtendedMetadataParserIteratorRequest {
+}
+
+message UtilsExtendedMetadataParserKeyIteratorRequest {
+}
+
+message NewInfoRequestRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewInfoRequestResponse {
+  int64 result = 1;
 }
 
 message NewInfoRequestOpRequest {
@@ -530,6 +571,7 @@ service ManagerClientService {
   rpc CloseConvertSession (CloseConvertSessionRequest) returns (CloseConvertSessionResponse);
   rpc ConvertData (ConvertDataRequest) returns (ConvertDataResponse);
   rpc GetAvailableDrmEngines (GetAvailableDrmEnginesRequest) returns (GetAvailableDrmEnginesResponse);
+  rpc GetAvailableDrmSupportInfo (GetAvailableDrmSupportInfoRequest) returns (GetAvailableDrmSupportInfoResponse);
   rpc GetConstraints2 (GetConstraints2Request) returns (GetConstraints2Response);
   rpc GetConstraints2_1 (GetConstraints2_1Request) returns (GetConstraints2_1Response);
   rpc GetDrmObjectType2 (GetDrmObjectType2Request) returns (GetDrmObjectType2Response);
@@ -559,32 +601,10 @@ service ManagerClientOnInfoListenerService {
   rpc OnInfo (OnInfoRequest) returns (OnInfoResponse);
 }
 
-service UtilsService {
-  rpc NewUtils (NewUtilsRequest) returns (NewUtilsResponse);
-  rpc GetExtendedMetadataParser (GetExtendedMetadataParserRequest) returns (GetExtendedMetadataParserResponse);
-}
-
-service UtilsExtendedMetadataParserService {
-  rpc Get (GetRequest) returns (GetResponse);
-}
-
-service SupportInfoService {
-  rpc NewSupportInfo (NewSupportInfoRequest) returns (NewSupportInfoResponse);
-  rpc AddFileSuffix (AddFileSuffixRequest) returns (AddFileSuffixResponse);
-  rpc AddMimeType (AddMimeTypeRequest) returns (AddMimeTypeResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetDescriprition (GetDescripritionRequest) returns (GetDescripritionResponse);
-  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
-}
-
-service InfoRequestService {
-  rpc NewInfoRequestOp (NewInfoRequestOpRequest) returns (NewInfoRequestOpResponse);
-  rpc Get (InfoRequestGetRequest) returns (InfoRequestGetResponse);
-  rpc GetInfoType (GetInfoTypeRequest) returns (GetInfoTypeResponse);
-  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
-  rpc Put (PutRequest) returns (PutResponse);
+service ProcessedDataService {
+  rpc GetAccountId (GetAccountIdRequest) returns (GetAccountIdResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetSubscriptionId (GetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
 }
 
 service EventService {
@@ -594,25 +614,55 @@ service EventService {
   rpc GetUniqueId (GetUniqueIdRequest) returns (GetUniqueIdResponse);
 }
 
+service SupportInfoService {
+  rpc NewSupportInfo (NewSupportInfoRequest) returns (NewSupportInfoResponse);
+  rpc AddFileSuffix (AddFileSuffixRequest) returns (AddFileSuffixResponse);
+  rpc AddMimeType (AddMimeTypeRequest) returns (AddMimeTypeResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDescriprition (GetDescripritionRequest) returns (GetDescripritionResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetFileSuffixIterator (GetFileSuffixIteratorRequest) returns (GetFileSuffixIteratorResponse);
+  rpc GetMimeTypeIterator (GetMimeTypeIteratorRequest) returns (GetMimeTypeIteratorResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+}
+
 service RightsService {
   rpc NewRights (NewRightsRequest) returns (NewRightsResponse);
-  rpc GetAccountId (GetAccountIdRequest) returns (GetAccountIdResponse);
-  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetAccountId (RightsGetAccountIdRequest) returns (GetAccountIdResponse);
+  rpc GetData (RightsGetDataRequest) returns (GetDataResponse);
   rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
-  rpc GetSubscriptionId (GetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
+  rpc GetSubscriptionId (RightsGetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
 }
 
 service InfoService {
   rpc NewInfo (NewInfoRequest) returns (NewInfoResponse);
-  rpc Get (InfoGetRequest) returns (InfoGetResponse);
-  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetData (InfoGetDataRequest) returns (GetDataResponse);
   rpc GetInfoType (GetInfoTypeRequest) returns (GetInfoTypeResponse);
   rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc Iterator (IteratorRequest) returns (IteratorResponse);
+  rpc KeyIterator (KeyIteratorRequest) returns (KeyIteratorResponse);
   rpc Put (PutRequest) returns (PutResponse);
 }
 
-service ProcessedDataService {
-  rpc GetAccountId (ProcessedDataGetAccountIdRequest) returns (GetAccountIdResponse);
-  rpc GetData (ProcessedDataGetDataRequest) returns (GetDataResponse);
-  rpc GetSubscriptionId (ProcessedDataGetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
+service UtilsService {
+  rpc NewUtils (NewUtilsRequest) returns (NewUtilsResponse);
+  rpc GetExtendedMetadataParser (GetExtendedMetadataParserRequest) returns (GetExtendedMetadataParserResponse);
+}
+
+service UtilsExtendedMetadataParserService {
+  rpc Get (UtilsExtendedMetadataParserGetRequest) returns (UtilsExtendedMetadataParserGetResponse);
+  rpc Iterator (UtilsExtendedMetadataParserIteratorRequest) returns (IteratorResponse);
+  rpc KeyIterator (UtilsExtendedMetadataParserKeyIteratorRequest) returns (KeyIteratorResponse);
+}
+
+service InfoRequestService {
+  rpc NewInfoRequestOp (NewInfoRequestOpRequest) returns (NewInfoRequestOpResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetInfoType (GetInfoTypeRequest) returns (GetInfoTypeResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc Iterator (IteratorRequest) returns (IteratorResponse);
+  rpc KeyIterator (KeyIteratorRequest) returns (KeyIteratorResponse);
+  rpc Put (PutRequest) returns (PutResponse);
 }

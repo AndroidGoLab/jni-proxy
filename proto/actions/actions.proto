@@ -6,12 +6,12 @@ package actions;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/actions";
 
-message NewFloatActionRequest {
+message NewBooleanActionRequest {
   string arg0 = 1;
-  float arg1 = 2;
+  bool arg1 = 2;
 }
 
-message NewFloatActionResponse {
+message NewBooleanActionResponse {
   int64 result = 1;
 }
 
@@ -23,54 +23,12 @@ message GetActionTypeResponse {
   int32 result = 1;
 }
 
-message GetNewValueRequest {
-  int64 handle = 1;
-}
-
-message GetNewValueResponse {
-  float result = 1;
-}
-
-message NewModeActionRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message NewModeActionResponse {
-  int64 result = 1;
-}
-
-message GetNewModeRequest {
-  int64 handle = 1;
-}
-
-message GetNewModeResponse {
-  int32 result = 1;
-}
-
-message NewBooleanActionRequest {
-  string arg0 = 1;
-  bool arg1 = 2;
-}
-
-message NewBooleanActionResponse {
-  int64 result = 1;
-}
-
 message GetNewStateRequest {
   int64 handle = 1;
 }
 
 message GetNewStateResponse {
   bool result = 1;
-}
-
-message NewCommandActionRequest {
-  string arg0 = 1;
-}
-
-message NewCommandActionResponse {
-  int64 result = 1;
 }
 
 message ControlActionGetActionTypeRequest {
@@ -105,16 +63,46 @@ message IsValidResponseResponse {
   bool result = 1;
 }
 
-service FloatActionService {
-  rpc NewFloatAction (NewFloatActionRequest) returns (NewFloatActionResponse);
-  rpc GetActionType (GetActionTypeRequest) returns (GetActionTypeResponse);
-  rpc GetNewValue (GetNewValueRequest) returns (GetNewValueResponse);
+message NewFloatActionRequest {
+  string arg0 = 1;
+  float arg1 = 2;
 }
 
-service ModeActionService {
-  rpc NewModeAction (NewModeActionRequest) returns (NewModeActionResponse);
-  rpc GetActionType (GetActionTypeRequest) returns (GetActionTypeResponse);
-  rpc GetNewMode (GetNewModeRequest) returns (GetNewModeResponse);
+message NewFloatActionResponse {
+  int64 result = 1;
+}
+
+message GetNewValueRequest {
+  int64 handle = 1;
+}
+
+message GetNewValueResponse {
+  float result = 1;
+}
+
+message NewCommandActionRequest {
+  string arg0 = 1;
+}
+
+message NewCommandActionResponse {
+  int64 result = 1;
+}
+
+message NewModeActionRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewModeActionResponse {
+  int64 result = 1;
+}
+
+message GetNewModeRequest {
+  int64 handle = 1;
+}
+
+message GetNewModeResponse {
+  int32 result = 1;
 }
 
 service BooleanActionService {
@@ -123,15 +111,27 @@ service BooleanActionService {
   rpc GetNewState (GetNewStateRequest) returns (GetNewStateResponse);
 }
 
-service CommandActionService {
-  rpc NewCommandAction (NewCommandActionRequest) returns (NewCommandActionResponse);
-  rpc GetActionType (GetActionTypeRequest) returns (GetActionTypeResponse);
-}
-
 service ControlActionService {
   rpc GetActionType (ControlActionGetActionTypeRequest) returns (GetActionTypeResponse);
   rpc GetChallengeValue (GetChallengeValueRequest) returns (GetChallengeValueResponse);
   rpc GetTemplateId (GetTemplateIdRequest) returns (GetTemplateIdResponse);
   rpc GetErrorAction (GetErrorActionRequest) returns (GetErrorActionResponse);
   rpc IsValidResponse (IsValidResponseRequest) returns (IsValidResponseResponse);
+}
+
+service FloatActionService {
+  rpc NewFloatAction (NewFloatActionRequest) returns (NewFloatActionResponse);
+  rpc GetActionType (GetActionTypeRequest) returns (GetActionTypeResponse);
+  rpc GetNewValue (GetNewValueRequest) returns (GetNewValueResponse);
+}
+
+service CommandActionService {
+  rpc NewCommandAction (NewCommandActionRequest) returns (NewCommandActionResponse);
+  rpc GetActionType (GetActionTypeRequest) returns (GetActionTypeResponse);
+}
+
+service ModeActionService {
+  rpc NewModeAction (NewModeActionRequest) returns (NewModeActionResponse);
+  rpc GetActionType (GetActionTypeRequest) returns (GetActionTypeResponse);
+  rpc GetNewMode (GetNewModeRequest) returns (GetNewModeResponse);
 }

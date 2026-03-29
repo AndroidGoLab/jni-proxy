@@ -41,6 +41,24 @@ func (c *AudioDeviceInfoClient) GetAddress(ctx context.Context) (string, error) 
 	return resp.GetResult(), nil
 }
 
+// GetAudioDescriptors calls the GetAudioDescriptors RPC.
+func (c *AudioDeviceInfoClient) GetAudioDescriptors(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioDescriptors(ctx, &pb.GetAudioDescriptorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioProfiles calls the GetAudioProfiles RPC.
+func (c *AudioDeviceInfoClient) GetAudioProfiles(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioProfiles(ctx, &pb.GetAudioProfilesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetChannelCounts calls the GetChannelCounts RPC.
 func (c *AudioDeviceInfoClient) GetChannelCounts(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetChannelCounts(ctx, &pb.GetChannelCountsRequest{})
@@ -302,9 +320,38 @@ func (c *AudioManagerClient) GenerateAudioSessionId(ctx context.Context) (int32,
 	return resp.GetResult(), nil
 }
 
+// GetActivePlaybackConfigurations calls the GetActivePlaybackConfigurations RPC.
+func (c *AudioManagerClient) GetActivePlaybackConfigurations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActivePlaybackConfigurations(ctx, &pb.GetActivePlaybackConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActiveRecordingConfigurations calls the GetActiveRecordingConfigurations RPC.
+func (c *AudioManagerClient) GetActiveRecordingConfigurations(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActiveRecordingConfigurations(ctx, &pb.GetActiveRecordingConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetAllowedCapturePolicy calls the GetAllowedCapturePolicy RPC.
 func (c *AudioManagerClient) GetAllowedCapturePolicy(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetAllowedCapturePolicy(ctx, &pb.GetAllowedCapturePolicyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioDevicesForAttributes calls the GetAudioDevicesForAttributes RPC.
+func (c *AudioManagerClient) GetAudioDevicesForAttributes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetAudioDevicesForAttributes(ctx, &pb.GetAudioDevicesForAttributesRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -316,6 +363,15 @@ func (c *AudioManagerClient) GetAudioHwSyncForSession(ctx context.Context, arg0 
 	resp, err := c.svc.GetAudioHwSyncForSession(ctx, &pb.GetAudioHwSyncForSessionRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableCommunicationDevices calls the GetAvailableCommunicationDevices RPC.
+func (c *AudioManagerClient) GetAvailableCommunicationDevices(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableCommunicationDevices(ctx, &pb.GetAvailableCommunicationDevicesRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -342,9 +398,29 @@ func (c *AudioManagerClient) GetDevices(ctx context.Context, arg0 int32) (int64,
 	return resp.GetResult(), nil
 }
 
+// GetDirectProfilesForAttributes calls the GetDirectProfilesForAttributes RPC.
+func (c *AudioManagerClient) GetDirectProfilesForAttributes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetDirectProfilesForAttributes(ctx, &pb.GetDirectProfilesForAttributesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetEncodedSurroundMode calls the GetEncodedSurroundMode RPC.
 func (c *AudioManagerClient) GetEncodedSurroundMode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetEncodedSurroundMode(ctx, &pb.GetEncodedSurroundModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMicrophones calls the GetMicrophones RPC.
+func (c *AudioManagerClient) GetMicrophones(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMicrophones(ctx, &pb.GetMicrophonesRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -462,6 +538,28 @@ func (c *AudioManagerClient) GetStreamVolumeDb(ctx context.Context, arg0 int32, 
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedDeviceTypes calls the GetSupportedDeviceTypes RPC.
+func (c *AudioManagerClient) GetSupportedDeviceTypes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSupportedDeviceTypes(ctx, &pb.GetSupportedDeviceTypesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedMixerAttributes calls the GetSupportedMixerAttributes RPC.
+func (c *AudioManagerClient) GetSupportedMixerAttributes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSupportedMixerAttributes(ctx, &pb.GetSupportedMixerAttributesRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err

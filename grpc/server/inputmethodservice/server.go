@@ -15,6 +15,344 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// KeyboardViewServer implements pb.KeyboardViewServiceServer.
+type KeyboardViewServer struct {
+	pb.UnimplementedKeyboardViewServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *KeyboardViewServer) NewKeyboardView(_ context.Context, req *pb.NewKeyboardViewRequest) (*pb.NewKeyboardViewResponse, error) {
+	obj, err := jnipkg.NewKeyboardView(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewKeyboardViewResponse{Result: handle}, nil
+}
+
+func (s *KeyboardViewServer) Closing(_ context.Context, req *pb.ClosingRequest) (*pb.ClosingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Closing(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClosingResponse{}, nil
+}
+
+func (s *KeyboardViewServer) GetKeyboard(_ context.Context, req *pb.GetKeyboardRequest) (*pb.GetKeyboardResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKeyboard()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetKeyboardResponse{Result: handle}, nil
+}
+
+func (s *KeyboardViewServer) HandleBack(_ context.Context, req *pb.HandleBackRequest) (*pb.HandleBackResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HandleBack()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HandleBackResponse{Result: result}, nil
+}
+
+func (s *KeyboardViewServer) InvalidateAllKeys(_ context.Context, req *pb.InvalidateAllKeysRequest) (*pb.InvalidateAllKeysResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.InvalidateAllKeys(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InvalidateAllKeysResponse{}, nil
+}
+
+func (s *KeyboardViewServer) InvalidateKey(_ context.Context, req *pb.InvalidateKeyRequest) (*pb.InvalidateKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.InvalidateKey(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InvalidateKeyResponse{}, nil
+}
+
+func (s *KeyboardViewServer) IsPreviewEnabled(_ context.Context, req *pb.IsPreviewEnabledRequest) (*pb.IsPreviewEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPreviewEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPreviewEnabledResponse{Result: result}, nil
+}
+
+func (s *KeyboardViewServer) IsProximityCorrectionEnabled(_ context.Context, req *pb.IsProximityCorrectionEnabledRequest) (*pb.IsProximityCorrectionEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsProximityCorrectionEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsProximityCorrectionEnabledResponse{Result: result}, nil
+}
+
+func (s *KeyboardViewServer) IsShifted(_ context.Context, req *pb.IsShiftedRequest) (*pb.IsShiftedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsShifted()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsShiftedResponse{Result: result}, nil
+}
+
+func (s *KeyboardViewServer) OnClick(_ context.Context, req *pb.OnClickRequest) (*pb.OnClickResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnClick(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnClickResponse{}, nil
+}
+
+func (s *KeyboardViewServer) OnDetachedFromWindow(_ context.Context, req *pb.OnDetachedFromWindowRequest) (*pb.OnDetachedFromWindowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDetachedFromWindow(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDetachedFromWindowResponse{}, nil
+}
+
+func (s *KeyboardViewServer) OnDraw(_ context.Context, req *pb.OnDrawRequest) (*pb.OnDrawResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDraw(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDrawResponse{}, nil
+}
+
+func (s *KeyboardViewServer) OnHoverEvent(_ context.Context, req *pb.OnHoverEventRequest) (*pb.OnHoverEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnHoverEvent(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnHoverEventResponse{Result: result}, nil
+}
+
+func (s *KeyboardViewServer) OnMeasure(_ context.Context, req *pb.OnMeasureRequest) (*pb.OnMeasureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnMeasure(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnMeasureResponse{}, nil
+}
+
+func (s *KeyboardViewServer) OnSizeChanged(_ context.Context, req *pb.OnSizeChangedRequest) (*pb.OnSizeChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSizeChanged(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSizeChangedResponse{}, nil
+}
+
+func (s *KeyboardViewServer) OnTouchEvent(_ context.Context, req *pb.OnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnTouchEvent(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnTouchEventResponse{Result: result}, nil
+}
+
+func (s *KeyboardViewServer) SetKeyboard(_ context.Context, req *pb.SetKeyboardRequest) (*pb.SetKeyboardResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetKeyboard(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetKeyboardResponse{}, nil
+}
+
+func (s *KeyboardViewServer) SetOnKeyboardActionListener(_ context.Context, req *pb.SetOnKeyboardActionListenerRequest) (*pb.SetOnKeyboardActionListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOnKeyboardActionListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOnKeyboardActionListenerResponse{}, nil
+}
+
+func (s *KeyboardViewServer) SetPopupOffset(_ context.Context, req *pb.SetPopupOffsetRequest) (*pb.SetPopupOffsetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPopupOffset(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPopupOffsetResponse{}, nil
+}
+
+func (s *KeyboardViewServer) SetPopupParent(_ context.Context, req *pb.SetPopupParentRequest) (*pb.SetPopupParentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPopupParent(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPopupParentResponse{}, nil
+}
+
+func (s *KeyboardViewServer) SetPreviewEnabled(_ context.Context, req *pb.SetPreviewEnabledRequest) (*pb.SetPreviewEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPreviewEnabled(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPreviewEnabledResponse{}, nil
+}
+
+func (s *KeyboardViewServer) SetProximityCorrectionEnabled(_ context.Context, req *pb.SetProximityCorrectionEnabledRequest) (*pb.SetProximityCorrectionEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetProximityCorrectionEnabled(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetProximityCorrectionEnabledResponse{}, nil
+}
+
+func (s *KeyboardViewServer) SetShifted(_ context.Context, req *pb.SetShiftedRequest) (*pb.SetShiftedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetShifted(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetShiftedResponse{Result: result}, nil
+}
+
+func (s *KeyboardViewServer) SetVerticalCorrection(_ context.Context, req *pb.SetVerticalCorrectionRequest) (*pb.SetVerticalCorrectionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetVerticalCorrection(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetVerticalCorrectionResponse{}, nil
+}
+
 // KeyboardServer implements pb.KeyboardServiceServer.
 type KeyboardServer struct {
 	pb.UnimplementedKeyboardServiceServer
@@ -51,6 +389,29 @@ func (s *KeyboardServer) GetHeight(_ context.Context, req *pb.GetHeightRequest) 
 	return &pb.GetHeightResponse{Result: result}, nil
 }
 
+func (s *KeyboardServer) GetKeys(_ context.Context, req *pb.GetKeysRequest) (*pb.GetKeysResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Keyboard{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKeys()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetKeysResponse{Result: handle}, nil
+}
+
 func (s *KeyboardServer) GetMinWidth(_ context.Context, req *pb.GetMinWidthRequest) (*pb.GetMinWidthResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -63,6 +424,29 @@ func (s *KeyboardServer) GetMinWidth(_ context.Context, req *pb.GetMinWidthReque
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetMinWidthResponse{Result: result}, nil
+}
+
+func (s *KeyboardServer) GetModifierKeys(_ context.Context, req *pb.GetModifierKeysRequest) (*pb.GetModifierKeysResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Keyboard{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetModifierKeys()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetModifierKeysResponse{Result: handle}, nil
 }
 
 func (s *KeyboardServer) GetNearestKeys(_ context.Context, req *pb.GetNearestKeysRequest) (*pb.GetNearestKeysResponse, error) {
@@ -128,6 +512,165 @@ func (s *KeyboardServer) SetShifted(_ context.Context, req *pb.SetShiftedRequest
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetShiftedResponse{Result: result}, nil
+}
+
+// ExtractEditTextServer implements pb.ExtractEditTextServiceServer.
+type ExtractEditTextServer struct {
+	pb.UnimplementedExtractEditTextServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ExtractEditTextServer) NewExtractEditText(_ context.Context, req *pb.NewExtractEditTextRequest) (*pb.NewExtractEditTextResponse, error) {
+	obj, err := jnipkg.NewExtractEditText(s.Ctx.VM, s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewExtractEditTextResponse{Result: handle}, nil
+}
+
+func (s *ExtractEditTextServer) FinishInternalChanges(_ context.Context, req *pb.FinishInternalChangesRequest) (*pb.FinishInternalChangesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FinishInternalChanges(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FinishInternalChangesResponse{}, nil
+}
+
+func (s *ExtractEditTextServer) HasFocus(_ context.Context, req *pb.HasFocusRequest) (*pb.HasFocusResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasFocus()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasFocusResponse{Result: result}, nil
+}
+
+func (s *ExtractEditTextServer) HasVerticalScrollBar(_ context.Context, req *pb.HasVerticalScrollBarRequest) (*pb.HasVerticalScrollBarResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasVerticalScrollBar()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasVerticalScrollBarResponse{Result: result}, nil
+}
+
+func (s *ExtractEditTextServer) HasWindowFocus(_ context.Context, req *pb.HasWindowFocusRequest) (*pb.HasWindowFocusResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasWindowFocus()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasWindowFocusResponse{Result: result}, nil
+}
+
+func (s *ExtractEditTextServer) IsFocused(_ context.Context, req *pb.IsFocusedRequest) (*pb.IsFocusedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsFocused()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsFocusedResponse{Result: result}, nil
+}
+
+func (s *ExtractEditTextServer) IsInputMethodTarget(_ context.Context, req *pb.IsInputMethodTargetRequest) (*pb.IsInputMethodTargetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsInputMethodTarget()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsInputMethodTargetResponse{Result: result}, nil
+}
+
+func (s *ExtractEditTextServer) OnTextContextMenuItem(_ context.Context, req *pb.OnTextContextMenuItemRequest) (*pb.OnTextContextMenuItemResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnTextContextMenuItem(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnTextContextMenuItemResponse{Result: result}, nil
+}
+
+func (s *ExtractEditTextServer) PerformClick(_ context.Context, req *pb.PerformClickRequest) (*pb.PerformClickResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PerformClick()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PerformClickResponse{Result: result}, nil
+}
+
+func (s *ExtractEditTextServer) SetExtractedText(_ context.Context, req *pb.SetExtractedTextRequest) (*pb.SetExtractedTextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetExtractedText(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetExtractedTextResponse{}, nil
+}
+
+func (s *ExtractEditTextServer) StartInternalChanges(_ context.Context, req *pb.StartInternalChangesRequest) (*pb.StartInternalChangesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.StartInternalChanges(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartInternalChangesResponse{}, nil
 }
 
 // InputMethodServiceServer implements pb.InputMethodServiceServiceServer.
@@ -1651,501 +2194,4 @@ func (s *InputMethodServiceServer) GetStylusHandwritingIdleTimeoutMax(_ context.
 		}
 	}
 	return &pb.GetStylusHandwritingIdleTimeoutMaxResponse{Result: handle}, nil
-}
-
-// ExtractEditTextServer implements pb.ExtractEditTextServiceServer.
-type ExtractEditTextServer struct {
-	pb.UnimplementedExtractEditTextServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ExtractEditTextServer) NewExtractEditText(_ context.Context, req *pb.NewExtractEditTextRequest) (*pb.NewExtractEditTextResponse, error) {
-	obj, err := jnipkg.NewExtractEditText(s.Ctx.VM, s.Ctx.Obj)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewExtractEditTextResponse{Result: handle}, nil
-}
-
-func (s *ExtractEditTextServer) FinishInternalChanges(_ context.Context, req *pb.FinishInternalChangesRequest) (*pb.FinishInternalChangesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.FinishInternalChanges(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FinishInternalChangesResponse{}, nil
-}
-
-func (s *ExtractEditTextServer) HasFocus(_ context.Context, req *pb.HasFocusRequest) (*pb.HasFocusResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HasFocus()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HasFocusResponse{Result: result}, nil
-}
-
-func (s *ExtractEditTextServer) HasVerticalScrollBar(_ context.Context, req *pb.HasVerticalScrollBarRequest) (*pb.HasVerticalScrollBarResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HasVerticalScrollBar()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HasVerticalScrollBarResponse{Result: result}, nil
-}
-
-func (s *ExtractEditTextServer) HasWindowFocus(_ context.Context, req *pb.HasWindowFocusRequest) (*pb.HasWindowFocusResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HasWindowFocus()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HasWindowFocusResponse{Result: result}, nil
-}
-
-func (s *ExtractEditTextServer) IsFocused(_ context.Context, req *pb.IsFocusedRequest) (*pb.IsFocusedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsFocused()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsFocusedResponse{Result: result}, nil
-}
-
-func (s *ExtractEditTextServer) IsInputMethodTarget(_ context.Context, req *pb.IsInputMethodTargetRequest) (*pb.IsInputMethodTargetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsInputMethodTarget()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsInputMethodTargetResponse{Result: result}, nil
-}
-
-func (s *ExtractEditTextServer) OnTextContextMenuItem(_ context.Context, req *pb.OnTextContextMenuItemRequest) (*pb.OnTextContextMenuItemResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnTextContextMenuItem(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnTextContextMenuItemResponse{Result: result}, nil
-}
-
-func (s *ExtractEditTextServer) PerformClick(_ context.Context, req *pb.PerformClickRequest) (*pb.PerformClickResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.PerformClick()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PerformClickResponse{Result: result}, nil
-}
-
-func (s *ExtractEditTextServer) SetExtractedText(_ context.Context, req *pb.SetExtractedTextRequest) (*pb.SetExtractedTextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetExtractedText(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetExtractedTextResponse{}, nil
-}
-
-func (s *ExtractEditTextServer) StartInternalChanges(_ context.Context, req *pb.StartInternalChangesRequest) (*pb.StartInternalChangesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ExtractEditText{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.StartInternalChanges(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartInternalChangesResponse{}, nil
-}
-
-// KeyboardViewServer implements pb.KeyboardViewServiceServer.
-type KeyboardViewServer struct {
-	pb.UnimplementedKeyboardViewServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *KeyboardViewServer) NewKeyboardView(_ context.Context, req *pb.NewKeyboardViewRequest) (*pb.NewKeyboardViewResponse, error) {
-	obj, err := jnipkg.NewKeyboardView(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewKeyboardViewResponse{Result: handle}, nil
-}
-
-func (s *KeyboardViewServer) Closing(_ context.Context, req *pb.ClosingRequest) (*pb.ClosingResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Closing(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClosingResponse{}, nil
-}
-
-func (s *KeyboardViewServer) GetKeyboard(_ context.Context, req *pb.GetKeyboardRequest) (*pb.GetKeyboardResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetKeyboard()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetKeyboardResponse{Result: handle}, nil
-}
-
-func (s *KeyboardViewServer) HandleBack(_ context.Context, req *pb.HandleBackRequest) (*pb.HandleBackResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HandleBack()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HandleBackResponse{Result: result}, nil
-}
-
-func (s *KeyboardViewServer) InvalidateAllKeys(_ context.Context, req *pb.InvalidateAllKeysRequest) (*pb.InvalidateAllKeysResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.InvalidateAllKeys(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.InvalidateAllKeysResponse{}, nil
-}
-
-func (s *KeyboardViewServer) InvalidateKey(_ context.Context, req *pb.InvalidateKeyRequest) (*pb.InvalidateKeyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.InvalidateKey(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.InvalidateKeyResponse{}, nil
-}
-
-func (s *KeyboardViewServer) IsPreviewEnabled(_ context.Context, req *pb.IsPreviewEnabledRequest) (*pb.IsPreviewEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsPreviewEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsPreviewEnabledResponse{Result: result}, nil
-}
-
-func (s *KeyboardViewServer) IsProximityCorrectionEnabled(_ context.Context, req *pb.IsProximityCorrectionEnabledRequest) (*pb.IsProximityCorrectionEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsProximityCorrectionEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsProximityCorrectionEnabledResponse{Result: result}, nil
-}
-
-func (s *KeyboardViewServer) IsShifted(_ context.Context, req *pb.IsShiftedRequest) (*pb.IsShiftedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsShifted()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsShiftedResponse{Result: result}, nil
-}
-
-func (s *KeyboardViewServer) OnClick(_ context.Context, req *pb.OnClickRequest) (*pb.OnClickResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnClick(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnClickResponse{}, nil
-}
-
-func (s *KeyboardViewServer) OnDetachedFromWindow(_ context.Context, req *pb.OnDetachedFromWindowRequest) (*pb.OnDetachedFromWindowResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnDetachedFromWindow(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnDetachedFromWindowResponse{}, nil
-}
-
-func (s *KeyboardViewServer) OnDraw(_ context.Context, req *pb.OnDrawRequest) (*pb.OnDrawResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnDraw(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnDrawResponse{}, nil
-}
-
-func (s *KeyboardViewServer) OnHoverEvent(_ context.Context, req *pb.OnHoverEventRequest) (*pb.OnHoverEventResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnHoverEvent(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnHoverEventResponse{Result: result}, nil
-}
-
-func (s *KeyboardViewServer) OnMeasure(_ context.Context, req *pb.OnMeasureRequest) (*pb.OnMeasureResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnMeasure(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnMeasureResponse{}, nil
-}
-
-func (s *KeyboardViewServer) OnSizeChanged(_ context.Context, req *pb.OnSizeChangedRequest) (*pb.OnSizeChangedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnSizeChanged(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnSizeChangedResponse{}, nil
-}
-
-func (s *KeyboardViewServer) OnTouchEvent(_ context.Context, req *pb.OnTouchEventRequest) (*pb.OnTouchEventResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnTouchEvent(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnTouchEventResponse{Result: result}, nil
-}
-
-func (s *KeyboardViewServer) SetKeyboard(_ context.Context, req *pb.SetKeyboardRequest) (*pb.SetKeyboardResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetKeyboard(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetKeyboardResponse{}, nil
-}
-
-func (s *KeyboardViewServer) SetOnKeyboardActionListener(_ context.Context, req *pb.SetOnKeyboardActionListenerRequest) (*pb.SetOnKeyboardActionListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetOnKeyboardActionListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOnKeyboardActionListenerResponse{}, nil
-}
-
-func (s *KeyboardViewServer) SetPopupOffset(_ context.Context, req *pb.SetPopupOffsetRequest) (*pb.SetPopupOffsetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetPopupOffset(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPopupOffsetResponse{}, nil
-}
-
-func (s *KeyboardViewServer) SetPopupParent(_ context.Context, req *pb.SetPopupParentRequest) (*pb.SetPopupParentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetPopupParent(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPopupParentResponse{}, nil
-}
-
-func (s *KeyboardViewServer) SetPreviewEnabled(_ context.Context, req *pb.SetPreviewEnabledRequest) (*pb.SetPreviewEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetPreviewEnabled(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPreviewEnabledResponse{}, nil
-}
-
-func (s *KeyboardViewServer) SetProximityCorrectionEnabled(_ context.Context, req *pb.SetProximityCorrectionEnabledRequest) (*pb.SetProximityCorrectionEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetProximityCorrectionEnabled(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetProximityCorrectionEnabledResponse{}, nil
-}
-
-func (s *KeyboardViewServer) SetShifted(_ context.Context, req *pb.SetShiftedRequest) (*pb.SetShiftedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.SetShifted(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetShiftedResponse{Result: result}, nil
-}
-
-func (s *KeyboardViewServer) SetVerticalCorrection(_ context.Context, req *pb.SetVerticalCorrectionRequest) (*pb.SetVerticalCorrectionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.KeyboardView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetVerticalCorrection(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetVerticalCorrectionResponse{}, nil
 }

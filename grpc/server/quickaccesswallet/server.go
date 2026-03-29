@@ -37,7 +37,7 @@ func (s *SelectWalletCardRequestServer) NewSelectWalletCardRequest(_ context.Con
 	return &pb.NewSelectWalletCardRequestResponse{Result: handle}, nil
 }
 
-func (s *SelectWalletCardRequestServer) DescribeContents(_ context.Context, req *pb.SelectWalletCardRequestDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *SelectWalletCardRequestServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -51,7 +51,7 @@ func (s *SelectWalletCardRequestServer) DescribeContents(_ context.Context, req 
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *SelectWalletCardRequestServer) GetCardId(_ context.Context, req *pb.SelectWalletCardRequestGetCardIdRequest) (*pb.GetCardIdResponse, error) {
+func (s *SelectWalletCardRequestServer) GetCardId(_ context.Context, req *pb.GetCardIdRequest) (*pb.GetCardIdResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -65,7 +65,7 @@ func (s *SelectWalletCardRequestServer) GetCardId(_ context.Context, req *pb.Sel
 	return &pb.GetCardIdResponse{Result: result}, nil
 }
 
-func (s *SelectWalletCardRequestServer) WriteToParcel(_ context.Context, req *pb.SelectWalletCardRequestWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *SelectWalletCardRequestServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -100,7 +100,7 @@ func (s *GetWalletCardsErrorServer) NewGetWalletCardsError(_ context.Context, re
 	return &pb.NewGetWalletCardsErrorResponse{Result: handle}, nil
 }
 
-func (s *GetWalletCardsErrorServer) DescribeContents(_ context.Context, req *pb.GetWalletCardsErrorDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *GetWalletCardsErrorServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -160,7 +160,7 @@ func (s *GetWalletCardsErrorServer) GetMessage(_ context.Context, req *pb.GetMes
 	return &pb.GetMessageResponse{Result: handle}, nil
 }
 
-func (s *GetWalletCardsErrorServer) WriteToParcel(_ context.Context, req *pb.GetWalletCardsErrorWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *GetWalletCardsErrorServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -195,7 +195,7 @@ func (s *WalletServiceEventServer) NewWalletServiceEvent(_ context.Context, req 
 	return &pb.NewWalletServiceEventResponse{Result: handle}, nil
 }
 
-func (s *WalletServiceEventServer) DescribeContents(_ context.Context, req *pb.WalletServiceEventDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *WalletServiceEventServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -223,75 +223,12 @@ func (s *WalletServiceEventServer) GetEventType(_ context.Context, req *pb.GetEv
 	return &pb.GetEventTypeResponse{Result: result}, nil
 }
 
-func (s *WalletServiceEventServer) WriteToParcel(_ context.Context, req *pb.WalletServiceEventWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *WalletServiceEventServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.WalletServiceEvent{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// GetWalletCardsResponseServer implements pb.GetWalletCardsResponseServiceServer.
-type GetWalletCardsResponseServer struct {
-	pb.UnimplementedGetWalletCardsResponseServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *GetWalletCardsResponseServer) NewGetWalletCardsResponse(_ context.Context, req *pb.NewGetWalletCardsResponseRequest) (*pb.NewGetWalletCardsResponseResponse, error) {
-	obj, err := jnipkg.NewGetWalletCardsResponse(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewGetWalletCardsResponseResponse{Result: handle}, nil
-}
-
-func (s *GetWalletCardsResponseServer) DescribeContents(_ context.Context, req *pb.GetWalletCardsResponseDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GetWalletCardsResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *GetWalletCardsResponseServer) GetSelectedIndex(_ context.Context, req *pb.GetSelectedIndexRequest) (*pb.GetSelectedIndexResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GetWalletCardsResponse{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSelectedIndex()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSelectedIndexResponse{Result: result}, nil
-}
-
-func (s *GetWalletCardsResponseServer) WriteToParcel(_ context.Context, req *pb.GetWalletCardsResponseWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GetWalletCardsResponse{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -321,7 +258,7 @@ func (s *GetWalletCardsRequestServer) NewGetWalletCardsRequest(_ context.Context
 	return &pb.NewGetWalletCardsRequestResponse{Result: handle}, nil
 }
 
-func (s *GetWalletCardsRequestServer) DescribeContents(_ context.Context, req *pb.GetWalletCardsRequestDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *GetWalletCardsRequestServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -391,12 +328,98 @@ func (s *GetWalletCardsRequestServer) GetMaxCards(_ context.Context, req *pb.Get
 	return &pb.GetMaxCardsResponse{Result: result}, nil
 }
 
-func (s *GetWalletCardsRequestServer) WriteToParcel(_ context.Context, req *pb.GetWalletCardsRequestWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *GetWalletCardsRequestServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.GetWalletCardsRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// GetWalletCardsResponseServer implements pb.GetWalletCardsResponseServiceServer.
+type GetWalletCardsResponseServer struct {
+	pb.UnimplementedGetWalletCardsResponseServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GetWalletCardsResponseServer) NewGetWalletCardsResponse(_ context.Context, req *pb.NewGetWalletCardsResponseRequest) (*pb.NewGetWalletCardsResponseResponse, error) {
+	obj, err := jnipkg.NewGetWalletCardsResponse(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewGetWalletCardsResponseResponse{Result: handle}, nil
+}
+
+func (s *GetWalletCardsResponseServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GetWalletCardsResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *GetWalletCardsResponseServer) GetSelectedIndex(_ context.Context, req *pb.GetSelectedIndexRequest) (*pb.GetSelectedIndexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GetWalletCardsResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSelectedIndex()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSelectedIndexResponse{Result: result}, nil
+}
+
+func (s *GetWalletCardsResponseServer) GetWalletCards(_ context.Context, req *pb.GetWalletCardsRequest) (*pb.GetWalletCardsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GetWalletCardsResponse{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWalletCards()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetWalletCardsResponse{Result: handle}, nil
+}
+
+func (s *GetWalletCardsResponseServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GetWalletCardsResponse{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

@@ -12,118 +12,6 @@ var oobCmd = &cobra.Command{
 	Short: "oob service operations",
 }
 
-var oobDeviceHandleCmd = &cobra.Command{
-	Use:   "device-handle",
-	Short: "DeviceHandleService operations",
-}
-
-var oobDeviceHandleDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceHandleServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var oobDeviceHandleGetRangingDeviceCmd = &cobra.Command{
-	Use:   "get-ranging-device",
-	Short: "GetRangingDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceHandleServiceClient(grpcConn)
-		req := &pb.GetRangingDeviceRequest{}
-		resp, err := client.GetRangingDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var oobDeviceHandleGetTransportHandleCmd = &cobra.Command{
-	Use:   "get-transport-handle",
-	Short: "GetTransportHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceHandleServiceClient(grpcConn)
-		req := &pb.GetTransportHandleRequest{}
-		resp, err := client.GetTransportHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var oobDeviceHandleToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceHandleServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var oobDeviceHandleWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceHandleServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var oobDeviceHandleBuilderCmd = &cobra.Command{
-	Use:   "device-handle-builder",
-	Short: "DeviceHandleBuilderService operations",
-}
-
-var oobDeviceHandleBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceHandleBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var oobTransportHandleCmd = &cobra.Command{
 	Use:   "transport-handle",
 	Short: "TransportHandleService operations",
@@ -258,6 +146,102 @@ var oobTransportHandleReceiveCallbackOnSendFailedCmd = &cobra.Command{
 	},
 }
 
+var oobResponderRangingConfigCmd = &cobra.Command{
+	Use:   "responder-ranging-config",
+	Short: "ResponderRangingConfigService operations",
+}
+
+var oobResponderRangingConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var oobResponderRangingConfigGetDeviceHandleCmd = &cobra.Command{
+	Use:   "get-device-handle",
+	Short: "GetDeviceHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		req := &pb.GetDeviceHandleRequest{}
+		resp, err := client.GetDeviceHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var oobResponderRangingConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var oobResponderRangingConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var oobResponderRangingConfigBuilderCmd = &cobra.Command{
+	Use:   "responder-ranging-config-builder",
+	Short: "ResponderRangingConfigBuilderService operations",
+}
+
+var oobResponderRangingConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var oobInitiatorRangingConfigCmd = &cobra.Command{
 	Use:   "initiator-ranging-config",
 	Short: "InitiatorRangingConfigService operations",
@@ -279,6 +263,22 @@ var oobInitiatorRangingConfigDescribeContentsCmd = &cobra.Command{
 	},
 }
 
+var oobInitiatorRangingConfigGetDeviceHandlesCmd = &cobra.Command{
+	Use:   "get-device-handles",
+	Short: "GetDeviceHandles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
+		req := &pb.GetDeviceHandlesRequest{}
+		resp, err := client.GetDeviceHandles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var oobInitiatorRangingConfigGetFastestRangingIntervalCmd = &cobra.Command{
 	Use:   "get-fastest-ranging-interval",
 	Short: "GetFastestRangingInterval RPC",
@@ -288,6 +288,22 @@ var oobInitiatorRangingConfigGetFastestRangingIntervalCmd = &cobra.Command{
 		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
 		req := &pb.GetFastestRangingIntervalRequest{}
 		resp, err := client.GetFastestRangingInterval(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var oobInitiatorRangingConfigGetRangingIntervalRangeCmd = &cobra.Command{
+	Use:   "get-ranging-interval-range",
+	Short: "GetRangingIntervalRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
+		req := &pb.GetRangingIntervalRangeRequest{}
+		resp, err := client.GetRangingIntervalRange(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -497,18 +513,18 @@ var oobInitiatorRangingConfigBuilderSetSlowestRangingIntervalCmd = &cobra.Comman
 	},
 }
 
-var oobResponderRangingConfigCmd = &cobra.Command{
-	Use:   "responder-ranging-config",
-	Short: "ResponderRangingConfigService operations",
+var oobDeviceHandleCmd = &cobra.Command{
+	Use:   "device-handle",
+	Short: "DeviceHandleService operations",
 }
 
-var oobResponderRangingConfigDescribeContentsCmd = &cobra.Command{
+var oobDeviceHandleDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		client := pb.NewDeviceHandleServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -518,15 +534,15 @@ var oobResponderRangingConfigDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var oobResponderRangingConfigGetDeviceHandleCmd = &cobra.Command{
-	Use:   "get-device-handle",
-	Short: "GetDeviceHandle RPC",
+var oobDeviceHandleGetRangingDeviceCmd = &cobra.Command{
+	Use:   "get-ranging-device",
+	Short: "GetRangingDevice RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
-		req := &pb.GetDeviceHandleRequest{}
-		resp, err := client.GetDeviceHandle(ctx, req)
+		client := pb.NewDeviceHandleServiceClient(grpcConn)
+		req := &pb.GetRangingDeviceRequest{}
+		resp, err := client.GetRangingDevice(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -534,13 +550,29 @@ var oobResponderRangingConfigGetDeviceHandleCmd = &cobra.Command{
 	},
 }
 
-var oobResponderRangingConfigToStringCmd = &cobra.Command{
+var oobDeviceHandleGetTransportHandleCmd = &cobra.Command{
+	Use:   "get-transport-handle",
+	Short: "GetTransportHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceHandleServiceClient(grpcConn)
+		req := &pb.GetTransportHandleRequest{}
+		resp, err := client.GetTransportHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var oobDeviceHandleToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		client := pb.NewDeviceHandleServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -550,13 +582,13 @@ var oobResponderRangingConfigToStringCmd = &cobra.Command{
 	},
 }
 
-var oobResponderRangingConfigWriteToParcelCmd = &cobra.Command{
+var oobDeviceHandleWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		client := pb.NewDeviceHandleServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -572,18 +604,18 @@ var oobResponderRangingConfigWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var oobResponderRangingConfigBuilderCmd = &cobra.Command{
-	Use:   "responder-ranging-config-builder",
-	Short: "ResponderRangingConfigBuilderService operations",
+var oobDeviceHandleBuilderCmd = &cobra.Command{
+	Use:   "device-handle-builder",
+	Short: "DeviceHandleBuilderService operations",
 }
 
-var oobResponderRangingConfigBuilderBuildCmd = &cobra.Command{
+var oobDeviceHandleBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewResponderRangingConfigBuilderServiceClient(grpcConn)
+		client := pb.NewDeviceHandleBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -594,16 +626,6 @@ var oobResponderRangingConfigBuilderBuildCmd = &cobra.Command{
 }
 
 func init() {
-	oobDeviceHandleCmd.AddCommand(oobDeviceHandleDescribeContentsCmd)
-	oobDeviceHandleCmd.AddCommand(oobDeviceHandleGetRangingDeviceCmd)
-	oobDeviceHandleCmd.AddCommand(oobDeviceHandleGetTransportHandleCmd)
-	oobDeviceHandleCmd.AddCommand(oobDeviceHandleToStringCmd)
-	oobDeviceHandleWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	oobDeviceHandleWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	oobDeviceHandleCmd.AddCommand(oobDeviceHandleWriteToParcelCmd)
-	oobCmd.AddCommand(oobDeviceHandleCmd)
-	oobDeviceHandleBuilderCmd.AddCommand(oobDeviceHandleBuilderBuildCmd)
-	oobCmd.AddCommand(oobDeviceHandleBuilderCmd)
 	oobTransportHandleRegisterReceiveCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	oobTransportHandleRegisterReceiveCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	oobTransportHandleCmd.AddCommand(oobTransportHandleRegisterReceiveCallbackCmd)
@@ -617,8 +639,19 @@ func init() {
 	oobTransportHandleReceiveCallbackCmd.AddCommand(oobTransportHandleReceiveCallbackOnReconnectCmd)
 	oobTransportHandleReceiveCallbackCmd.AddCommand(oobTransportHandleReceiveCallbackOnSendFailedCmd)
 	oobCmd.AddCommand(oobTransportHandleReceiveCallbackCmd)
+	oobResponderRangingConfigCmd.AddCommand(oobResponderRangingConfigDescribeContentsCmd)
+	oobResponderRangingConfigCmd.AddCommand(oobResponderRangingConfigGetDeviceHandleCmd)
+	oobResponderRangingConfigCmd.AddCommand(oobResponderRangingConfigToStringCmd)
+	oobResponderRangingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	oobResponderRangingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	oobResponderRangingConfigCmd.AddCommand(oobResponderRangingConfigWriteToParcelCmd)
+	oobCmd.AddCommand(oobResponderRangingConfigCmd)
+	oobResponderRangingConfigBuilderCmd.AddCommand(oobResponderRangingConfigBuilderBuildCmd)
+	oobCmd.AddCommand(oobResponderRangingConfigBuilderCmd)
 	oobInitiatorRangingConfigCmd.AddCommand(oobInitiatorRangingConfigDescribeContentsCmd)
+	oobInitiatorRangingConfigCmd.AddCommand(oobInitiatorRangingConfigGetDeviceHandlesCmd)
 	oobInitiatorRangingConfigCmd.AddCommand(oobInitiatorRangingConfigGetFastestRangingIntervalCmd)
+	oobInitiatorRangingConfigCmd.AddCommand(oobInitiatorRangingConfigGetRangingIntervalRangeCmd)
 	oobInitiatorRangingConfigCmd.AddCommand(oobInitiatorRangingConfigGetRangingModeCmd)
 	oobInitiatorRangingConfigCmd.AddCommand(oobInitiatorRangingConfigGetSecurityLevelCmd)
 	oobInitiatorRangingConfigCmd.AddCommand(oobInitiatorRangingConfigGetSlowestRangingIntervalCmd)
@@ -639,14 +672,15 @@ func init() {
 	oobInitiatorRangingConfigBuilderSetSlowestRangingIntervalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	oobInitiatorRangingConfigBuilderCmd.AddCommand(oobInitiatorRangingConfigBuilderSetSlowestRangingIntervalCmd)
 	oobCmd.AddCommand(oobInitiatorRangingConfigBuilderCmd)
-	oobResponderRangingConfigCmd.AddCommand(oobResponderRangingConfigDescribeContentsCmd)
-	oobResponderRangingConfigCmd.AddCommand(oobResponderRangingConfigGetDeviceHandleCmd)
-	oobResponderRangingConfigCmd.AddCommand(oobResponderRangingConfigToStringCmd)
-	oobResponderRangingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	oobResponderRangingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	oobResponderRangingConfigCmd.AddCommand(oobResponderRangingConfigWriteToParcelCmd)
-	oobCmd.AddCommand(oobResponderRangingConfigCmd)
-	oobResponderRangingConfigBuilderCmd.AddCommand(oobResponderRangingConfigBuilderBuildCmd)
-	oobCmd.AddCommand(oobResponderRangingConfigBuilderCmd)
+	oobDeviceHandleCmd.AddCommand(oobDeviceHandleDescribeContentsCmd)
+	oobDeviceHandleCmd.AddCommand(oobDeviceHandleGetRangingDeviceCmd)
+	oobDeviceHandleCmd.AddCommand(oobDeviceHandleGetTransportHandleCmd)
+	oobDeviceHandleCmd.AddCommand(oobDeviceHandleToStringCmd)
+	oobDeviceHandleWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	oobDeviceHandleWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	oobDeviceHandleCmd.AddCommand(oobDeviceHandleWriteToParcelCmd)
+	oobCmd.AddCommand(oobDeviceHandleCmd)
+	oobDeviceHandleBuilderCmd.AddCommand(oobDeviceHandleBuilderBuildCmd)
+	oobCmd.AddCommand(oobDeviceHandleBuilderCmd)
 	rootCmd.AddCommand(oobCmd)
 }

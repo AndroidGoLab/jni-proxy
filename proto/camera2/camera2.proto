@@ -6,70 +6,47 @@ package camera2;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/camera2";
 
-message IsCaptureProcessProgressAvailableRequest {
-  int32 arg0 = 1;
-}
-
-message IsCaptureProcessProgressAvailableResponse {
-  bool result = 1;
-}
-
-message IsPostviewAvailableRequest {
-  int32 arg0 = 1;
-}
-
-message IsPostviewAvailableResponse {
-  bool result = 1;
-}
-
-message CloseRequest {
-}
-
-message CloseResponse {
-}
-
-message OnClosedRequest {
+message CreateHighSpeedRequestListRequest {
   int64 arg0 = 1;
 }
 
-message OnClosedResponse {
-}
-
-message OnErrorRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnErrorResponse {
-}
-
-message OnIdleRequest {
-  int64 arg0 = 1;
-}
-
-message OnIdleResponse {
-}
-
-message OnReadyRequest {
-  int64 arg0 = 1;
-}
-
-message OnReadyResponse {
-}
-
-message OnSwitchFailedRequest {
-  int64 arg0 = 1;
-}
-
-message OnSwitchFailedResponse {
-}
-
-message GetRecommendedStreamConfigurationMapRequest {
-  int32 arg0 = 1;
-}
-
-message GetRecommendedStreamConfigurationMapResponse {
+message CreateHighSpeedRequestListResponse {
   int64 result = 1;
+}
+
+message GetCameraIdRequest {
+}
+
+message GetCameraIdResponse {
+  string result = 1;
+}
+
+message GetFrameNumberRequest {
+}
+
+message GetFrameNumberResponse {
+  int64 result = 1;
+}
+
+message GetKeysRequest {
+}
+
+message GetKeysResponse {
+  int64 result = 1;
+}
+
+message GetRequestRequest {
+}
+
+message GetRequestResponse {
+  int64 result = 1;
+}
+
+message GetSequenceIdRequest {
+}
+
+message GetSequenceIdResponse {
+  int32 result = 1;
 }
 
 message EqualsRequest {
@@ -101,238 +78,6 @@ message ToStringResponse {
   string result = 1;
 }
 
-message GetCameraIdRequest {
-}
-
-message GetCameraIdResponse {
-  string result = 1;
-}
-
-message GetFrameNumberRequest {
-}
-
-message GetFrameNumberResponse {
-  int64 result = 1;
-}
-
-message GetRequestRequest {
-}
-
-message GetRequestResponse {
-  int64 result = 1;
-}
-
-message GetSequenceIdRequest {
-}
-
-message GetSequenceIdResponse {
-  int32 result = 1;
-}
-
-message GetPhysicalCameraIdRequest {
-}
-
-message GetPhysicalCameraIdResponse {
-  string result = 1;
-}
-
-message GetReasonRequest {
-}
-
-message GetReasonResponse {
-  int32 result = 1;
-}
-
-message WasImageCapturedRequest {
-}
-
-message WasImageCapturedResponse {
-  bool result = 1;
-}
-
-message CaptureRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message CaptureResponse {
-  int32 result = 1;
-}
-
-message GetDeviceRequest {
-}
-
-message GetDeviceResponse {
-  int64 result = 1;
-}
-
-message GetRealtimeStillCaptureLatencyRequest {
-}
-
-message GetRealtimeStillCaptureLatencyResponse {
-  int64 result = 1;
-}
-
-message SetRepeatingRequestRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message SetRepeatingRequestResponse {
-  int32 result = 1;
-}
-
-message StopRepeatingRequest {
-}
-
-message StopRepeatingResponse {
-}
-
-message OnCaptureFailed2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnCaptureFailed2Response {
-}
-
-message OnCaptureFailed3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message OnCaptureFailed3_1Response {
-}
-
-message OnCaptureProcessProgressedRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message OnCaptureProcessProgressedResponse {
-}
-
-message OnCaptureProcessStartedRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnCaptureProcessStartedResponse {
-}
-
-message OnCaptureResultAvailableRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message OnCaptureResultAvailableResponse {
-}
-
-message OnCaptureSequenceAbortedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnCaptureSequenceAbortedResponse {
-}
-
-message OnCaptureSequenceCompletedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnCaptureSequenceCompletedResponse {
-}
-
-message OnCaptureStartedRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message OnCaptureStartedResponse {
-}
-
-message OnConfigureFailedRequest {
-  int64 arg0 = 1;
-}
-
-message OnConfigureFailedResponse {
-}
-
-message OnConfiguredRequest {
-  int64 arg0 = 1;
-}
-
-message OnConfiguredResponse {
-}
-
-message GetCaptureLatencyRequest {
-}
-
-message GetCaptureLatencyResponse {
-  int64 result = 1;
-}
-
-message GetProcessingLatencyRequest {
-}
-
-message GetProcessingLatencyResponse {
-  int64 result = 1;
-}
-
-message NewMultiResolutionImageReaderRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message NewMultiResolutionImageReaderResponse {
-  int64 result = 1;
-}
-
-message MultiResolutionImageReaderCloseRequest {
-  int64 handle = 1;
-}
-
-message FlushRequest {
-  int64 handle = 1;
-}
-
-message FlushResponse {
-}
-
-message GetStreamInfoForImageReaderRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetStreamInfoForImageReaderResponse {
-  int64 result = 1;
-}
-
-message GetSurfaceRequest {
-  int64 handle = 1;
-}
-
-message GetSurfaceResponse {
-  int64 result = 1;
-}
-
-message SetOnImageAvailableListenerRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message SetOnImageAvailableListenerResponse {
-}
-
 message AbortCapturesRequest {
 }
 
@@ -347,6 +92,19 @@ message CaptureSingleRequestRequest {
 
 message CaptureSingleRequestResponse {
   int32 result = 1;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetDeviceRequest {
+}
+
+message GetDeviceResponse {
+  int64 result = 1;
 }
 
 message GetInputSurfaceRequest {
@@ -378,6 +136,12 @@ message SetSingleRepeatingRequestRequest {
 
 message SetSingleRepeatingRequestResponse {
   int32 result = 1;
+}
+
+message StopRepeatingRequest {
+}
+
+message StopRepeatingResponse {
 }
 
 message SupportsOfflineProcessingRequest {
@@ -432,17 +196,31 @@ message OnCaptureProgressedRequest {
 message OnCaptureProgressedResponse {
 }
 
-message CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest {
+message OnCaptureSequenceAbortedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnCaptureSequenceAbortedResponse {
+}
+
+message OnCaptureSequenceCompletedRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
   int64 arg2 = 3;
 }
 
-message CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest {
+message OnCaptureSequenceCompletedResponse {
+}
+
+message OnCaptureStartedRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
   int64 arg2 = 3;
   int64 arg3 = 4;
+}
+
+message OnCaptureStartedResponse {
 }
 
 message OnReadoutStartedRequest {
@@ -469,12 +247,68 @@ message OnCaptureQueueEmptyRequest {
 message OnCaptureQueueEmptyResponse {
 }
 
+message OnClosedRequest {
+  int64 arg0 = 1;
+}
+
+message OnClosedResponse {
+}
+
+message OnConfigureFailedRequest {
+  int64 arg0 = 1;
+}
+
+message OnConfigureFailedResponse {
+}
+
+message OnConfiguredRequest {
+  int64 arg0 = 1;
+}
+
+message OnConfiguredResponse {
+}
+
+message OnReadyRequest {
+  int64 arg0 = 1;
+}
+
+message OnReadyResponse {
+}
+
 message OnSurfacePreparedRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
 message OnSurfacePreparedResponse {
+}
+
+message GetPhysicalCameraIdRequest {
+}
+
+message GetPhysicalCameraIdResponse {
+  string result = 1;
+}
+
+message GetReasonRequest {
+}
+
+message GetReasonResponse {
+  int32 result = 1;
+}
+
+message WasImageCapturedRequest {
+}
+
+message WasImageCapturedResponse {
+  bool result = 1;
+}
+
+message GetPartialResultsRequest {
+}
+
+message GetPartialResultsResponse {
+  int64 result = 1;
 }
 
 message CreateCaptureRequestRequest {
@@ -559,6 +393,14 @@ message OnDisconnectedRequest {
 message OnDisconnectedResponse {
 }
 
+message OnErrorRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnErrorResponse {
+}
+
 message OnOpenedRequest {
   int64 arg0 = 1;
 }
@@ -566,61 +408,87 @@ message OnOpenedRequest {
 message OnOpenedResponse {
 }
 
-message DescribeContentsRequest {
+message NewCameraAccessExceptionRequest {
+  int32 arg0 = 1;
 }
 
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message GetTagRequest {
-}
-
-message GetTagResponse {
+message NewCameraAccessExceptionResponse {
   int64 result = 1;
 }
 
-message IsReprocessRequest {
+message CameraAccessExceptionGetReasonRequest {
+  int64 handle = 1;
 }
 
-message IsReprocessResponse {
-  bool result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message AddTargetRequest {
+message OnIdleRequest {
   int64 arg0 = 1;
 }
 
-message AddTargetResponse {
+message OnIdleResponse {
 }
 
-message BuildRequest {
+message OnSwitchFailedRequest {
+  int64 arg0 = 1;
 }
 
-message BuildResponse {
+message OnSwitchFailedResponse {
+}
+
+message GetAvailableCaptureRequestKeysRequest {
+}
+
+message GetAvailableCaptureRequestKeysResponse {
   int64 result = 1;
 }
 
-message RemoveTargetRequest {
-  int64 arg0 = 1;
+message GetAvailableCaptureResultKeysRequest {
 }
 
-message RemoveTargetResponse {
+message GetAvailableCaptureResultKeysResponse {
+  int64 result = 1;
 }
 
-message SetTagRequest {
-  int64 arg0 = 1;
+message GetAvailablePhysicalCameraRequestKeysRequest {
 }
 
-message SetTagResponse {
+message GetAvailablePhysicalCameraRequestKeysResponse {
+  int64 result = 1;
+}
+
+message GetAvailableSessionCharacteristicsKeysRequest {
+}
+
+message GetAvailableSessionCharacteristicsKeysResponse {
+  int64 result = 1;
+}
+
+message GetAvailableSessionKeysRequest {
+}
+
+message GetAvailableSessionKeysResponse {
+  int64 result = 1;
+}
+
+message GetKeysNeedingPermissionRequest {
+}
+
+message GetKeysNeedingPermissionResponse {
+  int64 result = 1;
+}
+
+message GetPhysicalCameraIdsRequest {
+}
+
+message GetPhysicalCameraIdsResponse {
+  int64 result = 1;
+}
+
+message GetRecommendedStreamConfigurationMapRequest {
+  int32 arg0 = 1;
+}
+
+message GetRecommendedStreamConfigurationMapResponse {
+  int64 result = 1;
 }
 
 message NewDngCreatorRequest {
@@ -701,49 +569,277 @@ message WriteInputStreamRequest {
 message WriteInputStreamResponse {
 }
 
-message NewCameraAccessExceptionRequest {
-  int32 arg0 = 1;
+message DescribeContentsRequest {
 }
 
-message NewCameraAccessExceptionResponse {
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetTagRequest {
+}
+
+message GetTagResponse {
   int64 result = 1;
 }
 
-message CameraAccessExceptionGetReasonRequest {
+message IsReprocessRequest {
+}
+
+message IsReprocessResponse {
+  bool result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message AddTargetRequest {
+  int64 arg0 = 1;
+}
+
+message AddTargetResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message RemoveTargetRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveTargetResponse {
+}
+
+message SetTagRequest {
+  int64 arg0 = 1;
+}
+
+message SetTagResponse {
+}
+
+message NewMultiResolutionImageReaderRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewMultiResolutionImageReaderResponse {
+  int64 result = 1;
+}
+
+message MultiResolutionImageReaderCloseRequest {
   int64 handle = 1;
 }
 
-service CameraExtensionCharacteristicsService {
-  rpc IsCaptureProcessProgressAvailable (IsCaptureProcessProgressAvailableRequest) returns (IsCaptureProcessProgressAvailableResponse);
-  rpc IsPostviewAvailable (IsPostviewAvailableRequest) returns (IsPostviewAvailableResponse);
+message FlushRequest {
+  int64 handle = 1;
 }
 
-service CameraOfflineSessionService {
-  rpc Close (CloseRequest) returns (CloseResponse);
+message FlushResponse {
 }
 
-service CameraOfflineSessionCameraOfflineSessionCallbackService {
-  rpc OnClosed (OnClosedRequest) returns (OnClosedResponse);
-  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
-  rpc OnIdle (OnIdleRequest) returns (OnIdleResponse);
-  rpc OnReady (OnReadyRequest) returns (OnReadyResponse);
-  rpc OnSwitchFailed (OnSwitchFailedRequest) returns (OnSwitchFailedResponse);
+message GetStreamInfoForImageReaderRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-service CameraCharacteristicsService {
-  rpc GetRecommendedStreamConfigurationMap (GetRecommendedStreamConfigurationMapRequest) returns (GetRecommendedStreamConfigurationMapResponse);
+message GetStreamInfoForImageReaderResponse {
+  int64 result = 1;
 }
 
-service CameraCharacteristicsKeyService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetName (GetNameRequest) returns (GetNameResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
+message GetSurfaceRequest {
+  int64 handle = 1;
+}
+
+message GetSurfaceResponse {
+  int64 result = 1;
+}
+
+message SetOnImageAvailableListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetOnImageAvailableListenerResponse {
+}
+
+message CaptureRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CaptureResponse {
+  int32 result = 1;
+}
+
+message GetRealtimeStillCaptureLatencyRequest {
+}
+
+message GetRealtimeStillCaptureLatencyResponse {
+  int64 result = 1;
+}
+
+message SetRepeatingRequestRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetRepeatingRequestResponse {
+  int32 result = 1;
+}
+
+message OnCaptureFailed2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCaptureFailed2Response {
+}
+
+message OnCaptureFailed3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnCaptureFailed3_1Response {
+}
+
+message OnCaptureProcessProgressedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnCaptureProcessProgressedResponse {
+}
+
+message OnCaptureProcessStartedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCaptureProcessStartedResponse {
+}
+
+message OnCaptureResultAvailableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnCaptureResultAvailableResponse {
+}
+
+message CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetCaptureLatencyRequest {
+}
+
+message GetCaptureLatencyResponse {
+  int64 result = 1;
+}
+
+message GetProcessingLatencyRequest {
+}
+
+message GetProcessingLatencyResponse {
+  int64 result = 1;
+}
+
+message CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest {
+  int32 arg0 = 1;
+}
+
+message CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest {
+  int32 arg0 = 1;
+}
+
+message GetEstimatedCaptureLatencyRangeMillisRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetEstimatedCaptureLatencyRangeMillisResponse {
+  int64 result = 1;
+}
+
+message GetExtensionSupportedSizesRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetExtensionSupportedSizesResponse {
+  int64 result = 1;
+}
+
+message CameraExtensionCharacteristicsGetKeysRequest {
+  int32 arg0 = 1;
+}
+
+message GetPostviewSupportedSizesRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetPostviewSupportedSizesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedExtensionsRequest {
+}
+
+message GetSupportedExtensionsResponse {
+  int64 result = 1;
+}
+
+message IsCaptureProcessProgressAvailableRequest {
+  int32 arg0 = 1;
+}
+
+message IsCaptureProcessProgressAvailableResponse {
+  bool result = 1;
+}
+
+message IsPostviewAvailableRequest {
+  int32 arg0 = 1;
+}
+
+message IsPostviewAvailableResponse {
+  bool result = 1;
+}
+
+service CameraConstrainedHighSpeedCaptureSessionService {
+  rpc CreateHighSpeedRequestList (CreateHighSpeedRequestListRequest) returns (CreateHighSpeedRequestListResponse);
 }
 
 service CaptureResultService {
   rpc GetCameraId (GetCameraIdRequest) returns (GetCameraIdResponse);
   rpc GetFrameNumber (GetFrameNumberRequest) returns (GetFrameNumberResponse);
+  rpc GetKeys (GetKeysRequest) returns (GetKeysResponse);
   rpc GetRequest (GetRequestRequest) returns (GetRequestResponse);
   rpc GetSequenceId (GetSequenceIdRequest) returns (GetSequenceIdResponse);
 }
@@ -755,56 +851,8 @@ service CaptureResultKeyService {
   rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
-service CaptureFailureService {
-  rpc GetFrameNumber (GetFrameNumberRequest) returns (GetFrameNumberResponse);
-  rpc GetPhysicalCameraId (GetPhysicalCameraIdRequest) returns (GetPhysicalCameraIdResponse);
-  rpc GetReason (GetReasonRequest) returns (GetReasonResponse);
-  rpc GetRequest (GetRequestRequest) returns (GetRequestResponse);
-  rpc GetSequenceId (GetSequenceIdRequest) returns (GetSequenceIdResponse);
-  rpc WasImageCaptured (WasImageCapturedRequest) returns (WasImageCapturedResponse);
-}
-
-service CameraExtensionSessionService {
-  rpc Capture (CaptureRequest) returns (CaptureResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc GetDevice (GetDeviceRequest) returns (GetDeviceResponse);
-  rpc GetRealtimeStillCaptureLatency (GetRealtimeStillCaptureLatencyRequest) returns (GetRealtimeStillCaptureLatencyResponse);
-  rpc SetRepeatingRequest (SetRepeatingRequestRequest) returns (SetRepeatingRequestResponse);
-  rpc StopRepeating (StopRepeatingRequest) returns (StopRepeatingResponse);
-}
-
-service CameraExtensionSessionExtensionCaptureCallbackService {
-  rpc OnCaptureFailed2 (OnCaptureFailed2Request) returns (OnCaptureFailed2Response);
-  rpc OnCaptureFailed3_1 (OnCaptureFailed3_1Request) returns (OnCaptureFailed3_1Response);
-  rpc OnCaptureProcessProgressed (OnCaptureProcessProgressedRequest) returns (OnCaptureProcessProgressedResponse);
-  rpc OnCaptureProcessStarted (OnCaptureProcessStartedRequest) returns (OnCaptureProcessStartedResponse);
-  rpc OnCaptureResultAvailable (OnCaptureResultAvailableRequest) returns (OnCaptureResultAvailableResponse);
-  rpc OnCaptureSequenceAborted (OnCaptureSequenceAbortedRequest) returns (OnCaptureSequenceAbortedResponse);
-  rpc OnCaptureSequenceCompleted (OnCaptureSequenceCompletedRequest) returns (OnCaptureSequenceCompletedResponse);
-  rpc OnCaptureStarted (OnCaptureStartedRequest) returns (OnCaptureStartedResponse);
-}
-
-service CameraExtensionSessionStateCallbackService {
-  rpc OnClosed (OnClosedRequest) returns (OnClosedResponse);
-  rpc OnConfigureFailed (OnConfigureFailedRequest) returns (OnConfigureFailedResponse);
-  rpc OnConfigured (OnConfiguredRequest) returns (OnConfiguredResponse);
-}
-
-service CameraExtensionSessionStillCaptureLatencyService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetCaptureLatency (GetCaptureLatencyRequest) returns (GetCaptureLatencyResponse);
-  rpc GetProcessingLatency (GetProcessingLatencyRequest) returns (GetProcessingLatencyResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service MultiResolutionImageReaderService {
-  rpc NewMultiResolutionImageReader (NewMultiResolutionImageReaderRequest) returns (NewMultiResolutionImageReaderResponse);
-  rpc Close (MultiResolutionImageReaderCloseRequest) returns (CloseResponse);
-  rpc Flush (FlushRequest) returns (FlushResponse);
-  rpc GetStreamInfoForImageReader (GetStreamInfoForImageReaderRequest) returns (GetStreamInfoForImageReaderResponse);
-  rpc GetSurface (GetSurfaceRequest) returns (GetSurfaceResponse);
-  rpc SetOnImageAvailableListener (SetOnImageAvailableListenerRequest) returns (SetOnImageAvailableListenerResponse);
+service CameraMetadataService {
+  rpc GetKeys (GetKeysRequest) returns (GetKeysResponse);
 }
 
 service CameraCaptureSessionService {
@@ -827,8 +875,8 @@ service CameraCaptureSessionCaptureCallbackService {
   rpc OnCaptureFailed (OnCaptureFailedRequest) returns (OnCaptureFailedResponse);
   rpc OnCaptureProgressed (OnCaptureProgressedRequest) returns (OnCaptureProgressedResponse);
   rpc OnCaptureSequenceAborted (OnCaptureSequenceAbortedRequest) returns (OnCaptureSequenceAbortedResponse);
-  rpc OnCaptureSequenceCompleted (CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) returns (OnCaptureSequenceCompletedResponse);
-  rpc OnCaptureStarted (CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) returns (OnCaptureStartedResponse);
+  rpc OnCaptureSequenceCompleted (OnCaptureSequenceCompletedRequest) returns (OnCaptureSequenceCompletedResponse);
+  rpc OnCaptureStarted (OnCaptureStartedRequest) returns (OnCaptureStartedResponse);
   rpc OnReadoutStarted (OnReadoutStartedRequest) returns (OnReadoutStartedResponse);
 }
 
@@ -840,6 +888,19 @@ service CameraCaptureSessionStateCallbackService {
   rpc OnConfigured (OnConfiguredRequest) returns (OnConfiguredResponse);
   rpc OnReady (OnReadyRequest) returns (OnReadyResponse);
   rpc OnSurfacePrepared (OnSurfacePreparedRequest) returns (OnSurfacePreparedResponse);
+}
+
+service CaptureFailureService {
+  rpc GetFrameNumber (GetFrameNumberRequest) returns (GetFrameNumberResponse);
+  rpc GetPhysicalCameraId (GetPhysicalCameraIdRequest) returns (GetPhysicalCameraIdResponse);
+  rpc GetReason (GetReasonRequest) returns (GetReasonResponse);
+  rpc GetRequest (GetRequestRequest) returns (GetRequestResponse);
+  rpc GetSequenceId (GetSequenceIdRequest) returns (GetSequenceIdResponse);
+  rpc WasImageCaptured (WasImageCapturedRequest) returns (WasImageCapturedResponse);
+}
+
+service TotalCaptureResultService {
+  rpc GetPartialResults (GetPartialResultsRequest) returns (GetPartialResultsResponse);
 }
 
 service CameraDeviceService {
@@ -869,9 +930,58 @@ service CameraDeviceStateCallbackService {
   rpc OnOpened (OnOpenedRequest) returns (OnOpenedResponse);
 }
 
+service CameraAccessExceptionService {
+  rpc NewCameraAccessException (NewCameraAccessExceptionRequest) returns (NewCameraAccessExceptionResponse);
+  rpc GetReason (CameraAccessExceptionGetReasonRequest) returns (GetReasonResponse);
+}
+
+service CameraOfflineSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+}
+
+service CameraOfflineSessionCameraOfflineSessionCallbackService {
+  rpc OnClosed (OnClosedRequest) returns (OnClosedResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnIdle (OnIdleRequest) returns (OnIdleResponse);
+  rpc OnReady (OnReadyRequest) returns (OnReadyResponse);
+  rpc OnSwitchFailed (OnSwitchFailedRequest) returns (OnSwitchFailedResponse);
+}
+
+service CameraCharacteristicsService {
+  rpc GetAvailableCaptureRequestKeys (GetAvailableCaptureRequestKeysRequest) returns (GetAvailableCaptureRequestKeysResponse);
+  rpc GetAvailableCaptureResultKeys (GetAvailableCaptureResultKeysRequest) returns (GetAvailableCaptureResultKeysResponse);
+  rpc GetAvailablePhysicalCameraRequestKeys (GetAvailablePhysicalCameraRequestKeysRequest) returns (GetAvailablePhysicalCameraRequestKeysResponse);
+  rpc GetAvailableSessionCharacteristicsKeys (GetAvailableSessionCharacteristicsKeysRequest) returns (GetAvailableSessionCharacteristicsKeysResponse);
+  rpc GetAvailableSessionKeys (GetAvailableSessionKeysRequest) returns (GetAvailableSessionKeysResponse);
+  rpc GetKeys (GetKeysRequest) returns (GetKeysResponse);
+  rpc GetKeysNeedingPermission (GetKeysNeedingPermissionRequest) returns (GetKeysNeedingPermissionResponse);
+  rpc GetPhysicalCameraIds (GetPhysicalCameraIdsRequest) returns (GetPhysicalCameraIdsResponse);
+  rpc GetRecommendedStreamConfigurationMap (GetRecommendedStreamConfigurationMapRequest) returns (GetRecommendedStreamConfigurationMapResponse);
+}
+
+service CameraCharacteristicsKeyService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DngCreatorService {
+  rpc NewDngCreator (NewDngCreatorRequest) returns (NewDngCreatorResponse);
+  rpc Close (DngCreatorCloseRequest) returns (CloseResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetLocation (SetLocationRequest) returns (SetLocationResponse);
+  rpc SetOrientation (SetOrientationRequest) returns (SetOrientationResponse);
+  rpc SetThumbnail1 (SetThumbnail1Request) returns (SetThumbnail1Response);
+  rpc SetThumbnail1_1 (SetThumbnail1_1Request) returns (SetThumbnail1_1Response);
+  rpc WriteImage (WriteImageRequest) returns (WriteImageResponse);
+  rpc WriteInputStream (WriteInputStreamRequest) returns (WriteInputStreamResponse);
+}
+
 service CaptureRequestService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetKeys (GetKeysRequest) returns (GetKeysResponse);
   rpc GetTag (GetTagRequest) returns (GetTagResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc IsReprocess (IsReprocessRequest) returns (IsReprocessResponse);
@@ -892,19 +1002,57 @@ service CaptureRequestKeyService {
   rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
-service DngCreatorService {
-  rpc NewDngCreator (NewDngCreatorRequest) returns (NewDngCreatorResponse);
-  rpc Close (DngCreatorCloseRequest) returns (CloseResponse);
-  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
-  rpc SetLocation (SetLocationRequest) returns (SetLocationResponse);
-  rpc SetOrientation (SetOrientationRequest) returns (SetOrientationResponse);
-  rpc SetThumbnail1 (SetThumbnail1Request) returns (SetThumbnail1Response);
-  rpc SetThumbnail1_1 (SetThumbnail1_1Request) returns (SetThumbnail1_1Response);
-  rpc WriteImage (WriteImageRequest) returns (WriteImageResponse);
-  rpc WriteInputStream (WriteInputStreamRequest) returns (WriteInputStreamResponse);
+service MultiResolutionImageReaderService {
+  rpc NewMultiResolutionImageReader (NewMultiResolutionImageReaderRequest) returns (NewMultiResolutionImageReaderResponse);
+  rpc Close (MultiResolutionImageReaderCloseRequest) returns (CloseResponse);
+  rpc Flush (FlushRequest) returns (FlushResponse);
+  rpc GetStreamInfoForImageReader (GetStreamInfoForImageReaderRequest) returns (GetStreamInfoForImageReaderResponse);
+  rpc GetSurface (GetSurfaceRequest) returns (GetSurfaceResponse);
+  rpc SetOnImageAvailableListener (SetOnImageAvailableListenerRequest) returns (SetOnImageAvailableListenerResponse);
 }
 
-service CameraAccessExceptionService {
-  rpc NewCameraAccessException (NewCameraAccessExceptionRequest) returns (NewCameraAccessExceptionResponse);
-  rpc GetReason (CameraAccessExceptionGetReasonRequest) returns (GetReasonResponse);
+service CameraExtensionSessionService {
+  rpc Capture (CaptureRequest) returns (CaptureResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetDevice (GetDeviceRequest) returns (GetDeviceResponse);
+  rpc GetRealtimeStillCaptureLatency (GetRealtimeStillCaptureLatencyRequest) returns (GetRealtimeStillCaptureLatencyResponse);
+  rpc SetRepeatingRequest (SetRepeatingRequestRequest) returns (SetRepeatingRequestResponse);
+  rpc StopRepeating (StopRepeatingRequest) returns (StopRepeatingResponse);
+}
+
+service CameraExtensionSessionExtensionCaptureCallbackService {
+  rpc OnCaptureFailed2 (OnCaptureFailed2Request) returns (OnCaptureFailed2Response);
+  rpc OnCaptureFailed3_1 (OnCaptureFailed3_1Request) returns (OnCaptureFailed3_1Response);
+  rpc OnCaptureProcessProgressed (OnCaptureProcessProgressedRequest) returns (OnCaptureProcessProgressedResponse);
+  rpc OnCaptureProcessStarted (OnCaptureProcessStartedRequest) returns (OnCaptureProcessStartedResponse);
+  rpc OnCaptureResultAvailable (OnCaptureResultAvailableRequest) returns (OnCaptureResultAvailableResponse);
+  rpc OnCaptureSequenceAborted (OnCaptureSequenceAbortedRequest) returns (OnCaptureSequenceAbortedResponse);
+  rpc OnCaptureSequenceCompleted (CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) returns (OnCaptureSequenceCompletedResponse);
+  rpc OnCaptureStarted (CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) returns (OnCaptureStartedResponse);
+}
+
+service CameraExtensionSessionStateCallbackService {
+  rpc OnClosed (OnClosedRequest) returns (OnClosedResponse);
+  rpc OnConfigureFailed (OnConfigureFailedRequest) returns (OnConfigureFailedResponse);
+  rpc OnConfigured (OnConfiguredRequest) returns (OnConfiguredResponse);
+}
+
+service CameraExtensionSessionStillCaptureLatencyService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCaptureLatency (GetCaptureLatencyRequest) returns (GetCaptureLatencyResponse);
+  rpc GetProcessingLatency (GetProcessingLatencyRequest) returns (GetProcessingLatencyResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service CameraExtensionCharacteristicsService {
+  rpc GetAvailableCaptureRequestKeys (CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) returns (GetAvailableCaptureRequestKeysResponse);
+  rpc GetAvailableCaptureResultKeys (CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) returns (GetAvailableCaptureResultKeysResponse);
+  rpc GetEstimatedCaptureLatencyRangeMillis (GetEstimatedCaptureLatencyRangeMillisRequest) returns (GetEstimatedCaptureLatencyRangeMillisResponse);
+  rpc GetExtensionSupportedSizes (GetExtensionSupportedSizesRequest) returns (GetExtensionSupportedSizesResponse);
+  rpc GetKeys (CameraExtensionCharacteristicsGetKeysRequest) returns (GetKeysResponse);
+  rpc GetPostviewSupportedSizes (GetPostviewSupportedSizesRequest) returns (GetPostviewSupportedSizesResponse);
+  rpc GetSupportedExtensions (GetSupportedExtensionsRequest) returns (GetSupportedExtensionsResponse);
+  rpc IsCaptureProcessProgressAvailable (IsCaptureProcessProgressAvailableRequest) returns (IsCaptureProcessProgressAvailableResponse);
+  rpc IsPostviewAvailable (IsPostviewAvailableRequest) returns (IsPostviewAvailableResponse);
 }

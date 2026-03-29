@@ -165,6 +165,17 @@ func (c *ManagerClientClient) GetAvailableDrmEngines(ctx context.Context, handle
 	return resp.GetResult(), nil
 }
 
+// GetAvailableDrmSupportInfo calls the GetAvailableDrmSupportInfo RPC.
+func (c *ManagerClientClient) GetAvailableDrmSupportInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAvailableDrmSupportInfo(ctx, &pb.GetAvailableDrmSupportInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetConstraints2 calls the GetConstraints2 RPC.
 func (c *ManagerClientClient) GetConstraints2(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
 	resp, err := c.svc.GetConstraints2(ctx, &pb.GetConstraints2Request{
@@ -409,23 +420,61 @@ func (c *ManagerClientOnInfoListenerClient) OnInfo(ctx context.Context, arg0 int
 	return err
 }
 
-// UtilsClient wraps the gRPC UtilsService client.
-type UtilsClient struct {
-	svc pb.UtilsServiceClient
+// ProcessedDataClient wraps the gRPC ProcessedDataService client.
+type ProcessedDataClient struct {
+	svc pb.ProcessedDataServiceClient
 }
 
-// NewUtilsClient creates a new Utils client.
-func NewUtilsClient(cc grpc.ClientConnInterface) *UtilsClient {
-	return &UtilsClient{
-		svc: pb.NewUtilsServiceClient(cc),
+// NewProcessedDataClient creates a new ProcessedData client.
+func NewProcessedDataClient(cc grpc.ClientConnInterface) *ProcessedDataClient {
+	return &ProcessedDataClient{
+		svc: pb.NewProcessedDataServiceClient(cc),
 	}
 }
 
-// GetExtendedMetadataParser calls the GetExtendedMetadataParser RPC.
-func (c *UtilsClient) GetExtendedMetadataParser(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetExtendedMetadataParser(ctx, &pb.GetExtendedMetadataParserRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// GetAccountId calls the GetAccountId RPC.
+func (c *ProcessedDataClient) GetAccountId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAccountId(ctx, &pb.GetAccountIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *ProcessedDataClient) GetData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubscriptionId calls the GetSubscriptionId RPC.
+func (c *ProcessedDataClient) GetSubscriptionId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSubscriptionId(ctx, &pb.GetSubscriptionIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// EventClient wraps the gRPC EventService client.
+type EventClient struct {
+	svc pb.EventServiceClient
+}
+
+// NewEventClient creates a new Event client.
+func NewEventClient(cc grpc.ClientConnInterface) *EventClient {
+	return &EventClient{
+		svc: pb.NewEventServiceClient(cc),
+	}
+}
+
+// GetAttribute calls the GetAttribute RPC.
+func (c *EventClient) GetAttribute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAttribute(ctx, &pb.GetAttributeRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -433,25 +482,29 @@ func (c *UtilsClient) GetExtendedMetadataParser(ctx context.Context, handle int6
 	return resp.GetResult(), nil
 }
 
-// UtilsExtendedMetadataParserClient wraps the gRPC UtilsExtendedMetadataParserService client.
-type UtilsExtendedMetadataParserClient struct {
-	svc pb.UtilsExtendedMetadataParserServiceClient
-}
-
-// NewUtilsExtendedMetadataParserClient creates a new UtilsExtendedMetadataParser client.
-func NewUtilsExtendedMetadataParserClient(cc grpc.ClientConnInterface) *UtilsExtendedMetadataParserClient {
-	return &UtilsExtendedMetadataParserClient{
-		svc: pb.NewUtilsExtendedMetadataParserServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *UtilsExtendedMetadataParserClient) Get(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Arg0: arg0,
-	})
+// GetMessage calls the GetMessage RPC.
+func (c *EventClient) GetMessage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *EventClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUniqueId calls the GetUniqueId RPC.
+func (c *EventClient) GetUniqueId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUniqueId(ctx, &pb.GetUniqueIdRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -520,6 +573,28 @@ func (c *SupportInfoClient) GetDescription(ctx context.Context, handle int64) (s
 	return resp.GetResult(), nil
 }
 
+// GetFileSuffixIterator calls the GetFileSuffixIterator RPC.
+func (c *SupportInfoClient) GetFileSuffixIterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFileSuffixIterator(ctx, &pb.GetFileSuffixIteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeTypeIterator calls the GetMimeTypeIterator RPC.
+func (c *SupportInfoClient) GetMimeTypeIterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMimeTypeIterator(ctx, &pb.GetMimeTypeIteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HashCode calls the HashCode RPC.
 func (c *SupportInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
@@ -540,6 +615,216 @@ func (c *SupportInfoClient) SetDescription(ctx context.Context, handle int64, ar
 	return err
 }
 
+// RightsClient wraps the gRPC RightsService client.
+type RightsClient struct {
+	svc pb.RightsServiceClient
+}
+
+// NewRightsClient creates a new Rights client.
+func NewRightsClient(cc grpc.ClientConnInterface) *RightsClient {
+	return &RightsClient{
+		svc: pb.NewRightsServiceClient(cc),
+	}
+}
+
+// GetAccountId calls the GetAccountId RPC.
+func (c *RightsClient) GetAccountId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetAccountId(ctx, &pb.RightsGetAccountIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *RightsClient) GetData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.RightsGetDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeType calls the GetMimeType RPC.
+func (c *RightsClient) GetMimeType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubscriptionId calls the GetSubscriptionId RPC.
+func (c *RightsClient) GetSubscriptionId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSubscriptionId(ctx, &pb.RightsGetSubscriptionIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// InfoClient wraps the gRPC InfoService client.
+type InfoClient struct {
+	svc pb.InfoServiceClient
+}
+
+// NewInfoClient creates a new Info client.
+func NewInfoClient(cc grpc.ClientConnInterface) *InfoClient {
+	return &InfoClient{
+		svc: pb.NewInfoServiceClient(cc),
+	}
+}
+
+// Get calls the Get RPC.
+func (c *InfoClient) Get(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *InfoClient) GetData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.InfoGetDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInfoType calls the GetInfoType RPC.
+func (c *InfoClient) GetInfoType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInfoType(ctx, &pb.GetInfoTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeType calls the GetMimeType RPC.
+func (c *InfoClient) GetMimeType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *InfoClient) Iterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.IteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyIterator calls the KeyIterator RPC.
+func (c *InfoClient) KeyIterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.KeyIterator(ctx, &pb.KeyIteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Put calls the Put RPC.
+func (c *InfoClient) Put(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put(ctx, &pb.PutRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// UtilsClient wraps the gRPC UtilsService client.
+type UtilsClient struct {
+	svc pb.UtilsServiceClient
+}
+
+// NewUtilsClient creates a new Utils client.
+func NewUtilsClient(cc grpc.ClientConnInterface) *UtilsClient {
+	return &UtilsClient{
+		svc: pb.NewUtilsServiceClient(cc),
+	}
+}
+
+// GetExtendedMetadataParser calls the GetExtendedMetadataParser RPC.
+func (c *UtilsClient) GetExtendedMetadataParser(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetExtendedMetadataParser(ctx, &pb.GetExtendedMetadataParserRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UtilsExtendedMetadataParserClient wraps the gRPC UtilsExtendedMetadataParserService client.
+type UtilsExtendedMetadataParserClient struct {
+	svc pb.UtilsExtendedMetadataParserServiceClient
+}
+
+// NewUtilsExtendedMetadataParserClient creates a new UtilsExtendedMetadataParser client.
+func NewUtilsExtendedMetadataParserClient(cc grpc.ClientConnInterface) *UtilsExtendedMetadataParserClient {
+	return &UtilsExtendedMetadataParserClient{
+		svc: pb.NewUtilsExtendedMetadataParserServiceClient(cc),
+	}
+}
+
+// Get calls the Get RPC.
+func (c *UtilsExtendedMetadataParserClient) Get(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.Get(ctx, &pb.UtilsExtendedMetadataParserGetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *UtilsExtendedMetadataParserClient) Iterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.UtilsExtendedMetadataParserIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyIterator calls the KeyIterator RPC.
+func (c *UtilsExtendedMetadataParserClient) KeyIterator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.KeyIterator(ctx, &pb.UtilsExtendedMetadataParserKeyIteratorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // InfoRequestClient wraps the gRPC InfoRequestService client.
 type InfoRequestClient struct {
 	svc pb.InfoRequestServiceClient
@@ -554,7 +839,7 @@ func NewInfoRequestClient(cc grpc.ClientConnInterface) *InfoRequestClient {
 
 // Get calls the Get RPC.
 func (c *InfoRequestClient) Get(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.InfoRequestGetRequest{
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -586,6 +871,28 @@ func (c *InfoRequestClient) GetMimeType(ctx context.Context, handle int64) (stri
 	return resp.GetResult(), nil
 }
 
+// Iterator calls the Iterator RPC.
+func (c *InfoRequestClient) Iterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.IteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyIterator calls the KeyIterator RPC.
+func (c *InfoRequestClient) KeyIterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.KeyIterator(ctx, &pb.KeyIteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Put calls the Put RPC.
 func (c *InfoRequestClient) Put(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
 	_, err := c.svc.Put(ctx, &pb.PutRequest{
@@ -594,216 +901,4 @@ func (c *InfoRequestClient) Put(ctx context.Context, handle int64, arg0 string, 
 		Arg1:   arg1,
 	})
 	return err
-}
-
-// EventClient wraps the gRPC EventService client.
-type EventClient struct {
-	svc pb.EventServiceClient
-}
-
-// NewEventClient creates a new Event client.
-func NewEventClient(cc grpc.ClientConnInterface) *EventClient {
-	return &EventClient{
-		svc: pb.NewEventServiceClient(cc),
-	}
-}
-
-// GetAttribute calls the GetAttribute RPC.
-func (c *EventClient) GetAttribute(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetAttribute(ctx, &pb.GetAttributeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMessage calls the GetMessage RPC.
-func (c *EventClient) GetMessage(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *EventClient) GetType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUniqueId calls the GetUniqueId RPC.
-func (c *EventClient) GetUniqueId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUniqueId(ctx, &pb.GetUniqueIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RightsClient wraps the gRPC RightsService client.
-type RightsClient struct {
-	svc pb.RightsServiceClient
-}
-
-// NewRightsClient creates a new Rights client.
-func NewRightsClient(cc grpc.ClientConnInterface) *RightsClient {
-	return &RightsClient{
-		svc: pb.NewRightsServiceClient(cc),
-	}
-}
-
-// GetAccountId calls the GetAccountId RPC.
-func (c *RightsClient) GetAccountId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetAccountId(ctx, &pb.GetAccountIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetData calls the GetData RPC.
-func (c *RightsClient) GetData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMimeType calls the GetMimeType RPC.
-func (c *RightsClient) GetMimeType(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubscriptionId calls the GetSubscriptionId RPC.
-func (c *RightsClient) GetSubscriptionId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetSubscriptionId(ctx, &pb.GetSubscriptionIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// InfoClient wraps the gRPC InfoService client.
-type InfoClient struct {
-	svc pb.InfoServiceClient
-}
-
-// NewInfoClient creates a new Info client.
-func NewInfoClient(cc grpc.ClientConnInterface) *InfoClient {
-	return &InfoClient{
-		svc: pb.NewInfoServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *InfoClient) Get(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.InfoGetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetData calls the GetData RPC.
-func (c *InfoClient) GetData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInfoType calls the GetInfoType RPC.
-func (c *InfoClient) GetInfoType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetInfoType(ctx, &pb.GetInfoTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMimeType calls the GetMimeType RPC.
-func (c *InfoClient) GetMimeType(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Put calls the Put RPC.
-func (c *InfoClient) Put(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.Put(ctx, &pb.PutRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ProcessedDataClient wraps the gRPC ProcessedDataService client.
-type ProcessedDataClient struct {
-	svc pb.ProcessedDataServiceClient
-}
-
-// NewProcessedDataClient creates a new ProcessedData client.
-func NewProcessedDataClient(cc grpc.ClientConnInterface) *ProcessedDataClient {
-	return &ProcessedDataClient{
-		svc: pb.NewProcessedDataServiceClient(cc),
-	}
-}
-
-// GetAccountId calls the GetAccountId RPC.
-func (c *ProcessedDataClient) GetAccountId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetAccountId(ctx, &pb.ProcessedDataGetAccountIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetData calls the GetData RPC.
-func (c *ProcessedDataClient) GetData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.ProcessedDataGetDataRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubscriptionId calls the GetSubscriptionId RPC.
-func (c *ProcessedDataClient) GetSubscriptionId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSubscriptionId(ctx, &pb.ProcessedDataGetSubscriptionIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
 }

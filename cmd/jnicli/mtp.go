@@ -12,6 +12,145 @@ var mtpCmd = &cobra.Command{
 	Short: "mtp service operations",
 }
 
+var mtpDeviceInfoCmd = &cobra.Command{
+	Use:   "device-info",
+	Short: "DeviceInfoService operations",
+}
+
+var mtpDeviceInfoGetEventsSupportedCmd = &cobra.Command{
+	Use:   "get-events-supported",
+	Short: "GetEventsSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceInfoServiceClient(grpcConn)
+		req := &pb.GetEventsSupportedRequest{}
+		resp, err := client.GetEventsSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceInfoGetManufacturerCmd = &cobra.Command{
+	Use:   "get-manufacturer",
+	Short: "GetManufacturer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceInfoServiceClient(grpcConn)
+		req := &pb.GetManufacturerRequest{}
+		resp, err := client.GetManufacturer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceInfoGetModelCmd = &cobra.Command{
+	Use:   "get-model",
+	Short: "GetModel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceInfoServiceClient(grpcConn)
+		req := &pb.GetModelRequest{}
+		resp, err := client.GetModel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceInfoGetOperationsSupportedCmd = &cobra.Command{
+	Use:   "get-operations-supported",
+	Short: "GetOperationsSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceInfoServiceClient(grpcConn)
+		req := &pb.GetOperationsSupportedRequest{}
+		resp, err := client.GetOperationsSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceInfoGetSerialNumberCmd = &cobra.Command{
+	Use:   "get-serial-number",
+	Short: "GetSerialNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceInfoServiceClient(grpcConn)
+		req := &pb.GetSerialNumberRequest{}
+		resp, err := client.GetSerialNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceInfoGetVersionCmd = &cobra.Command{
+	Use:   "get-version",
+	Short: "GetVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceInfoServiceClient(grpcConn)
+		req := &pb.GetVersionRequest{}
+		resp, err := client.GetVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceInfoIsEventSupportedCmd = &cobra.Command{
+	Use:   "is-event-supported",
+	Short: "IsEventSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceInfoServiceClient(grpcConn)
+		req := &pb.IsEventSupportedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsEventSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceInfoIsOperationSupportedCmd = &cobra.Command{
+	Use:   "is-operation-supported",
+	Short: "IsOperationSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceInfoServiceClient(grpcConn)
+		req := &pb.IsOperationSupportedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsOperationSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var mtpEventCmd = &cobra.Command{
 	Use:   "event",
 	Short: "EventService operations",
@@ -170,535 +309,6 @@ var mtpEventGetTransactionIdCmd = &cobra.Command{
 		client := pb.NewEventServiceClient(grpcConn)
 		req := &pb.GetTransactionIdRequest{}
 		resp, err := client.GetTransactionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceCmd = &cobra.Command{
-	Use:   "device",
-	Short: "DeviceService operations",
-}
-
-var mtpDeviceNewDeviceCmd = &cobra.Command{
-	Use:   "new-device",
-	Short: "NewDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.NewDeviceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceDeleteObjectCmd = &cobra.Command{
-	Use:   "delete-object",
-	Short: "DeleteObject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.DeleteObjectRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.DeleteObject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetDeviceIdCmd = &cobra.Command{
-	Use:   "get-device-id",
-	Short: "GetDeviceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetDeviceIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDeviceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetDeviceInfoCmd = &cobra.Command{
-	Use:   "get-device-info",
-	Short: "GetDeviceInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetDeviceInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDeviceInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetDeviceNameCmd = &cobra.Command{
-	Use:   "get-device-name",
-	Short: "GetDeviceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetDeviceNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDeviceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetObjectCmd = &cobra.Command{
-	Use:   "get-object",
-	Short: "GetObject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetObjectRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetObject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetObjectHandlesCmd = &cobra.Command{
-	Use:   "get-object-handles",
-	Short: "GetObjectHandles RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetObjectHandlesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetObjectHandles(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetObjectInfoCmd = &cobra.Command{
-	Use:   "get-object-info",
-	Short: "GetObjectInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetObjectInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetObjectInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetParentCmd = &cobra.Command{
-	Use:   "get-parent",
-	Short: "GetParent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetParentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetParent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetPartialObjectCmd = &cobra.Command{
-	Use:   "get-partial-object",
-	Short: "GetPartialObject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetPartialObjectRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.GetPartialObject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetPartialObject64Cmd = &cobra.Command{
-	Use:   "get-partial-object64",
-	Short: "GetPartialObject64 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetPartialObject64Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.GetPartialObject64(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetStorageIdCmd = &cobra.Command{
-	Use:   "get-storage-id",
-	Short: "GetStorageId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.DeviceGetStorageIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetStorageId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetStorageIdsCmd = &cobra.Command{
-	Use:   "get-storage-ids",
-	Short: "GetStorageIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetStorageIdsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStorageIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetStorageInfoCmd = &cobra.Command{
-	Use:   "get-storage-info",
-	Short: "GetStorageInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetStorageInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetStorageInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceGetThumbnailCmd = &cobra.Command{
-	Use:   "get-thumbnail",
-	Short: "GetThumbnail RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetThumbnailRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetThumbnail(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceImportFile2Cmd = &cobra.Command{
-	Use:   "import-file2",
-	Short: "ImportFile2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.ImportFile2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ImportFile2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceImportFile2_1Cmd = &cobra.Command{
-	Use:   "import-file2_1",
-	Short: "ImportFile2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.ImportFile2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ImportFile2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceOpenCmd = &cobra.Command{
-	Use:   "open",
-	Short: "Open RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.OpenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Open(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceReadEventCmd = &cobra.Command{
-	Use:   "read-event",
-	Short: "ReadEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.ReadEventRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReadEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceSendObjectCmd = &cobra.Command{
-	Use:   "send-object",
-	Short: "SendObject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.SendObjectRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SendObject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceSendObjectInfoCmd = &cobra.Command{
-	Use:   "send-object-info",
-	Short: "SendObjectInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.SendObjectInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SendObjectInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -974,7 +584,7 @@ var mtpObjectInfoGetParentCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectInfoServiceClient(grpcConn)
-		req := &pb.ObjectInfoGetParentRequest{}
+		req := &pb.GetParentRequest{}
 		resp, err := client.GetParent(ctx, req)
 		if err != nil {
 			return err
@@ -1645,20 +1255,23 @@ var mtpStorageInfoGetVolumeIdentifierCmd = &cobra.Command{
 	},
 }
 
-var mtpDeviceInfoCmd = &cobra.Command{
-	Use:   "device-info",
-	Short: "DeviceInfoService operations",
+var mtpDeviceCmd = &cobra.Command{
+	Use:   "device",
+	Short: "DeviceService operations",
 }
 
-var mtpDeviceInfoGetEventsSupportedCmd = &cobra.Command{
-	Use:   "get-events-supported",
-	Short: "GetEventsSupported RPC",
+var mtpDeviceNewDeviceCmd = &cobra.Command{
+	Use:   "new-device",
+	Short: "NewDevice RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceInfoServiceClient(grpcConn)
-		req := &pb.GetEventsSupportedRequest{}
-		resp, err := client.GetEventsSupported(ctx, req)
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.NewDeviceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDevice(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1666,15 +1279,18 @@ var mtpDeviceInfoGetEventsSupportedCmd = &cobra.Command{
 	},
 }
 
-var mtpDeviceInfoGetManufacturerCmd = &cobra.Command{
-	Use:   "get-manufacturer",
-	Short: "GetManufacturer RPC",
+var mtpDeviceCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceInfoServiceClient(grpcConn)
-		req := &pb.GetManufacturerRequest{}
-		resp, err := client.GetManufacturer(ctx, req)
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1682,82 +1298,21 @@ var mtpDeviceInfoGetManufacturerCmd = &cobra.Command{
 	},
 }
 
-var mtpDeviceInfoGetModelCmd = &cobra.Command{
-	Use:   "get-model",
-	Short: "GetModel RPC",
+var mtpDeviceDeleteObjectCmd = &cobra.Command{
+	Use:   "delete-object",
+	Short: "DeleteObject RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceInfoServiceClient(grpcConn)
-		req := &pb.GetModelRequest{}
-		resp, err := client.GetModel(ctx, req)
-		if err != nil {
-			return err
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.DeleteObjectRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceInfoGetOperationsSupportedCmd = &cobra.Command{
-	Use:   "get-operations-supported",
-	Short: "GetOperationsSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceInfoServiceClient(grpcConn)
-		req := &pb.GetOperationsSupportedRequest{}
-		resp, err := client.GetOperationsSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceInfoGetSerialNumberCmd = &cobra.Command{
-	Use:   "get-serial-number",
-	Short: "GetSerialNumber RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceInfoServiceClient(grpcConn)
-		req := &pb.GetSerialNumberRequest{}
-		resp, err := client.GetSerialNumber(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceInfoGetVersionCmd = &cobra.Command{
-	Use:   "get-version",
-	Short: "GetVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceInfoServiceClient(grpcConn)
-		req := &pb.GetVersionRequest{}
-		resp, err := client.GetVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var mtpDeviceInfoIsEventSupportedCmd = &cobra.Command{
-	Use:   "is-event-supported",
-	Short: "IsEventSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceInfoServiceClient(grpcConn)
-		req := &pb.IsEventSupportedRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.IsEventSupported(ctx, req)
+		resp, err := client.DeleteObject(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1765,18 +1320,463 @@ var mtpDeviceInfoIsEventSupportedCmd = &cobra.Command{
 	},
 }
 
-var mtpDeviceInfoIsOperationSupportedCmd = &cobra.Command{
-	Use:   "is-operation-supported",
-	Short: "IsOperationSupported RPC",
+var mtpDeviceGetDeviceIdCmd = &cobra.Command{
+	Use:   "get-device-id",
+	Short: "GetDeviceId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDeviceInfoServiceClient(grpcConn)
-		req := &pb.IsOperationSupportedRequest{}
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetDeviceIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDeviceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetDeviceInfoCmd = &cobra.Command{
+	Use:   "get-device-info",
+	Short: "GetDeviceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetDeviceInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDeviceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetDeviceNameCmd = &cobra.Command{
+	Use:   "get-device-name",
+	Short: "GetDeviceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetDeviceNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDeviceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetObjectCmd = &cobra.Command{
+	Use:   "get-object",
+	Short: "GetObject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetObjectRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.IsOperationSupported(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetObject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetObjectHandlesCmd = &cobra.Command{
+	Use:   "get-object-handles",
+	Short: "GetObjectHandles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetObjectHandlesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetObjectHandles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetObjectInfoCmd = &cobra.Command{
+	Use:   "get-object-info",
+	Short: "GetObjectInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetObjectInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetObjectInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetParentCmd = &cobra.Command{
+	Use:   "get-parent",
+	Short: "GetParent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.DeviceGetParentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetParent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetPartialObjectCmd = &cobra.Command{
+	Use:   "get-partial-object",
+	Short: "GetPartialObject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetPartialObjectRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetPartialObject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetPartialObject64Cmd = &cobra.Command{
+	Use:   "get-partial-object64",
+	Short: "GetPartialObject64 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetPartialObject64Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetPartialObject64(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetStorageIdCmd = &cobra.Command{
+	Use:   "get-storage-id",
+	Short: "GetStorageId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.DeviceGetStorageIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStorageId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetStorageIdsCmd = &cobra.Command{
+	Use:   "get-storage-ids",
+	Short: "GetStorageIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetStorageIdsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStorageIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetStorageInfoCmd = &cobra.Command{
+	Use:   "get-storage-info",
+	Short: "GetStorageInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetStorageInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStorageInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceGetThumbnailCmd = &cobra.Command{
+	Use:   "get-thumbnail",
+	Short: "GetThumbnail RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetThumbnailRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetThumbnail(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceImportFile2Cmd = &cobra.Command{
+	Use:   "import-file2",
+	Short: "ImportFile2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.ImportFile2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ImportFile2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceImportFile2_1Cmd = &cobra.Command{
+	Use:   "import-file2_1",
+	Short: "ImportFile2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.ImportFile2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ImportFile2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceOpenCmd = &cobra.Command{
+	Use:   "open",
+	Short: "Open RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.OpenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Open(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceReadEventCmd = &cobra.Command{
+	Use:   "read-event",
+	Short: "ReadEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.ReadEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReadEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceSendObjectCmd = &cobra.Command{
+	Use:   "send-object",
+	Short: "SendObject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.SendObjectRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SendObject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceSendObjectInfoCmd = &cobra.Command{
+	Use:   "send-object-info",
+	Short: "SendObjectInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.SendObjectInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendObjectInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mtpDeviceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1828,6 +1828,17 @@ var mtpConstantsIsAbstractObjectCmd = &cobra.Command{
 }
 
 func init() {
+	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetEventsSupportedCmd)
+	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetManufacturerCmd)
+	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetModelCmd)
+	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetOperationsSupportedCmd)
+	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetSerialNumberCmd)
+	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetVersionCmd)
+	mtpDeviceInfoIsEventSupportedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoIsEventSupportedCmd)
+	mtpDeviceInfoIsOperationSupportedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoIsOperationSupportedCmd)
+	mtpCmd.AddCommand(mtpDeviceInfoCmd)
 	mtpEventCmd.AddCommand(mtpEventGetDevicePropCodeCmd)
 	mtpEventCmd.AddCommand(mtpEventGetEventCodeCmd)
 	mtpEventCmd.AddCommand(mtpEventGetObjectFormatCodeCmd)
@@ -1839,82 +1850,6 @@ func init() {
 	mtpEventCmd.AddCommand(mtpEventGetStorageIdCmd)
 	mtpEventCmd.AddCommand(mtpEventGetTransactionIdCmd)
 	mtpCmd.AddCommand(mtpEventCmd)
-	mtpDeviceNewDeviceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceNewDeviceCmd)
-	mtpDeviceCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceCloseCmd)
-	mtpDeviceDeleteObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceDeleteObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceCmd.AddCommand(mtpDeviceDeleteObjectCmd)
-	mtpDeviceGetDeviceIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetDeviceIdCmd)
-	mtpDeviceGetDeviceInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetDeviceInfoCmd)
-	mtpDeviceGetDeviceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetDeviceNameCmd)
-	mtpDeviceGetObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceGetObjectCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetObjectCmd)
-	mtpDeviceGetObjectHandlesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetObjectHandlesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceGetObjectHandlesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	mtpDeviceGetObjectHandlesCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetObjectHandlesCmd)
-	mtpDeviceGetObjectInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetObjectInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetObjectInfoCmd)
-	mtpDeviceGetParentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetParentCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetParentCmd)
-	mtpDeviceGetPartialObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetPartialObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceGetPartialObjectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	mtpDeviceGetPartialObjectCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	mtpDeviceGetPartialObjectCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetPartialObjectCmd)
-	mtpDeviceGetPartialObject64Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetPartialObject64Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceGetPartialObject64Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	mtpDeviceGetPartialObject64Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	mtpDeviceGetPartialObject64Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetPartialObject64Cmd)
-	mtpDeviceGetStorageIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetStorageIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetStorageIdCmd)
-	mtpDeviceGetStorageIdsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetStorageIdsCmd)
-	mtpDeviceGetStorageInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetStorageInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetStorageInfoCmd)
-	mtpDeviceGetThumbnailCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceGetThumbnailCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceCmd.AddCommand(mtpDeviceGetThumbnailCmd)
-	mtpDeviceImportFile2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceImportFile2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceImportFile2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceImportFile2Cmd)
-	mtpDeviceImportFile2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceImportFile2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceImportFile2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	mtpDeviceCmd.AddCommand(mtpDeviceImportFile2_1Cmd)
-	mtpDeviceOpenCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceOpenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceOpenCmd)
-	mtpDeviceReadEventCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceReadEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceReadEventCmd)
-	mtpDeviceSendObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceSendObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceSendObjectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	mtpDeviceSendObjectCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceSendObjectCmd)
-	mtpDeviceSendObjectInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceSendObjectInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceSendObjectInfoCmd)
-	mtpDeviceToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	mtpDeviceCmd.AddCommand(mtpDeviceToStringCmd)
-	mtpCmd.AddCommand(mtpDeviceCmd)
 	mtpObjectInfoCmd.AddCommand(mtpObjectInfoGetAssociationDescCmd)
 	mtpObjectInfoCmd.AddCommand(mtpObjectInfoGetAssociationTypeCmd)
 	mtpObjectInfoCmd.AddCommand(mtpObjectInfoGetCompressedSizeCmd)
@@ -1992,17 +1927,82 @@ func init() {
 	mtpStorageInfoCmd.AddCommand(mtpStorageInfoGetStorageIdCmd)
 	mtpStorageInfoCmd.AddCommand(mtpStorageInfoGetVolumeIdentifierCmd)
 	mtpCmd.AddCommand(mtpStorageInfoCmd)
-	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetEventsSupportedCmd)
-	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetManufacturerCmd)
-	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetModelCmd)
-	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetOperationsSupportedCmd)
-	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetSerialNumberCmd)
-	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoGetVersionCmd)
-	mtpDeviceInfoIsEventSupportedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoIsEventSupportedCmd)
-	mtpDeviceInfoIsOperationSupportedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	mtpDeviceInfoCmd.AddCommand(mtpDeviceInfoIsOperationSupportedCmd)
-	mtpCmd.AddCommand(mtpDeviceInfoCmd)
+	mtpDeviceNewDeviceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceNewDeviceCmd)
+	mtpDeviceCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceCloseCmd)
+	mtpDeviceDeleteObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceDeleteObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceCmd.AddCommand(mtpDeviceDeleteObjectCmd)
+	mtpDeviceGetDeviceIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetDeviceIdCmd)
+	mtpDeviceGetDeviceInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetDeviceInfoCmd)
+	mtpDeviceGetDeviceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetDeviceNameCmd)
+	mtpDeviceGetObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceGetObjectCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetObjectCmd)
+	mtpDeviceGetObjectHandlesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetObjectHandlesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceGetObjectHandlesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	mtpDeviceGetObjectHandlesCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetObjectHandlesCmd)
+	mtpDeviceGetObjectInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetObjectInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetObjectInfoCmd)
+	mtpDeviceGetParentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetParentCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetParentCmd)
+	mtpDeviceGetPartialObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetPartialObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceGetPartialObjectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	mtpDeviceGetPartialObjectCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	mtpDeviceGetPartialObjectCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetPartialObjectCmd)
+	mtpDeviceGetPartialObject64Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetPartialObject64Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceGetPartialObject64Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	mtpDeviceGetPartialObject64Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	mtpDeviceGetPartialObject64Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetPartialObject64Cmd)
+	mtpDeviceGetStorageIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetStorageIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetStorageIdCmd)
+	mtpDeviceGetStorageIdsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetStorageIdsCmd)
+	mtpDeviceGetStorageInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetStorageInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetStorageInfoCmd)
+	mtpDeviceGetThumbnailCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceGetThumbnailCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceCmd.AddCommand(mtpDeviceGetThumbnailCmd)
+	mtpDeviceImportFile2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceImportFile2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceImportFile2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceImportFile2Cmd)
+	mtpDeviceImportFile2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceImportFile2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceImportFile2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	mtpDeviceCmd.AddCommand(mtpDeviceImportFile2_1Cmd)
+	mtpDeviceOpenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceOpenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceOpenCmd)
+	mtpDeviceReadEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceReadEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceReadEventCmd)
+	mtpDeviceSendObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceSendObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	mtpDeviceSendObjectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	mtpDeviceSendObjectCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceSendObjectCmd)
+	mtpDeviceSendObjectInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceSendObjectInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceSendObjectInfoCmd)
+	mtpDeviceToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mtpDeviceCmd.AddCommand(mtpDeviceToStringCmd)
+	mtpCmd.AddCommand(mtpDeviceCmd)
 	mtpConstantsCmd.AddCommand(mtpConstantsNewConstantsCmd)
 	mtpConstantsIsAbstractObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
 	mtpConstantsIsAbstractObjectCmd.Flags().Int32("arg0", 0, "arg0 (int32)")

@@ -16,15 +16,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// TimeAnimatorServer implements pb.TimeAnimatorServiceServer.
-type TimeAnimatorServer struct {
-	pb.UnimplementedTimeAnimatorServiceServer
+// ArgbEvaluatorServer implements pb.ArgbEvaluatorServiceServer.
+type ArgbEvaluatorServer struct {
+	pb.UnimplementedArgbEvaluatorServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TimeAnimatorServer) NewTimeAnimator(_ context.Context, req *pb.NewTimeAnimatorRequest) (*pb.NewTimeAnimatorResponse, error) {
-	obj, err := jnipkg.NewTimeAnimator(s.Ctx.VM)
+func (s *ArgbEvaluatorServer) NewArgbEvaluator(_ context.Context, req *pb.NewArgbEvaluatorRequest) (*pb.NewArgbEvaluatorResponse, error) {
+	obj, err := jnipkg.NewArgbEvaluator(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -35,78 +35,17 @@ func (s *TimeAnimatorServer) NewTimeAnimator(_ context.Context, req *pb.NewTimeA
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewTimeAnimatorResponse{Result: handle}, nil
+	return &pb.NewArgbEvaluatorResponse{Result: handle}, nil
 }
 
-func (s *TimeAnimatorServer) SetCurrentPlayTime(_ context.Context, req *pb.SetCurrentPlayTimeRequest) (*pb.SetCurrentPlayTimeResponse, error) {
+func (s *ArgbEvaluatorServer) Evaluate(_ context.Context, req *pb.EvaluateRequest) (*pb.EvaluateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TimeAnimator{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ArgbEvaluator{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.SetCurrentPlayTime(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetCurrentPlayTimeResponse{}, nil
-}
-
-func (s *TimeAnimatorServer) SetTimeListener(_ context.Context, req *pb.SetTimeListenerRequest) (*pb.SetTimeListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TimeAnimator{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetTimeListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTimeListenerResponse{}, nil
-}
-
-func (s *TimeAnimatorServer) Start(_ context.Context, req *pb.StartRequest) (*pb.StartResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TimeAnimator{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Start(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartResponse{}, nil
-}
-
-// RectEvaluatorServer implements pb.RectEvaluatorServiceServer.
-type RectEvaluatorServer struct {
-	pb.UnimplementedRectEvaluatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RectEvaluatorServer) NewRectEvaluator(_ context.Context, req *pb.NewRectEvaluatorRequest) (*pb.NewRectEvaluatorResponse, error) {
-	obj, err := jnipkg.NewRectEvaluator(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRectEvaluatorResponse{Result: handle}, nil
-}
-
-func (s *RectEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RectEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	result, err := mgr.Evaluate(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -119,464 +58,7 @@ func (s *RectEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Requ
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.Evaluate3Response{Result: handle}, nil
-}
-
-func (s *RectEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RectEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3_1Response{Result: handle}, nil
-}
-
-// FloatArrayEvaluatorServer implements pb.FloatArrayEvaluatorServiceServer.
-type FloatArrayEvaluatorServer struct {
-	pb.UnimplementedFloatArrayEvaluatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *FloatArrayEvaluatorServer) NewFloatArrayEvaluator(_ context.Context, req *pb.NewFloatArrayEvaluatorRequest) (*pb.NewFloatArrayEvaluatorResponse, error) {
-	obj, err := jnipkg.NewFloatArrayEvaluator(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewFloatArrayEvaluatorResponse{Result: handle}, nil
-}
-
-func (s *FloatArrayEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FloatArrayEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3Response{Result: handle}, nil
-}
-
-func (s *FloatArrayEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FloatArrayEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3_1Response{Result: handle}, nil
-}
-
-// StateListAnimatorServer implements pb.StateListAnimatorServiceServer.
-type StateListAnimatorServer struct {
-	pb.UnimplementedStateListAnimatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *StateListAnimatorServer) NewStateListAnimator(_ context.Context, req *pb.NewStateListAnimatorRequest) (*pb.NewStateListAnimatorResponse, error) {
-	obj, err := jnipkg.NewStateListAnimator(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewStateListAnimatorResponse{Result: handle}, nil
-}
-
-func (s *StateListAnimatorServer) AddState(_ context.Context, req *pb.AddStateRequest) (*pb.AddStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StateListAnimator{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.AddState(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddStateResponse{}, nil
-}
-
-func (s *StateListAnimatorServer) Clone0(_ context.Context, req *pb.StateListAnimatorClone0Request) (*pb.Clone0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StateListAnimator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0Response{Result: handle}, nil
-}
-
-func (s *StateListAnimatorServer) JumpToCurrentState(_ context.Context, req *pb.JumpToCurrentStateRequest) (*pb.JumpToCurrentStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StateListAnimator{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.JumpToCurrentState(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.JumpToCurrentStateResponse{}, nil
-}
-
-func (s *StateListAnimatorServer) Clone0_1(_ context.Context, req *pb.StateListAnimatorClone0_1Request) (*pb.Clone0_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.StateListAnimator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0_1()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0_1Response{Result: handle}, nil
-}
-
-// IntEvaluatorServer implements pb.IntEvaluatorServiceServer.
-type IntEvaluatorServer struct {
-	pb.UnimplementedIntEvaluatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *IntEvaluatorServer) NewIntEvaluator(_ context.Context, req *pb.NewIntEvaluatorRequest) (*pb.NewIntEvaluatorResponse, error) {
-	obj, err := jnipkg.NewIntEvaluator(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewIntEvaluatorResponse{Result: handle}, nil
-}
-
-func (s *IntEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IntEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3Response{Result: handle}, nil
-}
-
-func (s *IntEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IntEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3_1Response{Result: handle}, nil
-}
-
-// AnimatorInflaterServer implements pb.AnimatorInflaterServiceServer.
-type AnimatorInflaterServer struct {
-	pb.UnimplementedAnimatorInflaterServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AnimatorInflaterServer) NewAnimatorInflater(_ context.Context, req *pb.NewAnimatorInflaterRequest) (*pb.NewAnimatorInflaterResponse, error) {
-	obj, err := jnipkg.NewAnimatorInflater(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAnimatorInflaterResponse{Result: handle}, nil
-}
-
-func (s *AnimatorInflaterServer) LoadAnimator(_ context.Context, req *pb.LoadAnimatorRequest) (*pb.LoadAnimatorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AnimatorInflater{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.LoadAnimator(s.Ctx.Obj, req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.LoadAnimatorResponse{Result: handle}, nil
-}
-
-func (s *AnimatorInflaterServer) LoadStateListAnimator(_ context.Context, req *pb.LoadStateListAnimatorRequest) (*pb.LoadStateListAnimatorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AnimatorInflater{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.LoadStateListAnimator(s.Ctx.Obj, req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.LoadStateListAnimatorResponse{Result: handle}, nil
-}
-
-// PointFEvaluatorServer implements pb.PointFEvaluatorServiceServer.
-type PointFEvaluatorServer struct {
-	pb.UnimplementedPointFEvaluatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PointFEvaluatorServer) NewPointFEvaluator(_ context.Context, req *pb.NewPointFEvaluatorRequest) (*pb.NewPointFEvaluatorResponse, error) {
-	obj, err := jnipkg.NewPointFEvaluator(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPointFEvaluatorResponse{Result: handle}, nil
-}
-
-func (s *PointFEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PointFEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3Response{Result: handle}, nil
-}
-
-func (s *PointFEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PointFEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3_1Response{Result: handle}, nil
-}
-
-// FloatEvaluatorServer implements pb.FloatEvaluatorServiceServer.
-type FloatEvaluatorServer struct {
-	pb.UnimplementedFloatEvaluatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *FloatEvaluatorServer) NewFloatEvaluator(_ context.Context, req *pb.NewFloatEvaluatorRequest) (*pb.NewFloatEvaluatorResponse, error) {
-	obj, err := jnipkg.NewFloatEvaluator(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewFloatEvaluatorResponse{Result: handle}, nil
-}
-
-func (s *FloatEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FloatEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3Response{Result: handle}, nil
-}
-
-func (s *FloatEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FloatEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3_1Response{Result: handle}, nil
+	return &pb.EvaluateResponse{Result: handle}, nil
 }
 
 // ValueAnimatorServer implements pb.ValueAnimatorServiceServer.
@@ -614,7 +96,7 @@ func (s *ValueAnimatorServer) AddUpdateListener(_ context.Context, req *pb.AddUp
 	return &pb.AddUpdateListenerResponse{}, nil
 }
 
-func (s *ValueAnimatorServer) Cancel(_ context.Context, req *pb.ValueAnimatorCancelRequest) (*pb.CancelResponse, error) {
+func (s *ValueAnimatorServer) Cancel(_ context.Context, req *pb.CancelRequest) (*pb.CancelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -627,7 +109,7 @@ func (s *ValueAnimatorServer) Cancel(_ context.Context, req *pb.ValueAnimatorCan
 	return &pb.CancelResponse{}, nil
 }
 
-func (s *ValueAnimatorServer) Clone0(_ context.Context, req *pb.ValueAnimatorClone0Request) (*pb.Clone0Response, error) {
+func (s *ValueAnimatorServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -650,7 +132,7 @@ func (s *ValueAnimatorServer) Clone0(_ context.Context, req *pb.ValueAnimatorClo
 	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *ValueAnimatorServer) End(_ context.Context, req *pb.ValueAnimatorEndRequest) (*pb.EndResponse, error) {
+func (s *ValueAnimatorServer) End(_ context.Context, req *pb.EndRequest) (*pb.EndResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -737,7 +219,7 @@ func (s *ValueAnimatorServer) GetCurrentPlayTime(_ context.Context, req *pb.GetC
 	return &pb.GetCurrentPlayTimeResponse{Result: result}, nil
 }
 
-func (s *ValueAnimatorServer) GetDuration(_ context.Context, req *pb.ValueAnimatorGetDurationRequest) (*pb.GetDurationResponse, error) {
+func (s *ValueAnimatorServer) GetDuration(_ context.Context, req *pb.GetDurationRequest) (*pb.GetDurationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -751,7 +233,7 @@ func (s *ValueAnimatorServer) GetDuration(_ context.Context, req *pb.ValueAnimat
 	return &pb.GetDurationResponse{Result: result}, nil
 }
 
-func (s *ValueAnimatorServer) GetInterpolator(_ context.Context, req *pb.ValueAnimatorGetInterpolatorRequest) (*pb.GetInterpolatorResponse, error) {
+func (s *ValueAnimatorServer) GetInterpolator(_ context.Context, req *pb.GetInterpolatorRequest) (*pb.GetInterpolatorResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -802,7 +284,7 @@ func (s *ValueAnimatorServer) GetRepeatMode(_ context.Context, req *pb.GetRepeat
 	return &pb.GetRepeatModeResponse{Result: result}, nil
 }
 
-func (s *ValueAnimatorServer) GetStartDelay(_ context.Context, req *pb.ValueAnimatorGetStartDelayRequest) (*pb.GetStartDelayResponse, error) {
+func (s *ValueAnimatorServer) GetStartDelay(_ context.Context, req *pb.GetStartDelayRequest) (*pb.GetStartDelayResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -816,7 +298,7 @@ func (s *ValueAnimatorServer) GetStartDelay(_ context.Context, req *pb.ValueAnim
 	return &pb.GetStartDelayResponse{Result: result}, nil
 }
 
-func (s *ValueAnimatorServer) GetTotalDuration(_ context.Context, req *pb.ValueAnimatorGetTotalDurationRequest) (*pb.GetTotalDurationResponse, error) {
+func (s *ValueAnimatorServer) GetTotalDuration(_ context.Context, req *pb.GetTotalDurationRequest) (*pb.GetTotalDurationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -853,7 +335,7 @@ func (s *ValueAnimatorServer) GetValues(_ context.Context, req *pb.GetValuesRequ
 	return &pb.GetValuesResponse{Result: handle}, nil
 }
 
-func (s *ValueAnimatorServer) IsRunning(_ context.Context, req *pb.ValueAnimatorIsRunningRequest) (*pb.IsRunningResponse, error) {
+func (s *ValueAnimatorServer) IsRunning(_ context.Context, req *pb.IsRunningRequest) (*pb.IsRunningResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -867,7 +349,7 @@ func (s *ValueAnimatorServer) IsRunning(_ context.Context, req *pb.ValueAnimator
 	return &pb.IsRunningResponse{Result: result}, nil
 }
 
-func (s *ValueAnimatorServer) IsStarted(_ context.Context, req *pb.ValueAnimatorIsStartedRequest) (*pb.IsStartedResponse, error) {
+func (s *ValueAnimatorServer) IsStarted(_ context.Context, req *pb.IsStartedRequest) (*pb.IsStartedResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -881,7 +363,7 @@ func (s *ValueAnimatorServer) IsStarted(_ context.Context, req *pb.ValueAnimator
 	return &pb.IsStartedResponse{Result: result}, nil
 }
 
-func (s *ValueAnimatorServer) Pause(_ context.Context, req *pb.ValueAnimatorPauseRequest) (*pb.PauseResponse, error) {
+func (s *ValueAnimatorServer) Pause(_ context.Context, req *pb.PauseRequest) (*pb.PauseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -920,7 +402,7 @@ func (s *ValueAnimatorServer) RemoveUpdateListener(_ context.Context, req *pb.Re
 	return &pb.RemoveUpdateListenerResponse{}, nil
 }
 
-func (s *ValueAnimatorServer) Resume(_ context.Context, req *pb.ValueAnimatorResumeRequest) (*pb.ResumeResponse, error) {
+func (s *ValueAnimatorServer) Resume(_ context.Context, req *pb.ResumeRequest) (*pb.ResumeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1034,7 +516,7 @@ func (s *ValueAnimatorServer) SetIntValues(_ context.Context, req *pb.SetIntValu
 	return &pb.SetIntValuesResponse{}, nil
 }
 
-func (s *ValueAnimatorServer) SetInterpolator(_ context.Context, req *pb.ValueAnimatorSetInterpolatorRequest) (*pb.SetInterpolatorResponse, error) {
+func (s *ValueAnimatorServer) SetInterpolator(_ context.Context, req *pb.SetInterpolatorRequest) (*pb.SetInterpolatorResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1086,7 +568,7 @@ func (s *ValueAnimatorServer) SetRepeatMode(_ context.Context, req *pb.SetRepeat
 	return &pb.SetRepeatModeResponse{}, nil
 }
 
-func (s *ValueAnimatorServer) SetStartDelay(_ context.Context, req *pb.ValueAnimatorSetStartDelayRequest) (*pb.SetStartDelayResponse, error) {
+func (s *ValueAnimatorServer) SetStartDelay(_ context.Context, req *pb.SetStartDelayRequest) (*pb.SetStartDelayResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1162,7 +644,7 @@ func (s *ValueAnimatorServer) SetDuration1_1(_ context.Context, req *pb.SetDurat
 	return &pb.SetDuration1_1Response{Result: handle}, nil
 }
 
-func (s *ValueAnimatorServer) Clone0_1(_ context.Context, req *pb.ValueAnimatorClone0_1Request) (*pb.Clone0_1Response, error) {
+func (s *ValueAnimatorServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1406,492 +888,6 @@ func (s *ValueAnimatorServer) UnregisterDurationScaleChangeListener(_ context.Co
 	return &pb.UnregisterDurationScaleChangeListenerResponse{Result: result}, nil
 }
 
-// IntArrayEvaluatorServer implements pb.IntArrayEvaluatorServiceServer.
-type IntArrayEvaluatorServer struct {
-	pb.UnimplementedIntArrayEvaluatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *IntArrayEvaluatorServer) NewIntArrayEvaluator(_ context.Context, req *pb.NewIntArrayEvaluatorRequest) (*pb.NewIntArrayEvaluatorResponse, error) {
-	obj, err := jnipkg.NewIntArrayEvaluator(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewIntArrayEvaluatorResponse{Result: handle}, nil
-}
-
-func (s *IntArrayEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IntArrayEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3Response{Result: handle}, nil
-}
-
-func (s *IntArrayEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.IntArrayEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Evaluate3_1Response{Result: handle}, nil
-}
-
-// ArgbEvaluatorServer implements pb.ArgbEvaluatorServiceServer.
-type ArgbEvaluatorServer struct {
-	pb.UnimplementedArgbEvaluatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ArgbEvaluatorServer) NewArgbEvaluator(_ context.Context, req *pb.NewArgbEvaluatorRequest) (*pb.NewArgbEvaluatorResponse, error) {
-	obj, err := jnipkg.NewArgbEvaluator(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewArgbEvaluatorResponse{Result: handle}, nil
-}
-
-func (s *ArgbEvaluatorServer) Evaluate(_ context.Context, req *pb.EvaluateRequest) (*pb.EvaluateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ArgbEvaluator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Evaluate(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EvaluateResponse{Result: handle}, nil
-}
-
-// LayoutTransitionServer implements pb.LayoutTransitionServiceServer.
-type LayoutTransitionServer struct {
-	pb.UnimplementedLayoutTransitionServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *LayoutTransitionServer) NewLayoutTransition(_ context.Context, req *pb.NewLayoutTransitionRequest) (*pb.NewLayoutTransitionResponse, error) {
-	obj, err := jnipkg.NewLayoutTransition(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewLayoutTransitionResponse{Result: handle}, nil
-}
-
-func (s *LayoutTransitionServer) AddChild(_ context.Context, req *pb.AddChildRequest) (*pb.AddChildResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.AddChild(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddChildResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) AddTransitionListener(_ context.Context, req *pb.AddTransitionListenerRequest) (*pb.AddTransitionListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.AddTransitionListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddTransitionListenerResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) DisableTransitionType(_ context.Context, req *pb.DisableTransitionTypeRequest) (*pb.DisableTransitionTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DisableTransitionType(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DisableTransitionTypeResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) EnableTransitionType(_ context.Context, req *pb.EnableTransitionTypeRequest) (*pb.EnableTransitionTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.EnableTransitionType(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EnableTransitionTypeResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) GetAnimator(_ context.Context, req *pb.GetAnimatorRequest) (*pb.GetAnimatorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAnimator(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAnimatorResponse{Result: handle}, nil
-}
-
-func (s *LayoutTransitionServer) GetDuration(_ context.Context, req *pb.LayoutTransitionGetDurationRequest) (*pb.GetDurationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDuration(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDurationResponse{Result: result}, nil
-}
-
-func (s *LayoutTransitionServer) GetInterpolator(_ context.Context, req *pb.LayoutTransitionGetInterpolatorRequest) (*pb.GetInterpolatorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInterpolator(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInterpolatorResponse{Result: handle}, nil
-}
-
-func (s *LayoutTransitionServer) GetStagger(_ context.Context, req *pb.GetStaggerRequest) (*pb.GetStaggerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStagger(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStaggerResponse{Result: result}, nil
-}
-
-func (s *LayoutTransitionServer) GetStartDelay(_ context.Context, req *pb.LayoutTransitionGetStartDelayRequest) (*pb.GetStartDelayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStartDelay(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStartDelayResponse{Result: result}, nil
-}
-
-func (s *LayoutTransitionServer) HideChild2(_ context.Context, req *pb.HideChild2Request) (*pb.HideChild2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.HideChild2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HideChild2Response{}, nil
-}
-
-func (s *LayoutTransitionServer) HideChild3_1(_ context.Context, req *pb.HideChild3_1Request) (*pb.HideChild3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.HideChild3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HideChild3_1Response{}, nil
-}
-
-func (s *LayoutTransitionServer) IsChangingLayout(_ context.Context, req *pb.IsChangingLayoutRequest) (*pb.IsChangingLayoutResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsChangingLayout()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsChangingLayoutResponse{Result: result}, nil
-}
-
-func (s *LayoutTransitionServer) IsRunning(_ context.Context, req *pb.LayoutTransitionIsRunningRequest) (*pb.IsRunningResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsRunning()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsRunningResponse{Result: result}, nil
-}
-
-func (s *LayoutTransitionServer) IsTransitionTypeEnabled(_ context.Context, req *pb.IsTransitionTypeEnabledRequest) (*pb.IsTransitionTypeEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsTransitionTypeEnabled(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsTransitionTypeEnabledResponse{Result: result}, nil
-}
-
-func (s *LayoutTransitionServer) RemoveChild(_ context.Context, req *pb.RemoveChildRequest) (*pb.RemoveChildResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RemoveChild(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveChildResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) RemoveTransitionListener(_ context.Context, req *pb.RemoveTransitionListenerRequest) (*pb.RemoveTransitionListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RemoveTransitionListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveTransitionListenerResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) SetAnimateParentHierarchy(_ context.Context, req *pb.SetAnimateParentHierarchyRequest) (*pb.SetAnimateParentHierarchyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetAnimateParentHierarchy(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetAnimateParentHierarchyResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) SetAnimator(_ context.Context, req *pb.SetAnimatorRequest) (*pb.SetAnimatorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetAnimator(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetAnimatorResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) SetDuration2(_ context.Context, req *pb.SetDuration2Request) (*pb.SetDuration2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetDuration2(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDuration2Response{}, nil
-}
-
-func (s *LayoutTransitionServer) SetDuration1_1(_ context.Context, req *pb.SetDuration1_1Request) (*pb.LayoutTransitionSetDuration1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetDuration1_1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LayoutTransitionSetDuration1_1Response{}, nil
-}
-
-func (s *LayoutTransitionServer) SetInterpolator(_ context.Context, req *pb.LayoutTransitionSetInterpolatorRequest) (*pb.SetInterpolatorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetInterpolator(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetInterpolatorResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) SetStagger(_ context.Context, req *pb.SetStaggerRequest) (*pb.SetStaggerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetStagger(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetStaggerResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) SetStartDelay(_ context.Context, req *pb.LayoutTransitionSetStartDelayRequest) (*pb.SetStartDelayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetStartDelay(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetStartDelayResponse{}, nil
-}
-
-func (s *LayoutTransitionServer) ShowChild2(_ context.Context, req *pb.ShowChild2Request) (*pb.ShowChild2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.ShowChild2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ShowChild2Response{}, nil
-}
-
-func (s *LayoutTransitionServer) ShowChild3_1(_ context.Context, req *pb.ShowChild3_1Request) (*pb.ShowChild3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.ShowChild3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ShowChild3_1Response{}, nil
-}
-
 // ObjectAnimatorServer implements pb.ObjectAnimatorServiceServer.
 type ObjectAnimatorServer struct {
 	pb.UnimplementedObjectAnimatorServiceServer
@@ -1914,7 +910,7 @@ func (s *ObjectAnimatorServer) NewObjectAnimator(_ context.Context, req *pb.NewO
 	return &pb.NewObjectAnimatorResponse{Result: handle}, nil
 }
 
-func (s *ObjectAnimatorServer) Clone0(_ context.Context, req *pb.ObjectAnimatorClone0Request) (*pb.Clone0Response, error) {
+func (s *ObjectAnimatorServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -1937,7 +933,7 @@ func (s *ObjectAnimatorServer) Clone0(_ context.Context, req *pb.ObjectAnimatorC
 	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *ObjectAnimatorServer) GetPropertyName(_ context.Context, req *pb.ObjectAnimatorGetPropertyNameRequest) (*pb.GetPropertyNameResponse, error) {
+func (s *ObjectAnimatorServer) GetPropertyName(_ context.Context, req *pb.GetPropertyNameRequest) (*pb.GetPropertyNameResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2049,7 +1045,7 @@ func (s *ObjectAnimatorServer) SetObjectValues(_ context.Context, req *pb.SetObj
 	return &pb.SetObjectValuesResponse{}, nil
 }
 
-func (s *ObjectAnimatorServer) SetProperty(_ context.Context, req *pb.ObjectAnimatorSetPropertyRequest) (*pb.SetPropertyResponse, error) {
+func (s *ObjectAnimatorServer) SetProperty(_ context.Context, req *pb.SetPropertyRequest) (*pb.SetPropertyResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2062,7 +1058,7 @@ func (s *ObjectAnimatorServer) SetProperty(_ context.Context, req *pb.ObjectAnim
 	return &pb.SetPropertyResponse{}, nil
 }
 
-func (s *ObjectAnimatorServer) SetPropertyName(_ context.Context, req *pb.ObjectAnimatorSetPropertyNameRequest) (*pb.SetPropertyNameResponse, error) {
+func (s *ObjectAnimatorServer) SetPropertyName(_ context.Context, req *pb.SetPropertyNameRequest) (*pb.SetPropertyNameResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2075,7 +1071,7 @@ func (s *ObjectAnimatorServer) SetPropertyName(_ context.Context, req *pb.Object
 	return &pb.SetPropertyNameResponse{}, nil
 }
 
-func (s *ObjectAnimatorServer) SetTarget(_ context.Context, req *pb.ObjectAnimatorSetTargetRequest) (*pb.SetTargetResponse, error) {
+func (s *ObjectAnimatorServer) SetTarget(_ context.Context, req *pb.SetTargetRequest) (*pb.SetTargetResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2088,7 +1084,7 @@ func (s *ObjectAnimatorServer) SetTarget(_ context.Context, req *pb.ObjectAnimat
 	return &pb.SetTargetResponse{}, nil
 }
 
-func (s *ObjectAnimatorServer) SetupEndValues(_ context.Context, req *pb.ObjectAnimatorSetupEndValuesRequest) (*pb.SetupEndValuesResponse, error) {
+func (s *ObjectAnimatorServer) SetupEndValues(_ context.Context, req *pb.SetupEndValuesRequest) (*pb.SetupEndValuesResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2101,7 +1097,7 @@ func (s *ObjectAnimatorServer) SetupEndValues(_ context.Context, req *pb.ObjectA
 	return &pb.SetupEndValuesResponse{}, nil
 }
 
-func (s *ObjectAnimatorServer) SetupStartValues(_ context.Context, req *pb.ObjectAnimatorSetupStartValuesRequest) (*pb.SetupStartValuesResponse, error) {
+func (s *ObjectAnimatorServer) SetupStartValues(_ context.Context, req *pb.SetupStartValuesRequest) (*pb.SetupStartValuesResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2164,7 +1160,7 @@ func (s *ObjectAnimatorServer) SetDuration1_1(_ context.Context, req *pb.SetDura
 	return &pb.SetDuration1_1Response{Result: handle}, nil
 }
 
-func (s *ObjectAnimatorServer) Clone0_1(_ context.Context, req *pb.ObjectAnimatorClone0_1Request) (*pb.Clone0_1Response, error) {
+func (s *ObjectAnimatorServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2509,6 +1505,803 @@ func (s *ObjectAnimatorServer) OfPropertyValuesHolder(_ context.Context, req *pb
 	return &pb.OfPropertyValuesHolderResponse{Result: handle}, nil
 }
 
+// IntEvaluatorServer implements pb.IntEvaluatorServiceServer.
+type IntEvaluatorServer struct {
+	pb.UnimplementedIntEvaluatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IntEvaluatorServer) NewIntEvaluator(_ context.Context, req *pb.NewIntEvaluatorRequest) (*pb.NewIntEvaluatorResponse, error) {
+	obj, err := jnipkg.NewIntEvaluator(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIntEvaluatorResponse{Result: handle}, nil
+}
+
+func (s *IntEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IntEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3Response{Result: handle}, nil
+}
+
+func (s *IntEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IntEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3_1Response{Result: handle}, nil
+}
+
+// AnimatorInflaterServer implements pb.AnimatorInflaterServiceServer.
+type AnimatorInflaterServer struct {
+	pb.UnimplementedAnimatorInflaterServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AnimatorInflaterServer) NewAnimatorInflater(_ context.Context, req *pb.NewAnimatorInflaterRequest) (*pb.NewAnimatorInflaterResponse, error) {
+	obj, err := jnipkg.NewAnimatorInflater(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAnimatorInflaterResponse{Result: handle}, nil
+}
+
+func (s *AnimatorInflaterServer) LoadAnimator(_ context.Context, req *pb.LoadAnimatorRequest) (*pb.LoadAnimatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AnimatorInflater{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.LoadAnimator(s.Ctx.Obj, req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.LoadAnimatorResponse{Result: handle}, nil
+}
+
+func (s *AnimatorInflaterServer) LoadStateListAnimator(_ context.Context, req *pb.LoadStateListAnimatorRequest) (*pb.LoadStateListAnimatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AnimatorInflater{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.LoadStateListAnimator(s.Ctx.Obj, req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.LoadStateListAnimatorResponse{Result: handle}, nil
+}
+
+// TimeAnimatorServer implements pb.TimeAnimatorServiceServer.
+type TimeAnimatorServer struct {
+	pb.UnimplementedTimeAnimatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TimeAnimatorServer) NewTimeAnimator(_ context.Context, req *pb.NewTimeAnimatorRequest) (*pb.NewTimeAnimatorResponse, error) {
+	obj, err := jnipkg.NewTimeAnimator(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTimeAnimatorResponse{Result: handle}, nil
+}
+
+func (s *TimeAnimatorServer) SetCurrentPlayTime(_ context.Context, req *pb.SetCurrentPlayTimeRequest) (*pb.SetCurrentPlayTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimeAnimator{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCurrentPlayTime(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCurrentPlayTimeResponse{}, nil
+}
+
+func (s *TimeAnimatorServer) SetTimeListener(_ context.Context, req *pb.SetTimeListenerRequest) (*pb.SetTimeListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimeAnimator{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTimeListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTimeListenerResponse{}, nil
+}
+
+func (s *TimeAnimatorServer) Start(_ context.Context, req *pb.StartRequest) (*pb.StartResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimeAnimator{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Start(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartResponse{}, nil
+}
+
+// FloatArrayEvaluatorServer implements pb.FloatArrayEvaluatorServiceServer.
+type FloatArrayEvaluatorServer struct {
+	pb.UnimplementedFloatArrayEvaluatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *FloatArrayEvaluatorServer) NewFloatArrayEvaluator(_ context.Context, req *pb.NewFloatArrayEvaluatorRequest) (*pb.NewFloatArrayEvaluatorResponse, error) {
+	obj, err := jnipkg.NewFloatArrayEvaluator(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewFloatArrayEvaluatorResponse{Result: handle}, nil
+}
+
+func (s *FloatArrayEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FloatArrayEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3Response{Result: handle}, nil
+}
+
+func (s *FloatArrayEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FloatArrayEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3_1Response{Result: handle}, nil
+}
+
+// LayoutTransitionServer implements pb.LayoutTransitionServiceServer.
+type LayoutTransitionServer struct {
+	pb.UnimplementedLayoutTransitionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LayoutTransitionServer) NewLayoutTransition(_ context.Context, req *pb.NewLayoutTransitionRequest) (*pb.NewLayoutTransitionResponse, error) {
+	obj, err := jnipkg.NewLayoutTransition(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewLayoutTransitionResponse{Result: handle}, nil
+}
+
+func (s *LayoutTransitionServer) AddChild(_ context.Context, req *pb.AddChildRequest) (*pb.AddChildResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AddChild(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddChildResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) AddTransitionListener(_ context.Context, req *pb.AddTransitionListenerRequest) (*pb.AddTransitionListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AddTransitionListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddTransitionListenerResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) DisableTransitionType(_ context.Context, req *pb.DisableTransitionTypeRequest) (*pb.DisableTransitionTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.DisableTransitionType(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DisableTransitionTypeResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) EnableTransitionType(_ context.Context, req *pb.EnableTransitionTypeRequest) (*pb.EnableTransitionTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.EnableTransitionType(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EnableTransitionTypeResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) GetAnimator(_ context.Context, req *pb.GetAnimatorRequest) (*pb.GetAnimatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAnimator(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAnimatorResponse{Result: handle}, nil
+}
+
+func (s *LayoutTransitionServer) GetDuration(_ context.Context, req *pb.LayoutTransitionGetDurationRequest) (*pb.GetDurationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDuration(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDurationResponse{Result: result}, nil
+}
+
+func (s *LayoutTransitionServer) GetInterpolator(_ context.Context, req *pb.LayoutTransitionGetInterpolatorRequest) (*pb.GetInterpolatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolator(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInterpolatorResponse{Result: handle}, nil
+}
+
+func (s *LayoutTransitionServer) GetStagger(_ context.Context, req *pb.GetStaggerRequest) (*pb.GetStaggerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStagger(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStaggerResponse{Result: result}, nil
+}
+
+func (s *LayoutTransitionServer) GetStartDelay(_ context.Context, req *pb.LayoutTransitionGetStartDelayRequest) (*pb.GetStartDelayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStartDelay(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStartDelayResponse{Result: result}, nil
+}
+
+func (s *LayoutTransitionServer) GetTransitionListeners(_ context.Context, req *pb.GetTransitionListenersRequest) (*pb.GetTransitionListenersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTransitionListeners()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTransitionListenersResponse{Result: handle}, nil
+}
+
+func (s *LayoutTransitionServer) HideChild2(_ context.Context, req *pb.HideChild2Request) (*pb.HideChild2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.HideChild2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HideChild2Response{}, nil
+}
+
+func (s *LayoutTransitionServer) HideChild3_1(_ context.Context, req *pb.HideChild3_1Request) (*pb.HideChild3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.HideChild3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HideChild3_1Response{}, nil
+}
+
+func (s *LayoutTransitionServer) IsChangingLayout(_ context.Context, req *pb.IsChangingLayoutRequest) (*pb.IsChangingLayoutResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsChangingLayout()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsChangingLayoutResponse{Result: result}, nil
+}
+
+func (s *LayoutTransitionServer) IsRunning(_ context.Context, req *pb.IsRunningRequest) (*pb.IsRunningResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsRunning()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsRunningResponse{Result: result}, nil
+}
+
+func (s *LayoutTransitionServer) IsTransitionTypeEnabled(_ context.Context, req *pb.IsTransitionTypeEnabledRequest) (*pb.IsTransitionTypeEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsTransitionTypeEnabled(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsTransitionTypeEnabledResponse{Result: result}, nil
+}
+
+func (s *LayoutTransitionServer) RemoveChild(_ context.Context, req *pb.RemoveChildRequest) (*pb.RemoveChildResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveChild(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveChildResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) RemoveTransitionListener(_ context.Context, req *pb.RemoveTransitionListenerRequest) (*pb.RemoveTransitionListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveTransitionListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveTransitionListenerResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) SetAnimateParentHierarchy(_ context.Context, req *pb.SetAnimateParentHierarchyRequest) (*pb.SetAnimateParentHierarchyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAnimateParentHierarchy(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAnimateParentHierarchyResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) SetAnimator(_ context.Context, req *pb.SetAnimatorRequest) (*pb.SetAnimatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAnimator(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAnimatorResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) SetDuration2(_ context.Context, req *pb.SetDuration2Request) (*pb.SetDuration2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDuration2(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDuration2Response{}, nil
+}
+
+func (s *LayoutTransitionServer) SetDuration1_1(_ context.Context, req *pb.SetDuration1_1Request) (*pb.LayoutTransitionSetDuration1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDuration1_1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LayoutTransitionSetDuration1_1Response{}, nil
+}
+
+func (s *LayoutTransitionServer) SetInterpolator(_ context.Context, req *pb.LayoutTransitionSetInterpolatorRequest) (*pb.SetInterpolatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetInterpolator(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetInterpolatorResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) SetStagger(_ context.Context, req *pb.SetStaggerRequest) (*pb.SetStaggerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetStagger(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStaggerResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) SetStartDelay(_ context.Context, req *pb.LayoutTransitionSetStartDelayRequest) (*pb.SetStartDelayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetStartDelay(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStartDelayResponse{}, nil
+}
+
+func (s *LayoutTransitionServer) ShowChild2(_ context.Context, req *pb.ShowChild2Request) (*pb.ShowChild2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ShowChild2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShowChild2Response{}, nil
+}
+
+func (s *LayoutTransitionServer) ShowChild3_1(_ context.Context, req *pb.ShowChild3_1Request) (*pb.ShowChild3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LayoutTransition{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ShowChild3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShowChild3_1Response{}, nil
+}
+
+// PointFEvaluatorServer implements pb.PointFEvaluatorServiceServer.
+type PointFEvaluatorServer struct {
+	pb.UnimplementedPointFEvaluatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PointFEvaluatorServer) NewPointFEvaluator(_ context.Context, req *pb.NewPointFEvaluatorRequest) (*pb.NewPointFEvaluatorResponse, error) {
+	obj, err := jnipkg.NewPointFEvaluator(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPointFEvaluatorResponse{Result: handle}, nil
+}
+
+func (s *PointFEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PointFEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3Response{Result: handle}, nil
+}
+
+func (s *PointFEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PointFEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3_1Response{Result: handle}, nil
+}
+
+// FloatEvaluatorServer implements pb.FloatEvaluatorServiceServer.
+type FloatEvaluatorServer struct {
+	pb.UnimplementedFloatEvaluatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *FloatEvaluatorServer) NewFloatEvaluator(_ context.Context, req *pb.NewFloatEvaluatorRequest) (*pb.NewFloatEvaluatorResponse, error) {
+	obj, err := jnipkg.NewFloatEvaluator(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewFloatEvaluatorResponse{Result: handle}, nil
+}
+
+func (s *FloatEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FloatEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3Response{Result: handle}, nil
+}
+
+func (s *FloatEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FloatEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3_1Response{Result: handle}, nil
+}
+
 // AnimatorSetServer implements pb.AnimatorSetServiceServer.
 type AnimatorSetServer struct {
 	pb.UnimplementedAnimatorSetServiceServer
@@ -2531,7 +2324,7 @@ func (s *AnimatorSetServer) NewAnimatorSet(_ context.Context, req *pb.NewAnimato
 	return &pb.NewAnimatorSetResponse{Result: handle}, nil
 }
 
-func (s *AnimatorSetServer) Cancel(_ context.Context, req *pb.AnimatorSetCancelRequest) (*pb.CancelResponse, error) {
+func (s *AnimatorSetServer) Cancel(_ context.Context, req *pb.CancelRequest) (*pb.CancelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2544,7 +2337,7 @@ func (s *AnimatorSetServer) Cancel(_ context.Context, req *pb.AnimatorSetCancelR
 	return &pb.CancelResponse{}, nil
 }
 
-func (s *AnimatorSetServer) Clone0(_ context.Context, req *pb.AnimatorSetClone0Request) (*pb.Clone0Response, error) {
+func (s *AnimatorSetServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2567,7 +2360,7 @@ func (s *AnimatorSetServer) Clone0(_ context.Context, req *pb.AnimatorSetClone0R
 	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *AnimatorSetServer) End(_ context.Context, req *pb.AnimatorSetEndRequest) (*pb.EndResponse, error) {
+func (s *AnimatorSetServer) End(_ context.Context, req *pb.EndRequest) (*pb.EndResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2578,6 +2371,29 @@ func (s *AnimatorSetServer) End(_ context.Context, req *pb.AnimatorSetEndRequest
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.EndResponse{}, nil
+}
+
+func (s *AnimatorSetServer) GetChildAnimations(_ context.Context, req *pb.GetChildAnimationsRequest) (*pb.GetChildAnimationsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AnimatorSet{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetChildAnimations()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetChildAnimationsResponse{Result: handle}, nil
 }
 
 func (s *AnimatorSetServer) GetCurrentPlayTime(_ context.Context, req *pb.GetCurrentPlayTimeRequest) (*pb.GetCurrentPlayTimeResponse, error) {
@@ -2594,7 +2410,7 @@ func (s *AnimatorSetServer) GetCurrentPlayTime(_ context.Context, req *pb.GetCur
 	return &pb.GetCurrentPlayTimeResponse{Result: result}, nil
 }
 
-func (s *AnimatorSetServer) GetDuration(_ context.Context, req *pb.AnimatorSetGetDurationRequest) (*pb.GetDurationResponse, error) {
+func (s *AnimatorSetServer) GetDuration(_ context.Context, req *pb.GetDurationRequest) (*pb.GetDurationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2608,7 +2424,7 @@ func (s *AnimatorSetServer) GetDuration(_ context.Context, req *pb.AnimatorSetGe
 	return &pb.GetDurationResponse{Result: result}, nil
 }
 
-func (s *AnimatorSetServer) GetInterpolator(_ context.Context, req *pb.AnimatorSetGetInterpolatorRequest) (*pb.GetInterpolatorResponse, error) {
+func (s *AnimatorSetServer) GetInterpolator(_ context.Context, req *pb.GetInterpolatorRequest) (*pb.GetInterpolatorResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2631,7 +2447,7 @@ func (s *AnimatorSetServer) GetInterpolator(_ context.Context, req *pb.AnimatorS
 	return &pb.GetInterpolatorResponse{Result: handle}, nil
 }
 
-func (s *AnimatorSetServer) GetStartDelay(_ context.Context, req *pb.AnimatorSetGetStartDelayRequest) (*pb.GetStartDelayResponse, error) {
+func (s *AnimatorSetServer) GetStartDelay(_ context.Context, req *pb.GetStartDelayRequest) (*pb.GetStartDelayResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2645,7 +2461,7 @@ func (s *AnimatorSetServer) GetStartDelay(_ context.Context, req *pb.AnimatorSet
 	return &pb.GetStartDelayResponse{Result: result}, nil
 }
 
-func (s *AnimatorSetServer) GetTotalDuration(_ context.Context, req *pb.AnimatorSetGetTotalDurationRequest) (*pb.GetTotalDurationResponse, error) {
+func (s *AnimatorSetServer) GetTotalDuration(_ context.Context, req *pb.GetTotalDurationRequest) (*pb.GetTotalDurationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2659,7 +2475,7 @@ func (s *AnimatorSetServer) GetTotalDuration(_ context.Context, req *pb.Animator
 	return &pb.GetTotalDurationResponse{Result: result}, nil
 }
 
-func (s *AnimatorSetServer) IsRunning(_ context.Context, req *pb.AnimatorSetIsRunningRequest) (*pb.IsRunningResponse, error) {
+func (s *AnimatorSetServer) IsRunning(_ context.Context, req *pb.IsRunningRequest) (*pb.IsRunningResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2673,7 +2489,7 @@ func (s *AnimatorSetServer) IsRunning(_ context.Context, req *pb.AnimatorSetIsRu
 	return &pb.IsRunningResponse{Result: result}, nil
 }
 
-func (s *AnimatorSetServer) IsStarted(_ context.Context, req *pb.AnimatorSetIsStartedRequest) (*pb.IsStartedResponse, error) {
+func (s *AnimatorSetServer) IsStarted(_ context.Context, req *pb.IsStartedRequest) (*pb.IsStartedResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2687,7 +2503,7 @@ func (s *AnimatorSetServer) IsStarted(_ context.Context, req *pb.AnimatorSetIsSt
 	return &pb.IsStartedResponse{Result: result}, nil
 }
 
-func (s *AnimatorSetServer) Pause(_ context.Context, req *pb.AnimatorSetPauseRequest) (*pb.PauseResponse, error) {
+func (s *AnimatorSetServer) Pause(_ context.Context, req *pb.PauseRequest) (*pb.PauseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2749,7 +2565,7 @@ func (s *AnimatorSetServer) PlayTogether(_ context.Context, req *pb.PlayTogether
 	return &pb.PlayTogetherResponse{}, nil
 }
 
-func (s *AnimatorSetServer) Resume(_ context.Context, req *pb.AnimatorSetResumeRequest) (*pb.ResumeResponse, error) {
+func (s *AnimatorSetServer) Resume(_ context.Context, req *pb.ResumeRequest) (*pb.ResumeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2811,7 +2627,7 @@ func (s *AnimatorSetServer) SetDuration1(_ context.Context, req *pb.SetDuration1
 	return &pb.SetDuration1Response{Result: handle}, nil
 }
 
-func (s *AnimatorSetServer) SetInterpolator(_ context.Context, req *pb.AnimatorSetSetInterpolatorRequest) (*pb.SetInterpolatorResponse, error) {
+func (s *AnimatorSetServer) SetInterpolator(_ context.Context, req *pb.SetInterpolatorRequest) (*pb.SetInterpolatorResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2824,7 +2640,7 @@ func (s *AnimatorSetServer) SetInterpolator(_ context.Context, req *pb.AnimatorS
 	return &pb.SetInterpolatorResponse{}, nil
 }
 
-func (s *AnimatorSetServer) SetStartDelay(_ context.Context, req *pb.AnimatorSetSetStartDelayRequest) (*pb.SetStartDelayResponse, error) {
+func (s *AnimatorSetServer) SetStartDelay(_ context.Context, req *pb.SetStartDelayRequest) (*pb.SetStartDelayResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2837,7 +2653,7 @@ func (s *AnimatorSetServer) SetStartDelay(_ context.Context, req *pb.AnimatorSet
 	return &pb.SetStartDelayResponse{}, nil
 }
 
-func (s *AnimatorSetServer) SetTarget(_ context.Context, req *pb.AnimatorSetSetTargetRequest) (*pb.SetTargetResponse, error) {
+func (s *AnimatorSetServer) SetTarget(_ context.Context, req *pb.SetTargetRequest) (*pb.SetTargetResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2850,7 +2666,7 @@ func (s *AnimatorSetServer) SetTarget(_ context.Context, req *pb.AnimatorSetSetT
 	return &pb.SetTargetResponse{}, nil
 }
 
-func (s *AnimatorSetServer) SetupEndValues(_ context.Context, req *pb.AnimatorSetSetupEndValuesRequest) (*pb.SetupEndValuesResponse, error) {
+func (s *AnimatorSetServer) SetupEndValues(_ context.Context, req *pb.SetupEndValuesRequest) (*pb.SetupEndValuesResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2863,7 +2679,7 @@ func (s *AnimatorSetServer) SetupEndValues(_ context.Context, req *pb.AnimatorSe
 	return &pb.SetupEndValuesResponse{}, nil
 }
 
-func (s *AnimatorSetServer) SetupStartValues(_ context.Context, req *pb.AnimatorSetSetupStartValuesRequest) (*pb.SetupStartValuesResponse, error) {
+func (s *AnimatorSetServer) SetupStartValues(_ context.Context, req *pb.SetupStartValuesRequest) (*pb.SetupStartValuesResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2926,7 +2742,7 @@ func (s *AnimatorSetServer) SetDuration1_1(_ context.Context, req *pb.SetDuratio
 	return &pb.SetDuration1_1Response{Result: handle}, nil
 }
 
-func (s *AnimatorSetServer) Clone0_1(_ context.Context, req *pb.AnimatorSetClone0_1Request) (*pb.Clone0_1Response, error) {
+func (s *AnimatorSetServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2972,15 +2788,15 @@ func (s *AnimatorSetServer) Clone0_2(_ context.Context, req *pb.Clone0_2Request)
 	return &pb.Clone0_2Response{Result: handle}, nil
 }
 
-// AccelerateDecelerateInterpolatorServer implements pb.AccelerateDecelerateInterpolatorServiceServer.
-type AccelerateDecelerateInterpolatorServer struct {
-	pb.UnimplementedAccelerateDecelerateInterpolatorServiceServer
+// IntArrayEvaluatorServer implements pb.IntArrayEvaluatorServiceServer.
+type IntArrayEvaluatorServer struct {
+	pb.UnimplementedIntArrayEvaluatorServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *AccelerateDecelerateInterpolatorServer) NewAccelerateDecelerateInterpolator(_ context.Context, req *pb.NewAccelerateDecelerateInterpolatorRequest) (*pb.NewAccelerateDecelerateInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewAccelerateDecelerateInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+func (s *IntArrayEvaluatorServer) NewIntArrayEvaluator(_ context.Context, req *pb.NewIntArrayEvaluatorRequest) (*pb.NewIntArrayEvaluatorResponse, error) {
+	obj, err := jnipkg.NewIntArrayEvaluator(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -2991,32 +2807,64 @@ func (s *AccelerateDecelerateInterpolatorServer) NewAccelerateDecelerateInterpol
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewAccelerateDecelerateInterpolatorResponse{Result: handle}, nil
+	return &pb.NewIntArrayEvaluatorResponse{Result: handle}, nil
 }
 
-func (s *AccelerateDecelerateInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+func (s *IntArrayEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.AccelerateDecelerateInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.IntArrayEvaluator{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetInterpolation(req.GetArg0())
+	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetInterpolationResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3Response{Result: handle}, nil
 }
 
-// DecelerateInterpolatorServer implements pb.DecelerateInterpolatorServiceServer.
-type DecelerateInterpolatorServer struct {
-	pb.UnimplementedDecelerateInterpolatorServiceServer
+func (s *IntArrayEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IntArrayEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3_1Response{Result: handle}, nil
+}
+
+// RectEvaluatorServer implements pb.RectEvaluatorServiceServer.
+type RectEvaluatorServer struct {
+	pb.UnimplementedRectEvaluatorServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *DecelerateInterpolatorServer) NewDecelerateInterpolator(_ context.Context, req *pb.NewDecelerateInterpolatorRequest) (*pb.NewDecelerateInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewDecelerateInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+func (s *RectEvaluatorServer) NewRectEvaluator(_ context.Context, req *pb.NewRectEvaluatorRequest) (*pb.NewRectEvaluatorResponse, error) {
+	obj, err := jnipkg.NewRectEvaluator(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -3027,32 +2875,64 @@ func (s *DecelerateInterpolatorServer) NewDecelerateInterpolator(_ context.Conte
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewDecelerateInterpolatorResponse{Result: handle}, nil
+	return &pb.NewRectEvaluatorResponse{Result: handle}, nil
 }
 
-func (s *DecelerateInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+func (s *RectEvaluatorServer) Evaluate3(_ context.Context, req *pb.Evaluate3Request) (*pb.Evaluate3Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.DecelerateInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.RectEvaluator{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetInterpolation(req.GetArg0())
+	result, err := mgr.Evaluate3(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetInterpolationResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3Response{Result: handle}, nil
 }
 
-// AccelerateInterpolatorServer implements pb.AccelerateInterpolatorServiceServer.
-type AccelerateInterpolatorServer struct {
-	pb.UnimplementedAccelerateInterpolatorServiceServer
+func (s *RectEvaluatorServer) Evaluate3_1(_ context.Context, req *pb.Evaluate3_1Request) (*pb.Evaluate3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RectEvaluator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Evaluate3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Evaluate3_1Response{Result: handle}, nil
+}
+
+// StateListAnimatorServer implements pb.StateListAnimatorServiceServer.
+type StateListAnimatorServer struct {
+	pb.UnimplementedStateListAnimatorServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *AccelerateInterpolatorServer) NewAccelerateInterpolator(_ context.Context, req *pb.NewAccelerateInterpolatorRequest) (*pb.NewAccelerateInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewAccelerateInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+func (s *StateListAnimatorServer) NewStateListAnimator(_ context.Context, req *pb.NewStateListAnimatorRequest) (*pb.NewStateListAnimatorResponse, error) {
+	obj, err := jnipkg.NewStateListAnimator(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -3063,128 +2943,79 @@ func (s *AccelerateInterpolatorServer) NewAccelerateInterpolator(_ context.Conte
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewAccelerateInterpolatorResponse{Result: handle}, nil
+	return &pb.NewStateListAnimatorResponse{Result: handle}, nil
 }
 
-func (s *AccelerateInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+func (s *StateListAnimatorServer) AddState(_ context.Context, req *pb.AddStateRequest) (*pb.AddStateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.AccelerateInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.StateListAnimator{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetInterpolation(req.GetArg0())
-	if err != nil {
+	if err := mgr.AddState(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetInterpolationResponse{Result: result}, nil
+	return &pb.AddStateResponse{}, nil
 }
 
-// PathInterpolatorServer implements pb.PathInterpolatorServiceServer.
-type PathInterpolatorServer struct {
-	pb.UnimplementedPathInterpolatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
+func (s *StateListAnimatorServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StateListAnimator{VM: s.Ctx.VM, Obj: rawObj}
 
-func (s *PathInterpolatorServer) NewPathInterpolator(_ context.Context, req *pb.NewPathInterpolatorRequest) (*pb.NewPathInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewPathInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	result, err := mgr.Clone0()
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
 	}
-	return &pb.NewPathInterpolatorResponse{Result: handle}, nil
+	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *PathInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+func (s *StateListAnimatorServer) JumpToCurrentState(_ context.Context, req *pb.JumpToCurrentStateRequest) (*pb.JumpToCurrentStateResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.PathInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.StateListAnimator{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetInterpolation(req.GetArg0())
-	if err != nil {
+	if err := mgr.JumpToCurrentState(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetInterpolationResponse{Result: result}, nil
+	return &pb.JumpToCurrentStateResponse{}, nil
 }
 
-// LinearInterpolatorServer implements pb.LinearInterpolatorServiceServer.
-type LinearInterpolatorServer struct {
-	pb.UnimplementedLinearInterpolatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
+func (s *StateListAnimatorServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StateListAnimator{VM: s.Ctx.VM, Obj: rawObj}
 
-func (s *LinearInterpolatorServer) NewLinearInterpolator(_ context.Context, req *pb.NewLinearInterpolatorRequest) (*pb.NewLinearInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewLinearInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	result, err := mgr.Clone0_1()
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
 	}
-	return &pb.NewLinearInterpolatorResponse{Result: handle}, nil
-}
-
-func (s *LinearInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LinearInterpolator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInterpolation(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInterpolationResponse{Result: result}, nil
-}
-
-// ScaleAnimationServer implements pb.ScaleAnimationServiceServer.
-type ScaleAnimationServer struct {
-	pb.UnimplementedScaleAnimationServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ScaleAnimationServer) NewScaleAnimation(_ context.Context, req *pb.NewScaleAnimationRequest) (*pb.NewScaleAnimationResponse, error) {
-	obj, err := jnipkg2.NewScaleAnimation(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewScaleAnimationResponse{Result: handle}, nil
-}
-
-func (s *ScaleAnimationServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.ScaleAnimation{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Initialize(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.InitializeResponse{}, nil
+	return &pb.Clone0_1Response{Result: handle}, nil
 }
 
 // GridLayoutAnimationControllerServer implements pb.GridLayoutAnimationControllerServiceServer.
@@ -3331,316 +3162,6 @@ func (s *GridLayoutAnimationControllerServer) WillOverlap(_ context.Context, req
 	return &pb.WillOverlapResponse{Result: result}, nil
 }
 
-// LayoutAnimationControllerServer implements pb.LayoutAnimationControllerServiceServer.
-type LayoutAnimationControllerServer struct {
-	pb.UnimplementedLayoutAnimationControllerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *LayoutAnimationControllerServer) NewLayoutAnimationController(_ context.Context, req *pb.NewLayoutAnimationControllerRequest) (*pb.NewLayoutAnimationControllerResponse, error) {
-	obj, err := jnipkg2.NewLayoutAnimationController(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewLayoutAnimationControllerResponse{Result: handle}, nil
-}
-
-func (s *LayoutAnimationControllerServer) GetAnimation(_ context.Context, req *pb.GetAnimationRequest) (*pb.GetAnimationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAnimation()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAnimationResponse{Result: handle}, nil
-}
-
-func (s *LayoutAnimationControllerServer) GetAnimationForView(_ context.Context, req *pb.GetAnimationForViewRequest) (*pb.GetAnimationForViewResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAnimationForView(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAnimationForViewResponse{Result: handle}, nil
-}
-
-func (s *LayoutAnimationControllerServer) GetDelay(_ context.Context, req *pb.GetDelayRequest) (*pb.GetDelayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDelay()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDelayResponse{Result: result}, nil
-}
-
-func (s *LayoutAnimationControllerServer) GetInterpolator(_ context.Context, req *pb.LayoutAnimationControllerGetInterpolatorRequest) (*pb.GetInterpolatorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInterpolator()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInterpolatorResponse{Result: handle}, nil
-}
-
-func (s *LayoutAnimationControllerServer) GetOrder(_ context.Context, req *pb.GetOrderRequest) (*pb.GetOrderResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetOrder()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetOrderResponse{Result: result}, nil
-}
-
-func (s *LayoutAnimationControllerServer) IsDone(_ context.Context, req *pb.IsDoneRequest) (*pb.IsDoneResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsDone()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsDoneResponse{Result: result}, nil
-}
-
-func (s *LayoutAnimationControllerServer) SetAnimation2(_ context.Context, req *pb.SetAnimation2Request) (*pb.SetAnimation2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetAnimation2(s.Ctx.Obj, req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetAnimation2Response{}, nil
-}
-
-func (s *LayoutAnimationControllerServer) SetAnimation1_1(_ context.Context, req *pb.SetAnimation1_1Request) (*pb.SetAnimation1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetAnimation1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetAnimation1_1Response{}, nil
-}
-
-func (s *LayoutAnimationControllerServer) SetDelay(_ context.Context, req *pb.SetDelayRequest) (*pb.SetDelayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetDelay(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDelayResponse{}, nil
-}
-
-func (s *LayoutAnimationControllerServer) SetInterpolator2(_ context.Context, req *pb.LayoutAnimationControllerSetInterpolator2Request) (*pb.SetInterpolator2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetInterpolator2(s.Ctx.Obj, req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetInterpolator2Response{}, nil
-}
-
-func (s *LayoutAnimationControllerServer) SetInterpolator1_1(_ context.Context, req *pb.LayoutAnimationControllerSetInterpolator1_1Request) (*pb.SetInterpolator1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetInterpolator1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetInterpolator1_1Response{}, nil
-}
-
-func (s *LayoutAnimationControllerServer) SetOrder(_ context.Context, req *pb.SetOrderRequest) (*pb.SetOrderResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetOrder(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOrderResponse{}, nil
-}
-
-func (s *LayoutAnimationControllerServer) Start(_ context.Context, req *pb.LayoutAnimationControllerStartRequest) (*pb.StartResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Start(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartResponse{}, nil
-}
-
-func (s *LayoutAnimationControllerServer) WillOverlap(_ context.Context, req *pb.WillOverlapRequest) (*pb.WillOverlapResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.WillOverlap()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WillOverlapResponse{Result: result}, nil
-}
-
-// AnticipateOvershootInterpolatorServer implements pb.AnticipateOvershootInterpolatorServiceServer.
-type AnticipateOvershootInterpolatorServer struct {
-	pb.UnimplementedAnticipateOvershootInterpolatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AnticipateOvershootInterpolatorServer) NewAnticipateOvershootInterpolator(_ context.Context, req *pb.NewAnticipateOvershootInterpolatorRequest) (*pb.NewAnticipateOvershootInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewAnticipateOvershootInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAnticipateOvershootInterpolatorResponse{Result: handle}, nil
-}
-
-func (s *AnticipateOvershootInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.AnticipateOvershootInterpolator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInterpolation(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInterpolationResponse{Result: result}, nil
-}
-
-// CycleInterpolatorServer implements pb.CycleInterpolatorServiceServer.
-type CycleInterpolatorServer struct {
-	pb.UnimplementedCycleInterpolatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *CycleInterpolatorServer) NewCycleInterpolator(_ context.Context, req *pb.NewCycleInterpolatorRequest) (*pb.NewCycleInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewCycleInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewCycleInterpolatorResponse{Result: handle}, nil
-}
-
-func (s *CycleInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.CycleInterpolator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInterpolation(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInterpolationResponse{Result: result}, nil
-}
-
 // RotateAnimationServer implements pb.RotateAnimationServiceServer.
 type RotateAnimationServer struct {
 	pb.UnimplementedRotateAnimationServiceServer
@@ -3676,15 +3197,15 @@ func (s *RotateAnimationServer) Initialize(_ context.Context, req *pb.Initialize
 	return &pb.InitializeResponse{}, nil
 }
 
-// AlphaAnimationServer implements pb.AlphaAnimationServiceServer.
-type AlphaAnimationServer struct {
-	pb.UnimplementedAlphaAnimationServiceServer
+// CycleInterpolatorServer implements pb.CycleInterpolatorServiceServer.
+type CycleInterpolatorServer struct {
+	pb.UnimplementedCycleInterpolatorServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *AlphaAnimationServer) NewAlphaAnimation(_ context.Context, req *pb.NewAlphaAnimationRequest) (*pb.NewAlphaAnimationResponse, error) {
-	obj, err := jnipkg2.NewAlphaAnimation(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+func (s *CycleInterpolatorServer) NewCycleInterpolator(_ context.Context, req *pb.NewCycleInterpolatorRequest) (*pb.NewCycleInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewCycleInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -3695,15 +3216,273 @@ func (s *AlphaAnimationServer) NewAlphaAnimation(_ context.Context, req *pb.NewA
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewAlphaAnimationResponse{Result: handle}, nil
+	return &pb.NewCycleInterpolatorResponse{Result: handle}, nil
 }
 
-func (s *AlphaAnimationServer) WillChangeBounds(_ context.Context, req *pb.AlphaAnimationWillChangeBoundsRequest) (*pb.WillChangeBoundsResponse, error) {
+func (s *CycleInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.AlphaAnimation{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg2.CycleInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolation(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterpolationResponse{Result: result}, nil
+}
+
+// SetServer implements pb.SetServiceServer.
+type SetServer struct {
+	pb.UnimplementedSetServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SetServer) NewSet(_ context.Context, req *pb.NewSetRequest) (*pb.NewSetResponse, error) {
+	obj, err := jnipkg2.NewSet(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSetResponse{Result: handle}, nil
+}
+
+func (s *SetServer) AddAnimation(_ context.Context, req *pb.AddAnimationRequest) (*pb.AddAnimationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AddAnimation(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddAnimationResponse{}, nil
+}
+
+func (s *SetServer) ComputeDurationHint(_ context.Context, req *pb.ComputeDurationHintRequest) (*pb.ComputeDurationHintResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ComputeDurationHint()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComputeDurationHintResponse{Result: result}, nil
+}
+
+func (s *SetServer) GetAnimations(_ context.Context, req *pb.GetAnimationsRequest) (*pb.GetAnimationsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAnimations()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAnimationsResponse{Result: handle}, nil
+}
+
+func (s *SetServer) GetDuration(_ context.Context, req *pb.GetDurationRequest) (*pb.GetDurationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDuration()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDurationResponse{Result: result}, nil
+}
+
+func (s *SetServer) GetStartTime(_ context.Context, req *pb.GetStartTimeRequest) (*pb.GetStartTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStartTime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStartTimeResponse{Result: result}, nil
+}
+
+func (s *SetServer) GetTransformation(_ context.Context, req *pb.GetTransformationRequest) (*pb.GetTransformationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTransformation(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTransformationResponse{Result: result}, nil
+}
+
+func (s *SetServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Initialize(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InitializeResponse{}, nil
+}
+
+func (s *SetServer) Reset(_ context.Context, req *pb.ResetRequest) (*pb.ResetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Reset(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ResetResponse{}, nil
+}
+
+func (s *SetServer) RestrictDuration(_ context.Context, req *pb.RestrictDurationRequest) (*pb.RestrictDurationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RestrictDuration(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RestrictDurationResponse{}, nil
+}
+
+func (s *SetServer) ScaleCurrentDuration(_ context.Context, req *pb.ScaleCurrentDurationRequest) (*pb.ScaleCurrentDurationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ScaleCurrentDuration(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ScaleCurrentDurationResponse{}, nil
+}
+
+func (s *SetServer) SetDuration(_ context.Context, req *pb.SetSetDurationRequest) (*pb.SetSetDurationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDuration(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSetDurationResponse{}, nil
+}
+
+func (s *SetServer) SetFillAfter(_ context.Context, req *pb.SetFillAfterRequest) (*pb.SetFillAfterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetFillAfter(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetFillAfterResponse{}, nil
+}
+
+func (s *SetServer) SetFillBefore(_ context.Context, req *pb.SetFillBeforeRequest) (*pb.SetFillBeforeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetFillBefore(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetFillBeforeResponse{}, nil
+}
+
+func (s *SetServer) SetRepeatMode(_ context.Context, req *pb.SetRepeatModeRequest) (*pb.SetRepeatModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRepeatMode(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRepeatModeResponse{}, nil
+}
+
+func (s *SetServer) SetStartOffset(_ context.Context, req *pb.SetStartOffsetRequest) (*pb.SetStartOffsetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetStartOffset(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStartOffsetResponse{}, nil
+}
+
+func (s *SetServer) SetStartTime(_ context.Context, req *pb.SetStartTimeRequest) (*pb.SetStartTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetStartTime(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStartTimeResponse{}, nil
+}
+
+func (s *SetServer) WillChangeBounds(_ context.Context, req *pb.WillChangeBoundsRequest) (*pb.WillChangeBoundsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.WillChangeBounds()
 	if err != nil {
@@ -3712,18 +3491,256 @@ func (s *AlphaAnimationServer) WillChangeBounds(_ context.Context, req *pb.Alpha
 	return &pb.WillChangeBoundsResponse{Result: result}, nil
 }
 
-func (s *AlphaAnimationServer) WillChangeTransformationMatrix(_ context.Context, req *pb.AlphaAnimationWillChangeTransformationMatrixRequest) (*pb.WillChangeTransformationMatrixResponse, error) {
+func (s *SetServer) WillChangeTransformationMatrix(_ context.Context, req *pb.WillChangeTransformationMatrixRequest) (*pb.WillChangeTransformationMatrixResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.AlphaAnimation{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.WillChangeTransformationMatrix()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.WillChangeTransformationMatrixResponse{Result: result}, nil
+}
+
+// DecelerateInterpolatorServer implements pb.DecelerateInterpolatorServiceServer.
+type DecelerateInterpolatorServer struct {
+	pb.UnimplementedDecelerateInterpolatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DecelerateInterpolatorServer) NewDecelerateInterpolator(_ context.Context, req *pb.NewDecelerateInterpolatorRequest) (*pb.NewDecelerateInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewDecelerateInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDecelerateInterpolatorResponse{Result: handle}, nil
+}
+
+func (s *DecelerateInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.DecelerateInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolation(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterpolationResponse{Result: result}, nil
+}
+
+// TransformationServer implements pb.TransformationServiceServer.
+type TransformationServer struct {
+	pb.UnimplementedTransformationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TransformationServer) NewTransformation(_ context.Context, req *pb.NewTransformationRequest) (*pb.NewTransformationResponse, error) {
+	obj, err := jnipkg2.NewTransformation(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTransformationResponse{Result: handle}, nil
+}
+
+func (s *TransformationServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearResponse{}, nil
+}
+
+func (s *TransformationServer) Compose(_ context.Context, req *pb.ComposeRequest) (*pb.ComposeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Compose(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComposeResponse{}, nil
+}
+
+func (s *TransformationServer) GetAlpha(_ context.Context, req *pb.GetAlphaRequest) (*pb.GetAlphaResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAlpha()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAlphaResponse{Result: result}, nil
+}
+
+func (s *TransformationServer) GetMatrix(_ context.Context, req *pb.GetMatrixRequest) (*pb.GetMatrixResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMatrix()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMatrixResponse{Result: handle}, nil
+}
+
+func (s *TransformationServer) GetTransformationType(_ context.Context, req *pb.GetTransformationTypeRequest) (*pb.GetTransformationTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTransformationType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTransformationTypeResponse{Result: result}, nil
+}
+
+func (s *TransformationServer) Set(_ context.Context, req *pb.SetRequest) (*pb.SetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetResponse{}, nil
+}
+
+func (s *TransformationServer) SetAlpha(_ context.Context, req *pb.SetAlphaRequest) (*pb.SetAlphaResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAlpha(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAlphaResponse{}, nil
+}
+
+func (s *TransformationServer) SetTransformationType(_ context.Context, req *pb.SetTransformationTypeRequest) (*pb.SetTransformationTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTransformationType(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTransformationTypeResponse{}, nil
+}
+
+func (s *TransformationServer) ToShortString(_ context.Context, req *pb.ToShortStringRequest) (*pb.ToShortStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToShortString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToShortStringResponse{Result: result}, nil
+}
+
+func (s *TransformationServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// OvershootInterpolatorServer implements pb.OvershootInterpolatorServiceServer.
+type OvershootInterpolatorServer struct {
+	pb.UnimplementedOvershootInterpolatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *OvershootInterpolatorServer) NewOvershootInterpolator(_ context.Context, req *pb.NewOvershootInterpolatorRequest) (*pb.NewOvershootInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewOvershootInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewOvershootInterpolatorResponse{Result: handle}, nil
+}
+
+func (s *OvershootInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.OvershootInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolation(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterpolationResponse{Result: result}, nil
 }
 
 // UtilsServer implements pb.UtilsServiceServer.
@@ -3900,15 +3917,15 @@ func (s *UtilsServer) MakeOutAnimation(_ context.Context, req *pb.MakeOutAnimati
 	return &pb.MakeOutAnimationResponse{Result: handle}, nil
 }
 
-// TransformationServer implements pb.TransformationServiceServer.
-type TransformationServer struct {
-	pb.UnimplementedTransformationServiceServer
+// PathInterpolatorServer implements pb.PathInterpolatorServiceServer.
+type PathInterpolatorServer struct {
+	pb.UnimplementedPathInterpolatorServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TransformationServer) NewTransformation(_ context.Context, req *pb.NewTransformationRequest) (*pb.NewTransformationResponse, error) {
-	obj, err := jnipkg2.NewTransformation(s.Ctx.VM)
+func (s *PathInterpolatorServer) NewPathInterpolator(_ context.Context, req *pb.NewPathInterpolatorRequest) (*pb.NewPathInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewPathInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -3919,151 +3936,71 @@ func (s *TransformationServer) NewTransformation(_ context.Context, req *pb.NewT
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewTransformationResponse{Result: handle}, nil
+	return &pb.NewPathInterpolatorResponse{Result: handle}, nil
 }
 
-func (s *TransformationServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
+func (s *PathInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg2.PathInterpolator{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Clear(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearResponse{}, nil
-}
-
-func (s *TransformationServer) Compose(_ context.Context, req *pb.ComposeRequest) (*pb.ComposeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Compose(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComposeResponse{}, nil
-}
-
-func (s *TransformationServer) GetAlpha(_ context.Context, req *pb.GetAlphaRequest) (*pb.GetAlphaResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAlpha()
+	result, err := mgr.GetInterpolation(req.GetArg0())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetAlphaResponse{Result: result}, nil
+	return &pb.GetInterpolationResponse{Result: result}, nil
 }
 
-func (s *TransformationServer) GetMatrix(_ context.Context, req *pb.GetMatrixRequest) (*pb.GetMatrixResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+// AlphaAnimationServer implements pb.AlphaAnimationServiceServer.
+type AlphaAnimationServer struct {
+	pb.UnimplementedAlphaAnimationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
 
-	result, err := mgr.GetMatrix()
+func (s *AlphaAnimationServer) NewAlphaAnimation(_ context.Context, req *pb.NewAlphaAnimationRequest) (*pb.NewAlphaAnimationResponse, error) {
+	obj, err := jnipkg2.NewAlphaAnimation(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
 	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.GetMatrixResponse{Result: handle}, nil
+	return &pb.NewAlphaAnimationResponse{Result: handle}, nil
 }
 
-func (s *TransformationServer) GetTransformationType(_ context.Context, req *pb.GetTransformationTypeRequest) (*pb.GetTransformationTypeResponse, error) {
+func (s *AlphaAnimationServer) WillChangeBounds(_ context.Context, req *pb.WillChangeBoundsRequest) (*pb.WillChangeBoundsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg2.AlphaAnimation{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetTransformationType()
+	result, err := mgr.WillChangeBounds()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetTransformationTypeResponse{Result: result}, nil
+	return &pb.WillChangeBoundsResponse{Result: result}, nil
 }
 
-func (s *TransformationServer) Set(_ context.Context, req *pb.SetRequest) (*pb.SetResponse, error) {
+func (s *AlphaAnimationServer) WillChangeTransformationMatrix(_ context.Context, req *pb.WillChangeTransformationMatrixRequest) (*pb.WillChangeTransformationMatrixResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg2.AlphaAnimation{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Set(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetResponse{}, nil
-}
-
-func (s *TransformationServer) SetAlpha(_ context.Context, req *pb.SetAlphaRequest) (*pb.SetAlphaResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetAlpha(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetAlphaResponse{}, nil
-}
-
-func (s *TransformationServer) SetTransformationType(_ context.Context, req *pb.SetTransformationTypeRequest) (*pb.SetTransformationTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetTransformationType(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTransformationTypeResponse{}, nil
-}
-
-func (s *TransformationServer) ToShortString(_ context.Context, req *pb.ToShortStringRequest) (*pb.ToShortStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToShortString()
+	result, err := mgr.WillChangeTransformationMatrix()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.ToShortStringResponse{Result: result}, nil
-}
-
-func (s *TransformationServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Transformation{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
+	return &pb.WillChangeTransformationMatrixResponse{Result: result}, nil
 }
 
 // BounceInterpolatorServer implements pb.BounceInterpolatorServiceServer.
@@ -4088,7 +4025,7 @@ func (s *BounceInterpolatorServer) NewBounceInterpolator(_ context.Context, req 
 	return &pb.NewBounceInterpolatorResponse{Result: handle}, nil
 }
 
-func (s *BounceInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+func (s *BounceInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -4102,15 +4039,15 @@ func (s *BounceInterpolatorServer) GetInterpolation(_ context.Context, req *pb.A
 	return &pb.GetInterpolationResponse{Result: result}, nil
 }
 
-// OvershootInterpolatorServer implements pb.OvershootInterpolatorServiceServer.
-type OvershootInterpolatorServer struct {
-	pb.UnimplementedOvershootInterpolatorServiceServer
+// LinearInterpolatorServer implements pb.LinearInterpolatorServiceServer.
+type LinearInterpolatorServer struct {
+	pb.UnimplementedLinearInterpolatorServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *OvershootInterpolatorServer) NewOvershootInterpolator(_ context.Context, req *pb.NewOvershootInterpolatorRequest) (*pb.NewOvershootInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewOvershootInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+func (s *LinearInterpolatorServer) NewLinearInterpolator(_ context.Context, req *pb.NewLinearInterpolatorRequest) (*pb.NewLinearInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewLinearInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -4121,15 +4058,432 @@ func (s *OvershootInterpolatorServer) NewOvershootInterpolator(_ context.Context
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewOvershootInterpolatorResponse{Result: handle}, nil
+	return &pb.NewLinearInterpolatorResponse{Result: handle}, nil
 }
 
-func (s *OvershootInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+func (s *LinearInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg2.OvershootInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg2.LinearInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolation(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterpolationResponse{Result: result}, nil
+}
+
+// AnticipateOvershootInterpolatorServer implements pb.AnticipateOvershootInterpolatorServiceServer.
+type AnticipateOvershootInterpolatorServer struct {
+	pb.UnimplementedAnticipateOvershootInterpolatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AnticipateOvershootInterpolatorServer) NewAnticipateOvershootInterpolator(_ context.Context, req *pb.NewAnticipateOvershootInterpolatorRequest) (*pb.NewAnticipateOvershootInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewAnticipateOvershootInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAnticipateOvershootInterpolatorResponse{Result: handle}, nil
+}
+
+func (s *AnticipateOvershootInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.AnticipateOvershootInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolation(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterpolationResponse{Result: result}, nil
+}
+
+// AnticipateInterpolatorServer implements pb.AnticipateInterpolatorServiceServer.
+type AnticipateInterpolatorServer struct {
+	pb.UnimplementedAnticipateInterpolatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AnticipateInterpolatorServer) NewAnticipateInterpolator(_ context.Context, req *pb.NewAnticipateInterpolatorRequest) (*pb.NewAnticipateInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewAnticipateInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAnticipateInterpolatorResponse{Result: handle}, nil
+}
+
+func (s *AnticipateInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.AnticipateInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolation(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterpolationResponse{Result: result}, nil
+}
+
+// ScaleAnimationServer implements pb.ScaleAnimationServiceServer.
+type ScaleAnimationServer struct {
+	pb.UnimplementedScaleAnimationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ScaleAnimationServer) NewScaleAnimation(_ context.Context, req *pb.NewScaleAnimationRequest) (*pb.NewScaleAnimationResponse, error) {
+	obj, err := jnipkg2.NewScaleAnimation(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewScaleAnimationResponse{Result: handle}, nil
+}
+
+func (s *ScaleAnimationServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.ScaleAnimation{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Initialize(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InitializeResponse{}, nil
+}
+
+// LayoutAnimationControllerServer implements pb.LayoutAnimationControllerServiceServer.
+type LayoutAnimationControllerServer struct {
+	pb.UnimplementedLayoutAnimationControllerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LayoutAnimationControllerServer) NewLayoutAnimationController(_ context.Context, req *pb.NewLayoutAnimationControllerRequest) (*pb.NewLayoutAnimationControllerResponse, error) {
+	obj, err := jnipkg2.NewLayoutAnimationController(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewLayoutAnimationControllerResponse{Result: handle}, nil
+}
+
+func (s *LayoutAnimationControllerServer) GetAnimation(_ context.Context, req *pb.GetAnimationRequest) (*pb.GetAnimationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAnimation()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAnimationResponse{Result: handle}, nil
+}
+
+func (s *LayoutAnimationControllerServer) GetAnimationForView(_ context.Context, req *pb.GetAnimationForViewRequest) (*pb.GetAnimationForViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAnimationForView(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAnimationForViewResponse{Result: handle}, nil
+}
+
+func (s *LayoutAnimationControllerServer) GetDelay(_ context.Context, req *pb.GetDelayRequest) (*pb.GetDelayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDelay()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDelayResponse{Result: result}, nil
+}
+
+func (s *LayoutAnimationControllerServer) GetInterpolator(_ context.Context, req *pb.GetInterpolatorRequest) (*pb.GetInterpolatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInterpolatorResponse{Result: handle}, nil
+}
+
+func (s *LayoutAnimationControllerServer) GetOrder(_ context.Context, req *pb.GetOrderRequest) (*pb.GetOrderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOrder()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOrderResponse{Result: result}, nil
+}
+
+func (s *LayoutAnimationControllerServer) IsDone(_ context.Context, req *pb.IsDoneRequest) (*pb.IsDoneResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsDone()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsDoneResponse{Result: result}, nil
+}
+
+func (s *LayoutAnimationControllerServer) SetAnimation2(_ context.Context, req *pb.SetAnimation2Request) (*pb.SetAnimation2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAnimation2(s.Ctx.Obj, req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAnimation2Response{}, nil
+}
+
+func (s *LayoutAnimationControllerServer) SetAnimation1_1(_ context.Context, req *pb.SetAnimation1_1Request) (*pb.SetAnimation1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAnimation1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAnimation1_1Response{}, nil
+}
+
+func (s *LayoutAnimationControllerServer) SetDelay(_ context.Context, req *pb.SetDelayRequest) (*pb.SetDelayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDelay(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDelayResponse{}, nil
+}
+
+func (s *LayoutAnimationControllerServer) SetInterpolator2(_ context.Context, req *pb.SetInterpolator2Request) (*pb.SetInterpolator2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetInterpolator2(s.Ctx.Obj, req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetInterpolator2Response{}, nil
+}
+
+func (s *LayoutAnimationControllerServer) SetInterpolator1_1(_ context.Context, req *pb.SetInterpolator1_1Request) (*pb.SetInterpolator1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetInterpolator1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetInterpolator1_1Response{}, nil
+}
+
+func (s *LayoutAnimationControllerServer) SetOrder(_ context.Context, req *pb.SetOrderRequest) (*pb.SetOrderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOrder(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOrderResponse{}, nil
+}
+
+func (s *LayoutAnimationControllerServer) Start(_ context.Context, req *pb.StartRequest) (*pb.StartResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Start(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartResponse{}, nil
+}
+
+func (s *LayoutAnimationControllerServer) WillOverlap(_ context.Context, req *pb.WillOverlapRequest) (*pb.WillOverlapResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.LayoutAnimationController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.WillOverlap()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WillOverlapResponse{Result: result}, nil
+}
+
+// AccelerateDecelerateInterpolatorServer implements pb.AccelerateDecelerateInterpolatorServiceServer.
+type AccelerateDecelerateInterpolatorServer struct {
+	pb.UnimplementedAccelerateDecelerateInterpolatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AccelerateDecelerateInterpolatorServer) NewAccelerateDecelerateInterpolator(_ context.Context, req *pb.NewAccelerateDecelerateInterpolatorRequest) (*pb.NewAccelerateDecelerateInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewAccelerateDecelerateInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAccelerateDecelerateInterpolatorResponse{Result: handle}, nil
+}
+
+func (s *AccelerateDecelerateInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.AccelerateDecelerateInterpolator{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterpolation(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterpolationResponse{Result: result}, nil
+}
+
+// AccelerateInterpolatorServer implements pb.AccelerateInterpolatorServiceServer.
+type AccelerateInterpolatorServer struct {
+	pb.UnimplementedAccelerateInterpolatorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AccelerateInterpolatorServer) NewAccelerateInterpolator(_ context.Context, req *pb.NewAccelerateInterpolatorRequest) (*pb.NewAccelerateInterpolatorResponse, error) {
+	obj, err := jnipkg2.NewAccelerateInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAccelerateInterpolatorResponse{Result: handle}, nil
+}
+
+func (s *AccelerateInterpolatorServer) GetInterpolation(_ context.Context, req *pb.CycleInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg2.AccelerateInterpolator{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetInterpolation(req.GetArg0())
 	if err != nil {
@@ -4171,289 +4525,4 @@ func (s *TranslateAnimationServer) Initialize(_ context.Context, req *pb.Initial
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.InitializeResponse{}, nil
-}
-
-// SetServer implements pb.SetServiceServer.
-type SetServer struct {
-	pb.UnimplementedSetServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SetServer) NewSet(_ context.Context, req *pb.NewSetRequest) (*pb.NewSetResponse, error) {
-	obj, err := jnipkg2.NewSet(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSetResponse{Result: handle}, nil
-}
-
-func (s *SetServer) AddAnimation(_ context.Context, req *pb.AddAnimationRequest) (*pb.AddAnimationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.AddAnimation(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddAnimationResponse{}, nil
-}
-
-func (s *SetServer) ComputeDurationHint(_ context.Context, req *pb.SetComputeDurationHintRequest) (*pb.ComputeDurationHintResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ComputeDurationHint()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComputeDurationHintResponse{Result: result}, nil
-}
-
-func (s *SetServer) GetDuration(_ context.Context, req *pb.SetGetDurationRequest) (*pb.GetDurationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDuration()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDurationResponse{Result: result}, nil
-}
-
-func (s *SetServer) GetStartTime(_ context.Context, req *pb.SetGetStartTimeRequest) (*pb.GetStartTimeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStartTime()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStartTimeResponse{Result: result}, nil
-}
-
-func (s *SetServer) GetTransformation(_ context.Context, req *pb.GetTransformationRequest) (*pb.GetTransformationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTransformation(req.GetArg0(), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTransformationResponse{Result: result}, nil
-}
-
-func (s *SetServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Initialize(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.InitializeResponse{}, nil
-}
-
-func (s *SetServer) Reset(_ context.Context, req *pb.SetResetRequest) (*pb.ResetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Reset(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ResetResponse{}, nil
-}
-
-func (s *SetServer) RestrictDuration(_ context.Context, req *pb.SetRestrictDurationRequest) (*pb.RestrictDurationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RestrictDuration(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RestrictDurationResponse{}, nil
-}
-
-func (s *SetServer) ScaleCurrentDuration(_ context.Context, req *pb.SetScaleCurrentDurationRequest) (*pb.ScaleCurrentDurationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.ScaleCurrentDuration(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ScaleCurrentDurationResponse{}, nil
-}
-
-func (s *SetServer) SetDuration(_ context.Context, req *pb.SetSetDurationRequest) (*pb.AnimationSetDurationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetDuration(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AnimationSetDurationResponse{}, nil
-}
-
-func (s *SetServer) SetFillAfter(_ context.Context, req *pb.SetSetFillAfterRequest) (*pb.SetFillAfterResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetFillAfter(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetFillAfterResponse{}, nil
-}
-
-func (s *SetServer) SetFillBefore(_ context.Context, req *pb.SetSetFillBeforeRequest) (*pb.SetFillBeforeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetFillBefore(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetFillBeforeResponse{}, nil
-}
-
-func (s *SetServer) SetRepeatMode(_ context.Context, req *pb.SetSetRepeatModeRequest) (*pb.SetRepeatModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetRepeatMode(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetRepeatModeResponse{}, nil
-}
-
-func (s *SetServer) SetStartOffset(_ context.Context, req *pb.SetSetStartOffsetRequest) (*pb.SetStartOffsetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetStartOffset(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetStartOffsetResponse{}, nil
-}
-
-func (s *SetServer) SetStartTime(_ context.Context, req *pb.SetSetStartTimeRequest) (*pb.SetStartTimeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetStartTime(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetStartTimeResponse{}, nil
-}
-
-func (s *SetServer) WillChangeBounds(_ context.Context, req *pb.SetWillChangeBoundsRequest) (*pb.WillChangeBoundsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.WillChangeBounds()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WillChangeBoundsResponse{Result: result}, nil
-}
-
-func (s *SetServer) WillChangeTransformationMatrix(_ context.Context, req *pb.SetWillChangeTransformationMatrixRequest) (*pb.WillChangeTransformationMatrixResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.Set{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.WillChangeTransformationMatrix()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WillChangeTransformationMatrixResponse{Result: result}, nil
-}
-
-// AnticipateInterpolatorServer implements pb.AnticipateInterpolatorServiceServer.
-type AnticipateInterpolatorServer struct {
-	pb.UnimplementedAnticipateInterpolatorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AnticipateInterpolatorServer) NewAnticipateInterpolator(_ context.Context, req *pb.NewAnticipateInterpolatorRequest) (*pb.NewAnticipateInterpolatorResponse, error) {
-	obj, err := jnipkg2.NewAnticipateInterpolator(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAnticipateInterpolatorResponse{Result: handle}, nil
-}
-
-func (s *AnticipateInterpolatorServer) GetInterpolation(_ context.Context, req *pb.AccelerateDecelerateInterpolatorGetInterpolationRequest) (*pb.GetInterpolationResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg2.AnticipateInterpolator{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInterpolation(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInterpolationResponse{Result: result}, nil
 }

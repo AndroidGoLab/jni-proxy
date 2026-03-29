@@ -12,1135 +12,6 @@ var sqliteCmd = &cobra.Command{
 	Short: "sqlite service operations",
 }
 
-var sqliteSQLiteRawStatementCmd = &cobra.Command{
-	Use:   "sq-lite-raw-statement",
-	Short: "SQLiteRawStatementService operations",
-}
-
-var sqliteSQLiteRawStatementBindBlob2Cmd = &cobra.Command{
-	Use:   "bind-blob2",
-	Short: "BindBlob2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.BindBlob2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.BindBlob2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementBindBlob4_1Cmd = &cobra.Command{
-	Use:   "bind-blob4_1",
-	Short: "BindBlob4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.BindBlob4_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.BindBlob4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementBindDoubleCmd = &cobra.Command{
-	Use:   "bind-double",
-	Short: "BindDouble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.BindDoubleRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.BindDouble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementBindIntCmd = &cobra.Command{
-	Use:   "bind-int",
-	Short: "BindInt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.BindIntRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.BindInt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementBindLongCmd = &cobra.Command{
-	Use:   "bind-long",
-	Short: "BindLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.BindLongRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.BindLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementBindNullCmd = &cobra.Command{
-	Use:   "bind-null",
-	Short: "BindNull RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.BindNullRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.BindNull(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementBindTextCmd = &cobra.Command{
-	Use:   "bind-text",
-	Short: "BindText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.BindTextRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.BindText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementClearBindingsCmd = &cobra.Command{
-	Use:   "clear-bindings",
-	Short: "ClearBindings RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.ClearBindingsRequest{}
-		resp, err := client.ClearBindings(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetColumnBlobCmd = &cobra.Command{
-	Use:   "get-column-blob",
-	Short: "GetColumnBlob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetColumnBlobRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnBlob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetColumnDoubleCmd = &cobra.Command{
-	Use:   "get-column-double",
-	Short: "GetColumnDouble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetColumnDoubleRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnDouble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetColumnIntCmd = &cobra.Command{
-	Use:   "get-column-int",
-	Short: "GetColumnInt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetColumnIntRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnInt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetColumnLengthCmd = &cobra.Command{
-	Use:   "get-column-length",
-	Short: "GetColumnLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetColumnLengthRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetColumnLongCmd = &cobra.Command{
-	Use:   "get-column-long",
-	Short: "GetColumnLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetColumnLongRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetColumnNameCmd = &cobra.Command{
-	Use:   "get-column-name",
-	Short: "GetColumnName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetColumnNameRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetColumnTextCmd = &cobra.Command{
-	Use:   "get-column-text",
-	Short: "GetColumnText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetColumnTextRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetColumnTypeCmd = &cobra.Command{
-	Use:   "get-column-type",
-	Short: "GetColumnType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetColumnTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetParameterCountCmd = &cobra.Command{
-	Use:   "get-parameter-count",
-	Short: "GetParameterCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetParameterCountRequest{}
-		resp, err := client.GetParameterCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetParameterIndexCmd = &cobra.Command{
-	Use:   "get-parameter-index",
-	Short: "GetParameterIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetParameterIndexRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetParameterIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetParameterNameCmd = &cobra.Command{
-	Use:   "get-parameter-name",
-	Short: "GetParameterName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetParameterNameRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetParameterName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementGetResultColumnCountCmd = &cobra.Command{
-	Use:   "get-result-column-count",
-	Short: "GetResultColumnCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.GetResultColumnCountRequest{}
-		resp, err := client.GetResultColumnCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementIsOpenCmd = &cobra.Command{
-	Use:   "is-open",
-	Short: "IsOpen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.IsOpenRequest{}
-		resp, err := client.IsOpen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementReadColumnBlobCmd = &cobra.Command{
-	Use:   "read-column-blob",
-	Short: "ReadColumnBlob RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.ReadColumnBlobRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.ReadColumnBlob(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementResetCmd = &cobra.Command{
-	Use:   "reset",
-	Short: "Reset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.ResetRequest{}
-		resp, err := client.Reset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementStepCmd = &cobra.Command{
-	Use:   "step",
-	Short: "Step RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.StepRequest{}
-		resp, err := client.Step(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteRawStatementToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorCmd = &cobra.Command{
-	Use:   "sq-lite-cursor",
-	Short: "SQLiteCursorService operations",
-}
-
-var sqliteSQLiteCursorNewSQLiteCursorCmd = &cobra.Command{
-	Use:   "new-sq-lite-cursor",
-	Short: "NewSQLiteCursor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.NewSQLiteCursorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewSQLiteCursor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.SQLiteCursorCloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorDeactivateCmd = &cobra.Command{
-	Use:   "deactivate",
-	Short: "Deactivate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.DeactivateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Deactivate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorGetColumnIndexCmd = &cobra.Command{
-	Use:   "get-column-index",
-	Short: "GetColumnIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.GetColumnIndexRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetColumnIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorGetColumnNamesCmd = &cobra.Command{
-	Use:   "get-column-names",
-	Short: "GetColumnNames RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.GetColumnNamesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetColumnNames(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorGetCountCmd = &cobra.Command{
-	Use:   "get-count",
-	Short: "GetCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.GetCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorGetDatabaseCmd = &cobra.Command{
-	Use:   "get-database",
-	Short: "GetDatabase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.GetDatabaseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDatabase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorOnMoveCmd = &cobra.Command{
-	Use:   "on-move",
-	Short: "OnMove RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.OnMoveRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnMove(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorRequeryCmd = &cobra.Command{
-	Use:   "requery",
-	Short: "Requery RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.RequeryRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Requery(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorSetFillWindowForwardOnlyCmd = &cobra.Command{
-	Use:   "set-fill-window-forward-only",
-	Short: "SetFillWindowForwardOnly RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.SetFillWindowForwardOnlyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFillWindowForwardOnly(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorSetSelectionArgumentsCmd = &cobra.Command{
-	Use:   "set-selection-arguments",
-	Short: "SetSelectionArguments RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.SetSelectionArgumentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSelectionArguments(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorSetWindowCmd = &cobra.Command{
-	Use:   "set-window",
-	Short: "SetWindow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorServiceClient(grpcConn)
-		req := &pb.SetWindowRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWindow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteClosableCmd = &cobra.Command{
-	Use:   "sq-lite-closable",
-	Short: "SQLiteClosableService operations",
-}
-
-var sqliteSQLiteClosableAcquireReferenceCmd = &cobra.Command{
-	Use:   "acquire-reference",
-	Short: "AcquireReference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteClosableServiceClient(grpcConn)
-		req := &pb.AcquireReferenceRequest{}
-		resp, err := client.AcquireReference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteClosableCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteClosableServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteClosableReleaseReferenceCmd = &cobra.Command{
-	Use:   "release-reference",
-	Short: "ReleaseReference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteClosableServiceClient(grpcConn)
-		req := &pb.ReleaseReferenceRequest{}
-		resp, err := client.ReleaseReference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteClosableReleaseReferenceFromContainerCmd = &cobra.Command{
-	Use:   "release-reference-from-container",
-	Short: "ReleaseReferenceFromContainer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteClosableServiceClient(grpcConn)
-		req := &pb.ReleaseReferenceFromContainerRequest{}
-		resp, err := client.ReleaseReferenceFromContainer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteTransactionListenerCmd = &cobra.Command{
-	Use:   "sq-lite-transaction-listener",
-	Short: "SQLiteTransactionListenerService operations",
-}
-
-var sqliteSQLiteTransactionListenerOnBeginCmd = &cobra.Command{
-	Use:   "on-begin",
-	Short: "OnBegin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteTransactionListenerServiceClient(grpcConn)
-		req := &pb.OnBeginRequest{}
-		resp, err := client.OnBegin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteTransactionListenerOnCommitCmd = &cobra.Command{
-	Use:   "on-commit",
-	Short: "OnCommit RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteTransactionListenerServiceClient(grpcConn)
-		req := &pb.OnCommitRequest{}
-		resp, err := client.OnCommit(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteTransactionListenerOnRollbackCmd = &cobra.Command{
-	Use:   "on-rollback",
-	Short: "OnRollback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteTransactionListenerServiceClient(grpcConn)
-		req := &pb.OnRollbackRequest{}
-		resp, err := client.OnRollback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperCmd = &cobra.Command{
-	Use:   "sq-lite-open-helper",
-	Short: "SQLiteOpenHelperService operations",
-}
-
-var sqliteSQLiteOpenHelperGetDatabaseNameCmd = &cobra.Command{
-	Use:   "get-database-name",
-	Short: "GetDatabaseName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.GetDatabaseNameRequest{}
-		resp, err := client.GetDatabaseName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperGetReadableDatabaseCmd = &cobra.Command{
-	Use:   "get-readable-database",
-	Short: "GetReadableDatabase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.GetReadableDatabaseRequest{}
-		resp, err := client.GetReadableDatabase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperGetWritableDatabaseCmd = &cobra.Command{
-	Use:   "get-writable-database",
-	Short: "GetWritableDatabase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.GetWritableDatabaseRequest{}
-		resp, err := client.GetWritableDatabase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperOnConfigureCmd = &cobra.Command{
-	Use:   "on-configure",
-	Short: "OnConfigure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.OnConfigureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnConfigure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperOnCreateCmd = &cobra.Command{
-	Use:   "on-create",
-	Short: "OnCreate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.OnCreateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCreate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperOnDowngradeCmd = &cobra.Command{
-	Use:   "on-downgrade",
-	Short: "OnDowngrade RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.OnDowngradeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnDowngrade(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperOnOpenCmd = &cobra.Command{
-	Use:   "on-open",
-	Short: "OnOpen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.OnOpenRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnOpen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperOnUpgradeCmd = &cobra.Command{
-	Use:   "on-upgrade",
-	Short: "OnUpgrade RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.OnUpgradeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnUpgrade(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperSetIdleConnectionTimeoutCmd = &cobra.Command{
-	Use:   "set-idle-connection-timeout",
-	Short: "SetIdleConnectionTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.SetIdleConnectionTimeoutRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIdleConnectionTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperSetLookasideConfigCmd = &cobra.Command{
-	Use:   "set-lookaside-config",
-	Short: "SetLookasideConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.SetLookasideConfigRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetLookasideConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperSetOpenParamsCmd = &cobra.Command{
-	Use:   "set-open-params",
-	Short: "SetOpenParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.SetOpenParamsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOpenParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteOpenHelperSetWriteAheadLoggingEnabledCmd = &cobra.Command{
-	Use:   "set-write-ahead-logging-enabled",
-	Short: "SetWriteAheadLoggingEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
-		req := &pb.SetWriteAheadLoggingEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWriteAheadLoggingEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var sqliteSQLiteProgramCmd = &cobra.Command{
 	Use:   "sq-lite-program",
 	Short: "SQLiteProgramService operations",
@@ -3019,6 +1890,1370 @@ var sqliteSQLiteDatabaseOpenParamsGetSynchronousModeCmd = &cobra.Command{
 	},
 }
 
+var sqliteSQLiteStatementCmd = &cobra.Command{
+	Use:   "sq-lite-statement",
+	Short: "SQLiteStatementService operations",
+}
+
+var sqliteSQLiteStatementExecuteCmd = &cobra.Command{
+	Use:   "execute",
+	Short: "Execute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteStatementServiceClient(grpcConn)
+		req := &pb.ExecuteRequest{}
+		resp, err := client.Execute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteStatementExecuteInsertCmd = &cobra.Command{
+	Use:   "execute-insert",
+	Short: "ExecuteInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteStatementServiceClient(grpcConn)
+		req := &pb.ExecuteInsertRequest{}
+		resp, err := client.ExecuteInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteStatementExecuteUpdateDeleteCmd = &cobra.Command{
+	Use:   "execute-update-delete",
+	Short: "ExecuteUpdateDelete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteStatementServiceClient(grpcConn)
+		req := &pb.ExecuteUpdateDeleteRequest{}
+		resp, err := client.ExecuteUpdateDelete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteStatementSimpleQueryForBlobFileDescriptorCmd = &cobra.Command{
+	Use:   "simple-query-for-blob-file-descriptor",
+	Short: "SimpleQueryForBlobFileDescriptor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteStatementServiceClient(grpcConn)
+		req := &pb.SimpleQueryForBlobFileDescriptorRequest{}
+		resp, err := client.SimpleQueryForBlobFileDescriptor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteStatementSimpleQueryForLongCmd = &cobra.Command{
+	Use:   "simple-query-for-long",
+	Short: "SimpleQueryForLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteStatementServiceClient(grpcConn)
+		req := &pb.SimpleQueryForLongRequest{}
+		resp, err := client.SimpleQueryForLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteStatementSimpleQueryForStringCmd = &cobra.Command{
+	Use:   "simple-query-for-string",
+	Short: "SimpleQueryForString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteStatementServiceClient(grpcConn)
+		req := &pb.SimpleQueryForStringRequest{}
+		resp, err := client.SimpleQueryForString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteStatementToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteStatementServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperCmd = &cobra.Command{
+	Use:   "sq-lite-open-helper",
+	Short: "SQLiteOpenHelperService operations",
+}
+
+var sqliteSQLiteOpenHelperGetDatabaseNameCmd = &cobra.Command{
+	Use:   "get-database-name",
+	Short: "GetDatabaseName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.GetDatabaseNameRequest{}
+		resp, err := client.GetDatabaseName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperGetReadableDatabaseCmd = &cobra.Command{
+	Use:   "get-readable-database",
+	Short: "GetReadableDatabase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.GetReadableDatabaseRequest{}
+		resp, err := client.GetReadableDatabase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperGetWritableDatabaseCmd = &cobra.Command{
+	Use:   "get-writable-database",
+	Short: "GetWritableDatabase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.GetWritableDatabaseRequest{}
+		resp, err := client.GetWritableDatabase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperOnConfigureCmd = &cobra.Command{
+	Use:   "on-configure",
+	Short: "OnConfigure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.OnConfigureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConfigure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperOnCreateCmd = &cobra.Command{
+	Use:   "on-create",
+	Short: "OnCreate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.OnCreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCreate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperOnDowngradeCmd = &cobra.Command{
+	Use:   "on-downgrade",
+	Short: "OnDowngrade RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.OnDowngradeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnDowngrade(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperOnOpenCmd = &cobra.Command{
+	Use:   "on-open",
+	Short: "OnOpen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.OnOpenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnOpen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperOnUpgradeCmd = &cobra.Command{
+	Use:   "on-upgrade",
+	Short: "OnUpgrade RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.OnUpgradeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnUpgrade(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperSetIdleConnectionTimeoutCmd = &cobra.Command{
+	Use:   "set-idle-connection-timeout",
+	Short: "SetIdleConnectionTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.SetIdleConnectionTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIdleConnectionTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperSetLookasideConfigCmd = &cobra.Command{
+	Use:   "set-lookaside-config",
+	Short: "SetLookasideConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.SetLookasideConfigRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetLookasideConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperSetOpenParamsCmd = &cobra.Command{
+	Use:   "set-open-params",
+	Short: "SetOpenParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.SetOpenParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOpenParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteOpenHelperSetWriteAheadLoggingEnabledCmd = &cobra.Command{
+	Use:   "set-write-ahead-logging-enabled",
+	Short: "SetWriteAheadLoggingEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteOpenHelperServiceClient(grpcConn)
+		req := &pb.SetWriteAheadLoggingEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWriteAheadLoggingEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteTransactionListenerCmd = &cobra.Command{
+	Use:   "sq-lite-transaction-listener",
+	Short: "SQLiteTransactionListenerService operations",
+}
+
+var sqliteSQLiteTransactionListenerOnBeginCmd = &cobra.Command{
+	Use:   "on-begin",
+	Short: "OnBegin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteTransactionListenerServiceClient(grpcConn)
+		req := &pb.OnBeginRequest{}
+		resp, err := client.OnBegin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteTransactionListenerOnCommitCmd = &cobra.Command{
+	Use:   "on-commit",
+	Short: "OnCommit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteTransactionListenerServiceClient(grpcConn)
+		req := &pb.OnCommitRequest{}
+		resp, err := client.OnCommit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteTransactionListenerOnRollbackCmd = &cobra.Command{
+	Use:   "on-rollback",
+	Short: "OnRollback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteTransactionListenerServiceClient(grpcConn)
+		req := &pb.OnRollbackRequest{}
+		resp, err := client.OnRollback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorDriverCmd = &cobra.Command{
+	Use:   "sq-lite-cursor-driver",
+	Short: "SQLiteCursorDriverService operations",
+}
+
+var sqliteSQLiteCursorDriverCursorClosedCmd = &cobra.Command{
+	Use:   "cursor-closed",
+	Short: "CursorClosed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
+		req := &pb.CursorClosedRequest{}
+		resp, err := client.CursorClosed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorDriverCursorDeactivatedCmd = &cobra.Command{
+	Use:   "cursor-deactivated",
+	Short: "CursorDeactivated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
+		req := &pb.CursorDeactivatedRequest{}
+		resp, err := client.CursorDeactivated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorDriverCursorRequeriedCmd = &cobra.Command{
+	Use:   "cursor-requeried",
+	Short: "CursorRequeried RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
+		req := &pb.CursorRequeriedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CursorRequeried(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorDriverQueryCmd = &cobra.Command{
+	Use:   "query",
+	Short: "Query RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
+		req := &pb.QueryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Query(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorDriverSetBindArgumentsCmd = &cobra.Command{
+	Use:   "set-bind-arguments",
+	Short: "SetBindArguments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
+		req := &pb.SetBindArgumentsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBindArguments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteClosableCmd = &cobra.Command{
+	Use:   "sq-lite-closable",
+	Short: "SQLiteClosableService operations",
+}
+
+var sqliteSQLiteClosableAcquireReferenceCmd = &cobra.Command{
+	Use:   "acquire-reference",
+	Short: "AcquireReference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteClosableServiceClient(grpcConn)
+		req := &pb.AcquireReferenceRequest{}
+		resp, err := client.AcquireReference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteClosableCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteClosableServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteClosableReleaseReferenceCmd = &cobra.Command{
+	Use:   "release-reference",
+	Short: "ReleaseReference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteClosableServiceClient(grpcConn)
+		req := &pb.ReleaseReferenceRequest{}
+		resp, err := client.ReleaseReference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteClosableReleaseReferenceFromContainerCmd = &cobra.Command{
+	Use:   "release-reference-from-container",
+	Short: "ReleaseReferenceFromContainer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteClosableServiceClient(grpcConn)
+		req := &pb.ReleaseReferenceFromContainerRequest{}
+		resp, err := client.ReleaseReferenceFromContainer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementCmd = &cobra.Command{
+	Use:   "sq-lite-raw-statement",
+	Short: "SQLiteRawStatementService operations",
+}
+
+var sqliteSQLiteRawStatementBindBlob2Cmd = &cobra.Command{
+	Use:   "bind-blob2",
+	Short: "BindBlob2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.BindBlob2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BindBlob2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementBindBlob4_1Cmd = &cobra.Command{
+	Use:   "bind-blob4_1",
+	Short: "BindBlob4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.BindBlob4_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.BindBlob4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementBindDoubleCmd = &cobra.Command{
+	Use:   "bind-double",
+	Short: "BindDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.BindDoubleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BindDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementBindIntCmd = &cobra.Command{
+	Use:   "bind-int",
+	Short: "BindInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.BindIntRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BindInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementBindLongCmd = &cobra.Command{
+	Use:   "bind-long",
+	Short: "BindLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.BindLongRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BindLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementBindNullCmd = &cobra.Command{
+	Use:   "bind-null",
+	Short: "BindNull RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.BindNullRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.BindNull(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementBindTextCmd = &cobra.Command{
+	Use:   "bind-text",
+	Short: "BindText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.BindTextRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BindText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementClearBindingsCmd = &cobra.Command{
+	Use:   "clear-bindings",
+	Short: "ClearBindings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.ClearBindingsRequest{}
+		resp, err := client.ClearBindings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetColumnBlobCmd = &cobra.Command{
+	Use:   "get-column-blob",
+	Short: "GetColumnBlob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetColumnBlobRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnBlob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetColumnDoubleCmd = &cobra.Command{
+	Use:   "get-column-double",
+	Short: "GetColumnDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetColumnDoubleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetColumnIntCmd = &cobra.Command{
+	Use:   "get-column-int",
+	Short: "GetColumnInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetColumnIntRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetColumnLengthCmd = &cobra.Command{
+	Use:   "get-column-length",
+	Short: "GetColumnLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetColumnLengthRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetColumnLongCmd = &cobra.Command{
+	Use:   "get-column-long",
+	Short: "GetColumnLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetColumnLongRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetColumnNameCmd = &cobra.Command{
+	Use:   "get-column-name",
+	Short: "GetColumnName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetColumnNameRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetColumnTextCmd = &cobra.Command{
+	Use:   "get-column-text",
+	Short: "GetColumnText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetColumnTextRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetColumnTypeCmd = &cobra.Command{
+	Use:   "get-column-type",
+	Short: "GetColumnType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetColumnTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetParameterCountCmd = &cobra.Command{
+	Use:   "get-parameter-count",
+	Short: "GetParameterCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetParameterCountRequest{}
+		resp, err := client.GetParameterCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetParameterIndexCmd = &cobra.Command{
+	Use:   "get-parameter-index",
+	Short: "GetParameterIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetParameterIndexRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetParameterIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetParameterNameCmd = &cobra.Command{
+	Use:   "get-parameter-name",
+	Short: "GetParameterName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetParameterNameRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetParameterName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementGetResultColumnCountCmd = &cobra.Command{
+	Use:   "get-result-column-count",
+	Short: "GetResultColumnCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.GetResultColumnCountRequest{}
+		resp, err := client.GetResultColumnCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementIsOpenCmd = &cobra.Command{
+	Use:   "is-open",
+	Short: "IsOpen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.IsOpenRequest{}
+		resp, err := client.IsOpen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementReadColumnBlobCmd = &cobra.Command{
+	Use:   "read-column-blob",
+	Short: "ReadColumnBlob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.ReadColumnBlobRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.ReadColumnBlob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.ResetRequest{}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementStepCmd = &cobra.Command{
+	Use:   "step",
+	Short: "Step RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.StepRequest{}
+		resp, err := client.Step(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteRawStatementToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteRawStatementServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteQueryCmd = &cobra.Command{
+	Use:   "sq-lite-query",
+	Short: "SQLiteQueryService operations",
+}
+
+var sqliteSQLiteQueryToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteQueryServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorCmd = &cobra.Command{
+	Use:   "sq-lite-cursor",
+	Short: "SQLiteCursorService operations",
+}
+
+var sqliteSQLiteCursorNewSQLiteCursorCmd = &cobra.Command{
+	Use:   "new-sq-lite-cursor",
+	Short: "NewSQLiteCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.NewSQLiteCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewSQLiteCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.SQLiteCursorCloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorDeactivateCmd = &cobra.Command{
+	Use:   "deactivate",
+	Short: "Deactivate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.DeactivateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Deactivate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorGetColumnIndexCmd = &cobra.Command{
+	Use:   "get-column-index",
+	Short: "GetColumnIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.GetColumnIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorGetColumnNamesCmd = &cobra.Command{
+	Use:   "get-column-names",
+	Short: "GetColumnNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.GetColumnNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetColumnNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorGetDatabaseCmd = &cobra.Command{
+	Use:   "get-database",
+	Short: "GetDatabase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.GetDatabaseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDatabase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorOnMoveCmd = &cobra.Command{
+	Use:   "on-move",
+	Short: "OnMove RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.OnMoveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnMove(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorRequeryCmd = &cobra.Command{
+	Use:   "requery",
+	Short: "Requery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.RequeryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Requery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorSetFillWindowForwardOnlyCmd = &cobra.Command{
+	Use:   "set-fill-window-forward-only",
+	Short: "SetFillWindowForwardOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.SetFillWindowForwardOnlyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFillWindowForwardOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorSetSelectionArgumentsCmd = &cobra.Command{
+	Use:   "set-selection-arguments",
+	Short: "SetSelectionArguments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.SetSelectionArgumentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectionArguments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteCursorSetWindowCmd = &cobra.Command{
+	Use:   "set-window",
+	Short: "SetWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteCursorServiceClient(grpcConn)
+		req := &pb.SetWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var sqliteSQLiteQueryBuilderCmd = &cobra.Command{
 	Use:   "sq-lite-query-builder",
 	Short: "SQLiteQueryBuilderService operations",
@@ -3251,6 +3486,25 @@ var sqliteSQLiteQueryBuilderGetCursorFactoryCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetCursorFactory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sqliteSQLiteQueryBuilderGetProjectionGreylistCmd = &cobra.Command{
+	Use:   "get-projection-greylist",
+	Short: "GetProjectionGreylist RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSQLiteQueryBuilderServiceClient(grpcConn)
+		req := &pb.GetProjectionGreylistRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetProjectionGreylist(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3738,368 +3992,7 @@ var sqliteSQLiteQueryBuilderBuildQueryStringCmd = &cobra.Command{
 	},
 }
 
-var sqliteSQLiteCursorDriverCmd = &cobra.Command{
-	Use:   "sq-lite-cursor-driver",
-	Short: "SQLiteCursorDriverService operations",
-}
-
-var sqliteSQLiteCursorDriverCursorClosedCmd = &cobra.Command{
-	Use:   "cursor-closed",
-	Short: "CursorClosed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
-		req := &pb.CursorClosedRequest{}
-		resp, err := client.CursorClosed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorDriverCursorDeactivatedCmd = &cobra.Command{
-	Use:   "cursor-deactivated",
-	Short: "CursorDeactivated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
-		req := &pb.CursorDeactivatedRequest{}
-		resp, err := client.CursorDeactivated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorDriverCursorRequeriedCmd = &cobra.Command{
-	Use:   "cursor-requeried",
-	Short: "CursorRequeried RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
-		req := &pb.CursorRequeriedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CursorRequeried(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorDriverQueryCmd = &cobra.Command{
-	Use:   "query",
-	Short: "Query RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
-		req := &pb.QueryRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Query(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteCursorDriverSetBindArgumentsCmd = &cobra.Command{
-	Use:   "set-bind-arguments",
-	Short: "SetBindArguments RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteCursorDriverServiceClient(grpcConn)
-		req := &pb.SetBindArgumentsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBindArguments(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteQueryCmd = &cobra.Command{
-	Use:   "sq-lite-query",
-	Short: "SQLiteQueryService operations",
-}
-
-var sqliteSQLiteQueryToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteQueryServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteStatementCmd = &cobra.Command{
-	Use:   "sq-lite-statement",
-	Short: "SQLiteStatementService operations",
-}
-
-var sqliteSQLiteStatementExecuteCmd = &cobra.Command{
-	Use:   "execute",
-	Short: "Execute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteStatementServiceClient(grpcConn)
-		req := &pb.ExecuteRequest{}
-		resp, err := client.Execute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteStatementExecuteInsertCmd = &cobra.Command{
-	Use:   "execute-insert",
-	Short: "ExecuteInsert RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteStatementServiceClient(grpcConn)
-		req := &pb.ExecuteInsertRequest{}
-		resp, err := client.ExecuteInsert(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteStatementExecuteUpdateDeleteCmd = &cobra.Command{
-	Use:   "execute-update-delete",
-	Short: "ExecuteUpdateDelete RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteStatementServiceClient(grpcConn)
-		req := &pb.ExecuteUpdateDeleteRequest{}
-		resp, err := client.ExecuteUpdateDelete(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteStatementSimpleQueryForBlobFileDescriptorCmd = &cobra.Command{
-	Use:   "simple-query-for-blob-file-descriptor",
-	Short: "SimpleQueryForBlobFileDescriptor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteStatementServiceClient(grpcConn)
-		req := &pb.SimpleQueryForBlobFileDescriptorRequest{}
-		resp, err := client.SimpleQueryForBlobFileDescriptor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteStatementSimpleQueryForLongCmd = &cobra.Command{
-	Use:   "simple-query-for-long",
-	Short: "SimpleQueryForLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteStatementServiceClient(grpcConn)
-		req := &pb.SimpleQueryForLongRequest{}
-		resp, err := client.SimpleQueryForLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteStatementSimpleQueryForStringCmd = &cobra.Command{
-	Use:   "simple-query-for-string",
-	Short: "SimpleQueryForString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteStatementServiceClient(grpcConn)
-		req := &pb.SimpleQueryForStringRequest{}
-		resp, err := client.SimpleQueryForString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sqliteSQLiteStatementToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSQLiteStatementServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
-	sqliteSQLiteRawStatementBindBlob2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementBindBlob2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindBlob2Cmd)
-	sqliteSQLiteRawStatementBindBlob4_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementBindBlob4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sqliteSQLiteRawStatementBindBlob4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	sqliteSQLiteRawStatementBindBlob4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindBlob4_1Cmd)
-	sqliteSQLiteRawStatementBindDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementBindDoubleCmd.Flags().Float64("arg1", 0, "arg1 (float64)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindDoubleCmd)
-	sqliteSQLiteRawStatementBindIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementBindIntCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindIntCmd)
-	sqliteSQLiteRawStatementBindLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementBindLongCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindLongCmd)
-	sqliteSQLiteRawStatementBindNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindNullCmd)
-	sqliteSQLiteRawStatementBindTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementBindTextCmd.Flags().String("arg1", "", "arg1 (string)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindTextCmd)
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementClearBindingsCmd)
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementCloseCmd)
-	sqliteSQLiteRawStatementGetColumnBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnBlobCmd)
-	sqliteSQLiteRawStatementGetColumnDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnDoubleCmd)
-	sqliteSQLiteRawStatementGetColumnIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnIntCmd)
-	sqliteSQLiteRawStatementGetColumnLengthCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnLengthCmd)
-	sqliteSQLiteRawStatementGetColumnLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnLongCmd)
-	sqliteSQLiteRawStatementGetColumnNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnNameCmd)
-	sqliteSQLiteRawStatementGetColumnTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnTextCmd)
-	sqliteSQLiteRawStatementGetColumnTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnTypeCmd)
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetParameterCountCmd)
-	sqliteSQLiteRawStatementGetParameterIndexCmd.Flags().String("arg0", "", "arg0 (string)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetParameterIndexCmd)
-	sqliteSQLiteRawStatementGetParameterNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetParameterNameCmd)
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetResultColumnCountCmd)
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementIsOpenCmd)
-	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementReadColumnBlobCmd)
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementResetCmd)
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementStepCmd)
-	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementToStringCmd)
-	sqliteCmd.AddCommand(sqliteSQLiteRawStatementCmd)
-	sqliteSQLiteCursorNewSQLiteCursorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteCursorNewSQLiteCursorCmd.Flags().String("arg1", "", "arg1 (string)")
-	sqliteSQLiteCursorNewSQLiteCursorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorNewSQLiteCursorCmd)
-	sqliteSQLiteCursorCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorCloseCmd)
-	sqliteSQLiteCursorDeactivateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorDeactivateCmd)
-	sqliteSQLiteCursorGetColumnIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorGetColumnIndexCmd.Flags().String("arg0", "", "arg0 (string)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorGetColumnIndexCmd)
-	sqliteSQLiteCursorGetColumnNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorGetColumnNamesCmd)
-	sqliteSQLiteCursorGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorGetCountCmd)
-	sqliteSQLiteCursorGetDatabaseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorGetDatabaseCmd)
-	sqliteSQLiteCursorOnMoveCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorOnMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteCursorOnMoveCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorOnMoveCmd)
-	sqliteSQLiteCursorRequeryCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorRequeryCmd)
-	sqliteSQLiteCursorSetFillWindowForwardOnlyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorSetFillWindowForwardOnlyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorSetFillWindowForwardOnlyCmd)
-	sqliteSQLiteCursorSetSelectionArgumentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorSetSelectionArgumentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorSetSelectionArgumentsCmd)
-	sqliteSQLiteCursorSetWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sqliteSQLiteCursorSetWindowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorSetWindowCmd)
-	sqliteCmd.AddCommand(sqliteSQLiteCursorCmd)
-	sqliteSQLiteClosableCmd.AddCommand(sqliteSQLiteClosableAcquireReferenceCmd)
-	sqliteSQLiteClosableCmd.AddCommand(sqliteSQLiteClosableCloseCmd)
-	sqliteSQLiteClosableCmd.AddCommand(sqliteSQLiteClosableReleaseReferenceCmd)
-	sqliteSQLiteClosableCmd.AddCommand(sqliteSQLiteClosableReleaseReferenceFromContainerCmd)
-	sqliteCmd.AddCommand(sqliteSQLiteClosableCmd)
-	sqliteSQLiteTransactionListenerCmd.AddCommand(sqliteSQLiteTransactionListenerOnBeginCmd)
-	sqliteSQLiteTransactionListenerCmd.AddCommand(sqliteSQLiteTransactionListenerOnCommitCmd)
-	sqliteSQLiteTransactionListenerCmd.AddCommand(sqliteSQLiteTransactionListenerOnRollbackCmd)
-	sqliteCmd.AddCommand(sqliteSQLiteTransactionListenerCmd)
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperGetDatabaseNameCmd)
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperGetReadableDatabaseCmd)
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperGetWritableDatabaseCmd)
-	sqliteSQLiteOpenHelperOnConfigureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnConfigureCmd)
-	sqliteSQLiteOpenHelperOnCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnCreateCmd)
-	sqliteSQLiteOpenHelperOnDowngradeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteOpenHelperOnDowngradeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sqliteSQLiteOpenHelperOnDowngradeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnDowngradeCmd)
-	sqliteSQLiteOpenHelperOnOpenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnOpenCmd)
-	sqliteSQLiteOpenHelperOnUpgradeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteOpenHelperOnUpgradeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sqliteSQLiteOpenHelperOnUpgradeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnUpgradeCmd)
-	sqliteSQLiteOpenHelperSetIdleConnectionTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperSetIdleConnectionTimeoutCmd)
-	sqliteSQLiteOpenHelperSetLookasideConfigCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sqliteSQLiteOpenHelperSetLookasideConfigCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperSetLookasideConfigCmd)
-	sqliteSQLiteOpenHelperSetOpenParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperSetOpenParamsCmd)
-	sqliteSQLiteOpenHelperSetWriteAheadLoggingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperSetWriteAheadLoggingEnabledCmd)
-	sqliteCmd.AddCommand(sqliteSQLiteOpenHelperCmd)
 	sqliteSQLiteProgramBindAllArgsAsStringsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sqliteSQLiteProgramCmd.AddCommand(sqliteSQLiteProgramBindAllArgsAsStringsCmd)
 	sqliteSQLiteProgramBindBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -4342,6 +4235,152 @@ func init() {
 	sqliteSQLiteDatabaseOpenParamsCmd.AddCommand(sqliteSQLiteDatabaseOpenParamsGetOpenFlagsCmd)
 	sqliteSQLiteDatabaseOpenParamsCmd.AddCommand(sqliteSQLiteDatabaseOpenParamsGetSynchronousModeCmd)
 	sqliteCmd.AddCommand(sqliteSQLiteDatabaseOpenParamsCmd)
+	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementExecuteCmd)
+	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementExecuteInsertCmd)
+	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementExecuteUpdateDeleteCmd)
+	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementSimpleQueryForBlobFileDescriptorCmd)
+	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementSimpleQueryForLongCmd)
+	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementSimpleQueryForStringCmd)
+	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementToStringCmd)
+	sqliteCmd.AddCommand(sqliteSQLiteStatementCmd)
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperGetDatabaseNameCmd)
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperGetReadableDatabaseCmd)
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperGetWritableDatabaseCmd)
+	sqliteSQLiteOpenHelperOnConfigureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnConfigureCmd)
+	sqliteSQLiteOpenHelperOnCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnCreateCmd)
+	sqliteSQLiteOpenHelperOnDowngradeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteOpenHelperOnDowngradeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sqliteSQLiteOpenHelperOnDowngradeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnDowngradeCmd)
+	sqliteSQLiteOpenHelperOnOpenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnOpenCmd)
+	sqliteSQLiteOpenHelperOnUpgradeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteOpenHelperOnUpgradeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sqliteSQLiteOpenHelperOnUpgradeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperOnUpgradeCmd)
+	sqliteSQLiteOpenHelperSetIdleConnectionTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperSetIdleConnectionTimeoutCmd)
+	sqliteSQLiteOpenHelperSetLookasideConfigCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteOpenHelperSetLookasideConfigCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperSetLookasideConfigCmd)
+	sqliteSQLiteOpenHelperSetOpenParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperSetOpenParamsCmd)
+	sqliteSQLiteOpenHelperSetWriteAheadLoggingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	sqliteSQLiteOpenHelperCmd.AddCommand(sqliteSQLiteOpenHelperSetWriteAheadLoggingEnabledCmd)
+	sqliteCmd.AddCommand(sqliteSQLiteOpenHelperCmd)
+	sqliteSQLiteTransactionListenerCmd.AddCommand(sqliteSQLiteTransactionListenerOnBeginCmd)
+	sqliteSQLiteTransactionListenerCmd.AddCommand(sqliteSQLiteTransactionListenerOnCommitCmd)
+	sqliteSQLiteTransactionListenerCmd.AddCommand(sqliteSQLiteTransactionListenerOnRollbackCmd)
+	sqliteCmd.AddCommand(sqliteSQLiteTransactionListenerCmd)
+	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverCursorClosedCmd)
+	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverCursorDeactivatedCmd)
+	sqliteSQLiteCursorDriverCursorRequeriedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverCursorRequeriedCmd)
+	sqliteSQLiteCursorDriverQueryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteCursorDriverQueryCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverQueryCmd)
+	sqliteSQLiteCursorDriverSetBindArgumentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverSetBindArgumentsCmd)
+	sqliteCmd.AddCommand(sqliteSQLiteCursorDriverCmd)
+	sqliteSQLiteClosableCmd.AddCommand(sqliteSQLiteClosableAcquireReferenceCmd)
+	sqliteSQLiteClosableCmd.AddCommand(sqliteSQLiteClosableCloseCmd)
+	sqliteSQLiteClosableCmd.AddCommand(sqliteSQLiteClosableReleaseReferenceCmd)
+	sqliteSQLiteClosableCmd.AddCommand(sqliteSQLiteClosableReleaseReferenceFromContainerCmd)
+	sqliteCmd.AddCommand(sqliteSQLiteClosableCmd)
+	sqliteSQLiteRawStatementBindBlob2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementBindBlob2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindBlob2Cmd)
+	sqliteSQLiteRawStatementBindBlob4_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementBindBlob4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sqliteSQLiteRawStatementBindBlob4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	sqliteSQLiteRawStatementBindBlob4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindBlob4_1Cmd)
+	sqliteSQLiteRawStatementBindDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementBindDoubleCmd.Flags().Float64("arg1", 0, "arg1 (float64)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindDoubleCmd)
+	sqliteSQLiteRawStatementBindIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementBindIntCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindIntCmd)
+	sqliteSQLiteRawStatementBindLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementBindLongCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindLongCmd)
+	sqliteSQLiteRawStatementBindNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindNullCmd)
+	sqliteSQLiteRawStatementBindTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementBindTextCmd.Flags().String("arg1", "", "arg1 (string)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementBindTextCmd)
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementClearBindingsCmd)
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementCloseCmd)
+	sqliteSQLiteRawStatementGetColumnBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnBlobCmd)
+	sqliteSQLiteRawStatementGetColumnDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnDoubleCmd)
+	sqliteSQLiteRawStatementGetColumnIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnIntCmd)
+	sqliteSQLiteRawStatementGetColumnLengthCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnLengthCmd)
+	sqliteSQLiteRawStatementGetColumnLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnLongCmd)
+	sqliteSQLiteRawStatementGetColumnNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnNameCmd)
+	sqliteSQLiteRawStatementGetColumnTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnTextCmd)
+	sqliteSQLiteRawStatementGetColumnTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetColumnTypeCmd)
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetParameterCountCmd)
+	sqliteSQLiteRawStatementGetParameterIndexCmd.Flags().String("arg0", "", "arg0 (string)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetParameterIndexCmd)
+	sqliteSQLiteRawStatementGetParameterNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetParameterNameCmd)
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementGetResultColumnCountCmd)
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementIsOpenCmd)
+	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	sqliteSQLiteRawStatementReadColumnBlobCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementReadColumnBlobCmd)
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementResetCmd)
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementStepCmd)
+	sqliteSQLiteRawStatementCmd.AddCommand(sqliteSQLiteRawStatementToStringCmd)
+	sqliteCmd.AddCommand(sqliteSQLiteRawStatementCmd)
+	sqliteSQLiteQueryCmd.AddCommand(sqliteSQLiteQueryToStringCmd)
+	sqliteCmd.AddCommand(sqliteSQLiteQueryCmd)
+	sqliteSQLiteCursorNewSQLiteCursorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteCursorNewSQLiteCursorCmd.Flags().String("arg1", "", "arg1 (string)")
+	sqliteSQLiteCursorNewSQLiteCursorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorNewSQLiteCursorCmd)
+	sqliteSQLiteCursorCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorCloseCmd)
+	sqliteSQLiteCursorDeactivateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorDeactivateCmd)
+	sqliteSQLiteCursorGetColumnIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorGetColumnIndexCmd.Flags().String("arg0", "", "arg0 (string)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorGetColumnIndexCmd)
+	sqliteSQLiteCursorGetColumnNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorGetColumnNamesCmd)
+	sqliteSQLiteCursorGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorGetCountCmd)
+	sqliteSQLiteCursorGetDatabaseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorGetDatabaseCmd)
+	sqliteSQLiteCursorOnMoveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorOnMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sqliteSQLiteCursorOnMoveCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorOnMoveCmd)
+	sqliteSQLiteCursorRequeryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorRequeryCmd)
+	sqliteSQLiteCursorSetFillWindowForwardOnlyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorSetFillWindowForwardOnlyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorSetFillWindowForwardOnlyCmd)
+	sqliteSQLiteCursorSetSelectionArgumentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorSetSelectionArgumentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorSetSelectionArgumentsCmd)
+	sqliteSQLiteCursorSetWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteCursorSetWindowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sqliteSQLiteCursorCmd.AddCommand(sqliteSQLiteCursorSetWindowCmd)
+	sqliteCmd.AddCommand(sqliteSQLiteCursorCmd)
 	sqliteSQLiteQueryBuilderCmd.AddCommand(sqliteSQLiteQueryBuilderNewSQLiteQueryBuilderCmd)
 	sqliteSQLiteQueryBuilderAppendWhereCmd.Flags().Int64("handle", 0, "handle (int64)")
 	sqliteSQLiteQueryBuilderAppendWhereCmd.Flags().String("arg0", "", "arg0 (string)")
@@ -4381,6 +4420,8 @@ func init() {
 	sqliteSQLiteQueryBuilderCmd.AddCommand(sqliteSQLiteQueryBuilderDeleteCmd)
 	sqliteSQLiteQueryBuilderGetCursorFactoryCmd.Flags().Int64("handle", 0, "handle (int64)")
 	sqliteSQLiteQueryBuilderCmd.AddCommand(sqliteSQLiteQueryBuilderGetCursorFactoryCmd)
+	sqliteSQLiteQueryBuilderGetProjectionGreylistCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sqliteSQLiteQueryBuilderCmd.AddCommand(sqliteSQLiteQueryBuilderGetProjectionGreylistCmd)
 	sqliteSQLiteQueryBuilderGetTablesCmd.Flags().Int64("handle", 0, "handle (int64)")
 	sqliteSQLiteQueryBuilderCmd.AddCommand(sqliteSQLiteQueryBuilderGetTablesCmd)
 	sqliteSQLiteQueryBuilderInsertCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -4464,25 +4505,5 @@ func init() {
 	sqliteSQLiteQueryBuilderBuildQueryStringCmd.Flags().String("arg7", "", "arg7 (string)")
 	sqliteSQLiteQueryBuilderCmd.AddCommand(sqliteSQLiteQueryBuilderBuildQueryStringCmd)
 	sqliteCmd.AddCommand(sqliteSQLiteQueryBuilderCmd)
-	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverCursorClosedCmd)
-	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverCursorDeactivatedCmd)
-	sqliteSQLiteCursorDriverCursorRequeriedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverCursorRequeriedCmd)
-	sqliteSQLiteCursorDriverQueryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteCursorDriverQueryCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverQueryCmd)
-	sqliteSQLiteCursorDriverSetBindArgumentsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sqliteSQLiteCursorDriverCmd.AddCommand(sqliteSQLiteCursorDriverSetBindArgumentsCmd)
-	sqliteCmd.AddCommand(sqliteSQLiteCursorDriverCmd)
-	sqliteSQLiteQueryCmd.AddCommand(sqliteSQLiteQueryToStringCmd)
-	sqliteCmd.AddCommand(sqliteSQLiteQueryCmd)
-	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementExecuteCmd)
-	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementExecuteInsertCmd)
-	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementExecuteUpdateDeleteCmd)
-	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementSimpleQueryForBlobFileDescriptorCmd)
-	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementSimpleQueryForLongCmd)
-	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementSimpleQueryForStringCmd)
-	sqliteSQLiteStatementCmd.AddCommand(sqliteSQLiteStatementToStringCmd)
-	sqliteCmd.AddCommand(sqliteSQLiteStatementCmd)
 	rootCmd.AddCommand(sqliteCmd)
 }

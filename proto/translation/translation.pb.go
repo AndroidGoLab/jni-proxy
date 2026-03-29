@@ -23,6 +23,174 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type RegisterUiTranslationStateCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterUiTranslationStateCallbackRequest) Reset() {
+	*x = RegisterUiTranslationStateCallbackRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterUiTranslationStateCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterUiTranslationStateCallbackRequest) ProtoMessage() {}
+
+func (x *RegisterUiTranslationStateCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterUiTranslationStateCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RegisterUiTranslationStateCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *RegisterUiTranslationStateCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterUiTranslationStateCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RegisterUiTranslationStateCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterUiTranslationStateCallbackResponse) Reset() {
+	*x = RegisterUiTranslationStateCallbackResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterUiTranslationStateCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterUiTranslationStateCallbackResponse) ProtoMessage() {}
+
+func (x *RegisterUiTranslationStateCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterUiTranslationStateCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RegisterUiTranslationStateCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{1}
+}
+
+type UnregisterUiTranslationStateCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterUiTranslationStateCallbackRequest) Reset() {
+	*x = UnregisterUiTranslationStateCallbackRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterUiTranslationStateCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterUiTranslationStateCallbackRequest) ProtoMessage() {}
+
+func (x *UnregisterUiTranslationStateCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterUiTranslationStateCallbackRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterUiTranslationStateCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *UnregisterUiTranslationStateCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterUiTranslationStateCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterUiTranslationStateCallbackResponse) Reset() {
+	*x = UnregisterUiTranslationStateCallbackResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterUiTranslationStateCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterUiTranslationStateCallbackResponse) ProtoMessage() {}
+
+func (x *UnregisterUiTranslationStateCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterUiTranslationStateCallbackResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterUiTranslationStateCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{3}
+}
+
 type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -31,7 +199,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[0]
+	mi := &file_proto_translation_translation_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +211,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[0]
+	mi := &file_proto_translation_translation_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +224,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{0}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{4}
 }
 
 type DescribeContentsResponse struct {
@@ -68,7 +236,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[1]
+	mi := &file_proto_translation_translation_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -80,7 +248,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[1]
+	mi := &file_proto_translation_translation_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -93,7 +261,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{1}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -112,7 +280,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[2]
+	mi := &file_proto_translation_translation_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -124,7 +292,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[2]
+	mi := &file_proto_translation_translation_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -137,7 +305,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{2}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -156,7 +324,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[3]
+	mi := &file_proto_translation_translation_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -168,7 +336,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[3]
+	mi := &file_proto_translation_translation_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +349,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{3}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -199,7 +367,7 @@ type GetAutofillIdRequest struct {
 
 func (x *GetAutofillIdRequest) Reset() {
 	*x = GetAutofillIdRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[4]
+	mi := &file_proto_translation_translation_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -211,7 +379,7 @@ func (x *GetAutofillIdRequest) String() string {
 func (*GetAutofillIdRequest) ProtoMessage() {}
 
 func (x *GetAutofillIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[4]
+	mi := &file_proto_translation_translation_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -224,7 +392,7 @@ func (x *GetAutofillIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAutofillIdRequest.ProtoReflect.Descriptor instead.
 func (*GetAutofillIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{4}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{8}
 }
 
 type GetAutofillIdResponse struct {
@@ -236,7 +404,7 @@ type GetAutofillIdResponse struct {
 
 func (x *GetAutofillIdResponse) Reset() {
 	*x = GetAutofillIdResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[5]
+	mi := &file_proto_translation_translation_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -248,7 +416,7 @@ func (x *GetAutofillIdResponse) String() string {
 func (*GetAutofillIdResponse) ProtoMessage() {}
 
 func (x *GetAutofillIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[5]
+	mi := &file_proto_translation_translation_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -261,10 +429,90 @@ func (x *GetAutofillIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAutofillIdResponse.ProtoReflect.Descriptor instead.
 func (*GetAutofillIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{5}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetAutofillIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeysRequest) Reset() {
+	*x = GetKeysRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeysRequest) ProtoMessage() {}
+
+func (x *GetKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{10}
+}
+
+type GetKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeysResponse) Reset() {
+	*x = GetKeysResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeysResponse) ProtoMessage() {}
+
+func (x *GetKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetKeysResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -280,7 +528,7 @@ type GetValueRequest struct {
 
 func (x *GetValueRequest) Reset() {
 	*x = GetValueRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[6]
+	mi := &file_proto_translation_translation_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -292,7 +540,7 @@ func (x *GetValueRequest) String() string {
 func (*GetValueRequest) ProtoMessage() {}
 
 func (x *GetValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[6]
+	mi := &file_proto_translation_translation_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -305,7 +553,7 @@ func (x *GetValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValueRequest.ProtoReflect.Descriptor instead.
 func (*GetValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{6}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetValueRequest) GetArg0() string {
@@ -324,7 +572,7 @@ type GetValueResponse struct {
 
 func (x *GetValueResponse) Reset() {
 	*x = GetValueResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[7]
+	mi := &file_proto_translation_translation_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -336,7 +584,7 @@ func (x *GetValueResponse) String() string {
 func (*GetValueResponse) ProtoMessage() {}
 
 func (x *GetValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[7]
+	mi := &file_proto_translation_translation_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -349,7 +597,7 @@ func (x *GetValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValueResponse.ProtoReflect.Descriptor instead.
 func (*GetValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{7}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetValueResponse) GetResult() int64 {
@@ -367,7 +615,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[8]
+	mi := &file_proto_translation_translation_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -379,7 +627,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[8]
+	mi := &file_proto_translation_translation_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -392,7 +640,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{8}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{14}
 }
 
 type HashCodeResponse struct {
@@ -404,7 +652,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[9]
+	mi := &file_proto_translation_translation_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -416,7 +664,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[9]
+	mi := &file_proto_translation_translation_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -429,7 +677,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{9}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -447,7 +695,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[10]
+	mi := &file_proto_translation_translation_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -459,7 +707,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[10]
+	mi := &file_proto_translation_translation_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -472,7 +720,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{10}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{16}
 }
 
 type ToStringResponse struct {
@@ -484,7 +732,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[11]
+	mi := &file_proto_translation_translation_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -496,7 +744,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[11]
+	mi := &file_proto_translation_translation_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -509,7 +757,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{11}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -529,7 +777,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[12]
+	mi := &file_proto_translation_translation_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -541,7 +789,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[12]
+	mi := &file_proto_translation_translation_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -554,7 +802,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{12}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -579,7 +827,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[13]
+	mi := &file_proto_translation_translation_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -591,7 +839,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[13]
+	mi := &file_proto_translation_translation_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -604,7 +852,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{13}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{19}
 }
 
 type BuildRequest struct {
@@ -615,7 +863,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[14]
+	mi := &file_proto_translation_translation_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -627,7 +875,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[14]
+	mi := &file_proto_translation_translation_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -640,7 +888,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{14}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{20}
 }
 
 type BuildResponse struct {
@@ -652,7 +900,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[15]
+	mi := &file_proto_translation_translation_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -664,7 +912,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[15]
+	mi := &file_proto_translation_translation_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -677,7 +925,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{15}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -697,7 +945,7 @@ type SetValueRequest struct {
 
 func (x *SetValueRequest) Reset() {
 	*x = SetValueRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[16]
+	mi := &file_proto_translation_translation_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -709,7 +957,7 @@ func (x *SetValueRequest) String() string {
 func (*SetValueRequest) ProtoMessage() {}
 
 func (x *SetValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[16]
+	mi := &file_proto_translation_translation_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -722,7 +970,7 @@ func (x *SetValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetValueRequest.ProtoReflect.Descriptor instead.
 func (*SetValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{16}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *SetValueRequest) GetArg0() string {
@@ -748,7 +996,7 @@ type SetValueResponse struct {
 
 func (x *SetValueResponse) Reset() {
 	*x = SetValueResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[17]
+	mi := &file_proto_translation_translation_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -760,7 +1008,7 @@ func (x *SetValueResponse) String() string {
 func (*SetValueResponse) ProtoMessage() {}
 
 func (x *SetValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[17]
+	mi := &file_proto_translation_translation_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -773,338 +1021,10 @@ func (x *SetValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetValueResponse.ProtoReflect.Descriptor instead.
 func (*SetValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *SetValueResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type RegisterUiTranslationStateCallbackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterUiTranslationStateCallbackRequest) Reset() {
-	*x = RegisterUiTranslationStateCallbackRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterUiTranslationStateCallbackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterUiTranslationStateCallbackRequest) ProtoMessage() {}
-
-func (x *RegisterUiTranslationStateCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterUiTranslationStateCallbackRequest.ProtoReflect.Descriptor instead.
-func (*RegisterUiTranslationStateCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *RegisterUiTranslationStateCallbackRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *RegisterUiTranslationStateCallbackRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type RegisterUiTranslationStateCallbackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterUiTranslationStateCallbackResponse) Reset() {
-	*x = RegisterUiTranslationStateCallbackResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterUiTranslationStateCallbackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterUiTranslationStateCallbackResponse) ProtoMessage() {}
-
-func (x *RegisterUiTranslationStateCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterUiTranslationStateCallbackResponse.ProtoReflect.Descriptor instead.
-func (*RegisterUiTranslationStateCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{19}
-}
-
-type UnregisterUiTranslationStateCallbackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UnregisterUiTranslationStateCallbackRequest) Reset() {
-	*x = UnregisterUiTranslationStateCallbackRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UnregisterUiTranslationStateCallbackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnregisterUiTranslationStateCallbackRequest) ProtoMessage() {}
-
-func (x *UnregisterUiTranslationStateCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnregisterUiTranslationStateCallbackRequest.ProtoReflect.Descriptor instead.
-func (*UnregisterUiTranslationStateCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *UnregisterUiTranslationStateCallbackRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type UnregisterUiTranslationStateCallbackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UnregisterUiTranslationStateCallbackResponse) Reset() {
-	*x = UnregisterUiTranslationStateCallbackResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UnregisterUiTranslationStateCallbackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnregisterUiTranslationStateCallbackResponse) ProtoMessage() {}
-
-func (x *UnregisterUiTranslationStateCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnregisterUiTranslationStateCallbackResponse.ProtoReflect.Descriptor instead.
-func (*UnregisterUiTranslationStateCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{21}
-}
-
-type GetExtrasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtrasRequest) Reset() {
-	*x = GetExtrasRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtrasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtrasRequest) ProtoMessage() {}
-
-func (x *GetExtrasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtrasRequest.ProtoReflect.Descriptor instead.
-func (*GetExtrasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{22}
-}
-
-type GetExtrasResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtrasResponse) Reset() {
-	*x = GetExtrasResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtrasResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtrasResponse) ProtoMessage() {}
-
-func (x *GetExtrasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtrasResponse.ProtoReflect.Descriptor instead.
-func (*GetExtrasResponse) Descriptor() ([]byte, []int) {
 	return file_proto_translation_translation_proto_rawDescGZIP(), []int{23}
 }
 
-func (x *GetExtrasResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetStatusCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStatusCodeRequest) Reset() {
-	*x = GetStatusCodeRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStatusCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStatusCodeRequest) ProtoMessage() {}
-
-func (x *GetStatusCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStatusCodeRequest.ProtoReflect.Descriptor instead.
-func (*GetStatusCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{24}
-}
-
-type GetStatusCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStatusCodeResponse) Reset() {
-	*x = GetStatusCodeResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStatusCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStatusCodeResponse) ProtoMessage() {}
-
-func (x *GetStatusCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStatusCodeResponse.ProtoReflect.Descriptor instead.
-func (*GetStatusCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *GetStatusCodeResponse) GetResult() int32 {
+func (x *SetValueResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1119,7 +1039,7 @@ type GetTextRequest struct {
 
 func (x *GetTextRequest) Reset() {
 	*x = GetTextRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[26]
+	mi := &file_proto_translation_translation_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1131,7 +1051,7 @@ func (x *GetTextRequest) String() string {
 func (*GetTextRequest) ProtoMessage() {}
 
 func (x *GetTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[26]
+	mi := &file_proto_translation_translation_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1144,7 +1064,7 @@ func (x *GetTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTextRequest.ProtoReflect.Descriptor instead.
 func (*GetTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{26}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{24}
 }
 
 type GetTextResponse struct {
@@ -1156,7 +1076,7 @@ type GetTextResponse struct {
 
 func (x *GetTextResponse) Reset() {
 	*x = GetTextResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[27]
+	mi := &file_proto_translation_translation_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +1088,7 @@ func (x *GetTextResponse) String() string {
 func (*GetTextResponse) ProtoMessage() {}
 
 func (x *GetTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[27]
+	mi := &file_proto_translation_translation_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +1101,7 @@ func (x *GetTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTextResponse.ProtoReflect.Descriptor instead.
 func (*GetTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{27}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GetTextResponse) GetResult() int64 {
@@ -1191,27 +1111,28 @@ func (x *GetTextResponse) GetResult() int64 {
 	return 0
 }
 
-type GetTransliterationRequest struct {
+type ForTextRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTransliterationRequest) Reset() {
-	*x = GetTransliterationRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[28]
+func (x *ForTextRequest) Reset() {
+	*x = ForTextRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTransliterationRequest) String() string {
+func (x *ForTextRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTransliterationRequest) ProtoMessage() {}
+func (*ForTextRequest) ProtoMessage() {}
 
-func (x *GetTransliterationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[28]
+func (x *ForTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1222,113 +1143,40 @@ func (x *GetTransliterationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTransliterationRequest.ProtoReflect.Descriptor instead.
-func (*GetTransliterationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{28}
+// Deprecated: Use ForTextRequest.ProtoReflect.Descriptor instead.
+func (*ForTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{26}
 }
 
-type GetTransliterationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTransliterationResponse) Reset() {
-	*x = GetTransliterationResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTransliterationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTransliterationResponse) ProtoMessage() {}
-
-func (x *GetTransliterationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[29]
+func (x *ForTextRequest) GetArg0() string {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+		return x.Arg0
 	}
-	return mi.MessageOf(x)
+	return ""
 }
 
-// Deprecated: Use GetTransliterationResponse.ProtoReflect.Descriptor instead.
-func (*GetTransliterationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetTransliterationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ForErrorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ForErrorRequest) Reset() {
-	*x = ForErrorRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ForErrorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ForErrorRequest) ProtoMessage() {}
-
-func (x *ForErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ForErrorRequest.ProtoReflect.Descriptor instead.
-func (*ForErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{30}
-}
-
-type ForErrorResponse struct {
+type ForTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ForErrorResponse) Reset() {
-	*x = ForErrorResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[31]
+func (x *ForTextResponse) Reset() {
+	*x = ForTextResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ForErrorResponse) String() string {
+func (x *ForTextResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ForErrorResponse) ProtoMessage() {}
+func (*ForTextResponse) ProtoMessage() {}
 
-func (x *ForErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[31]
+func (x *ForTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1339,39 +1187,215 @@ func (x *ForErrorResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ForErrorResponse.ProtoReflect.Descriptor instead.
-func (*ForErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{31}
+// Deprecated: Use ForTextResponse.ProtoReflect.Descriptor instead.
+func (*ForTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{27}
 }
 
-func (x *ForErrorResponse) GetResult() int64 {
+func (x *ForTextResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetExtrasRequest struct {
+type OnClearTranslationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetExtrasRequest) Reset() {
-	*x = SetExtrasRequest{}
+func (x *OnClearTranslationRequest) Reset() {
+	*x = OnClearTranslationRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClearTranslationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClearTranslationRequest) ProtoMessage() {}
+
+func (x *OnClearTranslationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClearTranslationRequest.ProtoReflect.Descriptor instead.
+func (*OnClearTranslationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *OnClearTranslationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnClearTranslationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClearTranslationResponse) Reset() {
+	*x = OnClearTranslationResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClearTranslationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClearTranslationResponse) ProtoMessage() {}
+
+func (x *OnClearTranslationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClearTranslationResponse.ProtoReflect.Descriptor instead.
+func (*OnClearTranslationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *OnClearTranslationResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnHideTranslationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnHideTranslationRequest) Reset() {
+	*x = OnHideTranslationRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnHideTranslationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnHideTranslationRequest) ProtoMessage() {}
+
+func (x *OnHideTranslationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnHideTranslationRequest.ProtoReflect.Descriptor instead.
+func (*OnHideTranslationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *OnHideTranslationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnHideTranslationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnHideTranslationResponse) Reset() {
+	*x = OnHideTranslationResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnHideTranslationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnHideTranslationResponse) ProtoMessage() {}
+
+func (x *OnHideTranslationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnHideTranslationResponse.ProtoReflect.Descriptor instead.
+func (*OnHideTranslationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *OnHideTranslationResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnShowTranslationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnShowTranslationRequest) Reset() {
+	*x = OnShowTranslationRequest{}
 	mi := &file_proto_translation_translation_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetExtrasRequest) String() string {
+func (x *OnShowTranslationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetExtrasRequest) ProtoMessage() {}
+func (*OnShowTranslationRequest) ProtoMessage() {}
 
-func (x *SetExtrasRequest) ProtoReflect() protoreflect.Message {
+func (x *OnShowTranslationRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_translation_translation_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1383,39 +1407,39 @@ func (x *SetExtrasRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetExtrasRequest.ProtoReflect.Descriptor instead.
-func (*SetExtrasRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnShowTranslationRequest.ProtoReflect.Descriptor instead.
+func (*OnShowTranslationRequest) Descriptor() ([]byte, []int) {
 	return file_proto_translation_translation_proto_rawDescGZIP(), []int{32}
 }
 
-func (x *SetExtrasRequest) GetArg0() int64 {
+func (x *OnShowTranslationRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type SetExtrasResponse struct {
+type OnShowTranslationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetExtrasResponse) Reset() {
-	*x = SetExtrasResponse{}
+func (x *OnShowTranslationResponse) Reset() {
+	*x = OnShowTranslationResponse{}
 	mi := &file_proto_translation_translation_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetExtrasResponse) String() string {
+func (x *OnShowTranslationResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetExtrasResponse) ProtoMessage() {}
+func (*OnShowTranslationResponse) ProtoMessage() {}
 
-func (x *SetExtrasResponse) ProtoReflect() protoreflect.Message {
+func (x *OnShowTranslationResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_translation_translation_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1427,39 +1451,38 @@ func (x *SetExtrasResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetExtrasResponse.ProtoReflect.Descriptor instead.
-func (*SetExtrasResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnShowTranslationResponse.ProtoReflect.Descriptor instead.
+func (*OnShowTranslationResponse) Descriptor() ([]byte, []int) {
 	return file_proto_translation_translation_proto_rawDescGZIP(), []int{33}
 }
 
-func (x *SetExtrasResponse) GetResult() int64 {
+func (x *OnShowTranslationResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
-	return 0
+	return false
 }
 
-type SetTextRequest struct {
+type GetSourceSpecRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetTextRequest) Reset() {
-	*x = SetTextRequest{}
+func (x *GetSourceSpecRequest) Reset() {
+	*x = GetSourceSpecRequest{}
 	mi := &file_proto_translation_translation_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetTextRequest) String() string {
+func (x *GetSourceSpecRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetTextRequest) ProtoMessage() {}
+func (*GetSourceSpecRequest) ProtoMessage() {}
 
-func (x *SetTextRequest) ProtoReflect() protoreflect.Message {
+func (x *GetSourceSpecRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_translation_translation_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1471,39 +1494,32 @@ func (x *SetTextRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetTextRequest.ProtoReflect.Descriptor instead.
-func (*SetTextRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetSourceSpecRequest.ProtoReflect.Descriptor instead.
+func (*GetSourceSpecRequest) Descriptor() ([]byte, []int) {
 	return file_proto_translation_translation_proto_rawDescGZIP(), []int{34}
 }
 
-func (x *SetTextRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetTextResponse struct {
+type GetSourceSpecResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetTextResponse) Reset() {
-	*x = SetTextResponse{}
+func (x *GetSourceSpecResponse) Reset() {
+	*x = GetSourceSpecResponse{}
 	mi := &file_proto_translation_translation_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetTextResponse) String() string {
+func (x *GetSourceSpecResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetTextResponse) ProtoMessage() {}
+func (*GetSourceSpecResponse) ProtoMessage() {}
 
-func (x *SetTextResponse) ProtoReflect() protoreflect.Message {
+func (x *GetSourceSpecResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_translation_translation_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1515,39 +1531,38 @@ func (x *SetTextResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetTextResponse.ProtoReflect.Descriptor instead.
-func (*SetTextResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetSourceSpecResponse.ProtoReflect.Descriptor instead.
+func (*GetSourceSpecResponse) Descriptor() ([]byte, []int) {
 	return file_proto_translation_translation_proto_rawDescGZIP(), []int{35}
 }
 
-func (x *SetTextResponse) GetResult() int64 {
+func (x *GetSourceSpecResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetTransliterationRequest struct {
+type GetStateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetTransliterationRequest) Reset() {
-	*x = SetTransliterationRequest{}
+func (x *GetStateRequest) Reset() {
+	*x = GetStateRequest{}
 	mi := &file_proto_translation_translation_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetTransliterationRequest) String() string {
+func (x *GetStateRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetTransliterationRequest) ProtoMessage() {}
+func (*GetStateRequest) ProtoMessage() {}
 
-func (x *SetTransliterationRequest) ProtoReflect() protoreflect.Message {
+func (x *GetStateRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_translation_translation_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1559,40 +1574,193 @@ func (x *SetTransliterationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetTransliterationRequest.ProtoReflect.Descriptor instead.
-func (*SetTransliterationRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetStateRequest.ProtoReflect.Descriptor instead.
+func (*GetStateRequest) Descriptor() ([]byte, []int) {
 	return file_proto_translation_translation_proto_rawDescGZIP(), []int{36}
 }
 
-func (x *SetTransliterationRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
+type GetStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
-type SetTransliterationResponse struct {
+func (x *GetStateResponse) Reset() {
+	*x = GetStateResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStateResponse) ProtoMessage() {}
+
+func (x *GetStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStateResponse.ProtoReflect.Descriptor instead.
+func (*GetStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetStateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedTranslationFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedTranslationFlagsRequest) Reset() {
+	*x = GetSupportedTranslationFlagsRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedTranslationFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedTranslationFlagsRequest) ProtoMessage() {}
+
+func (x *GetSupportedTranslationFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedTranslationFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedTranslationFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{38}
+}
+
+type GetSupportedTranslationFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedTranslationFlagsResponse) Reset() {
+	*x = GetSupportedTranslationFlagsResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedTranslationFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedTranslationFlagsResponse) ProtoMessage() {}
+
+func (x *GetSupportedTranslationFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedTranslationFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedTranslationFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetSupportedTranslationFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTargetSpecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTargetSpecRequest) Reset() {
+	*x = GetTargetSpecRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTargetSpecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTargetSpecRequest) ProtoMessage() {}
+
+func (x *GetTargetSpecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTargetSpecRequest.ProtoReflect.Descriptor instead.
+func (*GetTargetSpecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{40}
+}
+
+type GetTargetSpecResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetTransliterationResponse) Reset() {
-	*x = SetTransliterationResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[37]
+func (x *GetTargetSpecResponse) Reset() {
+	*x = GetTargetSpecResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetTransliterationResponse) String() string {
+func (x *GetTargetSpecResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetTransliterationResponse) ProtoMessage() {}
+func (*GetTargetSpecResponse) ProtoMessage() {}
 
-func (x *SetTransliterationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[37]
+func (x *GetTargetSpecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1603,12 +1771,812 @@ func (x *SetTransliterationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetTransliterationResponse.ProtoReflect.Descriptor instead.
-func (*SetTransliterationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{37}
+// Deprecated: Use GetTargetSpecResponse.ProtoReflect.Descriptor instead.
+func (*GetTargetSpecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{41}
 }
 
-func (x *SetTransliterationResponse) GetResult() int64 {
+func (x *GetTargetSpecResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsUiTranslationEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsUiTranslationEnabledRequest) Reset() {
+	*x = IsUiTranslationEnabledRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsUiTranslationEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsUiTranslationEnabledRequest) ProtoMessage() {}
+
+func (x *IsUiTranslationEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsUiTranslationEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsUiTranslationEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{42}
+}
+
+type IsUiTranslationEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsUiTranslationEnabledResponse) Reset() {
+	*x = IsUiTranslationEnabledResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsUiTranslationEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsUiTranslationEnabledResponse) ProtoMessage() {}
+
+func (x *IsUiTranslationEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsUiTranslationEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsUiTranslationEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *IsUiTranslationEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnFinishedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFinishedRequest) Reset() {
+	*x = OnFinishedRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFinishedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFinishedRequest) ProtoMessage() {}
+
+func (x *OnFinishedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFinishedRequest.ProtoReflect.Descriptor instead.
+func (*OnFinishedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{44}
+}
+
+type OnFinishedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFinishedResponse) Reset() {
+	*x = OnFinishedResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFinishedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFinishedResponse) ProtoMessage() {}
+
+func (x *OnFinishedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFinishedResponse.ProtoReflect.Descriptor instead.
+func (*OnFinishedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{45}
+}
+
+type OnPausedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPausedRequest) Reset() {
+	*x = OnPausedRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPausedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPausedRequest) ProtoMessage() {}
+
+func (x *OnPausedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPausedRequest.ProtoReflect.Descriptor instead.
+func (*OnPausedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{46}
+}
+
+type OnPausedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPausedResponse) Reset() {
+	*x = OnPausedResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPausedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPausedResponse) ProtoMessage() {}
+
+func (x *OnPausedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPausedResponse.ProtoReflect.Descriptor instead.
+func (*OnPausedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{47}
+}
+
+type GetTranslationFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTranslationFlagsRequest) Reset() {
+	*x = GetTranslationFlagsRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTranslationFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTranslationFlagsRequest) ProtoMessage() {}
+
+func (x *GetTranslationFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTranslationFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetTranslationFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{48}
+}
+
+type GetTranslationFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTranslationFlagsResponse) Reset() {
+	*x = GetTranslationFlagsResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTranslationFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTranslationFlagsResponse) ProtoMessage() {}
+
+func (x *GetTranslationFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTranslationFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetTranslationFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetTranslationFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTranslationFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTranslationFlagsRequest) Reset() {
+	*x = SetTranslationFlagsRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTranslationFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTranslationFlagsRequest) ProtoMessage() {}
+
+func (x *SetTranslationFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTranslationFlagsRequest.ProtoReflect.Descriptor instead.
+func (*SetTranslationFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *SetTranslationFlagsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTranslationFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTranslationFlagsResponse) Reset() {
+	*x = SetTranslationFlagsResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTranslationFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTranslationFlagsResponse) ProtoMessage() {}
+
+func (x *SetTranslationFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTranslationFlagsResponse.ProtoReflect.Descriptor instead.
+func (*SetTranslationFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *SetTranslationFlagsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOnDeviceTranslationCapabilitiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOnDeviceTranslationCapabilitiesRequest) Reset() {
+	*x = GetOnDeviceTranslationCapabilitiesRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOnDeviceTranslationCapabilitiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnDeviceTranslationCapabilitiesRequest) ProtoMessage() {}
+
+func (x *GetOnDeviceTranslationCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnDeviceTranslationCapabilitiesRequest.ProtoReflect.Descriptor instead.
+func (*GetOnDeviceTranslationCapabilitiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *GetOnDeviceTranslationCapabilitiesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetOnDeviceTranslationCapabilitiesRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetOnDeviceTranslationCapabilitiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOnDeviceTranslationCapabilitiesResponse) Reset() {
+	*x = GetOnDeviceTranslationCapabilitiesResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOnDeviceTranslationCapabilitiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnDeviceTranslationCapabilitiesResponse) ProtoMessage() {}
+
+func (x *GetOnDeviceTranslationCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnDeviceTranslationCapabilitiesResponse.ProtoReflect.Descriptor instead.
+func (*GetOnDeviceTranslationCapabilitiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetOnDeviceTranslationCapabilitiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOnDeviceTranslationSettingsActivityIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOnDeviceTranslationSettingsActivityIntentRequest) Reset() {
+	*x = GetOnDeviceTranslationSettingsActivityIntentRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOnDeviceTranslationSettingsActivityIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnDeviceTranslationSettingsActivityIntentRequest) ProtoMessage() {}
+
+func (x *GetOnDeviceTranslationSettingsActivityIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnDeviceTranslationSettingsActivityIntentRequest.ProtoReflect.Descriptor instead.
+func (*GetOnDeviceTranslationSettingsActivityIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{54}
+}
+
+type GetOnDeviceTranslationSettingsActivityIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOnDeviceTranslationSettingsActivityIntentResponse) Reset() {
+	*x = GetOnDeviceTranslationSettingsActivityIntentResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOnDeviceTranslationSettingsActivityIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnDeviceTranslationSettingsActivityIntentResponse) ProtoMessage() {}
+
+func (x *GetOnDeviceTranslationSettingsActivityIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnDeviceTranslationSettingsActivityIntentResponse.ProtoReflect.Descriptor instead.
+func (*GetOnDeviceTranslationSettingsActivityIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetOnDeviceTranslationSettingsActivityIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DestroyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DestroyRequest) Reset() {
+	*x = DestroyRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DestroyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DestroyRequest) ProtoMessage() {}
+
+func (x *DestroyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DestroyRequest.ProtoReflect.Descriptor instead.
+func (*DestroyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{56}
+}
+
+type DestroyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DestroyResponse) Reset() {
+	*x = DestroyResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DestroyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DestroyResponse) ProtoMessage() {}
+
+func (x *DestroyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DestroyResponse.ProtoReflect.Descriptor instead.
+func (*DestroyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{57}
+}
+
+type IsDestroyedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDestroyedRequest) Reset() {
+	*x = IsDestroyedRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDestroyedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDestroyedRequest) ProtoMessage() {}
+
+func (x *IsDestroyedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDestroyedRequest.ProtoReflect.Descriptor instead.
+func (*IsDestroyedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{58}
+}
+
+type IsDestroyedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDestroyedResponse) Reset() {
+	*x = IsDestroyedResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDestroyedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDestroyedResponse) ProtoMessage() {}
+
+func (x *IsDestroyedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDestroyedResponse.ProtoReflect.Descriptor instead.
+func (*IsDestroyedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *IsDestroyedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetTranslationResponseValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTranslationResponseValuesRequest) Reset() {
+	*x = GetTranslationResponseValuesRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTranslationResponseValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTranslationResponseValuesRequest) ProtoMessage() {}
+
+func (x *GetTranslationResponseValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTranslationResponseValuesRequest.ProtoReflect.Descriptor instead.
+func (*GetTranslationResponseValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{60}
+}
+
+type GetTranslationResponseValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTranslationResponseValuesResponse) Reset() {
+	*x = GetTranslationResponseValuesResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTranslationResponseValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTranslationResponseValuesResponse) ProtoMessage() {}
+
+func (x *GetTranslationResponseValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTranslationResponseValuesResponse.ProtoReflect.Descriptor instead.
+func (*GetTranslationResponseValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetTranslationResponseValuesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1623,7 +2591,7 @@ type GetTranslationStatusRequest struct {
 
 func (x *GetTranslationStatusRequest) Reset() {
 	*x = GetTranslationStatusRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[38]
+	mi := &file_proto_translation_translation_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1635,7 +2603,7 @@ func (x *GetTranslationStatusRequest) String() string {
 func (*GetTranslationStatusRequest) ProtoMessage() {}
 
 func (x *GetTranslationStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[38]
+	mi := &file_proto_translation_translation_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1648,7 +2616,7 @@ func (x *GetTranslationStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTranslationStatusRequest.ProtoReflect.Descriptor instead.
 func (*GetTranslationStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{38}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{62}
 }
 
 type GetTranslationStatusResponse struct {
@@ -1660,7 +2628,7 @@ type GetTranslationStatusResponse struct {
 
 func (x *GetTranslationStatusResponse) Reset() {
 	*x = GetTranslationStatusResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[39]
+	mi := &file_proto_translation_translation_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1672,7 +2640,7 @@ func (x *GetTranslationStatusResponse) String() string {
 func (*GetTranslationStatusResponse) ProtoMessage() {}
 
 func (x *GetTranslationStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[39]
+	mi := &file_proto_translation_translation_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1685,10 +2653,90 @@ func (x *GetTranslationStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTranslationStatusResponse.ProtoReflect.Descriptor instead.
 func (*GetTranslationStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{39}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *GetTranslationStatusResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetViewTranslationResponsesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetViewTranslationResponsesRequest) Reset() {
+	*x = GetViewTranslationResponsesRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetViewTranslationResponsesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetViewTranslationResponsesRequest) ProtoMessage() {}
+
+func (x *GetViewTranslationResponsesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetViewTranslationResponsesRequest.ProtoReflect.Descriptor instead.
+func (*GetViewTranslationResponsesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{64}
+}
+
+type GetViewTranslationResponsesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetViewTranslationResponsesResponse) Reset() {
+	*x = GetViewTranslationResponsesResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetViewTranslationResponsesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetViewTranslationResponsesResponse) ProtoMessage() {}
+
+func (x *GetViewTranslationResponsesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetViewTranslationResponsesResponse.ProtoReflect.Descriptor instead.
+func (*GetViewTranslationResponsesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetViewTranslationResponsesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1703,7 +2751,7 @@ type IsFinalResponseRequest struct {
 
 func (x *IsFinalResponseRequest) Reset() {
 	*x = IsFinalResponseRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[40]
+	mi := &file_proto_translation_translation_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1715,7 +2763,7 @@ func (x *IsFinalResponseRequest) String() string {
 func (*IsFinalResponseRequest) ProtoMessage() {}
 
 func (x *IsFinalResponseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[40]
+	mi := &file_proto_translation_translation_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1728,7 +2776,7 @@ func (x *IsFinalResponseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsFinalResponseRequest.ProtoReflect.Descriptor instead.
 func (*IsFinalResponseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{40}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{66}
 }
 
 type IsFinalResponseResponse struct {
@@ -1740,7 +2788,7 @@ type IsFinalResponseResponse struct {
 
 func (x *IsFinalResponseResponse) Reset() {
 	*x = IsFinalResponseResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[41]
+	mi := &file_proto_translation_translation_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1752,7 +2800,7 @@ func (x *IsFinalResponseResponse) String() string {
 func (*IsFinalResponseResponse) ProtoMessage() {}
 
 func (x *IsFinalResponseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[41]
+	mi := &file_proto_translation_translation_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1765,7 +2813,7 @@ func (x *IsFinalResponseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsFinalResponseResponse.ProtoReflect.Descriptor instead.
 func (*IsFinalResponseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{41}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *IsFinalResponseResponse) GetResult() bool {
@@ -1784,7 +2832,7 @@ type SetFinalResponseRequest struct {
 
 func (x *SetFinalResponseRequest) Reset() {
 	*x = SetFinalResponseRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[42]
+	mi := &file_proto_translation_translation_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1796,7 +2844,7 @@ func (x *SetFinalResponseRequest) String() string {
 func (*SetFinalResponseRequest) ProtoMessage() {}
 
 func (x *SetFinalResponseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[42]
+	mi := &file_proto_translation_translation_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1809,7 +2857,7 @@ func (x *SetFinalResponseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFinalResponseRequest.ProtoReflect.Descriptor instead.
 func (*SetFinalResponseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{42}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *SetFinalResponseRequest) GetArg0() bool {
@@ -1828,7 +2876,7 @@ type SetFinalResponseResponse struct {
 
 func (x *SetFinalResponseResponse) Reset() {
 	*x = SetFinalResponseResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[43]
+	mi := &file_proto_translation_translation_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1840,7 +2888,7 @@ func (x *SetFinalResponseResponse) String() string {
 func (*SetFinalResponseResponse) ProtoMessage() {}
 
 func (x *SetFinalResponseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[43]
+	mi := &file_proto_translation_translation_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1853,7 +2901,7 @@ func (x *SetFinalResponseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFinalResponseResponse.ProtoReflect.Descriptor instead.
 func (*SetFinalResponseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{43}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *SetFinalResponseResponse) GetResult() int64 {
@@ -1873,7 +2921,7 @@ type SetTranslationResponseValueRequest struct {
 
 func (x *SetTranslationResponseValueRequest) Reset() {
 	*x = SetTranslationResponseValueRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[44]
+	mi := &file_proto_translation_translation_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1885,7 +2933,7 @@ func (x *SetTranslationResponseValueRequest) String() string {
 func (*SetTranslationResponseValueRequest) ProtoMessage() {}
 
 func (x *SetTranslationResponseValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[44]
+	mi := &file_proto_translation_translation_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1898,7 +2946,7 @@ func (x *SetTranslationResponseValueRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetTranslationResponseValueRequest.ProtoReflect.Descriptor instead.
 func (*SetTranslationResponseValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{44}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *SetTranslationResponseValueRequest) GetArg0() int32 {
@@ -1924,7 +2972,7 @@ type SetTranslationResponseValueResponse struct {
 
 func (x *SetTranslationResponseValueResponse) Reset() {
 	*x = SetTranslationResponseValueResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[45]
+	mi := &file_proto_translation_translation_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1936,7 +2984,7 @@ func (x *SetTranslationResponseValueResponse) String() string {
 func (*SetTranslationResponseValueResponse) ProtoMessage() {}
 
 func (x *SetTranslationResponseValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[45]
+	mi := &file_proto_translation_translation_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1949,7 +2997,7 @@ func (x *SetTranslationResponseValueResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetTranslationResponseValueResponse.ProtoReflect.Descriptor instead.
 func (*SetTranslationResponseValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{45}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *SetTranslationResponseValueResponse) GetResult() int64 {
@@ -1969,7 +3017,7 @@ type SetViewTranslationResponseRequest struct {
 
 func (x *SetViewTranslationResponseRequest) Reset() {
 	*x = SetViewTranslationResponseRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[46]
+	mi := &file_proto_translation_translation_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1981,7 +3029,7 @@ func (x *SetViewTranslationResponseRequest) String() string {
 func (*SetViewTranslationResponseRequest) ProtoMessage() {}
 
 func (x *SetViewTranslationResponseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[46]
+	mi := &file_proto_translation_translation_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1994,7 +3042,7 @@ func (x *SetViewTranslationResponseRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetViewTranslationResponseRequest.ProtoReflect.Descriptor instead.
 func (*SetViewTranslationResponseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{46}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *SetViewTranslationResponseRequest) GetArg0() int32 {
@@ -2020,7 +3068,7 @@ type SetViewTranslationResponseResponse struct {
 
 func (x *SetViewTranslationResponseResponse) Reset() {
 	*x = SetViewTranslationResponseResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[47]
+	mi := &file_proto_translation_translation_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2032,7 +3080,7 @@ func (x *SetViewTranslationResponseResponse) String() string {
 func (*SetViewTranslationResponseResponse) ProtoMessage() {}
 
 func (x *SetViewTranslationResponseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[47]
+	mi := &file_proto_translation_translation_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2045,178 +3093,10 @@ func (x *SetViewTranslationResponseResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetViewTranslationResponseResponse.ProtoReflect.Descriptor instead.
 func (*SetViewTranslationResponseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{47}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *SetViewTranslationResponseResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ForTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ForTextRequest) Reset() {
-	*x = ForTextRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ForTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ForTextRequest) ProtoMessage() {}
-
-func (x *ForTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ForTextRequest.ProtoReflect.Descriptor instead.
-func (*ForTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{48}
-}
-
-func (x *ForTextRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type ForTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ForTextResponse) Reset() {
-	*x = ForTextResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ForTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ForTextResponse) ProtoMessage() {}
-
-func (x *ForTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ForTextResponse.ProtoReflect.Descriptor instead.
-func (*ForTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *ForTextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetOnDeviceTranslationSettingsActivityIntentRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOnDeviceTranslationSettingsActivityIntentRequest) Reset() {
-	*x = GetOnDeviceTranslationSettingsActivityIntentRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOnDeviceTranslationSettingsActivityIntentRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOnDeviceTranslationSettingsActivityIntentRequest) ProtoMessage() {}
-
-func (x *GetOnDeviceTranslationSettingsActivityIntentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOnDeviceTranslationSettingsActivityIntentRequest.ProtoReflect.Descriptor instead.
-func (*GetOnDeviceTranslationSettingsActivityIntentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{50}
-}
-
-type GetOnDeviceTranslationSettingsActivityIntentResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOnDeviceTranslationSettingsActivityIntentResponse) Reset() {
-	*x = GetOnDeviceTranslationSettingsActivityIntentResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOnDeviceTranslationSettingsActivityIntentResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOnDeviceTranslationSettingsActivityIntentResponse) ProtoMessage() {}
-
-func (x *GetOnDeviceTranslationSettingsActivityIntentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOnDeviceTranslationSettingsActivityIntentResponse.ProtoReflect.Descriptor instead.
-func (*GetOnDeviceTranslationSettingsActivityIntentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *GetOnDeviceTranslationSettingsActivityIntentResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2231,7 +3111,7 @@ type GetFlagsRequest struct {
 
 func (x *GetFlagsRequest) Reset() {
 	*x = GetFlagsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[52]
+	mi := &file_proto_translation_translation_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2243,7 +3123,7 @@ func (x *GetFlagsRequest) String() string {
 func (*GetFlagsRequest) ProtoMessage() {}
 
 func (x *GetFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[52]
+	mi := &file_proto_translation_translation_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2256,7 +3136,7 @@ func (x *GetFlagsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFlagsRequest.ProtoReflect.Descriptor instead.
 func (*GetFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{52}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{74}
 }
 
 type GetFlagsResponse struct {
@@ -2268,7 +3148,7 @@ type GetFlagsResponse struct {
 
 func (x *GetFlagsResponse) Reset() {
 	*x = GetFlagsResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[53]
+	mi := &file_proto_translation_translation_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2280,7 +3160,7 @@ func (x *GetFlagsResponse) String() string {
 func (*GetFlagsResponse) ProtoMessage() {}
 
 func (x *GetFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[53]
+	mi := &file_proto_translation_translation_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2293,10 +3173,170 @@ func (x *GetFlagsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFlagsResponse.ProtoReflect.Descriptor instead.
 func (*GetFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{53}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *GetFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTranslationRequestValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTranslationRequestValuesRequest) Reset() {
+	*x = GetTranslationRequestValuesRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTranslationRequestValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTranslationRequestValuesRequest) ProtoMessage() {}
+
+func (x *GetTranslationRequestValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTranslationRequestValuesRequest.ProtoReflect.Descriptor instead.
+func (*GetTranslationRequestValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{76}
+}
+
+type GetTranslationRequestValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTranslationRequestValuesResponse) Reset() {
+	*x = GetTranslationRequestValuesResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTranslationRequestValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTranslationRequestValuesResponse) ProtoMessage() {}
+
+func (x *GetTranslationRequestValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTranslationRequestValuesResponse.ProtoReflect.Descriptor instead.
+func (*GetTranslationRequestValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetTranslationRequestValuesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetViewTranslationRequestsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetViewTranslationRequestsRequest) Reset() {
+	*x = GetViewTranslationRequestsRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetViewTranslationRequestsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetViewTranslationRequestsRequest) ProtoMessage() {}
+
+func (x *GetViewTranslationRequestsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetViewTranslationRequestsRequest.ProtoReflect.Descriptor instead.
+func (*GetViewTranslationRequestsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{78}
+}
+
+type GetViewTranslationRequestsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetViewTranslationRequestsResponse) Reset() {
+	*x = GetViewTranslationRequestsResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetViewTranslationRequestsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetViewTranslationRequestsResponse) ProtoMessage() {}
+
+func (x *GetViewTranslationRequestsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetViewTranslationRequestsResponse.ProtoReflect.Descriptor instead.
+func (*GetViewTranslationRequestsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetViewTranslationRequestsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2312,7 +3352,7 @@ type SetFlagsRequest struct {
 
 func (x *SetFlagsRequest) Reset() {
 	*x = SetFlagsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[54]
+	mi := &file_proto_translation_translation_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2324,7 +3364,7 @@ func (x *SetFlagsRequest) String() string {
 func (*SetFlagsRequest) ProtoMessage() {}
 
 func (x *SetFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[54]
+	mi := &file_proto_translation_translation_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2337,7 +3377,7 @@ func (x *SetFlagsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFlagsRequest.ProtoReflect.Descriptor instead.
 func (*SetFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{54}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *SetFlagsRequest) GetArg0() int32 {
@@ -2356,7 +3396,7 @@ type SetFlagsResponse struct {
 
 func (x *SetFlagsResponse) Reset() {
 	*x = SetFlagsResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[55]
+	mi := &file_proto_translation_translation_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2368,7 +3408,7 @@ func (x *SetFlagsResponse) String() string {
 func (*SetFlagsResponse) ProtoMessage() {}
 
 func (x *SetFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[55]
+	mi := &file_proto_translation_translation_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2381,7 +3421,7 @@ func (x *SetFlagsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFlagsResponse.ProtoReflect.Descriptor instead.
 func (*SetFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{55}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *SetFlagsResponse) GetResult() int64 {
@@ -2391,27 +3431,27 @@ func (x *SetFlagsResponse) GetResult() int64 {
 	return 0
 }
 
-type OnFinishedRequest struct {
+type GetExtrasRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnFinishedRequest) Reset() {
-	*x = OnFinishedRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[56]
+func (x *GetExtrasRequest) Reset() {
+	*x = GetExtrasRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnFinishedRequest) String() string {
+func (x *GetExtrasRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnFinishedRequest) ProtoMessage() {}
+func (*GetExtrasRequest) ProtoMessage() {}
 
-func (x *OnFinishedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[56]
+func (x *GetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2422,32 +3462,33 @@ func (x *OnFinishedRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnFinishedRequest.ProtoReflect.Descriptor instead.
-func (*OnFinishedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{56}
+// Deprecated: Use GetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*GetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{82}
 }
 
-type OnFinishedResponse struct {
+type GetExtrasResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnFinishedResponse) Reset() {
-	*x = OnFinishedResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[57]
+func (x *GetExtrasResponse) Reset() {
+	*x = GetExtrasResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnFinishedResponse) String() string {
+func (x *GetExtrasResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnFinishedResponse) ProtoMessage() {}
+func (*GetExtrasResponse) ProtoMessage() {}
 
-func (x *OnFinishedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[57]
+func (x *GetExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2458,32 +3499,39 @@ func (x *OnFinishedResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnFinishedResponse.ProtoReflect.Descriptor instead.
-func (*OnFinishedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{57}
+// Deprecated: Use GetExtrasResponse.ProtoReflect.Descriptor instead.
+func (*GetExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{83}
 }
 
-type OnPausedRequest struct {
+func (x *GetExtrasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStatusCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnPausedRequest) Reset() {
-	*x = OnPausedRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[58]
+func (x *GetStatusCodeRequest) Reset() {
+	*x = GetStatusCodeRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnPausedRequest) String() string {
+func (x *GetStatusCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnPausedRequest) ProtoMessage() {}
+func (*GetStatusCodeRequest) ProtoMessage() {}
 
-func (x *OnPausedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[58]
+func (x *GetStatusCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2494,32 +3542,33 @@ func (x *OnPausedRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnPausedRequest.ProtoReflect.Descriptor instead.
-func (*OnPausedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{58}
+// Deprecated: Use GetStatusCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetStatusCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{84}
 }
 
-type OnPausedResponse struct {
+type GetStatusCodeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnPausedResponse) Reset() {
-	*x = OnPausedResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[59]
+func (x *GetStatusCodeResponse) Reset() {
+	*x = GetStatusCodeResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnPausedResponse) String() string {
+func (x *GetStatusCodeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnPausedResponse) ProtoMessage() {}
+func (*GetStatusCodeResponse) ProtoMessage() {}
 
-func (x *OnPausedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[59]
+func (x *GetStatusCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2530,33 +3579,200 @@ func (x *OnPausedResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnPausedResponse.ProtoReflect.Descriptor instead.
-func (*OnPausedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{59}
+// Deprecated: Use GetStatusCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetStatusCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{85}
 }
 
-type OnClearTranslationRequest struct {
+func (x *GetStatusCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTransliterationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransliterationRequest) Reset() {
+	*x = GetTransliterationRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransliterationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransliterationRequest) ProtoMessage() {}
+
+func (x *GetTransliterationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransliterationRequest.ProtoReflect.Descriptor instead.
+func (*GetTransliterationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{86}
+}
+
+type GetTransliterationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransliterationResponse) Reset() {
+	*x = GetTransliterationResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransliterationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransliterationResponse) ProtoMessage() {}
+
+func (x *GetTransliterationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransliterationResponse.ProtoReflect.Descriptor instead.
+func (*GetTransliterationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *GetTransliterationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ForErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ForErrorRequest) Reset() {
+	*x = ForErrorRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ForErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ForErrorRequest) ProtoMessage() {}
+
+func (x *ForErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ForErrorRequest.ProtoReflect.Descriptor instead.
+func (*ForErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{88}
+}
+
+type ForErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ForErrorResponse) Reset() {
+	*x = ForErrorResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ForErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ForErrorResponse) ProtoMessage() {}
+
+func (x *ForErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ForErrorResponse.ProtoReflect.Descriptor instead.
+func (*ForErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *ForErrorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetExtrasRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnClearTranslationRequest) Reset() {
-	*x = OnClearTranslationRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[60]
+func (x *SetExtrasRequest) Reset() {
+	*x = SetExtrasRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnClearTranslationRequest) String() string {
+func (x *SetExtrasRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnClearTranslationRequest) ProtoMessage() {}
+func (*SetExtrasRequest) ProtoMessage() {}
 
-func (x *OnClearTranslationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[60]
+func (x *SetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2567,40 +3783,40 @@ func (x *OnClearTranslationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnClearTranslationRequest.ProtoReflect.Descriptor instead.
-func (*OnClearTranslationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{60}
+// Deprecated: Use SetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*SetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{90}
 }
 
-func (x *OnClearTranslationRequest) GetArg0() int64 {
+func (x *SetExtrasRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type OnClearTranslationResponse struct {
+type SetExtrasResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnClearTranslationResponse) Reset() {
-	*x = OnClearTranslationResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[61]
+func (x *SetExtrasResponse) Reset() {
+	*x = SetExtrasResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnClearTranslationResponse) String() string {
+func (x *SetExtrasResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnClearTranslationResponse) ProtoMessage() {}
+func (*SetExtrasResponse) ProtoMessage() {}
 
-func (x *OnClearTranslationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[61]
+func (x *SetExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2611,84 +3827,40 @@ func (x *OnClearTranslationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnClearTranslationResponse.ProtoReflect.Descriptor instead.
-func (*OnClearTranslationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{61}
+// Deprecated: Use SetExtrasResponse.ProtoReflect.Descriptor instead.
+func (*SetExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{91}
 }
 
-func (x *OnClearTranslationResponse) GetResult() bool {
+func (x *SetExtrasResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
-	}
-	return false
-}
-
-type OnHideTranslationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnHideTranslationRequest) Reset() {
-	*x = OnHideTranslationRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnHideTranslationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnHideTranslationRequest) ProtoMessage() {}
-
-func (x *OnHideTranslationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnHideTranslationRequest.ProtoReflect.Descriptor instead.
-func (*OnHideTranslationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *OnHideTranslationRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
 	}
 	return 0
 }
 
-type OnHideTranslationResponse struct {
+type SetTextRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnHideTranslationResponse) Reset() {
-	*x = OnHideTranslationResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[63]
+func (x *SetTextRequest) Reset() {
+	*x = SetTextRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnHideTranslationResponse) String() string {
+func (x *SetTextRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnHideTranslationResponse) ProtoMessage() {}
+func (*SetTextRequest) ProtoMessage() {}
 
-func (x *OnHideTranslationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[63]
+func (x *SetTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2699,84 +3871,84 @@ func (x *OnHideTranslationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnHideTranslationResponse.ProtoReflect.Descriptor instead.
-func (*OnHideTranslationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{63}
+// Deprecated: Use SetTextRequest.ProtoReflect.Descriptor instead.
+func (*SetTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{92}
 }
 
-func (x *OnHideTranslationResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type OnShowTranslationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnShowTranslationRequest) Reset() {
-	*x = OnShowTranslationRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnShowTranslationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnShowTranslationRequest) ProtoMessage() {}
-
-func (x *OnShowTranslationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnShowTranslationRequest.ProtoReflect.Descriptor instead.
-func (*OnShowTranslationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *OnShowTranslationRequest) GetArg0() int64 {
+func (x *SetTextRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
+	}
+	return ""
+}
+
+type SetTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTextResponse) Reset() {
+	*x = SetTextResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTextResponse) ProtoMessage() {}
+
+func (x *SetTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTextResponse.ProtoReflect.Descriptor instead.
+func (*SetTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *SetTextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
 	}
 	return 0
 }
 
-type OnShowTranslationResponse struct {
+type SetTransliterationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnShowTranslationResponse) Reset() {
-	*x = OnShowTranslationResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[65]
+func (x *SetTransliterationRequest) Reset() {
+	*x = SetTransliterationRequest{}
+	mi := &file_proto_translation_translation_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnShowTranslationResponse) String() string {
+func (x *SetTransliterationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnShowTranslationResponse) ProtoMessage() {}
+func (*SetTransliterationRequest) ProtoMessage() {}
 
-func (x *OnShowTranslationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[65]
+func (x *SetTransliterationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2787,16 +3959,60 @@ func (x *OnShowTranslationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnShowTranslationResponse.ProtoReflect.Descriptor instead.
-func (*OnShowTranslationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{65}
+// Deprecated: Use SetTransliterationRequest.ProtoReflect.Descriptor instead.
+func (*SetTransliterationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{94}
 }
 
-func (x *OnShowTranslationResponse) GetResult() bool {
+func (x *SetTransliterationRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetTransliterationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTransliterationResponse) Reset() {
+	*x = SetTransliterationResponse{}
+	mi := &file_proto_translation_translation_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTransliterationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTransliterationResponse) ProtoMessage() {}
+
+func (x *SetTransliterationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_translation_translation_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTransliterationResponse.ProtoReflect.Descriptor instead.
+func (*SetTransliterationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *SetTransliterationResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return false
+	return 0
 }
 
 type NewSpecRequest struct {
@@ -2809,7 +4025,7 @@ type NewSpecRequest struct {
 
 func (x *NewSpecRequest) Reset() {
 	*x = NewSpecRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[66]
+	mi := &file_proto_translation_translation_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2821,7 +4037,7 @@ func (x *NewSpecRequest) String() string {
 func (*NewSpecRequest) ProtoMessage() {}
 
 func (x *NewSpecRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[66]
+	mi := &file_proto_translation_translation_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2834,7 +4050,7 @@ func (x *NewSpecRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSpecRequest.ProtoReflect.Descriptor instead.
 func (*NewSpecRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{66}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *NewSpecRequest) GetArg0() int64 {
@@ -2860,7 +4076,7 @@ type NewSpecResponse struct {
 
 func (x *NewSpecResponse) Reset() {
 	*x = NewSpecResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[67]
+	mi := &file_proto_translation_translation_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2872,7 +4088,7 @@ func (x *NewSpecResponse) String() string {
 func (*NewSpecResponse) ProtoMessage() {}
 
 func (x *NewSpecResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[67]
+	mi := &file_proto_translation_translation_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2885,7 +4101,7 @@ func (x *NewSpecResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSpecResponse.ProtoReflect.Descriptor instead.
 func (*NewSpecResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{67}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *NewSpecResponse) GetResult() int64 {
@@ -2904,7 +4120,7 @@ type SpecDescribeContentsRequest struct {
 
 func (x *SpecDescribeContentsRequest) Reset() {
 	*x = SpecDescribeContentsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[68]
+	mi := &file_proto_translation_translation_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2916,7 +4132,7 @@ func (x *SpecDescribeContentsRequest) String() string {
 func (*SpecDescribeContentsRequest) ProtoMessage() {}
 
 func (x *SpecDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[68]
+	mi := &file_proto_translation_translation_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2929,7 +4145,7 @@ func (x *SpecDescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpecDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*SpecDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{68}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *SpecDescribeContentsRequest) GetHandle() int64 {
@@ -2949,7 +4165,7 @@ type SpecEqualsRequest struct {
 
 func (x *SpecEqualsRequest) Reset() {
 	*x = SpecEqualsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[69]
+	mi := &file_proto_translation_translation_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2961,7 +4177,7 @@ func (x *SpecEqualsRequest) String() string {
 func (*SpecEqualsRequest) ProtoMessage() {}
 
 func (x *SpecEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[69]
+	mi := &file_proto_translation_translation_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2974,7 +4190,7 @@ func (x *SpecEqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpecEqualsRequest.ProtoReflect.Descriptor instead.
 func (*SpecEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{69}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *SpecEqualsRequest) GetHandle() int64 {
@@ -3000,7 +4216,7 @@ type GetDataFormatRequest struct {
 
 func (x *GetDataFormatRequest) Reset() {
 	*x = GetDataFormatRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[70]
+	mi := &file_proto_translation_translation_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3012,7 +4228,7 @@ func (x *GetDataFormatRequest) String() string {
 func (*GetDataFormatRequest) ProtoMessage() {}
 
 func (x *GetDataFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[70]
+	mi := &file_proto_translation_translation_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3025,7 +4241,7 @@ func (x *GetDataFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDataFormatRequest.ProtoReflect.Descriptor instead.
 func (*GetDataFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{70}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *GetDataFormatRequest) GetHandle() int64 {
@@ -3044,7 +4260,7 @@ type GetDataFormatResponse struct {
 
 func (x *GetDataFormatResponse) Reset() {
 	*x = GetDataFormatResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[71]
+	mi := &file_proto_translation_translation_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3056,7 +4272,7 @@ func (x *GetDataFormatResponse) String() string {
 func (*GetDataFormatResponse) ProtoMessage() {}
 
 func (x *GetDataFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[71]
+	mi := &file_proto_translation_translation_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3069,7 +4285,7 @@ func (x *GetDataFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDataFormatResponse.ProtoReflect.Descriptor instead.
 func (*GetDataFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{71}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *GetDataFormatResponse) GetResult() int32 {
@@ -3088,7 +4304,7 @@ type GetLocaleRequest struct {
 
 func (x *GetLocaleRequest) Reset() {
 	*x = GetLocaleRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[72]
+	mi := &file_proto_translation_translation_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3100,7 +4316,7 @@ func (x *GetLocaleRequest) String() string {
 func (*GetLocaleRequest) ProtoMessage() {}
 
 func (x *GetLocaleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[72]
+	mi := &file_proto_translation_translation_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3113,7 +4329,7 @@ func (x *GetLocaleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLocaleRequest.ProtoReflect.Descriptor instead.
 func (*GetLocaleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{72}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *GetLocaleRequest) GetHandle() int64 {
@@ -3132,7 +4348,7 @@ type GetLocaleResponse struct {
 
 func (x *GetLocaleResponse) Reset() {
 	*x = GetLocaleResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[73]
+	mi := &file_proto_translation_translation_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3144,7 +4360,7 @@ func (x *GetLocaleResponse) String() string {
 func (*GetLocaleResponse) ProtoMessage() {}
 
 func (x *GetLocaleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[73]
+	mi := &file_proto_translation_translation_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3157,7 +4373,7 @@ func (x *GetLocaleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLocaleResponse.ProtoReflect.Descriptor instead.
 func (*GetLocaleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{73}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *GetLocaleResponse) GetResult() int64 {
@@ -3176,7 +4392,7 @@ type SpecHashCodeRequest struct {
 
 func (x *SpecHashCodeRequest) Reset() {
 	*x = SpecHashCodeRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[74]
+	mi := &file_proto_translation_translation_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3188,7 +4404,7 @@ func (x *SpecHashCodeRequest) String() string {
 func (*SpecHashCodeRequest) ProtoMessage() {}
 
 func (x *SpecHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[74]
+	mi := &file_proto_translation_translation_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3201,7 +4417,7 @@ func (x *SpecHashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpecHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*SpecHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{74}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *SpecHashCodeRequest) GetHandle() int64 {
@@ -3220,7 +4436,7 @@ type SpecToStringRequest struct {
 
 func (x *SpecToStringRequest) Reset() {
 	*x = SpecToStringRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[75]
+	mi := &file_proto_translation_translation_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3232,7 +4448,7 @@ func (x *SpecToStringRequest) String() string {
 func (*SpecToStringRequest) ProtoMessage() {}
 
 func (x *SpecToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[75]
+	mi := &file_proto_translation_translation_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3245,7 +4461,7 @@ func (x *SpecToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpecToStringRequest.ProtoReflect.Descriptor instead.
 func (*SpecToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{75}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *SpecToStringRequest) GetHandle() int64 {
@@ -3266,7 +4482,7 @@ type SpecWriteToParcelRequest struct {
 
 func (x *SpecWriteToParcelRequest) Reset() {
 	*x = SpecWriteToParcelRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[76]
+	mi := &file_proto_translation_translation_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3278,7 +4494,7 @@ func (x *SpecWriteToParcelRequest) String() string {
 func (*SpecWriteToParcelRequest) ProtoMessage() {}
 
 func (x *SpecWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[76]
+	mi := &file_proto_translation_translation_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3291,7 +4507,7 @@ func (x *SpecWriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpecWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*SpecWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{76}
+	return file_proto_translation_translation_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *SpecWriteToParcelRequest) GetHandle() int64 {
@@ -3315,731 +4531,18 @@ func (x *SpecWriteToParcelRequest) GetArg1() int32 {
 	return 0
 }
 
-type GetSourceSpecRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSourceSpecRequest) Reset() {
-	*x = GetSourceSpecRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSourceSpecRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSourceSpecRequest) ProtoMessage() {}
-
-func (x *GetSourceSpecRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSourceSpecRequest.ProtoReflect.Descriptor instead.
-func (*GetSourceSpecRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{77}
-}
-
-type GetSourceSpecResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSourceSpecResponse) Reset() {
-	*x = GetSourceSpecResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSourceSpecResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSourceSpecResponse) ProtoMessage() {}
-
-func (x *GetSourceSpecResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSourceSpecResponse.ProtoReflect.Descriptor instead.
-func (*GetSourceSpecResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *GetSourceSpecResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTargetSpecRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTargetSpecRequest) Reset() {
-	*x = GetTargetSpecRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTargetSpecRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTargetSpecRequest) ProtoMessage() {}
-
-func (x *GetTargetSpecRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTargetSpecRequest.ProtoReflect.Descriptor instead.
-func (*GetTargetSpecRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{79}
-}
-
-type GetTargetSpecResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTargetSpecResponse) Reset() {
-	*x = GetTargetSpecResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTargetSpecResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTargetSpecResponse) ProtoMessage() {}
-
-func (x *GetTargetSpecResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTargetSpecResponse.ProtoReflect.Descriptor instead.
-func (*GetTargetSpecResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{80}
-}
-
-func (x *GetTargetSpecResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTranslationFlagsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTranslationFlagsRequest) Reset() {
-	*x = GetTranslationFlagsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTranslationFlagsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTranslationFlagsRequest) ProtoMessage() {}
-
-func (x *GetTranslationFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTranslationFlagsRequest.ProtoReflect.Descriptor instead.
-func (*GetTranslationFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{81}
-}
-
-type GetTranslationFlagsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTranslationFlagsResponse) Reset() {
-	*x = GetTranslationFlagsResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTranslationFlagsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTranslationFlagsResponse) ProtoMessage() {}
-
-func (x *GetTranslationFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTranslationFlagsResponse.ProtoReflect.Descriptor instead.
-func (*GetTranslationFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{82}
-}
-
-func (x *GetTranslationFlagsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetTranslationFlagsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTranslationFlagsRequest) Reset() {
-	*x = SetTranslationFlagsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTranslationFlagsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTranslationFlagsRequest) ProtoMessage() {}
-
-func (x *SetTranslationFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTranslationFlagsRequest.ProtoReflect.Descriptor instead.
-func (*SetTranslationFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{83}
-}
-
-func (x *SetTranslationFlagsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetTranslationFlagsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTranslationFlagsResponse) Reset() {
-	*x = SetTranslationFlagsResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTranslationFlagsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTranslationFlagsResponse) ProtoMessage() {}
-
-func (x *SetTranslationFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTranslationFlagsResponse.ProtoReflect.Descriptor instead.
-func (*SetTranslationFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *SetTranslationFlagsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type DestroyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DestroyRequest) Reset() {
-	*x = DestroyRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DestroyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DestroyRequest) ProtoMessage() {}
-
-func (x *DestroyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DestroyRequest.ProtoReflect.Descriptor instead.
-func (*DestroyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{85}
-}
-
-type DestroyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DestroyResponse) Reset() {
-	*x = DestroyResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DestroyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DestroyResponse) ProtoMessage() {}
-
-func (x *DestroyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DestroyResponse.ProtoReflect.Descriptor instead.
-func (*DestroyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{86}
-}
-
-type IsDestroyedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsDestroyedRequest) Reset() {
-	*x = IsDestroyedRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsDestroyedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsDestroyedRequest) ProtoMessage() {}
-
-func (x *IsDestroyedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsDestroyedRequest.ProtoReflect.Descriptor instead.
-func (*IsDestroyedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{87}
-}
-
-type IsDestroyedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsDestroyedResponse) Reset() {
-	*x = IsDestroyedResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsDestroyedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsDestroyedResponse) ProtoMessage() {}
-
-func (x *IsDestroyedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsDestroyedResponse.ProtoReflect.Descriptor instead.
-func (*IsDestroyedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *IsDestroyedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetStateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStateRequest) Reset() {
-	*x = GetStateRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStateRequest) ProtoMessage() {}
-
-func (x *GetStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStateRequest.ProtoReflect.Descriptor instead.
-func (*GetStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{89}
-}
-
-type GetStateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStateResponse) Reset() {
-	*x = GetStateResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStateResponse) ProtoMessage() {}
-
-func (x *GetStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStateResponse.ProtoReflect.Descriptor instead.
-func (*GetStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *GetStateResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSupportedTranslationFlagsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSupportedTranslationFlagsRequest) Reset() {
-	*x = GetSupportedTranslationFlagsRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSupportedTranslationFlagsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSupportedTranslationFlagsRequest) ProtoMessage() {}
-
-func (x *GetSupportedTranslationFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSupportedTranslationFlagsRequest.ProtoReflect.Descriptor instead.
-func (*GetSupportedTranslationFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{91}
-}
-
-type GetSupportedTranslationFlagsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSupportedTranslationFlagsResponse) Reset() {
-	*x = GetSupportedTranslationFlagsResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSupportedTranslationFlagsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSupportedTranslationFlagsResponse) ProtoMessage() {}
-
-func (x *GetSupportedTranslationFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSupportedTranslationFlagsResponse.ProtoReflect.Descriptor instead.
-func (*GetSupportedTranslationFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *GetSupportedTranslationFlagsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsUiTranslationEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsUiTranslationEnabledRequest) Reset() {
-	*x = IsUiTranslationEnabledRequest{}
-	mi := &file_proto_translation_translation_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsUiTranslationEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsUiTranslationEnabledRequest) ProtoMessage() {}
-
-func (x *IsUiTranslationEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsUiTranslationEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsUiTranslationEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{93}
-}
-
-type IsUiTranslationEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsUiTranslationEnabledResponse) Reset() {
-	*x = IsUiTranslationEnabledResponse{}
-	mi := &file_proto_translation_translation_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsUiTranslationEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsUiTranslationEnabledResponse) ProtoMessage() {}
-
-func (x *IsUiTranslationEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_translation_translation_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsUiTranslationEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsUiTranslationEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_translation_translation_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *IsUiTranslationEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
 var File_proto_translation_translation_proto protoreflect.FileDescriptor
 
 const file_proto_translation_translation_proto_rawDesc = "" +
 	"\n" +
-	"#proto/translation/translation.proto\x12\vtranslation\"\x19\n" +
+	"#proto/translation/translation.proto\x12\vtranslation\"S\n" +
+	")RegisterUiTranslationStateCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\",\n" +
+	"*RegisterUiTranslationStateCallbackResponse\"A\n" +
+	"+UnregisterUiTranslationStateCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	",UnregisterUiTranslationStateCallbackResponse\"\x19\n" +
 	"\x17DescribeContentsRequest\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
@@ -4049,6 +4552,9 @@ const file_proto_translation_translation_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
 	"\x14GetAutofillIdRequest\"/\n" +
 	"\x15GetAutofillIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetKeysRequest\")\n" +
+	"\x0fGetKeysResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
 	"\x0fGetValueRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"*\n" +
@@ -4071,23 +4577,110 @@ const file_proto_translation_translation_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"*\n" +
 	"\x10SetValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetTextRequest\")\n" +
+	"\x0fGetTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eForTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fForTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19OnClearTranslationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aOnClearTranslationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\".\n" +
+	"\x18OnHideTranslationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19OnHideTranslationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\".\n" +
+	"\x18OnShowTranslationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19OnShowTranslationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
+	"\x14GetSourceSpecRequest\"/\n" +
+	"\x15GetSourceSpecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetStateRequest\"*\n" +
+	"\x10GetStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
+	"#GetSupportedTranslationFlagsRequest\">\n" +
+	"$GetSupportedTranslationFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetTargetSpecRequest\"/\n" +
+	"\x15GetTargetSpecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dIsUiTranslationEnabledRequest\"8\n" +
+	"\x1eIsUiTranslationEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
+	"\x11OnFinishedRequest\"\x14\n" +
+	"\x12OnFinishedResponse\"\x11\n" +
+	"\x0fOnPausedRequest\"\x12\n" +
+	"\x10OnPausedResponse\"\x1c\n" +
+	"\x1aGetTranslationFlagsRequest\"5\n" +
+	"\x1bGetTranslationFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x1aSetTranslationFlagsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
+	"\x1bSetTranslationFlagsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
-	")RegisterUiTranslationStateCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\",\n" +
-	"*RegisterUiTranslationStateCallbackResponse\"A\n" +
-	"+UnregisterUiTranslationStateCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
-	",UnregisterUiTranslationStateCallbackResponse\"\x12\n" +
+	")GetOnDeviceTranslationCapabilitiesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"D\n" +
+	"*GetOnDeviceTranslationCapabilitiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"3GetOnDeviceTranslationSettingsActivityIntentRequest\"N\n" +
+	"4GetOnDeviceTranslationSettingsActivityIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eDestroyRequest\"\x11\n" +
+	"\x0fDestroyResponse\"\x14\n" +
+	"\x12IsDestroyedRequest\"-\n" +
+	"\x13IsDestroyedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"%\n" +
+	"#GetTranslationResponseValuesRequest\">\n" +
+	"$GetTranslationResponseValuesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetTranslationStatusRequest\"6\n" +
+	"\x1cGetTranslationStatusResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
+	"\"GetViewTranslationResponsesRequest\"=\n" +
+	"#GetViewTranslationResponsesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16IsFinalResponseRequest\"1\n" +
+	"\x17IsFinalResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"-\n" +
+	"\x17SetFinalResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"2\n" +
+	"\x18SetFinalResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"\"SetTranslationResponseValueRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"=\n" +
+	"#SetTranslationResponseValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"!SetViewTranslationResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"<\n" +
+	"\"SetViewTranslationResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetFlagsRequest\"*\n" +
+	"\x10GetFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
+	"\"GetTranslationRequestValuesRequest\"=\n" +
+	"#GetTranslationRequestValuesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!GetViewTranslationRequestsRequest\"<\n" +
+	"\"GetViewTranslationRequestsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x0fSetFlagsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
+	"\x10SetFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
 	"\x10GetExtrasRequest\"+\n" +
 	"\x11GetExtrasResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetStatusCodeRequest\"/\n" +
 	"\x15GetStatusCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
-	"\x0eGetTextRequest\")\n" +
-	"\x0fGetTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
 	"\x19GetTransliterationRequest\"4\n" +
 	"\x1aGetTransliterationResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
@@ -4105,57 +4698,7 @@ const file_proto_translation_translation_proto_rawDesc = "" +
 	"\x19SetTransliterationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"4\n" +
 	"\x1aSetTransliterationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bGetTranslationStatusRequest\"6\n" +
-	"\x1cGetTranslationStatusResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
-	"\x16IsFinalResponseRequest\"1\n" +
-	"\x17IsFinalResponseResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"-\n" +
-	"\x17SetFinalResponseRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"2\n" +
-	"\x18SetFinalResponseResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
-	"\"SetTranslationResponseValueRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"=\n" +
-	"#SetTranslationResponseValueResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
-	"!SetViewTranslationResponseRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"<\n" +
-	"\"SetViewTranslationResponseResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eForTextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
-	"\x0fForTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
-	"3GetOnDeviceTranslationSettingsActivityIntentRequest\"N\n" +
-	"4GetOnDeviceTranslationSettingsActivityIntentResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fGetFlagsRequest\"*\n" +
-	"\x10GetFlagsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
-	"\x0fSetFlagsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
-	"\x10SetFlagsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
-	"\x11OnFinishedRequest\"\x14\n" +
-	"\x12OnFinishedResponse\"\x11\n" +
-	"\x0fOnPausedRequest\"\x12\n" +
-	"\x10OnPausedResponse\"/\n" +
-	"\x19OnClearTranslationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
-	"\x1aOnClearTranslationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\".\n" +
-	"\x18OnHideTranslationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
-	"\x19OnHideTranslationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\".\n" +
-	"\x18OnShowTranslationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
-	"\x19OnShowTranslationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"8\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
 	"\x0eNewSpecRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\")\n" +
@@ -4181,59 +4724,98 @@ const file_proto_translation_translation_proto_rawDesc = "" +
 	"\x18SpecWriteToParcelRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x16\n" +
-	"\x14GetSourceSpecRequest\"/\n" +
-	"\x15GetSourceSpecResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
-	"\x14GetTargetSpecRequest\"/\n" +
-	"\x15GetTargetSpecResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
-	"\x1aGetTranslationFlagsRequest\"5\n" +
-	"\x1bGetTranslationFlagsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
-	"\x1aSetTranslationFlagsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
-	"\x1bSetTranslationFlagsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
-	"\x0eDestroyRequest\"\x11\n" +
-	"\x0fDestroyResponse\"\x14\n" +
-	"\x12IsDestroyedRequest\"-\n" +
-	"\x13IsDestroyedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
-	"\x0fGetStateRequest\"*\n" +
-	"\x10GetStateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
-	"#GetSupportedTranslationFlagsRequest\">\n" +
-	"$GetSupportedTranslationFlagsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
-	"\x1dIsUiTranslationEnabledRequest\"8\n" +
-	"\x1eIsUiTranslationEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2\xcf\x04\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg12\xd3\x02\n" +
+	"\x1bUiTranslationManagerService\x12\x95\x01\n" +
+	"\"RegisterUiTranslationStateCallback\x126.translation.RegisterUiTranslationStateCallbackRequest\x1a7.translation.RegisterUiTranslationStateCallbackResponse\x12\x9b\x01\n" +
+	"$UnregisterUiTranslationStateCallback\x128.translation.UnregisterUiTranslationStateCallbackRequest\x1a9.translation.UnregisterUiTranslationStateCallbackResponse2\x95\x05\n" +
 	"\x1eViewTranslationResponseService\x12_\n" +
 	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12A\n" +
 	"\x06Equals\x12\x1a.translation.EqualsRequest\x1a\x1b.translation.EqualsResponse\x12V\n" +
-	"\rGetAutofillId\x12!.translation.GetAutofillIdRequest\x1a\".translation.GetAutofillIdResponse\x12G\n" +
+	"\rGetAutofillId\x12!.translation.GetAutofillIdRequest\x1a\".translation.GetAutofillIdResponse\x12D\n" +
+	"\aGetKeys\x12\x1b.translation.GetKeysRequest\x1a\x1c.translation.GetKeysResponse\x12G\n" +
 	"\bGetValue\x12\x1c.translation.GetValueRequest\x1a\x1d.translation.GetValueResponse\x12G\n" +
 	"\bHashCode\x12\x1c.translation.HashCodeRequest\x1a\x1d.translation.HashCodeResponse\x12G\n" +
 	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
 	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xb0\x01\n" +
 	"%ViewTranslationResponseBuilderService\x12>\n" +
 	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12G\n" +
-	"\bSetValue\x12\x1c.translation.SetValueRequest\x1a\x1d.translation.SetValueResponse2\xd3\x02\n" +
-	"\x1bUiTranslationManagerService\x12\x95\x01\n" +
-	"\"RegisterUiTranslationStateCallback\x126.translation.RegisterUiTranslationStateCallbackRequest\x1a7.translation.RegisterUiTranslationStateCallbackResponse\x12\x9b\x01\n" +
-	"$UnregisterUiTranslationStateCallback\x128.translation.UnregisterUiTranslationStateCallbackRequest\x1a9.translation.UnregisterUiTranslationStateCallbackResponse2\xce\x04\n" +
+	"\bSetValue\x12\x1c.translation.SetValueRequest\x1a\x1d.translation.SetValueResponse2\xaf\x04\n" +
+	"\x13RequestValueService\x12_\n" +
+	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12A\n" +
+	"\x06Equals\x12\x1a.translation.EqualsRequest\x1a\x1b.translation.EqualsResponse\x12D\n" +
+	"\aGetText\x12\x1b.translation.GetTextRequest\x1a\x1c.translation.GetTextResponse\x12G\n" +
+	"\bHashCode\x12\x1c.translation.HashCodeRequest\x1a\x1d.translation.HashCodeResponse\x12G\n" +
+	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse\x12D\n" +
+	"\aForText\x12\x1b.translation.ForTextRequest\x1a\x1c.translation.ForTextResponse2\xcf\x02\n" +
+	"\x1eViewTranslationCallbackService\x12e\n" +
+	"\x12OnClearTranslation\x12&.translation.OnClearTranslationRequest\x1a'.translation.OnClearTranslationResponse\x12b\n" +
+	"\x11OnHideTranslation\x12%.translation.OnHideTranslationRequest\x1a&.translation.OnHideTranslationResponse\x12b\n" +
+	"\x11OnShowTranslation\x12%.translation.OnShowTranslationRequest\x1a&.translation.OnShowTranslationResponse2\x87\x06\n" +
+	"\x11CapabilityService\x12_\n" +
+	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12V\n" +
+	"\rGetSourceSpec\x12!.translation.GetSourceSpecRequest\x1a\".translation.GetSourceSpecResponse\x12G\n" +
+	"\bGetState\x12\x1c.translation.GetStateRequest\x1a\x1d.translation.GetStateResponse\x12\x83\x01\n" +
+	"\x1cGetSupportedTranslationFlags\x120.translation.GetSupportedTranslationFlagsRequest\x1a1.translation.GetSupportedTranslationFlagsResponse\x12V\n" +
+	"\rGetTargetSpec\x12!.translation.GetTargetSpecRequest\x1a\".translation.GetTargetSpecResponse\x12q\n" +
+	"\x16IsUiTranslationEnabled\x12*.translation.IsUiTranslationEnabledRequest\x1a+.translation.IsUiTranslationEnabledResponse\x12G\n" +
+	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xbb\x01\n" +
+	"!UiTranslationStateCallbackService\x12M\n" +
+	"\n" +
+	"OnFinished\x12\x1e.translation.OnFinishedRequest\x1a\x1f.translation.OnFinishedResponse\x12G\n" +
+	"\bOnPaused\x12\x1c.translation.OnPausedRequest\x1a\x1d.translation.OnPausedResponse2\xac\x04\n" +
+	"\x0eContextService\x12_\n" +
+	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12V\n" +
+	"\rGetSourceSpec\x12!.translation.GetSourceSpecRequest\x1a\".translation.GetSourceSpecResponse\x12V\n" +
+	"\rGetTargetSpec\x12!.translation.GetTargetSpecRequest\x1a\".translation.GetTargetSpecResponse\x12h\n" +
+	"\x13GetTranslationFlags\x12'.translation.GetTranslationFlagsRequest\x1a(.translation.GetTranslationFlagsResponse\x12G\n" +
+	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xc1\x01\n" +
+	"\x15ContextBuilderService\x12>\n" +
+	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12h\n" +
+	"\x13SetTranslationFlags\x12'.translation.SetTranslationFlagsRequest\x1a(.translation.SetTranslationFlagsResponse2\xde\x02\n" +
+	"\x0eManagerService\x12\x95\x01\n" +
+	"\"GetOnDeviceTranslationCapabilities\x126.translation.GetOnDeviceTranslationCapabilitiesRequest\x1a7.translation.GetOnDeviceTranslationCapabilitiesResponse\x12\xb3\x01\n" +
+	",GetOnDeviceTranslationSettingsActivityIntent\x12@.translation.GetOnDeviceTranslationSettingsActivityIntentRequest\x1aA.translation.GetOnDeviceTranslationSettingsActivityIntentResponse2\xab\x01\n" +
+	"\x11TranslatorService\x12D\n" +
+	"\aDestroy\x12\x1b.translation.DestroyRequest\x1a\x1c.translation.DestroyResponse\x12P\n" +
+	"\vIsDestroyed\x12\x1f.translation.IsDestroyedRequest\x1a .translation.IsDestroyedResponse2\x94\x05\n" +
 	"\x1dViewTranslationRequestService\x12_\n" +
 	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12A\n" +
 	"\x06Equals\x12\x1a.translation.EqualsRequest\x1a\x1b.translation.EqualsResponse\x12V\n" +
-	"\rGetAutofillId\x12!.translation.GetAutofillIdRequest\x1a\".translation.GetAutofillIdResponse\x12G\n" +
+	"\rGetAutofillId\x12!.translation.GetAutofillIdRequest\x1a\".translation.GetAutofillIdResponse\x12D\n" +
+	"\aGetKeys\x12\x1b.translation.GetKeysRequest\x1a\x1c.translation.GetKeysResponse\x12G\n" +
 	"\bGetValue\x12\x1c.translation.GetValueRequest\x1a\x1d.translation.GetValueResponse\x12G\n" +
 	"\bHashCode\x12\x1c.translation.HashCodeRequest\x1a\x1d.translation.HashCodeResponse\x12G\n" +
 	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
 	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xaf\x01\n" +
 	"$ViewTranslationRequestBuilderService\x12>\n" +
 	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12G\n" +
-	"\bSetValue\x12\x1c.translation.SetValueRequest\x1a\x1d.translation.SetValueResponse2\xbe\x06\n" +
+	"\bSetValue\x12\x1c.translation.SetValueRequest\x1a\x1d.translation.SetValueResponse2\xe7\x05\n" +
+	"\x0fResponseService\x12_\n" +
+	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12\x83\x01\n" +
+	"\x1cGetTranslationResponseValues\x120.translation.GetTranslationResponseValuesRequest\x1a1.translation.GetTranslationResponseValuesResponse\x12k\n" +
+	"\x14GetTranslationStatus\x12(.translation.GetTranslationStatusRequest\x1a).translation.GetTranslationStatusResponse\x12\x80\x01\n" +
+	"\x1bGetViewTranslationResponses\x12/.translation.GetViewTranslationResponsesRequest\x1a0.translation.GetViewTranslationResponsesResponse\x12\\\n" +
+	"\x0fIsFinalResponse\x12#.translation.IsFinalResponseRequest\x1a$.translation.IsFinalResponseResponse\x12G\n" +
+	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xbb\x03\n" +
+	"\x16ResponseBuilderService\x12>\n" +
+	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12_\n" +
+	"\x10SetFinalResponse\x12$.translation.SetFinalResponseRequest\x1a%.translation.SetFinalResponseResponse\x12\x80\x01\n" +
+	"\x1bSetTranslationResponseValue\x12/.translation.SetTranslationResponseValueRequest\x1a0.translation.SetTranslationResponseValueResponse\x12}\n" +
+	"\x1aSetViewTranslationResponse\x12..translation.SetViewTranslationResponseRequest\x1a/.translation.SetViewTranslationResponseResponse2\xdd\x04\n" +
+	"\x0eRequestService\x12_\n" +
+	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12G\n" +
+	"\bGetFlags\x12\x1c.translation.GetFlagsRequest\x1a\x1d.translation.GetFlagsResponse\x12\x80\x01\n" +
+	"\x1bGetTranslationRequestValues\x12/.translation.GetTranslationRequestValuesRequest\x1a0.translation.GetTranslationRequestValuesResponse\x12}\n" +
+	"\x1aGetViewTranslationRequests\x12..translation.GetViewTranslationRequestsRequest\x1a/.translation.GetViewTranslationRequestsResponse\x12G\n" +
+	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xa0\x01\n" +
+	"\x15RequestBuilderService\x12>\n" +
+	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12G\n" +
+	"\bSetFlags\x12\x1c.translation.SetFlagsRequest\x1a\x1d.translation.SetFlagsResponse2\xbe\x06\n" +
 	"\x14ResponseValueService\x12_\n" +
 	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12A\n" +
 	"\x06Equals\x12\x1a.translation.EqualsRequest\x1a\x1b.translation.EqualsResponse\x12J\n" +
@@ -4249,44 +4831,7 @@ const file_proto_translation_translation_proto_rawDesc = "" +
 	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12J\n" +
 	"\tSetExtras\x12\x1d.translation.SetExtrasRequest\x1a\x1e.translation.SetExtrasResponse\x12D\n" +
 	"\aSetText\x12\x1b.translation.SetTextRequest\x1a\x1c.translation.SetTextResponse\x12e\n" +
-	"\x12SetTransliteration\x12&.translation.SetTransliterationRequest\x1a'.translation.SetTransliterationResponse2\xde\x03\n" +
-	"\x0fResponseService\x12_\n" +
-	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12k\n" +
-	"\x14GetTranslationStatus\x12(.translation.GetTranslationStatusRequest\x1a).translation.GetTranslationStatusResponse\x12\\\n" +
-	"\x0fIsFinalResponse\x12#.translation.IsFinalResponseRequest\x1a$.translation.IsFinalResponseResponse\x12G\n" +
-	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
-	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xbb\x03\n" +
-	"\x16ResponseBuilderService\x12>\n" +
-	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12_\n" +
-	"\x10SetFinalResponse\x12$.translation.SetFinalResponseRequest\x1a%.translation.SetFinalResponseResponse\x12\x80\x01\n" +
-	"\x1bSetTranslationResponseValue\x12/.translation.SetTranslationResponseValueRequest\x1a0.translation.SetTranslationResponseValueResponse\x12}\n" +
-	"\x1aSetViewTranslationResponse\x12..translation.SetViewTranslationResponseRequest\x1a/.translation.SetViewTranslationResponseResponse2\xaf\x04\n" +
-	"\x13RequestValueService\x12_\n" +
-	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12A\n" +
-	"\x06Equals\x12\x1a.translation.EqualsRequest\x1a\x1b.translation.EqualsResponse\x12D\n" +
-	"\aGetText\x12\x1b.translation.GetTextRequest\x1a\x1c.translation.GetTextResponse\x12G\n" +
-	"\bHashCode\x12\x1c.translation.HashCodeRequest\x1a\x1d.translation.HashCodeResponse\x12G\n" +
-	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
-	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse\x12D\n" +
-	"\aForText\x12\x1b.translation.ForTextRequest\x1a\x1c.translation.ForTextResponse2\xc6\x01\n" +
-	"\x0eManagerService\x12\xb3\x01\n" +
-	",GetOnDeviceTranslationSettingsActivityIntent\x12@.translation.GetOnDeviceTranslationSettingsActivityIntentRequest\x1aA.translation.GetOnDeviceTranslationSettingsActivityIntentResponse2\xdb\x02\n" +
-	"\x0eRequestService\x12_\n" +
-	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12G\n" +
-	"\bGetFlags\x12\x1c.translation.GetFlagsRequest\x1a\x1d.translation.GetFlagsResponse\x12G\n" +
-	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
-	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xa0\x01\n" +
-	"\x15RequestBuilderService\x12>\n" +
-	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12G\n" +
-	"\bSetFlags\x12\x1c.translation.SetFlagsRequest\x1a\x1d.translation.SetFlagsResponse2\xbb\x01\n" +
-	"!UiTranslationStateCallbackService\x12M\n" +
-	"\n" +
-	"OnFinished\x12\x1e.translation.OnFinishedRequest\x1a\x1f.translation.OnFinishedResponse\x12G\n" +
-	"\bOnPaused\x12\x1c.translation.OnPausedRequest\x1a\x1d.translation.OnPausedResponse2\xcf\x02\n" +
-	"\x1eViewTranslationCallbackService\x12e\n" +
-	"\x12OnClearTranslation\x12&.translation.OnClearTranslationRequest\x1a'.translation.OnClearTranslationResponse\x12b\n" +
-	"\x11OnHideTranslation\x12%.translation.OnHideTranslationRequest\x1a&.translation.OnHideTranslationResponse\x12b\n" +
-	"\x11OnShowTranslation\x12%.translation.OnShowTranslationRequest\x1a&.translation.OnShowTranslationResponse2\x99\x05\n" +
+	"\x12SetTransliteration\x12&.translation.SetTransliterationRequest\x1a'.translation.SetTransliterationResponse2\x99\x05\n" +
 	"\vSpecService\x12D\n" +
 	"\aNewSpec\x12\x1b.translation.NewSpecRequest\x1a\x1c.translation.NewSpecResponse\x12c\n" +
 	"\x10DescribeContents\x12(.translation.SpecDescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12E\n" +
@@ -4295,29 +4840,7 @@ const file_proto_translation_translation_proto_rawDesc = "" +
 	"\tGetLocale\x12\x1d.translation.GetLocaleRequest\x1a\x1e.translation.GetLocaleResponse\x12K\n" +
 	"\bHashCode\x12 .translation.SpecHashCodeRequest\x1a\x1d.translation.HashCodeResponse\x12K\n" +
 	"\bToString\x12 .translation.SpecToStringRequest\x1a\x1d.translation.ToStringResponse\x12Z\n" +
-	"\rWriteToParcel\x12%.translation.SpecWriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xac\x04\n" +
-	"\x0eContextService\x12_\n" +
-	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12V\n" +
-	"\rGetSourceSpec\x12!.translation.GetSourceSpecRequest\x1a\".translation.GetSourceSpecResponse\x12V\n" +
-	"\rGetTargetSpec\x12!.translation.GetTargetSpecRequest\x1a\".translation.GetTargetSpecResponse\x12h\n" +
-	"\x13GetTranslationFlags\x12'.translation.GetTranslationFlagsRequest\x1a(.translation.GetTranslationFlagsResponse\x12G\n" +
-	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
-	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponse2\xc1\x01\n" +
-	"\x15ContextBuilderService\x12>\n" +
-	"\x05Build\x12\x19.translation.BuildRequest\x1a\x1a.translation.BuildResponse\x12h\n" +
-	"\x13SetTranslationFlags\x12'.translation.SetTranslationFlagsRequest\x1a(.translation.SetTranslationFlagsResponse2\xab\x01\n" +
-	"\x11TranslatorService\x12D\n" +
-	"\aDestroy\x12\x1b.translation.DestroyRequest\x1a\x1c.translation.DestroyResponse\x12P\n" +
-	"\vIsDestroyed\x12\x1f.translation.IsDestroyedRequest\x1a .translation.IsDestroyedResponse2\x87\x06\n" +
-	"\x11CapabilityService\x12_\n" +
-	"\x10DescribeContents\x12$.translation.DescribeContentsRequest\x1a%.translation.DescribeContentsResponse\x12V\n" +
-	"\rGetSourceSpec\x12!.translation.GetSourceSpecRequest\x1a\".translation.GetSourceSpecResponse\x12G\n" +
-	"\bGetState\x12\x1c.translation.GetStateRequest\x1a\x1d.translation.GetStateResponse\x12\x83\x01\n" +
-	"\x1cGetSupportedTranslationFlags\x120.translation.GetSupportedTranslationFlagsRequest\x1a1.translation.GetSupportedTranslationFlagsResponse\x12V\n" +
-	"\rGetTargetSpec\x12!.translation.GetTargetSpecRequest\x1a\".translation.GetTargetSpecResponse\x12q\n" +
-	"\x16IsUiTranslationEnabled\x12*.translation.IsUiTranslationEnabledRequest\x1a+.translation.IsUiTranslationEnabledResponse\x12G\n" +
-	"\bToString\x12\x1c.translation.ToStringRequest\x1a\x1d.translation.ToStringResponse\x12V\n" +
-	"\rWriteToParcel\x12!.translation.WriteToParcelRequest\x1a\".translation.WriteToParcelResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/translationb\x06proto3"
+	"\rWriteToParcel\x12%.translation.SpecWriteToParcelRequest\x1a\".translation.WriteToParcelResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/translationb\x06proto3"
 
 var (
 	file_proto_translation_translation_proto_rawDescOnce sync.Once
@@ -4331,286 +4854,312 @@ func file_proto_translation_translation_proto_rawDescGZIP() []byte {
 	return file_proto_translation_translation_proto_rawDescData
 }
 
-var file_proto_translation_translation_proto_msgTypes = make([]protoimpl.MessageInfo, 95)
+var file_proto_translation_translation_proto_msgTypes = make([]protoimpl.MessageInfo, 107)
 var file_proto_translation_translation_proto_goTypes = []any{
-	(*DescribeContentsRequest)(nil),                              // 0: translation.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                             // 1: translation.DescribeContentsResponse
-	(*EqualsRequest)(nil),                                        // 2: translation.EqualsRequest
-	(*EqualsResponse)(nil),                                       // 3: translation.EqualsResponse
-	(*GetAutofillIdRequest)(nil),                                 // 4: translation.GetAutofillIdRequest
-	(*GetAutofillIdResponse)(nil),                                // 5: translation.GetAutofillIdResponse
-	(*GetValueRequest)(nil),                                      // 6: translation.GetValueRequest
-	(*GetValueResponse)(nil),                                     // 7: translation.GetValueResponse
-	(*HashCodeRequest)(nil),                                      // 8: translation.HashCodeRequest
-	(*HashCodeResponse)(nil),                                     // 9: translation.HashCodeResponse
-	(*ToStringRequest)(nil),                                      // 10: translation.ToStringRequest
-	(*ToStringResponse)(nil),                                     // 11: translation.ToStringResponse
-	(*WriteToParcelRequest)(nil),                                 // 12: translation.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                                // 13: translation.WriteToParcelResponse
-	(*BuildRequest)(nil),                                         // 14: translation.BuildRequest
-	(*BuildResponse)(nil),                                        // 15: translation.BuildResponse
-	(*SetValueRequest)(nil),                                      // 16: translation.SetValueRequest
-	(*SetValueResponse)(nil),                                     // 17: translation.SetValueResponse
-	(*RegisterUiTranslationStateCallbackRequest)(nil),            // 18: translation.RegisterUiTranslationStateCallbackRequest
-	(*RegisterUiTranslationStateCallbackResponse)(nil),           // 19: translation.RegisterUiTranslationStateCallbackResponse
-	(*UnregisterUiTranslationStateCallbackRequest)(nil),          // 20: translation.UnregisterUiTranslationStateCallbackRequest
-	(*UnregisterUiTranslationStateCallbackResponse)(nil),         // 21: translation.UnregisterUiTranslationStateCallbackResponse
-	(*GetExtrasRequest)(nil),                                     // 22: translation.GetExtrasRequest
-	(*GetExtrasResponse)(nil),                                    // 23: translation.GetExtrasResponse
-	(*GetStatusCodeRequest)(nil),                                 // 24: translation.GetStatusCodeRequest
-	(*GetStatusCodeResponse)(nil),                                // 25: translation.GetStatusCodeResponse
-	(*GetTextRequest)(nil),                                       // 26: translation.GetTextRequest
-	(*GetTextResponse)(nil),                                      // 27: translation.GetTextResponse
-	(*GetTransliterationRequest)(nil),                            // 28: translation.GetTransliterationRequest
-	(*GetTransliterationResponse)(nil),                           // 29: translation.GetTransliterationResponse
-	(*ForErrorRequest)(nil),                                      // 30: translation.ForErrorRequest
-	(*ForErrorResponse)(nil),                                     // 31: translation.ForErrorResponse
-	(*SetExtrasRequest)(nil),                                     // 32: translation.SetExtrasRequest
-	(*SetExtrasResponse)(nil),                                    // 33: translation.SetExtrasResponse
-	(*SetTextRequest)(nil),                                       // 34: translation.SetTextRequest
-	(*SetTextResponse)(nil),                                      // 35: translation.SetTextResponse
-	(*SetTransliterationRequest)(nil),                            // 36: translation.SetTransliterationRequest
-	(*SetTransliterationResponse)(nil),                           // 37: translation.SetTransliterationResponse
-	(*GetTranslationStatusRequest)(nil),                          // 38: translation.GetTranslationStatusRequest
-	(*GetTranslationStatusResponse)(nil),                         // 39: translation.GetTranslationStatusResponse
-	(*IsFinalResponseRequest)(nil),                               // 40: translation.IsFinalResponseRequest
-	(*IsFinalResponseResponse)(nil),                              // 41: translation.IsFinalResponseResponse
-	(*SetFinalResponseRequest)(nil),                              // 42: translation.SetFinalResponseRequest
-	(*SetFinalResponseResponse)(nil),                             // 43: translation.SetFinalResponseResponse
-	(*SetTranslationResponseValueRequest)(nil),                   // 44: translation.SetTranslationResponseValueRequest
-	(*SetTranslationResponseValueResponse)(nil),                  // 45: translation.SetTranslationResponseValueResponse
-	(*SetViewTranslationResponseRequest)(nil),                    // 46: translation.SetViewTranslationResponseRequest
-	(*SetViewTranslationResponseResponse)(nil),                   // 47: translation.SetViewTranslationResponseResponse
-	(*ForTextRequest)(nil),                                       // 48: translation.ForTextRequest
-	(*ForTextResponse)(nil),                                      // 49: translation.ForTextResponse
-	(*GetOnDeviceTranslationSettingsActivityIntentRequest)(nil),  // 50: translation.GetOnDeviceTranslationSettingsActivityIntentRequest
-	(*GetOnDeviceTranslationSettingsActivityIntentResponse)(nil), // 51: translation.GetOnDeviceTranslationSettingsActivityIntentResponse
-	(*GetFlagsRequest)(nil),                                      // 52: translation.GetFlagsRequest
-	(*GetFlagsResponse)(nil),                                     // 53: translation.GetFlagsResponse
-	(*SetFlagsRequest)(nil),                                      // 54: translation.SetFlagsRequest
-	(*SetFlagsResponse)(nil),                                     // 55: translation.SetFlagsResponse
-	(*OnFinishedRequest)(nil),                                    // 56: translation.OnFinishedRequest
-	(*OnFinishedResponse)(nil),                                   // 57: translation.OnFinishedResponse
-	(*OnPausedRequest)(nil),                                      // 58: translation.OnPausedRequest
-	(*OnPausedResponse)(nil),                                     // 59: translation.OnPausedResponse
-	(*OnClearTranslationRequest)(nil),                            // 60: translation.OnClearTranslationRequest
-	(*OnClearTranslationResponse)(nil),                           // 61: translation.OnClearTranslationResponse
-	(*OnHideTranslationRequest)(nil),                             // 62: translation.OnHideTranslationRequest
-	(*OnHideTranslationResponse)(nil),                            // 63: translation.OnHideTranslationResponse
-	(*OnShowTranslationRequest)(nil),                             // 64: translation.OnShowTranslationRequest
-	(*OnShowTranslationResponse)(nil),                            // 65: translation.OnShowTranslationResponse
-	(*NewSpecRequest)(nil),                                       // 66: translation.NewSpecRequest
-	(*NewSpecResponse)(nil),                                      // 67: translation.NewSpecResponse
-	(*SpecDescribeContentsRequest)(nil),                          // 68: translation.SpecDescribeContentsRequest
-	(*SpecEqualsRequest)(nil),                                    // 69: translation.SpecEqualsRequest
-	(*GetDataFormatRequest)(nil),                                 // 70: translation.GetDataFormatRequest
-	(*GetDataFormatResponse)(nil),                                // 71: translation.GetDataFormatResponse
-	(*GetLocaleRequest)(nil),                                     // 72: translation.GetLocaleRequest
-	(*GetLocaleResponse)(nil),                                    // 73: translation.GetLocaleResponse
-	(*SpecHashCodeRequest)(nil),                                  // 74: translation.SpecHashCodeRequest
-	(*SpecToStringRequest)(nil),                                  // 75: translation.SpecToStringRequest
-	(*SpecWriteToParcelRequest)(nil),                             // 76: translation.SpecWriteToParcelRequest
-	(*GetSourceSpecRequest)(nil),                                 // 77: translation.GetSourceSpecRequest
-	(*GetSourceSpecResponse)(nil),                                // 78: translation.GetSourceSpecResponse
-	(*GetTargetSpecRequest)(nil),                                 // 79: translation.GetTargetSpecRequest
-	(*GetTargetSpecResponse)(nil),                                // 80: translation.GetTargetSpecResponse
-	(*GetTranslationFlagsRequest)(nil),                           // 81: translation.GetTranslationFlagsRequest
-	(*GetTranslationFlagsResponse)(nil),                          // 82: translation.GetTranslationFlagsResponse
-	(*SetTranslationFlagsRequest)(nil),                           // 83: translation.SetTranslationFlagsRequest
-	(*SetTranslationFlagsResponse)(nil),                          // 84: translation.SetTranslationFlagsResponse
-	(*DestroyRequest)(nil),                                       // 85: translation.DestroyRequest
-	(*DestroyResponse)(nil),                                      // 86: translation.DestroyResponse
-	(*IsDestroyedRequest)(nil),                                   // 87: translation.IsDestroyedRequest
-	(*IsDestroyedResponse)(nil),                                  // 88: translation.IsDestroyedResponse
-	(*GetStateRequest)(nil),                                      // 89: translation.GetStateRequest
-	(*GetStateResponse)(nil),                                     // 90: translation.GetStateResponse
-	(*GetSupportedTranslationFlagsRequest)(nil),                  // 91: translation.GetSupportedTranslationFlagsRequest
-	(*GetSupportedTranslationFlagsResponse)(nil),                 // 92: translation.GetSupportedTranslationFlagsResponse
-	(*IsUiTranslationEnabledRequest)(nil),                        // 93: translation.IsUiTranslationEnabledRequest
-	(*IsUiTranslationEnabledResponse)(nil),                       // 94: translation.IsUiTranslationEnabledResponse
+	(*RegisterUiTranslationStateCallbackRequest)(nil),            // 0: translation.RegisterUiTranslationStateCallbackRequest
+	(*RegisterUiTranslationStateCallbackResponse)(nil),           // 1: translation.RegisterUiTranslationStateCallbackResponse
+	(*UnregisterUiTranslationStateCallbackRequest)(nil),          // 2: translation.UnregisterUiTranslationStateCallbackRequest
+	(*UnregisterUiTranslationStateCallbackResponse)(nil),         // 3: translation.UnregisterUiTranslationStateCallbackResponse
+	(*DescribeContentsRequest)(nil),                              // 4: translation.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                             // 5: translation.DescribeContentsResponse
+	(*EqualsRequest)(nil),                                        // 6: translation.EqualsRequest
+	(*EqualsResponse)(nil),                                       // 7: translation.EqualsResponse
+	(*GetAutofillIdRequest)(nil),                                 // 8: translation.GetAutofillIdRequest
+	(*GetAutofillIdResponse)(nil),                                // 9: translation.GetAutofillIdResponse
+	(*GetKeysRequest)(nil),                                       // 10: translation.GetKeysRequest
+	(*GetKeysResponse)(nil),                                      // 11: translation.GetKeysResponse
+	(*GetValueRequest)(nil),                                      // 12: translation.GetValueRequest
+	(*GetValueResponse)(nil),                                     // 13: translation.GetValueResponse
+	(*HashCodeRequest)(nil),                                      // 14: translation.HashCodeRequest
+	(*HashCodeResponse)(nil),                                     // 15: translation.HashCodeResponse
+	(*ToStringRequest)(nil),                                      // 16: translation.ToStringRequest
+	(*ToStringResponse)(nil),                                     // 17: translation.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                 // 18: translation.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                // 19: translation.WriteToParcelResponse
+	(*BuildRequest)(nil),                                         // 20: translation.BuildRequest
+	(*BuildResponse)(nil),                                        // 21: translation.BuildResponse
+	(*SetValueRequest)(nil),                                      // 22: translation.SetValueRequest
+	(*SetValueResponse)(nil),                                     // 23: translation.SetValueResponse
+	(*GetTextRequest)(nil),                                       // 24: translation.GetTextRequest
+	(*GetTextResponse)(nil),                                      // 25: translation.GetTextResponse
+	(*ForTextRequest)(nil),                                       // 26: translation.ForTextRequest
+	(*ForTextResponse)(nil),                                      // 27: translation.ForTextResponse
+	(*OnClearTranslationRequest)(nil),                            // 28: translation.OnClearTranslationRequest
+	(*OnClearTranslationResponse)(nil),                           // 29: translation.OnClearTranslationResponse
+	(*OnHideTranslationRequest)(nil),                             // 30: translation.OnHideTranslationRequest
+	(*OnHideTranslationResponse)(nil),                            // 31: translation.OnHideTranslationResponse
+	(*OnShowTranslationRequest)(nil),                             // 32: translation.OnShowTranslationRequest
+	(*OnShowTranslationResponse)(nil),                            // 33: translation.OnShowTranslationResponse
+	(*GetSourceSpecRequest)(nil),                                 // 34: translation.GetSourceSpecRequest
+	(*GetSourceSpecResponse)(nil),                                // 35: translation.GetSourceSpecResponse
+	(*GetStateRequest)(nil),                                      // 36: translation.GetStateRequest
+	(*GetStateResponse)(nil),                                     // 37: translation.GetStateResponse
+	(*GetSupportedTranslationFlagsRequest)(nil),                  // 38: translation.GetSupportedTranslationFlagsRequest
+	(*GetSupportedTranslationFlagsResponse)(nil),                 // 39: translation.GetSupportedTranslationFlagsResponse
+	(*GetTargetSpecRequest)(nil),                                 // 40: translation.GetTargetSpecRequest
+	(*GetTargetSpecResponse)(nil),                                // 41: translation.GetTargetSpecResponse
+	(*IsUiTranslationEnabledRequest)(nil),                        // 42: translation.IsUiTranslationEnabledRequest
+	(*IsUiTranslationEnabledResponse)(nil),                       // 43: translation.IsUiTranslationEnabledResponse
+	(*OnFinishedRequest)(nil),                                    // 44: translation.OnFinishedRequest
+	(*OnFinishedResponse)(nil),                                   // 45: translation.OnFinishedResponse
+	(*OnPausedRequest)(nil),                                      // 46: translation.OnPausedRequest
+	(*OnPausedResponse)(nil),                                     // 47: translation.OnPausedResponse
+	(*GetTranslationFlagsRequest)(nil),                           // 48: translation.GetTranslationFlagsRequest
+	(*GetTranslationFlagsResponse)(nil),                          // 49: translation.GetTranslationFlagsResponse
+	(*SetTranslationFlagsRequest)(nil),                           // 50: translation.SetTranslationFlagsRequest
+	(*SetTranslationFlagsResponse)(nil),                          // 51: translation.SetTranslationFlagsResponse
+	(*GetOnDeviceTranslationCapabilitiesRequest)(nil),            // 52: translation.GetOnDeviceTranslationCapabilitiesRequest
+	(*GetOnDeviceTranslationCapabilitiesResponse)(nil),           // 53: translation.GetOnDeviceTranslationCapabilitiesResponse
+	(*GetOnDeviceTranslationSettingsActivityIntentRequest)(nil),  // 54: translation.GetOnDeviceTranslationSettingsActivityIntentRequest
+	(*GetOnDeviceTranslationSettingsActivityIntentResponse)(nil), // 55: translation.GetOnDeviceTranslationSettingsActivityIntentResponse
+	(*DestroyRequest)(nil),                                       // 56: translation.DestroyRequest
+	(*DestroyResponse)(nil),                                      // 57: translation.DestroyResponse
+	(*IsDestroyedRequest)(nil),                                   // 58: translation.IsDestroyedRequest
+	(*IsDestroyedResponse)(nil),                                  // 59: translation.IsDestroyedResponse
+	(*GetTranslationResponseValuesRequest)(nil),                  // 60: translation.GetTranslationResponseValuesRequest
+	(*GetTranslationResponseValuesResponse)(nil),                 // 61: translation.GetTranslationResponseValuesResponse
+	(*GetTranslationStatusRequest)(nil),                          // 62: translation.GetTranslationStatusRequest
+	(*GetTranslationStatusResponse)(nil),                         // 63: translation.GetTranslationStatusResponse
+	(*GetViewTranslationResponsesRequest)(nil),                   // 64: translation.GetViewTranslationResponsesRequest
+	(*GetViewTranslationResponsesResponse)(nil),                  // 65: translation.GetViewTranslationResponsesResponse
+	(*IsFinalResponseRequest)(nil),                               // 66: translation.IsFinalResponseRequest
+	(*IsFinalResponseResponse)(nil),                              // 67: translation.IsFinalResponseResponse
+	(*SetFinalResponseRequest)(nil),                              // 68: translation.SetFinalResponseRequest
+	(*SetFinalResponseResponse)(nil),                             // 69: translation.SetFinalResponseResponse
+	(*SetTranslationResponseValueRequest)(nil),                   // 70: translation.SetTranslationResponseValueRequest
+	(*SetTranslationResponseValueResponse)(nil),                  // 71: translation.SetTranslationResponseValueResponse
+	(*SetViewTranslationResponseRequest)(nil),                    // 72: translation.SetViewTranslationResponseRequest
+	(*SetViewTranslationResponseResponse)(nil),                   // 73: translation.SetViewTranslationResponseResponse
+	(*GetFlagsRequest)(nil),                                      // 74: translation.GetFlagsRequest
+	(*GetFlagsResponse)(nil),                                     // 75: translation.GetFlagsResponse
+	(*GetTranslationRequestValuesRequest)(nil),                   // 76: translation.GetTranslationRequestValuesRequest
+	(*GetTranslationRequestValuesResponse)(nil),                  // 77: translation.GetTranslationRequestValuesResponse
+	(*GetViewTranslationRequestsRequest)(nil),                    // 78: translation.GetViewTranslationRequestsRequest
+	(*GetViewTranslationRequestsResponse)(nil),                   // 79: translation.GetViewTranslationRequestsResponse
+	(*SetFlagsRequest)(nil),                                      // 80: translation.SetFlagsRequest
+	(*SetFlagsResponse)(nil),                                     // 81: translation.SetFlagsResponse
+	(*GetExtrasRequest)(nil),                                     // 82: translation.GetExtrasRequest
+	(*GetExtrasResponse)(nil),                                    // 83: translation.GetExtrasResponse
+	(*GetStatusCodeRequest)(nil),                                 // 84: translation.GetStatusCodeRequest
+	(*GetStatusCodeResponse)(nil),                                // 85: translation.GetStatusCodeResponse
+	(*GetTransliterationRequest)(nil),                            // 86: translation.GetTransliterationRequest
+	(*GetTransliterationResponse)(nil),                           // 87: translation.GetTransliterationResponse
+	(*ForErrorRequest)(nil),                                      // 88: translation.ForErrorRequest
+	(*ForErrorResponse)(nil),                                     // 89: translation.ForErrorResponse
+	(*SetExtrasRequest)(nil),                                     // 90: translation.SetExtrasRequest
+	(*SetExtrasResponse)(nil),                                    // 91: translation.SetExtrasResponse
+	(*SetTextRequest)(nil),                                       // 92: translation.SetTextRequest
+	(*SetTextResponse)(nil),                                      // 93: translation.SetTextResponse
+	(*SetTransliterationRequest)(nil),                            // 94: translation.SetTransliterationRequest
+	(*SetTransliterationResponse)(nil),                           // 95: translation.SetTransliterationResponse
+	(*NewSpecRequest)(nil),                                       // 96: translation.NewSpecRequest
+	(*NewSpecResponse)(nil),                                      // 97: translation.NewSpecResponse
+	(*SpecDescribeContentsRequest)(nil),                          // 98: translation.SpecDescribeContentsRequest
+	(*SpecEqualsRequest)(nil),                                    // 99: translation.SpecEqualsRequest
+	(*GetDataFormatRequest)(nil),                                 // 100: translation.GetDataFormatRequest
+	(*GetDataFormatResponse)(nil),                                // 101: translation.GetDataFormatResponse
+	(*GetLocaleRequest)(nil),                                     // 102: translation.GetLocaleRequest
+	(*GetLocaleResponse)(nil),                                    // 103: translation.GetLocaleResponse
+	(*SpecHashCodeRequest)(nil),                                  // 104: translation.SpecHashCodeRequest
+	(*SpecToStringRequest)(nil),                                  // 105: translation.SpecToStringRequest
+	(*SpecWriteToParcelRequest)(nil),                             // 106: translation.SpecWriteToParcelRequest
 }
 var file_proto_translation_translation_proto_depIdxs = []int32{
-	0,  // 0: translation.ViewTranslationResponseService.DescribeContents:input_type -> translation.DescribeContentsRequest
-	2,  // 1: translation.ViewTranslationResponseService.Equals:input_type -> translation.EqualsRequest
-	4,  // 2: translation.ViewTranslationResponseService.GetAutofillId:input_type -> translation.GetAutofillIdRequest
-	6,  // 3: translation.ViewTranslationResponseService.GetValue:input_type -> translation.GetValueRequest
-	8,  // 4: translation.ViewTranslationResponseService.HashCode:input_type -> translation.HashCodeRequest
-	10, // 5: translation.ViewTranslationResponseService.ToString:input_type -> translation.ToStringRequest
-	12, // 6: translation.ViewTranslationResponseService.WriteToParcel:input_type -> translation.WriteToParcelRequest
-	14, // 7: translation.ViewTranslationResponseBuilderService.Build:input_type -> translation.BuildRequest
-	16, // 8: translation.ViewTranslationResponseBuilderService.SetValue:input_type -> translation.SetValueRequest
-	18, // 9: translation.UiTranslationManagerService.RegisterUiTranslationStateCallback:input_type -> translation.RegisterUiTranslationStateCallbackRequest
-	20, // 10: translation.UiTranslationManagerService.UnregisterUiTranslationStateCallback:input_type -> translation.UnregisterUiTranslationStateCallbackRequest
-	0,  // 11: translation.ViewTranslationRequestService.DescribeContents:input_type -> translation.DescribeContentsRequest
-	2,  // 12: translation.ViewTranslationRequestService.Equals:input_type -> translation.EqualsRequest
-	4,  // 13: translation.ViewTranslationRequestService.GetAutofillId:input_type -> translation.GetAutofillIdRequest
-	6,  // 14: translation.ViewTranslationRequestService.GetValue:input_type -> translation.GetValueRequest
-	8,  // 15: translation.ViewTranslationRequestService.HashCode:input_type -> translation.HashCodeRequest
-	10, // 16: translation.ViewTranslationRequestService.ToString:input_type -> translation.ToStringRequest
-	12, // 17: translation.ViewTranslationRequestService.WriteToParcel:input_type -> translation.WriteToParcelRequest
-	14, // 18: translation.ViewTranslationRequestBuilderService.Build:input_type -> translation.BuildRequest
-	16, // 19: translation.ViewTranslationRequestBuilderService.SetValue:input_type -> translation.SetValueRequest
-	0,  // 20: translation.ResponseValueService.DescribeContents:input_type -> translation.DescribeContentsRequest
-	2,  // 21: translation.ResponseValueService.Equals:input_type -> translation.EqualsRequest
-	22, // 22: translation.ResponseValueService.GetExtras:input_type -> translation.GetExtrasRequest
-	24, // 23: translation.ResponseValueService.GetStatusCode:input_type -> translation.GetStatusCodeRequest
-	26, // 24: translation.ResponseValueService.GetText:input_type -> translation.GetTextRequest
-	28, // 25: translation.ResponseValueService.GetTransliteration:input_type -> translation.GetTransliterationRequest
-	8,  // 26: translation.ResponseValueService.HashCode:input_type -> translation.HashCodeRequest
-	10, // 27: translation.ResponseValueService.ToString:input_type -> translation.ToStringRequest
-	12, // 28: translation.ResponseValueService.WriteToParcel:input_type -> translation.WriteToParcelRequest
-	30, // 29: translation.ResponseValueService.ForError:input_type -> translation.ForErrorRequest
-	14, // 30: translation.ResponseValueBuilderService.Build:input_type -> translation.BuildRequest
-	32, // 31: translation.ResponseValueBuilderService.SetExtras:input_type -> translation.SetExtrasRequest
-	34, // 32: translation.ResponseValueBuilderService.SetText:input_type -> translation.SetTextRequest
-	36, // 33: translation.ResponseValueBuilderService.SetTransliteration:input_type -> translation.SetTransliterationRequest
-	0,  // 34: translation.ResponseService.DescribeContents:input_type -> translation.DescribeContentsRequest
-	38, // 35: translation.ResponseService.GetTranslationStatus:input_type -> translation.GetTranslationStatusRequest
-	40, // 36: translation.ResponseService.IsFinalResponse:input_type -> translation.IsFinalResponseRequest
-	10, // 37: translation.ResponseService.ToString:input_type -> translation.ToStringRequest
-	12, // 38: translation.ResponseService.WriteToParcel:input_type -> translation.WriteToParcelRequest
-	14, // 39: translation.ResponseBuilderService.Build:input_type -> translation.BuildRequest
-	42, // 40: translation.ResponseBuilderService.SetFinalResponse:input_type -> translation.SetFinalResponseRequest
-	44, // 41: translation.ResponseBuilderService.SetTranslationResponseValue:input_type -> translation.SetTranslationResponseValueRequest
-	46, // 42: translation.ResponseBuilderService.SetViewTranslationResponse:input_type -> translation.SetViewTranslationResponseRequest
-	0,  // 43: translation.RequestValueService.DescribeContents:input_type -> translation.DescribeContentsRequest
-	2,  // 44: translation.RequestValueService.Equals:input_type -> translation.EqualsRequest
-	26, // 45: translation.RequestValueService.GetText:input_type -> translation.GetTextRequest
-	8,  // 46: translation.RequestValueService.HashCode:input_type -> translation.HashCodeRequest
-	10, // 47: translation.RequestValueService.ToString:input_type -> translation.ToStringRequest
-	12, // 48: translation.RequestValueService.WriteToParcel:input_type -> translation.WriteToParcelRequest
-	48, // 49: translation.RequestValueService.ForText:input_type -> translation.ForTextRequest
-	50, // 50: translation.ManagerService.GetOnDeviceTranslationSettingsActivityIntent:input_type -> translation.GetOnDeviceTranslationSettingsActivityIntentRequest
-	0,  // 51: translation.RequestService.DescribeContents:input_type -> translation.DescribeContentsRequest
-	52, // 52: translation.RequestService.GetFlags:input_type -> translation.GetFlagsRequest
-	10, // 53: translation.RequestService.ToString:input_type -> translation.ToStringRequest
-	12, // 54: translation.RequestService.WriteToParcel:input_type -> translation.WriteToParcelRequest
-	14, // 55: translation.RequestBuilderService.Build:input_type -> translation.BuildRequest
-	54, // 56: translation.RequestBuilderService.SetFlags:input_type -> translation.SetFlagsRequest
-	56, // 57: translation.UiTranslationStateCallbackService.OnFinished:input_type -> translation.OnFinishedRequest
-	58, // 58: translation.UiTranslationStateCallbackService.OnPaused:input_type -> translation.OnPausedRequest
-	60, // 59: translation.ViewTranslationCallbackService.OnClearTranslation:input_type -> translation.OnClearTranslationRequest
-	62, // 60: translation.ViewTranslationCallbackService.OnHideTranslation:input_type -> translation.OnHideTranslationRequest
-	64, // 61: translation.ViewTranslationCallbackService.OnShowTranslation:input_type -> translation.OnShowTranslationRequest
-	66, // 62: translation.SpecService.NewSpec:input_type -> translation.NewSpecRequest
-	68, // 63: translation.SpecService.DescribeContents:input_type -> translation.SpecDescribeContentsRequest
-	69, // 64: translation.SpecService.Equals:input_type -> translation.SpecEqualsRequest
-	70, // 65: translation.SpecService.GetDataFormat:input_type -> translation.GetDataFormatRequest
-	72, // 66: translation.SpecService.GetLocale:input_type -> translation.GetLocaleRequest
-	74, // 67: translation.SpecService.HashCode:input_type -> translation.SpecHashCodeRequest
-	75, // 68: translation.SpecService.ToString:input_type -> translation.SpecToStringRequest
-	76, // 69: translation.SpecService.WriteToParcel:input_type -> translation.SpecWriteToParcelRequest
-	0,  // 70: translation.ContextService.DescribeContents:input_type -> translation.DescribeContentsRequest
-	77, // 71: translation.ContextService.GetSourceSpec:input_type -> translation.GetSourceSpecRequest
-	79, // 72: translation.ContextService.GetTargetSpec:input_type -> translation.GetTargetSpecRequest
-	81, // 73: translation.ContextService.GetTranslationFlags:input_type -> translation.GetTranslationFlagsRequest
-	10, // 74: translation.ContextService.ToString:input_type -> translation.ToStringRequest
-	12, // 75: translation.ContextService.WriteToParcel:input_type -> translation.WriteToParcelRequest
-	14, // 76: translation.ContextBuilderService.Build:input_type -> translation.BuildRequest
-	83, // 77: translation.ContextBuilderService.SetTranslationFlags:input_type -> translation.SetTranslationFlagsRequest
-	85, // 78: translation.TranslatorService.Destroy:input_type -> translation.DestroyRequest
-	87, // 79: translation.TranslatorService.IsDestroyed:input_type -> translation.IsDestroyedRequest
-	0,  // 80: translation.CapabilityService.DescribeContents:input_type -> translation.DescribeContentsRequest
-	77, // 81: translation.CapabilityService.GetSourceSpec:input_type -> translation.GetSourceSpecRequest
-	89, // 82: translation.CapabilityService.GetState:input_type -> translation.GetStateRequest
-	91, // 83: translation.CapabilityService.GetSupportedTranslationFlags:input_type -> translation.GetSupportedTranslationFlagsRequest
-	79, // 84: translation.CapabilityService.GetTargetSpec:input_type -> translation.GetTargetSpecRequest
-	93, // 85: translation.CapabilityService.IsUiTranslationEnabled:input_type -> translation.IsUiTranslationEnabledRequest
-	10, // 86: translation.CapabilityService.ToString:input_type -> translation.ToStringRequest
-	12, // 87: translation.CapabilityService.WriteToParcel:input_type -> translation.WriteToParcelRequest
-	1,  // 88: translation.ViewTranslationResponseService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	3,  // 89: translation.ViewTranslationResponseService.Equals:output_type -> translation.EqualsResponse
-	5,  // 90: translation.ViewTranslationResponseService.GetAutofillId:output_type -> translation.GetAutofillIdResponse
-	7,  // 91: translation.ViewTranslationResponseService.GetValue:output_type -> translation.GetValueResponse
-	9,  // 92: translation.ViewTranslationResponseService.HashCode:output_type -> translation.HashCodeResponse
-	11, // 93: translation.ViewTranslationResponseService.ToString:output_type -> translation.ToStringResponse
-	13, // 94: translation.ViewTranslationResponseService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	15, // 95: translation.ViewTranslationResponseBuilderService.Build:output_type -> translation.BuildResponse
-	17, // 96: translation.ViewTranslationResponseBuilderService.SetValue:output_type -> translation.SetValueResponse
-	19, // 97: translation.UiTranslationManagerService.RegisterUiTranslationStateCallback:output_type -> translation.RegisterUiTranslationStateCallbackResponse
-	21, // 98: translation.UiTranslationManagerService.UnregisterUiTranslationStateCallback:output_type -> translation.UnregisterUiTranslationStateCallbackResponse
-	1,  // 99: translation.ViewTranslationRequestService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	3,  // 100: translation.ViewTranslationRequestService.Equals:output_type -> translation.EqualsResponse
-	5,  // 101: translation.ViewTranslationRequestService.GetAutofillId:output_type -> translation.GetAutofillIdResponse
-	7,  // 102: translation.ViewTranslationRequestService.GetValue:output_type -> translation.GetValueResponse
-	9,  // 103: translation.ViewTranslationRequestService.HashCode:output_type -> translation.HashCodeResponse
-	11, // 104: translation.ViewTranslationRequestService.ToString:output_type -> translation.ToStringResponse
-	13, // 105: translation.ViewTranslationRequestService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	15, // 106: translation.ViewTranslationRequestBuilderService.Build:output_type -> translation.BuildResponse
-	17, // 107: translation.ViewTranslationRequestBuilderService.SetValue:output_type -> translation.SetValueResponse
-	1,  // 108: translation.ResponseValueService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	3,  // 109: translation.ResponseValueService.Equals:output_type -> translation.EqualsResponse
-	23, // 110: translation.ResponseValueService.GetExtras:output_type -> translation.GetExtrasResponse
-	25, // 111: translation.ResponseValueService.GetStatusCode:output_type -> translation.GetStatusCodeResponse
-	27, // 112: translation.ResponseValueService.GetText:output_type -> translation.GetTextResponse
-	29, // 113: translation.ResponseValueService.GetTransliteration:output_type -> translation.GetTransliterationResponse
-	9,  // 114: translation.ResponseValueService.HashCode:output_type -> translation.HashCodeResponse
-	11, // 115: translation.ResponseValueService.ToString:output_type -> translation.ToStringResponse
-	13, // 116: translation.ResponseValueService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	31, // 117: translation.ResponseValueService.ForError:output_type -> translation.ForErrorResponse
-	15, // 118: translation.ResponseValueBuilderService.Build:output_type -> translation.BuildResponse
-	33, // 119: translation.ResponseValueBuilderService.SetExtras:output_type -> translation.SetExtrasResponse
-	35, // 120: translation.ResponseValueBuilderService.SetText:output_type -> translation.SetTextResponse
-	37, // 121: translation.ResponseValueBuilderService.SetTransliteration:output_type -> translation.SetTransliterationResponse
-	1,  // 122: translation.ResponseService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	39, // 123: translation.ResponseService.GetTranslationStatus:output_type -> translation.GetTranslationStatusResponse
-	41, // 124: translation.ResponseService.IsFinalResponse:output_type -> translation.IsFinalResponseResponse
-	11, // 125: translation.ResponseService.ToString:output_type -> translation.ToStringResponse
-	13, // 126: translation.ResponseService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	15, // 127: translation.ResponseBuilderService.Build:output_type -> translation.BuildResponse
-	43, // 128: translation.ResponseBuilderService.SetFinalResponse:output_type -> translation.SetFinalResponseResponse
-	45, // 129: translation.ResponseBuilderService.SetTranslationResponseValue:output_type -> translation.SetTranslationResponseValueResponse
-	47, // 130: translation.ResponseBuilderService.SetViewTranslationResponse:output_type -> translation.SetViewTranslationResponseResponse
-	1,  // 131: translation.RequestValueService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	3,  // 132: translation.RequestValueService.Equals:output_type -> translation.EqualsResponse
-	27, // 133: translation.RequestValueService.GetText:output_type -> translation.GetTextResponse
-	9,  // 134: translation.RequestValueService.HashCode:output_type -> translation.HashCodeResponse
-	11, // 135: translation.RequestValueService.ToString:output_type -> translation.ToStringResponse
-	13, // 136: translation.RequestValueService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	49, // 137: translation.RequestValueService.ForText:output_type -> translation.ForTextResponse
-	51, // 138: translation.ManagerService.GetOnDeviceTranslationSettingsActivityIntent:output_type -> translation.GetOnDeviceTranslationSettingsActivityIntentResponse
-	1,  // 139: translation.RequestService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	53, // 140: translation.RequestService.GetFlags:output_type -> translation.GetFlagsResponse
-	11, // 141: translation.RequestService.ToString:output_type -> translation.ToStringResponse
-	13, // 142: translation.RequestService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	15, // 143: translation.RequestBuilderService.Build:output_type -> translation.BuildResponse
-	55, // 144: translation.RequestBuilderService.SetFlags:output_type -> translation.SetFlagsResponse
-	57, // 145: translation.UiTranslationStateCallbackService.OnFinished:output_type -> translation.OnFinishedResponse
-	59, // 146: translation.UiTranslationStateCallbackService.OnPaused:output_type -> translation.OnPausedResponse
-	61, // 147: translation.ViewTranslationCallbackService.OnClearTranslation:output_type -> translation.OnClearTranslationResponse
-	63, // 148: translation.ViewTranslationCallbackService.OnHideTranslation:output_type -> translation.OnHideTranslationResponse
-	65, // 149: translation.ViewTranslationCallbackService.OnShowTranslation:output_type -> translation.OnShowTranslationResponse
-	67, // 150: translation.SpecService.NewSpec:output_type -> translation.NewSpecResponse
-	1,  // 151: translation.SpecService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	3,  // 152: translation.SpecService.Equals:output_type -> translation.EqualsResponse
-	71, // 153: translation.SpecService.GetDataFormat:output_type -> translation.GetDataFormatResponse
-	73, // 154: translation.SpecService.GetLocale:output_type -> translation.GetLocaleResponse
-	9,  // 155: translation.SpecService.HashCode:output_type -> translation.HashCodeResponse
-	11, // 156: translation.SpecService.ToString:output_type -> translation.ToStringResponse
-	13, // 157: translation.SpecService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	1,  // 158: translation.ContextService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	78, // 159: translation.ContextService.GetSourceSpec:output_type -> translation.GetSourceSpecResponse
-	80, // 160: translation.ContextService.GetTargetSpec:output_type -> translation.GetTargetSpecResponse
-	82, // 161: translation.ContextService.GetTranslationFlags:output_type -> translation.GetTranslationFlagsResponse
-	11, // 162: translation.ContextService.ToString:output_type -> translation.ToStringResponse
-	13, // 163: translation.ContextService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	15, // 164: translation.ContextBuilderService.Build:output_type -> translation.BuildResponse
-	84, // 165: translation.ContextBuilderService.SetTranslationFlags:output_type -> translation.SetTranslationFlagsResponse
-	86, // 166: translation.TranslatorService.Destroy:output_type -> translation.DestroyResponse
-	88, // 167: translation.TranslatorService.IsDestroyed:output_type -> translation.IsDestroyedResponse
-	1,  // 168: translation.CapabilityService.DescribeContents:output_type -> translation.DescribeContentsResponse
-	78, // 169: translation.CapabilityService.GetSourceSpec:output_type -> translation.GetSourceSpecResponse
-	90, // 170: translation.CapabilityService.GetState:output_type -> translation.GetStateResponse
-	92, // 171: translation.CapabilityService.GetSupportedTranslationFlags:output_type -> translation.GetSupportedTranslationFlagsResponse
-	80, // 172: translation.CapabilityService.GetTargetSpec:output_type -> translation.GetTargetSpecResponse
-	94, // 173: translation.CapabilityService.IsUiTranslationEnabled:output_type -> translation.IsUiTranslationEnabledResponse
-	11, // 174: translation.CapabilityService.ToString:output_type -> translation.ToStringResponse
-	13, // 175: translation.CapabilityService.WriteToParcel:output_type -> translation.WriteToParcelResponse
-	88, // [88:176] is the sub-list for method output_type
-	0,  // [0:88] is the sub-list for method input_type
-	0,  // [0:0] is the sub-list for extension type_name
-	0,  // [0:0] is the sub-list for extension extendee
-	0,  // [0:0] is the sub-list for field type_name
+	0,   // 0: translation.UiTranslationManagerService.RegisterUiTranslationStateCallback:input_type -> translation.RegisterUiTranslationStateCallbackRequest
+	2,   // 1: translation.UiTranslationManagerService.UnregisterUiTranslationStateCallback:input_type -> translation.UnregisterUiTranslationStateCallbackRequest
+	4,   // 2: translation.ViewTranslationResponseService.DescribeContents:input_type -> translation.DescribeContentsRequest
+	6,   // 3: translation.ViewTranslationResponseService.Equals:input_type -> translation.EqualsRequest
+	8,   // 4: translation.ViewTranslationResponseService.GetAutofillId:input_type -> translation.GetAutofillIdRequest
+	10,  // 5: translation.ViewTranslationResponseService.GetKeys:input_type -> translation.GetKeysRequest
+	12,  // 6: translation.ViewTranslationResponseService.GetValue:input_type -> translation.GetValueRequest
+	14,  // 7: translation.ViewTranslationResponseService.HashCode:input_type -> translation.HashCodeRequest
+	16,  // 8: translation.ViewTranslationResponseService.ToString:input_type -> translation.ToStringRequest
+	18,  // 9: translation.ViewTranslationResponseService.WriteToParcel:input_type -> translation.WriteToParcelRequest
+	20,  // 10: translation.ViewTranslationResponseBuilderService.Build:input_type -> translation.BuildRequest
+	22,  // 11: translation.ViewTranslationResponseBuilderService.SetValue:input_type -> translation.SetValueRequest
+	4,   // 12: translation.RequestValueService.DescribeContents:input_type -> translation.DescribeContentsRequest
+	6,   // 13: translation.RequestValueService.Equals:input_type -> translation.EqualsRequest
+	24,  // 14: translation.RequestValueService.GetText:input_type -> translation.GetTextRequest
+	14,  // 15: translation.RequestValueService.HashCode:input_type -> translation.HashCodeRequest
+	16,  // 16: translation.RequestValueService.ToString:input_type -> translation.ToStringRequest
+	18,  // 17: translation.RequestValueService.WriteToParcel:input_type -> translation.WriteToParcelRequest
+	26,  // 18: translation.RequestValueService.ForText:input_type -> translation.ForTextRequest
+	28,  // 19: translation.ViewTranslationCallbackService.OnClearTranslation:input_type -> translation.OnClearTranslationRequest
+	30,  // 20: translation.ViewTranslationCallbackService.OnHideTranslation:input_type -> translation.OnHideTranslationRequest
+	32,  // 21: translation.ViewTranslationCallbackService.OnShowTranslation:input_type -> translation.OnShowTranslationRequest
+	4,   // 22: translation.CapabilityService.DescribeContents:input_type -> translation.DescribeContentsRequest
+	34,  // 23: translation.CapabilityService.GetSourceSpec:input_type -> translation.GetSourceSpecRequest
+	36,  // 24: translation.CapabilityService.GetState:input_type -> translation.GetStateRequest
+	38,  // 25: translation.CapabilityService.GetSupportedTranslationFlags:input_type -> translation.GetSupportedTranslationFlagsRequest
+	40,  // 26: translation.CapabilityService.GetTargetSpec:input_type -> translation.GetTargetSpecRequest
+	42,  // 27: translation.CapabilityService.IsUiTranslationEnabled:input_type -> translation.IsUiTranslationEnabledRequest
+	16,  // 28: translation.CapabilityService.ToString:input_type -> translation.ToStringRequest
+	18,  // 29: translation.CapabilityService.WriteToParcel:input_type -> translation.WriteToParcelRequest
+	44,  // 30: translation.UiTranslationStateCallbackService.OnFinished:input_type -> translation.OnFinishedRequest
+	46,  // 31: translation.UiTranslationStateCallbackService.OnPaused:input_type -> translation.OnPausedRequest
+	4,   // 32: translation.ContextService.DescribeContents:input_type -> translation.DescribeContentsRequest
+	34,  // 33: translation.ContextService.GetSourceSpec:input_type -> translation.GetSourceSpecRequest
+	40,  // 34: translation.ContextService.GetTargetSpec:input_type -> translation.GetTargetSpecRequest
+	48,  // 35: translation.ContextService.GetTranslationFlags:input_type -> translation.GetTranslationFlagsRequest
+	16,  // 36: translation.ContextService.ToString:input_type -> translation.ToStringRequest
+	18,  // 37: translation.ContextService.WriteToParcel:input_type -> translation.WriteToParcelRequest
+	20,  // 38: translation.ContextBuilderService.Build:input_type -> translation.BuildRequest
+	50,  // 39: translation.ContextBuilderService.SetTranslationFlags:input_type -> translation.SetTranslationFlagsRequest
+	52,  // 40: translation.ManagerService.GetOnDeviceTranslationCapabilities:input_type -> translation.GetOnDeviceTranslationCapabilitiesRequest
+	54,  // 41: translation.ManagerService.GetOnDeviceTranslationSettingsActivityIntent:input_type -> translation.GetOnDeviceTranslationSettingsActivityIntentRequest
+	56,  // 42: translation.TranslatorService.Destroy:input_type -> translation.DestroyRequest
+	58,  // 43: translation.TranslatorService.IsDestroyed:input_type -> translation.IsDestroyedRequest
+	4,   // 44: translation.ViewTranslationRequestService.DescribeContents:input_type -> translation.DescribeContentsRequest
+	6,   // 45: translation.ViewTranslationRequestService.Equals:input_type -> translation.EqualsRequest
+	8,   // 46: translation.ViewTranslationRequestService.GetAutofillId:input_type -> translation.GetAutofillIdRequest
+	10,  // 47: translation.ViewTranslationRequestService.GetKeys:input_type -> translation.GetKeysRequest
+	12,  // 48: translation.ViewTranslationRequestService.GetValue:input_type -> translation.GetValueRequest
+	14,  // 49: translation.ViewTranslationRequestService.HashCode:input_type -> translation.HashCodeRequest
+	16,  // 50: translation.ViewTranslationRequestService.ToString:input_type -> translation.ToStringRequest
+	18,  // 51: translation.ViewTranslationRequestService.WriteToParcel:input_type -> translation.WriteToParcelRequest
+	20,  // 52: translation.ViewTranslationRequestBuilderService.Build:input_type -> translation.BuildRequest
+	22,  // 53: translation.ViewTranslationRequestBuilderService.SetValue:input_type -> translation.SetValueRequest
+	4,   // 54: translation.ResponseService.DescribeContents:input_type -> translation.DescribeContentsRequest
+	60,  // 55: translation.ResponseService.GetTranslationResponseValues:input_type -> translation.GetTranslationResponseValuesRequest
+	62,  // 56: translation.ResponseService.GetTranslationStatus:input_type -> translation.GetTranslationStatusRequest
+	64,  // 57: translation.ResponseService.GetViewTranslationResponses:input_type -> translation.GetViewTranslationResponsesRequest
+	66,  // 58: translation.ResponseService.IsFinalResponse:input_type -> translation.IsFinalResponseRequest
+	16,  // 59: translation.ResponseService.ToString:input_type -> translation.ToStringRequest
+	18,  // 60: translation.ResponseService.WriteToParcel:input_type -> translation.WriteToParcelRequest
+	20,  // 61: translation.ResponseBuilderService.Build:input_type -> translation.BuildRequest
+	68,  // 62: translation.ResponseBuilderService.SetFinalResponse:input_type -> translation.SetFinalResponseRequest
+	70,  // 63: translation.ResponseBuilderService.SetTranslationResponseValue:input_type -> translation.SetTranslationResponseValueRequest
+	72,  // 64: translation.ResponseBuilderService.SetViewTranslationResponse:input_type -> translation.SetViewTranslationResponseRequest
+	4,   // 65: translation.RequestService.DescribeContents:input_type -> translation.DescribeContentsRequest
+	74,  // 66: translation.RequestService.GetFlags:input_type -> translation.GetFlagsRequest
+	76,  // 67: translation.RequestService.GetTranslationRequestValues:input_type -> translation.GetTranslationRequestValuesRequest
+	78,  // 68: translation.RequestService.GetViewTranslationRequests:input_type -> translation.GetViewTranslationRequestsRequest
+	16,  // 69: translation.RequestService.ToString:input_type -> translation.ToStringRequest
+	18,  // 70: translation.RequestService.WriteToParcel:input_type -> translation.WriteToParcelRequest
+	20,  // 71: translation.RequestBuilderService.Build:input_type -> translation.BuildRequest
+	80,  // 72: translation.RequestBuilderService.SetFlags:input_type -> translation.SetFlagsRequest
+	4,   // 73: translation.ResponseValueService.DescribeContents:input_type -> translation.DescribeContentsRequest
+	6,   // 74: translation.ResponseValueService.Equals:input_type -> translation.EqualsRequest
+	82,  // 75: translation.ResponseValueService.GetExtras:input_type -> translation.GetExtrasRequest
+	84,  // 76: translation.ResponseValueService.GetStatusCode:input_type -> translation.GetStatusCodeRequest
+	24,  // 77: translation.ResponseValueService.GetText:input_type -> translation.GetTextRequest
+	86,  // 78: translation.ResponseValueService.GetTransliteration:input_type -> translation.GetTransliterationRequest
+	14,  // 79: translation.ResponseValueService.HashCode:input_type -> translation.HashCodeRequest
+	16,  // 80: translation.ResponseValueService.ToString:input_type -> translation.ToStringRequest
+	18,  // 81: translation.ResponseValueService.WriteToParcel:input_type -> translation.WriteToParcelRequest
+	88,  // 82: translation.ResponseValueService.ForError:input_type -> translation.ForErrorRequest
+	20,  // 83: translation.ResponseValueBuilderService.Build:input_type -> translation.BuildRequest
+	90,  // 84: translation.ResponseValueBuilderService.SetExtras:input_type -> translation.SetExtrasRequest
+	92,  // 85: translation.ResponseValueBuilderService.SetText:input_type -> translation.SetTextRequest
+	94,  // 86: translation.ResponseValueBuilderService.SetTransliteration:input_type -> translation.SetTransliterationRequest
+	96,  // 87: translation.SpecService.NewSpec:input_type -> translation.NewSpecRequest
+	98,  // 88: translation.SpecService.DescribeContents:input_type -> translation.SpecDescribeContentsRequest
+	99,  // 89: translation.SpecService.Equals:input_type -> translation.SpecEqualsRequest
+	100, // 90: translation.SpecService.GetDataFormat:input_type -> translation.GetDataFormatRequest
+	102, // 91: translation.SpecService.GetLocale:input_type -> translation.GetLocaleRequest
+	104, // 92: translation.SpecService.HashCode:input_type -> translation.SpecHashCodeRequest
+	105, // 93: translation.SpecService.ToString:input_type -> translation.SpecToStringRequest
+	106, // 94: translation.SpecService.WriteToParcel:input_type -> translation.SpecWriteToParcelRequest
+	1,   // 95: translation.UiTranslationManagerService.RegisterUiTranslationStateCallback:output_type -> translation.RegisterUiTranslationStateCallbackResponse
+	3,   // 96: translation.UiTranslationManagerService.UnregisterUiTranslationStateCallback:output_type -> translation.UnregisterUiTranslationStateCallbackResponse
+	5,   // 97: translation.ViewTranslationResponseService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	7,   // 98: translation.ViewTranslationResponseService.Equals:output_type -> translation.EqualsResponse
+	9,   // 99: translation.ViewTranslationResponseService.GetAutofillId:output_type -> translation.GetAutofillIdResponse
+	11,  // 100: translation.ViewTranslationResponseService.GetKeys:output_type -> translation.GetKeysResponse
+	13,  // 101: translation.ViewTranslationResponseService.GetValue:output_type -> translation.GetValueResponse
+	15,  // 102: translation.ViewTranslationResponseService.HashCode:output_type -> translation.HashCodeResponse
+	17,  // 103: translation.ViewTranslationResponseService.ToString:output_type -> translation.ToStringResponse
+	19,  // 104: translation.ViewTranslationResponseService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	21,  // 105: translation.ViewTranslationResponseBuilderService.Build:output_type -> translation.BuildResponse
+	23,  // 106: translation.ViewTranslationResponseBuilderService.SetValue:output_type -> translation.SetValueResponse
+	5,   // 107: translation.RequestValueService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	7,   // 108: translation.RequestValueService.Equals:output_type -> translation.EqualsResponse
+	25,  // 109: translation.RequestValueService.GetText:output_type -> translation.GetTextResponse
+	15,  // 110: translation.RequestValueService.HashCode:output_type -> translation.HashCodeResponse
+	17,  // 111: translation.RequestValueService.ToString:output_type -> translation.ToStringResponse
+	19,  // 112: translation.RequestValueService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	27,  // 113: translation.RequestValueService.ForText:output_type -> translation.ForTextResponse
+	29,  // 114: translation.ViewTranslationCallbackService.OnClearTranslation:output_type -> translation.OnClearTranslationResponse
+	31,  // 115: translation.ViewTranslationCallbackService.OnHideTranslation:output_type -> translation.OnHideTranslationResponse
+	33,  // 116: translation.ViewTranslationCallbackService.OnShowTranslation:output_type -> translation.OnShowTranslationResponse
+	5,   // 117: translation.CapabilityService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	35,  // 118: translation.CapabilityService.GetSourceSpec:output_type -> translation.GetSourceSpecResponse
+	37,  // 119: translation.CapabilityService.GetState:output_type -> translation.GetStateResponse
+	39,  // 120: translation.CapabilityService.GetSupportedTranslationFlags:output_type -> translation.GetSupportedTranslationFlagsResponse
+	41,  // 121: translation.CapabilityService.GetTargetSpec:output_type -> translation.GetTargetSpecResponse
+	43,  // 122: translation.CapabilityService.IsUiTranslationEnabled:output_type -> translation.IsUiTranslationEnabledResponse
+	17,  // 123: translation.CapabilityService.ToString:output_type -> translation.ToStringResponse
+	19,  // 124: translation.CapabilityService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	45,  // 125: translation.UiTranslationStateCallbackService.OnFinished:output_type -> translation.OnFinishedResponse
+	47,  // 126: translation.UiTranslationStateCallbackService.OnPaused:output_type -> translation.OnPausedResponse
+	5,   // 127: translation.ContextService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	35,  // 128: translation.ContextService.GetSourceSpec:output_type -> translation.GetSourceSpecResponse
+	41,  // 129: translation.ContextService.GetTargetSpec:output_type -> translation.GetTargetSpecResponse
+	49,  // 130: translation.ContextService.GetTranslationFlags:output_type -> translation.GetTranslationFlagsResponse
+	17,  // 131: translation.ContextService.ToString:output_type -> translation.ToStringResponse
+	19,  // 132: translation.ContextService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	21,  // 133: translation.ContextBuilderService.Build:output_type -> translation.BuildResponse
+	51,  // 134: translation.ContextBuilderService.SetTranslationFlags:output_type -> translation.SetTranslationFlagsResponse
+	53,  // 135: translation.ManagerService.GetOnDeviceTranslationCapabilities:output_type -> translation.GetOnDeviceTranslationCapabilitiesResponse
+	55,  // 136: translation.ManagerService.GetOnDeviceTranslationSettingsActivityIntent:output_type -> translation.GetOnDeviceTranslationSettingsActivityIntentResponse
+	57,  // 137: translation.TranslatorService.Destroy:output_type -> translation.DestroyResponse
+	59,  // 138: translation.TranslatorService.IsDestroyed:output_type -> translation.IsDestroyedResponse
+	5,   // 139: translation.ViewTranslationRequestService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	7,   // 140: translation.ViewTranslationRequestService.Equals:output_type -> translation.EqualsResponse
+	9,   // 141: translation.ViewTranslationRequestService.GetAutofillId:output_type -> translation.GetAutofillIdResponse
+	11,  // 142: translation.ViewTranslationRequestService.GetKeys:output_type -> translation.GetKeysResponse
+	13,  // 143: translation.ViewTranslationRequestService.GetValue:output_type -> translation.GetValueResponse
+	15,  // 144: translation.ViewTranslationRequestService.HashCode:output_type -> translation.HashCodeResponse
+	17,  // 145: translation.ViewTranslationRequestService.ToString:output_type -> translation.ToStringResponse
+	19,  // 146: translation.ViewTranslationRequestService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	21,  // 147: translation.ViewTranslationRequestBuilderService.Build:output_type -> translation.BuildResponse
+	23,  // 148: translation.ViewTranslationRequestBuilderService.SetValue:output_type -> translation.SetValueResponse
+	5,   // 149: translation.ResponseService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	61,  // 150: translation.ResponseService.GetTranslationResponseValues:output_type -> translation.GetTranslationResponseValuesResponse
+	63,  // 151: translation.ResponseService.GetTranslationStatus:output_type -> translation.GetTranslationStatusResponse
+	65,  // 152: translation.ResponseService.GetViewTranslationResponses:output_type -> translation.GetViewTranslationResponsesResponse
+	67,  // 153: translation.ResponseService.IsFinalResponse:output_type -> translation.IsFinalResponseResponse
+	17,  // 154: translation.ResponseService.ToString:output_type -> translation.ToStringResponse
+	19,  // 155: translation.ResponseService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	21,  // 156: translation.ResponseBuilderService.Build:output_type -> translation.BuildResponse
+	69,  // 157: translation.ResponseBuilderService.SetFinalResponse:output_type -> translation.SetFinalResponseResponse
+	71,  // 158: translation.ResponseBuilderService.SetTranslationResponseValue:output_type -> translation.SetTranslationResponseValueResponse
+	73,  // 159: translation.ResponseBuilderService.SetViewTranslationResponse:output_type -> translation.SetViewTranslationResponseResponse
+	5,   // 160: translation.RequestService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	75,  // 161: translation.RequestService.GetFlags:output_type -> translation.GetFlagsResponse
+	77,  // 162: translation.RequestService.GetTranslationRequestValues:output_type -> translation.GetTranslationRequestValuesResponse
+	79,  // 163: translation.RequestService.GetViewTranslationRequests:output_type -> translation.GetViewTranslationRequestsResponse
+	17,  // 164: translation.RequestService.ToString:output_type -> translation.ToStringResponse
+	19,  // 165: translation.RequestService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	21,  // 166: translation.RequestBuilderService.Build:output_type -> translation.BuildResponse
+	81,  // 167: translation.RequestBuilderService.SetFlags:output_type -> translation.SetFlagsResponse
+	5,   // 168: translation.ResponseValueService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	7,   // 169: translation.ResponseValueService.Equals:output_type -> translation.EqualsResponse
+	83,  // 170: translation.ResponseValueService.GetExtras:output_type -> translation.GetExtrasResponse
+	85,  // 171: translation.ResponseValueService.GetStatusCode:output_type -> translation.GetStatusCodeResponse
+	25,  // 172: translation.ResponseValueService.GetText:output_type -> translation.GetTextResponse
+	87,  // 173: translation.ResponseValueService.GetTransliteration:output_type -> translation.GetTransliterationResponse
+	15,  // 174: translation.ResponseValueService.HashCode:output_type -> translation.HashCodeResponse
+	17,  // 175: translation.ResponseValueService.ToString:output_type -> translation.ToStringResponse
+	19,  // 176: translation.ResponseValueService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	89,  // 177: translation.ResponseValueService.ForError:output_type -> translation.ForErrorResponse
+	21,  // 178: translation.ResponseValueBuilderService.Build:output_type -> translation.BuildResponse
+	91,  // 179: translation.ResponseValueBuilderService.SetExtras:output_type -> translation.SetExtrasResponse
+	93,  // 180: translation.ResponseValueBuilderService.SetText:output_type -> translation.SetTextResponse
+	95,  // 181: translation.ResponseValueBuilderService.SetTransliteration:output_type -> translation.SetTransliterationResponse
+	97,  // 182: translation.SpecService.NewSpec:output_type -> translation.NewSpecResponse
+	5,   // 183: translation.SpecService.DescribeContents:output_type -> translation.DescribeContentsResponse
+	7,   // 184: translation.SpecService.Equals:output_type -> translation.EqualsResponse
+	101, // 185: translation.SpecService.GetDataFormat:output_type -> translation.GetDataFormatResponse
+	103, // 186: translation.SpecService.GetLocale:output_type -> translation.GetLocaleResponse
+	15,  // 187: translation.SpecService.HashCode:output_type -> translation.HashCodeResponse
+	17,  // 188: translation.SpecService.ToString:output_type -> translation.ToStringResponse
+	19,  // 189: translation.SpecService.WriteToParcel:output_type -> translation.WriteToParcelResponse
+	95,  // [95:190] is the sub-list for method output_type
+	0,   // [0:95] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_translation_translation_proto_init() }
@@ -4624,7 +5173,7 @@ func file_proto_translation_translation_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_translation_translation_proto_rawDesc), len(file_proto_translation_translation_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   95,
+			NumMessages:   107,
 			NumExtensions: 0,
 			NumServices:   20,
 		},

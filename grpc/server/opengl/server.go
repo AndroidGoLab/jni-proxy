@@ -15,15 +15,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// GLUServer implements pb.GLUServiceServer.
-type GLUServer struct {
-	pb.UnimplementedGLUServiceServer
+// ETC1Server implements pb.ETC1ServiceServer.
+type ETC1Server struct {
+	pb.UnimplementedETC1ServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *GLUServer) NewGLU(_ context.Context, req *pb.NewGLURequest) (*pb.NewGLUResponse, error) {
-	obj, err := jnipkg.NewGLU(s.Ctx.VM)
+func (s *ETC1Server) NewETC1(_ context.Context, req *pb.NewETC1Request) (*pb.NewETC1Response, error) {
+	obj, err := jnipkg.NewETC1(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -34,88 +34,3820 @@ func (s *GLUServer) NewGLU(_ context.Context, req *pb.NewGLURequest) (*pb.NewGLU
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewGLUResponse{Result: handle}, nil
+	return &pb.NewETC1Response{Result: handle}, nil
 }
 
-func (s *GLUServer) GluErrorString(_ context.Context, req *pb.GluErrorStringRequest) (*pb.GluErrorStringResponse, error) {
+func (s *ETC1Server) DecodeBlock(_ context.Context, req *pb.DecodeBlockRequest) (*pb.DecodeBlockResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GluErrorString(req.GetArg0())
+	if err := mgr.DecodeBlock(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DecodeBlockResponse{}, nil
+}
+
+func (s *ETC1Server) DecodeImage(_ context.Context, req *pb.DecodeImageRequest) (*pb.DecodeImageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.DecodeImage(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DecodeImageResponse{}, nil
+}
+
+func (s *ETC1Server) EncodeBlock(_ context.Context, req *pb.EncodeBlockRequest) (*pb.EncodeBlockResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.EncodeBlock(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EncodeBlockResponse{}, nil
+}
+
+func (s *ETC1Server) EncodeImage(_ context.Context, req *pb.EncodeImageRequest) (*pb.EncodeImageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.EncodeImage(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EncodeImageResponse{}, nil
+}
+
+func (s *ETC1Server) FormatHeader(_ context.Context, req *pb.FormatHeaderRequest) (*pb.FormatHeaderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FormatHeader(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatHeaderResponse{}, nil
+}
+
+func (s *ETC1Server) GetEncodedDataSize(_ context.Context, req *pb.GetEncodedDataSizeRequest) (*pb.GetEncodedDataSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEncodedDataSize(req.GetArg0(), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GluErrorStringResponse{Result: result}, nil
+	return &pb.GetEncodedDataSizeResponse{Result: result}, nil
 }
 
-func (s *GLUServer) GluLookAt(_ context.Context, req *pb.GluLookAtRequest) (*pb.GluLookAtResponse, error) {
+func (s *ETC1Server) GetHeight(_ context.Context, req *pb.GetHeightRequest) (*pb.GetHeightResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GluLookAt(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GluLookAtResponse{}, nil
-}
-
-func (s *GLUServer) GluOrtho2D(_ context.Context, req *pb.GluOrtho2DRequest) (*pb.GluOrtho2DResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GluOrtho2D(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GluOrtho2DResponse{}, nil
-}
-
-func (s *GLUServer) GluPerspective(_ context.Context, req *pb.GluPerspectiveRequest) (*pb.GluPerspectiveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GluPerspective(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GluPerspectiveResponse{}, nil
-}
-
-func (s *GLUServer) GluProject(_ context.Context, req *pb.GluProjectRequest) (*pb.GluProjectResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GluProject(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4(), s.Handles.Get(req.GetArg5()), req.GetArg6(), s.Handles.Get(req.GetArg7()), req.GetArg8(), s.Handles.Get(req.GetArg9()), req.GetArg10())
+	result, err := mgr.GetHeight(s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GluProjectResponse{Result: result}, nil
+	return &pb.GetHeightResponse{Result: result}, nil
 }
 
-func (s *GLUServer) GluUnProject(_ context.Context, req *pb.GluUnProjectRequest) (*pb.GluUnProjectResponse, error) {
+func (s *ETC1Server) GetWidth(_ context.Context, req *pb.GetWidthRequest) (*pb.GetWidthResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GluUnProject(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4(), s.Handles.Get(req.GetArg5()), req.GetArg6(), s.Handles.Get(req.GetArg7()), req.GetArg8(), s.Handles.Get(req.GetArg9()), req.GetArg10())
+	result, err := mgr.GetWidth(s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GluUnProjectResponse{Result: result}, nil
+	return &pb.GetWidthResponse{Result: result}, nil
+}
+
+func (s *ETC1Server) IsValid(_ context.Context, req *pb.IsValidRequest) (*pb.IsValidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsValid(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsValidResponse{Result: result}, nil
+}
+
+// VisibilityServer implements pb.VisibilityServiceServer.
+type VisibilityServer struct {
+	pb.UnimplementedVisibilityServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *VisibilityServer) NewVisibility(_ context.Context, req *pb.NewVisibilityRequest) (*pb.NewVisibilityResponse, error) {
+	obj, err := jnipkg.NewVisibility(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewVisibilityResponse{Result: handle}, nil
+}
+
+func (s *VisibilityServer) ComputeBoundingSphere(_ context.Context, req *pb.ComputeBoundingSphereRequest) (*pb.ComputeBoundingSphereResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visibility{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ComputeBoundingSphere(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ComputeBoundingSphereResponse{}, nil
+}
+
+func (s *VisibilityServer) FrustumCullSpheres(_ context.Context, req *pb.FrustumCullSpheresRequest) (*pb.FrustumCullSpheresResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visibility{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FrustumCullSpheres(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5()), req.GetArg6(), req.GetArg7())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FrustumCullSpheresResponse{Result: result}, nil
+}
+
+func (s *VisibilityServer) VisibilityTest(_ context.Context, req *pb.VisibilityTestRequest) (*pb.VisibilityTestResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visibility{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.VisibilityTest(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5(), req.GetArg6())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.VisibilityTestResponse{Result: result}, nil
+}
+
+// GLES11Server implements pb.GLES11ServiceServer.
+type GLES11Server struct {
+	pb.UnimplementedGLES11ServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GLES11Server) NewGLES11(_ context.Context, req *pb.NewGLES11Request) (*pb.NewGLES11Response, error) {
+	obj, err := jnipkg.NewGLES11(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewGLES11Response{Result: handle}, nil
+}
+
+func (s *GLES11Server) GlBindBuffer(_ context.Context, req *pb.GlBindBufferRequest) (*pb.GlBindBufferResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBindBuffer(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBindBufferResponse{}, nil
+}
+
+func (s *GLES11Server) GlBufferData(_ context.Context, req *pb.GlBufferDataRequest) (*pb.GlBufferDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBufferData(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBufferDataResponse{}, nil
+}
+
+func (s *GLES11Server) GlBufferSubData(_ context.Context, req *pb.GlBufferSubDataRequest) (*pb.GlBufferSubDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBufferSubData(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBufferSubDataResponse{}, nil
+}
+
+func (s *GLES11Server) GlClipPlanef3(_ context.Context, req *pb.GlClipPlanef3Request) (*pb.GlClipPlanef3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClipPlanef3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClipPlanef3Response{}, nil
+}
+
+func (s *GLES11Server) GlClipPlanef2_1(_ context.Context, req *pb.GlClipPlanef2_1Request) (*pb.GlClipPlanef2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClipPlanef2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClipPlanef2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlClipPlanex3(_ context.Context, req *pb.GlClipPlanex3Request) (*pb.GlClipPlanex3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClipPlanex3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClipPlanex3Response{}, nil
+}
+
+func (s *GLES11Server) GlClipPlanex2_1(_ context.Context, req *pb.GlClipPlanex2_1Request) (*pb.GlClipPlanex2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClipPlanex2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClipPlanex2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlColor4Ub(_ context.Context, req *pb.GlColor4UbRequest) (*pb.GlColor4UbResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlColor4ub(int8(req.GetArg0()), int8(req.GetArg1()), int8(req.GetArg2()), int8(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlColor4UbResponse{}, nil
+}
+
+func (s *GLES11Server) GlColorPointer(_ context.Context, req *pb.GlColorPointerRequest) (*pb.GlColorPointerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlColorPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlColorPointerResponse{}, nil
+}
+
+func (s *GLES11Server) GlDeleteBuffers3(_ context.Context, req *pb.GlDeleteBuffers3Request) (*pb.GlDeleteBuffers3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDeleteBuffers3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDeleteBuffers3Response{}, nil
+}
+
+func (s *GLES11Server) GlDeleteBuffers2_1(_ context.Context, req *pb.GlDeleteBuffers2_1Request) (*pb.GlDeleteBuffers2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDeleteBuffers2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDeleteBuffers2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlDrawElements(_ context.Context, req *pb.GlDrawElementsRequest) (*pb.GlDrawElementsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawElements(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawElementsResponse{}, nil
+}
+
+func (s *GLES11Server) GlGenBuffers3(_ context.Context, req *pb.GlGenBuffers3Request) (*pb.GlGenBuffers3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenBuffers3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenBuffers3Response{}, nil
+}
+
+func (s *GLES11Server) GlGenBuffers2_1(_ context.Context, req *pb.GlGenBuffers2_1Request) (*pb.GlGenBuffers2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenBuffers2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenBuffers2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetBooleanv3(_ context.Context, req *pb.GlGetBooleanv3Request) (*pb.GlGetBooleanv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetBooleanv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetBooleanv3Response{}, nil
+}
+
+func (s *GLES11Server) GlGetBooleanv2_1(_ context.Context, req *pb.GlGetBooleanv2_1Request) (*pb.GlGetBooleanv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetBooleanv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetBooleanv2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetBufferParameteriv4(_ context.Context, req *pb.GlGetBufferParameteriv4Request) (*pb.GlGetBufferParameteriv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetBufferParameteriv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetBufferParameteriv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetBufferParameteriv3_1(_ context.Context, req *pb.GlGetBufferParameteriv3_1Request) (*pb.GlGetBufferParameteriv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetBufferParameteriv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetBufferParameteriv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetClipPlanef3(_ context.Context, req *pb.GlGetClipPlanef3Request) (*pb.GlGetClipPlanef3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetClipPlanef3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetClipPlanef3Response{}, nil
+}
+
+func (s *GLES11Server) GlGetClipPlanef2_1(_ context.Context, req *pb.GlGetClipPlanef2_1Request) (*pb.GlGetClipPlanef2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetClipPlanef2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetClipPlanef2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetClipPlanex3(_ context.Context, req *pb.GlGetClipPlanex3Request) (*pb.GlGetClipPlanex3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetClipPlanex3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetClipPlanex3Response{}, nil
+}
+
+func (s *GLES11Server) GlGetClipPlanex2_1(_ context.Context, req *pb.GlGetClipPlanex2_1Request) (*pb.GlGetClipPlanex2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetClipPlanex2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetClipPlanex2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetFixedv3(_ context.Context, req *pb.GlGetFixedv3Request) (*pb.GlGetFixedv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetFixedv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetFixedv3Response{}, nil
+}
+
+func (s *GLES11Server) GlGetFixedv2_1(_ context.Context, req *pb.GlGetFixedv2_1Request) (*pb.GlGetFixedv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetFixedv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetFixedv2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetFloatv3(_ context.Context, req *pb.GlGetFloatv3Request) (*pb.GlGetFloatv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetFloatv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetFloatv3Response{}, nil
+}
+
+func (s *GLES11Server) GlGetFloatv2_1(_ context.Context, req *pb.GlGetFloatv2_1Request) (*pb.GlGetFloatv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetFloatv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetFloatv2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetLightfv4(_ context.Context, req *pb.GlGetLightfv4Request) (*pb.GlGetLightfv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetLightfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetLightfv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetLightfv3_1(_ context.Context, req *pb.GlGetLightfv3_1Request) (*pb.GlGetLightfv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetLightfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetLightfv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetLightxv4(_ context.Context, req *pb.GlGetLightxv4Request) (*pb.GlGetLightxv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetLightxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetLightxv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetLightxv3_1(_ context.Context, req *pb.GlGetLightxv3_1Request) (*pb.GlGetLightxv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetLightxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetLightxv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetMaterialfv4(_ context.Context, req *pb.GlGetMaterialfv4Request) (*pb.GlGetMaterialfv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetMaterialfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetMaterialfv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetMaterialfv3_1(_ context.Context, req *pb.GlGetMaterialfv3_1Request) (*pb.GlGetMaterialfv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetMaterialfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetMaterialfv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetMaterialxv4(_ context.Context, req *pb.GlGetMaterialxv4Request) (*pb.GlGetMaterialxv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetMaterialxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetMaterialxv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetMaterialxv3_1(_ context.Context, req *pb.GlGetMaterialxv3_1Request) (*pb.GlGetMaterialxv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetMaterialxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetMaterialxv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexEnvfv4(_ context.Context, req *pb.GlGetTexEnvfv4Request) (*pb.GlGetTexEnvfv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexEnvfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexEnvfv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexEnvfv3_1(_ context.Context, req *pb.GlGetTexEnvfv3_1Request) (*pb.GlGetTexEnvfv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexEnvfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexEnvfv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexEnviv4(_ context.Context, req *pb.GlGetTexEnviv4Request) (*pb.GlGetTexEnviv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexEnviv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexEnviv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexEnviv3_1(_ context.Context, req *pb.GlGetTexEnviv3_1Request) (*pb.GlGetTexEnviv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexEnviv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexEnviv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexEnvxv4(_ context.Context, req *pb.GlGetTexEnvxv4Request) (*pb.GlGetTexEnvxv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexEnvxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexEnvxv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexEnvxv3_1(_ context.Context, req *pb.GlGetTexEnvxv3_1Request) (*pb.GlGetTexEnvxv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexEnvxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexEnvxv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexParameterfv4(_ context.Context, req *pb.GlGetTexParameterfv4Request) (*pb.GlGetTexParameterfv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexParameterfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexParameterfv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexParameterfv3_1(_ context.Context, req *pb.GlGetTexParameterfv3_1Request) (*pb.GlGetTexParameterfv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexParameterfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexParameterfv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexParameteriv4(_ context.Context, req *pb.GlGetTexParameteriv4Request) (*pb.GlGetTexParameteriv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexParameteriv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexParameteriv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexParameteriv3_1(_ context.Context, req *pb.GlGetTexParameteriv3_1Request) (*pb.GlGetTexParameteriv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexParameteriv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexParameteriv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexParameterxv4(_ context.Context, req *pb.GlGetTexParameterxv4Request) (*pb.GlGetTexParameterxv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexParameterxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexParameterxv4Response{}, nil
+}
+
+func (s *GLES11Server) GlGetTexParameterxv3_1(_ context.Context, req *pb.GlGetTexParameterxv3_1Request) (*pb.GlGetTexParameterxv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexParameterxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexParameterxv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlIsBuffer(_ context.Context, req *pb.GlIsBufferRequest) (*pb.GlIsBufferResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GlIsBuffer(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlIsBufferResponse{Result: result}, nil
+}
+
+func (s *GLES11Server) GlIsEnabled(_ context.Context, req *pb.GlIsEnabledRequest) (*pb.GlIsEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GlIsEnabled(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlIsEnabledResponse{Result: result}, nil
+}
+
+func (s *GLES11Server) GlIsTexture(_ context.Context, req *pb.GlIsTextureRequest) (*pb.GlIsTextureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GlIsTexture(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlIsTextureResponse{Result: result}, nil
+}
+
+func (s *GLES11Server) GlNormalPointer(_ context.Context, req *pb.GlNormalPointerRequest) (*pb.GlNormalPointerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlNormalPointer(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlNormalPointerResponse{}, nil
+}
+
+func (s *GLES11Server) GlPointParameterf(_ context.Context, req *pb.GlPointParameterfRequest) (*pb.GlPointParameterfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointParameterf(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointParameterfResponse{}, nil
+}
+
+func (s *GLES11Server) GlPointParameterfv3(_ context.Context, req *pb.GlPointParameterfv3Request) (*pb.GlPointParameterfv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointParameterfv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointParameterfv3Response{}, nil
+}
+
+func (s *GLES11Server) GlPointParameterfv2_1(_ context.Context, req *pb.GlPointParameterfv2_1Request) (*pb.GlPointParameterfv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointParameterfv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointParameterfv2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlPointParameterx(_ context.Context, req *pb.GlPointParameterxRequest) (*pb.GlPointParameterxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointParameterx(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointParameterxResponse{}, nil
+}
+
+func (s *GLES11Server) GlPointParameterxv3(_ context.Context, req *pb.GlPointParameterxv3Request) (*pb.GlPointParameterxv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointParameterxv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointParameterxv3Response{}, nil
+}
+
+func (s *GLES11Server) GlPointParameterxv2_1(_ context.Context, req *pb.GlPointParameterxv2_1Request) (*pb.GlPointParameterxv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointParameterxv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointParameterxv2_1Response{}, nil
+}
+
+func (s *GLES11Server) GlPointSizePointerOES(_ context.Context, req *pb.GlPointSizePointerOESRequest) (*pb.GlPointSizePointerOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointSizePointerOES(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointSizePointerOESResponse{}, nil
+}
+
+func (s *GLES11Server) GlTexCoordPointer(_ context.Context, req *pb.GlTexCoordPointerRequest) (*pb.GlTexCoordPointerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexCoordPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexCoordPointerResponse{}, nil
+}
+
+func (s *GLES11Server) GlTexEnvi(_ context.Context, req *pb.GlTexEnviRequest) (*pb.GlTexEnviResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnvi(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnviResponse{}, nil
+}
+
+func (s *GLES11Server) GlTexEnviv4(_ context.Context, req *pb.GlTexEnviv4Request) (*pb.GlTexEnviv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnviv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnviv4Response{}, nil
+}
+
+func (s *GLES11Server) GlTexEnviv3_1(_ context.Context, req *pb.GlTexEnviv3_1Request) (*pb.GlTexEnviv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnviv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnviv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlTexParameterfv4(_ context.Context, req *pb.GlTexParameterfv4Request) (*pb.GlTexParameterfv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameterfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameterfv4Response{}, nil
+}
+
+func (s *GLES11Server) GlTexParameterfv3_1(_ context.Context, req *pb.GlTexParameterfv3_1Request) (*pb.GlTexParameterfv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameterfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameterfv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlTexParameteri(_ context.Context, req *pb.GlTexParameteriRequest) (*pb.GlTexParameteriResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameteri(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameteriResponse{}, nil
+}
+
+func (s *GLES11Server) GlTexParameteriv4(_ context.Context, req *pb.GlTexParameteriv4Request) (*pb.GlTexParameteriv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameteriv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameteriv4Response{}, nil
+}
+
+func (s *GLES11Server) GlTexParameteriv3_1(_ context.Context, req *pb.GlTexParameteriv3_1Request) (*pb.GlTexParameteriv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameteriv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameteriv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlTexParameterxv4(_ context.Context, req *pb.GlTexParameterxv4Request) (*pb.GlTexParameterxv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameterxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameterxv4Response{}, nil
+}
+
+func (s *GLES11Server) GlTexParameterxv3_1(_ context.Context, req *pb.GlTexParameterxv3_1Request) (*pb.GlTexParameterxv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameterxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameterxv3_1Response{}, nil
+}
+
+func (s *GLES11Server) GlVertexPointer(_ context.Context, req *pb.GlVertexPointerRequest) (*pb.GlVertexPointerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlVertexPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlVertexPointerResponse{}, nil
+}
+
+// EGL14Server implements pb.EGL14ServiceServer.
+type EGL14Server struct {
+	pb.UnimplementedEGL14ServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *EGL14Server) NewEGL14(_ context.Context, req *pb.NewEGL14Request) (*pb.NewEGL14Response, error) {
+	obj, err := jnipkg.NewEGL14(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewEGL14Response{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglBindAPI(_ context.Context, req *pb.EglBindAPIRequest) (*pb.EglBindAPIResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglBindAPI(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglBindAPIResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglBindTexImage(_ context.Context, req *pb.EglBindTexImageRequest) (*pb.EglBindTexImageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglBindTexImage(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglBindTexImageResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglChooseConfig(_ context.Context, req *pb.EglChooseConfigRequest) (*pb.EglChooseConfigResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglChooseConfig(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6()), req.GetArg7())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglChooseConfigResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglCopyBuffers(_ context.Context, req *pb.EglCopyBuffersRequest) (*pb.EglCopyBuffersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglCopyBuffers(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglCopyBuffersResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglCreateContext(_ context.Context, req *pb.EglCreateContextRequest) (*pb.EglCreateContextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglCreateContext(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglCreateContextResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglCreatePbufferFromClientBuffer(_ context.Context, req *pb.EglCreatePbufferFromClientBufferRequest) (*pb.EglCreatePbufferFromClientBufferResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglCreatePbufferFromClientBuffer(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), s.Handles.Get(req.GetArg4()), req.GetArg5())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglCreatePbufferFromClientBufferResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglCreatePbufferSurface(_ context.Context, req *pb.EglCreatePbufferSurfaceRequest) (*pb.EglCreatePbufferSurfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglCreatePbufferSurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglCreatePbufferSurfaceResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglCreatePixmapSurface(_ context.Context, req *pb.EglCreatePixmapSurfaceRequest) (*pb.EglCreatePixmapSurfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglCreatePixmapSurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglCreatePixmapSurfaceResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglCreateWindowSurface(_ context.Context, req *pb.EglCreateWindowSurfaceRequest) (*pb.EglCreateWindowSurfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglCreateWindowSurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglCreateWindowSurfaceResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglDestroyContext(_ context.Context, req *pb.EglDestroyContextRequest) (*pb.EglDestroyContextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglDestroyContext(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglDestroyContextResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglDestroySurface(_ context.Context, req *pb.EglDestroySurfaceRequest) (*pb.EglDestroySurfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglDestroySurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglDestroySurfaceResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglGetConfigAttrib(_ context.Context, req *pb.EglGetConfigAttribRequest) (*pb.EglGetConfigAttribResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglGetConfigAttrib(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglGetConfigAttribResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglGetConfigs(_ context.Context, req *pb.EglGetConfigsRequest) (*pb.EglGetConfigsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglGetConfigs(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglGetConfigsResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglGetCurrentContext(_ context.Context, req *pb.EglGetCurrentContextRequest) (*pb.EglGetCurrentContextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglGetCurrentContext()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglGetCurrentContextResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglGetCurrentDisplay(_ context.Context, req *pb.EglGetCurrentDisplayRequest) (*pb.EglGetCurrentDisplayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglGetCurrentDisplay()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglGetCurrentDisplayResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglGetCurrentSurface(_ context.Context, req *pb.EglGetCurrentSurfaceRequest) (*pb.EglGetCurrentSurfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglGetCurrentSurface(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglGetCurrentSurfaceResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglGetDisplay(_ context.Context, req *pb.EglGetDisplayRequest) (*pb.EglGetDisplayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglGetDisplay(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglGetDisplayResponse{Result: handle}, nil
+}
+
+func (s *EGL14Server) EglGetError(_ context.Context, req *pb.EglGetErrorRequest) (*pb.EglGetErrorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglGetError()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglGetErrorResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglInitialize(_ context.Context, req *pb.EglInitializeRequest) (*pb.EglInitializeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglInitialize(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglInitializeResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglMakeCurrent(_ context.Context, req *pb.EglMakeCurrentRequest) (*pb.EglMakeCurrentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglMakeCurrent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglMakeCurrentResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglQueryAPI(_ context.Context, req *pb.EglQueryAPIRequest) (*pb.EglQueryAPIResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglQueryAPI()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglQueryAPIResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglQueryContext(_ context.Context, req *pb.EglQueryContextRequest) (*pb.EglQueryContextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglQueryContext(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglQueryContextResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglQueryString(_ context.Context, req *pb.EglQueryStringRequest) (*pb.EglQueryStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglQueryString(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglQueryStringResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglQuerySurface(_ context.Context, req *pb.EglQuerySurfaceRequest) (*pb.EglQuerySurfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglQuerySurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglQuerySurfaceResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglReleaseTexImage(_ context.Context, req *pb.EglReleaseTexImageRequest) (*pb.EglReleaseTexImageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglReleaseTexImage(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglReleaseTexImageResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglReleaseThread(_ context.Context, req *pb.EglReleaseThreadRequest) (*pb.EglReleaseThreadResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglReleaseThread()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglReleaseThreadResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglSurfaceAttrib(_ context.Context, req *pb.EglSurfaceAttribRequest) (*pb.EglSurfaceAttribResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglSurfaceAttrib(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglSurfaceAttribResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglSwapBuffers(_ context.Context, req *pb.EglSwapBuffersRequest) (*pb.EglSwapBuffersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglSwapBuffers(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglSwapBuffersResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglSwapInterval(_ context.Context, req *pb.EglSwapIntervalRequest) (*pb.EglSwapIntervalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglSwapInterval(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglSwapIntervalResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglTerminate(_ context.Context, req *pb.EglTerminateRequest) (*pb.EglTerminateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglTerminate(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglTerminateResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglWaitClient(_ context.Context, req *pb.EglWaitClientRequest) (*pb.EglWaitClientResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglWaitClient()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglWaitClientResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglWaitGL(_ context.Context, req *pb.EglWaitGLRequest) (*pb.EglWaitGLResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglWaitGL()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglWaitGLResponse{Result: result}, nil
+}
+
+func (s *EGL14Server) EglWaitNative(_ context.Context, req *pb.EglWaitNativeRequest) (*pb.EglWaitNativeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglWaitNative(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglWaitNativeResponse{Result: result}, nil
+}
+
+// GLES10Server implements pb.GLES10ServiceServer.
+type GLES10Server struct {
+	pb.UnimplementedGLES10ServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GLES10Server) NewGLES10(_ context.Context, req *pb.NewGLES10Request) (*pb.NewGLES10Response, error) {
+	obj, err := jnipkg.NewGLES10(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewGLES10Response{Result: handle}, nil
+}
+
+func (s *GLES10Server) GlActiveTexture(_ context.Context, req *pb.GlActiveTextureRequest) (*pb.GlActiveTextureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlActiveTexture(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlActiveTextureResponse{}, nil
+}
+
+func (s *GLES10Server) GlAlphaFunc(_ context.Context, req *pb.GlAlphaFuncRequest) (*pb.GlAlphaFuncResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlAlphaFunc(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlAlphaFuncResponse{}, nil
+}
+
+func (s *GLES10Server) GlAlphaFuncx(_ context.Context, req *pb.GlAlphaFuncxRequest) (*pb.GlAlphaFuncxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlAlphaFuncx(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlAlphaFuncxResponse{}, nil
+}
+
+func (s *GLES10Server) GlBindTexture(_ context.Context, req *pb.GlBindTextureRequest) (*pb.GlBindTextureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBindTexture(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBindTextureResponse{}, nil
+}
+
+func (s *GLES10Server) GlBlendFunc(_ context.Context, req *pb.GlBlendFuncRequest) (*pb.GlBlendFuncResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBlendFunc(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBlendFuncResponse{}, nil
+}
+
+func (s *GLES10Server) GlClear(_ context.Context, req *pb.GlClearRequest) (*pb.GlClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClear(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearResponse{}, nil
+}
+
+func (s *GLES10Server) GlClearColor(_ context.Context, req *pb.GlClearColorRequest) (*pb.GlClearColorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClearColor(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearColorResponse{}, nil
+}
+
+func (s *GLES10Server) GlClearColorx(_ context.Context, req *pb.GlClearColorxRequest) (*pb.GlClearColorxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClearColorx(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearColorxResponse{}, nil
+}
+
+func (s *GLES10Server) GlClearDepthf(_ context.Context, req *pb.GlClearDepthfRequest) (*pb.GlClearDepthfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClearDepthf(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearDepthfResponse{}, nil
+}
+
+func (s *GLES10Server) GlClearDepthx(_ context.Context, req *pb.GlClearDepthxRequest) (*pb.GlClearDepthxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClearDepthx(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearDepthxResponse{}, nil
+}
+
+func (s *GLES10Server) GlClearStencil(_ context.Context, req *pb.GlClearStencilRequest) (*pb.GlClearStencilResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClearStencil(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearStencilResponse{}, nil
+}
+
+func (s *GLES10Server) GlClientActiveTexture(_ context.Context, req *pb.GlClientActiveTextureRequest) (*pb.GlClientActiveTextureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClientActiveTexture(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClientActiveTextureResponse{}, nil
+}
+
+func (s *GLES10Server) GlColor4F(_ context.Context, req *pb.GlColor4FRequest) (*pb.GlColor4FResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlColor4f(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlColor4FResponse{}, nil
+}
+
+func (s *GLES10Server) GlColor4X(_ context.Context, req *pb.GlColor4XRequest) (*pb.GlColor4XResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlColor4x(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlColor4XResponse{}, nil
+}
+
+func (s *GLES10Server) GlColorMask(_ context.Context, req *pb.GlColorMaskRequest) (*pb.GlColorMaskResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlColorMask(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlColorMaskResponse{}, nil
+}
+
+func (s *GLES10Server) GlColorPointer(_ context.Context, req *pb.GLES10GlColorPointerRequest) (*pb.GlColorPointerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlColorPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlColorPointerResponse{}, nil
+}
+
+func (s *GLES10Server) GlCompressedTexImage2D(_ context.Context, req *pb.GlCompressedTexImage2DRequest) (*pb.GlCompressedTexImage2DResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlCompressedTexImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), s.Handles.Get(req.GetArg7())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlCompressedTexImage2DResponse{}, nil
+}
+
+func (s *GLES10Server) GlCompressedTexSubImage2D(_ context.Context, req *pb.GlCompressedTexSubImage2DRequest) (*pb.GlCompressedTexSubImage2DResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlCompressedTexSubImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), s.Handles.Get(req.GetArg8())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlCompressedTexSubImage2DResponse{}, nil
+}
+
+func (s *GLES10Server) GlCopyTexImage2D(_ context.Context, req *pb.GlCopyTexImage2DRequest) (*pb.GlCopyTexImage2DResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlCopyTexImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlCopyTexImage2DResponse{}, nil
+}
+
+func (s *GLES10Server) GlCopyTexSubImage2D(_ context.Context, req *pb.GlCopyTexSubImage2DRequest) (*pb.GlCopyTexSubImage2DResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlCopyTexSubImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlCopyTexSubImage2DResponse{}, nil
+}
+
+func (s *GLES10Server) GlCullFace(_ context.Context, req *pb.GlCullFaceRequest) (*pb.GlCullFaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlCullFace(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlCullFaceResponse{}, nil
+}
+
+func (s *GLES10Server) GlDeleteTextures3(_ context.Context, req *pb.GlDeleteTextures3Request) (*pb.GlDeleteTextures3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDeleteTextures3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDeleteTextures3Response{}, nil
+}
+
+func (s *GLES10Server) GlDeleteTextures2_1(_ context.Context, req *pb.GlDeleteTextures2_1Request) (*pb.GlDeleteTextures2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDeleteTextures2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDeleteTextures2_1Response{}, nil
+}
+
+func (s *GLES10Server) GlDepthFunc(_ context.Context, req *pb.GlDepthFuncRequest) (*pb.GlDepthFuncResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDepthFunc(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDepthFuncResponse{}, nil
+}
+
+func (s *GLES10Server) GlDepthMask(_ context.Context, req *pb.GlDepthMaskRequest) (*pb.GlDepthMaskResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDepthMask(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDepthMaskResponse{}, nil
+}
+
+func (s *GLES10Server) GlDepthRangef(_ context.Context, req *pb.GlDepthRangefRequest) (*pb.GlDepthRangefResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDepthRangef(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDepthRangefResponse{}, nil
+}
+
+func (s *GLES10Server) GlDepthRangex(_ context.Context, req *pb.GlDepthRangexRequest) (*pb.GlDepthRangexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDepthRangex(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDepthRangexResponse{}, nil
+}
+
+func (s *GLES10Server) GlDisable(_ context.Context, req *pb.GlDisableRequest) (*pb.GlDisableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDisable(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDisableResponse{}, nil
+}
+
+func (s *GLES10Server) GlDisableClientState(_ context.Context, req *pb.GlDisableClientStateRequest) (*pb.GlDisableClientStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDisableClientState(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDisableClientStateResponse{}, nil
+}
+
+func (s *GLES10Server) GlDrawArrays(_ context.Context, req *pb.GlDrawArraysRequest) (*pb.GlDrawArraysResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawArrays(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawArraysResponse{}, nil
+}
+
+func (s *GLES10Server) GlDrawElements(_ context.Context, req *pb.GLES10GlDrawElementsRequest) (*pb.GlDrawElementsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawElements(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawElementsResponse{}, nil
+}
+
+func (s *GLES10Server) GlEnable(_ context.Context, req *pb.GlEnableRequest) (*pb.GlEnableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlEnable(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlEnableResponse{}, nil
+}
+
+func (s *GLES10Server) GlEnableClientState(_ context.Context, req *pb.GlEnableClientStateRequest) (*pb.GlEnableClientStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlEnableClientState(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlEnableClientStateResponse{}, nil
+}
+
+func (s *GLES10Server) GlFinish(_ context.Context, req *pb.GlFinishRequest) (*pb.GlFinishResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFinish(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFinishResponse{}, nil
+}
+
+func (s *GLES10Server) GlFlush(_ context.Context, req *pb.GlFlushRequest) (*pb.GlFlushResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFlush(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFlushResponse{}, nil
+}
+
+func (s *GLES10Server) GlFogf(_ context.Context, req *pb.GlFogfRequest) (*pb.GlFogfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogf(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogfResponse{}, nil
+}
+
+func (s *GLES10Server) GlFogfv3(_ context.Context, req *pb.GlFogfv3Request) (*pb.GlFogfv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogfv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogfv3Response{}, nil
+}
+
+func (s *GLES10Server) GlFogfv2_1(_ context.Context, req *pb.GlFogfv2_1Request) (*pb.GlFogfv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogfv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogfv2_1Response{}, nil
+}
+
+func (s *GLES10Server) GlFogx(_ context.Context, req *pb.GlFogxRequest) (*pb.GlFogxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogx(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogxResponse{}, nil
+}
+
+func (s *GLES10Server) GlFogxv3(_ context.Context, req *pb.GlFogxv3Request) (*pb.GlFogxv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogxv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogxv3Response{}, nil
+}
+
+func (s *GLES10Server) GlFogxv2_1(_ context.Context, req *pb.GlFogxv2_1Request) (*pb.GlFogxv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogxv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogxv2_1Response{}, nil
+}
+
+func (s *GLES10Server) GlFrontFace(_ context.Context, req *pb.GlFrontFaceRequest) (*pb.GlFrontFaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFrontFace(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFrontFaceResponse{}, nil
+}
+
+func (s *GLES10Server) GlFrustumf(_ context.Context, req *pb.GlFrustumfRequest) (*pb.GlFrustumfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFrustumf(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFrustumfResponse{}, nil
+}
+
+func (s *GLES10Server) GlFrustumx(_ context.Context, req *pb.GlFrustumxRequest) (*pb.GlFrustumxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFrustumx(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFrustumxResponse{}, nil
+}
+
+func (s *GLES10Server) GlGenTextures3(_ context.Context, req *pb.GlGenTextures3Request) (*pb.GlGenTextures3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenTextures3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenTextures3Response{}, nil
+}
+
+func (s *GLES10Server) GlGenTextures2_1(_ context.Context, req *pb.GlGenTextures2_1Request) (*pb.GlGenTextures2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenTextures2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenTextures2_1Response{}, nil
+}
+
+func (s *GLES10Server) GlGetError(_ context.Context, req *pb.GlGetErrorRequest) (*pb.GlGetErrorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GlGetError()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetErrorResponse{Result: result}, nil
+}
+
+func (s *GLES10Server) GlGetIntegerv3(_ context.Context, req *pb.GlGetIntegerv3Request) (*pb.GlGetIntegerv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetIntegerv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetIntegerv3Response{}, nil
+}
+
+func (s *GLES10Server) GlGetIntegerv2_1(_ context.Context, req *pb.GlGetIntegerv2_1Request) (*pb.GlGetIntegerv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetIntegerv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetIntegerv2_1Response{}, nil
+}
+
+func (s *GLES10Server) GlGetString(_ context.Context, req *pb.GlGetStringRequest) (*pb.GlGetStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GlGetString(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetStringResponse{Result: result}, nil
+}
+
+func (s *GLES10Server) GlHint(_ context.Context, req *pb.GlHintRequest) (*pb.GlHintResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlHint(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlHintResponse{}, nil
+}
+
+func (s *GLES10Server) GlLightModelf(_ context.Context, req *pb.GlLightModelfRequest) (*pb.GlLightModelfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightModelf(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightModelfResponse{}, nil
+}
+
+func (s *GLES10Server) GlLightModelfv3(_ context.Context, req *pb.GlLightModelfv3Request) (*pb.GlLightModelfv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightModelfv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightModelfv3Response{}, nil
+}
+
+func (s *GLES10Server) GlLightModelfv2_1(_ context.Context, req *pb.GlLightModelfv2_1Request) (*pb.GlLightModelfv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightModelfv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightModelfv2_1Response{}, nil
+}
+
+func (s *GLES10Server) GlLightModelx(_ context.Context, req *pb.GlLightModelxRequest) (*pb.GlLightModelxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightModelx(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightModelxResponse{}, nil
+}
+
+func (s *GLES10Server) GlLightModelxv3(_ context.Context, req *pb.GlLightModelxv3Request) (*pb.GlLightModelxv3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightModelxv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightModelxv3Response{}, nil
+}
+
+func (s *GLES10Server) GlLightModelxv2_1(_ context.Context, req *pb.GlLightModelxv2_1Request) (*pb.GlLightModelxv2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightModelxv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightModelxv2_1Response{}, nil
+}
+
+func (s *GLES10Server) GlLightf(_ context.Context, req *pb.GlLightfRequest) (*pb.GlLightfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightf(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightfResponse{}, nil
+}
+
+func (s *GLES10Server) GlLightfv4(_ context.Context, req *pb.GlLightfv4Request) (*pb.GlLightfv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightfv4Response{}, nil
+}
+
+func (s *GLES10Server) GlLightfv3_1(_ context.Context, req *pb.GlLightfv3_1Request) (*pb.GlLightfv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightfv3_1Response{}, nil
+}
+
+func (s *GLES10Server) GlLightx(_ context.Context, req *pb.GlLightxRequest) (*pb.GlLightxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightx(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightxResponse{}, nil
+}
+
+func (s *GLES10Server) GlLightxv4(_ context.Context, req *pb.GlLightxv4Request) (*pb.GlLightxv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightxv4Response{}, nil
+}
+
+func (s *GLES10Server) GlLightxv3_1(_ context.Context, req *pb.GlLightxv3_1Request) (*pb.GlLightxv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLightxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLightxv3_1Response{}, nil
+}
+
+func (s *GLES10Server) GlLineWidth(_ context.Context, req *pb.GlLineWidthRequest) (*pb.GlLineWidthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLineWidth(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLineWidthResponse{}, nil
+}
+
+func (s *GLES10Server) GlLineWidthx(_ context.Context, req *pb.GlLineWidthxRequest) (*pb.GlLineWidthxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLineWidthx(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLineWidthxResponse{}, nil
+}
+
+func (s *GLES10Server) GlLoadIdentity(_ context.Context, req *pb.GlLoadIdentityRequest) (*pb.GlLoadIdentityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLoadIdentity(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLoadIdentityResponse{}, nil
+}
+
+func (s *GLES10Server) GlLoadMatrixf2(_ context.Context, req *pb.GlLoadMatrixf2Request) (*pb.GlLoadMatrixf2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLoadMatrixf2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLoadMatrixf2Response{}, nil
+}
+
+func (s *GLES10Server) GlLoadMatrixf1_1(_ context.Context, req *pb.GlLoadMatrixf1_1Request) (*pb.GlLoadMatrixf1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLoadMatrixf1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLoadMatrixf1_1Response{}, nil
+}
+
+func (s *GLES10Server) GlLoadMatrixx2(_ context.Context, req *pb.GlLoadMatrixx2Request) (*pb.GlLoadMatrixx2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLoadMatrixx2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLoadMatrixx2Response{}, nil
+}
+
+func (s *GLES10Server) GlLoadMatrixx1_1(_ context.Context, req *pb.GlLoadMatrixx1_1Request) (*pb.GlLoadMatrixx1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLoadMatrixx1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLoadMatrixx1_1Response{}, nil
+}
+
+func (s *GLES10Server) GlLogicOp(_ context.Context, req *pb.GlLogicOpRequest) (*pb.GlLogicOpResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlLogicOp(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlLogicOpResponse{}, nil
+}
+
+func (s *GLES10Server) GlMaterialf(_ context.Context, req *pb.GlMaterialfRequest) (*pb.GlMaterialfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMaterialf(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMaterialfResponse{}, nil
+}
+
+func (s *GLES10Server) GlMaterialfv4(_ context.Context, req *pb.GlMaterialfv4Request) (*pb.GlMaterialfv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMaterialfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMaterialfv4Response{}, nil
+}
+
+func (s *GLES10Server) GlMaterialfv3_1(_ context.Context, req *pb.GlMaterialfv3_1Request) (*pb.GlMaterialfv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMaterialfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMaterialfv3_1Response{}, nil
+}
+
+func (s *GLES10Server) GlMaterialx(_ context.Context, req *pb.GlMaterialxRequest) (*pb.GlMaterialxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMaterialx(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMaterialxResponse{}, nil
+}
+
+func (s *GLES10Server) GlMaterialxv4(_ context.Context, req *pb.GlMaterialxv4Request) (*pb.GlMaterialxv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMaterialxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMaterialxv4Response{}, nil
+}
+
+func (s *GLES10Server) GlMaterialxv3_1(_ context.Context, req *pb.GlMaterialxv3_1Request) (*pb.GlMaterialxv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMaterialxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMaterialxv3_1Response{}, nil
+}
+
+func (s *GLES10Server) GlMatrixMode(_ context.Context, req *pb.GlMatrixModeRequest) (*pb.GlMatrixModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMatrixMode(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMatrixModeResponse{}, nil
+}
+
+func (s *GLES10Server) GlMultMatrixf2(_ context.Context, req *pb.GlMultMatrixf2Request) (*pb.GlMultMatrixf2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMultMatrixf2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMultMatrixf2Response{}, nil
+}
+
+func (s *GLES10Server) GlMultMatrixf1_1(_ context.Context, req *pb.GlMultMatrixf1_1Request) (*pb.GlMultMatrixf1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMultMatrixf1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMultMatrixf1_1Response{}, nil
+}
+
+func (s *GLES10Server) GlMultMatrixx2(_ context.Context, req *pb.GlMultMatrixx2Request) (*pb.GlMultMatrixx2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMultMatrixx2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMultMatrixx2Response{}, nil
+}
+
+func (s *GLES10Server) GlMultMatrixx1_1(_ context.Context, req *pb.GlMultMatrixx1_1Request) (*pb.GlMultMatrixx1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMultMatrixx1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMultMatrixx1_1Response{}, nil
+}
+
+func (s *GLES10Server) GlMultiTexCoord4F(_ context.Context, req *pb.GlMultiTexCoord4FRequest) (*pb.GlMultiTexCoord4FResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMultiTexCoord4f(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMultiTexCoord4FResponse{}, nil
+}
+
+func (s *GLES10Server) GlMultiTexCoord4X(_ context.Context, req *pb.GlMultiTexCoord4XRequest) (*pb.GlMultiTexCoord4XResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlMultiTexCoord4x(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlMultiTexCoord4XResponse{}, nil
+}
+
+func (s *GLES10Server) GlNormal3F(_ context.Context, req *pb.GlNormal3FRequest) (*pb.GlNormal3FResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlNormal3f(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlNormal3FResponse{}, nil
+}
+
+func (s *GLES10Server) GlNormal3X(_ context.Context, req *pb.GlNormal3XRequest) (*pb.GlNormal3XResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlNormal3x(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlNormal3XResponse{}, nil
+}
+
+func (s *GLES10Server) GlNormalPointer(_ context.Context, req *pb.GLES10GlNormalPointerRequest) (*pb.GlNormalPointerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlNormalPointer(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlNormalPointerResponse{}, nil
+}
+
+func (s *GLES10Server) GlOrthof(_ context.Context, req *pb.GlOrthofRequest) (*pb.GlOrthofResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlOrthof(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlOrthofResponse{}, nil
+}
+
+func (s *GLES10Server) GlOrthox(_ context.Context, req *pb.GlOrthoxRequest) (*pb.GlOrthoxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlOrthox(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlOrthoxResponse{}, nil
+}
+
+func (s *GLES10Server) GlPixelStorei(_ context.Context, req *pb.GlPixelStoreiRequest) (*pb.GlPixelStoreiResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPixelStorei(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPixelStoreiResponse{}, nil
+}
+
+func (s *GLES10Server) GlPointSize(_ context.Context, req *pb.GlPointSizeRequest) (*pb.GlPointSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointSize(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointSizeResponse{}, nil
+}
+
+func (s *GLES10Server) GlPointSizex(_ context.Context, req *pb.GlPointSizexRequest) (*pb.GlPointSizexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPointSizex(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPointSizexResponse{}, nil
+}
+
+func (s *GLES10Server) GlPolygonOffset(_ context.Context, req *pb.GlPolygonOffsetRequest) (*pb.GlPolygonOffsetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPolygonOffset(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPolygonOffsetResponse{}, nil
+}
+
+func (s *GLES10Server) GlPolygonOffsetx(_ context.Context, req *pb.GlPolygonOffsetxRequest) (*pb.GlPolygonOffsetxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPolygonOffsetx(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPolygonOffsetxResponse{}, nil
+}
+
+func (s *GLES10Server) GlPopMatrix(_ context.Context, req *pb.GlPopMatrixRequest) (*pb.GlPopMatrixResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPopMatrix(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPopMatrixResponse{}, nil
+}
+
+func (s *GLES10Server) GlPushMatrix(_ context.Context, req *pb.GlPushMatrixRequest) (*pb.GlPushMatrixResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlPushMatrix(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlPushMatrixResponse{}, nil
+}
+
+func (s *GLES10Server) GlReadPixels(_ context.Context, req *pb.GlReadPixelsRequest) (*pb.GlReadPixelsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlReadPixels(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlReadPixelsResponse{}, nil
+}
+
+func (s *GLES10Server) GlRotatef(_ context.Context, req *pb.GlRotatefRequest) (*pb.GlRotatefResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlRotatef(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlRotatefResponse{}, nil
+}
+
+func (s *GLES10Server) GlRotatex(_ context.Context, req *pb.GlRotatexRequest) (*pb.GlRotatexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlRotatex(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlRotatexResponse{}, nil
+}
+
+func (s *GLES10Server) GlSampleCoverage(_ context.Context, req *pb.GlSampleCoverageRequest) (*pb.GlSampleCoverageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlSampleCoverage(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlSampleCoverageResponse{}, nil
+}
+
+func (s *GLES10Server) GlSampleCoveragex(_ context.Context, req *pb.GlSampleCoveragexRequest) (*pb.GlSampleCoveragexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlSampleCoveragex(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlSampleCoveragexResponse{}, nil
+}
+
+func (s *GLES10Server) GlScalef(_ context.Context, req *pb.GlScalefRequest) (*pb.GlScalefResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlScalef(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlScalefResponse{}, nil
+}
+
+func (s *GLES10Server) GlScalex(_ context.Context, req *pb.GlScalexRequest) (*pb.GlScalexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlScalex(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlScalexResponse{}, nil
+}
+
+func (s *GLES10Server) GlScissor(_ context.Context, req *pb.GlScissorRequest) (*pb.GlScissorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlScissor(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlScissorResponse{}, nil
+}
+
+func (s *GLES10Server) GlShadeModel(_ context.Context, req *pb.GlShadeModelRequest) (*pb.GlShadeModelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlShadeModel(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlShadeModelResponse{}, nil
+}
+
+func (s *GLES10Server) GlStencilFunc(_ context.Context, req *pb.GlStencilFuncRequest) (*pb.GlStencilFuncResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlStencilFunc(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlStencilFuncResponse{}, nil
+}
+
+func (s *GLES10Server) GlStencilMask(_ context.Context, req *pb.GlStencilMaskRequest) (*pb.GlStencilMaskResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlStencilMask(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlStencilMaskResponse{}, nil
+}
+
+func (s *GLES10Server) GlStencilOp(_ context.Context, req *pb.GlStencilOpRequest) (*pb.GlStencilOpResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlStencilOp(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlStencilOpResponse{}, nil
+}
+
+func (s *GLES10Server) GlTexCoordPointer(_ context.Context, req *pb.GLES10GlTexCoordPointerRequest) (*pb.GlTexCoordPointerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexCoordPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexCoordPointerResponse{}, nil
+}
+
+func (s *GLES10Server) GlTexEnvf(_ context.Context, req *pb.GlTexEnvfRequest) (*pb.GlTexEnvfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnvf(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnvfResponse{}, nil
+}
+
+func (s *GLES10Server) GlTexEnvfv4(_ context.Context, req *pb.GlTexEnvfv4Request) (*pb.GlTexEnvfv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnvfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnvfv4Response{}, nil
+}
+
+func (s *GLES10Server) GlTexEnvfv3_1(_ context.Context, req *pb.GlTexEnvfv3_1Request) (*pb.GlTexEnvfv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnvfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnvfv3_1Response{}, nil
+}
+
+func (s *GLES10Server) GlTexEnvx(_ context.Context, req *pb.GlTexEnvxRequest) (*pb.GlTexEnvxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnvx(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnvxResponse{}, nil
+}
+
+func (s *GLES10Server) GlTexEnvxv4(_ context.Context, req *pb.GlTexEnvxv4Request) (*pb.GlTexEnvxv4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnvxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnvxv4Response{}, nil
+}
+
+func (s *GLES10Server) GlTexEnvxv3_1(_ context.Context, req *pb.GlTexEnvxv3_1Request) (*pb.GlTexEnvxv3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexEnvxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexEnvxv3_1Response{}, nil
+}
+
+func (s *GLES10Server) GlTexImage2D(_ context.Context, req *pb.GlTexImage2DRequest) (*pb.GlTexImage2DResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), s.Handles.Get(req.GetArg8())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexImage2DResponse{}, nil
+}
+
+func (s *GLES10Server) GlTexParameterf(_ context.Context, req *pb.GlTexParameterfRequest) (*pb.GlTexParameterfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameterf(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameterfResponse{}, nil
+}
+
+func (s *GLES10Server) GlTexParameterx(_ context.Context, req *pb.GlTexParameterxRequest) (*pb.GlTexParameterxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexParameterx(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexParameterxResponse{}, nil
+}
+
+func (s *GLES10Server) GlTexSubImage2D(_ context.Context, req *pb.GlTexSubImage2DRequest) (*pb.GlTexSubImage2DResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTexSubImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), s.Handles.Get(req.GetArg8())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTexSubImage2DResponse{}, nil
+}
+
+func (s *GLES10Server) GlTranslatef(_ context.Context, req *pb.GlTranslatefRequest) (*pb.GlTranslatefResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTranslatef(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTranslatefResponse{}, nil
+}
+
+func (s *GLES10Server) GlTranslatex(_ context.Context, req *pb.GlTranslatexRequest) (*pb.GlTranslatexResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlTranslatex(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlTranslatexResponse{}, nil
+}
+
+func (s *GLES10Server) GlVertexPointer(_ context.Context, req *pb.GLES10GlVertexPointerRequest) (*pb.GlVertexPointerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlVertexPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlVertexPointerResponse{}, nil
+}
+
+func (s *GLES10Server) GlViewport(_ context.Context, req *pb.GlViewportRequest) (*pb.GlViewportResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlViewport(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlViewportResponse{}, nil
+}
+
+// GLDebugHelperServer implements pb.GLDebugHelperServiceServer.
+type GLDebugHelperServer struct {
+	pb.UnimplementedGLDebugHelperServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GLDebugHelperServer) NewGLDebugHelper(_ context.Context, req *pb.NewGLDebugHelperRequest) (*pb.NewGLDebugHelperResponse, error) {
+	obj, err := jnipkg.NewGLDebugHelper(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewGLDebugHelperResponse{Result: handle}, nil
+}
+
+func (s *GLDebugHelperServer) Wrap3(_ context.Context, req *pb.Wrap3Request) (*pb.Wrap3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLDebugHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Wrap3(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Wrap3Response{Result: handle}, nil
+}
+
+func (s *GLDebugHelperServer) Wrap3_1(_ context.Context, req *pb.Wrap3_1Request) (*pb.Wrap3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLDebugHelper{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Wrap3_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Wrap3_1Response{Result: handle}, nil
+}
+
+// EGLExtServer implements pb.EGLExtServiceServer.
+type EGLExtServer struct {
+	pb.UnimplementedEGLExtServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *EGLExtServer) NewEGLExt(_ context.Context, req *pb.NewEGLExtRequest) (*pb.NewEGLExtResponse, error) {
+	obj, err := jnipkg.NewEGLExt(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewEGLExtResponse{Result: handle}, nil
+}
+
+func (s *EGLExtServer) EglDupNativeFenceFDANDROID(_ context.Context, req *pb.EglDupNativeFenceFDANDROIDRequest) (*pb.EglDupNativeFenceFDANDROIDResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGLExt{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglDupNativeFenceFDANDROID(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.EglDupNativeFenceFDANDROIDResponse{Result: handle}, nil
+}
+
+func (s *EGLExtServer) EglPresentationTimeANDROID(_ context.Context, req *pb.EglPresentationTimeANDROIDRequest) (*pb.EglPresentationTimeANDROIDResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EGLExt{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.EglPresentationTimeANDROID(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EglPresentationTimeANDROIDResponse{Result: result}, nil
+}
+
+// ETC1UtilServer implements pb.ETC1UtilServiceServer.
+type ETC1UtilServer struct {
+	pb.UnimplementedETC1UtilServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ETC1UtilServer) NewETC1Util(_ context.Context, req *pb.NewETC1UtilRequest) (*pb.NewETC1UtilResponse, error) {
+	obj, err := jnipkg.NewETC1Util(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewETC1UtilResponse{Result: handle}, nil
+}
+
+func (s *ETC1UtilServer) CompressTexture(_ context.Context, req *pb.CompressTextureRequest) (*pb.CompressTextureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CompressTexture(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CompressTextureResponse{Result: handle}, nil
+}
+
+func (s *ETC1UtilServer) CreateTexture(_ context.Context, req *pb.CreateTextureRequest) (*pb.CreateTextureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateTexture(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateTextureResponse{Result: handle}, nil
+}
+
+func (s *ETC1UtilServer) IsETC1Supported(_ context.Context, req *pb.IsETC1SupportedRequest) (*pb.IsETC1SupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsETC1Supported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsETC1SupportedResponse{Result: result}, nil
+}
+
+func (s *ETC1UtilServer) LoadTexture6(_ context.Context, req *pb.LoadTexture6Request) (*pb.LoadTexture6Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LoadTexture6(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LoadTexture6Response{}, nil
+}
+
+func (s *ETC1UtilServer) LoadTexture6_1(_ context.Context, req *pb.LoadTexture6_1Request) (*pb.LoadTexture6_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LoadTexture6_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LoadTexture6_1Response{}, nil
+}
+
+func (s *ETC1UtilServer) WriteTexture(_ context.Context, req *pb.WriteTextureRequest) (*pb.WriteTextureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteTexture(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteTextureResponse{}, nil
+}
+
+// MatrixServer implements pb.MatrixServiceServer.
+type MatrixServer struct {
+	pb.UnimplementedMatrixServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MatrixServer) NewMatrix(_ context.Context, req *pb.NewMatrixRequest) (*pb.NewMatrixResponse, error) {
+	obj, err := jnipkg.NewMatrix(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMatrixResponse{Result: handle}, nil
+}
+
+func (s *MatrixServer) FrustumM(_ context.Context, req *pb.FrustumMRequest) (*pb.FrustumMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FrustumM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FrustumMResponse{}, nil
+}
+
+func (s *MatrixServer) InvertM(_ context.Context, req *pb.InvertMRequest) (*pb.InvertMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.InvertM(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InvertMResponse{Result: result}, nil
+}
+
+func (s *MatrixServer) Length(_ context.Context, req *pb.LengthRequest) (*pb.LengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Length(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LengthResponse{Result: result}, nil
+}
+
+func (s *MatrixServer) MultiplyMM(_ context.Context, req *pb.MultiplyMMRequest) (*pb.MultiplyMMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.MultiplyMM(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MultiplyMMResponse{}, nil
+}
+
+func (s *MatrixServer) MultiplyMV(_ context.Context, req *pb.MultiplyMVRequest) (*pb.MultiplyMVResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.MultiplyMV(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MultiplyMVResponse{}, nil
+}
+
+func (s *MatrixServer) OrthoM(_ context.Context, req *pb.OrthoMRequest) (*pb.OrthoMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OrthoM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OrthoMResponse{}, nil
+}
+
+func (s *MatrixServer) PerspectiveM(_ context.Context, req *pb.PerspectiveMRequest) (*pb.PerspectiveMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.PerspectiveM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PerspectiveMResponse{}, nil
+}
+
+func (s *MatrixServer) RotateM6(_ context.Context, req *pb.RotateM6Request) (*pb.RotateM6Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RotateM6(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RotateM6Response{}, nil
+}
+
+func (s *MatrixServer) RotateM8_1(_ context.Context, req *pb.RotateM8_1Request) (*pb.RotateM8_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RotateM8_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RotateM8_1Response{}, nil
+}
+
+func (s *MatrixServer) ScaleM5(_ context.Context, req *pb.ScaleM5Request) (*pb.ScaleM5Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ScaleM5(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ScaleM5Response{}, nil
+}
+
+func (s *MatrixServer) ScaleM7_1(_ context.Context, req *pb.ScaleM7_1Request) (*pb.ScaleM7_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ScaleM7_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ScaleM7_1Response{}, nil
+}
+
+func (s *MatrixServer) SetIdentityM(_ context.Context, req *pb.SetIdentityMRequest) (*pb.SetIdentityMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetIdentityM(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetIdentityMResponse{}, nil
+}
+
+func (s *MatrixServer) SetLookAtM(_ context.Context, req *pb.SetLookAtMRequest) (*pb.SetLookAtMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetLookAtM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetLookAtMResponse{}, nil
+}
+
+func (s *MatrixServer) SetRotateEulerM(_ context.Context, req *pb.SetRotateEulerMRequest) (*pb.SetRotateEulerMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRotateEulerM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRotateEulerMResponse{}, nil
+}
+
+func (s *MatrixServer) SetRotateEulerM2(_ context.Context, req *pb.SetRotateEulerM2Request) (*pb.SetRotateEulerM2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRotateEulerM2(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRotateEulerM2Response{}, nil
+}
+
+func (s *MatrixServer) SetRotateM(_ context.Context, req *pb.SetRotateMRequest) (*pb.SetRotateMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRotateM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRotateMResponse{}, nil
+}
+
+func (s *MatrixServer) TranslateM5(_ context.Context, req *pb.TranslateM5Request) (*pb.TranslateM5Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.TranslateM5(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TranslateM5Response{}, nil
+}
+
+func (s *MatrixServer) TranslateM7_1(_ context.Context, req *pb.TranslateM7_1Request) (*pb.TranslateM7_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.TranslateM7_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TranslateM7_1Response{}, nil
+}
+
+func (s *MatrixServer) TransposeM(_ context.Context, req *pb.TransposeMRequest) (*pb.TransposeMResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.TransposeM(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TransposeMResponse{}, nil
 }
 
 // GLES20Server implements pb.GLES20ServiceServer.
@@ -2631,15 +6363,15 @@ func (s *GLES20Server) GlViewport(_ context.Context, req *pb.GlViewportRequest) 
 	return &pb.GlViewportResponse{}, nil
 }
 
-// VisibilityServer implements pb.VisibilityServiceServer.
-type VisibilityServer struct {
-	pb.UnimplementedVisibilityServiceServer
+// GLES10ExtServer implements pb.GLES10ExtServiceServer.
+type GLES10ExtServer struct {
+	pb.UnimplementedGLES10ExtServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *VisibilityServer) NewVisibility(_ context.Context, req *pb.NewVisibilityRequest) (*pb.NewVisibilityResponse, error) {
-	obj, err := jnipkg.NewVisibility(s.Ctx.VM)
+func (s *GLES10ExtServer) NewGLES10Ext(_ context.Context, req *pb.NewGLES10ExtRequest) (*pb.NewGLES10ExtResponse, error) {
+	obj, err := jnipkg.NewGLES10Ext(s.Ctx.VM)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -2650,59 +6382,46 @@ func (s *VisibilityServer) NewVisibility(_ context.Context, req *pb.NewVisibilit
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewVisibilityResponse{Result: handle}, nil
+	return &pb.NewGLES10ExtResponse{Result: handle}, nil
 }
 
-func (s *VisibilityServer) ComputeBoundingSphere(_ context.Context, req *pb.ComputeBoundingSphereRequest) (*pb.ComputeBoundingSphereResponse, error) {
+func (s *GLES10ExtServer) GlQueryMatrixxOES4(_ context.Context, req *pb.GlQueryMatrixxOES4Request) (*pb.GlQueryMatrixxOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Visibility{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES10Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.ComputeBoundingSphere(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ComputeBoundingSphereResponse{}, nil
-}
-
-func (s *VisibilityServer) FrustumCullSpheres(_ context.Context, req *pb.FrustumCullSpheresRequest) (*pb.FrustumCullSpheresResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visibility{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.FrustumCullSpheres(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5()), req.GetArg6(), req.GetArg7())
+	result, err := mgr.GlQueryMatrixxOES4(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.FrustumCullSpheresResponse{Result: result}, nil
+	return &pb.GlQueryMatrixxOES4Response{Result: result}, nil
 }
 
-func (s *VisibilityServer) VisibilityTest(_ context.Context, req *pb.VisibilityTestRequest) (*pb.VisibilityTestResponse, error) {
+func (s *GLES10ExtServer) GlQueryMatrixxOES2_1(_ context.Context, req *pb.GlQueryMatrixxOES2_1Request) (*pb.GlQueryMatrixxOES2_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Visibility{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES10Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.VisibilityTest(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5(), req.GetArg6())
+	result, err := mgr.GlQueryMatrixxOES2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.VisibilityTestResponse{Result: result}, nil
+	return &pb.GlQueryMatrixxOES2_1Response{Result: result}, nil
 }
 
-// GLES10Server implements pb.GLES10ServiceServer.
-type GLES10Server struct {
-	pb.UnimplementedGLES10ServiceServer
+// GLSurfaceViewServer implements pb.GLSurfaceViewServiceServer.
+type GLSurfaceViewServer struct {
+	pb.UnimplementedGLSurfaceViewServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *GLES10Server) NewGLES10(_ context.Context, req *pb.NewGLES10Request) (*pb.NewGLES10Response, error) {
-	obj, err := jnipkg.NewGLES10(s.Ctx.VM)
+func (s *GLSurfaceViewServer) NewGLSurfaceView(_ context.Context, req *pb.NewGLSurfaceViewRequest) (*pb.NewGLSurfaceViewResponse, error) {
+	obj, err := jnipkg.NewGLSurfaceView(s.Ctx.VM, s.Ctx.Obj)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -2713,1608 +6432,1997 @@ func (s *GLES10Server) NewGLES10(_ context.Context, req *pb.NewGLES10Request) (*
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewGLES10Response{Result: handle}, nil
+	return &pb.NewGLSurfaceViewResponse{Result: handle}, nil
 }
 
-func (s *GLES10Server) GlActiveTexture(_ context.Context, req *pb.GlActiveTextureRequest) (*pb.GlActiveTextureResponse, error) {
+func (s *GLSurfaceViewServer) GetDebugFlags(_ context.Context, req *pb.GetDebugFlagsRequest) (*pb.GetDebugFlagsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlActiveTexture(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlActiveTextureResponse{}, nil
-}
-
-func (s *GLES10Server) GlAlphaFunc(_ context.Context, req *pb.GlAlphaFuncRequest) (*pb.GlAlphaFuncResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlAlphaFunc(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlAlphaFuncResponse{}, nil
-}
-
-func (s *GLES10Server) GlAlphaFuncx(_ context.Context, req *pb.GlAlphaFuncxRequest) (*pb.GlAlphaFuncxResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlAlphaFuncx(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlAlphaFuncxResponse{}, nil
-}
-
-func (s *GLES10Server) GlBindTexture(_ context.Context, req *pb.GlBindTextureRequest) (*pb.GlBindTextureResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBindTexture(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBindTextureResponse{}, nil
-}
-
-func (s *GLES10Server) GlBlendFunc(_ context.Context, req *pb.GlBlendFuncRequest) (*pb.GlBlendFuncResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBlendFunc(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBlendFuncResponse{}, nil
-}
-
-func (s *GLES10Server) GlClear(_ context.Context, req *pb.GlClearRequest) (*pb.GlClearResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClear(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearResponse{}, nil
-}
-
-func (s *GLES10Server) GlClearColor(_ context.Context, req *pb.GlClearColorRequest) (*pb.GlClearColorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClearColor(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearColorResponse{}, nil
-}
-
-func (s *GLES10Server) GlClearColorx(_ context.Context, req *pb.GlClearColorxRequest) (*pb.GlClearColorxResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClearColorx(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearColorxResponse{}, nil
-}
-
-func (s *GLES10Server) GlClearDepthf(_ context.Context, req *pb.GlClearDepthfRequest) (*pb.GlClearDepthfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClearDepthf(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearDepthfResponse{}, nil
-}
-
-func (s *GLES10Server) GlClearDepthx(_ context.Context, req *pb.GlClearDepthxRequest) (*pb.GlClearDepthxResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClearDepthx(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearDepthxResponse{}, nil
-}
-
-func (s *GLES10Server) GlClearStencil(_ context.Context, req *pb.GlClearStencilRequest) (*pb.GlClearStencilResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClearStencil(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearStencilResponse{}, nil
-}
-
-func (s *GLES10Server) GlClientActiveTexture(_ context.Context, req *pb.GlClientActiveTextureRequest) (*pb.GlClientActiveTextureResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClientActiveTexture(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClientActiveTextureResponse{}, nil
-}
-
-func (s *GLES10Server) GlColor4F(_ context.Context, req *pb.GlColor4FRequest) (*pb.GlColor4FResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlColor4f(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlColor4FResponse{}, nil
-}
-
-func (s *GLES10Server) GlColor4X(_ context.Context, req *pb.GlColor4XRequest) (*pb.GlColor4XResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlColor4x(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlColor4XResponse{}, nil
-}
-
-func (s *GLES10Server) GlColorMask(_ context.Context, req *pb.GlColorMaskRequest) (*pb.GlColorMaskResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlColorMask(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlColorMaskResponse{}, nil
-}
-
-func (s *GLES10Server) GlColorPointer(_ context.Context, req *pb.GlColorPointerRequest) (*pb.GlColorPointerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlColorPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlColorPointerResponse{}, nil
-}
-
-func (s *GLES10Server) GlCompressedTexImage2D(_ context.Context, req *pb.GlCompressedTexImage2DRequest) (*pb.GlCompressedTexImage2DResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlCompressedTexImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), s.Handles.Get(req.GetArg7())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlCompressedTexImage2DResponse{}, nil
-}
-
-func (s *GLES10Server) GlCompressedTexSubImage2D(_ context.Context, req *pb.GlCompressedTexSubImage2DRequest) (*pb.GlCompressedTexSubImage2DResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlCompressedTexSubImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), s.Handles.Get(req.GetArg8())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlCompressedTexSubImage2DResponse{}, nil
-}
-
-func (s *GLES10Server) GlCopyTexImage2D(_ context.Context, req *pb.GlCopyTexImage2DRequest) (*pb.GlCopyTexImage2DResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlCopyTexImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlCopyTexImage2DResponse{}, nil
-}
-
-func (s *GLES10Server) GlCopyTexSubImage2D(_ context.Context, req *pb.GlCopyTexSubImage2DRequest) (*pb.GlCopyTexSubImage2DResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlCopyTexSubImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlCopyTexSubImage2DResponse{}, nil
-}
-
-func (s *GLES10Server) GlCullFace(_ context.Context, req *pb.GlCullFaceRequest) (*pb.GlCullFaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlCullFace(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlCullFaceResponse{}, nil
-}
-
-func (s *GLES10Server) GlDeleteTextures3(_ context.Context, req *pb.GlDeleteTextures3Request) (*pb.GlDeleteTextures3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDeleteTextures3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDeleteTextures3Response{}, nil
-}
-
-func (s *GLES10Server) GlDeleteTextures2_1(_ context.Context, req *pb.GlDeleteTextures2_1Request) (*pb.GlDeleteTextures2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDeleteTextures2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDeleteTextures2_1Response{}, nil
-}
-
-func (s *GLES10Server) GlDepthFunc(_ context.Context, req *pb.GlDepthFuncRequest) (*pb.GlDepthFuncResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDepthFunc(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDepthFuncResponse{}, nil
-}
-
-func (s *GLES10Server) GlDepthMask(_ context.Context, req *pb.GlDepthMaskRequest) (*pb.GlDepthMaskResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDepthMask(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDepthMaskResponse{}, nil
-}
-
-func (s *GLES10Server) GlDepthRangef(_ context.Context, req *pb.GlDepthRangefRequest) (*pb.GlDepthRangefResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDepthRangef(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDepthRangefResponse{}, nil
-}
-
-func (s *GLES10Server) GlDepthRangex(_ context.Context, req *pb.GlDepthRangexRequest) (*pb.GlDepthRangexResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDepthRangex(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDepthRangexResponse{}, nil
-}
-
-func (s *GLES10Server) GlDisable(_ context.Context, req *pb.GlDisableRequest) (*pb.GlDisableResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDisable(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDisableResponse{}, nil
-}
-
-func (s *GLES10Server) GlDisableClientState(_ context.Context, req *pb.GlDisableClientStateRequest) (*pb.GlDisableClientStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDisableClientState(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDisableClientStateResponse{}, nil
-}
-
-func (s *GLES10Server) GlDrawArrays(_ context.Context, req *pb.GlDrawArraysRequest) (*pb.GlDrawArraysResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawArrays(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawArraysResponse{}, nil
-}
-
-func (s *GLES10Server) GlDrawElements(_ context.Context, req *pb.GlDrawElementsRequest) (*pb.GlDrawElementsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawElements(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawElementsResponse{}, nil
-}
-
-func (s *GLES10Server) GlEnable(_ context.Context, req *pb.GlEnableRequest) (*pb.GlEnableResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlEnable(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlEnableResponse{}, nil
-}
-
-func (s *GLES10Server) GlEnableClientState(_ context.Context, req *pb.GlEnableClientStateRequest) (*pb.GlEnableClientStateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlEnableClientState(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlEnableClientStateResponse{}, nil
-}
-
-func (s *GLES10Server) GlFinish(_ context.Context, req *pb.GlFinishRequest) (*pb.GlFinishResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFinish(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFinishResponse{}, nil
-}
-
-func (s *GLES10Server) GlFlush(_ context.Context, req *pb.GlFlushRequest) (*pb.GlFlushResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFlush(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFlushResponse{}, nil
-}
-
-func (s *GLES10Server) GlFogf(_ context.Context, req *pb.GlFogfRequest) (*pb.GlFogfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogf(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogfResponse{}, nil
-}
-
-func (s *GLES10Server) GlFogfv3(_ context.Context, req *pb.GlFogfv3Request) (*pb.GlFogfv3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogfv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogfv3Response{}, nil
-}
-
-func (s *GLES10Server) GlFogfv2_1(_ context.Context, req *pb.GlFogfv2_1Request) (*pb.GlFogfv2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogfv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogfv2_1Response{}, nil
-}
-
-func (s *GLES10Server) GlFogx(_ context.Context, req *pb.GlFogxRequest) (*pb.GlFogxResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogx(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogxResponse{}, nil
-}
-
-func (s *GLES10Server) GlFogxv3(_ context.Context, req *pb.GlFogxv3Request) (*pb.GlFogxv3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogxv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogxv3Response{}, nil
-}
-
-func (s *GLES10Server) GlFogxv2_1(_ context.Context, req *pb.GlFogxv2_1Request) (*pb.GlFogxv2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogxv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogxv2_1Response{}, nil
-}
-
-func (s *GLES10Server) GlFrontFace(_ context.Context, req *pb.GlFrontFaceRequest) (*pb.GlFrontFaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFrontFace(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFrontFaceResponse{}, nil
-}
-
-func (s *GLES10Server) GlFrustumf(_ context.Context, req *pb.GlFrustumfRequest) (*pb.GlFrustumfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFrustumf(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFrustumfResponse{}, nil
-}
-
-func (s *GLES10Server) GlFrustumx(_ context.Context, req *pb.GlFrustumxRequest) (*pb.GlFrustumxResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFrustumx(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFrustumxResponse{}, nil
-}
-
-func (s *GLES10Server) GlGenTextures3(_ context.Context, req *pb.GlGenTextures3Request) (*pb.GlGenTextures3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenTextures3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenTextures3Response{}, nil
-}
-
-func (s *GLES10Server) GlGenTextures2_1(_ context.Context, req *pb.GlGenTextures2_1Request) (*pb.GlGenTextures2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenTextures2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenTextures2_1Response{}, nil
-}
-
-func (s *GLES10Server) GlGetError(_ context.Context, req *pb.GlGetErrorRequest) (*pb.GlGetErrorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlGetError()
+	result, err := mgr.GetDebugFlags()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlGetErrorResponse{Result: result}, nil
+	return &pb.GetDebugFlagsResponse{Result: result}, nil
 }
 
-func (s *GLES10Server) GlGetIntegerv3(_ context.Context, req *pb.GlGetIntegerv3Request) (*pb.GlGetIntegerv3Response, error) {
+func (s *GLSurfaceViewServer) GetPreserveEGLContextOnPause(_ context.Context, req *pb.GetPreserveEGLContextOnPauseRequest) (*pb.GetPreserveEGLContextOnPauseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlGetIntegerv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetIntegerv3Response{}, nil
-}
-
-func (s *GLES10Server) GlGetIntegerv2_1(_ context.Context, req *pb.GlGetIntegerv2_1Request) (*pb.GlGetIntegerv2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetIntegerv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetIntegerv2_1Response{}, nil
-}
-
-func (s *GLES10Server) GlGetString(_ context.Context, req *pb.GlGetStringRequest) (*pb.GlGetStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlGetString(req.GetArg0())
+	result, err := mgr.GetPreserveEGLContextOnPause()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlGetStringResponse{Result: result}, nil
+	return &pb.GetPreserveEGLContextOnPauseResponse{Result: result}, nil
 }
 
-func (s *GLES10Server) GlHint(_ context.Context, req *pb.GlHintRequest) (*pb.GlHintResponse, error) {
+func (s *GLSurfaceViewServer) GetRenderMode(_ context.Context, req *pb.GetRenderModeRequest) (*pb.GetRenderModeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlHint(req.GetArg0(), req.GetArg1()); err != nil {
+	result, err := mgr.GetRenderMode()
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlHintResponse{}, nil
+	return &pb.GetRenderModeResponse{Result: result}, nil
 }
 
-func (s *GLES10Server) GlLightModelf(_ context.Context, req *pb.GlLightModelfRequest) (*pb.GlLightModelfResponse, error) {
+func (s *GLSurfaceViewServer) OnPause(_ context.Context, req *pb.OnPauseRequest) (*pb.OnPauseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightModelf(req.GetArg0(), req.GetArg1()); err != nil {
+	if err := mgr.OnPause(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightModelfResponse{}, nil
+	return &pb.OnPauseResponse{}, nil
 }
 
-func (s *GLES10Server) GlLightModelfv3(_ context.Context, req *pb.GlLightModelfv3Request) (*pb.GlLightModelfv3Response, error) {
+func (s *GLSurfaceViewServer) OnResume(_ context.Context, req *pb.OnResumeRequest) (*pb.OnResumeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightModelfv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+	if err := mgr.OnResume(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightModelfv3Response{}, nil
+	return &pb.OnResumeResponse{}, nil
 }
 
-func (s *GLES10Server) GlLightModelfv2_1(_ context.Context, req *pb.GlLightModelfv2_1Request) (*pb.GlLightModelfv2_1Response, error) {
+func (s *GLSurfaceViewServer) QueueEvent(_ context.Context, req *pb.QueueEventRequest) (*pb.QueueEventResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightModelfv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+	if err := mgr.QueueEvent(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightModelfv2_1Response{}, nil
+	return &pb.QueueEventResponse{}, nil
 }
 
-func (s *GLES10Server) GlLightModelx(_ context.Context, req *pb.GlLightModelxRequest) (*pb.GlLightModelxResponse, error) {
+func (s *GLSurfaceViewServer) RequestRender(_ context.Context, req *pb.RequestRenderRequest) (*pb.RequestRenderResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightModelx(req.GetArg0(), req.GetArg1()); err != nil {
+	if err := mgr.RequestRender(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightModelxResponse{}, nil
+	return &pb.RequestRenderResponse{}, nil
 }
 
-func (s *GLES10Server) GlLightModelxv3(_ context.Context, req *pb.GlLightModelxv3Request) (*pb.GlLightModelxv3Response, error) {
+func (s *GLSurfaceViewServer) SetDebugFlags(_ context.Context, req *pb.SetDebugFlagsRequest) (*pb.SetDebugFlagsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightModelxv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+	if err := mgr.SetDebugFlags(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightModelxv3Response{}, nil
+	return &pb.SetDebugFlagsResponse{}, nil
 }
 
-func (s *GLES10Server) GlLightModelxv2_1(_ context.Context, req *pb.GlLightModelxv2_1Request) (*pb.GlLightModelxv2_1Response, error) {
+func (s *GLSurfaceViewServer) SetEGLConfigChooser1(_ context.Context, req *pb.SetEGLConfigChooser1Request) (*pb.SetEGLConfigChooser1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightModelxv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+	if err := mgr.SetEGLConfigChooser1(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightModelxv2_1Response{}, nil
+	return &pb.SetEGLConfigChooser1Response{}, nil
 }
 
-func (s *GLES10Server) GlLightf(_ context.Context, req *pb.GlLightfRequest) (*pb.GlLightfResponse, error) {
+func (s *GLSurfaceViewServer) SetEGLConfigChooser1_1(_ context.Context, req *pb.SetEGLConfigChooser1_1Request) (*pb.SetEGLConfigChooser1_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightf(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.SetEGLConfigChooser1_1(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightfResponse{}, nil
+	return &pb.SetEGLConfigChooser1_1Response{}, nil
 }
 
-func (s *GLES10Server) GlLightfv4(_ context.Context, req *pb.GlLightfv4Request) (*pb.GlLightfv4Response, error) {
+func (s *GLSurfaceViewServer) SetEGLConfigChooser6_2(_ context.Context, req *pb.SetEGLConfigChooser6_2Request) (*pb.SetEGLConfigChooser6_2Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+	if err := mgr.SetEGLConfigChooser6_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightfv4Response{}, nil
+	return &pb.SetEGLConfigChooser6_2Response{}, nil
 }
 
-func (s *GLES10Server) GlLightfv3_1(_ context.Context, req *pb.GlLightfv3_1Request) (*pb.GlLightfv3_1Response, error) {
+func (s *GLSurfaceViewServer) SetEGLContextClientVersion(_ context.Context, req *pb.SetEGLContextClientVersionRequest) (*pb.SetEGLContextClientVersionResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.SetEGLContextClientVersion(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightfv3_1Response{}, nil
+	return &pb.SetEGLContextClientVersionResponse{}, nil
 }
 
-func (s *GLES10Server) GlLightx(_ context.Context, req *pb.GlLightxRequest) (*pb.GlLightxResponse, error) {
+func (s *GLSurfaceViewServer) SetEGLContextFactory(_ context.Context, req *pb.SetEGLContextFactoryRequest) (*pb.SetEGLContextFactoryResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightx(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.SetEGLContextFactory(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightxResponse{}, nil
+	return &pb.SetEGLContextFactoryResponse{}, nil
 }
 
-func (s *GLES10Server) GlLightxv4(_ context.Context, req *pb.GlLightxv4Request) (*pb.GlLightxv4Response, error) {
+func (s *GLSurfaceViewServer) SetEGLWindowSurfaceFactory(_ context.Context, req *pb.SetEGLWindowSurfaceFactoryRequest) (*pb.SetEGLWindowSurfaceFactoryResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+	if err := mgr.SetEGLWindowSurfaceFactory(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightxv4Response{}, nil
+	return &pb.SetEGLWindowSurfaceFactoryResponse{}, nil
 }
 
-func (s *GLES10Server) GlLightxv3_1(_ context.Context, req *pb.GlLightxv3_1Request) (*pb.GlLightxv3_1Response, error) {
+func (s *GLSurfaceViewServer) SetGLWrapper(_ context.Context, req *pb.SetGLWrapperRequest) (*pb.SetGLWrapperResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLightxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.SetGLWrapper(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLightxv3_1Response{}, nil
+	return &pb.SetGLWrapperResponse{}, nil
 }
 
-func (s *GLES10Server) GlLineWidth(_ context.Context, req *pb.GlLineWidthRequest) (*pb.GlLineWidthResponse, error) {
+func (s *GLSurfaceViewServer) SetPreserveEGLContextOnPause(_ context.Context, req *pb.SetPreserveEGLContextOnPauseRequest) (*pb.SetPreserveEGLContextOnPauseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLineWidth(req.GetArg0()); err != nil {
+	if err := mgr.SetPreserveEGLContextOnPause(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLineWidthResponse{}, nil
+	return &pb.SetPreserveEGLContextOnPauseResponse{}, nil
 }
 
-func (s *GLES10Server) GlLineWidthx(_ context.Context, req *pb.GlLineWidthxRequest) (*pb.GlLineWidthxResponse, error) {
+func (s *GLSurfaceViewServer) SetRenderMode(_ context.Context, req *pb.SetRenderModeRequest) (*pb.SetRenderModeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLineWidthx(req.GetArg0()); err != nil {
+	if err := mgr.SetRenderMode(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLineWidthxResponse{}, nil
+	return &pb.SetRenderModeResponse{}, nil
 }
 
-func (s *GLES10Server) GlLoadIdentity(_ context.Context, req *pb.GlLoadIdentityRequest) (*pb.GlLoadIdentityResponse, error) {
+func (s *GLSurfaceViewServer) SetRenderer(_ context.Context, req *pb.SetRendererRequest) (*pb.SetRendererResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLoadIdentity(); err != nil {
+	if err := mgr.SetRenderer(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLoadIdentityResponse{}, nil
+	return &pb.SetRendererResponse{}, nil
 }
 
-func (s *GLES10Server) GlLoadMatrixf2(_ context.Context, req *pb.GlLoadMatrixf2Request) (*pb.GlLoadMatrixf2Response, error) {
+func (s *GLSurfaceViewServer) SurfaceChanged(_ context.Context, req *pb.SurfaceChangedRequest) (*pb.SurfaceChangedResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLoadMatrixf2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+	if err := mgr.SurfaceChanged(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLoadMatrixf2Response{}, nil
+	return &pb.SurfaceChangedResponse{}, nil
 }
 
-func (s *GLES10Server) GlLoadMatrixf1_1(_ context.Context, req *pb.GlLoadMatrixf1_1Request) (*pb.GlLoadMatrixf1_1Response, error) {
+func (s *GLSurfaceViewServer) SurfaceCreated(_ context.Context, req *pb.SurfaceCreatedRequest) (*pb.SurfaceCreatedResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLoadMatrixf1_1(s.Handles.Get(req.GetArg0())); err != nil {
+	if err := mgr.SurfaceCreated(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLoadMatrixf1_1Response{}, nil
+	return &pb.SurfaceCreatedResponse{}, nil
 }
 
-func (s *GLES10Server) GlLoadMatrixx2(_ context.Context, req *pb.GlLoadMatrixx2Request) (*pb.GlLoadMatrixx2Response, error) {
+func (s *GLSurfaceViewServer) SurfaceDestroyed(_ context.Context, req *pb.SurfaceDestroyedRequest) (*pb.SurfaceDestroyedResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLoadMatrixx2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+	if err := mgr.SurfaceDestroyed(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLoadMatrixx2Response{}, nil
+	return &pb.SurfaceDestroyedResponse{}, nil
 }
 
-func (s *GLES10Server) GlLoadMatrixx1_1(_ context.Context, req *pb.GlLoadMatrixx1_1Request) (*pb.GlLoadMatrixx1_1Response, error) {
+func (s *GLSurfaceViewServer) SurfaceRedrawNeeded(_ context.Context, req *pb.SurfaceRedrawNeededRequest) (*pb.SurfaceRedrawNeededResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLoadMatrixx1_1(s.Handles.Get(req.GetArg0())); err != nil {
+	if err := mgr.SurfaceRedrawNeeded(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLoadMatrixx1_1Response{}, nil
+	return &pb.SurfaceRedrawNeededResponse{}, nil
 }
 
-func (s *GLES10Server) GlLogicOp(_ context.Context, req *pb.GlLogicOpRequest) (*pb.GlLogicOpResponse, error) {
+func (s *GLSurfaceViewServer) SurfaceRedrawNeededAsync(_ context.Context, req *pb.SurfaceRedrawNeededAsyncRequest) (*pb.SurfaceRedrawNeededAsyncResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlLogicOp(req.GetArg0()); err != nil {
+	if err := mgr.SurfaceRedrawNeededAsync(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlLogicOpResponse{}, nil
+	return &pb.SurfaceRedrawNeededAsyncResponse{}, nil
 }
 
-func (s *GLES10Server) GlMaterialf(_ context.Context, req *pb.GlMaterialfRequest) (*pb.GlMaterialfResponse, error) {
+// GLUServer implements pb.GLUServiceServer.
+type GLUServer struct {
+	pb.UnimplementedGLUServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GLUServer) NewGLU(_ context.Context, req *pb.NewGLURequest) (*pb.NewGLUResponse, error) {
+	obj, err := jnipkg.NewGLU(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewGLUResponse{Result: handle}, nil
+}
+
+func (s *GLUServer) GluErrorString(_ context.Context, req *pb.GluErrorStringRequest) (*pb.GluErrorStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GluErrorString(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GluErrorStringResponse{Result: result}, nil
+}
+
+func (s *GLUServer) GluLookAt(_ context.Context, req *pb.GluLookAtRequest) (*pb.GluLookAtResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GluLookAt(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GluLookAtResponse{}, nil
+}
+
+func (s *GLUServer) GluOrtho2D(_ context.Context, req *pb.GluOrtho2DRequest) (*pb.GluOrtho2DResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GluOrtho2D(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GluOrtho2DResponse{}, nil
+}
+
+func (s *GLUServer) GluPerspective(_ context.Context, req *pb.GluPerspectiveRequest) (*pb.GluPerspectiveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GluPerspective(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GluPerspectiveResponse{}, nil
+}
+
+func (s *GLUServer) GluProject(_ context.Context, req *pb.GluProjectRequest) (*pb.GluProjectResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GluProject(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4(), s.Handles.Get(req.GetArg5()), req.GetArg6(), s.Handles.Get(req.GetArg7()), req.GetArg8(), s.Handles.Get(req.GetArg9()), req.GetArg10())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GluProjectResponse{Result: result}, nil
+}
+
+func (s *GLUServer) GluUnProject(_ context.Context, req *pb.GluUnProjectRequest) (*pb.GluUnProjectResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLU{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GluUnProject(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4(), s.Handles.Get(req.GetArg5()), req.GetArg6(), s.Handles.Get(req.GetArg7()), req.GetArg8(), s.Handles.Get(req.GetArg9()), req.GetArg10())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GluUnProjectResponse{Result: result}, nil
+}
+
+// GLES11ExtServer implements pb.GLES11ExtServiceServer.
+type GLES11ExtServer struct {
+	pb.UnimplementedGLES11ExtServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GLES11ExtServer) NewGLES11Ext(_ context.Context, req *pb.NewGLES11ExtRequest) (*pb.NewGLES11ExtResponse, error) {
+	obj, err := jnipkg.NewGLES11Ext(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewGLES11ExtResponse{Result: handle}, nil
+}
+
+func (s *GLES11ExtServer) GlAlphaFuncxOES(_ context.Context, req *pb.GlAlphaFuncxOESRequest) (*pb.GlAlphaFuncxOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlAlphaFuncxOES(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlAlphaFuncxOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlBindFramebufferOES(_ context.Context, req *pb.GlBindFramebufferOESRequest) (*pb.GlBindFramebufferOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBindFramebufferOES(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBindFramebufferOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlBindRenderbufferOES(_ context.Context, req *pb.GlBindRenderbufferOESRequest) (*pb.GlBindRenderbufferOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBindRenderbufferOES(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBindRenderbufferOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlBlendEquationOES(_ context.Context, req *pb.GlBlendEquationOESRequest) (*pb.GlBlendEquationOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBlendEquationOES(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBlendEquationOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlBlendEquationSeparateOES(_ context.Context, req *pb.GlBlendEquationSeparateOESRequest) (*pb.GlBlendEquationSeparateOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBlendEquationSeparateOES(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBlendEquationSeparateOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlBlendFuncSeparateOES(_ context.Context, req *pb.GlBlendFuncSeparateOESRequest) (*pb.GlBlendFuncSeparateOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlBlendFuncSeparateOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlBlendFuncSeparateOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlCheckFramebufferStatusOES(_ context.Context, req *pb.GlCheckFramebufferStatusOESRequest) (*pb.GlCheckFramebufferStatusOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GlCheckFramebufferStatusOES(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlCheckFramebufferStatusOESResponse{Result: result}, nil
+}
+
+func (s *GLES11ExtServer) GlClearColorxOES(_ context.Context, req *pb.GlClearColorxOESRequest) (*pb.GlClearColorxOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClearColorxOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearColorxOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlClearDepthfOES(_ context.Context, req *pb.GlClearDepthfOESRequest) (*pb.GlClearDepthfOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClearDepthfOES(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearDepthfOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlClearDepthxOES(_ context.Context, req *pb.GlClearDepthxOESRequest) (*pb.GlClearDepthxOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClearDepthxOES(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClearDepthxOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlClipPlanefOES3(_ context.Context, req *pb.GlClipPlanefOES3Request) (*pb.GlClipPlanefOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClipPlanefOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClipPlanefOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlClipPlanefOES2_1(_ context.Context, req *pb.GlClipPlanefOES2_1Request) (*pb.GlClipPlanefOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClipPlanefOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClipPlanefOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlClipPlanexOES3(_ context.Context, req *pb.GlClipPlanexOES3Request) (*pb.GlClipPlanexOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClipPlanexOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClipPlanexOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlClipPlanexOES2_1(_ context.Context, req *pb.GlClipPlanexOES2_1Request) (*pb.GlClipPlanexOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlClipPlanexOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlClipPlanexOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlColor4XOES(_ context.Context, req *pb.GlColor4XOESRequest) (*pb.GlColor4XOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlColor4xOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlColor4XOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlCurrentPaletteMatrixOES(_ context.Context, req *pb.GlCurrentPaletteMatrixOESRequest) (*pb.GlCurrentPaletteMatrixOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlCurrentPaletteMatrixOES(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlCurrentPaletteMatrixOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlDeleteFramebuffersOES3(_ context.Context, req *pb.GlDeleteFramebuffersOES3Request) (*pb.GlDeleteFramebuffersOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDeleteFramebuffersOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDeleteFramebuffersOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDeleteFramebuffersOES2_1(_ context.Context, req *pb.GlDeleteFramebuffersOES2_1Request) (*pb.GlDeleteFramebuffersOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDeleteFramebuffersOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDeleteFramebuffersOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDeleteRenderbuffersOES3(_ context.Context, req *pb.GlDeleteRenderbuffersOES3Request) (*pb.GlDeleteRenderbuffersOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDeleteRenderbuffersOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDeleteRenderbuffersOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDeleteRenderbuffersOES2_1(_ context.Context, req *pb.GlDeleteRenderbuffersOES2_1Request) (*pb.GlDeleteRenderbuffersOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDeleteRenderbuffersOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDeleteRenderbuffersOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDepthRangefOES(_ context.Context, req *pb.GlDepthRangefOESRequest) (*pb.GlDepthRangefOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDepthRangefOES(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDepthRangefOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlDepthRangexOES(_ context.Context, req *pb.GlDepthRangexOESRequest) (*pb.GlDepthRangexOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDepthRangexOES(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDepthRangexOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexfOES(_ context.Context, req *pb.GlDrawTexfOESRequest) (*pb.GlDrawTexfOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexfOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexfOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexfvOES2(_ context.Context, req *pb.GlDrawTexfvOES2Request) (*pb.GlDrawTexfvOES2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexfvOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexfvOES2Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexfvOES1_1(_ context.Context, req *pb.GlDrawTexfvOES1_1Request) (*pb.GlDrawTexfvOES1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexfvOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexfvOES1_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexiOES(_ context.Context, req *pb.GlDrawTexiOESRequest) (*pb.GlDrawTexiOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexiOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexiOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexivOES2(_ context.Context, req *pb.GlDrawTexivOES2Request) (*pb.GlDrawTexivOES2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexivOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexivOES2Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexivOES1_1(_ context.Context, req *pb.GlDrawTexivOES1_1Request) (*pb.GlDrawTexivOES1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexivOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexivOES1_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexsOES(_ context.Context, req *pb.GlDrawTexsOESRequest) (*pb.GlDrawTexsOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexsOES(int16(req.GetArg0()), int16(req.GetArg1()), int16(req.GetArg2()), int16(req.GetArg3()), int16(req.GetArg4())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexsOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexsvOES1(_ context.Context, req *pb.GlDrawTexsvOES1Request) (*pb.GlDrawTexsvOES1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexsvOES1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexsvOES1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexsvOES2_1(_ context.Context, req *pb.GlDrawTexsvOES2_1Request) (*pb.GlDrawTexsvOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexsvOES2_1(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexsvOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexxOES(_ context.Context, req *pb.GlDrawTexxOESRequest) (*pb.GlDrawTexxOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexxOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexxOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexxvOES2(_ context.Context, req *pb.GlDrawTexxvOES2Request) (*pb.GlDrawTexxvOES2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexxvOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexxvOES2Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlDrawTexxvOES1_1(_ context.Context, req *pb.GlDrawTexxvOES1_1Request) (*pb.GlDrawTexxvOES1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlDrawTexxvOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlDrawTexxvOES1_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlEGLImageTargetRenderbufferStorageOES(_ context.Context, req *pb.GlEGLImageTargetRenderbufferStorageOESRequest) (*pb.GlEGLImageTargetRenderbufferStorageOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlEGLImageTargetRenderbufferStorageOES(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlEGLImageTargetRenderbufferStorageOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlEGLImageTargetTexture2DOES(_ context.Context, req *pb.GlEGLImageTargetTexture2DOESRequest) (*pb.GlEGLImageTargetTexture2DOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlEGLImageTargetTexture2DOES(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlEGLImageTargetTexture2DOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlFogxOES(_ context.Context, req *pb.GlFogxOESRequest) (*pb.GlFogxOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogxOES(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogxOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlFogxvOES3(_ context.Context, req *pb.GlFogxvOES3Request) (*pb.GlFogxvOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogxvOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogxvOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlFogxvOES2_1(_ context.Context, req *pb.GlFogxvOES2_1Request) (*pb.GlFogxvOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFogxvOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFogxvOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlFramebufferRenderbufferOES(_ context.Context, req *pb.GlFramebufferRenderbufferOESRequest) (*pb.GlFramebufferRenderbufferOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFramebufferRenderbufferOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFramebufferRenderbufferOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlFramebufferTexture2DOES(_ context.Context, req *pb.GlFramebufferTexture2DOESRequest) (*pb.GlFramebufferTexture2DOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFramebufferTexture2DOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFramebufferTexture2DOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlFrustumfOES(_ context.Context, req *pb.GlFrustumfOESRequest) (*pb.GlFrustumfOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFrustumfOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFrustumfOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlFrustumxOES(_ context.Context, req *pb.GlFrustumxOESRequest) (*pb.GlFrustumxOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlFrustumxOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlFrustumxOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlGenFramebuffersOES3(_ context.Context, req *pb.GlGenFramebuffersOES3Request) (*pb.GlGenFramebuffersOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenFramebuffersOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenFramebuffersOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGenFramebuffersOES2_1(_ context.Context, req *pb.GlGenFramebuffersOES2_1Request) (*pb.GlGenFramebuffersOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenFramebuffersOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenFramebuffersOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGenRenderbuffersOES3(_ context.Context, req *pb.GlGenRenderbuffersOES3Request) (*pb.GlGenRenderbuffersOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenRenderbuffersOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenRenderbuffersOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGenRenderbuffersOES2_1(_ context.Context, req *pb.GlGenRenderbuffersOES2_1Request) (*pb.GlGenRenderbuffersOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenRenderbuffersOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenRenderbuffersOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGenerateMipmapOES(_ context.Context, req *pb.GlGenerateMipmapOESRequest) (*pb.GlGenerateMipmapOESResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGenerateMipmapOES(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGenerateMipmapOESResponse{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetClipPlanefOES3(_ context.Context, req *pb.GlGetClipPlanefOES3Request) (*pb.GlGetClipPlanefOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetClipPlanefOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetClipPlanefOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetClipPlanefOES2_1(_ context.Context, req *pb.GlGetClipPlanefOES2_1Request) (*pb.GlGetClipPlanefOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetClipPlanefOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetClipPlanefOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetClipPlanexOES3(_ context.Context, req *pb.GlGetClipPlanexOES3Request) (*pb.GlGetClipPlanexOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetClipPlanexOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetClipPlanexOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetClipPlanexOES2_1(_ context.Context, req *pb.GlGetClipPlanexOES2_1Request) (*pb.GlGetClipPlanexOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetClipPlanexOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetClipPlanexOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetFixedvOES3(_ context.Context, req *pb.GlGetFixedvOES3Request) (*pb.GlGetFixedvOES3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetFixedvOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetFixedvOES3Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetFixedvOES2_1(_ context.Context, req *pb.GlGetFixedvOES2_1Request) (*pb.GlGetFixedvOES2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetFixedvOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetFixedvOES2_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetFramebufferAttachmentParameterivOES5(_ context.Context, req *pb.GlGetFramebufferAttachmentParameterivOES5Request) (*pb.GlGetFramebufferAttachmentParameterivOES5Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetFramebufferAttachmentParameterivOES5(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetFramebufferAttachmentParameterivOES5Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetFramebufferAttachmentParameterivOES4_1(_ context.Context, req *pb.GlGetFramebufferAttachmentParameterivOES4_1Request) (*pb.GlGetFramebufferAttachmentParameterivOES4_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetFramebufferAttachmentParameterivOES4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetFramebufferAttachmentParameterivOES4_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetLightxvOES4(_ context.Context, req *pb.GlGetLightxvOES4Request) (*pb.GlGetLightxvOES4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetLightxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetLightxvOES4Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetLightxvOES3_1(_ context.Context, req *pb.GlGetLightxvOES3_1Request) (*pb.GlGetLightxvOES3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetLightxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetLightxvOES3_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetMaterialxvOES4(_ context.Context, req *pb.GlGetMaterialxvOES4Request) (*pb.GlGetMaterialxvOES4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetMaterialxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetMaterialxvOES4Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetMaterialxvOES3_1(_ context.Context, req *pb.GlGetMaterialxvOES3_1Request) (*pb.GlGetMaterialxvOES3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetMaterialxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetMaterialxvOES3_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetRenderbufferParameterivOES4(_ context.Context, req *pb.GlGetRenderbufferParameterivOES4Request) (*pb.GlGetRenderbufferParameterivOES4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetRenderbufferParameterivOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetRenderbufferParameterivOES4Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetRenderbufferParameterivOES3_1(_ context.Context, req *pb.GlGetRenderbufferParameterivOES3_1Request) (*pb.GlGetRenderbufferParameterivOES3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetRenderbufferParameterivOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetRenderbufferParameterivOES3_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetTexEnvxvOES4(_ context.Context, req *pb.GlGetTexEnvxvOES4Request) (*pb.GlGetTexEnvxvOES4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexEnvxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexEnvxvOES4Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetTexEnvxvOES3_1(_ context.Context, req *pb.GlGetTexEnvxvOES3_1Request) (*pb.GlGetTexEnvxvOES3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexEnvxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexEnvxvOES3_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetTexGenfvOES4(_ context.Context, req *pb.GlGetTexGenfvOES4Request) (*pb.GlGetTexGenfvOES4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexGenfvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexGenfvOES4Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetTexGenfvOES3_1(_ context.Context, req *pb.GlGetTexGenfvOES3_1Request) (*pb.GlGetTexGenfvOES3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexGenfvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexGenfvOES3_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetTexGenivOES4(_ context.Context, req *pb.GlGetTexGenivOES4Request) (*pb.GlGetTexGenivOES4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexGenivOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexGenivOES4Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetTexGenivOES3_1(_ context.Context, req *pb.GlGetTexGenivOES3_1Request) (*pb.GlGetTexGenivOES3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GlGetTexGenivOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GlGetTexGenivOES3_1Response{}, nil
+}
+
+func (s *GLES11ExtServer) GlGetTexGenxvOES4(_ context.Context, req *pb.GlGetTexGenxvOES4Request) (*pb.GlGetTexGenxvOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMaterialf(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlGetTexGenxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMaterialfResponse{}, nil
+	return &pb.GlGetTexGenxvOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlMaterialfv4(_ context.Context, req *pb.GlMaterialfv4Request) (*pb.GlMaterialfv4Response, error) {
+func (s *GLES11ExtServer) GlGetTexGenxvOES3_1(_ context.Context, req *pb.GlGetTexGenxvOES3_1Request) (*pb.GlGetTexGenxvOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMaterialfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+	if err := mgr.GlGetTexGenxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMaterialfv4Response{}, nil
+	return &pb.GlGetTexGenxvOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlMaterialfv3_1(_ context.Context, req *pb.GlMaterialfv3_1Request) (*pb.GlMaterialfv3_1Response, error) {
+func (s *GLES11ExtServer) GlGetTexParameterxvOES4(_ context.Context, req *pb.GlGetTexParameterxvOES4Request) (*pb.GlGetTexParameterxvOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMaterialfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.GlGetTexParameterxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMaterialfv3_1Response{}, nil
+	return &pb.GlGetTexParameterxvOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlMaterialx(_ context.Context, req *pb.GlMaterialxRequest) (*pb.GlMaterialxResponse, error) {
+func (s *GLES11ExtServer) GlGetTexParameterxvOES3_1(_ context.Context, req *pb.GlGetTexParameterxvOES3_1Request) (*pb.GlGetTexParameterxvOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMaterialx(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlGetTexParameterxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMaterialxResponse{}, nil
+	return &pb.GlGetTexParameterxvOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlMaterialxv4(_ context.Context, req *pb.GlMaterialxv4Request) (*pb.GlMaterialxv4Response, error) {
+func (s *GLES11ExtServer) GlIsFramebufferOES(_ context.Context, req *pb.GlIsFramebufferOESRequest) (*pb.GlIsFramebufferOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMaterialxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+	result, err := mgr.GlIsFramebufferOES(req.GetArg0())
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMaterialxv4Response{}, nil
+	return &pb.GlIsFramebufferOESResponse{Result: result}, nil
 }
 
-func (s *GLES10Server) GlMaterialxv3_1(_ context.Context, req *pb.GlMaterialxv3_1Request) (*pb.GlMaterialxv3_1Response, error) {
+func (s *GLES11ExtServer) GlIsRenderbufferOES(_ context.Context, req *pb.GlIsRenderbufferOESRequest) (*pb.GlIsRenderbufferOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMaterialxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	result, err := mgr.GlIsRenderbufferOES(req.GetArg0())
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMaterialxv3_1Response{}, nil
+	return &pb.GlIsRenderbufferOESResponse{Result: result}, nil
 }
 
-func (s *GLES10Server) GlMatrixMode(_ context.Context, req *pb.GlMatrixModeRequest) (*pb.GlMatrixModeResponse, error) {
+func (s *GLES11ExtServer) GlLightModelxOES(_ context.Context, req *pb.GlLightModelxOESRequest) (*pb.GlLightModelxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMatrixMode(req.GetArg0()); err != nil {
+	if err := mgr.GlLightModelxOES(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMatrixModeResponse{}, nil
+	return &pb.GlLightModelxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlMultMatrixf2(_ context.Context, req *pb.GlMultMatrixf2Request) (*pb.GlMultMatrixf2Response, error) {
+func (s *GLES11ExtServer) GlLightModelxvOES3(_ context.Context, req *pb.GlLightModelxvOES3Request) (*pb.GlLightModelxvOES3Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMultMatrixf2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+	if err := mgr.GlLightModelxvOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMultMatrixf2Response{}, nil
+	return &pb.GlLightModelxvOES3Response{}, nil
 }
 
-func (s *GLES10Server) GlMultMatrixf1_1(_ context.Context, req *pb.GlMultMatrixf1_1Request) (*pb.GlMultMatrixf1_1Response, error) {
+func (s *GLES11ExtServer) GlLightModelxvOES2_1(_ context.Context, req *pb.GlLightModelxvOES2_1Request) (*pb.GlLightModelxvOES2_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMultMatrixf1_1(s.Handles.Get(req.GetArg0())); err != nil {
+	if err := mgr.GlLightModelxvOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMultMatrixf1_1Response{}, nil
+	return &pb.GlLightModelxvOES2_1Response{}, nil
 }
 
-func (s *GLES10Server) GlMultMatrixx2(_ context.Context, req *pb.GlMultMatrixx2Request) (*pb.GlMultMatrixx2Response, error) {
+func (s *GLES11ExtServer) GlLightxOES(_ context.Context, req *pb.GlLightxOESRequest) (*pb.GlLightxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMultMatrixx2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+	if err := mgr.GlLightxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMultMatrixx2Response{}, nil
+	return &pb.GlLightxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlMultMatrixx1_1(_ context.Context, req *pb.GlMultMatrixx1_1Request) (*pb.GlMultMatrixx1_1Response, error) {
+func (s *GLES11ExtServer) GlLightxvOES4(_ context.Context, req *pb.GlLightxvOES4Request) (*pb.GlLightxvOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMultMatrixx1_1(s.Handles.Get(req.GetArg0())); err != nil {
+	if err := mgr.GlLightxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMultMatrixx1_1Response{}, nil
+	return &pb.GlLightxvOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlMultiTexCoord4F(_ context.Context, req *pb.GlMultiTexCoord4FRequest) (*pb.GlMultiTexCoord4FResponse, error) {
+func (s *GLES11ExtServer) GlLightxvOES3_1(_ context.Context, req *pb.GlLightxvOES3_1Request) (*pb.GlLightxvOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMultiTexCoord4f(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+	if err := mgr.GlLightxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMultiTexCoord4FResponse{}, nil
+	return &pb.GlLightxvOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlMultiTexCoord4X(_ context.Context, req *pb.GlMultiTexCoord4XRequest) (*pb.GlMultiTexCoord4XResponse, error) {
+func (s *GLES11ExtServer) GlLineWidthxOES(_ context.Context, req *pb.GlLineWidthxOESRequest) (*pb.GlLineWidthxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlMultiTexCoord4x(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+	if err := mgr.GlLineWidthxOES(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlMultiTexCoord4XResponse{}, nil
+	return &pb.GlLineWidthxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlNormal3F(_ context.Context, req *pb.GlNormal3FRequest) (*pb.GlNormal3FResponse, error) {
+func (s *GLES11ExtServer) GlLoadMatrixxOES2(_ context.Context, req *pb.GlLoadMatrixxOES2Request) (*pb.GlLoadMatrixxOES2Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlNormal3f(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlLoadMatrixxOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlNormal3FResponse{}, nil
+	return &pb.GlLoadMatrixxOES2Response{}, nil
 }
 
-func (s *GLES10Server) GlNormal3X(_ context.Context, req *pb.GlNormal3XRequest) (*pb.GlNormal3XResponse, error) {
+func (s *GLES11ExtServer) GlLoadMatrixxOES1_1(_ context.Context, req *pb.GlLoadMatrixxOES1_1Request) (*pb.GlLoadMatrixxOES1_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlNormal3x(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlLoadMatrixxOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlNormal3XResponse{}, nil
+	return &pb.GlLoadMatrixxOES1_1Response{}, nil
 }
 
-func (s *GLES10Server) GlNormalPointer(_ context.Context, req *pb.GlNormalPointerRequest) (*pb.GlNormalPointerResponse, error) {
+func (s *GLES11ExtServer) GlLoadPaletteFromModelViewMatrixOES(_ context.Context, req *pb.GlLoadPaletteFromModelViewMatrixOESRequest) (*pb.GlLoadPaletteFromModelViewMatrixOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlNormalPointer(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.GlLoadPaletteFromModelViewMatrixOES(); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlNormalPointerResponse{}, nil
+	return &pb.GlLoadPaletteFromModelViewMatrixOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlOrthof(_ context.Context, req *pb.GlOrthofRequest) (*pb.GlOrthofResponse, error) {
+func (s *GLES11ExtServer) GlMaterialxOES(_ context.Context, req *pb.GlMaterialxOESRequest) (*pb.GlMaterialxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlOrthof(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+	if err := mgr.GlMaterialxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlOrthofResponse{}, nil
+	return &pb.GlMaterialxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlOrthox(_ context.Context, req *pb.GlOrthoxRequest) (*pb.GlOrthoxResponse, error) {
+func (s *GLES11ExtServer) GlMaterialxvOES4(_ context.Context, req *pb.GlMaterialxvOES4Request) (*pb.GlMaterialxvOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlOrthox(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
+	if err := mgr.GlMaterialxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlOrthoxResponse{}, nil
+	return &pb.GlMaterialxvOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlPixelStorei(_ context.Context, req *pb.GlPixelStoreiRequest) (*pb.GlPixelStoreiResponse, error) {
+func (s *GLES11ExtServer) GlMaterialxvOES3_1(_ context.Context, req *pb.GlMaterialxvOES3_1Request) (*pb.GlMaterialxvOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlPixelStorei(req.GetArg0(), req.GetArg1()); err != nil {
+	if err := mgr.GlMaterialxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlPixelStoreiResponse{}, nil
+	return &pb.GlMaterialxvOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlPointSize(_ context.Context, req *pb.GlPointSizeRequest) (*pb.GlPointSizeResponse, error) {
+func (s *GLES11ExtServer) GlMatrixIndexPointerOES(_ context.Context, req *pb.GlMatrixIndexPointerOESRequest) (*pb.GlMatrixIndexPointerOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlPointSize(req.GetArg0()); err != nil {
+	if err := mgr.GlMatrixIndexPointerOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlPointSizeResponse{}, nil
+	return &pb.GlMatrixIndexPointerOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlPointSizex(_ context.Context, req *pb.GlPointSizexRequest) (*pb.GlPointSizexResponse, error) {
+func (s *GLES11ExtServer) GlMultMatrixxOES2(_ context.Context, req *pb.GlMultMatrixxOES2Request) (*pb.GlMultMatrixxOES2Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlPointSizex(req.GetArg0()); err != nil {
+	if err := mgr.GlMultMatrixxOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlPointSizexResponse{}, nil
+	return &pb.GlMultMatrixxOES2Response{}, nil
 }
 
-func (s *GLES10Server) GlPolygonOffset(_ context.Context, req *pb.GlPolygonOffsetRequest) (*pb.GlPolygonOffsetResponse, error) {
+func (s *GLES11ExtServer) GlMultMatrixxOES1_1(_ context.Context, req *pb.GlMultMatrixxOES1_1Request) (*pb.GlMultMatrixxOES1_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlPolygonOffset(req.GetArg0(), req.GetArg1()); err != nil {
+	if err := mgr.GlMultMatrixxOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlPolygonOffsetResponse{}, nil
+	return &pb.GlMultMatrixxOES1_1Response{}, nil
 }
 
-func (s *GLES10Server) GlPolygonOffsetx(_ context.Context, req *pb.GlPolygonOffsetxRequest) (*pb.GlPolygonOffsetxResponse, error) {
+func (s *GLES11ExtServer) GlMultiTexCoord4XOES(_ context.Context, req *pb.GlMultiTexCoord4XOESRequest) (*pb.GlMultiTexCoord4XOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlPolygonOffsetx(req.GetArg0(), req.GetArg1()); err != nil {
+	if err := mgr.GlMultiTexCoord4xOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlPolygonOffsetxResponse{}, nil
+	return &pb.GlMultiTexCoord4XOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlPopMatrix(_ context.Context, req *pb.GlPopMatrixRequest) (*pb.GlPopMatrixResponse, error) {
+func (s *GLES11ExtServer) GlNormal3XOES(_ context.Context, req *pb.GlNormal3XOESRequest) (*pb.GlNormal3XOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlPopMatrix(); err != nil {
+	if err := mgr.GlNormal3xOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlPopMatrixResponse{}, nil
+	return &pb.GlNormal3XOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlPushMatrix(_ context.Context, req *pb.GlPushMatrixRequest) (*pb.GlPushMatrixResponse, error) {
+func (s *GLES11ExtServer) GlOrthofOES(_ context.Context, req *pb.GlOrthofOESRequest) (*pb.GlOrthofOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlPushMatrix(); err != nil {
+	if err := mgr.GlOrthofOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlPushMatrixResponse{}, nil
+	return &pb.GlOrthofOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlReadPixels(_ context.Context, req *pb.GlReadPixelsRequest) (*pb.GlReadPixelsResponse, error) {
+func (s *GLES11ExtServer) GlOrthoxOES(_ context.Context, req *pb.GlOrthoxOESRequest) (*pb.GlOrthoxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlReadPixels(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6())); err != nil {
+	if err := mgr.GlOrthoxOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlReadPixelsResponse{}, nil
+	return &pb.GlOrthoxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlRotatef(_ context.Context, req *pb.GlRotatefRequest) (*pb.GlRotatefResponse, error) {
+func (s *GLES11ExtServer) GlPointParameterxOES(_ context.Context, req *pb.GlPointParameterxOESRequest) (*pb.GlPointParameterxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlRotatef(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+	if err := mgr.GlPointParameterxOES(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlRotatefResponse{}, nil
+	return &pb.GlPointParameterxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlRotatex(_ context.Context, req *pb.GlRotatexRequest) (*pb.GlRotatexResponse, error) {
+func (s *GLES11ExtServer) GlPointParameterxvOES3(_ context.Context, req *pb.GlPointParameterxvOES3Request) (*pb.GlPointParameterxvOES3Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlRotatex(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+	if err := mgr.GlPointParameterxvOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlRotatexResponse{}, nil
+	return &pb.GlPointParameterxvOES3Response{}, nil
 }
 
-func (s *GLES10Server) GlSampleCoverage(_ context.Context, req *pb.GlSampleCoverageRequest) (*pb.GlSampleCoverageResponse, error) {
+func (s *GLES11ExtServer) GlPointParameterxvOES2_1(_ context.Context, req *pb.GlPointParameterxvOES2_1Request) (*pb.GlPointParameterxvOES2_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlSampleCoverage(req.GetArg0(), req.GetArg1()); err != nil {
+	if err := mgr.GlPointParameterxvOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlSampleCoverageResponse{}, nil
+	return &pb.GlPointParameterxvOES2_1Response{}, nil
 }
 
-func (s *GLES10Server) GlSampleCoveragex(_ context.Context, req *pb.GlSampleCoveragexRequest) (*pb.GlSampleCoveragexResponse, error) {
+func (s *GLES11ExtServer) GlPointSizexOES(_ context.Context, req *pb.GlPointSizexOESRequest) (*pb.GlPointSizexOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlSampleCoveragex(req.GetArg0(), req.GetArg1()); err != nil {
+	if err := mgr.GlPointSizexOES(req.GetArg0()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlSampleCoveragexResponse{}, nil
+	return &pb.GlPointSizexOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlScalef(_ context.Context, req *pb.GlScalefRequest) (*pb.GlScalefResponse, error) {
+func (s *GLES11ExtServer) GlPolygonOffsetxOES(_ context.Context, req *pb.GlPolygonOffsetxOESRequest) (*pb.GlPolygonOffsetxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlScalef(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlPolygonOffsetxOES(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlScalefResponse{}, nil
+	return &pb.GlPolygonOffsetxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlScalex(_ context.Context, req *pb.GlScalexRequest) (*pb.GlScalexResponse, error) {
+func (s *GLES11ExtServer) GlRenderbufferStorageOES(_ context.Context, req *pb.GlRenderbufferStorageOESRequest) (*pb.GlRenderbufferStorageOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlScalex(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlRenderbufferStorageOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlScalexResponse{}, nil
+	return &pb.GlRenderbufferStorageOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlScissor(_ context.Context, req *pb.GlScissorRequest) (*pb.GlScissorResponse, error) {
+func (s *GLES11ExtServer) GlRotatexOES(_ context.Context, req *pb.GlRotatexOESRequest) (*pb.GlRotatexOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlScissor(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+	if err := mgr.GlRotatexOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlScissorResponse{}, nil
+	return &pb.GlRotatexOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlShadeModel(_ context.Context, req *pb.GlShadeModelRequest) (*pb.GlShadeModelResponse, error) {
+func (s *GLES11ExtServer) GlSampleCoveragexOES(_ context.Context, req *pb.GlSampleCoveragexOESRequest) (*pb.GlSampleCoveragexOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlShadeModel(req.GetArg0()); err != nil {
+	if err := mgr.GlSampleCoveragexOES(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlShadeModelResponse{}, nil
+	return &pb.GlSampleCoveragexOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlStencilFunc(_ context.Context, req *pb.GlStencilFuncRequest) (*pb.GlStencilFuncResponse, error) {
+func (s *GLES11ExtServer) GlScalexOES(_ context.Context, req *pb.GlScalexOESRequest) (*pb.GlScalexOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlStencilFunc(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlScalexOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlStencilFuncResponse{}, nil
+	return &pb.GlScalexOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlStencilMask(_ context.Context, req *pb.GlStencilMaskRequest) (*pb.GlStencilMaskResponse, error) {
+func (s *GLES11ExtServer) GlTexEnvxOES(_ context.Context, req *pb.GlTexEnvxOESRequest) (*pb.GlTexEnvxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlStencilMask(req.GetArg0()); err != nil {
+	if err := mgr.GlTexEnvxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlStencilMaskResponse{}, nil
+	return &pb.GlTexEnvxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlStencilOp(_ context.Context, req *pb.GlStencilOpRequest) (*pb.GlStencilOpResponse, error) {
+func (s *GLES11ExtServer) GlTexEnvxvOES4(_ context.Context, req *pb.GlTexEnvxvOES4Request) (*pb.GlTexEnvxvOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlStencilOp(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlTexEnvxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlStencilOpResponse{}, nil
+	return &pb.GlTexEnvxvOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlTexCoordPointer(_ context.Context, req *pb.GlTexCoordPointerRequest) (*pb.GlTexCoordPointerResponse, error) {
+func (s *GLES11ExtServer) GlTexEnvxvOES3_1(_ context.Context, req *pb.GlTexEnvxvOES3_1Request) (*pb.GlTexEnvxvOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexCoordPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+	if err := mgr.GlTexEnvxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexCoordPointerResponse{}, nil
+	return &pb.GlTexEnvxvOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlTexEnvf(_ context.Context, req *pb.GlTexEnvfRequest) (*pb.GlTexEnvfResponse, error) {
+func (s *GLES11ExtServer) GlTexGenfOES(_ context.Context, req *pb.GlTexGenfOESRequest) (*pb.GlTexGenfOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexEnvf(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlTexGenfOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexEnvfResponse{}, nil
+	return &pb.GlTexGenfOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlTexEnvfv4(_ context.Context, req *pb.GlTexEnvfv4Request) (*pb.GlTexEnvfv4Response, error) {
+func (s *GLES11ExtServer) GlTexGenfvOES4(_ context.Context, req *pb.GlTexGenfvOES4Request) (*pb.GlTexGenfvOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexEnvfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+	if err := mgr.GlTexGenfvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexEnvfv4Response{}, nil
+	return &pb.GlTexGenfvOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlTexEnvfv3_1(_ context.Context, req *pb.GlTexEnvfv3_1Request) (*pb.GlTexEnvfv3_1Response, error) {
+func (s *GLES11ExtServer) GlTexGenfvOES3_1(_ context.Context, req *pb.GlTexGenfvOES3_1Request) (*pb.GlTexGenfvOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexEnvfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.GlTexGenfvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexEnvfv3_1Response{}, nil
+	return &pb.GlTexGenfvOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlTexEnvx(_ context.Context, req *pb.GlTexEnvxRequest) (*pb.GlTexEnvxResponse, error) {
+func (s *GLES11ExtServer) GlTexGeniOES(_ context.Context, req *pb.GlTexGeniOESRequest) (*pb.GlTexGeniOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexEnvx(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlTexGeniOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexEnvxResponse{}, nil
+	return &pb.GlTexGeniOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlTexEnvxv4(_ context.Context, req *pb.GlTexEnvxv4Request) (*pb.GlTexEnvxv4Response, error) {
+func (s *GLES11ExtServer) GlTexGenivOES4(_ context.Context, req *pb.GlTexGenivOES4Request) (*pb.GlTexGenivOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexEnvxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
+	if err := mgr.GlTexGenivOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexEnvxv4Response{}, nil
+	return &pb.GlTexGenivOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlTexEnvxv3_1(_ context.Context, req *pb.GlTexEnvxv3_1Request) (*pb.GlTexEnvxv3_1Response, error) {
+func (s *GLES11ExtServer) GlTexGenivOES3_1(_ context.Context, req *pb.GlTexGenivOES3_1Request) (*pb.GlTexGenivOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexEnvxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.GlTexGenivOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexEnvxv3_1Response{}, nil
+	return &pb.GlTexGenivOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlTexImage2D(_ context.Context, req *pb.GlTexImage2DRequest) (*pb.GlTexImage2DResponse, error) {
+func (s *GLES11ExtServer) GlTexGenxOES(_ context.Context, req *pb.GlTexGenxOESRequest) (*pb.GlTexGenxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), s.Handles.Get(req.GetArg8())); err != nil {
+	if err := mgr.GlTexGenxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexImage2DResponse{}, nil
+	return &pb.GlTexGenxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlTexParameterf(_ context.Context, req *pb.GlTexParameterfRequest) (*pb.GlTexParameterfResponse, error) {
+func (s *GLES11ExtServer) GlTexGenxvOES4(_ context.Context, req *pb.GlTexGenxvOES4Request) (*pb.GlTexGenxvOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexParameterf(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlTexGenxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexParameterfResponse{}, nil
+	return &pb.GlTexGenxvOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlTexParameterx(_ context.Context, req *pb.GlTexParameterxRequest) (*pb.GlTexParameterxResponse, error) {
+func (s *GLES11ExtServer) GlTexGenxvOES3_1(_ context.Context, req *pb.GlTexGenxvOES3_1Request) (*pb.GlTexGenxvOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexParameterx(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlTexGenxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexParameterxResponse{}, nil
+	return &pb.GlTexGenxvOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlTexSubImage2D(_ context.Context, req *pb.GlTexSubImage2DRequest) (*pb.GlTexSubImage2DResponse, error) {
+func (s *GLES11ExtServer) GlTexParameterxOES(_ context.Context, req *pb.GlTexParameterxOESRequest) (*pb.GlTexParameterxOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTexSubImage2D(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), s.Handles.Get(req.GetArg8())); err != nil {
+	if err := mgr.GlTexParameterxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTexSubImage2DResponse{}, nil
+	return &pb.GlTexParameterxOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlTranslatef(_ context.Context, req *pb.GlTranslatefRequest) (*pb.GlTranslatefResponse, error) {
+func (s *GLES11ExtServer) GlTexParameterxvOES4(_ context.Context, req *pb.GlTexParameterxvOES4Request) (*pb.GlTexParameterxvOES4Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTranslatef(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlTexParameterxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTranslatefResponse{}, nil
+	return &pb.GlTexParameterxvOES4Response{}, nil
 }
 
-func (s *GLES10Server) GlTranslatex(_ context.Context, req *pb.GlTranslatexRequest) (*pb.GlTranslatexResponse, error) {
+func (s *GLES11ExtServer) GlTexParameterxvOES3_1(_ context.Context, req *pb.GlTexParameterxvOES3_1Request) (*pb.GlTexParameterxvOES3_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlTranslatex(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+	if err := mgr.GlTexParameterxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlTranslatexResponse{}, nil
+	return &pb.GlTexParameterxvOES3_1Response{}, nil
 }
 
-func (s *GLES10Server) GlVertexPointer(_ context.Context, req *pb.GlVertexPointerRequest) (*pb.GlVertexPointerResponse, error) {
+func (s *GLES11ExtServer) GlTranslatexOES(_ context.Context, req *pb.GlTranslatexOESRequest) (*pb.GlTranslatexOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlVertexPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+	if err := mgr.GlTranslatexOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlVertexPointerResponse{}, nil
+	return &pb.GlTranslatexOESResponse{}, nil
 }
 
-func (s *GLES10Server) GlViewport(_ context.Context, req *pb.GlViewportRequest) (*pb.GlViewportResponse, error) {
+func (s *GLES11ExtServer) GlWeightPointerOES(_ context.Context, req *pb.GlWeightPointerOESRequest) (*pb.GlWeightPointerOESResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.GLES10{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GlViewport(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+	if err := mgr.GlWeightPointerOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GlViewportResponse{}, nil
+	return &pb.GlWeightPointerOESResponse{}, nil
 }
 
 // GLES30Server implements pb.GLES30ServiceServer.
@@ -6477,4112 +10585,4 @@ func (s *GLES30Server) GlWaitSync(_ context.Context, req *pb.GlWaitSyncRequest) 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GlWaitSyncResponse{}, nil
-}
-
-// GLDebugHelperServer implements pb.GLDebugHelperServiceServer.
-type GLDebugHelperServer struct {
-	pb.UnimplementedGLDebugHelperServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *GLDebugHelperServer) NewGLDebugHelper(_ context.Context, req *pb.NewGLDebugHelperRequest) (*pb.NewGLDebugHelperResponse, error) {
-	obj, err := jnipkg.NewGLDebugHelper(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewGLDebugHelperResponse{Result: handle}, nil
-}
-
-func (s *GLDebugHelperServer) Wrap3(_ context.Context, req *pb.Wrap3Request) (*pb.Wrap3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLDebugHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Wrap3(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Wrap3Response{Result: handle}, nil
-}
-
-func (s *GLDebugHelperServer) Wrap3_1(_ context.Context, req *pb.Wrap3_1Request) (*pb.Wrap3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLDebugHelper{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Wrap3_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Wrap3_1Response{Result: handle}, nil
-}
-
-// GLSurfaceViewServer implements pb.GLSurfaceViewServiceServer.
-type GLSurfaceViewServer struct {
-	pb.UnimplementedGLSurfaceViewServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *GLSurfaceViewServer) NewGLSurfaceView(_ context.Context, req *pb.NewGLSurfaceViewRequest) (*pb.NewGLSurfaceViewResponse, error) {
-	obj, err := jnipkg.NewGLSurfaceView(s.Ctx.VM, s.Ctx.Obj)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewGLSurfaceViewResponse{Result: handle}, nil
-}
-
-func (s *GLSurfaceViewServer) GetDebugFlags(_ context.Context, req *pb.GetDebugFlagsRequest) (*pb.GetDebugFlagsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDebugFlags()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDebugFlagsResponse{Result: result}, nil
-}
-
-func (s *GLSurfaceViewServer) GetPreserveEGLContextOnPause(_ context.Context, req *pb.GetPreserveEGLContextOnPauseRequest) (*pb.GetPreserveEGLContextOnPauseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPreserveEGLContextOnPause()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPreserveEGLContextOnPauseResponse{Result: result}, nil
-}
-
-func (s *GLSurfaceViewServer) GetRenderMode(_ context.Context, req *pb.GetRenderModeRequest) (*pb.GetRenderModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetRenderMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetRenderModeResponse{Result: result}, nil
-}
-
-func (s *GLSurfaceViewServer) OnPause(_ context.Context, req *pb.OnPauseRequest) (*pb.OnPauseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnPause(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnPauseResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) OnResume(_ context.Context, req *pb.OnResumeRequest) (*pb.OnResumeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnResume(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnResumeResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) QueueEvent(_ context.Context, req *pb.QueueEventRequest) (*pb.QueueEventResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.QueueEvent(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.QueueEventResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) RequestRender(_ context.Context, req *pb.RequestRenderRequest) (*pb.RequestRenderResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RequestRender(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RequestRenderResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetDebugFlags(_ context.Context, req *pb.SetDebugFlagsRequest) (*pb.SetDebugFlagsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetDebugFlags(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDebugFlagsResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetEGLConfigChooser1(_ context.Context, req *pb.SetEGLConfigChooser1Request) (*pb.SetEGLConfigChooser1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEGLConfigChooser1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEGLConfigChooser1Response{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetEGLConfigChooser1_1(_ context.Context, req *pb.SetEGLConfigChooser1_1Request) (*pb.SetEGLConfigChooser1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEGLConfigChooser1_1(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEGLConfigChooser1_1Response{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetEGLConfigChooser6_2(_ context.Context, req *pb.SetEGLConfigChooser6_2Request) (*pb.SetEGLConfigChooser6_2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEGLConfigChooser6_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEGLConfigChooser6_2Response{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetEGLContextClientVersion(_ context.Context, req *pb.SetEGLContextClientVersionRequest) (*pb.SetEGLContextClientVersionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEGLContextClientVersion(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEGLContextClientVersionResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetEGLContextFactory(_ context.Context, req *pb.SetEGLContextFactoryRequest) (*pb.SetEGLContextFactoryResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEGLContextFactory(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEGLContextFactoryResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetEGLWindowSurfaceFactory(_ context.Context, req *pb.SetEGLWindowSurfaceFactoryRequest) (*pb.SetEGLWindowSurfaceFactoryResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetEGLWindowSurfaceFactory(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEGLWindowSurfaceFactoryResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetGLWrapper(_ context.Context, req *pb.SetGLWrapperRequest) (*pb.SetGLWrapperResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetGLWrapper(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetGLWrapperResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetPreserveEGLContextOnPause(_ context.Context, req *pb.SetPreserveEGLContextOnPauseRequest) (*pb.SetPreserveEGLContextOnPauseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetPreserveEGLContextOnPause(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPreserveEGLContextOnPauseResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetRenderMode(_ context.Context, req *pb.SetRenderModeRequest) (*pb.SetRenderModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetRenderMode(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetRenderModeResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SetRenderer(_ context.Context, req *pb.SetRendererRequest) (*pb.SetRendererResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetRenderer(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetRendererResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SurfaceChanged(_ context.Context, req *pb.SurfaceChangedRequest) (*pb.SurfaceChangedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SurfaceChanged(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SurfaceChangedResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SurfaceCreated(_ context.Context, req *pb.SurfaceCreatedRequest) (*pb.SurfaceCreatedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SurfaceCreated(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SurfaceCreatedResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SurfaceDestroyed(_ context.Context, req *pb.SurfaceDestroyedRequest) (*pb.SurfaceDestroyedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SurfaceDestroyed(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SurfaceDestroyedResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SurfaceRedrawNeeded(_ context.Context, req *pb.SurfaceRedrawNeededRequest) (*pb.SurfaceRedrawNeededResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SurfaceRedrawNeeded(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SurfaceRedrawNeededResponse{}, nil
-}
-
-func (s *GLSurfaceViewServer) SurfaceRedrawNeededAsync(_ context.Context, req *pb.SurfaceRedrawNeededAsyncRequest) (*pb.SurfaceRedrawNeededAsyncResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLSurfaceView{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SurfaceRedrawNeededAsync(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SurfaceRedrawNeededAsyncResponse{}, nil
-}
-
-// MatrixServer implements pb.MatrixServiceServer.
-type MatrixServer struct {
-	pb.UnimplementedMatrixServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MatrixServer) NewMatrix(_ context.Context, req *pb.NewMatrixRequest) (*pb.NewMatrixResponse, error) {
-	obj, err := jnipkg.NewMatrix(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMatrixResponse{Result: handle}, nil
-}
-
-func (s *MatrixServer) FrustumM(_ context.Context, req *pb.FrustumMRequest) (*pb.FrustumMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.FrustumM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FrustumMResponse{}, nil
-}
-
-func (s *MatrixServer) InvertM(_ context.Context, req *pb.InvertMRequest) (*pb.InvertMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.InvertM(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.InvertMResponse{Result: result}, nil
-}
-
-func (s *MatrixServer) Length(_ context.Context, req *pb.LengthRequest) (*pb.LengthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Length(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LengthResponse{Result: result}, nil
-}
-
-func (s *MatrixServer) MultiplyMM(_ context.Context, req *pb.MultiplyMMRequest) (*pb.MultiplyMMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.MultiplyMM(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MultiplyMMResponse{}, nil
-}
-
-func (s *MatrixServer) MultiplyMV(_ context.Context, req *pb.MultiplyMVRequest) (*pb.MultiplyMVResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.MultiplyMV(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MultiplyMVResponse{}, nil
-}
-
-func (s *MatrixServer) OrthoM(_ context.Context, req *pb.OrthoMRequest) (*pb.OrthoMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OrthoM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OrthoMResponse{}, nil
-}
-
-func (s *MatrixServer) PerspectiveM(_ context.Context, req *pb.PerspectiveMRequest) (*pb.PerspectiveMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.PerspectiveM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PerspectiveMResponse{}, nil
-}
-
-func (s *MatrixServer) RotateM6(_ context.Context, req *pb.RotateM6Request) (*pb.RotateM6Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RotateM6(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RotateM6Response{}, nil
-}
-
-func (s *MatrixServer) RotateM8_1(_ context.Context, req *pb.RotateM8_1Request) (*pb.RotateM8_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.RotateM8_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RotateM8_1Response{}, nil
-}
-
-func (s *MatrixServer) ScaleM5(_ context.Context, req *pb.ScaleM5Request) (*pb.ScaleM5Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.ScaleM5(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ScaleM5Response{}, nil
-}
-
-func (s *MatrixServer) ScaleM7_1(_ context.Context, req *pb.ScaleM7_1Request) (*pb.ScaleM7_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.ScaleM7_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ScaleM7_1Response{}, nil
-}
-
-func (s *MatrixServer) SetIdentityM(_ context.Context, req *pb.SetIdentityMRequest) (*pb.SetIdentityMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetIdentityM(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetIdentityMResponse{}, nil
-}
-
-func (s *MatrixServer) SetLookAtM(_ context.Context, req *pb.SetLookAtMRequest) (*pb.SetLookAtMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetLookAtM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9(), req.GetArg10()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetLookAtMResponse{}, nil
-}
-
-func (s *MatrixServer) SetRotateEulerM(_ context.Context, req *pb.SetRotateEulerMRequest) (*pb.SetRotateEulerMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetRotateEulerM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetRotateEulerMResponse{}, nil
-}
-
-func (s *MatrixServer) SetRotateEulerM2(_ context.Context, req *pb.SetRotateEulerM2Request) (*pb.SetRotateEulerM2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetRotateEulerM2(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetRotateEulerM2Response{}, nil
-}
-
-func (s *MatrixServer) SetRotateM(_ context.Context, req *pb.SetRotateMRequest) (*pb.SetRotateMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetRotateM(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetRotateMResponse{}, nil
-}
-
-func (s *MatrixServer) TranslateM5(_ context.Context, req *pb.TranslateM5Request) (*pb.TranslateM5Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.TranslateM5(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.TranslateM5Response{}, nil
-}
-
-func (s *MatrixServer) TranslateM7_1(_ context.Context, req *pb.TranslateM7_1Request) (*pb.TranslateM7_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.TranslateM7_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.TranslateM7_1Response{}, nil
-}
-
-func (s *MatrixServer) TransposeM(_ context.Context, req *pb.TransposeMRequest) (*pb.TransposeMResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Matrix{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.TransposeM(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.TransposeMResponse{}, nil
-}
-
-// ETC1UtilServer implements pb.ETC1UtilServiceServer.
-type ETC1UtilServer struct {
-	pb.UnimplementedETC1UtilServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ETC1UtilServer) NewETC1Util(_ context.Context, req *pb.NewETC1UtilRequest) (*pb.NewETC1UtilResponse, error) {
-	obj, err := jnipkg.NewETC1Util(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewETC1UtilResponse{Result: handle}, nil
-}
-
-func (s *ETC1UtilServer) CompressTexture(_ context.Context, req *pb.CompressTextureRequest) (*pb.CompressTextureResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CompressTexture(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CompressTextureResponse{Result: handle}, nil
-}
-
-func (s *ETC1UtilServer) CreateTexture(_ context.Context, req *pb.CreateTextureRequest) (*pb.CreateTextureResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.CreateTexture(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateTextureResponse{Result: handle}, nil
-}
-
-func (s *ETC1UtilServer) IsETC1Supported(_ context.Context, req *pb.IsETC1SupportedRequest) (*pb.IsETC1SupportedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsETC1Supported()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsETC1SupportedResponse{Result: result}, nil
-}
-
-func (s *ETC1UtilServer) LoadTexture6(_ context.Context, req *pb.LoadTexture6Request) (*pb.LoadTexture6Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LoadTexture6(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LoadTexture6Response{}, nil
-}
-
-func (s *ETC1UtilServer) LoadTexture6_1(_ context.Context, req *pb.LoadTexture6_1Request) (*pb.LoadTexture6_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LoadTexture6_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LoadTexture6_1Response{}, nil
-}
-
-func (s *ETC1UtilServer) WriteTexture(_ context.Context, req *pb.WriteTextureRequest) (*pb.WriteTextureResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1Util{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteTexture(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteTextureResponse{}, nil
-}
-
-// EGLExtServer implements pb.EGLExtServiceServer.
-type EGLExtServer struct {
-	pb.UnimplementedEGLExtServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *EGLExtServer) NewEGLExt(_ context.Context, req *pb.NewEGLExtRequest) (*pb.NewEGLExtResponse, error) {
-	obj, err := jnipkg.NewEGLExt(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewEGLExtResponse{Result: handle}, nil
-}
-
-func (s *EGLExtServer) EglDupNativeFenceFDANDROID(_ context.Context, req *pb.EglDupNativeFenceFDANDROIDRequest) (*pb.EglDupNativeFenceFDANDROIDResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGLExt{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglDupNativeFenceFDANDROID(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglDupNativeFenceFDANDROIDResponse{Result: handle}, nil
-}
-
-func (s *EGLExtServer) EglPresentationTimeANDROID(_ context.Context, req *pb.EglPresentationTimeANDROIDRequest) (*pb.EglPresentationTimeANDROIDResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGLExt{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglPresentationTimeANDROID(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglPresentationTimeANDROIDResponse{Result: result}, nil
-}
-
-// GLES10ExtServer implements pb.GLES10ExtServiceServer.
-type GLES10ExtServer struct {
-	pb.UnimplementedGLES10ExtServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *GLES10ExtServer) NewGLES10Ext(_ context.Context, req *pb.NewGLES10ExtRequest) (*pb.NewGLES10ExtResponse, error) {
-	obj, err := jnipkg.NewGLES10Ext(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewGLES10ExtResponse{Result: handle}, nil
-}
-
-func (s *GLES10ExtServer) GlQueryMatrixxOES4(_ context.Context, req *pb.GlQueryMatrixxOES4Request) (*pb.GlQueryMatrixxOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlQueryMatrixxOES4(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlQueryMatrixxOES4Response{Result: result}, nil
-}
-
-func (s *GLES10ExtServer) GlQueryMatrixxOES2_1(_ context.Context, req *pb.GlQueryMatrixxOES2_1Request) (*pb.GlQueryMatrixxOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES10Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlQueryMatrixxOES2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlQueryMatrixxOES2_1Response{Result: result}, nil
-}
-
-// GLES11ExtServer implements pb.GLES11ExtServiceServer.
-type GLES11ExtServer struct {
-	pb.UnimplementedGLES11ExtServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *GLES11ExtServer) NewGLES11Ext(_ context.Context, req *pb.NewGLES11ExtRequest) (*pb.NewGLES11ExtResponse, error) {
-	obj, err := jnipkg.NewGLES11Ext(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewGLES11ExtResponse{Result: handle}, nil
-}
-
-func (s *GLES11ExtServer) GlAlphaFuncxOES(_ context.Context, req *pb.GlAlphaFuncxOESRequest) (*pb.GlAlphaFuncxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlAlphaFuncxOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlAlphaFuncxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlBindFramebufferOES(_ context.Context, req *pb.GlBindFramebufferOESRequest) (*pb.GlBindFramebufferOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBindFramebufferOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBindFramebufferOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlBindRenderbufferOES(_ context.Context, req *pb.GlBindRenderbufferOESRequest) (*pb.GlBindRenderbufferOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBindRenderbufferOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBindRenderbufferOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlBlendEquationOES(_ context.Context, req *pb.GlBlendEquationOESRequest) (*pb.GlBlendEquationOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBlendEquationOES(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBlendEquationOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlBlendEquationSeparateOES(_ context.Context, req *pb.GlBlendEquationSeparateOESRequest) (*pb.GlBlendEquationSeparateOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBlendEquationSeparateOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBlendEquationSeparateOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlBlendFuncSeparateOES(_ context.Context, req *pb.GlBlendFuncSeparateOESRequest) (*pb.GlBlendFuncSeparateOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBlendFuncSeparateOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBlendFuncSeparateOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlCheckFramebufferStatusOES(_ context.Context, req *pb.GlCheckFramebufferStatusOESRequest) (*pb.GlCheckFramebufferStatusOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlCheckFramebufferStatusOES(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlCheckFramebufferStatusOESResponse{Result: result}, nil
-}
-
-func (s *GLES11ExtServer) GlClearColorxOES(_ context.Context, req *pb.GlClearColorxOESRequest) (*pb.GlClearColorxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClearColorxOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearColorxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlClearDepthfOES(_ context.Context, req *pb.GlClearDepthfOESRequest) (*pb.GlClearDepthfOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClearDepthfOES(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearDepthfOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlClearDepthxOES(_ context.Context, req *pb.GlClearDepthxOESRequest) (*pb.GlClearDepthxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClearDepthxOES(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClearDepthxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlClipPlanefOES3(_ context.Context, req *pb.GlClipPlanefOES3Request) (*pb.GlClipPlanefOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClipPlanefOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClipPlanefOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlClipPlanefOES2_1(_ context.Context, req *pb.GlClipPlanefOES2_1Request) (*pb.GlClipPlanefOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClipPlanefOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClipPlanefOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlClipPlanexOES3(_ context.Context, req *pb.GlClipPlanexOES3Request) (*pb.GlClipPlanexOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClipPlanexOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClipPlanexOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlClipPlanexOES2_1(_ context.Context, req *pb.GlClipPlanexOES2_1Request) (*pb.GlClipPlanexOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClipPlanexOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClipPlanexOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlColor4XOES(_ context.Context, req *pb.GlColor4XOESRequest) (*pb.GlColor4XOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlColor4xOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlColor4XOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlCurrentPaletteMatrixOES(_ context.Context, req *pb.GlCurrentPaletteMatrixOESRequest) (*pb.GlCurrentPaletteMatrixOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlCurrentPaletteMatrixOES(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlCurrentPaletteMatrixOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlDeleteFramebuffersOES3(_ context.Context, req *pb.GlDeleteFramebuffersOES3Request) (*pb.GlDeleteFramebuffersOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDeleteFramebuffersOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDeleteFramebuffersOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDeleteFramebuffersOES2_1(_ context.Context, req *pb.GlDeleteFramebuffersOES2_1Request) (*pb.GlDeleteFramebuffersOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDeleteFramebuffersOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDeleteFramebuffersOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDeleteRenderbuffersOES3(_ context.Context, req *pb.GlDeleteRenderbuffersOES3Request) (*pb.GlDeleteRenderbuffersOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDeleteRenderbuffersOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDeleteRenderbuffersOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDeleteRenderbuffersOES2_1(_ context.Context, req *pb.GlDeleteRenderbuffersOES2_1Request) (*pb.GlDeleteRenderbuffersOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDeleteRenderbuffersOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDeleteRenderbuffersOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDepthRangefOES(_ context.Context, req *pb.GlDepthRangefOESRequest) (*pb.GlDepthRangefOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDepthRangefOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDepthRangefOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlDepthRangexOES(_ context.Context, req *pb.GlDepthRangexOESRequest) (*pb.GlDepthRangexOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDepthRangexOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDepthRangexOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexfOES(_ context.Context, req *pb.GlDrawTexfOESRequest) (*pb.GlDrawTexfOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexfOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexfOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexfvOES2(_ context.Context, req *pb.GlDrawTexfvOES2Request) (*pb.GlDrawTexfvOES2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexfvOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexfvOES2Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexfvOES1_1(_ context.Context, req *pb.GlDrawTexfvOES1_1Request) (*pb.GlDrawTexfvOES1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexfvOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexfvOES1_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexiOES(_ context.Context, req *pb.GlDrawTexiOESRequest) (*pb.GlDrawTexiOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexiOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexiOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexivOES2(_ context.Context, req *pb.GlDrawTexivOES2Request) (*pb.GlDrawTexivOES2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexivOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexivOES2Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexivOES1_1(_ context.Context, req *pb.GlDrawTexivOES1_1Request) (*pb.GlDrawTexivOES1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexivOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexivOES1_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexsOES(_ context.Context, req *pb.GlDrawTexsOESRequest) (*pb.GlDrawTexsOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexsOES(int16(req.GetArg0()), int16(req.GetArg1()), int16(req.GetArg2()), int16(req.GetArg3()), int16(req.GetArg4())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexsOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexsvOES1(_ context.Context, req *pb.GlDrawTexsvOES1Request) (*pb.GlDrawTexsvOES1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexsvOES1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexsvOES1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexsvOES2_1(_ context.Context, req *pb.GlDrawTexsvOES2_1Request) (*pb.GlDrawTexsvOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexsvOES2_1(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexsvOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexxOES(_ context.Context, req *pb.GlDrawTexxOESRequest) (*pb.GlDrawTexxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexxOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexxvOES2(_ context.Context, req *pb.GlDrawTexxvOES2Request) (*pb.GlDrawTexxvOES2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexxvOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexxvOES2Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlDrawTexxvOES1_1(_ context.Context, req *pb.GlDrawTexxvOES1_1Request) (*pb.GlDrawTexxvOES1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawTexxvOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawTexxvOES1_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlEGLImageTargetRenderbufferStorageOES(_ context.Context, req *pb.GlEGLImageTargetRenderbufferStorageOESRequest) (*pb.GlEGLImageTargetRenderbufferStorageOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlEGLImageTargetRenderbufferStorageOES(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlEGLImageTargetRenderbufferStorageOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlEGLImageTargetTexture2DOES(_ context.Context, req *pb.GlEGLImageTargetTexture2DOESRequest) (*pb.GlEGLImageTargetTexture2DOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlEGLImageTargetTexture2DOES(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlEGLImageTargetTexture2DOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlFogxOES(_ context.Context, req *pb.GlFogxOESRequest) (*pb.GlFogxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogxOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlFogxvOES3(_ context.Context, req *pb.GlFogxvOES3Request) (*pb.GlFogxvOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogxvOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogxvOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlFogxvOES2_1(_ context.Context, req *pb.GlFogxvOES2_1Request) (*pb.GlFogxvOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFogxvOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFogxvOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlFramebufferRenderbufferOES(_ context.Context, req *pb.GlFramebufferRenderbufferOESRequest) (*pb.GlFramebufferRenderbufferOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFramebufferRenderbufferOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFramebufferRenderbufferOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlFramebufferTexture2DOES(_ context.Context, req *pb.GlFramebufferTexture2DOESRequest) (*pb.GlFramebufferTexture2DOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFramebufferTexture2DOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFramebufferTexture2DOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlFrustumfOES(_ context.Context, req *pb.GlFrustumfOESRequest) (*pb.GlFrustumfOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFrustumfOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFrustumfOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlFrustumxOES(_ context.Context, req *pb.GlFrustumxOESRequest) (*pb.GlFrustumxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlFrustumxOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlFrustumxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlGenFramebuffersOES3(_ context.Context, req *pb.GlGenFramebuffersOES3Request) (*pb.GlGenFramebuffersOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenFramebuffersOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenFramebuffersOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGenFramebuffersOES2_1(_ context.Context, req *pb.GlGenFramebuffersOES2_1Request) (*pb.GlGenFramebuffersOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenFramebuffersOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenFramebuffersOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGenRenderbuffersOES3(_ context.Context, req *pb.GlGenRenderbuffersOES3Request) (*pb.GlGenRenderbuffersOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenRenderbuffersOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenRenderbuffersOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGenRenderbuffersOES2_1(_ context.Context, req *pb.GlGenRenderbuffersOES2_1Request) (*pb.GlGenRenderbuffersOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenRenderbuffersOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenRenderbuffersOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGenerateMipmapOES(_ context.Context, req *pb.GlGenerateMipmapOESRequest) (*pb.GlGenerateMipmapOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenerateMipmapOES(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenerateMipmapOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetClipPlanefOES3(_ context.Context, req *pb.GlGetClipPlanefOES3Request) (*pb.GlGetClipPlanefOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetClipPlanefOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetClipPlanefOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetClipPlanefOES2_1(_ context.Context, req *pb.GlGetClipPlanefOES2_1Request) (*pb.GlGetClipPlanefOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetClipPlanefOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetClipPlanefOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetClipPlanexOES3(_ context.Context, req *pb.GlGetClipPlanexOES3Request) (*pb.GlGetClipPlanexOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetClipPlanexOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetClipPlanexOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetClipPlanexOES2_1(_ context.Context, req *pb.GlGetClipPlanexOES2_1Request) (*pb.GlGetClipPlanexOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetClipPlanexOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetClipPlanexOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetFixedvOES3(_ context.Context, req *pb.GlGetFixedvOES3Request) (*pb.GlGetFixedvOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetFixedvOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetFixedvOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetFixedvOES2_1(_ context.Context, req *pb.GlGetFixedvOES2_1Request) (*pb.GlGetFixedvOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetFixedvOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetFixedvOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetFramebufferAttachmentParameterivOES5(_ context.Context, req *pb.GlGetFramebufferAttachmentParameterivOES5Request) (*pb.GlGetFramebufferAttachmentParameterivOES5Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetFramebufferAttachmentParameterivOES5(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetFramebufferAttachmentParameterivOES5Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetFramebufferAttachmentParameterivOES4_1(_ context.Context, req *pb.GlGetFramebufferAttachmentParameterivOES4_1Request) (*pb.GlGetFramebufferAttachmentParameterivOES4_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetFramebufferAttachmentParameterivOES4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetFramebufferAttachmentParameterivOES4_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetLightxvOES4(_ context.Context, req *pb.GlGetLightxvOES4Request) (*pb.GlGetLightxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetLightxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetLightxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetLightxvOES3_1(_ context.Context, req *pb.GlGetLightxvOES3_1Request) (*pb.GlGetLightxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetLightxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetLightxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetMaterialxvOES4(_ context.Context, req *pb.GlGetMaterialxvOES4Request) (*pb.GlGetMaterialxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetMaterialxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetMaterialxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetMaterialxvOES3_1(_ context.Context, req *pb.GlGetMaterialxvOES3_1Request) (*pb.GlGetMaterialxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetMaterialxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetMaterialxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetRenderbufferParameterivOES4(_ context.Context, req *pb.GlGetRenderbufferParameterivOES4Request) (*pb.GlGetRenderbufferParameterivOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetRenderbufferParameterivOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetRenderbufferParameterivOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetRenderbufferParameterivOES3_1(_ context.Context, req *pb.GlGetRenderbufferParameterivOES3_1Request) (*pb.GlGetRenderbufferParameterivOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetRenderbufferParameterivOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetRenderbufferParameterivOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexEnvxvOES4(_ context.Context, req *pb.GlGetTexEnvxvOES4Request) (*pb.GlGetTexEnvxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexEnvxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexEnvxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexEnvxvOES3_1(_ context.Context, req *pb.GlGetTexEnvxvOES3_1Request) (*pb.GlGetTexEnvxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexEnvxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexEnvxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexGenfvOES4(_ context.Context, req *pb.GlGetTexGenfvOES4Request) (*pb.GlGetTexGenfvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexGenfvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexGenfvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexGenfvOES3_1(_ context.Context, req *pb.GlGetTexGenfvOES3_1Request) (*pb.GlGetTexGenfvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexGenfvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexGenfvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexGenivOES4(_ context.Context, req *pb.GlGetTexGenivOES4Request) (*pb.GlGetTexGenivOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexGenivOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexGenivOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexGenivOES3_1(_ context.Context, req *pb.GlGetTexGenivOES3_1Request) (*pb.GlGetTexGenivOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexGenivOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexGenivOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexGenxvOES4(_ context.Context, req *pb.GlGetTexGenxvOES4Request) (*pb.GlGetTexGenxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexGenxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexGenxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexGenxvOES3_1(_ context.Context, req *pb.GlGetTexGenxvOES3_1Request) (*pb.GlGetTexGenxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexGenxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexGenxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexParameterxvOES4(_ context.Context, req *pb.GlGetTexParameterxvOES4Request) (*pb.GlGetTexParameterxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexParameterxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexParameterxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlGetTexParameterxvOES3_1(_ context.Context, req *pb.GlGetTexParameterxvOES3_1Request) (*pb.GlGetTexParameterxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexParameterxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexParameterxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlIsFramebufferOES(_ context.Context, req *pb.GlIsFramebufferOESRequest) (*pb.GlIsFramebufferOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlIsFramebufferOES(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlIsFramebufferOESResponse{Result: result}, nil
-}
-
-func (s *GLES11ExtServer) GlIsRenderbufferOES(_ context.Context, req *pb.GlIsRenderbufferOESRequest) (*pb.GlIsRenderbufferOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlIsRenderbufferOES(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlIsRenderbufferOESResponse{Result: result}, nil
-}
-
-func (s *GLES11ExtServer) GlLightModelxOES(_ context.Context, req *pb.GlLightModelxOESRequest) (*pb.GlLightModelxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLightModelxOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLightModelxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlLightModelxvOES3(_ context.Context, req *pb.GlLightModelxvOES3Request) (*pb.GlLightModelxvOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLightModelxvOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLightModelxvOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlLightModelxvOES2_1(_ context.Context, req *pb.GlLightModelxvOES2_1Request) (*pb.GlLightModelxvOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLightModelxvOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLightModelxvOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlLightxOES(_ context.Context, req *pb.GlLightxOESRequest) (*pb.GlLightxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLightxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLightxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlLightxvOES4(_ context.Context, req *pb.GlLightxvOES4Request) (*pb.GlLightxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLightxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLightxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlLightxvOES3_1(_ context.Context, req *pb.GlLightxvOES3_1Request) (*pb.GlLightxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLightxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLightxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlLineWidthxOES(_ context.Context, req *pb.GlLineWidthxOESRequest) (*pb.GlLineWidthxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLineWidthxOES(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLineWidthxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlLoadMatrixxOES2(_ context.Context, req *pb.GlLoadMatrixxOES2Request) (*pb.GlLoadMatrixxOES2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLoadMatrixxOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLoadMatrixxOES2Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlLoadMatrixxOES1_1(_ context.Context, req *pb.GlLoadMatrixxOES1_1Request) (*pb.GlLoadMatrixxOES1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLoadMatrixxOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLoadMatrixxOES1_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlLoadPaletteFromModelViewMatrixOES(_ context.Context, req *pb.GlLoadPaletteFromModelViewMatrixOESRequest) (*pb.GlLoadPaletteFromModelViewMatrixOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlLoadPaletteFromModelViewMatrixOES(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlLoadPaletteFromModelViewMatrixOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlMaterialxOES(_ context.Context, req *pb.GlMaterialxOESRequest) (*pb.GlMaterialxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlMaterialxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlMaterialxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlMaterialxvOES4(_ context.Context, req *pb.GlMaterialxvOES4Request) (*pb.GlMaterialxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlMaterialxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlMaterialxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlMaterialxvOES3_1(_ context.Context, req *pb.GlMaterialxvOES3_1Request) (*pb.GlMaterialxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlMaterialxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlMaterialxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlMatrixIndexPointerOES(_ context.Context, req *pb.GlMatrixIndexPointerOESRequest) (*pb.GlMatrixIndexPointerOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlMatrixIndexPointerOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlMatrixIndexPointerOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlMultMatrixxOES2(_ context.Context, req *pb.GlMultMatrixxOES2Request) (*pb.GlMultMatrixxOES2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlMultMatrixxOES2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlMultMatrixxOES2Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlMultMatrixxOES1_1(_ context.Context, req *pb.GlMultMatrixxOES1_1Request) (*pb.GlMultMatrixxOES1_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlMultMatrixxOES1_1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlMultMatrixxOES1_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlMultiTexCoord4XOES(_ context.Context, req *pb.GlMultiTexCoord4XOESRequest) (*pb.GlMultiTexCoord4XOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlMultiTexCoord4xOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlMultiTexCoord4XOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlNormal3XOES(_ context.Context, req *pb.GlNormal3XOESRequest) (*pb.GlNormal3XOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlNormal3xOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlNormal3XOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlOrthofOES(_ context.Context, req *pb.GlOrthofOESRequest) (*pb.GlOrthofOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlOrthofOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlOrthofOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlOrthoxOES(_ context.Context, req *pb.GlOrthoxOESRequest) (*pb.GlOrthoxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlOrthoxOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlOrthoxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlPointParameterxOES(_ context.Context, req *pb.GlPointParameterxOESRequest) (*pb.GlPointParameterxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterxOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlPointParameterxvOES3(_ context.Context, req *pb.GlPointParameterxvOES3Request) (*pb.GlPointParameterxvOES3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterxvOES3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterxvOES3Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlPointParameterxvOES2_1(_ context.Context, req *pb.GlPointParameterxvOES2_1Request) (*pb.GlPointParameterxvOES2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterxvOES2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterxvOES2_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlPointSizexOES(_ context.Context, req *pb.GlPointSizexOESRequest) (*pb.GlPointSizexOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointSizexOES(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointSizexOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlPolygonOffsetxOES(_ context.Context, req *pb.GlPolygonOffsetxOESRequest) (*pb.GlPolygonOffsetxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPolygonOffsetxOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPolygonOffsetxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlRenderbufferStorageOES(_ context.Context, req *pb.GlRenderbufferStorageOESRequest) (*pb.GlRenderbufferStorageOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlRenderbufferStorageOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlRenderbufferStorageOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlRotatexOES(_ context.Context, req *pb.GlRotatexOESRequest) (*pb.GlRotatexOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlRotatexOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlRotatexOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlSampleCoveragexOES(_ context.Context, req *pb.GlSampleCoveragexOESRequest) (*pb.GlSampleCoveragexOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlSampleCoveragexOES(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlSampleCoveragexOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlScalexOES(_ context.Context, req *pb.GlScalexOESRequest) (*pb.GlScalexOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlScalexOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlScalexOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexEnvxOES(_ context.Context, req *pb.GlTexEnvxOESRequest) (*pb.GlTexEnvxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexEnvxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexEnvxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexEnvxvOES4(_ context.Context, req *pb.GlTexEnvxvOES4Request) (*pb.GlTexEnvxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexEnvxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexEnvxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexEnvxvOES3_1(_ context.Context, req *pb.GlTexEnvxvOES3_1Request) (*pb.GlTexEnvxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexEnvxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexEnvxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGenfOES(_ context.Context, req *pb.GlTexGenfOESRequest) (*pb.GlTexGenfOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGenfOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGenfOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGenfvOES4(_ context.Context, req *pb.GlTexGenfvOES4Request) (*pb.GlTexGenfvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGenfvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGenfvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGenfvOES3_1(_ context.Context, req *pb.GlTexGenfvOES3_1Request) (*pb.GlTexGenfvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGenfvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGenfvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGeniOES(_ context.Context, req *pb.GlTexGeniOESRequest) (*pb.GlTexGeniOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGeniOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGeniOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGenivOES4(_ context.Context, req *pb.GlTexGenivOES4Request) (*pb.GlTexGenivOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGenivOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGenivOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGenivOES3_1(_ context.Context, req *pb.GlTexGenivOES3_1Request) (*pb.GlTexGenivOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGenivOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGenivOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGenxOES(_ context.Context, req *pb.GlTexGenxOESRequest) (*pb.GlTexGenxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGenxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGenxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGenxvOES4(_ context.Context, req *pb.GlTexGenxvOES4Request) (*pb.GlTexGenxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGenxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGenxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexGenxvOES3_1(_ context.Context, req *pb.GlTexGenxvOES3_1Request) (*pb.GlTexGenxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexGenxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexGenxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexParameterxOES(_ context.Context, req *pb.GlTexParameterxOESRequest) (*pb.GlTexParameterxOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameterxOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameterxOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexParameterxvOES4(_ context.Context, req *pb.GlTexParameterxvOES4Request) (*pb.GlTexParameterxvOES4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameterxvOES4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameterxvOES4Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTexParameterxvOES3_1(_ context.Context, req *pb.GlTexParameterxvOES3_1Request) (*pb.GlTexParameterxvOES3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameterxvOES3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameterxvOES3_1Response{}, nil
-}
-
-func (s *GLES11ExtServer) GlTranslatexOES(_ context.Context, req *pb.GlTranslatexOESRequest) (*pb.GlTranslatexOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTranslatexOES(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTranslatexOESResponse{}, nil
-}
-
-func (s *GLES11ExtServer) GlWeightPointerOES(_ context.Context, req *pb.GlWeightPointerOESRequest) (*pb.GlWeightPointerOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11Ext{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlWeightPointerOES(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlWeightPointerOESResponse{}, nil
-}
-
-// GLES11Server implements pb.GLES11ServiceServer.
-type GLES11Server struct {
-	pb.UnimplementedGLES11ServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *GLES11Server) NewGLES11(_ context.Context, req *pb.NewGLES11Request) (*pb.NewGLES11Response, error) {
-	obj, err := jnipkg.NewGLES11(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewGLES11Response{Result: handle}, nil
-}
-
-func (s *GLES11Server) GlBindBuffer(_ context.Context, req *pb.GlBindBufferRequest) (*pb.GlBindBufferResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBindBuffer(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBindBufferResponse{}, nil
-}
-
-func (s *GLES11Server) GlBufferData(_ context.Context, req *pb.GlBufferDataRequest) (*pb.GlBufferDataResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBufferData(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBufferDataResponse{}, nil
-}
-
-func (s *GLES11Server) GlBufferSubData(_ context.Context, req *pb.GlBufferSubDataRequest) (*pb.GlBufferSubDataResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlBufferSubData(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlBufferSubDataResponse{}, nil
-}
-
-func (s *GLES11Server) GlClipPlanef3(_ context.Context, req *pb.GlClipPlanef3Request) (*pb.GlClipPlanef3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClipPlanef3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClipPlanef3Response{}, nil
-}
-
-func (s *GLES11Server) GlClipPlanef2_1(_ context.Context, req *pb.GlClipPlanef2_1Request) (*pb.GlClipPlanef2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClipPlanef2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClipPlanef2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlClipPlanex3(_ context.Context, req *pb.GlClipPlanex3Request) (*pb.GlClipPlanex3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClipPlanex3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClipPlanex3Response{}, nil
-}
-
-func (s *GLES11Server) GlClipPlanex2_1(_ context.Context, req *pb.GlClipPlanex2_1Request) (*pb.GlClipPlanex2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlClipPlanex2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlClipPlanex2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlColor4Ub(_ context.Context, req *pb.GlColor4UbRequest) (*pb.GlColor4UbResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlColor4ub(int8(req.GetArg0()), int8(req.GetArg1()), int8(req.GetArg2()), int8(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlColor4UbResponse{}, nil
-}
-
-func (s *GLES11Server) GlColorPointer(_ context.Context, req *pb.GLES11GlColorPointerRequest) (*pb.GlColorPointerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlColorPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlColorPointerResponse{}, nil
-}
-
-func (s *GLES11Server) GlDeleteBuffers3(_ context.Context, req *pb.GlDeleteBuffers3Request) (*pb.GlDeleteBuffers3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDeleteBuffers3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDeleteBuffers3Response{}, nil
-}
-
-func (s *GLES11Server) GlDeleteBuffers2_1(_ context.Context, req *pb.GlDeleteBuffers2_1Request) (*pb.GlDeleteBuffers2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDeleteBuffers2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDeleteBuffers2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlDrawElements(_ context.Context, req *pb.GLES11GlDrawElementsRequest) (*pb.GlDrawElementsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlDrawElements(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlDrawElementsResponse{}, nil
-}
-
-func (s *GLES11Server) GlGenBuffers3(_ context.Context, req *pb.GlGenBuffers3Request) (*pb.GlGenBuffers3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenBuffers3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenBuffers3Response{}, nil
-}
-
-func (s *GLES11Server) GlGenBuffers2_1(_ context.Context, req *pb.GlGenBuffers2_1Request) (*pb.GlGenBuffers2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGenBuffers2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGenBuffers2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetBooleanv3(_ context.Context, req *pb.GlGetBooleanv3Request) (*pb.GlGetBooleanv3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetBooleanv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetBooleanv3Response{}, nil
-}
-
-func (s *GLES11Server) GlGetBooleanv2_1(_ context.Context, req *pb.GlGetBooleanv2_1Request) (*pb.GlGetBooleanv2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetBooleanv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetBooleanv2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetBufferParameteriv4(_ context.Context, req *pb.GlGetBufferParameteriv4Request) (*pb.GlGetBufferParameteriv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetBufferParameteriv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetBufferParameteriv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetBufferParameteriv3_1(_ context.Context, req *pb.GlGetBufferParameteriv3_1Request) (*pb.GlGetBufferParameteriv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetBufferParameteriv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetBufferParameteriv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetClipPlanef3(_ context.Context, req *pb.GlGetClipPlanef3Request) (*pb.GlGetClipPlanef3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetClipPlanef3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetClipPlanef3Response{}, nil
-}
-
-func (s *GLES11Server) GlGetClipPlanef2_1(_ context.Context, req *pb.GlGetClipPlanef2_1Request) (*pb.GlGetClipPlanef2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetClipPlanef2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetClipPlanef2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetClipPlanex3(_ context.Context, req *pb.GlGetClipPlanex3Request) (*pb.GlGetClipPlanex3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetClipPlanex3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetClipPlanex3Response{}, nil
-}
-
-func (s *GLES11Server) GlGetClipPlanex2_1(_ context.Context, req *pb.GlGetClipPlanex2_1Request) (*pb.GlGetClipPlanex2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetClipPlanex2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetClipPlanex2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetFixedv3(_ context.Context, req *pb.GlGetFixedv3Request) (*pb.GlGetFixedv3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetFixedv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetFixedv3Response{}, nil
-}
-
-func (s *GLES11Server) GlGetFixedv2_1(_ context.Context, req *pb.GlGetFixedv2_1Request) (*pb.GlGetFixedv2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetFixedv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetFixedv2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetFloatv3(_ context.Context, req *pb.GlGetFloatv3Request) (*pb.GlGetFloatv3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetFloatv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetFloatv3Response{}, nil
-}
-
-func (s *GLES11Server) GlGetFloatv2_1(_ context.Context, req *pb.GlGetFloatv2_1Request) (*pb.GlGetFloatv2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetFloatv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetFloatv2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetLightfv4(_ context.Context, req *pb.GlGetLightfv4Request) (*pb.GlGetLightfv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetLightfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetLightfv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetLightfv3_1(_ context.Context, req *pb.GlGetLightfv3_1Request) (*pb.GlGetLightfv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetLightfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetLightfv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetLightxv4(_ context.Context, req *pb.GlGetLightxv4Request) (*pb.GlGetLightxv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetLightxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetLightxv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetLightxv3_1(_ context.Context, req *pb.GlGetLightxv3_1Request) (*pb.GlGetLightxv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetLightxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetLightxv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetMaterialfv4(_ context.Context, req *pb.GlGetMaterialfv4Request) (*pb.GlGetMaterialfv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetMaterialfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetMaterialfv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetMaterialfv3_1(_ context.Context, req *pb.GlGetMaterialfv3_1Request) (*pb.GlGetMaterialfv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetMaterialfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetMaterialfv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetMaterialxv4(_ context.Context, req *pb.GlGetMaterialxv4Request) (*pb.GlGetMaterialxv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetMaterialxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetMaterialxv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetMaterialxv3_1(_ context.Context, req *pb.GlGetMaterialxv3_1Request) (*pb.GlGetMaterialxv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetMaterialxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetMaterialxv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexEnvfv4(_ context.Context, req *pb.GlGetTexEnvfv4Request) (*pb.GlGetTexEnvfv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexEnvfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexEnvfv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexEnvfv3_1(_ context.Context, req *pb.GlGetTexEnvfv3_1Request) (*pb.GlGetTexEnvfv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexEnvfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexEnvfv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexEnviv4(_ context.Context, req *pb.GlGetTexEnviv4Request) (*pb.GlGetTexEnviv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexEnviv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexEnviv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexEnviv3_1(_ context.Context, req *pb.GlGetTexEnviv3_1Request) (*pb.GlGetTexEnviv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexEnviv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexEnviv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexEnvxv4(_ context.Context, req *pb.GlGetTexEnvxv4Request) (*pb.GlGetTexEnvxv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexEnvxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexEnvxv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexEnvxv3_1(_ context.Context, req *pb.GlGetTexEnvxv3_1Request) (*pb.GlGetTexEnvxv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexEnvxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexEnvxv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexParameterfv4(_ context.Context, req *pb.GlGetTexParameterfv4Request) (*pb.GlGetTexParameterfv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexParameterfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexParameterfv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexParameterfv3_1(_ context.Context, req *pb.GlGetTexParameterfv3_1Request) (*pb.GlGetTexParameterfv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexParameterfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexParameterfv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexParameteriv4(_ context.Context, req *pb.GlGetTexParameteriv4Request) (*pb.GlGetTexParameteriv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexParameteriv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexParameteriv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexParameteriv3_1(_ context.Context, req *pb.GlGetTexParameteriv3_1Request) (*pb.GlGetTexParameteriv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexParameteriv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexParameteriv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexParameterxv4(_ context.Context, req *pb.GlGetTexParameterxv4Request) (*pb.GlGetTexParameterxv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexParameterxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexParameterxv4Response{}, nil
-}
-
-func (s *GLES11Server) GlGetTexParameterxv3_1(_ context.Context, req *pb.GlGetTexParameterxv3_1Request) (*pb.GlGetTexParameterxv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlGetTexParameterxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlGetTexParameterxv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlIsBuffer(_ context.Context, req *pb.GlIsBufferRequest) (*pb.GlIsBufferResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlIsBuffer(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlIsBufferResponse{Result: result}, nil
-}
-
-func (s *GLES11Server) GlIsEnabled(_ context.Context, req *pb.GlIsEnabledRequest) (*pb.GlIsEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlIsEnabled(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlIsEnabledResponse{Result: result}, nil
-}
-
-func (s *GLES11Server) GlIsTexture(_ context.Context, req *pb.GlIsTextureRequest) (*pb.GlIsTextureResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GlIsTexture(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlIsTextureResponse{Result: result}, nil
-}
-
-func (s *GLES11Server) GlNormalPointer(_ context.Context, req *pb.GLES11GlNormalPointerRequest) (*pb.GlNormalPointerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlNormalPointer(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlNormalPointerResponse{}, nil
-}
-
-func (s *GLES11Server) GlPointParameterf(_ context.Context, req *pb.GlPointParameterfRequest) (*pb.GlPointParameterfResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterf(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterfResponse{}, nil
-}
-
-func (s *GLES11Server) GlPointParameterfv3(_ context.Context, req *pb.GlPointParameterfv3Request) (*pb.GlPointParameterfv3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterfv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterfv3Response{}, nil
-}
-
-func (s *GLES11Server) GlPointParameterfv2_1(_ context.Context, req *pb.GlPointParameterfv2_1Request) (*pb.GlPointParameterfv2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterfv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterfv2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlPointParameterx(_ context.Context, req *pb.GlPointParameterxRequest) (*pb.GlPointParameterxResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterx(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterxResponse{}, nil
-}
-
-func (s *GLES11Server) GlPointParameterxv3(_ context.Context, req *pb.GlPointParameterxv3Request) (*pb.GlPointParameterxv3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterxv3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterxv3Response{}, nil
-}
-
-func (s *GLES11Server) GlPointParameterxv2_1(_ context.Context, req *pb.GlPointParameterxv2_1Request) (*pb.GlPointParameterxv2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointParameterxv2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointParameterxv2_1Response{}, nil
-}
-
-func (s *GLES11Server) GlPointSizePointerOES(_ context.Context, req *pb.GlPointSizePointerOESRequest) (*pb.GlPointSizePointerOESResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlPointSizePointerOES(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlPointSizePointerOESResponse{}, nil
-}
-
-func (s *GLES11Server) GlTexCoordPointer(_ context.Context, req *pb.GLES11GlTexCoordPointerRequest) (*pb.GlTexCoordPointerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexCoordPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexCoordPointerResponse{}, nil
-}
-
-func (s *GLES11Server) GlTexEnvi(_ context.Context, req *pb.GlTexEnviRequest) (*pb.GlTexEnviResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexEnvi(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexEnviResponse{}, nil
-}
-
-func (s *GLES11Server) GlTexEnviv4(_ context.Context, req *pb.GlTexEnviv4Request) (*pb.GlTexEnviv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexEnviv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexEnviv4Response{}, nil
-}
-
-func (s *GLES11Server) GlTexEnviv3_1(_ context.Context, req *pb.GlTexEnviv3_1Request) (*pb.GlTexEnviv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexEnviv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexEnviv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlTexParameterfv4(_ context.Context, req *pb.GlTexParameterfv4Request) (*pb.GlTexParameterfv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameterfv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameterfv4Response{}, nil
-}
-
-func (s *GLES11Server) GlTexParameterfv3_1(_ context.Context, req *pb.GlTexParameterfv3_1Request) (*pb.GlTexParameterfv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameterfv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameterfv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlTexParameteri(_ context.Context, req *pb.GlTexParameteriRequest) (*pb.GlTexParameteriResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameteri(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameteriResponse{}, nil
-}
-
-func (s *GLES11Server) GlTexParameteriv4(_ context.Context, req *pb.GlTexParameteriv4Request) (*pb.GlTexParameteriv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameteriv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameteriv4Response{}, nil
-}
-
-func (s *GLES11Server) GlTexParameteriv3_1(_ context.Context, req *pb.GlTexParameteriv3_1Request) (*pb.GlTexParameteriv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameteriv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameteriv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlTexParameterxv4(_ context.Context, req *pb.GlTexParameterxv4Request) (*pb.GlTexParameterxv4Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameterxv4(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameterxv4Response{}, nil
-}
-
-func (s *GLES11Server) GlTexParameterxv3_1(_ context.Context, req *pb.GlTexParameterxv3_1Request) (*pb.GlTexParameterxv3_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlTexParameterxv3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlTexParameterxv3_1Response{}, nil
-}
-
-func (s *GLES11Server) GlVertexPointer(_ context.Context, req *pb.GLES11GlVertexPointerRequest) (*pb.GlVertexPointerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.GLES11{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GlVertexPointer(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GlVertexPointerResponse{}, nil
-}
-
-// EGL14Server implements pb.EGL14ServiceServer.
-type EGL14Server struct {
-	pb.UnimplementedEGL14ServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *EGL14Server) NewEGL14(_ context.Context, req *pb.NewEGL14Request) (*pb.NewEGL14Response, error) {
-	obj, err := jnipkg.NewEGL14(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewEGL14Response{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglBindAPI(_ context.Context, req *pb.EglBindAPIRequest) (*pb.EglBindAPIResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglBindAPI(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglBindAPIResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglBindTexImage(_ context.Context, req *pb.EglBindTexImageRequest) (*pb.EglBindTexImageResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglBindTexImage(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglBindTexImageResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglChooseConfig(_ context.Context, req *pb.EglChooseConfigRequest) (*pb.EglChooseConfigResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglChooseConfig(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6()), req.GetArg7())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglChooseConfigResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglCopyBuffers(_ context.Context, req *pb.EglCopyBuffersRequest) (*pb.EglCopyBuffersResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglCopyBuffers(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglCopyBuffersResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglCreateContext(_ context.Context, req *pb.EglCreateContextRequest) (*pb.EglCreateContextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglCreateContext(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglCreateContextResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglCreatePbufferFromClientBuffer(_ context.Context, req *pb.EglCreatePbufferFromClientBufferRequest) (*pb.EglCreatePbufferFromClientBufferResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglCreatePbufferFromClientBuffer(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), s.Handles.Get(req.GetArg4()), req.GetArg5())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglCreatePbufferFromClientBufferResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglCreatePbufferSurface(_ context.Context, req *pb.EglCreatePbufferSurfaceRequest) (*pb.EglCreatePbufferSurfaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglCreatePbufferSurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglCreatePbufferSurfaceResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglCreatePixmapSurface(_ context.Context, req *pb.EglCreatePixmapSurfaceRequest) (*pb.EglCreatePixmapSurfaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglCreatePixmapSurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglCreatePixmapSurfaceResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglCreateWindowSurface(_ context.Context, req *pb.EglCreateWindowSurfaceRequest) (*pb.EglCreateWindowSurfaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglCreateWindowSurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglCreateWindowSurfaceResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglDestroyContext(_ context.Context, req *pb.EglDestroyContextRequest) (*pb.EglDestroyContextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglDestroyContext(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglDestroyContextResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglDestroySurface(_ context.Context, req *pb.EglDestroySurfaceRequest) (*pb.EglDestroySurfaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglDestroySurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglDestroySurfaceResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglGetConfigAttrib(_ context.Context, req *pb.EglGetConfigAttribRequest) (*pb.EglGetConfigAttribResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglGetConfigAttrib(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglGetConfigAttribResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglGetConfigs(_ context.Context, req *pb.EglGetConfigsRequest) (*pb.EglGetConfigsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglGetConfigs(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglGetConfigsResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglGetCurrentContext(_ context.Context, req *pb.EglGetCurrentContextRequest) (*pb.EglGetCurrentContextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglGetCurrentContext()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglGetCurrentContextResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglGetCurrentDisplay(_ context.Context, req *pb.EglGetCurrentDisplayRequest) (*pb.EglGetCurrentDisplayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglGetCurrentDisplay()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglGetCurrentDisplayResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglGetCurrentSurface(_ context.Context, req *pb.EglGetCurrentSurfaceRequest) (*pb.EglGetCurrentSurfaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglGetCurrentSurface(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglGetCurrentSurfaceResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglGetDisplay(_ context.Context, req *pb.EglGetDisplayRequest) (*pb.EglGetDisplayResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglGetDisplay(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.EglGetDisplayResponse{Result: handle}, nil
-}
-
-func (s *EGL14Server) EglGetError(_ context.Context, req *pb.EglGetErrorRequest) (*pb.EglGetErrorResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglGetError()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglGetErrorResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglInitialize(_ context.Context, req *pb.EglInitializeRequest) (*pb.EglInitializeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglInitialize(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglInitializeResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglMakeCurrent(_ context.Context, req *pb.EglMakeCurrentRequest) (*pb.EglMakeCurrentResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglMakeCurrent(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglMakeCurrentResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglQueryAPI(_ context.Context, req *pb.EglQueryAPIRequest) (*pb.EglQueryAPIResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglQueryAPI()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglQueryAPIResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglQueryContext(_ context.Context, req *pb.EglQueryContextRequest) (*pb.EglQueryContextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglQueryContext(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglQueryContextResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglQueryString(_ context.Context, req *pb.EglQueryStringRequest) (*pb.EglQueryStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglQueryString(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglQueryStringResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglQuerySurface(_ context.Context, req *pb.EglQuerySurfaceRequest) (*pb.EglQuerySurfaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglQuerySurface(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglQuerySurfaceResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglReleaseTexImage(_ context.Context, req *pb.EglReleaseTexImageRequest) (*pb.EglReleaseTexImageResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglReleaseTexImage(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglReleaseTexImageResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglReleaseThread(_ context.Context, req *pb.EglReleaseThreadRequest) (*pb.EglReleaseThreadResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglReleaseThread()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglReleaseThreadResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglSurfaceAttrib(_ context.Context, req *pb.EglSurfaceAttribRequest) (*pb.EglSurfaceAttribResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglSurfaceAttrib(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglSurfaceAttribResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglSwapBuffers(_ context.Context, req *pb.EglSwapBuffersRequest) (*pb.EglSwapBuffersResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglSwapBuffers(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglSwapBuffersResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglSwapInterval(_ context.Context, req *pb.EglSwapIntervalRequest) (*pb.EglSwapIntervalResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglSwapInterval(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglSwapIntervalResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglTerminate(_ context.Context, req *pb.EglTerminateRequest) (*pb.EglTerminateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglTerminate(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglTerminateResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglWaitClient(_ context.Context, req *pb.EglWaitClientRequest) (*pb.EglWaitClientResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglWaitClient()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglWaitClientResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglWaitGL(_ context.Context, req *pb.EglWaitGLRequest) (*pb.EglWaitGLResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglWaitGL()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglWaitGLResponse{Result: result}, nil
-}
-
-func (s *EGL14Server) EglWaitNative(_ context.Context, req *pb.EglWaitNativeRequest) (*pb.EglWaitNativeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.EGL14{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.EglWaitNative(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EglWaitNativeResponse{Result: result}, nil
-}
-
-// ETC1Server implements pb.ETC1ServiceServer.
-type ETC1Server struct {
-	pb.UnimplementedETC1ServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ETC1Server) NewETC1(_ context.Context, req *pb.NewETC1Request) (*pb.NewETC1Response, error) {
-	obj, err := jnipkg.NewETC1(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewETC1Response{Result: handle}, nil
-}
-
-func (s *ETC1Server) DecodeBlock(_ context.Context, req *pb.DecodeBlockRequest) (*pb.DecodeBlockResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DecodeBlock(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DecodeBlockResponse{}, nil
-}
-
-func (s *ETC1Server) DecodeImage(_ context.Context, req *pb.DecodeImageRequest) (*pb.DecodeImageResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.DecodeImage(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DecodeImageResponse{}, nil
-}
-
-func (s *ETC1Server) EncodeBlock(_ context.Context, req *pb.EncodeBlockRequest) (*pb.EncodeBlockResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.EncodeBlock(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EncodeBlockResponse{}, nil
-}
-
-func (s *ETC1Server) EncodeImage(_ context.Context, req *pb.EncodeImageRequest) (*pb.EncodeImageResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.EncodeImage(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EncodeImageResponse{}, nil
-}
-
-func (s *ETC1Server) FormatHeader(_ context.Context, req *pb.FormatHeaderRequest) (*pb.FormatHeaderResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.FormatHeader(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FormatHeaderResponse{}, nil
-}
-
-func (s *ETC1Server) GetEncodedDataSize(_ context.Context, req *pb.GetEncodedDataSizeRequest) (*pb.GetEncodedDataSizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetEncodedDataSize(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetEncodedDataSizeResponse{Result: result}, nil
-}
-
-func (s *ETC1Server) GetHeight(_ context.Context, req *pb.ETC1GetHeightRequest) (*pb.GetHeightResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetHeight(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetHeightResponse{Result: result}, nil
-}
-
-func (s *ETC1Server) GetWidth(_ context.Context, req *pb.ETC1GetWidthRequest) (*pb.GetWidthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWidth(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetWidthResponse{Result: result}, nil
-}
-
-func (s *ETC1Server) IsValid(_ context.Context, req *pb.IsValidRequest) (*pb.IsValidResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ETC1{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsValid(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsValidResponse{Result: result}, nil
 }

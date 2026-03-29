@@ -12,6 +12,30 @@ var satelliteCmd = &cobra.Command{
 	Short: "satellite service operations",
 }
 
+var satelliteStateChangeListenerCmd = &cobra.Command{
+	Use:   "state-change-listener",
+	Short: "StateChangeListenerService operations",
+}
+
+var satelliteStateChangeListenerOnEnabledStateChangedCmd = &cobra.Command{
+	Use:   "on-enabled-state-changed",
+	Short: "OnEnabledStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateChangeListenerServiceClient(grpcConn)
+		req := &pb.OnEnabledStateChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnEnabledStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var satelliteManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -58,39 +82,15 @@ var satelliteManagerUnregisterStateChangeListenerCmd = &cobra.Command{
 	},
 }
 
-var satelliteStateChangeListenerCmd = &cobra.Command{
-	Use:   "state-change-listener",
-	Short: "StateChangeListenerService operations",
-}
-
-var satelliteStateChangeListenerOnEnabledStateChangedCmd = &cobra.Command{
-	Use:   "on-enabled-state-changed",
-	Short: "OnEnabledStateChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateChangeListenerServiceClient(grpcConn)
-		req := &pb.OnEnabledStateChangedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnEnabledStateChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	satelliteStateChangeListenerOnEnabledStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	satelliteStateChangeListenerCmd.AddCommand(satelliteStateChangeListenerOnEnabledStateChangedCmd)
+	satelliteCmd.AddCommand(satelliteStateChangeListenerCmd)
 	satelliteManagerRegisterStateChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	satelliteManagerRegisterStateChangeListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	satelliteManagerCmd.AddCommand(satelliteManagerRegisterStateChangeListenerCmd)
 	satelliteManagerUnregisterStateChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	satelliteManagerCmd.AddCommand(satelliteManagerUnregisterStateChangeListenerCmd)
 	satelliteCmd.AddCommand(satelliteManagerCmd)
-	satelliteStateChangeListenerOnEnabledStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	satelliteStateChangeListenerCmd.AddCommand(satelliteStateChangeListenerOnEnabledStateChangedCmd)
-	satelliteCmd.AddCommand(satelliteStateChangeListenerCmd)
 	rootCmd.AddCommand(satelliteCmd)
 }

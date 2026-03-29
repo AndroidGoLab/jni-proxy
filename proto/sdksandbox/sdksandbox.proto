@@ -6,6 +6,31 @@ package sdksandbox;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/sdksandbox";
 
+message NewRequestSurfacePackageExceptionRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewRequestSurfacePackageExceptionResponse {
+  int64 result = 1;
+}
+
+message GetExtraErrorInformationRequest {
+  int64 handle = 1;
+}
+
+message GetExtraErrorInformationResponse {
+  int64 result = 1;
+}
+
+message GetRequestSurfacePackageErrorCodeRequest {
+  int64 handle = 1;
+}
+
+message GetRequestSurfacePackageErrorCodeResponse {
+  int32 result = 1;
+}
+
 message AttachContextRequest {
   int64 arg0 = 1;
 }
@@ -51,6 +76,27 @@ message AddSdkSandboxProcessDeathCallbackRequest {
 }
 
 message AddSdkSandboxProcessDeathCallbackResponse {
+}
+
+message GetAppOwnedSdkSandboxInterfacesRequest {
+}
+
+message GetAppOwnedSdkSandboxInterfacesResponse {
+  int64 result = 1;
+}
+
+message GetSandboxedSdksRequest {
+}
+
+message GetSandboxedSdksResponse {
+  int64 result = 1;
+}
+
+message GetSyncedSharedPreferencesKeysRequest {
+}
+
+message GetSyncedSharedPreferencesKeysResponse {
+  int64 result = 1;
 }
 
 message RegisterAppOwnedSdkSandboxInterfaceRequest {
@@ -102,13 +148,11 @@ message OnSdkSandboxDiedRequest {
 message OnSdkSandboxDiedResponse {
 }
 
-message NewAppOwnedSdkSandboxInterfaceRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
+message NewSandboxedSdkRequest {
+  int64 arg0 = 1;
 }
 
-message NewAppOwnedSdkSandboxInterfaceResponse {
+message NewSandboxedSdkResponse {
   int64 result = 1;
 }
 
@@ -128,6 +172,33 @@ message GetInterfaceResponse {
   int64 result = 1;
 }
 
+message GetSharedLibraryInfoRequest {
+  int64 handle = 1;
+}
+
+message GetSharedLibraryInfoResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewAppOwnedSdkSandboxInterfaceRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewAppOwnedSdkSandboxInterfaceResponse {
+  int64 result = 1;
+}
+
 message GetNameRequest {
   int64 handle = 1;
 }
@@ -141,56 +212,6 @@ message GetVersionRequest {
 }
 
 message GetVersionResponse {
-  int64 result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
-}
-
-message NewRequestSurfacePackageExceptionRequest {
-  int32 arg0 = 1;
-  string arg1 = 2;
-}
-
-message NewRequestSurfacePackageExceptionResponse {
-  int64 result = 1;
-}
-
-message GetExtraErrorInformationRequest {
-  int64 handle = 1;
-}
-
-message GetExtraErrorInformationResponse {
-  int64 result = 1;
-}
-
-message GetRequestSurfacePackageErrorCodeRequest {
-  int64 handle = 1;
-}
-
-message GetRequestSurfacePackageErrorCodeResponse {
-  int32 result = 1;
-}
-
-message NewSandboxedSdkRequest {
-  int64 arg0 = 1;
-}
-
-message NewSandboxedSdkResponse {
-  int64 result = 1;
-}
-
-message GetSharedLibraryInfoRequest {
-  int64 handle = 1;
-}
-
-message GetSharedLibraryInfoResponse {
   int64 result = 1;
 }
 
@@ -219,6 +240,12 @@ message GetLoadSdkErrorCodeResponse {
   int32 result = 1;
 }
 
+service RequestSurfacePackageExceptionService {
+  rpc NewRequestSurfacePackageException (NewRequestSurfacePackageExceptionRequest) returns (NewRequestSurfacePackageExceptionResponse);
+  rpc GetExtraErrorInformation (GetExtraErrorInformationRequest) returns (GetExtraErrorInformationResponse);
+  rpc GetRequestSurfacePackageErrorCode (GetRequestSurfacePackageErrorCodeRequest) returns (GetRequestSurfacePackageErrorCodeResponse);
+}
+
 service SandboxedSdkProviderService {
   rpc AttachContext (AttachContextRequest) returns (AttachContextResponse);
   rpc BeforeUnloadSdk (BeforeUnloadSdkRequest) returns (BeforeUnloadSdkResponse);
@@ -229,6 +256,9 @@ service SandboxedSdkProviderService {
 
 service SdkSandboxManagerService {
   rpc AddSdkSandboxProcessDeathCallback (AddSdkSandboxProcessDeathCallbackRequest) returns (AddSdkSandboxProcessDeathCallbackResponse);
+  rpc GetAppOwnedSdkSandboxInterfaces (GetAppOwnedSdkSandboxInterfacesRequest) returns (GetAppOwnedSdkSandboxInterfacesResponse);
+  rpc GetSandboxedSdks (GetSandboxedSdksRequest) returns (GetSandboxedSdksResponse);
+  rpc GetSyncedSharedPreferencesKeys (GetSyncedSharedPreferencesKeysRequest) returns (GetSyncedSharedPreferencesKeysResponse);
   rpc RegisterAppOwnedSdkSandboxInterface (RegisterAppOwnedSdkSandboxInterfaceRequest) returns (RegisterAppOwnedSdkSandboxInterfaceResponse);
   rpc RemoveSdkSandboxProcessDeathCallback (RemoveSdkSandboxProcessDeathCallbackRequest) returns (RemoveSdkSandboxProcessDeathCallbackResponse);
   rpc StartSdkSandboxActivity (StartSdkSandboxActivityRequest) returns (StartSdkSandboxActivityResponse);
@@ -241,26 +271,20 @@ service SdkSandboxManagerSdkSandboxProcessDeathCallbackService {
   rpc OnSdkSandboxDied (OnSdkSandboxDiedRequest) returns (OnSdkSandboxDiedResponse);
 }
 
+service SandboxedSdkService {
+  rpc NewSandboxedSdk (NewSandboxedSdkRequest) returns (NewSandboxedSdkResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInterface (GetInterfaceRequest) returns (GetInterfaceResponse);
+  rpc GetSharedLibraryInfo (GetSharedLibraryInfoRequest) returns (GetSharedLibraryInfoResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service AppOwnedSdkSandboxInterfaceService {
   rpc NewAppOwnedSdkSandboxInterface (NewAppOwnedSdkSandboxInterfaceRequest) returns (NewAppOwnedSdkSandboxInterfaceResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetInterface (GetInterfaceRequest) returns (GetInterfaceResponse);
   rpc GetName (GetNameRequest) returns (GetNameResponse);
   rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service RequestSurfacePackageExceptionService {
-  rpc NewRequestSurfacePackageException (NewRequestSurfacePackageExceptionRequest) returns (NewRequestSurfacePackageExceptionResponse);
-  rpc GetExtraErrorInformation (GetExtraErrorInformationRequest) returns (GetExtraErrorInformationResponse);
-  rpc GetRequestSurfacePackageErrorCode (GetRequestSurfacePackageErrorCodeRequest) returns (GetRequestSurfacePackageErrorCodeResponse);
-}
-
-service SandboxedSdkService {
-  rpc NewSandboxedSdk (NewSandboxedSdkRequest) returns (NewSandboxedSdkResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetInterface (GetInterfaceRequest) returns (GetInterfaceResponse);
-  rpc GetSharedLibraryInfo (GetSharedLibraryInfoRequest) returns (GetSharedLibraryInfoResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 

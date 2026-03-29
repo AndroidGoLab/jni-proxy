@@ -103,86 +103,6 @@ func (x *DescribeContentsResponse) GetResult() int32 {
 	return 0
 }
 
-type GetPageSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPageSizeRequest) Reset() {
-	*x = GetPageSizeRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPageSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPageSizeRequest) ProtoMessage() {}
-
-func (x *GetPageSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPageSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetPageSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{2}
-}
-
-type GetPageSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPageSizeResponse) Reset() {
-	*x = GetPageSizeResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPageSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPageSizeResponse) ProtoMessage() {}
-
-func (x *GetPageSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPageSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetPageSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *GetPageSizeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type GetTokenRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -191,7 +111,7 @@ type GetTokenRequest struct {
 
 func (x *GetTokenRequest) Reset() {
 	*x = GetTokenRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[4]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -203,7 +123,7 @@ func (x *GetTokenRequest) String() string {
 func (*GetTokenRequest) ProtoMessage() {}
 
 func (x *GetTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[4]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -216,7 +136,7 @@ func (x *GetTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTokenRequest.ProtoReflect.Descriptor instead.
 func (*GetTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{4}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{2}
 }
 
 type GetTokenResponse struct {
@@ -228,7 +148,7 @@ type GetTokenResponse struct {
 
 func (x *GetTokenResponse) Reset() {
 	*x = GetTokenResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[5]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -240,7 +160,7 @@ func (x *GetTokenResponse) String() string {
 func (*GetTokenResponse) ProtoMessage() {}
 
 func (x *GetTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[5]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -253,7 +173,7 @@ func (x *GetTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTokenResponse.ProtoReflect.Descriptor instead.
 func (*GetTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{5}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetTokenResponse) GetResult() string {
@@ -273,7 +193,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[6]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -285,7 +205,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[6]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -298,7 +218,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{6}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -323,7 +243,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[7]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -335,7 +255,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[7]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -348,7 +268,567 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{5}
+}
+
+type GetDeletedLogsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeletedLogsRequest) Reset() {
+	*x = GetDeletedLogsRequest{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeletedLogsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeletedLogsRequest) ProtoMessage() {}
+
+func (x *GetDeletedLogsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeletedLogsRequest.ProtoReflect.Descriptor instead.
+func (*GetDeletedLogsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{6}
+}
+
+type GetDeletedLogsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeletedLogsResponse) Reset() {
+	*x = GetDeletedLogsResponse{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeletedLogsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeletedLogsResponse) ProtoMessage() {}
+
+func (x *GetDeletedLogsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeletedLogsResponse.ProtoReflect.Descriptor instead.
+func (*GetDeletedLogsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetDeletedLogsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNextChangesTokenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNextChangesTokenRequest) Reset() {
+	*x = GetNextChangesTokenRequest{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNextChangesTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNextChangesTokenRequest) ProtoMessage() {}
+
+func (x *GetNextChangesTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNextChangesTokenRequest.ProtoReflect.Descriptor instead.
+func (*GetNextChangesTokenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{8}
+}
+
+type GetNextChangesTokenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNextChangesTokenResponse) Reset() {
+	*x = GetNextChangesTokenResponse{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNextChangesTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNextChangesTokenResponse) ProtoMessage() {}
+
+func (x *GetNextChangesTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNextChangesTokenResponse.ProtoReflect.Descriptor instead.
+func (*GetNextChangesTokenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetNextChangesTokenResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetUpsertedRecordsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUpsertedRecordsRequest) Reset() {
+	*x = GetUpsertedRecordsRequest{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUpsertedRecordsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUpsertedRecordsRequest) ProtoMessage() {}
+
+func (x *GetUpsertedRecordsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUpsertedRecordsRequest.ProtoReflect.Descriptor instead.
+func (*GetUpsertedRecordsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{10}
+}
+
+type GetUpsertedRecordsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUpsertedRecordsResponse) Reset() {
+	*x = GetUpsertedRecordsResponse{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUpsertedRecordsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUpsertedRecordsResponse) ProtoMessage() {}
+
+func (x *GetUpsertedRecordsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUpsertedRecordsResponse.ProtoReflect.Descriptor instead.
+func (*GetUpsertedRecordsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetUpsertedRecordsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasMorePagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasMorePagesRequest) Reset() {
+	*x = HasMorePagesRequest{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasMorePagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasMorePagesRequest) ProtoMessage() {}
+
+func (x *HasMorePagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasMorePagesRequest.ProtoReflect.Descriptor instead.
+func (*HasMorePagesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{12}
+}
+
+type HasMorePagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasMorePagesResponse) Reset() {
+	*x = HasMorePagesResponse{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasMorePagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasMorePagesResponse) ProtoMessage() {}
+
+func (x *HasMorePagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasMorePagesResponse.ProtoReflect.Descriptor instead.
+func (*HasMorePagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *HasMorePagesResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetDeletedRecordIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeletedRecordIdRequest) Reset() {
+	*x = GetDeletedRecordIdRequest{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeletedRecordIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeletedRecordIdRequest) ProtoMessage() {}
+
+func (x *GetDeletedRecordIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeletedRecordIdRequest.ProtoReflect.Descriptor instead.
+func (*GetDeletedRecordIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{14}
+}
+
+type GetDeletedRecordIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeletedRecordIdResponse) Reset() {
+	*x = GetDeletedRecordIdResponse{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeletedRecordIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeletedRecordIdResponse) ProtoMessage() {}
+
+func (x *GetDeletedRecordIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeletedRecordIdResponse.ProtoReflect.Descriptor instead.
+func (*GetDeletedRecordIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetDeletedRecordIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDeletedTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeletedTimeRequest) Reset() {
+	*x = GetDeletedTimeRequest{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeletedTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeletedTimeRequest) ProtoMessage() {}
+
+func (x *GetDeletedTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeletedTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetDeletedTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{16}
+}
+
+type GetDeletedTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeletedTimeResponse) Reset() {
+	*x = GetDeletedTimeResponse{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeletedTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeletedTimeResponse) ProtoMessage() {}
+
+func (x *GetDeletedTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeletedTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetDeletedTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetDeletedTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPageSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPageSizeRequest) Reset() {
+	*x = GetPageSizeRequest{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPageSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPageSizeRequest) ProtoMessage() {}
+
+func (x *GetPageSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPageSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetPageSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{18}
+}
+
+type GetPageSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPageSizeResponse) Reset() {
+	*x = GetPageSizeResponse{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPageSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPageSizeResponse) ProtoMessage() {}
+
+func (x *GetPageSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPageSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetPageSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetPageSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type BuildRequest struct {
@@ -359,7 +839,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[8]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -371,7 +851,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[8]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -384,7 +864,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{8}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{20}
 }
 
 type BuildResponse struct {
@@ -396,7 +876,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[9]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -408,7 +888,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[9]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -421,7 +901,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{9}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -440,7 +920,7 @@ type SetPageSizeRequest struct {
 
 func (x *SetPageSizeRequest) Reset() {
 	*x = SetPageSizeRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[10]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -452,7 +932,7 @@ func (x *SetPageSizeRequest) String() string {
 func (*SetPageSizeRequest) ProtoMessage() {}
 
 func (x *SetPageSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[10]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -465,7 +945,7 @@ func (x *SetPageSizeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPageSizeRequest.ProtoReflect.Descriptor instead.
 func (*SetPageSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{10}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *SetPageSizeRequest) GetArg0() int32 {
@@ -484,7 +964,7 @@ type SetPageSizeResponse struct {
 
 func (x *SetPageSizeResponse) Reset() {
 	*x = SetPageSizeResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[11]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -496,7 +976,7 @@ func (x *SetPageSizeResponse) String() string {
 func (*SetPageSizeResponse) ProtoMessage() {}
 
 func (x *SetPageSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[11]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -509,10 +989,90 @@ func (x *SetPageSizeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPageSizeResponse.ProtoReflect.Descriptor instead.
 func (*SetPageSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{11}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *SetPageSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDataOriginFiltersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataOriginFiltersRequest) Reset() {
+	*x = GetDataOriginFiltersRequest{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataOriginFiltersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataOriginFiltersRequest) ProtoMessage() {}
+
+func (x *GetDataOriginFiltersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataOriginFiltersRequest.ProtoReflect.Descriptor instead.
+func (*GetDataOriginFiltersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{24}
+}
+
+type GetDataOriginFiltersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataOriginFiltersResponse) Reset() {
+	*x = GetDataOriginFiltersResponse{}
+	mi := &file_proto_changelog_changelog_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataOriginFiltersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataOriginFiltersResponse) ProtoMessage() {}
+
+func (x *GetDataOriginFiltersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_changelog_changelog_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataOriginFiltersResponse.ProtoReflect.Descriptor instead.
+func (*GetDataOriginFiltersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetDataOriginFiltersResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -528,7 +1088,7 @@ type AddDataOriginFilterRequest struct {
 
 func (x *AddDataOriginFilterRequest) Reset() {
 	*x = AddDataOriginFilterRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[12]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -540,7 +1100,7 @@ func (x *AddDataOriginFilterRequest) String() string {
 func (*AddDataOriginFilterRequest) ProtoMessage() {}
 
 func (x *AddDataOriginFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[12]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -553,7 +1113,7 @@ func (x *AddDataOriginFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddDataOriginFilterRequest.ProtoReflect.Descriptor instead.
 func (*AddDataOriginFilterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{12}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *AddDataOriginFilterRequest) GetArg0() int64 {
@@ -572,7 +1132,7 @@ type AddDataOriginFilterResponse struct {
 
 func (x *AddDataOriginFilterResponse) Reset() {
 	*x = AddDataOriginFilterResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[13]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -584,7 +1144,7 @@ func (x *AddDataOriginFilterResponse) String() string {
 func (*AddDataOriginFilterResponse) ProtoMessage() {}
 
 func (x *AddDataOriginFilterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[13]
+	mi := &file_proto_changelog_changelog_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -597,330 +1157,10 @@ func (x *AddDataOriginFilterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddDataOriginFilterResponse.ProtoReflect.Descriptor instead.
 func (*AddDataOriginFilterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{13}
+	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *AddDataOriginFilterResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetNextChangesTokenRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNextChangesTokenRequest) Reset() {
-	*x = GetNextChangesTokenRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNextChangesTokenRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNextChangesTokenRequest) ProtoMessage() {}
-
-func (x *GetNextChangesTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNextChangesTokenRequest.ProtoReflect.Descriptor instead.
-func (*GetNextChangesTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{14}
-}
-
-type GetNextChangesTokenResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNextChangesTokenResponse) Reset() {
-	*x = GetNextChangesTokenResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNextChangesTokenResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNextChangesTokenResponse) ProtoMessage() {}
-
-func (x *GetNextChangesTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNextChangesTokenResponse.ProtoReflect.Descriptor instead.
-func (*GetNextChangesTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *GetNextChangesTokenResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type HasMorePagesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMorePagesRequest) Reset() {
-	*x = HasMorePagesRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMorePagesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMorePagesRequest) ProtoMessage() {}
-
-func (x *HasMorePagesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMorePagesRequest.ProtoReflect.Descriptor instead.
-func (*HasMorePagesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{16}
-}
-
-type HasMorePagesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMorePagesResponse) Reset() {
-	*x = HasMorePagesResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMorePagesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMorePagesResponse) ProtoMessage() {}
-
-func (x *HasMorePagesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMorePagesResponse.ProtoReflect.Descriptor instead.
-func (*HasMorePagesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *HasMorePagesResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetDeletedRecordIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDeletedRecordIdRequest) Reset() {
-	*x = GetDeletedRecordIdRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeletedRecordIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeletedRecordIdRequest) ProtoMessage() {}
-
-func (x *GetDeletedRecordIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeletedRecordIdRequest.ProtoReflect.Descriptor instead.
-func (*GetDeletedRecordIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{18}
-}
-
-type GetDeletedRecordIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDeletedRecordIdResponse) Reset() {
-	*x = GetDeletedRecordIdResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeletedRecordIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeletedRecordIdResponse) ProtoMessage() {}
-
-func (x *GetDeletedRecordIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeletedRecordIdResponse.ProtoReflect.Descriptor instead.
-func (*GetDeletedRecordIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetDeletedRecordIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetDeletedTimeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDeletedTimeRequest) Reset() {
-	*x = GetDeletedTimeRequest{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeletedTimeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeletedTimeRequest) ProtoMessage() {}
-
-func (x *GetDeletedTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeletedTimeRequest.ProtoReflect.Descriptor instead.
-func (*GetDeletedTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{20}
-}
-
-type GetDeletedTimeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDeletedTimeResponse) Reset() {
-	*x = GetDeletedTimeResponse{}
-	mi := &file_proto_changelog_changelog_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeletedTimeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeletedTimeResponse) ProtoMessage() {}
-
-func (x *GetDeletedTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_changelog_changelog_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeletedTimeResponse.ProtoReflect.Descriptor instead.
-func (*GetDeletedTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_changelog_changelog_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetDeletedTimeResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -934,9 +1174,6 @@ const file_proto_changelog_changelog_proto_rawDesc = "" +
 	"\x1fproto/changelog/changelog.proto\x12\tchangelog\"\x19\n" +
 	"\x17DescribeContentsRequest\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
-	"\x12GetPageSizeRequest\"-\n" +
-	"\x13GetPageSizeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
 	"\x0fGetTokenRequest\"*\n" +
 	"\x10GetTokenResponse\x12\x16\n" +
@@ -944,21 +1181,16 @@ const file_proto_changelog_changelog_proto_rawDesc = "" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
-	"\x12SetPageSizeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
-	"\x13SetPageSizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aAddDataOriginFilterRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
-	"\x1bAddDataOriginFilterResponse\x12\x16\n" +
+	"\x15WriteToParcelResponse\"\x17\n" +
+	"\x15GetDeletedLogsRequest\"0\n" +
+	"\x16GetDeletedLogsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
 	"\x1aGetNextChangesTokenRequest\"5\n" +
 	"\x1bGetNextChangesTokenResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x15\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1b\n" +
+	"\x19GetUpsertedRecordsRequest\"4\n" +
+	"\x1aGetUpsertedRecordsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
 	"\x13HasMorePagesRequest\".\n" +
 	"\x14HasMorePagesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
@@ -967,7 +1199,38 @@ const file_proto_changelog_changelog_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
 	"\x15GetDeletedTimeRequest\"0\n" +
 	"\x16GetDeletedTimeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xde\x02\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetPageSizeRequest\"-\n" +
+	"\x13GetPageSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetPageSizeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
+	"\x13SetPageSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetDataOriginFiltersRequest\"6\n" +
+	"\x1cGetDataOriginFiltersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aAddDataOriginFilterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bAddDataOriginFilterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x95\x02\n" +
+	"\x1dChangeLogTokenResponseService\x12[\n" +
+	"\x10DescribeContents\x12\".changelog.DescribeContentsRequest\x1a#.changelog.DescribeContentsResponse\x12C\n" +
+	"\bGetToken\x12\x1a.changelog.GetTokenRequest\x1a\x1b.changelog.GetTokenResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.changelog.WriteToParcelRequest\x1a .changelog.WriteToParcelResponse2\xbd\x04\n" +
+	"\x19ChangeLogsResponseService\x12[\n" +
+	"\x10DescribeContents\x12\".changelog.DescribeContentsRequest\x1a#.changelog.DescribeContentsResponse\x12U\n" +
+	"\x0eGetDeletedLogs\x12 .changelog.GetDeletedLogsRequest\x1a!.changelog.GetDeletedLogsResponse\x12d\n" +
+	"\x13GetNextChangesToken\x12%.changelog.GetNextChangesTokenRequest\x1a&.changelog.GetNextChangesTokenResponse\x12a\n" +
+	"\x12GetUpsertedRecords\x12$.changelog.GetUpsertedRecordsRequest\x1a%.changelog.GetUpsertedRecordsResponse\x12O\n" +
+	"\fHasMorePages\x12\x1e.changelog.HasMorePagesRequest\x1a\x1f.changelog.HasMorePagesResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.changelog.WriteToParcelRequest\x1a .changelog.WriteToParcelResponse2\xdf\x01\n" +
+	"#ChangeLogsResponseDeletedLogService\x12a\n" +
+	"\x12GetDeletedRecordId\x12$.changelog.GetDeletedRecordIdRequest\x1a%.changelog.GetDeletedRecordIdResponse\x12U\n" +
+	"\x0eGetDeletedTime\x12 .changelog.GetDeletedTimeRequest\x1a!.changelog.GetDeletedTimeResponse2\xde\x02\n" +
 	"\x18ChangeLogsRequestService\x12[\n" +
 	"\x10DescribeContents\x12\".changelog.DescribeContentsRequest\x1a#.changelog.DescribeContentsResponse\x12L\n" +
 	"\vGetPageSize\x12\x1d.changelog.GetPageSizeRequest\x1a\x1e.changelog.GetPageSizeResponse\x12C\n" +
@@ -975,25 +1238,14 @@ const file_proto_changelog_changelog_proto_rawDesc = "" +
 	"\rWriteToParcel\x12\x1f.changelog.WriteToParcelRequest\x1a .changelog.WriteToParcelResponse2\xab\x01\n" +
 	"\x1fChangeLogsRequestBuilderService\x12:\n" +
 	"\x05Build\x12\x17.changelog.BuildRequest\x1a\x18.changelog.BuildResponse\x12L\n" +
-	"\vSetPageSize\x12\x1d.changelog.SetPageSizeRequest\x1a\x1e.changelog.SetPageSizeResponse2\xcf\x01\n" +
+	"\vSetPageSize\x12\x1d.changelog.SetPageSizeRequest\x1a\x1e.changelog.SetPageSizeResponse2\xb8\x02\n" +
 	"\x1cChangeLogTokenRequestService\x12[\n" +
-	"\x10DescribeContents\x12\".changelog.DescribeContentsRequest\x1a#.changelog.DescribeContentsResponse\x12R\n" +
+	"\x10DescribeContents\x12\".changelog.DescribeContentsRequest\x1a#.changelog.DescribeContentsResponse\x12g\n" +
+	"\x14GetDataOriginFilters\x12&.changelog.GetDataOriginFiltersRequest\x1a'.changelog.GetDataOriginFiltersResponse\x12R\n" +
 	"\rWriteToParcel\x12\x1f.changelog.WriteToParcelRequest\x1a .changelog.WriteToParcelResponse2\xc7\x01\n" +
 	"#ChangeLogTokenRequestBuilderService\x12d\n" +
 	"\x13AddDataOriginFilter\x12%.changelog.AddDataOriginFilterRequest\x1a&.changelog.AddDataOriginFilterResponse\x12:\n" +
-	"\x05Build\x12\x17.changelog.BuildRequest\x1a\x18.changelog.BuildResponse2\x83\x03\n" +
-	"\x19ChangeLogsResponseService\x12[\n" +
-	"\x10DescribeContents\x12\".changelog.DescribeContentsRequest\x1a#.changelog.DescribeContentsResponse\x12d\n" +
-	"\x13GetNextChangesToken\x12%.changelog.GetNextChangesTokenRequest\x1a&.changelog.GetNextChangesTokenResponse\x12O\n" +
-	"\fHasMorePages\x12\x1e.changelog.HasMorePagesRequest\x1a\x1f.changelog.HasMorePagesResponse\x12R\n" +
-	"\rWriteToParcel\x12\x1f.changelog.WriteToParcelRequest\x1a .changelog.WriteToParcelResponse2\xdf\x01\n" +
-	"#ChangeLogsResponseDeletedLogService\x12a\n" +
-	"\x12GetDeletedRecordId\x12$.changelog.GetDeletedRecordIdRequest\x1a%.changelog.GetDeletedRecordIdResponse\x12U\n" +
-	"\x0eGetDeletedTime\x12 .changelog.GetDeletedTimeRequest\x1a!.changelog.GetDeletedTimeResponse2\x95\x02\n" +
-	"\x1dChangeLogTokenResponseService\x12[\n" +
-	"\x10DescribeContents\x12\".changelog.DescribeContentsRequest\x1a#.changelog.DescribeContentsResponse\x12C\n" +
-	"\bGetToken\x12\x1a.changelog.GetTokenRequest\x1a\x1b.changelog.GetTokenResponse\x12R\n" +
-	"\rWriteToParcel\x12\x1f.changelog.WriteToParcelRequest\x1a .changelog.WriteToParcelResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/changelogb\x06proto3"
+	"\x05Build\x12\x17.changelog.BuildRequest\x1a\x18.changelog.BuildResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/changelogb\x06proto3"
 
 var (
 	file_proto_changelog_changelog_proto_rawDescOnce sync.Once
@@ -1007,72 +1259,84 @@ func file_proto_changelog_changelog_proto_rawDescGZIP() []byte {
 	return file_proto_changelog_changelog_proto_rawDescData
 }
 
-var file_proto_changelog_changelog_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_proto_changelog_changelog_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
 var file_proto_changelog_changelog_proto_goTypes = []any{
-	(*DescribeContentsRequest)(nil),     // 0: changelog.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),    // 1: changelog.DescribeContentsResponse
-	(*GetPageSizeRequest)(nil),          // 2: changelog.GetPageSizeRequest
-	(*GetPageSizeResponse)(nil),         // 3: changelog.GetPageSizeResponse
-	(*GetTokenRequest)(nil),             // 4: changelog.GetTokenRequest
-	(*GetTokenResponse)(nil),            // 5: changelog.GetTokenResponse
-	(*WriteToParcelRequest)(nil),        // 6: changelog.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),       // 7: changelog.WriteToParcelResponse
-	(*BuildRequest)(nil),                // 8: changelog.BuildRequest
-	(*BuildResponse)(nil),               // 9: changelog.BuildResponse
-	(*SetPageSizeRequest)(nil),          // 10: changelog.SetPageSizeRequest
-	(*SetPageSizeResponse)(nil),         // 11: changelog.SetPageSizeResponse
-	(*AddDataOriginFilterRequest)(nil),  // 12: changelog.AddDataOriginFilterRequest
-	(*AddDataOriginFilterResponse)(nil), // 13: changelog.AddDataOriginFilterResponse
-	(*GetNextChangesTokenRequest)(nil),  // 14: changelog.GetNextChangesTokenRequest
-	(*GetNextChangesTokenResponse)(nil), // 15: changelog.GetNextChangesTokenResponse
-	(*HasMorePagesRequest)(nil),         // 16: changelog.HasMorePagesRequest
-	(*HasMorePagesResponse)(nil),        // 17: changelog.HasMorePagesResponse
-	(*GetDeletedRecordIdRequest)(nil),   // 18: changelog.GetDeletedRecordIdRequest
-	(*GetDeletedRecordIdResponse)(nil),  // 19: changelog.GetDeletedRecordIdResponse
-	(*GetDeletedTimeRequest)(nil),       // 20: changelog.GetDeletedTimeRequest
-	(*GetDeletedTimeResponse)(nil),      // 21: changelog.GetDeletedTimeResponse
+	(*DescribeContentsRequest)(nil),      // 0: changelog.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),     // 1: changelog.DescribeContentsResponse
+	(*GetTokenRequest)(nil),              // 2: changelog.GetTokenRequest
+	(*GetTokenResponse)(nil),             // 3: changelog.GetTokenResponse
+	(*WriteToParcelRequest)(nil),         // 4: changelog.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),        // 5: changelog.WriteToParcelResponse
+	(*GetDeletedLogsRequest)(nil),        // 6: changelog.GetDeletedLogsRequest
+	(*GetDeletedLogsResponse)(nil),       // 7: changelog.GetDeletedLogsResponse
+	(*GetNextChangesTokenRequest)(nil),   // 8: changelog.GetNextChangesTokenRequest
+	(*GetNextChangesTokenResponse)(nil),  // 9: changelog.GetNextChangesTokenResponse
+	(*GetUpsertedRecordsRequest)(nil),    // 10: changelog.GetUpsertedRecordsRequest
+	(*GetUpsertedRecordsResponse)(nil),   // 11: changelog.GetUpsertedRecordsResponse
+	(*HasMorePagesRequest)(nil),          // 12: changelog.HasMorePagesRequest
+	(*HasMorePagesResponse)(nil),         // 13: changelog.HasMorePagesResponse
+	(*GetDeletedRecordIdRequest)(nil),    // 14: changelog.GetDeletedRecordIdRequest
+	(*GetDeletedRecordIdResponse)(nil),   // 15: changelog.GetDeletedRecordIdResponse
+	(*GetDeletedTimeRequest)(nil),        // 16: changelog.GetDeletedTimeRequest
+	(*GetDeletedTimeResponse)(nil),       // 17: changelog.GetDeletedTimeResponse
+	(*GetPageSizeRequest)(nil),           // 18: changelog.GetPageSizeRequest
+	(*GetPageSizeResponse)(nil),          // 19: changelog.GetPageSizeResponse
+	(*BuildRequest)(nil),                 // 20: changelog.BuildRequest
+	(*BuildResponse)(nil),                // 21: changelog.BuildResponse
+	(*SetPageSizeRequest)(nil),           // 22: changelog.SetPageSizeRequest
+	(*SetPageSizeResponse)(nil),          // 23: changelog.SetPageSizeResponse
+	(*GetDataOriginFiltersRequest)(nil),  // 24: changelog.GetDataOriginFiltersRequest
+	(*GetDataOriginFiltersResponse)(nil), // 25: changelog.GetDataOriginFiltersResponse
+	(*AddDataOriginFilterRequest)(nil),   // 26: changelog.AddDataOriginFilterRequest
+	(*AddDataOriginFilterResponse)(nil),  // 27: changelog.AddDataOriginFilterResponse
 }
 var file_proto_changelog_changelog_proto_depIdxs = []int32{
-	0,  // 0: changelog.ChangeLogsRequestService.DescribeContents:input_type -> changelog.DescribeContentsRequest
-	2,  // 1: changelog.ChangeLogsRequestService.GetPageSize:input_type -> changelog.GetPageSizeRequest
-	4,  // 2: changelog.ChangeLogsRequestService.GetToken:input_type -> changelog.GetTokenRequest
-	6,  // 3: changelog.ChangeLogsRequestService.WriteToParcel:input_type -> changelog.WriteToParcelRequest
-	8,  // 4: changelog.ChangeLogsRequestBuilderService.Build:input_type -> changelog.BuildRequest
-	10, // 5: changelog.ChangeLogsRequestBuilderService.SetPageSize:input_type -> changelog.SetPageSizeRequest
-	0,  // 6: changelog.ChangeLogTokenRequestService.DescribeContents:input_type -> changelog.DescribeContentsRequest
-	6,  // 7: changelog.ChangeLogTokenRequestService.WriteToParcel:input_type -> changelog.WriteToParcelRequest
-	12, // 8: changelog.ChangeLogTokenRequestBuilderService.AddDataOriginFilter:input_type -> changelog.AddDataOriginFilterRequest
-	8,  // 9: changelog.ChangeLogTokenRequestBuilderService.Build:input_type -> changelog.BuildRequest
-	0,  // 10: changelog.ChangeLogsResponseService.DescribeContents:input_type -> changelog.DescribeContentsRequest
-	14, // 11: changelog.ChangeLogsResponseService.GetNextChangesToken:input_type -> changelog.GetNextChangesTokenRequest
-	16, // 12: changelog.ChangeLogsResponseService.HasMorePages:input_type -> changelog.HasMorePagesRequest
-	6,  // 13: changelog.ChangeLogsResponseService.WriteToParcel:input_type -> changelog.WriteToParcelRequest
-	18, // 14: changelog.ChangeLogsResponseDeletedLogService.GetDeletedRecordId:input_type -> changelog.GetDeletedRecordIdRequest
-	20, // 15: changelog.ChangeLogsResponseDeletedLogService.GetDeletedTime:input_type -> changelog.GetDeletedTimeRequest
-	0,  // 16: changelog.ChangeLogTokenResponseService.DescribeContents:input_type -> changelog.DescribeContentsRequest
-	4,  // 17: changelog.ChangeLogTokenResponseService.GetToken:input_type -> changelog.GetTokenRequest
-	6,  // 18: changelog.ChangeLogTokenResponseService.WriteToParcel:input_type -> changelog.WriteToParcelRequest
-	1,  // 19: changelog.ChangeLogsRequestService.DescribeContents:output_type -> changelog.DescribeContentsResponse
-	3,  // 20: changelog.ChangeLogsRequestService.GetPageSize:output_type -> changelog.GetPageSizeResponse
-	5,  // 21: changelog.ChangeLogsRequestService.GetToken:output_type -> changelog.GetTokenResponse
-	7,  // 22: changelog.ChangeLogsRequestService.WriteToParcel:output_type -> changelog.WriteToParcelResponse
-	9,  // 23: changelog.ChangeLogsRequestBuilderService.Build:output_type -> changelog.BuildResponse
-	11, // 24: changelog.ChangeLogsRequestBuilderService.SetPageSize:output_type -> changelog.SetPageSizeResponse
-	1,  // 25: changelog.ChangeLogTokenRequestService.DescribeContents:output_type -> changelog.DescribeContentsResponse
-	7,  // 26: changelog.ChangeLogTokenRequestService.WriteToParcel:output_type -> changelog.WriteToParcelResponse
-	13, // 27: changelog.ChangeLogTokenRequestBuilderService.AddDataOriginFilter:output_type -> changelog.AddDataOriginFilterResponse
-	9,  // 28: changelog.ChangeLogTokenRequestBuilderService.Build:output_type -> changelog.BuildResponse
-	1,  // 29: changelog.ChangeLogsResponseService.DescribeContents:output_type -> changelog.DescribeContentsResponse
-	15, // 30: changelog.ChangeLogsResponseService.GetNextChangesToken:output_type -> changelog.GetNextChangesTokenResponse
-	17, // 31: changelog.ChangeLogsResponseService.HasMorePages:output_type -> changelog.HasMorePagesResponse
-	7,  // 32: changelog.ChangeLogsResponseService.WriteToParcel:output_type -> changelog.WriteToParcelResponse
-	19, // 33: changelog.ChangeLogsResponseDeletedLogService.GetDeletedRecordId:output_type -> changelog.GetDeletedRecordIdResponse
-	21, // 34: changelog.ChangeLogsResponseDeletedLogService.GetDeletedTime:output_type -> changelog.GetDeletedTimeResponse
-	1,  // 35: changelog.ChangeLogTokenResponseService.DescribeContents:output_type -> changelog.DescribeContentsResponse
-	5,  // 36: changelog.ChangeLogTokenResponseService.GetToken:output_type -> changelog.GetTokenResponse
-	7,  // 37: changelog.ChangeLogTokenResponseService.WriteToParcel:output_type -> changelog.WriteToParcelResponse
-	19, // [19:38] is the sub-list for method output_type
-	0,  // [0:19] is the sub-list for method input_type
+	0,  // 0: changelog.ChangeLogTokenResponseService.DescribeContents:input_type -> changelog.DescribeContentsRequest
+	2,  // 1: changelog.ChangeLogTokenResponseService.GetToken:input_type -> changelog.GetTokenRequest
+	4,  // 2: changelog.ChangeLogTokenResponseService.WriteToParcel:input_type -> changelog.WriteToParcelRequest
+	0,  // 3: changelog.ChangeLogsResponseService.DescribeContents:input_type -> changelog.DescribeContentsRequest
+	6,  // 4: changelog.ChangeLogsResponseService.GetDeletedLogs:input_type -> changelog.GetDeletedLogsRequest
+	8,  // 5: changelog.ChangeLogsResponseService.GetNextChangesToken:input_type -> changelog.GetNextChangesTokenRequest
+	10, // 6: changelog.ChangeLogsResponseService.GetUpsertedRecords:input_type -> changelog.GetUpsertedRecordsRequest
+	12, // 7: changelog.ChangeLogsResponseService.HasMorePages:input_type -> changelog.HasMorePagesRequest
+	4,  // 8: changelog.ChangeLogsResponseService.WriteToParcel:input_type -> changelog.WriteToParcelRequest
+	14, // 9: changelog.ChangeLogsResponseDeletedLogService.GetDeletedRecordId:input_type -> changelog.GetDeletedRecordIdRequest
+	16, // 10: changelog.ChangeLogsResponseDeletedLogService.GetDeletedTime:input_type -> changelog.GetDeletedTimeRequest
+	0,  // 11: changelog.ChangeLogsRequestService.DescribeContents:input_type -> changelog.DescribeContentsRequest
+	18, // 12: changelog.ChangeLogsRequestService.GetPageSize:input_type -> changelog.GetPageSizeRequest
+	2,  // 13: changelog.ChangeLogsRequestService.GetToken:input_type -> changelog.GetTokenRequest
+	4,  // 14: changelog.ChangeLogsRequestService.WriteToParcel:input_type -> changelog.WriteToParcelRequest
+	20, // 15: changelog.ChangeLogsRequestBuilderService.Build:input_type -> changelog.BuildRequest
+	22, // 16: changelog.ChangeLogsRequestBuilderService.SetPageSize:input_type -> changelog.SetPageSizeRequest
+	0,  // 17: changelog.ChangeLogTokenRequestService.DescribeContents:input_type -> changelog.DescribeContentsRequest
+	24, // 18: changelog.ChangeLogTokenRequestService.GetDataOriginFilters:input_type -> changelog.GetDataOriginFiltersRequest
+	4,  // 19: changelog.ChangeLogTokenRequestService.WriteToParcel:input_type -> changelog.WriteToParcelRequest
+	26, // 20: changelog.ChangeLogTokenRequestBuilderService.AddDataOriginFilter:input_type -> changelog.AddDataOriginFilterRequest
+	20, // 21: changelog.ChangeLogTokenRequestBuilderService.Build:input_type -> changelog.BuildRequest
+	1,  // 22: changelog.ChangeLogTokenResponseService.DescribeContents:output_type -> changelog.DescribeContentsResponse
+	3,  // 23: changelog.ChangeLogTokenResponseService.GetToken:output_type -> changelog.GetTokenResponse
+	5,  // 24: changelog.ChangeLogTokenResponseService.WriteToParcel:output_type -> changelog.WriteToParcelResponse
+	1,  // 25: changelog.ChangeLogsResponseService.DescribeContents:output_type -> changelog.DescribeContentsResponse
+	7,  // 26: changelog.ChangeLogsResponseService.GetDeletedLogs:output_type -> changelog.GetDeletedLogsResponse
+	9,  // 27: changelog.ChangeLogsResponseService.GetNextChangesToken:output_type -> changelog.GetNextChangesTokenResponse
+	11, // 28: changelog.ChangeLogsResponseService.GetUpsertedRecords:output_type -> changelog.GetUpsertedRecordsResponse
+	13, // 29: changelog.ChangeLogsResponseService.HasMorePages:output_type -> changelog.HasMorePagesResponse
+	5,  // 30: changelog.ChangeLogsResponseService.WriteToParcel:output_type -> changelog.WriteToParcelResponse
+	15, // 31: changelog.ChangeLogsResponseDeletedLogService.GetDeletedRecordId:output_type -> changelog.GetDeletedRecordIdResponse
+	17, // 32: changelog.ChangeLogsResponseDeletedLogService.GetDeletedTime:output_type -> changelog.GetDeletedTimeResponse
+	1,  // 33: changelog.ChangeLogsRequestService.DescribeContents:output_type -> changelog.DescribeContentsResponse
+	19, // 34: changelog.ChangeLogsRequestService.GetPageSize:output_type -> changelog.GetPageSizeResponse
+	3,  // 35: changelog.ChangeLogsRequestService.GetToken:output_type -> changelog.GetTokenResponse
+	5,  // 36: changelog.ChangeLogsRequestService.WriteToParcel:output_type -> changelog.WriteToParcelResponse
+	21, // 37: changelog.ChangeLogsRequestBuilderService.Build:output_type -> changelog.BuildResponse
+	23, // 38: changelog.ChangeLogsRequestBuilderService.SetPageSize:output_type -> changelog.SetPageSizeResponse
+	1,  // 39: changelog.ChangeLogTokenRequestService.DescribeContents:output_type -> changelog.DescribeContentsResponse
+	25, // 40: changelog.ChangeLogTokenRequestService.GetDataOriginFilters:output_type -> changelog.GetDataOriginFiltersResponse
+	5,  // 41: changelog.ChangeLogTokenRequestService.WriteToParcel:output_type -> changelog.WriteToParcelResponse
+	27, // 42: changelog.ChangeLogTokenRequestBuilderService.AddDataOriginFilter:output_type -> changelog.AddDataOriginFilterResponse
+	21, // 43: changelog.ChangeLogTokenRequestBuilderService.Build:output_type -> changelog.BuildResponse
+	22, // [22:44] is the sub-list for method output_type
+	0,  // [0:22] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1089,7 +1353,7 @@ func file_proto_changelog_changelog_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_changelog_changelog_proto_rawDesc), len(file_proto_changelog_changelog_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   28,
 			NumExtensions: 0,
 			NumServices:   7,
 		},

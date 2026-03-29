@@ -23,27 +23,30 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type NewStatelessTemplateRequest struct {
+type NewThumbnailTemplateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewStatelessTemplateRequest) Reset() {
-	*x = NewStatelessTemplateRequest{}
+func (x *NewThumbnailTemplateRequest) Reset() {
+	*x = NewThumbnailTemplateRequest{}
 	mi := &file_proto_templates_templates_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewStatelessTemplateRequest) String() string {
+func (x *NewThumbnailTemplateRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewStatelessTemplateRequest) ProtoMessage() {}
+func (*NewThumbnailTemplateRequest) ProtoMessage() {}
 
-func (x *NewStatelessTemplateRequest) ProtoReflect() protoreflect.Message {
+func (x *NewThumbnailTemplateRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_templates_templates_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,39 +58,60 @@ func (x *NewStatelessTemplateRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewStatelessTemplateRequest.ProtoReflect.Descriptor instead.
-func (*NewStatelessTemplateRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use NewThumbnailTemplateRequest.ProtoReflect.Descriptor instead.
+func (*NewThumbnailTemplateRequest) Descriptor() ([]byte, []int) {
 	return file_proto_templates_templates_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *NewStatelessTemplateRequest) GetArg0() string {
+func (x *NewThumbnailTemplateRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
 	return ""
 }
 
-type NewStatelessTemplateResponse struct {
+func (x *NewThumbnailTemplateRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+func (x *NewThumbnailTemplateRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewThumbnailTemplateRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type NewThumbnailTemplateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewStatelessTemplateResponse) Reset() {
-	*x = NewStatelessTemplateResponse{}
+func (x *NewThumbnailTemplateResponse) Reset() {
+	*x = NewThumbnailTemplateResponse{}
 	mi := &file_proto_templates_templates_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewStatelessTemplateResponse) String() string {
+func (x *NewThumbnailTemplateResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewStatelessTemplateResponse) ProtoMessage() {}
+func (*NewThumbnailTemplateResponse) ProtoMessage() {}
 
-func (x *NewStatelessTemplateResponse) ProtoReflect() protoreflect.Message {
+func (x *NewThumbnailTemplateResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_templates_templates_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -99,12 +123,100 @@ func (x *NewStatelessTemplateResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewStatelessTemplateResponse.ProtoReflect.Descriptor instead.
-func (*NewStatelessTemplateResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use NewThumbnailTemplateResponse.ProtoReflect.Descriptor instead.
+func (*NewThumbnailTemplateResponse) Descriptor() ([]byte, []int) {
 	return file_proto_templates_templates_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *NewStatelessTemplateResponse) GetResult() int64 {
+func (x *NewThumbnailTemplateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetContentDescriptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetContentDescriptionRequest) Reset() {
+	*x = GetContentDescriptionRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetContentDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetContentDescriptionRequest) ProtoMessage() {}
+
+func (x *GetContentDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetContentDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*GetContentDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetContentDescriptionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetContentDescriptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetContentDescriptionResponse) Reset() {
+	*x = GetContentDescriptionResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetContentDescriptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetContentDescriptionResponse) ProtoMessage() {}
+
+func (x *GetContentDescriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetContentDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*GetContentDescriptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetContentDescriptionResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -120,7 +232,7 @@ type GetTemplateTypeRequest struct {
 
 func (x *GetTemplateTypeRequest) Reset() {
 	*x = GetTemplateTypeRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[2]
+	mi := &file_proto_templates_templates_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -132,7 +244,7 @@ func (x *GetTemplateTypeRequest) String() string {
 func (*GetTemplateTypeRequest) ProtoMessage() {}
 
 func (x *GetTemplateTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[2]
+	mi := &file_proto_templates_templates_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -145,7 +257,7 @@ func (x *GetTemplateTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTemplateTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetTemplateTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{2}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetTemplateTypeRequest) GetHandle() int64 {
@@ -164,7 +276,7 @@ type GetTemplateTypeResponse struct {
 
 func (x *GetTemplateTypeResponse) Reset() {
 	*x = GetTemplateTypeResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[3]
+	mi := &file_proto_templates_templates_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -176,7 +288,7 @@ func (x *GetTemplateTypeResponse) String() string {
 func (*GetTemplateTypeResponse) ProtoMessage() {}
 
 func (x *GetTemplateTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[3]
+	mi := &file_proto_templates_templates_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -189,7 +301,7 @@ func (x *GetTemplateTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTemplateTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetTemplateTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{3}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetTemplateTypeResponse) GetResult() int32 {
@@ -199,32 +311,28 @@ func (x *GetTemplateTypeResponse) GetResult() int32 {
 	return 0
 }
 
-type NewTemperatureControlTemplateRequest struct {
+type GetThumbnailRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          int32                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewTemperatureControlTemplateRequest) Reset() {
-	*x = NewTemperatureControlTemplateRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[4]
+func (x *GetThumbnailRequest) Reset() {
+	*x = GetThumbnailRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewTemperatureControlTemplateRequest) String() string {
+func (x *GetThumbnailRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewTemperatureControlTemplateRequest) ProtoMessage() {}
+func (*GetThumbnailRequest) ProtoMessage() {}
 
-func (x *NewTemperatureControlTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[4]
+func (x *GetThumbnailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -235,68 +343,596 @@ func (x *NewTemperatureControlTemplateRequest) ProtoReflect() protoreflect.Messa
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewTemperatureControlTemplateRequest.ProtoReflect.Descriptor instead.
-func (*NewTemperatureControlTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{4}
+// Deprecated: Use GetThumbnailRequest.ProtoReflect.Descriptor instead.
+func (*GetThumbnailRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *NewTemperatureControlTemplateRequest) GetArg0() string {
+func (x *GetThumbnailRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetThumbnailResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetThumbnailResponse) Reset() {
+	*x = GetThumbnailResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetThumbnailResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetThumbnailResponse) ProtoMessage() {}
+
+func (x *GetThumbnailResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetThumbnailResponse.ProtoReflect.Descriptor instead.
+func (*GetThumbnailResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetThumbnailResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsActiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsActiveRequest) Reset() {
+	*x = IsActiveRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsActiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsActiveRequest) ProtoMessage() {}
+
+func (x *IsActiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsActiveRequest.ProtoReflect.Descriptor instead.
+func (*IsActiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *IsActiveRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsActiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsActiveResponse) Reset() {
+	*x = IsActiveResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsActiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsActiveResponse) ProtoMessage() {}
+
+func (x *IsActiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsActiveResponse.ProtoReflect.Descriptor instead.
+func (*IsActiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *IsActiveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetTemplateIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTemplateIdRequest) Reset() {
+	*x = GetTemplateIdRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTemplateIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTemplateIdRequest) ProtoMessage() {}
+
+func (x *GetTemplateIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTemplateIdRequest.ProtoReflect.Descriptor instead.
+func (*GetTemplateIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{10}
+}
+
+type GetTemplateIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTemplateIdResponse) Reset() {
+	*x = GetTemplateIdResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTemplateIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTemplateIdResponse) ProtoMessage() {}
+
+func (x *GetTemplateIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTemplateIdResponse.ProtoReflect.Descriptor instead.
+func (*GetTemplateIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetTemplateIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type ControlTemplateGetTemplateTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ControlTemplateGetTemplateTypeRequest) Reset() {
+	*x = ControlTemplateGetTemplateTypeRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ControlTemplateGetTemplateTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ControlTemplateGetTemplateTypeRequest) ProtoMessage() {}
+
+func (x *ControlTemplateGetTemplateTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ControlTemplateGetTemplateTypeRequest.ProtoReflect.Descriptor instead.
+func (*ControlTemplateGetTemplateTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{12}
+}
+
+type GetErrorTemplateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorTemplateRequest) Reset() {
+	*x = GetErrorTemplateRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorTemplateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorTemplateRequest) ProtoMessage() {}
+
+func (x *GetErrorTemplateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorTemplateRequest.ProtoReflect.Descriptor instead.
+func (*GetErrorTemplateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{13}
+}
+
+type GetErrorTemplateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorTemplateResponse) Reset() {
+	*x = GetErrorTemplateResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorTemplateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorTemplateResponse) ProtoMessage() {}
+
+func (x *GetErrorTemplateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorTemplateResponse.ProtoReflect.Descriptor instead.
+func (*GetErrorTemplateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetErrorTemplateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNoTemplateObjectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNoTemplateObjectRequest) Reset() {
+	*x = GetNoTemplateObjectRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNoTemplateObjectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNoTemplateObjectRequest) ProtoMessage() {}
+
+func (x *GetNoTemplateObjectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNoTemplateObjectRequest.ProtoReflect.Descriptor instead.
+func (*GetNoTemplateObjectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{15}
+}
+
+type GetNoTemplateObjectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNoTemplateObjectResponse) Reset() {
+	*x = GetNoTemplateObjectResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNoTemplateObjectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNoTemplateObjectResponse) ProtoMessage() {}
+
+func (x *GetNoTemplateObjectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNoTemplateObjectResponse.ProtoReflect.Descriptor instead.
+func (*GetNoTemplateObjectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetNoTemplateObjectResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewStatelessTemplateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewStatelessTemplateRequest) Reset() {
+	*x = NewStatelessTemplateRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewStatelessTemplateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewStatelessTemplateRequest) ProtoMessage() {}
+
+func (x *NewStatelessTemplateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewStatelessTemplateRequest.ProtoReflect.Descriptor instead.
+func (*NewStatelessTemplateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *NewStatelessTemplateRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
 	return ""
 }
 
-func (x *NewTemperatureControlTemplateRequest) GetArg1() int64 {
+type NewStatelessTemplateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewStatelessTemplateResponse) Reset() {
+	*x = NewStatelessTemplateResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewStatelessTemplateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewStatelessTemplateResponse) ProtoMessage() {}
+
+func (x *NewStatelessTemplateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewStatelessTemplateResponse.ProtoReflect.Descriptor instead.
+func (*NewStatelessTemplateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *NewStatelessTemplateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewToggleRangeTemplateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewToggleRangeTemplateRequest) Reset() {
+	*x = NewToggleRangeTemplateRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewToggleRangeTemplateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewToggleRangeTemplateRequest) ProtoMessage() {}
+
+func (x *NewToggleRangeTemplateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewToggleRangeTemplateRequest.ProtoReflect.Descriptor instead.
+func (*NewToggleRangeTemplateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *NewToggleRangeTemplateRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewToggleRangeTemplateRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *NewTemperatureControlTemplateRequest) GetArg2() int32 {
+func (x *NewToggleRangeTemplateRequest) GetArg2() int64 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-func (x *NewTemperatureControlTemplateRequest) GetArg3() int32 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-func (x *NewTemperatureControlTemplateRequest) GetArg4() int32 {
-	if x != nil {
-		return x.Arg4
-	}
-	return 0
-}
-
-type NewTemperatureControlTemplateResponse struct {
+type NewToggleRangeTemplateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewTemperatureControlTemplateResponse) Reset() {
-	*x = NewTemperatureControlTemplateResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[5]
+func (x *NewToggleRangeTemplateResponse) Reset() {
+	*x = NewToggleRangeTemplateResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewTemperatureControlTemplateResponse) String() string {
+func (x *NewToggleRangeTemplateResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewTemperatureControlTemplateResponse) ProtoMessage() {}
+func (*NewToggleRangeTemplateResponse) ProtoMessage() {}
 
-func (x *NewTemperatureControlTemplateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[5]
+func (x *NewToggleRangeTemplateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -307,548 +943,12 @@ func (x *NewTemperatureControlTemplateResponse) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewTemperatureControlTemplateResponse.ProtoReflect.Descriptor instead.
-func (*NewTemperatureControlTemplateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{5}
+// Deprecated: Use NewToggleRangeTemplateResponse.ProtoReflect.Descriptor instead.
+func (*NewToggleRangeTemplateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{20}
 }
 
-func (x *NewTemperatureControlTemplateResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCurrentActiveModeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentActiveModeRequest) Reset() {
-	*x = GetCurrentActiveModeRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentActiveModeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentActiveModeRequest) ProtoMessage() {}
-
-func (x *GetCurrentActiveModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentActiveModeRequest.ProtoReflect.Descriptor instead.
-func (*GetCurrentActiveModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *GetCurrentActiveModeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetCurrentActiveModeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentActiveModeResponse) Reset() {
-	*x = GetCurrentActiveModeResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentActiveModeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentActiveModeResponse) ProtoMessage() {}
-
-func (x *GetCurrentActiveModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentActiveModeResponse.ProtoReflect.Descriptor instead.
-func (*GetCurrentActiveModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetCurrentActiveModeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCurrentModeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentModeRequest) Reset() {
-	*x = GetCurrentModeRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentModeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentModeRequest) ProtoMessage() {}
-
-func (x *GetCurrentModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentModeRequest.ProtoReflect.Descriptor instead.
-func (*GetCurrentModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *GetCurrentModeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetCurrentModeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentModeResponse) Reset() {
-	*x = GetCurrentModeResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentModeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentModeResponse) ProtoMessage() {}
-
-func (x *GetCurrentModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentModeResponse.ProtoReflect.Descriptor instead.
-func (*GetCurrentModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetCurrentModeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetModesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetModesRequest) Reset() {
-	*x = GetModesRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetModesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetModesRequest) ProtoMessage() {}
-
-func (x *GetModesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetModesRequest.ProtoReflect.Descriptor instead.
-func (*GetModesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *GetModesRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetModesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetModesResponse) Reset() {
-	*x = GetModesResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetModesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetModesResponse) ProtoMessage() {}
-
-func (x *GetModesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetModesResponse.ProtoReflect.Descriptor instead.
-func (*GetModesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *GetModesResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTemplateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTemplateRequest) Reset() {
-	*x = GetTemplateRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTemplateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTemplateRequest) ProtoMessage() {}
-
-func (x *GetTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTemplateRequest.ProtoReflect.Descriptor instead.
-func (*GetTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *GetTemplateRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetTemplateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTemplateResponse) Reset() {
-	*x = GetTemplateResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTemplateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTemplateResponse) ProtoMessage() {}
-
-func (x *GetTemplateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTemplateResponse.ProtoReflect.Descriptor instead.
-func (*GetTemplateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetTemplateResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewControlButtonRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewControlButtonRequest) Reset() {
-	*x = NewControlButtonRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewControlButtonRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewControlButtonRequest) ProtoMessage() {}
-
-func (x *NewControlButtonRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewControlButtonRequest.ProtoReflect.Descriptor instead.
-func (*NewControlButtonRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *NewControlButtonRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-func (x *NewControlButtonRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-type NewControlButtonResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewControlButtonResponse) Reset() {
-	*x = NewControlButtonResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewControlButtonResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewControlButtonResponse) ProtoMessage() {}
-
-func (x *NewControlButtonResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewControlButtonResponse.ProtoReflect.Descriptor instead.
-func (*NewControlButtonResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *NewControlButtonResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type DescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsRequest) ProtoMessage() {}
-
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *DescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type DescribeContentsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsResponse) ProtoMessage() {}
-
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *DescribeContentsResponse) GetResult() int32 {
+func (x *NewToggleRangeTemplateResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -864,7 +964,7 @@ type GetActionDescriptionRequest struct {
 
 func (x *GetActionDescriptionRequest) Reset() {
 	*x = GetActionDescriptionRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[18]
+	mi := &file_proto_templates_templates_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -876,7 +976,7 @@ func (x *GetActionDescriptionRequest) String() string {
 func (*GetActionDescriptionRequest) ProtoMessage() {}
 
 func (x *GetActionDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[18]
+	mi := &file_proto_templates_templates_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -889,7 +989,7 @@ func (x *GetActionDescriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActionDescriptionRequest.ProtoReflect.Descriptor instead.
 func (*GetActionDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{18}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetActionDescriptionRequest) GetHandle() int64 {
@@ -908,7 +1008,7 @@ type GetActionDescriptionResponse struct {
 
 func (x *GetActionDescriptionResponse) Reset() {
 	*x = GetActionDescriptionResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[19]
+	mi := &file_proto_templates_templates_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -920,7 +1020,7 @@ func (x *GetActionDescriptionResponse) String() string {
 func (*GetActionDescriptionResponse) ProtoMessage() {}
 
 func (x *GetActionDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[19]
+	mi := &file_proto_templates_templates_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -933,10 +1033,98 @@ func (x *GetActionDescriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActionDescriptionResponse.ProtoReflect.Descriptor instead.
 func (*GetActionDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{19}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetActionDescriptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangeRequest) Reset() {
+	*x = GetRangeRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangeRequest) ProtoMessage() {}
+
+func (x *GetRangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangeRequest.ProtoReflect.Descriptor instead.
+func (*GetRangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetRangeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangeResponse) Reset() {
+	*x = GetRangeResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangeResponse) ProtoMessage() {}
+
+func (x *GetRangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangeResponse.ProtoReflect.Descriptor instead.
+func (*GetRangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetRangeResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -952,7 +1140,7 @@ type IsCheckedRequest struct {
 
 func (x *IsCheckedRequest) Reset() {
 	*x = IsCheckedRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[20]
+	mi := &file_proto_templates_templates_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -964,7 +1152,7 @@ func (x *IsCheckedRequest) String() string {
 func (*IsCheckedRequest) ProtoMessage() {}
 
 func (x *IsCheckedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[20]
+	mi := &file_proto_templates_templates_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -977,7 +1165,7 @@ func (x *IsCheckedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsCheckedRequest.ProtoReflect.Descriptor instead.
 func (*IsCheckedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{20}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *IsCheckedRequest) GetHandle() int64 {
@@ -996,7 +1184,7 @@ type IsCheckedResponse struct {
 
 func (x *IsCheckedResponse) Reset() {
 	*x = IsCheckedResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[21]
+	mi := &file_proto_templates_templates_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1008,7 +1196,7 @@ func (x *IsCheckedResponse) String() string {
 func (*IsCheckedResponse) ProtoMessage() {}
 
 func (x *IsCheckedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[21]
+	mi := &file_proto_templates_templates_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1021,7 +1209,7 @@ func (x *IsCheckedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsCheckedResponse.ProtoReflect.Descriptor instead.
 func (*IsCheckedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{21}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *IsCheckedResponse) GetResult() bool {
@@ -1029,102 +1217,6 @@ func (x *IsCheckedResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
-}
-
-type WriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelRequest) ProtoMessage() {}
-
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{22}
-}
-
-func (x *WriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelResponse) ProtoMessage() {}
-
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{23}
 }
 
 type NewRangeTemplateRequest struct {
@@ -1141,7 +1233,7 @@ type NewRangeTemplateRequest struct {
 
 func (x *NewRangeTemplateRequest) Reset() {
 	*x = NewRangeTemplateRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[24]
+	mi := &file_proto_templates_templates_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1153,7 +1245,7 @@ func (x *NewRangeTemplateRequest) String() string {
 func (*NewRangeTemplateRequest) ProtoMessage() {}
 
 func (x *NewRangeTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[24]
+	mi := &file_proto_templates_templates_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1166,7 +1258,7 @@ func (x *NewRangeTemplateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewRangeTemplateRequest.ProtoReflect.Descriptor instead.
 func (*NewRangeTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{24}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *NewRangeTemplateRequest) GetArg0() string {
@@ -1220,7 +1312,7 @@ type NewRangeTemplateResponse struct {
 
 func (x *NewRangeTemplateResponse) Reset() {
 	*x = NewRangeTemplateResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[25]
+	mi := &file_proto_templates_templates_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1232,7 +1324,7 @@ func (x *NewRangeTemplateResponse) String() string {
 func (*NewRangeTemplateResponse) ProtoMessage() {}
 
 func (x *NewRangeTemplateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[25]
+	mi := &file_proto_templates_templates_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1245,7 +1337,7 @@ func (x *NewRangeTemplateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewRangeTemplateResponse.ProtoReflect.Descriptor instead.
 func (*NewRangeTemplateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{25}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *NewRangeTemplateResponse) GetResult() int64 {
@@ -1264,7 +1356,7 @@ type GetCurrentValueRequest struct {
 
 func (x *GetCurrentValueRequest) Reset() {
 	*x = GetCurrentValueRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[26]
+	mi := &file_proto_templates_templates_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1276,7 +1368,7 @@ func (x *GetCurrentValueRequest) String() string {
 func (*GetCurrentValueRequest) ProtoMessage() {}
 
 func (x *GetCurrentValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[26]
+	mi := &file_proto_templates_templates_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1289,7 +1381,7 @@ func (x *GetCurrentValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentValueRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{26}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetCurrentValueRequest) GetHandle() int64 {
@@ -1308,7 +1400,7 @@ type GetCurrentValueResponse struct {
 
 func (x *GetCurrentValueResponse) Reset() {
 	*x = GetCurrentValueResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[27]
+	mi := &file_proto_templates_templates_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1320,7 +1412,7 @@ func (x *GetCurrentValueResponse) String() string {
 func (*GetCurrentValueResponse) ProtoMessage() {}
 
 func (x *GetCurrentValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[27]
+	mi := &file_proto_templates_templates_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1333,7 +1425,7 @@ func (x *GetCurrentValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentValueResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{27}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *GetCurrentValueResponse) GetResult() float32 {
@@ -1352,7 +1444,7 @@ type GetFormatStringRequest struct {
 
 func (x *GetFormatStringRequest) Reset() {
 	*x = GetFormatStringRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[28]
+	mi := &file_proto_templates_templates_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1364,7 +1456,7 @@ func (x *GetFormatStringRequest) String() string {
 func (*GetFormatStringRequest) ProtoMessage() {}
 
 func (x *GetFormatStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[28]
+	mi := &file_proto_templates_templates_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1377,7 +1469,7 @@ func (x *GetFormatStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFormatStringRequest.ProtoReflect.Descriptor instead.
 func (*GetFormatStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{28}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetFormatStringRequest) GetHandle() int64 {
@@ -1396,7 +1488,7 @@ type GetFormatStringResponse struct {
 
 func (x *GetFormatStringResponse) Reset() {
 	*x = GetFormatStringResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[29]
+	mi := &file_proto_templates_templates_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1408,7 +1500,7 @@ func (x *GetFormatStringResponse) String() string {
 func (*GetFormatStringResponse) ProtoMessage() {}
 
 func (x *GetFormatStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[29]
+	mi := &file_proto_templates_templates_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1421,7 +1513,7 @@ func (x *GetFormatStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFormatStringResponse.ProtoReflect.Descriptor instead.
 func (*GetFormatStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{29}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *GetFormatStringResponse) GetResult() int64 {
@@ -1440,7 +1532,7 @@ type GetMaxValueRequest struct {
 
 func (x *GetMaxValueRequest) Reset() {
 	*x = GetMaxValueRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[30]
+	mi := &file_proto_templates_templates_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1452,7 +1544,7 @@ func (x *GetMaxValueRequest) String() string {
 func (*GetMaxValueRequest) ProtoMessage() {}
 
 func (x *GetMaxValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[30]
+	mi := &file_proto_templates_templates_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1465,7 +1557,7 @@ func (x *GetMaxValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMaxValueRequest.ProtoReflect.Descriptor instead.
 func (*GetMaxValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{30}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetMaxValueRequest) GetHandle() int64 {
@@ -1484,7 +1576,7 @@ type GetMaxValueResponse struct {
 
 func (x *GetMaxValueResponse) Reset() {
 	*x = GetMaxValueResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[31]
+	mi := &file_proto_templates_templates_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1496,7 +1588,7 @@ func (x *GetMaxValueResponse) String() string {
 func (*GetMaxValueResponse) ProtoMessage() {}
 
 func (x *GetMaxValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[31]
+	mi := &file_proto_templates_templates_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1509,7 +1601,7 @@ func (x *GetMaxValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMaxValueResponse.ProtoReflect.Descriptor instead.
 func (*GetMaxValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{31}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *GetMaxValueResponse) GetResult() float32 {
@@ -1528,7 +1620,7 @@ type GetMinValueRequest struct {
 
 func (x *GetMinValueRequest) Reset() {
 	*x = GetMinValueRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[32]
+	mi := &file_proto_templates_templates_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1540,7 +1632,7 @@ func (x *GetMinValueRequest) String() string {
 func (*GetMinValueRequest) ProtoMessage() {}
 
 func (x *GetMinValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[32]
+	mi := &file_proto_templates_templates_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1553,7 +1645,7 @@ func (x *GetMinValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMinValueRequest.ProtoReflect.Descriptor instead.
 func (*GetMinValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{32}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetMinValueRequest) GetHandle() int64 {
@@ -1572,7 +1664,7 @@ type GetMinValueResponse struct {
 
 func (x *GetMinValueResponse) Reset() {
 	*x = GetMinValueResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[33]
+	mi := &file_proto_templates_templates_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1584,7 +1676,7 @@ func (x *GetMinValueResponse) String() string {
 func (*GetMinValueResponse) ProtoMessage() {}
 
 func (x *GetMinValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[33]
+	mi := &file_proto_templates_templates_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1597,7 +1689,7 @@ func (x *GetMinValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMinValueResponse.ProtoReflect.Descriptor instead.
 func (*GetMinValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{33}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetMinValueResponse) GetResult() float32 {
@@ -1616,7 +1708,7 @@ type GetStepValueRequest struct {
 
 func (x *GetStepValueRequest) Reset() {
 	*x = GetStepValueRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[34]
+	mi := &file_proto_templates_templates_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1628,7 +1720,7 @@ func (x *GetStepValueRequest) String() string {
 func (*GetStepValueRequest) ProtoMessage() {}
 
 func (x *GetStepValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[34]
+	mi := &file_proto_templates_templates_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1641,7 +1733,7 @@ func (x *GetStepValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStepValueRequest.ProtoReflect.Descriptor instead.
 func (*GetStepValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{34}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetStepValueRequest) GetHandle() int64 {
@@ -1660,7 +1752,7 @@ type GetStepValueResponse struct {
 
 func (x *GetStepValueResponse) Reset() {
 	*x = GetStepValueResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[35]
+	mi := &file_proto_templates_templates_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1672,7 +1764,7 @@ func (x *GetStepValueResponse) String() string {
 func (*GetStepValueResponse) ProtoMessage() {}
 
 func (x *GetStepValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[35]
+	mi := &file_proto_templates_templates_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1685,10 +1777,482 @@ func (x *GetStepValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStepValueResponse.ProtoReflect.Descriptor instead.
 func (*GetStepValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{35}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetStepValueResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewTemperatureControlTemplateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTemperatureControlTemplateRequest) Reset() {
+	*x = NewTemperatureControlTemplateRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTemperatureControlTemplateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTemperatureControlTemplateRequest) ProtoMessage() {}
+
+func (x *NewTemperatureControlTemplateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTemperatureControlTemplateRequest.ProtoReflect.Descriptor instead.
+func (*NewTemperatureControlTemplateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *NewTemperatureControlTemplateRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewTemperatureControlTemplateRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewTemperatureControlTemplateRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewTemperatureControlTemplateRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *NewTemperatureControlTemplateRequest) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type NewTemperatureControlTemplateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTemperatureControlTemplateResponse) Reset() {
+	*x = NewTemperatureControlTemplateResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTemperatureControlTemplateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTemperatureControlTemplateResponse) ProtoMessage() {}
+
+func (x *NewTemperatureControlTemplateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTemperatureControlTemplateResponse.ProtoReflect.Descriptor instead.
+func (*NewTemperatureControlTemplateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *NewTemperatureControlTemplateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCurrentActiveModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentActiveModeRequest) Reset() {
+	*x = GetCurrentActiveModeRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentActiveModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentActiveModeRequest) ProtoMessage() {}
+
+func (x *GetCurrentActiveModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentActiveModeRequest.ProtoReflect.Descriptor instead.
+func (*GetCurrentActiveModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetCurrentActiveModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCurrentActiveModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentActiveModeResponse) Reset() {
+	*x = GetCurrentActiveModeResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentActiveModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentActiveModeResponse) ProtoMessage() {}
+
+func (x *GetCurrentActiveModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentActiveModeResponse.ProtoReflect.Descriptor instead.
+func (*GetCurrentActiveModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetCurrentActiveModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCurrentModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentModeRequest) Reset() {
+	*x = GetCurrentModeRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentModeRequest) ProtoMessage() {}
+
+func (x *GetCurrentModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentModeRequest.ProtoReflect.Descriptor instead.
+func (*GetCurrentModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetCurrentModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCurrentModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentModeResponse) Reset() {
+	*x = GetCurrentModeResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentModeResponse) ProtoMessage() {}
+
+func (x *GetCurrentModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentModeResponse.ProtoReflect.Descriptor instead.
+func (*GetCurrentModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *GetCurrentModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetModesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModesRequest) Reset() {
+	*x = GetModesRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModesRequest) ProtoMessage() {}
+
+func (x *GetModesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModesRequest.ProtoReflect.Descriptor instead.
+func (*GetModesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetModesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetModesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModesResponse) Reset() {
+	*x = GetModesResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModesResponse) ProtoMessage() {}
+
+func (x *GetModesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModesResponse.ProtoReflect.Descriptor instead.
+func (*GetModesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *GetModesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTemplateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTemplateRequest) Reset() {
+	*x = GetTemplateRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTemplateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTemplateRequest) ProtoMessage() {}
+
+func (x *GetTemplateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTemplateRequest.ProtoReflect.Descriptor instead.
+func (*GetTemplateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetTemplateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTemplateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTemplateResponse) Reset() {
+	*x = GetTemplateResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTemplateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTemplateResponse) ProtoMessage() {}
+
+func (x *GetTemplateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTemplateResponse.ProtoReflect.Descriptor instead.
+func (*GetTemplateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetTemplateResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1705,7 +2269,7 @@ type NewToggleTemplateRequest struct {
 
 func (x *NewToggleTemplateRequest) Reset() {
 	*x = NewToggleTemplateRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[36]
+	mi := &file_proto_templates_templates_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1717,7 +2281,7 @@ func (x *NewToggleTemplateRequest) String() string {
 func (*NewToggleTemplateRequest) ProtoMessage() {}
 
 func (x *NewToggleTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[36]
+	mi := &file_proto_templates_templates_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1730,7 +2294,7 @@ func (x *NewToggleTemplateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewToggleTemplateRequest.ProtoReflect.Descriptor instead.
 func (*NewToggleTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{36}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *NewToggleTemplateRequest) GetArg0() string {
@@ -1756,7 +2320,7 @@ type NewToggleTemplateResponse struct {
 
 func (x *NewToggleTemplateResponse) Reset() {
 	*x = NewToggleTemplateResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[37]
+	mi := &file_proto_templates_templates_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1768,7 +2332,7 @@ func (x *NewToggleTemplateResponse) String() string {
 func (*NewToggleTemplateResponse) ProtoMessage() {}
 
 func (x *NewToggleTemplateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[37]
+	mi := &file_proto_templates_templates_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1781,7 +2345,7 @@ func (x *NewToggleTemplateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewToggleTemplateResponse.ProtoReflect.Descriptor instead.
 func (*NewToggleTemplateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{37}
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *NewToggleTemplateResponse) GetResult() int64 {
@@ -1791,598 +2355,28 @@ func (x *NewToggleTemplateResponse) GetResult() int64 {
 	return 0
 }
 
-type GetContentDescriptionRequest struct {
+type NewControlButtonRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetContentDescriptionRequest) Reset() {
-	*x = GetContentDescriptionRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetContentDescriptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetContentDescriptionRequest) ProtoMessage() {}
-
-func (x *GetContentDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetContentDescriptionRequest.ProtoReflect.Descriptor instead.
-func (*GetContentDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *GetContentDescriptionRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetContentDescriptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetContentDescriptionResponse) Reset() {
-	*x = GetContentDescriptionResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetContentDescriptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetContentDescriptionResponse) ProtoMessage() {}
-
-func (x *GetContentDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetContentDescriptionResponse.ProtoReflect.Descriptor instead.
-func (*GetContentDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *GetContentDescriptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewThumbnailTemplateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewThumbnailTemplateRequest) Reset() {
-	*x = NewThumbnailTemplateRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewThumbnailTemplateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewThumbnailTemplateRequest) ProtoMessage() {}
-
-func (x *NewThumbnailTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewThumbnailTemplateRequest.ProtoReflect.Descriptor instead.
-func (*NewThumbnailTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *NewThumbnailTemplateRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *NewThumbnailTemplateRequest) GetArg1() bool {
-	if x != nil {
-		return x.Arg1
-	}
-	return false
-}
-
-func (x *NewThumbnailTemplateRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *NewThumbnailTemplateRequest) GetArg3() string {
-	if x != nil {
-		return x.Arg3
-	}
-	return ""
-}
-
-type NewThumbnailTemplateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewThumbnailTemplateResponse) Reset() {
-	*x = NewThumbnailTemplateResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewThumbnailTemplateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewThumbnailTemplateResponse) ProtoMessage() {}
-
-func (x *NewThumbnailTemplateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewThumbnailTemplateResponse.ProtoReflect.Descriptor instead.
-func (*NewThumbnailTemplateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *NewThumbnailTemplateResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetThumbnailRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetThumbnailRequest) Reset() {
-	*x = GetThumbnailRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetThumbnailRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetThumbnailRequest) ProtoMessage() {}
-
-func (x *GetThumbnailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetThumbnailRequest.ProtoReflect.Descriptor instead.
-func (*GetThumbnailRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *GetThumbnailRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetThumbnailResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetThumbnailResponse) Reset() {
-	*x = GetThumbnailResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetThumbnailResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetThumbnailResponse) ProtoMessage() {}
-
-func (x *GetThumbnailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetThumbnailResponse.ProtoReflect.Descriptor instead.
-func (*GetThumbnailResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetThumbnailResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsActiveRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsActiveRequest) Reset() {
-	*x = IsActiveRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsActiveRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsActiveRequest) ProtoMessage() {}
-
-func (x *IsActiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsActiveRequest.ProtoReflect.Descriptor instead.
-func (*IsActiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *IsActiveRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsActiveResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsActiveResponse) Reset() {
-	*x = IsActiveResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsActiveResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsActiveResponse) ProtoMessage() {}
-
-func (x *IsActiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsActiveResponse.ProtoReflect.Descriptor instead.
-func (*IsActiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *IsActiveResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetTemplateIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTemplateIdRequest) Reset() {
-	*x = GetTemplateIdRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTemplateIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTemplateIdRequest) ProtoMessage() {}
-
-func (x *GetTemplateIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTemplateIdRequest.ProtoReflect.Descriptor instead.
-func (*GetTemplateIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{46}
-}
-
-type GetTemplateIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTemplateIdResponse) Reset() {
-	*x = GetTemplateIdResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTemplateIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTemplateIdResponse) ProtoMessage() {}
-
-func (x *GetTemplateIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTemplateIdResponse.ProtoReflect.Descriptor instead.
-func (*GetTemplateIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetTemplateIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type ControlTemplateGetTemplateTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ControlTemplateGetTemplateTypeRequest) Reset() {
-	*x = ControlTemplateGetTemplateTypeRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ControlTemplateGetTemplateTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ControlTemplateGetTemplateTypeRequest) ProtoMessage() {}
-
-func (x *ControlTemplateGetTemplateTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ControlTemplateGetTemplateTypeRequest.ProtoReflect.Descriptor instead.
-func (*ControlTemplateGetTemplateTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{48}
-}
-
-type GetErrorTemplateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetErrorTemplateRequest) Reset() {
-	*x = GetErrorTemplateRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetErrorTemplateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetErrorTemplateRequest) ProtoMessage() {}
-
-func (x *GetErrorTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetErrorTemplateRequest.ProtoReflect.Descriptor instead.
-func (*GetErrorTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{49}
-}
-
-type GetErrorTemplateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetErrorTemplateResponse) Reset() {
-	*x = GetErrorTemplateResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetErrorTemplateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetErrorTemplateResponse) ProtoMessage() {}
-
-func (x *GetErrorTemplateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetErrorTemplateResponse.ProtoReflect.Descriptor instead.
-func (*GetErrorTemplateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{50}
-}
-
-func (x *GetErrorTemplateResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetNoTemplateObjectRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNoTemplateObjectRequest) Reset() {
-	*x = GetNoTemplateObjectRequest{}
+func (x *NewControlButtonRequest) Reset() {
+	*x = NewControlButtonRequest{}
 	mi := &file_proto_templates_templates_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetNoTemplateObjectRequest) String() string {
+func (x *NewControlButtonRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetNoTemplateObjectRequest) ProtoMessage() {}
+func (*NewControlButtonRequest) ProtoMessage() {}
 
-func (x *GetNoTemplateObjectRequest) ProtoReflect() protoreflect.Message {
+func (x *NewControlButtonRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_templates_templates_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2394,137 +2388,47 @@ func (x *GetNoTemplateObjectRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetNoTemplateObjectRequest.ProtoReflect.Descriptor instead.
-func (*GetNoTemplateObjectRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use NewControlButtonRequest.ProtoReflect.Descriptor instead.
+func (*NewControlButtonRequest) Descriptor() ([]byte, []int) {
 	return file_proto_templates_templates_proto_rawDescGZIP(), []int{51}
 }
 
-type GetNoTemplateObjectResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNoTemplateObjectResponse) Reset() {
-	*x = GetNoTemplateObjectResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNoTemplateObjectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNoTemplateObjectResponse) ProtoMessage() {}
-
-func (x *GetNoTemplateObjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNoTemplateObjectResponse.ProtoReflect.Descriptor instead.
-func (*GetNoTemplateObjectResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *GetNoTemplateObjectResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewToggleRangeTemplateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewToggleRangeTemplateRequest) Reset() {
-	*x = NewToggleRangeTemplateRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewToggleRangeTemplateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewToggleRangeTemplateRequest) ProtoMessage() {}
-
-func (x *NewToggleRangeTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewToggleRangeTemplateRequest.ProtoReflect.Descriptor instead.
-func (*NewToggleRangeTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *NewToggleRangeTemplateRequest) GetArg0() string {
+func (x *NewControlButtonRequest) GetArg0() bool {
 	if x != nil {
 		return x.Arg0
+	}
+	return false
+}
+
+func (x *NewControlButtonRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
 	}
 	return ""
 }
 
-func (x *NewToggleRangeTemplateRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *NewToggleRangeTemplateRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewToggleRangeTemplateResponse struct {
+type NewControlButtonResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewToggleRangeTemplateResponse) Reset() {
-	*x = NewToggleRangeTemplateResponse{}
-	mi := &file_proto_templates_templates_proto_msgTypes[54]
+func (x *NewControlButtonResponse) Reset() {
+	*x = NewControlButtonResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewToggleRangeTemplateResponse) String() string {
+func (x *NewControlButtonResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewToggleRangeTemplateResponse) ProtoMessage() {}
+func (*NewControlButtonResponse) ProtoMessage() {}
 
-func (x *NewToggleRangeTemplateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[54]
+func (x *NewControlButtonResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2535,40 +2439,40 @@ func (x *NewToggleRangeTemplateResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewToggleRangeTemplateResponse.ProtoReflect.Descriptor instead.
-func (*NewToggleRangeTemplateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{54}
+// Deprecated: Use NewControlButtonResponse.ProtoReflect.Descriptor instead.
+func (*NewControlButtonResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{52}
 }
 
-func (x *NewToggleRangeTemplateResponse) GetResult() int64 {
+func (x *NewControlButtonResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetRangeRequest struct {
+type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetRangeRequest) Reset() {
-	*x = GetRangeRequest{}
-	mi := &file_proto_templates_templates_proto_msgTypes[55]
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetRangeRequest) String() string {
+func (x *DescribeContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRangeRequest) ProtoMessage() {}
+func (*DescribeContentsRequest) ProtoMessage() {}
 
-func (x *GetRangeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_templates_templates_proto_msgTypes[55]
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2579,39 +2483,142 @@ func (x *GetRangeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRangeRequest.ProtoReflect.Descriptor instead.
-func (*GetRangeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_templates_templates_proto_rawDescGZIP(), []int{55}
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{53}
 }
 
-func (x *GetRangeRequest) GetHandle() int64 {
+func (x *DescribeContentsRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-type GetRangeResponse struct {
+type DescribeContentsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetRangeResponse) Reset() {
-	*x = GetRangeResponse{}
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_templates_templates_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_templates_templates_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_templates_templates_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_templates_templates_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
 	mi := &file_proto_templates_templates_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetRangeResponse) String() string {
+func (x *WriteToParcelResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRangeResponse) ProtoMessage() {}
+func (*WriteToParcelResponse) ProtoMessage() {}
 
-func (x *GetRangeResponse) ProtoReflect() protoreflect.Message {
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_templates_templates_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2623,77 +2630,71 @@ func (x *GetRangeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRangeResponse.ProtoReflect.Descriptor instead.
-func (*GetRangeResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
 	return file_proto_templates_templates_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *GetRangeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 var File_proto_templates_templates_proto protoreflect.FileDescriptor
 
 const file_proto_templates_templates_proto_rawDesc = "" +
 	"\n" +
-	"\x1fproto/templates/templates.proto\x12\ttemplates\"1\n" +
-	"\x1bNewStatelessTemplateRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"6\n" +
-	"\x1cNewStatelessTemplateResponse\x12\x16\n" +
+	"\x1fproto/templates/templates.proto\x12\ttemplates\"m\n" +
+	"\x1bNewThumbnailTemplateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\"6\n" +
+	"\x1cNewThumbnailTemplateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	"\x1cGetContentDescriptionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetContentDescriptionResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
 	"\x16GetTemplateTypeRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
 	"\x17GetTemplateTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x8a\x01\n" +
-	"$NewTemperatureControlTemplateRequest\x12\x12\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x13GetThumbnailRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetThumbnailResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fIsActiveRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10IsActiveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
+	"\x14GetTemplateIdRequest\"/\n" +
+	"\x15GetTemplateIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"'\n" +
+	"%ControlTemplateGetTemplateTypeRequest\"\x19\n" +
+	"\x17GetErrorTemplateRequest\"2\n" +
+	"\x18GetErrorTemplateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetNoTemplateObjectRequest\"5\n" +
+	"\x1bGetNoTemplateObjectResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bNewStatelessTemplateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"6\n" +
+	"\x1cNewStatelessTemplateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"[\n" +
+	"\x1dNewToggleRangeTemplateRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\"?\n" +
-	"%NewTemperatureControlTemplateResponse\x12\x16\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"8\n" +
+	"\x1eNewToggleRangeTemplateResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
-	"\x1bGetCurrentActiveModeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
-	"\x1cGetCurrentActiveModeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
-	"\x15GetCurrentModeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
-	"\x16GetCurrentModeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
-	"\x0fGetModesRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10GetModesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
-	"\x12GetTemplateRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
-	"\x13GetTemplateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
-	"\x17NewControlButtonRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"2\n" +
-	"\x18NewControlButtonResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x17DescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"5\n" +
 	"\x1bGetActionDescriptionRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
 	"\x1cGetActionDescriptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fGetRangeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetRangeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
 	"\x10IsCheckedRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
 	"\x11IsCheckedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"V\n" +
-	"\x14WriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"\x91\x01\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x91\x01\n" +
 	"\x17NewRangeTemplateRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\x12\x12\n" +
@@ -2722,80 +2723,50 @@ const file_proto_templates_templates_proto_rawDesc = "" +
 	"\x13GetStepValueRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
 	"\x14GetStepValueResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"B\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x8a\x01\n" +
+	"$NewTemperatureControlTemplateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\"?\n" +
+	"%NewTemperatureControlTemplateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bGetCurrentActiveModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetCurrentActiveModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetCurrentModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetCurrentModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fGetModesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetModesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x12GetTemplateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetTemplateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
 	"\x18NewToggleTemplateRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
 	"\x19NewToggleTemplateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
-	"\x1cGetContentDescriptionRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
-	"\x1dGetContentDescriptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"m\n" +
-	"\x1bNewThumbnailTemplateRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\bR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\tR\x04arg3\"6\n" +
-	"\x1cNewThumbnailTemplateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x13GetThumbnailRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
-	"\x14GetThumbnailResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x0fIsActiveRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10IsActiveResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
-	"\x14GetTemplateIdRequest\"/\n" +
-	"\x15GetTemplateIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"'\n" +
-	"%ControlTemplateGetTemplateTypeRequest\"\x19\n" +
-	"\x17GetErrorTemplateRequest\"2\n" +
-	"\x18GetErrorTemplateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
-	"\x1aGetNoTemplateObjectRequest\"5\n" +
-	"\x1bGetNoTemplateObjectResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"[\n" +
-	"\x1dNewToggleRangeTemplateRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"8\n" +
-	"\x1eNewToggleRangeTemplateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x0fGetRangeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10GetRangeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xdd\x01\n" +
-	"\x18StatelessTemplateService\x12g\n" +
-	"\x14NewStatelessTemplate\x12&.templates.NewStatelessTemplateRequest\x1a'.templates.NewStatelessTemplateResponse\x12X\n" +
-	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse2\xd5\x04\n" +
-	"!TemperatureControlTemplateService\x12\x82\x01\n" +
-	"\x1dNewTemperatureControlTemplate\x12/.templates.NewTemperatureControlTemplateRequest\x1a0.templates.NewTemperatureControlTemplateResponse\x12g\n" +
-	"\x14GetCurrentActiveMode\x12&.templates.GetCurrentActiveModeRequest\x1a'.templates.GetCurrentActiveModeResponse\x12U\n" +
-	"\x0eGetCurrentMode\x12 .templates.GetCurrentModeRequest\x1a!.templates.GetCurrentModeResponse\x12C\n" +
-	"\bGetModes\x12\x1a.templates.GetModesRequest\x1a\x1b.templates.GetModesResponse\x12L\n" +
-	"\vGetTemplate\x12\x1d.templates.GetTemplateRequest\x1a\x1e.templates.GetTemplateResponse\x12X\n" +
-	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse2\xd5\x03\n" +
-	"\x14ControlButtonService\x12[\n" +
-	"\x10NewControlButton\x12\".templates.NewControlButtonRequest\x1a#.templates.NewControlButtonResponse\x12[\n" +
-	"\x10DescribeContents\x12\".templates.DescribeContentsRequest\x1a#.templates.DescribeContentsResponse\x12g\n" +
-	"\x14GetActionDescription\x12&.templates.GetActionDescriptionRequest\x1a'.templates.GetActionDescriptionResponse\x12F\n" +
-	"\tIsChecked\x12\x1b.templates.IsCheckedRequest\x1a\x1c.templates.IsCheckedResponse\x12R\n" +
-	"\rWriteToParcel\x12\x1f.templates.WriteToParcelRequest\x1a .templates.WriteToParcelResponse2\xee\x04\n" +
-	"\x14RangeTemplateService\x12[\n" +
-	"\x10NewRangeTemplate\x12\".templates.NewRangeTemplateRequest\x1a#.templates.NewRangeTemplateResponse\x12X\n" +
-	"\x0fGetCurrentValue\x12!.templates.GetCurrentValueRequest\x1a\".templates.GetCurrentValueResponse\x12X\n" +
-	"\x0fGetFormatString\x12!.templates.GetFormatStringRequest\x1a\".templates.GetFormatStringResponse\x12L\n" +
-	"\vGetMaxValue\x12\x1d.templates.GetMaxValueRequest\x1a\x1e.templates.GetMaxValueResponse\x12L\n" +
-	"\vGetMinValue\x12\x1d.templates.GetMinValueRequest\x1a\x1e.templates.GetMinValueResponse\x12O\n" +
-	"\fGetStepValue\x12\x1e.templates.GetStepValueRequest\x1a\x1f.templates.GetStepValueResponse\x12X\n" +
-	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse2\x85\x03\n" +
-	"\x15ToggleTemplateService\x12^\n" +
-	"\x11NewToggleTemplate\x12#.templates.NewToggleTemplateRequest\x1a$.templates.NewToggleTemplateResponse\x12j\n" +
-	"\x15GetContentDescription\x12'.templates.GetContentDescriptionRequest\x1a(.templates.GetContentDescriptionResponse\x12X\n" +
-	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse\x12F\n" +
-	"\tIsChecked\x12\x1b.templates.IsCheckedRequest\x1a\x1c.templates.IsCheckedResponse2\xdf\x03\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x17NewControlButtonRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"2\n" +
+	"\x18NewControlButtonResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse2\xdf\x03\n" +
 	"\x18ThumbnailTemplateService\x12g\n" +
 	"\x14NewThumbnailTemplate\x12&.templates.NewThumbnailTemplateRequest\x1a'.templates.NewThumbnailTemplateResponse\x12j\n" +
 	"\x15GetContentDescription\x12'.templates.GetContentDescriptionRequest\x1a(.templates.GetContentDescriptionResponse\x12X\n" +
@@ -2806,13 +2777,42 @@ const file_proto_templates_templates_proto_rawDesc = "" +
 	"\rGetTemplateId\x12\x1f.templates.GetTemplateIdRequest\x1a .templates.GetTemplateIdResponse\x12g\n" +
 	"\x0fGetTemplateType\x120.templates.ControlTemplateGetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse\x12[\n" +
 	"\x10GetErrorTemplate\x12\".templates.GetErrorTemplateRequest\x1a#.templates.GetErrorTemplateResponse\x12d\n" +
-	"\x13GetNoTemplateObject\x12%.templates.GetNoTemplateObjectRequest\x1a&.templates.GetNoTemplateObjectResponse2\xdb\x03\n" +
+	"\x13GetNoTemplateObject\x12%.templates.GetNoTemplateObjectRequest\x1a&.templates.GetNoTemplateObjectResponse2\xdd\x01\n" +
+	"\x18StatelessTemplateService\x12g\n" +
+	"\x14NewStatelessTemplate\x12&.templates.NewStatelessTemplateRequest\x1a'.templates.NewStatelessTemplateResponse\x12X\n" +
+	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse2\xdb\x03\n" +
 	"\x1aToggleRangeTemplateService\x12m\n" +
 	"\x16NewToggleRangeTemplate\x12(.templates.NewToggleRangeTemplateRequest\x1a).templates.NewToggleRangeTemplateResponse\x12g\n" +
 	"\x14GetActionDescription\x12&.templates.GetActionDescriptionRequest\x1a'.templates.GetActionDescriptionResponse\x12C\n" +
 	"\bGetRange\x12\x1a.templates.GetRangeRequest\x1a\x1b.templates.GetRangeResponse\x12X\n" +
 	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse\x12F\n" +
-	"\tIsChecked\x12\x1b.templates.IsCheckedRequest\x1a\x1c.templates.IsCheckedResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/templatesb\x06proto3"
+	"\tIsChecked\x12\x1b.templates.IsCheckedRequest\x1a\x1c.templates.IsCheckedResponse2\xee\x04\n" +
+	"\x14RangeTemplateService\x12[\n" +
+	"\x10NewRangeTemplate\x12\".templates.NewRangeTemplateRequest\x1a#.templates.NewRangeTemplateResponse\x12X\n" +
+	"\x0fGetCurrentValue\x12!.templates.GetCurrentValueRequest\x1a\".templates.GetCurrentValueResponse\x12X\n" +
+	"\x0fGetFormatString\x12!.templates.GetFormatStringRequest\x1a\".templates.GetFormatStringResponse\x12L\n" +
+	"\vGetMaxValue\x12\x1d.templates.GetMaxValueRequest\x1a\x1e.templates.GetMaxValueResponse\x12L\n" +
+	"\vGetMinValue\x12\x1d.templates.GetMinValueRequest\x1a\x1e.templates.GetMinValueResponse\x12O\n" +
+	"\fGetStepValue\x12\x1e.templates.GetStepValueRequest\x1a\x1f.templates.GetStepValueResponse\x12X\n" +
+	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse2\xd5\x04\n" +
+	"!TemperatureControlTemplateService\x12\x82\x01\n" +
+	"\x1dNewTemperatureControlTemplate\x12/.templates.NewTemperatureControlTemplateRequest\x1a0.templates.NewTemperatureControlTemplateResponse\x12g\n" +
+	"\x14GetCurrentActiveMode\x12&.templates.GetCurrentActiveModeRequest\x1a'.templates.GetCurrentActiveModeResponse\x12U\n" +
+	"\x0eGetCurrentMode\x12 .templates.GetCurrentModeRequest\x1a!.templates.GetCurrentModeResponse\x12C\n" +
+	"\bGetModes\x12\x1a.templates.GetModesRequest\x1a\x1b.templates.GetModesResponse\x12L\n" +
+	"\vGetTemplate\x12\x1d.templates.GetTemplateRequest\x1a\x1e.templates.GetTemplateResponse\x12X\n" +
+	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse2\x85\x03\n" +
+	"\x15ToggleTemplateService\x12^\n" +
+	"\x11NewToggleTemplate\x12#.templates.NewToggleTemplateRequest\x1a$.templates.NewToggleTemplateResponse\x12j\n" +
+	"\x15GetContentDescription\x12'.templates.GetContentDescriptionRequest\x1a(.templates.GetContentDescriptionResponse\x12X\n" +
+	"\x0fGetTemplateType\x12!.templates.GetTemplateTypeRequest\x1a\".templates.GetTemplateTypeResponse\x12F\n" +
+	"\tIsChecked\x12\x1b.templates.IsCheckedRequest\x1a\x1c.templates.IsCheckedResponse2\xd5\x03\n" +
+	"\x14ControlButtonService\x12[\n" +
+	"\x10NewControlButton\x12\".templates.NewControlButtonRequest\x1a#.templates.NewControlButtonResponse\x12[\n" +
+	"\x10DescribeContents\x12\".templates.DescribeContentsRequest\x1a#.templates.DescribeContentsResponse\x12g\n" +
+	"\x14GetActionDescription\x12&.templates.GetActionDescriptionRequest\x1a'.templates.GetActionDescriptionResponse\x12F\n" +
+	"\tIsChecked\x12\x1b.templates.IsCheckedRequest\x1a\x1c.templates.IsCheckedResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.templates.WriteToParcelRequest\x1a .templates.WriteToParcelResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/templatesb\x06proto3"
 
 var (
 	file_proto_templates_templates_proto_rawDescOnce sync.Once
@@ -2828,141 +2828,141 @@ func file_proto_templates_templates_proto_rawDescGZIP() []byte {
 
 var file_proto_templates_templates_proto_msgTypes = make([]protoimpl.MessageInfo, 57)
 var file_proto_templates_templates_proto_goTypes = []any{
-	(*NewStatelessTemplateRequest)(nil),           // 0: templates.NewStatelessTemplateRequest
-	(*NewStatelessTemplateResponse)(nil),          // 1: templates.NewStatelessTemplateResponse
-	(*GetTemplateTypeRequest)(nil),                // 2: templates.GetTemplateTypeRequest
-	(*GetTemplateTypeResponse)(nil),               // 3: templates.GetTemplateTypeResponse
-	(*NewTemperatureControlTemplateRequest)(nil),  // 4: templates.NewTemperatureControlTemplateRequest
-	(*NewTemperatureControlTemplateResponse)(nil), // 5: templates.NewTemperatureControlTemplateResponse
-	(*GetCurrentActiveModeRequest)(nil),           // 6: templates.GetCurrentActiveModeRequest
-	(*GetCurrentActiveModeResponse)(nil),          // 7: templates.GetCurrentActiveModeResponse
-	(*GetCurrentModeRequest)(nil),                 // 8: templates.GetCurrentModeRequest
-	(*GetCurrentModeResponse)(nil),                // 9: templates.GetCurrentModeResponse
-	(*GetModesRequest)(nil),                       // 10: templates.GetModesRequest
-	(*GetModesResponse)(nil),                      // 11: templates.GetModesResponse
-	(*GetTemplateRequest)(nil),                    // 12: templates.GetTemplateRequest
-	(*GetTemplateResponse)(nil),                   // 13: templates.GetTemplateResponse
-	(*NewControlButtonRequest)(nil),               // 14: templates.NewControlButtonRequest
-	(*NewControlButtonResponse)(nil),              // 15: templates.NewControlButtonResponse
-	(*DescribeContentsRequest)(nil),               // 16: templates.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),              // 17: templates.DescribeContentsResponse
-	(*GetActionDescriptionRequest)(nil),           // 18: templates.GetActionDescriptionRequest
-	(*GetActionDescriptionResponse)(nil),          // 19: templates.GetActionDescriptionResponse
-	(*IsCheckedRequest)(nil),                      // 20: templates.IsCheckedRequest
-	(*IsCheckedResponse)(nil),                     // 21: templates.IsCheckedResponse
-	(*WriteToParcelRequest)(nil),                  // 22: templates.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                 // 23: templates.WriteToParcelResponse
-	(*NewRangeTemplateRequest)(nil),               // 24: templates.NewRangeTemplateRequest
-	(*NewRangeTemplateResponse)(nil),              // 25: templates.NewRangeTemplateResponse
-	(*GetCurrentValueRequest)(nil),                // 26: templates.GetCurrentValueRequest
-	(*GetCurrentValueResponse)(nil),               // 27: templates.GetCurrentValueResponse
-	(*GetFormatStringRequest)(nil),                // 28: templates.GetFormatStringRequest
-	(*GetFormatStringResponse)(nil),               // 29: templates.GetFormatStringResponse
-	(*GetMaxValueRequest)(nil),                    // 30: templates.GetMaxValueRequest
-	(*GetMaxValueResponse)(nil),                   // 31: templates.GetMaxValueResponse
-	(*GetMinValueRequest)(nil),                    // 32: templates.GetMinValueRequest
-	(*GetMinValueResponse)(nil),                   // 33: templates.GetMinValueResponse
-	(*GetStepValueRequest)(nil),                   // 34: templates.GetStepValueRequest
-	(*GetStepValueResponse)(nil),                  // 35: templates.GetStepValueResponse
-	(*NewToggleTemplateRequest)(nil),              // 36: templates.NewToggleTemplateRequest
-	(*NewToggleTemplateResponse)(nil),             // 37: templates.NewToggleTemplateResponse
-	(*GetContentDescriptionRequest)(nil),          // 38: templates.GetContentDescriptionRequest
-	(*GetContentDescriptionResponse)(nil),         // 39: templates.GetContentDescriptionResponse
-	(*NewThumbnailTemplateRequest)(nil),           // 40: templates.NewThumbnailTemplateRequest
-	(*NewThumbnailTemplateResponse)(nil),          // 41: templates.NewThumbnailTemplateResponse
-	(*GetThumbnailRequest)(nil),                   // 42: templates.GetThumbnailRequest
-	(*GetThumbnailResponse)(nil),                  // 43: templates.GetThumbnailResponse
-	(*IsActiveRequest)(nil),                       // 44: templates.IsActiveRequest
-	(*IsActiveResponse)(nil),                      // 45: templates.IsActiveResponse
-	(*GetTemplateIdRequest)(nil),                  // 46: templates.GetTemplateIdRequest
-	(*GetTemplateIdResponse)(nil),                 // 47: templates.GetTemplateIdResponse
-	(*ControlTemplateGetTemplateTypeRequest)(nil), // 48: templates.ControlTemplateGetTemplateTypeRequest
-	(*GetErrorTemplateRequest)(nil),               // 49: templates.GetErrorTemplateRequest
-	(*GetErrorTemplateResponse)(nil),              // 50: templates.GetErrorTemplateResponse
-	(*GetNoTemplateObjectRequest)(nil),            // 51: templates.GetNoTemplateObjectRequest
-	(*GetNoTemplateObjectResponse)(nil),           // 52: templates.GetNoTemplateObjectResponse
-	(*NewToggleRangeTemplateRequest)(nil),         // 53: templates.NewToggleRangeTemplateRequest
-	(*NewToggleRangeTemplateResponse)(nil),        // 54: templates.NewToggleRangeTemplateResponse
-	(*GetRangeRequest)(nil),                       // 55: templates.GetRangeRequest
-	(*GetRangeResponse)(nil),                      // 56: templates.GetRangeResponse
+	(*NewThumbnailTemplateRequest)(nil),           // 0: templates.NewThumbnailTemplateRequest
+	(*NewThumbnailTemplateResponse)(nil),          // 1: templates.NewThumbnailTemplateResponse
+	(*GetContentDescriptionRequest)(nil),          // 2: templates.GetContentDescriptionRequest
+	(*GetContentDescriptionResponse)(nil),         // 3: templates.GetContentDescriptionResponse
+	(*GetTemplateTypeRequest)(nil),                // 4: templates.GetTemplateTypeRequest
+	(*GetTemplateTypeResponse)(nil),               // 5: templates.GetTemplateTypeResponse
+	(*GetThumbnailRequest)(nil),                   // 6: templates.GetThumbnailRequest
+	(*GetThumbnailResponse)(nil),                  // 7: templates.GetThumbnailResponse
+	(*IsActiveRequest)(nil),                       // 8: templates.IsActiveRequest
+	(*IsActiveResponse)(nil),                      // 9: templates.IsActiveResponse
+	(*GetTemplateIdRequest)(nil),                  // 10: templates.GetTemplateIdRequest
+	(*GetTemplateIdResponse)(nil),                 // 11: templates.GetTemplateIdResponse
+	(*ControlTemplateGetTemplateTypeRequest)(nil), // 12: templates.ControlTemplateGetTemplateTypeRequest
+	(*GetErrorTemplateRequest)(nil),               // 13: templates.GetErrorTemplateRequest
+	(*GetErrorTemplateResponse)(nil),              // 14: templates.GetErrorTemplateResponse
+	(*GetNoTemplateObjectRequest)(nil),            // 15: templates.GetNoTemplateObjectRequest
+	(*GetNoTemplateObjectResponse)(nil),           // 16: templates.GetNoTemplateObjectResponse
+	(*NewStatelessTemplateRequest)(nil),           // 17: templates.NewStatelessTemplateRequest
+	(*NewStatelessTemplateResponse)(nil),          // 18: templates.NewStatelessTemplateResponse
+	(*NewToggleRangeTemplateRequest)(nil),         // 19: templates.NewToggleRangeTemplateRequest
+	(*NewToggleRangeTemplateResponse)(nil),        // 20: templates.NewToggleRangeTemplateResponse
+	(*GetActionDescriptionRequest)(nil),           // 21: templates.GetActionDescriptionRequest
+	(*GetActionDescriptionResponse)(nil),          // 22: templates.GetActionDescriptionResponse
+	(*GetRangeRequest)(nil),                       // 23: templates.GetRangeRequest
+	(*GetRangeResponse)(nil),                      // 24: templates.GetRangeResponse
+	(*IsCheckedRequest)(nil),                      // 25: templates.IsCheckedRequest
+	(*IsCheckedResponse)(nil),                     // 26: templates.IsCheckedResponse
+	(*NewRangeTemplateRequest)(nil),               // 27: templates.NewRangeTemplateRequest
+	(*NewRangeTemplateResponse)(nil),              // 28: templates.NewRangeTemplateResponse
+	(*GetCurrentValueRequest)(nil),                // 29: templates.GetCurrentValueRequest
+	(*GetCurrentValueResponse)(nil),               // 30: templates.GetCurrentValueResponse
+	(*GetFormatStringRequest)(nil),                // 31: templates.GetFormatStringRequest
+	(*GetFormatStringResponse)(nil),               // 32: templates.GetFormatStringResponse
+	(*GetMaxValueRequest)(nil),                    // 33: templates.GetMaxValueRequest
+	(*GetMaxValueResponse)(nil),                   // 34: templates.GetMaxValueResponse
+	(*GetMinValueRequest)(nil),                    // 35: templates.GetMinValueRequest
+	(*GetMinValueResponse)(nil),                   // 36: templates.GetMinValueResponse
+	(*GetStepValueRequest)(nil),                   // 37: templates.GetStepValueRequest
+	(*GetStepValueResponse)(nil),                  // 38: templates.GetStepValueResponse
+	(*NewTemperatureControlTemplateRequest)(nil),  // 39: templates.NewTemperatureControlTemplateRequest
+	(*NewTemperatureControlTemplateResponse)(nil), // 40: templates.NewTemperatureControlTemplateResponse
+	(*GetCurrentActiveModeRequest)(nil),           // 41: templates.GetCurrentActiveModeRequest
+	(*GetCurrentActiveModeResponse)(nil),          // 42: templates.GetCurrentActiveModeResponse
+	(*GetCurrentModeRequest)(nil),                 // 43: templates.GetCurrentModeRequest
+	(*GetCurrentModeResponse)(nil),                // 44: templates.GetCurrentModeResponse
+	(*GetModesRequest)(nil),                       // 45: templates.GetModesRequest
+	(*GetModesResponse)(nil),                      // 46: templates.GetModesResponse
+	(*GetTemplateRequest)(nil),                    // 47: templates.GetTemplateRequest
+	(*GetTemplateResponse)(nil),                   // 48: templates.GetTemplateResponse
+	(*NewToggleTemplateRequest)(nil),              // 49: templates.NewToggleTemplateRequest
+	(*NewToggleTemplateResponse)(nil),             // 50: templates.NewToggleTemplateResponse
+	(*NewControlButtonRequest)(nil),               // 51: templates.NewControlButtonRequest
+	(*NewControlButtonResponse)(nil),              // 52: templates.NewControlButtonResponse
+	(*DescribeContentsRequest)(nil),               // 53: templates.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),              // 54: templates.DescribeContentsResponse
+	(*WriteToParcelRequest)(nil),                  // 55: templates.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                 // 56: templates.WriteToParcelResponse
 }
 var file_proto_templates_templates_proto_depIdxs = []int32{
-	0,  // 0: templates.StatelessTemplateService.NewStatelessTemplate:input_type -> templates.NewStatelessTemplateRequest
-	2,  // 1: templates.StatelessTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
-	4,  // 2: templates.TemperatureControlTemplateService.NewTemperatureControlTemplate:input_type -> templates.NewTemperatureControlTemplateRequest
-	6,  // 3: templates.TemperatureControlTemplateService.GetCurrentActiveMode:input_type -> templates.GetCurrentActiveModeRequest
-	8,  // 4: templates.TemperatureControlTemplateService.GetCurrentMode:input_type -> templates.GetCurrentModeRequest
-	10, // 5: templates.TemperatureControlTemplateService.GetModes:input_type -> templates.GetModesRequest
-	12, // 6: templates.TemperatureControlTemplateService.GetTemplate:input_type -> templates.GetTemplateRequest
-	2,  // 7: templates.TemperatureControlTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
-	14, // 8: templates.ControlButtonService.NewControlButton:input_type -> templates.NewControlButtonRequest
-	16, // 9: templates.ControlButtonService.DescribeContents:input_type -> templates.DescribeContentsRequest
-	18, // 10: templates.ControlButtonService.GetActionDescription:input_type -> templates.GetActionDescriptionRequest
-	20, // 11: templates.ControlButtonService.IsChecked:input_type -> templates.IsCheckedRequest
-	22, // 12: templates.ControlButtonService.WriteToParcel:input_type -> templates.WriteToParcelRequest
-	24, // 13: templates.RangeTemplateService.NewRangeTemplate:input_type -> templates.NewRangeTemplateRequest
-	26, // 14: templates.RangeTemplateService.GetCurrentValue:input_type -> templates.GetCurrentValueRequest
-	28, // 15: templates.RangeTemplateService.GetFormatString:input_type -> templates.GetFormatStringRequest
-	30, // 16: templates.RangeTemplateService.GetMaxValue:input_type -> templates.GetMaxValueRequest
-	32, // 17: templates.RangeTemplateService.GetMinValue:input_type -> templates.GetMinValueRequest
-	34, // 18: templates.RangeTemplateService.GetStepValue:input_type -> templates.GetStepValueRequest
-	2,  // 19: templates.RangeTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
-	36, // 20: templates.ToggleTemplateService.NewToggleTemplate:input_type -> templates.NewToggleTemplateRequest
-	38, // 21: templates.ToggleTemplateService.GetContentDescription:input_type -> templates.GetContentDescriptionRequest
-	2,  // 22: templates.ToggleTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
-	20, // 23: templates.ToggleTemplateService.IsChecked:input_type -> templates.IsCheckedRequest
-	40, // 24: templates.ThumbnailTemplateService.NewThumbnailTemplate:input_type -> templates.NewThumbnailTemplateRequest
-	38, // 25: templates.ThumbnailTemplateService.GetContentDescription:input_type -> templates.GetContentDescriptionRequest
-	2,  // 26: templates.ThumbnailTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
-	42, // 27: templates.ThumbnailTemplateService.GetThumbnail:input_type -> templates.GetThumbnailRequest
-	44, // 28: templates.ThumbnailTemplateService.IsActive:input_type -> templates.IsActiveRequest
-	46, // 29: templates.ControlTemplateService.GetTemplateId:input_type -> templates.GetTemplateIdRequest
-	48, // 30: templates.ControlTemplateService.GetTemplateType:input_type -> templates.ControlTemplateGetTemplateTypeRequest
-	49, // 31: templates.ControlTemplateService.GetErrorTemplate:input_type -> templates.GetErrorTemplateRequest
-	51, // 32: templates.ControlTemplateService.GetNoTemplateObject:input_type -> templates.GetNoTemplateObjectRequest
-	53, // 33: templates.ToggleRangeTemplateService.NewToggleRangeTemplate:input_type -> templates.NewToggleRangeTemplateRequest
-	18, // 34: templates.ToggleRangeTemplateService.GetActionDescription:input_type -> templates.GetActionDescriptionRequest
-	55, // 35: templates.ToggleRangeTemplateService.GetRange:input_type -> templates.GetRangeRequest
-	2,  // 36: templates.ToggleRangeTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
-	20, // 37: templates.ToggleRangeTemplateService.IsChecked:input_type -> templates.IsCheckedRequest
-	1,  // 38: templates.StatelessTemplateService.NewStatelessTemplate:output_type -> templates.NewStatelessTemplateResponse
-	3,  // 39: templates.StatelessTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
-	5,  // 40: templates.TemperatureControlTemplateService.NewTemperatureControlTemplate:output_type -> templates.NewTemperatureControlTemplateResponse
-	7,  // 41: templates.TemperatureControlTemplateService.GetCurrentActiveMode:output_type -> templates.GetCurrentActiveModeResponse
-	9,  // 42: templates.TemperatureControlTemplateService.GetCurrentMode:output_type -> templates.GetCurrentModeResponse
-	11, // 43: templates.TemperatureControlTemplateService.GetModes:output_type -> templates.GetModesResponse
-	13, // 44: templates.TemperatureControlTemplateService.GetTemplate:output_type -> templates.GetTemplateResponse
-	3,  // 45: templates.TemperatureControlTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
-	15, // 46: templates.ControlButtonService.NewControlButton:output_type -> templates.NewControlButtonResponse
-	17, // 47: templates.ControlButtonService.DescribeContents:output_type -> templates.DescribeContentsResponse
-	19, // 48: templates.ControlButtonService.GetActionDescription:output_type -> templates.GetActionDescriptionResponse
-	21, // 49: templates.ControlButtonService.IsChecked:output_type -> templates.IsCheckedResponse
-	23, // 50: templates.ControlButtonService.WriteToParcel:output_type -> templates.WriteToParcelResponse
-	25, // 51: templates.RangeTemplateService.NewRangeTemplate:output_type -> templates.NewRangeTemplateResponse
-	27, // 52: templates.RangeTemplateService.GetCurrentValue:output_type -> templates.GetCurrentValueResponse
-	29, // 53: templates.RangeTemplateService.GetFormatString:output_type -> templates.GetFormatStringResponse
-	31, // 54: templates.RangeTemplateService.GetMaxValue:output_type -> templates.GetMaxValueResponse
-	33, // 55: templates.RangeTemplateService.GetMinValue:output_type -> templates.GetMinValueResponse
-	35, // 56: templates.RangeTemplateService.GetStepValue:output_type -> templates.GetStepValueResponse
-	3,  // 57: templates.RangeTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
-	37, // 58: templates.ToggleTemplateService.NewToggleTemplate:output_type -> templates.NewToggleTemplateResponse
-	39, // 59: templates.ToggleTemplateService.GetContentDescription:output_type -> templates.GetContentDescriptionResponse
-	3,  // 60: templates.ToggleTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
-	21, // 61: templates.ToggleTemplateService.IsChecked:output_type -> templates.IsCheckedResponse
-	41, // 62: templates.ThumbnailTemplateService.NewThumbnailTemplate:output_type -> templates.NewThumbnailTemplateResponse
-	39, // 63: templates.ThumbnailTemplateService.GetContentDescription:output_type -> templates.GetContentDescriptionResponse
-	3,  // 64: templates.ThumbnailTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
-	43, // 65: templates.ThumbnailTemplateService.GetThumbnail:output_type -> templates.GetThumbnailResponse
-	45, // 66: templates.ThumbnailTemplateService.IsActive:output_type -> templates.IsActiveResponse
-	47, // 67: templates.ControlTemplateService.GetTemplateId:output_type -> templates.GetTemplateIdResponse
-	3,  // 68: templates.ControlTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
-	50, // 69: templates.ControlTemplateService.GetErrorTemplate:output_type -> templates.GetErrorTemplateResponse
-	52, // 70: templates.ControlTemplateService.GetNoTemplateObject:output_type -> templates.GetNoTemplateObjectResponse
-	54, // 71: templates.ToggleRangeTemplateService.NewToggleRangeTemplate:output_type -> templates.NewToggleRangeTemplateResponse
-	19, // 72: templates.ToggleRangeTemplateService.GetActionDescription:output_type -> templates.GetActionDescriptionResponse
-	56, // 73: templates.ToggleRangeTemplateService.GetRange:output_type -> templates.GetRangeResponse
-	3,  // 74: templates.ToggleRangeTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
-	21, // 75: templates.ToggleRangeTemplateService.IsChecked:output_type -> templates.IsCheckedResponse
+	0,  // 0: templates.ThumbnailTemplateService.NewThumbnailTemplate:input_type -> templates.NewThumbnailTemplateRequest
+	2,  // 1: templates.ThumbnailTemplateService.GetContentDescription:input_type -> templates.GetContentDescriptionRequest
+	4,  // 2: templates.ThumbnailTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
+	6,  // 3: templates.ThumbnailTemplateService.GetThumbnail:input_type -> templates.GetThumbnailRequest
+	8,  // 4: templates.ThumbnailTemplateService.IsActive:input_type -> templates.IsActiveRequest
+	10, // 5: templates.ControlTemplateService.GetTemplateId:input_type -> templates.GetTemplateIdRequest
+	12, // 6: templates.ControlTemplateService.GetTemplateType:input_type -> templates.ControlTemplateGetTemplateTypeRequest
+	13, // 7: templates.ControlTemplateService.GetErrorTemplate:input_type -> templates.GetErrorTemplateRequest
+	15, // 8: templates.ControlTemplateService.GetNoTemplateObject:input_type -> templates.GetNoTemplateObjectRequest
+	17, // 9: templates.StatelessTemplateService.NewStatelessTemplate:input_type -> templates.NewStatelessTemplateRequest
+	4,  // 10: templates.StatelessTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
+	19, // 11: templates.ToggleRangeTemplateService.NewToggleRangeTemplate:input_type -> templates.NewToggleRangeTemplateRequest
+	21, // 12: templates.ToggleRangeTemplateService.GetActionDescription:input_type -> templates.GetActionDescriptionRequest
+	23, // 13: templates.ToggleRangeTemplateService.GetRange:input_type -> templates.GetRangeRequest
+	4,  // 14: templates.ToggleRangeTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
+	25, // 15: templates.ToggleRangeTemplateService.IsChecked:input_type -> templates.IsCheckedRequest
+	27, // 16: templates.RangeTemplateService.NewRangeTemplate:input_type -> templates.NewRangeTemplateRequest
+	29, // 17: templates.RangeTemplateService.GetCurrentValue:input_type -> templates.GetCurrentValueRequest
+	31, // 18: templates.RangeTemplateService.GetFormatString:input_type -> templates.GetFormatStringRequest
+	33, // 19: templates.RangeTemplateService.GetMaxValue:input_type -> templates.GetMaxValueRequest
+	35, // 20: templates.RangeTemplateService.GetMinValue:input_type -> templates.GetMinValueRequest
+	37, // 21: templates.RangeTemplateService.GetStepValue:input_type -> templates.GetStepValueRequest
+	4,  // 22: templates.RangeTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
+	39, // 23: templates.TemperatureControlTemplateService.NewTemperatureControlTemplate:input_type -> templates.NewTemperatureControlTemplateRequest
+	41, // 24: templates.TemperatureControlTemplateService.GetCurrentActiveMode:input_type -> templates.GetCurrentActiveModeRequest
+	43, // 25: templates.TemperatureControlTemplateService.GetCurrentMode:input_type -> templates.GetCurrentModeRequest
+	45, // 26: templates.TemperatureControlTemplateService.GetModes:input_type -> templates.GetModesRequest
+	47, // 27: templates.TemperatureControlTemplateService.GetTemplate:input_type -> templates.GetTemplateRequest
+	4,  // 28: templates.TemperatureControlTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
+	49, // 29: templates.ToggleTemplateService.NewToggleTemplate:input_type -> templates.NewToggleTemplateRequest
+	2,  // 30: templates.ToggleTemplateService.GetContentDescription:input_type -> templates.GetContentDescriptionRequest
+	4,  // 31: templates.ToggleTemplateService.GetTemplateType:input_type -> templates.GetTemplateTypeRequest
+	25, // 32: templates.ToggleTemplateService.IsChecked:input_type -> templates.IsCheckedRequest
+	51, // 33: templates.ControlButtonService.NewControlButton:input_type -> templates.NewControlButtonRequest
+	53, // 34: templates.ControlButtonService.DescribeContents:input_type -> templates.DescribeContentsRequest
+	21, // 35: templates.ControlButtonService.GetActionDescription:input_type -> templates.GetActionDescriptionRequest
+	25, // 36: templates.ControlButtonService.IsChecked:input_type -> templates.IsCheckedRequest
+	55, // 37: templates.ControlButtonService.WriteToParcel:input_type -> templates.WriteToParcelRequest
+	1,  // 38: templates.ThumbnailTemplateService.NewThumbnailTemplate:output_type -> templates.NewThumbnailTemplateResponse
+	3,  // 39: templates.ThumbnailTemplateService.GetContentDescription:output_type -> templates.GetContentDescriptionResponse
+	5,  // 40: templates.ThumbnailTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
+	7,  // 41: templates.ThumbnailTemplateService.GetThumbnail:output_type -> templates.GetThumbnailResponse
+	9,  // 42: templates.ThumbnailTemplateService.IsActive:output_type -> templates.IsActiveResponse
+	11, // 43: templates.ControlTemplateService.GetTemplateId:output_type -> templates.GetTemplateIdResponse
+	5,  // 44: templates.ControlTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
+	14, // 45: templates.ControlTemplateService.GetErrorTemplate:output_type -> templates.GetErrorTemplateResponse
+	16, // 46: templates.ControlTemplateService.GetNoTemplateObject:output_type -> templates.GetNoTemplateObjectResponse
+	18, // 47: templates.StatelessTemplateService.NewStatelessTemplate:output_type -> templates.NewStatelessTemplateResponse
+	5,  // 48: templates.StatelessTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
+	20, // 49: templates.ToggleRangeTemplateService.NewToggleRangeTemplate:output_type -> templates.NewToggleRangeTemplateResponse
+	22, // 50: templates.ToggleRangeTemplateService.GetActionDescription:output_type -> templates.GetActionDescriptionResponse
+	24, // 51: templates.ToggleRangeTemplateService.GetRange:output_type -> templates.GetRangeResponse
+	5,  // 52: templates.ToggleRangeTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
+	26, // 53: templates.ToggleRangeTemplateService.IsChecked:output_type -> templates.IsCheckedResponse
+	28, // 54: templates.RangeTemplateService.NewRangeTemplate:output_type -> templates.NewRangeTemplateResponse
+	30, // 55: templates.RangeTemplateService.GetCurrentValue:output_type -> templates.GetCurrentValueResponse
+	32, // 56: templates.RangeTemplateService.GetFormatString:output_type -> templates.GetFormatStringResponse
+	34, // 57: templates.RangeTemplateService.GetMaxValue:output_type -> templates.GetMaxValueResponse
+	36, // 58: templates.RangeTemplateService.GetMinValue:output_type -> templates.GetMinValueResponse
+	38, // 59: templates.RangeTemplateService.GetStepValue:output_type -> templates.GetStepValueResponse
+	5,  // 60: templates.RangeTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
+	40, // 61: templates.TemperatureControlTemplateService.NewTemperatureControlTemplate:output_type -> templates.NewTemperatureControlTemplateResponse
+	42, // 62: templates.TemperatureControlTemplateService.GetCurrentActiveMode:output_type -> templates.GetCurrentActiveModeResponse
+	44, // 63: templates.TemperatureControlTemplateService.GetCurrentMode:output_type -> templates.GetCurrentModeResponse
+	46, // 64: templates.TemperatureControlTemplateService.GetModes:output_type -> templates.GetModesResponse
+	48, // 65: templates.TemperatureControlTemplateService.GetTemplate:output_type -> templates.GetTemplateResponse
+	5,  // 66: templates.TemperatureControlTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
+	50, // 67: templates.ToggleTemplateService.NewToggleTemplate:output_type -> templates.NewToggleTemplateResponse
+	3,  // 68: templates.ToggleTemplateService.GetContentDescription:output_type -> templates.GetContentDescriptionResponse
+	5,  // 69: templates.ToggleTemplateService.GetTemplateType:output_type -> templates.GetTemplateTypeResponse
+	26, // 70: templates.ToggleTemplateService.IsChecked:output_type -> templates.IsCheckedResponse
+	52, // 71: templates.ControlButtonService.NewControlButton:output_type -> templates.NewControlButtonResponse
+	54, // 72: templates.ControlButtonService.DescribeContents:output_type -> templates.DescribeContentsResponse
+	22, // 73: templates.ControlButtonService.GetActionDescription:output_type -> templates.GetActionDescriptionResponse
+	26, // 74: templates.ControlButtonService.IsChecked:output_type -> templates.IsCheckedResponse
+	56, // 75: templates.ControlButtonService.WriteToParcel:output_type -> templates.WriteToParcelResponse
 	38, // [38:76] is the sub-list for method output_type
 	0,  // [0:38] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

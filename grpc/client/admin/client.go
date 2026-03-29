@@ -9,86 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// FactoryResetProtectionPolicyClient wraps the gRPC FactoryResetProtectionPolicyService client.
-type FactoryResetProtectionPolicyClient struct {
-	svc pb.FactoryResetProtectionPolicyServiceClient
-}
-
-// NewFactoryResetProtectionPolicyClient creates a new FactoryResetProtectionPolicy client.
-func NewFactoryResetProtectionPolicyClient(cc grpc.ClientConnInterface) *FactoryResetProtectionPolicyClient {
-	return &FactoryResetProtectionPolicyClient{
-		svc: pb.NewFactoryResetProtectionPolicyServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *FactoryResetProtectionPolicyClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFactoryResetProtectionEnabled calls the IsFactoryResetProtectionEnabled RPC.
-func (c *FactoryResetProtectionPolicyClient) IsFactoryResetProtectionEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFactoryResetProtectionEnabled(ctx, &pb.IsFactoryResetProtectionEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FactoryResetProtectionPolicyClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *FactoryResetProtectionPolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// FactoryResetProtectionPolicyBuilderClient wraps the gRPC FactoryResetProtectionPolicyBuilderService client.
-type FactoryResetProtectionPolicyBuilderClient struct {
-	svc pb.FactoryResetProtectionPolicyBuilderServiceClient
-}
-
-// NewFactoryResetProtectionPolicyBuilderClient creates a new FactoryResetProtectionPolicyBuilder client.
-func NewFactoryResetProtectionPolicyBuilderClient(cc grpc.ClientConnInterface) *FactoryResetProtectionPolicyBuilderClient {
-	return &FactoryResetProtectionPolicyBuilderClient{
-		svc: pb.NewFactoryResetProtectionPolicyBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *FactoryResetProtectionPolicyBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFactoryResetProtectionEnabled calls the SetFactoryResetProtectionEnabled RPC.
-func (c *FactoryResetProtectionPolicyBuilderClient) SetFactoryResetProtectionEnabled(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetFactoryResetProtectionEnabled(ctx, &pb.SetFactoryResetProtectionEnabledRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // DeviceAdminServiceClient wraps the gRPC DeviceAdminServiceService client.
 type DeviceAdminServiceClient struct {
 	svc pb.DeviceAdminServiceServiceClient
@@ -111,224 +31,6 @@ func (c *DeviceAdminServiceClient) OnBind(ctx context.Context, handle int64, arg
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// PolicyUpdateReceiverClient wraps the gRPC PolicyUpdateReceiverService client.
-type PolicyUpdateReceiverClient struct {
-	svc pb.PolicyUpdateReceiverServiceClient
-}
-
-// NewPolicyUpdateReceiverClient creates a new PolicyUpdateReceiver client.
-func NewPolicyUpdateReceiverClient(cc grpc.ClientConnInterface) *PolicyUpdateReceiverClient {
-	return &PolicyUpdateReceiverClient{
-		svc: pb.NewPolicyUpdateReceiverServiceClient(cc),
-	}
-}
-
-// OnPolicyChanged calls the OnPolicyChanged RPC.
-func (c *PolicyUpdateReceiverClient) OnPolicyChanged(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64, arg4 int64) error {
-	_, err := c.svc.OnPolicyChanged(ctx, &pb.OnPolicyChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// OnPolicySetResult calls the OnPolicySetResult RPC.
-func (c *PolicyUpdateReceiverClient) OnPolicySetResult(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64, arg4 int64) error {
-	_, err := c.svc.OnPolicySetResult(ctx, &pb.OnPolicySetResultRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// OnReceive calls the OnReceive RPC.
-func (c *PolicyUpdateReceiverClient) OnReceive(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnReceive(ctx, &pb.OnReceiveRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// WifiSsidPolicyClient wraps the gRPC WifiSsidPolicyService client.
-type WifiSsidPolicyClient struct {
-	svc pb.WifiSsidPolicyServiceClient
-}
-
-// NewWifiSsidPolicyClient creates a new WifiSsidPolicy client.
-func NewWifiSsidPolicyClient(cc grpc.ClientConnInterface) *WifiSsidPolicyClient {
-	return &WifiSsidPolicyClient{
-		svc: pb.NewWifiSsidPolicyServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *WifiSsidPolicyClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.WifiSsidPolicyDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *WifiSsidPolicyClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPolicyType calls the GetPolicyType RPC.
-func (c *WifiSsidPolicyClient) GetPolicyType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPolicyType(ctx, &pb.GetPolicyTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *WifiSsidPolicyClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *WifiSsidPolicyClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WifiSsidPolicyWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// PackagePolicyClient wraps the gRPC PackagePolicyService client.
-type PackagePolicyClient struct {
-	svc pb.PackagePolicyServiceClient
-}
-
-// NewPackagePolicyClient creates a new PackagePolicy client.
-func NewPackagePolicyClient(cc grpc.ClientConnInterface) *PackagePolicyClient {
-	return &PackagePolicyClient{
-		svc: pb.NewPackagePolicyServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *PackagePolicyClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.PackagePolicyDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *PackagePolicyClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPolicyType calls the GetPolicyType RPC.
-func (c *PackagePolicyClient) GetPolicyType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPolicyType(ctx, &pb.GetPolicyTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PackagePolicyClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *PackagePolicyClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.PackagePolicyWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// UnsafeStateExceptionClient wraps the gRPC UnsafeStateExceptionService client.
-type UnsafeStateExceptionClient struct {
-	svc pb.UnsafeStateExceptionServiceClient
-}
-
-// NewUnsafeStateExceptionClient creates a new UnsafeStateException client.
-func NewUnsafeStateExceptionClient(cc grpc.ClientConnInterface) *UnsafeStateExceptionClient {
-	return &UnsafeStateExceptionClient{
-		svc: pb.NewUnsafeStateExceptionServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *UnsafeStateExceptionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMessage calls the GetMessage RPC.
-func (c *UnsafeStateExceptionClient) GetMessage(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *UnsafeStateExceptionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
 }
 
 // FreezePeriodClient wraps the gRPC FreezePeriodService client.
@@ -367,7 +69,7 @@ func (c *FreezePeriodClient) GetStart(ctx context.Context, handle int64) (int64,
 
 // ToString calls the ToString RPC.
 func (c *FreezePeriodClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.FreezePeriodToStringRequest{
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -376,27 +78,121 @@ func (c *FreezePeriodClient) ToString(ctx context.Context, handle int64) (string
 	return resp.GetResult(), nil
 }
 
-// PolicyUpdateResultClient wraps the gRPC PolicyUpdateResultService client.
-type PolicyUpdateResultClient struct {
-	svc pb.PolicyUpdateResultServiceClient
+// DevicePolicyResourcesManagerClient wraps the gRPC DevicePolicyResourcesManagerService client.
+type DevicePolicyResourcesManagerClient struct {
+	svc pb.DevicePolicyResourcesManagerServiceClient
 }
 
-// NewPolicyUpdateResultClient creates a new PolicyUpdateResult client.
-func NewPolicyUpdateResultClient(cc grpc.ClientConnInterface) *PolicyUpdateResultClient {
-	return &PolicyUpdateResultClient{
-		svc: pb.NewPolicyUpdateResultServiceClient(cc),
+// NewDevicePolicyResourcesManagerClient creates a new DevicePolicyResourcesManager client.
+func NewDevicePolicyResourcesManagerClient(cc grpc.ClientConnInterface) *DevicePolicyResourcesManagerClient {
+	return &DevicePolicyResourcesManagerClient{
+		svc: pb.NewDevicePolicyResourcesManagerServiceClient(cc),
 	}
 }
 
-// GetResultCode calls the GetResultCode RPC.
-func (c *PolicyUpdateResultClient) GetResultCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{
+// GetDrawableAsIcon3 calls the GetDrawableAsIcon3 RPC.
+func (c *DevicePolicyResourcesManagerClient) GetDrawableAsIcon3(ctx context.Context, arg0 string, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDrawableAsIcon3(ctx, &pb.GetDrawableAsIcon3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawableAsIcon4_1 calls the GetDrawableAsIcon4_1 RPC.
+func (c *DevicePolicyResourcesManagerClient) GetDrawableAsIcon4_1(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetDrawableAsIcon4_1(ctx, &pb.GetDrawableAsIcon4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PackagePolicyClient wraps the gRPC PackagePolicyService client.
+type PackagePolicyClient struct {
+	svc pb.PackagePolicyServiceClient
+}
+
+// NewPackagePolicyClient creates a new PackagePolicy client.
+func NewPackagePolicyClient(cc grpc.ClientConnInterface) *PackagePolicyClient {
+	return &PackagePolicyClient{
+		svc: pb.NewPackagePolicyServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackagePolicyClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PackagePolicyClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageNames calls the GetPackageNames RPC.
+func (c *PackagePolicyClient) GetPackageNames(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPackageNames(ctx, &pb.GetPackageNamesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPolicyType calls the GetPolicyType RPC.
+func (c *PackagePolicyClient) GetPolicyType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPolicyType(ctx, &pb.GetPolicyTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PackagePolicyClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackagePolicyClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
 }
 
 // PreferentialNetworkServiceConfigClient wraps the gRPC PreferentialNetworkServiceConfigService client.
@@ -413,7 +209,7 @@ func NewPreferentialNetworkServiceConfigClient(cc grpc.ClientConnInterface) *Pre
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *PreferentialNetworkServiceConfigClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.PreferentialNetworkServiceConfigDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -496,7 +292,7 @@ func (c *PreferentialNetworkServiceConfigClient) ShouldBlockNonMatchingNetworks(
 
 // ToString calls the ToString RPC.
 func (c *PreferentialNetworkServiceConfigClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.PreferentialNetworkServiceConfigToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -505,7 +301,7 @@ func (c *PreferentialNetworkServiceConfigClient) ToString(ctx context.Context) (
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *PreferentialNetworkServiceConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.PreferentialNetworkServiceConfigWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -599,21 +395,87 @@ func (c *PreferentialNetworkServiceConfigBuilderClient) SetShouldBlockNonMatchin
 	return resp.GetResult(), nil
 }
 
-// SecurityLogSecurityEventClient wraps the gRPC SecurityLogSecurityEventService client.
-type SecurityLogSecurityEventClient struct {
-	svc pb.SecurityLogSecurityEventServiceClient
+// DnsEventClient wraps the gRPC DnsEventService client.
+type DnsEventClient struct {
+	svc pb.DnsEventServiceClient
 }
 
-// NewSecurityLogSecurityEventClient creates a new SecurityLogSecurityEvent client.
-func NewSecurityLogSecurityEventClient(cc grpc.ClientConnInterface) *SecurityLogSecurityEventClient {
-	return &SecurityLogSecurityEventClient{
-		svc: pb.NewSecurityLogSecurityEventServiceClient(cc),
+// NewDnsEventClient creates a new DnsEvent client.
+func NewDnsEventClient(cc grpc.ClientConnInterface) *DnsEventClient {
+	return &DnsEventClient{
+		svc: pb.NewDnsEventServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SecurityLogSecurityEventClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+func (c *DnsEventClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DnsEventDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHostname calls the GetHostname RPC.
+func (c *DnsEventClient) GetHostname(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetHostname(ctx, &pb.GetHostnameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInetAddresses calls the GetInetAddresses RPC.
+func (c *DnsEventClient) GetInetAddresses(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInetAddresses(ctx, &pb.GetInetAddressesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalResolvedAddressCount calls the GetTotalResolvedAddressCount RPC.
+func (c *DnsEventClient) GetTotalResolvedAddressCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTotalResolvedAddressCount(ctx, &pb.GetTotalResolvedAddressCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DnsEventClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DnsEventToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DnsEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.DnsEventWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SystemUpdateInfoClient wraps the gRPC SystemUpdateInfoService client.
+type SystemUpdateInfoClient struct {
+	svc pb.SystemUpdateInfoServiceClient
+}
+
+// NewSystemUpdateInfoClient creates a new SystemUpdateInfo client.
+func NewSystemUpdateInfoClient(cc grpc.ClientConnInterface) *SystemUpdateInfoClient {
+	return &SystemUpdateInfoClient{
+		svc: pb.NewSystemUpdateInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SystemUpdateInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SystemUpdateInfoDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -621,8 +483,8 @@ func (c *SecurityLogSecurityEventClient) DescribeContents(ctx context.Context) (
 }
 
 // Equals calls the Equals RPC.
-func (c *SecurityLogSecurityEventClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SecurityLogSecurityEventEqualsRequest{
+func (c *SystemUpdateInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.SystemUpdateInfoEqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -631,45 +493,18 @@ func (c *SecurityLogSecurityEventClient) Equals(ctx context.Context, arg0 int64)
 	return resp.GetResult(), nil
 }
 
-// GetData calls the GetData RPC.
-func (c *SecurityLogSecurityEventClient) GetData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
+// GetReceivedTime calls the GetReceivedTime RPC.
+func (c *SystemUpdateInfoClient) GetReceivedTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReceivedTime(ctx, &pb.GetReceivedTimeRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetId calls the GetId RPC.
-func (c *SecurityLogSecurityEventClient) GetId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLogLevel calls the GetLogLevel RPC.
-func (c *SecurityLogSecurityEventClient) GetLogLevel(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLogLevel(ctx, &pb.GetLogLevelRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTag calls the GetTag RPC.
-func (c *SecurityLogSecurityEventClient) GetTag(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeNanos calls the GetTimeNanos RPC.
-func (c *SecurityLogSecurityEventClient) GetTimeNanos(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeNanos(ctx, &pb.GetTimeNanosRequest{})
+// GetSecurityPatchState calls the GetSecurityPatchState RPC.
+func (c *SystemUpdateInfoClient) GetSecurityPatchState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSecurityPatchState(ctx, &pb.GetSecurityPatchStateRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -677,65 +512,8 @@ func (c *SecurityLogSecurityEventClient) GetTimeNanos(ctx context.Context) (int6
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SecurityLogSecurityEventClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SecurityLogSecurityEventHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SecurityLogSecurityEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SystemUpdatePolicyClient wraps the gRPC SystemUpdatePolicyService client.
-type SystemUpdatePolicyClient struct {
-	svc pb.SystemUpdatePolicyServiceClient
-}
-
-// NewSystemUpdatePolicyClient creates a new SystemUpdatePolicy client.
-func NewSystemUpdatePolicyClient(cc grpc.ClientConnInterface) *SystemUpdatePolicyClient {
-	return &SystemUpdatePolicyClient{
-		svc: pb.NewSystemUpdatePolicyServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SystemUpdatePolicyClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstallWindowEnd calls the GetInstallWindowEnd RPC.
-func (c *SystemUpdatePolicyClient) GetInstallWindowEnd(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetInstallWindowEnd(ctx, &pb.GetInstallWindowEndRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstallWindowStart calls the GetInstallWindowStart RPC.
-func (c *SystemUpdatePolicyClient) GetInstallWindowStart(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetInstallWindowStart(ctx, &pb.GetInstallWindowStartRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPolicyType calls the GetPolicyType RPC.
-func (c *SystemUpdatePolicyClient) GetPolicyType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPolicyType(ctx, &pb.SystemUpdatePolicyGetPolicyTypeRequest{})
+func (c *SystemUpdateInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.SystemUpdateInfoHashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -743,8 +521,8 @@ func (c *SystemUpdatePolicyClient) GetPolicyType(ctx context.Context) (int32, er
 }
 
 // ToString calls the ToString RPC.
-func (c *SystemUpdatePolicyClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+func (c *SystemUpdateInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SystemUpdateInfoToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -752,125 +530,56 @@ func (c *SystemUpdatePolicyClient) ToString(ctx context.Context) (string, error)
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *SystemUpdatePolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+func (c *SystemUpdateInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SystemUpdateInfoWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// CreateAutomaticInstallPolicy calls the CreateAutomaticInstallPolicy RPC.
-func (c *SystemUpdatePolicyClient) CreateAutomaticInstallPolicy(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateAutomaticInstallPolicy(ctx, &pb.CreateAutomaticInstallPolicyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// FactoryResetProtectionPolicyClient wraps the gRPC FactoryResetProtectionPolicyService client.
+type FactoryResetProtectionPolicyClient struct {
+	svc pb.FactoryResetProtectionPolicyServiceClient
 }
 
-// CreatePostponeInstallPolicy calls the CreatePostponeInstallPolicy RPC.
-func (c *SystemUpdatePolicyClient) CreatePostponeInstallPolicy(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreatePostponeInstallPolicy(ctx, &pb.CreatePostponeInstallPolicyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWindowedInstallPolicy calls the CreateWindowedInstallPolicy RPC.
-func (c *SystemUpdatePolicyClient) CreateWindowedInstallPolicy(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.CreateWindowedInstallPolicy(ctx, &pb.CreateWindowedInstallPolicyRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SystemUpdatePolicyValidationFailedExceptionClient wraps the gRPC SystemUpdatePolicyValidationFailedExceptionService client.
-type SystemUpdatePolicyValidationFailedExceptionClient struct {
-	svc pb.SystemUpdatePolicyValidationFailedExceptionServiceClient
-}
-
-// NewSystemUpdatePolicyValidationFailedExceptionClient creates a new SystemUpdatePolicyValidationFailedException client.
-func NewSystemUpdatePolicyValidationFailedExceptionClient(cc grpc.ClientConnInterface) *SystemUpdatePolicyValidationFailedExceptionClient {
-	return &SystemUpdatePolicyValidationFailedExceptionClient{
-		svc: pb.NewSystemUpdatePolicyValidationFailedExceptionServiceClient(cc),
+// NewFactoryResetProtectionPolicyClient creates a new FactoryResetProtectionPolicy client.
+func NewFactoryResetProtectionPolicyClient(cc grpc.ClientConnInterface) *FactoryResetProtectionPolicyClient {
+	return &FactoryResetProtectionPolicyClient{
+		svc: pb.NewFactoryResetProtectionPolicyServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SystemUpdatePolicyValidationFailedExceptionClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+func (c *FactoryResetProtectionPolicyClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.FactoryResetProtectionPolicyDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetErrorCode calls the GetErrorCode RPC.
-func (c *SystemUpdatePolicyValidationFailedExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+// GetFactoryResetProtectionAccounts calls the GetFactoryResetProtectionAccounts RPC.
+func (c *FactoryResetProtectionPolicyClient) GetFactoryResetProtectionAccounts(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFactoryResetProtectionAccounts(ctx, &pb.GetFactoryResetProtectionAccountsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SystemUpdatePolicyValidationFailedExceptionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ConnectEventClient wraps the gRPC ConnectEventService client.
-type ConnectEventClient struct {
-	svc pb.ConnectEventServiceClient
-}
-
-// NewConnectEventClient creates a new ConnectEvent client.
-func NewConnectEventClient(cc grpc.ClientConnInterface) *ConnectEventClient {
-	return &ConnectEventClient{
-		svc: pb.NewConnectEventServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ConnectEventClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+// IsFactoryResetProtectionEnabled calls the IsFactoryResetProtectionEnabled RPC.
+func (c *FactoryResetProtectionPolicyClient) IsFactoryResetProtectionEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFactoryResetProtectionEnabled(ctx, &pb.IsFactoryResetProtectionEnabledRequest{})
 	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInetAddress calls the GetInetAddress RPC.
-func (c *ConnectEventClient) GetInetAddress(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInetAddress(ctx, &pb.GetInetAddressRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPort calls the GetPort RPC.
-func (c *ConnectEventClient) GetPort(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPort(ctx, &pb.GetPortRequest{})
-	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
 // ToString calls the ToString RPC.
-func (c *ConnectEventClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+func (c *FactoryResetProtectionPolicyClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.FactoryResetProtectionPolicyToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -878,12 +587,44 @@ func (c *ConnectEventClient) ToString(ctx context.Context) (string, error) {
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *ConnectEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+func (c *FactoryResetProtectionPolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.FactoryResetProtectionPolicyWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
+}
+
+// FactoryResetProtectionPolicyBuilderClient wraps the gRPC FactoryResetProtectionPolicyBuilderService client.
+type FactoryResetProtectionPolicyBuilderClient struct {
+	svc pb.FactoryResetProtectionPolicyBuilderServiceClient
+}
+
+// NewFactoryResetProtectionPolicyBuilderClient creates a new FactoryResetProtectionPolicyBuilder client.
+func NewFactoryResetProtectionPolicyBuilderClient(cc grpc.ClientConnInterface) *FactoryResetProtectionPolicyBuilderClient {
+	return &FactoryResetProtectionPolicyBuilderClient{
+		svc: pb.NewFactoryResetProtectionPolicyBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *FactoryResetProtectionPolicyBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFactoryResetProtectionEnabled calls the SetFactoryResetProtectionEnabled RPC.
+func (c *FactoryResetProtectionPolicyBuilderClient) SetFactoryResetProtectionEnabled(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetFactoryResetProtectionEnabled(ctx, &pb.SetFactoryResetProtectionEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // DevicePolicyManagerClient wraps the gRPC DevicePolicyManagerService client.
@@ -1147,6 +888,37 @@ func (c *DevicePolicyManagerClient) GetAccountTypesWithManagementDisabled(ctx co
 	return resp.GetResult(), nil
 }
 
+// GetActiveAdmins calls the GetActiveAdmins RPC.
+func (c *DevicePolicyManagerClient) GetActiveAdmins(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActiveAdmins(ctx, &pb.GetActiveAdminsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAffiliationIds calls the GetAffiliationIds RPC.
+func (c *DevicePolicyManagerClient) GetAffiliationIds(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetAffiliationIds(ctx, &pb.GetAffiliationIdsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAlwaysOnVpnLockdownWhitelist calls the GetAlwaysOnVpnLockdownWhitelist RPC.
+func (c *DevicePolicyManagerClient) GetAlwaysOnVpnLockdownWhitelist(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetAlwaysOnVpnLockdownWhitelist(ctx, &pb.GetAlwaysOnVpnLockdownWhitelistRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetAlwaysOnVpnPackage calls the GetAlwaysOnVpnPackage RPC.
 func (c *DevicePolicyManagerClient) GetAlwaysOnVpnPackage(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetAlwaysOnVpnPackage(ctx, &pb.GetAlwaysOnVpnPackageRequest{
@@ -1239,6 +1011,17 @@ func (c *DevicePolicyManagerClient) GetAutoTimeZonePolicy(ctx context.Context) (
 	return resp.GetResult(), nil
 }
 
+// GetBindDeviceAdminTargetUsers calls the GetBindDeviceAdminTargetUsers RPC.
+func (c *DevicePolicyManagerClient) GetBindDeviceAdminTargetUsers(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetBindDeviceAdminTargetUsers(ctx, &pb.GetBindDeviceAdminTargetUsersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetBluetoothContactSharingDisabled calls the GetBluetoothContactSharingDisabled RPC.
 func (c *DevicePolicyManagerClient) GetBluetoothContactSharingDisabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetBluetoothContactSharingDisabled(ctx, &pb.GetBluetoothContactSharingDisabledRequest{
@@ -1292,6 +1075,17 @@ func (c *DevicePolicyManagerClient) GetCredentialManagerPolicy(ctx context.Conte
 	return resp.GetResult(), nil
 }
 
+// GetCrossProfileCalendarPackages calls the GetCrossProfileCalendarPackages RPC.
+func (c *DevicePolicyManagerClient) GetCrossProfileCalendarPackages(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCrossProfileCalendarPackages(ctx, &pb.GetCrossProfileCalendarPackagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetCrossProfileCallerIdDisabled calls the GetCrossProfileCallerIdDisabled RPC.
 func (c *DevicePolicyManagerClient) GetCrossProfileCallerIdDisabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetCrossProfileCallerIdDisabled(ctx, &pb.GetCrossProfileCallerIdDisabledRequest{
@@ -1314,9 +1108,55 @@ func (c *DevicePolicyManagerClient) GetCrossProfileContactsSearchDisabled(ctx co
 	return resp.GetResult(), nil
 }
 
+// GetCrossProfilePackages calls the GetCrossProfilePackages RPC.
+func (c *DevicePolicyManagerClient) GetCrossProfilePackages(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCrossProfilePackages(ctx, &pb.GetCrossProfilePackagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCrossProfileWidgetProviders calls the GetCrossProfileWidgetProviders RPC.
+func (c *DevicePolicyManagerClient) GetCrossProfileWidgetProviders(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCrossProfileWidgetProviders(ctx, &pb.GetCrossProfileWidgetProvidersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetCurrentFailedPasswordAttempts calls the GetCurrentFailedPasswordAttempts RPC.
 func (c *DevicePolicyManagerClient) GetCurrentFailedPasswordAttempts(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCurrentFailedPasswordAttempts(ctx, &pb.GetCurrentFailedPasswordAttemptsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDelegatePackages calls the GetDelegatePackages RPC.
+func (c *DevicePolicyManagerClient) GetDelegatePackages(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetDelegatePackages(ctx, &pb.GetDelegatePackagesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDelegatedScopes calls the GetDelegatedScopes RPC.
+func (c *DevicePolicyManagerClient) GetDelegatedScopes(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetDelegatedScopes(ctx, &pb.GetDelegatedScopesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -1386,6 +1226,28 @@ func (c *DevicePolicyManagerClient) GetGlobalPrivateDnsHost(ctx context.Context,
 // GetGlobalPrivateDnsMode calls the GetGlobalPrivateDnsMode RPC.
 func (c *DevicePolicyManagerClient) GetGlobalPrivateDnsMode(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetGlobalPrivateDnsMode(ctx, &pb.GetGlobalPrivateDnsModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstalledCaCerts calls the GetInstalledCaCerts RPC.
+func (c *DevicePolicyManagerClient) GetInstalledCaCerts(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstalledCaCerts(ctx, &pb.GetInstalledCaCertsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeepUninstalledPackages calls the GetKeepUninstalledPackages RPC.
+func (c *DevicePolicyManagerClient) GetKeepUninstalledPackages(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetKeepUninstalledPackages(ctx, &pb.GetKeepUninstalledPackagesRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1498,6 +1360,17 @@ func (c *DevicePolicyManagerClient) GetMaximumTimeToLock(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
+// GetMeteredDataDisabledPackages calls the GetMeteredDataDisabledPackages RPC.
+func (c *DevicePolicyManagerClient) GetMeteredDataDisabledPackages(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetMeteredDataDisabledPackages(ctx, &pb.GetMeteredDataDisabledPackagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetMinimumRequiredWifiSecurityLevel calls the GetMinimumRequiredWifiSecurityLevel RPC.
 func (c *DevicePolicyManagerClient) GetMinimumRequiredWifiSecurityLevel(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMinimumRequiredWifiSecurityLevel(ctx, &pb.GetMinimumRequiredWifiSecurityLevelRequest{})
@@ -1548,6 +1421,17 @@ func (c *DevicePolicyManagerClient) GetOrganizationColor(ctx context.Context, ar
 // GetOrganizationName calls the GetOrganizationName RPC.
 func (c *DevicePolicyManagerClient) GetOrganizationName(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetOrganizationName(ctx, &pb.GetOrganizationNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverrideApns calls the GetOverrideApns RPC.
+func (c *DevicePolicyManagerClient) GetOverrideApns(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetOverrideApns(ctx, &pb.GetOverrideApnsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1743,11 +1627,53 @@ func (c *DevicePolicyManagerClient) GetPermissionPolicy(ctx context.Context, arg
 	return resp.GetResult(), nil
 }
 
+// GetPermittedAccessibilityServices calls the GetPermittedAccessibilityServices RPC.
+func (c *DevicePolicyManagerClient) GetPermittedAccessibilityServices(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetPermittedAccessibilityServices(ctx, &pb.GetPermittedAccessibilityServicesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPermittedCrossProfileNotificationListeners calls the GetPermittedCrossProfileNotificationListeners RPC.
+func (c *DevicePolicyManagerClient) GetPermittedCrossProfileNotificationListeners(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetPermittedCrossProfileNotificationListeners(ctx, &pb.GetPermittedCrossProfileNotificationListenersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPermittedInputMethods calls the GetPermittedInputMethods RPC.
+func (c *DevicePolicyManagerClient) GetPermittedInputMethods(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetPermittedInputMethods(ctx, &pb.GetPermittedInputMethodsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetPersonalAppsSuspendedReasons calls the GetPersonalAppsSuspendedReasons RPC.
 func (c *DevicePolicyManagerClient) GetPersonalAppsSuspendedReasons(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPersonalAppsSuspendedReasons(ctx, &pb.GetPersonalAppsSuspendedReasonsRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferentialNetworkServiceConfigs calls the GetPreferentialNetworkServiceConfigs RPC.
+func (c *DevicePolicyManagerClient) GetPreferentialNetworkServiceConfigs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferentialNetworkServiceConfigs(ctx, &pb.GetPreferentialNetworkServiceConfigsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1794,6 +1720,17 @@ func (c *DevicePolicyManagerClient) GetScreenCaptureDisabled(ctx context.Context
 	return resp.GetResult(), nil
 }
 
+// GetSecondaryUsers calls the GetSecondaryUsers RPC.
+func (c *DevicePolicyManagerClient) GetSecondaryUsers(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSecondaryUsers(ctx, &pb.GetSecondaryUsersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetShortSupportMessage calls the GetShortSupportMessage RPC.
 func (c *DevicePolicyManagerClient) GetShortSupportMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetShortSupportMessage(ctx, &pb.GetShortSupportMessageRequest{
@@ -1836,6 +1773,15 @@ func (c *DevicePolicyManagerClient) GetStorageEncryptionStatus(ctx context.Conte
 	return resp.GetResult(), nil
 }
 
+// GetSubscriptionIds calls the GetSubscriptionIds RPC.
+func (c *DevicePolicyManagerClient) GetSubscriptionIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSubscriptionIds(ctx, &pb.GetSubscriptionIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetSystemUpdatePolicy calls the GetSystemUpdatePolicy RPC.
 func (c *DevicePolicyManagerClient) GetSystemUpdatePolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSystemUpdatePolicy(ctx, &pb.GetSystemUpdatePolicyRequest{})
@@ -1848,6 +1794,29 @@ func (c *DevicePolicyManagerClient) GetSystemUpdatePolicy(ctx context.Context) (
 // GetTransferOwnershipBundle calls the GetTransferOwnershipBundle RPC.
 func (c *DevicePolicyManagerClient) GetTransferOwnershipBundle(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetTransferOwnershipBundle(ctx, &pb.GetTransferOwnershipBundleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrustAgentConfiguration calls the GetTrustAgentConfiguration RPC.
+func (c *DevicePolicyManagerClient) GetTrustAgentConfiguration(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetTrustAgentConfiguration(ctx, &pb.GetTrustAgentConfigurationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserControlDisabledPackages calls the GetUserControlDisabledPackages RPC.
+func (c *DevicePolicyManagerClient) GetUserControlDisabledPackages(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetUserControlDisabledPackages(ctx, &pb.GetUserControlDisabledPackagesRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -2394,6 +2363,15 @@ func (c *DevicePolicyManagerClient) IsUsingUnifiedPassword(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
+// ListForegroundAffiliatedUsers calls the ListForegroundAffiliatedUsers RPC.
+func (c *DevicePolicyManagerClient) ListForegroundAffiliatedUsers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ListForegroundAffiliatedUsers(ctx, &pb.ListForegroundAffiliatedUsersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // LockNow0 calls the LockNow0 RPC.
 func (c *DevicePolicyManagerClient) LockNow0(ctx context.Context) error {
 	_, err := c.svc.LockNow0(ctx, &pb.LockNow0Request{})
@@ -2516,6 +2494,40 @@ func (c *DevicePolicyManagerClient) ResetPasswordWithToken(ctx context.Context, 
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RetrieveNetworkLogs calls the RetrieveNetworkLogs RPC.
+func (c *DevicePolicyManagerClient) RetrieveNetworkLogs(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.RetrieveNetworkLogs(ctx, &pb.RetrieveNetworkLogsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RetrievePreRebootSecurityLogs calls the RetrievePreRebootSecurityLogs RPC.
+func (c *DevicePolicyManagerClient) RetrievePreRebootSecurityLogs(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RetrievePreRebootSecurityLogs(ctx, &pb.RetrievePreRebootSecurityLogsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RetrieveSecurityLogs calls the RetrieveSecurityLogs RPC.
+func (c *DevicePolicyManagerClient) RetrieveSecurityLogs(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RetrieveSecurityLogs(ctx, &pb.RetrieveSecurityLogsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -3532,6 +3544,247 @@ func (c *DevicePolicyManagerOnClearApplicationUserDataListenerClient) OnApplicat
 	return err
 }
 
+// SecurityLogSecurityEventClient wraps the gRPC SecurityLogSecurityEventService client.
+type SecurityLogSecurityEventClient struct {
+	svc pb.SecurityLogSecurityEventServiceClient
+}
+
+// NewSecurityLogSecurityEventClient creates a new SecurityLogSecurityEvent client.
+func NewSecurityLogSecurityEventClient(cc grpc.ClientConnInterface) *SecurityLogSecurityEventClient {
+	return &SecurityLogSecurityEventClient{
+		svc: pb.NewSecurityLogSecurityEventServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SecurityLogSecurityEventClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SecurityLogSecurityEventDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SecurityLogSecurityEventClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.SecurityLogSecurityEventEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *SecurityLogSecurityEventClient) GetData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *SecurityLogSecurityEventClient) GetId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogLevel calls the GetLogLevel RPC.
+func (c *SecurityLogSecurityEventClient) GetLogLevel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLogLevel(ctx, &pb.GetLogLevelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *SecurityLogSecurityEventClient) GetTag(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeNanos calls the GetTimeNanos RPC.
+func (c *SecurityLogSecurityEventClient) GetTimeNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeNanos(ctx, &pb.GetTimeNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SecurityLogSecurityEventClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.SecurityLogSecurityEventHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SecurityLogSecurityEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SecurityLogSecurityEventWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ManagedSubscriptionsPolicyClient wraps the gRPC ManagedSubscriptionsPolicyService client.
+type ManagedSubscriptionsPolicyClient struct {
+	svc pb.ManagedSubscriptionsPolicyServiceClient
+}
+
+// NewManagedSubscriptionsPolicyClient creates a new ManagedSubscriptionsPolicy client.
+func NewManagedSubscriptionsPolicyClient(cc grpc.ClientConnInterface) *ManagedSubscriptionsPolicyClient {
+	return &ManagedSubscriptionsPolicyClient{
+		svc: pb.NewManagedSubscriptionsPolicyServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ManagedSubscriptionsPolicyClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ManagedSubscriptionsPolicyClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPolicyType calls the GetPolicyType RPC.
+func (c *ManagedSubscriptionsPolicyClient) GetPolicyType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPolicyType(ctx, &pb.GetPolicyTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ManagedSubscriptionsPolicyClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ManagedSubscriptionsPolicyClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ManagedSubscriptionsPolicyClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PolicyUpdateReceiverClient wraps the gRPC PolicyUpdateReceiverService client.
+type PolicyUpdateReceiverClient struct {
+	svc pb.PolicyUpdateReceiverServiceClient
+}
+
+// NewPolicyUpdateReceiverClient creates a new PolicyUpdateReceiver client.
+func NewPolicyUpdateReceiverClient(cc grpc.ClientConnInterface) *PolicyUpdateReceiverClient {
+	return &PolicyUpdateReceiverClient{
+		svc: pb.NewPolicyUpdateReceiverServiceClient(cc),
+	}
+}
+
+// OnPolicyChanged calls the OnPolicyChanged RPC.
+func (c *PolicyUpdateReceiverClient) OnPolicyChanged(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64, arg4 int64) error {
+	_, err := c.svc.OnPolicyChanged(ctx, &pb.OnPolicyChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// OnPolicySetResult calls the OnPolicySetResult RPC.
+func (c *PolicyUpdateReceiverClient) OnPolicySetResult(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64, arg4 int64) error {
+	_, err := c.svc.OnPolicySetResult(ctx, &pb.OnPolicySetResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// OnReceive calls the OnReceive RPC.
+func (c *PolicyUpdateReceiverClient) OnReceive(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnReceive(ctx, &pb.OnReceiveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PolicyUpdateResultClient wraps the gRPC PolicyUpdateResultService client.
+type PolicyUpdateResultClient struct {
+	svc pb.PolicyUpdateResultServiceClient
+}
+
+// NewPolicyUpdateResultClient creates a new PolicyUpdateResult client.
+func NewPolicyUpdateResultClient(cc grpc.ClientConnInterface) *PolicyUpdateResultClient {
+	return &PolicyUpdateResultClient{
+		svc: pb.NewPolicyUpdateResultServiceClient(cc),
+	}
+}
+
+// GetResultCode calls the GetResultCode RPC.
+func (c *PolicyUpdateResultClient) GetResultCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // DeviceAdminReceiverClient wraps the gRPC DeviceAdminReceiverService client.
 type DeviceAdminReceiverClient struct {
 	svc pb.DeviceAdminReceiverServiceClient
@@ -3913,263 +4166,75 @@ func (c *DeviceAdminReceiverClient) OnUserSwitched(ctx context.Context, handle i
 	return err
 }
 
-// DnsEventClient wraps the gRPC DnsEventService client.
-type DnsEventClient struct {
-	svc pb.DnsEventServiceClient
+// UnsafeStateExceptionClient wraps the gRPC UnsafeStateExceptionService client.
+type UnsafeStateExceptionClient struct {
+	svc pb.UnsafeStateExceptionServiceClient
 }
 
-// NewDnsEventClient creates a new DnsEvent client.
-func NewDnsEventClient(cc grpc.ClientConnInterface) *DnsEventClient {
-	return &DnsEventClient{
-		svc: pb.NewDnsEventServiceClient(cc),
+// NewUnsafeStateExceptionClient creates a new UnsafeStateException client.
+func NewUnsafeStateExceptionClient(cc grpc.ClientConnInterface) *UnsafeStateExceptionClient {
+	return &UnsafeStateExceptionClient{
+		svc: pb.NewUnsafeStateExceptionServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *DnsEventClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+func (c *UnsafeStateExceptionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.UnsafeStateExceptionDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetHostname calls the GetHostname RPC.
-func (c *DnsEventClient) GetHostname(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetHostname(ctx, &pb.GetHostnameRequest{})
+// GetMessage calls the GetMessage RPC.
+func (c *UnsafeStateExceptionClient) GetMessage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetTotalResolvedAddressCount calls the GetTotalResolvedAddressCount RPC.
-func (c *DnsEventClient) GetTotalResolvedAddressCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTotalResolvedAddressCount(ctx, &pb.GetTotalResolvedAddressCountRequest{})
+// GetReasons calls the GetReasons RPC.
+func (c *UnsafeStateExceptionClient) GetReasons(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReasons(ctx, &pb.GetReasonsRequest{})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DnsEventClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *DnsEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+func (c *UnsafeStateExceptionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.UnsafeStateExceptionWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// DevicePolicyIdentifiersClient wraps the gRPC DevicePolicyIdentifiersService client.
-type DevicePolicyIdentifiersClient struct {
-	svc pb.DevicePolicyIdentifiersServiceClient
+// DelegatedAdminReceiverClient wraps the gRPC DelegatedAdminReceiverService client.
+type DelegatedAdminReceiverClient struct {
+	svc pb.DelegatedAdminReceiverServiceClient
 }
 
-// NewDevicePolicyIdentifiersClient creates a new DevicePolicyIdentifiers client.
-func NewDevicePolicyIdentifiersClient(cc grpc.ClientConnInterface) *DevicePolicyIdentifiersClient {
-	return &DevicePolicyIdentifiersClient{
-		svc: pb.NewDevicePolicyIdentifiersServiceClient(cc),
+// NewDelegatedAdminReceiverClient creates a new DelegatedAdminReceiver client.
+func NewDelegatedAdminReceiverClient(cc grpc.ClientConnInterface) *DelegatedAdminReceiverClient {
+	return &DelegatedAdminReceiverClient{
+		svc: pb.NewDelegatedAdminReceiverServiceClient(cc),
 	}
 }
 
-// GetIdentifierForUserRestriction calls the GetIdentifierForUserRestriction RPC.
-func (c *DevicePolicyIdentifiersClient) GetIdentifierForUserRestriction(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.GetIdentifierForUserRestriction(ctx, &pb.GetIdentifierForUserRestrictionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// DevicePolicyResourcesManagerClient wraps the gRPC DevicePolicyResourcesManagerService client.
-type DevicePolicyResourcesManagerClient struct {
-	svc pb.DevicePolicyResourcesManagerServiceClient
-}
-
-// NewDevicePolicyResourcesManagerClient creates a new DevicePolicyResourcesManager client.
-func NewDevicePolicyResourcesManagerClient(cc grpc.ClientConnInterface) *DevicePolicyResourcesManagerClient {
-	return &DevicePolicyResourcesManagerClient{
-		svc: pb.NewDevicePolicyResourcesManagerServiceClient(cc),
-	}
-}
-
-// GetDrawableAsIcon3 calls the GetDrawableAsIcon3 RPC.
-func (c *DevicePolicyResourcesManagerClient) GetDrawableAsIcon3(ctx context.Context, arg0 string, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetDrawableAsIcon3(ctx, &pb.GetDrawableAsIcon3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDrawableAsIcon4_1 calls the GetDrawableAsIcon4_1 RPC.
-func (c *DevicePolicyResourcesManagerClient) GetDrawableAsIcon4_1(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetDrawableAsIcon4_1(ctx, &pb.GetDrawableAsIcon4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SystemUpdateInfoClient wraps the gRPC SystemUpdateInfoService client.
-type SystemUpdateInfoClient struct {
-	svc pb.SystemUpdateInfoServiceClient
-}
-
-// NewSystemUpdateInfoClient creates a new SystemUpdateInfo client.
-func NewSystemUpdateInfoClient(cc grpc.ClientConnInterface) *SystemUpdateInfoClient {
-	return &SystemUpdateInfoClient{
-		svc: pb.NewSystemUpdateInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SystemUpdateInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *SystemUpdateInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.SystemUpdateInfoEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReceivedTime calls the GetReceivedTime RPC.
-func (c *SystemUpdateInfoClient) GetReceivedTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetReceivedTime(ctx, &pb.GetReceivedTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSecurityPatchState calls the GetSecurityPatchState RPC.
-func (c *SystemUpdateInfoClient) GetSecurityPatchState(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSecurityPatchState(ctx, &pb.GetSecurityPatchStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SystemUpdateInfoClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.SystemUpdateInfoHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SystemUpdateInfoClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SystemUpdateInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ManagedSubscriptionsPolicyClient wraps the gRPC ManagedSubscriptionsPolicyService client.
-type ManagedSubscriptionsPolicyClient struct {
-	svc pb.ManagedSubscriptionsPolicyServiceClient
-}
-
-// NewManagedSubscriptionsPolicyClient creates a new ManagedSubscriptionsPolicy client.
-func NewManagedSubscriptionsPolicyClient(cc grpc.ClientConnInterface) *ManagedSubscriptionsPolicyClient {
-	return &ManagedSubscriptionsPolicyClient{
-		svc: pb.NewManagedSubscriptionsPolicyServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ManagedSubscriptionsPolicyClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ManagedSubscriptionsPolicyDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ManagedSubscriptionsPolicyClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+// OnChoosePrivateKeyAlias calls the OnChoosePrivateKeyAlias RPC.
+func (c *DelegatedAdminReceiverClient) OnChoosePrivateKeyAlias(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 string) (string, error) {
+	resp, err := c.svc.OnChoosePrivateKeyAlias(ctx, &pb.OnChoosePrivateKeyAliasRequest{
 		Handle: handle,
 		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPolicyType calls the GetPolicyType RPC.
-func (c *ManagedSubscriptionsPolicyClient) GetPolicyType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPolicyType(ctx, &pb.GetPolicyTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ManagedSubscriptionsPolicyClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ManagedSubscriptionsPolicyClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ManagedSubscriptionsPolicyToStringRequest{
-		Handle: handle,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
 	})
 	if err != nil {
 		return "", err
@@ -4177,9 +4242,31 @@ func (c *ManagedSubscriptionsPolicyClient) ToString(ctx context.Context, handle 
 	return resp.GetResult(), nil
 }
 
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ManagedSubscriptionsPolicyClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ManagedSubscriptionsPolicyWriteToParcelRequest{
+// OnNetworkLogsAvailable calls the OnNetworkLogsAvailable RPC.
+func (c *DelegatedAdminReceiverClient) OnNetworkLogsAvailable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.OnNetworkLogsAvailable(ctx, &pb.OnNetworkLogsAvailableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// OnReceive calls the OnReceive RPC.
+func (c *DelegatedAdminReceiverClient) OnReceive(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnReceive(ctx, &pb.DelegatedAdminReceiverOnReceiveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnSecurityLogsAvailable calls the OnSecurityLogsAvailable RPC.
+func (c *DelegatedAdminReceiverClient) OnSecurityLogsAvailable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnSecurityLogsAvailable(ctx, &pb.OnSecurityLogsAvailableRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -4219,6 +4306,164 @@ func (c *TargetUserClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
+// WifiSsidPolicyClient wraps the gRPC WifiSsidPolicyService client.
+type WifiSsidPolicyClient struct {
+	svc pb.WifiSsidPolicyServiceClient
+}
+
+// NewWifiSsidPolicyClient creates a new WifiSsidPolicy client.
+func NewWifiSsidPolicyClient(cc grpc.ClientConnInterface) *WifiSsidPolicyClient {
+	return &WifiSsidPolicyClient{
+		svc: pb.NewWifiSsidPolicyServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiSsidPolicyClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *WifiSsidPolicyClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPolicyType calls the GetPolicyType RPC.
+func (c *WifiSsidPolicyClient) GetPolicyType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPolicyType(ctx, &pb.GetPolicyTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSsids calls the GetSsids RPC.
+func (c *WifiSsidPolicyClient) GetSsids(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSsids(ctx, &pb.GetSsidsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *WifiSsidPolicyClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiSsidPolicyClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// DevicePolicyIdentifiersClient wraps the gRPC DevicePolicyIdentifiersService client.
+type DevicePolicyIdentifiersClient struct {
+	svc pb.DevicePolicyIdentifiersServiceClient
+}
+
+// NewDevicePolicyIdentifiersClient creates a new DevicePolicyIdentifiers client.
+func NewDevicePolicyIdentifiersClient(cc grpc.ClientConnInterface) *DevicePolicyIdentifiersClient {
+	return &DevicePolicyIdentifiersClient{
+		svc: pb.NewDevicePolicyIdentifiersServiceClient(cc),
+	}
+}
+
+// GetIdentifierForUserRestriction calls the GetIdentifierForUserRestriction RPC.
+func (c *DevicePolicyIdentifiersClient) GetIdentifierForUserRestriction(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetIdentifierForUserRestriction(ctx, &pb.GetIdentifierForUserRestrictionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ConnectEventClient wraps the gRPC ConnectEventService client.
+type ConnectEventClient struct {
+	svc pb.ConnectEventServiceClient
+}
+
+// NewConnectEventClient creates a new ConnectEvent client.
+func NewConnectEventClient(cc grpc.ClientConnInterface) *ConnectEventClient {
+	return &ConnectEventClient{
+		svc: pb.NewConnectEventServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConnectEventClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ConnectEventDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInetAddress calls the GetInetAddress RPC.
+func (c *ConnectEventClient) GetInetAddress(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInetAddress(ctx, &pb.GetInetAddressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPort calls the GetPort RPC.
+func (c *ConnectEventClient) GetPort(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPort(ctx, &pb.GetPortRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ConnectEventClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ConnectEventToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConnectEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ConnectEventWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // DeviceAdminInfoClient wraps the gRPC DeviceAdminInfoService client.
 type DeviceAdminInfoClient struct {
 	svc pb.DeviceAdminInfoServiceClient
@@ -4233,7 +4478,7 @@ func NewDeviceAdminInfoClient(cc grpc.ClientConnInterface) *DeviceAdminInfoClien
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *DeviceAdminInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DeviceAdminInfoDescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -4379,7 +4624,7 @@ func (c *DeviceAdminInfoClient) SupportsTransferOwnership(ctx context.Context, h
 
 // ToString calls the ToString RPC.
 func (c *DeviceAdminInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.DeviceAdminInfoToStringRequest{
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -4402,67 +4647,7 @@ func (c *DeviceAdminInfoClient) UsesPolicy(ctx context.Context, handle int64, ar
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *DeviceAdminInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.DeviceAdminInfoWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// DelegatedAdminReceiverClient wraps the gRPC DelegatedAdminReceiverService client.
-type DelegatedAdminReceiverClient struct {
-	svc pb.DelegatedAdminReceiverServiceClient
-}
-
-// NewDelegatedAdminReceiverClient creates a new DelegatedAdminReceiver client.
-func NewDelegatedAdminReceiverClient(cc grpc.ClientConnInterface) *DelegatedAdminReceiverClient {
-	return &DelegatedAdminReceiverClient{
-		svc: pb.NewDelegatedAdminReceiverServiceClient(cc),
-	}
-}
-
-// OnChoosePrivateKeyAlias calls the OnChoosePrivateKeyAlias RPC.
-func (c *DelegatedAdminReceiverClient) OnChoosePrivateKeyAlias(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 string) (string, error) {
-	resp, err := c.svc.OnChoosePrivateKeyAlias(ctx, &pb.OnChoosePrivateKeyAliasRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnNetworkLogsAvailable calls the OnNetworkLogsAvailable RPC.
-func (c *DelegatedAdminReceiverClient) OnNetworkLogsAvailable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
-	_, err := c.svc.OnNetworkLogsAvailable(ctx, &pb.OnNetworkLogsAvailableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// OnReceive calls the OnReceive RPC.
-func (c *DelegatedAdminReceiverClient) OnReceive(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnReceive(ctx, &pb.DelegatedAdminReceiverOnReceiveRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnSecurityLogsAvailable calls the OnSecurityLogsAvailable RPC.
-func (c *DelegatedAdminReceiverClient) OnSecurityLogsAvailable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnSecurityLogsAvailable(ctx, &pb.OnSecurityLogsAvailableRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -4484,7 +4669,7 @@ func NewNetworkEventClient(cc grpc.ClientConnInterface) *NetworkEventClient {
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *NetworkEventClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.NetworkEventDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -4520,7 +4705,151 @@ func (c *NetworkEventClient) GetTimestamp(ctx context.Context) (int64, error) {
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *NetworkEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.NetworkEventWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SystemUpdatePolicyClient wraps the gRPC SystemUpdatePolicyService client.
+type SystemUpdatePolicyClient struct {
+	svc pb.SystemUpdatePolicyServiceClient
+}
+
+// NewSystemUpdatePolicyClient creates a new SystemUpdatePolicy client.
+func NewSystemUpdatePolicyClient(cc grpc.ClientConnInterface) *SystemUpdatePolicyClient {
+	return &SystemUpdatePolicyClient{
+		svc: pb.NewSystemUpdatePolicyServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SystemUpdatePolicyClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SystemUpdatePolicyDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFreezePeriods calls the GetFreezePeriods RPC.
+func (c *SystemUpdatePolicyClient) GetFreezePeriods(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFreezePeriods(ctx, &pb.GetFreezePeriodsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallWindowEnd calls the GetInstallWindowEnd RPC.
+func (c *SystemUpdatePolicyClient) GetInstallWindowEnd(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInstallWindowEnd(ctx, &pb.GetInstallWindowEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallWindowStart calls the GetInstallWindowStart RPC.
+func (c *SystemUpdatePolicyClient) GetInstallWindowStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInstallWindowStart(ctx, &pb.GetInstallWindowStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPolicyType calls the GetPolicyType RPC.
+func (c *SystemUpdatePolicyClient) GetPolicyType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPolicyType(ctx, &pb.SystemUpdatePolicyGetPolicyTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SystemUpdatePolicyClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SystemUpdatePolicyToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SystemUpdatePolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SystemUpdatePolicyWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateAutomaticInstallPolicy calls the CreateAutomaticInstallPolicy RPC.
+func (c *SystemUpdatePolicyClient) CreateAutomaticInstallPolicy(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateAutomaticInstallPolicy(ctx, &pb.CreateAutomaticInstallPolicyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreatePostponeInstallPolicy calls the CreatePostponeInstallPolicy RPC.
+func (c *SystemUpdatePolicyClient) CreatePostponeInstallPolicy(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreatePostponeInstallPolicy(ctx, &pb.CreatePostponeInstallPolicyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWindowedInstallPolicy calls the CreateWindowedInstallPolicy RPC.
+func (c *SystemUpdatePolicyClient) CreateWindowedInstallPolicy(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateWindowedInstallPolicy(ctx, &pb.CreateWindowedInstallPolicyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SystemUpdatePolicyValidationFailedExceptionClient wraps the gRPC SystemUpdatePolicyValidationFailedExceptionService client.
+type SystemUpdatePolicyValidationFailedExceptionClient struct {
+	svc pb.SystemUpdatePolicyValidationFailedExceptionServiceClient
+}
+
+// NewSystemUpdatePolicyValidationFailedExceptionClient creates a new SystemUpdatePolicyValidationFailedException client.
+func NewSystemUpdatePolicyValidationFailedExceptionClient(cc grpc.ClientConnInterface) *SystemUpdatePolicyValidationFailedExceptionClient {
+	return &SystemUpdatePolicyValidationFailedExceptionClient{
+		svc: pb.NewSystemUpdatePolicyValidationFailedExceptionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SystemUpdatePolicyValidationFailedExceptionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SystemUpdatePolicyValidationFailedExceptionDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *SystemUpdatePolicyValidationFailedExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SystemUpdatePolicyValidationFailedExceptionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SystemUpdatePolicyValidationFailedExceptionWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})

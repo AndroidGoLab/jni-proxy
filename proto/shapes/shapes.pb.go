@@ -23,96 +23,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type NewOvalShapeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewOvalShapeRequest) Reset() {
-	*x = NewOvalShapeRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewOvalShapeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewOvalShapeRequest) ProtoMessage() {}
-
-func (x *NewOvalShapeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewOvalShapeRequest.ProtoReflect.Descriptor instead.
-func (*NewOvalShapeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{0}
-}
-
-type NewOvalShapeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewOvalShapeResponse) Reset() {
-	*x = NewOvalShapeResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewOvalShapeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewOvalShapeResponse) ProtoMessage() {}
-
-func (x *NewOvalShapeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewOvalShapeResponse.ProtoReflect.Descriptor instead.
-func (*NewOvalShapeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *NewOvalShapeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type Clone0Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Clone0Request) Reset() {
 	*x = Clone0Request{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[2]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -124,7 +43,7 @@ func (x *Clone0Request) String() string {
 func (*Clone0Request) ProtoMessage() {}
 
 func (x *Clone0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[2]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -137,14 +56,7 @@ func (x *Clone0Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Clone0Request.ProtoReflect.Descriptor instead.
 func (*Clone0Request) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *Clone0Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{0}
 }
 
 type Clone0Response struct {
@@ -156,7 +68,7 @@ type Clone0Response struct {
 
 func (x *Clone0Response) Reset() {
 	*x = Clone0Response{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[3]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -168,7 +80,7 @@ func (x *Clone0Response) String() string {
 func (*Clone0Response) ProtoMessage() {}
 
 func (x *Clone0Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[3]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +93,7 @@ func (x *Clone0Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Clone0Response.ProtoReflect.Descriptor instead.
 func (*Clone0Response) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{3}
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Clone0Response) GetResult() int64 {
@@ -193,16 +105,15 @@ func (x *Clone0Response) GetResult() int64 {
 
 type DrawRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DrawRequest) Reset() {
 	*x = DrawRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[4]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -214,7 +125,7 @@ func (x *DrawRequest) String() string {
 func (*DrawRequest) ProtoMessage() {}
 
 func (x *DrawRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[4]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -227,14 +138,7 @@ func (x *DrawRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DrawRequest.ProtoReflect.Descriptor instead.
 func (*DrawRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *DrawRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *DrawRequest) GetArg0() int64 {
@@ -259,7 +163,7 @@ type DrawResponse struct {
 
 func (x *DrawResponse) Reset() {
 	*x = DrawResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[5]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -271,7 +175,7 @@ func (x *DrawResponse) String() string {
 func (*DrawResponse) ProtoMessage() {}
 
 func (x *DrawResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[5]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -284,20 +188,187 @@ func (x *DrawResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DrawResponse.ProtoReflect.Descriptor instead.
 func (*DrawResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{3}
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetHeightRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHeightRequest) Reset() {
+	*x = GetHeightRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHeightRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHeightRequest) ProtoMessage() {}
+
+func (x *GetHeightRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHeightRequest.ProtoReflect.Descriptor instead.
+func (*GetHeightRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{6}
+}
+
+type GetHeightResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHeightResponse) Reset() {
+	*x = GetHeightResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHeightResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHeightResponse) ProtoMessage() {}
+
+func (x *GetHeightResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHeightResponse.ProtoReflect.Descriptor instead.
+func (*GetHeightResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetHeightResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetOutlineRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetOutlineRequest) Reset() {
 	*x = GetOutlineRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[6]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -309,7 +380,7 @@ func (x *GetOutlineRequest) String() string {
 func (*GetOutlineRequest) ProtoMessage() {}
 
 func (x *GetOutlineRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[6]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -322,14 +393,7 @@ func (x *GetOutlineRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOutlineRequest.ProtoReflect.Descriptor instead.
 func (*GetOutlineRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *GetOutlineRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetOutlineRequest) GetArg0() int64 {
@@ -347,7 +411,7 @@ type GetOutlineResponse struct {
 
 func (x *GetOutlineResponse) Reset() {
 	*x = GetOutlineResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[7]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -359,7 +423,7 @@ func (x *GetOutlineResponse) String() string {
 func (*GetOutlineResponse) ProtoMessage() {}
 
 func (x *GetOutlineResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[7]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -372,19 +436,346 @@ func (x *GetOutlineResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOutlineResponse.ProtoReflect.Descriptor instead.
 func (*GetOutlineResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{7}
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{9}
+}
+
+type GetWidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidthRequest) Reset() {
+	*x = GetWidthRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidthRequest) ProtoMessage() {}
+
+func (x *GetWidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidthRequest.ProtoReflect.Descriptor instead.
+func (*GetWidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{10}
+}
+
+type GetWidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidthResponse) Reset() {
+	*x = GetWidthResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidthResponse) ProtoMessage() {}
+
+func (x *GetWidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidthResponse.ProtoReflect.Descriptor instead.
+func (*GetWidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetWidthResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasAlphaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasAlphaRequest) Reset() {
+	*x = HasAlphaRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasAlphaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasAlphaRequest) ProtoMessage() {}
+
+func (x *HasAlphaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasAlphaRequest.ProtoReflect.Descriptor instead.
+func (*HasAlphaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{12}
+}
+
+type HasAlphaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasAlphaResponse) Reset() {
+	*x = HasAlphaResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasAlphaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasAlphaResponse) ProtoMessage() {}
+
+func (x *HasAlphaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasAlphaResponse.ProtoReflect.Descriptor instead.
+func (*HasAlphaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *HasAlphaResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{14}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ResizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResizeRequest) Reset() {
+	*x = ResizeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResizeRequest) ProtoMessage() {}
+
+func (x *ResizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResizeRequest.ProtoReflect.Descriptor instead.
+func (*ResizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *ResizeRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ResizeRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ResizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResizeResponse) Reset() {
+	*x = ResizeResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResizeResponse) ProtoMessage() {}
+
+func (x *ResizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResizeResponse.ProtoReflect.Descriptor instead.
+func (*ResizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{17}
 }
 
 type Clone0_1Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Clone0_1Request) Reset() {
 	*x = Clone0_1Request{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[8]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -396,7 +787,7 @@ func (x *Clone0_1Request) String() string {
 func (*Clone0_1Request) ProtoMessage() {}
 
 func (x *Clone0_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[8]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -409,14 +800,7 @@ func (x *Clone0_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Clone0_1Request.ProtoReflect.Descriptor instead.
 func (*Clone0_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *Clone0_1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{18}
 }
 
 type Clone0_1Response struct {
@@ -428,7 +812,7 @@ type Clone0_1Response struct {
 
 func (x *Clone0_1Response) Reset() {
 	*x = Clone0_1Response{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[9]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -440,7 +824,7 @@ func (x *Clone0_1Response) String() string {
 func (*Clone0_1Response) ProtoMessage() {}
 
 func (x *Clone0_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[9]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -453,186 +837,10 @@ func (x *Clone0_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Clone0_1Response.ProtoReflect.Descriptor instead.
 func (*Clone0_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{9}
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *Clone0_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type Clone0_2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Clone0_2Request) Reset() {
-	*x = Clone0_2Request{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Clone0_2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Clone0_2Request) ProtoMessage() {}
-
-func (x *Clone0_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Clone0_2Request.ProtoReflect.Descriptor instead.
-func (*Clone0_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *Clone0_2Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type Clone0_2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Clone0_2Response) Reset() {
-	*x = Clone0_2Response{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Clone0_2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Clone0_2Response) ProtoMessage() {}
-
-func (x *Clone0_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Clone0_2Response.ProtoReflect.Descriptor instead.
-func (*Clone0_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *Clone0_2Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type Clone0_3Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Clone0_3Request) Reset() {
-	*x = Clone0_3Request{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Clone0_3Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Clone0_3Request) ProtoMessage() {}
-
-func (x *Clone0_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Clone0_3Request.ProtoReflect.Descriptor instead.
-func (*Clone0_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *Clone0_3Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type Clone0_3Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Clone0_3Response) Reset() {
-	*x = Clone0_3Response{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Clone0_3Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Clone0_3Response) ProtoMessage() {}
-
-func (x *Clone0_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Clone0_3Response.ProtoReflect.Descriptor instead.
-func (*Clone0_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *Clone0_3Response) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -650,7 +858,7 @@ type NewRoundRectShapeRequest struct {
 
 func (x *NewRoundRectShapeRequest) Reset() {
 	*x = NewRoundRectShapeRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[14]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -662,7 +870,7 @@ func (x *NewRoundRectShapeRequest) String() string {
 func (*NewRoundRectShapeRequest) ProtoMessage() {}
 
 func (x *NewRoundRectShapeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[14]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -675,7 +883,7 @@ func (x *NewRoundRectShapeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewRoundRectShapeRequest.ProtoReflect.Descriptor instead.
 func (*NewRoundRectShapeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{14}
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *NewRoundRectShapeRequest) GetArg0() int64 {
@@ -708,7 +916,7 @@ type NewRoundRectShapeResponse struct {
 
 func (x *NewRoundRectShapeResponse) Reset() {
 	*x = NewRoundRectShapeResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[15]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -720,7 +928,7 @@ func (x *NewRoundRectShapeResponse) String() string {
 func (*NewRoundRectShapeResponse) ProtoMessage() {}
 
 func (x *NewRoundRectShapeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[15]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -733,7 +941,7 @@ func (x *NewRoundRectShapeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewRoundRectShapeResponse.ProtoReflect.Descriptor instead.
 func (*NewRoundRectShapeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{15}
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *NewRoundRectShapeResponse) GetResult() int64 {
@@ -743,7 +951,111 @@ func (x *NewRoundRectShapeResponse) GetResult() int64 {
 	return 0
 }
 
-type EqualsRequest struct {
+type RoundRectShapeClone0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RoundRectShapeClone0Request) Reset() {
+	*x = RoundRectShapeClone0Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RoundRectShapeClone0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RoundRectShapeClone0Request) ProtoMessage() {}
+
+func (x *RoundRectShapeClone0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RoundRectShapeClone0Request.ProtoReflect.Descriptor instead.
+func (*RoundRectShapeClone0Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *RoundRectShapeClone0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RoundRectShapeDrawRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RoundRectShapeDrawRequest) Reset() {
+	*x = RoundRectShapeDrawRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RoundRectShapeDrawRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RoundRectShapeDrawRequest) ProtoMessage() {}
+
+func (x *RoundRectShapeDrawRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RoundRectShapeDrawRequest.ProtoReflect.Descriptor instead.
+func (*RoundRectShapeDrawRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *RoundRectShapeDrawRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RoundRectShapeDrawRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RoundRectShapeDrawRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RoundRectShapeEqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -751,21 +1063,21 @@ type EqualsRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EqualsRequest) Reset() {
-	*x = EqualsRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[16]
+func (x *RoundRectShapeEqualsRequest) Reset() {
+	*x = RoundRectShapeEqualsRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EqualsRequest) String() string {
+func (x *RoundRectShapeEqualsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EqualsRequest) ProtoMessage() {}
+func (*RoundRectShapeEqualsRequest) ProtoMessage() {}
 
-func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[16]
+func (x *RoundRectShapeEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -776,91 +1088,48 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
-func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{16}
+// Deprecated: Use RoundRectShapeEqualsRequest.ProtoReflect.Descriptor instead.
+func (*RoundRectShapeEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{24}
 }
 
-func (x *EqualsRequest) GetHandle() int64 {
+func (x *RoundRectShapeEqualsRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-func (x *EqualsRequest) GetArg0() int64 {
+func (x *RoundRectShapeEqualsRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type EqualsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EqualsResponse) Reset() {
-	*x = EqualsResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EqualsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EqualsResponse) ProtoMessage() {}
-
-func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
-func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *EqualsResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HashCodeRequest struct {
+type RoundRectShapeGetOutlineRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HashCodeRequest) Reset() {
-	*x = HashCodeRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[18]
+func (x *RoundRectShapeGetOutlineRequest) Reset() {
+	*x = RoundRectShapeGetOutlineRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HashCodeRequest) String() string {
+func (x *RoundRectShapeGetOutlineRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HashCodeRequest) ProtoMessage() {}
+func (*RoundRectShapeGetOutlineRequest) ProtoMessage() {}
 
-func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[18]
+func (x *RoundRectShapeGetOutlineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -871,40 +1140,47 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
-func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{18}
+// Deprecated: Use RoundRectShapeGetOutlineRequest.ProtoReflect.Descriptor instead.
+func (*RoundRectShapeGetOutlineRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{25}
 }
 
-func (x *HashCodeRequest) GetHandle() int64 {
+func (x *RoundRectShapeGetOutlineRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-type HashCodeResponse struct {
+func (x *RoundRectShapeGetOutlineRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RoundRectShapeHashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HashCodeResponse) Reset() {
-	*x = HashCodeResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[19]
+func (x *RoundRectShapeHashCodeRequest) Reset() {
+	*x = RoundRectShapeHashCodeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HashCodeResponse) String() string {
+func (x *RoundRectShapeHashCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HashCodeResponse) ProtoMessage() {}
+func (*RoundRectShapeHashCodeRequest) ProtoMessage() {}
 
-func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[19]
+func (x *RoundRectShapeHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -915,14 +1191,1458 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
-func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{19}
+// Deprecated: Use RoundRectShapeHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*RoundRectShapeHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{26}
 }
 
-func (x *HashCodeResponse) GetResult() int32 {
+func (x *RoundRectShapeHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RoundRectShapeClone0_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RoundRectShapeClone0_1Request) Reset() {
+	*x = RoundRectShapeClone0_1Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RoundRectShapeClone0_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RoundRectShapeClone0_1Request) ProtoMessage() {}
+
+func (x *RoundRectShapeClone0_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RoundRectShapeClone0_1Request.ProtoReflect.Descriptor instead.
+func (*RoundRectShapeClone0_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *RoundRectShapeClone0_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Clone0_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Clone0_2Request) Reset() {
+	*x = Clone0_2Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Clone0_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Clone0_2Request) ProtoMessage() {}
+
+func (x *Clone0_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Clone0_2Request.ProtoReflect.Descriptor instead.
+func (*Clone0_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *Clone0_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Clone0_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Clone0_2Response) Reset() {
+	*x = Clone0_2Response{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Clone0_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Clone0_2Response) ProtoMessage() {}
+
+func (x *Clone0_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Clone0_2Response.ProtoReflect.Descriptor instead.
+func (*Clone0_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *Clone0_2Response) GetResult() int64 {
 	if x != nil {
 		return x.Result
+	}
+	return 0
+}
+
+type Clone0_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Clone0_3Request) Reset() {
+	*x = Clone0_3Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Clone0_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Clone0_3Request) ProtoMessage() {}
+
+func (x *Clone0_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Clone0_3Request.ProtoReflect.Descriptor instead.
+func (*Clone0_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *Clone0_3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Clone0_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Clone0_3Response) Reset() {
+	*x = Clone0_3Response{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Clone0_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Clone0_3Response) ProtoMessage() {}
+
+func (x *Clone0_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Clone0_3Response.ProtoReflect.Descriptor instead.
+func (*Clone0_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *Clone0_3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewRectShapeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRectShapeRequest) Reset() {
+	*x = NewRectShapeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRectShapeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRectShapeRequest) ProtoMessage() {}
+
+func (x *NewRectShapeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRectShapeRequest.ProtoReflect.Descriptor instead.
+func (*NewRectShapeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{32}
+}
+
+type NewRectShapeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRectShapeResponse) Reset() {
+	*x = NewRectShapeResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRectShapeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRectShapeResponse) ProtoMessage() {}
+
+func (x *NewRectShapeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRectShapeResponse.ProtoReflect.Descriptor instead.
+func (*NewRectShapeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *NewRectShapeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RectShapeClone0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RectShapeClone0Request) Reset() {
+	*x = RectShapeClone0Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RectShapeClone0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RectShapeClone0Request) ProtoMessage() {}
+
+func (x *RectShapeClone0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RectShapeClone0Request.ProtoReflect.Descriptor instead.
+func (*RectShapeClone0Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *RectShapeClone0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RectShapeDrawRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RectShapeDrawRequest) Reset() {
+	*x = RectShapeDrawRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RectShapeDrawRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RectShapeDrawRequest) ProtoMessage() {}
+
+func (x *RectShapeDrawRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RectShapeDrawRequest.ProtoReflect.Descriptor instead.
+func (*RectShapeDrawRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *RectShapeDrawRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RectShapeDrawRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RectShapeDrawRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RectShapeEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RectShapeEqualsRequest) Reset() {
+	*x = RectShapeEqualsRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RectShapeEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RectShapeEqualsRequest) ProtoMessage() {}
+
+func (x *RectShapeEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RectShapeEqualsRequest.ProtoReflect.Descriptor instead.
+func (*RectShapeEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *RectShapeEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RectShapeEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RectShapeGetOutlineRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RectShapeGetOutlineRequest) Reset() {
+	*x = RectShapeGetOutlineRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RectShapeGetOutlineRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RectShapeGetOutlineRequest) ProtoMessage() {}
+
+func (x *RectShapeGetOutlineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RectShapeGetOutlineRequest.ProtoReflect.Descriptor instead.
+func (*RectShapeGetOutlineRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *RectShapeGetOutlineRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RectShapeGetOutlineRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RectShapeHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RectShapeHashCodeRequest) Reset() {
+	*x = RectShapeHashCodeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RectShapeHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RectShapeHashCodeRequest) ProtoMessage() {}
+
+func (x *RectShapeHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RectShapeHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*RectShapeHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *RectShapeHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RectShapeClone0_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RectShapeClone0_1Request) Reset() {
+	*x = RectShapeClone0_1Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RectShapeClone0_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RectShapeClone0_1Request) ProtoMessage() {}
+
+func (x *RectShapeClone0_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RectShapeClone0_1Request.ProtoReflect.Descriptor instead.
+func (*RectShapeClone0_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *RectShapeClone0_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewArcShapeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewArcShapeRequest) Reset() {
+	*x = NewArcShapeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewArcShapeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewArcShapeRequest) ProtoMessage() {}
+
+func (x *NewArcShapeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewArcShapeRequest.ProtoReflect.Descriptor instead.
+func (*NewArcShapeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *NewArcShapeRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewArcShapeRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewArcShapeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewArcShapeResponse) Reset() {
+	*x = NewArcShapeResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewArcShapeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewArcShapeResponse) ProtoMessage() {}
+
+func (x *NewArcShapeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewArcShapeResponse.ProtoReflect.Descriptor instead.
+func (*NewArcShapeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *NewArcShapeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ArcShapeClone0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArcShapeClone0Request) Reset() {
+	*x = ArcShapeClone0Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArcShapeClone0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArcShapeClone0Request) ProtoMessage() {}
+
+func (x *ArcShapeClone0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArcShapeClone0Request.ProtoReflect.Descriptor instead.
+func (*ArcShapeClone0Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *ArcShapeClone0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ArcShapeDrawRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArcShapeDrawRequest) Reset() {
+	*x = ArcShapeDrawRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArcShapeDrawRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArcShapeDrawRequest) ProtoMessage() {}
+
+func (x *ArcShapeDrawRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArcShapeDrawRequest.ProtoReflect.Descriptor instead.
+func (*ArcShapeDrawRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *ArcShapeDrawRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ArcShapeDrawRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ArcShapeDrawRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ArcShapeEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArcShapeEqualsRequest) Reset() {
+	*x = ArcShapeEqualsRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArcShapeEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArcShapeEqualsRequest) ProtoMessage() {}
+
+func (x *ArcShapeEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArcShapeEqualsRequest.ProtoReflect.Descriptor instead.
+func (*ArcShapeEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *ArcShapeEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ArcShapeEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ArcShapeGetOutlineRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArcShapeGetOutlineRequest) Reset() {
+	*x = ArcShapeGetOutlineRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArcShapeGetOutlineRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArcShapeGetOutlineRequest) ProtoMessage() {}
+
+func (x *ArcShapeGetOutlineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArcShapeGetOutlineRequest.ProtoReflect.Descriptor instead.
+func (*ArcShapeGetOutlineRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *ArcShapeGetOutlineRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ArcShapeGetOutlineRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetStartAngleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartAngleRequest) Reset() {
+	*x = GetStartAngleRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartAngleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartAngleRequest) ProtoMessage() {}
+
+func (x *GetStartAngleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartAngleRequest.ProtoReflect.Descriptor instead.
+func (*GetStartAngleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *GetStartAngleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStartAngleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartAngleResponse) Reset() {
+	*x = GetStartAngleResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartAngleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartAngleResponse) ProtoMessage() {}
+
+func (x *GetStartAngleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartAngleResponse.ProtoReflect.Descriptor instead.
+func (*GetStartAngleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetStartAngleResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSweepAngleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSweepAngleRequest) Reset() {
+	*x = GetSweepAngleRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSweepAngleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSweepAngleRequest) ProtoMessage() {}
+
+func (x *GetSweepAngleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSweepAngleRequest.ProtoReflect.Descriptor instead.
+func (*GetSweepAngleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetSweepAngleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSweepAngleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSweepAngleResponse) Reset() {
+	*x = GetSweepAngleResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSweepAngleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSweepAngleResponse) ProtoMessage() {}
+
+func (x *GetSweepAngleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSweepAngleResponse.ProtoReflect.Descriptor instead.
+func (*GetSweepAngleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetSweepAngleResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ArcShapeHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArcShapeHashCodeRequest) Reset() {
+	*x = ArcShapeHashCodeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArcShapeHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArcShapeHashCodeRequest) ProtoMessage() {}
+
+func (x *ArcShapeHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArcShapeHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*ArcShapeHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *ArcShapeHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ArcShapeClone0_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArcShapeClone0_1Request) Reset() {
+	*x = ArcShapeClone0_1Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArcShapeClone0_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArcShapeClone0_1Request) ProtoMessage() {}
+
+func (x *ArcShapeClone0_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArcShapeClone0_1Request.ProtoReflect.Descriptor instead.
+func (*ArcShapeClone0_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *ArcShapeClone0_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewOvalShapeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOvalShapeRequest) Reset() {
+	*x = NewOvalShapeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOvalShapeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOvalShapeRequest) ProtoMessage() {}
+
+func (x *NewOvalShapeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOvalShapeRequest.ProtoReflect.Descriptor instead.
+func (*NewOvalShapeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{52}
+}
+
+type NewOvalShapeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOvalShapeResponse) Reset() {
+	*x = NewOvalShapeResponse{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOvalShapeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOvalShapeResponse) ProtoMessage() {}
+
+func (x *NewOvalShapeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOvalShapeResponse.ProtoReflect.Descriptor instead.
+func (*NewOvalShapeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *NewOvalShapeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OvalShapeClone0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OvalShapeClone0Request) Reset() {
+	*x = OvalShapeClone0Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OvalShapeClone0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OvalShapeClone0Request) ProtoMessage() {}
+
+func (x *OvalShapeClone0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OvalShapeClone0Request.ProtoReflect.Descriptor instead.
+func (*OvalShapeClone0Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *OvalShapeClone0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OvalShapeDrawRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OvalShapeDrawRequest) Reset() {
+	*x = OvalShapeDrawRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OvalShapeDrawRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OvalShapeDrawRequest) ProtoMessage() {}
+
+func (x *OvalShapeDrawRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OvalShapeDrawRequest.ProtoReflect.Descriptor instead.
+func (*OvalShapeDrawRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *OvalShapeDrawRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OvalShapeDrawRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OvalShapeDrawRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OvalShapeGetOutlineRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OvalShapeGetOutlineRequest) Reset() {
+	*x = OvalShapeGetOutlineRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OvalShapeGetOutlineRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OvalShapeGetOutlineRequest) ProtoMessage() {}
+
+func (x *OvalShapeGetOutlineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OvalShapeGetOutlineRequest.ProtoReflect.Descriptor instead.
+func (*OvalShapeGetOutlineRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *OvalShapeGetOutlineRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OvalShapeGetOutlineRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OvalShapeClone0_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OvalShapeClone0_1Request) Reset() {
+	*x = OvalShapeClone0_1Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OvalShapeClone0_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OvalShapeClone0_1Request) ProtoMessage() {}
+
+func (x *OvalShapeClone0_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OvalShapeClone0_1Request.ProtoReflect.Descriptor instead.
+func (*OvalShapeClone0_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *OvalShapeClone0_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
 	}
 	return 0
 }
@@ -938,7 +2658,7 @@ type NewPathShapeRequest struct {
 
 func (x *NewPathShapeRequest) Reset() {
 	*x = NewPathShapeRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[20]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -950,7 +2670,7 @@ func (x *NewPathShapeRequest) String() string {
 func (*NewPathShapeRequest) ProtoMessage() {}
 
 func (x *NewPathShapeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[20]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -963,7 +2683,7 @@ func (x *NewPathShapeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewPathShapeRequest.ProtoReflect.Descriptor instead.
 func (*NewPathShapeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{20}
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *NewPathShapeRequest) GetArg0() int64 {
@@ -996,7 +2716,7 @@ type NewPathShapeResponse struct {
 
 func (x *NewPathShapeResponse) Reset() {
 	*x = NewPathShapeResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[21]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1008,7 +2728,7 @@ func (x *NewPathShapeResponse) String() string {
 func (*NewPathShapeResponse) ProtoMessage() {}
 
 func (x *NewPathShapeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[21]
+	mi := &file_proto_shapes_shapes_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1021,7 +2741,7 @@ func (x *NewPathShapeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewPathShapeResponse.ProtoReflect.Descriptor instead.
 func (*NewPathShapeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{21}
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *NewPathShapeResponse) GetResult() int64 {
@@ -1031,780 +2751,28 @@ func (x *NewPathShapeResponse) GetResult() int64 {
 	return 0
 }
 
-type ShapeClone0Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShapeClone0Request) Reset() {
-	*x = ShapeClone0Request{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShapeClone0Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShapeClone0Request) ProtoMessage() {}
-
-func (x *ShapeClone0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShapeClone0Request.ProtoReflect.Descriptor instead.
-func (*ShapeClone0Request) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{22}
-}
-
-type ShapeDrawRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShapeDrawRequest) Reset() {
-	*x = ShapeDrawRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShapeDrawRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShapeDrawRequest) ProtoMessage() {}
-
-func (x *ShapeDrawRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShapeDrawRequest.ProtoReflect.Descriptor instead.
-func (*ShapeDrawRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *ShapeDrawRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ShapeDrawRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type ShapeEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShapeEqualsRequest) Reset() {
-	*x = ShapeEqualsRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShapeEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShapeEqualsRequest) ProtoMessage() {}
-
-func (x *ShapeEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShapeEqualsRequest.ProtoReflect.Descriptor instead.
-func (*ShapeEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *ShapeEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetHeightRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHeightRequest) Reset() {
-	*x = GetHeightRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHeightRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHeightRequest) ProtoMessage() {}
-
-func (x *GetHeightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHeightRequest.ProtoReflect.Descriptor instead.
-func (*GetHeightRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{25}
-}
-
-type GetHeightResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHeightResponse) Reset() {
-	*x = GetHeightResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHeightResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHeightResponse) ProtoMessage() {}
-
-func (x *GetHeightResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHeightResponse.ProtoReflect.Descriptor instead.
-func (*GetHeightResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *GetHeightResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ShapeGetOutlineRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShapeGetOutlineRequest) Reset() {
-	*x = ShapeGetOutlineRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShapeGetOutlineRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShapeGetOutlineRequest) ProtoMessage() {}
-
-func (x *ShapeGetOutlineRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShapeGetOutlineRequest.ProtoReflect.Descriptor instead.
-func (*ShapeGetOutlineRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *ShapeGetOutlineRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetWidthRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidthRequest) Reset() {
-	*x = GetWidthRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidthRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidthRequest) ProtoMessage() {}
-
-func (x *GetWidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidthRequest.ProtoReflect.Descriptor instead.
-func (*GetWidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{28}
-}
-
-type GetWidthResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidthResponse) Reset() {
-	*x = GetWidthResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidthResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidthResponse) ProtoMessage() {}
-
-func (x *GetWidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidthResponse.ProtoReflect.Descriptor instead.
-func (*GetWidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetWidthResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HasAlphaRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasAlphaRequest) Reset() {
-	*x = HasAlphaRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasAlphaRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasAlphaRequest) ProtoMessage() {}
-
-func (x *HasAlphaRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasAlphaRequest.ProtoReflect.Descriptor instead.
-func (*HasAlphaRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{30}
-}
-
-type HasAlphaResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasAlphaResponse) Reset() {
-	*x = HasAlphaResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasAlphaResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasAlphaResponse) ProtoMessage() {}
-
-func (x *HasAlphaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasAlphaResponse.ProtoReflect.Descriptor instead.
-func (*HasAlphaResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *HasAlphaResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ShapeHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShapeHashCodeRequest) Reset() {
-	*x = ShapeHashCodeRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShapeHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShapeHashCodeRequest) ProtoMessage() {}
-
-func (x *ShapeHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShapeHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*ShapeHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{32}
-}
-
-type ResizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResizeRequest) Reset() {
-	*x = ResizeRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResizeRequest) ProtoMessage() {}
-
-func (x *ResizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResizeRequest.ProtoReflect.Descriptor instead.
-func (*ResizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *ResizeRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ResizeRequest) GetArg1() float32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type ResizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResizeResponse) Reset() {
-	*x = ResizeResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResizeResponse) ProtoMessage() {}
-
-func (x *ResizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResizeResponse.ProtoReflect.Descriptor instead.
-func (*ResizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{34}
-}
-
-type ShapeClone0_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShapeClone0_1Request) Reset() {
-	*x = ShapeClone0_1Request{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShapeClone0_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShapeClone0_1Request) ProtoMessage() {}
-
-func (x *ShapeClone0_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShapeClone0_1Request.ProtoReflect.Descriptor instead.
-func (*ShapeClone0_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{35}
-}
-
-type NewRectShapeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRectShapeRequest) Reset() {
-	*x = NewRectShapeRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRectShapeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRectShapeRequest) ProtoMessage() {}
-
-func (x *NewRectShapeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRectShapeRequest.ProtoReflect.Descriptor instead.
-func (*NewRectShapeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{36}
-}
-
-type NewRectShapeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRectShapeResponse) Reset() {
-	*x = NewRectShapeResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRectShapeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRectShapeResponse) ProtoMessage() {}
-
-func (x *NewRectShapeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRectShapeResponse.ProtoReflect.Descriptor instead.
-func (*NewRectShapeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *NewRectShapeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewArcShapeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewArcShapeRequest) Reset() {
-	*x = NewArcShapeRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewArcShapeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewArcShapeRequest) ProtoMessage() {}
-
-func (x *NewArcShapeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewArcShapeRequest.ProtoReflect.Descriptor instead.
-func (*NewArcShapeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *NewArcShapeRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewArcShapeRequest) GetArg1() float32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NewArcShapeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewArcShapeResponse) Reset() {
-	*x = NewArcShapeResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewArcShapeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewArcShapeResponse) ProtoMessage() {}
-
-func (x *NewArcShapeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewArcShapeResponse.ProtoReflect.Descriptor instead.
-func (*NewArcShapeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *NewArcShapeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetStartAngleRequest struct {
+type PathShapeClone0Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetStartAngleRequest) Reset() {
-	*x = GetStartAngleRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[40]
+func (x *PathShapeClone0Request) Reset() {
+	*x = PathShapeClone0Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetStartAngleRequest) String() string {
+func (x *PathShapeClone0Request) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetStartAngleRequest) ProtoMessage() {}
+func (*PathShapeClone0Request) ProtoMessage() {}
 
-func (x *GetStartAngleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[40]
+func (x *PathShapeClone0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1815,40 +2783,42 @@ func (x *GetStartAngleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetStartAngleRequest.ProtoReflect.Descriptor instead.
-func (*GetStartAngleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{40}
+// Deprecated: Use PathShapeClone0Request.ProtoReflect.Descriptor instead.
+func (*PathShapeClone0Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{60}
 }
 
-func (x *GetStartAngleRequest) GetHandle() int64 {
+func (x *PathShapeClone0Request) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-type GetStartAngleResponse struct {
+type PathShapeDrawRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetStartAngleResponse) Reset() {
-	*x = GetStartAngleResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[41]
+func (x *PathShapeDrawRequest) Reset() {
+	*x = PathShapeDrawRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetStartAngleResponse) String() string {
+func (x *PathShapeDrawRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetStartAngleResponse) ProtoMessage() {}
+func (*PathShapeDrawRequest) ProtoMessage() {}
 
-func (x *GetStartAngleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[41]
+func (x *PathShapeDrawRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1859,40 +2829,106 @@ func (x *GetStartAngleResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetStartAngleResponse.ProtoReflect.Descriptor instead.
-func (*GetStartAngleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{41}
+// Deprecated: Use PathShapeDrawRequest.ProtoReflect.Descriptor instead.
+func (*PathShapeDrawRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{61}
 }
 
-func (x *GetStartAngleResponse) GetResult() float32 {
+func (x *PathShapeDrawRequest) GetHandle() int64 {
 	if x != nil {
-		return x.Result
+		return x.Handle
 	}
 	return 0
 }
 
-type GetSweepAngleRequest struct {
+func (x *PathShapeDrawRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PathShapeDrawRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type PathShapeEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PathShapeEqualsRequest) Reset() {
+	*x = PathShapeEqualsRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PathShapeEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PathShapeEqualsRequest) ProtoMessage() {}
+
+func (x *PathShapeEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PathShapeEqualsRequest.ProtoReflect.Descriptor instead.
+func (*PathShapeEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *PathShapeEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PathShapeEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type PathShapeHashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSweepAngleRequest) Reset() {
-	*x = GetSweepAngleRequest{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[42]
+func (x *PathShapeHashCodeRequest) Reset() {
+	*x = PathShapeHashCodeRequest{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSweepAngleRequest) String() string {
+func (x *PathShapeHashCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSweepAngleRequest) ProtoMessage() {}
+func (*PathShapeHashCodeRequest) ProtoMessage() {}
 
-func (x *GetSweepAngleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[42]
+func (x *PathShapeHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1903,40 +2939,40 @@ func (x *GetSweepAngleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSweepAngleRequest.ProtoReflect.Descriptor instead.
-func (*GetSweepAngleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{42}
+// Deprecated: Use PathShapeHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*PathShapeHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{63}
 }
 
-func (x *GetSweepAngleRequest) GetHandle() int64 {
+func (x *PathShapeHashCodeRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-type GetSweepAngleResponse struct {
+type PathShapeClone0_1Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSweepAngleResponse) Reset() {
-	*x = GetSweepAngleResponse{}
-	mi := &file_proto_shapes_shapes_proto_msgTypes[43]
+func (x *PathShapeClone0_1Request) Reset() {
+	*x = PathShapeClone0_1Request{}
+	mi := &file_proto_shapes_shapes_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSweepAngleResponse) String() string {
+func (x *PathShapeClone0_1Request) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSweepAngleResponse) ProtoMessage() {}
+func (*PathShapeClone0_1Request) ProtoMessage() {}
 
-func (x *GetSweepAngleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_shapes_shapes_proto_msgTypes[43]
+func (x *PathShapeClone0_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_shapes_shapes_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1947,14 +2983,14 @@ func (x *GetSweepAngleResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSweepAngleResponse.ProtoReflect.Descriptor instead.
-func (*GetSweepAngleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{43}
+// Deprecated: Use PathShapeClone0_1Request.ProtoReflect.Descriptor instead.
+func (*PathShapeClone0_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_shapes_shapes_proto_rawDescGZIP(), []int{64}
 }
 
-func (x *GetSweepAngleResponse) GetResult() float32 {
+func (x *PathShapeClone0_1Request) GetHandle() int64 {
 	if x != nil {
-		return x.Result
+		return x.Handle
 	}
 	return 0
 }
@@ -1963,27 +2999,62 @@ var File_proto_shapes_shapes_proto protoreflect.FileDescriptor
 
 const file_proto_shapes_shapes_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/shapes/shapes.proto\x12\x06shapes\"\x15\n" +
-	"\x13NewOvalShapeRequest\".\n" +
-	"\x14NewOvalShapeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"\rClone0Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x19proto/shapes/shapes.proto\x12\x06shapes\"\x0f\n" +
+	"\rClone0Request\"(\n" +
 	"\x0eClone0Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
-	"\vDrawRequest\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\vDrawRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x0e\n" +
+	"\fDrawResponse\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x12\n" +
+	"\x10GetHeightRequest\"+\n" +
+	"\x11GetHeightResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"'\n" +
+	"\x11GetOutlineRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12GetOutlineResponse\"\x11\n" +
+	"\x0fGetWidthRequest\"*\n" +
+	"\x10GetWidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x11\n" +
+	"\x0fHasAlphaRequest\"*\n" +
+	"\x10HasAlphaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"7\n" +
+	"\rResizeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"\x10\n" +
+	"\x0eResizeResponse\"\x11\n" +
+	"\x0fClone0_1Request\"*\n" +
+	"\x10Clone0_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
+	"\x18NewRoundRectShapeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"3\n" +
+	"\x19NewRoundRectShapeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bRoundRectShapeClone0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"[\n" +
+	"\x19RoundRectShapeDrawRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x0e\n" +
-	"\fDrawResponse\"?\n" +
-	"\x11GetOutlineRequest\x12\x16\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"I\n" +
+	"\x1bRoundRectShapeEqualsRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x14\n" +
-	"\x12GetOutlineResponse\")\n" +
-	"\x0fClone0_1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10Clone0_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"M\n" +
+	"\x1fRoundRectShapeGetOutlineRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dRoundRectShapeHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dRoundRectShapeClone0_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
 	"\x0fClone0_2Request\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10Clone0_2Response\x12\x16\n" +
@@ -1991,59 +3062,43 @@ const file_proto_shapes_shapes_proto_rawDesc = "" +
 	"\x0fClone0_3Request\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10Clone0_3Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
-	"\x18NewRoundRectShapeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"3\n" +
-	"\x19NewRoundRectShapeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
-	"\rEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
-	"\x0fHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"Q\n" +
-	"\x13NewPathShapeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x02R\x04arg2\".\n" +
-	"\x14NewPathShapeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12ShapeClone0Request\":\n" +
-	"\x10ShapeDrawRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"(\n" +
-	"\x12ShapeEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
-	"\x10GetHeightRequest\"+\n" +
-	"\x11GetHeightResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\",\n" +
-	"\x16ShapeGetOutlineRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fGetWidthRequest\"*\n" +
-	"\x10GetWidthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\x11\n" +
-	"\x0fHasAlphaRequest\"*\n" +
-	"\x10HasAlphaResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
-	"\x14ShapeHashCodeRequest\"7\n" +
-	"\rResizeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"\x10\n" +
-	"\x0eResizeResponse\"\x16\n" +
-	"\x14ShapeClone0_1Request\"\x15\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
 	"\x13NewRectShapeRequest\".\n" +
 	"\x14NewRectShapeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16RectShapeClone0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"V\n" +
+	"\x14RectShapeDrawRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"D\n" +
+	"\x16RectShapeEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"H\n" +
+	"\x1aRectShapeGetOutlineRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"2\n" +
+	"\x18RectShapeHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18RectShapeClone0_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"<\n" +
 	"\x12NewArcShapeRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"-\n" +
 	"\x13NewArcShapeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15ArcShapeClone0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"U\n" +
+	"\x13ArcShapeDrawRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"C\n" +
+	"\x15ArcShapeEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"G\n" +
+	"\x19ArcShapeGetOutlineRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\".\n" +
 	"\x14GetStartAngleRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
 	"\x15GetStartAngleResponse\x12\x16\n" +
@@ -2051,70 +3106,107 @@ const file_proto_shapes_shapes_proto_rawDesc = "" +
 	"\x14GetSweepAngleRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
 	"\x15GetSweepAngleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result2\xcb\x03\n" +
-	"\x10OvalShapeService\x12I\n" +
-	"\fNewOvalShape\x12\x1b.shapes.NewOvalShapeRequest\x1a\x1c.shapes.NewOvalShapeResponse\x127\n" +
-	"\x06Clone0\x12\x15.shapes.Clone0Request\x1a\x16.shapes.Clone0Response\x121\n" +
-	"\x04Draw\x12\x13.shapes.DrawRequest\x1a\x14.shapes.DrawResponse\x12C\n" +
-	"\n" +
-	"GetOutline\x12\x19.shapes.GetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12=\n" +
-	"\bClone0_1\x12\x17.shapes.Clone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
-	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2Response\x12=\n" +
-	"\bClone0_3\x12\x17.shapes.Clone0_3Request\x1a\x18.shapes.Clone0_3Response2\xd7\x04\n" +
-	"\x15RoundRectShapeService\x12X\n" +
-	"\x11NewRoundRectShape\x12 .shapes.NewRoundRectShapeRequest\x1a!.shapes.NewRoundRectShapeResponse\x127\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"1\n" +
+	"\x17ArcShapeHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17ArcShapeClone0_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x15\n" +
+	"\x13NewOvalShapeRequest\".\n" +
+	"\x14NewOvalShapeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16OvalShapeClone0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"V\n" +
+	"\x14OvalShapeDrawRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"H\n" +
+	"\x1aOvalShapeGetOutlineRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"2\n" +
+	"\x18OvalShapeClone0_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"Q\n" +
+	"\x13NewPathShapeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x02R\x04arg2\".\n" +
+	"\x14NewPathShapeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16PathShapeClone0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"V\n" +
+	"\x14PathShapeDrawRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"D\n" +
+	"\x16PathShapeEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"2\n" +
+	"\x18PathShapeHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18PathShapeClone0_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle2\xef\x04\n" +
+	"\fShapeService\x127\n" +
 	"\x06Clone0\x12\x15.shapes.Clone0Request\x1a\x16.shapes.Clone0Response\x121\n" +
 	"\x04Draw\x12\x13.shapes.DrawRequest\x1a\x14.shapes.DrawResponse\x127\n" +
-	"\x06Equals\x12\x15.shapes.EqualsRequest\x1a\x16.shapes.EqualsResponse\x12C\n" +
+	"\x06Equals\x12\x15.shapes.EqualsRequest\x1a\x16.shapes.EqualsResponse\x12@\n" +
+	"\tGetHeight\x12\x18.shapes.GetHeightRequest\x1a\x19.shapes.GetHeightResponse\x12C\n" +
 	"\n" +
 	"GetOutline\x12\x19.shapes.GetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12=\n" +
-	"\bHashCode\x12\x17.shapes.HashCodeRequest\x1a\x18.shapes.HashCodeResponse\x12=\n" +
-	"\bClone0_1\x12\x17.shapes.Clone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
-	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2Response\x12=\n" +
-	"\bClone0_3\x12\x17.shapes.Clone0_3Request\x1a\x18.shapes.Clone0_3Response2\xbf\x03\n" +
-	"\x10PathShapeService\x12I\n" +
-	"\fNewPathShape\x12\x1b.shapes.NewPathShapeRequest\x1a\x1c.shapes.NewPathShapeResponse\x127\n" +
-	"\x06Clone0\x12\x15.shapes.Clone0Request\x1a\x16.shapes.Clone0Response\x121\n" +
-	"\x04Draw\x12\x13.shapes.DrawRequest\x1a\x14.shapes.DrawResponse\x127\n" +
-	"\x06Equals\x12\x15.shapes.EqualsRequest\x1a\x16.shapes.EqualsResponse\x12=\n" +
-	"\bHashCode\x12\x17.shapes.HashCodeRequest\x1a\x18.shapes.HashCodeResponse\x12=\n" +
-	"\bClone0_1\x12\x17.shapes.Clone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
-	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2Response2\x8d\x05\n" +
-	"\fShapeService\x12<\n" +
-	"\x06Clone0\x12\x1a.shapes.ShapeClone0Request\x1a\x16.shapes.Clone0Response\x126\n" +
-	"\x04Draw\x12\x18.shapes.ShapeDrawRequest\x1a\x14.shapes.DrawResponse\x12<\n" +
-	"\x06Equals\x12\x1a.shapes.ShapeEqualsRequest\x1a\x16.shapes.EqualsResponse\x12@\n" +
-	"\tGetHeight\x12\x18.shapes.GetHeightRequest\x1a\x19.shapes.GetHeightResponse\x12H\n" +
-	"\n" +
-	"GetOutline\x12\x1e.shapes.ShapeGetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12=\n" +
 	"\bGetWidth\x12\x17.shapes.GetWidthRequest\x1a\x18.shapes.GetWidthResponse\x12=\n" +
-	"\bHasAlpha\x12\x17.shapes.HasAlphaRequest\x1a\x18.shapes.HasAlphaResponse\x12B\n" +
-	"\bHashCode\x12\x1c.shapes.ShapeHashCodeRequest\x1a\x18.shapes.HashCodeResponse\x127\n" +
-	"\x06Resize\x12\x15.shapes.ResizeRequest\x1a\x16.shapes.ResizeResponse\x12B\n" +
-	"\bClone0_1\x12\x1c.shapes.ShapeClone0_1Request\x1a\x18.shapes.Clone0_1Response2\x84\x04\n" +
-	"\x10RectShapeService\x12I\n" +
-	"\fNewRectShape\x12\x1b.shapes.NewRectShapeRequest\x1a\x1c.shapes.NewRectShapeResponse\x127\n" +
-	"\x06Clone0\x12\x15.shapes.Clone0Request\x1a\x16.shapes.Clone0Response\x121\n" +
-	"\x04Draw\x12\x13.shapes.DrawRequest\x1a\x14.shapes.DrawResponse\x127\n" +
-	"\x06Equals\x12\x15.shapes.EqualsRequest\x1a\x16.shapes.EqualsResponse\x12C\n" +
+	"\bHasAlpha\x12\x17.shapes.HasAlphaRequest\x1a\x18.shapes.HasAlphaResponse\x12=\n" +
+	"\bHashCode\x12\x17.shapes.HashCodeRequest\x1a\x18.shapes.HashCodeResponse\x127\n" +
+	"\x06Resize\x12\x15.shapes.ResizeRequest\x1a\x16.shapes.ResizeResponse\x12=\n" +
+	"\bClone0_1\x12\x17.shapes.Clone0_1Request\x1a\x18.shapes.Clone0_1Response2\xab\x05\n" +
+	"\x15RoundRectShapeService\x12X\n" +
+	"\x11NewRoundRectShape\x12 .shapes.NewRoundRectShapeRequest\x1a!.shapes.NewRoundRectShapeResponse\x12E\n" +
+	"\x06Clone0\x12#.shapes.RoundRectShapeClone0Request\x1a\x16.shapes.Clone0Response\x12?\n" +
+	"\x04Draw\x12!.shapes.RoundRectShapeDrawRequest\x1a\x14.shapes.DrawResponse\x12E\n" +
+	"\x06Equals\x12#.shapes.RoundRectShapeEqualsRequest\x1a\x16.shapes.EqualsResponse\x12Q\n" +
 	"\n" +
-	"GetOutline\x12\x19.shapes.GetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12=\n" +
-	"\bHashCode\x12\x17.shapes.HashCodeRequest\x1a\x18.shapes.HashCodeResponse\x12=\n" +
-	"\bClone0_1\x12\x17.shapes.Clone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
-	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2Response2\xdb\x05\n" +
-	"\x0fArcShapeService\x12F\n" +
-	"\vNewArcShape\x12\x1a.shapes.NewArcShapeRequest\x1a\x1b.shapes.NewArcShapeResponse\x127\n" +
-	"\x06Clone0\x12\x15.shapes.Clone0Request\x1a\x16.shapes.Clone0Response\x121\n" +
-	"\x04Draw\x12\x13.shapes.DrawRequest\x1a\x14.shapes.DrawResponse\x127\n" +
-	"\x06Equals\x12\x15.shapes.EqualsRequest\x1a\x16.shapes.EqualsResponse\x12C\n" +
-	"\n" +
-	"GetOutline\x12\x19.shapes.GetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12L\n" +
-	"\rGetStartAngle\x12\x1c.shapes.GetStartAngleRequest\x1a\x1d.shapes.GetStartAngleResponse\x12L\n" +
-	"\rGetSweepAngle\x12\x1c.shapes.GetSweepAngleRequest\x1a\x1d.shapes.GetSweepAngleResponse\x12=\n" +
-	"\bHashCode\x12\x17.shapes.HashCodeRequest\x1a\x18.shapes.HashCodeResponse\x12=\n" +
-	"\bClone0_1\x12\x17.shapes.Clone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
+	"GetOutline\x12'.shapes.RoundRectShapeGetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12K\n" +
+	"\bHashCode\x12%.shapes.RoundRectShapeHashCodeRequest\x1a\x18.shapes.HashCodeResponse\x12K\n" +
+	"\bClone0_1\x12%.shapes.RoundRectShapeClone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
 	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2Response\x12=\n" +
-	"\bClone0_3\x12\x17.shapes.Clone0_3Request\x1a\x18.shapes.Clone0_3ResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/shapesb\x06proto3"
+	"\bClone0_3\x12\x17.shapes.Clone0_3Request\x1a\x18.shapes.Clone0_3Response2\xba\x04\n" +
+	"\x10RectShapeService\x12I\n" +
+	"\fNewRectShape\x12\x1b.shapes.NewRectShapeRequest\x1a\x1c.shapes.NewRectShapeResponse\x12@\n" +
+	"\x06Clone0\x12\x1e.shapes.RectShapeClone0Request\x1a\x16.shapes.Clone0Response\x12:\n" +
+	"\x04Draw\x12\x1c.shapes.RectShapeDrawRequest\x1a\x14.shapes.DrawResponse\x12@\n" +
+	"\x06Equals\x12\x1e.shapes.RectShapeEqualsRequest\x1a\x16.shapes.EqualsResponse\x12L\n" +
+	"\n" +
+	"GetOutline\x12\".shapes.RectShapeGetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12F\n" +
+	"\bHashCode\x12 .shapes.RectShapeHashCodeRequest\x1a\x18.shapes.HashCodeResponse\x12F\n" +
+	"\bClone0_1\x12 .shapes.RectShapeClone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
+	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2Response2\x8b\x06\n" +
+	"\x0fArcShapeService\x12F\n" +
+	"\vNewArcShape\x12\x1a.shapes.NewArcShapeRequest\x1a\x1b.shapes.NewArcShapeResponse\x12?\n" +
+	"\x06Clone0\x12\x1d.shapes.ArcShapeClone0Request\x1a\x16.shapes.Clone0Response\x129\n" +
+	"\x04Draw\x12\x1b.shapes.ArcShapeDrawRequest\x1a\x14.shapes.DrawResponse\x12?\n" +
+	"\x06Equals\x12\x1d.shapes.ArcShapeEqualsRequest\x1a\x16.shapes.EqualsResponse\x12K\n" +
+	"\n" +
+	"GetOutline\x12!.shapes.ArcShapeGetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12L\n" +
+	"\rGetStartAngle\x12\x1c.shapes.GetStartAngleRequest\x1a\x1d.shapes.GetStartAngleResponse\x12L\n" +
+	"\rGetSweepAngle\x12\x1c.shapes.GetSweepAngleRequest\x1a\x1d.shapes.GetSweepAngleResponse\x12E\n" +
+	"\bHashCode\x12\x1f.shapes.ArcShapeHashCodeRequest\x1a\x18.shapes.HashCodeResponse\x12E\n" +
+	"\bClone0_1\x12\x1f.shapes.ArcShapeClone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
+	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2Response\x12=\n" +
+	"\bClone0_3\x12\x17.shapes.Clone0_3Request\x1a\x18.shapes.Clone0_3Response2\xef\x03\n" +
+	"\x10OvalShapeService\x12I\n" +
+	"\fNewOvalShape\x12\x1b.shapes.NewOvalShapeRequest\x1a\x1c.shapes.NewOvalShapeResponse\x12@\n" +
+	"\x06Clone0\x12\x1e.shapes.OvalShapeClone0Request\x1a\x16.shapes.Clone0Response\x12:\n" +
+	"\x04Draw\x12\x1c.shapes.OvalShapeDrawRequest\x1a\x14.shapes.DrawResponse\x12L\n" +
+	"\n" +
+	"GetOutline\x12\".shapes.OvalShapeGetOutlineRequest\x1a\x1a.shapes.GetOutlineResponse\x12F\n" +
+	"\bClone0_1\x12 .shapes.OvalShapeClone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
+	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2Response\x12=\n" +
+	"\bClone0_3\x12\x17.shapes.Clone0_3Request\x1a\x18.shapes.Clone0_3Response2\xec\x03\n" +
+	"\x10PathShapeService\x12I\n" +
+	"\fNewPathShape\x12\x1b.shapes.NewPathShapeRequest\x1a\x1c.shapes.NewPathShapeResponse\x12@\n" +
+	"\x06Clone0\x12\x1e.shapes.PathShapeClone0Request\x1a\x16.shapes.Clone0Response\x12:\n" +
+	"\x04Draw\x12\x1c.shapes.PathShapeDrawRequest\x1a\x14.shapes.DrawResponse\x12@\n" +
+	"\x06Equals\x12\x1e.shapes.PathShapeEqualsRequest\x1a\x16.shapes.EqualsResponse\x12F\n" +
+	"\bHashCode\x12 .shapes.PathShapeHashCodeRequest\x1a\x18.shapes.HashCodeResponse\x12F\n" +
+	"\bClone0_1\x12 .shapes.PathShapeClone0_1Request\x1a\x18.shapes.Clone0_1Response\x12=\n" +
+	"\bClone0_2\x12\x17.shapes.Clone0_2Request\x1a\x18.shapes.Clone0_2ResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/shapesb\x06proto3"
 
 var (
 	file_proto_shapes_shapes_proto_rawDescOnce sync.Once
@@ -2128,158 +3220,179 @@ func file_proto_shapes_shapes_proto_rawDescGZIP() []byte {
 	return file_proto_shapes_shapes_proto_rawDescData
 }
 
-var file_proto_shapes_shapes_proto_msgTypes = make([]protoimpl.MessageInfo, 44)
+var file_proto_shapes_shapes_proto_msgTypes = make([]protoimpl.MessageInfo, 65)
 var file_proto_shapes_shapes_proto_goTypes = []any{
-	(*NewOvalShapeRequest)(nil),       // 0: shapes.NewOvalShapeRequest
-	(*NewOvalShapeResponse)(nil),      // 1: shapes.NewOvalShapeResponse
-	(*Clone0Request)(nil),             // 2: shapes.Clone0Request
-	(*Clone0Response)(nil),            // 3: shapes.Clone0Response
-	(*DrawRequest)(nil),               // 4: shapes.DrawRequest
-	(*DrawResponse)(nil),              // 5: shapes.DrawResponse
-	(*GetOutlineRequest)(nil),         // 6: shapes.GetOutlineRequest
-	(*GetOutlineResponse)(nil),        // 7: shapes.GetOutlineResponse
-	(*Clone0_1Request)(nil),           // 8: shapes.Clone0_1Request
-	(*Clone0_1Response)(nil),          // 9: shapes.Clone0_1Response
-	(*Clone0_2Request)(nil),           // 10: shapes.Clone0_2Request
-	(*Clone0_2Response)(nil),          // 11: shapes.Clone0_2Response
-	(*Clone0_3Request)(nil),           // 12: shapes.Clone0_3Request
-	(*Clone0_3Response)(nil),          // 13: shapes.Clone0_3Response
-	(*NewRoundRectShapeRequest)(nil),  // 14: shapes.NewRoundRectShapeRequest
-	(*NewRoundRectShapeResponse)(nil), // 15: shapes.NewRoundRectShapeResponse
-	(*EqualsRequest)(nil),             // 16: shapes.EqualsRequest
-	(*EqualsResponse)(nil),            // 17: shapes.EqualsResponse
-	(*HashCodeRequest)(nil),           // 18: shapes.HashCodeRequest
-	(*HashCodeResponse)(nil),          // 19: shapes.HashCodeResponse
-	(*NewPathShapeRequest)(nil),       // 20: shapes.NewPathShapeRequest
-	(*NewPathShapeResponse)(nil),      // 21: shapes.NewPathShapeResponse
-	(*ShapeClone0Request)(nil),        // 22: shapes.ShapeClone0Request
-	(*ShapeDrawRequest)(nil),          // 23: shapes.ShapeDrawRequest
-	(*ShapeEqualsRequest)(nil),        // 24: shapes.ShapeEqualsRequest
-	(*GetHeightRequest)(nil),          // 25: shapes.GetHeightRequest
-	(*GetHeightResponse)(nil),         // 26: shapes.GetHeightResponse
-	(*ShapeGetOutlineRequest)(nil),    // 27: shapes.ShapeGetOutlineRequest
-	(*GetWidthRequest)(nil),           // 28: shapes.GetWidthRequest
-	(*GetWidthResponse)(nil),          // 29: shapes.GetWidthResponse
-	(*HasAlphaRequest)(nil),           // 30: shapes.HasAlphaRequest
-	(*HasAlphaResponse)(nil),          // 31: shapes.HasAlphaResponse
-	(*ShapeHashCodeRequest)(nil),      // 32: shapes.ShapeHashCodeRequest
-	(*ResizeRequest)(nil),             // 33: shapes.ResizeRequest
-	(*ResizeResponse)(nil),            // 34: shapes.ResizeResponse
-	(*ShapeClone0_1Request)(nil),      // 35: shapes.ShapeClone0_1Request
-	(*NewRectShapeRequest)(nil),       // 36: shapes.NewRectShapeRequest
-	(*NewRectShapeResponse)(nil),      // 37: shapes.NewRectShapeResponse
-	(*NewArcShapeRequest)(nil),        // 38: shapes.NewArcShapeRequest
-	(*NewArcShapeResponse)(nil),       // 39: shapes.NewArcShapeResponse
-	(*GetStartAngleRequest)(nil),      // 40: shapes.GetStartAngleRequest
-	(*GetStartAngleResponse)(nil),     // 41: shapes.GetStartAngleResponse
-	(*GetSweepAngleRequest)(nil),      // 42: shapes.GetSweepAngleRequest
-	(*GetSweepAngleResponse)(nil),     // 43: shapes.GetSweepAngleResponse
+	(*Clone0Request)(nil),                   // 0: shapes.Clone0Request
+	(*Clone0Response)(nil),                  // 1: shapes.Clone0Response
+	(*DrawRequest)(nil),                     // 2: shapes.DrawRequest
+	(*DrawResponse)(nil),                    // 3: shapes.DrawResponse
+	(*EqualsRequest)(nil),                   // 4: shapes.EqualsRequest
+	(*EqualsResponse)(nil),                  // 5: shapes.EqualsResponse
+	(*GetHeightRequest)(nil),                // 6: shapes.GetHeightRequest
+	(*GetHeightResponse)(nil),               // 7: shapes.GetHeightResponse
+	(*GetOutlineRequest)(nil),               // 8: shapes.GetOutlineRequest
+	(*GetOutlineResponse)(nil),              // 9: shapes.GetOutlineResponse
+	(*GetWidthRequest)(nil),                 // 10: shapes.GetWidthRequest
+	(*GetWidthResponse)(nil),                // 11: shapes.GetWidthResponse
+	(*HasAlphaRequest)(nil),                 // 12: shapes.HasAlphaRequest
+	(*HasAlphaResponse)(nil),                // 13: shapes.HasAlphaResponse
+	(*HashCodeRequest)(nil),                 // 14: shapes.HashCodeRequest
+	(*HashCodeResponse)(nil),                // 15: shapes.HashCodeResponse
+	(*ResizeRequest)(nil),                   // 16: shapes.ResizeRequest
+	(*ResizeResponse)(nil),                  // 17: shapes.ResizeResponse
+	(*Clone0_1Request)(nil),                 // 18: shapes.Clone0_1Request
+	(*Clone0_1Response)(nil),                // 19: shapes.Clone0_1Response
+	(*NewRoundRectShapeRequest)(nil),        // 20: shapes.NewRoundRectShapeRequest
+	(*NewRoundRectShapeResponse)(nil),       // 21: shapes.NewRoundRectShapeResponse
+	(*RoundRectShapeClone0Request)(nil),     // 22: shapes.RoundRectShapeClone0Request
+	(*RoundRectShapeDrawRequest)(nil),       // 23: shapes.RoundRectShapeDrawRequest
+	(*RoundRectShapeEqualsRequest)(nil),     // 24: shapes.RoundRectShapeEqualsRequest
+	(*RoundRectShapeGetOutlineRequest)(nil), // 25: shapes.RoundRectShapeGetOutlineRequest
+	(*RoundRectShapeHashCodeRequest)(nil),   // 26: shapes.RoundRectShapeHashCodeRequest
+	(*RoundRectShapeClone0_1Request)(nil),   // 27: shapes.RoundRectShapeClone0_1Request
+	(*Clone0_2Request)(nil),                 // 28: shapes.Clone0_2Request
+	(*Clone0_2Response)(nil),                // 29: shapes.Clone0_2Response
+	(*Clone0_3Request)(nil),                 // 30: shapes.Clone0_3Request
+	(*Clone0_3Response)(nil),                // 31: shapes.Clone0_3Response
+	(*NewRectShapeRequest)(nil),             // 32: shapes.NewRectShapeRequest
+	(*NewRectShapeResponse)(nil),            // 33: shapes.NewRectShapeResponse
+	(*RectShapeClone0Request)(nil),          // 34: shapes.RectShapeClone0Request
+	(*RectShapeDrawRequest)(nil),            // 35: shapes.RectShapeDrawRequest
+	(*RectShapeEqualsRequest)(nil),          // 36: shapes.RectShapeEqualsRequest
+	(*RectShapeGetOutlineRequest)(nil),      // 37: shapes.RectShapeGetOutlineRequest
+	(*RectShapeHashCodeRequest)(nil),        // 38: shapes.RectShapeHashCodeRequest
+	(*RectShapeClone0_1Request)(nil),        // 39: shapes.RectShapeClone0_1Request
+	(*NewArcShapeRequest)(nil),              // 40: shapes.NewArcShapeRequest
+	(*NewArcShapeResponse)(nil),             // 41: shapes.NewArcShapeResponse
+	(*ArcShapeClone0Request)(nil),           // 42: shapes.ArcShapeClone0Request
+	(*ArcShapeDrawRequest)(nil),             // 43: shapes.ArcShapeDrawRequest
+	(*ArcShapeEqualsRequest)(nil),           // 44: shapes.ArcShapeEqualsRequest
+	(*ArcShapeGetOutlineRequest)(nil),       // 45: shapes.ArcShapeGetOutlineRequest
+	(*GetStartAngleRequest)(nil),            // 46: shapes.GetStartAngleRequest
+	(*GetStartAngleResponse)(nil),           // 47: shapes.GetStartAngleResponse
+	(*GetSweepAngleRequest)(nil),            // 48: shapes.GetSweepAngleRequest
+	(*GetSweepAngleResponse)(nil),           // 49: shapes.GetSweepAngleResponse
+	(*ArcShapeHashCodeRequest)(nil),         // 50: shapes.ArcShapeHashCodeRequest
+	(*ArcShapeClone0_1Request)(nil),         // 51: shapes.ArcShapeClone0_1Request
+	(*NewOvalShapeRequest)(nil),             // 52: shapes.NewOvalShapeRequest
+	(*NewOvalShapeResponse)(nil),            // 53: shapes.NewOvalShapeResponse
+	(*OvalShapeClone0Request)(nil),          // 54: shapes.OvalShapeClone0Request
+	(*OvalShapeDrawRequest)(nil),            // 55: shapes.OvalShapeDrawRequest
+	(*OvalShapeGetOutlineRequest)(nil),      // 56: shapes.OvalShapeGetOutlineRequest
+	(*OvalShapeClone0_1Request)(nil),        // 57: shapes.OvalShapeClone0_1Request
+	(*NewPathShapeRequest)(nil),             // 58: shapes.NewPathShapeRequest
+	(*NewPathShapeResponse)(nil),            // 59: shapes.NewPathShapeResponse
+	(*PathShapeClone0Request)(nil),          // 60: shapes.PathShapeClone0Request
+	(*PathShapeDrawRequest)(nil),            // 61: shapes.PathShapeDrawRequest
+	(*PathShapeEqualsRequest)(nil),          // 62: shapes.PathShapeEqualsRequest
+	(*PathShapeHashCodeRequest)(nil),        // 63: shapes.PathShapeHashCodeRequest
+	(*PathShapeClone0_1Request)(nil),        // 64: shapes.PathShapeClone0_1Request
 }
 var file_proto_shapes_shapes_proto_depIdxs = []int32{
-	0,  // 0: shapes.OvalShapeService.NewOvalShape:input_type -> shapes.NewOvalShapeRequest
-	2,  // 1: shapes.OvalShapeService.Clone0:input_type -> shapes.Clone0Request
-	4,  // 2: shapes.OvalShapeService.Draw:input_type -> shapes.DrawRequest
-	6,  // 3: shapes.OvalShapeService.GetOutline:input_type -> shapes.GetOutlineRequest
-	8,  // 4: shapes.OvalShapeService.Clone0_1:input_type -> shapes.Clone0_1Request
-	10, // 5: shapes.OvalShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
-	12, // 6: shapes.OvalShapeService.Clone0_3:input_type -> shapes.Clone0_3Request
-	14, // 7: shapes.RoundRectShapeService.NewRoundRectShape:input_type -> shapes.NewRoundRectShapeRequest
-	2,  // 8: shapes.RoundRectShapeService.Clone0:input_type -> shapes.Clone0Request
-	4,  // 9: shapes.RoundRectShapeService.Draw:input_type -> shapes.DrawRequest
-	16, // 10: shapes.RoundRectShapeService.Equals:input_type -> shapes.EqualsRequest
-	6,  // 11: shapes.RoundRectShapeService.GetOutline:input_type -> shapes.GetOutlineRequest
-	18, // 12: shapes.RoundRectShapeService.HashCode:input_type -> shapes.HashCodeRequest
-	8,  // 13: shapes.RoundRectShapeService.Clone0_1:input_type -> shapes.Clone0_1Request
-	10, // 14: shapes.RoundRectShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
-	12, // 15: shapes.RoundRectShapeService.Clone0_3:input_type -> shapes.Clone0_3Request
-	20, // 16: shapes.PathShapeService.NewPathShape:input_type -> shapes.NewPathShapeRequest
-	2,  // 17: shapes.PathShapeService.Clone0:input_type -> shapes.Clone0Request
-	4,  // 18: shapes.PathShapeService.Draw:input_type -> shapes.DrawRequest
-	16, // 19: shapes.PathShapeService.Equals:input_type -> shapes.EqualsRequest
-	18, // 20: shapes.PathShapeService.HashCode:input_type -> shapes.HashCodeRequest
-	8,  // 21: shapes.PathShapeService.Clone0_1:input_type -> shapes.Clone0_1Request
-	10, // 22: shapes.PathShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
-	22, // 23: shapes.ShapeService.Clone0:input_type -> shapes.ShapeClone0Request
-	23, // 24: shapes.ShapeService.Draw:input_type -> shapes.ShapeDrawRequest
-	24, // 25: shapes.ShapeService.Equals:input_type -> shapes.ShapeEqualsRequest
-	25, // 26: shapes.ShapeService.GetHeight:input_type -> shapes.GetHeightRequest
-	27, // 27: shapes.ShapeService.GetOutline:input_type -> shapes.ShapeGetOutlineRequest
-	28, // 28: shapes.ShapeService.GetWidth:input_type -> shapes.GetWidthRequest
-	30, // 29: shapes.ShapeService.HasAlpha:input_type -> shapes.HasAlphaRequest
-	32, // 30: shapes.ShapeService.HashCode:input_type -> shapes.ShapeHashCodeRequest
-	33, // 31: shapes.ShapeService.Resize:input_type -> shapes.ResizeRequest
-	35, // 32: shapes.ShapeService.Clone0_1:input_type -> shapes.ShapeClone0_1Request
-	36, // 33: shapes.RectShapeService.NewRectShape:input_type -> shapes.NewRectShapeRequest
-	2,  // 34: shapes.RectShapeService.Clone0:input_type -> shapes.Clone0Request
-	4,  // 35: shapes.RectShapeService.Draw:input_type -> shapes.DrawRequest
-	16, // 36: shapes.RectShapeService.Equals:input_type -> shapes.EqualsRequest
-	6,  // 37: shapes.RectShapeService.GetOutline:input_type -> shapes.GetOutlineRequest
-	18, // 38: shapes.RectShapeService.HashCode:input_type -> shapes.HashCodeRequest
-	8,  // 39: shapes.RectShapeService.Clone0_1:input_type -> shapes.Clone0_1Request
-	10, // 40: shapes.RectShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
-	38, // 41: shapes.ArcShapeService.NewArcShape:input_type -> shapes.NewArcShapeRequest
-	2,  // 42: shapes.ArcShapeService.Clone0:input_type -> shapes.Clone0Request
-	4,  // 43: shapes.ArcShapeService.Draw:input_type -> shapes.DrawRequest
-	16, // 44: shapes.ArcShapeService.Equals:input_type -> shapes.EqualsRequest
-	6,  // 45: shapes.ArcShapeService.GetOutline:input_type -> shapes.GetOutlineRequest
-	40, // 46: shapes.ArcShapeService.GetStartAngle:input_type -> shapes.GetStartAngleRequest
-	42, // 47: shapes.ArcShapeService.GetSweepAngle:input_type -> shapes.GetSweepAngleRequest
-	18, // 48: shapes.ArcShapeService.HashCode:input_type -> shapes.HashCodeRequest
-	8,  // 49: shapes.ArcShapeService.Clone0_1:input_type -> shapes.Clone0_1Request
-	10, // 50: shapes.ArcShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
-	12, // 51: shapes.ArcShapeService.Clone0_3:input_type -> shapes.Clone0_3Request
-	1,  // 52: shapes.OvalShapeService.NewOvalShape:output_type -> shapes.NewOvalShapeResponse
-	3,  // 53: shapes.OvalShapeService.Clone0:output_type -> shapes.Clone0Response
-	5,  // 54: shapes.OvalShapeService.Draw:output_type -> shapes.DrawResponse
-	7,  // 55: shapes.OvalShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
-	9,  // 56: shapes.OvalShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
-	11, // 57: shapes.OvalShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
-	13, // 58: shapes.OvalShapeService.Clone0_3:output_type -> shapes.Clone0_3Response
-	15, // 59: shapes.RoundRectShapeService.NewRoundRectShape:output_type -> shapes.NewRoundRectShapeResponse
-	3,  // 60: shapes.RoundRectShapeService.Clone0:output_type -> shapes.Clone0Response
-	5,  // 61: shapes.RoundRectShapeService.Draw:output_type -> shapes.DrawResponse
-	17, // 62: shapes.RoundRectShapeService.Equals:output_type -> shapes.EqualsResponse
-	7,  // 63: shapes.RoundRectShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
-	19, // 64: shapes.RoundRectShapeService.HashCode:output_type -> shapes.HashCodeResponse
-	9,  // 65: shapes.RoundRectShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
-	11, // 66: shapes.RoundRectShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
-	13, // 67: shapes.RoundRectShapeService.Clone0_3:output_type -> shapes.Clone0_3Response
-	21, // 68: shapes.PathShapeService.NewPathShape:output_type -> shapes.NewPathShapeResponse
-	3,  // 69: shapes.PathShapeService.Clone0:output_type -> shapes.Clone0Response
-	5,  // 70: shapes.PathShapeService.Draw:output_type -> shapes.DrawResponse
-	17, // 71: shapes.PathShapeService.Equals:output_type -> shapes.EqualsResponse
-	19, // 72: shapes.PathShapeService.HashCode:output_type -> shapes.HashCodeResponse
-	9,  // 73: shapes.PathShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
-	11, // 74: shapes.PathShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
-	3,  // 75: shapes.ShapeService.Clone0:output_type -> shapes.Clone0Response
-	5,  // 76: shapes.ShapeService.Draw:output_type -> shapes.DrawResponse
-	17, // 77: shapes.ShapeService.Equals:output_type -> shapes.EqualsResponse
-	26, // 78: shapes.ShapeService.GetHeight:output_type -> shapes.GetHeightResponse
-	7,  // 79: shapes.ShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
-	29, // 80: shapes.ShapeService.GetWidth:output_type -> shapes.GetWidthResponse
-	31, // 81: shapes.ShapeService.HasAlpha:output_type -> shapes.HasAlphaResponse
-	19, // 82: shapes.ShapeService.HashCode:output_type -> shapes.HashCodeResponse
-	34, // 83: shapes.ShapeService.Resize:output_type -> shapes.ResizeResponse
-	9,  // 84: shapes.ShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
-	37, // 85: shapes.RectShapeService.NewRectShape:output_type -> shapes.NewRectShapeResponse
-	3,  // 86: shapes.RectShapeService.Clone0:output_type -> shapes.Clone0Response
-	5,  // 87: shapes.RectShapeService.Draw:output_type -> shapes.DrawResponse
-	17, // 88: shapes.RectShapeService.Equals:output_type -> shapes.EqualsResponse
-	7,  // 89: shapes.RectShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
-	19, // 90: shapes.RectShapeService.HashCode:output_type -> shapes.HashCodeResponse
-	9,  // 91: shapes.RectShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
-	11, // 92: shapes.RectShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
-	39, // 93: shapes.ArcShapeService.NewArcShape:output_type -> shapes.NewArcShapeResponse
-	3,  // 94: shapes.ArcShapeService.Clone0:output_type -> shapes.Clone0Response
-	5,  // 95: shapes.ArcShapeService.Draw:output_type -> shapes.DrawResponse
-	17, // 96: shapes.ArcShapeService.Equals:output_type -> shapes.EqualsResponse
-	7,  // 97: shapes.ArcShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
-	41, // 98: shapes.ArcShapeService.GetStartAngle:output_type -> shapes.GetStartAngleResponse
-	43, // 99: shapes.ArcShapeService.GetSweepAngle:output_type -> shapes.GetSweepAngleResponse
-	19, // 100: shapes.ArcShapeService.HashCode:output_type -> shapes.HashCodeResponse
-	9,  // 101: shapes.ArcShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
-	11, // 102: shapes.ArcShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
-	13, // 103: shapes.ArcShapeService.Clone0_3:output_type -> shapes.Clone0_3Response
+	0,  // 0: shapes.ShapeService.Clone0:input_type -> shapes.Clone0Request
+	2,  // 1: shapes.ShapeService.Draw:input_type -> shapes.DrawRequest
+	4,  // 2: shapes.ShapeService.Equals:input_type -> shapes.EqualsRequest
+	6,  // 3: shapes.ShapeService.GetHeight:input_type -> shapes.GetHeightRequest
+	8,  // 4: shapes.ShapeService.GetOutline:input_type -> shapes.GetOutlineRequest
+	10, // 5: shapes.ShapeService.GetWidth:input_type -> shapes.GetWidthRequest
+	12, // 6: shapes.ShapeService.HasAlpha:input_type -> shapes.HasAlphaRequest
+	14, // 7: shapes.ShapeService.HashCode:input_type -> shapes.HashCodeRequest
+	16, // 8: shapes.ShapeService.Resize:input_type -> shapes.ResizeRequest
+	18, // 9: shapes.ShapeService.Clone0_1:input_type -> shapes.Clone0_1Request
+	20, // 10: shapes.RoundRectShapeService.NewRoundRectShape:input_type -> shapes.NewRoundRectShapeRequest
+	22, // 11: shapes.RoundRectShapeService.Clone0:input_type -> shapes.RoundRectShapeClone0Request
+	23, // 12: shapes.RoundRectShapeService.Draw:input_type -> shapes.RoundRectShapeDrawRequest
+	24, // 13: shapes.RoundRectShapeService.Equals:input_type -> shapes.RoundRectShapeEqualsRequest
+	25, // 14: shapes.RoundRectShapeService.GetOutline:input_type -> shapes.RoundRectShapeGetOutlineRequest
+	26, // 15: shapes.RoundRectShapeService.HashCode:input_type -> shapes.RoundRectShapeHashCodeRequest
+	27, // 16: shapes.RoundRectShapeService.Clone0_1:input_type -> shapes.RoundRectShapeClone0_1Request
+	28, // 17: shapes.RoundRectShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
+	30, // 18: shapes.RoundRectShapeService.Clone0_3:input_type -> shapes.Clone0_3Request
+	32, // 19: shapes.RectShapeService.NewRectShape:input_type -> shapes.NewRectShapeRequest
+	34, // 20: shapes.RectShapeService.Clone0:input_type -> shapes.RectShapeClone0Request
+	35, // 21: shapes.RectShapeService.Draw:input_type -> shapes.RectShapeDrawRequest
+	36, // 22: shapes.RectShapeService.Equals:input_type -> shapes.RectShapeEqualsRequest
+	37, // 23: shapes.RectShapeService.GetOutline:input_type -> shapes.RectShapeGetOutlineRequest
+	38, // 24: shapes.RectShapeService.HashCode:input_type -> shapes.RectShapeHashCodeRequest
+	39, // 25: shapes.RectShapeService.Clone0_1:input_type -> shapes.RectShapeClone0_1Request
+	28, // 26: shapes.RectShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
+	40, // 27: shapes.ArcShapeService.NewArcShape:input_type -> shapes.NewArcShapeRequest
+	42, // 28: shapes.ArcShapeService.Clone0:input_type -> shapes.ArcShapeClone0Request
+	43, // 29: shapes.ArcShapeService.Draw:input_type -> shapes.ArcShapeDrawRequest
+	44, // 30: shapes.ArcShapeService.Equals:input_type -> shapes.ArcShapeEqualsRequest
+	45, // 31: shapes.ArcShapeService.GetOutline:input_type -> shapes.ArcShapeGetOutlineRequest
+	46, // 32: shapes.ArcShapeService.GetStartAngle:input_type -> shapes.GetStartAngleRequest
+	48, // 33: shapes.ArcShapeService.GetSweepAngle:input_type -> shapes.GetSweepAngleRequest
+	50, // 34: shapes.ArcShapeService.HashCode:input_type -> shapes.ArcShapeHashCodeRequest
+	51, // 35: shapes.ArcShapeService.Clone0_1:input_type -> shapes.ArcShapeClone0_1Request
+	28, // 36: shapes.ArcShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
+	30, // 37: shapes.ArcShapeService.Clone0_3:input_type -> shapes.Clone0_3Request
+	52, // 38: shapes.OvalShapeService.NewOvalShape:input_type -> shapes.NewOvalShapeRequest
+	54, // 39: shapes.OvalShapeService.Clone0:input_type -> shapes.OvalShapeClone0Request
+	55, // 40: shapes.OvalShapeService.Draw:input_type -> shapes.OvalShapeDrawRequest
+	56, // 41: shapes.OvalShapeService.GetOutline:input_type -> shapes.OvalShapeGetOutlineRequest
+	57, // 42: shapes.OvalShapeService.Clone0_1:input_type -> shapes.OvalShapeClone0_1Request
+	28, // 43: shapes.OvalShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
+	30, // 44: shapes.OvalShapeService.Clone0_3:input_type -> shapes.Clone0_3Request
+	58, // 45: shapes.PathShapeService.NewPathShape:input_type -> shapes.NewPathShapeRequest
+	60, // 46: shapes.PathShapeService.Clone0:input_type -> shapes.PathShapeClone0Request
+	61, // 47: shapes.PathShapeService.Draw:input_type -> shapes.PathShapeDrawRequest
+	62, // 48: shapes.PathShapeService.Equals:input_type -> shapes.PathShapeEqualsRequest
+	63, // 49: shapes.PathShapeService.HashCode:input_type -> shapes.PathShapeHashCodeRequest
+	64, // 50: shapes.PathShapeService.Clone0_1:input_type -> shapes.PathShapeClone0_1Request
+	28, // 51: shapes.PathShapeService.Clone0_2:input_type -> shapes.Clone0_2Request
+	1,  // 52: shapes.ShapeService.Clone0:output_type -> shapes.Clone0Response
+	3,  // 53: shapes.ShapeService.Draw:output_type -> shapes.DrawResponse
+	5,  // 54: shapes.ShapeService.Equals:output_type -> shapes.EqualsResponse
+	7,  // 55: shapes.ShapeService.GetHeight:output_type -> shapes.GetHeightResponse
+	9,  // 56: shapes.ShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
+	11, // 57: shapes.ShapeService.GetWidth:output_type -> shapes.GetWidthResponse
+	13, // 58: shapes.ShapeService.HasAlpha:output_type -> shapes.HasAlphaResponse
+	15, // 59: shapes.ShapeService.HashCode:output_type -> shapes.HashCodeResponse
+	17, // 60: shapes.ShapeService.Resize:output_type -> shapes.ResizeResponse
+	19, // 61: shapes.ShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
+	21, // 62: shapes.RoundRectShapeService.NewRoundRectShape:output_type -> shapes.NewRoundRectShapeResponse
+	1,  // 63: shapes.RoundRectShapeService.Clone0:output_type -> shapes.Clone0Response
+	3,  // 64: shapes.RoundRectShapeService.Draw:output_type -> shapes.DrawResponse
+	5,  // 65: shapes.RoundRectShapeService.Equals:output_type -> shapes.EqualsResponse
+	9,  // 66: shapes.RoundRectShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
+	15, // 67: shapes.RoundRectShapeService.HashCode:output_type -> shapes.HashCodeResponse
+	19, // 68: shapes.RoundRectShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
+	29, // 69: shapes.RoundRectShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
+	31, // 70: shapes.RoundRectShapeService.Clone0_3:output_type -> shapes.Clone0_3Response
+	33, // 71: shapes.RectShapeService.NewRectShape:output_type -> shapes.NewRectShapeResponse
+	1,  // 72: shapes.RectShapeService.Clone0:output_type -> shapes.Clone0Response
+	3,  // 73: shapes.RectShapeService.Draw:output_type -> shapes.DrawResponse
+	5,  // 74: shapes.RectShapeService.Equals:output_type -> shapes.EqualsResponse
+	9,  // 75: shapes.RectShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
+	15, // 76: shapes.RectShapeService.HashCode:output_type -> shapes.HashCodeResponse
+	19, // 77: shapes.RectShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
+	29, // 78: shapes.RectShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
+	41, // 79: shapes.ArcShapeService.NewArcShape:output_type -> shapes.NewArcShapeResponse
+	1,  // 80: shapes.ArcShapeService.Clone0:output_type -> shapes.Clone0Response
+	3,  // 81: shapes.ArcShapeService.Draw:output_type -> shapes.DrawResponse
+	5,  // 82: shapes.ArcShapeService.Equals:output_type -> shapes.EqualsResponse
+	9,  // 83: shapes.ArcShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
+	47, // 84: shapes.ArcShapeService.GetStartAngle:output_type -> shapes.GetStartAngleResponse
+	49, // 85: shapes.ArcShapeService.GetSweepAngle:output_type -> shapes.GetSweepAngleResponse
+	15, // 86: shapes.ArcShapeService.HashCode:output_type -> shapes.HashCodeResponse
+	19, // 87: shapes.ArcShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
+	29, // 88: shapes.ArcShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
+	31, // 89: shapes.ArcShapeService.Clone0_3:output_type -> shapes.Clone0_3Response
+	53, // 90: shapes.OvalShapeService.NewOvalShape:output_type -> shapes.NewOvalShapeResponse
+	1,  // 91: shapes.OvalShapeService.Clone0:output_type -> shapes.Clone0Response
+	3,  // 92: shapes.OvalShapeService.Draw:output_type -> shapes.DrawResponse
+	9,  // 93: shapes.OvalShapeService.GetOutline:output_type -> shapes.GetOutlineResponse
+	19, // 94: shapes.OvalShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
+	29, // 95: shapes.OvalShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
+	31, // 96: shapes.OvalShapeService.Clone0_3:output_type -> shapes.Clone0_3Response
+	59, // 97: shapes.PathShapeService.NewPathShape:output_type -> shapes.NewPathShapeResponse
+	1,  // 98: shapes.PathShapeService.Clone0:output_type -> shapes.Clone0Response
+	3,  // 99: shapes.PathShapeService.Draw:output_type -> shapes.DrawResponse
+	5,  // 100: shapes.PathShapeService.Equals:output_type -> shapes.EqualsResponse
+	15, // 101: shapes.PathShapeService.HashCode:output_type -> shapes.HashCodeResponse
+	19, // 102: shapes.PathShapeService.Clone0_1:output_type -> shapes.Clone0_1Response
+	29, // 103: shapes.PathShapeService.Clone0_2:output_type -> shapes.Clone0_2Response
 	52, // [52:104] is the sub-list for method output_type
 	0,  // [0:52] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
@@ -2298,7 +3411,7 @@ func file_proto_shapes_shapes_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_shapes_shapes_proto_rawDesc), len(file_proto_shapes_shapes_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   44,
+			NumMessages:   65,
 			NumExtensions: 0,
 			NumServices:   6,
 		},

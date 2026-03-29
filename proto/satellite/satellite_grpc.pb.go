@@ -21,6 +21,109 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	StateChangeListenerService_OnEnabledStateChanged_FullMethodName = "/satellite.StateChangeListenerService/OnEnabledStateChanged"
+)
+
+// StateChangeListenerServiceClient is the client API for StateChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StateChangeListenerServiceClient interface {
+	OnEnabledStateChanged(ctx context.Context, in *OnEnabledStateChangedRequest, opts ...grpc.CallOption) (*OnEnabledStateChangedResponse, error)
+}
+
+type stateChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStateChangeListenerServiceClient(cc grpc.ClientConnInterface) StateChangeListenerServiceClient {
+	return &stateChangeListenerServiceClient{cc}
+}
+
+func (c *stateChangeListenerServiceClient) OnEnabledStateChanged(ctx context.Context, in *OnEnabledStateChangedRequest, opts ...grpc.CallOption) (*OnEnabledStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnEnabledStateChangedResponse)
+	err := c.cc.Invoke(ctx, StateChangeListenerService_OnEnabledStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StateChangeListenerServiceServer is the server API for StateChangeListenerService service.
+// All implementations must embed UnimplementedStateChangeListenerServiceServer
+// for forward compatibility.
+type StateChangeListenerServiceServer interface {
+	OnEnabledStateChanged(context.Context, *OnEnabledStateChangedRequest) (*OnEnabledStateChangedResponse, error)
+	mustEmbedUnimplementedStateChangeListenerServiceServer()
+}
+
+// UnimplementedStateChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStateChangeListenerServiceServer struct{}
+
+func (UnimplementedStateChangeListenerServiceServer) OnEnabledStateChanged(context.Context, *OnEnabledStateChangedRequest) (*OnEnabledStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnEnabledStateChanged not implemented")
+}
+func (UnimplementedStateChangeListenerServiceServer) mustEmbedUnimplementedStateChangeListenerServiceServer() {
+}
+func (UnimplementedStateChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStateChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StateChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeStateChangeListenerServiceServer interface {
+	mustEmbedUnimplementedStateChangeListenerServiceServer()
+}
+
+func RegisterStateChangeListenerServiceServer(s grpc.ServiceRegistrar, srv StateChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedStateChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StateChangeListenerService_ServiceDesc, srv)
+}
+
+func _StateChangeListenerService_OnEnabledStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnEnabledStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StateChangeListenerServiceServer).OnEnabledStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StateChangeListenerService_OnEnabledStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StateChangeListenerServiceServer).OnEnabledStateChanged(ctx, req.(*OnEnabledStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StateChangeListenerService_ServiceDesc is the grpc.ServiceDesc for StateChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StateChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "satellite.StateChangeListenerService",
+	HandlerType: (*StateChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnEnabledStateChanged",
+			Handler:    _StateChangeListenerService_OnEnabledStateChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/satellite/satellite.proto",
+}
+
+const (
 	ManagerService_RegisterStateChangeListener_FullMethodName   = "/satellite.ManagerService/RegisterStateChangeListener"
 	ManagerService_UnregisterStateChangeListener_FullMethodName = "/satellite.ManagerService/UnregisterStateChangeListener"
 )
@@ -154,109 +257,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UnregisterStateChangeListener",
 			Handler:    _ManagerService_UnregisterStateChangeListener_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/satellite/satellite.proto",
-}
-
-const (
-	StateChangeListenerService_OnEnabledStateChanged_FullMethodName = "/satellite.StateChangeListenerService/OnEnabledStateChanged"
-)
-
-// StateChangeListenerServiceClient is the client API for StateChangeListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StateChangeListenerServiceClient interface {
-	OnEnabledStateChanged(ctx context.Context, in *OnEnabledStateChangedRequest, opts ...grpc.CallOption) (*OnEnabledStateChangedResponse, error)
-}
-
-type stateChangeListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStateChangeListenerServiceClient(cc grpc.ClientConnInterface) StateChangeListenerServiceClient {
-	return &stateChangeListenerServiceClient{cc}
-}
-
-func (c *stateChangeListenerServiceClient) OnEnabledStateChanged(ctx context.Context, in *OnEnabledStateChangedRequest, opts ...grpc.CallOption) (*OnEnabledStateChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnEnabledStateChangedResponse)
-	err := c.cc.Invoke(ctx, StateChangeListenerService_OnEnabledStateChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StateChangeListenerServiceServer is the server API for StateChangeListenerService service.
-// All implementations must embed UnimplementedStateChangeListenerServiceServer
-// for forward compatibility.
-type StateChangeListenerServiceServer interface {
-	OnEnabledStateChanged(context.Context, *OnEnabledStateChangedRequest) (*OnEnabledStateChangedResponse, error)
-	mustEmbedUnimplementedStateChangeListenerServiceServer()
-}
-
-// UnimplementedStateChangeListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStateChangeListenerServiceServer struct{}
-
-func (UnimplementedStateChangeListenerServiceServer) OnEnabledStateChanged(context.Context, *OnEnabledStateChangedRequest) (*OnEnabledStateChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnEnabledStateChanged not implemented")
-}
-func (UnimplementedStateChangeListenerServiceServer) mustEmbedUnimplementedStateChangeListenerServiceServer() {
-}
-func (UnimplementedStateChangeListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeStateChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StateChangeListenerServiceServer will
-// result in compilation errors.
-type UnsafeStateChangeListenerServiceServer interface {
-	mustEmbedUnimplementedStateChangeListenerServiceServer()
-}
-
-func RegisterStateChangeListenerServiceServer(s grpc.ServiceRegistrar, srv StateChangeListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedStateChangeListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StateChangeListenerService_ServiceDesc, srv)
-}
-
-func _StateChangeListenerService_OnEnabledStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnEnabledStateChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StateChangeListenerServiceServer).OnEnabledStateChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StateChangeListenerService_OnEnabledStateChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StateChangeListenerServiceServer).OnEnabledStateChanged(ctx, req.(*OnEnabledStateChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StateChangeListenerService_ServiceDesc is the grpc.ServiceDesc for StateChangeListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StateChangeListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "satellite.StateChangeListenerService",
-	HandlerType: (*StateChangeListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnEnabledStateChanged",
-			Handler:    _StateChangeListenerService_OnEnabledStateChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

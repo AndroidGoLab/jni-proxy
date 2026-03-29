@@ -6,6 +6,284 @@ package hardware;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/hardware";
 
+message OnFlushCompletedRequest {
+  int64 arg0 = 1;
+}
+
+message OnFlushCompletedResponse {
+}
+
+message NewDisplayLutsRequest {
+}
+
+message NewDisplayLutsResponse {
+  int64 result = 1;
+}
+
+message Set1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Set1Response {
+}
+
+message Set2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Set2_1Response {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message GetBufferRequest {
+}
+
+message GetBufferResponse {
+  int64 result = 1;
+}
+
+message GetDimensionRequest {
+}
+
+message GetDimensionResponse {
+  int32 result = 1;
+}
+
+message GetSamplingKeyRequest {
+}
+
+message GetSamplingKeyResponse {
+  int32 result = 1;
+}
+
+message DisplayLutsEntryToStringRequest {
+}
+
+message OnAccuracyChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnAccuracyChangedResponse {
+}
+
+message OnSensorAdditionalInfoRequest {
+  int64 arg0 = 1;
+}
+
+message OnSensorAdditionalInfoResponse {
+}
+
+message OnSensorChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnSensorChangedResponse {
+}
+
+message GetRangeRequest {
+  int32 arg0 = 1;
+}
+
+message GetRangeResponse {
+  int32 result = 1;
+}
+
+message GetStandardRequest {
+  int32 arg0 = 1;
+}
+
+message GetStandardResponse {
+  int32 result = 1;
+}
+
+message GetTransferRequest {
+  int32 arg0 = 1;
+}
+
+message GetTransferResponse {
+  int32 result = 1;
+}
+
+message PackRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message PackResponse {
+  int32 result = 1;
+}
+
+message SupportsSensorToggle1Request {
+  int32 arg0 = 1;
+}
+
+message SupportsSensorToggle1Response {
+  bool result = 1;
+}
+
+message SupportsSensorToggle2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SupportsSensorToggle2_1Response {
+  bool result = 1;
+}
+
+message SensorListenerOnAccuracyChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SensorListenerOnSensorChangedRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSyncFenceRequest {
+  int64 arg0 = 1;
+}
+
+message NewSyncFenceResponse {
+  int64 result = 1;
+}
+
+message AwaitRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AwaitResponse {
+  bool result = 1;
+}
+
+message AwaitForeverRequest {
+  int64 handle = 1;
+}
+
+message AwaitForeverResponse {
+  bool result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetSignalTimeRequest {
+  int64 handle = 1;
+}
+
+message GetSignalTimeResponse {
+  int64 result = 1;
+}
+
+message IsValidRequest {
+  int64 handle = 1;
+}
+
+message IsValidResponse {
+  bool result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewGeomagneticFieldRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewGeomagneticFieldResponse {
+  int64 result = 1;
+}
+
+message GetDeclinationRequest {
+  int64 handle = 1;
+}
+
+message GetDeclinationResponse {
+  float result = 1;
+}
+
+message GetFieldStrengthRequest {
+  int64 handle = 1;
+}
+
+message GetFieldStrengthResponse {
+  float result = 1;
+}
+
+message GetHorizontalStrengthRequest {
+  int64 handle = 1;
+}
+
+message GetHorizontalStrengthResponse {
+  float result = 1;
+}
+
+message GetInclinationRequest {
+  int64 handle = 1;
+}
+
+message GetInclinationResponse {
+  float result = 1;
+}
+
+message GetXRequest {
+  int64 handle = 1;
+}
+
+message GetXResponse {
+  float result = 1;
+}
+
+message GetYRequest {
+  int64 handle = 1;
+}
+
+message GetYResponse {
+  float result = 1;
+}
+
+message GetZRequest {
+  int64 handle = 1;
+}
+
+message GetZResponse {
+  float result = 1;
+}
+
 message CancelTriggerSensorRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -53,6 +331,22 @@ message GetDefaultSensor2_1Request {
 }
 
 message GetDefaultSensor2_1Response {
+  int64 result = 1;
+}
+
+message GetDynamicSensorListRequest {
+  int32 arg0 = 1;
+}
+
+message GetDynamicSensorListResponse {
+  int64 result = 1;
+}
+
+message GetSensorListRequest {
+  int32 arg0 = 1;
+}
+
+message GetSensorListResponse {
   int64 result = 1;
 }
 
@@ -181,12 +475,8 @@ message GetAngleChangeRequest {
 message GetAngleChangeResponse {
 }
 
-message GetInclinationRequest {
+message SensorManagerGetInclinationRequest {
   int64 arg0 = 1;
-}
-
-message GetInclinationResponse {
-  float result = 1;
 }
 
 message GetOrientationRequest {
@@ -250,141 +540,32 @@ message OnDynamicSensorDisconnectedRequest {
 message OnDynamicSensorDisconnectedResponse {
 }
 
-message NewSyncFenceRequest {
+message GetCapacityRequest {
+}
+
+message GetCapacityResponse {
+  float result = 1;
+}
+
+message GetStatusRequest {
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message IsPresentRequest {
+}
+
+message IsPresentResponse {
+  bool result = 1;
+}
+
+message OnTriggerRequest {
   int64 arg0 = 1;
 }
 
-message NewSyncFenceResponse {
-  int64 result = 1;
-}
-
-message AwaitRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message AwaitResponse {
-  bool result = 1;
-}
-
-message AwaitForeverRequest {
-  int64 handle = 1;
-}
-
-message AwaitForeverResponse {
-  bool result = 1;
-}
-
-message CloseRequest {
-  int64 handle = 1;
-}
-
-message CloseResponse {
-}
-
-message DescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message GetSignalTimeRequest {
-  int64 handle = 1;
-}
-
-message GetSignalTimeResponse {
-  int64 result = 1;
-}
-
-message IsValidRequest {
-  int64 handle = 1;
-}
-
-message IsValidResponse {
-  bool result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
-}
-
-message OnAccuracyChangedRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnAccuracyChangedResponse {
-}
-
-message OnSensorChangedRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnSensorChangedResponse {
-}
-
-message NewDisplayLutsRequest {
-}
-
-message NewDisplayLutsResponse {
-  int64 result = 1;
-}
-
-message Set1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message Set1Response {
-}
-
-message Set2_1Request {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message Set2_1Response {
-}
-
-message ToStringRequest {
-  int64 handle = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message GetBufferRequest {
-}
-
-message GetBufferResponse {
-  int64 result = 1;
-}
-
-message GetDimensionRequest {
-}
-
-message GetDimensionResponse {
-  int32 result = 1;
-}
-
-message GetSamplingKeyRequest {
-}
-
-message GetSamplingKeyResponse {
-  int32 result = 1;
-}
-
-message DisplayLutsEntryToStringRequest {
+message OnTriggerResponse {
 }
 
 message GetFifoMaxEventCountRequest {
@@ -524,74 +705,54 @@ message IsWakeUpSensorResponse {
 message SensorToStringRequest {
 }
 
-message OnTriggerRequest {
-  int64 arg0 = 1;
+message OverlayPropertiesDescribeContentsRequest {
 }
 
-message OnTriggerResponse {
+message GetLutPropertiesRequest {
 }
 
-message NewGeomagneticFieldRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message NewGeomagneticFieldResponse {
+message GetLutPropertiesResponse {
   int64 result = 1;
 }
 
-message GetDeclinationRequest {
-  int64 handle = 1;
+message IsCombinationSupportedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message GetDeclinationResponse {
-  float result = 1;
+message IsCombinationSupportedResponse {
+  bool result = 1;
 }
 
-message GetFieldStrengthRequest {
-  int64 handle = 1;
+message IsMixedColorSpacesSupportedRequest {
 }
 
-message GetFieldStrengthResponse {
-  float result = 1;
+message IsMixedColorSpacesSupportedResponse {
+  bool result = 1;
 }
 
-message GetHorizontalStrengthRequest {
-  int64 handle = 1;
+message OverlayPropertiesWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message GetHorizontalStrengthResponse {
-  float result = 1;
+message SensorDirectChannelCloseRequest {
 }
 
-message GeomagneticFieldGetInclinationRequest {
-  int64 handle = 1;
+message ConfigureRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message GetXRequest {
-  int64 handle = 1;
+message ConfigureResponse {
+  int32 result = 1;
 }
 
-message GetXResponse {
-  float result = 1;
+message IsOpenRequest {
 }
 
-message GetYRequest {
-  int64 handle = 1;
-}
-
-message GetYResponse {
-  float result = 1;
-}
-
-message GetZRequest {
-  int64 handle = 1;
-}
-
-message GetZResponse {
-  float result = 1;
+message IsOpenResponse {
+  bool result = 1;
 }
 
 message BufferCloseRequest {
@@ -673,82 +834,6 @@ message IsSupportedRequest {
 
 message IsSupportedResponse {
   bool result = 1;
-}
-
-message SensorEventListenerOnAccuracyChangedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SensorEventListenerOnSensorChangedRequest {
-  int64 arg0 = 1;
-}
-
-message SensorDirectChannelCloseRequest {
-}
-
-message ConfigureRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message ConfigureResponse {
-  int32 result = 1;
-}
-
-message IsOpenRequest {
-}
-
-message IsOpenResponse {
-  bool result = 1;
-}
-
-message GetSamplingKeysRequest {
-}
-
-message GetSamplingKeysResponse {
-  int64 result = 1;
-}
-
-message GetSizeRequest {
-}
-
-message GetSizeResponse {
-  int32 result = 1;
-}
-
-message GetRangeRequest {
-  int32 arg0 = 1;
-}
-
-message GetRangeResponse {
-  int32 result = 1;
-}
-
-message GetStandardRequest {
-  int32 arg0 = 1;
-}
-
-message GetStandardResponse {
-  int32 result = 1;
-}
-
-message GetTransferRequest {
-  int32 arg0 = 1;
-}
-
-message GetTransferResponse {
-  int32 result = 1;
-}
-
-message PackRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message PackResponse {
-  int32 result = 1;
 }
 
 message AddCallbackBufferRequest {
@@ -1093,6 +1178,13 @@ message GetFocalLengthResponse {
   float result = 1;
 }
 
+message GetFocusAreasRequest {
+}
+
+message GetFocusAreasResponse {
+  int64 result = 1;
+}
+
 message GetFocusDistancesRequest {
   int64 arg0 = 1;
 }
@@ -1178,6 +1270,13 @@ message GetMaxZoomResponse {
   int32 result = 1;
 }
 
+message GetMeteringAreasRequest {
+}
+
+message GetMeteringAreasResponse {
+  int64 result = 1;
+}
+
 message GetMinExposureCompensationRequest {
 }
 
@@ -1241,6 +1340,104 @@ message GetSceneModeResponse {
   string result = 1;
 }
 
+message GetSupportedAntibandingRequest {
+}
+
+message GetSupportedAntibandingResponse {
+  int64 result = 1;
+}
+
+message GetSupportedColorEffectsRequest {
+}
+
+message GetSupportedColorEffectsResponse {
+  int64 result = 1;
+}
+
+message GetSupportedFlashModesRequest {
+}
+
+message GetSupportedFlashModesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedFocusModesRequest {
+}
+
+message GetSupportedFocusModesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedJpegThumbnailSizesRequest {
+}
+
+message GetSupportedJpegThumbnailSizesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedPictureFormatsRequest {
+}
+
+message GetSupportedPictureFormatsResponse {
+  int64 result = 1;
+}
+
+message GetSupportedPictureSizesRequest {
+}
+
+message GetSupportedPictureSizesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedPreviewFormatsRequest {
+}
+
+message GetSupportedPreviewFormatsResponse {
+  int64 result = 1;
+}
+
+message GetSupportedPreviewFpsRangeRequest {
+}
+
+message GetSupportedPreviewFpsRangeResponse {
+  int64 result = 1;
+}
+
+message GetSupportedPreviewFrameRatesRequest {
+}
+
+message GetSupportedPreviewFrameRatesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedPreviewSizesRequest {
+}
+
+message GetSupportedPreviewSizesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedSceneModesRequest {
+}
+
+message GetSupportedSceneModesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedVideoSizesRequest {
+}
+
+message GetSupportedVideoSizesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedWhiteBalanceRequest {
+}
+
+message GetSupportedWhiteBalanceResponse {
+  int64 result = 1;
+}
+
 message GetVerticalViewAngleRequest {
 }
 
@@ -1267,6 +1464,13 @@ message GetZoomRequest {
 
 message GetZoomResponse {
   int32 result = 1;
+}
+
+message GetZoomRatiosRequest {
+}
+
+message GetZoomRatiosResponse {
+  int64 result = 1;
 }
 
 message IsAutoExposureLockSupportedRequest {
@@ -1566,96 +1770,87 @@ message HashCodeResponse {
   int32 result = 1;
 }
 
-message GetCapacityRequest {
+message GetSamplingKeysRequest {
 }
 
-message GetCapacityResponse {
-  float result = 1;
-}
-
-message GetStatusRequest {
-}
-
-message GetStatusResponse {
-  int32 result = 1;
-}
-
-message IsPresentRequest {
-}
-
-message IsPresentResponse {
-  bool result = 1;
-}
-
-message OverlayPropertiesDescribeContentsRequest {
-}
-
-message GetLutPropertiesRequest {
-}
-
-message GetLutPropertiesResponse {
+message GetSamplingKeysResponse {
   int64 result = 1;
 }
 
-message IsCombinationSupportedRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
+message GetSizeRequest {
 }
 
-message IsCombinationSupportedResponse {
-  bool result = 1;
+message GetSizeResponse {
+  int32 result = 1;
 }
 
-message IsMixedColorSpacesSupportedRequest {
+service SensorEventListener2Service {
+  rpc OnFlushCompleted (OnFlushCompletedRequest) returns (OnFlushCompletedResponse);
 }
 
-message IsMixedColorSpacesSupportedResponse {
-  bool result = 1;
+service DisplayLutsService {
+  rpc NewDisplayLuts (NewDisplayLutsRequest) returns (NewDisplayLutsResponse);
+  rpc Set1 (Set1Request) returns (Set1Response);
+  rpc Set2_1 (Set2_1Request) returns (Set2_1Response);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
-message OverlayPropertiesWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+service DisplayLutsEntryService {
+  rpc GetBuffer (GetBufferRequest) returns (GetBufferResponse);
+  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
+  rpc GetSamplingKey (GetSamplingKeyRequest) returns (GetSamplingKeyResponse);
+  rpc ToString (DisplayLutsEntryToStringRequest) returns (ToStringResponse);
 }
 
-message SensorEventCallbackOnAccuracyChangedRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+service SensorEventCallbackService {
+  rpc OnAccuracyChanged (OnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
+  rpc OnFlushCompleted (OnFlushCompletedRequest) returns (OnFlushCompletedResponse);
+  rpc OnSensorAdditionalInfo (OnSensorAdditionalInfoRequest) returns (OnSensorAdditionalInfoResponse);
+  rpc OnSensorChanged (OnSensorChangedRequest) returns (OnSensorChangedResponse);
 }
 
-message OnFlushCompletedRequest {
-  int64 arg0 = 1;
+service DataSpaceService {
+  rpc GetRange (GetRangeRequest) returns (GetRangeResponse);
+  rpc GetStandard (GetStandardRequest) returns (GetStandardResponse);
+  rpc GetTransfer (GetTransferRequest) returns (GetTransferResponse);
+  rpc Pack (PackRequest) returns (PackResponse);
 }
 
-message OnFlushCompletedResponse {
+service SensorEventListenerService {
+  rpc OnAccuracyChanged (OnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
+  rpc OnSensorChanged (OnSensorChangedRequest) returns (OnSensorChangedResponse);
 }
 
-message OnSensorAdditionalInfoRequest {
-  int64 arg0 = 1;
+service SensorPrivacyManagerService {
+  rpc SupportsSensorToggle1 (SupportsSensorToggle1Request) returns (SupportsSensorToggle1Response);
+  rpc SupportsSensorToggle2_1 (SupportsSensorToggle2_1Request) returns (SupportsSensorToggle2_1Response);
 }
 
-message OnSensorAdditionalInfoResponse {
+service SensorListenerService {
+  rpc OnAccuracyChanged (SensorListenerOnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
+  rpc OnSensorChanged (SensorListenerOnSensorChangedRequest) returns (OnSensorChangedResponse);
 }
 
-message SensorEventCallbackOnSensorChangedRequest {
-  int64 arg0 = 1;
+service SyncFenceService {
+  rpc NewSyncFence (NewSyncFenceRequest) returns (NewSyncFenceResponse);
+  rpc Await (AwaitRequest) returns (AwaitResponse);
+  rpc AwaitForever (AwaitForeverRequest) returns (AwaitForeverResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSignalTime (GetSignalTimeRequest) returns (GetSignalTimeResponse);
+  rpc IsValid (IsValidRequest) returns (IsValidResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message SupportsSensorToggle1Request {
-  int32 arg0 = 1;
-}
-
-message SupportsSensorToggle1Response {
-  bool result = 1;
-}
-
-message SupportsSensorToggle2_1Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SupportsSensorToggle2_1Response {
-  bool result = 1;
+service GeomagneticFieldService {
+  rpc NewGeomagneticField (NewGeomagneticFieldRequest) returns (NewGeomagneticFieldResponse);
+  rpc GetDeclination (GetDeclinationRequest) returns (GetDeclinationResponse);
+  rpc GetFieldStrength (GetFieldStrengthRequest) returns (GetFieldStrengthResponse);
+  rpc GetHorizontalStrength (GetHorizontalStrengthRequest) returns (GetHorizontalStrengthResponse);
+  rpc GetInclination (GetInclinationRequest) returns (GetInclinationResponse);
+  rpc GetX (GetXRequest) returns (GetXResponse);
+  rpc GetY (GetYRequest) returns (GetYResponse);
+  rpc GetZ (GetZRequest) returns (GetZResponse);
 }
 
 service SensorManagerService {
@@ -1665,6 +1860,8 @@ service SensorManagerService {
   rpc Flush (FlushRequest) returns (FlushResponse);
   rpc GetDefaultSensor1 (GetDefaultSensor1Request) returns (GetDefaultSensor1Response);
   rpc GetDefaultSensor2_1 (GetDefaultSensor2_1Request) returns (GetDefaultSensor2_1Response);
+  rpc GetDynamicSensorList (GetDynamicSensorListRequest) returns (GetDynamicSensorListResponse);
+  rpc GetSensorList (GetSensorListRequest) returns (GetSensorListResponse);
   rpc GetSensors (GetSensorsRequest) returns (GetSensorsResponse);
   rpc IsDynamicSensorDiscoverySupported (IsDynamicSensorDiscoverySupportedRequest) returns (IsDynamicSensorDiscoverySupportedResponse);
   rpc RegisterDynamicSensorCallback (RegisterDynamicSensorCallbackRequest) returns (RegisterDynamicSensorCallbackResponse);
@@ -1680,7 +1877,7 @@ service SensorManagerService {
   rpc UnregisterListener2_3 (UnregisterListener2_3Request) returns (UnregisterListener2_3Response);
   rpc GetAltitude (GetAltitudeRequest) returns (GetAltitudeResponse);
   rpc GetAngleChange (GetAngleChangeRequest) returns (GetAngleChangeResponse);
-  rpc GetInclination (GetInclinationRequest) returns (GetInclinationResponse);
+  rpc GetInclination (SensorManagerGetInclinationRequest) returns (GetInclinationResponse);
   rpc GetOrientation (GetOrientationRequest) returns (GetOrientationResponse);
   rpc GetQuaternionFromVector (GetQuaternionFromVectorRequest) returns (GetQuaternionFromVectorResponse);
   rpc GetRotationMatrix (GetRotationMatrixRequest) returns (GetRotationMatrixResponse);
@@ -1693,34 +1890,14 @@ service SensorManagerDynamicSensorCallbackService {
   rpc OnDynamicSensorDisconnected (OnDynamicSensorDisconnectedRequest) returns (OnDynamicSensorDisconnectedResponse);
 }
 
-service SyncFenceService {
-  rpc NewSyncFence (NewSyncFenceRequest) returns (NewSyncFenceResponse);
-  rpc Await (AwaitRequest) returns (AwaitResponse);
-  rpc AwaitForever (AwaitForeverRequest) returns (AwaitForeverResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSignalTime (GetSignalTimeRequest) returns (GetSignalTimeResponse);
-  rpc IsValid (IsValidRequest) returns (IsValidResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service BatteryStateService {
+  rpc GetCapacity (GetCapacityRequest) returns (GetCapacityResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc IsPresent (IsPresentRequest) returns (IsPresentResponse);
 }
 
-service SensorListenerService {
-  rpc OnAccuracyChanged (OnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
-  rpc OnSensorChanged (OnSensorChangedRequest) returns (OnSensorChangedResponse);
-}
-
-service DisplayLutsService {
-  rpc NewDisplayLuts (NewDisplayLutsRequest) returns (NewDisplayLutsResponse);
-  rpc Set1 (Set1Request) returns (Set1Response);
-  rpc Set2_1 (Set2_1Request) returns (Set2_1Response);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service DisplayLutsEntryService {
-  rpc GetBuffer (GetBufferRequest) returns (GetBufferResponse);
-  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
-  rpc GetSamplingKey (GetSamplingKeyRequest) returns (GetSamplingKeyResponse);
-  rpc ToString (DisplayLutsEntryToStringRequest) returns (ToStringResponse);
+service TriggerEventListenerService {
+  rpc OnTrigger (OnTriggerRequest) returns (OnTriggerResponse);
 }
 
 service SensorService {
@@ -1746,19 +1923,18 @@ service SensorService {
   rpc ToString (SensorToStringRequest) returns (ToStringResponse);
 }
 
-service TriggerEventListenerService {
-  rpc OnTrigger (OnTriggerRequest) returns (OnTriggerResponse);
+service OverlayPropertiesService {
+  rpc DescribeContents (OverlayPropertiesDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetLutProperties (GetLutPropertiesRequest) returns (GetLutPropertiesResponse);
+  rpc IsCombinationSupported (IsCombinationSupportedRequest) returns (IsCombinationSupportedResponse);
+  rpc IsMixedColorSpacesSupported (IsMixedColorSpacesSupportedRequest) returns (IsMixedColorSpacesSupportedResponse);
+  rpc WriteToParcel (OverlayPropertiesWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service GeomagneticFieldService {
-  rpc NewGeomagneticField (NewGeomagneticFieldRequest) returns (NewGeomagneticFieldResponse);
-  rpc GetDeclination (GetDeclinationRequest) returns (GetDeclinationResponse);
-  rpc GetFieldStrength (GetFieldStrengthRequest) returns (GetFieldStrengthResponse);
-  rpc GetHorizontalStrength (GetHorizontalStrengthRequest) returns (GetHorizontalStrengthResponse);
-  rpc GetInclination (GeomagneticFieldGetInclinationRequest) returns (GetInclinationResponse);
-  rpc GetX (GetXRequest) returns (GetXResponse);
-  rpc GetY (GetYRequest) returns (GetYResponse);
-  rpc GetZ (GetZRequest) returns (GetZResponse);
+service SensorDirectChannelService {
+  rpc Close (SensorDirectChannelCloseRequest) returns (CloseResponse);
+  rpc Configure (ConfigureRequest) returns (ConfigureResponse);
+  rpc IsOpen (IsOpenRequest) returns (IsOpenResponse);
 }
 
 service BufferService {
@@ -1774,30 +1950,6 @@ service BufferService {
   rpc WriteToParcel (BufferWriteToParcelRequest) returns (WriteToParcelResponse);
   rpc Create (CreateRequest) returns (CreateResponse);
   rpc IsSupported (IsSupportedRequest) returns (IsSupportedResponse);
-}
-
-service SensorEventListenerService {
-  rpc OnAccuracyChanged (SensorEventListenerOnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
-  rpc OnSensorChanged (SensorEventListenerOnSensorChangedRequest) returns (OnSensorChangedResponse);
-}
-
-service SensorDirectChannelService {
-  rpc Close (SensorDirectChannelCloseRequest) returns (CloseResponse);
-  rpc Configure (ConfigureRequest) returns (ConfigureResponse);
-  rpc IsOpen (IsOpenRequest) returns (IsOpenResponse);
-}
-
-service LutPropertiesService {
-  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
-  rpc GetSamplingKeys (GetSamplingKeysRequest) returns (GetSamplingKeysResponse);
-  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
-}
-
-service DataSpaceService {
-  rpc GetRange (GetRangeRequest) returns (GetRangeResponse);
-  rpc GetStandard (GetStandardRequest) returns (GetStandardResponse);
-  rpc GetTransfer (GetTransferRequest) returns (GetTransferResponse);
-  rpc Pack (PackRequest) returns (PackResponse);
 }
 
 service CameraService {
@@ -1870,6 +2022,7 @@ service CameraParametersService {
   rpc GetExposureCompensationStep (GetExposureCompensationStepRequest) returns (GetExposureCompensationStepResponse);
   rpc GetFlashMode (GetFlashModeRequest) returns (GetFlashModeResponse);
   rpc GetFocalLength (GetFocalLengthRequest) returns (GetFocalLengthResponse);
+  rpc GetFocusAreas (GetFocusAreasRequest) returns (GetFocusAreasResponse);
   rpc GetFocusDistances (GetFocusDistancesRequest) returns (GetFocusDistancesResponse);
   rpc GetFocusMode (GetFocusModeRequest) returns (GetFocusModeResponse);
   rpc GetHorizontalViewAngle (GetHorizontalViewAngleRequest) returns (GetHorizontalViewAngleResponse);
@@ -1882,6 +2035,7 @@ service CameraParametersService {
   rpc GetMaxNumFocusAreas (GetMaxNumFocusAreasRequest) returns (GetMaxNumFocusAreasResponse);
   rpc GetMaxNumMeteringAreas (GetMaxNumMeteringAreasRequest) returns (GetMaxNumMeteringAreasResponse);
   rpc GetMaxZoom (GetMaxZoomRequest) returns (GetMaxZoomResponse);
+  rpc GetMeteringAreas (GetMeteringAreasRequest) returns (GetMeteringAreasResponse);
   rpc GetMinExposureCompensation (GetMinExposureCompensationRequest) returns (GetMinExposureCompensationResponse);
   rpc GetPictureFormat (GetPictureFormatRequest) returns (GetPictureFormatResponse);
   rpc GetPictureSize (GetPictureSizeRequest) returns (GetPictureSizeResponse);
@@ -1891,10 +2045,25 @@ service CameraParametersService {
   rpc GetPreviewFrameRate (GetPreviewFrameRateRequest) returns (GetPreviewFrameRateResponse);
   rpc GetPreviewSize (GetPreviewSizeRequest) returns (GetPreviewSizeResponse);
   rpc GetSceneMode (GetSceneModeRequest) returns (GetSceneModeResponse);
+  rpc GetSupportedAntibanding (GetSupportedAntibandingRequest) returns (GetSupportedAntibandingResponse);
+  rpc GetSupportedColorEffects (GetSupportedColorEffectsRequest) returns (GetSupportedColorEffectsResponse);
+  rpc GetSupportedFlashModes (GetSupportedFlashModesRequest) returns (GetSupportedFlashModesResponse);
+  rpc GetSupportedFocusModes (GetSupportedFocusModesRequest) returns (GetSupportedFocusModesResponse);
+  rpc GetSupportedJpegThumbnailSizes (GetSupportedJpegThumbnailSizesRequest) returns (GetSupportedJpegThumbnailSizesResponse);
+  rpc GetSupportedPictureFormats (GetSupportedPictureFormatsRequest) returns (GetSupportedPictureFormatsResponse);
+  rpc GetSupportedPictureSizes (GetSupportedPictureSizesRequest) returns (GetSupportedPictureSizesResponse);
+  rpc GetSupportedPreviewFormats (GetSupportedPreviewFormatsRequest) returns (GetSupportedPreviewFormatsResponse);
+  rpc GetSupportedPreviewFpsRange (GetSupportedPreviewFpsRangeRequest) returns (GetSupportedPreviewFpsRangeResponse);
+  rpc GetSupportedPreviewFrameRates (GetSupportedPreviewFrameRatesRequest) returns (GetSupportedPreviewFrameRatesResponse);
+  rpc GetSupportedPreviewSizes (GetSupportedPreviewSizesRequest) returns (GetSupportedPreviewSizesResponse);
+  rpc GetSupportedSceneModes (GetSupportedSceneModesRequest) returns (GetSupportedSceneModesResponse);
+  rpc GetSupportedVideoSizes (GetSupportedVideoSizesRequest) returns (GetSupportedVideoSizesResponse);
+  rpc GetSupportedWhiteBalance (GetSupportedWhiteBalanceRequest) returns (GetSupportedWhiteBalanceResponse);
   rpc GetVerticalViewAngle (GetVerticalViewAngleRequest) returns (GetVerticalViewAngleResponse);
   rpc GetVideoStabilization (GetVideoStabilizationRequest) returns (GetVideoStabilizationResponse);
   rpc GetWhiteBalance (GetWhiteBalanceRequest) returns (GetWhiteBalanceResponse);
   rpc GetZoom (GetZoomRequest) returns (GetZoomResponse);
+  rpc GetZoomRatios (GetZoomRatiosRequest) returns (GetZoomRatiosResponse);
   rpc IsAutoExposureLockSupported (IsAutoExposureLockSupportedRequest) returns (IsAutoExposureLockSupportedResponse);
   rpc IsAutoWhiteBalanceLockSupported (IsAutoWhiteBalanceLockSupportedRequest) returns (IsAutoWhiteBalanceLockSupportedResponse);
   rpc IsSmoothZoomSupported (IsSmoothZoomSupportedRequest) returns (IsSmoothZoomSupportedResponse);
@@ -1952,32 +2121,8 @@ service CameraSizeService {
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }
 
-service BatteryStateService {
-  rpc GetCapacity (GetCapacityRequest) returns (GetCapacityResponse);
-  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
-  rpc IsPresent (IsPresentRequest) returns (IsPresentResponse);
-}
-
-service OverlayPropertiesService {
-  rpc DescribeContents (OverlayPropertiesDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetLutProperties (GetLutPropertiesRequest) returns (GetLutPropertiesResponse);
-  rpc IsCombinationSupported (IsCombinationSupportedRequest) returns (IsCombinationSupportedResponse);
-  rpc IsMixedColorSpacesSupported (IsMixedColorSpacesSupportedRequest) returns (IsMixedColorSpacesSupportedResponse);
-  rpc WriteToParcel (OverlayPropertiesWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service SensorEventCallbackService {
-  rpc OnAccuracyChanged (SensorEventCallbackOnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
-  rpc OnFlushCompleted (OnFlushCompletedRequest) returns (OnFlushCompletedResponse);
-  rpc OnSensorAdditionalInfo (OnSensorAdditionalInfoRequest) returns (OnSensorAdditionalInfoResponse);
-  rpc OnSensorChanged (SensorEventCallbackOnSensorChangedRequest) returns (OnSensorChangedResponse);
-}
-
-service SensorPrivacyManagerService {
-  rpc SupportsSensorToggle1 (SupportsSensorToggle1Request) returns (SupportsSensorToggle1Response);
-  rpc SupportsSensorToggle2_1 (SupportsSensorToggle2_1Request) returns (SupportsSensorToggle2_1Response);
-}
-
-service SensorEventListener2Service {
-  rpc OnFlushCompleted (OnFlushCompletedRequest) returns (OnFlushCompletedResponse);
+service LutPropertiesService {
+  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
+  rpc GetSamplingKeys (GetSamplingKeysRequest) returns (GetSamplingKeysResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
 }

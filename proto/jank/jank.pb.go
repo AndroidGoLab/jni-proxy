@@ -23,350 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type NewRelativeFrameTimeHistogramRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRelativeFrameTimeHistogramRequest) Reset() {
-	*x = NewRelativeFrameTimeHistogramRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRelativeFrameTimeHistogramRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRelativeFrameTimeHistogramRequest) ProtoMessage() {}
-
-func (x *NewRelativeFrameTimeHistogramRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRelativeFrameTimeHistogramRequest.ProtoReflect.Descriptor instead.
-func (*NewRelativeFrameTimeHistogramRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{0}
-}
-
-type NewRelativeFrameTimeHistogramResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRelativeFrameTimeHistogramResponse) Reset() {
-	*x = NewRelativeFrameTimeHistogramResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRelativeFrameTimeHistogramResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRelativeFrameTimeHistogramResponse) ProtoMessage() {}
-
-func (x *NewRelativeFrameTimeHistogramResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRelativeFrameTimeHistogramResponse.ProtoReflect.Descriptor instead.
-func (*NewRelativeFrameTimeHistogramResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *NewRelativeFrameTimeHistogramResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddRelativeFrameTimeMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddRelativeFrameTimeMillisRequest) Reset() {
-	*x = AddRelativeFrameTimeMillisRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddRelativeFrameTimeMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddRelativeFrameTimeMillisRequest) ProtoMessage() {}
-
-func (x *AddRelativeFrameTimeMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddRelativeFrameTimeMillisRequest.ProtoReflect.Descriptor instead.
-func (*AddRelativeFrameTimeMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *AddRelativeFrameTimeMillisRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AddRelativeFrameTimeMillisRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddRelativeFrameTimeMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddRelativeFrameTimeMillisResponse) Reset() {
-	*x = AddRelativeFrameTimeMillisResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddRelativeFrameTimeMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddRelativeFrameTimeMillisResponse) ProtoMessage() {}
-
-func (x *AddRelativeFrameTimeMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddRelativeFrameTimeMillisResponse.ProtoReflect.Descriptor instead.
-func (*AddRelativeFrameTimeMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{3}
-}
-
-type GetBucketCountersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBucketCountersRequest) Reset() {
-	*x = GetBucketCountersRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBucketCountersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBucketCountersRequest) ProtoMessage() {}
-
-func (x *GetBucketCountersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBucketCountersRequest.ProtoReflect.Descriptor instead.
-func (*GetBucketCountersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *GetBucketCountersRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetBucketCountersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBucketCountersResponse) Reset() {
-	*x = GetBucketCountersResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBucketCountersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBucketCountersResponse) ProtoMessage() {}
-
-func (x *GetBucketCountersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBucketCountersResponse.ProtoReflect.Descriptor instead.
-func (*GetBucketCountersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetBucketCountersResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetBucketEndpointsMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBucketEndpointsMillisRequest) Reset() {
-	*x = GetBucketEndpointsMillisRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBucketEndpointsMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBucketEndpointsMillisRequest) ProtoMessage() {}
-
-func (x *GetBucketEndpointsMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBucketEndpointsMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetBucketEndpointsMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *GetBucketEndpointsMillisRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetBucketEndpointsMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBucketEndpointsMillisResponse) Reset() {
-	*x = GetBucketEndpointsMillisResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBucketEndpointsMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBucketEndpointsMillisResponse) ProtoMessage() {}
-
-func (x *GetBucketEndpointsMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBucketEndpointsMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetBucketEndpointsMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetBucketEndpointsMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type NewAppJankStatsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -383,7 +39,7 @@ type NewAppJankStatsRequest struct {
 
 func (x *NewAppJankStatsRequest) Reset() {
 	*x = NewAppJankStatsRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[8]
+	mi := &file_proto_jank_jank_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -395,7 +51,7 @@ func (x *NewAppJankStatsRequest) String() string {
 func (*NewAppJankStatsRequest) ProtoMessage() {}
 
 func (x *NewAppJankStatsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[8]
+	mi := &file_proto_jank_jank_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -408,7 +64,7 @@ func (x *NewAppJankStatsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewAppJankStatsRequest.ProtoReflect.Descriptor instead.
 func (*NewAppJankStatsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{8}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *NewAppJankStatsRequest) GetArg0() int32 {
@@ -476,7 +132,7 @@ type NewAppJankStatsResponse struct {
 
 func (x *NewAppJankStatsResponse) Reset() {
 	*x = NewAppJankStatsResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[9]
+	mi := &file_proto_jank_jank_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -488,7 +144,7 @@ func (x *NewAppJankStatsResponse) String() string {
 func (*NewAppJankStatsResponse) ProtoMessage() {}
 
 func (x *NewAppJankStatsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[9]
+	mi := &file_proto_jank_jank_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -501,7 +157,7 @@ func (x *NewAppJankStatsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewAppJankStatsResponse.ProtoReflect.Descriptor instead.
 func (*NewAppJankStatsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{9}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *NewAppJankStatsResponse) GetResult() int64 {
@@ -520,7 +176,7 @@ type GetJankyFrameCountRequest struct {
 
 func (x *GetJankyFrameCountRequest) Reset() {
 	*x = GetJankyFrameCountRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[10]
+	mi := &file_proto_jank_jank_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -532,7 +188,7 @@ func (x *GetJankyFrameCountRequest) String() string {
 func (*GetJankyFrameCountRequest) ProtoMessage() {}
 
 func (x *GetJankyFrameCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[10]
+	mi := &file_proto_jank_jank_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -545,7 +201,7 @@ func (x *GetJankyFrameCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetJankyFrameCountRequest.ProtoReflect.Descriptor instead.
 func (*GetJankyFrameCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{10}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetJankyFrameCountRequest) GetHandle() int64 {
@@ -564,7 +220,7 @@ type GetJankyFrameCountResponse struct {
 
 func (x *GetJankyFrameCountResponse) Reset() {
 	*x = GetJankyFrameCountResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[11]
+	mi := &file_proto_jank_jank_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -576,7 +232,7 @@ func (x *GetJankyFrameCountResponse) String() string {
 func (*GetJankyFrameCountResponse) ProtoMessage() {}
 
 func (x *GetJankyFrameCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[11]
+	mi := &file_proto_jank_jank_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -589,7 +245,7 @@ func (x *GetJankyFrameCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetJankyFrameCountResponse.ProtoReflect.Descriptor instead.
 func (*GetJankyFrameCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{11}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetJankyFrameCountResponse) GetResult() int64 {
@@ -608,7 +264,7 @@ type GetNavigationComponentRequest struct {
 
 func (x *GetNavigationComponentRequest) Reset() {
 	*x = GetNavigationComponentRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[12]
+	mi := &file_proto_jank_jank_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -620,7 +276,7 @@ func (x *GetNavigationComponentRequest) String() string {
 func (*GetNavigationComponentRequest) ProtoMessage() {}
 
 func (x *GetNavigationComponentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[12]
+	mi := &file_proto_jank_jank_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -633,7 +289,7 @@ func (x *GetNavigationComponentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNavigationComponentRequest.ProtoReflect.Descriptor instead.
 func (*GetNavigationComponentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{12}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetNavigationComponentRequest) GetHandle() int64 {
@@ -652,7 +308,7 @@ type GetNavigationComponentResponse struct {
 
 func (x *GetNavigationComponentResponse) Reset() {
 	*x = GetNavigationComponentResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[13]
+	mi := &file_proto_jank_jank_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -664,7 +320,7 @@ func (x *GetNavigationComponentResponse) String() string {
 func (*GetNavigationComponentResponse) ProtoMessage() {}
 
 func (x *GetNavigationComponentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[13]
+	mi := &file_proto_jank_jank_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -677,7 +333,7 @@ func (x *GetNavigationComponentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNavigationComponentResponse.ProtoReflect.Descriptor instead.
 func (*GetNavigationComponentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{13}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetNavigationComponentResponse) GetResult() string {
@@ -696,7 +352,7 @@ type GetRelativeFrameTimeHistogramRequest struct {
 
 func (x *GetRelativeFrameTimeHistogramRequest) Reset() {
 	*x = GetRelativeFrameTimeHistogramRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[14]
+	mi := &file_proto_jank_jank_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -708,7 +364,7 @@ func (x *GetRelativeFrameTimeHistogramRequest) String() string {
 func (*GetRelativeFrameTimeHistogramRequest) ProtoMessage() {}
 
 func (x *GetRelativeFrameTimeHistogramRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[14]
+	mi := &file_proto_jank_jank_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -721,7 +377,7 @@ func (x *GetRelativeFrameTimeHistogramRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetRelativeFrameTimeHistogramRequest.ProtoReflect.Descriptor instead.
 func (*GetRelativeFrameTimeHistogramRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{14}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetRelativeFrameTimeHistogramRequest) GetHandle() int64 {
@@ -740,7 +396,7 @@ type GetRelativeFrameTimeHistogramResponse struct {
 
 func (x *GetRelativeFrameTimeHistogramResponse) Reset() {
 	*x = GetRelativeFrameTimeHistogramResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[15]
+	mi := &file_proto_jank_jank_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -752,7 +408,7 @@ func (x *GetRelativeFrameTimeHistogramResponse) String() string {
 func (*GetRelativeFrameTimeHistogramResponse) ProtoMessage() {}
 
 func (x *GetRelativeFrameTimeHistogramResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[15]
+	mi := &file_proto_jank_jank_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -765,7 +421,7 @@ func (x *GetRelativeFrameTimeHistogramResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetRelativeFrameTimeHistogramResponse.ProtoReflect.Descriptor instead.
 func (*GetRelativeFrameTimeHistogramResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{15}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetRelativeFrameTimeHistogramResponse) GetResult() int64 {
@@ -784,7 +440,7 @@ type GetTotalFrameCountRequest struct {
 
 func (x *GetTotalFrameCountRequest) Reset() {
 	*x = GetTotalFrameCountRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[16]
+	mi := &file_proto_jank_jank_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -796,7 +452,7 @@ func (x *GetTotalFrameCountRequest) String() string {
 func (*GetTotalFrameCountRequest) ProtoMessage() {}
 
 func (x *GetTotalFrameCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[16]
+	mi := &file_proto_jank_jank_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -809,7 +465,7 @@ func (x *GetTotalFrameCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTotalFrameCountRequest.ProtoReflect.Descriptor instead.
 func (*GetTotalFrameCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{16}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetTotalFrameCountRequest) GetHandle() int64 {
@@ -828,7 +484,7 @@ type GetTotalFrameCountResponse struct {
 
 func (x *GetTotalFrameCountResponse) Reset() {
 	*x = GetTotalFrameCountResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[17]
+	mi := &file_proto_jank_jank_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -840,7 +496,7 @@ func (x *GetTotalFrameCountResponse) String() string {
 func (*GetTotalFrameCountResponse) ProtoMessage() {}
 
 func (x *GetTotalFrameCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[17]
+	mi := &file_proto_jank_jank_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -853,7 +509,7 @@ func (x *GetTotalFrameCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTotalFrameCountResponse.ProtoReflect.Descriptor instead.
 func (*GetTotalFrameCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{17}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetTotalFrameCountResponse) GetResult() int64 {
@@ -872,7 +528,7 @@ type GetUidRequest struct {
 
 func (x *GetUidRequest) Reset() {
 	*x = GetUidRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[18]
+	mi := &file_proto_jank_jank_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -884,7 +540,7 @@ func (x *GetUidRequest) String() string {
 func (*GetUidRequest) ProtoMessage() {}
 
 func (x *GetUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[18]
+	mi := &file_proto_jank_jank_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -897,7 +553,7 @@ func (x *GetUidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUidRequest.ProtoReflect.Descriptor instead.
 func (*GetUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{18}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetUidRequest) GetHandle() int64 {
@@ -916,7 +572,7 @@ type GetUidResponse struct {
 
 func (x *GetUidResponse) Reset() {
 	*x = GetUidResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[19]
+	mi := &file_proto_jank_jank_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -928,7 +584,7 @@ func (x *GetUidResponse) String() string {
 func (*GetUidResponse) ProtoMessage() {}
 
 func (x *GetUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[19]
+	mi := &file_proto_jank_jank_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -941,7 +597,7 @@ func (x *GetUidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUidResponse.ProtoReflect.Descriptor instead.
 func (*GetUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{19}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetUidResponse) GetResult() int32 {
@@ -960,7 +616,7 @@ type GetWidgetCategoryRequest struct {
 
 func (x *GetWidgetCategoryRequest) Reset() {
 	*x = GetWidgetCategoryRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[20]
+	mi := &file_proto_jank_jank_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -972,7 +628,7 @@ func (x *GetWidgetCategoryRequest) String() string {
 func (*GetWidgetCategoryRequest) ProtoMessage() {}
 
 func (x *GetWidgetCategoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[20]
+	mi := &file_proto_jank_jank_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -985,7 +641,7 @@ func (x *GetWidgetCategoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWidgetCategoryRequest.ProtoReflect.Descriptor instead.
 func (*GetWidgetCategoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{20}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetWidgetCategoryRequest) GetHandle() int64 {
@@ -1004,7 +660,7 @@ type GetWidgetCategoryResponse struct {
 
 func (x *GetWidgetCategoryResponse) Reset() {
 	*x = GetWidgetCategoryResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[21]
+	mi := &file_proto_jank_jank_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1016,7 +672,7 @@ func (x *GetWidgetCategoryResponse) String() string {
 func (*GetWidgetCategoryResponse) ProtoMessage() {}
 
 func (x *GetWidgetCategoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[21]
+	mi := &file_proto_jank_jank_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1029,7 +685,7 @@ func (x *GetWidgetCategoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWidgetCategoryResponse.ProtoReflect.Descriptor instead.
 func (*GetWidgetCategoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{21}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetWidgetCategoryResponse) GetResult() string {
@@ -1048,7 +704,7 @@ type GetWidgetIdRequest struct {
 
 func (x *GetWidgetIdRequest) Reset() {
 	*x = GetWidgetIdRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[22]
+	mi := &file_proto_jank_jank_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1060,7 +716,7 @@ func (x *GetWidgetIdRequest) String() string {
 func (*GetWidgetIdRequest) ProtoMessage() {}
 
 func (x *GetWidgetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[22]
+	mi := &file_proto_jank_jank_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1073,7 +729,7 @@ func (x *GetWidgetIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWidgetIdRequest.ProtoReflect.Descriptor instead.
 func (*GetWidgetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{22}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetWidgetIdRequest) GetHandle() int64 {
@@ -1092,7 +748,7 @@ type GetWidgetIdResponse struct {
 
 func (x *GetWidgetIdResponse) Reset() {
 	*x = GetWidgetIdResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[23]
+	mi := &file_proto_jank_jank_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1104,7 +760,7 @@ func (x *GetWidgetIdResponse) String() string {
 func (*GetWidgetIdResponse) ProtoMessage() {}
 
 func (x *GetWidgetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[23]
+	mi := &file_proto_jank_jank_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1117,7 +773,7 @@ func (x *GetWidgetIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWidgetIdResponse.ProtoReflect.Descriptor instead.
 func (*GetWidgetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{23}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetWidgetIdResponse) GetResult() string {
@@ -1136,7 +792,7 @@ type GetWidgetStateRequest struct {
 
 func (x *GetWidgetStateRequest) Reset() {
 	*x = GetWidgetStateRequest{}
-	mi := &file_proto_jank_jank_proto_msgTypes[24]
+	mi := &file_proto_jank_jank_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1148,7 +804,7 @@ func (x *GetWidgetStateRequest) String() string {
 func (*GetWidgetStateRequest) ProtoMessage() {}
 
 func (x *GetWidgetStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[24]
+	mi := &file_proto_jank_jank_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1161,7 +817,7 @@ func (x *GetWidgetStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWidgetStateRequest.ProtoReflect.Descriptor instead.
 func (*GetWidgetStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{24}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetWidgetStateRequest) GetHandle() int64 {
@@ -1180,7 +836,7 @@ type GetWidgetStateResponse struct {
 
 func (x *GetWidgetStateResponse) Reset() {
 	*x = GetWidgetStateResponse{}
-	mi := &file_proto_jank_jank_proto_msgTypes[25]
+	mi := &file_proto_jank_jank_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1192,7 +848,7 @@ func (x *GetWidgetStateResponse) String() string {
 func (*GetWidgetStateResponse) ProtoMessage() {}
 
 func (x *GetWidgetStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jank_jank_proto_msgTypes[25]
+	mi := &file_proto_jank_jank_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1205,7 +861,7 @@ func (x *GetWidgetStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWidgetStateResponse.ProtoReflect.Descriptor instead.
 func (*GetWidgetStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jank_jank_proto_rawDescGZIP(), []int{25}
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetWidgetStateResponse) GetResult() string {
@@ -1215,26 +871,355 @@ func (x *GetWidgetStateResponse) GetResult() string {
 	return ""
 }
 
+type NewRelativeFrameTimeHistogramRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRelativeFrameTimeHistogramRequest) Reset() {
+	*x = NewRelativeFrameTimeHistogramRequest{}
+	mi := &file_proto_jank_jank_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRelativeFrameTimeHistogramRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRelativeFrameTimeHistogramRequest) ProtoMessage() {}
+
+func (x *NewRelativeFrameTimeHistogramRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jank_jank_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRelativeFrameTimeHistogramRequest.ProtoReflect.Descriptor instead.
+func (*NewRelativeFrameTimeHistogramRequest) Descriptor() ([]byte, []int) {
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{18}
+}
+
+type NewRelativeFrameTimeHistogramResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRelativeFrameTimeHistogramResponse) Reset() {
+	*x = NewRelativeFrameTimeHistogramResponse{}
+	mi := &file_proto_jank_jank_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRelativeFrameTimeHistogramResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRelativeFrameTimeHistogramResponse) ProtoMessage() {}
+
+func (x *NewRelativeFrameTimeHistogramResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jank_jank_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRelativeFrameTimeHistogramResponse.ProtoReflect.Descriptor instead.
+func (*NewRelativeFrameTimeHistogramResponse) Descriptor() ([]byte, []int) {
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *NewRelativeFrameTimeHistogramResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddRelativeFrameTimeMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRelativeFrameTimeMillisRequest) Reset() {
+	*x = AddRelativeFrameTimeMillisRequest{}
+	mi := &file_proto_jank_jank_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRelativeFrameTimeMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRelativeFrameTimeMillisRequest) ProtoMessage() {}
+
+func (x *AddRelativeFrameTimeMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jank_jank_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRelativeFrameTimeMillisRequest.ProtoReflect.Descriptor instead.
+func (*AddRelativeFrameTimeMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *AddRelativeFrameTimeMillisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddRelativeFrameTimeMillisRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddRelativeFrameTimeMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRelativeFrameTimeMillisResponse) Reset() {
+	*x = AddRelativeFrameTimeMillisResponse{}
+	mi := &file_proto_jank_jank_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRelativeFrameTimeMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRelativeFrameTimeMillisResponse) ProtoMessage() {}
+
+func (x *AddRelativeFrameTimeMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jank_jank_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRelativeFrameTimeMillisResponse.ProtoReflect.Descriptor instead.
+func (*AddRelativeFrameTimeMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{21}
+}
+
+type GetBucketCountersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBucketCountersRequest) Reset() {
+	*x = GetBucketCountersRequest{}
+	mi := &file_proto_jank_jank_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBucketCountersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBucketCountersRequest) ProtoMessage() {}
+
+func (x *GetBucketCountersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jank_jank_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBucketCountersRequest.ProtoReflect.Descriptor instead.
+func (*GetBucketCountersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetBucketCountersRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBucketCountersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBucketCountersResponse) Reset() {
+	*x = GetBucketCountersResponse{}
+	mi := &file_proto_jank_jank_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBucketCountersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBucketCountersResponse) ProtoMessage() {}
+
+func (x *GetBucketCountersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jank_jank_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBucketCountersResponse.ProtoReflect.Descriptor instead.
+func (*GetBucketCountersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetBucketCountersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBucketEndpointsMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBucketEndpointsMillisRequest) Reset() {
+	*x = GetBucketEndpointsMillisRequest{}
+	mi := &file_proto_jank_jank_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBucketEndpointsMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBucketEndpointsMillisRequest) ProtoMessage() {}
+
+func (x *GetBucketEndpointsMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jank_jank_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBucketEndpointsMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetBucketEndpointsMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetBucketEndpointsMillisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBucketEndpointsMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBucketEndpointsMillisResponse) Reset() {
+	*x = GetBucketEndpointsMillisResponse{}
+	mi := &file_proto_jank_jank_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBucketEndpointsMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBucketEndpointsMillisResponse) ProtoMessage() {}
+
+func (x *GetBucketEndpointsMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jank_jank_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBucketEndpointsMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetBucketEndpointsMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_jank_jank_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetBucketEndpointsMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_jank_jank_proto protoreflect.FileDescriptor
 
 const file_proto_jank_jank_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/jank/jank.proto\x12\x04jank\"&\n" +
-	"$NewRelativeFrameTimeHistogramRequest\"?\n" +
-	"%NewRelativeFrameTimeHistogramResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
-	"!AddRelativeFrameTimeMillisRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"$\n" +
-	"\"AddRelativeFrameTimeMillisResponse\"2\n" +
-	"\x18GetBucketCountersRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
-	"\x19GetBucketCountersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
-	"\x1fGetBucketEndpointsMillisRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
-	" GetBucketEndpointsMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\xb8\x01\n" +
+	"\x15proto/jank/jank.proto\x12\x04jank\"\xb8\x01\n" +
 	"\x16NewAppJankStatsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
@@ -1277,12 +1262,22 @@ const file_proto_jank_jank_proto_rawDesc = "" +
 	"\x15GetWidgetStateRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
 	"\x16GetWidgetStateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result2\xcf\x03\n" +
-	"!RelativeFrameTimeHistogramService\x12x\n" +
-	"\x1dNewRelativeFrameTimeHistogram\x12*.jank.NewRelativeFrameTimeHistogramRequest\x1a+.jank.NewRelativeFrameTimeHistogramResponse\x12o\n" +
-	"\x1aAddRelativeFrameTimeMillis\x12'.jank.AddRelativeFrameTimeMillisRequest\x1a(.jank.AddRelativeFrameTimeMillisResponse\x12T\n" +
-	"\x11GetBucketCounters\x12\x1e.jank.GetBucketCountersRequest\x1a\x1f.jank.GetBucketCountersResponse\x12i\n" +
-	"\x18GetBucketEndpointsMillis\x12%.jank.GetBucketEndpointsMillisRequest\x1a&.jank.GetBucketEndpointsMillisResponse2\x92\x06\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"&\n" +
+	"$NewRelativeFrameTimeHistogramRequest\"?\n" +
+	"%NewRelativeFrameTimeHistogramResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"!AddRelativeFrameTimeMillisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"$\n" +
+	"\"AddRelativeFrameTimeMillisResponse\"2\n" +
+	"\x18GetBucketCountersRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetBucketCountersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\x1fGetBucketEndpointsMillisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
+	" GetBucketEndpointsMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x92\x06\n" +
 	"\x13AppJankStatsService\x12N\n" +
 	"\x0fNewAppJankStats\x12\x1c.jank.NewAppJankStatsRequest\x1a\x1d.jank.NewAppJankStatsResponse\x12W\n" +
 	"\x12GetJankyFrameCount\x12\x1f.jank.GetJankyFrameCountRequest\x1a .jank.GetJankyFrameCountResponse\x12c\n" +
@@ -1292,7 +1287,12 @@ const file_proto_jank_jank_proto_rawDesc = "" +
 	"\x06GetUid\x12\x13.jank.GetUidRequest\x1a\x14.jank.GetUidResponse\x12T\n" +
 	"\x11GetWidgetCategory\x12\x1e.jank.GetWidgetCategoryRequest\x1a\x1f.jank.GetWidgetCategoryResponse\x12B\n" +
 	"\vGetWidgetId\x12\x18.jank.GetWidgetIdRequest\x1a\x19.jank.GetWidgetIdResponse\x12K\n" +
-	"\x0eGetWidgetState\x12\x1b.jank.GetWidgetStateRequest\x1a\x1c.jank.GetWidgetStateResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/jankb\x06proto3"
+	"\x0eGetWidgetState\x12\x1b.jank.GetWidgetStateRequest\x1a\x1c.jank.GetWidgetStateResponse2\xcf\x03\n" +
+	"!RelativeFrameTimeHistogramService\x12x\n" +
+	"\x1dNewRelativeFrameTimeHistogram\x12*.jank.NewRelativeFrameTimeHistogramRequest\x1a+.jank.NewRelativeFrameTimeHistogramResponse\x12o\n" +
+	"\x1aAddRelativeFrameTimeMillis\x12'.jank.AddRelativeFrameTimeMillisRequest\x1a(.jank.AddRelativeFrameTimeMillisResponse\x12T\n" +
+	"\x11GetBucketCounters\x12\x1e.jank.GetBucketCountersRequest\x1a\x1f.jank.GetBucketCountersResponse\x12i\n" +
+	"\x18GetBucketEndpointsMillis\x12%.jank.GetBucketEndpointsMillisRequest\x1a&.jank.GetBucketEndpointsMillisResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/jankb\x06proto3"
 
 var (
 	file_proto_jank_jank_proto_rawDescOnce sync.Once
@@ -1308,60 +1308,60 @@ func file_proto_jank_jank_proto_rawDescGZIP() []byte {
 
 var file_proto_jank_jank_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_proto_jank_jank_proto_goTypes = []any{
-	(*NewRelativeFrameTimeHistogramRequest)(nil),  // 0: jank.NewRelativeFrameTimeHistogramRequest
-	(*NewRelativeFrameTimeHistogramResponse)(nil), // 1: jank.NewRelativeFrameTimeHistogramResponse
-	(*AddRelativeFrameTimeMillisRequest)(nil),     // 2: jank.AddRelativeFrameTimeMillisRequest
-	(*AddRelativeFrameTimeMillisResponse)(nil),    // 3: jank.AddRelativeFrameTimeMillisResponse
-	(*GetBucketCountersRequest)(nil),              // 4: jank.GetBucketCountersRequest
-	(*GetBucketCountersResponse)(nil),             // 5: jank.GetBucketCountersResponse
-	(*GetBucketEndpointsMillisRequest)(nil),       // 6: jank.GetBucketEndpointsMillisRequest
-	(*GetBucketEndpointsMillisResponse)(nil),      // 7: jank.GetBucketEndpointsMillisResponse
-	(*NewAppJankStatsRequest)(nil),                // 8: jank.NewAppJankStatsRequest
-	(*NewAppJankStatsResponse)(nil),               // 9: jank.NewAppJankStatsResponse
-	(*GetJankyFrameCountRequest)(nil),             // 10: jank.GetJankyFrameCountRequest
-	(*GetJankyFrameCountResponse)(nil),            // 11: jank.GetJankyFrameCountResponse
-	(*GetNavigationComponentRequest)(nil),         // 12: jank.GetNavigationComponentRequest
-	(*GetNavigationComponentResponse)(nil),        // 13: jank.GetNavigationComponentResponse
-	(*GetRelativeFrameTimeHistogramRequest)(nil),  // 14: jank.GetRelativeFrameTimeHistogramRequest
-	(*GetRelativeFrameTimeHistogramResponse)(nil), // 15: jank.GetRelativeFrameTimeHistogramResponse
-	(*GetTotalFrameCountRequest)(nil),             // 16: jank.GetTotalFrameCountRequest
-	(*GetTotalFrameCountResponse)(nil),            // 17: jank.GetTotalFrameCountResponse
-	(*GetUidRequest)(nil),                         // 18: jank.GetUidRequest
-	(*GetUidResponse)(nil),                        // 19: jank.GetUidResponse
-	(*GetWidgetCategoryRequest)(nil),              // 20: jank.GetWidgetCategoryRequest
-	(*GetWidgetCategoryResponse)(nil),             // 21: jank.GetWidgetCategoryResponse
-	(*GetWidgetIdRequest)(nil),                    // 22: jank.GetWidgetIdRequest
-	(*GetWidgetIdResponse)(nil),                   // 23: jank.GetWidgetIdResponse
-	(*GetWidgetStateRequest)(nil),                 // 24: jank.GetWidgetStateRequest
-	(*GetWidgetStateResponse)(nil),                // 25: jank.GetWidgetStateResponse
+	(*NewAppJankStatsRequest)(nil),                // 0: jank.NewAppJankStatsRequest
+	(*NewAppJankStatsResponse)(nil),               // 1: jank.NewAppJankStatsResponse
+	(*GetJankyFrameCountRequest)(nil),             // 2: jank.GetJankyFrameCountRequest
+	(*GetJankyFrameCountResponse)(nil),            // 3: jank.GetJankyFrameCountResponse
+	(*GetNavigationComponentRequest)(nil),         // 4: jank.GetNavigationComponentRequest
+	(*GetNavigationComponentResponse)(nil),        // 5: jank.GetNavigationComponentResponse
+	(*GetRelativeFrameTimeHistogramRequest)(nil),  // 6: jank.GetRelativeFrameTimeHistogramRequest
+	(*GetRelativeFrameTimeHistogramResponse)(nil), // 7: jank.GetRelativeFrameTimeHistogramResponse
+	(*GetTotalFrameCountRequest)(nil),             // 8: jank.GetTotalFrameCountRequest
+	(*GetTotalFrameCountResponse)(nil),            // 9: jank.GetTotalFrameCountResponse
+	(*GetUidRequest)(nil),                         // 10: jank.GetUidRequest
+	(*GetUidResponse)(nil),                        // 11: jank.GetUidResponse
+	(*GetWidgetCategoryRequest)(nil),              // 12: jank.GetWidgetCategoryRequest
+	(*GetWidgetCategoryResponse)(nil),             // 13: jank.GetWidgetCategoryResponse
+	(*GetWidgetIdRequest)(nil),                    // 14: jank.GetWidgetIdRequest
+	(*GetWidgetIdResponse)(nil),                   // 15: jank.GetWidgetIdResponse
+	(*GetWidgetStateRequest)(nil),                 // 16: jank.GetWidgetStateRequest
+	(*GetWidgetStateResponse)(nil),                // 17: jank.GetWidgetStateResponse
+	(*NewRelativeFrameTimeHistogramRequest)(nil),  // 18: jank.NewRelativeFrameTimeHistogramRequest
+	(*NewRelativeFrameTimeHistogramResponse)(nil), // 19: jank.NewRelativeFrameTimeHistogramResponse
+	(*AddRelativeFrameTimeMillisRequest)(nil),     // 20: jank.AddRelativeFrameTimeMillisRequest
+	(*AddRelativeFrameTimeMillisResponse)(nil),    // 21: jank.AddRelativeFrameTimeMillisResponse
+	(*GetBucketCountersRequest)(nil),              // 22: jank.GetBucketCountersRequest
+	(*GetBucketCountersResponse)(nil),             // 23: jank.GetBucketCountersResponse
+	(*GetBucketEndpointsMillisRequest)(nil),       // 24: jank.GetBucketEndpointsMillisRequest
+	(*GetBucketEndpointsMillisResponse)(nil),      // 25: jank.GetBucketEndpointsMillisResponse
 }
 var file_proto_jank_jank_proto_depIdxs = []int32{
-	0,  // 0: jank.RelativeFrameTimeHistogramService.NewRelativeFrameTimeHistogram:input_type -> jank.NewRelativeFrameTimeHistogramRequest
-	2,  // 1: jank.RelativeFrameTimeHistogramService.AddRelativeFrameTimeMillis:input_type -> jank.AddRelativeFrameTimeMillisRequest
-	4,  // 2: jank.RelativeFrameTimeHistogramService.GetBucketCounters:input_type -> jank.GetBucketCountersRequest
-	6,  // 3: jank.RelativeFrameTimeHistogramService.GetBucketEndpointsMillis:input_type -> jank.GetBucketEndpointsMillisRequest
-	8,  // 4: jank.AppJankStatsService.NewAppJankStats:input_type -> jank.NewAppJankStatsRequest
-	10, // 5: jank.AppJankStatsService.GetJankyFrameCount:input_type -> jank.GetJankyFrameCountRequest
-	12, // 6: jank.AppJankStatsService.GetNavigationComponent:input_type -> jank.GetNavigationComponentRequest
-	14, // 7: jank.AppJankStatsService.GetRelativeFrameTimeHistogram:input_type -> jank.GetRelativeFrameTimeHistogramRequest
-	16, // 8: jank.AppJankStatsService.GetTotalFrameCount:input_type -> jank.GetTotalFrameCountRequest
-	18, // 9: jank.AppJankStatsService.GetUid:input_type -> jank.GetUidRequest
-	20, // 10: jank.AppJankStatsService.GetWidgetCategory:input_type -> jank.GetWidgetCategoryRequest
-	22, // 11: jank.AppJankStatsService.GetWidgetId:input_type -> jank.GetWidgetIdRequest
-	24, // 12: jank.AppJankStatsService.GetWidgetState:input_type -> jank.GetWidgetStateRequest
-	1,  // 13: jank.RelativeFrameTimeHistogramService.NewRelativeFrameTimeHistogram:output_type -> jank.NewRelativeFrameTimeHistogramResponse
-	3,  // 14: jank.RelativeFrameTimeHistogramService.AddRelativeFrameTimeMillis:output_type -> jank.AddRelativeFrameTimeMillisResponse
-	5,  // 15: jank.RelativeFrameTimeHistogramService.GetBucketCounters:output_type -> jank.GetBucketCountersResponse
-	7,  // 16: jank.RelativeFrameTimeHistogramService.GetBucketEndpointsMillis:output_type -> jank.GetBucketEndpointsMillisResponse
-	9,  // 17: jank.AppJankStatsService.NewAppJankStats:output_type -> jank.NewAppJankStatsResponse
-	11, // 18: jank.AppJankStatsService.GetJankyFrameCount:output_type -> jank.GetJankyFrameCountResponse
-	13, // 19: jank.AppJankStatsService.GetNavigationComponent:output_type -> jank.GetNavigationComponentResponse
-	15, // 20: jank.AppJankStatsService.GetRelativeFrameTimeHistogram:output_type -> jank.GetRelativeFrameTimeHistogramResponse
-	17, // 21: jank.AppJankStatsService.GetTotalFrameCount:output_type -> jank.GetTotalFrameCountResponse
-	19, // 22: jank.AppJankStatsService.GetUid:output_type -> jank.GetUidResponse
-	21, // 23: jank.AppJankStatsService.GetWidgetCategory:output_type -> jank.GetWidgetCategoryResponse
-	23, // 24: jank.AppJankStatsService.GetWidgetId:output_type -> jank.GetWidgetIdResponse
-	25, // 25: jank.AppJankStatsService.GetWidgetState:output_type -> jank.GetWidgetStateResponse
+	0,  // 0: jank.AppJankStatsService.NewAppJankStats:input_type -> jank.NewAppJankStatsRequest
+	2,  // 1: jank.AppJankStatsService.GetJankyFrameCount:input_type -> jank.GetJankyFrameCountRequest
+	4,  // 2: jank.AppJankStatsService.GetNavigationComponent:input_type -> jank.GetNavigationComponentRequest
+	6,  // 3: jank.AppJankStatsService.GetRelativeFrameTimeHistogram:input_type -> jank.GetRelativeFrameTimeHistogramRequest
+	8,  // 4: jank.AppJankStatsService.GetTotalFrameCount:input_type -> jank.GetTotalFrameCountRequest
+	10, // 5: jank.AppJankStatsService.GetUid:input_type -> jank.GetUidRequest
+	12, // 6: jank.AppJankStatsService.GetWidgetCategory:input_type -> jank.GetWidgetCategoryRequest
+	14, // 7: jank.AppJankStatsService.GetWidgetId:input_type -> jank.GetWidgetIdRequest
+	16, // 8: jank.AppJankStatsService.GetWidgetState:input_type -> jank.GetWidgetStateRequest
+	18, // 9: jank.RelativeFrameTimeHistogramService.NewRelativeFrameTimeHistogram:input_type -> jank.NewRelativeFrameTimeHistogramRequest
+	20, // 10: jank.RelativeFrameTimeHistogramService.AddRelativeFrameTimeMillis:input_type -> jank.AddRelativeFrameTimeMillisRequest
+	22, // 11: jank.RelativeFrameTimeHistogramService.GetBucketCounters:input_type -> jank.GetBucketCountersRequest
+	24, // 12: jank.RelativeFrameTimeHistogramService.GetBucketEndpointsMillis:input_type -> jank.GetBucketEndpointsMillisRequest
+	1,  // 13: jank.AppJankStatsService.NewAppJankStats:output_type -> jank.NewAppJankStatsResponse
+	3,  // 14: jank.AppJankStatsService.GetJankyFrameCount:output_type -> jank.GetJankyFrameCountResponse
+	5,  // 15: jank.AppJankStatsService.GetNavigationComponent:output_type -> jank.GetNavigationComponentResponse
+	7,  // 16: jank.AppJankStatsService.GetRelativeFrameTimeHistogram:output_type -> jank.GetRelativeFrameTimeHistogramResponse
+	9,  // 17: jank.AppJankStatsService.GetTotalFrameCount:output_type -> jank.GetTotalFrameCountResponse
+	11, // 18: jank.AppJankStatsService.GetUid:output_type -> jank.GetUidResponse
+	13, // 19: jank.AppJankStatsService.GetWidgetCategory:output_type -> jank.GetWidgetCategoryResponse
+	15, // 20: jank.AppJankStatsService.GetWidgetId:output_type -> jank.GetWidgetIdResponse
+	17, // 21: jank.AppJankStatsService.GetWidgetState:output_type -> jank.GetWidgetStateResponse
+	19, // 22: jank.RelativeFrameTimeHistogramService.NewRelativeFrameTimeHistogram:output_type -> jank.NewRelativeFrameTimeHistogramResponse
+	21, // 23: jank.RelativeFrameTimeHistogramService.AddRelativeFrameTimeMillis:output_type -> jank.AddRelativeFrameTimeMillisResponse
+	23, // 24: jank.RelativeFrameTimeHistogramService.GetBucketCounters:output_type -> jank.GetBucketCountersResponse
+	25, // 25: jank.RelativeFrameTimeHistogramService.GetBucketEndpointsMillis:output_type -> jank.GetBucketEndpointsMillisResponse
 	13, // [13:26] is the sub-list for method output_type
 	0,  // [0:13] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

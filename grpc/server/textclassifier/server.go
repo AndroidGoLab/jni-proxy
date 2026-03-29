@@ -130,6 +130,29 @@ func (s *ConversationActionsServer) DescribeContents(_ context.Context, req *pb.
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
+func (s *ConversationActionsServer) GetConversationActions(_ context.Context, req *pb.GetConversationActionsRequest) (*pb.GetConversationActionsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConversationActions{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetConversationActions()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetConversationActionsResponse{Result: handle}, nil
+}
+
 func (s *ConversationActionsServer) GetId(_ context.Context, req *pb.ConversationActionsGetIdRequest) (*pb.GetIdResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {

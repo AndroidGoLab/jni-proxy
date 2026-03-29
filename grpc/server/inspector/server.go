@@ -49,3 +49,26 @@ func (s *IntFlagMappingServer) Add(_ context.Context, req *pb.AddRequest) (*pb.A
 	}
 	return &pb.AddResponse{}, nil
 }
+
+func (s *IntFlagMappingServer) Get(_ context.Context, req *pb.GetRequest) (*pb.GetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IntFlagMapping{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Get(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetResponse{Result: handle}, nil
+}

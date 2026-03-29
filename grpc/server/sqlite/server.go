@@ -344,6 +344,29 @@ func (s *SQLiteQueryBuilderServer) GetCursorFactory(_ context.Context, req *pb.S
 	return &pb.GetCursorFactoryResponse{Result: handle}, nil
 }
 
+func (s *SQLiteQueryBuilderServer) GetProjectionGreylist(_ context.Context, req *pb.GetProjectionGreylistRequest) (*pb.GetProjectionGreylistResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SQLiteQueryBuilder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetProjectionGreylist()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetProjectionGreylistResponse{Result: handle}, nil
+}
+
 func (s *SQLiteQueryBuilderServer) GetTables(_ context.Context, req *pb.GetTablesRequest) (*pb.GetTablesResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {

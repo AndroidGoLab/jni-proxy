@@ -78,6 +78,15 @@ func (c *StoreManagerClient) CreateSession(ctx context.Context, arg0 int64) (int
 	return resp.GetResult(), nil
 }
 
+// GetLeasedBlobs calls the GetLeasedBlobs RPC.
+func (c *StoreManagerClient) GetLeasedBlobs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLeasedBlobs(ctx, &pb.GetLeasedBlobsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetRemainingLeaseQuotaBytes calls the GetRemainingLeaseQuotaBytes RPC.
 func (c *StoreManagerClient) GetRemainingLeaseQuotaBytes(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetRemainingLeaseQuotaBytes(ctx, &pb.GetRemainingLeaseQuotaBytesRequest{})

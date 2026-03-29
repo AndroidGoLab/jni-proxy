@@ -21,6 +21,374 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	DeviceInfoService_GetEventsSupported_FullMethodName     = "/mtp.DeviceInfoService/GetEventsSupported"
+	DeviceInfoService_GetManufacturer_FullMethodName        = "/mtp.DeviceInfoService/GetManufacturer"
+	DeviceInfoService_GetModel_FullMethodName               = "/mtp.DeviceInfoService/GetModel"
+	DeviceInfoService_GetOperationsSupported_FullMethodName = "/mtp.DeviceInfoService/GetOperationsSupported"
+	DeviceInfoService_GetSerialNumber_FullMethodName        = "/mtp.DeviceInfoService/GetSerialNumber"
+	DeviceInfoService_GetVersion_FullMethodName             = "/mtp.DeviceInfoService/GetVersion"
+	DeviceInfoService_IsEventSupported_FullMethodName       = "/mtp.DeviceInfoService/IsEventSupported"
+	DeviceInfoService_IsOperationSupported_FullMethodName   = "/mtp.DeviceInfoService/IsOperationSupported"
+)
+
+// DeviceInfoServiceClient is the client API for DeviceInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceInfoServiceClient interface {
+	GetEventsSupported(ctx context.Context, in *GetEventsSupportedRequest, opts ...grpc.CallOption) (*GetEventsSupportedResponse, error)
+	GetManufacturer(ctx context.Context, in *GetManufacturerRequest, opts ...grpc.CallOption) (*GetManufacturerResponse, error)
+	GetModel(ctx context.Context, in *GetModelRequest, opts ...grpc.CallOption) (*GetModelResponse, error)
+	GetOperationsSupported(ctx context.Context, in *GetOperationsSupportedRequest, opts ...grpc.CallOption) (*GetOperationsSupportedResponse, error)
+	GetSerialNumber(ctx context.Context, in *GetSerialNumberRequest, opts ...grpc.CallOption) (*GetSerialNumberResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	IsEventSupported(ctx context.Context, in *IsEventSupportedRequest, opts ...grpc.CallOption) (*IsEventSupportedResponse, error)
+	IsOperationSupported(ctx context.Context, in *IsOperationSupportedRequest, opts ...grpc.CallOption) (*IsOperationSupportedResponse, error)
+}
+
+type deviceInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceInfoServiceClient(cc grpc.ClientConnInterface) DeviceInfoServiceClient {
+	return &deviceInfoServiceClient{cc}
+}
+
+func (c *deviceInfoServiceClient) GetEventsSupported(ctx context.Context, in *GetEventsSupportedRequest, opts ...grpc.CallOption) (*GetEventsSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventsSupportedResponse)
+	err := c.cc.Invoke(ctx, DeviceInfoService_GetEventsSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceInfoServiceClient) GetManufacturer(ctx context.Context, in *GetManufacturerRequest, opts ...grpc.CallOption) (*GetManufacturerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetManufacturerResponse)
+	err := c.cc.Invoke(ctx, DeviceInfoService_GetManufacturer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceInfoServiceClient) GetModel(ctx context.Context, in *GetModelRequest, opts ...grpc.CallOption) (*GetModelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetModelResponse)
+	err := c.cc.Invoke(ctx, DeviceInfoService_GetModel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceInfoServiceClient) GetOperationsSupported(ctx context.Context, in *GetOperationsSupportedRequest, opts ...grpc.CallOption) (*GetOperationsSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOperationsSupportedResponse)
+	err := c.cc.Invoke(ctx, DeviceInfoService_GetOperationsSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceInfoServiceClient) GetSerialNumber(ctx context.Context, in *GetSerialNumberRequest, opts ...grpc.CallOption) (*GetSerialNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSerialNumberResponse)
+	err := c.cc.Invoke(ctx, DeviceInfoService_GetSerialNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceInfoServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, DeviceInfoService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceInfoServiceClient) IsEventSupported(ctx context.Context, in *IsEventSupportedRequest, opts ...grpc.CallOption) (*IsEventSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEventSupportedResponse)
+	err := c.cc.Invoke(ctx, DeviceInfoService_IsEventSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceInfoServiceClient) IsOperationSupported(ctx context.Context, in *IsOperationSupportedRequest, opts ...grpc.CallOption) (*IsOperationSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOperationSupportedResponse)
+	err := c.cc.Invoke(ctx, DeviceInfoService_IsOperationSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceInfoServiceServer is the server API for DeviceInfoService service.
+// All implementations must embed UnimplementedDeviceInfoServiceServer
+// for forward compatibility.
+type DeviceInfoServiceServer interface {
+	GetEventsSupported(context.Context, *GetEventsSupportedRequest) (*GetEventsSupportedResponse, error)
+	GetManufacturer(context.Context, *GetManufacturerRequest) (*GetManufacturerResponse, error)
+	GetModel(context.Context, *GetModelRequest) (*GetModelResponse, error)
+	GetOperationsSupported(context.Context, *GetOperationsSupportedRequest) (*GetOperationsSupportedResponse, error)
+	GetSerialNumber(context.Context, *GetSerialNumberRequest) (*GetSerialNumberResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	IsEventSupported(context.Context, *IsEventSupportedRequest) (*IsEventSupportedResponse, error)
+	IsOperationSupported(context.Context, *IsOperationSupportedRequest) (*IsOperationSupportedResponse, error)
+	mustEmbedUnimplementedDeviceInfoServiceServer()
+}
+
+// UnimplementedDeviceInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceInfoServiceServer struct{}
+
+func (UnimplementedDeviceInfoServiceServer) GetEventsSupported(context.Context, *GetEventsSupportedRequest) (*GetEventsSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventsSupported not implemented")
+}
+func (UnimplementedDeviceInfoServiceServer) GetManufacturer(context.Context, *GetManufacturerRequest) (*GetManufacturerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetManufacturer not implemented")
+}
+func (UnimplementedDeviceInfoServiceServer) GetModel(context.Context, *GetModelRequest) (*GetModelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetModel not implemented")
+}
+func (UnimplementedDeviceInfoServiceServer) GetOperationsSupported(context.Context, *GetOperationsSupportedRequest) (*GetOperationsSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOperationsSupported not implemented")
+}
+func (UnimplementedDeviceInfoServiceServer) GetSerialNumber(context.Context, *GetSerialNumberRequest) (*GetSerialNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSerialNumber not implemented")
+}
+func (UnimplementedDeviceInfoServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedDeviceInfoServiceServer) IsEventSupported(context.Context, *IsEventSupportedRequest) (*IsEventSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEventSupported not implemented")
+}
+func (UnimplementedDeviceInfoServiceServer) IsOperationSupported(context.Context, *IsOperationSupportedRequest) (*IsOperationSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOperationSupported not implemented")
+}
+func (UnimplementedDeviceInfoServiceServer) mustEmbedUnimplementedDeviceInfoServiceServer() {}
+func (UnimplementedDeviceInfoServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeDeviceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceInfoServiceServer will
+// result in compilation errors.
+type UnsafeDeviceInfoServiceServer interface {
+	mustEmbedUnimplementedDeviceInfoServiceServer()
+}
+
+func RegisterDeviceInfoServiceServer(s grpc.ServiceRegistrar, srv DeviceInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceInfoService_ServiceDesc, srv)
+}
+
+func _DeviceInfoService_GetEventsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventsSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceInfoServiceServer).GetEventsSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceInfoService_GetEventsSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceInfoServiceServer).GetEventsSupported(ctx, req.(*GetEventsSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceInfoService_GetManufacturer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetManufacturerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceInfoServiceServer).GetManufacturer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceInfoService_GetManufacturer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceInfoServiceServer).GetManufacturer(ctx, req.(*GetManufacturerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceInfoService_GetModel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetModelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceInfoServiceServer).GetModel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceInfoService_GetModel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceInfoServiceServer).GetModel(ctx, req.(*GetModelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceInfoService_GetOperationsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOperationsSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceInfoServiceServer).GetOperationsSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceInfoService_GetOperationsSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceInfoServiceServer).GetOperationsSupported(ctx, req.(*GetOperationsSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceInfoService_GetSerialNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSerialNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceInfoServiceServer).GetSerialNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceInfoService_GetSerialNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceInfoServiceServer).GetSerialNumber(ctx, req.(*GetSerialNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceInfoService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceInfoServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceInfoService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceInfoServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceInfoService_IsEventSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEventSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceInfoServiceServer).IsEventSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceInfoService_IsEventSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceInfoServiceServer).IsEventSupported(ctx, req.(*IsEventSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceInfoService_IsOperationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOperationSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceInfoServiceServer).IsOperationSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceInfoService_IsOperationSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceInfoServiceServer).IsOperationSupported(ctx, req.(*IsOperationSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceInfoService_ServiceDesc is the grpc.ServiceDesc for DeviceInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mtp.DeviceInfoService",
+	HandlerType: (*DeviceInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetEventsSupported",
+			Handler:    _DeviceInfoService_GetEventsSupported_Handler,
+		},
+		{
+			MethodName: "GetManufacturer",
+			Handler:    _DeviceInfoService_GetManufacturer_Handler,
+		},
+		{
+			MethodName: "GetModel",
+			Handler:    _DeviceInfoService_GetModel_Handler,
+		},
+		{
+			MethodName: "GetOperationsSupported",
+			Handler:    _DeviceInfoService_GetOperationsSupported_Handler,
+		},
+		{
+			MethodName: "GetSerialNumber",
+			Handler:    _DeviceInfoService_GetSerialNumber_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _DeviceInfoService_GetVersion_Handler,
+		},
+		{
+			MethodName: "IsEventSupported",
+			Handler:    _DeviceInfoService_IsEventSupported_Handler,
+		},
+		{
+			MethodName: "IsOperationSupported",
+			Handler:    _DeviceInfoService_IsOperationSupported_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/mtp/mtp.proto",
+}
+
+const (
 	EventService_GetDevicePropCode_FullMethodName   = "/mtp.EventService/GetDevicePropCode"
 	EventService_GetEventCode_FullMethodName        = "/mtp.EventService/GetEventCode"
 	EventService_GetObjectFormatCode_FullMethodName = "/mtp.EventService/GetObjectFormatCode"
@@ -465,944 +833,6 @@ var EventService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	DeviceService_NewDevice_FullMethodName          = "/mtp.DeviceService/NewDevice"
-	DeviceService_Close_FullMethodName              = "/mtp.DeviceService/Close"
-	DeviceService_DeleteObject_FullMethodName       = "/mtp.DeviceService/DeleteObject"
-	DeviceService_GetDeviceId_FullMethodName        = "/mtp.DeviceService/GetDeviceId"
-	DeviceService_GetDeviceInfo_FullMethodName      = "/mtp.DeviceService/GetDeviceInfo"
-	DeviceService_GetDeviceName_FullMethodName      = "/mtp.DeviceService/GetDeviceName"
-	DeviceService_GetObject_FullMethodName          = "/mtp.DeviceService/GetObject"
-	DeviceService_GetObjectHandles_FullMethodName   = "/mtp.DeviceService/GetObjectHandles"
-	DeviceService_GetObjectInfo_FullMethodName      = "/mtp.DeviceService/GetObjectInfo"
-	DeviceService_GetParent_FullMethodName          = "/mtp.DeviceService/GetParent"
-	DeviceService_GetPartialObject_FullMethodName   = "/mtp.DeviceService/GetPartialObject"
-	DeviceService_GetPartialObject64_FullMethodName = "/mtp.DeviceService/GetPartialObject64"
-	DeviceService_GetStorageId_FullMethodName       = "/mtp.DeviceService/GetStorageId"
-	DeviceService_GetStorageIds_FullMethodName      = "/mtp.DeviceService/GetStorageIds"
-	DeviceService_GetStorageInfo_FullMethodName     = "/mtp.DeviceService/GetStorageInfo"
-	DeviceService_GetThumbnail_FullMethodName       = "/mtp.DeviceService/GetThumbnail"
-	DeviceService_ImportFile2_FullMethodName        = "/mtp.DeviceService/ImportFile2"
-	DeviceService_ImportFile2_1_FullMethodName      = "/mtp.DeviceService/ImportFile2_1"
-	DeviceService_Open_FullMethodName               = "/mtp.DeviceService/Open"
-	DeviceService_ReadEvent_FullMethodName          = "/mtp.DeviceService/ReadEvent"
-	DeviceService_SendObject_FullMethodName         = "/mtp.DeviceService/SendObject"
-	DeviceService_SendObjectInfo_FullMethodName     = "/mtp.DeviceService/SendObjectInfo"
-	DeviceService_ToString_FullMethodName           = "/mtp.DeviceService/ToString"
-)
-
-// DeviceServiceClient is the client API for DeviceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeviceServiceClient interface {
-	NewDevice(ctx context.Context, in *NewDeviceRequest, opts ...grpc.CallOption) (*NewDeviceResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error)
-	GetDeviceId(ctx context.Context, in *GetDeviceIdRequest, opts ...grpc.CallOption) (*GetDeviceIdResponse, error)
-	GetDeviceInfo(ctx context.Context, in *GetDeviceInfoRequest, opts ...grpc.CallOption) (*GetDeviceInfoResponse, error)
-	GetDeviceName(ctx context.Context, in *GetDeviceNameRequest, opts ...grpc.CallOption) (*GetDeviceNameResponse, error)
-	GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error)
-	GetObjectHandles(ctx context.Context, in *GetObjectHandlesRequest, opts ...grpc.CallOption) (*GetObjectHandlesResponse, error)
-	GetObjectInfo(ctx context.Context, in *GetObjectInfoRequest, opts ...grpc.CallOption) (*GetObjectInfoResponse, error)
-	GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error)
-	GetPartialObject(ctx context.Context, in *GetPartialObjectRequest, opts ...grpc.CallOption) (*GetPartialObjectResponse, error)
-	GetPartialObject64(ctx context.Context, in *GetPartialObject64Request, opts ...grpc.CallOption) (*GetPartialObject64Response, error)
-	GetStorageId(ctx context.Context, in *DeviceGetStorageIdRequest, opts ...grpc.CallOption) (*DeviceGetStorageIdResponse, error)
-	GetStorageIds(ctx context.Context, in *GetStorageIdsRequest, opts ...grpc.CallOption) (*GetStorageIdsResponse, error)
-	GetStorageInfo(ctx context.Context, in *GetStorageInfoRequest, opts ...grpc.CallOption) (*GetStorageInfoResponse, error)
-	GetThumbnail(ctx context.Context, in *GetThumbnailRequest, opts ...grpc.CallOption) (*GetThumbnailResponse, error)
-	ImportFile2(ctx context.Context, in *ImportFile2Request, opts ...grpc.CallOption) (*ImportFile2Response, error)
-	ImportFile2_1(ctx context.Context, in *ImportFile2_1Request, opts ...grpc.CallOption) (*ImportFile2_1Response, error)
-	Open(ctx context.Context, in *OpenRequest, opts ...grpc.CallOption) (*OpenResponse, error)
-	ReadEvent(ctx context.Context, in *ReadEventRequest, opts ...grpc.CallOption) (*ReadEventResponse, error)
-	SendObject(ctx context.Context, in *SendObjectRequest, opts ...grpc.CallOption) (*SendObjectResponse, error)
-	SendObjectInfo(ctx context.Context, in *SendObjectInfoRequest, opts ...grpc.CallOption) (*SendObjectInfoResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type deviceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDeviceServiceClient(cc grpc.ClientConnInterface) DeviceServiceClient {
-	return &deviceServiceClient{cc}
-}
-
-func (c *deviceServiceClient) NewDevice(ctx context.Context, in *NewDeviceRequest, opts ...grpc.CallOption) (*NewDeviceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDeviceResponse)
-	err := c.cc.Invoke(ctx, DeviceService_NewDevice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, DeviceService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteObjectResponse)
-	err := c.cc.Invoke(ctx, DeviceService_DeleteObject_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetDeviceId(ctx context.Context, in *GetDeviceIdRequest, opts ...grpc.CallOption) (*GetDeviceIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeviceIdResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetDeviceId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetDeviceInfo(ctx context.Context, in *GetDeviceInfoRequest, opts ...grpc.CallOption) (*GetDeviceInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeviceInfoResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetDeviceInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetDeviceName(ctx context.Context, in *GetDeviceNameRequest, opts ...grpc.CallOption) (*GetDeviceNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeviceNameResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetDeviceName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetObjectResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetObject_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetObjectHandles(ctx context.Context, in *GetObjectHandlesRequest, opts ...grpc.CallOption) (*GetObjectHandlesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetObjectHandlesResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetObjectHandles_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetObjectInfo(ctx context.Context, in *GetObjectInfoRequest, opts ...grpc.CallOption) (*GetObjectInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetObjectInfoResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetObjectInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetParentResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetParent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetPartialObject(ctx context.Context, in *GetPartialObjectRequest, opts ...grpc.CallOption) (*GetPartialObjectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPartialObjectResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetPartialObject_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetPartialObject64(ctx context.Context, in *GetPartialObject64Request, opts ...grpc.CallOption) (*GetPartialObject64Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPartialObject64Response)
-	err := c.cc.Invoke(ctx, DeviceService_GetPartialObject64_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetStorageId(ctx context.Context, in *DeviceGetStorageIdRequest, opts ...grpc.CallOption) (*DeviceGetStorageIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeviceGetStorageIdResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetStorageId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetStorageIds(ctx context.Context, in *GetStorageIdsRequest, opts ...grpc.CallOption) (*GetStorageIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStorageIdsResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetStorageIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetStorageInfo(ctx context.Context, in *GetStorageInfoRequest, opts ...grpc.CallOption) (*GetStorageInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStorageInfoResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetStorageInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) GetThumbnail(ctx context.Context, in *GetThumbnailRequest, opts ...grpc.CallOption) (*GetThumbnailResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetThumbnailResponse)
-	err := c.cc.Invoke(ctx, DeviceService_GetThumbnail_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) ImportFile2(ctx context.Context, in *ImportFile2Request, opts ...grpc.CallOption) (*ImportFile2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ImportFile2Response)
-	err := c.cc.Invoke(ctx, DeviceService_ImportFile2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) ImportFile2_1(ctx context.Context, in *ImportFile2_1Request, opts ...grpc.CallOption) (*ImportFile2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ImportFile2_1Response)
-	err := c.cc.Invoke(ctx, DeviceService_ImportFile2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) Open(ctx context.Context, in *OpenRequest, opts ...grpc.CallOption) (*OpenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenResponse)
-	err := c.cc.Invoke(ctx, DeviceService_Open_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) ReadEvent(ctx context.Context, in *ReadEventRequest, opts ...grpc.CallOption) (*ReadEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReadEventResponse)
-	err := c.cc.Invoke(ctx, DeviceService_ReadEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) SendObject(ctx context.Context, in *SendObjectRequest, opts ...grpc.CallOption) (*SendObjectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendObjectResponse)
-	err := c.cc.Invoke(ctx, DeviceService_SendObject_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) SendObjectInfo(ctx context.Context, in *SendObjectInfoRequest, opts ...grpc.CallOption) (*SendObjectInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendObjectInfoResponse)
-	err := c.cc.Invoke(ctx, DeviceService_SendObjectInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DeviceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DeviceServiceServer is the server API for DeviceService service.
-// All implementations must embed UnimplementedDeviceServiceServer
-// for forward compatibility.
-type DeviceServiceServer interface {
-	NewDevice(context.Context, *NewDeviceRequest) (*NewDeviceResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error)
-	GetDeviceId(context.Context, *GetDeviceIdRequest) (*GetDeviceIdResponse, error)
-	GetDeviceInfo(context.Context, *GetDeviceInfoRequest) (*GetDeviceInfoResponse, error)
-	GetDeviceName(context.Context, *GetDeviceNameRequest) (*GetDeviceNameResponse, error)
-	GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error)
-	GetObjectHandles(context.Context, *GetObjectHandlesRequest) (*GetObjectHandlesResponse, error)
-	GetObjectInfo(context.Context, *GetObjectInfoRequest) (*GetObjectInfoResponse, error)
-	GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error)
-	GetPartialObject(context.Context, *GetPartialObjectRequest) (*GetPartialObjectResponse, error)
-	GetPartialObject64(context.Context, *GetPartialObject64Request) (*GetPartialObject64Response, error)
-	GetStorageId(context.Context, *DeviceGetStorageIdRequest) (*DeviceGetStorageIdResponse, error)
-	GetStorageIds(context.Context, *GetStorageIdsRequest) (*GetStorageIdsResponse, error)
-	GetStorageInfo(context.Context, *GetStorageInfoRequest) (*GetStorageInfoResponse, error)
-	GetThumbnail(context.Context, *GetThumbnailRequest) (*GetThumbnailResponse, error)
-	ImportFile2(context.Context, *ImportFile2Request) (*ImportFile2Response, error)
-	ImportFile2_1(context.Context, *ImportFile2_1Request) (*ImportFile2_1Response, error)
-	Open(context.Context, *OpenRequest) (*OpenResponse, error)
-	ReadEvent(context.Context, *ReadEventRequest) (*ReadEventResponse, error)
-	SendObject(context.Context, *SendObjectRequest) (*SendObjectResponse, error)
-	SendObjectInfo(context.Context, *SendObjectInfoRequest) (*SendObjectInfoResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedDeviceServiceServer()
-}
-
-// UnimplementedDeviceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDeviceServiceServer struct{}
-
-func (UnimplementedDeviceServiceServer) NewDevice(context.Context, *NewDeviceRequest) (*NewDeviceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDevice not implemented")
-}
-func (UnimplementedDeviceServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedDeviceServiceServer) DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DeleteObject not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetDeviceId(context.Context, *GetDeviceIdRequest) (*GetDeviceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeviceId not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetDeviceInfo(context.Context, *GetDeviceInfoRequest) (*GetDeviceInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeviceInfo not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetDeviceName(context.Context, *GetDeviceNameRequest) (*GetDeviceNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeviceName not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetObject not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetObjectHandles(context.Context, *GetObjectHandlesRequest) (*GetObjectHandlesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetObjectHandles not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetObjectInfo(context.Context, *GetObjectInfoRequest) (*GetObjectInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetObjectInfo not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetParent not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetPartialObject(context.Context, *GetPartialObjectRequest) (*GetPartialObjectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPartialObject not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetPartialObject64(context.Context, *GetPartialObject64Request) (*GetPartialObject64Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPartialObject64 not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetStorageId(context.Context, *DeviceGetStorageIdRequest) (*DeviceGetStorageIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStorageId not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetStorageIds(context.Context, *GetStorageIdsRequest) (*GetStorageIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStorageIds not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetStorageInfo(context.Context, *GetStorageInfoRequest) (*GetStorageInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStorageInfo not implemented")
-}
-func (UnimplementedDeviceServiceServer) GetThumbnail(context.Context, *GetThumbnailRequest) (*GetThumbnailResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetThumbnail not implemented")
-}
-func (UnimplementedDeviceServiceServer) ImportFile2(context.Context, *ImportFile2Request) (*ImportFile2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ImportFile2 not implemented")
-}
-func (UnimplementedDeviceServiceServer) ImportFile2_1(context.Context, *ImportFile2_1Request) (*ImportFile2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ImportFile2_1 not implemented")
-}
-func (UnimplementedDeviceServiceServer) Open(context.Context, *OpenRequest) (*OpenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Open not implemented")
-}
-func (UnimplementedDeviceServiceServer) ReadEvent(context.Context, *ReadEventRequest) (*ReadEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReadEvent not implemented")
-}
-func (UnimplementedDeviceServiceServer) SendObject(context.Context, *SendObjectRequest) (*SendObjectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendObject not implemented")
-}
-func (UnimplementedDeviceServiceServer) SendObjectInfo(context.Context, *SendObjectInfoRequest) (*SendObjectInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendObjectInfo not implemented")
-}
-func (UnimplementedDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDeviceServiceServer) mustEmbedUnimplementedDeviceServiceServer() {}
-func (UnimplementedDeviceServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeviceServiceServer will
-// result in compilation errors.
-type UnsafeDeviceServiceServer interface {
-	mustEmbedUnimplementedDeviceServiceServer()
-}
-
-func RegisterDeviceServiceServer(s grpc.ServiceRegistrar, srv DeviceServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeviceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DeviceService_ServiceDesc, srv)
-}
-
-func _DeviceService_NewDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDeviceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).NewDevice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_NewDevice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).NewDevice(ctx, req.(*NewDeviceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_DeleteObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).DeleteObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_DeleteObject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).DeleteObject(ctx, req.(*DeleteObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetDeviceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeviceIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetDeviceId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetDeviceId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetDeviceId(ctx, req.(*GetDeviceIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetDeviceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeviceInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetDeviceInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetDeviceInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetDeviceInfo(ctx, req.(*GetDeviceInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetDeviceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeviceNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetDeviceName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetDeviceName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetDeviceName(ctx, req.(*GetDeviceNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetObject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetObject(ctx, req.(*GetObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetObjectHandles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetObjectHandlesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetObjectHandles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetObjectHandles_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetObjectHandles(ctx, req.(*GetObjectHandlesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetObjectInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetObjectInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetObjectInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetObjectInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetObjectInfo(ctx, req.(*GetObjectInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetParentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetParent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetParent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetParent(ctx, req.(*GetParentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetPartialObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPartialObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetPartialObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetPartialObject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetPartialObject(ctx, req.(*GetPartialObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetPartialObject64_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPartialObject64Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetPartialObject64(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetPartialObject64_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetPartialObject64(ctx, req.(*GetPartialObject64Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetStorageId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeviceGetStorageIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetStorageId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetStorageId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetStorageId(ctx, req.(*DeviceGetStorageIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetStorageIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStorageIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetStorageIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetStorageIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetStorageIds(ctx, req.(*GetStorageIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetStorageInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStorageInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetStorageInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetStorageInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetStorageInfo(ctx, req.(*GetStorageInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_GetThumbnail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetThumbnailRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).GetThumbnail(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_GetThumbnail_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).GetThumbnail(ctx, req.(*GetThumbnailRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_ImportFile2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ImportFile2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).ImportFile2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_ImportFile2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).ImportFile2(ctx, req.(*ImportFile2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_ImportFile2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ImportFile2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).ImportFile2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_ImportFile2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).ImportFile2_1(ctx, req.(*ImportFile2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_Open_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).Open(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_Open_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).Open(ctx, req.(*OpenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_ReadEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).ReadEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_ReadEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).ReadEvent(ctx, req.(*ReadEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_SendObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).SendObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_SendObject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).SendObject(ctx, req.(*SendObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_SendObjectInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendObjectInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).SendObjectInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_SendObjectInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).SendObjectInfo(ctx, req.(*SendObjectInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DeviceService_ServiceDesc is the grpc.ServiceDesc for DeviceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DeviceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mtp.DeviceService",
-	HandlerType: (*DeviceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDevice",
-			Handler:    _DeviceService_NewDevice_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _DeviceService_Close_Handler,
-		},
-		{
-			MethodName: "DeleteObject",
-			Handler:    _DeviceService_DeleteObject_Handler,
-		},
-		{
-			MethodName: "GetDeviceId",
-			Handler:    _DeviceService_GetDeviceId_Handler,
-		},
-		{
-			MethodName: "GetDeviceInfo",
-			Handler:    _DeviceService_GetDeviceInfo_Handler,
-		},
-		{
-			MethodName: "GetDeviceName",
-			Handler:    _DeviceService_GetDeviceName_Handler,
-		},
-		{
-			MethodName: "GetObject",
-			Handler:    _DeviceService_GetObject_Handler,
-		},
-		{
-			MethodName: "GetObjectHandles",
-			Handler:    _DeviceService_GetObjectHandles_Handler,
-		},
-		{
-			MethodName: "GetObjectInfo",
-			Handler:    _DeviceService_GetObjectInfo_Handler,
-		},
-		{
-			MethodName: "GetParent",
-			Handler:    _DeviceService_GetParent_Handler,
-		},
-		{
-			MethodName: "GetPartialObject",
-			Handler:    _DeviceService_GetPartialObject_Handler,
-		},
-		{
-			MethodName: "GetPartialObject64",
-			Handler:    _DeviceService_GetPartialObject64_Handler,
-		},
-		{
-			MethodName: "GetStorageId",
-			Handler:    _DeviceService_GetStorageId_Handler,
-		},
-		{
-			MethodName: "GetStorageIds",
-			Handler:    _DeviceService_GetStorageIds_Handler,
-		},
-		{
-			MethodName: "GetStorageInfo",
-			Handler:    _DeviceService_GetStorageInfo_Handler,
-		},
-		{
-			MethodName: "GetThumbnail",
-			Handler:    _DeviceService_GetThumbnail_Handler,
-		},
-		{
-			MethodName: "ImportFile2",
-			Handler:    _DeviceService_ImportFile2_Handler,
-		},
-		{
-			MethodName: "ImportFile2_1",
-			Handler:    _DeviceService_ImportFile2_1_Handler,
-		},
-		{
-			MethodName: "Open",
-			Handler:    _DeviceService_Open_Handler,
-		},
-		{
-			MethodName: "ReadEvent",
-			Handler:    _DeviceService_ReadEvent_Handler,
-		},
-		{
-			MethodName: "SendObject",
-			Handler:    _DeviceService_SendObject_Handler,
-		},
-		{
-			MethodName: "SendObjectInfo",
-			Handler:    _DeviceService_SendObjectInfo_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DeviceService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/mtp/mtp.proto",
-}
-
-const (
 	ObjectInfoService_GetAssociationDesc_FullMethodName         = "/mtp.ObjectInfoService/GetAssociationDesc"
 	ObjectInfoService_GetAssociationType_FullMethodName         = "/mtp.ObjectInfoService/GetAssociationType"
 	ObjectInfoService_GetCompressedSize_FullMethodName          = "/mtp.ObjectInfoService/GetCompressedSize"
@@ -1453,7 +883,7 @@ type ObjectInfoServiceClient interface {
 	GetKeywords(ctx context.Context, in *GetKeywordsRequest, opts ...grpc.CallOption) (*GetKeywordsResponse, error)
 	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
 	GetObjectHandle(ctx context.Context, in *GetObjectHandleRequest, opts ...grpc.CallOption) (*GetObjectHandleResponse, error)
-	GetParent(ctx context.Context, in *ObjectInfoGetParentRequest, opts ...grpc.CallOption) (*ObjectInfoGetParentResponse, error)
+	GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error)
 	GetProtectionStatus(ctx context.Context, in *GetProtectionStatusRequest, opts ...grpc.CallOption) (*GetProtectionStatusResponse, error)
 	GetSequenceNumber(ctx context.Context, in *GetSequenceNumberRequest, opts ...grpc.CallOption) (*GetSequenceNumberResponse, error)
 	GetSequenceNumberLong(ctx context.Context, in *GetSequenceNumberLongRequest, opts ...grpc.CallOption) (*GetSequenceNumberLongResponse, error)
@@ -1635,9 +1065,9 @@ func (c *objectInfoServiceClient) GetObjectHandle(ctx context.Context, in *GetOb
 	return out, nil
 }
 
-func (c *objectInfoServiceClient) GetParent(ctx context.Context, in *ObjectInfoGetParentRequest, opts ...grpc.CallOption) (*ObjectInfoGetParentResponse, error) {
+func (c *objectInfoServiceClient) GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ObjectInfoGetParentResponse)
+	out := new(GetParentResponse)
 	err := c.cc.Invoke(ctx, ObjectInfoService_GetParent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -1775,7 +1205,7 @@ type ObjectInfoServiceServer interface {
 	GetKeywords(context.Context, *GetKeywordsRequest) (*GetKeywordsResponse, error)
 	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
 	GetObjectHandle(context.Context, *GetObjectHandleRequest) (*GetObjectHandleResponse, error)
-	GetParent(context.Context, *ObjectInfoGetParentRequest) (*ObjectInfoGetParentResponse, error)
+	GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error)
 	GetProtectionStatus(context.Context, *GetProtectionStatusRequest) (*GetProtectionStatusResponse, error)
 	GetSequenceNumber(context.Context, *GetSequenceNumberRequest) (*GetSequenceNumberResponse, error)
 	GetSequenceNumberLong(context.Context, *GetSequenceNumberLongRequest) (*GetSequenceNumberLongResponse, error)
@@ -1845,7 +1275,7 @@ func (UnimplementedObjectInfoServiceServer) GetName(context.Context, *GetNameReq
 func (UnimplementedObjectInfoServiceServer) GetObjectHandle(context.Context, *GetObjectHandleRequest) (*GetObjectHandleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetObjectHandle not implemented")
 }
-func (UnimplementedObjectInfoServiceServer) GetParent(context.Context, *ObjectInfoGetParentRequest) (*ObjectInfoGetParentResponse, error) {
+func (UnimplementedObjectInfoServiceServer) GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetParent not implemented")
 }
 func (UnimplementedObjectInfoServiceServer) GetProtectionStatus(context.Context, *GetProtectionStatusRequest) (*GetProtectionStatusResponse, error) {
@@ -2191,7 +1621,7 @@ func _ObjectInfoService_GetObjectHandle_Handler(srv interface{}, ctx context.Con
 }
 
 func _ObjectInfoService_GetParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ObjectInfoGetParentRequest)
+	in := new(GetParentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2203,7 +1633,7 @@ func _ObjectInfoService_GetParent_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: ObjectInfoService_GetParent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ObjectInfoServiceServer).GetParent(ctx, req.(*ObjectInfoGetParentRequest))
+		return srv.(ObjectInfoServiceServer).GetParent(ctx, req.(*GetParentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3648,367 +3078,937 @@ var StorageInfoService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	DeviceInfoService_GetEventsSupported_FullMethodName     = "/mtp.DeviceInfoService/GetEventsSupported"
-	DeviceInfoService_GetManufacturer_FullMethodName        = "/mtp.DeviceInfoService/GetManufacturer"
-	DeviceInfoService_GetModel_FullMethodName               = "/mtp.DeviceInfoService/GetModel"
-	DeviceInfoService_GetOperationsSupported_FullMethodName = "/mtp.DeviceInfoService/GetOperationsSupported"
-	DeviceInfoService_GetSerialNumber_FullMethodName        = "/mtp.DeviceInfoService/GetSerialNumber"
-	DeviceInfoService_GetVersion_FullMethodName             = "/mtp.DeviceInfoService/GetVersion"
-	DeviceInfoService_IsEventSupported_FullMethodName       = "/mtp.DeviceInfoService/IsEventSupported"
-	DeviceInfoService_IsOperationSupported_FullMethodName   = "/mtp.DeviceInfoService/IsOperationSupported"
+	DeviceService_NewDevice_FullMethodName          = "/mtp.DeviceService/NewDevice"
+	DeviceService_Close_FullMethodName              = "/mtp.DeviceService/Close"
+	DeviceService_DeleteObject_FullMethodName       = "/mtp.DeviceService/DeleteObject"
+	DeviceService_GetDeviceId_FullMethodName        = "/mtp.DeviceService/GetDeviceId"
+	DeviceService_GetDeviceInfo_FullMethodName      = "/mtp.DeviceService/GetDeviceInfo"
+	DeviceService_GetDeviceName_FullMethodName      = "/mtp.DeviceService/GetDeviceName"
+	DeviceService_GetObject_FullMethodName          = "/mtp.DeviceService/GetObject"
+	DeviceService_GetObjectHandles_FullMethodName   = "/mtp.DeviceService/GetObjectHandles"
+	DeviceService_GetObjectInfo_FullMethodName      = "/mtp.DeviceService/GetObjectInfo"
+	DeviceService_GetParent_FullMethodName          = "/mtp.DeviceService/GetParent"
+	DeviceService_GetPartialObject_FullMethodName   = "/mtp.DeviceService/GetPartialObject"
+	DeviceService_GetPartialObject64_FullMethodName = "/mtp.DeviceService/GetPartialObject64"
+	DeviceService_GetStorageId_FullMethodName       = "/mtp.DeviceService/GetStorageId"
+	DeviceService_GetStorageIds_FullMethodName      = "/mtp.DeviceService/GetStorageIds"
+	DeviceService_GetStorageInfo_FullMethodName     = "/mtp.DeviceService/GetStorageInfo"
+	DeviceService_GetThumbnail_FullMethodName       = "/mtp.DeviceService/GetThumbnail"
+	DeviceService_ImportFile2_FullMethodName        = "/mtp.DeviceService/ImportFile2"
+	DeviceService_ImportFile2_1_FullMethodName      = "/mtp.DeviceService/ImportFile2_1"
+	DeviceService_Open_FullMethodName               = "/mtp.DeviceService/Open"
+	DeviceService_ReadEvent_FullMethodName          = "/mtp.DeviceService/ReadEvent"
+	DeviceService_SendObject_FullMethodName         = "/mtp.DeviceService/SendObject"
+	DeviceService_SendObjectInfo_FullMethodName     = "/mtp.DeviceService/SendObjectInfo"
+	DeviceService_ToString_FullMethodName           = "/mtp.DeviceService/ToString"
 )
 
-// DeviceInfoServiceClient is the client API for DeviceInfoService service.
+// DeviceServiceClient is the client API for DeviceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeviceInfoServiceClient interface {
-	GetEventsSupported(ctx context.Context, in *GetEventsSupportedRequest, opts ...grpc.CallOption) (*GetEventsSupportedResponse, error)
-	GetManufacturer(ctx context.Context, in *GetManufacturerRequest, opts ...grpc.CallOption) (*GetManufacturerResponse, error)
-	GetModel(ctx context.Context, in *GetModelRequest, opts ...grpc.CallOption) (*GetModelResponse, error)
-	GetOperationsSupported(ctx context.Context, in *GetOperationsSupportedRequest, opts ...grpc.CallOption) (*GetOperationsSupportedResponse, error)
-	GetSerialNumber(ctx context.Context, in *GetSerialNumberRequest, opts ...grpc.CallOption) (*GetSerialNumberResponse, error)
-	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
-	IsEventSupported(ctx context.Context, in *IsEventSupportedRequest, opts ...grpc.CallOption) (*IsEventSupportedResponse, error)
-	IsOperationSupported(ctx context.Context, in *IsOperationSupportedRequest, opts ...grpc.CallOption) (*IsOperationSupportedResponse, error)
+type DeviceServiceClient interface {
+	NewDevice(ctx context.Context, in *NewDeviceRequest, opts ...grpc.CallOption) (*NewDeviceResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error)
+	GetDeviceId(ctx context.Context, in *GetDeviceIdRequest, opts ...grpc.CallOption) (*GetDeviceIdResponse, error)
+	GetDeviceInfo(ctx context.Context, in *GetDeviceInfoRequest, opts ...grpc.CallOption) (*GetDeviceInfoResponse, error)
+	GetDeviceName(ctx context.Context, in *GetDeviceNameRequest, opts ...grpc.CallOption) (*GetDeviceNameResponse, error)
+	GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error)
+	GetObjectHandles(ctx context.Context, in *GetObjectHandlesRequest, opts ...grpc.CallOption) (*GetObjectHandlesResponse, error)
+	GetObjectInfo(ctx context.Context, in *GetObjectInfoRequest, opts ...grpc.CallOption) (*GetObjectInfoResponse, error)
+	GetParent(ctx context.Context, in *DeviceGetParentRequest, opts ...grpc.CallOption) (*DeviceGetParentResponse, error)
+	GetPartialObject(ctx context.Context, in *GetPartialObjectRequest, opts ...grpc.CallOption) (*GetPartialObjectResponse, error)
+	GetPartialObject64(ctx context.Context, in *GetPartialObject64Request, opts ...grpc.CallOption) (*GetPartialObject64Response, error)
+	GetStorageId(ctx context.Context, in *DeviceGetStorageIdRequest, opts ...grpc.CallOption) (*DeviceGetStorageIdResponse, error)
+	GetStorageIds(ctx context.Context, in *GetStorageIdsRequest, opts ...grpc.CallOption) (*GetStorageIdsResponse, error)
+	GetStorageInfo(ctx context.Context, in *GetStorageInfoRequest, opts ...grpc.CallOption) (*GetStorageInfoResponse, error)
+	GetThumbnail(ctx context.Context, in *GetThumbnailRequest, opts ...grpc.CallOption) (*GetThumbnailResponse, error)
+	ImportFile2(ctx context.Context, in *ImportFile2Request, opts ...grpc.CallOption) (*ImportFile2Response, error)
+	ImportFile2_1(ctx context.Context, in *ImportFile2_1Request, opts ...grpc.CallOption) (*ImportFile2_1Response, error)
+	Open(ctx context.Context, in *OpenRequest, opts ...grpc.CallOption) (*OpenResponse, error)
+	ReadEvent(ctx context.Context, in *ReadEventRequest, opts ...grpc.CallOption) (*ReadEventResponse, error)
+	SendObject(ctx context.Context, in *SendObjectRequest, opts ...grpc.CallOption) (*SendObjectResponse, error)
+	SendObjectInfo(ctx context.Context, in *SendObjectInfoRequest, opts ...grpc.CallOption) (*SendObjectInfoResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
-type deviceInfoServiceClient struct {
+type deviceServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDeviceInfoServiceClient(cc grpc.ClientConnInterface) DeviceInfoServiceClient {
-	return &deviceInfoServiceClient{cc}
+func NewDeviceServiceClient(cc grpc.ClientConnInterface) DeviceServiceClient {
+	return &deviceServiceClient{cc}
 }
 
-func (c *deviceInfoServiceClient) GetEventsSupported(ctx context.Context, in *GetEventsSupportedRequest, opts ...grpc.CallOption) (*GetEventsSupportedResponse, error) {
+func (c *deviceServiceClient) NewDevice(ctx context.Context, in *NewDeviceRequest, opts ...grpc.CallOption) (*NewDeviceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEventsSupportedResponse)
-	err := c.cc.Invoke(ctx, DeviceInfoService_GetEventsSupported_FullMethodName, in, out, cOpts...)
+	out := new(NewDeviceResponse)
+	err := c.cc.Invoke(ctx, DeviceService_NewDevice_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *deviceInfoServiceClient) GetManufacturer(ctx context.Context, in *GetManufacturerRequest, opts ...grpc.CallOption) (*GetManufacturerResponse, error) {
+func (c *deviceServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetManufacturerResponse)
-	err := c.cc.Invoke(ctx, DeviceInfoService_GetManufacturer_FullMethodName, in, out, cOpts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, DeviceService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *deviceInfoServiceClient) GetModel(ctx context.Context, in *GetModelRequest, opts ...grpc.CallOption) (*GetModelResponse, error) {
+func (c *deviceServiceClient) DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetModelResponse)
-	err := c.cc.Invoke(ctx, DeviceInfoService_GetModel_FullMethodName, in, out, cOpts...)
+	out := new(DeleteObjectResponse)
+	err := c.cc.Invoke(ctx, DeviceService_DeleteObject_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *deviceInfoServiceClient) GetOperationsSupported(ctx context.Context, in *GetOperationsSupportedRequest, opts ...grpc.CallOption) (*GetOperationsSupportedResponse, error) {
+func (c *deviceServiceClient) GetDeviceId(ctx context.Context, in *GetDeviceIdRequest, opts ...grpc.CallOption) (*GetDeviceIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOperationsSupportedResponse)
-	err := c.cc.Invoke(ctx, DeviceInfoService_GetOperationsSupported_FullMethodName, in, out, cOpts...)
+	out := new(GetDeviceIdResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *deviceInfoServiceClient) GetSerialNumber(ctx context.Context, in *GetSerialNumberRequest, opts ...grpc.CallOption) (*GetSerialNumberResponse, error) {
+func (c *deviceServiceClient) GetDeviceInfo(ctx context.Context, in *GetDeviceInfoRequest, opts ...grpc.CallOption) (*GetDeviceInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSerialNumberResponse)
-	err := c.cc.Invoke(ctx, DeviceInfoService_GetSerialNumber_FullMethodName, in, out, cOpts...)
+	out := new(GetDeviceInfoResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *deviceInfoServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+func (c *deviceServiceClient) GetDeviceName(ctx context.Context, in *GetDeviceNameRequest, opts ...grpc.CallOption) (*GetDeviceNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVersionResponse)
-	err := c.cc.Invoke(ctx, DeviceInfoService_GetVersion_FullMethodName, in, out, cOpts...)
+	out := new(GetDeviceNameResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceName_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *deviceInfoServiceClient) IsEventSupported(ctx context.Context, in *IsEventSupportedRequest, opts ...grpc.CallOption) (*IsEventSupportedResponse, error) {
+func (c *deviceServiceClient) GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsEventSupportedResponse)
-	err := c.cc.Invoke(ctx, DeviceInfoService_IsEventSupported_FullMethodName, in, out, cOpts...)
+	out := new(GetObjectResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetObject_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *deviceInfoServiceClient) IsOperationSupported(ctx context.Context, in *IsOperationSupportedRequest, opts ...grpc.CallOption) (*IsOperationSupportedResponse, error) {
+func (c *deviceServiceClient) GetObjectHandles(ctx context.Context, in *GetObjectHandlesRequest, opts ...grpc.CallOption) (*GetObjectHandlesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOperationSupportedResponse)
-	err := c.cc.Invoke(ctx, DeviceInfoService_IsOperationSupported_FullMethodName, in, out, cOpts...)
+	out := new(GetObjectHandlesResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetObjectHandles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DeviceInfoServiceServer is the server API for DeviceInfoService service.
-// All implementations must embed UnimplementedDeviceInfoServiceServer
+func (c *deviceServiceClient) GetObjectInfo(ctx context.Context, in *GetObjectInfoRequest, opts ...grpc.CallOption) (*GetObjectInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetObjectInfoResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetObjectInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetParent(ctx context.Context, in *DeviceGetParentRequest, opts ...grpc.CallOption) (*DeviceGetParentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeviceGetParentResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetParent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetPartialObject(ctx context.Context, in *GetPartialObjectRequest, opts ...grpc.CallOption) (*GetPartialObjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPartialObjectResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetPartialObject_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetPartialObject64(ctx context.Context, in *GetPartialObject64Request, opts ...grpc.CallOption) (*GetPartialObject64Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPartialObject64Response)
+	err := c.cc.Invoke(ctx, DeviceService_GetPartialObject64_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetStorageId(ctx context.Context, in *DeviceGetStorageIdRequest, opts ...grpc.CallOption) (*DeviceGetStorageIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeviceGetStorageIdResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetStorageId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetStorageIds(ctx context.Context, in *GetStorageIdsRequest, opts ...grpc.CallOption) (*GetStorageIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStorageIdsResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetStorageIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetStorageInfo(ctx context.Context, in *GetStorageInfoRequest, opts ...grpc.CallOption) (*GetStorageInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStorageInfoResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetStorageInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetThumbnail(ctx context.Context, in *GetThumbnailRequest, opts ...grpc.CallOption) (*GetThumbnailResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetThumbnailResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetThumbnail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) ImportFile2(ctx context.Context, in *ImportFile2Request, opts ...grpc.CallOption) (*ImportFile2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ImportFile2Response)
+	err := c.cc.Invoke(ctx, DeviceService_ImportFile2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) ImportFile2_1(ctx context.Context, in *ImportFile2_1Request, opts ...grpc.CallOption) (*ImportFile2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ImportFile2_1Response)
+	err := c.cc.Invoke(ctx, DeviceService_ImportFile2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) Open(ctx context.Context, in *OpenRequest, opts ...grpc.CallOption) (*OpenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenResponse)
+	err := c.cc.Invoke(ctx, DeviceService_Open_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) ReadEvent(ctx context.Context, in *ReadEventRequest, opts ...grpc.CallOption) (*ReadEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReadEventResponse)
+	err := c.cc.Invoke(ctx, DeviceService_ReadEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) SendObject(ctx context.Context, in *SendObjectRequest, opts ...grpc.CallOption) (*SendObjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendObjectResponse)
+	err := c.cc.Invoke(ctx, DeviceService_SendObject_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) SendObjectInfo(ctx context.Context, in *SendObjectInfoRequest, opts ...grpc.CallOption) (*SendObjectInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendObjectInfoResponse)
+	err := c.cc.Invoke(ctx, DeviceService_SendObjectInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DeviceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceServiceServer is the server API for DeviceService service.
+// All implementations must embed UnimplementedDeviceServiceServer
 // for forward compatibility.
-type DeviceInfoServiceServer interface {
-	GetEventsSupported(context.Context, *GetEventsSupportedRequest) (*GetEventsSupportedResponse, error)
-	GetManufacturer(context.Context, *GetManufacturerRequest) (*GetManufacturerResponse, error)
-	GetModel(context.Context, *GetModelRequest) (*GetModelResponse, error)
-	GetOperationsSupported(context.Context, *GetOperationsSupportedRequest) (*GetOperationsSupportedResponse, error)
-	GetSerialNumber(context.Context, *GetSerialNumberRequest) (*GetSerialNumberResponse, error)
-	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
-	IsEventSupported(context.Context, *IsEventSupportedRequest) (*IsEventSupportedResponse, error)
-	IsOperationSupported(context.Context, *IsOperationSupportedRequest) (*IsOperationSupportedResponse, error)
-	mustEmbedUnimplementedDeviceInfoServiceServer()
+type DeviceServiceServer interface {
+	NewDevice(context.Context, *NewDeviceRequest) (*NewDeviceResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error)
+	GetDeviceId(context.Context, *GetDeviceIdRequest) (*GetDeviceIdResponse, error)
+	GetDeviceInfo(context.Context, *GetDeviceInfoRequest) (*GetDeviceInfoResponse, error)
+	GetDeviceName(context.Context, *GetDeviceNameRequest) (*GetDeviceNameResponse, error)
+	GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error)
+	GetObjectHandles(context.Context, *GetObjectHandlesRequest) (*GetObjectHandlesResponse, error)
+	GetObjectInfo(context.Context, *GetObjectInfoRequest) (*GetObjectInfoResponse, error)
+	GetParent(context.Context, *DeviceGetParentRequest) (*DeviceGetParentResponse, error)
+	GetPartialObject(context.Context, *GetPartialObjectRequest) (*GetPartialObjectResponse, error)
+	GetPartialObject64(context.Context, *GetPartialObject64Request) (*GetPartialObject64Response, error)
+	GetStorageId(context.Context, *DeviceGetStorageIdRequest) (*DeviceGetStorageIdResponse, error)
+	GetStorageIds(context.Context, *GetStorageIdsRequest) (*GetStorageIdsResponse, error)
+	GetStorageInfo(context.Context, *GetStorageInfoRequest) (*GetStorageInfoResponse, error)
+	GetThumbnail(context.Context, *GetThumbnailRequest) (*GetThumbnailResponse, error)
+	ImportFile2(context.Context, *ImportFile2Request) (*ImportFile2Response, error)
+	ImportFile2_1(context.Context, *ImportFile2_1Request) (*ImportFile2_1Response, error)
+	Open(context.Context, *OpenRequest) (*OpenResponse, error)
+	ReadEvent(context.Context, *ReadEventRequest) (*ReadEventResponse, error)
+	SendObject(context.Context, *SendObjectRequest) (*SendObjectResponse, error)
+	SendObjectInfo(context.Context, *SendObjectInfoRequest) (*SendObjectInfoResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedDeviceServiceServer()
 }
 
-// UnimplementedDeviceInfoServiceServer must be embedded to have
+// UnimplementedDeviceServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDeviceInfoServiceServer struct{}
+type UnimplementedDeviceServiceServer struct{}
 
-func (UnimplementedDeviceInfoServiceServer) GetEventsSupported(context.Context, *GetEventsSupportedRequest) (*GetEventsSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEventsSupported not implemented")
+func (UnimplementedDeviceServiceServer) NewDevice(context.Context, *NewDeviceRequest) (*NewDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDevice not implemented")
 }
-func (UnimplementedDeviceInfoServiceServer) GetManufacturer(context.Context, *GetManufacturerRequest) (*GetManufacturerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetManufacturer not implemented")
+func (UnimplementedDeviceServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedDeviceInfoServiceServer) GetModel(context.Context, *GetModelRequest) (*GetModelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetModel not implemented")
+func (UnimplementedDeviceServiceServer) DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteObject not implemented")
 }
-func (UnimplementedDeviceInfoServiceServer) GetOperationsSupported(context.Context, *GetOperationsSupportedRequest) (*GetOperationsSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOperationsSupported not implemented")
+func (UnimplementedDeviceServiceServer) GetDeviceId(context.Context, *GetDeviceIdRequest) (*GetDeviceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceId not implemented")
 }
-func (UnimplementedDeviceInfoServiceServer) GetSerialNumber(context.Context, *GetSerialNumberRequest) (*GetSerialNumberResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSerialNumber not implemented")
+func (UnimplementedDeviceServiceServer) GetDeviceInfo(context.Context, *GetDeviceInfoRequest) (*GetDeviceInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceInfo not implemented")
 }
-func (UnimplementedDeviceInfoServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+func (UnimplementedDeviceServiceServer) GetDeviceName(context.Context, *GetDeviceNameRequest) (*GetDeviceNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceName not implemented")
 }
-func (UnimplementedDeviceInfoServiceServer) IsEventSupported(context.Context, *IsEventSupportedRequest) (*IsEventSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsEventSupported not implemented")
+func (UnimplementedDeviceServiceServer) GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetObject not implemented")
 }
-func (UnimplementedDeviceInfoServiceServer) IsOperationSupported(context.Context, *IsOperationSupportedRequest) (*IsOperationSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOperationSupported not implemented")
+func (UnimplementedDeviceServiceServer) GetObjectHandles(context.Context, *GetObjectHandlesRequest) (*GetObjectHandlesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetObjectHandles not implemented")
 }
-func (UnimplementedDeviceInfoServiceServer) mustEmbedUnimplementedDeviceInfoServiceServer() {}
-func (UnimplementedDeviceInfoServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedDeviceServiceServer) GetObjectInfo(context.Context, *GetObjectInfoRequest) (*GetObjectInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetObjectInfo not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetParent(context.Context, *DeviceGetParentRequest) (*DeviceGetParentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParent not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetPartialObject(context.Context, *GetPartialObjectRequest) (*GetPartialObjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPartialObject not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetPartialObject64(context.Context, *GetPartialObject64Request) (*GetPartialObject64Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPartialObject64 not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetStorageId(context.Context, *DeviceGetStorageIdRequest) (*DeviceGetStorageIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStorageId not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetStorageIds(context.Context, *GetStorageIdsRequest) (*GetStorageIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStorageIds not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetStorageInfo(context.Context, *GetStorageInfoRequest) (*GetStorageInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStorageInfo not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetThumbnail(context.Context, *GetThumbnailRequest) (*GetThumbnailResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetThumbnail not implemented")
+}
+func (UnimplementedDeviceServiceServer) ImportFile2(context.Context, *ImportFile2Request) (*ImportFile2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ImportFile2 not implemented")
+}
+func (UnimplementedDeviceServiceServer) ImportFile2_1(context.Context, *ImportFile2_1Request) (*ImportFile2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ImportFile2_1 not implemented")
+}
+func (UnimplementedDeviceServiceServer) Open(context.Context, *OpenRequest) (*OpenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Open not implemented")
+}
+func (UnimplementedDeviceServiceServer) ReadEvent(context.Context, *ReadEventRequest) (*ReadEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReadEvent not implemented")
+}
+func (UnimplementedDeviceServiceServer) SendObject(context.Context, *SendObjectRequest) (*SendObjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendObject not implemented")
+}
+func (UnimplementedDeviceServiceServer) SendObjectInfo(context.Context, *SendObjectInfoRequest) (*SendObjectInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendObjectInfo not implemented")
+}
+func (UnimplementedDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDeviceServiceServer) mustEmbedUnimplementedDeviceServiceServer() {}
+func (UnimplementedDeviceServiceServer) testEmbeddedByValue()                       {}
 
-// UnsafeDeviceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeviceInfoServiceServer will
+// UnsafeDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceServiceServer will
 // result in compilation errors.
-type UnsafeDeviceInfoServiceServer interface {
-	mustEmbedUnimplementedDeviceInfoServiceServer()
+type UnsafeDeviceServiceServer interface {
+	mustEmbedUnimplementedDeviceServiceServer()
 }
 
-func RegisterDeviceInfoServiceServer(s grpc.ServiceRegistrar, srv DeviceInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeviceInfoServiceServer was
+func RegisterDeviceServiceServer(s grpc.ServiceRegistrar, srv DeviceServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DeviceInfoService_ServiceDesc, srv)
+	s.RegisterService(&DeviceService_ServiceDesc, srv)
 }
 
-func _DeviceInfoService_GetEventsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEventsSupportedRequest)
+func _DeviceService_NewDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDeviceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DeviceInfoServiceServer).GetEventsSupported(ctx, in)
+		return srv.(DeviceServiceServer).NewDevice(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DeviceInfoService_GetEventsSupported_FullMethodName,
+		FullMethod: DeviceService_NewDevice_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceInfoServiceServer).GetEventsSupported(ctx, req.(*GetEventsSupportedRequest))
+		return srv.(DeviceServiceServer).NewDevice(ctx, req.(*NewDeviceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DeviceInfoService_GetManufacturer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetManufacturerRequest)
+func _DeviceService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DeviceInfoServiceServer).GetManufacturer(ctx, in)
+		return srv.(DeviceServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DeviceInfoService_GetManufacturer_FullMethodName,
+		FullMethod: DeviceService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceInfoServiceServer).GetManufacturer(ctx, req.(*GetManufacturerRequest))
+		return srv.(DeviceServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DeviceInfoService_GetModel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetModelRequest)
+func _DeviceService_DeleteObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteObjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DeviceInfoServiceServer).GetModel(ctx, in)
+		return srv.(DeviceServiceServer).DeleteObject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DeviceInfoService_GetModel_FullMethodName,
+		FullMethod: DeviceService_DeleteObject_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceInfoServiceServer).GetModel(ctx, req.(*GetModelRequest))
+		return srv.(DeviceServiceServer).DeleteObject(ctx, req.(*DeleteObjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DeviceInfoService_GetOperationsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOperationsSupportedRequest)
+func _DeviceService_GetDeviceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DeviceInfoServiceServer).GetOperationsSupported(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DeviceInfoService_GetOperationsSupported_FullMethodName,
+		FullMethod: DeviceService_GetDeviceId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceInfoServiceServer).GetOperationsSupported(ctx, req.(*GetOperationsSupportedRequest))
+		return srv.(DeviceServiceServer).GetDeviceId(ctx, req.(*GetDeviceIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DeviceInfoService_GetSerialNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSerialNumberRequest)
+func _DeviceService_GetDeviceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DeviceInfoServiceServer).GetSerialNumber(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DeviceInfoService_GetSerialNumber_FullMethodName,
+		FullMethod: DeviceService_GetDeviceInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceInfoServiceServer).GetSerialNumber(ctx, req.(*GetSerialNumberRequest))
+		return srv.(DeviceServiceServer).GetDeviceInfo(ctx, req.(*GetDeviceInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DeviceInfoService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVersionRequest)
+func _DeviceService_GetDeviceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DeviceInfoServiceServer).GetVersion(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DeviceInfoService_GetVersion_FullMethodName,
+		FullMethod: DeviceService_GetDeviceName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceInfoServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+		return srv.(DeviceServiceServer).GetDeviceName(ctx, req.(*GetDeviceNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DeviceInfoService_IsEventSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEventSupportedRequest)
+func _DeviceService_GetObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetObjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DeviceInfoServiceServer).IsEventSupported(ctx, in)
+		return srv.(DeviceServiceServer).GetObject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DeviceInfoService_IsEventSupported_FullMethodName,
+		FullMethod: DeviceService_GetObject_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceInfoServiceServer).IsEventSupported(ctx, req.(*IsEventSupportedRequest))
+		return srv.(DeviceServiceServer).GetObject(ctx, req.(*GetObjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DeviceInfoService_IsOperationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOperationSupportedRequest)
+func _DeviceService_GetObjectHandles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetObjectHandlesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DeviceInfoServiceServer).IsOperationSupported(ctx, in)
+		return srv.(DeviceServiceServer).GetObjectHandles(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DeviceInfoService_IsOperationSupported_FullMethodName,
+		FullMethod: DeviceService_GetObjectHandles_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceInfoServiceServer).IsOperationSupported(ctx, req.(*IsOperationSupportedRequest))
+		return srv.(DeviceServiceServer).GetObjectHandles(ctx, req.(*GetObjectHandlesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// DeviceInfoService_ServiceDesc is the grpc.ServiceDesc for DeviceInfoService service.
+func _DeviceService_GetObjectInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetObjectInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetObjectInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetObjectInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetObjectInfo(ctx, req.(*GetObjectInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeviceGetParentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetParent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetParent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetParent(ctx, req.(*DeviceGetParentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetPartialObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPartialObjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetPartialObject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetPartialObject_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetPartialObject(ctx, req.(*GetPartialObjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetPartialObject64_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPartialObject64Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetPartialObject64(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetPartialObject64_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetPartialObject64(ctx, req.(*GetPartialObject64Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetStorageId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeviceGetStorageIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetStorageId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetStorageId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetStorageId(ctx, req.(*DeviceGetStorageIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetStorageIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStorageIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetStorageIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetStorageIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetStorageIds(ctx, req.(*GetStorageIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetStorageInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStorageInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetStorageInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetStorageInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetStorageInfo(ctx, req.(*GetStorageInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetThumbnail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetThumbnailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetThumbnail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetThumbnail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetThumbnail(ctx, req.(*GetThumbnailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_ImportFile2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ImportFile2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).ImportFile2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_ImportFile2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).ImportFile2(ctx, req.(*ImportFile2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_ImportFile2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ImportFile2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).ImportFile2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_ImportFile2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).ImportFile2_1(ctx, req.(*ImportFile2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_Open_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).Open(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_Open_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).Open(ctx, req.(*OpenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_ReadEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).ReadEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_ReadEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).ReadEvent(ctx, req.(*ReadEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_SendObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendObjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).SendObject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_SendObject_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).SendObject(ctx, req.(*SendObjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_SendObjectInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendObjectInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).SendObjectInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_SendObjectInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).SendObjectInfo(ctx, req.(*SendObjectInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceService_ServiceDesc is the grpc.ServiceDesc for DeviceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DeviceInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mtp.DeviceInfoService",
-	HandlerType: (*DeviceInfoServiceServer)(nil),
+var DeviceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "mtp.DeviceService",
+	HandlerType: (*DeviceServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetEventsSupported",
-			Handler:    _DeviceInfoService_GetEventsSupported_Handler,
+			MethodName: "NewDevice",
+			Handler:    _DeviceService_NewDevice_Handler,
 		},
 		{
-			MethodName: "GetManufacturer",
-			Handler:    _DeviceInfoService_GetManufacturer_Handler,
+			MethodName: "Close",
+			Handler:    _DeviceService_Close_Handler,
 		},
 		{
-			MethodName: "GetModel",
-			Handler:    _DeviceInfoService_GetModel_Handler,
+			MethodName: "DeleteObject",
+			Handler:    _DeviceService_DeleteObject_Handler,
 		},
 		{
-			MethodName: "GetOperationsSupported",
-			Handler:    _DeviceInfoService_GetOperationsSupported_Handler,
+			MethodName: "GetDeviceId",
+			Handler:    _DeviceService_GetDeviceId_Handler,
 		},
 		{
-			MethodName: "GetSerialNumber",
-			Handler:    _DeviceInfoService_GetSerialNumber_Handler,
+			MethodName: "GetDeviceInfo",
+			Handler:    _DeviceService_GetDeviceInfo_Handler,
 		},
 		{
-			MethodName: "GetVersion",
-			Handler:    _DeviceInfoService_GetVersion_Handler,
+			MethodName: "GetDeviceName",
+			Handler:    _DeviceService_GetDeviceName_Handler,
 		},
 		{
-			MethodName: "IsEventSupported",
-			Handler:    _DeviceInfoService_IsEventSupported_Handler,
+			MethodName: "GetObject",
+			Handler:    _DeviceService_GetObject_Handler,
 		},
 		{
-			MethodName: "IsOperationSupported",
-			Handler:    _DeviceInfoService_IsOperationSupported_Handler,
+			MethodName: "GetObjectHandles",
+			Handler:    _DeviceService_GetObjectHandles_Handler,
+		},
+		{
+			MethodName: "GetObjectInfo",
+			Handler:    _DeviceService_GetObjectInfo_Handler,
+		},
+		{
+			MethodName: "GetParent",
+			Handler:    _DeviceService_GetParent_Handler,
+		},
+		{
+			MethodName: "GetPartialObject",
+			Handler:    _DeviceService_GetPartialObject_Handler,
+		},
+		{
+			MethodName: "GetPartialObject64",
+			Handler:    _DeviceService_GetPartialObject64_Handler,
+		},
+		{
+			MethodName: "GetStorageId",
+			Handler:    _DeviceService_GetStorageId_Handler,
+		},
+		{
+			MethodName: "GetStorageIds",
+			Handler:    _DeviceService_GetStorageIds_Handler,
+		},
+		{
+			MethodName: "GetStorageInfo",
+			Handler:    _DeviceService_GetStorageInfo_Handler,
+		},
+		{
+			MethodName: "GetThumbnail",
+			Handler:    _DeviceService_GetThumbnail_Handler,
+		},
+		{
+			MethodName: "ImportFile2",
+			Handler:    _DeviceService_ImportFile2_Handler,
+		},
+		{
+			MethodName: "ImportFile2_1",
+			Handler:    _DeviceService_ImportFile2_1_Handler,
+		},
+		{
+			MethodName: "Open",
+			Handler:    _DeviceService_Open_Handler,
+		},
+		{
+			MethodName: "ReadEvent",
+			Handler:    _DeviceService_ReadEvent_Handler,
+		},
+		{
+			MethodName: "SendObject",
+			Handler:    _DeviceService_SendObject_Handler,
+		},
+		{
+			MethodName: "SendObjectInfo",
+			Handler:    _DeviceService_SendObjectInfo_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DeviceService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -95,33 +95,39 @@ message SetMaxCountResponse {
   int64 result = 1;
 }
 
-message GetAppInstallFiltersRequest {
+message FromStringRequest {
+  string arg0 = 1;
 }
 
-message GetAppInstallFiltersResponse {
+message FromStringResponse {
   int64 result = 1;
 }
 
-message GetFrequencyCapFiltersRequest {
+message GetKeyedFrequencyCapsForClickEventsRequest {
 }
 
-message GetFrequencyCapFiltersResponse {
+message GetKeyedFrequencyCapsForClickEventsResponse {
   int64 result = 1;
 }
 
-message SetAppInstallFiltersRequest {
-  int64 arg0 = 1;
+message GetKeyedFrequencyCapsForImpressionEventsRequest {
 }
 
-message SetAppInstallFiltersResponse {
+message GetKeyedFrequencyCapsForImpressionEventsResponse {
   int64 result = 1;
 }
 
-message SetFrequencyCapFiltersRequest {
-  int64 arg0 = 1;
+message GetKeyedFrequencyCapsForViewEventsRequest {
 }
 
-message SetFrequencyCapFiltersResponse {
+message GetKeyedFrequencyCapsForViewEventsResponse {
+  int64 result = 1;
+}
+
+message GetKeyedFrequencyCapsForWinEventsRequest {
+}
+
+message GetKeyedFrequencyCapsForWinEventsResponse {
   int64 result = 1;
 }
 
@@ -173,11 +179,10 @@ message ComponentAdDataWriteToParcelRequest {
   int32 arg1 = 3;
 }
 
-message FromStringRequest {
-  string arg0 = 1;
+message GetAdCounterKeysRequest {
 }
 
-message FromStringResponse {
+message GetAdCounterKeysResponse {
   int64 result = 1;
 }
 
@@ -233,6 +238,43 @@ message SetRenderUriResponse {
   int64 result = 1;
 }
 
+message GetAppInstallFiltersRequest {
+}
+
+message GetAppInstallFiltersResponse {
+  int64 result = 1;
+}
+
+message GetFrequencyCapFiltersRequest {
+}
+
+message GetFrequencyCapFiltersResponse {
+  int64 result = 1;
+}
+
+message SetAppInstallFiltersRequest {
+  int64 arg0 = 1;
+}
+
+message SetAppInstallFiltersResponse {
+  int64 result = 1;
+}
+
+message SetFrequencyCapFiltersRequest {
+  int64 arg0 = 1;
+}
+
+message SetFrequencyCapFiltersResponse {
+  int64 result = 1;
+}
+
+message GetPackageNamesRequest {
+}
+
+message GetPackageNamesResponse {
+  int64 result = 1;
+}
+
 service KeyedFrequencyCapService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
@@ -251,20 +293,29 @@ service KeyedFrequencyCapBuilderService {
   rpc SetMaxCount (SetMaxCountRequest) returns (SetMaxCountResponse);
 }
 
-service AdFiltersService {
+service AdSelectionSignalsService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAppInstallFilters (GetAppInstallFiltersRequest) returns (GetAppInstallFiltersResponse);
-  rpc GetFrequencyCapFilters (GetFrequencyCapFiltersRequest) returns (GetFrequencyCapFiltersResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc FromString (FromStringRequest) returns (FromStringResponse);
+}
+
+service FrequencyCapFiltersService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetKeyedFrequencyCapsForClickEvents (GetKeyedFrequencyCapsForClickEventsRequest) returns (GetKeyedFrequencyCapsForClickEventsResponse);
+  rpc GetKeyedFrequencyCapsForImpressionEvents (GetKeyedFrequencyCapsForImpressionEventsRequest) returns (GetKeyedFrequencyCapsForImpressionEventsResponse);
+  rpc GetKeyedFrequencyCapsForViewEvents (GetKeyedFrequencyCapsForViewEventsRequest) returns (GetKeyedFrequencyCapsForViewEventsResponse);
+  rpc GetKeyedFrequencyCapsForWinEvents (GetKeyedFrequencyCapsForWinEventsRequest) returns (GetKeyedFrequencyCapsForWinEventsResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service AdFiltersBuilderService {
+service FrequencyCapFiltersBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetAppInstallFilters (SetAppInstallFiltersRequest) returns (SetAppInstallFiltersResponse);
-  rpc SetFrequencyCapFilters (SetFrequencyCapFiltersRequest) returns (SetFrequencyCapFiltersResponse);
 }
 
 service ComponentAdDataService {
@@ -287,33 +338,10 @@ service AdTechIdentifierService {
   rpc FromString (FromStringRequest) returns (FromStringResponse);
 }
 
-service AppInstallFiltersService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service AppInstallFiltersBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-}
-
-service FrequencyCapFiltersService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service FrequencyCapFiltersBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-}
-
 service AdDataService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAdCounterKeys (GetAdCounterKeysRequest) returns (GetAdCounterKeysResponse);
   rpc GetAdFilters (GetAdFiltersRequest) returns (GetAdFiltersResponse);
   rpc GetAdRenderId (AdDataGetAdRenderIdRequest) returns (GetAdRenderIdResponse);
   rpc GetMetadata (GetMetadataRequest) returns (GetMetadataResponse);
@@ -331,11 +359,31 @@ service AdDataBuilderService {
   rpc SetRenderUri (SetRenderUriRequest) returns (SetRenderUriResponse);
 }
 
-service AdSelectionSignalsService {
+service AdFiltersService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAppInstallFilters (GetAppInstallFiltersRequest) returns (GetAppInstallFiltersResponse);
+  rpc GetFrequencyCapFilters (GetFrequencyCapFiltersRequest) returns (GetFrequencyCapFiltersResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc FromString (FromStringRequest) returns (FromStringResponse);
+}
+
+service AdFiltersBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAppInstallFilters (SetAppInstallFiltersRequest) returns (SetAppInstallFiltersResponse);
+  rpc SetFrequencyCapFilters (SetFrequencyCapFiltersRequest) returns (SetFrequencyCapFiltersResponse);
+}
+
+service AppInstallFiltersService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPackageNames (GetPackageNamesRequest) returns (GetPackageNamesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AppInstallFiltersBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
 }

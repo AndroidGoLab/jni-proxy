@@ -9,6 +9,79 @@ import (
 	"google.golang.org/grpc"
 )
 
+// TimerStatClient wraps the gRPC TimerStatService client.
+type TimerStatClient struct {
+	svc pb.TimerStatServiceClient
+}
+
+// NewTimerStatClient creates a new TimerStat client.
+func NewTimerStatClient(cc grpc.ClientConnInterface) *TimerStatClient {
+	return &TimerStatClient{
+		svc: pb.NewTimerStatServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TimerStatClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCount calls the GetCount RPC.
+func (c *TimerStatClient) GetCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTime calls the GetTime RPC.
+func (c *TimerStatClient) GetTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCount calls the SetCount RPC.
+func (c *TimerStatClient) SetCount(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetCount(ctx, &pb.SetCountRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTime calls the SetTime RPC.
+func (c *TimerStatClient) SetTime(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTime(ctx, &pb.SetTimeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TimerStatClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // StatsClient wraps the gRPC StatsService client.
 type StatsClient struct {
 	svc pb.StatsServiceClient
@@ -319,77 +392,4 @@ func (c *SystemHealthManagerClient) TakeUidSnapshots(ctx context.Context, arg0 i
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// TimerStatClient wraps the gRPC TimerStatService client.
-type TimerStatClient struct {
-	svc pb.TimerStatServiceClient
-}
-
-// NewTimerStatClient creates a new TimerStat client.
-func NewTimerStatClient(cc grpc.ClientConnInterface) *TimerStatClient {
-	return &TimerStatClient{
-		svc: pb.NewTimerStatServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *TimerStatClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCount calls the GetCount RPC.
-func (c *TimerStatClient) GetCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTime calls the GetTime RPC.
-func (c *TimerStatClient) GetTime(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCount calls the SetCount RPC.
-func (c *TimerStatClient) SetCount(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetCount(ctx, &pb.SetCountRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTime calls the SetTime RPC.
-func (c *TimerStatClient) SetTime(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTime(ctx, &pb.SetTimeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *TimerStatClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
 }

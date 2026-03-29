@@ -9,180 +9,25 @@ import (
 	"google.golang.org/grpc"
 )
 
-// CameraExtensionCharacteristicsClient wraps the gRPC CameraExtensionCharacteristicsService client.
-type CameraExtensionCharacteristicsClient struct {
-	svc pb.CameraExtensionCharacteristicsServiceClient
+// CameraConstrainedHighSpeedCaptureSessionClient wraps the gRPC CameraConstrainedHighSpeedCaptureSessionService client.
+type CameraConstrainedHighSpeedCaptureSessionClient struct {
+	svc pb.CameraConstrainedHighSpeedCaptureSessionServiceClient
 }
 
-// NewCameraExtensionCharacteristicsClient creates a new CameraExtensionCharacteristics client.
-func NewCameraExtensionCharacteristicsClient(cc grpc.ClientConnInterface) *CameraExtensionCharacteristicsClient {
-	return &CameraExtensionCharacteristicsClient{
-		svc: pb.NewCameraExtensionCharacteristicsServiceClient(cc),
+// NewCameraConstrainedHighSpeedCaptureSessionClient creates a new CameraConstrainedHighSpeedCaptureSession client.
+func NewCameraConstrainedHighSpeedCaptureSessionClient(cc grpc.ClientConnInterface) *CameraConstrainedHighSpeedCaptureSessionClient {
+	return &CameraConstrainedHighSpeedCaptureSessionClient{
+		svc: pb.NewCameraConstrainedHighSpeedCaptureSessionServiceClient(cc),
 	}
 }
 
-// IsCaptureProcessProgressAvailable calls the IsCaptureProcessProgressAvailable RPC.
-func (c *CameraExtensionCharacteristicsClient) IsCaptureProcessProgressAvailable(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsCaptureProcessProgressAvailable(ctx, &pb.IsCaptureProcessProgressAvailableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsPostviewAvailable calls the IsPostviewAvailable RPC.
-func (c *CameraExtensionCharacteristicsClient) IsPostviewAvailable(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsPostviewAvailable(ctx, &pb.IsPostviewAvailableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CameraOfflineSessionClient wraps the gRPC CameraOfflineSessionService client.
-type CameraOfflineSessionClient struct {
-	svc pb.CameraOfflineSessionServiceClient
-}
-
-// NewCameraOfflineSessionClient creates a new CameraOfflineSession client.
-func NewCameraOfflineSessionClient(cc grpc.ClientConnInterface) *CameraOfflineSessionClient {
-	return &CameraOfflineSessionClient{
-		svc: pb.NewCameraOfflineSessionServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *CameraOfflineSessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// CameraOfflineSessionCameraOfflineSessionCallbackClient wraps the gRPC CameraOfflineSessionCameraOfflineSessionCallbackService client.
-type CameraOfflineSessionCameraOfflineSessionCallbackClient struct {
-	svc pb.CameraOfflineSessionCameraOfflineSessionCallbackServiceClient
-}
-
-// NewCameraOfflineSessionCameraOfflineSessionCallbackClient creates a new CameraOfflineSessionCameraOfflineSessionCallback client.
-func NewCameraOfflineSessionCameraOfflineSessionCallbackClient(cc grpc.ClientConnInterface) *CameraOfflineSessionCameraOfflineSessionCallbackClient {
-	return &CameraOfflineSessionCameraOfflineSessionCallbackClient{
-		svc: pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(cc),
-	}
-}
-
-// OnClosed calls the OnClosed RPC.
-func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnClosed(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnClosed(ctx, &pb.OnClosedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnError calls the OnError RPC.
-func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnError(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnIdle calls the OnIdle RPC.
-func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnIdle(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnIdle(ctx, &pb.OnIdleRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnReady calls the OnReady RPC.
-func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnReady(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnReady(ctx, &pb.OnReadyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnSwitchFailed calls the OnSwitchFailed RPC.
-func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnSwitchFailed(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSwitchFailed(ctx, &pb.OnSwitchFailedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CameraCharacteristicsClient wraps the gRPC CameraCharacteristicsService client.
-type CameraCharacteristicsClient struct {
-	svc pb.CameraCharacteristicsServiceClient
-}
-
-// NewCameraCharacteristicsClient creates a new CameraCharacteristics client.
-func NewCameraCharacteristicsClient(cc grpc.ClientConnInterface) *CameraCharacteristicsClient {
-	return &CameraCharacteristicsClient{
-		svc: pb.NewCameraCharacteristicsServiceClient(cc),
-	}
-}
-
-// GetRecommendedStreamConfigurationMap calls the GetRecommendedStreamConfigurationMap RPC.
-func (c *CameraCharacteristicsClient) GetRecommendedStreamConfigurationMap(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetRecommendedStreamConfigurationMap(ctx, &pb.GetRecommendedStreamConfigurationMapRequest{
+// CreateHighSpeedRequestList calls the CreateHighSpeedRequestList RPC.
+func (c *CameraConstrainedHighSpeedCaptureSessionClient) CreateHighSpeedRequestList(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateHighSpeedRequestList(ctx, &pb.CreateHighSpeedRequestListRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CameraCharacteristicsKeyClient wraps the gRPC CameraCharacteristicsKeyService client.
-type CameraCharacteristicsKeyClient struct {
-	svc pb.CameraCharacteristicsKeyServiceClient
-}
-
-// NewCameraCharacteristicsKeyClient creates a new CameraCharacteristicsKey client.
-func NewCameraCharacteristicsKeyClient(cc grpc.ClientConnInterface) *CameraCharacteristicsKeyClient {
-	return &CameraCharacteristicsKeyClient{
-		svc: pb.NewCameraCharacteristicsKeyServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *CameraCharacteristicsKeyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *CameraCharacteristicsKeyClient) GetName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *CameraCharacteristicsKeyClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *CameraCharacteristicsKeyClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }
@@ -211,6 +56,15 @@ func (c *CaptureResultClient) GetCameraId(ctx context.Context) (string, error) {
 // GetFrameNumber calls the GetFrameNumber RPC.
 func (c *CaptureResultClient) GetFrameNumber(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetFrameNumber(ctx, &pb.GetFrameNumberRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeys calls the GetKeys RPC.
+func (c *CaptureResultClient) GetKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeys(ctx, &pb.GetKeysRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -285,382 +139,25 @@ func (c *CaptureResultKeyClient) ToString(ctx context.Context) (string, error) {
 	return resp.GetResult(), nil
 }
 
-// CaptureFailureClient wraps the gRPC CaptureFailureService client.
-type CaptureFailureClient struct {
-	svc pb.CaptureFailureServiceClient
+// CameraMetadataClient wraps the gRPC CameraMetadataService client.
+type CameraMetadataClient struct {
+	svc pb.CameraMetadataServiceClient
 }
 
-// NewCaptureFailureClient creates a new CaptureFailure client.
-func NewCaptureFailureClient(cc grpc.ClientConnInterface) *CaptureFailureClient {
-	return &CaptureFailureClient{
-		svc: pb.NewCaptureFailureServiceClient(cc),
+// NewCameraMetadataClient creates a new CameraMetadata client.
+func NewCameraMetadataClient(cc grpc.ClientConnInterface) *CameraMetadataClient {
+	return &CameraMetadataClient{
+		svc: pb.NewCameraMetadataServiceClient(cc),
 	}
 }
 
-// GetFrameNumber calls the GetFrameNumber RPC.
-func (c *CaptureFailureClient) GetFrameNumber(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFrameNumber(ctx, &pb.GetFrameNumberRequest{})
+// GetKeys calls the GetKeys RPC.
+func (c *CameraMetadataClient) GetKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeys(ctx, &pb.GetKeysRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// GetPhysicalCameraId calls the GetPhysicalCameraId RPC.
-func (c *CaptureFailureClient) GetPhysicalCameraId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPhysicalCameraId(ctx, &pb.GetPhysicalCameraIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReason calls the GetReason RPC.
-func (c *CaptureFailureClient) GetReason(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetReason(ctx, &pb.GetReasonRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRequest calls the GetRequest RPC.
-func (c *CaptureFailureClient) GetRequest(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRequest(ctx, &pb.GetRequestRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSequenceId calls the GetSequenceId RPC.
-func (c *CaptureFailureClient) GetSequenceId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSequenceId(ctx, &pb.GetSequenceIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WasImageCaptured calls the WasImageCaptured RPC.
-func (c *CaptureFailureClient) WasImageCaptured(ctx context.Context) (bool, error) {
-	resp, err := c.svc.WasImageCaptured(ctx, &pb.WasImageCapturedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CameraExtensionSessionClient wraps the gRPC CameraExtensionSessionService client.
-type CameraExtensionSessionClient struct {
-	svc pb.CameraExtensionSessionServiceClient
-}
-
-// NewCameraExtensionSessionClient creates a new CameraExtensionSession client.
-func NewCameraExtensionSessionClient(cc grpc.ClientConnInterface) *CameraExtensionSessionClient {
-	return &CameraExtensionSessionClient{
-		svc: pb.NewCameraExtensionSessionServiceClient(cc),
-	}
-}
-
-// Capture calls the Capture RPC.
-func (c *CameraExtensionSessionClient) Capture(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int32, error) {
-	resp, err := c.svc.Capture(ctx, &pb.CaptureRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Close calls the Close RPC.
-func (c *CameraExtensionSessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// GetDevice calls the GetDevice RPC.
-func (c *CameraExtensionSessionClient) GetDevice(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDevice(ctx, &pb.GetDeviceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRealtimeStillCaptureLatency calls the GetRealtimeStillCaptureLatency RPC.
-func (c *CameraExtensionSessionClient) GetRealtimeStillCaptureLatency(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRealtimeStillCaptureLatency(ctx, &pb.GetRealtimeStillCaptureLatencyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRepeatingRequest calls the SetRepeatingRequest RPC.
-func (c *CameraExtensionSessionClient) SetRepeatingRequest(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int32, error) {
-	resp, err := c.svc.SetRepeatingRequest(ctx, &pb.SetRepeatingRequestRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StopRepeating calls the StopRepeating RPC.
-func (c *CameraExtensionSessionClient) StopRepeating(ctx context.Context) error {
-	_, err := c.svc.StopRepeating(ctx, &pb.StopRepeatingRequest{})
-	return err
-}
-
-// CameraExtensionSessionExtensionCaptureCallbackClient wraps the gRPC CameraExtensionSessionExtensionCaptureCallbackService client.
-type CameraExtensionSessionExtensionCaptureCallbackClient struct {
-	svc pb.CameraExtensionSessionExtensionCaptureCallbackServiceClient
-}
-
-// NewCameraExtensionSessionExtensionCaptureCallbackClient creates a new CameraExtensionSessionExtensionCaptureCallback client.
-func NewCameraExtensionSessionExtensionCaptureCallbackClient(cc grpc.ClientConnInterface) *CameraExtensionSessionExtensionCaptureCallbackClient {
-	return &CameraExtensionSessionExtensionCaptureCallbackClient{
-		svc: pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(cc),
-	}
-}
-
-// OnCaptureFailed2 calls the OnCaptureFailed2 RPC.
-func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureFailed2(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnCaptureFailed2(ctx, &pb.OnCaptureFailed2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnCaptureFailed3_1 calls the OnCaptureFailed3_1 RPC.
-func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureFailed3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnCaptureFailed3_1(ctx, &pb.OnCaptureFailed3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnCaptureProcessProgressed calls the OnCaptureProcessProgressed RPC.
-func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureProcessProgressed(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.OnCaptureProcessProgressed(ctx, &pb.OnCaptureProcessProgressedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnCaptureProcessStarted calls the OnCaptureProcessStarted RPC.
-func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureProcessStarted(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnCaptureProcessStarted(ctx, &pb.OnCaptureProcessStartedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnCaptureResultAvailable calls the OnCaptureResultAvailable RPC.
-func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureResultAvailable(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.OnCaptureResultAvailable(ctx, &pb.OnCaptureResultAvailableRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnCaptureSequenceAborted calls the OnCaptureSequenceAborted RPC.
-func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureSequenceAborted(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnCaptureSequenceAborted(ctx, &pb.OnCaptureSequenceAbortedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnCaptureSequenceCompleted calls the OnCaptureSequenceCompleted RPC.
-func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureSequenceCompleted(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnCaptureSequenceCompleted(ctx, &pb.OnCaptureSequenceCompletedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnCaptureStarted calls the OnCaptureStarted RPC.
-func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureStarted(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.OnCaptureStarted(ctx, &pb.OnCaptureStartedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// CameraExtensionSessionStateCallbackClient wraps the gRPC CameraExtensionSessionStateCallbackService client.
-type CameraExtensionSessionStateCallbackClient struct {
-	svc pb.CameraExtensionSessionStateCallbackServiceClient
-}
-
-// NewCameraExtensionSessionStateCallbackClient creates a new CameraExtensionSessionStateCallback client.
-func NewCameraExtensionSessionStateCallbackClient(cc grpc.ClientConnInterface) *CameraExtensionSessionStateCallbackClient {
-	return &CameraExtensionSessionStateCallbackClient{
-		svc: pb.NewCameraExtensionSessionStateCallbackServiceClient(cc),
-	}
-}
-
-// OnClosed calls the OnClosed RPC.
-func (c *CameraExtensionSessionStateCallbackClient) OnClosed(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnClosed(ctx, &pb.OnClosedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnConfigureFailed calls the OnConfigureFailed RPC.
-func (c *CameraExtensionSessionStateCallbackClient) OnConfigureFailed(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnConfigureFailed(ctx, &pb.OnConfigureFailedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnConfigured calls the OnConfigured RPC.
-func (c *CameraExtensionSessionStateCallbackClient) OnConfigured(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnConfigured(ctx, &pb.OnConfiguredRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CameraExtensionSessionStillCaptureLatencyClient wraps the gRPC CameraExtensionSessionStillCaptureLatencyService client.
-type CameraExtensionSessionStillCaptureLatencyClient struct {
-	svc pb.CameraExtensionSessionStillCaptureLatencyServiceClient
-}
-
-// NewCameraExtensionSessionStillCaptureLatencyClient creates a new CameraExtensionSessionStillCaptureLatency client.
-func NewCameraExtensionSessionStillCaptureLatencyClient(cc grpc.ClientConnInterface) *CameraExtensionSessionStillCaptureLatencyClient {
-	return &CameraExtensionSessionStillCaptureLatencyClient{
-		svc: pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *CameraExtensionSessionStillCaptureLatencyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCaptureLatency calls the GetCaptureLatency RPC.
-func (c *CameraExtensionSessionStillCaptureLatencyClient) GetCaptureLatency(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCaptureLatency(ctx, &pb.GetCaptureLatencyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProcessingLatency calls the GetProcessingLatency RPC.
-func (c *CameraExtensionSessionStillCaptureLatencyClient) GetProcessingLatency(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetProcessingLatency(ctx, &pb.GetProcessingLatencyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *CameraExtensionSessionStillCaptureLatencyClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *CameraExtensionSessionStillCaptureLatencyClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// MultiResolutionImageReaderClient wraps the gRPC MultiResolutionImageReaderService client.
-type MultiResolutionImageReaderClient struct {
-	svc pb.MultiResolutionImageReaderServiceClient
-}
-
-// NewMultiResolutionImageReaderClient creates a new MultiResolutionImageReader client.
-func NewMultiResolutionImageReaderClient(cc grpc.ClientConnInterface) *MultiResolutionImageReaderClient {
-	return &MultiResolutionImageReaderClient{
-		svc: pb.NewMultiResolutionImageReaderServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *MultiResolutionImageReaderClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.MultiResolutionImageReaderCloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Flush calls the Flush RPC.
-func (c *MultiResolutionImageReaderClient) Flush(ctx context.Context, handle int64) error {
-	_, err := c.svc.Flush(ctx, &pb.FlushRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetStreamInfoForImageReader calls the GetStreamInfoForImageReader RPC.
-func (c *MultiResolutionImageReaderClient) GetStreamInfoForImageReader(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetStreamInfoForImageReader(ctx, &pb.GetStreamInfoForImageReaderRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSurface calls the GetSurface RPC.
-func (c *MultiResolutionImageReaderClient) GetSurface(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetOnImageAvailableListener calls the SetOnImageAvailableListener RPC.
-func (c *MultiResolutionImageReaderClient) SetOnImageAvailableListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetOnImageAvailableListener(ctx, &pb.SetOnImageAvailableListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
 }
 
 // CameraCaptureSessionClient wraps the gRPC CameraCaptureSessionService client.
@@ -837,7 +334,7 @@ func (c *CameraCaptureSessionCaptureCallbackClient) OnCaptureSequenceAborted(ctx
 
 // OnCaptureSequenceCompleted calls the OnCaptureSequenceCompleted RPC.
 func (c *CameraCaptureSessionCaptureCallbackClient) OnCaptureSequenceCompleted(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
-	_, err := c.svc.OnCaptureSequenceCompleted(ctx, &pb.CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest{
+	_, err := c.svc.OnCaptureSequenceCompleted(ctx, &pb.OnCaptureSequenceCompletedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -847,7 +344,7 @@ func (c *CameraCaptureSessionCaptureCallbackClient) OnCaptureSequenceCompleted(c
 
 // OnCaptureStarted calls the OnCaptureStarted RPC.
 func (c *CameraCaptureSessionCaptureCallbackClient) OnCaptureStarted(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.OnCaptureStarted(ctx, &pb.CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest{
+	_, err := c.svc.OnCaptureStarted(ctx, &pb.OnCaptureStartedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -934,6 +431,93 @@ func (c *CameraCaptureSessionStateCallbackClient) OnSurfacePrepared(ctx context.
 		Arg1: arg1,
 	})
 	return err
+}
+
+// CaptureFailureClient wraps the gRPC CaptureFailureService client.
+type CaptureFailureClient struct {
+	svc pb.CaptureFailureServiceClient
+}
+
+// NewCaptureFailureClient creates a new CaptureFailure client.
+func NewCaptureFailureClient(cc grpc.ClientConnInterface) *CaptureFailureClient {
+	return &CaptureFailureClient{
+		svc: pb.NewCaptureFailureServiceClient(cc),
+	}
+}
+
+// GetFrameNumber calls the GetFrameNumber RPC.
+func (c *CaptureFailureClient) GetFrameNumber(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFrameNumber(ctx, &pb.GetFrameNumberRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhysicalCameraId calls the GetPhysicalCameraId RPC.
+func (c *CaptureFailureClient) GetPhysicalCameraId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPhysicalCameraId(ctx, &pb.GetPhysicalCameraIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReason calls the GetReason RPC.
+func (c *CaptureFailureClient) GetReason(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetReason(ctx, &pb.GetReasonRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequest calls the GetRequest RPC.
+func (c *CaptureFailureClient) GetRequest(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRequest(ctx, &pb.GetRequestRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSequenceId calls the GetSequenceId RPC.
+func (c *CaptureFailureClient) GetSequenceId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSequenceId(ctx, &pb.GetSequenceIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WasImageCaptured calls the WasImageCaptured RPC.
+func (c *CaptureFailureClient) WasImageCaptured(ctx context.Context) (bool, error) {
+	resp, err := c.svc.WasImageCaptured(ctx, &pb.WasImageCapturedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TotalCaptureResultClient wraps the gRPC TotalCaptureResultService client.
+type TotalCaptureResultClient struct {
+	svc pb.TotalCaptureResultServiceClient
+}
+
+// NewTotalCaptureResultClient creates a new TotalCaptureResult client.
+func NewTotalCaptureResultClient(cc grpc.ClientConnInterface) *TotalCaptureResultClient {
+	return &TotalCaptureResultClient{
+		svc: pb.NewTotalCaptureResultServiceClient(cc),
+	}
+}
+
+// GetPartialResults calls the GetPartialResults RPC.
+func (c *TotalCaptureResultClient) GetPartialResults(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPartialResults(ctx, &pb.GetPartialResultsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // CameraDeviceClient wraps the gRPC CameraDeviceService client.
@@ -1137,6 +721,347 @@ func (c *CameraDeviceStateCallbackClient) OnOpened(ctx context.Context, arg0 int
 	return err
 }
 
+// CameraAccessExceptionClient wraps the gRPC CameraAccessExceptionService client.
+type CameraAccessExceptionClient struct {
+	svc pb.CameraAccessExceptionServiceClient
+}
+
+// NewCameraAccessExceptionClient creates a new CameraAccessException client.
+func NewCameraAccessExceptionClient(cc grpc.ClientConnInterface) *CameraAccessExceptionClient {
+	return &CameraAccessExceptionClient{
+		svc: pb.NewCameraAccessExceptionServiceClient(cc),
+	}
+}
+
+// GetReason calls the GetReason RPC.
+func (c *CameraAccessExceptionClient) GetReason(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetReason(ctx, &pb.CameraAccessExceptionGetReasonRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CameraOfflineSessionClient wraps the gRPC CameraOfflineSessionService client.
+type CameraOfflineSessionClient struct {
+	svc pb.CameraOfflineSessionServiceClient
+}
+
+// NewCameraOfflineSessionClient creates a new CameraOfflineSession client.
+func NewCameraOfflineSessionClient(cc grpc.ClientConnInterface) *CameraOfflineSessionClient {
+	return &CameraOfflineSessionClient{
+		svc: pb.NewCameraOfflineSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *CameraOfflineSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// CameraOfflineSessionCameraOfflineSessionCallbackClient wraps the gRPC CameraOfflineSessionCameraOfflineSessionCallbackService client.
+type CameraOfflineSessionCameraOfflineSessionCallbackClient struct {
+	svc pb.CameraOfflineSessionCameraOfflineSessionCallbackServiceClient
+}
+
+// NewCameraOfflineSessionCameraOfflineSessionCallbackClient creates a new CameraOfflineSessionCameraOfflineSessionCallback client.
+func NewCameraOfflineSessionCameraOfflineSessionCallbackClient(cc grpc.ClientConnInterface) *CameraOfflineSessionCameraOfflineSessionCallbackClient {
+	return &CameraOfflineSessionCameraOfflineSessionCallbackClient{
+		svc: pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(cc),
+	}
+}
+
+// OnClosed calls the OnClosed RPC.
+func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnClosed(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnClosed(ctx, &pb.OnClosedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnError calls the OnError RPC.
+func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnError(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnIdle calls the OnIdle RPC.
+func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnIdle(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnIdle(ctx, &pb.OnIdleRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnReady calls the OnReady RPC.
+func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnReady(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnReady(ctx, &pb.OnReadyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSwitchFailed calls the OnSwitchFailed RPC.
+func (c *CameraOfflineSessionCameraOfflineSessionCallbackClient) OnSwitchFailed(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSwitchFailed(ctx, &pb.OnSwitchFailedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CameraCharacteristicsClient wraps the gRPC CameraCharacteristicsService client.
+type CameraCharacteristicsClient struct {
+	svc pb.CameraCharacteristicsServiceClient
+}
+
+// NewCameraCharacteristicsClient creates a new CameraCharacteristics client.
+func NewCameraCharacteristicsClient(cc grpc.ClientConnInterface) *CameraCharacteristicsClient {
+	return &CameraCharacteristicsClient{
+		svc: pb.NewCameraCharacteristicsServiceClient(cc),
+	}
+}
+
+// GetAvailableCaptureRequestKeys calls the GetAvailableCaptureRequestKeys RPC.
+func (c *CameraCharacteristicsClient) GetAvailableCaptureRequestKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableCaptureRequestKeys(ctx, &pb.GetAvailableCaptureRequestKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableCaptureResultKeys calls the GetAvailableCaptureResultKeys RPC.
+func (c *CameraCharacteristicsClient) GetAvailableCaptureResultKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableCaptureResultKeys(ctx, &pb.GetAvailableCaptureResultKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailablePhysicalCameraRequestKeys calls the GetAvailablePhysicalCameraRequestKeys RPC.
+func (c *CameraCharacteristicsClient) GetAvailablePhysicalCameraRequestKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailablePhysicalCameraRequestKeys(ctx, &pb.GetAvailablePhysicalCameraRequestKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableSessionCharacteristicsKeys calls the GetAvailableSessionCharacteristicsKeys RPC.
+func (c *CameraCharacteristicsClient) GetAvailableSessionCharacteristicsKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableSessionCharacteristicsKeys(ctx, &pb.GetAvailableSessionCharacteristicsKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableSessionKeys calls the GetAvailableSessionKeys RPC.
+func (c *CameraCharacteristicsClient) GetAvailableSessionKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableSessionKeys(ctx, &pb.GetAvailableSessionKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeys calls the GetKeys RPC.
+func (c *CameraCharacteristicsClient) GetKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeys(ctx, &pb.GetKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeysNeedingPermission calls the GetKeysNeedingPermission RPC.
+func (c *CameraCharacteristicsClient) GetKeysNeedingPermission(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeysNeedingPermission(ctx, &pb.GetKeysNeedingPermissionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhysicalCameraIds calls the GetPhysicalCameraIds RPC.
+func (c *CameraCharacteristicsClient) GetPhysicalCameraIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPhysicalCameraIds(ctx, &pb.GetPhysicalCameraIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRecommendedStreamConfigurationMap calls the GetRecommendedStreamConfigurationMap RPC.
+func (c *CameraCharacteristicsClient) GetRecommendedStreamConfigurationMap(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetRecommendedStreamConfigurationMap(ctx, &pb.GetRecommendedStreamConfigurationMapRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CameraCharacteristicsKeyClient wraps the gRPC CameraCharacteristicsKeyService client.
+type CameraCharacteristicsKeyClient struct {
+	svc pb.CameraCharacteristicsKeyServiceClient
+}
+
+// NewCameraCharacteristicsKeyClient creates a new CameraCharacteristicsKey client.
+func NewCameraCharacteristicsKeyClient(cc grpc.ClientConnInterface) *CameraCharacteristicsKeyClient {
+	return &CameraCharacteristicsKeyClient{
+		svc: pb.NewCameraCharacteristicsKeyServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CameraCharacteristicsKeyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *CameraCharacteristicsKeyClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CameraCharacteristicsKeyClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CameraCharacteristicsKeyClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DngCreatorClient wraps the gRPC DngCreatorService client.
+type DngCreatorClient struct {
+	svc pb.DngCreatorServiceClient
+}
+
+// NewDngCreatorClient creates a new DngCreator client.
+func NewDngCreatorClient(cc grpc.ClientConnInterface) *DngCreatorClient {
+	return &DngCreatorClient{
+		svc: pb.NewDngCreatorServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *DngCreatorClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.DngCreatorCloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *DngCreatorClient) SetDescription(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLocation calls the SetLocation RPC.
+func (c *DngCreatorClient) SetLocation(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLocation(ctx, &pb.SetLocationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOrientation calls the SetOrientation RPC.
+func (c *DngCreatorClient) SetOrientation(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetOrientation(ctx, &pb.SetOrientationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetThumbnail1 calls the SetThumbnail1 RPC.
+func (c *DngCreatorClient) SetThumbnail1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetThumbnail1(ctx, &pb.SetThumbnail1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetThumbnail1_1 calls the SetThumbnail1_1 RPC.
+func (c *DngCreatorClient) SetThumbnail1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetThumbnail1_1(ctx, &pb.SetThumbnail1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteImage calls the WriteImage RPC.
+func (c *DngCreatorClient) WriteImage(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.WriteImage(ctx, &pb.WriteImageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WriteInputStream calls the WriteInputStream RPC.
+func (c *DngCreatorClient) WriteInputStream(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.WriteInputStream(ctx, &pb.WriteInputStreamRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
 // CaptureRequestClient wraps the gRPC CaptureRequestService client.
 type CaptureRequestClient struct {
 	svc pb.CaptureRequestServiceClient
@@ -1165,6 +1090,15 @@ func (c *CaptureRequestClient) Equals(ctx context.Context, arg0 int64) (bool, er
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeys calls the GetKeys RPC.
+func (c *CaptureRequestClient) GetKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeys(ctx, &pb.GetKeysRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1300,29 +1234,37 @@ func (c *CaptureRequestKeyClient) ToString(ctx context.Context) (string, error) 
 	return resp.GetResult(), nil
 }
 
-// DngCreatorClient wraps the gRPC DngCreatorService client.
-type DngCreatorClient struct {
-	svc pb.DngCreatorServiceClient
+// MultiResolutionImageReaderClient wraps the gRPC MultiResolutionImageReaderService client.
+type MultiResolutionImageReaderClient struct {
+	svc pb.MultiResolutionImageReaderServiceClient
 }
 
-// NewDngCreatorClient creates a new DngCreator client.
-func NewDngCreatorClient(cc grpc.ClientConnInterface) *DngCreatorClient {
-	return &DngCreatorClient{
-		svc: pb.NewDngCreatorServiceClient(cc),
+// NewMultiResolutionImageReaderClient creates a new MultiResolutionImageReader client.
+func NewMultiResolutionImageReaderClient(cc grpc.ClientConnInterface) *MultiResolutionImageReaderClient {
+	return &MultiResolutionImageReaderClient{
+		svc: pb.NewMultiResolutionImageReaderServiceClient(cc),
 	}
 }
 
 // Close calls the Close RPC.
-func (c *DngCreatorClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.DngCreatorCloseRequest{
+func (c *MultiResolutionImageReaderClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.MultiResolutionImageReaderCloseRequest{
 		Handle: handle,
 	})
 	return err
 }
 
-// SetDescription calls the SetDescription RPC.
-func (c *DngCreatorClient) SetDescription(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+// Flush calls the Flush RPC.
+func (c *MultiResolutionImageReaderClient) Flush(ctx context.Context, handle int64) error {
+	_, err := c.svc.Flush(ctx, &pb.FlushRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetStreamInfoForImageReader calls the GetStreamInfoForImageReader RPC.
+func (c *MultiResolutionImageReaderClient) GetStreamInfoForImageReader(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetStreamInfoForImageReader(ctx, &pb.GetStreamInfoForImageReaderRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1332,11 +1274,10 @@ func (c *DngCreatorClient) SetDescription(ctx context.Context, handle int64, arg
 	return resp.GetResult(), nil
 }
 
-// SetLocation calls the SetLocation RPC.
-func (c *DngCreatorClient) SetLocation(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetLocation(ctx, &pb.SetLocationRequest{
+// GetSurface calls the GetSurface RPC.
+func (c *MultiResolutionImageReaderClient) GetSurface(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{
 		Handle: handle,
-		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -1344,45 +1285,9 @@ func (c *DngCreatorClient) SetLocation(ctx context.Context, handle int64, arg0 i
 	return resp.GetResult(), nil
 }
 
-// SetOrientation calls the SetOrientation RPC.
-func (c *DngCreatorClient) SetOrientation(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetOrientation(ctx, &pb.SetOrientationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetThumbnail1 calls the SetThumbnail1 RPC.
-func (c *DngCreatorClient) SetThumbnail1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetThumbnail1(ctx, &pb.SetThumbnail1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetThumbnail1_1 calls the SetThumbnail1_1 RPC.
-func (c *DngCreatorClient) SetThumbnail1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetThumbnail1_1(ctx, &pb.SetThumbnail1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteImage calls the WriteImage RPC.
-func (c *DngCreatorClient) WriteImage(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.WriteImage(ctx, &pb.WriteImageRequest{
+// SetOnImageAvailableListener calls the SetOnImageAvailableListener RPC.
+func (c *MultiResolutionImageReaderClient) SetOnImageAvailableListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetOnImageAvailableListener(ctx, &pb.SetOnImageAvailableListenerRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1390,37 +1295,367 @@ func (c *DngCreatorClient) WriteImage(ctx context.Context, handle int64, arg0 in
 	return err
 }
 
-// WriteInputStream calls the WriteInputStream RPC.
-func (c *DngCreatorClient) WriteInputStream(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.WriteInputStream(ctx, &pb.WriteInputStreamRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
+// CameraExtensionSessionClient wraps the gRPC CameraExtensionSessionService client.
+type CameraExtensionSessionClient struct {
+	svc pb.CameraExtensionSessionServiceClient
+}
+
+// NewCameraExtensionSessionClient creates a new CameraExtensionSession client.
+func NewCameraExtensionSessionClient(cc grpc.ClientConnInterface) *CameraExtensionSessionClient {
+	return &CameraExtensionSessionClient{
+		svc: pb.NewCameraExtensionSessionServiceClient(cc),
+	}
+}
+
+// Capture calls the Capture RPC.
+func (c *CameraExtensionSessionClient) Capture(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int32, error) {
+	resp, err := c.svc.Capture(ctx, &pb.CaptureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *CameraExtensionSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetDevice calls the GetDevice RPC.
+func (c *CameraExtensionSessionClient) GetDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDevice(ctx, &pb.GetDeviceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRealtimeStillCaptureLatency calls the GetRealtimeStillCaptureLatency RPC.
+func (c *CameraExtensionSessionClient) GetRealtimeStillCaptureLatency(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRealtimeStillCaptureLatency(ctx, &pb.GetRealtimeStillCaptureLatencyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRepeatingRequest calls the SetRepeatingRequest RPC.
+func (c *CameraExtensionSessionClient) SetRepeatingRequest(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int32, error) {
+	resp, err := c.svc.SetRepeatingRequest(ctx, &pb.SetRepeatingRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StopRepeating calls the StopRepeating RPC.
+func (c *CameraExtensionSessionClient) StopRepeating(ctx context.Context) error {
+	_, err := c.svc.StopRepeating(ctx, &pb.StopRepeatingRequest{})
+	return err
+}
+
+// CameraExtensionSessionExtensionCaptureCallbackClient wraps the gRPC CameraExtensionSessionExtensionCaptureCallbackService client.
+type CameraExtensionSessionExtensionCaptureCallbackClient struct {
+	svc pb.CameraExtensionSessionExtensionCaptureCallbackServiceClient
+}
+
+// NewCameraExtensionSessionExtensionCaptureCallbackClient creates a new CameraExtensionSessionExtensionCaptureCallback client.
+func NewCameraExtensionSessionExtensionCaptureCallbackClient(cc grpc.ClientConnInterface) *CameraExtensionSessionExtensionCaptureCallbackClient {
+	return &CameraExtensionSessionExtensionCaptureCallbackClient{
+		svc: pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(cc),
+	}
+}
+
+// OnCaptureFailed2 calls the OnCaptureFailed2 RPC.
+func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureFailed2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnCaptureFailed2(ctx, &pb.OnCaptureFailed2Request{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
 
-// CameraAccessExceptionClient wraps the gRPC CameraAccessExceptionService client.
-type CameraAccessExceptionClient struct {
-	svc pb.CameraAccessExceptionServiceClient
+// OnCaptureFailed3_1 calls the OnCaptureFailed3_1 RPC.
+func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureFailed3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnCaptureFailed3_1(ctx, &pb.OnCaptureFailed3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
 }
 
-// NewCameraAccessExceptionClient creates a new CameraAccessException client.
-func NewCameraAccessExceptionClient(cc grpc.ClientConnInterface) *CameraAccessExceptionClient {
-	return &CameraAccessExceptionClient{
-		svc: pb.NewCameraAccessExceptionServiceClient(cc),
+// OnCaptureProcessProgressed calls the OnCaptureProcessProgressed RPC.
+func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureProcessProgressed(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnCaptureProcessProgressed(ctx, &pb.OnCaptureProcessProgressedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnCaptureProcessStarted calls the OnCaptureProcessStarted RPC.
+func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureProcessStarted(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnCaptureProcessStarted(ctx, &pb.OnCaptureProcessStartedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnCaptureResultAvailable calls the OnCaptureResultAvailable RPC.
+func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureResultAvailable(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnCaptureResultAvailable(ctx, &pb.OnCaptureResultAvailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnCaptureSequenceAborted calls the OnCaptureSequenceAborted RPC.
+func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureSequenceAborted(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnCaptureSequenceAborted(ctx, &pb.OnCaptureSequenceAbortedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnCaptureSequenceCompleted calls the OnCaptureSequenceCompleted RPC.
+func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureSequenceCompleted(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnCaptureSequenceCompleted(ctx, &pb.CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnCaptureStarted calls the OnCaptureStarted RPC.
+func (c *CameraExtensionSessionExtensionCaptureCallbackClient) OnCaptureStarted(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnCaptureStarted(ctx, &pb.CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// CameraExtensionSessionStateCallbackClient wraps the gRPC CameraExtensionSessionStateCallbackService client.
+type CameraExtensionSessionStateCallbackClient struct {
+	svc pb.CameraExtensionSessionStateCallbackServiceClient
+}
+
+// NewCameraExtensionSessionStateCallbackClient creates a new CameraExtensionSessionStateCallback client.
+func NewCameraExtensionSessionStateCallbackClient(cc grpc.ClientConnInterface) *CameraExtensionSessionStateCallbackClient {
+	return &CameraExtensionSessionStateCallbackClient{
+		svc: pb.NewCameraExtensionSessionStateCallbackServiceClient(cc),
 	}
 }
 
-// GetReason calls the GetReason RPC.
-func (c *CameraAccessExceptionClient) GetReason(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetReason(ctx, &pb.CameraAccessExceptionGetReasonRequest{
-		Handle: handle,
+// OnClosed calls the OnClosed RPC.
+func (c *CameraExtensionSessionStateCallbackClient) OnClosed(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnClosed(ctx, &pb.OnClosedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnConfigureFailed calls the OnConfigureFailed RPC.
+func (c *CameraExtensionSessionStateCallbackClient) OnConfigureFailed(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConfigureFailed(ctx, &pb.OnConfigureFailedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnConfigured calls the OnConfigured RPC.
+func (c *CameraExtensionSessionStateCallbackClient) OnConfigured(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConfigured(ctx, &pb.OnConfiguredRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CameraExtensionSessionStillCaptureLatencyClient wraps the gRPC CameraExtensionSessionStillCaptureLatencyService client.
+type CameraExtensionSessionStillCaptureLatencyClient struct {
+	svc pb.CameraExtensionSessionStillCaptureLatencyServiceClient
+}
+
+// NewCameraExtensionSessionStillCaptureLatencyClient creates a new CameraExtensionSessionStillCaptureLatency client.
+func NewCameraExtensionSessionStillCaptureLatencyClient(cc grpc.ClientConnInterface) *CameraExtensionSessionStillCaptureLatencyClient {
+	return &CameraExtensionSessionStillCaptureLatencyClient{
+		svc: pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CameraExtensionSessionStillCaptureLatencyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCaptureLatency calls the GetCaptureLatency RPC.
+func (c *CameraExtensionSessionStillCaptureLatencyClient) GetCaptureLatency(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCaptureLatency(ctx, &pb.GetCaptureLatencyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProcessingLatency calls the GetProcessingLatency RPC.
+func (c *CameraExtensionSessionStillCaptureLatencyClient) GetProcessingLatency(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProcessingLatency(ctx, &pb.GetProcessingLatencyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CameraExtensionSessionStillCaptureLatencyClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CameraExtensionSessionStillCaptureLatencyClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CameraExtensionCharacteristicsClient wraps the gRPC CameraExtensionCharacteristicsService client.
+type CameraExtensionCharacteristicsClient struct {
+	svc pb.CameraExtensionCharacteristicsServiceClient
+}
+
+// NewCameraExtensionCharacteristicsClient creates a new CameraExtensionCharacteristics client.
+func NewCameraExtensionCharacteristicsClient(cc grpc.ClientConnInterface) *CameraExtensionCharacteristicsClient {
+	return &CameraExtensionCharacteristicsClient{
+		svc: pb.NewCameraExtensionCharacteristicsServiceClient(cc),
+	}
+}
+
+// GetAvailableCaptureRequestKeys calls the GetAvailableCaptureRequestKeys RPC.
+func (c *CameraExtensionCharacteristicsClient) GetAvailableCaptureRequestKeys(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetAvailableCaptureRequestKeys(ctx, &pb.CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableCaptureResultKeys calls the GetAvailableCaptureResultKeys RPC.
+func (c *CameraExtensionCharacteristicsClient) GetAvailableCaptureResultKeys(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetAvailableCaptureResultKeys(ctx, &pb.CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEstimatedCaptureLatencyRangeMillis calls the GetEstimatedCaptureLatencyRangeMillis RPC.
+func (c *CameraExtensionCharacteristicsClient) GetEstimatedCaptureLatencyRangeMillis(ctx context.Context, arg0 int32, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetEstimatedCaptureLatencyRangeMillis(ctx, &pb.GetEstimatedCaptureLatencyRangeMillisRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtensionSupportedSizes calls the GetExtensionSupportedSizes RPC.
+func (c *CameraExtensionCharacteristicsClient) GetExtensionSupportedSizes(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetExtensionSupportedSizes(ctx, &pb.GetExtensionSupportedSizesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeys calls the GetKeys RPC.
+func (c *CameraExtensionCharacteristicsClient) GetKeys(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetKeys(ctx, &pb.CameraExtensionCharacteristicsGetKeysRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPostviewSupportedSizes calls the GetPostviewSupportedSizes RPC.
+func (c *CameraExtensionCharacteristicsClient) GetPostviewSupportedSizes(ctx context.Context, arg0 int32, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetPostviewSupportedSizes(ctx, &pb.GetPostviewSupportedSizesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedExtensions calls the GetSupportedExtensions RPC.
+func (c *CameraExtensionCharacteristicsClient) GetSupportedExtensions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedExtensions(ctx, &pb.GetSupportedExtensionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCaptureProcessProgressAvailable calls the IsCaptureProcessProgressAvailable RPC.
+func (c *CameraExtensionCharacteristicsClient) IsCaptureProcessProgressAvailable(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsCaptureProcessProgressAvailable(ctx, &pb.IsCaptureProcessProgressAvailableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPostviewAvailable calls the IsPostviewAvailable RPC.
+func (c *CameraExtensionCharacteristicsClient) IsPostviewAvailable(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsPostviewAvailable(ctx, &pb.IsPostviewAvailableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }

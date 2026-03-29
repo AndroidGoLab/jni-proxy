@@ -21,8 +21,113 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	SdkSandboxActivityHandlerService_OnActivityCreated_FullMethodName = "/sdkprovider.SdkSandboxActivityHandlerService/OnActivityCreated"
+)
+
+// SdkSandboxActivityHandlerServiceClient is the client API for SdkSandboxActivityHandlerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SdkSandboxActivityHandlerServiceClient interface {
+	OnActivityCreated(ctx context.Context, in *OnActivityCreatedRequest, opts ...grpc.CallOption) (*OnActivityCreatedResponse, error)
+}
+
+type sdkSandboxActivityHandlerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSdkSandboxActivityHandlerServiceClient(cc grpc.ClientConnInterface) SdkSandboxActivityHandlerServiceClient {
+	return &sdkSandboxActivityHandlerServiceClient{cc}
+}
+
+func (c *sdkSandboxActivityHandlerServiceClient) OnActivityCreated(ctx context.Context, in *OnActivityCreatedRequest, opts ...grpc.CallOption) (*OnActivityCreatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnActivityCreatedResponse)
+	err := c.cc.Invoke(ctx, SdkSandboxActivityHandlerService_OnActivityCreated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SdkSandboxActivityHandlerServiceServer is the server API for SdkSandboxActivityHandlerService service.
+// All implementations must embed UnimplementedSdkSandboxActivityHandlerServiceServer
+// for forward compatibility.
+type SdkSandboxActivityHandlerServiceServer interface {
+	OnActivityCreated(context.Context, *OnActivityCreatedRequest) (*OnActivityCreatedResponse, error)
+	mustEmbedUnimplementedSdkSandboxActivityHandlerServiceServer()
+}
+
+// UnimplementedSdkSandboxActivityHandlerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSdkSandboxActivityHandlerServiceServer struct{}
+
+func (UnimplementedSdkSandboxActivityHandlerServiceServer) OnActivityCreated(context.Context, *OnActivityCreatedRequest) (*OnActivityCreatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnActivityCreated not implemented")
+}
+func (UnimplementedSdkSandboxActivityHandlerServiceServer) mustEmbedUnimplementedSdkSandboxActivityHandlerServiceServer() {
+}
+func (UnimplementedSdkSandboxActivityHandlerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSdkSandboxActivityHandlerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SdkSandboxActivityHandlerServiceServer will
+// result in compilation errors.
+type UnsafeSdkSandboxActivityHandlerServiceServer interface {
+	mustEmbedUnimplementedSdkSandboxActivityHandlerServiceServer()
+}
+
+func RegisterSdkSandboxActivityHandlerServiceServer(s grpc.ServiceRegistrar, srv SdkSandboxActivityHandlerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSdkSandboxActivityHandlerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SdkSandboxActivityHandlerService_ServiceDesc, srv)
+}
+
+func _SdkSandboxActivityHandlerService_OnActivityCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnActivityCreatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SdkSandboxActivityHandlerServiceServer).OnActivityCreated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SdkSandboxActivityHandlerService_OnActivityCreated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SdkSandboxActivityHandlerServiceServer).OnActivityCreated(ctx, req.(*OnActivityCreatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SdkSandboxActivityHandlerService_ServiceDesc is the grpc.ServiceDesc for SdkSandboxActivityHandlerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SdkSandboxActivityHandlerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sdkprovider.SdkSandboxActivityHandlerService",
+	HandlerType: (*SdkSandboxActivityHandlerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnActivityCreated",
+			Handler:    _SdkSandboxActivityHandlerService_OnActivityCreated_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sdkprovider/sdkprovider.proto",
+}
+
+const (
+	SdkSandboxControllerService_GetAppOwnedSdkSandboxInterfaces_FullMethodName              = "/sdkprovider.SdkSandboxControllerService/GetAppOwnedSdkSandboxInterfaces"
 	SdkSandboxControllerService_GetClientPackageName_FullMethodName                         = "/sdkprovider.SdkSandboxControllerService/GetClientPackageName"
 	SdkSandboxControllerService_GetClientSharedPreferences_FullMethodName                   = "/sdkprovider.SdkSandboxControllerService/GetClientSharedPreferences"
+	SdkSandboxControllerService_GetSandboxedSdks_FullMethodName                             = "/sdkprovider.SdkSandboxControllerService/GetSandboxedSdks"
 	SdkSandboxControllerService_RegisterSdkSandboxClientImportanceListener_FullMethodName   = "/sdkprovider.SdkSandboxControllerService/RegisterSdkSandboxClientImportanceListener"
 	SdkSandboxControllerService_UnregisterSdkSandboxClientImportanceListener_FullMethodName = "/sdkprovider.SdkSandboxControllerService/UnregisterSdkSandboxClientImportanceListener"
 )
@@ -31,8 +136,10 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SdkSandboxControllerServiceClient interface {
+	GetAppOwnedSdkSandboxInterfaces(ctx context.Context, in *GetAppOwnedSdkSandboxInterfacesRequest, opts ...grpc.CallOption) (*GetAppOwnedSdkSandboxInterfacesResponse, error)
 	GetClientPackageName(ctx context.Context, in *GetClientPackageNameRequest, opts ...grpc.CallOption) (*GetClientPackageNameResponse, error)
 	GetClientSharedPreferences(ctx context.Context, in *GetClientSharedPreferencesRequest, opts ...grpc.CallOption) (*GetClientSharedPreferencesResponse, error)
+	GetSandboxedSdks(ctx context.Context, in *GetSandboxedSdksRequest, opts ...grpc.CallOption) (*GetSandboxedSdksResponse, error)
 	RegisterSdkSandboxClientImportanceListener(ctx context.Context, in *RegisterSdkSandboxClientImportanceListenerRequest, opts ...grpc.CallOption) (*RegisterSdkSandboxClientImportanceListenerResponse, error)
 	UnregisterSdkSandboxClientImportanceListener(ctx context.Context, in *UnregisterSdkSandboxClientImportanceListenerRequest, opts ...grpc.CallOption) (*UnregisterSdkSandboxClientImportanceListenerResponse, error)
 }
@@ -43,6 +150,16 @@ type sdkSandboxControllerServiceClient struct {
 
 func NewSdkSandboxControllerServiceClient(cc grpc.ClientConnInterface) SdkSandboxControllerServiceClient {
 	return &sdkSandboxControllerServiceClient{cc}
+}
+
+func (c *sdkSandboxControllerServiceClient) GetAppOwnedSdkSandboxInterfaces(ctx context.Context, in *GetAppOwnedSdkSandboxInterfacesRequest, opts ...grpc.CallOption) (*GetAppOwnedSdkSandboxInterfacesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppOwnedSdkSandboxInterfacesResponse)
+	err := c.cc.Invoke(ctx, SdkSandboxControllerService_GetAppOwnedSdkSandboxInterfaces_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *sdkSandboxControllerServiceClient) GetClientPackageName(ctx context.Context, in *GetClientPackageNameRequest, opts ...grpc.CallOption) (*GetClientPackageNameResponse, error) {
@@ -59,6 +176,16 @@ func (c *sdkSandboxControllerServiceClient) GetClientSharedPreferences(ctx conte
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetClientSharedPreferencesResponse)
 	err := c.cc.Invoke(ctx, SdkSandboxControllerService_GetClientSharedPreferences_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sdkSandboxControllerServiceClient) GetSandboxedSdks(ctx context.Context, in *GetSandboxedSdksRequest, opts ...grpc.CallOption) (*GetSandboxedSdksResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSandboxedSdksResponse)
+	err := c.cc.Invoke(ctx, SdkSandboxControllerService_GetSandboxedSdks_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,8 +216,10 @@ func (c *sdkSandboxControllerServiceClient) UnregisterSdkSandboxClientImportance
 // All implementations must embed UnimplementedSdkSandboxControllerServiceServer
 // for forward compatibility.
 type SdkSandboxControllerServiceServer interface {
+	GetAppOwnedSdkSandboxInterfaces(context.Context, *GetAppOwnedSdkSandboxInterfacesRequest) (*GetAppOwnedSdkSandboxInterfacesResponse, error)
 	GetClientPackageName(context.Context, *GetClientPackageNameRequest) (*GetClientPackageNameResponse, error)
 	GetClientSharedPreferences(context.Context, *GetClientSharedPreferencesRequest) (*GetClientSharedPreferencesResponse, error)
+	GetSandboxedSdks(context.Context, *GetSandboxedSdksRequest) (*GetSandboxedSdksResponse, error)
 	RegisterSdkSandboxClientImportanceListener(context.Context, *RegisterSdkSandboxClientImportanceListenerRequest) (*RegisterSdkSandboxClientImportanceListenerResponse, error)
 	UnregisterSdkSandboxClientImportanceListener(context.Context, *UnregisterSdkSandboxClientImportanceListenerRequest) (*UnregisterSdkSandboxClientImportanceListenerResponse, error)
 	mustEmbedUnimplementedSdkSandboxControllerServiceServer()
@@ -103,11 +232,17 @@ type SdkSandboxControllerServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSdkSandboxControllerServiceServer struct{}
 
+func (UnimplementedSdkSandboxControllerServiceServer) GetAppOwnedSdkSandboxInterfaces(context.Context, *GetAppOwnedSdkSandboxInterfacesRequest) (*GetAppOwnedSdkSandboxInterfacesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppOwnedSdkSandboxInterfaces not implemented")
+}
 func (UnimplementedSdkSandboxControllerServiceServer) GetClientPackageName(context.Context, *GetClientPackageNameRequest) (*GetClientPackageNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetClientPackageName not implemented")
 }
 func (UnimplementedSdkSandboxControllerServiceServer) GetClientSharedPreferences(context.Context, *GetClientSharedPreferencesRequest) (*GetClientSharedPreferencesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetClientSharedPreferences not implemented")
+}
+func (UnimplementedSdkSandboxControllerServiceServer) GetSandboxedSdks(context.Context, *GetSandboxedSdksRequest) (*GetSandboxedSdksResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSandboxedSdks not implemented")
 }
 func (UnimplementedSdkSandboxControllerServiceServer) RegisterSdkSandboxClientImportanceListener(context.Context, *RegisterSdkSandboxClientImportanceListenerRequest) (*RegisterSdkSandboxClientImportanceListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RegisterSdkSandboxClientImportanceListener not implemented")
@@ -135,6 +270,24 @@ func RegisterSdkSandboxControllerServiceServer(s grpc.ServiceRegistrar, srv SdkS
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&SdkSandboxControllerService_ServiceDesc, srv)
+}
+
+func _SdkSandboxControllerService_GetAppOwnedSdkSandboxInterfaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppOwnedSdkSandboxInterfacesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SdkSandboxControllerServiceServer).GetAppOwnedSdkSandboxInterfaces(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SdkSandboxControllerService_GetAppOwnedSdkSandboxInterfaces_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SdkSandboxControllerServiceServer).GetAppOwnedSdkSandboxInterfaces(ctx, req.(*GetAppOwnedSdkSandboxInterfacesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _SdkSandboxControllerService_GetClientPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -169,6 +322,24 @@ func _SdkSandboxControllerService_GetClientSharedPreferences_Handler(srv interfa
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SdkSandboxControllerServiceServer).GetClientSharedPreferences(ctx, req.(*GetClientSharedPreferencesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SdkSandboxControllerService_GetSandboxedSdks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSandboxedSdksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SdkSandboxControllerServiceServer).GetSandboxedSdks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SdkSandboxControllerService_GetSandboxedSdks_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SdkSandboxControllerServiceServer).GetSandboxedSdks(ctx, req.(*GetSandboxedSdksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -217,12 +388,20 @@ var SdkSandboxControllerService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*SdkSandboxControllerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "GetAppOwnedSdkSandboxInterfaces",
+			Handler:    _SdkSandboxControllerService_GetAppOwnedSdkSandboxInterfaces_Handler,
+		},
+		{
 			MethodName: "GetClientPackageName",
 			Handler:    _SdkSandboxControllerService_GetClientPackageName_Handler,
 		},
 		{
 			MethodName: "GetClientSharedPreferences",
 			Handler:    _SdkSandboxControllerService_GetClientSharedPreferences_Handler,
+		},
+		{
+			MethodName: "GetSandboxedSdks",
+			Handler:    _SdkSandboxControllerService_GetSandboxedSdks_Handler,
 		},
 		{
 			MethodName: "RegisterSdkSandboxClientImportanceListener",
@@ -334,109 +513,6 @@ var SdkSandboxClientImportanceListenerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnForegroundImportanceChanged",
 			Handler:    _SdkSandboxClientImportanceListenerService_OnForegroundImportanceChanged_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sdkprovider/sdkprovider.proto",
-}
-
-const (
-	SdkSandboxActivityHandlerService_OnActivityCreated_FullMethodName = "/sdkprovider.SdkSandboxActivityHandlerService/OnActivityCreated"
-)
-
-// SdkSandboxActivityHandlerServiceClient is the client API for SdkSandboxActivityHandlerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SdkSandboxActivityHandlerServiceClient interface {
-	OnActivityCreated(ctx context.Context, in *OnActivityCreatedRequest, opts ...grpc.CallOption) (*OnActivityCreatedResponse, error)
-}
-
-type sdkSandboxActivityHandlerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSdkSandboxActivityHandlerServiceClient(cc grpc.ClientConnInterface) SdkSandboxActivityHandlerServiceClient {
-	return &sdkSandboxActivityHandlerServiceClient{cc}
-}
-
-func (c *sdkSandboxActivityHandlerServiceClient) OnActivityCreated(ctx context.Context, in *OnActivityCreatedRequest, opts ...grpc.CallOption) (*OnActivityCreatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnActivityCreatedResponse)
-	err := c.cc.Invoke(ctx, SdkSandboxActivityHandlerService_OnActivityCreated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SdkSandboxActivityHandlerServiceServer is the server API for SdkSandboxActivityHandlerService service.
-// All implementations must embed UnimplementedSdkSandboxActivityHandlerServiceServer
-// for forward compatibility.
-type SdkSandboxActivityHandlerServiceServer interface {
-	OnActivityCreated(context.Context, *OnActivityCreatedRequest) (*OnActivityCreatedResponse, error)
-	mustEmbedUnimplementedSdkSandboxActivityHandlerServiceServer()
-}
-
-// UnimplementedSdkSandboxActivityHandlerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSdkSandboxActivityHandlerServiceServer struct{}
-
-func (UnimplementedSdkSandboxActivityHandlerServiceServer) OnActivityCreated(context.Context, *OnActivityCreatedRequest) (*OnActivityCreatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnActivityCreated not implemented")
-}
-func (UnimplementedSdkSandboxActivityHandlerServiceServer) mustEmbedUnimplementedSdkSandboxActivityHandlerServiceServer() {
-}
-func (UnimplementedSdkSandboxActivityHandlerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSdkSandboxActivityHandlerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SdkSandboxActivityHandlerServiceServer will
-// result in compilation errors.
-type UnsafeSdkSandboxActivityHandlerServiceServer interface {
-	mustEmbedUnimplementedSdkSandboxActivityHandlerServiceServer()
-}
-
-func RegisterSdkSandboxActivityHandlerServiceServer(s grpc.ServiceRegistrar, srv SdkSandboxActivityHandlerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSdkSandboxActivityHandlerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SdkSandboxActivityHandlerService_ServiceDesc, srv)
-}
-
-func _SdkSandboxActivityHandlerService_OnActivityCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnActivityCreatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SdkSandboxActivityHandlerServiceServer).OnActivityCreated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SdkSandboxActivityHandlerService_OnActivityCreated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SdkSandboxActivityHandlerServiceServer).OnActivityCreated(ctx, req.(*OnActivityCreatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SdkSandboxActivityHandlerService_ServiceDesc is the grpc.ServiceDesc for SdkSandboxActivityHandlerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SdkSandboxActivityHandlerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sdkprovider.SdkSandboxActivityHandlerService",
-	HandlerType: (*SdkSandboxActivityHandlerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnActivityCreated",
-			Handler:    _SdkSandboxActivityHandlerService_OnActivityCreated_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

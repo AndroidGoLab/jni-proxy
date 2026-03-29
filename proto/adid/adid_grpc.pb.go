@@ -21,6 +21,108 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	AdIdManagerService_Get_FullMethodName = "/adid.AdIdManagerService/Get"
+)
+
+// AdIdManagerServiceClient is the client API for AdIdManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdIdManagerServiceClient interface {
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type adIdManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdIdManagerServiceClient(cc grpc.ClientConnInterface) AdIdManagerServiceClient {
+	return &adIdManagerServiceClient{cc}
+}
+
+func (c *adIdManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, AdIdManagerService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdIdManagerServiceServer is the server API for AdIdManagerService service.
+// All implementations must embed UnimplementedAdIdManagerServiceServer
+// for forward compatibility.
+type AdIdManagerServiceServer interface {
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedAdIdManagerServiceServer()
+}
+
+// UnimplementedAdIdManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdIdManagerServiceServer struct{}
+
+func (UnimplementedAdIdManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedAdIdManagerServiceServer) mustEmbedUnimplementedAdIdManagerServiceServer() {}
+func (UnimplementedAdIdManagerServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeAdIdManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdIdManagerServiceServer will
+// result in compilation errors.
+type UnsafeAdIdManagerServiceServer interface {
+	mustEmbedUnimplementedAdIdManagerServiceServer()
+}
+
+func RegisterAdIdManagerServiceServer(s grpc.ServiceRegistrar, srv AdIdManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdIdManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdIdManagerService_ServiceDesc, srv)
+}
+
+func _AdIdManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdIdManagerServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdIdManagerService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdIdManagerServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdIdManagerService_ServiceDesc is the grpc.ServiceDesc for AdIdManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdIdManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adid.AdIdManagerService",
+	HandlerType: (*AdIdManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Get",
+			Handler:    _AdIdManagerService_Get_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adid/adid.proto",
+}
+
+const (
 	AdIdService_NewAdId_FullMethodName                  = "/adid.AdIdService/NewAdId"
 	AdIdService_Equals_FullMethodName                   = "/adid.AdIdService/Equals"
 	AdIdService_GetAdId_FullMethodName                  = "/adid.AdIdService/GetAdId"
@@ -306,108 +408,6 @@ var AdIdService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _AdIdService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adid/adid.proto",
-}
-
-const (
-	AdIdManagerService_Get_FullMethodName = "/adid.AdIdManagerService/Get"
-)
-
-// AdIdManagerServiceClient is the client API for AdIdManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdIdManagerServiceClient interface {
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type adIdManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAdIdManagerServiceClient(cc grpc.ClientConnInterface) AdIdManagerServiceClient {
-	return &adIdManagerServiceClient{cc}
-}
-
-func (c *adIdManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, AdIdManagerService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AdIdManagerServiceServer is the server API for AdIdManagerService service.
-// All implementations must embed UnimplementedAdIdManagerServiceServer
-// for forward compatibility.
-type AdIdManagerServiceServer interface {
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedAdIdManagerServiceServer()
-}
-
-// UnimplementedAdIdManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAdIdManagerServiceServer struct{}
-
-func (UnimplementedAdIdManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedAdIdManagerServiceServer) mustEmbedUnimplementedAdIdManagerServiceServer() {}
-func (UnimplementedAdIdManagerServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeAdIdManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdIdManagerServiceServer will
-// result in compilation errors.
-type UnsafeAdIdManagerServiceServer interface {
-	mustEmbedUnimplementedAdIdManagerServiceServer()
-}
-
-func RegisterAdIdManagerServiceServer(s grpc.ServiceRegistrar, srv AdIdManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdIdManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AdIdManagerService_ServiceDesc, srv)
-}
-
-func _AdIdManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdIdManagerServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdIdManagerService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdIdManagerServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AdIdManagerService_ServiceDesc is the grpc.ServiceDesc for AdIdManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AdIdManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adid.AdIdManagerService",
-	HandlerType: (*AdIdManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Get",
-			Handler:    _AdIdManagerService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

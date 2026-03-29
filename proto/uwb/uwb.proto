@@ -21,11 +21,18 @@ message EqualsResponse {
   bool result = 1;
 }
 
-message GetAddressBytesRequest {
+message GetChannelRequest {
 }
 
-message GetAddressBytesResponse {
-  int64 result = 1;
+message GetChannelResponse {
+  int32 result = 1;
+}
+
+message GetPreambleIndexRequest {
+}
+
+message GetPreambleIndexResponse {
+  int32 result = 1;
 }
 
 message HashCodeRequest {
@@ -48,6 +55,36 @@ message WriteToParcelRequest {
 }
 
 message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetChannelRequest {
+  int32 arg0 = 1;
+}
+
+message SetChannelResponse {
+  int64 result = 1;
+}
+
+message SetPreambleIndexRequest {
+  int32 arg0 = 1;
+}
+
+message SetPreambleIndexResponse {
+  int64 result = 1;
+}
+
+message GetAddressBytesRequest {
+}
+
+message GetAddressBytesResponse {
+  int64 result = 1;
 }
 
 message CreateRandomShortAddressRequest {
@@ -135,13 +172,6 @@ message GetSubSessionKeyInfoResponse {
   int64 result = 1;
 }
 
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
 message SetComplexChannelRequest {
   int64 arg0 = 1;
 }
@@ -190,40 +220,52 @@ message SetSubSessionKeyInfoResponse {
   int64 result = 1;
 }
 
-message GetChannelRequest {
-}
-
-message GetChannelResponse {
-  int32 result = 1;
-}
-
-message GetPreambleIndexRequest {
-}
-
-message GetPreambleIndexResponse {
-  int32 result = 1;
-}
-
-message SetChannelRequest {
-  int32 arg0 = 1;
-}
-
-message SetChannelResponse {
-  int64 result = 1;
-}
-
-message SetPreambleIndexRequest {
-  int32 arg0 = 1;
-}
-
-message SetPreambleIndexResponse {
-  int64 result = 1;
-}
-
 message GetMinimumRangingIntervalRequest {
 }
 
 message GetMinimumRangingIntervalResponse {
+  int64 result = 1;
+}
+
+message GetSupportedChannelsRequest {
+}
+
+message GetSupportedChannelsResponse {
+  int64 result = 1;
+}
+
+message GetSupportedConfigIdsRequest {
+}
+
+message GetSupportedConfigIdsResponse {
+  int64 result = 1;
+}
+
+message GetSupportedNotificationConfigurationsRequest {
+}
+
+message GetSupportedNotificationConfigurationsResponse {
+  int64 result = 1;
+}
+
+message GetSupportedPreambleIndexesRequest {
+}
+
+message GetSupportedPreambleIndexesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedRangingUpdateRatesRequest {
+}
+
+message GetSupportedRangingUpdateRatesResponse {
+  int64 result = 1;
+}
+
+message GetSupportedSlotDurationsRequest {
+}
+
+message GetSupportedSlotDurationsResponse {
   int64 result = 1;
 }
 
@@ -260,6 +302,22 @@ message IsRangingIntervalReconfigurationSupportedRequest {
 
 message IsRangingIntervalReconfigurationSupportedResponse {
   bool result = 1;
+}
+
+service ComplexChannelService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetChannel (GetChannelRequest) returns (GetChannelResponse);
+  rpc GetPreambleIndex (GetPreambleIndexRequest) returns (GetPreambleIndexResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ComplexChannelBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetChannel (SetChannelRequest) returns (SetChannelResponse);
+  rpc SetPreambleIndex (SetPreambleIndexRequest) returns (SetPreambleIndexResponse);
 }
 
 service AddressService {
@@ -301,25 +359,15 @@ service RangingParamsBuilderService {
   rpc SetSubSessionKeyInfo (SetSubSessionKeyInfoRequest) returns (SetSubSessionKeyInfoResponse);
 }
 
-service ComplexChannelService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetChannel (GetChannelRequest) returns (GetChannelResponse);
-  rpc GetPreambleIndex (GetPreambleIndexRequest) returns (GetPreambleIndexResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ComplexChannelBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetChannel (SetChannelRequest) returns (SetChannelResponse);
-  rpc SetPreambleIndex (SetPreambleIndexRequest) returns (SetPreambleIndexResponse);
-}
-
 service RangingCapabilitiesService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetMinimumRangingInterval (GetMinimumRangingIntervalRequest) returns (GetMinimumRangingIntervalResponse);
+  rpc GetSupportedChannels (GetSupportedChannelsRequest) returns (GetSupportedChannelsResponse);
+  rpc GetSupportedConfigIds (GetSupportedConfigIdsRequest) returns (GetSupportedConfigIdsResponse);
+  rpc GetSupportedNotificationConfigurations (GetSupportedNotificationConfigurationsRequest) returns (GetSupportedNotificationConfigurationsResponse);
+  rpc GetSupportedPreambleIndexes (GetSupportedPreambleIndexesRequest) returns (GetSupportedPreambleIndexesResponse);
+  rpc GetSupportedRangingUpdateRates (GetSupportedRangingUpdateRatesRequest) returns (GetSupportedRangingUpdateRatesResponse);
+  rpc GetSupportedSlotDurations (GetSupportedSlotDurationsRequest) returns (GetSupportedSlotDurationsResponse);
   rpc IsAzimuthalAngleSupported (IsAzimuthalAngleSupportedRequest) returns (IsAzimuthalAngleSupportedResponse);
   rpc IsBackgroundRangingSupported (IsBackgroundRangingSupportedRequest) returns (IsBackgroundRangingSupportedResponse);
   rpc IsDistanceMeasurementSupported (IsDistanceMeasurementSupportedRequest) returns (IsDistanceMeasurementSupportedResponse);

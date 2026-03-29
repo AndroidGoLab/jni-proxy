@@ -6,6 +6,115 @@ package vibrator;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/vibrator";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetMaxControlPointDurationMillisRequest {
+}
+
+message GetMaxControlPointDurationMillisResponse {
+  int64 result = 1;
+}
+
+message GetMaxDurationMillisRequest {
+}
+
+message GetMaxDurationMillisResponse {
+  int64 result = 1;
+}
+
+message GetMaxSizeRequest {
+}
+
+message GetMaxSizeResponse {
+  int32 result = 1;
+}
+
+message GetMinControlPointDurationMillisRequest {
+}
+
+message GetMinControlPointDurationMillisResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetFrequenciesOutputAccelerationRequest {
+}
+
+message GetFrequenciesOutputAccelerationResponse {
+  int64 result = 1;
+}
+
+message GetFrequencyRangeRequest {
+  float arg0 = 1;
+}
+
+message GetFrequencyRangeResponse {
+  int64 result = 1;
+}
+
+message GetMaxFrequencyHzRequest {
+}
+
+message GetMaxFrequencyHzResponse {
+  float result = 1;
+}
+
+message GetMaxOutputAccelerationGsRequest {
+}
+
+message GetMaxOutputAccelerationGsResponse {
+  float result = 1;
+}
+
+message GetMinFrequencyHzRequest {
+}
+
+message GetMinFrequencyHzResponse {
+  float result = 1;
+}
+
+message GetOutputAccelerationGsRequest {
+  float arg0 = 1;
+}
+
+message GetOutputAccelerationGsResponse {
+  float result = 1;
+}
+
 message AreAllEffectsSupportedRequest {
   int64 arg0 = 1;
 }
@@ -163,98 +272,25 @@ message Vibrate3_6Request {
 message Vibrate3_6Response {
 }
 
-message DescribeContentsRequest {
+service EnvelopeEffectInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMaxControlPointDurationMillis (GetMaxControlPointDurationMillisRequest) returns (GetMaxControlPointDurationMillisResponse);
+  rpc GetMaxDurationMillis (GetMaxDurationMillisRequest) returns (GetMaxDurationMillisResponse);
+  rpc GetMaxSize (GetMaxSizeRequest) returns (GetMaxSizeResponse);
+  rpc GetMinControlPointDurationMillis (GetMinControlPointDurationMillisRequest) returns (GetMinControlPointDurationMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetMaxControlPointDurationMillisRequest {
-}
-
-message GetMaxControlPointDurationMillisResponse {
-  int64 result = 1;
-}
-
-message GetMaxDurationMillisRequest {
-}
-
-message GetMaxDurationMillisResponse {
-  int64 result = 1;
-}
-
-message GetMaxSizeRequest {
-}
-
-message GetMaxSizeResponse {
-  int32 result = 1;
-}
-
-message GetMinControlPointDurationMillisRequest {
-}
-
-message GetMinControlPointDurationMillisResponse {
-  int64 result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message GetMaxFrequencyHzRequest {
-}
-
-message GetMaxFrequencyHzResponse {
-  float result = 1;
-}
-
-message GetMaxOutputAccelerationGsRequest {
-}
-
-message GetMaxOutputAccelerationGsResponse {
-  float result = 1;
-}
-
-message GetMinFrequencyHzRequest {
-}
-
-message GetMinFrequencyHzResponse {
-  float result = 1;
-}
-
-message GetOutputAccelerationGsRequest {
-  float arg0 = 1;
-}
-
-message GetOutputAccelerationGsResponse {
-  float result = 1;
+service FrequencyProfileService {
+  rpc GetFrequenciesOutputAcceleration (GetFrequenciesOutputAccelerationRequest) returns (GetFrequenciesOutputAccelerationResponse);
+  rpc GetFrequencyRange (GetFrequencyRangeRequest) returns (GetFrequencyRangeResponse);
+  rpc GetMaxFrequencyHz (GetMaxFrequencyHzRequest) returns (GetMaxFrequencyHzResponse);
+  rpc GetMaxOutputAccelerationGs (GetMaxOutputAccelerationGsRequest) returns (GetMaxOutputAccelerationGsResponse);
+  rpc GetMinFrequencyHz (GetMinFrequencyHzRequest) returns (GetMinFrequencyHzResponse);
+  rpc GetOutputAccelerationGs (GetOutputAccelerationGsRequest) returns (GetOutputAccelerationGsResponse);
 }
 
 service VibratorService {
@@ -279,23 +315,4 @@ service VibratorService {
   rpc Vibrate2_4 (Vibrate2_4Request) returns (Vibrate2_4Response);
   rpc Vibrate2_5 (Vibrate2_5Request) returns (Vibrate2_5Response);
   rpc Vibrate3_6 (Vibrate3_6Request) returns (Vibrate3_6Response);
-}
-
-service EnvelopeEffectInfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetMaxControlPointDurationMillis (GetMaxControlPointDurationMillisRequest) returns (GetMaxControlPointDurationMillisResponse);
-  rpc GetMaxDurationMillis (GetMaxDurationMillisRequest) returns (GetMaxDurationMillisResponse);
-  rpc GetMaxSize (GetMaxSizeRequest) returns (GetMaxSizeResponse);
-  rpc GetMinControlPointDurationMillis (GetMinControlPointDurationMillisRequest) returns (GetMinControlPointDurationMillisResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service FrequencyProfileService {
-  rpc GetMaxFrequencyHz (GetMaxFrequencyHzRequest) returns (GetMaxFrequencyHzResponse);
-  rpc GetMaxOutputAccelerationGs (GetMaxOutputAccelerationGsRequest) returns (GetMaxOutputAccelerationGsResponse);
-  rpc GetMinFrequencyHz (GetMinFrequencyHzRequest) returns (GetMinFrequencyHzResponse);
-  rpc GetOutputAccelerationGs (GetOutputAccelerationGsRequest) returns (GetOutputAccelerationGsResponse);
 }

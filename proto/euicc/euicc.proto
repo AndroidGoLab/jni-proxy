@@ -66,6 +66,32 @@ message SetEncodedActivationCodeResponse {
   int64 result = 1;
 }
 
+message NewInfoRequest {
+  string arg0 = 1;
+}
+
+message NewInfoResponse {
+  int64 result = 1;
+}
+
+message InfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetOsVersionRequest {
+  int64 handle = 1;
+}
+
+message GetOsVersionResponse {
+  string result = 1;
+}
+
+message InfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
 message CreateForCardIdRequest {
   int32 arg0 = 1;
 }
@@ -163,32 +189,6 @@ message UpdateSubscriptionNicknameRequest {
 message UpdateSubscriptionNicknameResponse {
 }
 
-message NewInfoRequest {
-  string arg0 = 1;
-}
-
-message NewInfoResponse {
-  int64 result = 1;
-}
-
-message InfoDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message GetOsVersionRequest {
-  int64 handle = 1;
-}
-
-message GetOsVersionResponse {
-  string result = 1;
-}
-
-message InfoWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
 service DownloadableSubscriptionService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetConfirmationCode (GetConfirmationCodeRequest) returns (GetConfirmationCodeResponse);
@@ -201,6 +201,13 @@ service DownloadableSubscriptionBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetConfirmationCode (SetConfirmationCodeRequest) returns (SetConfirmationCodeResponse);
   rpc SetEncodedActivationCode (SetEncodedActivationCodeRequest) returns (SetEncodedActivationCodeResponse);
+}
+
+service InfoService {
+  rpc NewInfo (NewInfoRequest) returns (NewInfoResponse);
+  rpc DescribeContents (InfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetOsVersion (GetOsVersionRequest) returns (GetOsVersionResponse);
+  rpc WriteToParcel (InfoWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service ManagerService {
@@ -216,11 +223,4 @@ service ManagerService {
   rpc SwitchToSubscription2 (SwitchToSubscription2Request) returns (SwitchToSubscription2Response);
   rpc SwitchToSubscription3_1 (SwitchToSubscription3_1Request) returns (SwitchToSubscription3_1Response);
   rpc UpdateSubscriptionNickname (UpdateSubscriptionNicknameRequest) returns (UpdateSubscriptionNicknameResponse);
-}
-
-service InfoService {
-  rpc NewInfo (NewInfoRequest) returns (NewInfoResponse);
-  rpc DescribeContents (InfoDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetOsVersion (GetOsVersionRequest) returns (GetOsVersionResponse);
-  rpc WriteToParcel (InfoWriteToParcelRequest) returns (WriteToParcelResponse);
 }

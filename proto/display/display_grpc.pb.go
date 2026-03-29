@@ -33593,591 +33593,6 @@ var SurfaceViewService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ManagerService_CreateVirtualDisplay1_FullMethodName                  = "/display.ManagerService/CreateVirtualDisplay1"
-	ManagerService_CreateVirtualDisplay6_1_FullMethodName                = "/display.ManagerService/CreateVirtualDisplay6_1"
-	ManagerService_GetDisplay_FullMethodName                             = "/display.ManagerService/GetDisplay"
-	ManagerService_GetDisplays0_FullMethodName                           = "/display.ManagerService/GetDisplays0"
-	ManagerService_GetDisplays1_1_FullMethodName                         = "/display.ManagerService/GetDisplays1_1"
-	ManagerService_GetHdrConversionMode_FullMethodName                   = "/display.ManagerService/GetHdrConversionMode"
-	ManagerService_GetMatchContentFrameRateUserPreference_FullMethodName = "/display.ManagerService/GetMatchContentFrameRateUserPreference"
-	ManagerService_RegisterDisplayListener_FullMethodName                = "/display.ManagerService/RegisterDisplayListener"
-	ManagerService_UnregisterDisplayListener_FullMethodName              = "/display.ManagerService/UnregisterDisplayListener"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	CreateVirtualDisplay1(ctx context.Context, in *CreateVirtualDisplay1Request, opts ...grpc.CallOption) (*CreateVirtualDisplay1Response, error)
-	CreateVirtualDisplay6_1(ctx context.Context, in *CreateVirtualDisplay6_1Request, opts ...grpc.CallOption) (*CreateVirtualDisplay6_1Response, error)
-	GetDisplay(ctx context.Context, in *ManagerGetDisplayRequest, opts ...grpc.CallOption) (*GetDisplayResponse, error)
-	GetDisplays0(ctx context.Context, in *GetDisplays0Request, opts ...grpc.CallOption) (*GetDisplays0Response, error)
-	GetDisplays1_1(ctx context.Context, in *GetDisplays1_1Request, opts ...grpc.CallOption) (*GetDisplays1_1Response, error)
-	GetHdrConversionMode(ctx context.Context, in *GetHdrConversionModeRequest, opts ...grpc.CallOption) (*GetHdrConversionModeResponse, error)
-	GetMatchContentFrameRateUserPreference(ctx context.Context, in *GetMatchContentFrameRateUserPreferenceRequest, opts ...grpc.CallOption) (*GetMatchContentFrameRateUserPreferenceResponse, error)
-	RegisterDisplayListener(ctx context.Context, in *RegisterDisplayListenerRequest, opts ...grpc.CallOption) (*RegisterDisplayListenerResponse, error)
-	UnregisterDisplayListener(ctx context.Context, in *UnregisterDisplayListenerRequest, opts ...grpc.CallOption) (*UnregisterDisplayListenerResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) CreateVirtualDisplay1(ctx context.Context, in *CreateVirtualDisplay1Request, opts ...grpc.CallOption) (*CreateVirtualDisplay1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateVirtualDisplay1Response)
-	err := c.cc.Invoke(ctx, ManagerService_CreateVirtualDisplay1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) CreateVirtualDisplay6_1(ctx context.Context, in *CreateVirtualDisplay6_1Request, opts ...grpc.CallOption) (*CreateVirtualDisplay6_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateVirtualDisplay6_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_CreateVirtualDisplay6_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetDisplay(ctx context.Context, in *ManagerGetDisplayRequest, opts ...grpc.CallOption) (*GetDisplayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDisplayResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetDisplay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetDisplays0(ctx context.Context, in *GetDisplays0Request, opts ...grpc.CallOption) (*GetDisplays0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDisplays0Response)
-	err := c.cc.Invoke(ctx, ManagerService_GetDisplays0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetDisplays1_1(ctx context.Context, in *GetDisplays1_1Request, opts ...grpc.CallOption) (*GetDisplays1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDisplays1_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_GetDisplays1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetHdrConversionMode(ctx context.Context, in *GetHdrConversionModeRequest, opts ...grpc.CallOption) (*GetHdrConversionModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHdrConversionModeResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetHdrConversionMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetMatchContentFrameRateUserPreference(ctx context.Context, in *GetMatchContentFrameRateUserPreferenceRequest, opts ...grpc.CallOption) (*GetMatchContentFrameRateUserPreferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMatchContentFrameRateUserPreferenceResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetMatchContentFrameRateUserPreference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) RegisterDisplayListener(ctx context.Context, in *RegisterDisplayListenerRequest, opts ...grpc.CallOption) (*RegisterDisplayListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterDisplayListenerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_RegisterDisplayListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) UnregisterDisplayListener(ctx context.Context, in *UnregisterDisplayListenerRequest, opts ...grpc.CallOption) (*UnregisterDisplayListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterDisplayListenerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_UnregisterDisplayListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	CreateVirtualDisplay1(context.Context, *CreateVirtualDisplay1Request) (*CreateVirtualDisplay1Response, error)
-	CreateVirtualDisplay6_1(context.Context, *CreateVirtualDisplay6_1Request) (*CreateVirtualDisplay6_1Response, error)
-	GetDisplay(context.Context, *ManagerGetDisplayRequest) (*GetDisplayResponse, error)
-	GetDisplays0(context.Context, *GetDisplays0Request) (*GetDisplays0Response, error)
-	GetDisplays1_1(context.Context, *GetDisplays1_1Request) (*GetDisplays1_1Response, error)
-	GetHdrConversionMode(context.Context, *GetHdrConversionModeRequest) (*GetHdrConversionModeResponse, error)
-	GetMatchContentFrameRateUserPreference(context.Context, *GetMatchContentFrameRateUserPreferenceRequest) (*GetMatchContentFrameRateUserPreferenceResponse, error)
-	RegisterDisplayListener(context.Context, *RegisterDisplayListenerRequest) (*RegisterDisplayListenerResponse, error)
-	UnregisterDisplayListener(context.Context, *UnregisterDisplayListenerRequest) (*UnregisterDisplayListenerResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) CreateVirtualDisplay1(context.Context, *CreateVirtualDisplay1Request) (*CreateVirtualDisplay1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateVirtualDisplay1 not implemented")
-}
-func (UnimplementedManagerServiceServer) CreateVirtualDisplay6_1(context.Context, *CreateVirtualDisplay6_1Request) (*CreateVirtualDisplay6_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateVirtualDisplay6_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetDisplay(context.Context, *ManagerGetDisplayRequest) (*GetDisplayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDisplay not implemented")
-}
-func (UnimplementedManagerServiceServer) GetDisplays0(context.Context, *GetDisplays0Request) (*GetDisplays0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDisplays0 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetDisplays1_1(context.Context, *GetDisplays1_1Request) (*GetDisplays1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDisplays1_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetHdrConversionMode(context.Context, *GetHdrConversionModeRequest) (*GetHdrConversionModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHdrConversionMode not implemented")
-}
-func (UnimplementedManagerServiceServer) GetMatchContentFrameRateUserPreference(context.Context, *GetMatchContentFrameRateUserPreferenceRequest) (*GetMatchContentFrameRateUserPreferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMatchContentFrameRateUserPreference not implemented")
-}
-func (UnimplementedManagerServiceServer) RegisterDisplayListener(context.Context, *RegisterDisplayListenerRequest) (*RegisterDisplayListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterDisplayListener not implemented")
-}
-func (UnimplementedManagerServiceServer) UnregisterDisplayListener(context.Context, *UnregisterDisplayListenerRequest) (*UnregisterDisplayListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterDisplayListener not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_CreateVirtualDisplay1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateVirtualDisplay1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).CreateVirtualDisplay1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_CreateVirtualDisplay1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).CreateVirtualDisplay1(ctx, req.(*CreateVirtualDisplay1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_CreateVirtualDisplay6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateVirtualDisplay6_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).CreateVirtualDisplay6_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_CreateVirtualDisplay6_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).CreateVirtualDisplay6_1(ctx, req.(*CreateVirtualDisplay6_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetDisplay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagerGetDisplayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetDisplay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetDisplay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetDisplay(ctx, req.(*ManagerGetDisplayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetDisplays0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDisplays0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetDisplays0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetDisplays0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetDisplays0(ctx, req.(*GetDisplays0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetDisplays1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDisplays1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetDisplays1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetDisplays1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetDisplays1_1(ctx, req.(*GetDisplays1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetHdrConversionMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHdrConversionModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetHdrConversionMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetHdrConversionMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetHdrConversionMode(ctx, req.(*GetHdrConversionModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetMatchContentFrameRateUserPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMatchContentFrameRateUserPreferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetMatchContentFrameRateUserPreference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetMatchContentFrameRateUserPreference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetMatchContentFrameRateUserPreference(ctx, req.(*GetMatchContentFrameRateUserPreferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_RegisterDisplayListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterDisplayListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RegisterDisplayListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RegisterDisplayListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RegisterDisplayListener(ctx, req.(*RegisterDisplayListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_UnregisterDisplayListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterDisplayListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UnregisterDisplayListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UnregisterDisplayListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UnregisterDisplayListener(ctx, req.(*UnregisterDisplayListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "display.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreateVirtualDisplay1",
-			Handler:    _ManagerService_CreateVirtualDisplay1_Handler,
-		},
-		{
-			MethodName: "CreateVirtualDisplay6_1",
-			Handler:    _ManagerService_CreateVirtualDisplay6_1_Handler,
-		},
-		{
-			MethodName: "GetDisplay",
-			Handler:    _ManagerService_GetDisplay_Handler,
-		},
-		{
-			MethodName: "GetDisplays0",
-			Handler:    _ManagerService_GetDisplays0_Handler,
-		},
-		{
-			MethodName: "GetDisplays1_1",
-			Handler:    _ManagerService_GetDisplays1_1_Handler,
-		},
-		{
-			MethodName: "GetHdrConversionMode",
-			Handler:    _ManagerService_GetHdrConversionMode_Handler,
-		},
-		{
-			MethodName: "GetMatchContentFrameRateUserPreference",
-			Handler:    _ManagerService_GetMatchContentFrameRateUserPreference_Handler,
-		},
-		{
-			MethodName: "RegisterDisplayListener",
-			Handler:    _ManagerService_RegisterDisplayListener_Handler,
-		},
-		{
-			MethodName: "UnregisterDisplayListener",
-			Handler:    _ManagerService_UnregisterDisplayListener_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/display/display.proto",
-}
-
-const (
-	ManagerDisplayListenerService_OnDisplayAdded_FullMethodName   = "/display.ManagerDisplayListenerService/OnDisplayAdded"
-	ManagerDisplayListenerService_OnDisplayChanged_FullMethodName = "/display.ManagerDisplayListenerService/OnDisplayChanged"
-	ManagerDisplayListenerService_OnDisplayRemoved_FullMethodName = "/display.ManagerDisplayListenerService/OnDisplayRemoved"
-)
-
-// ManagerDisplayListenerServiceClient is the client API for ManagerDisplayListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerDisplayListenerServiceClient interface {
-	OnDisplayAdded(ctx context.Context, in *OnDisplayAddedRequest, opts ...grpc.CallOption) (*OnDisplayAddedResponse, error)
-	OnDisplayChanged(ctx context.Context, in *OnDisplayChangedRequest, opts ...grpc.CallOption) (*OnDisplayChangedResponse, error)
-	OnDisplayRemoved(ctx context.Context, in *OnDisplayRemovedRequest, opts ...grpc.CallOption) (*OnDisplayRemovedResponse, error)
-}
-
-type managerDisplayListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerDisplayListenerServiceClient(cc grpc.ClientConnInterface) ManagerDisplayListenerServiceClient {
-	return &managerDisplayListenerServiceClient{cc}
-}
-
-func (c *managerDisplayListenerServiceClient) OnDisplayAdded(ctx context.Context, in *OnDisplayAddedRequest, opts ...grpc.CallOption) (*OnDisplayAddedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisplayAddedResponse)
-	err := c.cc.Invoke(ctx, ManagerDisplayListenerService_OnDisplayAdded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerDisplayListenerServiceClient) OnDisplayChanged(ctx context.Context, in *OnDisplayChangedRequest, opts ...grpc.CallOption) (*OnDisplayChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisplayChangedResponse)
-	err := c.cc.Invoke(ctx, ManagerDisplayListenerService_OnDisplayChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerDisplayListenerServiceClient) OnDisplayRemoved(ctx context.Context, in *OnDisplayRemovedRequest, opts ...grpc.CallOption) (*OnDisplayRemovedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDisplayRemovedResponse)
-	err := c.cc.Invoke(ctx, ManagerDisplayListenerService_OnDisplayRemoved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerDisplayListenerServiceServer is the server API for ManagerDisplayListenerService service.
-// All implementations must embed UnimplementedManagerDisplayListenerServiceServer
-// for forward compatibility.
-type ManagerDisplayListenerServiceServer interface {
-	OnDisplayAdded(context.Context, *OnDisplayAddedRequest) (*OnDisplayAddedResponse, error)
-	OnDisplayChanged(context.Context, *OnDisplayChangedRequest) (*OnDisplayChangedResponse, error)
-	OnDisplayRemoved(context.Context, *OnDisplayRemovedRequest) (*OnDisplayRemovedResponse, error)
-	mustEmbedUnimplementedManagerDisplayListenerServiceServer()
-}
-
-// UnimplementedManagerDisplayListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerDisplayListenerServiceServer struct{}
-
-func (UnimplementedManagerDisplayListenerServiceServer) OnDisplayAdded(context.Context, *OnDisplayAddedRequest) (*OnDisplayAddedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisplayAdded not implemented")
-}
-func (UnimplementedManagerDisplayListenerServiceServer) OnDisplayChanged(context.Context, *OnDisplayChangedRequest) (*OnDisplayChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisplayChanged not implemented")
-}
-func (UnimplementedManagerDisplayListenerServiceServer) OnDisplayRemoved(context.Context, *OnDisplayRemovedRequest) (*OnDisplayRemovedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDisplayRemoved not implemented")
-}
-func (UnimplementedManagerDisplayListenerServiceServer) mustEmbedUnimplementedManagerDisplayListenerServiceServer() {
-}
-func (UnimplementedManagerDisplayListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagerDisplayListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerDisplayListenerServiceServer will
-// result in compilation errors.
-type UnsafeManagerDisplayListenerServiceServer interface {
-	mustEmbedUnimplementedManagerDisplayListenerServiceServer()
-}
-
-func RegisterManagerDisplayListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerDisplayListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerDisplayListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerDisplayListenerService_ServiceDesc, srv)
-}
-
-func _ManagerDisplayListenerService_OnDisplayAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisplayAddedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerDisplayListenerServiceServer).OnDisplayAdded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerDisplayListenerService_OnDisplayAdded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerDisplayListenerServiceServer).OnDisplayAdded(ctx, req.(*OnDisplayAddedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerDisplayListenerService_OnDisplayChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisplayChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerDisplayListenerServiceServer).OnDisplayChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerDisplayListenerService_OnDisplayChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerDisplayListenerServiceServer).OnDisplayChanged(ctx, req.(*OnDisplayChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerDisplayListenerService_OnDisplayRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDisplayRemovedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerDisplayListenerServiceServer).OnDisplayRemoved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerDisplayListenerService_OnDisplayRemoved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerDisplayListenerServiceServer).OnDisplayRemoved(ctx, req.(*OnDisplayRemovedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerDisplayListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerDisplayListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerDisplayListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "display.ManagerDisplayListenerService",
-	HandlerType: (*ManagerDisplayListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnDisplayAdded",
-			Handler:    _ManagerDisplayListenerService_OnDisplayAdded_Handler,
-		},
-		{
-			MethodName: "OnDisplayChanged",
-			Handler:    _ManagerDisplayListenerService_OnDisplayChanged_Handler,
-		},
-		{
-			MethodName: "OnDisplayRemoved",
-			Handler:    _ManagerDisplayListenerService_OnDisplayRemoved_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/display/display.proto",
-}
-
-const (
 	DeviceProductInfoService_NewDeviceProductInfo_FullMethodName    = "/display.DeviceProductInfoService/NewDeviceProductInfo"
 	DeviceProductInfoService_DescribeContents_FullMethodName        = "/display.DeviceProductInfoService/DescribeContents"
 	DeviceProductInfoService_Equals_FullMethodName                  = "/display.DeviceProductInfoService/Equals"
@@ -35106,11 +34521,597 @@ var HdrConversionModeService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ManagerService_CreateVirtualDisplay1_FullMethodName                  = "/display.ManagerService/CreateVirtualDisplay1"
+	ManagerService_CreateVirtualDisplay6_1_FullMethodName                = "/display.ManagerService/CreateVirtualDisplay6_1"
+	ManagerService_GetDisplay_FullMethodName                             = "/display.ManagerService/GetDisplay"
+	ManagerService_GetDisplays0_FullMethodName                           = "/display.ManagerService/GetDisplays0"
+	ManagerService_GetDisplays1_1_FullMethodName                         = "/display.ManagerService/GetDisplays1_1"
+	ManagerService_GetHdrConversionMode_FullMethodName                   = "/display.ManagerService/GetHdrConversionMode"
+	ManagerService_GetMatchContentFrameRateUserPreference_FullMethodName = "/display.ManagerService/GetMatchContentFrameRateUserPreference"
+	ManagerService_RegisterDisplayListener_FullMethodName                = "/display.ManagerService/RegisterDisplayListener"
+	ManagerService_UnregisterDisplayListener_FullMethodName              = "/display.ManagerService/UnregisterDisplayListener"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	CreateVirtualDisplay1(ctx context.Context, in *CreateVirtualDisplay1Request, opts ...grpc.CallOption) (*CreateVirtualDisplay1Response, error)
+	CreateVirtualDisplay6_1(ctx context.Context, in *CreateVirtualDisplay6_1Request, opts ...grpc.CallOption) (*CreateVirtualDisplay6_1Response, error)
+	GetDisplay(ctx context.Context, in *ManagerGetDisplayRequest, opts ...grpc.CallOption) (*GetDisplayResponse, error)
+	GetDisplays0(ctx context.Context, in *GetDisplays0Request, opts ...grpc.CallOption) (*GetDisplays0Response, error)
+	GetDisplays1_1(ctx context.Context, in *GetDisplays1_1Request, opts ...grpc.CallOption) (*GetDisplays1_1Response, error)
+	GetHdrConversionMode(ctx context.Context, in *GetHdrConversionModeRequest, opts ...grpc.CallOption) (*GetHdrConversionModeResponse, error)
+	GetMatchContentFrameRateUserPreference(ctx context.Context, in *GetMatchContentFrameRateUserPreferenceRequest, opts ...grpc.CallOption) (*GetMatchContentFrameRateUserPreferenceResponse, error)
+	RegisterDisplayListener(ctx context.Context, in *RegisterDisplayListenerRequest, opts ...grpc.CallOption) (*RegisterDisplayListenerResponse, error)
+	UnregisterDisplayListener(ctx context.Context, in *UnregisterDisplayListenerRequest, opts ...grpc.CallOption) (*UnregisterDisplayListenerResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) CreateVirtualDisplay1(ctx context.Context, in *CreateVirtualDisplay1Request, opts ...grpc.CallOption) (*CreateVirtualDisplay1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateVirtualDisplay1Response)
+	err := c.cc.Invoke(ctx, ManagerService_CreateVirtualDisplay1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) CreateVirtualDisplay6_1(ctx context.Context, in *CreateVirtualDisplay6_1Request, opts ...grpc.CallOption) (*CreateVirtualDisplay6_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateVirtualDisplay6_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_CreateVirtualDisplay6_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetDisplay(ctx context.Context, in *ManagerGetDisplayRequest, opts ...grpc.CallOption) (*GetDisplayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetDisplay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetDisplays0(ctx context.Context, in *GetDisplays0Request, opts ...grpc.CallOption) (*GetDisplays0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplays0Response)
+	err := c.cc.Invoke(ctx, ManagerService_GetDisplays0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetDisplays1_1(ctx context.Context, in *GetDisplays1_1Request, opts ...grpc.CallOption) (*GetDisplays1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplays1_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_GetDisplays1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetHdrConversionMode(ctx context.Context, in *GetHdrConversionModeRequest, opts ...grpc.CallOption) (*GetHdrConversionModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHdrConversionModeResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetHdrConversionMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetMatchContentFrameRateUserPreference(ctx context.Context, in *GetMatchContentFrameRateUserPreferenceRequest, opts ...grpc.CallOption) (*GetMatchContentFrameRateUserPreferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMatchContentFrameRateUserPreferenceResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetMatchContentFrameRateUserPreference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RegisterDisplayListener(ctx context.Context, in *RegisterDisplayListenerRequest, opts ...grpc.CallOption) (*RegisterDisplayListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterDisplayListenerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_RegisterDisplayListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) UnregisterDisplayListener(ctx context.Context, in *UnregisterDisplayListenerRequest, opts ...grpc.CallOption) (*UnregisterDisplayListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterDisplayListenerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_UnregisterDisplayListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	CreateVirtualDisplay1(context.Context, *CreateVirtualDisplay1Request) (*CreateVirtualDisplay1Response, error)
+	CreateVirtualDisplay6_1(context.Context, *CreateVirtualDisplay6_1Request) (*CreateVirtualDisplay6_1Response, error)
+	GetDisplay(context.Context, *ManagerGetDisplayRequest) (*GetDisplayResponse, error)
+	GetDisplays0(context.Context, *GetDisplays0Request) (*GetDisplays0Response, error)
+	GetDisplays1_1(context.Context, *GetDisplays1_1Request) (*GetDisplays1_1Response, error)
+	GetHdrConversionMode(context.Context, *GetHdrConversionModeRequest) (*GetHdrConversionModeResponse, error)
+	GetMatchContentFrameRateUserPreference(context.Context, *GetMatchContentFrameRateUserPreferenceRequest) (*GetMatchContentFrameRateUserPreferenceResponse, error)
+	RegisterDisplayListener(context.Context, *RegisterDisplayListenerRequest) (*RegisterDisplayListenerResponse, error)
+	UnregisterDisplayListener(context.Context, *UnregisterDisplayListenerRequest) (*UnregisterDisplayListenerResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) CreateVirtualDisplay1(context.Context, *CreateVirtualDisplay1Request) (*CreateVirtualDisplay1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateVirtualDisplay1 not implemented")
+}
+func (UnimplementedManagerServiceServer) CreateVirtualDisplay6_1(context.Context, *CreateVirtualDisplay6_1Request) (*CreateVirtualDisplay6_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateVirtualDisplay6_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) GetDisplay(context.Context, *ManagerGetDisplayRequest) (*GetDisplayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplay not implemented")
+}
+func (UnimplementedManagerServiceServer) GetDisplays0(context.Context, *GetDisplays0Request) (*GetDisplays0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplays0 not implemented")
+}
+func (UnimplementedManagerServiceServer) GetDisplays1_1(context.Context, *GetDisplays1_1Request) (*GetDisplays1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplays1_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) GetHdrConversionMode(context.Context, *GetHdrConversionModeRequest) (*GetHdrConversionModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHdrConversionMode not implemented")
+}
+func (UnimplementedManagerServiceServer) GetMatchContentFrameRateUserPreference(context.Context, *GetMatchContentFrameRateUserPreferenceRequest) (*GetMatchContentFrameRateUserPreferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMatchContentFrameRateUserPreference not implemented")
+}
+func (UnimplementedManagerServiceServer) RegisterDisplayListener(context.Context, *RegisterDisplayListenerRequest) (*RegisterDisplayListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterDisplayListener not implemented")
+}
+func (UnimplementedManagerServiceServer) UnregisterDisplayListener(context.Context, *UnregisterDisplayListenerRequest) (*UnregisterDisplayListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterDisplayListener not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_CreateVirtualDisplay1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateVirtualDisplay1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).CreateVirtualDisplay1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_CreateVirtualDisplay1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).CreateVirtualDisplay1(ctx, req.(*CreateVirtualDisplay1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_CreateVirtualDisplay6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateVirtualDisplay6_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).CreateVirtualDisplay6_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_CreateVirtualDisplay6_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).CreateVirtualDisplay6_1(ctx, req.(*CreateVirtualDisplay6_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetDisplay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagerGetDisplayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetDisplay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetDisplay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetDisplay(ctx, req.(*ManagerGetDisplayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetDisplays0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplays0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetDisplays0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetDisplays0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetDisplays0(ctx, req.(*GetDisplays0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetDisplays1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplays1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetDisplays1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetDisplays1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetDisplays1_1(ctx, req.(*GetDisplays1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetHdrConversionMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHdrConversionModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetHdrConversionMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetHdrConversionMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetHdrConversionMode(ctx, req.(*GetHdrConversionModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetMatchContentFrameRateUserPreference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMatchContentFrameRateUserPreferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetMatchContentFrameRateUserPreference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetMatchContentFrameRateUserPreference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetMatchContentFrameRateUserPreference(ctx, req.(*GetMatchContentFrameRateUserPreferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RegisterDisplayListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterDisplayListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RegisterDisplayListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RegisterDisplayListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RegisterDisplayListener(ctx, req.(*RegisterDisplayListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_UnregisterDisplayListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterDisplayListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).UnregisterDisplayListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_UnregisterDisplayListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).UnregisterDisplayListener(ctx, req.(*UnregisterDisplayListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "display.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateVirtualDisplay1",
+			Handler:    _ManagerService_CreateVirtualDisplay1_Handler,
+		},
+		{
+			MethodName: "CreateVirtualDisplay6_1",
+			Handler:    _ManagerService_CreateVirtualDisplay6_1_Handler,
+		},
+		{
+			MethodName: "GetDisplay",
+			Handler:    _ManagerService_GetDisplay_Handler,
+		},
+		{
+			MethodName: "GetDisplays0",
+			Handler:    _ManagerService_GetDisplays0_Handler,
+		},
+		{
+			MethodName: "GetDisplays1_1",
+			Handler:    _ManagerService_GetDisplays1_1_Handler,
+		},
+		{
+			MethodName: "GetHdrConversionMode",
+			Handler:    _ManagerService_GetHdrConversionMode_Handler,
+		},
+		{
+			MethodName: "GetMatchContentFrameRateUserPreference",
+			Handler:    _ManagerService_GetMatchContentFrameRateUserPreference_Handler,
+		},
+		{
+			MethodName: "RegisterDisplayListener",
+			Handler:    _ManagerService_RegisterDisplayListener_Handler,
+		},
+		{
+			MethodName: "UnregisterDisplayListener",
+			Handler:    _ManagerService_UnregisterDisplayListener_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/display/display.proto",
+}
+
+const (
+	ManagerDisplayListenerService_OnDisplayAdded_FullMethodName   = "/display.ManagerDisplayListenerService/OnDisplayAdded"
+	ManagerDisplayListenerService_OnDisplayChanged_FullMethodName = "/display.ManagerDisplayListenerService/OnDisplayChanged"
+	ManagerDisplayListenerService_OnDisplayRemoved_FullMethodName = "/display.ManagerDisplayListenerService/OnDisplayRemoved"
+)
+
+// ManagerDisplayListenerServiceClient is the client API for ManagerDisplayListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerDisplayListenerServiceClient interface {
+	OnDisplayAdded(ctx context.Context, in *OnDisplayAddedRequest, opts ...grpc.CallOption) (*OnDisplayAddedResponse, error)
+	OnDisplayChanged(ctx context.Context, in *OnDisplayChangedRequest, opts ...grpc.CallOption) (*OnDisplayChangedResponse, error)
+	OnDisplayRemoved(ctx context.Context, in *OnDisplayRemovedRequest, opts ...grpc.CallOption) (*OnDisplayRemovedResponse, error)
+}
+
+type managerDisplayListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerDisplayListenerServiceClient(cc grpc.ClientConnInterface) ManagerDisplayListenerServiceClient {
+	return &managerDisplayListenerServiceClient{cc}
+}
+
+func (c *managerDisplayListenerServiceClient) OnDisplayAdded(ctx context.Context, in *OnDisplayAddedRequest, opts ...grpc.CallOption) (*OnDisplayAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisplayAddedResponse)
+	err := c.cc.Invoke(ctx, ManagerDisplayListenerService_OnDisplayAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerDisplayListenerServiceClient) OnDisplayChanged(ctx context.Context, in *OnDisplayChangedRequest, opts ...grpc.CallOption) (*OnDisplayChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisplayChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerDisplayListenerService_OnDisplayChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerDisplayListenerServiceClient) OnDisplayRemoved(ctx context.Context, in *OnDisplayRemovedRequest, opts ...grpc.CallOption) (*OnDisplayRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisplayRemovedResponse)
+	err := c.cc.Invoke(ctx, ManagerDisplayListenerService_OnDisplayRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerDisplayListenerServiceServer is the server API for ManagerDisplayListenerService service.
+// All implementations must embed UnimplementedManagerDisplayListenerServiceServer
+// for forward compatibility.
+type ManagerDisplayListenerServiceServer interface {
+	OnDisplayAdded(context.Context, *OnDisplayAddedRequest) (*OnDisplayAddedResponse, error)
+	OnDisplayChanged(context.Context, *OnDisplayChangedRequest) (*OnDisplayChangedResponse, error)
+	OnDisplayRemoved(context.Context, *OnDisplayRemovedRequest) (*OnDisplayRemovedResponse, error)
+	mustEmbedUnimplementedManagerDisplayListenerServiceServer()
+}
+
+// UnimplementedManagerDisplayListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerDisplayListenerServiceServer struct{}
+
+func (UnimplementedManagerDisplayListenerServiceServer) OnDisplayAdded(context.Context, *OnDisplayAddedRequest) (*OnDisplayAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisplayAdded not implemented")
+}
+func (UnimplementedManagerDisplayListenerServiceServer) OnDisplayChanged(context.Context, *OnDisplayChangedRequest) (*OnDisplayChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisplayChanged not implemented")
+}
+func (UnimplementedManagerDisplayListenerServiceServer) OnDisplayRemoved(context.Context, *OnDisplayRemovedRequest) (*OnDisplayRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisplayRemoved not implemented")
+}
+func (UnimplementedManagerDisplayListenerServiceServer) mustEmbedUnimplementedManagerDisplayListenerServiceServer() {
+}
+func (UnimplementedManagerDisplayListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerDisplayListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerDisplayListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerDisplayListenerServiceServer interface {
+	mustEmbedUnimplementedManagerDisplayListenerServiceServer()
+}
+
+func RegisterManagerDisplayListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerDisplayListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerDisplayListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerDisplayListenerService_ServiceDesc, srv)
+}
+
+func _ManagerDisplayListenerService_OnDisplayAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisplayAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerDisplayListenerServiceServer).OnDisplayAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerDisplayListenerService_OnDisplayAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerDisplayListenerServiceServer).OnDisplayAdded(ctx, req.(*OnDisplayAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerDisplayListenerService_OnDisplayChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisplayChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerDisplayListenerServiceServer).OnDisplayChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerDisplayListenerService_OnDisplayChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerDisplayListenerServiceServer).OnDisplayChanged(ctx, req.(*OnDisplayChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerDisplayListenerService_OnDisplayRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisplayRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerDisplayListenerServiceServer).OnDisplayRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerDisplayListenerService_OnDisplayRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerDisplayListenerServiceServer).OnDisplayRemoved(ctx, req.(*OnDisplayRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerDisplayListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerDisplayListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerDisplayListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "display.ManagerDisplayListenerService",
+	HandlerType: (*ManagerDisplayListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnDisplayAdded",
+			Handler:    _ManagerDisplayListenerService_OnDisplayAdded_Handler,
+		},
+		{
+			MethodName: "OnDisplayChanged",
+			Handler:    _ManagerDisplayListenerService_OnDisplayChanged_Handler,
+		},
+		{
+			MethodName: "OnDisplayRemoved",
+			Handler:    _ManagerDisplayListenerService_OnDisplayRemoved_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/display/display.proto",
+}
+
+const (
 	VirtualDisplayConfigService_DescribeContents_FullMethodName        = "/display.VirtualDisplayConfigService/DescribeContents"
 	VirtualDisplayConfigService_Equals_FullMethodName                  = "/display.VirtualDisplayConfigService/Equals"
 	VirtualDisplayConfigService_GetDefaultBrightness_FullMethodName    = "/display.VirtualDisplayConfigService/GetDefaultBrightness"
 	VirtualDisplayConfigService_GetDensityDpi_FullMethodName           = "/display.VirtualDisplayConfigService/GetDensityDpi"
 	VirtualDisplayConfigService_GetDimBrightness_FullMethodName        = "/display.VirtualDisplayConfigService/GetDimBrightness"
+	VirtualDisplayConfigService_GetDisplayCategories_FullMethodName    = "/display.VirtualDisplayConfigService/GetDisplayCategories"
 	VirtualDisplayConfigService_GetFlags_FullMethodName                = "/display.VirtualDisplayConfigService/GetFlags"
 	VirtualDisplayConfigService_GetHeight_FullMethodName               = "/display.VirtualDisplayConfigService/GetHeight"
 	VirtualDisplayConfigService_GetName_FullMethodName                 = "/display.VirtualDisplayConfigService/GetName"
@@ -35131,6 +35132,7 @@ type VirtualDisplayConfigServiceClient interface {
 	GetDefaultBrightness(ctx context.Context, in *GetDefaultBrightnessRequest, opts ...grpc.CallOption) (*GetDefaultBrightnessResponse, error)
 	GetDensityDpi(ctx context.Context, in *GetDensityDpiRequest, opts ...grpc.CallOption) (*GetDensityDpiResponse, error)
 	GetDimBrightness(ctx context.Context, in *GetDimBrightnessRequest, opts ...grpc.CallOption) (*GetDimBrightnessResponse, error)
+	GetDisplayCategories(ctx context.Context, in *GetDisplayCategoriesRequest, opts ...grpc.CallOption) (*GetDisplayCategoriesResponse, error)
 	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
 	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
 	GetName(ctx context.Context, in *VirtualDisplayConfigGetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
@@ -35194,6 +35196,16 @@ func (c *virtualDisplayConfigServiceClient) GetDimBrightness(ctx context.Context
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDimBrightnessResponse)
 	err := c.cc.Invoke(ctx, VirtualDisplayConfigService_GetDimBrightness_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *virtualDisplayConfigServiceClient) GetDisplayCategories(ctx context.Context, in *GetDisplayCategoriesRequest, opts ...grpc.CallOption) (*GetDisplayCategoriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayCategoriesResponse)
+	err := c.cc.Invoke(ctx, VirtualDisplayConfigService_GetDisplayCategories_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -35299,6 +35311,7 @@ type VirtualDisplayConfigServiceServer interface {
 	GetDefaultBrightness(context.Context, *GetDefaultBrightnessRequest) (*GetDefaultBrightnessResponse, error)
 	GetDensityDpi(context.Context, *GetDensityDpiRequest) (*GetDensityDpiResponse, error)
 	GetDimBrightness(context.Context, *GetDimBrightnessRequest) (*GetDimBrightnessResponse, error)
+	GetDisplayCategories(context.Context, *GetDisplayCategoriesRequest) (*GetDisplayCategoriesResponse, error)
 	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
 	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
 	GetName(context.Context, *VirtualDisplayConfigGetNameRequest) (*GetNameResponse, error)
@@ -35332,6 +35345,9 @@ func (UnimplementedVirtualDisplayConfigServiceServer) GetDensityDpi(context.Cont
 }
 func (UnimplementedVirtualDisplayConfigServiceServer) GetDimBrightness(context.Context, *GetDimBrightnessRequest) (*GetDimBrightnessResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDimBrightness not implemented")
+}
+func (UnimplementedVirtualDisplayConfigServiceServer) GetDisplayCategories(context.Context, *GetDisplayCategoriesRequest) (*GetDisplayCategoriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayCategories not implemented")
 }
 func (UnimplementedVirtualDisplayConfigServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
@@ -35468,6 +35484,24 @@ func _VirtualDisplayConfigService_GetDimBrightness_Handler(srv interface{}, ctx 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(VirtualDisplayConfigServiceServer).GetDimBrightness(ctx, req.(*GetDimBrightnessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VirtualDisplayConfigService_GetDisplayCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayCategoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VirtualDisplayConfigServiceServer).GetDisplayCategories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VirtualDisplayConfigService_GetDisplayCategories_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VirtualDisplayConfigServiceServer).GetDisplayCategories(ctx, req.(*GetDisplayCategoriesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -35660,6 +35694,10 @@ var VirtualDisplayConfigService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetDimBrightness",
 			Handler:    _VirtualDisplayConfigService_GetDimBrightness_Handler,
+		},
+		{
+			MethodName: "GetDisplayCategories",
+			Handler:    _VirtualDisplayConfigService_GetDisplayCategories_Handler,
 		},
 		{
 			MethodName: "GetFlags",
@@ -36175,1862 +36213,6 @@ var VirtualDisplayConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_FullMethodName   = "/display.WindowManagerLayoutParamsService/AreWallpaperTouchEventsEnabled"
-	WindowManagerLayoutParamsService_CanPlayMoveAnimation_FullMethodName             = "/display.WindowManagerLayoutParamsService/CanPlayMoveAnimation"
-	WindowManagerLayoutParamsService_CopyFrom_FullMethodName                         = "/display.WindowManagerLayoutParamsService/CopyFrom"
-	WindowManagerLayoutParamsService_Debug_FullMethodName                            = "/display.WindowManagerLayoutParamsService/Debug"
-	WindowManagerLayoutParamsService_DescribeContents_FullMethodName                 = "/display.WindowManagerLayoutParamsService/DescribeContents"
-	WindowManagerLayoutParamsService_GetBlurBehindRadius_FullMethodName              = "/display.WindowManagerLayoutParamsService/GetBlurBehindRadius"
-	WindowManagerLayoutParamsService_GetColorMode_FullMethodName                     = "/display.WindowManagerLayoutParamsService/GetColorMode"
-	WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_FullMethodName            = "/display.WindowManagerLayoutParamsService/GetDesiredHdrHeadroom"
-	WindowManagerLayoutParamsService_GetFitInsetsSides_FullMethodName                = "/display.WindowManagerLayoutParamsService/GetFitInsetsSides"
-	WindowManagerLayoutParamsService_GetFitInsetsTypes_FullMethodName                = "/display.WindowManagerLayoutParamsService/GetFitInsetsTypes"
-	WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_FullMethodName  = "/display.WindowManagerLayoutParamsService/GetFrameRateBoostOnTouchEnabled"
-	WindowManagerLayoutParamsService_GetTitle_FullMethodName                         = "/display.WindowManagerLayoutParamsService/GetTitle"
-	WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_FullMethodName    = "/display.WindowManagerLayoutParamsService/IsFitInsetsIgnoringVisibility"
-	WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_FullMethodName  = "/display.WindowManagerLayoutParamsService/IsFrameRatePowerSavingsBalanced"
-	WindowManagerLayoutParamsService_IsHdrConversionEnabled_FullMethodName           = "/display.WindowManagerLayoutParamsService/IsHdrConversionEnabled"
-	WindowManagerLayoutParamsService_SetBlurBehindRadius_FullMethodName              = "/display.WindowManagerLayoutParamsService/SetBlurBehindRadius"
-	WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_FullMethodName          = "/display.WindowManagerLayoutParamsService/SetCanPlayMoveAnimation"
-	WindowManagerLayoutParamsService_SetColorMode_FullMethodName                     = "/display.WindowManagerLayoutParamsService/SetColorMode"
-	WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_FullMethodName            = "/display.WindowManagerLayoutParamsService/SetDesiredHdrHeadroom"
-	WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_FullMethodName   = "/display.WindowManagerLayoutParamsService/SetFitInsetsIgnoringVisibility"
-	WindowManagerLayoutParamsService_SetFitInsetsSides_FullMethodName                = "/display.WindowManagerLayoutParamsService/SetFitInsetsSides"
-	WindowManagerLayoutParamsService_SetFitInsetsTypes_FullMethodName                = "/display.WindowManagerLayoutParamsService/SetFitInsetsTypes"
-	WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_FullMethodName  = "/display.WindowManagerLayoutParamsService/SetFrameRateBoostOnTouchEnabled"
-	WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_FullMethodName = "/display.WindowManagerLayoutParamsService/SetFrameRatePowerSavingsBalanced"
-	WindowManagerLayoutParamsService_SetHdrConversionEnabled_FullMethodName          = "/display.WindowManagerLayoutParamsService/SetHdrConversionEnabled"
-	WindowManagerLayoutParamsService_SetTitle_FullMethodName                         = "/display.WindowManagerLayoutParamsService/SetTitle"
-	WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_FullMethodName   = "/display.WindowManagerLayoutParamsService/SetWallpaperTouchEventsEnabled"
-	WindowManagerLayoutParamsService_ToString_FullMethodName                         = "/display.WindowManagerLayoutParamsService/ToString"
-	WindowManagerLayoutParamsService_WriteToParcel_FullMethodName                    = "/display.WindowManagerLayoutParamsService/WriteToParcel"
-	WindowManagerLayoutParamsService_MayUseInputMethod_FullMethodName                = "/display.WindowManagerLayoutParamsService/MayUseInputMethod"
-)
-
-// WindowManagerLayoutParamsServiceClient is the client API for WindowManagerLayoutParamsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WindowManagerLayoutParamsServiceClient interface {
-	AreWallpaperTouchEventsEnabled(ctx context.Context, in *AreWallpaperTouchEventsEnabledRequest, opts ...grpc.CallOption) (*AreWallpaperTouchEventsEnabledResponse, error)
-	CanPlayMoveAnimation(ctx context.Context, in *CanPlayMoveAnimationRequest, opts ...grpc.CallOption) (*CanPlayMoveAnimationResponse, error)
-	CopyFrom(ctx context.Context, in *CopyFromRequest, opts ...grpc.CallOption) (*CopyFromResponse, error)
-	Debug(ctx context.Context, in *DebugRequest, opts ...grpc.CallOption) (*DebugResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetBlurBehindRadius(ctx context.Context, in *GetBlurBehindRadiusRequest, opts ...grpc.CallOption) (*GetBlurBehindRadiusResponse, error)
-	GetColorMode(ctx context.Context, in *GetColorModeRequest, opts ...grpc.CallOption) (*GetColorModeResponse, error)
-	GetDesiredHdrHeadroom(ctx context.Context, in *GetDesiredHdrHeadroomRequest, opts ...grpc.CallOption) (*GetDesiredHdrHeadroomResponse, error)
-	GetFitInsetsSides(ctx context.Context, in *GetFitInsetsSidesRequest, opts ...grpc.CallOption) (*GetFitInsetsSidesResponse, error)
-	GetFitInsetsTypes(ctx context.Context, in *GetFitInsetsTypesRequest, opts ...grpc.CallOption) (*GetFitInsetsTypesResponse, error)
-	GetFrameRateBoostOnTouchEnabled(ctx context.Context, in *GetFrameRateBoostOnTouchEnabledRequest, opts ...grpc.CallOption) (*GetFrameRateBoostOnTouchEnabledResponse, error)
-	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
-	IsFitInsetsIgnoringVisibility(ctx context.Context, in *IsFitInsetsIgnoringVisibilityRequest, opts ...grpc.CallOption) (*IsFitInsetsIgnoringVisibilityResponse, error)
-	IsFrameRatePowerSavingsBalanced(ctx context.Context, in *IsFrameRatePowerSavingsBalancedRequest, opts ...grpc.CallOption) (*IsFrameRatePowerSavingsBalancedResponse, error)
-	IsHdrConversionEnabled(ctx context.Context, in *IsHdrConversionEnabledRequest, opts ...grpc.CallOption) (*IsHdrConversionEnabledResponse, error)
-	SetBlurBehindRadius(ctx context.Context, in *SetBlurBehindRadiusRequest, opts ...grpc.CallOption) (*SetBlurBehindRadiusResponse, error)
-	SetCanPlayMoveAnimation(ctx context.Context, in *SetCanPlayMoveAnimationRequest, opts ...grpc.CallOption) (*SetCanPlayMoveAnimationResponse, error)
-	SetColorMode(ctx context.Context, in *SetColorModeRequest, opts ...grpc.CallOption) (*SetColorModeResponse, error)
-	SetDesiredHdrHeadroom(ctx context.Context, in *WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest, opts ...grpc.CallOption) (*SetDesiredHdrHeadroomResponse, error)
-	SetFitInsetsIgnoringVisibility(ctx context.Context, in *SetFitInsetsIgnoringVisibilityRequest, opts ...grpc.CallOption) (*SetFitInsetsIgnoringVisibilityResponse, error)
-	SetFitInsetsSides(ctx context.Context, in *SetFitInsetsSidesRequest, opts ...grpc.CallOption) (*SetFitInsetsSidesResponse, error)
-	SetFitInsetsTypes(ctx context.Context, in *SetFitInsetsTypesRequest, opts ...grpc.CallOption) (*SetFitInsetsTypesResponse, error)
-	SetFrameRateBoostOnTouchEnabled(ctx context.Context, in *SetFrameRateBoostOnTouchEnabledRequest, opts ...grpc.CallOption) (*SetFrameRateBoostOnTouchEnabledResponse, error)
-	SetFrameRatePowerSavingsBalanced(ctx context.Context, in *SetFrameRatePowerSavingsBalancedRequest, opts ...grpc.CallOption) (*SetFrameRatePowerSavingsBalancedResponse, error)
-	SetHdrConversionEnabled(ctx context.Context, in *SetHdrConversionEnabledRequest, opts ...grpc.CallOption) (*SetHdrConversionEnabledResponse, error)
-	SetTitle(ctx context.Context, in *SetTitleRequest, opts ...grpc.CallOption) (*SetTitleResponse, error)
-	SetWallpaperTouchEventsEnabled(ctx context.Context, in *SetWallpaperTouchEventsEnabledRequest, opts ...grpc.CallOption) (*SetWallpaperTouchEventsEnabledResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	MayUseInputMethod(ctx context.Context, in *MayUseInputMethodRequest, opts ...grpc.CallOption) (*MayUseInputMethodResponse, error)
-}
-
-type windowManagerLayoutParamsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWindowManagerLayoutParamsServiceClient(cc grpc.ClientConnInterface) WindowManagerLayoutParamsServiceClient {
-	return &windowManagerLayoutParamsServiceClient{cc}
-}
-
-func (c *windowManagerLayoutParamsServiceClient) AreWallpaperTouchEventsEnabled(ctx context.Context, in *AreWallpaperTouchEventsEnabledRequest, opts ...grpc.CallOption) (*AreWallpaperTouchEventsEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AreWallpaperTouchEventsEnabledResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) CanPlayMoveAnimation(ctx context.Context, in *CanPlayMoveAnimationRequest, opts ...grpc.CallOption) (*CanPlayMoveAnimationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanPlayMoveAnimationResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_CanPlayMoveAnimation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) CopyFrom(ctx context.Context, in *CopyFromRequest, opts ...grpc.CallOption) (*CopyFromResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CopyFromResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_CopyFrom_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) Debug(ctx context.Context, in *DebugRequest, opts ...grpc.CallOption) (*DebugResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DebugResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_Debug_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) GetBlurBehindRadius(ctx context.Context, in *GetBlurBehindRadiusRequest, opts ...grpc.CallOption) (*GetBlurBehindRadiusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBlurBehindRadiusResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetBlurBehindRadius_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) GetColorMode(ctx context.Context, in *GetColorModeRequest, opts ...grpc.CallOption) (*GetColorModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorModeResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetColorMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) GetDesiredHdrHeadroom(ctx context.Context, in *GetDesiredHdrHeadroomRequest, opts ...grpc.CallOption) (*GetDesiredHdrHeadroomResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDesiredHdrHeadroomResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) GetFitInsetsSides(ctx context.Context, in *GetFitInsetsSidesRequest, opts ...grpc.CallOption) (*GetFitInsetsSidesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFitInsetsSidesResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetFitInsetsSides_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) GetFitInsetsTypes(ctx context.Context, in *GetFitInsetsTypesRequest, opts ...grpc.CallOption) (*GetFitInsetsTypesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFitInsetsTypesResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetFitInsetsTypes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) GetFrameRateBoostOnTouchEnabled(ctx context.Context, in *GetFrameRateBoostOnTouchEnabledRequest, opts ...grpc.CallOption) (*GetFrameRateBoostOnTouchEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFrameRateBoostOnTouchEnabledResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTitleResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetTitle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) IsFitInsetsIgnoringVisibility(ctx context.Context, in *IsFitInsetsIgnoringVisibilityRequest, opts ...grpc.CallOption) (*IsFitInsetsIgnoringVisibilityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFitInsetsIgnoringVisibilityResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) IsFrameRatePowerSavingsBalanced(ctx context.Context, in *IsFrameRatePowerSavingsBalancedRequest, opts ...grpc.CallOption) (*IsFrameRatePowerSavingsBalancedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFrameRatePowerSavingsBalancedResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) IsHdrConversionEnabled(ctx context.Context, in *IsHdrConversionEnabledRequest, opts ...grpc.CallOption) (*IsHdrConversionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsHdrConversionEnabledResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_IsHdrConversionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetBlurBehindRadius(ctx context.Context, in *SetBlurBehindRadiusRequest, opts ...grpc.CallOption) (*SetBlurBehindRadiusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBlurBehindRadiusResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetBlurBehindRadius_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetCanPlayMoveAnimation(ctx context.Context, in *SetCanPlayMoveAnimationRequest, opts ...grpc.CallOption) (*SetCanPlayMoveAnimationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCanPlayMoveAnimationResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetColorMode(ctx context.Context, in *SetColorModeRequest, opts ...grpc.CallOption) (*SetColorModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetColorModeResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetColorMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetDesiredHdrHeadroom(ctx context.Context, in *WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest, opts ...grpc.CallOption) (*SetDesiredHdrHeadroomResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDesiredHdrHeadroomResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetFitInsetsIgnoringVisibility(ctx context.Context, in *SetFitInsetsIgnoringVisibilityRequest, opts ...grpc.CallOption) (*SetFitInsetsIgnoringVisibilityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFitInsetsIgnoringVisibilityResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetFitInsetsSides(ctx context.Context, in *SetFitInsetsSidesRequest, opts ...grpc.CallOption) (*SetFitInsetsSidesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFitInsetsSidesResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFitInsetsSides_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetFitInsetsTypes(ctx context.Context, in *SetFitInsetsTypesRequest, opts ...grpc.CallOption) (*SetFitInsetsTypesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFitInsetsTypesResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFitInsetsTypes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetFrameRateBoostOnTouchEnabled(ctx context.Context, in *SetFrameRateBoostOnTouchEnabledRequest, opts ...grpc.CallOption) (*SetFrameRateBoostOnTouchEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFrameRateBoostOnTouchEnabledResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetFrameRatePowerSavingsBalanced(ctx context.Context, in *SetFrameRatePowerSavingsBalancedRequest, opts ...grpc.CallOption) (*SetFrameRatePowerSavingsBalancedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFrameRatePowerSavingsBalancedResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetHdrConversionEnabled(ctx context.Context, in *SetHdrConversionEnabledRequest, opts ...grpc.CallOption) (*SetHdrConversionEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetHdrConversionEnabledResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetHdrConversionEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetTitle(ctx context.Context, in *SetTitleRequest, opts ...grpc.CallOption) (*SetTitleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTitleResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetTitle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) SetWallpaperTouchEventsEnabled(ctx context.Context, in *SetWallpaperTouchEventsEnabledRequest, opts ...grpc.CallOption) (*SetWallpaperTouchEventsEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWallpaperTouchEventsEnabledResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *windowManagerLayoutParamsServiceClient) MayUseInputMethod(ctx context.Context, in *MayUseInputMethodRequest, opts ...grpc.CallOption) (*MayUseInputMethodResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MayUseInputMethodResponse)
-	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_MayUseInputMethod_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WindowManagerLayoutParamsServiceServer is the server API for WindowManagerLayoutParamsService service.
-// All implementations must embed UnimplementedWindowManagerLayoutParamsServiceServer
-// for forward compatibility.
-type WindowManagerLayoutParamsServiceServer interface {
-	AreWallpaperTouchEventsEnabled(context.Context, *AreWallpaperTouchEventsEnabledRequest) (*AreWallpaperTouchEventsEnabledResponse, error)
-	CanPlayMoveAnimation(context.Context, *CanPlayMoveAnimationRequest) (*CanPlayMoveAnimationResponse, error)
-	CopyFrom(context.Context, *CopyFromRequest) (*CopyFromResponse, error)
-	Debug(context.Context, *DebugRequest) (*DebugResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetBlurBehindRadius(context.Context, *GetBlurBehindRadiusRequest) (*GetBlurBehindRadiusResponse, error)
-	GetColorMode(context.Context, *GetColorModeRequest) (*GetColorModeResponse, error)
-	GetDesiredHdrHeadroom(context.Context, *GetDesiredHdrHeadroomRequest) (*GetDesiredHdrHeadroomResponse, error)
-	GetFitInsetsSides(context.Context, *GetFitInsetsSidesRequest) (*GetFitInsetsSidesResponse, error)
-	GetFitInsetsTypes(context.Context, *GetFitInsetsTypesRequest) (*GetFitInsetsTypesResponse, error)
-	GetFrameRateBoostOnTouchEnabled(context.Context, *GetFrameRateBoostOnTouchEnabledRequest) (*GetFrameRateBoostOnTouchEnabledResponse, error)
-	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
-	IsFitInsetsIgnoringVisibility(context.Context, *IsFitInsetsIgnoringVisibilityRequest) (*IsFitInsetsIgnoringVisibilityResponse, error)
-	IsFrameRatePowerSavingsBalanced(context.Context, *IsFrameRatePowerSavingsBalancedRequest) (*IsFrameRatePowerSavingsBalancedResponse, error)
-	IsHdrConversionEnabled(context.Context, *IsHdrConversionEnabledRequest) (*IsHdrConversionEnabledResponse, error)
-	SetBlurBehindRadius(context.Context, *SetBlurBehindRadiusRequest) (*SetBlurBehindRadiusResponse, error)
-	SetCanPlayMoveAnimation(context.Context, *SetCanPlayMoveAnimationRequest) (*SetCanPlayMoveAnimationResponse, error)
-	SetColorMode(context.Context, *SetColorModeRequest) (*SetColorModeResponse, error)
-	SetDesiredHdrHeadroom(context.Context, *WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest) (*SetDesiredHdrHeadroomResponse, error)
-	SetFitInsetsIgnoringVisibility(context.Context, *SetFitInsetsIgnoringVisibilityRequest) (*SetFitInsetsIgnoringVisibilityResponse, error)
-	SetFitInsetsSides(context.Context, *SetFitInsetsSidesRequest) (*SetFitInsetsSidesResponse, error)
-	SetFitInsetsTypes(context.Context, *SetFitInsetsTypesRequest) (*SetFitInsetsTypesResponse, error)
-	SetFrameRateBoostOnTouchEnabled(context.Context, *SetFrameRateBoostOnTouchEnabledRequest) (*SetFrameRateBoostOnTouchEnabledResponse, error)
-	SetFrameRatePowerSavingsBalanced(context.Context, *SetFrameRatePowerSavingsBalancedRequest) (*SetFrameRatePowerSavingsBalancedResponse, error)
-	SetHdrConversionEnabled(context.Context, *SetHdrConversionEnabledRequest) (*SetHdrConversionEnabledResponse, error)
-	SetTitle(context.Context, *SetTitleRequest) (*SetTitleResponse, error)
-	SetWallpaperTouchEventsEnabled(context.Context, *SetWallpaperTouchEventsEnabledRequest) (*SetWallpaperTouchEventsEnabledResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	MayUseInputMethod(context.Context, *MayUseInputMethodRequest) (*MayUseInputMethodResponse, error)
-	mustEmbedUnimplementedWindowManagerLayoutParamsServiceServer()
-}
-
-// UnimplementedWindowManagerLayoutParamsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWindowManagerLayoutParamsServiceServer struct{}
-
-func (UnimplementedWindowManagerLayoutParamsServiceServer) AreWallpaperTouchEventsEnabled(context.Context, *AreWallpaperTouchEventsEnabledRequest) (*AreWallpaperTouchEventsEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AreWallpaperTouchEventsEnabled not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) CanPlayMoveAnimation(context.Context, *CanPlayMoveAnimationRequest) (*CanPlayMoveAnimationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanPlayMoveAnimation not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) CopyFrom(context.Context, *CopyFromRequest) (*CopyFromResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CopyFrom not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) Debug(context.Context, *DebugRequest) (*DebugResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Debug not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) GetBlurBehindRadius(context.Context, *GetBlurBehindRadiusRequest) (*GetBlurBehindRadiusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBlurBehindRadius not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) GetColorMode(context.Context, *GetColorModeRequest) (*GetColorModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColorMode not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) GetDesiredHdrHeadroom(context.Context, *GetDesiredHdrHeadroomRequest) (*GetDesiredHdrHeadroomResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDesiredHdrHeadroom not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) GetFitInsetsSides(context.Context, *GetFitInsetsSidesRequest) (*GetFitInsetsSidesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFitInsetsSides not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) GetFitInsetsTypes(context.Context, *GetFitInsetsTypesRequest) (*GetFitInsetsTypesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFitInsetsTypes not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) GetFrameRateBoostOnTouchEnabled(context.Context, *GetFrameRateBoostOnTouchEnabledRequest) (*GetFrameRateBoostOnTouchEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFrameRateBoostOnTouchEnabled not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) IsFitInsetsIgnoringVisibility(context.Context, *IsFitInsetsIgnoringVisibilityRequest) (*IsFitInsetsIgnoringVisibilityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFitInsetsIgnoringVisibility not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) IsFrameRatePowerSavingsBalanced(context.Context, *IsFrameRatePowerSavingsBalancedRequest) (*IsFrameRatePowerSavingsBalancedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFrameRatePowerSavingsBalanced not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) IsHdrConversionEnabled(context.Context, *IsHdrConversionEnabledRequest) (*IsHdrConversionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsHdrConversionEnabled not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetBlurBehindRadius(context.Context, *SetBlurBehindRadiusRequest) (*SetBlurBehindRadiusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBlurBehindRadius not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetCanPlayMoveAnimation(context.Context, *SetCanPlayMoveAnimationRequest) (*SetCanPlayMoveAnimationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCanPlayMoveAnimation not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetColorMode(context.Context, *SetColorModeRequest) (*SetColorModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetColorMode not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetDesiredHdrHeadroom(context.Context, *WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest) (*SetDesiredHdrHeadroomResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDesiredHdrHeadroom not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFitInsetsIgnoringVisibility(context.Context, *SetFitInsetsIgnoringVisibilityRequest) (*SetFitInsetsIgnoringVisibilityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFitInsetsIgnoringVisibility not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFitInsetsSides(context.Context, *SetFitInsetsSidesRequest) (*SetFitInsetsSidesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFitInsetsSides not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFitInsetsTypes(context.Context, *SetFitInsetsTypesRequest) (*SetFitInsetsTypesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFitInsetsTypes not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFrameRateBoostOnTouchEnabled(context.Context, *SetFrameRateBoostOnTouchEnabledRequest) (*SetFrameRateBoostOnTouchEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFrameRateBoostOnTouchEnabled not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFrameRatePowerSavingsBalanced(context.Context, *SetFrameRatePowerSavingsBalancedRequest) (*SetFrameRatePowerSavingsBalancedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFrameRatePowerSavingsBalanced not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetHdrConversionEnabled(context.Context, *SetHdrConversionEnabledRequest) (*SetHdrConversionEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetHdrConversionEnabled not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetTitle(context.Context, *SetTitleRequest) (*SetTitleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTitle not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) SetWallpaperTouchEventsEnabled(context.Context, *SetWallpaperTouchEventsEnabledRequest) (*SetWallpaperTouchEventsEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWallpaperTouchEventsEnabled not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) MayUseInputMethod(context.Context, *MayUseInputMethodRequest) (*MayUseInputMethodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MayUseInputMethod not implemented")
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) mustEmbedUnimplementedWindowManagerLayoutParamsServiceServer() {
-}
-func (UnimplementedWindowManagerLayoutParamsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeWindowManagerLayoutParamsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WindowManagerLayoutParamsServiceServer will
-// result in compilation errors.
-type UnsafeWindowManagerLayoutParamsServiceServer interface {
-	mustEmbedUnimplementedWindowManagerLayoutParamsServiceServer()
-}
-
-func RegisterWindowManagerLayoutParamsServiceServer(s grpc.ServiceRegistrar, srv WindowManagerLayoutParamsServiceServer) {
-	// If the following call panics, it indicates UnimplementedWindowManagerLayoutParamsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WindowManagerLayoutParamsService_ServiceDesc, srv)
-}
-
-func _WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AreWallpaperTouchEventsEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).AreWallpaperTouchEventsEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).AreWallpaperTouchEventsEnabled(ctx, req.(*AreWallpaperTouchEventsEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_CanPlayMoveAnimation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanPlayMoveAnimationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).CanPlayMoveAnimation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_CanPlayMoveAnimation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).CanPlayMoveAnimation(ctx, req.(*CanPlayMoveAnimationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_CopyFrom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CopyFromRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).CopyFrom(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_CopyFrom_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).CopyFrom(ctx, req.(*CopyFromRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_Debug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DebugRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).Debug(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_Debug_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).Debug(ctx, req.(*DebugRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_GetBlurBehindRadius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBlurBehindRadiusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetBlurBehindRadius(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_GetBlurBehindRadius_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetBlurBehindRadius(ctx, req.(*GetBlurBehindRadiusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_GetColorMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetColorMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_GetColorMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetColorMode(ctx, req.(*GetColorModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDesiredHdrHeadroomRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetDesiredHdrHeadroom(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetDesiredHdrHeadroom(ctx, req.(*GetDesiredHdrHeadroomRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_GetFitInsetsSides_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFitInsetsSidesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetFitInsetsSides(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_GetFitInsetsSides_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetFitInsetsSides(ctx, req.(*GetFitInsetsSidesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_GetFitInsetsTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFitInsetsTypesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetFitInsetsTypes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_GetFitInsetsTypes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetFitInsetsTypes(ctx, req.(*GetFitInsetsTypesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFrameRateBoostOnTouchEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetFrameRateBoostOnTouchEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetFrameRateBoostOnTouchEnabled(ctx, req.(*GetFrameRateBoostOnTouchEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTitleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetTitle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_GetTitle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFitInsetsIgnoringVisibilityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).IsFitInsetsIgnoringVisibility(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).IsFitInsetsIgnoringVisibility(ctx, req.(*IsFitInsetsIgnoringVisibilityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFrameRatePowerSavingsBalancedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).IsFrameRatePowerSavingsBalanced(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).IsFrameRatePowerSavingsBalanced(ctx, req.(*IsFrameRatePowerSavingsBalancedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_IsHdrConversionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsHdrConversionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).IsHdrConversionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_IsHdrConversionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).IsHdrConversionEnabled(ctx, req.(*IsHdrConversionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetBlurBehindRadius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBlurBehindRadiusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetBlurBehindRadius(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetBlurBehindRadius_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetBlurBehindRadius(ctx, req.(*SetBlurBehindRadiusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCanPlayMoveAnimationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetCanPlayMoveAnimation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetCanPlayMoveAnimation(ctx, req.(*SetCanPlayMoveAnimationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetColorMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetColorModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetColorMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetColorMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetColorMode(ctx, req.(*SetColorModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetDesiredHdrHeadroom(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetDesiredHdrHeadroom(ctx, req.(*WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFitInsetsIgnoringVisibilityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsIgnoringVisibility(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsIgnoringVisibility(ctx, req.(*SetFitInsetsIgnoringVisibilityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetFitInsetsSides_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFitInsetsSidesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsSides(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetFitInsetsSides_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsSides(ctx, req.(*SetFitInsetsSidesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetFitInsetsTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFitInsetsTypesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsTypes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetFitInsetsTypes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsTypes(ctx, req.(*SetFitInsetsTypesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFrameRateBoostOnTouchEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFrameRateBoostOnTouchEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFrameRateBoostOnTouchEnabled(ctx, req.(*SetFrameRateBoostOnTouchEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFrameRatePowerSavingsBalancedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFrameRatePowerSavingsBalanced(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetFrameRatePowerSavingsBalanced(ctx, req.(*SetFrameRatePowerSavingsBalancedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetHdrConversionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetHdrConversionEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetHdrConversionEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetHdrConversionEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetHdrConversionEnabled(ctx, req.(*SetHdrConversionEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTitleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetTitle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetTitle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetTitle(ctx, req.(*SetTitleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWallpaperTouchEventsEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetWallpaperTouchEventsEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).SetWallpaperTouchEventsEnabled(ctx, req.(*SetWallpaperTouchEventsEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WindowManagerLayoutParamsService_MayUseInputMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MayUseInputMethodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WindowManagerLayoutParamsServiceServer).MayUseInputMethod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WindowManagerLayoutParamsService_MayUseInputMethod_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WindowManagerLayoutParamsServiceServer).MayUseInputMethod(ctx, req.(*MayUseInputMethodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WindowManagerLayoutParamsService_ServiceDesc is the grpc.ServiceDesc for WindowManagerLayoutParamsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WindowManagerLayoutParamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "display.WindowManagerLayoutParamsService",
-	HandlerType: (*WindowManagerLayoutParamsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AreWallpaperTouchEventsEnabled",
-			Handler:    _WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_Handler,
-		},
-		{
-			MethodName: "CanPlayMoveAnimation",
-			Handler:    _WindowManagerLayoutParamsService_CanPlayMoveAnimation_Handler,
-		},
-		{
-			MethodName: "CopyFrom",
-			Handler:    _WindowManagerLayoutParamsService_CopyFrom_Handler,
-		},
-		{
-			MethodName: "Debug",
-			Handler:    _WindowManagerLayoutParamsService_Debug_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _WindowManagerLayoutParamsService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetBlurBehindRadius",
-			Handler:    _WindowManagerLayoutParamsService_GetBlurBehindRadius_Handler,
-		},
-		{
-			MethodName: "GetColorMode",
-			Handler:    _WindowManagerLayoutParamsService_GetColorMode_Handler,
-		},
-		{
-			MethodName: "GetDesiredHdrHeadroom",
-			Handler:    _WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_Handler,
-		},
-		{
-			MethodName: "GetFitInsetsSides",
-			Handler:    _WindowManagerLayoutParamsService_GetFitInsetsSides_Handler,
-		},
-		{
-			MethodName: "GetFitInsetsTypes",
-			Handler:    _WindowManagerLayoutParamsService_GetFitInsetsTypes_Handler,
-		},
-		{
-			MethodName: "GetFrameRateBoostOnTouchEnabled",
-			Handler:    _WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_Handler,
-		},
-		{
-			MethodName: "GetTitle",
-			Handler:    _WindowManagerLayoutParamsService_GetTitle_Handler,
-		},
-		{
-			MethodName: "IsFitInsetsIgnoringVisibility",
-			Handler:    _WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_Handler,
-		},
-		{
-			MethodName: "IsFrameRatePowerSavingsBalanced",
-			Handler:    _WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_Handler,
-		},
-		{
-			MethodName: "IsHdrConversionEnabled",
-			Handler:    _WindowManagerLayoutParamsService_IsHdrConversionEnabled_Handler,
-		},
-		{
-			MethodName: "SetBlurBehindRadius",
-			Handler:    _WindowManagerLayoutParamsService_SetBlurBehindRadius_Handler,
-		},
-		{
-			MethodName: "SetCanPlayMoveAnimation",
-			Handler:    _WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_Handler,
-		},
-		{
-			MethodName: "SetColorMode",
-			Handler:    _WindowManagerLayoutParamsService_SetColorMode_Handler,
-		},
-		{
-			MethodName: "SetDesiredHdrHeadroom",
-			Handler:    _WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_Handler,
-		},
-		{
-			MethodName: "SetFitInsetsIgnoringVisibility",
-			Handler:    _WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_Handler,
-		},
-		{
-			MethodName: "SetFitInsetsSides",
-			Handler:    _WindowManagerLayoutParamsService_SetFitInsetsSides_Handler,
-		},
-		{
-			MethodName: "SetFitInsetsTypes",
-			Handler:    _WindowManagerLayoutParamsService_SetFitInsetsTypes_Handler,
-		},
-		{
-			MethodName: "SetFrameRateBoostOnTouchEnabled",
-			Handler:    _WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_Handler,
-		},
-		{
-			MethodName: "SetFrameRatePowerSavingsBalanced",
-			Handler:    _WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_Handler,
-		},
-		{
-			MethodName: "SetHdrConversionEnabled",
-			Handler:    _WindowManagerLayoutParamsService_SetHdrConversionEnabled_Handler,
-		},
-		{
-			MethodName: "SetTitle",
-			Handler:    _WindowManagerLayoutParamsService_SetTitle_Handler,
-		},
-		{
-			MethodName: "SetWallpaperTouchEventsEnabled",
-			Handler:    _WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _WindowManagerLayoutParamsService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _WindowManagerLayoutParamsService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "MayUseInputMethod",
-			Handler:    _WindowManagerLayoutParamsService_MayUseInputMethod_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/display/display.proto",
-}
-
-const (
-	ViewGroupLayoutParamsService_ResolveLayoutDirection_FullMethodName = "/display.ViewGroupLayoutParamsService/ResolveLayoutDirection"
-)
-
-// ViewGroupLayoutParamsServiceClient is the client API for ViewGroupLayoutParamsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ViewGroupLayoutParamsServiceClient interface {
-	ResolveLayoutDirection(ctx context.Context, in *ResolveLayoutDirectionRequest, opts ...grpc.CallOption) (*ResolveLayoutDirectionResponse, error)
-}
-
-type viewGroupLayoutParamsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewViewGroupLayoutParamsServiceClient(cc grpc.ClientConnInterface) ViewGroupLayoutParamsServiceClient {
-	return &viewGroupLayoutParamsServiceClient{cc}
-}
-
-func (c *viewGroupLayoutParamsServiceClient) ResolveLayoutDirection(ctx context.Context, in *ResolveLayoutDirectionRequest, opts ...grpc.CallOption) (*ResolveLayoutDirectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResolveLayoutDirectionResponse)
-	err := c.cc.Invoke(ctx, ViewGroupLayoutParamsService_ResolveLayoutDirection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ViewGroupLayoutParamsServiceServer is the server API for ViewGroupLayoutParamsService service.
-// All implementations must embed UnimplementedViewGroupLayoutParamsServiceServer
-// for forward compatibility.
-type ViewGroupLayoutParamsServiceServer interface {
-	ResolveLayoutDirection(context.Context, *ResolveLayoutDirectionRequest) (*ResolveLayoutDirectionResponse, error)
-	mustEmbedUnimplementedViewGroupLayoutParamsServiceServer()
-}
-
-// UnimplementedViewGroupLayoutParamsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedViewGroupLayoutParamsServiceServer struct{}
-
-func (UnimplementedViewGroupLayoutParamsServiceServer) ResolveLayoutDirection(context.Context, *ResolveLayoutDirectionRequest) (*ResolveLayoutDirectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResolveLayoutDirection not implemented")
-}
-func (UnimplementedViewGroupLayoutParamsServiceServer) mustEmbedUnimplementedViewGroupLayoutParamsServiceServer() {
-}
-func (UnimplementedViewGroupLayoutParamsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeViewGroupLayoutParamsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ViewGroupLayoutParamsServiceServer will
-// result in compilation errors.
-type UnsafeViewGroupLayoutParamsServiceServer interface {
-	mustEmbedUnimplementedViewGroupLayoutParamsServiceServer()
-}
-
-func RegisterViewGroupLayoutParamsServiceServer(s grpc.ServiceRegistrar, srv ViewGroupLayoutParamsServiceServer) {
-	// If the following call panics, it indicates UnimplementedViewGroupLayoutParamsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ViewGroupLayoutParamsService_ServiceDesc, srv)
-}
-
-func _ViewGroupLayoutParamsService_ResolveLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResolveLayoutDirectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupLayoutParamsServiceServer).ResolveLayoutDirection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupLayoutParamsService_ResolveLayoutDirection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupLayoutParamsServiceServer).ResolveLayoutDirection(ctx, req.(*ResolveLayoutDirectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ViewGroupLayoutParamsService_ServiceDesc is the grpc.ServiceDesc for ViewGroupLayoutParamsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ViewGroupLayoutParamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "display.ViewGroupLayoutParamsService",
-	HandlerType: (*ViewGroupLayoutParamsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ResolveLayoutDirection",
-			Handler:    _ViewGroupLayoutParamsService_ResolveLayoutDirection_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/display/display.proto",
-}
-
-const (
-	ViewGroupMarginLayoutParamsService_GetLayoutDirection_FullMethodName     = "/display.ViewGroupMarginLayoutParamsService/GetLayoutDirection"
-	ViewGroupMarginLayoutParamsService_GetMarginEnd_FullMethodName           = "/display.ViewGroupMarginLayoutParamsService/GetMarginEnd"
-	ViewGroupMarginLayoutParamsService_GetMarginStart_FullMethodName         = "/display.ViewGroupMarginLayoutParamsService/GetMarginStart"
-	ViewGroupMarginLayoutParamsService_IsMarginRelative_FullMethodName       = "/display.ViewGroupMarginLayoutParamsService/IsMarginRelative"
-	ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_FullMethodName = "/display.ViewGroupMarginLayoutParamsService/ResolveLayoutDirection"
-	ViewGroupMarginLayoutParamsService_SetLayoutDirection_FullMethodName     = "/display.ViewGroupMarginLayoutParamsService/SetLayoutDirection"
-	ViewGroupMarginLayoutParamsService_SetMarginEnd_FullMethodName           = "/display.ViewGroupMarginLayoutParamsService/SetMarginEnd"
-	ViewGroupMarginLayoutParamsService_SetMarginStart_FullMethodName         = "/display.ViewGroupMarginLayoutParamsService/SetMarginStart"
-	ViewGroupMarginLayoutParamsService_SetMargins_FullMethodName             = "/display.ViewGroupMarginLayoutParamsService/SetMargins"
-)
-
-// ViewGroupMarginLayoutParamsServiceClient is the client API for ViewGroupMarginLayoutParamsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ViewGroupMarginLayoutParamsServiceClient interface {
-	GetLayoutDirection(ctx context.Context, in *GetLayoutDirectionRequest, opts ...grpc.CallOption) (*GetLayoutDirectionResponse, error)
-	GetMarginEnd(ctx context.Context, in *GetMarginEndRequest, opts ...grpc.CallOption) (*GetMarginEndResponse, error)
-	GetMarginStart(ctx context.Context, in *GetMarginStartRequest, opts ...grpc.CallOption) (*GetMarginStartResponse, error)
-	IsMarginRelative(ctx context.Context, in *IsMarginRelativeRequest, opts ...grpc.CallOption) (*IsMarginRelativeResponse, error)
-	ResolveLayoutDirection(ctx context.Context, in *ResolveLayoutDirectionRequest, opts ...grpc.CallOption) (*ResolveLayoutDirectionResponse, error)
-	SetLayoutDirection(ctx context.Context, in *SetLayoutDirectionRequest, opts ...grpc.CallOption) (*SetLayoutDirectionResponse, error)
-	SetMarginEnd(ctx context.Context, in *SetMarginEndRequest, opts ...grpc.CallOption) (*SetMarginEndResponse, error)
-	SetMarginStart(ctx context.Context, in *SetMarginStartRequest, opts ...grpc.CallOption) (*SetMarginStartResponse, error)
-	SetMargins(ctx context.Context, in *SetMarginsRequest, opts ...grpc.CallOption) (*SetMarginsResponse, error)
-}
-
-type viewGroupMarginLayoutParamsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewViewGroupMarginLayoutParamsServiceClient(cc grpc.ClientConnInterface) ViewGroupMarginLayoutParamsServiceClient {
-	return &viewGroupMarginLayoutParamsServiceClient{cc}
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) GetLayoutDirection(ctx context.Context, in *GetLayoutDirectionRequest, opts ...grpc.CallOption) (*GetLayoutDirectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLayoutDirectionResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_GetLayoutDirection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) GetMarginEnd(ctx context.Context, in *GetMarginEndRequest, opts ...grpc.CallOption) (*GetMarginEndResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMarginEndResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_GetMarginEnd_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) GetMarginStart(ctx context.Context, in *GetMarginStartRequest, opts ...grpc.CallOption) (*GetMarginStartResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMarginStartResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_GetMarginStart_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) IsMarginRelative(ctx context.Context, in *IsMarginRelativeRequest, opts ...grpc.CallOption) (*IsMarginRelativeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsMarginRelativeResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_IsMarginRelative_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) ResolveLayoutDirection(ctx context.Context, in *ResolveLayoutDirectionRequest, opts ...grpc.CallOption) (*ResolveLayoutDirectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResolveLayoutDirectionResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) SetLayoutDirection(ctx context.Context, in *SetLayoutDirectionRequest, opts ...grpc.CallOption) (*SetLayoutDirectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLayoutDirectionResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_SetLayoutDirection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) SetMarginEnd(ctx context.Context, in *SetMarginEndRequest, opts ...grpc.CallOption) (*SetMarginEndResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMarginEndResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_SetMarginEnd_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) SetMarginStart(ctx context.Context, in *SetMarginStartRequest, opts ...grpc.CallOption) (*SetMarginStartResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMarginStartResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_SetMarginStart_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupMarginLayoutParamsServiceClient) SetMargins(ctx context.Context, in *SetMarginsRequest, opts ...grpc.CallOption) (*SetMarginsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMarginsResponse)
-	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_SetMargins_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ViewGroupMarginLayoutParamsServiceServer is the server API for ViewGroupMarginLayoutParamsService service.
-// All implementations must embed UnimplementedViewGroupMarginLayoutParamsServiceServer
-// for forward compatibility.
-type ViewGroupMarginLayoutParamsServiceServer interface {
-	GetLayoutDirection(context.Context, *GetLayoutDirectionRequest) (*GetLayoutDirectionResponse, error)
-	GetMarginEnd(context.Context, *GetMarginEndRequest) (*GetMarginEndResponse, error)
-	GetMarginStart(context.Context, *GetMarginStartRequest) (*GetMarginStartResponse, error)
-	IsMarginRelative(context.Context, *IsMarginRelativeRequest) (*IsMarginRelativeResponse, error)
-	ResolveLayoutDirection(context.Context, *ResolveLayoutDirectionRequest) (*ResolveLayoutDirectionResponse, error)
-	SetLayoutDirection(context.Context, *SetLayoutDirectionRequest) (*SetLayoutDirectionResponse, error)
-	SetMarginEnd(context.Context, *SetMarginEndRequest) (*SetMarginEndResponse, error)
-	SetMarginStart(context.Context, *SetMarginStartRequest) (*SetMarginStartResponse, error)
-	SetMargins(context.Context, *SetMarginsRequest) (*SetMarginsResponse, error)
-	mustEmbedUnimplementedViewGroupMarginLayoutParamsServiceServer()
-}
-
-// UnimplementedViewGroupMarginLayoutParamsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedViewGroupMarginLayoutParamsServiceServer struct{}
-
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) GetLayoutDirection(context.Context, *GetLayoutDirectionRequest) (*GetLayoutDirectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLayoutDirection not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) GetMarginEnd(context.Context, *GetMarginEndRequest) (*GetMarginEndResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMarginEnd not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) GetMarginStart(context.Context, *GetMarginStartRequest) (*GetMarginStartResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMarginStart not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) IsMarginRelative(context.Context, *IsMarginRelativeRequest) (*IsMarginRelativeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsMarginRelative not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) ResolveLayoutDirection(context.Context, *ResolveLayoutDirectionRequest) (*ResolveLayoutDirectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResolveLayoutDirection not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) SetLayoutDirection(context.Context, *SetLayoutDirectionRequest) (*SetLayoutDirectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLayoutDirection not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) SetMarginEnd(context.Context, *SetMarginEndRequest) (*SetMarginEndResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMarginEnd not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) SetMarginStart(context.Context, *SetMarginStartRequest) (*SetMarginStartResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMarginStart not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) SetMargins(context.Context, *SetMarginsRequest) (*SetMarginsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMargins not implemented")
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) mustEmbedUnimplementedViewGroupMarginLayoutParamsServiceServer() {
-}
-func (UnimplementedViewGroupMarginLayoutParamsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeViewGroupMarginLayoutParamsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ViewGroupMarginLayoutParamsServiceServer will
-// result in compilation errors.
-type UnsafeViewGroupMarginLayoutParamsServiceServer interface {
-	mustEmbedUnimplementedViewGroupMarginLayoutParamsServiceServer()
-}
-
-func RegisterViewGroupMarginLayoutParamsServiceServer(s grpc.ServiceRegistrar, srv ViewGroupMarginLayoutParamsServiceServer) {
-	// If the following call panics, it indicates UnimplementedViewGroupMarginLayoutParamsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ViewGroupMarginLayoutParamsService_ServiceDesc, srv)
-}
-
-func _ViewGroupMarginLayoutParamsService_GetLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLayoutDirectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetLayoutDirection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_GetLayoutDirection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetLayoutDirection(ctx, req.(*GetLayoutDirectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupMarginLayoutParamsService_GetMarginEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMarginEndRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetMarginEnd(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_GetMarginEnd_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetMarginEnd(ctx, req.(*GetMarginEndRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupMarginLayoutParamsService_GetMarginStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMarginStartRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetMarginStart(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_GetMarginStart_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetMarginStart(ctx, req.(*GetMarginStartRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupMarginLayoutParamsService_IsMarginRelative_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsMarginRelativeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).IsMarginRelative(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_IsMarginRelative_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).IsMarginRelative(ctx, req.(*IsMarginRelativeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResolveLayoutDirectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).ResolveLayoutDirection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).ResolveLayoutDirection(ctx, req.(*ResolveLayoutDirectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupMarginLayoutParamsService_SetLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLayoutDirectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetLayoutDirection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_SetLayoutDirection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetLayoutDirection(ctx, req.(*SetLayoutDirectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupMarginLayoutParamsService_SetMarginEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMarginEndRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMarginEnd(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_SetMarginEnd_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMarginEnd(ctx, req.(*SetMarginEndRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupMarginLayoutParamsService_SetMarginStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMarginStartRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMarginStart(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_SetMarginStart_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMarginStart(ctx, req.(*SetMarginStartRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupMarginLayoutParamsService_SetMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMarginsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMargins(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupMarginLayoutParamsService_SetMargins_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMargins(ctx, req.(*SetMarginsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ViewGroupMarginLayoutParamsService_ServiceDesc is the grpc.ServiceDesc for ViewGroupMarginLayoutParamsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ViewGroupMarginLayoutParamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "display.ViewGroupMarginLayoutParamsService",
-	HandlerType: (*ViewGroupMarginLayoutParamsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetLayoutDirection",
-			Handler:    _ViewGroupMarginLayoutParamsService_GetLayoutDirection_Handler,
-		},
-		{
-			MethodName: "GetMarginEnd",
-			Handler:    _ViewGroupMarginLayoutParamsService_GetMarginEnd_Handler,
-		},
-		{
-			MethodName: "GetMarginStart",
-			Handler:    _ViewGroupMarginLayoutParamsService_GetMarginStart_Handler,
-		},
-		{
-			MethodName: "IsMarginRelative",
-			Handler:    _ViewGroupMarginLayoutParamsService_IsMarginRelative_Handler,
-		},
-		{
-			MethodName: "ResolveLayoutDirection",
-			Handler:    _ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_Handler,
-		},
-		{
-			MethodName: "SetLayoutDirection",
-			Handler:    _ViewGroupMarginLayoutParamsService_SetLayoutDirection_Handler,
-		},
-		{
-			MethodName: "SetMarginEnd",
-			Handler:    _ViewGroupMarginLayoutParamsService_SetMarginEnd_Handler,
-		},
-		{
-			MethodName: "SetMarginStart",
-			Handler:    _ViewGroupMarginLayoutParamsService_SetMarginStart_Handler,
-		},
-		{
-			MethodName: "SetMargins",
-			Handler:    _ViewGroupMarginLayoutParamsService_SetMargins_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/display/display.proto",
-}
-
-const (
-	ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_FullMethodName   = "/display.ViewGroupOnHierarchyChangeListenerService/OnChildViewAdded"
-	ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_FullMethodName = "/display.ViewGroupOnHierarchyChangeListenerService/OnChildViewRemoved"
-)
-
-// ViewGroupOnHierarchyChangeListenerServiceClient is the client API for ViewGroupOnHierarchyChangeListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ViewGroupOnHierarchyChangeListenerServiceClient interface {
-	OnChildViewAdded(ctx context.Context, in *OnChildViewAddedRequest, opts ...grpc.CallOption) (*OnChildViewAddedResponse, error)
-	OnChildViewRemoved(ctx context.Context, in *OnChildViewRemovedRequest, opts ...grpc.CallOption) (*OnChildViewRemovedResponse, error)
-}
-
-type viewGroupOnHierarchyChangeListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewViewGroupOnHierarchyChangeListenerServiceClient(cc grpc.ClientConnInterface) ViewGroupOnHierarchyChangeListenerServiceClient {
-	return &viewGroupOnHierarchyChangeListenerServiceClient{cc}
-}
-
-func (c *viewGroupOnHierarchyChangeListenerServiceClient) OnChildViewAdded(ctx context.Context, in *OnChildViewAddedRequest, opts ...grpc.CallOption) (*OnChildViewAddedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnChildViewAddedResponse)
-	err := c.cc.Invoke(ctx, ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewGroupOnHierarchyChangeListenerServiceClient) OnChildViewRemoved(ctx context.Context, in *OnChildViewRemovedRequest, opts ...grpc.CallOption) (*OnChildViewRemovedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnChildViewRemovedResponse)
-	err := c.cc.Invoke(ctx, ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ViewGroupOnHierarchyChangeListenerServiceServer is the server API for ViewGroupOnHierarchyChangeListenerService service.
-// All implementations must embed UnimplementedViewGroupOnHierarchyChangeListenerServiceServer
-// for forward compatibility.
-type ViewGroupOnHierarchyChangeListenerServiceServer interface {
-	OnChildViewAdded(context.Context, *OnChildViewAddedRequest) (*OnChildViewAddedResponse, error)
-	OnChildViewRemoved(context.Context, *OnChildViewRemovedRequest) (*OnChildViewRemovedResponse, error)
-	mustEmbedUnimplementedViewGroupOnHierarchyChangeListenerServiceServer()
-}
-
-// UnimplementedViewGroupOnHierarchyChangeListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedViewGroupOnHierarchyChangeListenerServiceServer struct{}
-
-func (UnimplementedViewGroupOnHierarchyChangeListenerServiceServer) OnChildViewAdded(context.Context, *OnChildViewAddedRequest) (*OnChildViewAddedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnChildViewAdded not implemented")
-}
-func (UnimplementedViewGroupOnHierarchyChangeListenerServiceServer) OnChildViewRemoved(context.Context, *OnChildViewRemovedRequest) (*OnChildViewRemovedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnChildViewRemoved not implemented")
-}
-func (UnimplementedViewGroupOnHierarchyChangeListenerServiceServer) mustEmbedUnimplementedViewGroupOnHierarchyChangeListenerServiceServer() {
-}
-func (UnimplementedViewGroupOnHierarchyChangeListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeViewGroupOnHierarchyChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ViewGroupOnHierarchyChangeListenerServiceServer will
-// result in compilation errors.
-type UnsafeViewGroupOnHierarchyChangeListenerServiceServer interface {
-	mustEmbedUnimplementedViewGroupOnHierarchyChangeListenerServiceServer()
-}
-
-func RegisterViewGroupOnHierarchyChangeListenerServiceServer(s grpc.ServiceRegistrar, srv ViewGroupOnHierarchyChangeListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedViewGroupOnHierarchyChangeListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ViewGroupOnHierarchyChangeListenerService_ServiceDesc, srv)
-}
-
-func _ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnChildViewAddedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupOnHierarchyChangeListenerServiceServer).OnChildViewAdded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupOnHierarchyChangeListenerServiceServer).OnChildViewAdded(ctx, req.(*OnChildViewAddedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnChildViewRemovedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewGroupOnHierarchyChangeListenerServiceServer).OnChildViewRemoved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewGroupOnHierarchyChangeListenerServiceServer).OnChildViewRemoved(ctx, req.(*OnChildViewRemovedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ViewGroupOnHierarchyChangeListenerService_ServiceDesc is the grpc.ServiceDesc for ViewGroupOnHierarchyChangeListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ViewGroupOnHierarchyChangeListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "display.ViewGroupOnHierarchyChangeListenerService",
-	HandlerType: (*ViewGroupOnHierarchyChangeListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnChildViewAdded",
-			Handler:    _ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_Handler,
-		},
-		{
-			MethodName: "OnChildViewRemoved",
-			Handler:    _ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/display/display.proto",
-}
-
-const (
 	HdrCapabilitiesService_DescribeContents_FullMethodName              = "/display.HdrCapabilitiesService/DescribeContents"
 	HdrCapabilitiesService_Equals_FullMethodName                        = "/display.HdrCapabilitiesService/Equals"
 	HdrCapabilitiesService_GetDesiredMaxAverageLuminance_FullMethodName = "/display.HdrCapabilitiesService/GetDesiredMaxAverageLuminance"
@@ -38052,7 +36234,7 @@ type HdrCapabilitiesServiceClient interface {
 	GetDesiredMaxLuminance(ctx context.Context, in *GetDesiredMaxLuminanceRequest, opts ...grpc.CallOption) (*GetDesiredMaxLuminanceResponse, error)
 	GetDesiredMinLuminance(ctx context.Context, in *GetDesiredMinLuminanceRequest, opts ...grpc.CallOption) (*GetDesiredMinLuminanceResponse, error)
 	GetSupportedHdrTypes(ctx context.Context, in *GetSupportedHdrTypesRequest, opts ...grpc.CallOption) (*GetSupportedHdrTypesResponse, error)
-	HashCode(ctx context.Context, in *HdrCapabilitiesHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
@@ -38125,7 +36307,7 @@ func (c *hdrCapabilitiesServiceClient) GetSupportedHdrTypes(ctx context.Context,
 	return out, nil
 }
 
-func (c *hdrCapabilitiesServiceClient) HashCode(ctx context.Context, in *HdrCapabilitiesHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *hdrCapabilitiesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, HdrCapabilitiesService_HashCode_FullMethodName, in, out, cOpts...)
@@ -38165,7 +36347,7 @@ type HdrCapabilitiesServiceServer interface {
 	GetDesiredMaxLuminance(context.Context, *GetDesiredMaxLuminanceRequest) (*GetDesiredMaxLuminanceResponse, error)
 	GetDesiredMinLuminance(context.Context, *GetDesiredMinLuminanceRequest) (*GetDesiredMinLuminanceResponse, error)
 	GetSupportedHdrTypes(context.Context, *GetSupportedHdrTypesRequest) (*GetSupportedHdrTypesResponse, error)
-	HashCode(context.Context, *HdrCapabilitiesHashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedHdrCapabilitiesServiceServer()
@@ -38196,7 +36378,7 @@ func (UnimplementedHdrCapabilitiesServiceServer) GetDesiredMinLuminance(context.
 func (UnimplementedHdrCapabilitiesServiceServer) GetSupportedHdrTypes(context.Context, *GetSupportedHdrTypesRequest) (*GetSupportedHdrTypesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSupportedHdrTypes not implemented")
 }
-func (UnimplementedHdrCapabilitiesServiceServer) HashCode(context.Context, *HdrCapabilitiesHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedHdrCapabilitiesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedHdrCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
@@ -38336,7 +36518,7 @@ func _HdrCapabilitiesService_GetSupportedHdrTypes_Handler(srv interface{}, ctx c
 }
 
 func _HdrCapabilitiesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HdrCapabilitiesHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -38348,7 +36530,7 @@ func _HdrCapabilitiesService_HashCode_Handler(srv interface{}, ctx context.Conte
 		FullMethod: HdrCapabilitiesService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HdrCapabilitiesServiceServer).HashCode(ctx, req.(*HdrCapabilitiesHashCodeRequest))
+		return srv.(HdrCapabilitiesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -38463,7 +36645,7 @@ type ModeServiceClient interface {
 	GetPhysicalWidth(ctx context.Context, in *GetPhysicalWidthRequest, opts ...grpc.CallOption) (*GetPhysicalWidthResponse, error)
 	GetRefreshRate(ctx context.Context, in *GetRefreshRateRequest, opts ...grpc.CallOption) (*GetRefreshRateResponse, error)
 	GetSupportedHdrTypes(ctx context.Context, in *GetSupportedHdrTypesRequest, opts ...grpc.CallOption) (*GetSupportedHdrTypesResponse, error)
-	HashCode(ctx context.Context, in *ModeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
@@ -38556,7 +36738,7 @@ func (c *modeServiceClient) GetSupportedHdrTypes(ctx context.Context, in *GetSup
 	return out, nil
 }
 
-func (c *modeServiceClient) HashCode(ctx context.Context, in *ModeHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *modeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, ModeService_HashCode_FullMethodName, in, out, cOpts...)
@@ -38598,7 +36780,7 @@ type ModeServiceServer interface {
 	GetPhysicalWidth(context.Context, *GetPhysicalWidthRequest) (*GetPhysicalWidthResponse, error)
 	GetRefreshRate(context.Context, *GetRefreshRateRequest) (*GetRefreshRateResponse, error)
 	GetSupportedHdrTypes(context.Context, *GetSupportedHdrTypesRequest) (*GetSupportedHdrTypesResponse, error)
-	HashCode(context.Context, *ModeHashCodeRequest) (*HashCodeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedModeServiceServer()
@@ -38635,7 +36817,7 @@ func (UnimplementedModeServiceServer) GetRefreshRate(context.Context, *GetRefres
 func (UnimplementedModeServiceServer) GetSupportedHdrTypes(context.Context, *GetSupportedHdrTypesRequest) (*GetSupportedHdrTypesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSupportedHdrTypes not implemented")
 }
-func (UnimplementedModeServiceServer) HashCode(context.Context, *ModeHashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedModeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedModeServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
@@ -38810,7 +36992,7 @@ func _ModeService_GetSupportedHdrTypes_Handler(srv interface{}, ctx context.Cont
 }
 
 func _ModeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ModeHashCodeRequest)
+	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -38822,7 +37004,7 @@ func _ModeService_HashCode_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: ModeService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModeServiceServer).HashCode(ctx, req.(*ModeHashCodeRequest))
+		return srv.(ModeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -38913,288 +37095,6 @@ var ModeService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _ModeService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/display/display.proto",
-}
-
-const (
-	SurfaceHolderCallbackService_SurfaceChanged_FullMethodName   = "/display.SurfaceHolderCallbackService/SurfaceChanged"
-	SurfaceHolderCallbackService_SurfaceCreated_FullMethodName   = "/display.SurfaceHolderCallbackService/SurfaceCreated"
-	SurfaceHolderCallbackService_SurfaceDestroyed_FullMethodName = "/display.SurfaceHolderCallbackService/SurfaceDestroyed"
-)
-
-// SurfaceHolderCallbackServiceClient is the client API for SurfaceHolderCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SurfaceHolderCallbackServiceClient interface {
-	SurfaceChanged(ctx context.Context, in *SurfaceChangedRequest, opts ...grpc.CallOption) (*SurfaceChangedResponse, error)
-	SurfaceCreated(ctx context.Context, in *SurfaceCreatedRequest, opts ...grpc.CallOption) (*SurfaceCreatedResponse, error)
-	SurfaceDestroyed(ctx context.Context, in *SurfaceDestroyedRequest, opts ...grpc.CallOption) (*SurfaceDestroyedResponse, error)
-}
-
-type surfaceHolderCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSurfaceHolderCallbackServiceClient(cc grpc.ClientConnInterface) SurfaceHolderCallbackServiceClient {
-	return &surfaceHolderCallbackServiceClient{cc}
-}
-
-func (c *surfaceHolderCallbackServiceClient) SurfaceChanged(ctx context.Context, in *SurfaceChangedRequest, opts ...grpc.CallOption) (*SurfaceChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SurfaceChangedResponse)
-	err := c.cc.Invoke(ctx, SurfaceHolderCallbackService_SurfaceChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *surfaceHolderCallbackServiceClient) SurfaceCreated(ctx context.Context, in *SurfaceCreatedRequest, opts ...grpc.CallOption) (*SurfaceCreatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SurfaceCreatedResponse)
-	err := c.cc.Invoke(ctx, SurfaceHolderCallbackService_SurfaceCreated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *surfaceHolderCallbackServiceClient) SurfaceDestroyed(ctx context.Context, in *SurfaceDestroyedRequest, opts ...grpc.CallOption) (*SurfaceDestroyedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SurfaceDestroyedResponse)
-	err := c.cc.Invoke(ctx, SurfaceHolderCallbackService_SurfaceDestroyed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SurfaceHolderCallbackServiceServer is the server API for SurfaceHolderCallbackService service.
-// All implementations must embed UnimplementedSurfaceHolderCallbackServiceServer
-// for forward compatibility.
-type SurfaceHolderCallbackServiceServer interface {
-	SurfaceChanged(context.Context, *SurfaceChangedRequest) (*SurfaceChangedResponse, error)
-	SurfaceCreated(context.Context, *SurfaceCreatedRequest) (*SurfaceCreatedResponse, error)
-	SurfaceDestroyed(context.Context, *SurfaceDestroyedRequest) (*SurfaceDestroyedResponse, error)
-	mustEmbedUnimplementedSurfaceHolderCallbackServiceServer()
-}
-
-// UnimplementedSurfaceHolderCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSurfaceHolderCallbackServiceServer struct{}
-
-func (UnimplementedSurfaceHolderCallbackServiceServer) SurfaceChanged(context.Context, *SurfaceChangedRequest) (*SurfaceChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SurfaceChanged not implemented")
-}
-func (UnimplementedSurfaceHolderCallbackServiceServer) SurfaceCreated(context.Context, *SurfaceCreatedRequest) (*SurfaceCreatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SurfaceCreated not implemented")
-}
-func (UnimplementedSurfaceHolderCallbackServiceServer) SurfaceDestroyed(context.Context, *SurfaceDestroyedRequest) (*SurfaceDestroyedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SurfaceDestroyed not implemented")
-}
-func (UnimplementedSurfaceHolderCallbackServiceServer) mustEmbedUnimplementedSurfaceHolderCallbackServiceServer() {
-}
-func (UnimplementedSurfaceHolderCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSurfaceHolderCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SurfaceHolderCallbackServiceServer will
-// result in compilation errors.
-type UnsafeSurfaceHolderCallbackServiceServer interface {
-	mustEmbedUnimplementedSurfaceHolderCallbackServiceServer()
-}
-
-func RegisterSurfaceHolderCallbackServiceServer(s grpc.ServiceRegistrar, srv SurfaceHolderCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedSurfaceHolderCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SurfaceHolderCallbackService_ServiceDesc, srv)
-}
-
-func _SurfaceHolderCallbackService_SurfaceChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SurfaceChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceHolderCallbackServiceServer).SurfaceChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceHolderCallbackService_SurfaceChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceHolderCallbackServiceServer).SurfaceChanged(ctx, req.(*SurfaceChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SurfaceHolderCallbackService_SurfaceCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SurfaceCreatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceHolderCallbackServiceServer).SurfaceCreated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceHolderCallbackService_SurfaceCreated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceHolderCallbackServiceServer).SurfaceCreated(ctx, req.(*SurfaceCreatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SurfaceHolderCallbackService_SurfaceDestroyed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SurfaceDestroyedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceHolderCallbackServiceServer).SurfaceDestroyed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceHolderCallbackService_SurfaceDestroyed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceHolderCallbackServiceServer).SurfaceDestroyed(ctx, req.(*SurfaceDestroyedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SurfaceHolderCallbackService_ServiceDesc is the grpc.ServiceDesc for SurfaceHolderCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SurfaceHolderCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "display.SurfaceHolderCallbackService",
-	HandlerType: (*SurfaceHolderCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "SurfaceChanged",
-			Handler:    _SurfaceHolderCallbackService_SurfaceChanged_Handler,
-		},
-		{
-			MethodName: "SurfaceCreated",
-			Handler:    _SurfaceHolderCallbackService_SurfaceCreated_Handler,
-		},
-		{
-			MethodName: "SurfaceDestroyed",
-			Handler:    _SurfaceHolderCallbackService_SurfaceDestroyed_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/display/display.proto",
-}
-
-const (
-	SurfaceHolderCallback2Service_SurfaceRedrawNeeded_FullMethodName = "/display.SurfaceHolderCallback2Service/SurfaceRedrawNeeded"
-)
-
-// SurfaceHolderCallback2ServiceClient is the client API for SurfaceHolderCallback2Service service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SurfaceHolderCallback2ServiceClient interface {
-	SurfaceRedrawNeeded(ctx context.Context, in *SurfaceRedrawNeededRequest, opts ...grpc.CallOption) (*SurfaceRedrawNeededResponse, error)
-}
-
-type surfaceHolderCallback2ServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSurfaceHolderCallback2ServiceClient(cc grpc.ClientConnInterface) SurfaceHolderCallback2ServiceClient {
-	return &surfaceHolderCallback2ServiceClient{cc}
-}
-
-func (c *surfaceHolderCallback2ServiceClient) SurfaceRedrawNeeded(ctx context.Context, in *SurfaceRedrawNeededRequest, opts ...grpc.CallOption) (*SurfaceRedrawNeededResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SurfaceRedrawNeededResponse)
-	err := c.cc.Invoke(ctx, SurfaceHolderCallback2Service_SurfaceRedrawNeeded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SurfaceHolderCallback2ServiceServer is the server API for SurfaceHolderCallback2Service service.
-// All implementations must embed UnimplementedSurfaceHolderCallback2ServiceServer
-// for forward compatibility.
-type SurfaceHolderCallback2ServiceServer interface {
-	SurfaceRedrawNeeded(context.Context, *SurfaceRedrawNeededRequest) (*SurfaceRedrawNeededResponse, error)
-	mustEmbedUnimplementedSurfaceHolderCallback2ServiceServer()
-}
-
-// UnimplementedSurfaceHolderCallback2ServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSurfaceHolderCallback2ServiceServer struct{}
-
-func (UnimplementedSurfaceHolderCallback2ServiceServer) SurfaceRedrawNeeded(context.Context, *SurfaceRedrawNeededRequest) (*SurfaceRedrawNeededResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SurfaceRedrawNeeded not implemented")
-}
-func (UnimplementedSurfaceHolderCallback2ServiceServer) mustEmbedUnimplementedSurfaceHolderCallback2ServiceServer() {
-}
-func (UnimplementedSurfaceHolderCallback2ServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSurfaceHolderCallback2ServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SurfaceHolderCallback2ServiceServer will
-// result in compilation errors.
-type UnsafeSurfaceHolderCallback2ServiceServer interface {
-	mustEmbedUnimplementedSurfaceHolderCallback2ServiceServer()
-}
-
-func RegisterSurfaceHolderCallback2ServiceServer(s grpc.ServiceRegistrar, srv SurfaceHolderCallback2ServiceServer) {
-	// If the following call panics, it indicates UnimplementedSurfaceHolderCallback2ServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SurfaceHolderCallback2Service_ServiceDesc, srv)
-}
-
-func _SurfaceHolderCallback2Service_SurfaceRedrawNeeded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SurfaceRedrawNeededRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SurfaceHolderCallback2ServiceServer).SurfaceRedrawNeeded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SurfaceHolderCallback2Service_SurfaceRedrawNeeded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SurfaceHolderCallback2ServiceServer).SurfaceRedrawNeeded(ctx, req.(*SurfaceRedrawNeededRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SurfaceHolderCallback2Service_ServiceDesc is the grpc.ServiceDesc for SurfaceHolderCallback2Service service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SurfaceHolderCallback2Service_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "display.SurfaceHolderCallback2Service",
-	HandlerType: (*SurfaceHolderCallback2ServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "SurfaceRedrawNeeded",
-			Handler:    _SurfaceHolderCallback2Service_SurfaceRedrawNeeded_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -41928,6 +39828,2144 @@ var ViewOnUnhandledKeyEventListenerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnUnhandledKeyEvent",
 			Handler:    _ViewOnUnhandledKeyEventListenerService_OnUnhandledKeyEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/display/display.proto",
+}
+
+const (
+	SurfaceHolderCallbackService_SurfaceChanged_FullMethodName   = "/display.SurfaceHolderCallbackService/SurfaceChanged"
+	SurfaceHolderCallbackService_SurfaceCreated_FullMethodName   = "/display.SurfaceHolderCallbackService/SurfaceCreated"
+	SurfaceHolderCallbackService_SurfaceDestroyed_FullMethodName = "/display.SurfaceHolderCallbackService/SurfaceDestroyed"
+)
+
+// SurfaceHolderCallbackServiceClient is the client API for SurfaceHolderCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SurfaceHolderCallbackServiceClient interface {
+	SurfaceChanged(ctx context.Context, in *SurfaceChangedRequest, opts ...grpc.CallOption) (*SurfaceChangedResponse, error)
+	SurfaceCreated(ctx context.Context, in *SurfaceCreatedRequest, opts ...grpc.CallOption) (*SurfaceCreatedResponse, error)
+	SurfaceDestroyed(ctx context.Context, in *SurfaceDestroyedRequest, opts ...grpc.CallOption) (*SurfaceDestroyedResponse, error)
+}
+
+type surfaceHolderCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSurfaceHolderCallbackServiceClient(cc grpc.ClientConnInterface) SurfaceHolderCallbackServiceClient {
+	return &surfaceHolderCallbackServiceClient{cc}
+}
+
+func (c *surfaceHolderCallbackServiceClient) SurfaceChanged(ctx context.Context, in *SurfaceChangedRequest, opts ...grpc.CallOption) (*SurfaceChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SurfaceChangedResponse)
+	err := c.cc.Invoke(ctx, SurfaceHolderCallbackService_SurfaceChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *surfaceHolderCallbackServiceClient) SurfaceCreated(ctx context.Context, in *SurfaceCreatedRequest, opts ...grpc.CallOption) (*SurfaceCreatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SurfaceCreatedResponse)
+	err := c.cc.Invoke(ctx, SurfaceHolderCallbackService_SurfaceCreated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *surfaceHolderCallbackServiceClient) SurfaceDestroyed(ctx context.Context, in *SurfaceDestroyedRequest, opts ...grpc.CallOption) (*SurfaceDestroyedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SurfaceDestroyedResponse)
+	err := c.cc.Invoke(ctx, SurfaceHolderCallbackService_SurfaceDestroyed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SurfaceHolderCallbackServiceServer is the server API for SurfaceHolderCallbackService service.
+// All implementations must embed UnimplementedSurfaceHolderCallbackServiceServer
+// for forward compatibility.
+type SurfaceHolderCallbackServiceServer interface {
+	SurfaceChanged(context.Context, *SurfaceChangedRequest) (*SurfaceChangedResponse, error)
+	SurfaceCreated(context.Context, *SurfaceCreatedRequest) (*SurfaceCreatedResponse, error)
+	SurfaceDestroyed(context.Context, *SurfaceDestroyedRequest) (*SurfaceDestroyedResponse, error)
+	mustEmbedUnimplementedSurfaceHolderCallbackServiceServer()
+}
+
+// UnimplementedSurfaceHolderCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSurfaceHolderCallbackServiceServer struct{}
+
+func (UnimplementedSurfaceHolderCallbackServiceServer) SurfaceChanged(context.Context, *SurfaceChangedRequest) (*SurfaceChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SurfaceChanged not implemented")
+}
+func (UnimplementedSurfaceHolderCallbackServiceServer) SurfaceCreated(context.Context, *SurfaceCreatedRequest) (*SurfaceCreatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SurfaceCreated not implemented")
+}
+func (UnimplementedSurfaceHolderCallbackServiceServer) SurfaceDestroyed(context.Context, *SurfaceDestroyedRequest) (*SurfaceDestroyedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SurfaceDestroyed not implemented")
+}
+func (UnimplementedSurfaceHolderCallbackServiceServer) mustEmbedUnimplementedSurfaceHolderCallbackServiceServer() {
+}
+func (UnimplementedSurfaceHolderCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSurfaceHolderCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SurfaceHolderCallbackServiceServer will
+// result in compilation errors.
+type UnsafeSurfaceHolderCallbackServiceServer interface {
+	mustEmbedUnimplementedSurfaceHolderCallbackServiceServer()
+}
+
+func RegisterSurfaceHolderCallbackServiceServer(s grpc.ServiceRegistrar, srv SurfaceHolderCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedSurfaceHolderCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SurfaceHolderCallbackService_ServiceDesc, srv)
+}
+
+func _SurfaceHolderCallbackService_SurfaceChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SurfaceChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceHolderCallbackServiceServer).SurfaceChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceHolderCallbackService_SurfaceChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceHolderCallbackServiceServer).SurfaceChanged(ctx, req.(*SurfaceChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SurfaceHolderCallbackService_SurfaceCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SurfaceCreatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceHolderCallbackServiceServer).SurfaceCreated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceHolderCallbackService_SurfaceCreated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceHolderCallbackServiceServer).SurfaceCreated(ctx, req.(*SurfaceCreatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SurfaceHolderCallbackService_SurfaceDestroyed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SurfaceDestroyedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceHolderCallbackServiceServer).SurfaceDestroyed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceHolderCallbackService_SurfaceDestroyed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceHolderCallbackServiceServer).SurfaceDestroyed(ctx, req.(*SurfaceDestroyedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SurfaceHolderCallbackService_ServiceDesc is the grpc.ServiceDesc for SurfaceHolderCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SurfaceHolderCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "display.SurfaceHolderCallbackService",
+	HandlerType: (*SurfaceHolderCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SurfaceChanged",
+			Handler:    _SurfaceHolderCallbackService_SurfaceChanged_Handler,
+		},
+		{
+			MethodName: "SurfaceCreated",
+			Handler:    _SurfaceHolderCallbackService_SurfaceCreated_Handler,
+		},
+		{
+			MethodName: "SurfaceDestroyed",
+			Handler:    _SurfaceHolderCallbackService_SurfaceDestroyed_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/display/display.proto",
+}
+
+const (
+	SurfaceHolderCallback2Service_SurfaceRedrawNeeded_FullMethodName = "/display.SurfaceHolderCallback2Service/SurfaceRedrawNeeded"
+)
+
+// SurfaceHolderCallback2ServiceClient is the client API for SurfaceHolderCallback2Service service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SurfaceHolderCallback2ServiceClient interface {
+	SurfaceRedrawNeeded(ctx context.Context, in *SurfaceRedrawNeededRequest, opts ...grpc.CallOption) (*SurfaceRedrawNeededResponse, error)
+}
+
+type surfaceHolderCallback2ServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSurfaceHolderCallback2ServiceClient(cc grpc.ClientConnInterface) SurfaceHolderCallback2ServiceClient {
+	return &surfaceHolderCallback2ServiceClient{cc}
+}
+
+func (c *surfaceHolderCallback2ServiceClient) SurfaceRedrawNeeded(ctx context.Context, in *SurfaceRedrawNeededRequest, opts ...grpc.CallOption) (*SurfaceRedrawNeededResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SurfaceRedrawNeededResponse)
+	err := c.cc.Invoke(ctx, SurfaceHolderCallback2Service_SurfaceRedrawNeeded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SurfaceHolderCallback2ServiceServer is the server API for SurfaceHolderCallback2Service service.
+// All implementations must embed UnimplementedSurfaceHolderCallback2ServiceServer
+// for forward compatibility.
+type SurfaceHolderCallback2ServiceServer interface {
+	SurfaceRedrawNeeded(context.Context, *SurfaceRedrawNeededRequest) (*SurfaceRedrawNeededResponse, error)
+	mustEmbedUnimplementedSurfaceHolderCallback2ServiceServer()
+}
+
+// UnimplementedSurfaceHolderCallback2ServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSurfaceHolderCallback2ServiceServer struct{}
+
+func (UnimplementedSurfaceHolderCallback2ServiceServer) SurfaceRedrawNeeded(context.Context, *SurfaceRedrawNeededRequest) (*SurfaceRedrawNeededResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SurfaceRedrawNeeded not implemented")
+}
+func (UnimplementedSurfaceHolderCallback2ServiceServer) mustEmbedUnimplementedSurfaceHolderCallback2ServiceServer() {
+}
+func (UnimplementedSurfaceHolderCallback2ServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSurfaceHolderCallback2ServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SurfaceHolderCallback2ServiceServer will
+// result in compilation errors.
+type UnsafeSurfaceHolderCallback2ServiceServer interface {
+	mustEmbedUnimplementedSurfaceHolderCallback2ServiceServer()
+}
+
+func RegisterSurfaceHolderCallback2ServiceServer(s grpc.ServiceRegistrar, srv SurfaceHolderCallback2ServiceServer) {
+	// If the following call panics, it indicates UnimplementedSurfaceHolderCallback2ServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SurfaceHolderCallback2Service_ServiceDesc, srv)
+}
+
+func _SurfaceHolderCallback2Service_SurfaceRedrawNeeded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SurfaceRedrawNeededRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SurfaceHolderCallback2ServiceServer).SurfaceRedrawNeeded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SurfaceHolderCallback2Service_SurfaceRedrawNeeded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SurfaceHolderCallback2ServiceServer).SurfaceRedrawNeeded(ctx, req.(*SurfaceRedrawNeededRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SurfaceHolderCallback2Service_ServiceDesc is the grpc.ServiceDesc for SurfaceHolderCallback2Service service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SurfaceHolderCallback2Service_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "display.SurfaceHolderCallback2Service",
+	HandlerType: (*SurfaceHolderCallback2ServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SurfaceRedrawNeeded",
+			Handler:    _SurfaceHolderCallback2Service_SurfaceRedrawNeeded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/display/display.proto",
+}
+
+const (
+	ViewGroupLayoutParamsService_ResolveLayoutDirection_FullMethodName = "/display.ViewGroupLayoutParamsService/ResolveLayoutDirection"
+)
+
+// ViewGroupLayoutParamsServiceClient is the client API for ViewGroupLayoutParamsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ViewGroupLayoutParamsServiceClient interface {
+	ResolveLayoutDirection(ctx context.Context, in *ResolveLayoutDirectionRequest, opts ...grpc.CallOption) (*ResolveLayoutDirectionResponse, error)
+}
+
+type viewGroupLayoutParamsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewViewGroupLayoutParamsServiceClient(cc grpc.ClientConnInterface) ViewGroupLayoutParamsServiceClient {
+	return &viewGroupLayoutParamsServiceClient{cc}
+}
+
+func (c *viewGroupLayoutParamsServiceClient) ResolveLayoutDirection(ctx context.Context, in *ResolveLayoutDirectionRequest, opts ...grpc.CallOption) (*ResolveLayoutDirectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResolveLayoutDirectionResponse)
+	err := c.cc.Invoke(ctx, ViewGroupLayoutParamsService_ResolveLayoutDirection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ViewGroupLayoutParamsServiceServer is the server API for ViewGroupLayoutParamsService service.
+// All implementations must embed UnimplementedViewGroupLayoutParamsServiceServer
+// for forward compatibility.
+type ViewGroupLayoutParamsServiceServer interface {
+	ResolveLayoutDirection(context.Context, *ResolveLayoutDirectionRequest) (*ResolveLayoutDirectionResponse, error)
+	mustEmbedUnimplementedViewGroupLayoutParamsServiceServer()
+}
+
+// UnimplementedViewGroupLayoutParamsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedViewGroupLayoutParamsServiceServer struct{}
+
+func (UnimplementedViewGroupLayoutParamsServiceServer) ResolveLayoutDirection(context.Context, *ResolveLayoutDirectionRequest) (*ResolveLayoutDirectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResolveLayoutDirection not implemented")
+}
+func (UnimplementedViewGroupLayoutParamsServiceServer) mustEmbedUnimplementedViewGroupLayoutParamsServiceServer() {
+}
+func (UnimplementedViewGroupLayoutParamsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeViewGroupLayoutParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ViewGroupLayoutParamsServiceServer will
+// result in compilation errors.
+type UnsafeViewGroupLayoutParamsServiceServer interface {
+	mustEmbedUnimplementedViewGroupLayoutParamsServiceServer()
+}
+
+func RegisterViewGroupLayoutParamsServiceServer(s grpc.ServiceRegistrar, srv ViewGroupLayoutParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedViewGroupLayoutParamsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ViewGroupLayoutParamsService_ServiceDesc, srv)
+}
+
+func _ViewGroupLayoutParamsService_ResolveLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResolveLayoutDirectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupLayoutParamsServiceServer).ResolveLayoutDirection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupLayoutParamsService_ResolveLayoutDirection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupLayoutParamsServiceServer).ResolveLayoutDirection(ctx, req.(*ResolveLayoutDirectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ViewGroupLayoutParamsService_ServiceDesc is the grpc.ServiceDesc for ViewGroupLayoutParamsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ViewGroupLayoutParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "display.ViewGroupLayoutParamsService",
+	HandlerType: (*ViewGroupLayoutParamsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ResolveLayoutDirection",
+			Handler:    _ViewGroupLayoutParamsService_ResolveLayoutDirection_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/display/display.proto",
+}
+
+const (
+	ViewGroupMarginLayoutParamsService_GetLayoutDirection_FullMethodName     = "/display.ViewGroupMarginLayoutParamsService/GetLayoutDirection"
+	ViewGroupMarginLayoutParamsService_GetMarginEnd_FullMethodName           = "/display.ViewGroupMarginLayoutParamsService/GetMarginEnd"
+	ViewGroupMarginLayoutParamsService_GetMarginStart_FullMethodName         = "/display.ViewGroupMarginLayoutParamsService/GetMarginStart"
+	ViewGroupMarginLayoutParamsService_IsMarginRelative_FullMethodName       = "/display.ViewGroupMarginLayoutParamsService/IsMarginRelative"
+	ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_FullMethodName = "/display.ViewGroupMarginLayoutParamsService/ResolveLayoutDirection"
+	ViewGroupMarginLayoutParamsService_SetLayoutDirection_FullMethodName     = "/display.ViewGroupMarginLayoutParamsService/SetLayoutDirection"
+	ViewGroupMarginLayoutParamsService_SetMarginEnd_FullMethodName           = "/display.ViewGroupMarginLayoutParamsService/SetMarginEnd"
+	ViewGroupMarginLayoutParamsService_SetMarginStart_FullMethodName         = "/display.ViewGroupMarginLayoutParamsService/SetMarginStart"
+	ViewGroupMarginLayoutParamsService_SetMargins_FullMethodName             = "/display.ViewGroupMarginLayoutParamsService/SetMargins"
+)
+
+// ViewGroupMarginLayoutParamsServiceClient is the client API for ViewGroupMarginLayoutParamsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ViewGroupMarginLayoutParamsServiceClient interface {
+	GetLayoutDirection(ctx context.Context, in *ViewGroupMarginLayoutParamsGetLayoutDirectionRequest, opts ...grpc.CallOption) (*GetLayoutDirectionResponse, error)
+	GetMarginEnd(ctx context.Context, in *GetMarginEndRequest, opts ...grpc.CallOption) (*GetMarginEndResponse, error)
+	GetMarginStart(ctx context.Context, in *GetMarginStartRequest, opts ...grpc.CallOption) (*GetMarginStartResponse, error)
+	IsMarginRelative(ctx context.Context, in *IsMarginRelativeRequest, opts ...grpc.CallOption) (*IsMarginRelativeResponse, error)
+	ResolveLayoutDirection(ctx context.Context, in *ResolveLayoutDirectionRequest, opts ...grpc.CallOption) (*ResolveLayoutDirectionResponse, error)
+	SetLayoutDirection(ctx context.Context, in *ViewGroupMarginLayoutParamsSetLayoutDirectionRequest, opts ...grpc.CallOption) (*SetLayoutDirectionResponse, error)
+	SetMarginEnd(ctx context.Context, in *SetMarginEndRequest, opts ...grpc.CallOption) (*SetMarginEndResponse, error)
+	SetMarginStart(ctx context.Context, in *SetMarginStartRequest, opts ...grpc.CallOption) (*SetMarginStartResponse, error)
+	SetMargins(ctx context.Context, in *SetMarginsRequest, opts ...grpc.CallOption) (*SetMarginsResponse, error)
+}
+
+type viewGroupMarginLayoutParamsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewViewGroupMarginLayoutParamsServiceClient(cc grpc.ClientConnInterface) ViewGroupMarginLayoutParamsServiceClient {
+	return &viewGroupMarginLayoutParamsServiceClient{cc}
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) GetLayoutDirection(ctx context.Context, in *ViewGroupMarginLayoutParamsGetLayoutDirectionRequest, opts ...grpc.CallOption) (*GetLayoutDirectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLayoutDirectionResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_GetLayoutDirection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) GetMarginEnd(ctx context.Context, in *GetMarginEndRequest, opts ...grpc.CallOption) (*GetMarginEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMarginEndResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_GetMarginEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) GetMarginStart(ctx context.Context, in *GetMarginStartRequest, opts ...grpc.CallOption) (*GetMarginStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMarginStartResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_GetMarginStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) IsMarginRelative(ctx context.Context, in *IsMarginRelativeRequest, opts ...grpc.CallOption) (*IsMarginRelativeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMarginRelativeResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_IsMarginRelative_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) ResolveLayoutDirection(ctx context.Context, in *ResolveLayoutDirectionRequest, opts ...grpc.CallOption) (*ResolveLayoutDirectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResolveLayoutDirectionResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) SetLayoutDirection(ctx context.Context, in *ViewGroupMarginLayoutParamsSetLayoutDirectionRequest, opts ...grpc.CallOption) (*SetLayoutDirectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLayoutDirectionResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_SetLayoutDirection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) SetMarginEnd(ctx context.Context, in *SetMarginEndRequest, opts ...grpc.CallOption) (*SetMarginEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMarginEndResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_SetMarginEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) SetMarginStart(ctx context.Context, in *SetMarginStartRequest, opts ...grpc.CallOption) (*SetMarginStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMarginStartResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_SetMarginStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupMarginLayoutParamsServiceClient) SetMargins(ctx context.Context, in *SetMarginsRequest, opts ...grpc.CallOption) (*SetMarginsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMarginsResponse)
+	err := c.cc.Invoke(ctx, ViewGroupMarginLayoutParamsService_SetMargins_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ViewGroupMarginLayoutParamsServiceServer is the server API for ViewGroupMarginLayoutParamsService service.
+// All implementations must embed UnimplementedViewGroupMarginLayoutParamsServiceServer
+// for forward compatibility.
+type ViewGroupMarginLayoutParamsServiceServer interface {
+	GetLayoutDirection(context.Context, *ViewGroupMarginLayoutParamsGetLayoutDirectionRequest) (*GetLayoutDirectionResponse, error)
+	GetMarginEnd(context.Context, *GetMarginEndRequest) (*GetMarginEndResponse, error)
+	GetMarginStart(context.Context, *GetMarginStartRequest) (*GetMarginStartResponse, error)
+	IsMarginRelative(context.Context, *IsMarginRelativeRequest) (*IsMarginRelativeResponse, error)
+	ResolveLayoutDirection(context.Context, *ResolveLayoutDirectionRequest) (*ResolveLayoutDirectionResponse, error)
+	SetLayoutDirection(context.Context, *ViewGroupMarginLayoutParamsSetLayoutDirectionRequest) (*SetLayoutDirectionResponse, error)
+	SetMarginEnd(context.Context, *SetMarginEndRequest) (*SetMarginEndResponse, error)
+	SetMarginStart(context.Context, *SetMarginStartRequest) (*SetMarginStartResponse, error)
+	SetMargins(context.Context, *SetMarginsRequest) (*SetMarginsResponse, error)
+	mustEmbedUnimplementedViewGroupMarginLayoutParamsServiceServer()
+}
+
+// UnimplementedViewGroupMarginLayoutParamsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedViewGroupMarginLayoutParamsServiceServer struct{}
+
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) GetLayoutDirection(context.Context, *ViewGroupMarginLayoutParamsGetLayoutDirectionRequest) (*GetLayoutDirectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLayoutDirection not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) GetMarginEnd(context.Context, *GetMarginEndRequest) (*GetMarginEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMarginEnd not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) GetMarginStart(context.Context, *GetMarginStartRequest) (*GetMarginStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMarginStart not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) IsMarginRelative(context.Context, *IsMarginRelativeRequest) (*IsMarginRelativeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMarginRelative not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) ResolveLayoutDirection(context.Context, *ResolveLayoutDirectionRequest) (*ResolveLayoutDirectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResolveLayoutDirection not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) SetLayoutDirection(context.Context, *ViewGroupMarginLayoutParamsSetLayoutDirectionRequest) (*SetLayoutDirectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLayoutDirection not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) SetMarginEnd(context.Context, *SetMarginEndRequest) (*SetMarginEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMarginEnd not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) SetMarginStart(context.Context, *SetMarginStartRequest) (*SetMarginStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMarginStart not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) SetMargins(context.Context, *SetMarginsRequest) (*SetMarginsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMargins not implemented")
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) mustEmbedUnimplementedViewGroupMarginLayoutParamsServiceServer() {
+}
+func (UnimplementedViewGroupMarginLayoutParamsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeViewGroupMarginLayoutParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ViewGroupMarginLayoutParamsServiceServer will
+// result in compilation errors.
+type UnsafeViewGroupMarginLayoutParamsServiceServer interface {
+	mustEmbedUnimplementedViewGroupMarginLayoutParamsServiceServer()
+}
+
+func RegisterViewGroupMarginLayoutParamsServiceServer(s grpc.ServiceRegistrar, srv ViewGroupMarginLayoutParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedViewGroupMarginLayoutParamsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ViewGroupMarginLayoutParamsService_ServiceDesc, srv)
+}
+
+func _ViewGroupMarginLayoutParamsService_GetLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ViewGroupMarginLayoutParamsGetLayoutDirectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetLayoutDirection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_GetLayoutDirection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetLayoutDirection(ctx, req.(*ViewGroupMarginLayoutParamsGetLayoutDirectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupMarginLayoutParamsService_GetMarginEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMarginEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetMarginEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_GetMarginEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetMarginEnd(ctx, req.(*GetMarginEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupMarginLayoutParamsService_GetMarginStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMarginStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetMarginStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_GetMarginStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).GetMarginStart(ctx, req.(*GetMarginStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupMarginLayoutParamsService_IsMarginRelative_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMarginRelativeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).IsMarginRelative(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_IsMarginRelative_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).IsMarginRelative(ctx, req.(*IsMarginRelativeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResolveLayoutDirectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).ResolveLayoutDirection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).ResolveLayoutDirection(ctx, req.(*ResolveLayoutDirectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupMarginLayoutParamsService_SetLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ViewGroupMarginLayoutParamsSetLayoutDirectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetLayoutDirection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_SetLayoutDirection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetLayoutDirection(ctx, req.(*ViewGroupMarginLayoutParamsSetLayoutDirectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupMarginLayoutParamsService_SetMarginEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMarginEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMarginEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_SetMarginEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMarginEnd(ctx, req.(*SetMarginEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupMarginLayoutParamsService_SetMarginStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMarginStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMarginStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_SetMarginStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMarginStart(ctx, req.(*SetMarginStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupMarginLayoutParamsService_SetMargins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMarginsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMargins(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupMarginLayoutParamsService_SetMargins_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupMarginLayoutParamsServiceServer).SetMargins(ctx, req.(*SetMarginsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ViewGroupMarginLayoutParamsService_ServiceDesc is the grpc.ServiceDesc for ViewGroupMarginLayoutParamsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ViewGroupMarginLayoutParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "display.ViewGroupMarginLayoutParamsService",
+	HandlerType: (*ViewGroupMarginLayoutParamsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetLayoutDirection",
+			Handler:    _ViewGroupMarginLayoutParamsService_GetLayoutDirection_Handler,
+		},
+		{
+			MethodName: "GetMarginEnd",
+			Handler:    _ViewGroupMarginLayoutParamsService_GetMarginEnd_Handler,
+		},
+		{
+			MethodName: "GetMarginStart",
+			Handler:    _ViewGroupMarginLayoutParamsService_GetMarginStart_Handler,
+		},
+		{
+			MethodName: "IsMarginRelative",
+			Handler:    _ViewGroupMarginLayoutParamsService_IsMarginRelative_Handler,
+		},
+		{
+			MethodName: "ResolveLayoutDirection",
+			Handler:    _ViewGroupMarginLayoutParamsService_ResolveLayoutDirection_Handler,
+		},
+		{
+			MethodName: "SetLayoutDirection",
+			Handler:    _ViewGroupMarginLayoutParamsService_SetLayoutDirection_Handler,
+		},
+		{
+			MethodName: "SetMarginEnd",
+			Handler:    _ViewGroupMarginLayoutParamsService_SetMarginEnd_Handler,
+		},
+		{
+			MethodName: "SetMarginStart",
+			Handler:    _ViewGroupMarginLayoutParamsService_SetMarginStart_Handler,
+		},
+		{
+			MethodName: "SetMargins",
+			Handler:    _ViewGroupMarginLayoutParamsService_SetMargins_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/display/display.proto",
+}
+
+const (
+	ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_FullMethodName   = "/display.ViewGroupOnHierarchyChangeListenerService/OnChildViewAdded"
+	ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_FullMethodName = "/display.ViewGroupOnHierarchyChangeListenerService/OnChildViewRemoved"
+)
+
+// ViewGroupOnHierarchyChangeListenerServiceClient is the client API for ViewGroupOnHierarchyChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ViewGroupOnHierarchyChangeListenerServiceClient interface {
+	OnChildViewAdded(ctx context.Context, in *OnChildViewAddedRequest, opts ...grpc.CallOption) (*OnChildViewAddedResponse, error)
+	OnChildViewRemoved(ctx context.Context, in *OnChildViewRemovedRequest, opts ...grpc.CallOption) (*OnChildViewRemovedResponse, error)
+}
+
+type viewGroupOnHierarchyChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewViewGroupOnHierarchyChangeListenerServiceClient(cc grpc.ClientConnInterface) ViewGroupOnHierarchyChangeListenerServiceClient {
+	return &viewGroupOnHierarchyChangeListenerServiceClient{cc}
+}
+
+func (c *viewGroupOnHierarchyChangeListenerServiceClient) OnChildViewAdded(ctx context.Context, in *OnChildViewAddedRequest, opts ...grpc.CallOption) (*OnChildViewAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnChildViewAddedResponse)
+	err := c.cc.Invoke(ctx, ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewGroupOnHierarchyChangeListenerServiceClient) OnChildViewRemoved(ctx context.Context, in *OnChildViewRemovedRequest, opts ...grpc.CallOption) (*OnChildViewRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnChildViewRemovedResponse)
+	err := c.cc.Invoke(ctx, ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ViewGroupOnHierarchyChangeListenerServiceServer is the server API for ViewGroupOnHierarchyChangeListenerService service.
+// All implementations must embed UnimplementedViewGroupOnHierarchyChangeListenerServiceServer
+// for forward compatibility.
+type ViewGroupOnHierarchyChangeListenerServiceServer interface {
+	OnChildViewAdded(context.Context, *OnChildViewAddedRequest) (*OnChildViewAddedResponse, error)
+	OnChildViewRemoved(context.Context, *OnChildViewRemovedRequest) (*OnChildViewRemovedResponse, error)
+	mustEmbedUnimplementedViewGroupOnHierarchyChangeListenerServiceServer()
+}
+
+// UnimplementedViewGroupOnHierarchyChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedViewGroupOnHierarchyChangeListenerServiceServer struct{}
+
+func (UnimplementedViewGroupOnHierarchyChangeListenerServiceServer) OnChildViewAdded(context.Context, *OnChildViewAddedRequest) (*OnChildViewAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnChildViewAdded not implemented")
+}
+func (UnimplementedViewGroupOnHierarchyChangeListenerServiceServer) OnChildViewRemoved(context.Context, *OnChildViewRemovedRequest) (*OnChildViewRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnChildViewRemoved not implemented")
+}
+func (UnimplementedViewGroupOnHierarchyChangeListenerServiceServer) mustEmbedUnimplementedViewGroupOnHierarchyChangeListenerServiceServer() {
+}
+func (UnimplementedViewGroupOnHierarchyChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeViewGroupOnHierarchyChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ViewGroupOnHierarchyChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeViewGroupOnHierarchyChangeListenerServiceServer interface {
+	mustEmbedUnimplementedViewGroupOnHierarchyChangeListenerServiceServer()
+}
+
+func RegisterViewGroupOnHierarchyChangeListenerServiceServer(s grpc.ServiceRegistrar, srv ViewGroupOnHierarchyChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedViewGroupOnHierarchyChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ViewGroupOnHierarchyChangeListenerService_ServiceDesc, srv)
+}
+
+func _ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnChildViewAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupOnHierarchyChangeListenerServiceServer).OnChildViewAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupOnHierarchyChangeListenerServiceServer).OnChildViewAdded(ctx, req.(*OnChildViewAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnChildViewRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewGroupOnHierarchyChangeListenerServiceServer).OnChildViewRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewGroupOnHierarchyChangeListenerServiceServer).OnChildViewRemoved(ctx, req.(*OnChildViewRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ViewGroupOnHierarchyChangeListenerService_ServiceDesc is the grpc.ServiceDesc for ViewGroupOnHierarchyChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ViewGroupOnHierarchyChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "display.ViewGroupOnHierarchyChangeListenerService",
+	HandlerType: (*ViewGroupOnHierarchyChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnChildViewAdded",
+			Handler:    _ViewGroupOnHierarchyChangeListenerService_OnChildViewAdded_Handler,
+		},
+		{
+			MethodName: "OnChildViewRemoved",
+			Handler:    _ViewGroupOnHierarchyChangeListenerService_OnChildViewRemoved_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/display/display.proto",
+}
+
+const (
+	WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_FullMethodName   = "/display.WindowManagerLayoutParamsService/AreWallpaperTouchEventsEnabled"
+	WindowManagerLayoutParamsService_CanPlayMoveAnimation_FullMethodName             = "/display.WindowManagerLayoutParamsService/CanPlayMoveAnimation"
+	WindowManagerLayoutParamsService_CopyFrom_FullMethodName                         = "/display.WindowManagerLayoutParamsService/CopyFrom"
+	WindowManagerLayoutParamsService_Debug_FullMethodName                            = "/display.WindowManagerLayoutParamsService/Debug"
+	WindowManagerLayoutParamsService_DescribeContents_FullMethodName                 = "/display.WindowManagerLayoutParamsService/DescribeContents"
+	WindowManagerLayoutParamsService_GetBlurBehindRadius_FullMethodName              = "/display.WindowManagerLayoutParamsService/GetBlurBehindRadius"
+	WindowManagerLayoutParamsService_GetColorMode_FullMethodName                     = "/display.WindowManagerLayoutParamsService/GetColorMode"
+	WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_FullMethodName            = "/display.WindowManagerLayoutParamsService/GetDesiredHdrHeadroom"
+	WindowManagerLayoutParamsService_GetFitInsetsSides_FullMethodName                = "/display.WindowManagerLayoutParamsService/GetFitInsetsSides"
+	WindowManagerLayoutParamsService_GetFitInsetsTypes_FullMethodName                = "/display.WindowManagerLayoutParamsService/GetFitInsetsTypes"
+	WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_FullMethodName  = "/display.WindowManagerLayoutParamsService/GetFrameRateBoostOnTouchEnabled"
+	WindowManagerLayoutParamsService_GetTitle_FullMethodName                         = "/display.WindowManagerLayoutParamsService/GetTitle"
+	WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_FullMethodName    = "/display.WindowManagerLayoutParamsService/IsFitInsetsIgnoringVisibility"
+	WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_FullMethodName  = "/display.WindowManagerLayoutParamsService/IsFrameRatePowerSavingsBalanced"
+	WindowManagerLayoutParamsService_IsHdrConversionEnabled_FullMethodName           = "/display.WindowManagerLayoutParamsService/IsHdrConversionEnabled"
+	WindowManagerLayoutParamsService_SetBlurBehindRadius_FullMethodName              = "/display.WindowManagerLayoutParamsService/SetBlurBehindRadius"
+	WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_FullMethodName          = "/display.WindowManagerLayoutParamsService/SetCanPlayMoveAnimation"
+	WindowManagerLayoutParamsService_SetColorMode_FullMethodName                     = "/display.WindowManagerLayoutParamsService/SetColorMode"
+	WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_FullMethodName            = "/display.WindowManagerLayoutParamsService/SetDesiredHdrHeadroom"
+	WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_FullMethodName   = "/display.WindowManagerLayoutParamsService/SetFitInsetsIgnoringVisibility"
+	WindowManagerLayoutParamsService_SetFitInsetsSides_FullMethodName                = "/display.WindowManagerLayoutParamsService/SetFitInsetsSides"
+	WindowManagerLayoutParamsService_SetFitInsetsTypes_FullMethodName                = "/display.WindowManagerLayoutParamsService/SetFitInsetsTypes"
+	WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_FullMethodName  = "/display.WindowManagerLayoutParamsService/SetFrameRateBoostOnTouchEnabled"
+	WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_FullMethodName = "/display.WindowManagerLayoutParamsService/SetFrameRatePowerSavingsBalanced"
+	WindowManagerLayoutParamsService_SetHdrConversionEnabled_FullMethodName          = "/display.WindowManagerLayoutParamsService/SetHdrConversionEnabled"
+	WindowManagerLayoutParamsService_SetTitle_FullMethodName                         = "/display.WindowManagerLayoutParamsService/SetTitle"
+	WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_FullMethodName   = "/display.WindowManagerLayoutParamsService/SetWallpaperTouchEventsEnabled"
+	WindowManagerLayoutParamsService_ToString_FullMethodName                         = "/display.WindowManagerLayoutParamsService/ToString"
+	WindowManagerLayoutParamsService_WriteToParcel_FullMethodName                    = "/display.WindowManagerLayoutParamsService/WriteToParcel"
+	WindowManagerLayoutParamsService_MayUseInputMethod_FullMethodName                = "/display.WindowManagerLayoutParamsService/MayUseInputMethod"
+)
+
+// WindowManagerLayoutParamsServiceClient is the client API for WindowManagerLayoutParamsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WindowManagerLayoutParamsServiceClient interface {
+	AreWallpaperTouchEventsEnabled(ctx context.Context, in *AreWallpaperTouchEventsEnabledRequest, opts ...grpc.CallOption) (*AreWallpaperTouchEventsEnabledResponse, error)
+	CanPlayMoveAnimation(ctx context.Context, in *CanPlayMoveAnimationRequest, opts ...grpc.CallOption) (*CanPlayMoveAnimationResponse, error)
+	CopyFrom(ctx context.Context, in *CopyFromRequest, opts ...grpc.CallOption) (*CopyFromResponse, error)
+	Debug(ctx context.Context, in *DebugRequest, opts ...grpc.CallOption) (*DebugResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetBlurBehindRadius(ctx context.Context, in *GetBlurBehindRadiusRequest, opts ...grpc.CallOption) (*GetBlurBehindRadiusResponse, error)
+	GetColorMode(ctx context.Context, in *GetColorModeRequest, opts ...grpc.CallOption) (*GetColorModeResponse, error)
+	GetDesiredHdrHeadroom(ctx context.Context, in *GetDesiredHdrHeadroomRequest, opts ...grpc.CallOption) (*GetDesiredHdrHeadroomResponse, error)
+	GetFitInsetsSides(ctx context.Context, in *GetFitInsetsSidesRequest, opts ...grpc.CallOption) (*GetFitInsetsSidesResponse, error)
+	GetFitInsetsTypes(ctx context.Context, in *GetFitInsetsTypesRequest, opts ...grpc.CallOption) (*GetFitInsetsTypesResponse, error)
+	GetFrameRateBoostOnTouchEnabled(ctx context.Context, in *GetFrameRateBoostOnTouchEnabledRequest, opts ...grpc.CallOption) (*GetFrameRateBoostOnTouchEnabledResponse, error)
+	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
+	IsFitInsetsIgnoringVisibility(ctx context.Context, in *IsFitInsetsIgnoringVisibilityRequest, opts ...grpc.CallOption) (*IsFitInsetsIgnoringVisibilityResponse, error)
+	IsFrameRatePowerSavingsBalanced(ctx context.Context, in *IsFrameRatePowerSavingsBalancedRequest, opts ...grpc.CallOption) (*IsFrameRatePowerSavingsBalancedResponse, error)
+	IsHdrConversionEnabled(ctx context.Context, in *IsHdrConversionEnabledRequest, opts ...grpc.CallOption) (*IsHdrConversionEnabledResponse, error)
+	SetBlurBehindRadius(ctx context.Context, in *SetBlurBehindRadiusRequest, opts ...grpc.CallOption) (*SetBlurBehindRadiusResponse, error)
+	SetCanPlayMoveAnimation(ctx context.Context, in *SetCanPlayMoveAnimationRequest, opts ...grpc.CallOption) (*SetCanPlayMoveAnimationResponse, error)
+	SetColorMode(ctx context.Context, in *SetColorModeRequest, opts ...grpc.CallOption) (*SetColorModeResponse, error)
+	SetDesiredHdrHeadroom(ctx context.Context, in *WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest, opts ...grpc.CallOption) (*SetDesiredHdrHeadroomResponse, error)
+	SetFitInsetsIgnoringVisibility(ctx context.Context, in *SetFitInsetsIgnoringVisibilityRequest, opts ...grpc.CallOption) (*SetFitInsetsIgnoringVisibilityResponse, error)
+	SetFitInsetsSides(ctx context.Context, in *SetFitInsetsSidesRequest, opts ...grpc.CallOption) (*SetFitInsetsSidesResponse, error)
+	SetFitInsetsTypes(ctx context.Context, in *SetFitInsetsTypesRequest, opts ...grpc.CallOption) (*SetFitInsetsTypesResponse, error)
+	SetFrameRateBoostOnTouchEnabled(ctx context.Context, in *SetFrameRateBoostOnTouchEnabledRequest, opts ...grpc.CallOption) (*SetFrameRateBoostOnTouchEnabledResponse, error)
+	SetFrameRatePowerSavingsBalanced(ctx context.Context, in *SetFrameRatePowerSavingsBalancedRequest, opts ...grpc.CallOption) (*SetFrameRatePowerSavingsBalancedResponse, error)
+	SetHdrConversionEnabled(ctx context.Context, in *SetHdrConversionEnabledRequest, opts ...grpc.CallOption) (*SetHdrConversionEnabledResponse, error)
+	SetTitle(ctx context.Context, in *SetTitleRequest, opts ...grpc.CallOption) (*SetTitleResponse, error)
+	SetWallpaperTouchEventsEnabled(ctx context.Context, in *SetWallpaperTouchEventsEnabledRequest, opts ...grpc.CallOption) (*SetWallpaperTouchEventsEnabledResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	MayUseInputMethod(ctx context.Context, in *MayUseInputMethodRequest, opts ...grpc.CallOption) (*MayUseInputMethodResponse, error)
+}
+
+type windowManagerLayoutParamsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWindowManagerLayoutParamsServiceClient(cc grpc.ClientConnInterface) WindowManagerLayoutParamsServiceClient {
+	return &windowManagerLayoutParamsServiceClient{cc}
+}
+
+func (c *windowManagerLayoutParamsServiceClient) AreWallpaperTouchEventsEnabled(ctx context.Context, in *AreWallpaperTouchEventsEnabledRequest, opts ...grpc.CallOption) (*AreWallpaperTouchEventsEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AreWallpaperTouchEventsEnabledResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) CanPlayMoveAnimation(ctx context.Context, in *CanPlayMoveAnimationRequest, opts ...grpc.CallOption) (*CanPlayMoveAnimationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanPlayMoveAnimationResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_CanPlayMoveAnimation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) CopyFrom(ctx context.Context, in *CopyFromRequest, opts ...grpc.CallOption) (*CopyFromResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CopyFromResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_CopyFrom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) Debug(ctx context.Context, in *DebugRequest, opts ...grpc.CallOption) (*DebugResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DebugResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_Debug_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) GetBlurBehindRadius(ctx context.Context, in *GetBlurBehindRadiusRequest, opts ...grpc.CallOption) (*GetBlurBehindRadiusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBlurBehindRadiusResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetBlurBehindRadius_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) GetColorMode(ctx context.Context, in *GetColorModeRequest, opts ...grpc.CallOption) (*GetColorModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorModeResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetColorMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) GetDesiredHdrHeadroom(ctx context.Context, in *GetDesiredHdrHeadroomRequest, opts ...grpc.CallOption) (*GetDesiredHdrHeadroomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDesiredHdrHeadroomResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) GetFitInsetsSides(ctx context.Context, in *GetFitInsetsSidesRequest, opts ...grpc.CallOption) (*GetFitInsetsSidesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFitInsetsSidesResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetFitInsetsSides_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) GetFitInsetsTypes(ctx context.Context, in *GetFitInsetsTypesRequest, opts ...grpc.CallOption) (*GetFitInsetsTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFitInsetsTypesResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetFitInsetsTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) GetFrameRateBoostOnTouchEnabled(ctx context.Context, in *GetFrameRateBoostOnTouchEnabledRequest, opts ...grpc.CallOption) (*GetFrameRateBoostOnTouchEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFrameRateBoostOnTouchEnabledResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTitleResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_GetTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) IsFitInsetsIgnoringVisibility(ctx context.Context, in *IsFitInsetsIgnoringVisibilityRequest, opts ...grpc.CallOption) (*IsFitInsetsIgnoringVisibilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFitInsetsIgnoringVisibilityResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) IsFrameRatePowerSavingsBalanced(ctx context.Context, in *IsFrameRatePowerSavingsBalancedRequest, opts ...grpc.CallOption) (*IsFrameRatePowerSavingsBalancedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFrameRatePowerSavingsBalancedResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) IsHdrConversionEnabled(ctx context.Context, in *IsHdrConversionEnabledRequest, opts ...grpc.CallOption) (*IsHdrConversionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsHdrConversionEnabledResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_IsHdrConversionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetBlurBehindRadius(ctx context.Context, in *SetBlurBehindRadiusRequest, opts ...grpc.CallOption) (*SetBlurBehindRadiusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBlurBehindRadiusResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetBlurBehindRadius_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetCanPlayMoveAnimation(ctx context.Context, in *SetCanPlayMoveAnimationRequest, opts ...grpc.CallOption) (*SetCanPlayMoveAnimationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCanPlayMoveAnimationResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetColorMode(ctx context.Context, in *SetColorModeRequest, opts ...grpc.CallOption) (*SetColorModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetColorModeResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetColorMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetDesiredHdrHeadroom(ctx context.Context, in *WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest, opts ...grpc.CallOption) (*SetDesiredHdrHeadroomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDesiredHdrHeadroomResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetFitInsetsIgnoringVisibility(ctx context.Context, in *SetFitInsetsIgnoringVisibilityRequest, opts ...grpc.CallOption) (*SetFitInsetsIgnoringVisibilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFitInsetsIgnoringVisibilityResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetFitInsetsSides(ctx context.Context, in *SetFitInsetsSidesRequest, opts ...grpc.CallOption) (*SetFitInsetsSidesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFitInsetsSidesResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFitInsetsSides_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetFitInsetsTypes(ctx context.Context, in *SetFitInsetsTypesRequest, opts ...grpc.CallOption) (*SetFitInsetsTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFitInsetsTypesResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFitInsetsTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetFrameRateBoostOnTouchEnabled(ctx context.Context, in *SetFrameRateBoostOnTouchEnabledRequest, opts ...grpc.CallOption) (*SetFrameRateBoostOnTouchEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFrameRateBoostOnTouchEnabledResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetFrameRatePowerSavingsBalanced(ctx context.Context, in *SetFrameRatePowerSavingsBalancedRequest, opts ...grpc.CallOption) (*SetFrameRatePowerSavingsBalancedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFrameRatePowerSavingsBalancedResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetHdrConversionEnabled(ctx context.Context, in *SetHdrConversionEnabledRequest, opts ...grpc.CallOption) (*SetHdrConversionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetHdrConversionEnabledResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetHdrConversionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetTitle(ctx context.Context, in *SetTitleRequest, opts ...grpc.CallOption) (*SetTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTitleResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) SetWallpaperTouchEventsEnabled(ctx context.Context, in *SetWallpaperTouchEventsEnabledRequest, opts ...grpc.CallOption) (*SetWallpaperTouchEventsEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWallpaperTouchEventsEnabledResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowManagerLayoutParamsServiceClient) MayUseInputMethod(ctx context.Context, in *MayUseInputMethodRequest, opts ...grpc.CallOption) (*MayUseInputMethodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MayUseInputMethodResponse)
+	err := c.cc.Invoke(ctx, WindowManagerLayoutParamsService_MayUseInputMethod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WindowManagerLayoutParamsServiceServer is the server API for WindowManagerLayoutParamsService service.
+// All implementations must embed UnimplementedWindowManagerLayoutParamsServiceServer
+// for forward compatibility.
+type WindowManagerLayoutParamsServiceServer interface {
+	AreWallpaperTouchEventsEnabled(context.Context, *AreWallpaperTouchEventsEnabledRequest) (*AreWallpaperTouchEventsEnabledResponse, error)
+	CanPlayMoveAnimation(context.Context, *CanPlayMoveAnimationRequest) (*CanPlayMoveAnimationResponse, error)
+	CopyFrom(context.Context, *CopyFromRequest) (*CopyFromResponse, error)
+	Debug(context.Context, *DebugRequest) (*DebugResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetBlurBehindRadius(context.Context, *GetBlurBehindRadiusRequest) (*GetBlurBehindRadiusResponse, error)
+	GetColorMode(context.Context, *GetColorModeRequest) (*GetColorModeResponse, error)
+	GetDesiredHdrHeadroom(context.Context, *GetDesiredHdrHeadroomRequest) (*GetDesiredHdrHeadroomResponse, error)
+	GetFitInsetsSides(context.Context, *GetFitInsetsSidesRequest) (*GetFitInsetsSidesResponse, error)
+	GetFitInsetsTypes(context.Context, *GetFitInsetsTypesRequest) (*GetFitInsetsTypesResponse, error)
+	GetFrameRateBoostOnTouchEnabled(context.Context, *GetFrameRateBoostOnTouchEnabledRequest) (*GetFrameRateBoostOnTouchEnabledResponse, error)
+	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
+	IsFitInsetsIgnoringVisibility(context.Context, *IsFitInsetsIgnoringVisibilityRequest) (*IsFitInsetsIgnoringVisibilityResponse, error)
+	IsFrameRatePowerSavingsBalanced(context.Context, *IsFrameRatePowerSavingsBalancedRequest) (*IsFrameRatePowerSavingsBalancedResponse, error)
+	IsHdrConversionEnabled(context.Context, *IsHdrConversionEnabledRequest) (*IsHdrConversionEnabledResponse, error)
+	SetBlurBehindRadius(context.Context, *SetBlurBehindRadiusRequest) (*SetBlurBehindRadiusResponse, error)
+	SetCanPlayMoveAnimation(context.Context, *SetCanPlayMoveAnimationRequest) (*SetCanPlayMoveAnimationResponse, error)
+	SetColorMode(context.Context, *SetColorModeRequest) (*SetColorModeResponse, error)
+	SetDesiredHdrHeadroom(context.Context, *WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest) (*SetDesiredHdrHeadroomResponse, error)
+	SetFitInsetsIgnoringVisibility(context.Context, *SetFitInsetsIgnoringVisibilityRequest) (*SetFitInsetsIgnoringVisibilityResponse, error)
+	SetFitInsetsSides(context.Context, *SetFitInsetsSidesRequest) (*SetFitInsetsSidesResponse, error)
+	SetFitInsetsTypes(context.Context, *SetFitInsetsTypesRequest) (*SetFitInsetsTypesResponse, error)
+	SetFrameRateBoostOnTouchEnabled(context.Context, *SetFrameRateBoostOnTouchEnabledRequest) (*SetFrameRateBoostOnTouchEnabledResponse, error)
+	SetFrameRatePowerSavingsBalanced(context.Context, *SetFrameRatePowerSavingsBalancedRequest) (*SetFrameRatePowerSavingsBalancedResponse, error)
+	SetHdrConversionEnabled(context.Context, *SetHdrConversionEnabledRequest) (*SetHdrConversionEnabledResponse, error)
+	SetTitle(context.Context, *SetTitleRequest) (*SetTitleResponse, error)
+	SetWallpaperTouchEventsEnabled(context.Context, *SetWallpaperTouchEventsEnabledRequest) (*SetWallpaperTouchEventsEnabledResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	MayUseInputMethod(context.Context, *MayUseInputMethodRequest) (*MayUseInputMethodResponse, error)
+	mustEmbedUnimplementedWindowManagerLayoutParamsServiceServer()
+}
+
+// UnimplementedWindowManagerLayoutParamsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWindowManagerLayoutParamsServiceServer struct{}
+
+func (UnimplementedWindowManagerLayoutParamsServiceServer) AreWallpaperTouchEventsEnabled(context.Context, *AreWallpaperTouchEventsEnabledRequest) (*AreWallpaperTouchEventsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AreWallpaperTouchEventsEnabled not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) CanPlayMoveAnimation(context.Context, *CanPlayMoveAnimationRequest) (*CanPlayMoveAnimationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanPlayMoveAnimation not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) CopyFrom(context.Context, *CopyFromRequest) (*CopyFromResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CopyFrom not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) Debug(context.Context, *DebugRequest) (*DebugResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Debug not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) GetBlurBehindRadius(context.Context, *GetBlurBehindRadiusRequest) (*GetBlurBehindRadiusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlurBehindRadius not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) GetColorMode(context.Context, *GetColorModeRequest) (*GetColorModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColorMode not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) GetDesiredHdrHeadroom(context.Context, *GetDesiredHdrHeadroomRequest) (*GetDesiredHdrHeadroomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDesiredHdrHeadroom not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) GetFitInsetsSides(context.Context, *GetFitInsetsSidesRequest) (*GetFitInsetsSidesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFitInsetsSides not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) GetFitInsetsTypes(context.Context, *GetFitInsetsTypesRequest) (*GetFitInsetsTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFitInsetsTypes not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) GetFrameRateBoostOnTouchEnabled(context.Context, *GetFrameRateBoostOnTouchEnabledRequest) (*GetFrameRateBoostOnTouchEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFrameRateBoostOnTouchEnabled not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) IsFitInsetsIgnoringVisibility(context.Context, *IsFitInsetsIgnoringVisibilityRequest) (*IsFitInsetsIgnoringVisibilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFitInsetsIgnoringVisibility not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) IsFrameRatePowerSavingsBalanced(context.Context, *IsFrameRatePowerSavingsBalancedRequest) (*IsFrameRatePowerSavingsBalancedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFrameRatePowerSavingsBalanced not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) IsHdrConversionEnabled(context.Context, *IsHdrConversionEnabledRequest) (*IsHdrConversionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsHdrConversionEnabled not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetBlurBehindRadius(context.Context, *SetBlurBehindRadiusRequest) (*SetBlurBehindRadiusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBlurBehindRadius not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetCanPlayMoveAnimation(context.Context, *SetCanPlayMoveAnimationRequest) (*SetCanPlayMoveAnimationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCanPlayMoveAnimation not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetColorMode(context.Context, *SetColorModeRequest) (*SetColorModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetColorMode not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetDesiredHdrHeadroom(context.Context, *WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest) (*SetDesiredHdrHeadroomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDesiredHdrHeadroom not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFitInsetsIgnoringVisibility(context.Context, *SetFitInsetsIgnoringVisibilityRequest) (*SetFitInsetsIgnoringVisibilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFitInsetsIgnoringVisibility not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFitInsetsSides(context.Context, *SetFitInsetsSidesRequest) (*SetFitInsetsSidesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFitInsetsSides not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFitInsetsTypes(context.Context, *SetFitInsetsTypesRequest) (*SetFitInsetsTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFitInsetsTypes not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFrameRateBoostOnTouchEnabled(context.Context, *SetFrameRateBoostOnTouchEnabledRequest) (*SetFrameRateBoostOnTouchEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFrameRateBoostOnTouchEnabled not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetFrameRatePowerSavingsBalanced(context.Context, *SetFrameRatePowerSavingsBalancedRequest) (*SetFrameRatePowerSavingsBalancedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFrameRatePowerSavingsBalanced not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetHdrConversionEnabled(context.Context, *SetHdrConversionEnabledRequest) (*SetHdrConversionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetHdrConversionEnabled not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetTitle(context.Context, *SetTitleRequest) (*SetTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTitle not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) SetWallpaperTouchEventsEnabled(context.Context, *SetWallpaperTouchEventsEnabledRequest) (*SetWallpaperTouchEventsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWallpaperTouchEventsEnabled not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) MayUseInputMethod(context.Context, *MayUseInputMethodRequest) (*MayUseInputMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MayUseInputMethod not implemented")
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) mustEmbedUnimplementedWindowManagerLayoutParamsServiceServer() {
+}
+func (UnimplementedWindowManagerLayoutParamsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWindowManagerLayoutParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WindowManagerLayoutParamsServiceServer will
+// result in compilation errors.
+type UnsafeWindowManagerLayoutParamsServiceServer interface {
+	mustEmbedUnimplementedWindowManagerLayoutParamsServiceServer()
+}
+
+func RegisterWindowManagerLayoutParamsServiceServer(s grpc.ServiceRegistrar, srv WindowManagerLayoutParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedWindowManagerLayoutParamsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WindowManagerLayoutParamsService_ServiceDesc, srv)
+}
+
+func _WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AreWallpaperTouchEventsEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).AreWallpaperTouchEventsEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).AreWallpaperTouchEventsEnabled(ctx, req.(*AreWallpaperTouchEventsEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_CanPlayMoveAnimation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanPlayMoveAnimationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).CanPlayMoveAnimation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_CanPlayMoveAnimation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).CanPlayMoveAnimation(ctx, req.(*CanPlayMoveAnimationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_CopyFrom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CopyFromRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).CopyFrom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_CopyFrom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).CopyFrom(ctx, req.(*CopyFromRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_Debug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DebugRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).Debug(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_Debug_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).Debug(ctx, req.(*DebugRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_GetBlurBehindRadius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlurBehindRadiusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetBlurBehindRadius(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_GetBlurBehindRadius_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetBlurBehindRadius(ctx, req.(*GetBlurBehindRadiusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_GetColorMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetColorMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_GetColorMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetColorMode(ctx, req.(*GetColorModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDesiredHdrHeadroomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetDesiredHdrHeadroom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetDesiredHdrHeadroom(ctx, req.(*GetDesiredHdrHeadroomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_GetFitInsetsSides_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFitInsetsSidesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetFitInsetsSides(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_GetFitInsetsSides_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetFitInsetsSides(ctx, req.(*GetFitInsetsSidesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_GetFitInsetsTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFitInsetsTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetFitInsetsTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_GetFitInsetsTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetFitInsetsTypes(ctx, req.(*GetFitInsetsTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFrameRateBoostOnTouchEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetFrameRateBoostOnTouchEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetFrameRateBoostOnTouchEnabled(ctx, req.(*GetFrameRateBoostOnTouchEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_GetTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFitInsetsIgnoringVisibilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).IsFitInsetsIgnoringVisibility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).IsFitInsetsIgnoringVisibility(ctx, req.(*IsFitInsetsIgnoringVisibilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFrameRatePowerSavingsBalancedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).IsFrameRatePowerSavingsBalanced(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).IsFrameRatePowerSavingsBalanced(ctx, req.(*IsFrameRatePowerSavingsBalancedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_IsHdrConversionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsHdrConversionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).IsHdrConversionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_IsHdrConversionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).IsHdrConversionEnabled(ctx, req.(*IsHdrConversionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetBlurBehindRadius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBlurBehindRadiusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetBlurBehindRadius(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetBlurBehindRadius_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetBlurBehindRadius(ctx, req.(*SetBlurBehindRadiusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCanPlayMoveAnimationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetCanPlayMoveAnimation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetCanPlayMoveAnimation(ctx, req.(*SetCanPlayMoveAnimationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetColorMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetColorModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetColorMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetColorMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetColorMode(ctx, req.(*SetColorModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetDesiredHdrHeadroom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetDesiredHdrHeadroom(ctx, req.(*WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFitInsetsIgnoringVisibilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsIgnoringVisibility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsIgnoringVisibility(ctx, req.(*SetFitInsetsIgnoringVisibilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetFitInsetsSides_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFitInsetsSidesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsSides(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetFitInsetsSides_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsSides(ctx, req.(*SetFitInsetsSidesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetFitInsetsTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFitInsetsTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetFitInsetsTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFitInsetsTypes(ctx, req.(*SetFitInsetsTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFrameRateBoostOnTouchEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFrameRateBoostOnTouchEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFrameRateBoostOnTouchEnabled(ctx, req.(*SetFrameRateBoostOnTouchEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFrameRatePowerSavingsBalancedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFrameRatePowerSavingsBalanced(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetFrameRatePowerSavingsBalanced(ctx, req.(*SetFrameRatePowerSavingsBalancedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetHdrConversionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetHdrConversionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetHdrConversionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetHdrConversionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetHdrConversionEnabled(ctx, req.(*SetHdrConversionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetTitle(ctx, req.(*SetTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWallpaperTouchEventsEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetWallpaperTouchEventsEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).SetWallpaperTouchEventsEnabled(ctx, req.(*SetWallpaperTouchEventsEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowManagerLayoutParamsService_MayUseInputMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MayUseInputMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowManagerLayoutParamsServiceServer).MayUseInputMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowManagerLayoutParamsService_MayUseInputMethod_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowManagerLayoutParamsServiceServer).MayUseInputMethod(ctx, req.(*MayUseInputMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WindowManagerLayoutParamsService_ServiceDesc is the grpc.ServiceDesc for WindowManagerLayoutParamsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WindowManagerLayoutParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "display.WindowManagerLayoutParamsService",
+	HandlerType: (*WindowManagerLayoutParamsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AreWallpaperTouchEventsEnabled",
+			Handler:    _WindowManagerLayoutParamsService_AreWallpaperTouchEventsEnabled_Handler,
+		},
+		{
+			MethodName: "CanPlayMoveAnimation",
+			Handler:    _WindowManagerLayoutParamsService_CanPlayMoveAnimation_Handler,
+		},
+		{
+			MethodName: "CopyFrom",
+			Handler:    _WindowManagerLayoutParamsService_CopyFrom_Handler,
+		},
+		{
+			MethodName: "Debug",
+			Handler:    _WindowManagerLayoutParamsService_Debug_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WindowManagerLayoutParamsService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetBlurBehindRadius",
+			Handler:    _WindowManagerLayoutParamsService_GetBlurBehindRadius_Handler,
+		},
+		{
+			MethodName: "GetColorMode",
+			Handler:    _WindowManagerLayoutParamsService_GetColorMode_Handler,
+		},
+		{
+			MethodName: "GetDesiredHdrHeadroom",
+			Handler:    _WindowManagerLayoutParamsService_GetDesiredHdrHeadroom_Handler,
+		},
+		{
+			MethodName: "GetFitInsetsSides",
+			Handler:    _WindowManagerLayoutParamsService_GetFitInsetsSides_Handler,
+		},
+		{
+			MethodName: "GetFitInsetsTypes",
+			Handler:    _WindowManagerLayoutParamsService_GetFitInsetsTypes_Handler,
+		},
+		{
+			MethodName: "GetFrameRateBoostOnTouchEnabled",
+			Handler:    _WindowManagerLayoutParamsService_GetFrameRateBoostOnTouchEnabled_Handler,
+		},
+		{
+			MethodName: "GetTitle",
+			Handler:    _WindowManagerLayoutParamsService_GetTitle_Handler,
+		},
+		{
+			MethodName: "IsFitInsetsIgnoringVisibility",
+			Handler:    _WindowManagerLayoutParamsService_IsFitInsetsIgnoringVisibility_Handler,
+		},
+		{
+			MethodName: "IsFrameRatePowerSavingsBalanced",
+			Handler:    _WindowManagerLayoutParamsService_IsFrameRatePowerSavingsBalanced_Handler,
+		},
+		{
+			MethodName: "IsHdrConversionEnabled",
+			Handler:    _WindowManagerLayoutParamsService_IsHdrConversionEnabled_Handler,
+		},
+		{
+			MethodName: "SetBlurBehindRadius",
+			Handler:    _WindowManagerLayoutParamsService_SetBlurBehindRadius_Handler,
+		},
+		{
+			MethodName: "SetCanPlayMoveAnimation",
+			Handler:    _WindowManagerLayoutParamsService_SetCanPlayMoveAnimation_Handler,
+		},
+		{
+			MethodName: "SetColorMode",
+			Handler:    _WindowManagerLayoutParamsService_SetColorMode_Handler,
+		},
+		{
+			MethodName: "SetDesiredHdrHeadroom",
+			Handler:    _WindowManagerLayoutParamsService_SetDesiredHdrHeadroom_Handler,
+		},
+		{
+			MethodName: "SetFitInsetsIgnoringVisibility",
+			Handler:    _WindowManagerLayoutParamsService_SetFitInsetsIgnoringVisibility_Handler,
+		},
+		{
+			MethodName: "SetFitInsetsSides",
+			Handler:    _WindowManagerLayoutParamsService_SetFitInsetsSides_Handler,
+		},
+		{
+			MethodName: "SetFitInsetsTypes",
+			Handler:    _WindowManagerLayoutParamsService_SetFitInsetsTypes_Handler,
+		},
+		{
+			MethodName: "SetFrameRateBoostOnTouchEnabled",
+			Handler:    _WindowManagerLayoutParamsService_SetFrameRateBoostOnTouchEnabled_Handler,
+		},
+		{
+			MethodName: "SetFrameRatePowerSavingsBalanced",
+			Handler:    _WindowManagerLayoutParamsService_SetFrameRatePowerSavingsBalanced_Handler,
+		},
+		{
+			MethodName: "SetHdrConversionEnabled",
+			Handler:    _WindowManagerLayoutParamsService_SetHdrConversionEnabled_Handler,
+		},
+		{
+			MethodName: "SetTitle",
+			Handler:    _WindowManagerLayoutParamsService_SetTitle_Handler,
+		},
+		{
+			MethodName: "SetWallpaperTouchEventsEnabled",
+			Handler:    _WindowManagerLayoutParamsService_SetWallpaperTouchEventsEnabled_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _WindowManagerLayoutParamsService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WindowManagerLayoutParamsService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "MayUseInputMethod",
+			Handler:    _WindowManagerLayoutParamsService_MayUseInputMethod_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

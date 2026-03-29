@@ -15,50 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// ManagerServer implements pb.ManagerServiceServer.
-type ManagerServer struct {
-	pb.UnimplementedManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ManagerServer) IsPrintServiceEnabled(_ context.Context, req *pb.IsPrintServiceEnabledRequest) (*pb.IsPrintServiceEnabledResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsPrintServiceEnabled(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsPrintServiceEnabledResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) Print(_ context.Context, req *pb.PrintRequest) (*pb.PrintResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.Print(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.PrintResponse{Result: handle}, nil
-}
-
 // PageRangeServer implements pb.PageRangeServiceServer.
 type PageRangeServer struct {
 	pb.UnimplementedPageRangeServiceServer
@@ -81,7 +37,7 @@ func (s *PageRangeServer) NewPageRange(_ context.Context, req *pb.NewPageRangeRe
 	return &pb.NewPageRangeResponse{Result: handle}, nil
 }
 
-func (s *PageRangeServer) DescribeContents(_ context.Context, req *pb.PageRangeDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *PageRangeServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -95,7 +51,7 @@ func (s *PageRangeServer) DescribeContents(_ context.Context, req *pb.PageRangeD
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *PageRangeServer) Equals(_ context.Context, req *pb.PageRangeEqualsRequest) (*pb.EqualsResponse, error) {
+func (s *PageRangeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -137,7 +93,7 @@ func (s *PageRangeServer) GetStart(_ context.Context, req *pb.GetStartRequest) (
 	return &pb.GetStartResponse{Result: result}, nil
 }
 
-func (s *PageRangeServer) HashCode(_ context.Context, req *pb.PageRangeHashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *PageRangeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -165,7 +121,7 @@ func (s *PageRangeServer) ToString(_ context.Context, req *pb.ToStringRequest) (
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *PageRangeServer) WriteToParcel(_ context.Context, req *pb.PageRangeWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *PageRangeServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -176,4 +132,71 @@ func (s *PageRangeServer) WriteToParcel(_ context.Context, req *pb.PageRangeWrit
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.WriteToParcelResponse{}, nil
+}
+
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ManagerServer) GetPrintJobs(_ context.Context, req *pb.GetPrintJobsRequest) (*pb.GetPrintJobsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPrintJobs()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPrintJobsResponse{Result: handle}, nil
+}
+
+func (s *ManagerServer) IsPrintServiceEnabled(_ context.Context, req *pb.IsPrintServiceEnabledRequest) (*pb.IsPrintServiceEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsPrintServiceEnabled(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPrintServiceEnabledResponse{Result: result}, nil
+}
+
+func (s *ManagerServer) Print(_ context.Context, req *pb.PrintRequest) (*pb.PrintResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.Print(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.PrintResponse{Result: handle}, nil
 }

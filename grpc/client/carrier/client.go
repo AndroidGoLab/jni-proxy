@@ -9,22 +9,39 @@ import (
 	"google.golang.org/grpc"
 )
 
-// MessagePduClient wraps the gRPC MessagePduService client.
-type MessagePduClient struct {
-	svc pb.MessagePduServiceClient
+// ServiceClient wraps the gRPC ServiceService client.
+type ServiceClient struct {
+	svc pb.ServiceServiceClient
 }
 
-// NewMessagePduClient creates a new MessagePdu client.
-func NewMessagePduClient(cc grpc.ClientConnInterface) *MessagePduClient {
-	return &MessagePduClient{
-		svc: pb.NewMessagePduServiceClient(cc),
+// NewServiceClient creates a new Service client.
+func NewServiceClient(cc grpc.ClientConnInterface) *ServiceClient {
+	return &ServiceClient{
+		svc: pb.NewServiceServiceClient(cc),
 	}
 }
 
-// DescribeContents calls the DescribeContents RPC.
-func (c *MessagePduClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
+// NotifyCarrierNetworkChange1 calls the NotifyCarrierNetworkChange1 RPC.
+func (c *ServiceClient) NotifyCarrierNetworkChange1(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.NotifyCarrierNetworkChange1(ctx, &pb.NotifyCarrierNetworkChange1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NotifyCarrierNetworkChange2_1 calls the NotifyCarrierNetworkChange2_1 RPC.
+func (c *ServiceClient) NotifyCarrierNetworkChange2_1(ctx context.Context, arg0 int32, arg1 bool) error {
+	_, err := c.svc.NotifyCarrierNetworkChange2_1(ctx, &pb.NotifyCarrierNetworkChange2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *ServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -32,14 +49,27 @@ func (c *MessagePduClient) DescribeContents(ctx context.Context, handle int64) (
 	return resp.GetResult(), nil
 }
 
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *MessagePduClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
+// OnLoadConfig1 calls the OnLoadConfig1 RPC.
+func (c *ServiceClient) OnLoadConfig1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnLoadConfig1(ctx, &pb.OnLoadConfig1Request{
+		Arg0: arg0,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnLoadConfig2_1 calls the OnLoadConfig2_1 RPC.
+func (c *ServiceClient) OnLoadConfig2_1(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.OnLoadConfig2_1(ctx, &pb.OnLoadConfig2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // MessagingServiceClient wraps the gRPC MessagingServiceService client.
@@ -149,30 +179,6 @@ func (c *MessagingServiceSendSmsResultClient) GetMessageRef(ctx context.Context)
 // GetSendStatus calls the GetSendStatus RPC.
 func (c *MessagingServiceSendSmsResultClient) GetSendStatus(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetSendStatus(ctx, &pb.GetSendStatusRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MessagingClientServiceClient wraps the gRPC MessagingClientServiceService client.
-type MessagingClientServiceClient struct {
-	svc pb.MessagingClientServiceServiceClient
-}
-
-// NewMessagingClientServiceClient creates a new MessagingClientService client.
-func NewMessagingClientServiceClient(cc grpc.ClientConnInterface) *MessagingClientServiceClient {
-	return &MessagingClientServiceClient{
-		svc: pb.NewMessagingClientServiceServiceClient(cc),
-	}
-}
-
-// OnBind calls the OnBind RPC.
-func (c *MessagingClientServiceClient) OnBind(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.MessagingClientServiceOnBindRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
 	if err != nil {
 		return 0, err
 	}
@@ -334,39 +340,23 @@ func (c *IdentifierClient) WriteToParcel(ctx context.Context, handle int64, arg0
 	return err
 }
 
-// ServiceClient wraps the gRPC ServiceService client.
-type ServiceClient struct {
-	svc pb.ServiceServiceClient
+// MessagingClientServiceClient wraps the gRPC MessagingClientServiceService client.
+type MessagingClientServiceClient struct {
+	svc pb.MessagingClientServiceServiceClient
 }
 
-// NewServiceClient creates a new Service client.
-func NewServiceClient(cc grpc.ClientConnInterface) *ServiceClient {
-	return &ServiceClient{
-		svc: pb.NewServiceServiceClient(cc),
+// NewMessagingClientServiceClient creates a new MessagingClientService client.
+func NewMessagingClientServiceClient(cc grpc.ClientConnInterface) *MessagingClientServiceClient {
+	return &MessagingClientServiceClient{
+		svc: pb.NewMessagingClientServiceServiceClient(cc),
 	}
-}
-
-// NotifyCarrierNetworkChange1 calls the NotifyCarrierNetworkChange1 RPC.
-func (c *ServiceClient) NotifyCarrierNetworkChange1(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.NotifyCarrierNetworkChange1(ctx, &pb.NotifyCarrierNetworkChange1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// NotifyCarrierNetworkChange2_1 calls the NotifyCarrierNetworkChange2_1 RPC.
-func (c *ServiceClient) NotifyCarrierNetworkChange2_1(ctx context.Context, arg0 int32, arg1 bool) error {
-	_, err := c.svc.NotifyCarrierNetworkChange2_1(ctx, &pb.NotifyCarrierNetworkChange2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
 }
 
 // OnBind calls the OnBind RPC.
-func (c *ServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
+func (c *MessagingClientServiceClient) OnBind(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.MessagingClientServiceOnBindRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -374,10 +364,22 @@ func (c *ServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// OnLoadConfig1 calls the OnLoadConfig1 RPC.
-func (c *ServiceClient) OnLoadConfig1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnLoadConfig1(ctx, &pb.OnLoadConfig1Request{
-		Arg0: arg0,
+// MessagePduClient wraps the gRPC MessagePduService client.
+type MessagePduClient struct {
+	svc pb.MessagePduServiceClient
+}
+
+// NewMessagePduClient creates a new MessagePdu client.
+func NewMessagePduClient(cc grpc.ClientConnInterface) *MessagePduClient {
+	return &MessagePduClient{
+		svc: pb.NewMessagePduServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MessagePduClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
@@ -385,14 +387,23 @@ func (c *ServiceClient) OnLoadConfig1(ctx context.Context, arg0 int64) (int64, e
 	return resp.GetResult(), nil
 }
 
-// OnLoadConfig2_1 calls the OnLoadConfig2_1 RPC.
-func (c *ServiceClient) OnLoadConfig2_1(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.OnLoadConfig2_1(ctx, &pb.OnLoadConfig2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
+// GetPdus calls the GetPdus RPC.
+func (c *MessagePduClient) GetPdus(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPdus(ctx, &pb.GetPdusRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MessagePduClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
 }

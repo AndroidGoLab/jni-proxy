@@ -12,6 +12,153 @@ var healthCmd = &cobra.Command{
 	Short: "health service operations",
 }
 
+var healthTimerStatCmd = &cobra.Command{
+	Use:   "timer-stat",
+	Short: "TimerStatService operations",
+}
+
+var healthTimerStatNewTimerStatCmd = &cobra.Command{
+	Use:   "new-timer-stat",
+	Short: "NewTimerStat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimerStatServiceClient(grpcConn)
+		req := &pb.NewTimerStatRequest{}
+		resp, err := client.NewTimerStat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var healthTimerStatDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimerStatServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var healthTimerStatGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimerStatServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var healthTimerStatGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimerStatServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var healthTimerStatSetCountCmd = &cobra.Command{
+	Use:   "set-count",
+	Short: "SetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimerStatServiceClient(grpcConn)
+		req := &pb.SetCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var healthTimerStatSetTimeCmd = &cobra.Command{
+	Use:   "set-time",
+	Short: "SetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimerStatServiceClient(grpcConn)
+		req := &pb.SetTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var healthTimerStatWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimerStatServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var healthStatsCmd = &cobra.Command{
 	Use:   "stats",
 	Short: "StatsService operations",
@@ -524,154 +671,25 @@ var healthSystemHealthManagerTakeUidSnapshotsCmd = &cobra.Command{
 	},
 }
 
-var healthTimerStatCmd = &cobra.Command{
-	Use:   "timer-stat",
-	Short: "TimerStatService operations",
-}
-
-var healthTimerStatNewTimerStatCmd = &cobra.Command{
-	Use:   "new-timer-stat",
-	Short: "NewTimerStat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimerStatServiceClient(grpcConn)
-		req := &pb.NewTimerStatRequest{}
-		resp, err := client.NewTimerStat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var healthTimerStatDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimerStatServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var healthTimerStatGetCountCmd = &cobra.Command{
-	Use:   "get-count",
-	Short: "GetCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimerStatServiceClient(grpcConn)
-		req := &pb.GetCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var healthTimerStatGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimerStatServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var healthTimerStatSetCountCmd = &cobra.Command{
-	Use:   "set-count",
-	Short: "SetCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimerStatServiceClient(grpcConn)
-		req := &pb.SetCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var healthTimerStatSetTimeCmd = &cobra.Command{
-	Use:   "set-time",
-	Short: "SetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimerStatServiceClient(grpcConn)
-		req := &pb.SetTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var healthTimerStatWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimerStatServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	healthTimerStatCmd.AddCommand(healthTimerStatNewTimerStatCmd)
+	healthTimerStatDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	healthTimerStatCmd.AddCommand(healthTimerStatDescribeContentsCmd)
+	healthTimerStatGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	healthTimerStatCmd.AddCommand(healthTimerStatGetCountCmd)
+	healthTimerStatGetTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	healthTimerStatCmd.AddCommand(healthTimerStatGetTimeCmd)
+	healthTimerStatSetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	healthTimerStatSetCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	healthTimerStatCmd.AddCommand(healthTimerStatSetCountCmd)
+	healthTimerStatSetTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	healthTimerStatSetTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	healthTimerStatCmd.AddCommand(healthTimerStatSetTimeCmd)
+	healthTimerStatWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	healthTimerStatWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	healthTimerStatWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	healthTimerStatCmd.AddCommand(healthTimerStatWriteToParcelCmd)
+	healthCmd.AddCommand(healthTimerStatCmd)
 	healthStatsCmd.AddCommand(healthStatsGetDataTypeCmd)
 	healthStatsGetMeasurementCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	healthStatsCmd.AddCommand(healthStatsGetMeasurementCmd)
@@ -720,23 +738,5 @@ func init() {
 	healthSystemHealthManagerTakeUidSnapshotsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	healthSystemHealthManagerCmd.AddCommand(healthSystemHealthManagerTakeUidSnapshotsCmd)
 	healthCmd.AddCommand(healthSystemHealthManagerCmd)
-	healthTimerStatCmd.AddCommand(healthTimerStatNewTimerStatCmd)
-	healthTimerStatDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	healthTimerStatCmd.AddCommand(healthTimerStatDescribeContentsCmd)
-	healthTimerStatGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	healthTimerStatCmd.AddCommand(healthTimerStatGetCountCmd)
-	healthTimerStatGetTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	healthTimerStatCmd.AddCommand(healthTimerStatGetTimeCmd)
-	healthTimerStatSetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	healthTimerStatSetCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	healthTimerStatCmd.AddCommand(healthTimerStatSetCountCmd)
-	healthTimerStatSetTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	healthTimerStatSetTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	healthTimerStatCmd.AddCommand(healthTimerStatSetTimeCmd)
-	healthTimerStatWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	healthTimerStatWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	healthTimerStatWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	healthTimerStatCmd.AddCommand(healthTimerStatWriteToParcelCmd)
-	healthCmd.AddCommand(healthTimerStatCmd)
 	rootCmd.AddCommand(healthCmd)
 }

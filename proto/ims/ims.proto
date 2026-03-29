@@ -6,6 +6,49 @@ package ims;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/ims";
 
+message OnAvailableRequest {
+}
+
+message OnAvailableResponse {
+}
+
+message OnErrorRequest {
+}
+
+message OnErrorResponse {
+}
+
+message OnUnavailableRequest {
+  int32 arg0 = 1;
+}
+
+message OnUnavailableResponse {
+}
+
+message GetImsMmTelManagerRequest {
+  int32 arg0 = 1;
+}
+
+message GetImsMmTelManagerResponse {
+  int64 result = 1;
+}
+
+message GetImsRcsManagerRequest {
+  int32 arg0 = 1;
+}
+
+message GetImsRcsManagerResponse {
+  int64 result = 1;
+}
+
+message GetProvisioningManagerRequest {
+  int32 arg0 = 1;
+}
+
+message GetProvisioningManagerResponse {
+  int64 result = 1;
+}
+
 message RegisterImsRegistrationCallbackRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -64,6 +107,13 @@ message OnUnregisteredRequest {
 message OnUnregisteredResponse {
 }
 
+message IsUceSettingEnabledRequest {
+}
+
+message IsUceSettingEnabledResponse {
+  bool result = 1;
+}
+
 message DescribeContentsRequest {
 }
 
@@ -79,25 +129,53 @@ message EqualsResponse {
   bool result = 1;
 }
 
-message GetAttributeFlagsRequest {
+message GetCSeqRequest {
 }
 
-message GetAttributeFlagsResponse {
+message GetCSeqResponse {
   int32 result = 1;
 }
 
-message GetSipDetailsRequest {
+message GetCallIdRequest {
 }
 
-message GetSipDetailsResponse {
-  int64 result = 1;
+message GetCallIdResponse {
+  string result = 1;
 }
 
-message GetTransportTypeRequest {
+message GetMethodRequest {
 }
 
-message GetTransportTypeResponse {
+message GetMethodResponse {
   int32 result = 1;
+}
+
+message GetReasonHeaderCauseRequest {
+}
+
+message GetReasonHeaderCauseResponse {
+  int32 result = 1;
+}
+
+message GetReasonHeaderTextRequest {
+}
+
+message GetReasonHeaderTextResponse {
+  string result = 1;
+}
+
+message GetResponseCodeRequest {
+}
+
+message GetResponseCodeResponse {
+  int32 result = 1;
+}
+
+message GetResponsePhraseRequest {
+}
+
+message GetResponsePhraseResponse {
+  string result = 1;
 }
 
 message HashCodeRequest {
@@ -142,80 +220,6 @@ message UnregisterImsStateCallbackRequest {
 }
 
 message UnregisterImsStateCallbackResponse {
-}
-
-message OnAvailableRequest {
-}
-
-message OnAvailableResponse {
-}
-
-message OnErrorRequest {
-}
-
-message OnErrorResponse {
-}
-
-message OnUnavailableRequest {
-  int32 arg0 = 1;
-}
-
-message OnUnavailableResponse {
-}
-
-message IsUceSettingEnabledRequest {
-}
-
-message IsUceSettingEnabledResponse {
-  bool result = 1;
-}
-
-message NewReasonInfoRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  string arg2 = 3;
-}
-
-message NewReasonInfoResponse {
-  int64 result = 1;
-}
-
-message ReasonInfoDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message GetCodeRequest {
-  int64 handle = 1;
-}
-
-message GetCodeResponse {
-  int32 result = 1;
-}
-
-message GetExtraCodeRequest {
-  int64 handle = 1;
-}
-
-message GetExtraCodeResponse {
-  int32 result = 1;
-}
-
-message GetExtraMessageRequest {
-  int64 handle = 1;
-}
-
-message GetExtraMessageResponse {
-  string result = 1;
-}
-
-message ReasonInfoToStringRequest {
-  int64 handle = 1;
-}
-
-message ReasonInfoWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
 }
 
 message GetVoWiFiModeSettingRequest {
@@ -289,80 +293,11 @@ message OnCapabilitiesStatusChangedRequest {
 message OnCapabilitiesStatusChangedResponse {
 }
 
-message GetCSeqRequest {
+message GetCodeRequest {
 }
 
-message GetCSeqResponse {
+message GetCodeResponse {
   int32 result = 1;
-}
-
-message GetCallIdRequest {
-}
-
-message GetCallIdResponse {
-  string result = 1;
-}
-
-message GetMethodRequest {
-}
-
-message GetMethodResponse {
-  int32 result = 1;
-}
-
-message GetReasonHeaderCauseRequest {
-}
-
-message GetReasonHeaderCauseResponse {
-  int32 result = 1;
-}
-
-message GetReasonHeaderTextRequest {
-}
-
-message GetReasonHeaderTextResponse {
-  string result = 1;
-}
-
-message GetResponseCodeRequest {
-}
-
-message GetResponseCodeResponse {
-  int32 result = 1;
-}
-
-message GetResponsePhraseRequest {
-}
-
-message GetResponsePhraseResponse {
-  string result = 1;
-}
-
-message ExceptionGetCodeRequest {
-}
-
-message GetImsMmTelManagerRequest {
-  int32 arg0 = 1;
-}
-
-message GetImsMmTelManagerResponse {
-  int64 result = 1;
-}
-
-message GetImsRcsManagerRequest {
-  int32 arg0 = 1;
-}
-
-message GetImsRcsManagerResponse {
-  int64 result = 1;
-}
-
-message GetProvisioningManagerRequest {
-  int32 arg0 = 1;
-}
-
-message GetProvisioningManagerResponse {
-  int64 result = 1;
 }
 
 message GetProvisioningStatusForCapabilityRequest {
@@ -452,6 +387,90 @@ message OnRcsFeatureProvisioningChangedRequest {
 message OnRcsFeatureProvisioningChangedResponse {
 }
 
+message NewReasonInfoRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewReasonInfoResponse {
+  int64 result = 1;
+}
+
+message ReasonInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ReasonInfoGetCodeRequest {
+  int64 handle = 1;
+}
+
+message GetExtraCodeRequest {
+  int64 handle = 1;
+}
+
+message GetExtraCodeResponse {
+  int32 result = 1;
+}
+
+message GetExtraMessageRequest {
+  int64 handle = 1;
+}
+
+message GetExtraMessageResponse {
+  string result = 1;
+}
+
+message ReasonInfoToStringRequest {
+  int64 handle = 1;
+}
+
+message ReasonInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetAttributeFlagsRequest {
+}
+
+message GetAttributeFlagsResponse {
+  int32 result = 1;
+}
+
+message GetFeatureTagsRequest {
+}
+
+message GetFeatureTagsResponse {
+  int64 result = 1;
+}
+
+message GetSipDetailsRequest {
+}
+
+message GetSipDetailsResponse {
+  int64 result = 1;
+}
+
+message GetTransportTypeRequest {
+}
+
+message GetTransportTypeResponse {
+  int32 result = 1;
+}
+
+service StateCallbackService {
+  rpc OnAvailable (OnAvailableRequest) returns (OnAvailableResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnUnavailable (OnUnavailableRequest) returns (OnUnavailableResponse);
+}
+
+service ManagerService {
+  rpc GetImsMmTelManager (GetImsMmTelManagerRequest) returns (GetImsMmTelManagerResponse);
+  rpc GetImsRcsManager (GetImsRcsManagerRequest) returns (GetImsRcsManagerResponse);
+  rpc GetProvisioningManager (GetProvisioningManagerRequest) returns (GetProvisioningManagerResponse);
+}
+
 service RegistrationManagerService {
   rpc RegisterImsRegistrationCallback (RegisterImsRegistrationCallbackRequest) returns (RegisterImsRegistrationCallbackResponse);
   rpc UnregisterImsRegistrationCallback (UnregisterImsRegistrationCallbackRequest) returns (UnregisterImsRegistrationCallbackResponse);
@@ -466,12 +485,20 @@ service RegistrationManagerRegistrationCallbackService {
   rpc OnUnregistered (OnUnregisteredRequest) returns (OnUnregisteredResponse);
 }
 
-service RegistrationAttributesService {
+service RcsUceAdapterService {
+  rpc IsUceSettingEnabled (IsUceSettingEnabledRequest) returns (IsUceSettingEnabledResponse);
+}
+
+service SipDetailsService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAttributeFlags (GetAttributeFlagsRequest) returns (GetAttributeFlagsResponse);
-  rpc GetSipDetails (GetSipDetailsRequest) returns (GetSipDetailsResponse);
-  rpc GetTransportType (GetTransportTypeRequest) returns (GetTransportTypeResponse);
+  rpc GetCSeq (GetCSeqRequest) returns (GetCSeqResponse);
+  rpc GetCallId (GetCallIdRequest) returns (GetCallIdResponse);
+  rpc GetMethod (GetMethodRequest) returns (GetMethodResponse);
+  rpc GetReasonHeaderCause (GetReasonHeaderCauseRequest) returns (GetReasonHeaderCauseResponse);
+  rpc GetReasonHeaderText (GetReasonHeaderTextRequest) returns (GetReasonHeaderTextResponse);
+  rpc GetResponseCode (GetResponseCodeRequest) returns (GetResponseCodeResponse);
+  rpc GetResponsePhrase (GetResponsePhraseRequest) returns (GetResponsePhraseResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
@@ -483,26 +510,6 @@ service RcsManagerService {
   rpc RegisterImsStateCallback (RegisterImsStateCallbackRequest) returns (RegisterImsStateCallbackResponse);
   rpc UnregisterImsRegistrationCallback (UnregisterImsRegistrationCallbackRequest) returns (UnregisterImsRegistrationCallbackResponse);
   rpc UnregisterImsStateCallback (UnregisterImsStateCallbackRequest) returns (UnregisterImsStateCallbackResponse);
-}
-
-service StateCallbackService {
-  rpc OnAvailable (OnAvailableRequest) returns (OnAvailableResponse);
-  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
-  rpc OnUnavailable (OnUnavailableRequest) returns (OnUnavailableResponse);
-}
-
-service RcsUceAdapterService {
-  rpc IsUceSettingEnabled (IsUceSettingEnabledRequest) returns (IsUceSettingEnabledResponse);
-}
-
-service ReasonInfoService {
-  rpc NewReasonInfo (NewReasonInfoRequest) returns (NewReasonInfoResponse);
-  rpc DescribeContents (ReasonInfoDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCode (GetCodeRequest) returns (GetCodeResponse);
-  rpc GetExtraCode (GetExtraCodeRequest) returns (GetExtraCodeResponse);
-  rpc GetExtraMessage (GetExtraMessageRequest) returns (GetExtraMessageResponse);
-  rpc ToString (ReasonInfoToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ReasonInfoWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service MmTelManagerService {
@@ -525,29 +532,8 @@ service MmTelManagerCapabilityCallbackService {
   rpc OnCapabilitiesStatusChanged (OnCapabilitiesStatusChangedRequest) returns (OnCapabilitiesStatusChangedResponse);
 }
 
-service SipDetailsService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetCSeq (GetCSeqRequest) returns (GetCSeqResponse);
-  rpc GetCallId (GetCallIdRequest) returns (GetCallIdResponse);
-  rpc GetMethod (GetMethodRequest) returns (GetMethodResponse);
-  rpc GetReasonHeaderCause (GetReasonHeaderCauseRequest) returns (GetReasonHeaderCauseResponse);
-  rpc GetReasonHeaderText (GetReasonHeaderTextRequest) returns (GetReasonHeaderTextResponse);
-  rpc GetResponseCode (GetResponseCodeRequest) returns (GetResponseCodeResponse);
-  rpc GetResponsePhrase (GetResponsePhraseRequest) returns (GetResponsePhraseResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
 service ExceptionService {
-  rpc GetCode (ExceptionGetCodeRequest) returns (GetCodeResponse);
-}
-
-service ManagerService {
-  rpc GetImsMmTelManager (GetImsMmTelManagerRequest) returns (GetImsMmTelManagerResponse);
-  rpc GetImsRcsManager (GetImsRcsManagerRequest) returns (GetImsRcsManagerResponse);
-  rpc GetProvisioningManager (GetProvisioningManagerRequest) returns (GetProvisioningManagerResponse);
+  rpc GetCode (GetCodeRequest) returns (GetCodeResponse);
 }
 
 service ProvisioningManagerService {
@@ -564,4 +550,26 @@ service ProvisioningManagerService {
 service ProvisioningManagerFeatureProvisioningCallbackService {
   rpc OnFeatureProvisioningChanged (OnFeatureProvisioningChangedRequest) returns (OnFeatureProvisioningChangedResponse);
   rpc OnRcsFeatureProvisioningChanged (OnRcsFeatureProvisioningChangedRequest) returns (OnRcsFeatureProvisioningChangedResponse);
+}
+
+service ReasonInfoService {
+  rpc NewReasonInfo (NewReasonInfoRequest) returns (NewReasonInfoResponse);
+  rpc DescribeContents (ReasonInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCode (ReasonInfoGetCodeRequest) returns (GetCodeResponse);
+  rpc GetExtraCode (GetExtraCodeRequest) returns (GetExtraCodeResponse);
+  rpc GetExtraMessage (GetExtraMessageRequest) returns (GetExtraMessageResponse);
+  rpc ToString (ReasonInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ReasonInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RegistrationAttributesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAttributeFlags (GetAttributeFlagsRequest) returns (GetAttributeFlagsResponse);
+  rpc GetFeatureTags (GetFeatureTagsRequest) returns (GetFeatureTagsResponse);
+  rpc GetSipDetails (GetSipDetailsRequest) returns (GetSipDetailsResponse);
+  rpc GetTransportType (GetTransportTypeRequest) returns (GetTransportTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

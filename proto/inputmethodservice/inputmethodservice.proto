@@ -6,6 +6,257 @@ package inputmethodservice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/inputmethodservice";
 
+message NewKeyboardViewRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewKeyboardViewResponse {
+  int64 result = 1;
+}
+
+message ClosingRequest {
+  int64 handle = 1;
+}
+
+message ClosingResponse {
+}
+
+message GetKeyboardRequest {
+  int64 handle = 1;
+}
+
+message GetKeyboardResponse {
+  int64 result = 1;
+}
+
+message HandleBackRequest {
+  int64 handle = 1;
+}
+
+message HandleBackResponse {
+  bool result = 1;
+}
+
+message InvalidateAllKeysRequest {
+  int64 handle = 1;
+}
+
+message InvalidateAllKeysResponse {
+}
+
+message InvalidateKeyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message InvalidateKeyResponse {
+}
+
+message IsPreviewEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsPreviewEnabledResponse {
+  bool result = 1;
+}
+
+message IsProximityCorrectionEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsProximityCorrectionEnabledResponse {
+  bool result = 1;
+}
+
+message IsShiftedRequest {
+  int64 handle = 1;
+}
+
+message IsShiftedResponse {
+  bool result = 1;
+}
+
+message OnClickRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnClickResponse {
+}
+
+message OnDetachedFromWindowRequest {
+  int64 handle = 1;
+}
+
+message OnDetachedFromWindowResponse {
+}
+
+message OnDrawRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnDrawResponse {
+}
+
+message OnHoverEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnHoverEventResponse {
+  bool result = 1;
+}
+
+message OnMeasureRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnMeasureResponse {
+}
+
+message OnSizeChangedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message OnSizeChangedResponse {
+}
+
+message OnTouchEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnTouchEventResponse {
+  bool result = 1;
+}
+
+message SetKeyboardRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetKeyboardResponse {
+}
+
+message SetOnKeyboardActionListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnKeyboardActionListenerResponse {
+}
+
+message SetPopupOffsetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetPopupOffsetResponse {
+}
+
+message SetPopupParentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPopupParentResponse {
+}
+
+message SetPreviewEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPreviewEnabledResponse {
+}
+
+message SetProximityCorrectionEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetProximityCorrectionEnabledResponse {
+}
+
+message SetShiftedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetShiftedResponse {
+  bool result = 1;
+}
+
+message SetVerticalCorrectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVerticalCorrectionResponse {
+}
+
+message OnKeyRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyResponse {
+}
+
+message OnPressRequest {
+  int32 arg0 = 1;
+}
+
+message OnPressResponse {
+}
+
+message OnReleaseRequest {
+  int32 arg0 = 1;
+}
+
+message OnReleaseResponse {
+}
+
+message OnTextRequest {
+  string arg0 = 1;
+}
+
+message OnTextResponse {
+}
+
+message SwipeDownRequest {
+}
+
+message SwipeDownResponse {
+}
+
+message SwipeLeftRequest {
+}
+
+message SwipeLeftResponse {
+}
+
+message SwipeRightRequest {
+}
+
+message SwipeRightResponse {
+}
+
+message SwipeUpRequest {
+}
+
+message SwipeUpResponse {
+}
+
 message NewKeyboardRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
@@ -23,12 +274,28 @@ message GetHeightResponse {
   int32 result = 1;
 }
 
+message GetKeysRequest {
+  int64 handle = 1;
+}
+
+message GetKeysResponse {
+  int64 result = 1;
+}
+
 message GetMinWidthRequest {
   int64 handle = 1;
 }
 
 message GetMinWidthResponse {
   int32 result = 1;
+}
+
+message GetModifierKeysRequest {
+  int64 handle = 1;
+}
+
+message GetModifierKeysResponse {
+  int64 result = 1;
 }
 
 message GetNearestKeysRequest {
@@ -47,23 +314,6 @@ message GetShiftKeyIndexRequest {
 
 message GetShiftKeyIndexResponse {
   int32 result = 1;
-}
-
-message IsShiftedRequest {
-  int64 handle = 1;
-}
-
-message IsShiftedResponse {
-  bool result = 1;
-}
-
-message SetShiftedRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetShiftedResponse {
-  bool result = 1;
 }
 
 message GetCurrentDrawableStateRequest {
@@ -102,6 +352,93 @@ message SquaredDistanceFromRequest {
 
 message SquaredDistanceFromResponse {
   int32 result = 1;
+}
+
+message NewExtractEditTextRequest {
+  int64 arg0 = 1;
+}
+
+message NewExtractEditTextResponse {
+  int64 result = 1;
+}
+
+message FinishInternalChangesRequest {
+  int64 handle = 1;
+}
+
+message FinishInternalChangesResponse {
+}
+
+message HasFocusRequest {
+  int64 handle = 1;
+}
+
+message HasFocusResponse {
+  bool result = 1;
+}
+
+message HasVerticalScrollBarRequest {
+  int64 handle = 1;
+}
+
+message HasVerticalScrollBarResponse {
+  bool result = 1;
+}
+
+message HasWindowFocusRequest {
+  int64 handle = 1;
+}
+
+message HasWindowFocusResponse {
+  bool result = 1;
+}
+
+message IsFocusedRequest {
+  int64 handle = 1;
+}
+
+message IsFocusedResponse {
+  bool result = 1;
+}
+
+message IsInputMethodTargetRequest {
+  int64 handle = 1;
+}
+
+message IsInputMethodTargetResponse {
+  bool result = 1;
+}
+
+message OnTextContextMenuItemRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnTextContextMenuItemResponse {
+  bool result = 1;
+}
+
+message PerformClickRequest {
+  int64 handle = 1;
+}
+
+message PerformClickResponse {
+  bool result = 1;
+}
+
+message SetExtractedTextRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetExtractedTextResponse {
+}
+
+message StartInternalChangesRequest {
+  int64 handle = 1;
+}
+
+message StartInternalChangesResponse {
 }
 
 message GetKeyDispatcherStateRequest {
@@ -1217,331 +1554,50 @@ message ViewClickedRequest {
 message ViewClickedResponse {
 }
 
-message NewExtractEditTextRequest {
-  int64 arg0 = 1;
-}
-
-message NewExtractEditTextResponse {
-  int64 result = 1;
-}
-
-message FinishInternalChangesRequest {
-  int64 handle = 1;
-}
-
-message FinishInternalChangesResponse {
-}
-
-message HasFocusRequest {
-  int64 handle = 1;
-}
-
-message HasFocusResponse {
-  bool result = 1;
-}
-
-message HasVerticalScrollBarRequest {
-  int64 handle = 1;
-}
-
-message HasVerticalScrollBarResponse {
-  bool result = 1;
-}
-
-message HasWindowFocusRequest {
-  int64 handle = 1;
-}
-
-message HasWindowFocusResponse {
-  bool result = 1;
-}
-
-message IsFocusedRequest {
-  int64 handle = 1;
-}
-
-message IsFocusedResponse {
-  bool result = 1;
-}
-
-message IsInputMethodTargetRequest {
-  int64 handle = 1;
-}
-
-message IsInputMethodTargetResponse {
-  bool result = 1;
-}
-
-message OnTextContextMenuItemRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message OnTextContextMenuItemResponse {
-  bool result = 1;
-}
-
-message PerformClickRequest {
-  int64 handle = 1;
-}
-
-message PerformClickResponse {
-  bool result = 1;
-}
-
-message SetExtractedTextRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetExtractedTextResponse {
-}
-
-message StartInternalChangesRequest {
-  int64 handle = 1;
-}
-
-message StartInternalChangesResponse {
-}
-
-message NewKeyboardViewRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewKeyboardViewResponse {
-  int64 result = 1;
-}
-
-message ClosingRequest {
-  int64 handle = 1;
-}
-
-message ClosingResponse {
-}
-
-message GetKeyboardRequest {
-  int64 handle = 1;
-}
-
-message GetKeyboardResponse {
-  int64 result = 1;
-}
-
-message HandleBackRequest {
-  int64 handle = 1;
-}
-
-message HandleBackResponse {
-  bool result = 1;
-}
-
-message InvalidateAllKeysRequest {
-  int64 handle = 1;
-}
-
-message InvalidateAllKeysResponse {
-}
-
-message InvalidateKeyRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message InvalidateKeyResponse {
-}
-
-message IsPreviewEnabledRequest {
-  int64 handle = 1;
-}
-
-message IsPreviewEnabledResponse {
-  bool result = 1;
-}
-
-message IsProximityCorrectionEnabledRequest {
-  int64 handle = 1;
-}
-
-message IsProximityCorrectionEnabledResponse {
-  bool result = 1;
-}
-
-message OnClickRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnClickResponse {
-}
-
-message OnDetachedFromWindowRequest {
-  int64 handle = 1;
-}
-
-message OnDetachedFromWindowResponse {
-}
-
-message OnDrawRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnDrawResponse {
-}
-
-message OnHoverEventRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnHoverEventResponse {
-  bool result = 1;
-}
-
-message OnMeasureRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message OnMeasureResponse {
-}
-
-message OnSizeChangedRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-}
-
-message OnSizeChangedResponse {
-}
-
-message OnTouchEventRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message OnTouchEventResponse {
-  bool result = 1;
-}
-
-message SetKeyboardRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetKeyboardResponse {
-}
-
-message SetOnKeyboardActionListenerRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetOnKeyboardActionListenerResponse {
-}
-
-message SetPopupOffsetRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message SetPopupOffsetResponse {
-}
-
-message SetPopupParentRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetPopupParentResponse {
-}
-
-message SetPreviewEnabledRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetPreviewEnabledResponse {
-}
-
-message SetProximityCorrectionEnabledRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetProximityCorrectionEnabledResponse {
-}
-
-message SetVerticalCorrectionRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetVerticalCorrectionResponse {
-}
-
-message OnKeyRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnKeyResponse {
-}
-
-message OnPressRequest {
-  int32 arg0 = 1;
-}
-
-message OnPressResponse {
-}
-
-message OnReleaseRequest {
-  int32 arg0 = 1;
-}
-
-message OnReleaseResponse {
-}
-
-message OnTextRequest {
-  string arg0 = 1;
-}
-
-message OnTextResponse {
-}
-
-message SwipeDownRequest {
-}
-
-message SwipeDownResponse {
-}
-
-message SwipeLeftRequest {
-}
-
-message SwipeLeftResponse {
-}
-
-message SwipeRightRequest {
-}
-
-message SwipeRightResponse {
-}
-
-message SwipeUpRequest {
-}
-
-message SwipeUpResponse {
+service KeyboardViewService {
+  rpc NewKeyboardView (NewKeyboardViewRequest) returns (NewKeyboardViewResponse);
+  rpc Closing (ClosingRequest) returns (ClosingResponse);
+  rpc GetKeyboard (GetKeyboardRequest) returns (GetKeyboardResponse);
+  rpc HandleBack (HandleBackRequest) returns (HandleBackResponse);
+  rpc InvalidateAllKeys (InvalidateAllKeysRequest) returns (InvalidateAllKeysResponse);
+  rpc InvalidateKey (InvalidateKeyRequest) returns (InvalidateKeyResponse);
+  rpc IsPreviewEnabled (IsPreviewEnabledRequest) returns (IsPreviewEnabledResponse);
+  rpc IsProximityCorrectionEnabled (IsProximityCorrectionEnabledRequest) returns (IsProximityCorrectionEnabledResponse);
+  rpc IsShifted (IsShiftedRequest) returns (IsShiftedResponse);
+  rpc OnClick (OnClickRequest) returns (OnClickResponse);
+  rpc OnDetachedFromWindow (OnDetachedFromWindowRequest) returns (OnDetachedFromWindowResponse);
+  rpc OnDraw (OnDrawRequest) returns (OnDrawResponse);
+  rpc OnHoverEvent (OnHoverEventRequest) returns (OnHoverEventResponse);
+  rpc OnMeasure (OnMeasureRequest) returns (OnMeasureResponse);
+  rpc OnSizeChanged (OnSizeChangedRequest) returns (OnSizeChangedResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc SetKeyboard (SetKeyboardRequest) returns (SetKeyboardResponse);
+  rpc SetOnKeyboardActionListener (SetOnKeyboardActionListenerRequest) returns (SetOnKeyboardActionListenerResponse);
+  rpc SetPopupOffset (SetPopupOffsetRequest) returns (SetPopupOffsetResponse);
+  rpc SetPopupParent (SetPopupParentRequest) returns (SetPopupParentResponse);
+  rpc SetPreviewEnabled (SetPreviewEnabledRequest) returns (SetPreviewEnabledResponse);
+  rpc SetProximityCorrectionEnabled (SetProximityCorrectionEnabledRequest) returns (SetProximityCorrectionEnabledResponse);
+  rpc SetShifted (SetShiftedRequest) returns (SetShiftedResponse);
+  rpc SetVerticalCorrection (SetVerticalCorrectionRequest) returns (SetVerticalCorrectionResponse);
+}
+
+service KeyboardViewOnKeyboardActionListenerService {
+  rpc OnKey (OnKeyRequest) returns (OnKeyResponse);
+  rpc OnPress (OnPressRequest) returns (OnPressResponse);
+  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
+  rpc OnText (OnTextRequest) returns (OnTextResponse);
+  rpc SwipeDown (SwipeDownRequest) returns (SwipeDownResponse);
+  rpc SwipeLeft (SwipeLeftRequest) returns (SwipeLeftResponse);
+  rpc SwipeRight (SwipeRightRequest) returns (SwipeRightResponse);
+  rpc SwipeUp (SwipeUpRequest) returns (SwipeUpResponse);
 }
 
 service KeyboardService {
   rpc NewKeyboard (NewKeyboardRequest) returns (NewKeyboardResponse);
   rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetKeys (GetKeysRequest) returns (GetKeysResponse);
   rpc GetMinWidth (GetMinWidthRequest) returns (GetMinWidthResponse);
+  rpc GetModifierKeys (GetModifierKeysRequest) returns (GetModifierKeysResponse);
   rpc GetNearestKeys (GetNearestKeysRequest) returns (GetNearestKeysResponse);
   rpc GetShiftKeyIndex (GetShiftKeyIndexRequest) returns (GetShiftKeyIndexResponse);
   rpc IsShifted (IsShiftedRequest) returns (IsShiftedResponse);
@@ -1554,6 +1610,20 @@ service KeyboardKeyService {
   rpc OnPressed (OnPressedRequest) returns (OnPressedResponse);
   rpc OnReleased (OnReleasedRequest) returns (OnReleasedResponse);
   rpc SquaredDistanceFrom (SquaredDistanceFromRequest) returns (SquaredDistanceFromResponse);
+}
+
+service ExtractEditTextService {
+  rpc NewExtractEditText (NewExtractEditTextRequest) returns (NewExtractEditTextResponse);
+  rpc FinishInternalChanges (FinishInternalChangesRequest) returns (FinishInternalChangesResponse);
+  rpc HasFocus (HasFocusRequest) returns (HasFocusResponse);
+  rpc HasVerticalScrollBar (HasVerticalScrollBarRequest) returns (HasVerticalScrollBarResponse);
+  rpc HasWindowFocus (HasWindowFocusRequest) returns (HasWindowFocusResponse);
+  rpc IsFocused (IsFocusedRequest) returns (IsFocusedResponse);
+  rpc IsInputMethodTarget (IsInputMethodTargetRequest) returns (IsInputMethodTargetResponse);
+  rpc OnTextContextMenuItem (OnTextContextMenuItemRequest) returns (OnTextContextMenuItemResponse);
+  rpc PerformClick (PerformClickRequest) returns (PerformClickResponse);
+  rpc SetExtractedText (SetExtractedTextRequest) returns (SetExtractedTextResponse);
+  rpc StartInternalChanges (StartInternalChangesRequest) returns (StartInternalChangesResponse);
 }
 
 service AbstractInputMethodServiceService {
@@ -1716,56 +1786,4 @@ service InputMethodServiceInputMethodSessionImplService {
   rpc UpdateExtractedText (UpdateExtractedTextRequest) returns (UpdateExtractedTextResponse);
   rpc UpdateSelection (UpdateSelectionRequest) returns (UpdateSelectionResponse);
   rpc ViewClicked (ViewClickedRequest) returns (ViewClickedResponse);
-}
-
-service ExtractEditTextService {
-  rpc NewExtractEditText (NewExtractEditTextRequest) returns (NewExtractEditTextResponse);
-  rpc FinishInternalChanges (FinishInternalChangesRequest) returns (FinishInternalChangesResponse);
-  rpc HasFocus (HasFocusRequest) returns (HasFocusResponse);
-  rpc HasVerticalScrollBar (HasVerticalScrollBarRequest) returns (HasVerticalScrollBarResponse);
-  rpc HasWindowFocus (HasWindowFocusRequest) returns (HasWindowFocusResponse);
-  rpc IsFocused (IsFocusedRequest) returns (IsFocusedResponse);
-  rpc IsInputMethodTarget (IsInputMethodTargetRequest) returns (IsInputMethodTargetResponse);
-  rpc OnTextContextMenuItem (OnTextContextMenuItemRequest) returns (OnTextContextMenuItemResponse);
-  rpc PerformClick (PerformClickRequest) returns (PerformClickResponse);
-  rpc SetExtractedText (SetExtractedTextRequest) returns (SetExtractedTextResponse);
-  rpc StartInternalChanges (StartInternalChangesRequest) returns (StartInternalChangesResponse);
-}
-
-service KeyboardViewService {
-  rpc NewKeyboardView (NewKeyboardViewRequest) returns (NewKeyboardViewResponse);
-  rpc Closing (ClosingRequest) returns (ClosingResponse);
-  rpc GetKeyboard (GetKeyboardRequest) returns (GetKeyboardResponse);
-  rpc HandleBack (HandleBackRequest) returns (HandleBackResponse);
-  rpc InvalidateAllKeys (InvalidateAllKeysRequest) returns (InvalidateAllKeysResponse);
-  rpc InvalidateKey (InvalidateKeyRequest) returns (InvalidateKeyResponse);
-  rpc IsPreviewEnabled (IsPreviewEnabledRequest) returns (IsPreviewEnabledResponse);
-  rpc IsProximityCorrectionEnabled (IsProximityCorrectionEnabledRequest) returns (IsProximityCorrectionEnabledResponse);
-  rpc IsShifted (IsShiftedRequest) returns (IsShiftedResponse);
-  rpc OnClick (OnClickRequest) returns (OnClickResponse);
-  rpc OnDetachedFromWindow (OnDetachedFromWindowRequest) returns (OnDetachedFromWindowResponse);
-  rpc OnDraw (OnDrawRequest) returns (OnDrawResponse);
-  rpc OnHoverEvent (OnHoverEventRequest) returns (OnHoverEventResponse);
-  rpc OnMeasure (OnMeasureRequest) returns (OnMeasureResponse);
-  rpc OnSizeChanged (OnSizeChangedRequest) returns (OnSizeChangedResponse);
-  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
-  rpc SetKeyboard (SetKeyboardRequest) returns (SetKeyboardResponse);
-  rpc SetOnKeyboardActionListener (SetOnKeyboardActionListenerRequest) returns (SetOnKeyboardActionListenerResponse);
-  rpc SetPopupOffset (SetPopupOffsetRequest) returns (SetPopupOffsetResponse);
-  rpc SetPopupParent (SetPopupParentRequest) returns (SetPopupParentResponse);
-  rpc SetPreviewEnabled (SetPreviewEnabledRequest) returns (SetPreviewEnabledResponse);
-  rpc SetProximityCorrectionEnabled (SetProximityCorrectionEnabledRequest) returns (SetProximityCorrectionEnabledResponse);
-  rpc SetShifted (SetShiftedRequest) returns (SetShiftedResponse);
-  rpc SetVerticalCorrection (SetVerticalCorrectionRequest) returns (SetVerticalCorrectionResponse);
-}
-
-service KeyboardViewOnKeyboardActionListenerService {
-  rpc OnKey (OnKeyRequest) returns (OnKeyResponse);
-  rpc OnPress (OnPressRequest) returns (OnPressResponse);
-  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
-  rpc OnText (OnTextRequest) returns (OnTextResponse);
-  rpc SwipeDown (SwipeDownRequest) returns (SwipeDownResponse);
-  rpc SwipeLeft (SwipeLeftRequest) returns (SwipeLeftResponse);
-  rpc SwipeRight (SwipeRightRequest) returns (SwipeRightResponse);
-  rpc SwipeUp (SwipeUpRequest) returns (SwipeUpResponse);
 }

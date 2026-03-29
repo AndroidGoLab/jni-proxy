@@ -9,6 +9,336 @@ import (
 	"google.golang.org/grpc"
 )
 
+// FontScaleConverterClient wraps the gRPC FontScaleConverterService client.
+type FontScaleConverterClient struct {
+	svc pb.FontScaleConverterServiceClient
+}
+
+// NewFontScaleConverterClient creates a new FontScaleConverter client.
+func NewFontScaleConverterClient(cc grpc.ClientConnInterface) *FontScaleConverterClient {
+	return &FontScaleConverterClient{
+		svc: pb.NewFontScaleConverterServiceClient(cc),
+	}
+}
+
+// ConvertDpToSp calls the ConvertDpToSp RPC.
+func (c *FontScaleConverterClient) ConvertDpToSp(ctx context.Context, arg0 float32) (float32, error) {
+	resp, err := c.svc.ConvertDpToSp(ctx, &pb.ConvertDpToSpRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ConvertSpToDp calls the ConvertSpToDp RPC.
+func (c *FontScaleConverterClient) ConvertSpToDp(ctx context.Context, arg0 float32) (float32, error) {
+	resp, err := c.svc.ConvertSpToDp(ctx, &pb.ConvertSpToDpRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForScale calls the ForScale RPC.
+func (c *FontScaleConverterClient) ForScale(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.ForScale(ctx, &pb.ForScaleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNonLinearFontScalingActive calls the IsNonLinearFontScalingActive RPC.
+func (c *FontScaleConverterClient) IsNonLinearFontScalingActive(ctx context.Context, arg0 float32) (bool, error) {
+	resp, err := c.svc.IsNonLinearFontScalingActive(ctx, &pb.IsNonLinearFontScalingActiveRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ObbScannerClient wraps the gRPC ObbScannerService client.
+type ObbScannerClient struct {
+	svc pb.ObbScannerServiceClient
+}
+
+// NewObbScannerClient creates a new ObbScanner client.
+func NewObbScannerClient(cc grpc.ClientConnInterface) *ObbScannerClient {
+	return &ObbScannerClient{
+		svc: pb.NewObbScannerServiceClient(cc),
+	}
+}
+
+// GetObbInfo calls the GetObbInfo RPC.
+func (c *ObbScannerClient) GetObbInfo(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetObbInfo(ctx, &pb.GetObbInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ObbInfoClient wraps the gRPC ObbInfoService client.
+type ObbInfoClient struct {
+	svc pb.ObbInfoServiceClient
+}
+
+// NewObbInfoClient creates a new ObbInfo client.
+func NewObbInfoClient(cc grpc.ClientConnInterface) *ObbInfoClient {
+	return &ObbInfoClient{
+		svc: pb.NewObbInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ObbInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ObbInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ObbInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AssetManagerClient wraps the gRPC AssetManagerService client.
+type AssetManagerClient struct {
+	svc pb.AssetManagerServiceClient
+}
+
+// NewAssetManagerClient creates a new AssetManager client.
+func NewAssetManagerClient(cc grpc.ClientConnInterface) *AssetManagerClient {
+	return &AssetManagerClient{
+		svc: pb.NewAssetManagerServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *AssetManagerClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetLocales calls the GetLocales RPC.
+func (c *AssetManagerClient) GetLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocales(ctx, &pb.GetLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// List calls the List RPC.
+func (c *AssetManagerClient) List(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.List(ctx, &pb.ListRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Open1 calls the Open1 RPC.
+func (c *AssetManagerClient) Open1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.Open1(ctx, &pb.Open1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Open2_1 calls the Open2_1 RPC.
+func (c *AssetManagerClient) Open2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.Open2_1(ctx, &pb.Open2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFd calls the OpenFd RPC.
+func (c *AssetManagerClient) OpenFd(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.OpenFd(ctx, &pb.OpenFdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenNonAssetFd2 calls the OpenNonAssetFd2 RPC.
+func (c *AssetManagerClient) OpenNonAssetFd2(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
+	resp, err := c.svc.OpenNonAssetFd2(ctx, &pb.OpenNonAssetFd2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenNonAssetFd1_1 calls the OpenNonAssetFd1_1 RPC.
+func (c *AssetManagerClient) OpenNonAssetFd1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.OpenNonAssetFd1_1(ctx, &pb.OpenNonAssetFd1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenXmlResourceParser2 calls the OpenXmlResourceParser2 RPC.
+func (c *AssetManagerClient) OpenXmlResourceParser2(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
+	resp, err := c.svc.OpenXmlResourceParser2(ctx, &pb.OpenXmlResourceParser2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenXmlResourceParser1_1 calls the OpenXmlResourceParser1_1 RPC.
+func (c *AssetManagerClient) OpenXmlResourceParser1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.OpenXmlResourceParser1_1(ctx, &pb.OpenXmlResourceParser1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AssetManagerAssetInputStreamClient wraps the gRPC AssetManagerAssetInputStreamService client.
+type AssetManagerAssetInputStreamClient struct {
+	svc pb.AssetManagerAssetInputStreamServiceClient
+}
+
+// NewAssetManagerAssetInputStreamClient creates a new AssetManagerAssetInputStream client.
+func NewAssetManagerAssetInputStreamClient(cc grpc.ClientConnInterface) *AssetManagerAssetInputStreamClient {
+	return &AssetManagerAssetInputStreamClient{
+		svc: pb.NewAssetManagerAssetInputStreamServiceClient(cc),
+	}
+}
+
+// Available calls the Available RPC.
+func (c *AssetManagerAssetInputStreamClient) Available(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Available(ctx, &pb.AvailableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *AssetManagerAssetInputStreamClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Mark calls the Mark RPC.
+func (c *AssetManagerAssetInputStreamClient) Mark(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Mark(ctx, &pb.MarkRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MarkSupported calls the MarkSupported RPC.
+func (c *AssetManagerAssetInputStreamClient) MarkSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.MarkSupported(ctx, &pb.MarkSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Read0 calls the Read0 RPC.
+func (c *AssetManagerAssetInputStreamClient) Read0(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Read0(ctx, &pb.Read0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Read1_1 calls the Read1_1 RPC.
+func (c *AssetManagerAssetInputStreamClient) Read1_1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.Read1_1(ctx, &pb.Read1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Read3_2 calls the Read3_2 RPC.
+func (c *AssetManagerAssetInputStreamClient) Read3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Read3_2(ctx, &pb.Read3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset calls the Reset RPC.
+func (c *AssetManagerAssetInputStreamClient) Reset(ctx context.Context) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{})
+	return err
+}
+
+// Skip calls the Skip RPC.
+func (c *AssetManagerAssetInputStreamClient) Skip(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Skip(ctx, &pb.SkipRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ConfigurationClient wraps the gRPC ConfigurationService client.
 type ConfigurationClient struct {
 	svc pb.ConfigurationServiceClient
@@ -35,7 +365,7 @@ func (c *ConfigurationClient) CompareTo1(ctx context.Context, handle int64, arg0
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *ConfigurationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.ConfigurationDescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -104,7 +434,7 @@ func (c *ConfigurationClient) GetLayoutDirection(ctx context.Context, handle int
 
 // GetLocales calls the GetLocales RPC.
 func (c *ConfigurationClient) GetLocales(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocales(ctx, &pb.GetLocalesRequest{
+	resp, err := c.svc.GetLocales(ctx, &pb.ConfigurationGetLocalesRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -235,7 +565,7 @@ func (c *ConfigurationClient) SetToDefaults(ctx context.Context, handle int64) e
 
 // ToString calls the ToString RPC.
 func (c *ConfigurationClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+	resp, err := c.svc.ToString(ctx, &pb.ConfigurationToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -258,7 +588,7 @@ func (c *ConfigurationClient) UpdateFrom(ctx context.Context, handle int64, arg0
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *ConfigurationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.ConfigurationWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -304,399 +634,6 @@ func (c *ConfigurationClient) NeedNewResources(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// AssetFileDescriptorClient wraps the gRPC AssetFileDescriptorService client.
-type AssetFileDescriptorClient struct {
-	svc pb.AssetFileDescriptorServiceClient
-}
-
-// NewAssetFileDescriptorClient creates a new AssetFileDescriptor client.
-func NewAssetFileDescriptorClient(cc grpc.ClientConnInterface) *AssetFileDescriptorClient {
-	return &AssetFileDescriptorClient{
-		svc: pb.NewAssetFileDescriptorServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *AssetFileDescriptorClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// CreateInputStream calls the CreateInputStream RPC.
-func (c *AssetFileDescriptorClient) CreateInputStream(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CreateInputStream(ctx, &pb.CreateInputStreamRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateOutputStream calls the CreateOutputStream RPC.
-func (c *AssetFileDescriptorClient) CreateOutputStream(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CreateOutputStream(ctx, &pb.CreateOutputStreamRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AssetFileDescriptorClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeclaredLength calls the GetDeclaredLength RPC.
-func (c *AssetFileDescriptorClient) GetDeclaredLength(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDeclaredLength(ctx, &pb.GetDeclaredLengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExtras calls the GetExtras RPC.
-func (c *AssetFileDescriptorClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFileDescriptor calls the GetFileDescriptor RPC.
-func (c *AssetFileDescriptorClient) GetFileDescriptor(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFileDescriptor(ctx, &pb.GetFileDescriptorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLength calls the GetLength RPC.
-func (c *AssetFileDescriptorClient) GetLength(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParcelFileDescriptor calls the GetParcelFileDescriptor RPC.
-func (c *AssetFileDescriptorClient) GetParcelFileDescriptor(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetParcelFileDescriptor(ctx, &pb.GetParcelFileDescriptorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartOffset calls the GetStartOffset RPC.
-func (c *AssetFileDescriptorClient) GetStartOffset(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStartOffset(ctx, &pb.GetStartOffsetRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AssetFileDescriptorClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AssetFileDescriptorClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// AssetFileDescriptorAutoCloseInputStreamClient wraps the gRPC AssetFileDescriptorAutoCloseInputStreamService client.
-type AssetFileDescriptorAutoCloseInputStreamClient struct {
-	svc pb.AssetFileDescriptorAutoCloseInputStreamServiceClient
-}
-
-// NewAssetFileDescriptorAutoCloseInputStreamClient creates a new AssetFileDescriptorAutoCloseInputStream client.
-func NewAssetFileDescriptorAutoCloseInputStreamClient(cc grpc.ClientConnInterface) *AssetFileDescriptorAutoCloseInputStreamClient {
-	return &AssetFileDescriptorAutoCloseInputStreamClient{
-		svc: pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(cc),
-	}
-}
-
-// Available calls the Available RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) Available(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Available(ctx, &pb.AvailableRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Close calls the Close RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.AssetFileDescriptorAutoCloseInputStreamCloseRequest{})
-	return err
-}
-
-// GetChannel calls the GetChannel RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) GetChannel(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Mark calls the Mark RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) Mark(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.Mark(ctx, &pb.MarkRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// MarkSupported calls the MarkSupported RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) MarkSupported(ctx context.Context) (bool, error) {
-	resp, err := c.svc.MarkSupported(ctx, &pb.MarkSupportedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read0 calls the Read0 RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) Read0(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Read0(ctx, &pb.Read0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read1_1 calls the Read1_1 RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) Read1_1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.Read1_1(ctx, &pb.Read1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read3_2 calls the Read3_2 RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) Read3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
-	resp, err := c.svc.Read3_2(ctx, &pb.Read3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Skip calls the Skip RPC.
-func (c *AssetFileDescriptorAutoCloseInputStreamClient) Skip(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Skip(ctx, &pb.SkipRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AssetFileDescriptorAutoCloseOutputStreamClient wraps the gRPC AssetFileDescriptorAutoCloseOutputStreamService client.
-type AssetFileDescriptorAutoCloseOutputStreamClient struct {
-	svc pb.AssetFileDescriptorAutoCloseOutputStreamServiceClient
-}
-
-// NewAssetFileDescriptorAutoCloseOutputStreamClient creates a new AssetFileDescriptorAutoCloseOutputStream client.
-func NewAssetFileDescriptorAutoCloseOutputStreamClient(cc grpc.ClientConnInterface) *AssetFileDescriptorAutoCloseOutputStreamClient {
-	return &AssetFileDescriptorAutoCloseOutputStreamClient{
-		svc: pb.NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(cc),
-	}
-}
-
-// Write1 calls the Write1 RPC.
-func (c *AssetFileDescriptorAutoCloseOutputStreamClient) Write1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Write1(ctx, &pb.Write1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Write3_1 calls the Write3_1 RPC.
-func (c *AssetFileDescriptorAutoCloseOutputStreamClient) Write3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
-	_, err := c.svc.Write3_1(ctx, &pb.Write3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Write1_2 calls the Write1_2 RPC.
-func (c *AssetFileDescriptorAutoCloseOutputStreamClient) Write1_2(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.Write1_2(ctx, &pb.Write1_2Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// FontScaleConverterClient wraps the gRPC FontScaleConverterService client.
-type FontScaleConverterClient struct {
-	svc pb.FontScaleConverterServiceClient
-}
-
-// NewFontScaleConverterClient creates a new FontScaleConverter client.
-func NewFontScaleConverterClient(cc grpc.ClientConnInterface) *FontScaleConverterClient {
-	return &FontScaleConverterClient{
-		svc: pb.NewFontScaleConverterServiceClient(cc),
-	}
-}
-
-// ConvertDpToSp calls the ConvertDpToSp RPC.
-func (c *FontScaleConverterClient) ConvertDpToSp(ctx context.Context, arg0 float32) (float32, error) {
-	resp, err := c.svc.ConvertDpToSp(ctx, &pb.ConvertDpToSpRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ConvertSpToDp calls the ConvertSpToDp RPC.
-func (c *FontScaleConverterClient) ConvertSpToDp(ctx context.Context, arg0 float32) (float32, error) {
-	resp, err := c.svc.ConvertSpToDp(ctx, &pb.ConvertSpToDpRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ForScale calls the ForScale RPC.
-func (c *FontScaleConverterClient) ForScale(ctx context.Context, arg0 float32) (int64, error) {
-	resp, err := c.svc.ForScale(ctx, &pb.ForScaleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNonLinearFontScalingActive calls the IsNonLinearFontScalingActive RPC.
-func (c *FontScaleConverterClient) IsNonLinearFontScalingActive(ctx context.Context, arg0 float32) (bool, error) {
-	resp, err := c.svc.IsNonLinearFontScalingActive(ctx, &pb.IsNonLinearFontScalingActiveRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ObbScannerClient wraps the gRPC ObbScannerService client.
-type ObbScannerClient struct {
-	svc pb.ObbScannerServiceClient
-}
-
-// NewObbScannerClient creates a new ObbScanner client.
-func NewObbScannerClient(cc grpc.ClientConnInterface) *ObbScannerClient {
-	return &ObbScannerClient{
-		svc: pb.NewObbScannerServiceClient(cc),
-	}
-}
-
-// GetObbInfo calls the GetObbInfo RPC.
-func (c *ObbScannerClient) GetObbInfo(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetObbInfo(ctx, &pb.GetObbInfoRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ObbInfoClient wraps the gRPC ObbInfoService client.
-type ObbInfoClient struct {
-	svc pb.ObbInfoServiceClient
-}
-
-// NewObbInfoClient creates a new ObbInfo client.
-func NewObbInfoClient(cc grpc.ClientConnInterface) *ObbInfoClient {
-	return &ObbInfoClient{
-		svc: pb.NewObbInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ObbInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ObbInfoDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ObbInfoClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ObbInfoToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ObbInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ObbInfoWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // XmlResourceParserClient wraps the gRPC XmlResourceParserService client.
 type XmlResourceParserClient struct {
 	svc pb.XmlResourceParserServiceClient
@@ -711,7 +648,7 @@ func NewXmlResourceParserClient(cc grpc.ClientConnInterface) *XmlResourceParserC
 
 // Close calls the Close RPC.
 func (c *XmlResourceParserClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.XmlResourceParserCloseRequest{})
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
 	return err
 }
 
@@ -722,382 +659,6 @@ func (c *XmlResourceParserClient) GetAttributeNamespace(ctx context.Context, arg
 	})
 	if err != nil {
 		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ColorStateListClient wraps the gRPC ColorStateListService client.
-type ColorStateListClient struct {
-	svc pb.ColorStateListServiceClient
-}
-
-// NewColorStateListClient creates a new ColorStateList client.
-func NewColorStateListClient(cc grpc.ClientConnInterface) *ColorStateListClient {
-	return &ColorStateListClient{
-		svc: pb.NewColorStateListServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ColorStateListClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *ColorStateListClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorForState calls the GetColorForState RPC.
-func (c *ColorStateListClient) GetColorForState(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int32, error) {
-	resp, err := c.svc.GetColorForState(ctx, &pb.GetColorForStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDefaultColor calls the GetDefaultColor RPC.
-func (c *ColorStateListClient) GetDefaultColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDefaultColor(ctx, &pb.GetDefaultColorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOpaque calls the IsOpaque RPC.
-func (c *ColorStateListClient) IsOpaque(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsOpaque(ctx, &pb.IsOpaqueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *ColorStateListClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ColorStateListClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WithAlpha calls the WithAlpha RPC.
-func (c *ColorStateListClient) WithAlpha(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.WithAlpha(ctx, &pb.WithAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WithLStar calls the WithLStar RPC.
-func (c *ColorStateListClient) WithLStar(ctx context.Context, handle int64, arg0 float32) (int64, error) {
-	resp, err := c.svc.WithLStar(ctx, &pb.WithLStarRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ColorStateListClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CreateFromXml2 calls the CreateFromXml2 RPC.
-func (c *ColorStateListClient) CreateFromXml2(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreateFromXml2(ctx, &pb.CreateFromXml2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromXml3_1 calls the CreateFromXml3_1 RPC.
-func (c *ColorStateListClient) CreateFromXml3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateFromXml3_1(ctx, &pb.CreateFromXml3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *ColorStateListClient) ValueOf(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AssetManagerClient wraps the gRPC AssetManagerService client.
-type AssetManagerClient struct {
-	svc pb.AssetManagerServiceClient
-}
-
-// NewAssetManagerClient creates a new AssetManager client.
-func NewAssetManagerClient(cc grpc.ClientConnInterface) *AssetManagerClient {
-	return &AssetManagerClient{
-		svc: pb.NewAssetManagerServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *AssetManagerClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.AssetManagerCloseRequest{})
-	return err
-}
-
-// GetLocales calls the GetLocales RPC.
-func (c *AssetManagerClient) GetLocales(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLocales(ctx, &pb.AssetManagerGetLocalesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// List calls the List RPC.
-func (c *AssetManagerClient) List(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.List(ctx, &pb.ListRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Open1 calls the Open1 RPC.
-func (c *AssetManagerClient) Open1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.Open1(ctx, &pb.Open1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Open2_1 calls the Open2_1 RPC.
-func (c *AssetManagerClient) Open2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
-	resp, err := c.svc.Open2_1(ctx, &pb.Open2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenFd calls the OpenFd RPC.
-func (c *AssetManagerClient) OpenFd(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.OpenFd(ctx, &pb.OpenFdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenNonAssetFd2 calls the OpenNonAssetFd2 RPC.
-func (c *AssetManagerClient) OpenNonAssetFd2(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
-	resp, err := c.svc.OpenNonAssetFd2(ctx, &pb.OpenNonAssetFd2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenNonAssetFd1_1 calls the OpenNonAssetFd1_1 RPC.
-func (c *AssetManagerClient) OpenNonAssetFd1_1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.OpenNonAssetFd1_1(ctx, &pb.OpenNonAssetFd1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenXmlResourceParser2 calls the OpenXmlResourceParser2 RPC.
-func (c *AssetManagerClient) OpenXmlResourceParser2(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
-	resp, err := c.svc.OpenXmlResourceParser2(ctx, &pb.OpenXmlResourceParser2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenXmlResourceParser1_1 calls the OpenXmlResourceParser1_1 RPC.
-func (c *AssetManagerClient) OpenXmlResourceParser1_1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.OpenXmlResourceParser1_1(ctx, &pb.OpenXmlResourceParser1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AssetManagerAssetInputStreamClient wraps the gRPC AssetManagerAssetInputStreamService client.
-type AssetManagerAssetInputStreamClient struct {
-	svc pb.AssetManagerAssetInputStreamServiceClient
-}
-
-// NewAssetManagerAssetInputStreamClient creates a new AssetManagerAssetInputStream client.
-func NewAssetManagerAssetInputStreamClient(cc grpc.ClientConnInterface) *AssetManagerAssetInputStreamClient {
-	return &AssetManagerAssetInputStreamClient{
-		svc: pb.NewAssetManagerAssetInputStreamServiceClient(cc),
-	}
-}
-
-// Available calls the Available RPC.
-func (c *AssetManagerAssetInputStreamClient) Available(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Available(ctx, &pb.AvailableRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Close calls the Close RPC.
-func (c *AssetManagerAssetInputStreamClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.AssetManagerAssetInputStreamCloseRequest{})
-	return err
-}
-
-// Mark calls the Mark RPC.
-func (c *AssetManagerAssetInputStreamClient) Mark(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.Mark(ctx, &pb.MarkRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// MarkSupported calls the MarkSupported RPC.
-func (c *AssetManagerAssetInputStreamClient) MarkSupported(ctx context.Context) (bool, error) {
-	resp, err := c.svc.MarkSupported(ctx, &pb.MarkSupportedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read0 calls the Read0 RPC.
-func (c *AssetManagerAssetInputStreamClient) Read0(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Read0(ctx, &pb.Read0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read1_1 calls the Read1_1 RPC.
-func (c *AssetManagerAssetInputStreamClient) Read1_1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.Read1_1(ctx, &pb.Read1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read3_2 calls the Read3_2 RPC.
-func (c *AssetManagerAssetInputStreamClient) Read3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
-	resp, err := c.svc.Read3_2(ctx, &pb.Read3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset calls the Reset RPC.
-func (c *AssetManagerAssetInputStreamClient) Reset(ctx context.Context) error {
-	_, err := c.svc.Reset(ctx, &pb.ResetRequest{})
-	return err
-}
-
-// Skip calls the Skip RPC.
-func (c *AssetManagerAssetInputStreamClient) Skip(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Skip(ctx, &pb.SkipRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1116,7 +677,7 @@ func NewTypedArrayClient(cc grpc.ClientConnInterface) *TypedArrayClient {
 
 // Close calls the Close RPC.
 func (c *TypedArrayClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.TypedArrayCloseRequest{})
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
 	return err
 }
 
@@ -1134,7 +695,7 @@ func (c *TypedArrayClient) GetBoolean(ctx context.Context, arg0 int32, arg1 bool
 
 // GetChangingConfigurations calls the GetChangingConfigurations RPC.
 func (c *TypedArrayClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.TypedArrayGetChangingConfigurationsRequest{})
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1475,9 +1036,448 @@ func (c *TypedArrayClient) Recycle(ctx context.Context) error {
 
 // ToString calls the ToString RPC.
 func (c *TypedArrayClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.TypedArrayToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
+}
+
+// ColorStateListClient wraps the gRPC ColorStateListService client.
+type ColorStateListClient struct {
+	svc pb.ColorStateListServiceClient
+}
+
+// NewColorStateListClient creates a new ColorStateList client.
+func NewColorStateListClient(cc grpc.ClientConnInterface) *ColorStateListClient {
+	return &ColorStateListClient{
+		svc: pb.NewColorStateListServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ColorStateListClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ColorStateListDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *ColorStateListClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.ColorStateListGetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorForState calls the GetColorForState RPC.
+func (c *ColorStateListClient) GetColorForState(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetColorForState(ctx, &pb.GetColorForStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultColor calls the GetDefaultColor RPC.
+func (c *ColorStateListClient) GetDefaultColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDefaultColor(ctx, &pb.GetDefaultColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOpaque calls the IsOpaque RPC.
+func (c *ColorStateListClient) IsOpaque(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsOpaque(ctx, &pb.IsOpaqueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *ColorStateListClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ColorStateListClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ColorStateListToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithAlpha calls the WithAlpha RPC.
+func (c *ColorStateListClient) WithAlpha(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.WithAlpha(ctx, &pb.WithAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithLStar calls the WithLStar RPC.
+func (c *ColorStateListClient) WithLStar(ctx context.Context, handle int64, arg0 float32) (int64, error) {
+	resp, err := c.svc.WithLStar(ctx, &pb.WithLStarRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ColorStateListClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ColorStateListWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CreateFromXml2 calls the CreateFromXml2 RPC.
+func (c *ColorStateListClient) CreateFromXml2(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateFromXml2(ctx, &pb.CreateFromXml2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromXml3_1 calls the CreateFromXml3_1 RPC.
+func (c *ColorStateListClient) CreateFromXml3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateFromXml3_1(ctx, &pb.CreateFromXml3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *ColorStateListClient) ValueOf(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AssetFileDescriptorClient wraps the gRPC AssetFileDescriptorService client.
+type AssetFileDescriptorClient struct {
+	svc pb.AssetFileDescriptorServiceClient
+}
+
+// NewAssetFileDescriptorClient creates a new AssetFileDescriptor client.
+func NewAssetFileDescriptorClient(cc grpc.ClientConnInterface) *AssetFileDescriptorClient {
+	return &AssetFileDescriptorClient{
+		svc: pb.NewAssetFileDescriptorServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *AssetFileDescriptorClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.AssetFileDescriptorCloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CreateInputStream calls the CreateInputStream RPC.
+func (c *AssetFileDescriptorClient) CreateInputStream(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CreateInputStream(ctx, &pb.CreateInputStreamRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateOutputStream calls the CreateOutputStream RPC.
+func (c *AssetFileDescriptorClient) CreateOutputStream(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CreateOutputStream(ctx, &pb.CreateOutputStreamRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AssetFileDescriptorClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.AssetFileDescriptorDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeclaredLength calls the GetDeclaredLength RPC.
+func (c *AssetFileDescriptorClient) GetDeclaredLength(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDeclaredLength(ctx, &pb.GetDeclaredLengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *AssetFileDescriptorClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFileDescriptor calls the GetFileDescriptor RPC.
+func (c *AssetFileDescriptorClient) GetFileDescriptor(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFileDescriptor(ctx, &pb.GetFileDescriptorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLength calls the GetLength RPC.
+func (c *AssetFileDescriptorClient) GetLength(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParcelFileDescriptor calls the GetParcelFileDescriptor RPC.
+func (c *AssetFileDescriptorClient) GetParcelFileDescriptor(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetParcelFileDescriptor(ctx, &pb.GetParcelFileDescriptorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartOffset calls the GetStartOffset RPC.
+func (c *AssetFileDescriptorClient) GetStartOffset(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStartOffset(ctx, &pb.GetStartOffsetRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AssetFileDescriptorClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.AssetFileDescriptorToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AssetFileDescriptorClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.AssetFileDescriptorWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AssetFileDescriptorAutoCloseInputStreamClient wraps the gRPC AssetFileDescriptorAutoCloseInputStreamService client.
+type AssetFileDescriptorAutoCloseInputStreamClient struct {
+	svc pb.AssetFileDescriptorAutoCloseInputStreamServiceClient
+}
+
+// NewAssetFileDescriptorAutoCloseInputStreamClient creates a new AssetFileDescriptorAutoCloseInputStream client.
+func NewAssetFileDescriptorAutoCloseInputStreamClient(cc grpc.ClientConnInterface) *AssetFileDescriptorAutoCloseInputStreamClient {
+	return &AssetFileDescriptorAutoCloseInputStreamClient{
+		svc: pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(cc),
+	}
+}
+
+// Available calls the Available RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) Available(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Available(ctx, &pb.AvailableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetChannel calls the GetChannel RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) GetChannel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Mark calls the Mark RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) Mark(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Mark(ctx, &pb.MarkRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MarkSupported calls the MarkSupported RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) MarkSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.MarkSupported(ctx, &pb.MarkSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Read0 calls the Read0 RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) Read0(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Read0(ctx, &pb.Read0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Read1_1 calls the Read1_1 RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) Read1_1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.Read1_1(ctx, &pb.Read1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Read3_2 calls the Read3_2 RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) Read3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Read3_2(ctx, &pb.Read3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Skip calls the Skip RPC.
+func (c *AssetFileDescriptorAutoCloseInputStreamClient) Skip(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Skip(ctx, &pb.SkipRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AssetFileDescriptorAutoCloseOutputStreamClient wraps the gRPC AssetFileDescriptorAutoCloseOutputStreamService client.
+type AssetFileDescriptorAutoCloseOutputStreamClient struct {
+	svc pb.AssetFileDescriptorAutoCloseOutputStreamServiceClient
+}
+
+// NewAssetFileDescriptorAutoCloseOutputStreamClient creates a new AssetFileDescriptorAutoCloseOutputStream client.
+func NewAssetFileDescriptorAutoCloseOutputStreamClient(cc grpc.ClientConnInterface) *AssetFileDescriptorAutoCloseOutputStreamClient {
+	return &AssetFileDescriptorAutoCloseOutputStreamClient{
+		svc: pb.NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(cc),
+	}
+}
+
+// Write1 calls the Write1 RPC.
+func (c *AssetFileDescriptorAutoCloseOutputStreamClient) Write1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Write1(ctx, &pb.Write1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Write3_1 calls the Write3_1 RPC.
+func (c *AssetFileDescriptorAutoCloseOutputStreamClient) Write3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.Write3_1(ctx, &pb.Write3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Write1_2 calls the Write1_2 RPC.
+func (c *AssetFileDescriptorAutoCloseOutputStreamClient) Write1_2(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Write1_2(ctx, &pb.Write1_2Request{
+		Arg0: arg0,
+	})
+	return err
 }

@@ -23,27 +23,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type IsCaptureProcessProgressAvailableRequest struct {
+type CreateHighSpeedRequestListRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *IsCaptureProcessProgressAvailableRequest) Reset() {
-	*x = IsCaptureProcessProgressAvailableRequest{}
+func (x *CreateHighSpeedRequestListRequest) Reset() {
+	*x = CreateHighSpeedRequestListRequest{}
 	mi := &file_proto_camera2_camera2_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IsCaptureProcessProgressAvailableRequest) String() string {
+func (x *CreateHighSpeedRequestListRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IsCaptureProcessProgressAvailableRequest) ProtoMessage() {}
+func (*CreateHighSpeedRequestListRequest) ProtoMessage() {}
 
-func (x *IsCaptureProcessProgressAvailableRequest) ProtoReflect() protoreflect.Message {
+func (x *CreateHighSpeedRequestListRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_camera2_camera2_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,696 +55,40 @@ func (x *IsCaptureProcessProgressAvailableRequest) ProtoReflect() protoreflect.M
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use IsCaptureProcessProgressAvailableRequest.ProtoReflect.Descriptor instead.
-func (*IsCaptureProcessProgressAvailableRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateHighSpeedRequestListRequest.ProtoReflect.Descriptor instead.
+func (*CreateHighSpeedRequestListRequest) Descriptor() ([]byte, []int) {
 	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *IsCaptureProcessProgressAvailableRequest) GetArg0() int32 {
+func (x *CreateHighSpeedRequestListRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type IsCaptureProcessProgressAvailableResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsCaptureProcessProgressAvailableResponse) Reset() {
-	*x = IsCaptureProcessProgressAvailableResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsCaptureProcessProgressAvailableResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsCaptureProcessProgressAvailableResponse) ProtoMessage() {}
-
-func (x *IsCaptureProcessProgressAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsCaptureProcessProgressAvailableResponse.ProtoReflect.Descriptor instead.
-func (*IsCaptureProcessProgressAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *IsCaptureProcessProgressAvailableResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsPostviewAvailableRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPostviewAvailableRequest) Reset() {
-	*x = IsPostviewAvailableRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPostviewAvailableRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPostviewAvailableRequest) ProtoMessage() {}
-
-func (x *IsPostviewAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPostviewAvailableRequest.ProtoReflect.Descriptor instead.
-func (*IsPostviewAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *IsPostviewAvailableRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IsPostviewAvailableResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPostviewAvailableResponse) Reset() {
-	*x = IsPostviewAvailableResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPostviewAvailableResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPostviewAvailableResponse) ProtoMessage() {}
-
-func (x *IsPostviewAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPostviewAvailableResponse.ProtoReflect.Descriptor instead.
-func (*IsPostviewAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *IsPostviewAvailableResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type CloseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CloseRequest) Reset() {
-	*x = CloseRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CloseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CloseRequest) ProtoMessage() {}
-
-func (x *CloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
-func (*CloseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{4}
-}
-
-type CloseResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CloseResponse) Reset() {
-	*x = CloseResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CloseResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CloseResponse) ProtoMessage() {}
-
-func (x *CloseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
-func (*CloseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{5}
-}
-
-type OnClosedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnClosedRequest) Reset() {
-	*x = OnClosedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnClosedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnClosedRequest) ProtoMessage() {}
-
-func (x *OnClosedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnClosedRequest.ProtoReflect.Descriptor instead.
-func (*OnClosedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *OnClosedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnClosedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnClosedResponse) Reset() {
-	*x = OnClosedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnClosedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnClosedResponse) ProtoMessage() {}
-
-func (x *OnClosedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnClosedResponse.ProtoReflect.Descriptor instead.
-func (*OnClosedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{7}
-}
-
-type OnErrorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnErrorRequest) Reset() {
-	*x = OnErrorRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnErrorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnErrorRequest) ProtoMessage() {}
-
-func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
-func (*OnErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *OnErrorRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnErrorRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnErrorResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnErrorResponse) Reset() {
-	*x = OnErrorResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnErrorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnErrorResponse) ProtoMessage() {}
-
-func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
-func (*OnErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{9}
-}
-
-type OnIdleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnIdleRequest) Reset() {
-	*x = OnIdleRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnIdleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnIdleRequest) ProtoMessage() {}
-
-func (x *OnIdleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnIdleRequest.ProtoReflect.Descriptor instead.
-func (*OnIdleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *OnIdleRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnIdleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnIdleResponse) Reset() {
-	*x = OnIdleResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnIdleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnIdleResponse) ProtoMessage() {}
-
-func (x *OnIdleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnIdleResponse.ProtoReflect.Descriptor instead.
-func (*OnIdleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{11}
-}
-
-type OnReadyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnReadyRequest) Reset() {
-	*x = OnReadyRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnReadyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnReadyRequest) ProtoMessage() {}
-
-func (x *OnReadyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnReadyRequest.ProtoReflect.Descriptor instead.
-func (*OnReadyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *OnReadyRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnReadyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnReadyResponse) Reset() {
-	*x = OnReadyResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnReadyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnReadyResponse) ProtoMessage() {}
-
-func (x *OnReadyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnReadyResponse.ProtoReflect.Descriptor instead.
-func (*OnReadyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{13}
-}
-
-type OnSwitchFailedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnSwitchFailedRequest) Reset() {
-	*x = OnSwitchFailedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnSwitchFailedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnSwitchFailedRequest) ProtoMessage() {}
-
-func (x *OnSwitchFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnSwitchFailedRequest.ProtoReflect.Descriptor instead.
-func (*OnSwitchFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *OnSwitchFailedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnSwitchFailedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnSwitchFailedResponse) Reset() {
-	*x = OnSwitchFailedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnSwitchFailedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnSwitchFailedResponse) ProtoMessage() {}
-
-func (x *OnSwitchFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnSwitchFailedResponse.ProtoReflect.Descriptor instead.
-func (*OnSwitchFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{15}
-}
-
-type GetRecommendedStreamConfigurationMapRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRecommendedStreamConfigurationMapRequest) Reset() {
-	*x = GetRecommendedStreamConfigurationMapRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRecommendedStreamConfigurationMapRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRecommendedStreamConfigurationMapRequest) ProtoMessage() {}
-
-func (x *GetRecommendedStreamConfigurationMapRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRecommendedStreamConfigurationMapRequest.ProtoReflect.Descriptor instead.
-func (*GetRecommendedStreamConfigurationMapRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *GetRecommendedStreamConfigurationMapRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetRecommendedStreamConfigurationMapResponse struct {
+type CreateHighSpeedRequestListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetRecommendedStreamConfigurationMapResponse) Reset() {
-	*x = GetRecommendedStreamConfigurationMapResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[17]
+func (x *CreateHighSpeedRequestListResponse) Reset() {
+	*x = CreateHighSpeedRequestListResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetRecommendedStreamConfigurationMapResponse) String() string {
+func (x *CreateHighSpeedRequestListResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRecommendedStreamConfigurationMapResponse) ProtoMessage() {}
+func (*CreateHighSpeedRequestListResponse) ProtoMessage() {}
 
-func (x *GetRecommendedStreamConfigurationMapResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[17]
+func (x *CreateHighSpeedRequestListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -755,12 +99,412 @@ func (x *GetRecommendedStreamConfigurationMapResponse) ProtoReflect() protorefle
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRecommendedStreamConfigurationMapResponse.ProtoReflect.Descriptor instead.
-func (*GetRecommendedStreamConfigurationMapResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{17}
+// Deprecated: Use CreateHighSpeedRequestListResponse.ProtoReflect.Descriptor instead.
+func (*CreateHighSpeedRequestListResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetRecommendedStreamConfigurationMapResponse) GetResult() int64 {
+func (x *CreateHighSpeedRequestListResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCameraIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCameraIdRequest) Reset() {
+	*x = GetCameraIdRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCameraIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCameraIdRequest) ProtoMessage() {}
+
+func (x *GetCameraIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCameraIdRequest.ProtoReflect.Descriptor instead.
+func (*GetCameraIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{2}
+}
+
+type GetCameraIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCameraIdResponse) Reset() {
+	*x = GetCameraIdResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCameraIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCameraIdResponse) ProtoMessage() {}
+
+func (x *GetCameraIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCameraIdResponse.ProtoReflect.Descriptor instead.
+func (*GetCameraIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetCameraIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetFrameNumberRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFrameNumberRequest) Reset() {
+	*x = GetFrameNumberRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFrameNumberRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFrameNumberRequest) ProtoMessage() {}
+
+func (x *GetFrameNumberRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFrameNumberRequest.ProtoReflect.Descriptor instead.
+func (*GetFrameNumberRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{4}
+}
+
+type GetFrameNumberResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFrameNumberResponse) Reset() {
+	*x = GetFrameNumberResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFrameNumberResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFrameNumberResponse) ProtoMessage() {}
+
+func (x *GetFrameNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFrameNumberResponse.ProtoReflect.Descriptor instead.
+func (*GetFrameNumberResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetFrameNumberResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeysRequest) Reset() {
+	*x = GetKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeysRequest) ProtoMessage() {}
+
+func (x *GetKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{6}
+}
+
+type GetKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeysResponse) Reset() {
+	*x = GetKeysResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeysResponse) ProtoMessage() {}
+
+func (x *GetKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetKeysResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequestRequest) Reset() {
+	*x = GetRequestRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequestRequest) ProtoMessage() {}
+
+func (x *GetRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequestRequest.ProtoReflect.Descriptor instead.
+func (*GetRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{8}
+}
+
+type GetRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequestResponse) Reset() {
+	*x = GetRequestResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequestResponse) ProtoMessage() {}
+
+func (x *GetRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequestResponse.ProtoReflect.Descriptor instead.
+func (*GetRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSequenceIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSequenceIdRequest) Reset() {
+	*x = GetSequenceIdRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSequenceIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSequenceIdRequest) ProtoMessage() {}
+
+func (x *GetSequenceIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSequenceIdRequest.ProtoReflect.Descriptor instead.
+func (*GetSequenceIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{10}
+}
+
+type GetSequenceIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSequenceIdResponse) Reset() {
+	*x = GetSequenceIdResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSequenceIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSequenceIdResponse) ProtoMessage() {}
+
+func (x *GetSequenceIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSequenceIdResponse.ProtoReflect.Descriptor instead.
+func (*GetSequenceIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetSequenceIdResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -776,7 +520,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[18]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -788,7 +532,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[18]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -801,7 +545,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{18}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -820,7 +564,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[19]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -832,7 +576,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[19]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -845,7 +589,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{19}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -863,7 +607,7 @@ type GetNameRequest struct {
 
 func (x *GetNameRequest) Reset() {
 	*x = GetNameRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[20]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -875,7 +619,7 @@ func (x *GetNameRequest) String() string {
 func (*GetNameRequest) ProtoMessage() {}
 
 func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[20]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -888,7 +632,7 @@ func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
 func (*GetNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{20}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{14}
 }
 
 type GetNameResponse struct {
@@ -900,7 +644,7 @@ type GetNameResponse struct {
 
 func (x *GetNameResponse) Reset() {
 	*x = GetNameResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[21]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -912,7 +656,7 @@ func (x *GetNameResponse) String() string {
 func (*GetNameResponse) ProtoMessage() {}
 
 func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[21]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -925,7 +669,7 @@ func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
 func (*GetNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{21}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetNameResponse) GetResult() string {
@@ -943,7 +687,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[22]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -955,7 +699,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[22]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -968,7 +712,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{22}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{16}
 }
 
 type HashCodeResponse struct {
@@ -980,7 +724,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[23]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -992,7 +736,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[23]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1005,7 +749,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{23}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -1023,7 +767,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[24]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1035,7 +779,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[24]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1048,7 +792,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{24}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{18}
 }
 
 type ToStringResponse struct {
@@ -1060,7 +804,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[25]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1072,7 +816,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[25]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1085,7 +829,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{25}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -1093,2570 +837,6 @@ func (x *ToStringResponse) GetResult() string {
 		return x.Result
 	}
 	return ""
-}
-
-type GetCameraIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCameraIdRequest) Reset() {
-	*x = GetCameraIdRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCameraIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCameraIdRequest) ProtoMessage() {}
-
-func (x *GetCameraIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCameraIdRequest.ProtoReflect.Descriptor instead.
-func (*GetCameraIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{26}
-}
-
-type GetCameraIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCameraIdResponse) Reset() {
-	*x = GetCameraIdResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCameraIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCameraIdResponse) ProtoMessage() {}
-
-func (x *GetCameraIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCameraIdResponse.ProtoReflect.Descriptor instead.
-func (*GetCameraIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *GetCameraIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetFrameNumberRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFrameNumberRequest) Reset() {
-	*x = GetFrameNumberRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFrameNumberRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFrameNumberRequest) ProtoMessage() {}
-
-func (x *GetFrameNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFrameNumberRequest.ProtoReflect.Descriptor instead.
-func (*GetFrameNumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{28}
-}
-
-type GetFrameNumberResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFrameNumberResponse) Reset() {
-	*x = GetFrameNumberResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFrameNumberResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFrameNumberResponse) ProtoMessage() {}
-
-func (x *GetFrameNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFrameNumberResponse.ProtoReflect.Descriptor instead.
-func (*GetFrameNumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetFrameNumberResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRequestRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequestRequest) Reset() {
-	*x = GetRequestRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequestRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequestRequest) ProtoMessage() {}
-
-func (x *GetRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequestRequest.ProtoReflect.Descriptor instead.
-func (*GetRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{30}
-}
-
-type GetRequestResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequestResponse) Reset() {
-	*x = GetRequestResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequestResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequestResponse) ProtoMessage() {}
-
-func (x *GetRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequestResponse.ProtoReflect.Descriptor instead.
-func (*GetRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *GetRequestResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSequenceIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSequenceIdRequest) Reset() {
-	*x = GetSequenceIdRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSequenceIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSequenceIdRequest) ProtoMessage() {}
-
-func (x *GetSequenceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSequenceIdRequest.ProtoReflect.Descriptor instead.
-func (*GetSequenceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{32}
-}
-
-type GetSequenceIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSequenceIdResponse) Reset() {
-	*x = GetSequenceIdResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSequenceIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSequenceIdResponse) ProtoMessage() {}
-
-func (x *GetSequenceIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSequenceIdResponse.ProtoReflect.Descriptor instead.
-func (*GetSequenceIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *GetSequenceIdResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPhysicalCameraIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPhysicalCameraIdRequest) Reset() {
-	*x = GetPhysicalCameraIdRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPhysicalCameraIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPhysicalCameraIdRequest) ProtoMessage() {}
-
-func (x *GetPhysicalCameraIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPhysicalCameraIdRequest.ProtoReflect.Descriptor instead.
-func (*GetPhysicalCameraIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{34}
-}
-
-type GetPhysicalCameraIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPhysicalCameraIdResponse) Reset() {
-	*x = GetPhysicalCameraIdResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPhysicalCameraIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPhysicalCameraIdResponse) ProtoMessage() {}
-
-func (x *GetPhysicalCameraIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPhysicalCameraIdResponse.ProtoReflect.Descriptor instead.
-func (*GetPhysicalCameraIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *GetPhysicalCameraIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetReasonRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetReasonRequest) Reset() {
-	*x = GetReasonRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetReasonRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetReasonRequest) ProtoMessage() {}
-
-func (x *GetReasonRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetReasonRequest.ProtoReflect.Descriptor instead.
-func (*GetReasonRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{36}
-}
-
-type GetReasonResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetReasonResponse) Reset() {
-	*x = GetReasonResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetReasonResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetReasonResponse) ProtoMessage() {}
-
-func (x *GetReasonResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetReasonResponse.ProtoReflect.Descriptor instead.
-func (*GetReasonResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *GetReasonResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type WasImageCapturedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WasImageCapturedRequest) Reset() {
-	*x = WasImageCapturedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WasImageCapturedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WasImageCapturedRequest) ProtoMessage() {}
-
-func (x *WasImageCapturedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WasImageCapturedRequest.ProtoReflect.Descriptor instead.
-func (*WasImageCapturedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{38}
-}
-
-type WasImageCapturedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WasImageCapturedResponse) Reset() {
-	*x = WasImageCapturedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WasImageCapturedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WasImageCapturedResponse) ProtoMessage() {}
-
-func (x *WasImageCapturedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WasImageCapturedResponse.ProtoReflect.Descriptor instead.
-func (*WasImageCapturedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *WasImageCapturedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type CaptureRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CaptureRequest) Reset() {
-	*x = CaptureRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CaptureRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CaptureRequest) ProtoMessage() {}
-
-func (x *CaptureRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CaptureRequest.ProtoReflect.Descriptor instead.
-func (*CaptureRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *CaptureRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *CaptureRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *CaptureRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type CaptureResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CaptureResponse) Reset() {
-	*x = CaptureResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CaptureResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CaptureResponse) ProtoMessage() {}
-
-func (x *CaptureResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CaptureResponse.ProtoReflect.Descriptor instead.
-func (*CaptureResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *CaptureResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDeviceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDeviceRequest) Reset() {
-	*x = GetDeviceRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeviceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeviceRequest) ProtoMessage() {}
-
-func (x *GetDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeviceRequest.ProtoReflect.Descriptor instead.
-func (*GetDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{42}
-}
-
-type GetDeviceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDeviceResponse) Reset() {
-	*x = GetDeviceResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeviceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeviceResponse) ProtoMessage() {}
-
-func (x *GetDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeviceResponse.ProtoReflect.Descriptor instead.
-func (*GetDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetDeviceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRealtimeStillCaptureLatencyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRealtimeStillCaptureLatencyRequest) Reset() {
-	*x = GetRealtimeStillCaptureLatencyRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRealtimeStillCaptureLatencyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRealtimeStillCaptureLatencyRequest) ProtoMessage() {}
-
-func (x *GetRealtimeStillCaptureLatencyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRealtimeStillCaptureLatencyRequest.ProtoReflect.Descriptor instead.
-func (*GetRealtimeStillCaptureLatencyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{44}
-}
-
-type GetRealtimeStillCaptureLatencyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRealtimeStillCaptureLatencyResponse) Reset() {
-	*x = GetRealtimeStillCaptureLatencyResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRealtimeStillCaptureLatencyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRealtimeStillCaptureLatencyResponse) ProtoMessage() {}
-
-func (x *GetRealtimeStillCaptureLatencyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRealtimeStillCaptureLatencyResponse.ProtoReflect.Descriptor instead.
-func (*GetRealtimeStillCaptureLatencyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *GetRealtimeStillCaptureLatencyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRepeatingRequestRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRepeatingRequestRequest) Reset() {
-	*x = SetRepeatingRequestRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRepeatingRequestRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRepeatingRequestRequest) ProtoMessage() {}
-
-func (x *SetRepeatingRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRepeatingRequestRequest.ProtoReflect.Descriptor instead.
-func (*SetRepeatingRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *SetRepeatingRequestRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetRepeatingRequestRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *SetRepeatingRequestRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type SetRepeatingRequestResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRepeatingRequestResponse) Reset() {
-	*x = SetRepeatingRequestResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRepeatingRequestResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRepeatingRequestResponse) ProtoMessage() {}
-
-func (x *SetRepeatingRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRepeatingRequestResponse.ProtoReflect.Descriptor instead.
-func (*SetRepeatingRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *SetRepeatingRequestResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type StopRepeatingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StopRepeatingRequest) Reset() {
-	*x = StopRepeatingRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StopRepeatingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopRepeatingRequest) ProtoMessage() {}
-
-func (x *StopRepeatingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopRepeatingRequest.ProtoReflect.Descriptor instead.
-func (*StopRepeatingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{48}
-}
-
-type StopRepeatingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StopRepeatingResponse) Reset() {
-	*x = StopRepeatingResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StopRepeatingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopRepeatingResponse) ProtoMessage() {}
-
-func (x *StopRepeatingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopRepeatingResponse.ProtoReflect.Descriptor instead.
-func (*StopRepeatingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{49}
-}
-
-type OnCaptureFailed2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureFailed2Request) Reset() {
-	*x = OnCaptureFailed2Request{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureFailed2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureFailed2Request) ProtoMessage() {}
-
-func (x *OnCaptureFailed2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureFailed2Request.ProtoReflect.Descriptor instead.
-func (*OnCaptureFailed2Request) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{50}
-}
-
-func (x *OnCaptureFailed2Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCaptureFailed2Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnCaptureFailed2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureFailed2Response) Reset() {
-	*x = OnCaptureFailed2Response{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureFailed2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureFailed2Response) ProtoMessage() {}
-
-func (x *OnCaptureFailed2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureFailed2Response.ProtoReflect.Descriptor instead.
-func (*OnCaptureFailed2Response) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{51}
-}
-
-type OnCaptureFailed3_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureFailed3_1Request) Reset() {
-	*x = OnCaptureFailed3_1Request{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureFailed3_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureFailed3_1Request) ProtoMessage() {}
-
-func (x *OnCaptureFailed3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureFailed3_1Request.ProtoReflect.Descriptor instead.
-func (*OnCaptureFailed3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *OnCaptureFailed3_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCaptureFailed3_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnCaptureFailed3_1Request) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type OnCaptureFailed3_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureFailed3_1Response) Reset() {
-	*x = OnCaptureFailed3_1Response{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureFailed3_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureFailed3_1Response) ProtoMessage() {}
-
-func (x *OnCaptureFailed3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureFailed3_1Response.ProtoReflect.Descriptor instead.
-func (*OnCaptureFailed3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{53}
-}
-
-type OnCaptureProcessProgressedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureProcessProgressedRequest) Reset() {
-	*x = OnCaptureProcessProgressedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureProcessProgressedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureProcessProgressedRequest) ProtoMessage() {}
-
-func (x *OnCaptureProcessProgressedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureProcessProgressedRequest.ProtoReflect.Descriptor instead.
-func (*OnCaptureProcessProgressedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *OnCaptureProcessProgressedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCaptureProcessProgressedRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnCaptureProcessProgressedRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type OnCaptureProcessProgressedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureProcessProgressedResponse) Reset() {
-	*x = OnCaptureProcessProgressedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureProcessProgressedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureProcessProgressedResponse) ProtoMessage() {}
-
-func (x *OnCaptureProcessProgressedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureProcessProgressedResponse.ProtoReflect.Descriptor instead.
-func (*OnCaptureProcessProgressedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{55}
-}
-
-type OnCaptureProcessStartedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureProcessStartedRequest) Reset() {
-	*x = OnCaptureProcessStartedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureProcessStartedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureProcessStartedRequest) ProtoMessage() {}
-
-func (x *OnCaptureProcessStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureProcessStartedRequest.ProtoReflect.Descriptor instead.
-func (*OnCaptureProcessStartedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *OnCaptureProcessStartedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCaptureProcessStartedRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnCaptureProcessStartedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureProcessStartedResponse) Reset() {
-	*x = OnCaptureProcessStartedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureProcessStartedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureProcessStartedResponse) ProtoMessage() {}
-
-func (x *OnCaptureProcessStartedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureProcessStartedResponse.ProtoReflect.Descriptor instead.
-func (*OnCaptureProcessStartedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{57}
-}
-
-type OnCaptureResultAvailableRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureResultAvailableRequest) Reset() {
-	*x = OnCaptureResultAvailableRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureResultAvailableRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureResultAvailableRequest) ProtoMessage() {}
-
-func (x *OnCaptureResultAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureResultAvailableRequest.ProtoReflect.Descriptor instead.
-func (*OnCaptureResultAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{58}
-}
-
-func (x *OnCaptureResultAvailableRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCaptureResultAvailableRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnCaptureResultAvailableRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type OnCaptureResultAvailableResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureResultAvailableResponse) Reset() {
-	*x = OnCaptureResultAvailableResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureResultAvailableResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureResultAvailableResponse) ProtoMessage() {}
-
-func (x *OnCaptureResultAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureResultAvailableResponse.ProtoReflect.Descriptor instead.
-func (*OnCaptureResultAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{59}
-}
-
-type OnCaptureSequenceAbortedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureSequenceAbortedRequest) Reset() {
-	*x = OnCaptureSequenceAbortedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureSequenceAbortedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureSequenceAbortedRequest) ProtoMessage() {}
-
-func (x *OnCaptureSequenceAbortedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureSequenceAbortedRequest.ProtoReflect.Descriptor instead.
-func (*OnCaptureSequenceAbortedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{60}
-}
-
-func (x *OnCaptureSequenceAbortedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCaptureSequenceAbortedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnCaptureSequenceAbortedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureSequenceAbortedResponse) Reset() {
-	*x = OnCaptureSequenceAbortedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureSequenceAbortedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureSequenceAbortedResponse) ProtoMessage() {}
-
-func (x *OnCaptureSequenceAbortedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureSequenceAbortedResponse.ProtoReflect.Descriptor instead.
-func (*OnCaptureSequenceAbortedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{61}
-}
-
-type OnCaptureSequenceCompletedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureSequenceCompletedRequest) Reset() {
-	*x = OnCaptureSequenceCompletedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureSequenceCompletedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureSequenceCompletedRequest) ProtoMessage() {}
-
-func (x *OnCaptureSequenceCompletedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureSequenceCompletedRequest.ProtoReflect.Descriptor instead.
-func (*OnCaptureSequenceCompletedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *OnCaptureSequenceCompletedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCaptureSequenceCompletedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnCaptureSequenceCompletedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureSequenceCompletedResponse) Reset() {
-	*x = OnCaptureSequenceCompletedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureSequenceCompletedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureSequenceCompletedResponse) ProtoMessage() {}
-
-func (x *OnCaptureSequenceCompletedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureSequenceCompletedResponse.ProtoReflect.Descriptor instead.
-func (*OnCaptureSequenceCompletedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{63}
-}
-
-type OnCaptureStartedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureStartedRequest) Reset() {
-	*x = OnCaptureStartedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureStartedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureStartedRequest) ProtoMessage() {}
-
-func (x *OnCaptureStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureStartedRequest.ProtoReflect.Descriptor instead.
-func (*OnCaptureStartedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *OnCaptureStartedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCaptureStartedRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnCaptureStartedRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type OnCaptureStartedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCaptureStartedResponse) Reset() {
-	*x = OnCaptureStartedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCaptureStartedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCaptureStartedResponse) ProtoMessage() {}
-
-func (x *OnCaptureStartedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCaptureStartedResponse.ProtoReflect.Descriptor instead.
-func (*OnCaptureStartedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{65}
-}
-
-type OnConfigureFailedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnConfigureFailedRequest) Reset() {
-	*x = OnConfigureFailedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnConfigureFailedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnConfigureFailedRequest) ProtoMessage() {}
-
-func (x *OnConfigureFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnConfigureFailedRequest.ProtoReflect.Descriptor instead.
-func (*OnConfigureFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *OnConfigureFailedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnConfigureFailedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnConfigureFailedResponse) Reset() {
-	*x = OnConfigureFailedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[67]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnConfigureFailedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnConfigureFailedResponse) ProtoMessage() {}
-
-func (x *OnConfigureFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[67]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnConfigureFailedResponse.ProtoReflect.Descriptor instead.
-func (*OnConfigureFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{67}
-}
-
-type OnConfiguredRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnConfiguredRequest) Reset() {
-	*x = OnConfiguredRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnConfiguredRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnConfiguredRequest) ProtoMessage() {}
-
-func (x *OnConfiguredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnConfiguredRequest.ProtoReflect.Descriptor instead.
-func (*OnConfiguredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *OnConfiguredRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnConfiguredResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnConfiguredResponse) Reset() {
-	*x = OnConfiguredResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnConfiguredResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnConfiguredResponse) ProtoMessage() {}
-
-func (x *OnConfiguredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnConfiguredResponse.ProtoReflect.Descriptor instead.
-func (*OnConfiguredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{69}
-}
-
-type GetCaptureLatencyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCaptureLatencyRequest) Reset() {
-	*x = GetCaptureLatencyRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCaptureLatencyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCaptureLatencyRequest) ProtoMessage() {}
-
-func (x *GetCaptureLatencyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCaptureLatencyRequest.ProtoReflect.Descriptor instead.
-func (*GetCaptureLatencyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{70}
-}
-
-type GetCaptureLatencyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCaptureLatencyResponse) Reset() {
-	*x = GetCaptureLatencyResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCaptureLatencyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCaptureLatencyResponse) ProtoMessage() {}
-
-func (x *GetCaptureLatencyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCaptureLatencyResponse.ProtoReflect.Descriptor instead.
-func (*GetCaptureLatencyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *GetCaptureLatencyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetProcessingLatencyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProcessingLatencyRequest) Reset() {
-	*x = GetProcessingLatencyRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProcessingLatencyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProcessingLatencyRequest) ProtoMessage() {}
-
-func (x *GetProcessingLatencyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProcessingLatencyRequest.ProtoReflect.Descriptor instead.
-func (*GetProcessingLatencyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{72}
-}
-
-type GetProcessingLatencyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProcessingLatencyResponse) Reset() {
-	*x = GetProcessingLatencyResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProcessingLatencyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProcessingLatencyResponse) ProtoMessage() {}
-
-func (x *GetProcessingLatencyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProcessingLatencyResponse.ProtoReflect.Descriptor instead.
-func (*GetProcessingLatencyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *GetProcessingLatencyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewMultiResolutionImageReaderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewMultiResolutionImageReaderRequest) Reset() {
-	*x = NewMultiResolutionImageReaderRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewMultiResolutionImageReaderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewMultiResolutionImageReaderRequest) ProtoMessage() {}
-
-func (x *NewMultiResolutionImageReaderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewMultiResolutionImageReaderRequest.ProtoReflect.Descriptor instead.
-func (*NewMultiResolutionImageReaderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *NewMultiResolutionImageReaderRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewMultiResolutionImageReaderRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *NewMultiResolutionImageReaderRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewMultiResolutionImageReaderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewMultiResolutionImageReaderResponse) Reset() {
-	*x = NewMultiResolutionImageReaderResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewMultiResolutionImageReaderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewMultiResolutionImageReaderResponse) ProtoMessage() {}
-
-func (x *NewMultiResolutionImageReaderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewMultiResolutionImageReaderResponse.ProtoReflect.Descriptor instead.
-func (*NewMultiResolutionImageReaderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *NewMultiResolutionImageReaderResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type MultiResolutionImageReaderCloseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MultiResolutionImageReaderCloseRequest) Reset() {
-	*x = MultiResolutionImageReaderCloseRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MultiResolutionImageReaderCloseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MultiResolutionImageReaderCloseRequest) ProtoMessage() {}
-
-func (x *MultiResolutionImageReaderCloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MultiResolutionImageReaderCloseRequest.ProtoReflect.Descriptor instead.
-func (*MultiResolutionImageReaderCloseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *MultiResolutionImageReaderCloseRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type FlushRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FlushRequest) Reset() {
-	*x = FlushRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FlushRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FlushRequest) ProtoMessage() {}
-
-func (x *FlushRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FlushRequest.ProtoReflect.Descriptor instead.
-func (*FlushRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *FlushRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type FlushResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FlushResponse) Reset() {
-	*x = FlushResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FlushResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FlushResponse) ProtoMessage() {}
-
-func (x *FlushResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FlushResponse.ProtoReflect.Descriptor instead.
-func (*FlushResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{78}
-}
-
-type GetStreamInfoForImageReaderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStreamInfoForImageReaderRequest) Reset() {
-	*x = GetStreamInfoForImageReaderRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStreamInfoForImageReaderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStreamInfoForImageReaderRequest) ProtoMessage() {}
-
-func (x *GetStreamInfoForImageReaderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStreamInfoForImageReaderRequest.ProtoReflect.Descriptor instead.
-func (*GetStreamInfoForImageReaderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *GetStreamInfoForImageReaderRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *GetStreamInfoForImageReaderRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetStreamInfoForImageReaderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStreamInfoForImageReaderResponse) Reset() {
-	*x = GetStreamInfoForImageReaderResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStreamInfoForImageReaderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStreamInfoForImageReaderResponse) ProtoMessage() {}
-
-func (x *GetStreamInfoForImageReaderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStreamInfoForImageReaderResponse.ProtoReflect.Descriptor instead.
-func (*GetStreamInfoForImageReaderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{80}
-}
-
-func (x *GetStreamInfoForImageReaderResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSurfaceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSurfaceRequest) Reset() {
-	*x = GetSurfaceRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSurfaceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSurfaceRequest) ProtoMessage() {}
-
-func (x *GetSurfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSurfaceRequest.ProtoReflect.Descriptor instead.
-func (*GetSurfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *GetSurfaceRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetSurfaceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSurfaceResponse) Reset() {
-	*x = GetSurfaceResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSurfaceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSurfaceResponse) ProtoMessage() {}
-
-func (x *GetSurfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSurfaceResponse.ProtoReflect.Descriptor instead.
-func (*GetSurfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{82}
-}
-
-func (x *GetSurfaceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetOnImageAvailableListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetOnImageAvailableListenerRequest) Reset() {
-	*x = SetOnImageAvailableListenerRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetOnImageAvailableListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetOnImageAvailableListenerRequest) ProtoMessage() {}
-
-func (x *SetOnImageAvailableListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetOnImageAvailableListenerRequest.ProtoReflect.Descriptor instead.
-func (*SetOnImageAvailableListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{83}
-}
-
-func (x *SetOnImageAvailableListenerRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetOnImageAvailableListenerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetOnImageAvailableListenerRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SetOnImageAvailableListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetOnImageAvailableListenerResponse) Reset() {
-	*x = SetOnImageAvailableListenerResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetOnImageAvailableListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetOnImageAvailableListenerResponse) ProtoMessage() {}
-
-func (x *SetOnImageAvailableListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetOnImageAvailableListenerResponse.ProtoReflect.Descriptor instead.
-func (*SetOnImageAvailableListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{84}
 }
 
 type AbortCapturesRequest struct {
@@ -3667,7 +847,7 @@ type AbortCapturesRequest struct {
 
 func (x *AbortCapturesRequest) Reset() {
 	*x = AbortCapturesRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[85]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3679,7 +859,7 @@ func (x *AbortCapturesRequest) String() string {
 func (*AbortCapturesRequest) ProtoMessage() {}
 
 func (x *AbortCapturesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[85]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3692,7 +872,7 @@ func (x *AbortCapturesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbortCapturesRequest.ProtoReflect.Descriptor instead.
 func (*AbortCapturesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{85}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{20}
 }
 
 type AbortCapturesResponse struct {
@@ -3703,7 +883,7 @@ type AbortCapturesResponse struct {
 
 func (x *AbortCapturesResponse) Reset() {
 	*x = AbortCapturesResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[86]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3715,7 +895,7 @@ func (x *AbortCapturesResponse) String() string {
 func (*AbortCapturesResponse) ProtoMessage() {}
 
 func (x *AbortCapturesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[86]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3728,7 +908,7 @@ func (x *AbortCapturesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbortCapturesResponse.ProtoReflect.Descriptor instead.
 func (*AbortCapturesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{86}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{21}
 }
 
 type CaptureSingleRequestRequest struct {
@@ -3742,7 +922,7 @@ type CaptureSingleRequestRequest struct {
 
 func (x *CaptureSingleRequestRequest) Reset() {
 	*x = CaptureSingleRequestRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[87]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3754,7 +934,7 @@ func (x *CaptureSingleRequestRequest) String() string {
 func (*CaptureSingleRequestRequest) ProtoMessage() {}
 
 func (x *CaptureSingleRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[87]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3767,7 +947,7 @@ func (x *CaptureSingleRequestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CaptureSingleRequestRequest.ProtoReflect.Descriptor instead.
 func (*CaptureSingleRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{87}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CaptureSingleRequestRequest) GetArg0() int64 {
@@ -3800,7 +980,7 @@ type CaptureSingleRequestResponse struct {
 
 func (x *CaptureSingleRequestResponse) Reset() {
 	*x = CaptureSingleRequestResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[88]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3812,7 +992,7 @@ func (x *CaptureSingleRequestResponse) String() string {
 func (*CaptureSingleRequestResponse) ProtoMessage() {}
 
 func (x *CaptureSingleRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[88]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3825,10 +1005,162 @@ func (x *CaptureSingleRequestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CaptureSingleRequestResponse.ProtoReflect.Descriptor instead.
 func (*CaptureSingleRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{88}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *CaptureSingleRequestResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{24}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{25}
+}
+
+type GetDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeviceRequest) Reset() {
+	*x = GetDeviceRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceRequest) ProtoMessage() {}
+
+func (x *GetDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceRequest.ProtoReflect.Descriptor instead.
+func (*GetDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{26}
+}
+
+type GetDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeviceResponse) Reset() {
+	*x = GetDeviceResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceResponse) ProtoMessage() {}
+
+func (x *GetDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceResponse.ProtoReflect.Descriptor instead.
+func (*GetDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetDeviceResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -3843,7 +1175,7 @@ type GetInputSurfaceRequest struct {
 
 func (x *GetInputSurfaceRequest) Reset() {
 	*x = GetInputSurfaceRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[89]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3855,7 +1187,7 @@ func (x *GetInputSurfaceRequest) String() string {
 func (*GetInputSurfaceRequest) ProtoMessage() {}
 
 func (x *GetInputSurfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[89]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3868,7 +1200,7 @@ func (x *GetInputSurfaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInputSurfaceRequest.ProtoReflect.Descriptor instead.
 func (*GetInputSurfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{89}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{28}
 }
 
 type GetInputSurfaceResponse struct {
@@ -3880,7 +1212,7 @@ type GetInputSurfaceResponse struct {
 
 func (x *GetInputSurfaceResponse) Reset() {
 	*x = GetInputSurfaceResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[90]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3892,7 +1224,7 @@ func (x *GetInputSurfaceResponse) String() string {
 func (*GetInputSurfaceResponse) ProtoMessage() {}
 
 func (x *GetInputSurfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[90]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3905,7 +1237,7 @@ func (x *GetInputSurfaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInputSurfaceResponse.ProtoReflect.Descriptor instead.
 func (*GetInputSurfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{90}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetInputSurfaceResponse) GetResult() int64 {
@@ -3923,7 +1255,7 @@ type IsReprocessableRequest struct {
 
 func (x *IsReprocessableRequest) Reset() {
 	*x = IsReprocessableRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[91]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3935,7 +1267,7 @@ func (x *IsReprocessableRequest) String() string {
 func (*IsReprocessableRequest) ProtoMessage() {}
 
 func (x *IsReprocessableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[91]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3948,7 +1280,7 @@ func (x *IsReprocessableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsReprocessableRequest.ProtoReflect.Descriptor instead.
 func (*IsReprocessableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{91}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{30}
 }
 
 type IsReprocessableResponse struct {
@@ -3960,7 +1292,7 @@ type IsReprocessableResponse struct {
 
 func (x *IsReprocessableResponse) Reset() {
 	*x = IsReprocessableResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[92]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3972,7 +1304,7 @@ func (x *IsReprocessableResponse) String() string {
 func (*IsReprocessableResponse) ProtoMessage() {}
 
 func (x *IsReprocessableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[92]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3985,7 +1317,7 @@ func (x *IsReprocessableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsReprocessableResponse.ProtoReflect.Descriptor instead.
 func (*IsReprocessableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{92}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *IsReprocessableResponse) GetResult() bool {
@@ -4004,7 +1336,7 @@ type PrepareRequest struct {
 
 func (x *PrepareRequest) Reset() {
 	*x = PrepareRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[93]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4016,7 +1348,7 @@ func (x *PrepareRequest) String() string {
 func (*PrepareRequest) ProtoMessage() {}
 
 func (x *PrepareRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[93]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4029,7 +1361,7 @@ func (x *PrepareRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareRequest.ProtoReflect.Descriptor instead.
 func (*PrepareRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{93}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *PrepareRequest) GetArg0() int64 {
@@ -4047,7 +1379,7 @@ type PrepareResponse struct {
 
 func (x *PrepareResponse) Reset() {
 	*x = PrepareResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[94]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4059,7 +1391,7 @@ func (x *PrepareResponse) String() string {
 func (*PrepareResponse) ProtoMessage() {}
 
 func (x *PrepareResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[94]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4072,7 +1404,7 @@ func (x *PrepareResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareResponse.ProtoReflect.Descriptor instead.
 func (*PrepareResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{94}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{33}
 }
 
 type SetSingleRepeatingRequestRequest struct {
@@ -4086,7 +1418,7 @@ type SetSingleRepeatingRequestRequest struct {
 
 func (x *SetSingleRepeatingRequestRequest) Reset() {
 	*x = SetSingleRepeatingRequestRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[95]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4098,7 +1430,7 @@ func (x *SetSingleRepeatingRequestRequest) String() string {
 func (*SetSingleRepeatingRequestRequest) ProtoMessage() {}
 
 func (x *SetSingleRepeatingRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[95]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4111,7 +1443,7 @@ func (x *SetSingleRepeatingRequestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSingleRepeatingRequestRequest.ProtoReflect.Descriptor instead.
 func (*SetSingleRepeatingRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{95}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *SetSingleRepeatingRequestRequest) GetArg0() int64 {
@@ -4144,7 +1476,7 @@ type SetSingleRepeatingRequestResponse struct {
 
 func (x *SetSingleRepeatingRequestResponse) Reset() {
 	*x = SetSingleRepeatingRequestResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[96]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4156,7 +1488,7 @@ func (x *SetSingleRepeatingRequestResponse) String() string {
 func (*SetSingleRepeatingRequestResponse) ProtoMessage() {}
 
 func (x *SetSingleRepeatingRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[96]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4169,7 +1501,7 @@ func (x *SetSingleRepeatingRequestResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetSingleRepeatingRequestResponse.ProtoReflect.Descriptor instead.
 func (*SetSingleRepeatingRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{96}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *SetSingleRepeatingRequestResponse) GetResult() int32 {
@@ -4177,6 +1509,78 @@ func (x *SetSingleRepeatingRequestResponse) GetResult() int32 {
 		return x.Result
 	}
 	return 0
+}
+
+type StopRepeatingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopRepeatingRequest) Reset() {
+	*x = StopRepeatingRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopRepeatingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopRepeatingRequest) ProtoMessage() {}
+
+func (x *StopRepeatingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopRepeatingRequest.ProtoReflect.Descriptor instead.
+func (*StopRepeatingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{36}
+}
+
+type StopRepeatingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopRepeatingResponse) Reset() {
+	*x = StopRepeatingResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopRepeatingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopRepeatingResponse) ProtoMessage() {}
+
+func (x *StopRepeatingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopRepeatingResponse.ProtoReflect.Descriptor instead.
+func (*StopRepeatingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{37}
 }
 
 type SupportsOfflineProcessingRequest struct {
@@ -4188,7 +1592,7 @@ type SupportsOfflineProcessingRequest struct {
 
 func (x *SupportsOfflineProcessingRequest) Reset() {
 	*x = SupportsOfflineProcessingRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[97]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4200,7 +1604,7 @@ func (x *SupportsOfflineProcessingRequest) String() string {
 func (*SupportsOfflineProcessingRequest) ProtoMessage() {}
 
 func (x *SupportsOfflineProcessingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[97]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4213,7 +1617,7 @@ func (x *SupportsOfflineProcessingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SupportsOfflineProcessingRequest.ProtoReflect.Descriptor instead.
 func (*SupportsOfflineProcessingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{97}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *SupportsOfflineProcessingRequest) GetArg0() int64 {
@@ -4232,7 +1636,7 @@ type SupportsOfflineProcessingResponse struct {
 
 func (x *SupportsOfflineProcessingResponse) Reset() {
 	*x = SupportsOfflineProcessingResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[98]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4244,7 +1648,7 @@ func (x *SupportsOfflineProcessingResponse) String() string {
 func (*SupportsOfflineProcessingResponse) ProtoMessage() {}
 
 func (x *SupportsOfflineProcessingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[98]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4257,7 +1661,7 @@ func (x *SupportsOfflineProcessingResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SupportsOfflineProcessingResponse.ProtoReflect.Descriptor instead.
 func (*SupportsOfflineProcessingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{98}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *SupportsOfflineProcessingResponse) GetResult() bool {
@@ -4276,7 +1680,7 @@ type UpdateOutputConfigurationRequest struct {
 
 func (x *UpdateOutputConfigurationRequest) Reset() {
 	*x = UpdateOutputConfigurationRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[99]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4288,7 +1692,7 @@ func (x *UpdateOutputConfigurationRequest) String() string {
 func (*UpdateOutputConfigurationRequest) ProtoMessage() {}
 
 func (x *UpdateOutputConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[99]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4301,7 +1705,7 @@ func (x *UpdateOutputConfigurationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOutputConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOutputConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{99}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *UpdateOutputConfigurationRequest) GetArg0() int64 {
@@ -4319,7 +1723,7 @@ type UpdateOutputConfigurationResponse struct {
 
 func (x *UpdateOutputConfigurationResponse) Reset() {
 	*x = UpdateOutputConfigurationResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[100]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4331,7 +1735,7 @@ func (x *UpdateOutputConfigurationResponse) String() string {
 func (*UpdateOutputConfigurationResponse) ProtoMessage() {}
 
 func (x *UpdateOutputConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[100]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4344,7 +1748,7 @@ func (x *UpdateOutputConfigurationResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use UpdateOutputConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*UpdateOutputConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{100}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{41}
 }
 
 type OnCaptureBufferLostRequest struct {
@@ -4359,7 +1763,7 @@ type OnCaptureBufferLostRequest struct {
 
 func (x *OnCaptureBufferLostRequest) Reset() {
 	*x = OnCaptureBufferLostRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[101]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4371,7 +1775,7 @@ func (x *OnCaptureBufferLostRequest) String() string {
 func (*OnCaptureBufferLostRequest) ProtoMessage() {}
 
 func (x *OnCaptureBufferLostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[101]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4384,7 +1788,7 @@ func (x *OnCaptureBufferLostRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureBufferLostRequest.ProtoReflect.Descriptor instead.
 func (*OnCaptureBufferLostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{101}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *OnCaptureBufferLostRequest) GetArg0() int64 {
@@ -4423,7 +1827,7 @@ type OnCaptureBufferLostResponse struct {
 
 func (x *OnCaptureBufferLostResponse) Reset() {
 	*x = OnCaptureBufferLostResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[102]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4435,7 +1839,7 @@ func (x *OnCaptureBufferLostResponse) String() string {
 func (*OnCaptureBufferLostResponse) ProtoMessage() {}
 
 func (x *OnCaptureBufferLostResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[102]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4448,7 +1852,7 @@ func (x *OnCaptureBufferLostResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureBufferLostResponse.ProtoReflect.Descriptor instead.
 func (*OnCaptureBufferLostResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{102}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{43}
 }
 
 type OnCaptureCompletedRequest struct {
@@ -4462,7 +1866,7 @@ type OnCaptureCompletedRequest struct {
 
 func (x *OnCaptureCompletedRequest) Reset() {
 	*x = OnCaptureCompletedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[103]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4474,7 +1878,7 @@ func (x *OnCaptureCompletedRequest) String() string {
 func (*OnCaptureCompletedRequest) ProtoMessage() {}
 
 func (x *OnCaptureCompletedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[103]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4487,7 +1891,7 @@ func (x *OnCaptureCompletedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureCompletedRequest.ProtoReflect.Descriptor instead.
 func (*OnCaptureCompletedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{103}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *OnCaptureCompletedRequest) GetArg0() int64 {
@@ -4519,7 +1923,7 @@ type OnCaptureCompletedResponse struct {
 
 func (x *OnCaptureCompletedResponse) Reset() {
 	*x = OnCaptureCompletedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[104]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4531,7 +1935,7 @@ func (x *OnCaptureCompletedResponse) String() string {
 func (*OnCaptureCompletedResponse) ProtoMessage() {}
 
 func (x *OnCaptureCompletedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[104]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4544,7 +1948,7 @@ func (x *OnCaptureCompletedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureCompletedResponse.ProtoReflect.Descriptor instead.
 func (*OnCaptureCompletedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{104}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{45}
 }
 
 type OnCaptureFailedRequest struct {
@@ -4558,7 +1962,7 @@ type OnCaptureFailedRequest struct {
 
 func (x *OnCaptureFailedRequest) Reset() {
 	*x = OnCaptureFailedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[105]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4570,7 +1974,7 @@ func (x *OnCaptureFailedRequest) String() string {
 func (*OnCaptureFailedRequest) ProtoMessage() {}
 
 func (x *OnCaptureFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[105]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4583,7 +1987,7 @@ func (x *OnCaptureFailedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnCaptureFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{105}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *OnCaptureFailedRequest) GetArg0() int64 {
@@ -4615,7 +2019,7 @@ type OnCaptureFailedResponse struct {
 
 func (x *OnCaptureFailedResponse) Reset() {
 	*x = OnCaptureFailedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[106]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4627,7 +2031,7 @@ func (x *OnCaptureFailedResponse) String() string {
 func (*OnCaptureFailedResponse) ProtoMessage() {}
 
 func (x *OnCaptureFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[106]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4640,7 +2044,7 @@ func (x *OnCaptureFailedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnCaptureFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{106}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{47}
 }
 
 type OnCaptureProgressedRequest struct {
@@ -4654,7 +2058,7 @@ type OnCaptureProgressedRequest struct {
 
 func (x *OnCaptureProgressedRequest) Reset() {
 	*x = OnCaptureProgressedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[107]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4666,7 +2070,7 @@ func (x *OnCaptureProgressedRequest) String() string {
 func (*OnCaptureProgressedRequest) ProtoMessage() {}
 
 func (x *OnCaptureProgressedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[107]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4679,7 +2083,7 @@ func (x *OnCaptureProgressedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureProgressedRequest.ProtoReflect.Descriptor instead.
 func (*OnCaptureProgressedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{107}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *OnCaptureProgressedRequest) GetArg0() int64 {
@@ -4711,7 +2115,7 @@ type OnCaptureProgressedResponse struct {
 
 func (x *OnCaptureProgressedResponse) Reset() {
 	*x = OnCaptureProgressedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[108]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4723,7 +2127,7 @@ func (x *OnCaptureProgressedResponse) String() string {
 func (*OnCaptureProgressedResponse) ProtoMessage() {}
 
 func (x *OnCaptureProgressedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[108]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4736,33 +2140,32 @@ func (x *OnCaptureProgressedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureProgressedResponse.ProtoReflect.Descriptor instead.
 func (*OnCaptureProgressedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{108}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{49}
 }
 
-type CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest struct {
+type OnCaptureSequenceAbortedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) Reset() {
-	*x = CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[109]
+func (x *OnCaptureSequenceAbortedRequest) Reset() {
+	*x = OnCaptureSequenceAbortedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) String() string {
+func (x *OnCaptureSequenceAbortedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) ProtoMessage() {}
+func (*OnCaptureSequenceAbortedRequest) ProtoMessage() {}
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[109]
+func (x *OnCaptureSequenceAbortedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4773,33 +2176,158 @@ func (x *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) P
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest.ProtoReflect.Descriptor instead.
-func (*CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{109}
+// Deprecated: Use OnCaptureSequenceAbortedRequest.ProtoReflect.Descriptor instead.
+func (*OnCaptureSequenceAbortedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{50}
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) GetArg0() int64 {
+func (x *OnCaptureSequenceAbortedRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) GetArg1() int32 {
+func (x *OnCaptureSequenceAbortedRequest) GetArg1() int32 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) GetArg2() int64 {
+type OnCaptureSequenceAbortedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureSequenceAbortedResponse) Reset() {
+	*x = OnCaptureSequenceAbortedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureSequenceAbortedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureSequenceAbortedResponse) ProtoMessage() {}
+
+func (x *OnCaptureSequenceAbortedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureSequenceAbortedResponse.ProtoReflect.Descriptor instead.
+func (*OnCaptureSequenceAbortedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{51}
+}
+
+type OnCaptureSequenceCompletedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureSequenceCompletedRequest) Reset() {
+	*x = OnCaptureSequenceCompletedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureSequenceCompletedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureSequenceCompletedRequest) ProtoMessage() {}
+
+func (x *OnCaptureSequenceCompletedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureSequenceCompletedRequest.ProtoReflect.Descriptor instead.
+func (*OnCaptureSequenceCompletedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *OnCaptureSequenceCompletedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCaptureSequenceCompletedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnCaptureSequenceCompletedRequest) GetArg2() int64 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-type CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest struct {
+type OnCaptureSequenceCompletedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureSequenceCompletedResponse) Reset() {
+	*x = OnCaptureSequenceCompletedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureSequenceCompletedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureSequenceCompletedResponse) ProtoMessage() {}
+
+func (x *OnCaptureSequenceCompletedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureSequenceCompletedResponse.ProtoReflect.Descriptor instead.
+func (*OnCaptureSequenceCompletedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{53}
+}
+
+type OnCaptureStartedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -4809,21 +2337,21 @@ type CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) Reset() {
-	*x = CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[110]
+func (x *OnCaptureStartedRequest) Reset() {
+	*x = OnCaptureStartedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) String() string {
+func (x *OnCaptureStartedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) ProtoMessage() {}
+func (*OnCaptureStartedRequest) ProtoMessage() {}
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[110]
+func (x *OnCaptureStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4834,37 +2362,73 @@ func (x *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) ProtoReflec
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest.ProtoReflect.Descriptor instead.
-func (*CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{110}
+// Deprecated: Use OnCaptureStartedRequest.ProtoReflect.Descriptor instead.
+func (*OnCaptureStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{54}
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) GetArg0() int64 {
+func (x *OnCaptureStartedRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) GetArg1() int64 {
+func (x *OnCaptureStartedRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) GetArg2() int64 {
+func (x *OnCaptureStartedRequest) GetArg2() int64 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-func (x *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) GetArg3() int64 {
+func (x *OnCaptureStartedRequest) GetArg3() int64 {
 	if x != nil {
 		return x.Arg3
 	}
 	return 0
+}
+
+type OnCaptureStartedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureStartedResponse) Reset() {
+	*x = OnCaptureStartedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureStartedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureStartedResponse) ProtoMessage() {}
+
+func (x *OnCaptureStartedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureStartedResponse.ProtoReflect.Descriptor instead.
+func (*OnCaptureStartedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{55}
 }
 
 type OnReadoutStartedRequest struct {
@@ -4879,7 +2443,7 @@ type OnReadoutStartedRequest struct {
 
 func (x *OnReadoutStartedRequest) Reset() {
 	*x = OnReadoutStartedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[111]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4891,7 +2455,7 @@ func (x *OnReadoutStartedRequest) String() string {
 func (*OnReadoutStartedRequest) ProtoMessage() {}
 
 func (x *OnReadoutStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[111]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4904,7 +2468,7 @@ func (x *OnReadoutStartedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReadoutStartedRequest.ProtoReflect.Descriptor instead.
 func (*OnReadoutStartedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{111}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *OnReadoutStartedRequest) GetArg0() int64 {
@@ -4943,7 +2507,7 @@ type OnReadoutStartedResponse struct {
 
 func (x *OnReadoutStartedResponse) Reset() {
 	*x = OnReadoutStartedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[112]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4955,7 +2519,7 @@ func (x *OnReadoutStartedResponse) String() string {
 func (*OnReadoutStartedResponse) ProtoMessage() {}
 
 func (x *OnReadoutStartedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[112]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4968,7 +2532,7 @@ func (x *OnReadoutStartedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReadoutStartedResponse.ProtoReflect.Descriptor instead.
 func (*OnReadoutStartedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{112}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{57}
 }
 
 type OnActiveRequest struct {
@@ -4980,7 +2544,7 @@ type OnActiveRequest struct {
 
 func (x *OnActiveRequest) Reset() {
 	*x = OnActiveRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[113]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4992,7 +2556,7 @@ func (x *OnActiveRequest) String() string {
 func (*OnActiveRequest) ProtoMessage() {}
 
 func (x *OnActiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[113]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5005,7 +2569,7 @@ func (x *OnActiveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnActiveRequest.ProtoReflect.Descriptor instead.
 func (*OnActiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{113}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *OnActiveRequest) GetArg0() int64 {
@@ -5023,7 +2587,7 @@ type OnActiveResponse struct {
 
 func (x *OnActiveResponse) Reset() {
 	*x = OnActiveResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[114]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5035,7 +2599,7 @@ func (x *OnActiveResponse) String() string {
 func (*OnActiveResponse) ProtoMessage() {}
 
 func (x *OnActiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[114]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5048,7 +2612,7 @@ func (x *OnActiveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnActiveResponse.ProtoReflect.Descriptor instead.
 func (*OnActiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{114}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{59}
 }
 
 type OnCaptureQueueEmptyRequest struct {
@@ -5060,7 +2624,7 @@ type OnCaptureQueueEmptyRequest struct {
 
 func (x *OnCaptureQueueEmptyRequest) Reset() {
 	*x = OnCaptureQueueEmptyRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[115]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5072,7 +2636,7 @@ func (x *OnCaptureQueueEmptyRequest) String() string {
 func (*OnCaptureQueueEmptyRequest) ProtoMessage() {}
 
 func (x *OnCaptureQueueEmptyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[115]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5085,7 +2649,7 @@ func (x *OnCaptureQueueEmptyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureQueueEmptyRequest.ProtoReflect.Descriptor instead.
 func (*OnCaptureQueueEmptyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{115}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *OnCaptureQueueEmptyRequest) GetArg0() int64 {
@@ -5103,7 +2667,7 @@ type OnCaptureQueueEmptyResponse struct {
 
 func (x *OnCaptureQueueEmptyResponse) Reset() {
 	*x = OnCaptureQueueEmptyResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[116]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5115,7 +2679,7 @@ func (x *OnCaptureQueueEmptyResponse) String() string {
 func (*OnCaptureQueueEmptyResponse) ProtoMessage() {}
 
 func (x *OnCaptureQueueEmptyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[116]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5128,7 +2692,327 @@ func (x *OnCaptureQueueEmptyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCaptureQueueEmptyResponse.ProtoReflect.Descriptor instead.
 func (*OnCaptureQueueEmptyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{116}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{61}
+}
+
+type OnClosedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClosedRequest) Reset() {
+	*x = OnClosedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClosedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClosedRequest) ProtoMessage() {}
+
+func (x *OnClosedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClosedRequest.ProtoReflect.Descriptor instead.
+func (*OnClosedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *OnClosedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnClosedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClosedResponse) Reset() {
+	*x = OnClosedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClosedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClosedResponse) ProtoMessage() {}
+
+func (x *OnClosedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClosedResponse.ProtoReflect.Descriptor instead.
+func (*OnClosedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{63}
+}
+
+type OnConfigureFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConfigureFailedRequest) Reset() {
+	*x = OnConfigureFailedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConfigureFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConfigureFailedRequest) ProtoMessage() {}
+
+func (x *OnConfigureFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConfigureFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnConfigureFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *OnConfigureFailedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnConfigureFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConfigureFailedResponse) Reset() {
+	*x = OnConfigureFailedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConfigureFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConfigureFailedResponse) ProtoMessage() {}
+
+func (x *OnConfigureFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConfigureFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnConfigureFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{65}
+}
+
+type OnConfiguredRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConfiguredRequest) Reset() {
+	*x = OnConfiguredRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConfiguredRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConfiguredRequest) ProtoMessage() {}
+
+func (x *OnConfiguredRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConfiguredRequest.ProtoReflect.Descriptor instead.
+func (*OnConfiguredRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *OnConfiguredRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnConfiguredResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConfiguredResponse) Reset() {
+	*x = OnConfiguredResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConfiguredResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConfiguredResponse) ProtoMessage() {}
+
+func (x *OnConfiguredResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConfiguredResponse.ProtoReflect.Descriptor instead.
+func (*OnConfiguredResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{67}
+}
+
+type OnReadyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReadyRequest) Reset() {
+	*x = OnReadyRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReadyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReadyRequest) ProtoMessage() {}
+
+func (x *OnReadyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReadyRequest.ProtoReflect.Descriptor instead.
+func (*OnReadyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *OnReadyRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnReadyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReadyResponse) Reset() {
+	*x = OnReadyResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReadyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReadyResponse) ProtoMessage() {}
+
+func (x *OnReadyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReadyResponse.ProtoReflect.Descriptor instead.
+func (*OnReadyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{69}
 }
 
 type OnSurfacePreparedRequest struct {
@@ -5141,7 +3025,7 @@ type OnSurfacePreparedRequest struct {
 
 func (x *OnSurfacePreparedRequest) Reset() {
 	*x = OnSurfacePreparedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[117]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5153,7 +3037,7 @@ func (x *OnSurfacePreparedRequest) String() string {
 func (*OnSurfacePreparedRequest) ProtoMessage() {}
 
 func (x *OnSurfacePreparedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[117]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5166,7 +3050,7 @@ func (x *OnSurfacePreparedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfacePreparedRequest.ProtoReflect.Descriptor instead.
 func (*OnSurfacePreparedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{117}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *OnSurfacePreparedRequest) GetArg0() int64 {
@@ -5191,7 +3075,7 @@ type OnSurfacePreparedResponse struct {
 
 func (x *OnSurfacePreparedResponse) Reset() {
 	*x = OnSurfacePreparedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[118]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5203,7 +3087,7 @@ func (x *OnSurfacePreparedResponse) String() string {
 func (*OnSurfacePreparedResponse) ProtoMessage() {}
 
 func (x *OnSurfacePreparedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[118]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5216,7 +3100,327 @@ func (x *OnSurfacePreparedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfacePreparedResponse.ProtoReflect.Descriptor instead.
 func (*OnSurfacePreparedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{118}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{71}
+}
+
+type GetPhysicalCameraIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPhysicalCameraIdRequest) Reset() {
+	*x = GetPhysicalCameraIdRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPhysicalCameraIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhysicalCameraIdRequest) ProtoMessage() {}
+
+func (x *GetPhysicalCameraIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhysicalCameraIdRequest.ProtoReflect.Descriptor instead.
+func (*GetPhysicalCameraIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{72}
+}
+
+type GetPhysicalCameraIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPhysicalCameraIdResponse) Reset() {
+	*x = GetPhysicalCameraIdResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPhysicalCameraIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhysicalCameraIdResponse) ProtoMessage() {}
+
+func (x *GetPhysicalCameraIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhysicalCameraIdResponse.ProtoReflect.Descriptor instead.
+func (*GetPhysicalCameraIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetPhysicalCameraIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetReasonRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReasonRequest) Reset() {
+	*x = GetReasonRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReasonRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReasonRequest) ProtoMessage() {}
+
+func (x *GetReasonRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReasonRequest.ProtoReflect.Descriptor instead.
+func (*GetReasonRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{74}
+}
+
+type GetReasonResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReasonResponse) Reset() {
+	*x = GetReasonResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReasonResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReasonResponse) ProtoMessage() {}
+
+func (x *GetReasonResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReasonResponse.ProtoReflect.Descriptor instead.
+func (*GetReasonResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetReasonResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WasImageCapturedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WasImageCapturedRequest) Reset() {
+	*x = WasImageCapturedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WasImageCapturedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WasImageCapturedRequest) ProtoMessage() {}
+
+func (x *WasImageCapturedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WasImageCapturedRequest.ProtoReflect.Descriptor instead.
+func (*WasImageCapturedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{76}
+}
+
+type WasImageCapturedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WasImageCapturedResponse) Reset() {
+	*x = WasImageCapturedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WasImageCapturedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WasImageCapturedResponse) ProtoMessage() {}
+
+func (x *WasImageCapturedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WasImageCapturedResponse.ProtoReflect.Descriptor instead.
+func (*WasImageCapturedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *WasImageCapturedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetPartialResultsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPartialResultsRequest) Reset() {
+	*x = GetPartialResultsRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPartialResultsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPartialResultsRequest) ProtoMessage() {}
+
+func (x *GetPartialResultsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPartialResultsRequest.ProtoReflect.Descriptor instead.
+func (*GetPartialResultsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{78}
+}
+
+type GetPartialResultsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPartialResultsResponse) Reset() {
+	*x = GetPartialResultsResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPartialResultsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPartialResultsResponse) ProtoMessage() {}
+
+func (x *GetPartialResultsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPartialResultsResponse.ProtoReflect.Descriptor instead.
+func (*GetPartialResultsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetPartialResultsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type CreateCaptureRequestRequest struct {
@@ -5228,7 +3432,7 @@ type CreateCaptureRequestRequest struct {
 
 func (x *CreateCaptureRequestRequest) Reset() {
 	*x = CreateCaptureRequestRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[119]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5240,7 +3444,7 @@ func (x *CreateCaptureRequestRequest) String() string {
 func (*CreateCaptureRequestRequest) ProtoMessage() {}
 
 func (x *CreateCaptureRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[119]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5253,7 +3457,7 @@ func (x *CreateCaptureRequestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCaptureRequestRequest.ProtoReflect.Descriptor instead.
 func (*CreateCaptureRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{119}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *CreateCaptureRequestRequest) GetArg0() int32 {
@@ -5272,7 +3476,7 @@ type CreateCaptureRequestResponse struct {
 
 func (x *CreateCaptureRequestResponse) Reset() {
 	*x = CreateCaptureRequestResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[120]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5284,7 +3488,7 @@ func (x *CreateCaptureRequestResponse) String() string {
 func (*CreateCaptureRequestResponse) ProtoMessage() {}
 
 func (x *CreateCaptureRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[120]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5297,7 +3501,7 @@ func (x *CreateCaptureRequestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCaptureRequestResponse.ProtoReflect.Descriptor instead.
 func (*CreateCaptureRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{120}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *CreateCaptureRequestResponse) GetResult() int64 {
@@ -5316,7 +3520,7 @@ type CreateCaptureSessionRequest struct {
 
 func (x *CreateCaptureSessionRequest) Reset() {
 	*x = CreateCaptureSessionRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[121]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5328,7 +3532,7 @@ func (x *CreateCaptureSessionRequest) String() string {
 func (*CreateCaptureSessionRequest) ProtoMessage() {}
 
 func (x *CreateCaptureSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[121]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5341,7 +3545,7 @@ func (x *CreateCaptureSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCaptureSessionRequest.ProtoReflect.Descriptor instead.
 func (*CreateCaptureSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{121}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *CreateCaptureSessionRequest) GetArg0() int64 {
@@ -5359,7 +3563,7 @@ type CreateCaptureSessionResponse struct {
 
 func (x *CreateCaptureSessionResponse) Reset() {
 	*x = CreateCaptureSessionResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[122]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5371,7 +3575,7 @@ func (x *CreateCaptureSessionResponse) String() string {
 func (*CreateCaptureSessionResponse) ProtoMessage() {}
 
 func (x *CreateCaptureSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[122]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5384,7 +3588,7 @@ func (x *CreateCaptureSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCaptureSessionResponse.ProtoReflect.Descriptor instead.
 func (*CreateCaptureSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{122}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{83}
 }
 
 type CreateExtensionSessionRequest struct {
@@ -5396,7 +3600,7 @@ type CreateExtensionSessionRequest struct {
 
 func (x *CreateExtensionSessionRequest) Reset() {
 	*x = CreateExtensionSessionRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[123]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5408,7 +3612,7 @@ func (x *CreateExtensionSessionRequest) String() string {
 func (*CreateExtensionSessionRequest) ProtoMessage() {}
 
 func (x *CreateExtensionSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[123]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5421,7 +3625,7 @@ func (x *CreateExtensionSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateExtensionSessionRequest.ProtoReflect.Descriptor instead.
 func (*CreateExtensionSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{123}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *CreateExtensionSessionRequest) GetArg0() int64 {
@@ -5439,7 +3643,7 @@ type CreateExtensionSessionResponse struct {
 
 func (x *CreateExtensionSessionResponse) Reset() {
 	*x = CreateExtensionSessionResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[124]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5451,7 +3655,7 @@ func (x *CreateExtensionSessionResponse) String() string {
 func (*CreateExtensionSessionResponse) ProtoMessage() {}
 
 func (x *CreateExtensionSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[124]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5464,7 +3668,7 @@ func (x *CreateExtensionSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateExtensionSessionResponse.ProtoReflect.Descriptor instead.
 func (*CreateExtensionSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{124}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{85}
 }
 
 type CreateReprocessCaptureRequestRequest struct {
@@ -5476,7 +3680,7 @@ type CreateReprocessCaptureRequestRequest struct {
 
 func (x *CreateReprocessCaptureRequestRequest) Reset() {
 	*x = CreateReprocessCaptureRequestRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[125]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5488,7 +3692,7 @@ func (x *CreateReprocessCaptureRequestRequest) String() string {
 func (*CreateReprocessCaptureRequestRequest) ProtoMessage() {}
 
 func (x *CreateReprocessCaptureRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[125]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5501,7 +3705,7 @@ func (x *CreateReprocessCaptureRequestRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CreateReprocessCaptureRequestRequest.ProtoReflect.Descriptor instead.
 func (*CreateReprocessCaptureRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{125}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *CreateReprocessCaptureRequestRequest) GetArg0() int64 {
@@ -5520,7 +3724,7 @@ type CreateReprocessCaptureRequestResponse struct {
 
 func (x *CreateReprocessCaptureRequestResponse) Reset() {
 	*x = CreateReprocessCaptureRequestResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[126]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5532,7 +3736,7 @@ func (x *CreateReprocessCaptureRequestResponse) String() string {
 func (*CreateReprocessCaptureRequestResponse) ProtoMessage() {}
 
 func (x *CreateReprocessCaptureRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[126]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5545,7 +3749,7 @@ func (x *CreateReprocessCaptureRequestResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CreateReprocessCaptureRequestResponse.ProtoReflect.Descriptor instead.
 func (*CreateReprocessCaptureRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{126}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *CreateReprocessCaptureRequestResponse) GetResult() int64 {
@@ -5563,7 +3767,7 @@ type GetCameraAudioRestrictionRequest struct {
 
 func (x *GetCameraAudioRestrictionRequest) Reset() {
 	*x = GetCameraAudioRestrictionRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[127]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5575,7 +3779,7 @@ func (x *GetCameraAudioRestrictionRequest) String() string {
 func (*GetCameraAudioRestrictionRequest) ProtoMessage() {}
 
 func (x *GetCameraAudioRestrictionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[127]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5588,7 +3792,7 @@ func (x *GetCameraAudioRestrictionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCameraAudioRestrictionRequest.ProtoReflect.Descriptor instead.
 func (*GetCameraAudioRestrictionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{127}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{88}
 }
 
 type GetCameraAudioRestrictionResponse struct {
@@ -5600,7 +3804,7 @@ type GetCameraAudioRestrictionResponse struct {
 
 func (x *GetCameraAudioRestrictionResponse) Reset() {
 	*x = GetCameraAudioRestrictionResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[128]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5612,7 +3816,7 @@ func (x *GetCameraAudioRestrictionResponse) String() string {
 func (*GetCameraAudioRestrictionResponse) ProtoMessage() {}
 
 func (x *GetCameraAudioRestrictionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[128]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5625,7 +3829,7 @@ func (x *GetCameraAudioRestrictionResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetCameraAudioRestrictionResponse.ProtoReflect.Descriptor instead.
 func (*GetCameraAudioRestrictionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{128}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *GetCameraAudioRestrictionResponse) GetResult() int32 {
@@ -5643,7 +3847,7 @@ type GetIdRequest struct {
 
 func (x *GetIdRequest) Reset() {
 	*x = GetIdRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[129]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5655,7 +3859,7 @@ func (x *GetIdRequest) String() string {
 func (*GetIdRequest) ProtoMessage() {}
 
 func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[129]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5668,7 +3872,7 @@ func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
 func (*GetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{129}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{90}
 }
 
 type GetIdResponse struct {
@@ -5680,7 +3884,7 @@ type GetIdResponse struct {
 
 func (x *GetIdResponse) Reset() {
 	*x = GetIdResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[130]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5692,7 +3896,7 @@ func (x *GetIdResponse) String() string {
 func (*GetIdResponse) ProtoMessage() {}
 
 func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[130]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5705,7 +3909,7 @@ func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
 func (*GetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{130}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *GetIdResponse) GetResult() string {
@@ -5724,7 +3928,7 @@ type IsSessionConfigurationSupportedRequest struct {
 
 func (x *IsSessionConfigurationSupportedRequest) Reset() {
 	*x = IsSessionConfigurationSupportedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[131]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5736,7 +3940,7 @@ func (x *IsSessionConfigurationSupportedRequest) String() string {
 func (*IsSessionConfigurationSupportedRequest) ProtoMessage() {}
 
 func (x *IsSessionConfigurationSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[131]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5749,7 +3953,7 @@ func (x *IsSessionConfigurationSupportedRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use IsSessionConfigurationSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsSessionConfigurationSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{131}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *IsSessionConfigurationSupportedRequest) GetArg0() int64 {
@@ -5768,7 +3972,7 @@ type IsSessionConfigurationSupportedResponse struct {
 
 func (x *IsSessionConfigurationSupportedResponse) Reset() {
 	*x = IsSessionConfigurationSupportedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[132]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5780,7 +3984,7 @@ func (x *IsSessionConfigurationSupportedResponse) String() string {
 func (*IsSessionConfigurationSupportedResponse) ProtoMessage() {}
 
 func (x *IsSessionConfigurationSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[132]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5793,7 +3997,7 @@ func (x *IsSessionConfigurationSupportedResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use IsSessionConfigurationSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsSessionConfigurationSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{132}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *IsSessionConfigurationSupportedResponse) GetResult() bool {
@@ -5812,7 +4016,7 @@ type SetCameraAudioRestrictionRequest struct {
 
 func (x *SetCameraAudioRestrictionRequest) Reset() {
 	*x = SetCameraAudioRestrictionRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[133]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5824,7 +4028,7 @@ func (x *SetCameraAudioRestrictionRequest) String() string {
 func (*SetCameraAudioRestrictionRequest) ProtoMessage() {}
 
 func (x *SetCameraAudioRestrictionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[133]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5837,7 +4041,7 @@ func (x *SetCameraAudioRestrictionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCameraAudioRestrictionRequest.ProtoReflect.Descriptor instead.
 func (*SetCameraAudioRestrictionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{133}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *SetCameraAudioRestrictionRequest) GetArg0() int32 {
@@ -5855,7 +4059,7 @@ type SetCameraAudioRestrictionResponse struct {
 
 func (x *SetCameraAudioRestrictionResponse) Reset() {
 	*x = SetCameraAudioRestrictionResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[134]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5867,7 +4071,7 @@ func (x *SetCameraAudioRestrictionResponse) String() string {
 func (*SetCameraAudioRestrictionResponse) ProtoMessage() {}
 
 func (x *SetCameraAudioRestrictionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[134]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5880,7 +4084,7 @@ func (x *SetCameraAudioRestrictionResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetCameraAudioRestrictionResponse.ProtoReflect.Descriptor instead.
 func (*SetCameraAudioRestrictionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{134}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{95}
 }
 
 type GetSessionCharacteristicsRequest struct {
@@ -5892,7 +4096,7 @@ type GetSessionCharacteristicsRequest struct {
 
 func (x *GetSessionCharacteristicsRequest) Reset() {
 	*x = GetSessionCharacteristicsRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[135]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5904,7 +4108,7 @@ func (x *GetSessionCharacteristicsRequest) String() string {
 func (*GetSessionCharacteristicsRequest) ProtoMessage() {}
 
 func (x *GetSessionCharacteristicsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[135]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5917,7 +4121,7 @@ func (x *GetSessionCharacteristicsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSessionCharacteristicsRequest.ProtoReflect.Descriptor instead.
 func (*GetSessionCharacteristicsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{135}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *GetSessionCharacteristicsRequest) GetArg0() int64 {
@@ -5936,7 +4140,7 @@ type GetSessionCharacteristicsResponse struct {
 
 func (x *GetSessionCharacteristicsResponse) Reset() {
 	*x = GetSessionCharacteristicsResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[136]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5948,7 +4152,7 @@ func (x *GetSessionCharacteristicsResponse) String() string {
 func (*GetSessionCharacteristicsResponse) ProtoMessage() {}
 
 func (x *GetSessionCharacteristicsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[136]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5961,7 +4165,7 @@ func (x *GetSessionCharacteristicsResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetSessionCharacteristicsResponse.ProtoReflect.Descriptor instead.
 func (*GetSessionCharacteristicsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{136}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *GetSessionCharacteristicsResponse) GetResult() int64 {
@@ -5981,7 +4185,7 @@ type OpenCameraRequest struct {
 
 func (x *OpenCameraRequest) Reset() {
 	*x = OpenCameraRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[137]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5993,7 +4197,7 @@ func (x *OpenCameraRequest) String() string {
 func (*OpenCameraRequest) ProtoMessage() {}
 
 func (x *OpenCameraRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[137]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6006,7 +4210,7 @@ func (x *OpenCameraRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenCameraRequest.ProtoReflect.Descriptor instead.
 func (*OpenCameraRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{137}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *OpenCameraRequest) GetArg0() int64 {
@@ -6031,7 +4235,7 @@ type OpenCameraResponse struct {
 
 func (x *OpenCameraResponse) Reset() {
 	*x = OpenCameraResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[138]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6043,7 +4247,7 @@ func (x *OpenCameraResponse) String() string {
 func (*OpenCameraResponse) ProtoMessage() {}
 
 func (x *OpenCameraResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[138]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6056,7 +4260,7 @@ func (x *OpenCameraResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenCameraResponse.ProtoReflect.Descriptor instead.
 func (*OpenCameraResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{138}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{99}
 }
 
 type OnDisconnectedRequest struct {
@@ -6068,7 +4272,7 @@ type OnDisconnectedRequest struct {
 
 func (x *OnDisconnectedRequest) Reset() {
 	*x = OnDisconnectedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[139]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6080,7 +4284,7 @@ func (x *OnDisconnectedRequest) String() string {
 func (*OnDisconnectedRequest) ProtoMessage() {}
 
 func (x *OnDisconnectedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[139]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6093,7 +4297,7 @@ func (x *OnDisconnectedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDisconnectedRequest.ProtoReflect.Descriptor instead.
 func (*OnDisconnectedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{139}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *OnDisconnectedRequest) GetArg0() int64 {
@@ -6111,7 +4315,7 @@ type OnDisconnectedResponse struct {
 
 func (x *OnDisconnectedResponse) Reset() {
 	*x = OnDisconnectedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[140]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6123,7 +4327,7 @@ func (x *OnDisconnectedResponse) String() string {
 func (*OnDisconnectedResponse) ProtoMessage() {}
 
 func (x *OnDisconnectedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[140]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6136,7 +4340,95 @@ func (x *OnDisconnectedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDisconnectedResponse.ProtoReflect.Descriptor instead.
 func (*OnDisconnectedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{140}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{101}
+}
+
+type OnErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnErrorRequest) Reset() {
+	*x = OnErrorRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnErrorRequest) ProtoMessage() {}
+
+func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *OnErrorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnErrorRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnErrorResponse) Reset() {
+	*x = OnErrorResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnErrorResponse) ProtoMessage() {}
+
+func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{103}
 }
 
 type OnOpenedRequest struct {
@@ -6148,7 +4440,7 @@ type OnOpenedRequest struct {
 
 func (x *OnOpenedRequest) Reset() {
 	*x = OnOpenedRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[141]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6160,7 +4452,7 @@ func (x *OnOpenedRequest) String() string {
 func (*OnOpenedRequest) ProtoMessage() {}
 
 func (x *OnOpenedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[141]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6173,7 +4465,7 @@ func (x *OnOpenedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnOpenedRequest.ProtoReflect.Descriptor instead.
 func (*OnOpenedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{141}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *OnOpenedRequest) GetArg0() int64 {
@@ -6191,7 +4483,7 @@ type OnOpenedResponse struct {
 
 func (x *OnOpenedResponse) Reset() {
 	*x = OnOpenedResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[142]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6203,7 +4495,7 @@ func (x *OnOpenedResponse) String() string {
 func (*OnOpenedResponse) ProtoMessage() {}
 
 func (x *OnOpenedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[142]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6216,30 +4508,31 @@ func (x *OnOpenedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnOpenedResponse.ProtoReflect.Descriptor instead.
 func (*OnOpenedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{142}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{105}
 }
 
-type DescribeContentsRequest struct {
+type NewCameraAccessExceptionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[143]
+func (x *NewCameraAccessExceptionRequest) Reset() {
+	*x = NewCameraAccessExceptionRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DescribeContentsRequest) String() string {
+func (x *NewCameraAccessExceptionRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DescribeContentsRequest) ProtoMessage() {}
+func (*NewCameraAccessExceptionRequest) ProtoMessage() {}
 
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[143]
+func (x *NewCameraAccessExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6250,113 +4543,40 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{143}
+// Deprecated: Use NewCameraAccessExceptionRequest.ProtoReflect.Descriptor instead.
+func (*NewCameraAccessExceptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{106}
 }
 
-type DescribeContentsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[144]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsResponse) ProtoMessage() {}
-
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[144]
+func (x *NewCameraAccessExceptionRequest) GetArg0() int32 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{144}
-}
-
-func (x *DescribeContentsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
+		return x.Arg0
 	}
 	return 0
 }
 
-type GetTagRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTagRequest) Reset() {
-	*x = GetTagRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTagRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTagRequest) ProtoMessage() {}
-
-func (x *GetTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[145]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTagRequest.ProtoReflect.Descriptor instead.
-func (*GetTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{145}
-}
-
-type GetTagResponse struct {
+type NewCameraAccessExceptionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTagResponse) Reset() {
-	*x = GetTagResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[146]
+func (x *NewCameraAccessExceptionResponse) Reset() {
+	*x = NewCameraAccessExceptionResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTagResponse) String() string {
+func (x *NewCameraAccessExceptionResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTagResponse) ProtoMessage() {}
+func (*NewCameraAccessExceptionResponse) ProtoMessage() {}
 
-func (x *GetTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[146]
+func (x *NewCameraAccessExceptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6367,39 +4587,40 @@ func (x *GetTagResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTagResponse.ProtoReflect.Descriptor instead.
-func (*GetTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{146}
+// Deprecated: Use NewCameraAccessExceptionResponse.ProtoReflect.Descriptor instead.
+func (*NewCameraAccessExceptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{107}
 }
 
-func (x *GetTagResponse) GetResult() int64 {
+func (x *NewCameraAccessExceptionResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type IsReprocessRequest struct {
+type CameraAccessExceptionGetReasonRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *IsReprocessRequest) Reset() {
-	*x = IsReprocessRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[147]
+func (x *CameraAccessExceptionGetReasonRequest) Reset() {
+	*x = CameraAccessExceptionGetReasonRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IsReprocessRequest) String() string {
+func (x *CameraAccessExceptionGetReasonRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IsReprocessRequest) ProtoMessage() {}
+func (*CameraAccessExceptionGetReasonRequest) ProtoMessage() {}
 
-func (x *IsReprocessRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[147]
+func (x *CameraAccessExceptionGetReasonRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6410,165 +4631,40 @@ func (x *IsReprocessRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use IsReprocessRequest.ProtoReflect.Descriptor instead.
-func (*IsReprocessRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{147}
+// Deprecated: Use CameraAccessExceptionGetReasonRequest.ProtoReflect.Descriptor instead.
+func (*CameraAccessExceptionGetReasonRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{108}
 }
 
-type IsReprocessResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsReprocessResponse) Reset() {
-	*x = IsReprocessResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[148]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsReprocessResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsReprocessResponse) ProtoMessage() {}
-
-func (x *IsReprocessResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[148]
+func (x *CameraAccessExceptionGetReasonRequest) GetHandle() int64 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsReprocessResponse.ProtoReflect.Descriptor instead.
-func (*IsReprocessResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{148}
-}
-
-func (x *IsReprocessResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type WriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[149]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelRequest) ProtoMessage() {}
-
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[149]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{149}
-}
-
-func (x *WriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
+		return x.Handle
 	}
 	return 0
 }
 
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[150]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelResponse) ProtoMessage() {}
-
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[150]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{150}
-}
-
-type AddTargetRequest struct {
+type OnIdleRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddTargetRequest) Reset() {
-	*x = AddTargetRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[151]
+func (x *OnIdleRequest) Reset() {
+	*x = OnIdleRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddTargetRequest) String() string {
+func (x *OnIdleRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddTargetRequest) ProtoMessage() {}
+func (*OnIdleRequest) ProtoMessage() {}
 
-func (x *AddTargetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[151]
+func (x *OnIdleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6579,39 +4675,39 @@ func (x *AddTargetRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddTargetRequest.ProtoReflect.Descriptor instead.
-func (*AddTargetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{151}
+// Deprecated: Use OnIdleRequest.ProtoReflect.Descriptor instead.
+func (*OnIdleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{109}
 }
 
-func (x *AddTargetRequest) GetArg0() int64 {
+func (x *OnIdleRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type AddTargetResponse struct {
+type OnIdleResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddTargetResponse) Reset() {
-	*x = AddTargetResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[152]
+func (x *OnIdleResponse) Reset() {
+	*x = OnIdleResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddTargetResponse) String() string {
+func (x *OnIdleResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddTargetResponse) ProtoMessage() {}
+func (*OnIdleResponse) ProtoMessage() {}
 
-func (x *AddTargetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[152]
+func (x *OnIdleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6622,32 +4718,33 @@ func (x *AddTargetResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddTargetResponse.ProtoReflect.Descriptor instead.
-func (*AddTargetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{152}
+// Deprecated: Use OnIdleResponse.ProtoReflect.Descriptor instead.
+func (*OnIdleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{110}
 }
 
-type BuildRequest struct {
+type OnSwitchFailedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[153]
+func (x *OnSwitchFailedRequest) Reset() {
+	*x = OnSwitchFailedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BuildRequest) String() string {
+func (x *OnSwitchFailedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BuildRequest) ProtoMessage() {}
+func (*OnSwitchFailedRequest) ProtoMessage() {}
 
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[153]
+func (x *OnSwitchFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6658,33 +4755,112 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{153}
+// Deprecated: Use OnSwitchFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnSwitchFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{111}
 }
 
-type BuildResponse struct {
+func (x *OnSwitchFailedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnSwitchFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSwitchFailedResponse) Reset() {
+	*x = OnSwitchFailedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSwitchFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSwitchFailedResponse) ProtoMessage() {}
+
+func (x *OnSwitchFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSwitchFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnSwitchFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{112}
+}
+
+type GetAvailableCaptureRequestKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableCaptureRequestKeysRequest) Reset() {
+	*x = GetAvailableCaptureRequestKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableCaptureRequestKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableCaptureRequestKeysRequest) ProtoMessage() {}
+
+func (x *GetAvailableCaptureRequestKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableCaptureRequestKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableCaptureRequestKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{113}
+}
+
+type GetAvailableCaptureRequestKeysResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[154]
+func (x *GetAvailableCaptureRequestKeysResponse) Reset() {
+	*x = GetAvailableCaptureRequestKeysResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BuildResponse) String() string {
+func (x *GetAvailableCaptureRequestKeysResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BuildResponse) ProtoMessage() {}
+func (*GetAvailableCaptureRequestKeysResponse) ProtoMessage() {}
 
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[154]
+func (x *GetAvailableCaptureRequestKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6695,40 +4871,39 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{154}
+// Deprecated: Use GetAvailableCaptureRequestKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableCaptureRequestKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{114}
 }
 
-func (x *BuildResponse) GetResult() int64 {
+func (x *GetAvailableCaptureRequestKeysResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type RemoveTargetRequest struct {
+type GetAvailableCaptureResultKeysRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RemoveTargetRequest) Reset() {
-	*x = RemoveTargetRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[155]
+func (x *GetAvailableCaptureResultKeysRequest) Reset() {
+	*x = GetAvailableCaptureResultKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RemoveTargetRequest) String() string {
+func (x *GetAvailableCaptureResultKeysRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RemoveTargetRequest) ProtoMessage() {}
+func (*GetAvailableCaptureResultKeysRequest) ProtoMessage() {}
 
-func (x *RemoveTargetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[155]
+func (x *GetAvailableCaptureResultKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6739,39 +4914,521 @@ func (x *RemoveTargetRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RemoveTargetRequest.ProtoReflect.Descriptor instead.
-func (*RemoveTargetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{155}
+// Deprecated: Use GetAvailableCaptureResultKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableCaptureResultKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{115}
 }
 
-func (x *RemoveTargetRequest) GetArg0() int64 {
+type GetAvailableCaptureResultKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableCaptureResultKeysResponse) Reset() {
+	*x = GetAvailableCaptureResultKeysResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableCaptureResultKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableCaptureResultKeysResponse) ProtoMessage() {}
+
+func (x *GetAvailableCaptureResultKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableCaptureResultKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableCaptureResultKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *GetAvailableCaptureResultKeysResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAvailablePhysicalCameraRequestKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailablePhysicalCameraRequestKeysRequest) Reset() {
+	*x = GetAvailablePhysicalCameraRequestKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailablePhysicalCameraRequestKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailablePhysicalCameraRequestKeysRequest) ProtoMessage() {}
+
+func (x *GetAvailablePhysicalCameraRequestKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailablePhysicalCameraRequestKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailablePhysicalCameraRequestKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{117}
+}
+
+type GetAvailablePhysicalCameraRequestKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailablePhysicalCameraRequestKeysResponse) Reset() {
+	*x = GetAvailablePhysicalCameraRequestKeysResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailablePhysicalCameraRequestKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailablePhysicalCameraRequestKeysResponse) ProtoMessage() {}
+
+func (x *GetAvailablePhysicalCameraRequestKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailablePhysicalCameraRequestKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailablePhysicalCameraRequestKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *GetAvailablePhysicalCameraRequestKeysResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAvailableSessionCharacteristicsKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableSessionCharacteristicsKeysRequest) Reset() {
+	*x = GetAvailableSessionCharacteristicsKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableSessionCharacteristicsKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableSessionCharacteristicsKeysRequest) ProtoMessage() {}
+
+func (x *GetAvailableSessionCharacteristicsKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableSessionCharacteristicsKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableSessionCharacteristicsKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{119}
+}
+
+type GetAvailableSessionCharacteristicsKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableSessionCharacteristicsKeysResponse) Reset() {
+	*x = GetAvailableSessionCharacteristicsKeysResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableSessionCharacteristicsKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableSessionCharacteristicsKeysResponse) ProtoMessage() {}
+
+func (x *GetAvailableSessionCharacteristicsKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableSessionCharacteristicsKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableSessionCharacteristicsKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *GetAvailableSessionCharacteristicsKeysResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAvailableSessionKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableSessionKeysRequest) Reset() {
+	*x = GetAvailableSessionKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableSessionKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableSessionKeysRequest) ProtoMessage() {}
+
+func (x *GetAvailableSessionKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableSessionKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableSessionKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{121}
+}
+
+type GetAvailableSessionKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableSessionKeysResponse) Reset() {
+	*x = GetAvailableSessionKeysResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableSessionKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableSessionKeysResponse) ProtoMessage() {}
+
+func (x *GetAvailableSessionKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableSessionKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableSessionKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *GetAvailableSessionKeysResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKeysNeedingPermissionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeysNeedingPermissionRequest) Reset() {
+	*x = GetKeysNeedingPermissionRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeysNeedingPermissionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeysNeedingPermissionRequest) ProtoMessage() {}
+
+func (x *GetKeysNeedingPermissionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeysNeedingPermissionRequest.ProtoReflect.Descriptor instead.
+func (*GetKeysNeedingPermissionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{123}
+}
+
+type GetKeysNeedingPermissionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeysNeedingPermissionResponse) Reset() {
+	*x = GetKeysNeedingPermissionResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeysNeedingPermissionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeysNeedingPermissionResponse) ProtoMessage() {}
+
+func (x *GetKeysNeedingPermissionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeysNeedingPermissionResponse.ProtoReflect.Descriptor instead.
+func (*GetKeysNeedingPermissionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *GetKeysNeedingPermissionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPhysicalCameraIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPhysicalCameraIdsRequest) Reset() {
+	*x = GetPhysicalCameraIdsRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPhysicalCameraIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhysicalCameraIdsRequest) ProtoMessage() {}
+
+func (x *GetPhysicalCameraIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhysicalCameraIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetPhysicalCameraIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{125}
+}
+
+type GetPhysicalCameraIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPhysicalCameraIdsResponse) Reset() {
+	*x = GetPhysicalCameraIdsResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPhysicalCameraIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhysicalCameraIdsResponse) ProtoMessage() {}
+
+func (x *GetPhysicalCameraIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhysicalCameraIdsResponse.ProtoReflect.Descriptor instead.
+func (*GetPhysicalCameraIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *GetPhysicalCameraIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRecommendedStreamConfigurationMapRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecommendedStreamConfigurationMapRequest) Reset() {
+	*x = GetRecommendedStreamConfigurationMapRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecommendedStreamConfigurationMapRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecommendedStreamConfigurationMapRequest) ProtoMessage() {}
+
+func (x *GetRecommendedStreamConfigurationMapRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecommendedStreamConfigurationMapRequest.ProtoReflect.Descriptor instead.
+func (*GetRecommendedStreamConfigurationMapRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *GetRecommendedStreamConfigurationMapRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type RemoveTargetResponse struct {
+type GetRecommendedStreamConfigurationMapResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RemoveTargetResponse) Reset() {
-	*x = RemoveTargetResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[156]
+func (x *GetRecommendedStreamConfigurationMapResponse) Reset() {
+	*x = GetRecommendedStreamConfigurationMapResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RemoveTargetResponse) String() string {
+func (x *GetRecommendedStreamConfigurationMapResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RemoveTargetResponse) ProtoMessage() {}
+func (*GetRecommendedStreamConfigurationMapResponse) ProtoMessage() {}
 
-func (x *RemoveTargetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[156]
+func (x *GetRecommendedStreamConfigurationMapResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6782,89 +5439,16 @@ func (x *RemoveTargetResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RemoveTargetResponse.ProtoReflect.Descriptor instead.
-func (*RemoveTargetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{156}
+// Deprecated: Use GetRecommendedStreamConfigurationMapResponse.ProtoReflect.Descriptor instead.
+func (*GetRecommendedStreamConfigurationMapResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{128}
 }
 
-type SetTagRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTagRequest) Reset() {
-	*x = SetTagRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTagRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTagRequest) ProtoMessage() {}
-
-func (x *SetTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[157]
+func (x *GetRecommendedStreamConfigurationMapResponse) GetResult() int64 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTagRequest.ProtoReflect.Descriptor instead.
-func (*SetTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{157}
-}
-
-func (x *SetTagRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
+		return x.Result
 	}
 	return 0
-}
-
-type SetTagResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTagResponse) Reset() {
-	*x = SetTagResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[158]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTagResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTagResponse) ProtoMessage() {}
-
-func (x *SetTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[158]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTagResponse.ProtoReflect.Descriptor instead.
-func (*SetTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{158}
 }
 
 type NewDngCreatorRequest struct {
@@ -6877,7 +5461,7 @@ type NewDngCreatorRequest struct {
 
 func (x *NewDngCreatorRequest) Reset() {
 	*x = NewDngCreatorRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[159]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6889,7 +5473,7 @@ func (x *NewDngCreatorRequest) String() string {
 func (*NewDngCreatorRequest) ProtoMessage() {}
 
 func (x *NewDngCreatorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[159]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6902,7 +5486,7 @@ func (x *NewDngCreatorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDngCreatorRequest.ProtoReflect.Descriptor instead.
 func (*NewDngCreatorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{159}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *NewDngCreatorRequest) GetArg0() int64 {
@@ -6928,7 +5512,7 @@ type NewDngCreatorResponse struct {
 
 func (x *NewDngCreatorResponse) Reset() {
 	*x = NewDngCreatorResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[160]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6940,7 +5524,7 @@ func (x *NewDngCreatorResponse) String() string {
 func (*NewDngCreatorResponse) ProtoMessage() {}
 
 func (x *NewDngCreatorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[160]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6953,7 +5537,7 @@ func (x *NewDngCreatorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDngCreatorResponse.ProtoReflect.Descriptor instead.
 func (*NewDngCreatorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{160}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *NewDngCreatorResponse) GetResult() int64 {
@@ -6972,7 +5556,7 @@ type DngCreatorCloseRequest struct {
 
 func (x *DngCreatorCloseRequest) Reset() {
 	*x = DngCreatorCloseRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[161]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6984,7 +5568,7 @@ func (x *DngCreatorCloseRequest) String() string {
 func (*DngCreatorCloseRequest) ProtoMessage() {}
 
 func (x *DngCreatorCloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[161]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6997,7 +5581,7 @@ func (x *DngCreatorCloseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DngCreatorCloseRequest.ProtoReflect.Descriptor instead.
 func (*DngCreatorCloseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{161}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *DngCreatorCloseRequest) GetHandle() int64 {
@@ -7017,7 +5601,7 @@ type SetDescriptionRequest struct {
 
 func (x *SetDescriptionRequest) Reset() {
 	*x = SetDescriptionRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[162]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7029,7 +5613,7 @@ func (x *SetDescriptionRequest) String() string {
 func (*SetDescriptionRequest) ProtoMessage() {}
 
 func (x *SetDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[162]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7042,7 +5626,7 @@ func (x *SetDescriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDescriptionRequest.ProtoReflect.Descriptor instead.
 func (*SetDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{162}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *SetDescriptionRequest) GetHandle() int64 {
@@ -7068,7 +5652,7 @@ type SetDescriptionResponse struct {
 
 func (x *SetDescriptionResponse) Reset() {
 	*x = SetDescriptionResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[163]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7080,7 +5664,7 @@ func (x *SetDescriptionResponse) String() string {
 func (*SetDescriptionResponse) ProtoMessage() {}
 
 func (x *SetDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[163]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7093,7 +5677,7 @@ func (x *SetDescriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDescriptionResponse.ProtoReflect.Descriptor instead.
 func (*SetDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{163}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *SetDescriptionResponse) GetResult() int64 {
@@ -7113,7 +5697,7 @@ type SetLocationRequest struct {
 
 func (x *SetLocationRequest) Reset() {
 	*x = SetLocationRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[164]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7125,7 +5709,7 @@ func (x *SetLocationRequest) String() string {
 func (*SetLocationRequest) ProtoMessage() {}
 
 func (x *SetLocationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[164]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7138,7 +5722,7 @@ func (x *SetLocationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLocationRequest.ProtoReflect.Descriptor instead.
 func (*SetLocationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{164}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *SetLocationRequest) GetHandle() int64 {
@@ -7164,7 +5748,7 @@ type SetLocationResponse struct {
 
 func (x *SetLocationResponse) Reset() {
 	*x = SetLocationResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[165]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7176,7 +5760,7 @@ func (x *SetLocationResponse) String() string {
 func (*SetLocationResponse) ProtoMessage() {}
 
 func (x *SetLocationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[165]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7189,7 +5773,7 @@ func (x *SetLocationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLocationResponse.ProtoReflect.Descriptor instead.
 func (*SetLocationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{165}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *SetLocationResponse) GetResult() int64 {
@@ -7209,7 +5793,7 @@ type SetOrientationRequest struct {
 
 func (x *SetOrientationRequest) Reset() {
 	*x = SetOrientationRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[166]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7221,7 +5805,7 @@ func (x *SetOrientationRequest) String() string {
 func (*SetOrientationRequest) ProtoMessage() {}
 
 func (x *SetOrientationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[166]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7234,7 +5818,7 @@ func (x *SetOrientationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOrientationRequest.ProtoReflect.Descriptor instead.
 func (*SetOrientationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{166}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *SetOrientationRequest) GetHandle() int64 {
@@ -7260,7 +5844,7 @@ type SetOrientationResponse struct {
 
 func (x *SetOrientationResponse) Reset() {
 	*x = SetOrientationResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[167]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7272,7 +5856,7 @@ func (x *SetOrientationResponse) String() string {
 func (*SetOrientationResponse) ProtoMessage() {}
 
 func (x *SetOrientationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[167]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7285,7 +5869,7 @@ func (x *SetOrientationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOrientationResponse.ProtoReflect.Descriptor instead.
 func (*SetOrientationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{167}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *SetOrientationResponse) GetResult() int64 {
@@ -7305,7 +5889,7 @@ type SetThumbnail1Request struct {
 
 func (x *SetThumbnail1Request) Reset() {
 	*x = SetThumbnail1Request{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[168]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7317,7 +5901,7 @@ func (x *SetThumbnail1Request) String() string {
 func (*SetThumbnail1Request) ProtoMessage() {}
 
 func (x *SetThumbnail1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[168]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7330,7 +5914,7 @@ func (x *SetThumbnail1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetThumbnail1Request.ProtoReflect.Descriptor instead.
 func (*SetThumbnail1Request) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{168}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *SetThumbnail1Request) GetHandle() int64 {
@@ -7356,7 +5940,7 @@ type SetThumbnail1Response struct {
 
 func (x *SetThumbnail1Response) Reset() {
 	*x = SetThumbnail1Response{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[169]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7368,7 +5952,7 @@ func (x *SetThumbnail1Response) String() string {
 func (*SetThumbnail1Response) ProtoMessage() {}
 
 func (x *SetThumbnail1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[169]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7381,7 +5965,7 @@ func (x *SetThumbnail1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetThumbnail1Response.ProtoReflect.Descriptor instead.
 func (*SetThumbnail1Response) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{169}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *SetThumbnail1Response) GetResult() int64 {
@@ -7401,7 +5985,7 @@ type SetThumbnail1_1Request struct {
 
 func (x *SetThumbnail1_1Request) Reset() {
 	*x = SetThumbnail1_1Request{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[170]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7413,7 +5997,7 @@ func (x *SetThumbnail1_1Request) String() string {
 func (*SetThumbnail1_1Request) ProtoMessage() {}
 
 func (x *SetThumbnail1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[170]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7426,7 +6010,7 @@ func (x *SetThumbnail1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetThumbnail1_1Request.ProtoReflect.Descriptor instead.
 func (*SetThumbnail1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{170}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *SetThumbnail1_1Request) GetHandle() int64 {
@@ -7452,7 +6036,7 @@ type SetThumbnail1_1Response struct {
 
 func (x *SetThumbnail1_1Response) Reset() {
 	*x = SetThumbnail1_1Response{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[171]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7464,7 +6048,7 @@ func (x *SetThumbnail1_1Response) String() string {
 func (*SetThumbnail1_1Response) ProtoMessage() {}
 
 func (x *SetThumbnail1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[171]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7477,7 +6061,7 @@ func (x *SetThumbnail1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetThumbnail1_1Response.ProtoReflect.Descriptor instead.
 func (*SetThumbnail1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{171}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *SetThumbnail1_1Response) GetResult() int64 {
@@ -7498,7 +6082,7 @@ type WriteImageRequest struct {
 
 func (x *WriteImageRequest) Reset() {
 	*x = WriteImageRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[172]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7510,7 +6094,7 @@ func (x *WriteImageRequest) String() string {
 func (*WriteImageRequest) ProtoMessage() {}
 
 func (x *WriteImageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[172]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7523,7 +6107,7 @@ func (x *WriteImageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteImageRequest.ProtoReflect.Descriptor instead.
 func (*WriteImageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{172}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *WriteImageRequest) GetHandle() int64 {
@@ -7555,7 +6139,7 @@ type WriteImageResponse struct {
 
 func (x *WriteImageResponse) Reset() {
 	*x = WriteImageResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[173]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7567,7 +6151,7 @@ func (x *WriteImageResponse) String() string {
 func (*WriteImageResponse) ProtoMessage() {}
 
 func (x *WriteImageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[173]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7580,7 +6164,7 @@ func (x *WriteImageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteImageResponse.ProtoReflect.Descriptor instead.
 func (*WriteImageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{173}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{143}
 }
 
 type WriteInputStreamRequest struct {
@@ -7596,7 +6180,7 @@ type WriteInputStreamRequest struct {
 
 func (x *WriteInputStreamRequest) Reset() {
 	*x = WriteInputStreamRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[174]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7608,7 +6192,7 @@ func (x *WriteInputStreamRequest) String() string {
 func (*WriteInputStreamRequest) ProtoMessage() {}
 
 func (x *WriteInputStreamRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[174]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7621,7 +6205,7 @@ func (x *WriteInputStreamRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteInputStreamRequest.ProtoReflect.Descriptor instead.
 func (*WriteInputStreamRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{174}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *WriteInputStreamRequest) GetHandle() int64 {
@@ -7667,7 +6251,7 @@ type WriteInputStreamResponse struct {
 
 func (x *WriteInputStreamResponse) Reset() {
 	*x = WriteInputStreamResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[175]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7679,7 +6263,7 @@ func (x *WriteInputStreamResponse) String() string {
 func (*WriteInputStreamResponse) ProtoMessage() {}
 
 func (x *WriteInputStreamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[175]
+	mi := &file_proto_camera2_camera2_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7692,31 +6276,30 @@ func (x *WriteInputStreamResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteInputStreamResponse.ProtoReflect.Descriptor instead.
 func (*WriteInputStreamResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{175}
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{145}
 }
 
-type NewCameraAccessExceptionRequest struct {
+type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewCameraAccessExceptionRequest) Reset() {
-	*x = NewCameraAccessExceptionRequest{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[176]
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewCameraAccessExceptionRequest) String() string {
+func (x *DescribeContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewCameraAccessExceptionRequest) ProtoMessage() {}
+func (*DescribeContentsRequest) ProtoMessage() {}
 
-func (x *NewCameraAccessExceptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[176]
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7727,40 +6310,33 @@ func (x *NewCameraAccessExceptionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewCameraAccessExceptionRequest.ProtoReflect.Descriptor instead.
-func (*NewCameraAccessExceptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{176}
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{146}
 }
 
-func (x *NewCameraAccessExceptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewCameraAccessExceptionResponse struct {
+type DescribeContentsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewCameraAccessExceptionResponse) Reset() {
-	*x = NewCameraAccessExceptionResponse{}
-	mi := &file_proto_camera2_camera2_proto_msgTypes[177]
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewCameraAccessExceptionResponse) String() string {
+func (x *DescribeContentsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewCameraAccessExceptionResponse) ProtoMessage() {}
+func (*DescribeContentsResponse) ProtoMessage() {}
 
-func (x *NewCameraAccessExceptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera2_camera2_proto_msgTypes[177]
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7771,39 +6347,1359 @@ func (x *NewCameraAccessExceptionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewCameraAccessExceptionResponse.ProtoReflect.Descriptor instead.
-func (*NewCameraAccessExceptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{177}
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{147}
 }
 
-func (x *NewCameraAccessExceptionResponse) GetResult() int64 {
+func (x *DescribeContentsResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type CameraAccessExceptionGetReasonRequest struct {
+type GetTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTagRequest) Reset() {
+	*x = GetTagRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTagRequest) ProtoMessage() {}
+
+func (x *GetTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTagRequest.ProtoReflect.Descriptor instead.
+func (*GetTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{148}
+}
+
+type GetTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTagResponse) Reset() {
+	*x = GetTagResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTagResponse) ProtoMessage() {}
+
+func (x *GetTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTagResponse.ProtoReflect.Descriptor instead.
+func (*GetTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *GetTagResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsReprocessRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsReprocessRequest) Reset() {
+	*x = IsReprocessRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsReprocessRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsReprocessRequest) ProtoMessage() {}
+
+func (x *IsReprocessRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsReprocessRequest.ProtoReflect.Descriptor instead.
+func (*IsReprocessRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{150}
+}
+
+type IsReprocessResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsReprocessResponse) Reset() {
+	*x = IsReprocessResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsReprocessResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsReprocessResponse) ProtoMessage() {}
+
+func (x *IsReprocessResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsReprocessResponse.ProtoReflect.Descriptor instead.
+func (*IsReprocessResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *IsReprocessResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{153}
+}
+
+type AddTargetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTargetRequest) Reset() {
+	*x = AddTargetRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTargetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTargetRequest) ProtoMessage() {}
+
+func (x *AddTargetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTargetRequest.ProtoReflect.Descriptor instead.
+func (*AddTargetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *AddTargetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddTargetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTargetResponse) Reset() {
+	*x = AddTargetResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTargetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTargetResponse) ProtoMessage() {}
+
+func (x *AddTargetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTargetResponse.ProtoReflect.Descriptor instead.
+func (*AddTargetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{155}
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{156}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveTargetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveTargetRequest) Reset() {
+	*x = RemoveTargetRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveTargetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveTargetRequest) ProtoMessage() {}
+
+func (x *RemoveTargetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveTargetRequest.ProtoReflect.Descriptor instead.
+func (*RemoveTargetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *RemoveTargetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveTargetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveTargetResponse) Reset() {
+	*x = RemoveTargetResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveTargetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveTargetResponse) ProtoMessage() {}
+
+func (x *RemoveTargetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveTargetResponse.ProtoReflect.Descriptor instead.
+func (*RemoveTargetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{159}
+}
+
+type SetTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTagRequest) Reset() {
+	*x = SetTagRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTagRequest) ProtoMessage() {}
+
+func (x *SetTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTagRequest.ProtoReflect.Descriptor instead.
+func (*SetTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *SetTagRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTagResponse) Reset() {
+	*x = SetTagResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTagResponse) ProtoMessage() {}
+
+func (x *SetTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTagResponse.ProtoReflect.Descriptor instead.
+func (*SetTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{161}
+}
+
+type NewMultiResolutionImageReaderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMultiResolutionImageReaderRequest) Reset() {
+	*x = NewMultiResolutionImageReaderRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMultiResolutionImageReaderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMultiResolutionImageReaderRequest) ProtoMessage() {}
+
+func (x *NewMultiResolutionImageReaderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMultiResolutionImageReaderRequest.ProtoReflect.Descriptor instead.
+func (*NewMultiResolutionImageReaderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *NewMultiResolutionImageReaderRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewMultiResolutionImageReaderRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewMultiResolutionImageReaderRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewMultiResolutionImageReaderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMultiResolutionImageReaderResponse) Reset() {
+	*x = NewMultiResolutionImageReaderResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMultiResolutionImageReaderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMultiResolutionImageReaderResponse) ProtoMessage() {}
+
+func (x *NewMultiResolutionImageReaderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMultiResolutionImageReaderResponse.ProtoReflect.Descriptor instead.
+func (*NewMultiResolutionImageReaderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *NewMultiResolutionImageReaderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MultiResolutionImageReaderCloseRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CameraAccessExceptionGetReasonRequest) Reset() {
-	*x = CameraAccessExceptionGetReasonRequest{}
+func (x *MultiResolutionImageReaderCloseRequest) Reset() {
+	*x = MultiResolutionImageReaderCloseRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MultiResolutionImageReaderCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MultiResolutionImageReaderCloseRequest) ProtoMessage() {}
+
+func (x *MultiResolutionImageReaderCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MultiResolutionImageReaderCloseRequest.ProtoReflect.Descriptor instead.
+func (*MultiResolutionImageReaderCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *MultiResolutionImageReaderCloseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type FlushRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FlushRequest) Reset() {
+	*x = FlushRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FlushRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FlushRequest) ProtoMessage() {}
+
+func (x *FlushRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FlushRequest.ProtoReflect.Descriptor instead.
+func (*FlushRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *FlushRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type FlushResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FlushResponse) Reset() {
+	*x = FlushResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FlushResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FlushResponse) ProtoMessage() {}
+
+func (x *FlushResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FlushResponse.ProtoReflect.Descriptor instead.
+func (*FlushResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{166}
+}
+
+type GetStreamInfoForImageReaderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStreamInfoForImageReaderRequest) Reset() {
+	*x = GetStreamInfoForImageReaderRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStreamInfoForImageReaderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStreamInfoForImageReaderRequest) ProtoMessage() {}
+
+func (x *GetStreamInfoForImageReaderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStreamInfoForImageReaderRequest.ProtoReflect.Descriptor instead.
+func (*GetStreamInfoForImageReaderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{167}
+}
+
+func (x *GetStreamInfoForImageReaderRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetStreamInfoForImageReaderRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetStreamInfoForImageReaderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStreamInfoForImageReaderResponse) Reset() {
+	*x = GetStreamInfoForImageReaderResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStreamInfoForImageReaderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStreamInfoForImageReaderResponse) ProtoMessage() {}
+
+func (x *GetStreamInfoForImageReaderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStreamInfoForImageReaderResponse.ProtoReflect.Descriptor instead.
+func (*GetStreamInfoForImageReaderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{168}
+}
+
+func (x *GetStreamInfoForImageReaderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSurfaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSurfaceRequest) Reset() {
+	*x = GetSurfaceRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSurfaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSurfaceRequest) ProtoMessage() {}
+
+func (x *GetSurfaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSurfaceRequest.ProtoReflect.Descriptor instead.
+func (*GetSurfaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *GetSurfaceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSurfaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSurfaceResponse) Reset() {
+	*x = GetSurfaceResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSurfaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSurfaceResponse) ProtoMessage() {}
+
+func (x *GetSurfaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSurfaceResponse.ProtoReflect.Descriptor instead.
+func (*GetSurfaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{170}
+}
+
+func (x *GetSurfaceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetOnImageAvailableListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnImageAvailableListenerRequest) Reset() {
+	*x = SetOnImageAvailableListenerRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnImageAvailableListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnImageAvailableListenerRequest) ProtoMessage() {}
+
+func (x *SetOnImageAvailableListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnImageAvailableListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnImageAvailableListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{171}
+}
+
+func (x *SetOnImageAvailableListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnImageAvailableListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetOnImageAvailableListenerRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetOnImageAvailableListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnImageAvailableListenerResponse) Reset() {
+	*x = SetOnImageAvailableListenerResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnImageAvailableListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnImageAvailableListenerResponse) ProtoMessage() {}
+
+func (x *SetOnImageAvailableListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnImageAvailableListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnImageAvailableListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{172}
+}
+
+type CaptureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CaptureRequest) Reset() {
+	*x = CaptureRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CaptureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CaptureRequest) ProtoMessage() {}
+
+func (x *CaptureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CaptureRequest.ProtoReflect.Descriptor instead.
+func (*CaptureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{173}
+}
+
+func (x *CaptureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CaptureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CaptureRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type CaptureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CaptureResponse) Reset() {
+	*x = CaptureResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CaptureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CaptureResponse) ProtoMessage() {}
+
+func (x *CaptureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CaptureResponse.ProtoReflect.Descriptor instead.
+func (*CaptureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{174}
+}
+
+func (x *CaptureResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRealtimeStillCaptureLatencyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRealtimeStillCaptureLatencyRequest) Reset() {
+	*x = GetRealtimeStillCaptureLatencyRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRealtimeStillCaptureLatencyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRealtimeStillCaptureLatencyRequest) ProtoMessage() {}
+
+func (x *GetRealtimeStillCaptureLatencyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRealtimeStillCaptureLatencyRequest.ProtoReflect.Descriptor instead.
+func (*GetRealtimeStillCaptureLatencyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{175}
+}
+
+type GetRealtimeStillCaptureLatencyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRealtimeStillCaptureLatencyResponse) Reset() {
+	*x = GetRealtimeStillCaptureLatencyResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRealtimeStillCaptureLatencyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRealtimeStillCaptureLatencyResponse) ProtoMessage() {}
+
+func (x *GetRealtimeStillCaptureLatencyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRealtimeStillCaptureLatencyResponse.ProtoReflect.Descriptor instead.
+func (*GetRealtimeStillCaptureLatencyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{176}
+}
+
+func (x *GetRealtimeStillCaptureLatencyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRepeatingRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRepeatingRequestRequest) Reset() {
+	*x = SetRepeatingRequestRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRepeatingRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRepeatingRequestRequest) ProtoMessage() {}
+
+func (x *SetRepeatingRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRepeatingRequestRequest.ProtoReflect.Descriptor instead.
+func (*SetRepeatingRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{177}
+}
+
+func (x *SetRepeatingRequestRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetRepeatingRequestRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetRepeatingRequestRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetRepeatingRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRepeatingRequestResponse) Reset() {
+	*x = SetRepeatingRequestResponse{}
 	mi := &file_proto_camera2_camera2_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CameraAccessExceptionGetReasonRequest) String() string {
+func (x *SetRepeatingRequestResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CameraAccessExceptionGetReasonRequest) ProtoMessage() {}
+func (*SetRepeatingRequestResponse) ProtoMessage() {}
 
-func (x *CameraAccessExceptionGetReasonRequest) ProtoReflect() protoreflect.Message {
+func (x *SetRepeatingRequestResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_camera2_camera2_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -7815,53 +7711,1471 @@ func (x *CameraAccessExceptionGetReasonRequest) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CameraAccessExceptionGetReasonRequest.ProtoReflect.Descriptor instead.
-func (*CameraAccessExceptionGetReasonRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetRepeatingRequestResponse.ProtoReflect.Descriptor instead.
+func (*SetRepeatingRequestResponse) Descriptor() ([]byte, []int) {
 	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{178}
 }
 
-func (x *CameraAccessExceptionGetReasonRequest) GetHandle() int64 {
+func (x *SetRepeatingRequestResponse) GetResult() int32 {
 	if x != nil {
-		return x.Handle
+		return x.Result
 	}
 	return 0
+}
+
+type OnCaptureFailed2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureFailed2Request) Reset() {
+	*x = OnCaptureFailed2Request{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureFailed2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureFailed2Request) ProtoMessage() {}
+
+func (x *OnCaptureFailed2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureFailed2Request.ProtoReflect.Descriptor instead.
+func (*OnCaptureFailed2Request) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{179}
+}
+
+func (x *OnCaptureFailed2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCaptureFailed2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnCaptureFailed2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureFailed2Response) Reset() {
+	*x = OnCaptureFailed2Response{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureFailed2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureFailed2Response) ProtoMessage() {}
+
+func (x *OnCaptureFailed2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureFailed2Response.ProtoReflect.Descriptor instead.
+func (*OnCaptureFailed2Response) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{180}
+}
+
+type OnCaptureFailed3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureFailed3_1Request) Reset() {
+	*x = OnCaptureFailed3_1Request{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureFailed3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureFailed3_1Request) ProtoMessage() {}
+
+func (x *OnCaptureFailed3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureFailed3_1Request.ProtoReflect.Descriptor instead.
+func (*OnCaptureFailed3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *OnCaptureFailed3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCaptureFailed3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnCaptureFailed3_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnCaptureFailed3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureFailed3_1Response) Reset() {
+	*x = OnCaptureFailed3_1Response{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureFailed3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureFailed3_1Response) ProtoMessage() {}
+
+func (x *OnCaptureFailed3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureFailed3_1Response.ProtoReflect.Descriptor instead.
+func (*OnCaptureFailed3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{182}
+}
+
+type OnCaptureProcessProgressedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureProcessProgressedRequest) Reset() {
+	*x = OnCaptureProcessProgressedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureProcessProgressedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureProcessProgressedRequest) ProtoMessage() {}
+
+func (x *OnCaptureProcessProgressedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureProcessProgressedRequest.ProtoReflect.Descriptor instead.
+func (*OnCaptureProcessProgressedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{183}
+}
+
+func (x *OnCaptureProcessProgressedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCaptureProcessProgressedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnCaptureProcessProgressedRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnCaptureProcessProgressedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureProcessProgressedResponse) Reset() {
+	*x = OnCaptureProcessProgressedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureProcessProgressedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureProcessProgressedResponse) ProtoMessage() {}
+
+func (x *OnCaptureProcessProgressedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureProcessProgressedResponse.ProtoReflect.Descriptor instead.
+func (*OnCaptureProcessProgressedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{184}
+}
+
+type OnCaptureProcessStartedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureProcessStartedRequest) Reset() {
+	*x = OnCaptureProcessStartedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureProcessStartedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureProcessStartedRequest) ProtoMessage() {}
+
+func (x *OnCaptureProcessStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureProcessStartedRequest.ProtoReflect.Descriptor instead.
+func (*OnCaptureProcessStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{185}
+}
+
+func (x *OnCaptureProcessStartedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCaptureProcessStartedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnCaptureProcessStartedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureProcessStartedResponse) Reset() {
+	*x = OnCaptureProcessStartedResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureProcessStartedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureProcessStartedResponse) ProtoMessage() {}
+
+func (x *OnCaptureProcessStartedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureProcessStartedResponse.ProtoReflect.Descriptor instead.
+func (*OnCaptureProcessStartedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{186}
+}
+
+type OnCaptureResultAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureResultAvailableRequest) Reset() {
+	*x = OnCaptureResultAvailableRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureResultAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureResultAvailableRequest) ProtoMessage() {}
+
+func (x *OnCaptureResultAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureResultAvailableRequest.ProtoReflect.Descriptor instead.
+func (*OnCaptureResultAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{187}
+}
+
+func (x *OnCaptureResultAvailableRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCaptureResultAvailableRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnCaptureResultAvailableRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnCaptureResultAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCaptureResultAvailableResponse) Reset() {
+	*x = OnCaptureResultAvailableResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCaptureResultAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCaptureResultAvailableResponse) ProtoMessage() {}
+
+func (x *OnCaptureResultAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCaptureResultAvailableResponse.ProtoReflect.Descriptor instead.
+func (*OnCaptureResultAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{188}
+}
+
+type CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) Reset() {
+	*x = CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) ProtoMessage() {
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest.ProtoReflect.Descriptor instead.
+func (*CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{189}
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) Reset() {
+	*x = CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) ProtoMessage() {}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest.ProtoReflect.Descriptor instead.
+func (*CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type GetCaptureLatencyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCaptureLatencyRequest) Reset() {
+	*x = GetCaptureLatencyRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCaptureLatencyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCaptureLatencyRequest) ProtoMessage() {}
+
+func (x *GetCaptureLatencyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCaptureLatencyRequest.ProtoReflect.Descriptor instead.
+func (*GetCaptureLatencyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{191}
+}
+
+type GetCaptureLatencyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCaptureLatencyResponse) Reset() {
+	*x = GetCaptureLatencyResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCaptureLatencyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCaptureLatencyResponse) ProtoMessage() {}
+
+func (x *GetCaptureLatencyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCaptureLatencyResponse.ProtoReflect.Descriptor instead.
+func (*GetCaptureLatencyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *GetCaptureLatencyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetProcessingLatencyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProcessingLatencyRequest) Reset() {
+	*x = GetProcessingLatencyRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProcessingLatencyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProcessingLatencyRequest) ProtoMessage() {}
+
+func (x *GetProcessingLatencyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProcessingLatencyRequest.ProtoReflect.Descriptor instead.
+func (*GetProcessingLatencyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{193}
+}
+
+type GetProcessingLatencyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProcessingLatencyResponse) Reset() {
+	*x = GetProcessingLatencyResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProcessingLatencyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProcessingLatencyResponse) ProtoMessage() {}
+
+func (x *GetProcessingLatencyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProcessingLatencyResponse.ProtoReflect.Descriptor instead.
+func (*GetProcessingLatencyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *GetProcessingLatencyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) Reset() {
+	*x = CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) ProtoMessage() {}
+
+func (x *CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest.ProtoReflect.Descriptor instead.
+func (*CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) Reset() {
+	*x = CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) ProtoMessage() {}
+
+func (x *CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest.ProtoReflect.Descriptor instead.
+func (*CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetEstimatedCaptureLatencyRangeMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisRequest) Reset() {
+	*x = GetEstimatedCaptureLatencyRangeMillisRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEstimatedCaptureLatencyRangeMillisRequest) ProtoMessage() {}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEstimatedCaptureLatencyRangeMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetEstimatedCaptureLatencyRangeMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type GetEstimatedCaptureLatencyRangeMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisResponse) Reset() {
+	*x = GetEstimatedCaptureLatencyRangeMillisResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEstimatedCaptureLatencyRangeMillisResponse) ProtoMessage() {}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEstimatedCaptureLatencyRangeMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetEstimatedCaptureLatencyRangeMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{198}
+}
+
+func (x *GetEstimatedCaptureLatencyRangeMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExtensionSupportedSizesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtensionSupportedSizesRequest) Reset() {
+	*x = GetExtensionSupportedSizesRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtensionSupportedSizesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtensionSupportedSizesRequest) ProtoMessage() {}
+
+func (x *GetExtensionSupportedSizesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtensionSupportedSizesRequest.ProtoReflect.Descriptor instead.
+func (*GetExtensionSupportedSizesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *GetExtensionSupportedSizesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetExtensionSupportedSizesRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetExtensionSupportedSizesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtensionSupportedSizesResponse) Reset() {
+	*x = GetExtensionSupportedSizesResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtensionSupportedSizesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtensionSupportedSizesResponse) ProtoMessage() {}
+
+func (x *GetExtensionSupportedSizesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtensionSupportedSizesResponse.ProtoReflect.Descriptor instead.
+func (*GetExtensionSupportedSizesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{200}
+}
+
+func (x *GetExtensionSupportedSizesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CameraExtensionCharacteristicsGetKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CameraExtensionCharacteristicsGetKeysRequest) Reset() {
+	*x = CameraExtensionCharacteristicsGetKeysRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CameraExtensionCharacteristicsGetKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CameraExtensionCharacteristicsGetKeysRequest) ProtoMessage() {}
+
+func (x *CameraExtensionCharacteristicsGetKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CameraExtensionCharacteristicsGetKeysRequest.ProtoReflect.Descriptor instead.
+func (*CameraExtensionCharacteristicsGetKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *CameraExtensionCharacteristicsGetKeysRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPostviewSupportedSizesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostviewSupportedSizesRequest) Reset() {
+	*x = GetPostviewSupportedSizesRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostviewSupportedSizesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostviewSupportedSizesRequest) ProtoMessage() {}
+
+func (x *GetPostviewSupportedSizesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostviewSupportedSizesRequest.ProtoReflect.Descriptor instead.
+func (*GetPostviewSupportedSizesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{202}
+}
+
+func (x *GetPostviewSupportedSizesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetPostviewSupportedSizesRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetPostviewSupportedSizesRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type GetPostviewSupportedSizesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostviewSupportedSizesResponse) Reset() {
+	*x = GetPostviewSupportedSizesResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostviewSupportedSizesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostviewSupportedSizesResponse) ProtoMessage() {}
+
+func (x *GetPostviewSupportedSizesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostviewSupportedSizesResponse.ProtoReflect.Descriptor instead.
+func (*GetPostviewSupportedSizesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *GetPostviewSupportedSizesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedExtensionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedExtensionsRequest) Reset() {
+	*x = GetSupportedExtensionsRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedExtensionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedExtensionsRequest) ProtoMessage() {}
+
+func (x *GetSupportedExtensionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedExtensionsRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedExtensionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{204}
+}
+
+type GetSupportedExtensionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedExtensionsResponse) Reset() {
+	*x = GetSupportedExtensionsResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedExtensionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedExtensionsResponse) ProtoMessage() {}
+
+func (x *GetSupportedExtensionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedExtensionsResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedExtensionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{205}
+}
+
+func (x *GetSupportedExtensionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsCaptureProcessProgressAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsCaptureProcessProgressAvailableRequest) Reset() {
+	*x = IsCaptureProcessProgressAvailableRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsCaptureProcessProgressAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsCaptureProcessProgressAvailableRequest) ProtoMessage() {}
+
+func (x *IsCaptureProcessProgressAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsCaptureProcessProgressAvailableRequest.ProtoReflect.Descriptor instead.
+func (*IsCaptureProcessProgressAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *IsCaptureProcessProgressAvailableRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsCaptureProcessProgressAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsCaptureProcessProgressAvailableResponse) Reset() {
+	*x = IsCaptureProcessProgressAvailableResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsCaptureProcessProgressAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsCaptureProcessProgressAvailableResponse) ProtoMessage() {}
+
+func (x *IsCaptureProcessProgressAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsCaptureProcessProgressAvailableResponse.ProtoReflect.Descriptor instead.
+func (*IsCaptureProcessProgressAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{207}
+}
+
+func (x *IsCaptureProcessProgressAvailableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPostviewAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPostviewAvailableRequest) Reset() {
+	*x = IsPostviewAvailableRequest{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPostviewAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPostviewAvailableRequest) ProtoMessage() {}
+
+func (x *IsPostviewAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPostviewAvailableRequest.ProtoReflect.Descriptor instead.
+func (*IsPostviewAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{208}
+}
+
+func (x *IsPostviewAvailableRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsPostviewAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPostviewAvailableResponse) Reset() {
+	*x = IsPostviewAvailableResponse{}
+	mi := &file_proto_camera2_camera2_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPostviewAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPostviewAvailableResponse) ProtoMessage() {}
+
+func (x *IsPostviewAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera2_camera2_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPostviewAvailableResponse.ProtoReflect.Descriptor instead.
+func (*IsPostviewAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera2_camera2_proto_rawDescGZIP(), []int{209}
+}
+
+func (x *IsPostviewAvailableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
 }
 
 var File_proto_camera2_camera2_proto protoreflect.FileDescriptor
 
 const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/camera2/camera2.proto\x12\acamera2\">\n" +
-	"(IsCaptureProcessProgressAvailableRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"C\n" +
-	")IsCaptureProcessProgressAvailableResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
-	"\x1aIsPostviewAvailableRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
-	"\x1bIsPostviewAvailableResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x0e\n" +
-	"\fCloseRequest\"\x0f\n" +
-	"\rCloseResponse\"%\n" +
-	"\x0fOnClosedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
-	"\x10OnClosedResponse\"8\n" +
-	"\x0eOnErrorRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x11\n" +
-	"\x0fOnErrorResponse\"#\n" +
-	"\rOnIdleRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
-	"\x0eOnIdleResponse\"$\n" +
-	"\x0eOnReadyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fOnReadyResponse\"+\n" +
-	"\x15OnSwitchFailedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16OnSwitchFailedResponse\"A\n" +
-	"+GetRecommendedStreamConfigurationMapRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"F\n" +
-	",GetRecommendedStreamConfigurationMapResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\x1bproto/camera2/camera2.proto\x12\acamera2\"7\n" +
+	"!CreateHighSpeedRequestListRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"CreateHighSpeedRequestListResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetCameraIdRequest\"-\n" +
+	"\x13GetCameraIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetFrameNumberRequest\"0\n" +
+	"\x16GetFrameNumberResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetKeysRequest\")\n" +
+	"\x0fGetKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11GetRequestRequest\",\n" +
+	"\x12GetRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetSequenceIdRequest\"/\n" +
+	"\x15GetSequenceIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
@@ -7874,121 +9188,7 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
 	"\x0fToStringRequest\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
-	"\x12GetCameraIdRequest\"-\n" +
-	"\x13GetCameraIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
-	"\x15GetFrameNumberRequest\"0\n" +
-	"\x16GetFrameNumberResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
-	"\x11GetRequestRequest\",\n" +
-	"\x12GetRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
-	"\x14GetSequenceIdRequest\"/\n" +
-	"\x15GetSequenceIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1c\n" +
-	"\x1aGetPhysicalCameraIdRequest\"5\n" +
-	"\x1bGetPhysicalCameraIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x12\n" +
-	"\x10GetReasonRequest\"+\n" +
-	"\x11GetReasonResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
-	"\x17WasImageCapturedRequest\"2\n" +
-	"\x18WasImageCapturedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"L\n" +
-	"\x0eCaptureRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\")\n" +
-	"\x0fCaptureResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x12\n" +
-	"\x10GetDeviceRequest\"+\n" +
-	"\x11GetDeviceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"%GetRealtimeStillCaptureLatencyRequest\"@\n" +
-	"&GetRealtimeStillCaptureLatencyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"X\n" +
-	"\x1aSetRepeatingRequestRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"5\n" +
-	"\x1bSetRepeatingRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
-	"\x14StopRepeatingRequest\"\x17\n" +
-	"\x15StopRepeatingResponse\"A\n" +
-	"\x17OnCaptureFailed2Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1a\n" +
-	"\x18OnCaptureFailed2Response\"W\n" +
-	"\x19OnCaptureFailed3_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x1c\n" +
-	"\x1aOnCaptureFailed3_1Response\"_\n" +
-	"!OnCaptureProcessProgressedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"$\n" +
-	"\"OnCaptureProcessProgressedResponse\"H\n" +
-	"\x1eOnCaptureProcessStartedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"!\n" +
-	"\x1fOnCaptureProcessStartedResponse\"]\n" +
-	"\x1fOnCaptureResultAvailableRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\"\n" +
-	" OnCaptureResultAvailableResponse\"I\n" +
-	"\x1fOnCaptureSequenceAbortedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\"\n" +
-	" OnCaptureSequenceAbortedResponse\"K\n" +
-	"!OnCaptureSequenceCompletedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"$\n" +
-	"\"OnCaptureSequenceCompletedResponse\"U\n" +
-	"\x17OnCaptureStartedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x1a\n" +
-	"\x18OnCaptureStartedResponse\".\n" +
-	"\x18OnConfigureFailedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
-	"\x19OnConfigureFailedResponse\")\n" +
-	"\x13OnConfiguredRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
-	"\x14OnConfiguredResponse\"\x1a\n" +
-	"\x18GetCaptureLatencyRequest\"3\n" +
-	"\x19GetCaptureLatencyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bGetProcessingLatencyRequest\"6\n" +
-	"\x1cGetProcessingLatencyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"b\n" +
-	"$NewMultiResolutionImageReaderRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"?\n" +
-	"%NewMultiResolutionImageReaderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
-	"&MultiResolutionImageReaderCloseRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"&\n" +
-	"\fFlushRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
-	"\rFlushResponse\"P\n" +
-	"\"GetStreamInfoForImageReaderRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"=\n" +
-	"#GetStreamInfoForImageReaderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x11GetSurfaceRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
-	"\x12GetSurfaceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"d\n" +
-	"\"SetOnImageAvailableListenerRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"%\n" +
-	"#SetOnImageAvailableListenerResponse\"\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
 	"\x14AbortCapturesRequest\"\x17\n" +
 	"\x15AbortCapturesResponse\"Y\n" +
 	"\x1bCaptureSingleRequestRequest\x12\x12\n" +
@@ -7996,7 +9196,12 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"6\n" +
 	"\x1cCaptureSingleRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"\x12\n" +
+	"\x10GetDeviceRequest\"+\n" +
+	"\x11GetDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
 	"\x16GetInputSurfaceRequest\"1\n" +
 	"\x17GetInputSurfaceResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
@@ -8011,7 +9216,9 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\";\n" +
 	"!SetSingleRepeatingRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"6\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14StopRepeatingRequest\"\x17\n" +
+	"\x15StopRepeatingResponse\"6\n" +
 	" SupportsOfflineProcessingRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
 	"!SupportsOfflineProcessingResponse\x12\x16\n" +
@@ -8039,16 +9246,22 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x1d\n" +
-	"\x1bOnCaptureProgressedResponse\"\x82\x01\n" +
-	"DCameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest\x12\x12\n" +
+	"\x1bOnCaptureProgressedResponse\"I\n" +
+	"\x1fOnCaptureSequenceAbortedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\"\n" +
+	" OnCaptureSequenceAbortedResponse\"_\n" +
+	"!OnCaptureSequenceCompletedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x8c\x01\n" +
-	":CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"$\n" +
+	"\"OnCaptureSequenceCompletedResponse\"i\n" +
+	"\x17OnCaptureStartedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"i\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"\x1a\n" +
+	"\x18OnCaptureStartedResponse\"i\n" +
 	"\x17OnReadoutStartedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
@@ -8060,11 +9273,35 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x10OnActiveResponse\"0\n" +
 	"\x1aOnCaptureQueueEmptyRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1d\n" +
-	"\x1bOnCaptureQueueEmptyResponse\"B\n" +
+	"\x1bOnCaptureQueueEmptyResponse\"%\n" +
+	"\x0fOnClosedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
+	"\x10OnClosedResponse\".\n" +
+	"\x18OnConfigureFailedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19OnConfigureFailedResponse\")\n" +
+	"\x13OnConfiguredRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
+	"\x14OnConfiguredResponse\"$\n" +
+	"\x0eOnReadyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fOnReadyResponse\"B\n" +
 	"\x18OnSurfacePreparedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1b\n" +
-	"\x19OnSurfacePreparedResponse\"1\n" +
+	"\x19OnSurfacePreparedResponse\"\x1c\n" +
+	"\x1aGetPhysicalCameraIdRequest\"5\n" +
+	"\x1bGetPhysicalCameraIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x12\n" +
+	"\x10GetReasonRequest\"+\n" +
+	"\x11GetReasonResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17WasImageCapturedRequest\"2\n" +
+	"\x18WasImageCapturedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1a\n" +
+	"\x18GetPartialResultsRequest\"3\n" +
+	"\x19GetPartialResultsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
 	"\x1bCreateCaptureRequestRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
 	"\x1cCreateCaptureRequestResponse\x12\x16\n" +
@@ -8102,35 +9339,51 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x12OpenCameraResponse\"+\n" +
 	"\x15OnDisconnectedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16OnDisconnectedResponse\"%\n" +
+	"\x16OnDisconnectedResponse\"8\n" +
+	"\x0eOnErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x11\n" +
+	"\x0fOnErrorResponse\"%\n" +
 	"\x0fOnOpenedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
-	"\x10OnOpenedResponse\"\x19\n" +
-	"\x17DescribeContentsRequest\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
-	"\rGetTagRequest\"(\n" +
-	"\x0eGetTagResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12IsReprocessRequest\"-\n" +
-	"\x13IsReprocessResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"&\n" +
-	"\x10AddTargetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
-	"\x11AddTargetResponse\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x13RemoveTargetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
-	"\x14RemoveTargetResponse\"#\n" +
-	"\rSetTagRequest\x12\x12\n" +
+	"\x10OnOpenedResponse\"5\n" +
+	"\x1fNewCameraAccessExceptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\":\n" +
+	" NewCameraAccessExceptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"%CameraAccessExceptionGetReasonRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"#\n" +
+	"\rOnIdleRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
-	"\x0eSetTagResponse\">\n" +
+	"\x0eOnIdleResponse\"+\n" +
+	"\x15OnSwitchFailedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16OnSwitchFailedResponse\"'\n" +
+	"%GetAvailableCaptureRequestKeysRequest\"@\n" +
+	"&GetAvailableCaptureRequestKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"$GetAvailableCaptureResultKeysRequest\"?\n" +
+	"%GetAvailableCaptureResultKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	",GetAvailablePhysicalCameraRequestKeysRequest\"G\n" +
+	"-GetAvailablePhysicalCameraRequestKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"-GetAvailableSessionCharacteristicsKeysRequest\"H\n" +
+	".GetAvailableSessionCharacteristicsKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eGetAvailableSessionKeysRequest\"9\n" +
+	"\x1fGetAvailableSessionKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\x1fGetKeysNeedingPermissionRequest\":\n" +
+	" GetKeysNeedingPermissionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetPhysicalCameraIdsRequest\"6\n" +
+	"\x1cGetPhysicalCameraIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"+GetRecommendedStreamConfigurationMapRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"F\n" +
+	",GetRecommendedStreamConfigurationMapResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
 	"\x14NewDngCreatorRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
@@ -8174,34 +9427,148 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
 	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"\x1a\n" +
-	"\x18WriteInputStreamResponse\"5\n" +
-	"\x1fNewCameraAccessExceptionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\":\n" +
-	" NewCameraAccessExceptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
-	"%CameraAccessExceptionGetReasonRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle2\x96\x02\n" +
-	"%CameraExtensionCharacteristicsService\x12\x8a\x01\n" +
-	"!IsCaptureProcessProgressAvailable\x121.camera2.IsCaptureProcessProgressAvailableRequest\x1a2.camera2.IsCaptureProcessProgressAvailableResponse\x12`\n" +
-	"\x13IsPostviewAvailable\x12#.camera2.IsPostviewAvailableRequest\x1a$.camera2.IsPostviewAvailableResponse2U\n" +
-	"\x1bCameraOfflineSessionService\x126\n" +
-	"\x05Close\x12\x15.camera2.CloseRequest\x1a\x16.camera2.CloseResponse2\x84\x03\n" +
-	"7CameraOfflineSessionCameraOfflineSessionCallbackService\x12?\n" +
-	"\bOnClosed\x12\x18.camera2.OnClosedRequest\x1a\x19.camera2.OnClosedResponse\x12<\n" +
-	"\aOnError\x12\x17.camera2.OnErrorRequest\x1a\x18.camera2.OnErrorResponse\x129\n" +
-	"\x06OnIdle\x12\x16.camera2.OnIdleRequest\x1a\x17.camera2.OnIdleResponse\x12<\n" +
-	"\aOnReady\x12\x17.camera2.OnReadyRequest\x1a\x18.camera2.OnReadyResponse\x12Q\n" +
-	"\x0eOnSwitchFailed\x12\x1e.camera2.OnSwitchFailedRequest\x1a\x1f.camera2.OnSwitchFailedResponse2\xb4\x01\n" +
-	"\x1cCameraCharacteristicsService\x12\x93\x01\n" +
-	"$GetRecommendedStreamConfigurationMap\x124.camera2.GetRecommendedStreamConfigurationMapRequest\x1a5.camera2.GetRecommendedStreamConfigurationMapResponse2\x9c\x02\n" +
-	"\x1fCameraCharacteristicsKeyService\x129\n" +
-	"\x06Equals\x12\x16.camera2.EqualsRequest\x1a\x17.camera2.EqualsResponse\x12<\n" +
-	"\aGetName\x12\x17.camera2.GetNameRequest\x1a\x18.camera2.GetNameResponse\x12?\n" +
-	"\bHashCode\x12\x18.camera2.HashCodeRequest\x1a\x19.camera2.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.camera2.ToStringRequest\x1a\x19.camera2.ToStringResponse2\xca\x02\n" +
+	"\x18WriteInputStreamResponse\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\rGetTagRequest\"(\n" +
+	"\x0eGetTagResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12IsReprocessRequest\"-\n" +
+	"\x13IsReprocessResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"&\n" +
+	"\x10AddTargetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11AddTargetResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13RemoveTargetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
+	"\x14RemoveTargetResponse\"#\n" +
+	"\rSetTagRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
+	"\x0eSetTagResponse\"b\n" +
+	"$NewMultiResolutionImageReaderRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"?\n" +
+	"%NewMultiResolutionImageReaderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"&MultiResolutionImageReaderCloseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"&\n" +
+	"\fFlushRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
+	"\rFlushResponse\"P\n" +
+	"\"GetStreamInfoForImageReaderRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"=\n" +
+	"#GetStreamInfoForImageReaderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetSurfaceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetSurfaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"d\n" +
+	"\"SetOnImageAvailableListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"%\n" +
+	"#SetOnImageAvailableListenerResponse\"L\n" +
+	"\x0eCaptureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\")\n" +
+	"\x0fCaptureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
+	"%GetRealtimeStillCaptureLatencyRequest\"@\n" +
+	"&GetRealtimeStillCaptureLatencyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"X\n" +
+	"\x1aSetRepeatingRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"5\n" +
+	"\x1bSetRepeatingRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"A\n" +
+	"\x17OnCaptureFailed2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1a\n" +
+	"\x18OnCaptureFailed2Response\"W\n" +
+	"\x19OnCaptureFailed3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x1c\n" +
+	"\x1aOnCaptureFailed3_1Response\"_\n" +
+	"!OnCaptureProcessProgressedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"$\n" +
+	"\"OnCaptureProcessProgressedResponse\"H\n" +
+	"\x1eOnCaptureProcessStartedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"!\n" +
+	"\x1fOnCaptureProcessStartedResponse\"]\n" +
+	"\x1fOnCaptureResultAvailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\"\n" +
+	" OnCaptureResultAvailableResponse\"y\n" +
+	"OCameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x83\x01\n" +
+	"ECameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x1a\n" +
+	"\x18GetCaptureLatencyRequest\"3\n" +
+	"\x19GetCaptureLatencyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetProcessingLatencyRequest\"6\n" +
+	"\x1cGetProcessingLatencyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"CCameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"X\n" +
+	"BCameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"j\n" +
+	",GetEstimatedCaptureLatencyRangeMillisRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"G\n" +
+	"-GetEstimatedCaptureLatencyRangeMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"!GetExtensionSupportedSizesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"<\n" +
+	"\"GetExtensionSupportedSizesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	",CameraExtensionCharacteristicsGetKeysRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"^\n" +
+	" GetPostviewSupportedSizesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\";\n" +
+	"!GetPostviewSupportedSizesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dGetSupportedExtensionsRequest\"8\n" +
+	"\x1eGetSupportedExtensionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"(IsCaptureProcessProgressAvailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"C\n" +
+	")IsCaptureProcessProgressAvailableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
+	"\x1aIsPostviewAvailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
+	"\x1bIsPostviewAvailableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xa8\x01\n" +
+	"/CameraConstrainedHighSpeedCaptureSessionService\x12u\n" +
+	"\x1aCreateHighSpeedRequestList\x12*.camera2.CreateHighSpeedRequestListRequest\x1a+.camera2.CreateHighSpeedRequestListResponse2\x88\x03\n" +
 	"\x14CaptureResultService\x12H\n" +
 	"\vGetCameraId\x12\x1b.camera2.GetCameraIdRequest\x1a\x1c.camera2.GetCameraIdResponse\x12Q\n" +
-	"\x0eGetFrameNumber\x12\x1e.camera2.GetFrameNumberRequest\x1a\x1f.camera2.GetFrameNumberResponse\x12E\n" +
+	"\x0eGetFrameNumber\x12\x1e.camera2.GetFrameNumberRequest\x1a\x1f.camera2.GetFrameNumberResponse\x12<\n" +
+	"\aGetKeys\x12\x17.camera2.GetKeysRequest\x1a\x18.camera2.GetKeysResponse\x12E\n" +
 	"\n" +
 	"GetRequest\x12\x1a.camera2.GetRequestRequest\x1a\x1b.camera2.GetRequestResponse\x12N\n" +
 	"\rGetSequenceId\x12\x1d.camera2.GetSequenceIdRequest\x1a\x1e.camera2.GetSequenceIdResponse2\x94\x02\n" +
@@ -8209,49 +9576,9 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x06Equals\x12\x16.camera2.EqualsRequest\x1a\x17.camera2.EqualsResponse\x12<\n" +
 	"\aGetName\x12\x17.camera2.GetNameRequest\x1a\x18.camera2.GetNameResponse\x12?\n" +
 	"\bHashCode\x12\x18.camera2.HashCodeRequest\x1a\x19.camera2.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.camera2.ToStringRequest\x1a\x19.camera2.ToStringResponse2\x80\x04\n" +
-	"\x15CaptureFailureService\x12Q\n" +
-	"\x0eGetFrameNumber\x12\x1e.camera2.GetFrameNumberRequest\x1a\x1f.camera2.GetFrameNumberResponse\x12`\n" +
-	"\x13GetPhysicalCameraId\x12#.camera2.GetPhysicalCameraIdRequest\x1a$.camera2.GetPhysicalCameraIdResponse\x12B\n" +
-	"\tGetReason\x12\x19.camera2.GetReasonRequest\x1a\x1a.camera2.GetReasonResponse\x12E\n" +
-	"\n" +
-	"GetRequest\x12\x1a.camera2.GetRequestRequest\x1a\x1b.camera2.GetRequestResponse\x12N\n" +
-	"\rGetSequenceId\x12\x1d.camera2.GetSequenceIdRequest\x1a\x1e.camera2.GetSequenceIdResponse\x12W\n" +
-	"\x10WasImageCaptured\x12 .camera2.WasImageCapturedRequest\x1a!.camera2.WasImageCapturedResponse2\x8f\x04\n" +
-	"\x1dCameraExtensionSessionService\x12<\n" +
-	"\aCapture\x12\x17.camera2.CaptureRequest\x1a\x18.camera2.CaptureResponse\x126\n" +
-	"\x05Close\x12\x15.camera2.CloseRequest\x1a\x16.camera2.CloseResponse\x12B\n" +
-	"\tGetDevice\x12\x19.camera2.GetDeviceRequest\x1a\x1a.camera2.GetDeviceResponse\x12\x81\x01\n" +
-	"\x1eGetRealtimeStillCaptureLatency\x12..camera2.GetRealtimeStillCaptureLatencyRequest\x1a/.camera2.GetRealtimeStillCaptureLatencyResponse\x12`\n" +
-	"\x13SetRepeatingRequest\x12#.camera2.SetRepeatingRequestRequest\x1a$.camera2.SetRepeatingRequestResponse\x12N\n" +
-	"\rStopRepeating\x12\x1d.camera2.StopRepeatingRequest\x1a\x1e.camera2.StopRepeatingResponse2\x86\a\n" +
-	"5CameraExtensionSessionExtensionCaptureCallbackService\x12W\n" +
-	"\x10OnCaptureFailed2\x12 .camera2.OnCaptureFailed2Request\x1a!.camera2.OnCaptureFailed2Response\x12]\n" +
-	"\x12OnCaptureFailed3_1\x12\".camera2.OnCaptureFailed3_1Request\x1a#.camera2.OnCaptureFailed3_1Response\x12u\n" +
-	"\x1aOnCaptureProcessProgressed\x12*.camera2.OnCaptureProcessProgressedRequest\x1a+.camera2.OnCaptureProcessProgressedResponse\x12l\n" +
-	"\x17OnCaptureProcessStarted\x12'.camera2.OnCaptureProcessStartedRequest\x1a(.camera2.OnCaptureProcessStartedResponse\x12o\n" +
-	"\x18OnCaptureResultAvailable\x12(.camera2.OnCaptureResultAvailableRequest\x1a).camera2.OnCaptureResultAvailableResponse\x12o\n" +
-	"\x18OnCaptureSequenceAborted\x12(.camera2.OnCaptureSequenceAbortedRequest\x1a).camera2.OnCaptureSequenceAbortedResponse\x12u\n" +
-	"\x1aOnCaptureSequenceCompleted\x12*.camera2.OnCaptureSequenceCompletedRequest\x1a+.camera2.OnCaptureSequenceCompletedResponse\x12W\n" +
-	"\x10OnCaptureStarted\x12 .camera2.OnCaptureStartedRequest\x1a!.camera2.OnCaptureStartedResponse2\x96\x02\n" +
-	"*CameraExtensionSessionStateCallbackService\x12?\n" +
-	"\bOnClosed\x12\x18.camera2.OnClosedRequest\x1a\x19.camera2.OnClosedResponse\x12Z\n" +
-	"\x11OnConfigureFailed\x12!.camera2.OnConfigureFailedRequest\x1a\".camera2.OnConfigureFailedResponse\x12K\n" +
-	"\fOnConfigured\x12\x1c.camera2.OnConfiguredRequest\x1a\x1d.camera2.OnConfiguredResponse2\xb0\x03\n" +
-	"0CameraExtensionSessionStillCaptureLatencyService\x129\n" +
-	"\x06Equals\x12\x16.camera2.EqualsRequest\x1a\x17.camera2.EqualsResponse\x12Z\n" +
-	"\x11GetCaptureLatency\x12!.camera2.GetCaptureLatencyRequest\x1a\".camera2.GetCaptureLatencyResponse\x12c\n" +
-	"\x14GetProcessingLatency\x12$.camera2.GetProcessingLatencyRequest\x1a%.camera2.GetProcessingLatencyResponse\x12?\n" +
-	"\bHashCode\x12\x18.camera2.HashCodeRequest\x1a\x19.camera2.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.camera2.ToStringRequest\x1a\x19.camera2.ToStringResponse2\xe8\x04\n" +
-	"!MultiResolutionImageReaderService\x12~\n" +
-	"\x1dNewMultiResolutionImageReader\x12-.camera2.NewMultiResolutionImageReaderRequest\x1a..camera2.NewMultiResolutionImageReaderResponse\x12P\n" +
-	"\x05Close\x12/.camera2.MultiResolutionImageReaderCloseRequest\x1a\x16.camera2.CloseResponse\x126\n" +
-	"\x05Flush\x12\x15.camera2.FlushRequest\x1a\x16.camera2.FlushResponse\x12x\n" +
-	"\x1bGetStreamInfoForImageReader\x12+.camera2.GetStreamInfoForImageReaderRequest\x1a,.camera2.GetStreamInfoForImageReaderResponse\x12E\n" +
-	"\n" +
-	"GetSurface\x12\x1a.camera2.GetSurfaceRequest\x1a\x1b.camera2.GetSurfaceResponse\x12x\n" +
-	"\x1bSetOnImageAvailableListener\x12+.camera2.SetOnImageAvailableListenerRequest\x1a,.camera2.SetOnImageAvailableListenerResponse2\xe4\a\n" +
+	"\bToString\x12\x18.camera2.ToStringRequest\x1a\x19.camera2.ToStringResponse2U\n" +
+	"\x15CameraMetadataService\x12<\n" +
+	"\aGetKeys\x12\x17.camera2.GetKeysRequest\x1a\x18.camera2.GetKeysResponse2\xe4\a\n" +
 	"\x1bCameraCaptureSessionService\x12N\n" +
 	"\rAbortCaptures\x12\x1d.camera2.AbortCapturesRequest\x1a\x1e.camera2.AbortCapturesResponse\x12c\n" +
 	"\x14CaptureSingleRequest\x12$.camera2.CaptureSingleRequestRequest\x1a%.camera2.CaptureSingleRequestResponse\x126\n" +
@@ -8263,15 +9590,15 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x19SetSingleRepeatingRequest\x12).camera2.SetSingleRepeatingRequestRequest\x1a*.camera2.SetSingleRepeatingRequestResponse\x12N\n" +
 	"\rStopRepeating\x12\x1d.camera2.StopRepeatingRequest\x1a\x1e.camera2.StopRepeatingResponse\x12r\n" +
 	"\x19SupportsOfflineProcessing\x12).camera2.SupportsOfflineProcessingRequest\x1a*.camera2.SupportsOfflineProcessingResponse\x12r\n" +
-	"\x19UpdateOutputConfiguration\x12).camera2.UpdateOutputConfigurationRequest\x1a*.camera2.UpdateOutputConfigurationResponse2\x86\a\n" +
+	"\x19UpdateOutputConfiguration\x12).camera2.UpdateOutputConfigurationRequest\x1a*.camera2.UpdateOutputConfigurationResponse2\xbf\x06\n" +
 	"*CameraCaptureSessionCaptureCallbackService\x12`\n" +
 	"\x13OnCaptureBufferLost\x12#.camera2.OnCaptureBufferLostRequest\x1a$.camera2.OnCaptureBufferLostResponse\x12]\n" +
 	"\x12OnCaptureCompleted\x12\".camera2.OnCaptureCompletedRequest\x1a#.camera2.OnCaptureCompletedResponse\x12T\n" +
 	"\x0fOnCaptureFailed\x12\x1f.camera2.OnCaptureFailedRequest\x1a .camera2.OnCaptureFailedResponse\x12`\n" +
 	"\x13OnCaptureProgressed\x12#.camera2.OnCaptureProgressedRequest\x1a$.camera2.OnCaptureProgressedResponse\x12o\n" +
-	"\x18OnCaptureSequenceAborted\x12(.camera2.OnCaptureSequenceAbortedRequest\x1a).camera2.OnCaptureSequenceAbortedResponse\x12\x98\x01\n" +
-	"\x1aOnCaptureSequenceCompleted\x12M.camera2.CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest\x1a+.camera2.OnCaptureSequenceCompletedResponse\x12z\n" +
-	"\x10OnCaptureStarted\x12C.camera2.CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest\x1a!.camera2.OnCaptureStartedResponse\x12W\n" +
+	"\x18OnCaptureSequenceAborted\x12(.camera2.OnCaptureSequenceAbortedRequest\x1a).camera2.OnCaptureSequenceAbortedResponse\x12u\n" +
+	"\x1aOnCaptureSequenceCompleted\x12*.camera2.OnCaptureSequenceCompletedRequest\x1a+.camera2.OnCaptureSequenceCompletedResponse\x12W\n" +
+	"\x10OnCaptureStarted\x12 .camera2.OnCaptureStartedRequest\x1a!.camera2.OnCaptureStartedResponse\x12W\n" +
 	"\x10OnReadoutStarted\x12 .camera2.OnReadoutStartedRequest\x1a!.camera2.OnReadoutStartedResponse2\xd1\x04\n" +
 	"(CameraCaptureSessionStateCallbackService\x12?\n" +
 	"\bOnActive\x12\x18.camera2.OnActiveRequest\x1a\x19.camera2.OnActiveResponse\x12`\n" +
@@ -8280,7 +9607,17 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x11OnConfigureFailed\x12!.camera2.OnConfigureFailedRequest\x1a\".camera2.OnConfigureFailedResponse\x12K\n" +
 	"\fOnConfigured\x12\x1c.camera2.OnConfiguredRequest\x1a\x1d.camera2.OnConfiguredResponse\x12<\n" +
 	"\aOnReady\x12\x17.camera2.OnReadyRequest\x1a\x18.camera2.OnReadyResponse\x12Z\n" +
-	"\x11OnSurfacePrepared\x12!.camera2.OnSurfacePreparedRequest\x1a\".camera2.OnSurfacePreparedResponse2\xa9\a\n" +
+	"\x11OnSurfacePrepared\x12!.camera2.OnSurfacePreparedRequest\x1a\".camera2.OnSurfacePreparedResponse2\x80\x04\n" +
+	"\x15CaptureFailureService\x12Q\n" +
+	"\x0eGetFrameNumber\x12\x1e.camera2.GetFrameNumberRequest\x1a\x1f.camera2.GetFrameNumberResponse\x12`\n" +
+	"\x13GetPhysicalCameraId\x12#.camera2.GetPhysicalCameraIdRequest\x1a$.camera2.GetPhysicalCameraIdResponse\x12B\n" +
+	"\tGetReason\x12\x19.camera2.GetReasonRequest\x1a\x1a.camera2.GetReasonResponse\x12E\n" +
+	"\n" +
+	"GetRequest\x12\x1a.camera2.GetRequestRequest\x1a\x1b.camera2.GetRequestResponse\x12N\n" +
+	"\rGetSequenceId\x12\x1d.camera2.GetSequenceIdRequest\x1a\x1e.camera2.GetSequenceIdResponse\x12W\n" +
+	"\x10WasImageCaptured\x12 .camera2.WasImageCapturedRequest\x1a!.camera2.WasImageCapturedResponse2w\n" +
+	"\x19TotalCaptureResultService\x12Z\n" +
+	"\x11GetPartialResults\x12!.camera2.GetPartialResultsRequest\x1a\".camera2.GetPartialResultsResponse2\xa9\a\n" +
 	"\x13CameraDeviceService\x126\n" +
 	"\x05Close\x12\x15.camera2.CloseRequest\x1a\x16.camera2.CloseResponse\x12c\n" +
 	"\x14CreateCaptureRequest\x12$.camera2.CreateCaptureRequestRequest\x1a%.camera2.CreateCaptureRequestResponse\x12c\n" +
@@ -8302,20 +9639,29 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\bOnClosed\x12\x18.camera2.OnClosedRequest\x1a\x19.camera2.OnClosedResponse\x12Q\n" +
 	"\x0eOnDisconnected\x12\x1e.camera2.OnDisconnectedRequest\x1a\x1f.camera2.OnDisconnectedResponse\x12<\n" +
 	"\aOnError\x12\x17.camera2.OnErrorRequest\x1a\x18.camera2.OnErrorResponse\x12?\n" +
-	"\bOnOpened\x12\x18.camera2.OnOpenedRequest\x1a\x19.camera2.OnOpenedResponse2\xc1\x03\n" +
-	"\x15CaptureRequestService\x12W\n" +
-	"\x10DescribeContents\x12 .camera2.DescribeContentsRequest\x1a!.camera2.DescribeContentsResponse\x129\n" +
-	"\x06Equals\x12\x16.camera2.EqualsRequest\x1a\x17.camera2.EqualsResponse\x129\n" +
-	"\x06GetTag\x12\x16.camera2.GetTagRequest\x1a\x17.camera2.GetTagResponse\x12?\n" +
-	"\bHashCode\x12\x18.camera2.HashCodeRequest\x1a\x19.camera2.HashCodeResponse\x12H\n" +
-	"\vIsReprocess\x12\x1b.camera2.IsReprocessRequest\x1a\x1c.camera2.IsReprocessResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.camera2.WriteToParcelRequest\x1a\x1e.camera2.WriteToParcelResponse2\xa2\x02\n" +
-	"\x1cCaptureRequestBuilderService\x12B\n" +
-	"\tAddTarget\x12\x19.camera2.AddTargetRequest\x1a\x1a.camera2.AddTargetResponse\x126\n" +
-	"\x05Build\x12\x15.camera2.BuildRequest\x1a\x16.camera2.BuildResponse\x12K\n" +
-	"\fRemoveTarget\x12\x1c.camera2.RemoveTargetRequest\x1a\x1d.camera2.RemoveTargetResponse\x129\n" +
-	"\x06SetTag\x12\x16.camera2.SetTagRequest\x1a\x17.camera2.SetTagResponse2\x95\x02\n" +
-	"\x18CaptureRequestKeyService\x129\n" +
+	"\bOnOpened\x12\x18.camera2.OnOpenedRequest\x1a\x19.camera2.OnOpenedResponse2\xe8\x01\n" +
+	"\x1cCameraAccessExceptionService\x12o\n" +
+	"\x18NewCameraAccessException\x12(.camera2.NewCameraAccessExceptionRequest\x1a).camera2.NewCameraAccessExceptionResponse\x12W\n" +
+	"\tGetReason\x12..camera2.CameraAccessExceptionGetReasonRequest\x1a\x1a.camera2.GetReasonResponse2U\n" +
+	"\x1bCameraOfflineSessionService\x126\n" +
+	"\x05Close\x12\x15.camera2.CloseRequest\x1a\x16.camera2.CloseResponse2\x84\x03\n" +
+	"7CameraOfflineSessionCameraOfflineSessionCallbackService\x12?\n" +
+	"\bOnClosed\x12\x18.camera2.OnClosedRequest\x1a\x19.camera2.OnClosedResponse\x12<\n" +
+	"\aOnError\x12\x17.camera2.OnErrorRequest\x1a\x18.camera2.OnErrorResponse\x129\n" +
+	"\x06OnIdle\x12\x16.camera2.OnIdleRequest\x1a\x17.camera2.OnIdleResponse\x12<\n" +
+	"\aOnReady\x12\x17.camera2.OnReadyRequest\x1a\x18.camera2.OnReadyResponse\x12Q\n" +
+	"\x0eOnSwitchFailed\x12\x1e.camera2.OnSwitchFailedRequest\x1a\x1f.camera2.OnSwitchFailedResponse2\xef\b\n" +
+	"\x1cCameraCharacteristicsService\x12\x81\x01\n" +
+	"\x1eGetAvailableCaptureRequestKeys\x12..camera2.GetAvailableCaptureRequestKeysRequest\x1a/.camera2.GetAvailableCaptureRequestKeysResponse\x12~\n" +
+	"\x1dGetAvailableCaptureResultKeys\x12-.camera2.GetAvailableCaptureResultKeysRequest\x1a..camera2.GetAvailableCaptureResultKeysResponse\x12\x96\x01\n" +
+	"%GetAvailablePhysicalCameraRequestKeys\x125.camera2.GetAvailablePhysicalCameraRequestKeysRequest\x1a6.camera2.GetAvailablePhysicalCameraRequestKeysResponse\x12\x99\x01\n" +
+	"&GetAvailableSessionCharacteristicsKeys\x126.camera2.GetAvailableSessionCharacteristicsKeysRequest\x1a7.camera2.GetAvailableSessionCharacteristicsKeysResponse\x12l\n" +
+	"\x17GetAvailableSessionKeys\x12'.camera2.GetAvailableSessionKeysRequest\x1a(.camera2.GetAvailableSessionKeysResponse\x12<\n" +
+	"\aGetKeys\x12\x17.camera2.GetKeysRequest\x1a\x18.camera2.GetKeysResponse\x12o\n" +
+	"\x18GetKeysNeedingPermission\x12(.camera2.GetKeysNeedingPermissionRequest\x1a).camera2.GetKeysNeedingPermissionResponse\x12c\n" +
+	"\x14GetPhysicalCameraIds\x12$.camera2.GetPhysicalCameraIdsRequest\x1a%.camera2.GetPhysicalCameraIdsResponse\x12\x93\x01\n" +
+	"$GetRecommendedStreamConfigurationMap\x124.camera2.GetRecommendedStreamConfigurationMapRequest\x1a5.camera2.GetRecommendedStreamConfigurationMapResponse2\x9c\x02\n" +
+	"\x1fCameraCharacteristicsKeyService\x129\n" +
 	"\x06Equals\x12\x16.camera2.EqualsRequest\x1a\x17.camera2.EqualsResponse\x12<\n" +
 	"\aGetName\x12\x17.camera2.GetNameRequest\x1a\x18.camera2.GetNameResponse\x12?\n" +
 	"\bHashCode\x12\x18.camera2.HashCodeRequest\x1a\x19.camera2.HashCodeResponse\x12?\n" +
@@ -8330,10 +9676,69 @@ const file_proto_camera2_camera2_proto_rawDesc = "" +
 	"\x0fSetThumbnail1_1\x12\x1f.camera2.SetThumbnail1_1Request\x1a .camera2.SetThumbnail1_1Response\x12E\n" +
 	"\n" +
 	"WriteImage\x12\x1a.camera2.WriteImageRequest\x1a\x1b.camera2.WriteImageResponse\x12W\n" +
-	"\x10WriteInputStream\x12 .camera2.WriteInputStreamRequest\x1a!.camera2.WriteInputStreamResponse2\xe8\x01\n" +
-	"\x1cCameraAccessExceptionService\x12o\n" +
-	"\x18NewCameraAccessException\x12(.camera2.NewCameraAccessExceptionRequest\x1a).camera2.NewCameraAccessExceptionResponse\x12W\n" +
-	"\tGetReason\x12..camera2.CameraAccessExceptionGetReasonRequest\x1a\x1a.camera2.GetReasonResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/camera2b\x06proto3"
+	"\x10WriteInputStream\x12 .camera2.WriteInputStreamRequest\x1a!.camera2.WriteInputStreamResponse2\xff\x03\n" +
+	"\x15CaptureRequestService\x12W\n" +
+	"\x10DescribeContents\x12 .camera2.DescribeContentsRequest\x1a!.camera2.DescribeContentsResponse\x129\n" +
+	"\x06Equals\x12\x16.camera2.EqualsRequest\x1a\x17.camera2.EqualsResponse\x12<\n" +
+	"\aGetKeys\x12\x17.camera2.GetKeysRequest\x1a\x18.camera2.GetKeysResponse\x129\n" +
+	"\x06GetTag\x12\x16.camera2.GetTagRequest\x1a\x17.camera2.GetTagResponse\x12?\n" +
+	"\bHashCode\x12\x18.camera2.HashCodeRequest\x1a\x19.camera2.HashCodeResponse\x12H\n" +
+	"\vIsReprocess\x12\x1b.camera2.IsReprocessRequest\x1a\x1c.camera2.IsReprocessResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.camera2.WriteToParcelRequest\x1a\x1e.camera2.WriteToParcelResponse2\xa2\x02\n" +
+	"\x1cCaptureRequestBuilderService\x12B\n" +
+	"\tAddTarget\x12\x19.camera2.AddTargetRequest\x1a\x1a.camera2.AddTargetResponse\x126\n" +
+	"\x05Build\x12\x15.camera2.BuildRequest\x1a\x16.camera2.BuildResponse\x12K\n" +
+	"\fRemoveTarget\x12\x1c.camera2.RemoveTargetRequest\x1a\x1d.camera2.RemoveTargetResponse\x129\n" +
+	"\x06SetTag\x12\x16.camera2.SetTagRequest\x1a\x17.camera2.SetTagResponse2\x95\x02\n" +
+	"\x18CaptureRequestKeyService\x129\n" +
+	"\x06Equals\x12\x16.camera2.EqualsRequest\x1a\x17.camera2.EqualsResponse\x12<\n" +
+	"\aGetName\x12\x17.camera2.GetNameRequest\x1a\x18.camera2.GetNameResponse\x12?\n" +
+	"\bHashCode\x12\x18.camera2.HashCodeRequest\x1a\x19.camera2.HashCodeResponse\x12?\n" +
+	"\bToString\x12\x18.camera2.ToStringRequest\x1a\x19.camera2.ToStringResponse2\xe8\x04\n" +
+	"!MultiResolutionImageReaderService\x12~\n" +
+	"\x1dNewMultiResolutionImageReader\x12-.camera2.NewMultiResolutionImageReaderRequest\x1a..camera2.NewMultiResolutionImageReaderResponse\x12P\n" +
+	"\x05Close\x12/.camera2.MultiResolutionImageReaderCloseRequest\x1a\x16.camera2.CloseResponse\x126\n" +
+	"\x05Flush\x12\x15.camera2.FlushRequest\x1a\x16.camera2.FlushResponse\x12x\n" +
+	"\x1bGetStreamInfoForImageReader\x12+.camera2.GetStreamInfoForImageReaderRequest\x1a,.camera2.GetStreamInfoForImageReaderResponse\x12E\n" +
+	"\n" +
+	"GetSurface\x12\x1a.camera2.GetSurfaceRequest\x1a\x1b.camera2.GetSurfaceResponse\x12x\n" +
+	"\x1bSetOnImageAvailableListener\x12+.camera2.SetOnImageAvailableListenerRequest\x1a,.camera2.SetOnImageAvailableListenerResponse2\x8f\x04\n" +
+	"\x1dCameraExtensionSessionService\x12<\n" +
+	"\aCapture\x12\x17.camera2.CaptureRequest\x1a\x18.camera2.CaptureResponse\x126\n" +
+	"\x05Close\x12\x15.camera2.CloseRequest\x1a\x16.camera2.CloseResponse\x12B\n" +
+	"\tGetDevice\x12\x19.camera2.GetDeviceRequest\x1a\x1a.camera2.GetDeviceResponse\x12\x81\x01\n" +
+	"\x1eGetRealtimeStillCaptureLatency\x12..camera2.GetRealtimeStillCaptureLatencyRequest\x1a/.camera2.GetRealtimeStillCaptureLatencyResponse\x12`\n" +
+	"\x13SetRepeatingRequest\x12#.camera2.SetRepeatingRequestRequest\x1a$.camera2.SetRepeatingRequestResponse\x12N\n" +
+	"\rStopRepeating\x12\x1d.camera2.StopRepeatingRequest\x1a\x1e.camera2.StopRepeatingResponse2\xe4\a\n" +
+	"5CameraExtensionSessionExtensionCaptureCallbackService\x12W\n" +
+	"\x10OnCaptureFailed2\x12 .camera2.OnCaptureFailed2Request\x1a!.camera2.OnCaptureFailed2Response\x12]\n" +
+	"\x12OnCaptureFailed3_1\x12\".camera2.OnCaptureFailed3_1Request\x1a#.camera2.OnCaptureFailed3_1Response\x12u\n" +
+	"\x1aOnCaptureProcessProgressed\x12*.camera2.OnCaptureProcessProgressedRequest\x1a+.camera2.OnCaptureProcessProgressedResponse\x12l\n" +
+	"\x17OnCaptureProcessStarted\x12'.camera2.OnCaptureProcessStartedRequest\x1a(.camera2.OnCaptureProcessStartedResponse\x12o\n" +
+	"\x18OnCaptureResultAvailable\x12(.camera2.OnCaptureResultAvailableRequest\x1a).camera2.OnCaptureResultAvailableResponse\x12o\n" +
+	"\x18OnCaptureSequenceAborted\x12(.camera2.OnCaptureSequenceAbortedRequest\x1a).camera2.OnCaptureSequenceAbortedResponse\x12\xa3\x01\n" +
+	"\x1aOnCaptureSequenceCompleted\x12X.camera2.CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest\x1a+.camera2.OnCaptureSequenceCompletedResponse\x12\x85\x01\n" +
+	"\x10OnCaptureStarted\x12N.camera2.CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest\x1a!.camera2.OnCaptureStartedResponse2\x96\x02\n" +
+	"*CameraExtensionSessionStateCallbackService\x12?\n" +
+	"\bOnClosed\x12\x18.camera2.OnClosedRequest\x1a\x19.camera2.OnClosedResponse\x12Z\n" +
+	"\x11OnConfigureFailed\x12!.camera2.OnConfigureFailedRequest\x1a\".camera2.OnConfigureFailedResponse\x12K\n" +
+	"\fOnConfigured\x12\x1c.camera2.OnConfiguredRequest\x1a\x1d.camera2.OnConfiguredResponse2\xb0\x03\n" +
+	"0CameraExtensionSessionStillCaptureLatencyService\x129\n" +
+	"\x06Equals\x12\x16.camera2.EqualsRequest\x1a\x17.camera2.EqualsResponse\x12Z\n" +
+	"\x11GetCaptureLatency\x12!.camera2.GetCaptureLatencyRequest\x1a\".camera2.GetCaptureLatencyResponse\x12c\n" +
+	"\x14GetProcessingLatency\x12$.camera2.GetProcessingLatencyRequest\x1a%.camera2.GetProcessingLatencyResponse\x12?\n" +
+	"\bHashCode\x12\x18.camera2.HashCodeRequest\x1a\x19.camera2.HashCodeResponse\x12?\n" +
+	"\bToString\x12\x18.camera2.ToStringRequest\x1a\x19.camera2.ToStringResponse2\xa2\t\n" +
+	"%CameraExtensionCharacteristicsService\x12\x9f\x01\n" +
+	"\x1eGetAvailableCaptureRequestKeys\x12L.camera2.CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest\x1a/.camera2.GetAvailableCaptureRequestKeysResponse\x12\x9c\x01\n" +
+	"\x1dGetAvailableCaptureResultKeys\x12K.camera2.CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest\x1a..camera2.GetAvailableCaptureResultKeysResponse\x12\x96\x01\n" +
+	"%GetEstimatedCaptureLatencyRangeMillis\x125.camera2.GetEstimatedCaptureLatencyRangeMillisRequest\x1a6.camera2.GetEstimatedCaptureLatencyRangeMillisResponse\x12u\n" +
+	"\x1aGetExtensionSupportedSizes\x12*.camera2.GetExtensionSupportedSizesRequest\x1a+.camera2.GetExtensionSupportedSizesResponse\x12Z\n" +
+	"\aGetKeys\x125.camera2.CameraExtensionCharacteristicsGetKeysRequest\x1a\x18.camera2.GetKeysResponse\x12r\n" +
+	"\x19GetPostviewSupportedSizes\x12).camera2.GetPostviewSupportedSizesRequest\x1a*.camera2.GetPostviewSupportedSizesResponse\x12i\n" +
+	"\x16GetSupportedExtensions\x12&.camera2.GetSupportedExtensionsRequest\x1a'.camera2.GetSupportedExtensionsResponse\x12\x8a\x01\n" +
+	"!IsCaptureProcessProgressAvailable\x121.camera2.IsCaptureProcessProgressAvailableRequest\x1a2.camera2.IsCaptureProcessProgressAvailableResponse\x12`\n" +
+	"\x13IsPostviewAvailable\x12#.camera2.IsPostviewAvailableRequest\x1a$.camera2.IsPostviewAvailableResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/camera2b\x06proto3"
 
 var (
 	file_proto_camera2_camera2_proto_rawDescOnce sync.Once
@@ -8347,439 +9752,510 @@ func file_proto_camera2_camera2_proto_rawDescGZIP() []byte {
 	return file_proto_camera2_camera2_proto_rawDescData
 }
 
-var file_proto_camera2_camera2_proto_msgTypes = make([]protoimpl.MessageInfo, 179)
+var file_proto_camera2_camera2_proto_msgTypes = make([]protoimpl.MessageInfo, 210)
 var file_proto_camera2_camera2_proto_goTypes = []any{
-	(*IsCaptureProcessProgressAvailableRequest)(nil),                             // 0: camera2.IsCaptureProcessProgressAvailableRequest
-	(*IsCaptureProcessProgressAvailableResponse)(nil),                            // 1: camera2.IsCaptureProcessProgressAvailableResponse
-	(*IsPostviewAvailableRequest)(nil),                                           // 2: camera2.IsPostviewAvailableRequest
-	(*IsPostviewAvailableResponse)(nil),                                          // 3: camera2.IsPostviewAvailableResponse
-	(*CloseRequest)(nil),                                                         // 4: camera2.CloseRequest
-	(*CloseResponse)(nil),                                                        // 5: camera2.CloseResponse
-	(*OnClosedRequest)(nil),                                                      // 6: camera2.OnClosedRequest
-	(*OnClosedResponse)(nil),                                                     // 7: camera2.OnClosedResponse
-	(*OnErrorRequest)(nil),                                                       // 8: camera2.OnErrorRequest
-	(*OnErrorResponse)(nil),                                                      // 9: camera2.OnErrorResponse
-	(*OnIdleRequest)(nil),                                                        // 10: camera2.OnIdleRequest
-	(*OnIdleResponse)(nil),                                                       // 11: camera2.OnIdleResponse
-	(*OnReadyRequest)(nil),                                                       // 12: camera2.OnReadyRequest
-	(*OnReadyResponse)(nil),                                                      // 13: camera2.OnReadyResponse
-	(*OnSwitchFailedRequest)(nil),                                                // 14: camera2.OnSwitchFailedRequest
-	(*OnSwitchFailedResponse)(nil),                                               // 15: camera2.OnSwitchFailedResponse
-	(*GetRecommendedStreamConfigurationMapRequest)(nil),                          // 16: camera2.GetRecommendedStreamConfigurationMapRequest
-	(*GetRecommendedStreamConfigurationMapResponse)(nil),                         // 17: camera2.GetRecommendedStreamConfigurationMapResponse
-	(*EqualsRequest)(nil),                                                        // 18: camera2.EqualsRequest
-	(*EqualsResponse)(nil),                                                       // 19: camera2.EqualsResponse
-	(*GetNameRequest)(nil),                                                       // 20: camera2.GetNameRequest
-	(*GetNameResponse)(nil),                                                      // 21: camera2.GetNameResponse
-	(*HashCodeRequest)(nil),                                                      // 22: camera2.HashCodeRequest
-	(*HashCodeResponse)(nil),                                                     // 23: camera2.HashCodeResponse
-	(*ToStringRequest)(nil),                                                      // 24: camera2.ToStringRequest
-	(*ToStringResponse)(nil),                                                     // 25: camera2.ToStringResponse
-	(*GetCameraIdRequest)(nil),                                                   // 26: camera2.GetCameraIdRequest
-	(*GetCameraIdResponse)(nil),                                                  // 27: camera2.GetCameraIdResponse
-	(*GetFrameNumberRequest)(nil),                                                // 28: camera2.GetFrameNumberRequest
-	(*GetFrameNumberResponse)(nil),                                               // 29: camera2.GetFrameNumberResponse
-	(*GetRequestRequest)(nil),                                                    // 30: camera2.GetRequestRequest
-	(*GetRequestResponse)(nil),                                                   // 31: camera2.GetRequestResponse
-	(*GetSequenceIdRequest)(nil),                                                 // 32: camera2.GetSequenceIdRequest
-	(*GetSequenceIdResponse)(nil),                                                // 33: camera2.GetSequenceIdResponse
-	(*GetPhysicalCameraIdRequest)(nil),                                           // 34: camera2.GetPhysicalCameraIdRequest
-	(*GetPhysicalCameraIdResponse)(nil),                                          // 35: camera2.GetPhysicalCameraIdResponse
-	(*GetReasonRequest)(nil),                                                     // 36: camera2.GetReasonRequest
-	(*GetReasonResponse)(nil),                                                    // 37: camera2.GetReasonResponse
-	(*WasImageCapturedRequest)(nil),                                              // 38: camera2.WasImageCapturedRequest
-	(*WasImageCapturedResponse)(nil),                                             // 39: camera2.WasImageCapturedResponse
-	(*CaptureRequest)(nil),                                                       // 40: camera2.CaptureRequest
-	(*CaptureResponse)(nil),                                                      // 41: camera2.CaptureResponse
-	(*GetDeviceRequest)(nil),                                                     // 42: camera2.GetDeviceRequest
-	(*GetDeviceResponse)(nil),                                                    // 43: camera2.GetDeviceResponse
-	(*GetRealtimeStillCaptureLatencyRequest)(nil),                                // 44: camera2.GetRealtimeStillCaptureLatencyRequest
-	(*GetRealtimeStillCaptureLatencyResponse)(nil),                               // 45: camera2.GetRealtimeStillCaptureLatencyResponse
-	(*SetRepeatingRequestRequest)(nil),                                           // 46: camera2.SetRepeatingRequestRequest
-	(*SetRepeatingRequestResponse)(nil),                                          // 47: camera2.SetRepeatingRequestResponse
-	(*StopRepeatingRequest)(nil),                                                 // 48: camera2.StopRepeatingRequest
-	(*StopRepeatingResponse)(nil),                                                // 49: camera2.StopRepeatingResponse
-	(*OnCaptureFailed2Request)(nil),                                              // 50: camera2.OnCaptureFailed2Request
-	(*OnCaptureFailed2Response)(nil),                                             // 51: camera2.OnCaptureFailed2Response
-	(*OnCaptureFailed3_1Request)(nil),                                            // 52: camera2.OnCaptureFailed3_1Request
-	(*OnCaptureFailed3_1Response)(nil),                                           // 53: camera2.OnCaptureFailed3_1Response
-	(*OnCaptureProcessProgressedRequest)(nil),                                    // 54: camera2.OnCaptureProcessProgressedRequest
-	(*OnCaptureProcessProgressedResponse)(nil),                                   // 55: camera2.OnCaptureProcessProgressedResponse
-	(*OnCaptureProcessStartedRequest)(nil),                                       // 56: camera2.OnCaptureProcessStartedRequest
-	(*OnCaptureProcessStartedResponse)(nil),                                      // 57: camera2.OnCaptureProcessStartedResponse
-	(*OnCaptureResultAvailableRequest)(nil),                                      // 58: camera2.OnCaptureResultAvailableRequest
-	(*OnCaptureResultAvailableResponse)(nil),                                     // 59: camera2.OnCaptureResultAvailableResponse
-	(*OnCaptureSequenceAbortedRequest)(nil),                                      // 60: camera2.OnCaptureSequenceAbortedRequest
-	(*OnCaptureSequenceAbortedResponse)(nil),                                     // 61: camera2.OnCaptureSequenceAbortedResponse
-	(*OnCaptureSequenceCompletedRequest)(nil),                                    // 62: camera2.OnCaptureSequenceCompletedRequest
-	(*OnCaptureSequenceCompletedResponse)(nil),                                   // 63: camera2.OnCaptureSequenceCompletedResponse
-	(*OnCaptureStartedRequest)(nil),                                              // 64: camera2.OnCaptureStartedRequest
-	(*OnCaptureStartedResponse)(nil),                                             // 65: camera2.OnCaptureStartedResponse
-	(*OnConfigureFailedRequest)(nil),                                             // 66: camera2.OnConfigureFailedRequest
-	(*OnConfigureFailedResponse)(nil),                                            // 67: camera2.OnConfigureFailedResponse
-	(*OnConfiguredRequest)(nil),                                                  // 68: camera2.OnConfiguredRequest
-	(*OnConfiguredResponse)(nil),                                                 // 69: camera2.OnConfiguredResponse
-	(*GetCaptureLatencyRequest)(nil),                                             // 70: camera2.GetCaptureLatencyRequest
-	(*GetCaptureLatencyResponse)(nil),                                            // 71: camera2.GetCaptureLatencyResponse
-	(*GetProcessingLatencyRequest)(nil),                                          // 72: camera2.GetProcessingLatencyRequest
-	(*GetProcessingLatencyResponse)(nil),                                         // 73: camera2.GetProcessingLatencyResponse
-	(*NewMultiResolutionImageReaderRequest)(nil),                                 // 74: camera2.NewMultiResolutionImageReaderRequest
-	(*NewMultiResolutionImageReaderResponse)(nil),                                // 75: camera2.NewMultiResolutionImageReaderResponse
-	(*MultiResolutionImageReaderCloseRequest)(nil),                               // 76: camera2.MultiResolutionImageReaderCloseRequest
-	(*FlushRequest)(nil),                                                         // 77: camera2.FlushRequest
-	(*FlushResponse)(nil),                                                        // 78: camera2.FlushResponse
-	(*GetStreamInfoForImageReaderRequest)(nil),                                   // 79: camera2.GetStreamInfoForImageReaderRequest
-	(*GetStreamInfoForImageReaderResponse)(nil),                                  // 80: camera2.GetStreamInfoForImageReaderResponse
-	(*GetSurfaceRequest)(nil),                                                    // 81: camera2.GetSurfaceRequest
-	(*GetSurfaceResponse)(nil),                                                   // 82: camera2.GetSurfaceResponse
-	(*SetOnImageAvailableListenerRequest)(nil),                                   // 83: camera2.SetOnImageAvailableListenerRequest
-	(*SetOnImageAvailableListenerResponse)(nil),                                  // 84: camera2.SetOnImageAvailableListenerResponse
-	(*AbortCapturesRequest)(nil),                                                 // 85: camera2.AbortCapturesRequest
-	(*AbortCapturesResponse)(nil),                                                // 86: camera2.AbortCapturesResponse
-	(*CaptureSingleRequestRequest)(nil),                                          // 87: camera2.CaptureSingleRequestRequest
-	(*CaptureSingleRequestResponse)(nil),                                         // 88: camera2.CaptureSingleRequestResponse
-	(*GetInputSurfaceRequest)(nil),                                               // 89: camera2.GetInputSurfaceRequest
-	(*GetInputSurfaceResponse)(nil),                                              // 90: camera2.GetInputSurfaceResponse
-	(*IsReprocessableRequest)(nil),                                               // 91: camera2.IsReprocessableRequest
-	(*IsReprocessableResponse)(nil),                                              // 92: camera2.IsReprocessableResponse
-	(*PrepareRequest)(nil),                                                       // 93: camera2.PrepareRequest
-	(*PrepareResponse)(nil),                                                      // 94: camera2.PrepareResponse
-	(*SetSingleRepeatingRequestRequest)(nil),                                     // 95: camera2.SetSingleRepeatingRequestRequest
-	(*SetSingleRepeatingRequestResponse)(nil),                                    // 96: camera2.SetSingleRepeatingRequestResponse
-	(*SupportsOfflineProcessingRequest)(nil),                                     // 97: camera2.SupportsOfflineProcessingRequest
-	(*SupportsOfflineProcessingResponse)(nil),                                    // 98: camera2.SupportsOfflineProcessingResponse
-	(*UpdateOutputConfigurationRequest)(nil),                                     // 99: camera2.UpdateOutputConfigurationRequest
-	(*UpdateOutputConfigurationResponse)(nil),                                    // 100: camera2.UpdateOutputConfigurationResponse
-	(*OnCaptureBufferLostRequest)(nil),                                           // 101: camera2.OnCaptureBufferLostRequest
-	(*OnCaptureBufferLostResponse)(nil),                                          // 102: camera2.OnCaptureBufferLostResponse
-	(*OnCaptureCompletedRequest)(nil),                                            // 103: camera2.OnCaptureCompletedRequest
-	(*OnCaptureCompletedResponse)(nil),                                           // 104: camera2.OnCaptureCompletedResponse
-	(*OnCaptureFailedRequest)(nil),                                               // 105: camera2.OnCaptureFailedRequest
-	(*OnCaptureFailedResponse)(nil),                                              // 106: camera2.OnCaptureFailedResponse
-	(*OnCaptureProgressedRequest)(nil),                                           // 107: camera2.OnCaptureProgressedRequest
-	(*OnCaptureProgressedResponse)(nil),                                          // 108: camera2.OnCaptureProgressedResponse
-	(*CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest)(nil), // 109: camera2.CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest
-	(*CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest)(nil),           // 110: camera2.CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest
-	(*OnReadoutStartedRequest)(nil),                                              // 111: camera2.OnReadoutStartedRequest
-	(*OnReadoutStartedResponse)(nil),                                             // 112: camera2.OnReadoutStartedResponse
-	(*OnActiveRequest)(nil),                                                      // 113: camera2.OnActiveRequest
-	(*OnActiveResponse)(nil),                                                     // 114: camera2.OnActiveResponse
-	(*OnCaptureQueueEmptyRequest)(nil),                                           // 115: camera2.OnCaptureQueueEmptyRequest
-	(*OnCaptureQueueEmptyResponse)(nil),                                          // 116: camera2.OnCaptureQueueEmptyResponse
-	(*OnSurfacePreparedRequest)(nil),                                             // 117: camera2.OnSurfacePreparedRequest
-	(*OnSurfacePreparedResponse)(nil),                                            // 118: camera2.OnSurfacePreparedResponse
-	(*CreateCaptureRequestRequest)(nil),                                          // 119: camera2.CreateCaptureRequestRequest
-	(*CreateCaptureRequestResponse)(nil),                                         // 120: camera2.CreateCaptureRequestResponse
-	(*CreateCaptureSessionRequest)(nil),                                          // 121: camera2.CreateCaptureSessionRequest
-	(*CreateCaptureSessionResponse)(nil),                                         // 122: camera2.CreateCaptureSessionResponse
-	(*CreateExtensionSessionRequest)(nil),                                        // 123: camera2.CreateExtensionSessionRequest
-	(*CreateExtensionSessionResponse)(nil),                                       // 124: camera2.CreateExtensionSessionResponse
-	(*CreateReprocessCaptureRequestRequest)(nil),                                 // 125: camera2.CreateReprocessCaptureRequestRequest
-	(*CreateReprocessCaptureRequestResponse)(nil),                                // 126: camera2.CreateReprocessCaptureRequestResponse
-	(*GetCameraAudioRestrictionRequest)(nil),                                     // 127: camera2.GetCameraAudioRestrictionRequest
-	(*GetCameraAudioRestrictionResponse)(nil),                                    // 128: camera2.GetCameraAudioRestrictionResponse
-	(*GetIdRequest)(nil),                                                         // 129: camera2.GetIdRequest
-	(*GetIdResponse)(nil),                                                        // 130: camera2.GetIdResponse
-	(*IsSessionConfigurationSupportedRequest)(nil),                               // 131: camera2.IsSessionConfigurationSupportedRequest
-	(*IsSessionConfigurationSupportedResponse)(nil),                              // 132: camera2.IsSessionConfigurationSupportedResponse
-	(*SetCameraAudioRestrictionRequest)(nil),                                     // 133: camera2.SetCameraAudioRestrictionRequest
-	(*SetCameraAudioRestrictionResponse)(nil),                                    // 134: camera2.SetCameraAudioRestrictionResponse
-	(*GetSessionCharacteristicsRequest)(nil),                                     // 135: camera2.GetSessionCharacteristicsRequest
-	(*GetSessionCharacteristicsResponse)(nil),                                    // 136: camera2.GetSessionCharacteristicsResponse
-	(*OpenCameraRequest)(nil),                                                    // 137: camera2.OpenCameraRequest
-	(*OpenCameraResponse)(nil),                                                   // 138: camera2.OpenCameraResponse
-	(*OnDisconnectedRequest)(nil),                                                // 139: camera2.OnDisconnectedRequest
-	(*OnDisconnectedResponse)(nil),                                               // 140: camera2.OnDisconnectedResponse
-	(*OnOpenedRequest)(nil),                                                      // 141: camera2.OnOpenedRequest
-	(*OnOpenedResponse)(nil),                                                     // 142: camera2.OnOpenedResponse
-	(*DescribeContentsRequest)(nil),                                              // 143: camera2.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                                             // 144: camera2.DescribeContentsResponse
-	(*GetTagRequest)(nil),                                                        // 145: camera2.GetTagRequest
-	(*GetTagResponse)(nil),                                                       // 146: camera2.GetTagResponse
-	(*IsReprocessRequest)(nil),                                                   // 147: camera2.IsReprocessRequest
-	(*IsReprocessResponse)(nil),                                                  // 148: camera2.IsReprocessResponse
-	(*WriteToParcelRequest)(nil),                                                 // 149: camera2.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                                                // 150: camera2.WriteToParcelResponse
-	(*AddTargetRequest)(nil),                                                     // 151: camera2.AddTargetRequest
-	(*AddTargetResponse)(nil),                                                    // 152: camera2.AddTargetResponse
-	(*BuildRequest)(nil),                                                         // 153: camera2.BuildRequest
-	(*BuildResponse)(nil),                                                        // 154: camera2.BuildResponse
-	(*RemoveTargetRequest)(nil),                                                  // 155: camera2.RemoveTargetRequest
-	(*RemoveTargetResponse)(nil),                                                 // 156: camera2.RemoveTargetResponse
-	(*SetTagRequest)(nil),                                                        // 157: camera2.SetTagRequest
-	(*SetTagResponse)(nil),                                                       // 158: camera2.SetTagResponse
-	(*NewDngCreatorRequest)(nil),                                                 // 159: camera2.NewDngCreatorRequest
-	(*NewDngCreatorResponse)(nil),                                                // 160: camera2.NewDngCreatorResponse
-	(*DngCreatorCloseRequest)(nil),                                               // 161: camera2.DngCreatorCloseRequest
-	(*SetDescriptionRequest)(nil),                                                // 162: camera2.SetDescriptionRequest
-	(*SetDescriptionResponse)(nil),                                               // 163: camera2.SetDescriptionResponse
-	(*SetLocationRequest)(nil),                                                   // 164: camera2.SetLocationRequest
-	(*SetLocationResponse)(nil),                                                  // 165: camera2.SetLocationResponse
-	(*SetOrientationRequest)(nil),                                                // 166: camera2.SetOrientationRequest
-	(*SetOrientationResponse)(nil),                                               // 167: camera2.SetOrientationResponse
-	(*SetThumbnail1Request)(nil),                                                 // 168: camera2.SetThumbnail1Request
-	(*SetThumbnail1Response)(nil),                                                // 169: camera2.SetThumbnail1Response
-	(*SetThumbnail1_1Request)(nil),                                               // 170: camera2.SetThumbnail1_1Request
-	(*SetThumbnail1_1Response)(nil),                                              // 171: camera2.SetThumbnail1_1Response
-	(*WriteImageRequest)(nil),                                                    // 172: camera2.WriteImageRequest
-	(*WriteImageResponse)(nil),                                                   // 173: camera2.WriteImageResponse
-	(*WriteInputStreamRequest)(nil),                                              // 174: camera2.WriteInputStreamRequest
-	(*WriteInputStreamResponse)(nil),                                             // 175: camera2.WriteInputStreamResponse
-	(*NewCameraAccessExceptionRequest)(nil),                                      // 176: camera2.NewCameraAccessExceptionRequest
-	(*NewCameraAccessExceptionResponse)(nil),                                     // 177: camera2.NewCameraAccessExceptionResponse
-	(*CameraAccessExceptionGetReasonRequest)(nil),                                // 178: camera2.CameraAccessExceptionGetReasonRequest
+	(*CreateHighSpeedRequestListRequest)(nil),              // 0: camera2.CreateHighSpeedRequestListRequest
+	(*CreateHighSpeedRequestListResponse)(nil),             // 1: camera2.CreateHighSpeedRequestListResponse
+	(*GetCameraIdRequest)(nil),                             // 2: camera2.GetCameraIdRequest
+	(*GetCameraIdResponse)(nil),                            // 3: camera2.GetCameraIdResponse
+	(*GetFrameNumberRequest)(nil),                          // 4: camera2.GetFrameNumberRequest
+	(*GetFrameNumberResponse)(nil),                         // 5: camera2.GetFrameNumberResponse
+	(*GetKeysRequest)(nil),                                 // 6: camera2.GetKeysRequest
+	(*GetKeysResponse)(nil),                                // 7: camera2.GetKeysResponse
+	(*GetRequestRequest)(nil),                              // 8: camera2.GetRequestRequest
+	(*GetRequestResponse)(nil),                             // 9: camera2.GetRequestResponse
+	(*GetSequenceIdRequest)(nil),                           // 10: camera2.GetSequenceIdRequest
+	(*GetSequenceIdResponse)(nil),                          // 11: camera2.GetSequenceIdResponse
+	(*EqualsRequest)(nil),                                  // 12: camera2.EqualsRequest
+	(*EqualsResponse)(nil),                                 // 13: camera2.EqualsResponse
+	(*GetNameRequest)(nil),                                 // 14: camera2.GetNameRequest
+	(*GetNameResponse)(nil),                                // 15: camera2.GetNameResponse
+	(*HashCodeRequest)(nil),                                // 16: camera2.HashCodeRequest
+	(*HashCodeResponse)(nil),                               // 17: camera2.HashCodeResponse
+	(*ToStringRequest)(nil),                                // 18: camera2.ToStringRequest
+	(*ToStringResponse)(nil),                               // 19: camera2.ToStringResponse
+	(*AbortCapturesRequest)(nil),                           // 20: camera2.AbortCapturesRequest
+	(*AbortCapturesResponse)(nil),                          // 21: camera2.AbortCapturesResponse
+	(*CaptureSingleRequestRequest)(nil),                    // 22: camera2.CaptureSingleRequestRequest
+	(*CaptureSingleRequestResponse)(nil),                   // 23: camera2.CaptureSingleRequestResponse
+	(*CloseRequest)(nil),                                   // 24: camera2.CloseRequest
+	(*CloseResponse)(nil),                                  // 25: camera2.CloseResponse
+	(*GetDeviceRequest)(nil),                               // 26: camera2.GetDeviceRequest
+	(*GetDeviceResponse)(nil),                              // 27: camera2.GetDeviceResponse
+	(*GetInputSurfaceRequest)(nil),                         // 28: camera2.GetInputSurfaceRequest
+	(*GetInputSurfaceResponse)(nil),                        // 29: camera2.GetInputSurfaceResponse
+	(*IsReprocessableRequest)(nil),                         // 30: camera2.IsReprocessableRequest
+	(*IsReprocessableResponse)(nil),                        // 31: camera2.IsReprocessableResponse
+	(*PrepareRequest)(nil),                                 // 32: camera2.PrepareRequest
+	(*PrepareResponse)(nil),                                // 33: camera2.PrepareResponse
+	(*SetSingleRepeatingRequestRequest)(nil),               // 34: camera2.SetSingleRepeatingRequestRequest
+	(*SetSingleRepeatingRequestResponse)(nil),              // 35: camera2.SetSingleRepeatingRequestResponse
+	(*StopRepeatingRequest)(nil),                           // 36: camera2.StopRepeatingRequest
+	(*StopRepeatingResponse)(nil),                          // 37: camera2.StopRepeatingResponse
+	(*SupportsOfflineProcessingRequest)(nil),               // 38: camera2.SupportsOfflineProcessingRequest
+	(*SupportsOfflineProcessingResponse)(nil),              // 39: camera2.SupportsOfflineProcessingResponse
+	(*UpdateOutputConfigurationRequest)(nil),               // 40: camera2.UpdateOutputConfigurationRequest
+	(*UpdateOutputConfigurationResponse)(nil),              // 41: camera2.UpdateOutputConfigurationResponse
+	(*OnCaptureBufferLostRequest)(nil),                     // 42: camera2.OnCaptureBufferLostRequest
+	(*OnCaptureBufferLostResponse)(nil),                    // 43: camera2.OnCaptureBufferLostResponse
+	(*OnCaptureCompletedRequest)(nil),                      // 44: camera2.OnCaptureCompletedRequest
+	(*OnCaptureCompletedResponse)(nil),                     // 45: camera2.OnCaptureCompletedResponse
+	(*OnCaptureFailedRequest)(nil),                         // 46: camera2.OnCaptureFailedRequest
+	(*OnCaptureFailedResponse)(nil),                        // 47: camera2.OnCaptureFailedResponse
+	(*OnCaptureProgressedRequest)(nil),                     // 48: camera2.OnCaptureProgressedRequest
+	(*OnCaptureProgressedResponse)(nil),                    // 49: camera2.OnCaptureProgressedResponse
+	(*OnCaptureSequenceAbortedRequest)(nil),                // 50: camera2.OnCaptureSequenceAbortedRequest
+	(*OnCaptureSequenceAbortedResponse)(nil),               // 51: camera2.OnCaptureSequenceAbortedResponse
+	(*OnCaptureSequenceCompletedRequest)(nil),              // 52: camera2.OnCaptureSequenceCompletedRequest
+	(*OnCaptureSequenceCompletedResponse)(nil),             // 53: camera2.OnCaptureSequenceCompletedResponse
+	(*OnCaptureStartedRequest)(nil),                        // 54: camera2.OnCaptureStartedRequest
+	(*OnCaptureStartedResponse)(nil),                       // 55: camera2.OnCaptureStartedResponse
+	(*OnReadoutStartedRequest)(nil),                        // 56: camera2.OnReadoutStartedRequest
+	(*OnReadoutStartedResponse)(nil),                       // 57: camera2.OnReadoutStartedResponse
+	(*OnActiveRequest)(nil),                                // 58: camera2.OnActiveRequest
+	(*OnActiveResponse)(nil),                               // 59: camera2.OnActiveResponse
+	(*OnCaptureQueueEmptyRequest)(nil),                     // 60: camera2.OnCaptureQueueEmptyRequest
+	(*OnCaptureQueueEmptyResponse)(nil),                    // 61: camera2.OnCaptureQueueEmptyResponse
+	(*OnClosedRequest)(nil),                                // 62: camera2.OnClosedRequest
+	(*OnClosedResponse)(nil),                               // 63: camera2.OnClosedResponse
+	(*OnConfigureFailedRequest)(nil),                       // 64: camera2.OnConfigureFailedRequest
+	(*OnConfigureFailedResponse)(nil),                      // 65: camera2.OnConfigureFailedResponse
+	(*OnConfiguredRequest)(nil),                            // 66: camera2.OnConfiguredRequest
+	(*OnConfiguredResponse)(nil),                           // 67: camera2.OnConfiguredResponse
+	(*OnReadyRequest)(nil),                                 // 68: camera2.OnReadyRequest
+	(*OnReadyResponse)(nil),                                // 69: camera2.OnReadyResponse
+	(*OnSurfacePreparedRequest)(nil),                       // 70: camera2.OnSurfacePreparedRequest
+	(*OnSurfacePreparedResponse)(nil),                      // 71: camera2.OnSurfacePreparedResponse
+	(*GetPhysicalCameraIdRequest)(nil),                     // 72: camera2.GetPhysicalCameraIdRequest
+	(*GetPhysicalCameraIdResponse)(nil),                    // 73: camera2.GetPhysicalCameraIdResponse
+	(*GetReasonRequest)(nil),                               // 74: camera2.GetReasonRequest
+	(*GetReasonResponse)(nil),                              // 75: camera2.GetReasonResponse
+	(*WasImageCapturedRequest)(nil),                        // 76: camera2.WasImageCapturedRequest
+	(*WasImageCapturedResponse)(nil),                       // 77: camera2.WasImageCapturedResponse
+	(*GetPartialResultsRequest)(nil),                       // 78: camera2.GetPartialResultsRequest
+	(*GetPartialResultsResponse)(nil),                      // 79: camera2.GetPartialResultsResponse
+	(*CreateCaptureRequestRequest)(nil),                    // 80: camera2.CreateCaptureRequestRequest
+	(*CreateCaptureRequestResponse)(nil),                   // 81: camera2.CreateCaptureRequestResponse
+	(*CreateCaptureSessionRequest)(nil),                    // 82: camera2.CreateCaptureSessionRequest
+	(*CreateCaptureSessionResponse)(nil),                   // 83: camera2.CreateCaptureSessionResponse
+	(*CreateExtensionSessionRequest)(nil),                  // 84: camera2.CreateExtensionSessionRequest
+	(*CreateExtensionSessionResponse)(nil),                 // 85: camera2.CreateExtensionSessionResponse
+	(*CreateReprocessCaptureRequestRequest)(nil),           // 86: camera2.CreateReprocessCaptureRequestRequest
+	(*CreateReprocessCaptureRequestResponse)(nil),          // 87: camera2.CreateReprocessCaptureRequestResponse
+	(*GetCameraAudioRestrictionRequest)(nil),               // 88: camera2.GetCameraAudioRestrictionRequest
+	(*GetCameraAudioRestrictionResponse)(nil),              // 89: camera2.GetCameraAudioRestrictionResponse
+	(*GetIdRequest)(nil),                                   // 90: camera2.GetIdRequest
+	(*GetIdResponse)(nil),                                  // 91: camera2.GetIdResponse
+	(*IsSessionConfigurationSupportedRequest)(nil),         // 92: camera2.IsSessionConfigurationSupportedRequest
+	(*IsSessionConfigurationSupportedResponse)(nil),        // 93: camera2.IsSessionConfigurationSupportedResponse
+	(*SetCameraAudioRestrictionRequest)(nil),               // 94: camera2.SetCameraAudioRestrictionRequest
+	(*SetCameraAudioRestrictionResponse)(nil),              // 95: camera2.SetCameraAudioRestrictionResponse
+	(*GetSessionCharacteristicsRequest)(nil),               // 96: camera2.GetSessionCharacteristicsRequest
+	(*GetSessionCharacteristicsResponse)(nil),              // 97: camera2.GetSessionCharacteristicsResponse
+	(*OpenCameraRequest)(nil),                              // 98: camera2.OpenCameraRequest
+	(*OpenCameraResponse)(nil),                             // 99: camera2.OpenCameraResponse
+	(*OnDisconnectedRequest)(nil),                          // 100: camera2.OnDisconnectedRequest
+	(*OnDisconnectedResponse)(nil),                         // 101: camera2.OnDisconnectedResponse
+	(*OnErrorRequest)(nil),                                 // 102: camera2.OnErrorRequest
+	(*OnErrorResponse)(nil),                                // 103: camera2.OnErrorResponse
+	(*OnOpenedRequest)(nil),                                // 104: camera2.OnOpenedRequest
+	(*OnOpenedResponse)(nil),                               // 105: camera2.OnOpenedResponse
+	(*NewCameraAccessExceptionRequest)(nil),                // 106: camera2.NewCameraAccessExceptionRequest
+	(*NewCameraAccessExceptionResponse)(nil),               // 107: camera2.NewCameraAccessExceptionResponse
+	(*CameraAccessExceptionGetReasonRequest)(nil),          // 108: camera2.CameraAccessExceptionGetReasonRequest
+	(*OnIdleRequest)(nil),                                  // 109: camera2.OnIdleRequest
+	(*OnIdleResponse)(nil),                                 // 110: camera2.OnIdleResponse
+	(*OnSwitchFailedRequest)(nil),                          // 111: camera2.OnSwitchFailedRequest
+	(*OnSwitchFailedResponse)(nil),                         // 112: camera2.OnSwitchFailedResponse
+	(*GetAvailableCaptureRequestKeysRequest)(nil),          // 113: camera2.GetAvailableCaptureRequestKeysRequest
+	(*GetAvailableCaptureRequestKeysResponse)(nil),         // 114: camera2.GetAvailableCaptureRequestKeysResponse
+	(*GetAvailableCaptureResultKeysRequest)(nil),           // 115: camera2.GetAvailableCaptureResultKeysRequest
+	(*GetAvailableCaptureResultKeysResponse)(nil),          // 116: camera2.GetAvailableCaptureResultKeysResponse
+	(*GetAvailablePhysicalCameraRequestKeysRequest)(nil),   // 117: camera2.GetAvailablePhysicalCameraRequestKeysRequest
+	(*GetAvailablePhysicalCameraRequestKeysResponse)(nil),  // 118: camera2.GetAvailablePhysicalCameraRequestKeysResponse
+	(*GetAvailableSessionCharacteristicsKeysRequest)(nil),  // 119: camera2.GetAvailableSessionCharacteristicsKeysRequest
+	(*GetAvailableSessionCharacteristicsKeysResponse)(nil), // 120: camera2.GetAvailableSessionCharacteristicsKeysResponse
+	(*GetAvailableSessionKeysRequest)(nil),                 // 121: camera2.GetAvailableSessionKeysRequest
+	(*GetAvailableSessionKeysResponse)(nil),                // 122: camera2.GetAvailableSessionKeysResponse
+	(*GetKeysNeedingPermissionRequest)(nil),                // 123: camera2.GetKeysNeedingPermissionRequest
+	(*GetKeysNeedingPermissionResponse)(nil),               // 124: camera2.GetKeysNeedingPermissionResponse
+	(*GetPhysicalCameraIdsRequest)(nil),                    // 125: camera2.GetPhysicalCameraIdsRequest
+	(*GetPhysicalCameraIdsResponse)(nil),                   // 126: camera2.GetPhysicalCameraIdsResponse
+	(*GetRecommendedStreamConfigurationMapRequest)(nil),    // 127: camera2.GetRecommendedStreamConfigurationMapRequest
+	(*GetRecommendedStreamConfigurationMapResponse)(nil),   // 128: camera2.GetRecommendedStreamConfigurationMapResponse
+	(*NewDngCreatorRequest)(nil),                           // 129: camera2.NewDngCreatorRequest
+	(*NewDngCreatorResponse)(nil),                          // 130: camera2.NewDngCreatorResponse
+	(*DngCreatorCloseRequest)(nil),                         // 131: camera2.DngCreatorCloseRequest
+	(*SetDescriptionRequest)(nil),                          // 132: camera2.SetDescriptionRequest
+	(*SetDescriptionResponse)(nil),                         // 133: camera2.SetDescriptionResponse
+	(*SetLocationRequest)(nil),                             // 134: camera2.SetLocationRequest
+	(*SetLocationResponse)(nil),                            // 135: camera2.SetLocationResponse
+	(*SetOrientationRequest)(nil),                          // 136: camera2.SetOrientationRequest
+	(*SetOrientationResponse)(nil),                         // 137: camera2.SetOrientationResponse
+	(*SetThumbnail1Request)(nil),                           // 138: camera2.SetThumbnail1Request
+	(*SetThumbnail1Response)(nil),                          // 139: camera2.SetThumbnail1Response
+	(*SetThumbnail1_1Request)(nil),                         // 140: camera2.SetThumbnail1_1Request
+	(*SetThumbnail1_1Response)(nil),                        // 141: camera2.SetThumbnail1_1Response
+	(*WriteImageRequest)(nil),                              // 142: camera2.WriteImageRequest
+	(*WriteImageResponse)(nil),                             // 143: camera2.WriteImageResponse
+	(*WriteInputStreamRequest)(nil),                        // 144: camera2.WriteInputStreamRequest
+	(*WriteInputStreamResponse)(nil),                       // 145: camera2.WriteInputStreamResponse
+	(*DescribeContentsRequest)(nil),                        // 146: camera2.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                       // 147: camera2.DescribeContentsResponse
+	(*GetTagRequest)(nil),                                  // 148: camera2.GetTagRequest
+	(*GetTagResponse)(nil),                                 // 149: camera2.GetTagResponse
+	(*IsReprocessRequest)(nil),                             // 150: camera2.IsReprocessRequest
+	(*IsReprocessResponse)(nil),                            // 151: camera2.IsReprocessResponse
+	(*WriteToParcelRequest)(nil),                           // 152: camera2.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                          // 153: camera2.WriteToParcelResponse
+	(*AddTargetRequest)(nil),                               // 154: camera2.AddTargetRequest
+	(*AddTargetResponse)(nil),                              // 155: camera2.AddTargetResponse
+	(*BuildRequest)(nil),                                   // 156: camera2.BuildRequest
+	(*BuildResponse)(nil),                                  // 157: camera2.BuildResponse
+	(*RemoveTargetRequest)(nil),                            // 158: camera2.RemoveTargetRequest
+	(*RemoveTargetResponse)(nil),                           // 159: camera2.RemoveTargetResponse
+	(*SetTagRequest)(nil),                                  // 160: camera2.SetTagRequest
+	(*SetTagResponse)(nil),                                 // 161: camera2.SetTagResponse
+	(*NewMultiResolutionImageReaderRequest)(nil),           // 162: camera2.NewMultiResolutionImageReaderRequest
+	(*NewMultiResolutionImageReaderResponse)(nil),          // 163: camera2.NewMultiResolutionImageReaderResponse
+	(*MultiResolutionImageReaderCloseRequest)(nil),         // 164: camera2.MultiResolutionImageReaderCloseRequest
+	(*FlushRequest)(nil),                                   // 165: camera2.FlushRequest
+	(*FlushResponse)(nil),                                  // 166: camera2.FlushResponse
+	(*GetStreamInfoForImageReaderRequest)(nil),             // 167: camera2.GetStreamInfoForImageReaderRequest
+	(*GetStreamInfoForImageReaderResponse)(nil),            // 168: camera2.GetStreamInfoForImageReaderResponse
+	(*GetSurfaceRequest)(nil),                              // 169: camera2.GetSurfaceRequest
+	(*GetSurfaceResponse)(nil),                             // 170: camera2.GetSurfaceResponse
+	(*SetOnImageAvailableListenerRequest)(nil),             // 171: camera2.SetOnImageAvailableListenerRequest
+	(*SetOnImageAvailableListenerResponse)(nil),            // 172: camera2.SetOnImageAvailableListenerResponse
+	(*CaptureRequest)(nil),                                 // 173: camera2.CaptureRequest
+	(*CaptureResponse)(nil),                                // 174: camera2.CaptureResponse
+	(*GetRealtimeStillCaptureLatencyRequest)(nil),          // 175: camera2.GetRealtimeStillCaptureLatencyRequest
+	(*GetRealtimeStillCaptureLatencyResponse)(nil),         // 176: camera2.GetRealtimeStillCaptureLatencyResponse
+	(*SetRepeatingRequestRequest)(nil),                     // 177: camera2.SetRepeatingRequestRequest
+	(*SetRepeatingRequestResponse)(nil),                    // 178: camera2.SetRepeatingRequestResponse
+	(*OnCaptureFailed2Request)(nil),                        // 179: camera2.OnCaptureFailed2Request
+	(*OnCaptureFailed2Response)(nil),                       // 180: camera2.OnCaptureFailed2Response
+	(*OnCaptureFailed3_1Request)(nil),                      // 181: camera2.OnCaptureFailed3_1Request
+	(*OnCaptureFailed3_1Response)(nil),                     // 182: camera2.OnCaptureFailed3_1Response
+	(*OnCaptureProcessProgressedRequest)(nil),              // 183: camera2.OnCaptureProcessProgressedRequest
+	(*OnCaptureProcessProgressedResponse)(nil),             // 184: camera2.OnCaptureProcessProgressedResponse
+	(*OnCaptureProcessStartedRequest)(nil),                 // 185: camera2.OnCaptureProcessStartedRequest
+	(*OnCaptureProcessStartedResponse)(nil),                // 186: camera2.OnCaptureProcessStartedResponse
+	(*OnCaptureResultAvailableRequest)(nil),                // 187: camera2.OnCaptureResultAvailableRequest
+	(*OnCaptureResultAvailableResponse)(nil),               // 188: camera2.OnCaptureResultAvailableResponse
+	(*CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest)(nil), // 189: camera2.CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest
+	(*CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest)(nil),           // 190: camera2.CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest
+	(*GetCaptureLatencyRequest)(nil),                                            // 191: camera2.GetCaptureLatencyRequest
+	(*GetCaptureLatencyResponse)(nil),                                           // 192: camera2.GetCaptureLatencyResponse
+	(*GetProcessingLatencyRequest)(nil),                                         // 193: camera2.GetProcessingLatencyRequest
+	(*GetProcessingLatencyResponse)(nil),                                        // 194: camera2.GetProcessingLatencyResponse
+	(*CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest)(nil), // 195: camera2.CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest
+	(*CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest)(nil),  // 196: camera2.CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest
+	(*GetEstimatedCaptureLatencyRangeMillisRequest)(nil),                        // 197: camera2.GetEstimatedCaptureLatencyRangeMillisRequest
+	(*GetEstimatedCaptureLatencyRangeMillisResponse)(nil),                       // 198: camera2.GetEstimatedCaptureLatencyRangeMillisResponse
+	(*GetExtensionSupportedSizesRequest)(nil),                                   // 199: camera2.GetExtensionSupportedSizesRequest
+	(*GetExtensionSupportedSizesResponse)(nil),                                  // 200: camera2.GetExtensionSupportedSizesResponse
+	(*CameraExtensionCharacteristicsGetKeysRequest)(nil),                        // 201: camera2.CameraExtensionCharacteristicsGetKeysRequest
+	(*GetPostviewSupportedSizesRequest)(nil),                                    // 202: camera2.GetPostviewSupportedSizesRequest
+	(*GetPostviewSupportedSizesResponse)(nil),                                   // 203: camera2.GetPostviewSupportedSizesResponse
+	(*GetSupportedExtensionsRequest)(nil),                                       // 204: camera2.GetSupportedExtensionsRequest
+	(*GetSupportedExtensionsResponse)(nil),                                      // 205: camera2.GetSupportedExtensionsResponse
+	(*IsCaptureProcessProgressAvailableRequest)(nil),                            // 206: camera2.IsCaptureProcessProgressAvailableRequest
+	(*IsCaptureProcessProgressAvailableResponse)(nil),                           // 207: camera2.IsCaptureProcessProgressAvailableResponse
+	(*IsPostviewAvailableRequest)(nil),                                          // 208: camera2.IsPostviewAvailableRequest
+	(*IsPostviewAvailableResponse)(nil),                                         // 209: camera2.IsPostviewAvailableResponse
 }
 var file_proto_camera2_camera2_proto_depIdxs = []int32{
-	0,   // 0: camera2.CameraExtensionCharacteristicsService.IsCaptureProcessProgressAvailable:input_type -> camera2.IsCaptureProcessProgressAvailableRequest
-	2,   // 1: camera2.CameraExtensionCharacteristicsService.IsPostviewAvailable:input_type -> camera2.IsPostviewAvailableRequest
-	4,   // 2: camera2.CameraOfflineSessionService.Close:input_type -> camera2.CloseRequest
-	6,   // 3: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnClosed:input_type -> camera2.OnClosedRequest
-	8,   // 4: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnError:input_type -> camera2.OnErrorRequest
-	10,  // 5: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnIdle:input_type -> camera2.OnIdleRequest
-	12,  // 6: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnReady:input_type -> camera2.OnReadyRequest
-	14,  // 7: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnSwitchFailed:input_type -> camera2.OnSwitchFailedRequest
-	16,  // 8: camera2.CameraCharacteristicsService.GetRecommendedStreamConfigurationMap:input_type -> camera2.GetRecommendedStreamConfigurationMapRequest
-	18,  // 9: camera2.CameraCharacteristicsKeyService.Equals:input_type -> camera2.EqualsRequest
-	20,  // 10: camera2.CameraCharacteristicsKeyService.GetName:input_type -> camera2.GetNameRequest
-	22,  // 11: camera2.CameraCharacteristicsKeyService.HashCode:input_type -> camera2.HashCodeRequest
-	24,  // 12: camera2.CameraCharacteristicsKeyService.ToString:input_type -> camera2.ToStringRequest
-	26,  // 13: camera2.CaptureResultService.GetCameraId:input_type -> camera2.GetCameraIdRequest
-	28,  // 14: camera2.CaptureResultService.GetFrameNumber:input_type -> camera2.GetFrameNumberRequest
-	30,  // 15: camera2.CaptureResultService.GetRequest:input_type -> camera2.GetRequestRequest
-	32,  // 16: camera2.CaptureResultService.GetSequenceId:input_type -> camera2.GetSequenceIdRequest
-	18,  // 17: camera2.CaptureResultKeyService.Equals:input_type -> camera2.EqualsRequest
-	20,  // 18: camera2.CaptureResultKeyService.GetName:input_type -> camera2.GetNameRequest
-	22,  // 19: camera2.CaptureResultKeyService.HashCode:input_type -> camera2.HashCodeRequest
-	24,  // 20: camera2.CaptureResultKeyService.ToString:input_type -> camera2.ToStringRequest
-	28,  // 21: camera2.CaptureFailureService.GetFrameNumber:input_type -> camera2.GetFrameNumberRequest
-	34,  // 22: camera2.CaptureFailureService.GetPhysicalCameraId:input_type -> camera2.GetPhysicalCameraIdRequest
-	36,  // 23: camera2.CaptureFailureService.GetReason:input_type -> camera2.GetReasonRequest
-	30,  // 24: camera2.CaptureFailureService.GetRequest:input_type -> camera2.GetRequestRequest
-	32,  // 25: camera2.CaptureFailureService.GetSequenceId:input_type -> camera2.GetSequenceIdRequest
-	38,  // 26: camera2.CaptureFailureService.WasImageCaptured:input_type -> camera2.WasImageCapturedRequest
-	40,  // 27: camera2.CameraExtensionSessionService.Capture:input_type -> camera2.CaptureRequest
-	4,   // 28: camera2.CameraExtensionSessionService.Close:input_type -> camera2.CloseRequest
-	42,  // 29: camera2.CameraExtensionSessionService.GetDevice:input_type -> camera2.GetDeviceRequest
-	44,  // 30: camera2.CameraExtensionSessionService.GetRealtimeStillCaptureLatency:input_type -> camera2.GetRealtimeStillCaptureLatencyRequest
-	46,  // 31: camera2.CameraExtensionSessionService.SetRepeatingRequest:input_type -> camera2.SetRepeatingRequestRequest
-	48,  // 32: camera2.CameraExtensionSessionService.StopRepeating:input_type -> camera2.StopRepeatingRequest
-	50,  // 33: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureFailed2:input_type -> camera2.OnCaptureFailed2Request
-	52,  // 34: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureFailed3_1:input_type -> camera2.OnCaptureFailed3_1Request
-	54,  // 35: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureProcessProgressed:input_type -> camera2.OnCaptureProcessProgressedRequest
-	56,  // 36: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureProcessStarted:input_type -> camera2.OnCaptureProcessStartedRequest
-	58,  // 37: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureResultAvailable:input_type -> camera2.OnCaptureResultAvailableRequest
-	60,  // 38: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureSequenceAborted:input_type -> camera2.OnCaptureSequenceAbortedRequest
-	62,  // 39: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureSequenceCompleted:input_type -> camera2.OnCaptureSequenceCompletedRequest
-	64,  // 40: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureStarted:input_type -> camera2.OnCaptureStartedRequest
-	6,   // 41: camera2.CameraExtensionSessionStateCallbackService.OnClosed:input_type -> camera2.OnClosedRequest
-	66,  // 42: camera2.CameraExtensionSessionStateCallbackService.OnConfigureFailed:input_type -> camera2.OnConfigureFailedRequest
-	68,  // 43: camera2.CameraExtensionSessionStateCallbackService.OnConfigured:input_type -> camera2.OnConfiguredRequest
-	18,  // 44: camera2.CameraExtensionSessionStillCaptureLatencyService.Equals:input_type -> camera2.EqualsRequest
-	70,  // 45: camera2.CameraExtensionSessionStillCaptureLatencyService.GetCaptureLatency:input_type -> camera2.GetCaptureLatencyRequest
-	72,  // 46: camera2.CameraExtensionSessionStillCaptureLatencyService.GetProcessingLatency:input_type -> camera2.GetProcessingLatencyRequest
-	22,  // 47: camera2.CameraExtensionSessionStillCaptureLatencyService.HashCode:input_type -> camera2.HashCodeRequest
-	24,  // 48: camera2.CameraExtensionSessionStillCaptureLatencyService.ToString:input_type -> camera2.ToStringRequest
-	74,  // 49: camera2.MultiResolutionImageReaderService.NewMultiResolutionImageReader:input_type -> camera2.NewMultiResolutionImageReaderRequest
-	76,  // 50: camera2.MultiResolutionImageReaderService.Close:input_type -> camera2.MultiResolutionImageReaderCloseRequest
-	77,  // 51: camera2.MultiResolutionImageReaderService.Flush:input_type -> camera2.FlushRequest
-	79,  // 52: camera2.MultiResolutionImageReaderService.GetStreamInfoForImageReader:input_type -> camera2.GetStreamInfoForImageReaderRequest
-	81,  // 53: camera2.MultiResolutionImageReaderService.GetSurface:input_type -> camera2.GetSurfaceRequest
-	83,  // 54: camera2.MultiResolutionImageReaderService.SetOnImageAvailableListener:input_type -> camera2.SetOnImageAvailableListenerRequest
-	85,  // 55: camera2.CameraCaptureSessionService.AbortCaptures:input_type -> camera2.AbortCapturesRequest
-	87,  // 56: camera2.CameraCaptureSessionService.CaptureSingleRequest:input_type -> camera2.CaptureSingleRequestRequest
-	4,   // 57: camera2.CameraCaptureSessionService.Close:input_type -> camera2.CloseRequest
-	42,  // 58: camera2.CameraCaptureSessionService.GetDevice:input_type -> camera2.GetDeviceRequest
-	89,  // 59: camera2.CameraCaptureSessionService.GetInputSurface:input_type -> camera2.GetInputSurfaceRequest
-	91,  // 60: camera2.CameraCaptureSessionService.IsReprocessable:input_type -> camera2.IsReprocessableRequest
-	93,  // 61: camera2.CameraCaptureSessionService.Prepare:input_type -> camera2.PrepareRequest
-	95,  // 62: camera2.CameraCaptureSessionService.SetSingleRepeatingRequest:input_type -> camera2.SetSingleRepeatingRequestRequest
-	48,  // 63: camera2.CameraCaptureSessionService.StopRepeating:input_type -> camera2.StopRepeatingRequest
-	97,  // 64: camera2.CameraCaptureSessionService.SupportsOfflineProcessing:input_type -> camera2.SupportsOfflineProcessingRequest
-	99,  // 65: camera2.CameraCaptureSessionService.UpdateOutputConfiguration:input_type -> camera2.UpdateOutputConfigurationRequest
-	101, // 66: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureBufferLost:input_type -> camera2.OnCaptureBufferLostRequest
-	103, // 67: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureCompleted:input_type -> camera2.OnCaptureCompletedRequest
-	105, // 68: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureFailed:input_type -> camera2.OnCaptureFailedRequest
-	107, // 69: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureProgressed:input_type -> camera2.OnCaptureProgressedRequest
-	60,  // 70: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureSequenceAborted:input_type -> camera2.OnCaptureSequenceAbortedRequest
-	109, // 71: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureSequenceCompleted:input_type -> camera2.CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest
-	110, // 72: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureStarted:input_type -> camera2.CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest
-	111, // 73: camera2.CameraCaptureSessionCaptureCallbackService.OnReadoutStarted:input_type -> camera2.OnReadoutStartedRequest
-	113, // 74: camera2.CameraCaptureSessionStateCallbackService.OnActive:input_type -> camera2.OnActiveRequest
-	115, // 75: camera2.CameraCaptureSessionStateCallbackService.OnCaptureQueueEmpty:input_type -> camera2.OnCaptureQueueEmptyRequest
-	6,   // 76: camera2.CameraCaptureSessionStateCallbackService.OnClosed:input_type -> camera2.OnClosedRequest
-	66,  // 77: camera2.CameraCaptureSessionStateCallbackService.OnConfigureFailed:input_type -> camera2.OnConfigureFailedRequest
-	68,  // 78: camera2.CameraCaptureSessionStateCallbackService.OnConfigured:input_type -> camera2.OnConfiguredRequest
-	12,  // 79: camera2.CameraCaptureSessionStateCallbackService.OnReady:input_type -> camera2.OnReadyRequest
-	117, // 80: camera2.CameraCaptureSessionStateCallbackService.OnSurfacePrepared:input_type -> camera2.OnSurfacePreparedRequest
-	4,   // 81: camera2.CameraDeviceService.Close:input_type -> camera2.CloseRequest
-	119, // 82: camera2.CameraDeviceService.CreateCaptureRequest:input_type -> camera2.CreateCaptureRequestRequest
-	121, // 83: camera2.CameraDeviceService.CreateCaptureSession:input_type -> camera2.CreateCaptureSessionRequest
-	123, // 84: camera2.CameraDeviceService.CreateExtensionSession:input_type -> camera2.CreateExtensionSessionRequest
-	125, // 85: camera2.CameraDeviceService.CreateReprocessCaptureRequest:input_type -> camera2.CreateReprocessCaptureRequestRequest
-	127, // 86: camera2.CameraDeviceService.GetCameraAudioRestriction:input_type -> camera2.GetCameraAudioRestrictionRequest
-	129, // 87: camera2.CameraDeviceService.GetId:input_type -> camera2.GetIdRequest
-	131, // 88: camera2.CameraDeviceService.IsSessionConfigurationSupported:input_type -> camera2.IsSessionConfigurationSupportedRequest
-	133, // 89: camera2.CameraDeviceService.SetCameraAudioRestriction:input_type -> camera2.SetCameraAudioRestrictionRequest
-	119, // 90: camera2.CameraDeviceCameraDeviceSetupService.CreateCaptureRequest:input_type -> camera2.CreateCaptureRequestRequest
-	129, // 91: camera2.CameraDeviceCameraDeviceSetupService.GetId:input_type -> camera2.GetIdRequest
-	135, // 92: camera2.CameraDeviceCameraDeviceSetupService.GetSessionCharacteristics:input_type -> camera2.GetSessionCharacteristicsRequest
-	131, // 93: camera2.CameraDeviceCameraDeviceSetupService.IsSessionConfigurationSupported:input_type -> camera2.IsSessionConfigurationSupportedRequest
-	137, // 94: camera2.CameraDeviceCameraDeviceSetupService.OpenCamera:input_type -> camera2.OpenCameraRequest
-	6,   // 95: camera2.CameraDeviceStateCallbackService.OnClosed:input_type -> camera2.OnClosedRequest
-	139, // 96: camera2.CameraDeviceStateCallbackService.OnDisconnected:input_type -> camera2.OnDisconnectedRequest
-	8,   // 97: camera2.CameraDeviceStateCallbackService.OnError:input_type -> camera2.OnErrorRequest
-	141, // 98: camera2.CameraDeviceStateCallbackService.OnOpened:input_type -> camera2.OnOpenedRequest
-	143, // 99: camera2.CaptureRequestService.DescribeContents:input_type -> camera2.DescribeContentsRequest
-	18,  // 100: camera2.CaptureRequestService.Equals:input_type -> camera2.EqualsRequest
-	145, // 101: camera2.CaptureRequestService.GetTag:input_type -> camera2.GetTagRequest
-	22,  // 102: camera2.CaptureRequestService.HashCode:input_type -> camera2.HashCodeRequest
-	147, // 103: camera2.CaptureRequestService.IsReprocess:input_type -> camera2.IsReprocessRequest
-	149, // 104: camera2.CaptureRequestService.WriteToParcel:input_type -> camera2.WriteToParcelRequest
-	151, // 105: camera2.CaptureRequestBuilderService.AddTarget:input_type -> camera2.AddTargetRequest
-	153, // 106: camera2.CaptureRequestBuilderService.Build:input_type -> camera2.BuildRequest
-	155, // 107: camera2.CaptureRequestBuilderService.RemoveTarget:input_type -> camera2.RemoveTargetRequest
-	157, // 108: camera2.CaptureRequestBuilderService.SetTag:input_type -> camera2.SetTagRequest
-	18,  // 109: camera2.CaptureRequestKeyService.Equals:input_type -> camera2.EqualsRequest
-	20,  // 110: camera2.CaptureRequestKeyService.GetName:input_type -> camera2.GetNameRequest
-	22,  // 111: camera2.CaptureRequestKeyService.HashCode:input_type -> camera2.HashCodeRequest
-	24,  // 112: camera2.CaptureRequestKeyService.ToString:input_type -> camera2.ToStringRequest
-	159, // 113: camera2.DngCreatorService.NewDngCreator:input_type -> camera2.NewDngCreatorRequest
-	161, // 114: camera2.DngCreatorService.Close:input_type -> camera2.DngCreatorCloseRequest
-	162, // 115: camera2.DngCreatorService.SetDescription:input_type -> camera2.SetDescriptionRequest
-	164, // 116: camera2.DngCreatorService.SetLocation:input_type -> camera2.SetLocationRequest
-	166, // 117: camera2.DngCreatorService.SetOrientation:input_type -> camera2.SetOrientationRequest
-	168, // 118: camera2.DngCreatorService.SetThumbnail1:input_type -> camera2.SetThumbnail1Request
-	170, // 119: camera2.DngCreatorService.SetThumbnail1_1:input_type -> camera2.SetThumbnail1_1Request
-	172, // 120: camera2.DngCreatorService.WriteImage:input_type -> camera2.WriteImageRequest
-	174, // 121: camera2.DngCreatorService.WriteInputStream:input_type -> camera2.WriteInputStreamRequest
-	176, // 122: camera2.CameraAccessExceptionService.NewCameraAccessException:input_type -> camera2.NewCameraAccessExceptionRequest
-	178, // 123: camera2.CameraAccessExceptionService.GetReason:input_type -> camera2.CameraAccessExceptionGetReasonRequest
-	1,   // 124: camera2.CameraExtensionCharacteristicsService.IsCaptureProcessProgressAvailable:output_type -> camera2.IsCaptureProcessProgressAvailableResponse
-	3,   // 125: camera2.CameraExtensionCharacteristicsService.IsPostviewAvailable:output_type -> camera2.IsPostviewAvailableResponse
-	5,   // 126: camera2.CameraOfflineSessionService.Close:output_type -> camera2.CloseResponse
-	7,   // 127: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnClosed:output_type -> camera2.OnClosedResponse
-	9,   // 128: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnError:output_type -> camera2.OnErrorResponse
-	11,  // 129: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnIdle:output_type -> camera2.OnIdleResponse
-	13,  // 130: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnReady:output_type -> camera2.OnReadyResponse
-	15,  // 131: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnSwitchFailed:output_type -> camera2.OnSwitchFailedResponse
-	17,  // 132: camera2.CameraCharacteristicsService.GetRecommendedStreamConfigurationMap:output_type -> camera2.GetRecommendedStreamConfigurationMapResponse
-	19,  // 133: camera2.CameraCharacteristicsKeyService.Equals:output_type -> camera2.EqualsResponse
-	21,  // 134: camera2.CameraCharacteristicsKeyService.GetName:output_type -> camera2.GetNameResponse
-	23,  // 135: camera2.CameraCharacteristicsKeyService.HashCode:output_type -> camera2.HashCodeResponse
-	25,  // 136: camera2.CameraCharacteristicsKeyService.ToString:output_type -> camera2.ToStringResponse
-	27,  // 137: camera2.CaptureResultService.GetCameraId:output_type -> camera2.GetCameraIdResponse
-	29,  // 138: camera2.CaptureResultService.GetFrameNumber:output_type -> camera2.GetFrameNumberResponse
-	31,  // 139: camera2.CaptureResultService.GetRequest:output_type -> camera2.GetRequestResponse
-	33,  // 140: camera2.CaptureResultService.GetSequenceId:output_type -> camera2.GetSequenceIdResponse
-	19,  // 141: camera2.CaptureResultKeyService.Equals:output_type -> camera2.EqualsResponse
-	21,  // 142: camera2.CaptureResultKeyService.GetName:output_type -> camera2.GetNameResponse
-	23,  // 143: camera2.CaptureResultKeyService.HashCode:output_type -> camera2.HashCodeResponse
-	25,  // 144: camera2.CaptureResultKeyService.ToString:output_type -> camera2.ToStringResponse
-	29,  // 145: camera2.CaptureFailureService.GetFrameNumber:output_type -> camera2.GetFrameNumberResponse
-	35,  // 146: camera2.CaptureFailureService.GetPhysicalCameraId:output_type -> camera2.GetPhysicalCameraIdResponse
-	37,  // 147: camera2.CaptureFailureService.GetReason:output_type -> camera2.GetReasonResponse
-	31,  // 148: camera2.CaptureFailureService.GetRequest:output_type -> camera2.GetRequestResponse
-	33,  // 149: camera2.CaptureFailureService.GetSequenceId:output_type -> camera2.GetSequenceIdResponse
-	39,  // 150: camera2.CaptureFailureService.WasImageCaptured:output_type -> camera2.WasImageCapturedResponse
-	41,  // 151: camera2.CameraExtensionSessionService.Capture:output_type -> camera2.CaptureResponse
-	5,   // 152: camera2.CameraExtensionSessionService.Close:output_type -> camera2.CloseResponse
-	43,  // 153: camera2.CameraExtensionSessionService.GetDevice:output_type -> camera2.GetDeviceResponse
-	45,  // 154: camera2.CameraExtensionSessionService.GetRealtimeStillCaptureLatency:output_type -> camera2.GetRealtimeStillCaptureLatencyResponse
-	47,  // 155: camera2.CameraExtensionSessionService.SetRepeatingRequest:output_type -> camera2.SetRepeatingRequestResponse
-	49,  // 156: camera2.CameraExtensionSessionService.StopRepeating:output_type -> camera2.StopRepeatingResponse
-	51,  // 157: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureFailed2:output_type -> camera2.OnCaptureFailed2Response
-	53,  // 158: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureFailed3_1:output_type -> camera2.OnCaptureFailed3_1Response
-	55,  // 159: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureProcessProgressed:output_type -> camera2.OnCaptureProcessProgressedResponse
-	57,  // 160: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureProcessStarted:output_type -> camera2.OnCaptureProcessStartedResponse
-	59,  // 161: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureResultAvailable:output_type -> camera2.OnCaptureResultAvailableResponse
-	61,  // 162: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureSequenceAborted:output_type -> camera2.OnCaptureSequenceAbortedResponse
-	63,  // 163: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureSequenceCompleted:output_type -> camera2.OnCaptureSequenceCompletedResponse
-	65,  // 164: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureStarted:output_type -> camera2.OnCaptureStartedResponse
-	7,   // 165: camera2.CameraExtensionSessionStateCallbackService.OnClosed:output_type -> camera2.OnClosedResponse
-	67,  // 166: camera2.CameraExtensionSessionStateCallbackService.OnConfigureFailed:output_type -> camera2.OnConfigureFailedResponse
-	69,  // 167: camera2.CameraExtensionSessionStateCallbackService.OnConfigured:output_type -> camera2.OnConfiguredResponse
-	19,  // 168: camera2.CameraExtensionSessionStillCaptureLatencyService.Equals:output_type -> camera2.EqualsResponse
-	71,  // 169: camera2.CameraExtensionSessionStillCaptureLatencyService.GetCaptureLatency:output_type -> camera2.GetCaptureLatencyResponse
-	73,  // 170: camera2.CameraExtensionSessionStillCaptureLatencyService.GetProcessingLatency:output_type -> camera2.GetProcessingLatencyResponse
-	23,  // 171: camera2.CameraExtensionSessionStillCaptureLatencyService.HashCode:output_type -> camera2.HashCodeResponse
-	25,  // 172: camera2.CameraExtensionSessionStillCaptureLatencyService.ToString:output_type -> camera2.ToStringResponse
-	75,  // 173: camera2.MultiResolutionImageReaderService.NewMultiResolutionImageReader:output_type -> camera2.NewMultiResolutionImageReaderResponse
-	5,   // 174: camera2.MultiResolutionImageReaderService.Close:output_type -> camera2.CloseResponse
-	78,  // 175: camera2.MultiResolutionImageReaderService.Flush:output_type -> camera2.FlushResponse
-	80,  // 176: camera2.MultiResolutionImageReaderService.GetStreamInfoForImageReader:output_type -> camera2.GetStreamInfoForImageReaderResponse
-	82,  // 177: camera2.MultiResolutionImageReaderService.GetSurface:output_type -> camera2.GetSurfaceResponse
-	84,  // 178: camera2.MultiResolutionImageReaderService.SetOnImageAvailableListener:output_type -> camera2.SetOnImageAvailableListenerResponse
-	86,  // 179: camera2.CameraCaptureSessionService.AbortCaptures:output_type -> camera2.AbortCapturesResponse
-	88,  // 180: camera2.CameraCaptureSessionService.CaptureSingleRequest:output_type -> camera2.CaptureSingleRequestResponse
-	5,   // 181: camera2.CameraCaptureSessionService.Close:output_type -> camera2.CloseResponse
-	43,  // 182: camera2.CameraCaptureSessionService.GetDevice:output_type -> camera2.GetDeviceResponse
-	90,  // 183: camera2.CameraCaptureSessionService.GetInputSurface:output_type -> camera2.GetInputSurfaceResponse
-	92,  // 184: camera2.CameraCaptureSessionService.IsReprocessable:output_type -> camera2.IsReprocessableResponse
-	94,  // 185: camera2.CameraCaptureSessionService.Prepare:output_type -> camera2.PrepareResponse
-	96,  // 186: camera2.CameraCaptureSessionService.SetSingleRepeatingRequest:output_type -> camera2.SetSingleRepeatingRequestResponse
-	49,  // 187: camera2.CameraCaptureSessionService.StopRepeating:output_type -> camera2.StopRepeatingResponse
-	98,  // 188: camera2.CameraCaptureSessionService.SupportsOfflineProcessing:output_type -> camera2.SupportsOfflineProcessingResponse
-	100, // 189: camera2.CameraCaptureSessionService.UpdateOutputConfiguration:output_type -> camera2.UpdateOutputConfigurationResponse
-	102, // 190: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureBufferLost:output_type -> camera2.OnCaptureBufferLostResponse
-	104, // 191: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureCompleted:output_type -> camera2.OnCaptureCompletedResponse
-	106, // 192: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureFailed:output_type -> camera2.OnCaptureFailedResponse
-	108, // 193: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureProgressed:output_type -> camera2.OnCaptureProgressedResponse
-	61,  // 194: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureSequenceAborted:output_type -> camera2.OnCaptureSequenceAbortedResponse
-	63,  // 195: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureSequenceCompleted:output_type -> camera2.OnCaptureSequenceCompletedResponse
-	65,  // 196: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureStarted:output_type -> camera2.OnCaptureStartedResponse
-	112, // 197: camera2.CameraCaptureSessionCaptureCallbackService.OnReadoutStarted:output_type -> camera2.OnReadoutStartedResponse
-	114, // 198: camera2.CameraCaptureSessionStateCallbackService.OnActive:output_type -> camera2.OnActiveResponse
-	116, // 199: camera2.CameraCaptureSessionStateCallbackService.OnCaptureQueueEmpty:output_type -> camera2.OnCaptureQueueEmptyResponse
-	7,   // 200: camera2.CameraCaptureSessionStateCallbackService.OnClosed:output_type -> camera2.OnClosedResponse
-	67,  // 201: camera2.CameraCaptureSessionStateCallbackService.OnConfigureFailed:output_type -> camera2.OnConfigureFailedResponse
-	69,  // 202: camera2.CameraCaptureSessionStateCallbackService.OnConfigured:output_type -> camera2.OnConfiguredResponse
-	13,  // 203: camera2.CameraCaptureSessionStateCallbackService.OnReady:output_type -> camera2.OnReadyResponse
-	118, // 204: camera2.CameraCaptureSessionStateCallbackService.OnSurfacePrepared:output_type -> camera2.OnSurfacePreparedResponse
-	5,   // 205: camera2.CameraDeviceService.Close:output_type -> camera2.CloseResponse
-	120, // 206: camera2.CameraDeviceService.CreateCaptureRequest:output_type -> camera2.CreateCaptureRequestResponse
-	122, // 207: camera2.CameraDeviceService.CreateCaptureSession:output_type -> camera2.CreateCaptureSessionResponse
-	124, // 208: camera2.CameraDeviceService.CreateExtensionSession:output_type -> camera2.CreateExtensionSessionResponse
-	126, // 209: camera2.CameraDeviceService.CreateReprocessCaptureRequest:output_type -> camera2.CreateReprocessCaptureRequestResponse
-	128, // 210: camera2.CameraDeviceService.GetCameraAudioRestriction:output_type -> camera2.GetCameraAudioRestrictionResponse
-	130, // 211: camera2.CameraDeviceService.GetId:output_type -> camera2.GetIdResponse
-	132, // 212: camera2.CameraDeviceService.IsSessionConfigurationSupported:output_type -> camera2.IsSessionConfigurationSupportedResponse
-	134, // 213: camera2.CameraDeviceService.SetCameraAudioRestriction:output_type -> camera2.SetCameraAudioRestrictionResponse
-	120, // 214: camera2.CameraDeviceCameraDeviceSetupService.CreateCaptureRequest:output_type -> camera2.CreateCaptureRequestResponse
-	130, // 215: camera2.CameraDeviceCameraDeviceSetupService.GetId:output_type -> camera2.GetIdResponse
-	136, // 216: camera2.CameraDeviceCameraDeviceSetupService.GetSessionCharacteristics:output_type -> camera2.GetSessionCharacteristicsResponse
-	132, // 217: camera2.CameraDeviceCameraDeviceSetupService.IsSessionConfigurationSupported:output_type -> camera2.IsSessionConfigurationSupportedResponse
-	138, // 218: camera2.CameraDeviceCameraDeviceSetupService.OpenCamera:output_type -> camera2.OpenCameraResponse
-	7,   // 219: camera2.CameraDeviceStateCallbackService.OnClosed:output_type -> camera2.OnClosedResponse
-	140, // 220: camera2.CameraDeviceStateCallbackService.OnDisconnected:output_type -> camera2.OnDisconnectedResponse
-	9,   // 221: camera2.CameraDeviceStateCallbackService.OnError:output_type -> camera2.OnErrorResponse
-	142, // 222: camera2.CameraDeviceStateCallbackService.OnOpened:output_type -> camera2.OnOpenedResponse
-	144, // 223: camera2.CaptureRequestService.DescribeContents:output_type -> camera2.DescribeContentsResponse
-	19,  // 224: camera2.CaptureRequestService.Equals:output_type -> camera2.EqualsResponse
-	146, // 225: camera2.CaptureRequestService.GetTag:output_type -> camera2.GetTagResponse
-	23,  // 226: camera2.CaptureRequestService.HashCode:output_type -> camera2.HashCodeResponse
-	148, // 227: camera2.CaptureRequestService.IsReprocess:output_type -> camera2.IsReprocessResponse
-	150, // 228: camera2.CaptureRequestService.WriteToParcel:output_type -> camera2.WriteToParcelResponse
-	152, // 229: camera2.CaptureRequestBuilderService.AddTarget:output_type -> camera2.AddTargetResponse
-	154, // 230: camera2.CaptureRequestBuilderService.Build:output_type -> camera2.BuildResponse
-	156, // 231: camera2.CaptureRequestBuilderService.RemoveTarget:output_type -> camera2.RemoveTargetResponse
-	158, // 232: camera2.CaptureRequestBuilderService.SetTag:output_type -> camera2.SetTagResponse
-	19,  // 233: camera2.CaptureRequestKeyService.Equals:output_type -> camera2.EqualsResponse
-	21,  // 234: camera2.CaptureRequestKeyService.GetName:output_type -> camera2.GetNameResponse
-	23,  // 235: camera2.CaptureRequestKeyService.HashCode:output_type -> camera2.HashCodeResponse
-	25,  // 236: camera2.CaptureRequestKeyService.ToString:output_type -> camera2.ToStringResponse
-	160, // 237: camera2.DngCreatorService.NewDngCreator:output_type -> camera2.NewDngCreatorResponse
-	5,   // 238: camera2.DngCreatorService.Close:output_type -> camera2.CloseResponse
-	163, // 239: camera2.DngCreatorService.SetDescription:output_type -> camera2.SetDescriptionResponse
-	165, // 240: camera2.DngCreatorService.SetLocation:output_type -> camera2.SetLocationResponse
-	167, // 241: camera2.DngCreatorService.SetOrientation:output_type -> camera2.SetOrientationResponse
-	169, // 242: camera2.DngCreatorService.SetThumbnail1:output_type -> camera2.SetThumbnail1Response
-	171, // 243: camera2.DngCreatorService.SetThumbnail1_1:output_type -> camera2.SetThumbnail1_1Response
-	173, // 244: camera2.DngCreatorService.WriteImage:output_type -> camera2.WriteImageResponse
-	175, // 245: camera2.DngCreatorService.WriteInputStream:output_type -> camera2.WriteInputStreamResponse
-	177, // 246: camera2.CameraAccessExceptionService.NewCameraAccessException:output_type -> camera2.NewCameraAccessExceptionResponse
-	37,  // 247: camera2.CameraAccessExceptionService.GetReason:output_type -> camera2.GetReasonResponse
-	124, // [124:248] is the sub-list for method output_type
-	0,   // [0:124] is the sub-list for method input_type
+	0,   // 0: camera2.CameraConstrainedHighSpeedCaptureSessionService.CreateHighSpeedRequestList:input_type -> camera2.CreateHighSpeedRequestListRequest
+	2,   // 1: camera2.CaptureResultService.GetCameraId:input_type -> camera2.GetCameraIdRequest
+	4,   // 2: camera2.CaptureResultService.GetFrameNumber:input_type -> camera2.GetFrameNumberRequest
+	6,   // 3: camera2.CaptureResultService.GetKeys:input_type -> camera2.GetKeysRequest
+	8,   // 4: camera2.CaptureResultService.GetRequest:input_type -> camera2.GetRequestRequest
+	10,  // 5: camera2.CaptureResultService.GetSequenceId:input_type -> camera2.GetSequenceIdRequest
+	12,  // 6: camera2.CaptureResultKeyService.Equals:input_type -> camera2.EqualsRequest
+	14,  // 7: camera2.CaptureResultKeyService.GetName:input_type -> camera2.GetNameRequest
+	16,  // 8: camera2.CaptureResultKeyService.HashCode:input_type -> camera2.HashCodeRequest
+	18,  // 9: camera2.CaptureResultKeyService.ToString:input_type -> camera2.ToStringRequest
+	6,   // 10: camera2.CameraMetadataService.GetKeys:input_type -> camera2.GetKeysRequest
+	20,  // 11: camera2.CameraCaptureSessionService.AbortCaptures:input_type -> camera2.AbortCapturesRequest
+	22,  // 12: camera2.CameraCaptureSessionService.CaptureSingleRequest:input_type -> camera2.CaptureSingleRequestRequest
+	24,  // 13: camera2.CameraCaptureSessionService.Close:input_type -> camera2.CloseRequest
+	26,  // 14: camera2.CameraCaptureSessionService.GetDevice:input_type -> camera2.GetDeviceRequest
+	28,  // 15: camera2.CameraCaptureSessionService.GetInputSurface:input_type -> camera2.GetInputSurfaceRequest
+	30,  // 16: camera2.CameraCaptureSessionService.IsReprocessable:input_type -> camera2.IsReprocessableRequest
+	32,  // 17: camera2.CameraCaptureSessionService.Prepare:input_type -> camera2.PrepareRequest
+	34,  // 18: camera2.CameraCaptureSessionService.SetSingleRepeatingRequest:input_type -> camera2.SetSingleRepeatingRequestRequest
+	36,  // 19: camera2.CameraCaptureSessionService.StopRepeating:input_type -> camera2.StopRepeatingRequest
+	38,  // 20: camera2.CameraCaptureSessionService.SupportsOfflineProcessing:input_type -> camera2.SupportsOfflineProcessingRequest
+	40,  // 21: camera2.CameraCaptureSessionService.UpdateOutputConfiguration:input_type -> camera2.UpdateOutputConfigurationRequest
+	42,  // 22: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureBufferLost:input_type -> camera2.OnCaptureBufferLostRequest
+	44,  // 23: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureCompleted:input_type -> camera2.OnCaptureCompletedRequest
+	46,  // 24: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureFailed:input_type -> camera2.OnCaptureFailedRequest
+	48,  // 25: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureProgressed:input_type -> camera2.OnCaptureProgressedRequest
+	50,  // 26: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureSequenceAborted:input_type -> camera2.OnCaptureSequenceAbortedRequest
+	52,  // 27: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureSequenceCompleted:input_type -> camera2.OnCaptureSequenceCompletedRequest
+	54,  // 28: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureStarted:input_type -> camera2.OnCaptureStartedRequest
+	56,  // 29: camera2.CameraCaptureSessionCaptureCallbackService.OnReadoutStarted:input_type -> camera2.OnReadoutStartedRequest
+	58,  // 30: camera2.CameraCaptureSessionStateCallbackService.OnActive:input_type -> camera2.OnActiveRequest
+	60,  // 31: camera2.CameraCaptureSessionStateCallbackService.OnCaptureQueueEmpty:input_type -> camera2.OnCaptureQueueEmptyRequest
+	62,  // 32: camera2.CameraCaptureSessionStateCallbackService.OnClosed:input_type -> camera2.OnClosedRequest
+	64,  // 33: camera2.CameraCaptureSessionStateCallbackService.OnConfigureFailed:input_type -> camera2.OnConfigureFailedRequest
+	66,  // 34: camera2.CameraCaptureSessionStateCallbackService.OnConfigured:input_type -> camera2.OnConfiguredRequest
+	68,  // 35: camera2.CameraCaptureSessionStateCallbackService.OnReady:input_type -> camera2.OnReadyRequest
+	70,  // 36: camera2.CameraCaptureSessionStateCallbackService.OnSurfacePrepared:input_type -> camera2.OnSurfacePreparedRequest
+	4,   // 37: camera2.CaptureFailureService.GetFrameNumber:input_type -> camera2.GetFrameNumberRequest
+	72,  // 38: camera2.CaptureFailureService.GetPhysicalCameraId:input_type -> camera2.GetPhysicalCameraIdRequest
+	74,  // 39: camera2.CaptureFailureService.GetReason:input_type -> camera2.GetReasonRequest
+	8,   // 40: camera2.CaptureFailureService.GetRequest:input_type -> camera2.GetRequestRequest
+	10,  // 41: camera2.CaptureFailureService.GetSequenceId:input_type -> camera2.GetSequenceIdRequest
+	76,  // 42: camera2.CaptureFailureService.WasImageCaptured:input_type -> camera2.WasImageCapturedRequest
+	78,  // 43: camera2.TotalCaptureResultService.GetPartialResults:input_type -> camera2.GetPartialResultsRequest
+	24,  // 44: camera2.CameraDeviceService.Close:input_type -> camera2.CloseRequest
+	80,  // 45: camera2.CameraDeviceService.CreateCaptureRequest:input_type -> camera2.CreateCaptureRequestRequest
+	82,  // 46: camera2.CameraDeviceService.CreateCaptureSession:input_type -> camera2.CreateCaptureSessionRequest
+	84,  // 47: camera2.CameraDeviceService.CreateExtensionSession:input_type -> camera2.CreateExtensionSessionRequest
+	86,  // 48: camera2.CameraDeviceService.CreateReprocessCaptureRequest:input_type -> camera2.CreateReprocessCaptureRequestRequest
+	88,  // 49: camera2.CameraDeviceService.GetCameraAudioRestriction:input_type -> camera2.GetCameraAudioRestrictionRequest
+	90,  // 50: camera2.CameraDeviceService.GetId:input_type -> camera2.GetIdRequest
+	92,  // 51: camera2.CameraDeviceService.IsSessionConfigurationSupported:input_type -> camera2.IsSessionConfigurationSupportedRequest
+	94,  // 52: camera2.CameraDeviceService.SetCameraAudioRestriction:input_type -> camera2.SetCameraAudioRestrictionRequest
+	80,  // 53: camera2.CameraDeviceCameraDeviceSetupService.CreateCaptureRequest:input_type -> camera2.CreateCaptureRequestRequest
+	90,  // 54: camera2.CameraDeviceCameraDeviceSetupService.GetId:input_type -> camera2.GetIdRequest
+	96,  // 55: camera2.CameraDeviceCameraDeviceSetupService.GetSessionCharacteristics:input_type -> camera2.GetSessionCharacteristicsRequest
+	92,  // 56: camera2.CameraDeviceCameraDeviceSetupService.IsSessionConfigurationSupported:input_type -> camera2.IsSessionConfigurationSupportedRequest
+	98,  // 57: camera2.CameraDeviceCameraDeviceSetupService.OpenCamera:input_type -> camera2.OpenCameraRequest
+	62,  // 58: camera2.CameraDeviceStateCallbackService.OnClosed:input_type -> camera2.OnClosedRequest
+	100, // 59: camera2.CameraDeviceStateCallbackService.OnDisconnected:input_type -> camera2.OnDisconnectedRequest
+	102, // 60: camera2.CameraDeviceStateCallbackService.OnError:input_type -> camera2.OnErrorRequest
+	104, // 61: camera2.CameraDeviceStateCallbackService.OnOpened:input_type -> camera2.OnOpenedRequest
+	106, // 62: camera2.CameraAccessExceptionService.NewCameraAccessException:input_type -> camera2.NewCameraAccessExceptionRequest
+	108, // 63: camera2.CameraAccessExceptionService.GetReason:input_type -> camera2.CameraAccessExceptionGetReasonRequest
+	24,  // 64: camera2.CameraOfflineSessionService.Close:input_type -> camera2.CloseRequest
+	62,  // 65: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnClosed:input_type -> camera2.OnClosedRequest
+	102, // 66: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnError:input_type -> camera2.OnErrorRequest
+	109, // 67: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnIdle:input_type -> camera2.OnIdleRequest
+	68,  // 68: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnReady:input_type -> camera2.OnReadyRequest
+	111, // 69: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnSwitchFailed:input_type -> camera2.OnSwitchFailedRequest
+	113, // 70: camera2.CameraCharacteristicsService.GetAvailableCaptureRequestKeys:input_type -> camera2.GetAvailableCaptureRequestKeysRequest
+	115, // 71: camera2.CameraCharacteristicsService.GetAvailableCaptureResultKeys:input_type -> camera2.GetAvailableCaptureResultKeysRequest
+	117, // 72: camera2.CameraCharacteristicsService.GetAvailablePhysicalCameraRequestKeys:input_type -> camera2.GetAvailablePhysicalCameraRequestKeysRequest
+	119, // 73: camera2.CameraCharacteristicsService.GetAvailableSessionCharacteristicsKeys:input_type -> camera2.GetAvailableSessionCharacteristicsKeysRequest
+	121, // 74: camera2.CameraCharacteristicsService.GetAvailableSessionKeys:input_type -> camera2.GetAvailableSessionKeysRequest
+	6,   // 75: camera2.CameraCharacteristicsService.GetKeys:input_type -> camera2.GetKeysRequest
+	123, // 76: camera2.CameraCharacteristicsService.GetKeysNeedingPermission:input_type -> camera2.GetKeysNeedingPermissionRequest
+	125, // 77: camera2.CameraCharacteristicsService.GetPhysicalCameraIds:input_type -> camera2.GetPhysicalCameraIdsRequest
+	127, // 78: camera2.CameraCharacteristicsService.GetRecommendedStreamConfigurationMap:input_type -> camera2.GetRecommendedStreamConfigurationMapRequest
+	12,  // 79: camera2.CameraCharacteristicsKeyService.Equals:input_type -> camera2.EqualsRequest
+	14,  // 80: camera2.CameraCharacteristicsKeyService.GetName:input_type -> camera2.GetNameRequest
+	16,  // 81: camera2.CameraCharacteristicsKeyService.HashCode:input_type -> camera2.HashCodeRequest
+	18,  // 82: camera2.CameraCharacteristicsKeyService.ToString:input_type -> camera2.ToStringRequest
+	129, // 83: camera2.DngCreatorService.NewDngCreator:input_type -> camera2.NewDngCreatorRequest
+	131, // 84: camera2.DngCreatorService.Close:input_type -> camera2.DngCreatorCloseRequest
+	132, // 85: camera2.DngCreatorService.SetDescription:input_type -> camera2.SetDescriptionRequest
+	134, // 86: camera2.DngCreatorService.SetLocation:input_type -> camera2.SetLocationRequest
+	136, // 87: camera2.DngCreatorService.SetOrientation:input_type -> camera2.SetOrientationRequest
+	138, // 88: camera2.DngCreatorService.SetThumbnail1:input_type -> camera2.SetThumbnail1Request
+	140, // 89: camera2.DngCreatorService.SetThumbnail1_1:input_type -> camera2.SetThumbnail1_1Request
+	142, // 90: camera2.DngCreatorService.WriteImage:input_type -> camera2.WriteImageRequest
+	144, // 91: camera2.DngCreatorService.WriteInputStream:input_type -> camera2.WriteInputStreamRequest
+	146, // 92: camera2.CaptureRequestService.DescribeContents:input_type -> camera2.DescribeContentsRequest
+	12,  // 93: camera2.CaptureRequestService.Equals:input_type -> camera2.EqualsRequest
+	6,   // 94: camera2.CaptureRequestService.GetKeys:input_type -> camera2.GetKeysRequest
+	148, // 95: camera2.CaptureRequestService.GetTag:input_type -> camera2.GetTagRequest
+	16,  // 96: camera2.CaptureRequestService.HashCode:input_type -> camera2.HashCodeRequest
+	150, // 97: camera2.CaptureRequestService.IsReprocess:input_type -> camera2.IsReprocessRequest
+	152, // 98: camera2.CaptureRequestService.WriteToParcel:input_type -> camera2.WriteToParcelRequest
+	154, // 99: camera2.CaptureRequestBuilderService.AddTarget:input_type -> camera2.AddTargetRequest
+	156, // 100: camera2.CaptureRequestBuilderService.Build:input_type -> camera2.BuildRequest
+	158, // 101: camera2.CaptureRequestBuilderService.RemoveTarget:input_type -> camera2.RemoveTargetRequest
+	160, // 102: camera2.CaptureRequestBuilderService.SetTag:input_type -> camera2.SetTagRequest
+	12,  // 103: camera2.CaptureRequestKeyService.Equals:input_type -> camera2.EqualsRequest
+	14,  // 104: camera2.CaptureRequestKeyService.GetName:input_type -> camera2.GetNameRequest
+	16,  // 105: camera2.CaptureRequestKeyService.HashCode:input_type -> camera2.HashCodeRequest
+	18,  // 106: camera2.CaptureRequestKeyService.ToString:input_type -> camera2.ToStringRequest
+	162, // 107: camera2.MultiResolutionImageReaderService.NewMultiResolutionImageReader:input_type -> camera2.NewMultiResolutionImageReaderRequest
+	164, // 108: camera2.MultiResolutionImageReaderService.Close:input_type -> camera2.MultiResolutionImageReaderCloseRequest
+	165, // 109: camera2.MultiResolutionImageReaderService.Flush:input_type -> camera2.FlushRequest
+	167, // 110: camera2.MultiResolutionImageReaderService.GetStreamInfoForImageReader:input_type -> camera2.GetStreamInfoForImageReaderRequest
+	169, // 111: camera2.MultiResolutionImageReaderService.GetSurface:input_type -> camera2.GetSurfaceRequest
+	171, // 112: camera2.MultiResolutionImageReaderService.SetOnImageAvailableListener:input_type -> camera2.SetOnImageAvailableListenerRequest
+	173, // 113: camera2.CameraExtensionSessionService.Capture:input_type -> camera2.CaptureRequest
+	24,  // 114: camera2.CameraExtensionSessionService.Close:input_type -> camera2.CloseRequest
+	26,  // 115: camera2.CameraExtensionSessionService.GetDevice:input_type -> camera2.GetDeviceRequest
+	175, // 116: camera2.CameraExtensionSessionService.GetRealtimeStillCaptureLatency:input_type -> camera2.GetRealtimeStillCaptureLatencyRequest
+	177, // 117: camera2.CameraExtensionSessionService.SetRepeatingRequest:input_type -> camera2.SetRepeatingRequestRequest
+	36,  // 118: camera2.CameraExtensionSessionService.StopRepeating:input_type -> camera2.StopRepeatingRequest
+	179, // 119: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureFailed2:input_type -> camera2.OnCaptureFailed2Request
+	181, // 120: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureFailed3_1:input_type -> camera2.OnCaptureFailed3_1Request
+	183, // 121: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureProcessProgressed:input_type -> camera2.OnCaptureProcessProgressedRequest
+	185, // 122: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureProcessStarted:input_type -> camera2.OnCaptureProcessStartedRequest
+	187, // 123: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureResultAvailable:input_type -> camera2.OnCaptureResultAvailableRequest
+	50,  // 124: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureSequenceAborted:input_type -> camera2.OnCaptureSequenceAbortedRequest
+	189, // 125: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureSequenceCompleted:input_type -> camera2.CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest
+	190, // 126: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureStarted:input_type -> camera2.CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest
+	62,  // 127: camera2.CameraExtensionSessionStateCallbackService.OnClosed:input_type -> camera2.OnClosedRequest
+	64,  // 128: camera2.CameraExtensionSessionStateCallbackService.OnConfigureFailed:input_type -> camera2.OnConfigureFailedRequest
+	66,  // 129: camera2.CameraExtensionSessionStateCallbackService.OnConfigured:input_type -> camera2.OnConfiguredRequest
+	12,  // 130: camera2.CameraExtensionSessionStillCaptureLatencyService.Equals:input_type -> camera2.EqualsRequest
+	191, // 131: camera2.CameraExtensionSessionStillCaptureLatencyService.GetCaptureLatency:input_type -> camera2.GetCaptureLatencyRequest
+	193, // 132: camera2.CameraExtensionSessionStillCaptureLatencyService.GetProcessingLatency:input_type -> camera2.GetProcessingLatencyRequest
+	16,  // 133: camera2.CameraExtensionSessionStillCaptureLatencyService.HashCode:input_type -> camera2.HashCodeRequest
+	18,  // 134: camera2.CameraExtensionSessionStillCaptureLatencyService.ToString:input_type -> camera2.ToStringRequest
+	195, // 135: camera2.CameraExtensionCharacteristicsService.GetAvailableCaptureRequestKeys:input_type -> camera2.CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest
+	196, // 136: camera2.CameraExtensionCharacteristicsService.GetAvailableCaptureResultKeys:input_type -> camera2.CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest
+	197, // 137: camera2.CameraExtensionCharacteristicsService.GetEstimatedCaptureLatencyRangeMillis:input_type -> camera2.GetEstimatedCaptureLatencyRangeMillisRequest
+	199, // 138: camera2.CameraExtensionCharacteristicsService.GetExtensionSupportedSizes:input_type -> camera2.GetExtensionSupportedSizesRequest
+	201, // 139: camera2.CameraExtensionCharacteristicsService.GetKeys:input_type -> camera2.CameraExtensionCharacteristicsGetKeysRequest
+	202, // 140: camera2.CameraExtensionCharacteristicsService.GetPostviewSupportedSizes:input_type -> camera2.GetPostviewSupportedSizesRequest
+	204, // 141: camera2.CameraExtensionCharacteristicsService.GetSupportedExtensions:input_type -> camera2.GetSupportedExtensionsRequest
+	206, // 142: camera2.CameraExtensionCharacteristicsService.IsCaptureProcessProgressAvailable:input_type -> camera2.IsCaptureProcessProgressAvailableRequest
+	208, // 143: camera2.CameraExtensionCharacteristicsService.IsPostviewAvailable:input_type -> camera2.IsPostviewAvailableRequest
+	1,   // 144: camera2.CameraConstrainedHighSpeedCaptureSessionService.CreateHighSpeedRequestList:output_type -> camera2.CreateHighSpeedRequestListResponse
+	3,   // 145: camera2.CaptureResultService.GetCameraId:output_type -> camera2.GetCameraIdResponse
+	5,   // 146: camera2.CaptureResultService.GetFrameNumber:output_type -> camera2.GetFrameNumberResponse
+	7,   // 147: camera2.CaptureResultService.GetKeys:output_type -> camera2.GetKeysResponse
+	9,   // 148: camera2.CaptureResultService.GetRequest:output_type -> camera2.GetRequestResponse
+	11,  // 149: camera2.CaptureResultService.GetSequenceId:output_type -> camera2.GetSequenceIdResponse
+	13,  // 150: camera2.CaptureResultKeyService.Equals:output_type -> camera2.EqualsResponse
+	15,  // 151: camera2.CaptureResultKeyService.GetName:output_type -> camera2.GetNameResponse
+	17,  // 152: camera2.CaptureResultKeyService.HashCode:output_type -> camera2.HashCodeResponse
+	19,  // 153: camera2.CaptureResultKeyService.ToString:output_type -> camera2.ToStringResponse
+	7,   // 154: camera2.CameraMetadataService.GetKeys:output_type -> camera2.GetKeysResponse
+	21,  // 155: camera2.CameraCaptureSessionService.AbortCaptures:output_type -> camera2.AbortCapturesResponse
+	23,  // 156: camera2.CameraCaptureSessionService.CaptureSingleRequest:output_type -> camera2.CaptureSingleRequestResponse
+	25,  // 157: camera2.CameraCaptureSessionService.Close:output_type -> camera2.CloseResponse
+	27,  // 158: camera2.CameraCaptureSessionService.GetDevice:output_type -> camera2.GetDeviceResponse
+	29,  // 159: camera2.CameraCaptureSessionService.GetInputSurface:output_type -> camera2.GetInputSurfaceResponse
+	31,  // 160: camera2.CameraCaptureSessionService.IsReprocessable:output_type -> camera2.IsReprocessableResponse
+	33,  // 161: camera2.CameraCaptureSessionService.Prepare:output_type -> camera2.PrepareResponse
+	35,  // 162: camera2.CameraCaptureSessionService.SetSingleRepeatingRequest:output_type -> camera2.SetSingleRepeatingRequestResponse
+	37,  // 163: camera2.CameraCaptureSessionService.StopRepeating:output_type -> camera2.StopRepeatingResponse
+	39,  // 164: camera2.CameraCaptureSessionService.SupportsOfflineProcessing:output_type -> camera2.SupportsOfflineProcessingResponse
+	41,  // 165: camera2.CameraCaptureSessionService.UpdateOutputConfiguration:output_type -> camera2.UpdateOutputConfigurationResponse
+	43,  // 166: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureBufferLost:output_type -> camera2.OnCaptureBufferLostResponse
+	45,  // 167: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureCompleted:output_type -> camera2.OnCaptureCompletedResponse
+	47,  // 168: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureFailed:output_type -> camera2.OnCaptureFailedResponse
+	49,  // 169: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureProgressed:output_type -> camera2.OnCaptureProgressedResponse
+	51,  // 170: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureSequenceAborted:output_type -> camera2.OnCaptureSequenceAbortedResponse
+	53,  // 171: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureSequenceCompleted:output_type -> camera2.OnCaptureSequenceCompletedResponse
+	55,  // 172: camera2.CameraCaptureSessionCaptureCallbackService.OnCaptureStarted:output_type -> camera2.OnCaptureStartedResponse
+	57,  // 173: camera2.CameraCaptureSessionCaptureCallbackService.OnReadoutStarted:output_type -> camera2.OnReadoutStartedResponse
+	59,  // 174: camera2.CameraCaptureSessionStateCallbackService.OnActive:output_type -> camera2.OnActiveResponse
+	61,  // 175: camera2.CameraCaptureSessionStateCallbackService.OnCaptureQueueEmpty:output_type -> camera2.OnCaptureQueueEmptyResponse
+	63,  // 176: camera2.CameraCaptureSessionStateCallbackService.OnClosed:output_type -> camera2.OnClosedResponse
+	65,  // 177: camera2.CameraCaptureSessionStateCallbackService.OnConfigureFailed:output_type -> camera2.OnConfigureFailedResponse
+	67,  // 178: camera2.CameraCaptureSessionStateCallbackService.OnConfigured:output_type -> camera2.OnConfiguredResponse
+	69,  // 179: camera2.CameraCaptureSessionStateCallbackService.OnReady:output_type -> camera2.OnReadyResponse
+	71,  // 180: camera2.CameraCaptureSessionStateCallbackService.OnSurfacePrepared:output_type -> camera2.OnSurfacePreparedResponse
+	5,   // 181: camera2.CaptureFailureService.GetFrameNumber:output_type -> camera2.GetFrameNumberResponse
+	73,  // 182: camera2.CaptureFailureService.GetPhysicalCameraId:output_type -> camera2.GetPhysicalCameraIdResponse
+	75,  // 183: camera2.CaptureFailureService.GetReason:output_type -> camera2.GetReasonResponse
+	9,   // 184: camera2.CaptureFailureService.GetRequest:output_type -> camera2.GetRequestResponse
+	11,  // 185: camera2.CaptureFailureService.GetSequenceId:output_type -> camera2.GetSequenceIdResponse
+	77,  // 186: camera2.CaptureFailureService.WasImageCaptured:output_type -> camera2.WasImageCapturedResponse
+	79,  // 187: camera2.TotalCaptureResultService.GetPartialResults:output_type -> camera2.GetPartialResultsResponse
+	25,  // 188: camera2.CameraDeviceService.Close:output_type -> camera2.CloseResponse
+	81,  // 189: camera2.CameraDeviceService.CreateCaptureRequest:output_type -> camera2.CreateCaptureRequestResponse
+	83,  // 190: camera2.CameraDeviceService.CreateCaptureSession:output_type -> camera2.CreateCaptureSessionResponse
+	85,  // 191: camera2.CameraDeviceService.CreateExtensionSession:output_type -> camera2.CreateExtensionSessionResponse
+	87,  // 192: camera2.CameraDeviceService.CreateReprocessCaptureRequest:output_type -> camera2.CreateReprocessCaptureRequestResponse
+	89,  // 193: camera2.CameraDeviceService.GetCameraAudioRestriction:output_type -> camera2.GetCameraAudioRestrictionResponse
+	91,  // 194: camera2.CameraDeviceService.GetId:output_type -> camera2.GetIdResponse
+	93,  // 195: camera2.CameraDeviceService.IsSessionConfigurationSupported:output_type -> camera2.IsSessionConfigurationSupportedResponse
+	95,  // 196: camera2.CameraDeviceService.SetCameraAudioRestriction:output_type -> camera2.SetCameraAudioRestrictionResponse
+	81,  // 197: camera2.CameraDeviceCameraDeviceSetupService.CreateCaptureRequest:output_type -> camera2.CreateCaptureRequestResponse
+	91,  // 198: camera2.CameraDeviceCameraDeviceSetupService.GetId:output_type -> camera2.GetIdResponse
+	97,  // 199: camera2.CameraDeviceCameraDeviceSetupService.GetSessionCharacteristics:output_type -> camera2.GetSessionCharacteristicsResponse
+	93,  // 200: camera2.CameraDeviceCameraDeviceSetupService.IsSessionConfigurationSupported:output_type -> camera2.IsSessionConfigurationSupportedResponse
+	99,  // 201: camera2.CameraDeviceCameraDeviceSetupService.OpenCamera:output_type -> camera2.OpenCameraResponse
+	63,  // 202: camera2.CameraDeviceStateCallbackService.OnClosed:output_type -> camera2.OnClosedResponse
+	101, // 203: camera2.CameraDeviceStateCallbackService.OnDisconnected:output_type -> camera2.OnDisconnectedResponse
+	103, // 204: camera2.CameraDeviceStateCallbackService.OnError:output_type -> camera2.OnErrorResponse
+	105, // 205: camera2.CameraDeviceStateCallbackService.OnOpened:output_type -> camera2.OnOpenedResponse
+	107, // 206: camera2.CameraAccessExceptionService.NewCameraAccessException:output_type -> camera2.NewCameraAccessExceptionResponse
+	75,  // 207: camera2.CameraAccessExceptionService.GetReason:output_type -> camera2.GetReasonResponse
+	25,  // 208: camera2.CameraOfflineSessionService.Close:output_type -> camera2.CloseResponse
+	63,  // 209: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnClosed:output_type -> camera2.OnClosedResponse
+	103, // 210: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnError:output_type -> camera2.OnErrorResponse
+	110, // 211: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnIdle:output_type -> camera2.OnIdleResponse
+	69,  // 212: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnReady:output_type -> camera2.OnReadyResponse
+	112, // 213: camera2.CameraOfflineSessionCameraOfflineSessionCallbackService.OnSwitchFailed:output_type -> camera2.OnSwitchFailedResponse
+	114, // 214: camera2.CameraCharacteristicsService.GetAvailableCaptureRequestKeys:output_type -> camera2.GetAvailableCaptureRequestKeysResponse
+	116, // 215: camera2.CameraCharacteristicsService.GetAvailableCaptureResultKeys:output_type -> camera2.GetAvailableCaptureResultKeysResponse
+	118, // 216: camera2.CameraCharacteristicsService.GetAvailablePhysicalCameraRequestKeys:output_type -> camera2.GetAvailablePhysicalCameraRequestKeysResponse
+	120, // 217: camera2.CameraCharacteristicsService.GetAvailableSessionCharacteristicsKeys:output_type -> camera2.GetAvailableSessionCharacteristicsKeysResponse
+	122, // 218: camera2.CameraCharacteristicsService.GetAvailableSessionKeys:output_type -> camera2.GetAvailableSessionKeysResponse
+	7,   // 219: camera2.CameraCharacteristicsService.GetKeys:output_type -> camera2.GetKeysResponse
+	124, // 220: camera2.CameraCharacteristicsService.GetKeysNeedingPermission:output_type -> camera2.GetKeysNeedingPermissionResponse
+	126, // 221: camera2.CameraCharacteristicsService.GetPhysicalCameraIds:output_type -> camera2.GetPhysicalCameraIdsResponse
+	128, // 222: camera2.CameraCharacteristicsService.GetRecommendedStreamConfigurationMap:output_type -> camera2.GetRecommendedStreamConfigurationMapResponse
+	13,  // 223: camera2.CameraCharacteristicsKeyService.Equals:output_type -> camera2.EqualsResponse
+	15,  // 224: camera2.CameraCharacteristicsKeyService.GetName:output_type -> camera2.GetNameResponse
+	17,  // 225: camera2.CameraCharacteristicsKeyService.HashCode:output_type -> camera2.HashCodeResponse
+	19,  // 226: camera2.CameraCharacteristicsKeyService.ToString:output_type -> camera2.ToStringResponse
+	130, // 227: camera2.DngCreatorService.NewDngCreator:output_type -> camera2.NewDngCreatorResponse
+	25,  // 228: camera2.DngCreatorService.Close:output_type -> camera2.CloseResponse
+	133, // 229: camera2.DngCreatorService.SetDescription:output_type -> camera2.SetDescriptionResponse
+	135, // 230: camera2.DngCreatorService.SetLocation:output_type -> camera2.SetLocationResponse
+	137, // 231: camera2.DngCreatorService.SetOrientation:output_type -> camera2.SetOrientationResponse
+	139, // 232: camera2.DngCreatorService.SetThumbnail1:output_type -> camera2.SetThumbnail1Response
+	141, // 233: camera2.DngCreatorService.SetThumbnail1_1:output_type -> camera2.SetThumbnail1_1Response
+	143, // 234: camera2.DngCreatorService.WriteImage:output_type -> camera2.WriteImageResponse
+	145, // 235: camera2.DngCreatorService.WriteInputStream:output_type -> camera2.WriteInputStreamResponse
+	147, // 236: camera2.CaptureRequestService.DescribeContents:output_type -> camera2.DescribeContentsResponse
+	13,  // 237: camera2.CaptureRequestService.Equals:output_type -> camera2.EqualsResponse
+	7,   // 238: camera2.CaptureRequestService.GetKeys:output_type -> camera2.GetKeysResponse
+	149, // 239: camera2.CaptureRequestService.GetTag:output_type -> camera2.GetTagResponse
+	17,  // 240: camera2.CaptureRequestService.HashCode:output_type -> camera2.HashCodeResponse
+	151, // 241: camera2.CaptureRequestService.IsReprocess:output_type -> camera2.IsReprocessResponse
+	153, // 242: camera2.CaptureRequestService.WriteToParcel:output_type -> camera2.WriteToParcelResponse
+	155, // 243: camera2.CaptureRequestBuilderService.AddTarget:output_type -> camera2.AddTargetResponse
+	157, // 244: camera2.CaptureRequestBuilderService.Build:output_type -> camera2.BuildResponse
+	159, // 245: camera2.CaptureRequestBuilderService.RemoveTarget:output_type -> camera2.RemoveTargetResponse
+	161, // 246: camera2.CaptureRequestBuilderService.SetTag:output_type -> camera2.SetTagResponse
+	13,  // 247: camera2.CaptureRequestKeyService.Equals:output_type -> camera2.EqualsResponse
+	15,  // 248: camera2.CaptureRequestKeyService.GetName:output_type -> camera2.GetNameResponse
+	17,  // 249: camera2.CaptureRequestKeyService.HashCode:output_type -> camera2.HashCodeResponse
+	19,  // 250: camera2.CaptureRequestKeyService.ToString:output_type -> camera2.ToStringResponse
+	163, // 251: camera2.MultiResolutionImageReaderService.NewMultiResolutionImageReader:output_type -> camera2.NewMultiResolutionImageReaderResponse
+	25,  // 252: camera2.MultiResolutionImageReaderService.Close:output_type -> camera2.CloseResponse
+	166, // 253: camera2.MultiResolutionImageReaderService.Flush:output_type -> camera2.FlushResponse
+	168, // 254: camera2.MultiResolutionImageReaderService.GetStreamInfoForImageReader:output_type -> camera2.GetStreamInfoForImageReaderResponse
+	170, // 255: camera2.MultiResolutionImageReaderService.GetSurface:output_type -> camera2.GetSurfaceResponse
+	172, // 256: camera2.MultiResolutionImageReaderService.SetOnImageAvailableListener:output_type -> camera2.SetOnImageAvailableListenerResponse
+	174, // 257: camera2.CameraExtensionSessionService.Capture:output_type -> camera2.CaptureResponse
+	25,  // 258: camera2.CameraExtensionSessionService.Close:output_type -> camera2.CloseResponse
+	27,  // 259: camera2.CameraExtensionSessionService.GetDevice:output_type -> camera2.GetDeviceResponse
+	176, // 260: camera2.CameraExtensionSessionService.GetRealtimeStillCaptureLatency:output_type -> camera2.GetRealtimeStillCaptureLatencyResponse
+	178, // 261: camera2.CameraExtensionSessionService.SetRepeatingRequest:output_type -> camera2.SetRepeatingRequestResponse
+	37,  // 262: camera2.CameraExtensionSessionService.StopRepeating:output_type -> camera2.StopRepeatingResponse
+	180, // 263: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureFailed2:output_type -> camera2.OnCaptureFailed2Response
+	182, // 264: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureFailed3_1:output_type -> camera2.OnCaptureFailed3_1Response
+	184, // 265: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureProcessProgressed:output_type -> camera2.OnCaptureProcessProgressedResponse
+	186, // 266: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureProcessStarted:output_type -> camera2.OnCaptureProcessStartedResponse
+	188, // 267: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureResultAvailable:output_type -> camera2.OnCaptureResultAvailableResponse
+	51,  // 268: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureSequenceAborted:output_type -> camera2.OnCaptureSequenceAbortedResponse
+	53,  // 269: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureSequenceCompleted:output_type -> camera2.OnCaptureSequenceCompletedResponse
+	55,  // 270: camera2.CameraExtensionSessionExtensionCaptureCallbackService.OnCaptureStarted:output_type -> camera2.OnCaptureStartedResponse
+	63,  // 271: camera2.CameraExtensionSessionStateCallbackService.OnClosed:output_type -> camera2.OnClosedResponse
+	65,  // 272: camera2.CameraExtensionSessionStateCallbackService.OnConfigureFailed:output_type -> camera2.OnConfigureFailedResponse
+	67,  // 273: camera2.CameraExtensionSessionStateCallbackService.OnConfigured:output_type -> camera2.OnConfiguredResponse
+	13,  // 274: camera2.CameraExtensionSessionStillCaptureLatencyService.Equals:output_type -> camera2.EqualsResponse
+	192, // 275: camera2.CameraExtensionSessionStillCaptureLatencyService.GetCaptureLatency:output_type -> camera2.GetCaptureLatencyResponse
+	194, // 276: camera2.CameraExtensionSessionStillCaptureLatencyService.GetProcessingLatency:output_type -> camera2.GetProcessingLatencyResponse
+	17,  // 277: camera2.CameraExtensionSessionStillCaptureLatencyService.HashCode:output_type -> camera2.HashCodeResponse
+	19,  // 278: camera2.CameraExtensionSessionStillCaptureLatencyService.ToString:output_type -> camera2.ToStringResponse
+	114, // 279: camera2.CameraExtensionCharacteristicsService.GetAvailableCaptureRequestKeys:output_type -> camera2.GetAvailableCaptureRequestKeysResponse
+	116, // 280: camera2.CameraExtensionCharacteristicsService.GetAvailableCaptureResultKeys:output_type -> camera2.GetAvailableCaptureResultKeysResponse
+	198, // 281: camera2.CameraExtensionCharacteristicsService.GetEstimatedCaptureLatencyRangeMillis:output_type -> camera2.GetEstimatedCaptureLatencyRangeMillisResponse
+	200, // 282: camera2.CameraExtensionCharacteristicsService.GetExtensionSupportedSizes:output_type -> camera2.GetExtensionSupportedSizesResponse
+	7,   // 283: camera2.CameraExtensionCharacteristicsService.GetKeys:output_type -> camera2.GetKeysResponse
+	203, // 284: camera2.CameraExtensionCharacteristicsService.GetPostviewSupportedSizes:output_type -> camera2.GetPostviewSupportedSizesResponse
+	205, // 285: camera2.CameraExtensionCharacteristicsService.GetSupportedExtensions:output_type -> camera2.GetSupportedExtensionsResponse
+	207, // 286: camera2.CameraExtensionCharacteristicsService.IsCaptureProcessProgressAvailable:output_type -> camera2.IsCaptureProcessProgressAvailableResponse
+	209, // 287: camera2.CameraExtensionCharacteristicsService.IsPostviewAvailable:output_type -> camera2.IsPostviewAvailableResponse
+	144, // [144:288] is the sub-list for method output_type
+	0,   // [0:144] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -8796,9 +10272,9 @@ func file_proto_camera2_camera2_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_camera2_camera2_proto_rawDesc), len(file_proto_camera2_camera2_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   179,
+			NumMessages:   210,
 			NumExtensions: 0,
-			NumServices:   24,
+			NumServices:   27,
 		},
 		GoTypes:           file_proto_camera2_camera2_proto_goTypes,
 		DependencyIndexes: file_proto_camera2_camera2_proto_depIdxs,

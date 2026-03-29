@@ -453,23 +453,111 @@ var preferencesSharedPreferencesOnSharedPreferenceChangeListenerOnSharedPreferen
 	},
 }
 
-var preferencesSettingsPreferenceServiceCmd = &cobra.Command{
-	Use:   "settings-preference-service",
-	Short: "SettingsPreferenceServiceService operations",
+var preferencesSetValueRequestCmd = &cobra.Command{
+	Use:   "set-value-request",
+	Short: "SetValueRequestService operations",
 }
 
-var preferencesSettingsPreferenceServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
+var preferencesSetValueRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSettingsPreferenceServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
+		client := pb.NewSetValueRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueRequestGetPreferenceKeyCmd = &cobra.Command{
+	Use:   "get-preference-key",
+	Short: "GetPreferenceKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueRequestServiceClient(grpcConn)
+		req := &pb.GetPreferenceKeyRequest{}
+		resp, err := client.GetPreferenceKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueRequestGetPreferenceValueCmd = &cobra.Command{
+	Use:   "get-preference-value",
+	Short: "GetPreferenceValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueRequestServiceClient(grpcConn)
+		req := &pb.GetPreferenceValueRequest{}
+		resp, err := client.GetPreferenceValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueRequestGetScreenKeyCmd = &cobra.Command{
+	Use:   "get-screen-key",
+	Short: "GetScreenKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueRequestServiceClient(grpcConn)
+		req := &pb.GetScreenKeyRequest{}
+		resp, err := client.GetScreenKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnBind(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueRequestBuilderCmd = &cobra.Command{
+	Use:   "set-value-request-builder",
+	Short: "SetValueRequestBuilderService operations",
+}
+
+var preferencesSetValueRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -828,282 +916,6 @@ var preferencesSettingsPreferenceValueBuilderSetStringValueCmd = &cobra.Command{
 	},
 }
 
-var preferencesMetadataResultCmd = &cobra.Command{
-	Use:   "metadata-result",
-	Short: "MetadataResultService operations",
-}
-
-var preferencesMetadataResultDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetadataResultServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesMetadataResultGetResultCodeCmd = &cobra.Command{
-	Use:   "get-result-code",
-	Short: "GetResultCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetadataResultServiceClient(grpcConn)
-		req := &pb.GetResultCodeRequest{}
-		resp, err := client.GetResultCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesMetadataResultWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetadataResultServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesMetadataResultBuilderCmd = &cobra.Command{
-	Use:   "metadata-result-builder",
-	Short: "MetadataResultBuilderService operations",
-}
-
-var preferencesMetadataResultBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetadataResultBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSetValueResultCmd = &cobra.Command{
-	Use:   "set-value-result",
-	Short: "SetValueResultService operations",
-}
-
-var preferencesSetValueResultDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetValueResultServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSetValueResultGetResultCodeCmd = &cobra.Command{
-	Use:   "get-result-code",
-	Short: "GetResultCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetValueResultServiceClient(grpcConn)
-		req := &pb.GetResultCodeRequest{}
-		resp, err := client.GetResultCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSetValueResultWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetValueResultServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSetValueResultBuilderCmd = &cobra.Command{
-	Use:   "set-value-result-builder",
-	Short: "SetValueResultBuilderService operations",
-}
-
-var preferencesSetValueResultBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetValueResultBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSettingsPreferenceServiceClientCmd = &cobra.Command{
-	Use:   "settings-preference-service-client",
-	Short: "SettingsPreferenceServiceClientService operations",
-}
-
-var preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd = &cobra.Command{
-	Use:   "new-settings-preference-service-client",
-	Short: "NewSettingsPreferenceServiceClient RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSettingsPreferenceServiceClientServiceClient(grpcConn)
-		req := &pb.NewSettingsPreferenceServiceClientRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewSettingsPreferenceServiceClient(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSettingsPreferenceServiceClientCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSettingsPreferenceServiceClientServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesMetadataRequestCmd = &cobra.Command{
-	Use:   "metadata-request",
-	Short: "MetadataRequestService operations",
-}
-
-var preferencesMetadataRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetadataRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesMetadataRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetadataRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesMetadataRequestBuilderCmd = &cobra.Command{
-	Use:   "metadata-request-builder",
-	Short: "MetadataRequestBuilderService operations",
-}
-
-var preferencesMetadataRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetadataRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var preferencesSettingsPreferenceMetadataCmd = &cobra.Command{
 	Use:   "settings-preference-metadata",
 	Short: "SettingsPreferenceMetadataService operations",
@@ -1173,6 +985,22 @@ var preferencesSettingsPreferenceMetadataGetLaunchIntentCmd = &cobra.Command{
 	},
 }
 
+var preferencesSettingsPreferenceMetadataGetReadPermissionsCmd = &cobra.Command{
+	Use:   "get-read-permissions",
+	Short: "GetReadPermissions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSettingsPreferenceMetadataServiceClient(grpcConn)
+		req := &pb.GetReadPermissionsRequest{}
+		resp, err := client.GetReadPermissions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var preferencesSettingsPreferenceMetadataGetScreenKeyCmd = &cobra.Command{
 	Use:   "get-screen-key",
 	Short: "GetScreenKey RPC",
@@ -1214,6 +1042,22 @@ var preferencesSettingsPreferenceMetadataGetTitleCmd = &cobra.Command{
 		client := pb.NewSettingsPreferenceMetadataServiceClient(grpcConn)
 		req := &pb.GetTitleRequest{}
 		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSettingsPreferenceMetadataGetWritePermissionsCmd = &cobra.Command{
+	Use:   "get-write-permissions",
+	Short: "GetWritePermissions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSettingsPreferenceMetadataServiceClient(grpcConn)
+		req := &pb.GetWritePermissionsRequest{}
+		resp, err := client.GetWritePermissions(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1515,18 +1359,18 @@ var preferencesSettingsPreferenceMetadataBuilderSetWriteSensitivityCmd = &cobra.
 	},
 }
 
-var preferencesSetValueRequestCmd = &cobra.Command{
-	Use:   "set-value-request",
-	Short: "SetValueRequestService operations",
+var preferencesMetadataRequestCmd = &cobra.Command{
+	Use:   "metadata-request",
+	Short: "MetadataRequestService operations",
 }
 
-var preferencesSetValueRequestDescribeContentsCmd = &cobra.Command{
+var preferencesMetadataRequestDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSetValueRequestServiceClient(grpcConn)
+		client := pb.NewMetadataRequestServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -1536,61 +1380,13 @@ var preferencesSetValueRequestDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var preferencesSetValueRequestGetPreferenceKeyCmd = &cobra.Command{
-	Use:   "get-preference-key",
-	Short: "GetPreferenceKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetValueRequestServiceClient(grpcConn)
-		req := &pb.GetPreferenceKeyRequest{}
-		resp, err := client.GetPreferenceKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSetValueRequestGetPreferenceValueCmd = &cobra.Command{
-	Use:   "get-preference-value",
-	Short: "GetPreferenceValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetValueRequestServiceClient(grpcConn)
-		req := &pb.GetPreferenceValueRequest{}
-		resp, err := client.GetPreferenceValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSetValueRequestGetScreenKeyCmd = &cobra.Command{
-	Use:   "get-screen-key",
-	Short: "GetScreenKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetValueRequestServiceClient(grpcConn)
-		req := &pb.GetScreenKeyRequest{}
-		resp, err := client.GetScreenKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var preferencesSetValueRequestWriteToParcelCmd = &cobra.Command{
+var preferencesMetadataRequestWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSetValueRequestServiceClient(grpcConn)
+		client := pb.NewMetadataRequestServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1606,18 +1402,98 @@ var preferencesSetValueRequestWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var preferencesSetValueRequestBuilderCmd = &cobra.Command{
-	Use:   "set-value-request-builder",
-	Short: "SetValueRequestBuilderService operations",
+var preferencesMetadataRequestBuilderCmd = &cobra.Command{
+	Use:   "metadata-request-builder",
+	Short: "MetadataRequestBuilderService operations",
 }
 
-var preferencesSetValueRequestBuilderBuildCmd = &cobra.Command{
+var preferencesMetadataRequestBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSetValueRequestBuilderServiceClient(grpcConn)
+		client := pb.NewMetadataRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueResultCmd = &cobra.Command{
+	Use:   "set-value-result",
+	Short: "SetValueResultService operations",
+}
+
+var preferencesSetValueResultDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueResultServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueResultGetResultCodeCmd = &cobra.Command{
+	Use:   "get-result-code",
+	Short: "GetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueResultServiceClient(grpcConn)
+		req := &pb.GetResultCodeRequest{}
+		resp, err := client.GetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueResultWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueResultServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSetValueResultBuilderCmd = &cobra.Command{
+	Use:   "set-value-result-builder",
+	Short: "SetValueResultBuilderService operations",
+}
+
+var preferencesSetValueResultBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetValueResultBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -1777,6 +1653,178 @@ var preferencesGetValueResultBuilderSetValueCmd = &cobra.Command{
 	},
 }
 
+var preferencesMetadataResultCmd = &cobra.Command{
+	Use:   "metadata-result",
+	Short: "MetadataResultService operations",
+}
+
+var preferencesMetadataResultDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetadataResultServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesMetadataResultGetMetadataListCmd = &cobra.Command{
+	Use:   "get-metadata-list",
+	Short: "GetMetadataList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetadataResultServiceClient(grpcConn)
+		req := &pb.GetMetadataListRequest{}
+		resp, err := client.GetMetadataList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesMetadataResultGetResultCodeCmd = &cobra.Command{
+	Use:   "get-result-code",
+	Short: "GetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetadataResultServiceClient(grpcConn)
+		req := &pb.GetResultCodeRequest{}
+		resp, err := client.GetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesMetadataResultWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetadataResultServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesMetadataResultBuilderCmd = &cobra.Command{
+	Use:   "metadata-result-builder",
+	Short: "MetadataResultBuilderService operations",
+}
+
+var preferencesMetadataResultBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetadataResultBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSettingsPreferenceServiceClientCmd = &cobra.Command{
+	Use:   "settings-preference-service-client",
+	Short: "SettingsPreferenceServiceClientService operations",
+}
+
+var preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd = &cobra.Command{
+	Use:   "new-settings-preference-service-client",
+	Short: "NewSettingsPreferenceServiceClient RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSettingsPreferenceServiceClientServiceClient(grpcConn)
+		req := &pb.NewSettingsPreferenceServiceClientRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewSettingsPreferenceServiceClient(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSettingsPreferenceServiceClientCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSettingsPreferenceServiceClientServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var preferencesSettingsPreferenceServiceCmd = &cobra.Command{
+	Use:   "settings-preference-service",
+	Short: "SettingsPreferenceServiceService operations",
+}
+
+var preferencesSettingsPreferenceServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSettingsPreferenceServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	preferencesSharedPreferencesContainsCmd.Flags().String("arg0", "", "arg0 (string)")
 	preferencesSharedPreferencesCmd.AddCommand(preferencesSharedPreferencesContainsCmd)
@@ -1832,9 +1880,16 @@ func init() {
 	preferencesSharedPreferencesOnSharedPreferenceChangeListenerOnSharedPreferenceChangedCmd.Flags().String("arg1", "", "arg1 (string)")
 	preferencesSharedPreferencesOnSharedPreferenceChangeListenerCmd.AddCommand(preferencesSharedPreferencesOnSharedPreferenceChangeListenerOnSharedPreferenceChangedCmd)
 	preferencesCmd.AddCommand(preferencesSharedPreferencesOnSharedPreferenceChangeListenerCmd)
-	preferencesSettingsPreferenceServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferencesSettingsPreferenceServiceCmd.AddCommand(preferencesSettingsPreferenceServiceOnBindCmd)
-	preferencesCmd.AddCommand(preferencesSettingsPreferenceServiceCmd)
+	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestDescribeContentsCmd)
+	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestGetPreferenceKeyCmd)
+	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestGetPreferenceValueCmd)
+	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestGetScreenKeyCmd)
+	preferencesSetValueRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferencesSetValueRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestWriteToParcelCmd)
+	preferencesCmd.AddCommand(preferencesSetValueRequestCmd)
+	preferencesSetValueRequestBuilderCmd.AddCommand(preferencesSetValueRequestBuilderBuildCmd)
+	preferencesCmd.AddCommand(preferencesSetValueRequestBuilderCmd)
 	preferencesGetValueRequestCmd.AddCommand(preferencesGetValueRequestDescribeContentsCmd)
 	preferencesGetValueRequestCmd.AddCommand(preferencesGetValueRequestGetPreferenceKeyCmd)
 	preferencesGetValueRequestCmd.AddCommand(preferencesGetValueRequestGetScreenKeyCmd)
@@ -1867,44 +1922,15 @@ func init() {
 	preferencesSettingsPreferenceValueBuilderSetStringValueCmd.Flags().String("arg0", "", "arg0 (string)")
 	preferencesSettingsPreferenceValueBuilderCmd.AddCommand(preferencesSettingsPreferenceValueBuilderSetStringValueCmd)
 	preferencesCmd.AddCommand(preferencesSettingsPreferenceValueBuilderCmd)
-	preferencesMetadataResultCmd.AddCommand(preferencesMetadataResultDescribeContentsCmd)
-	preferencesMetadataResultCmd.AddCommand(preferencesMetadataResultGetResultCodeCmd)
-	preferencesMetadataResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferencesMetadataResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferencesMetadataResultCmd.AddCommand(preferencesMetadataResultWriteToParcelCmd)
-	preferencesCmd.AddCommand(preferencesMetadataResultCmd)
-	preferencesMetadataResultBuilderCmd.AddCommand(preferencesMetadataResultBuilderBuildCmd)
-	preferencesCmd.AddCommand(preferencesMetadataResultBuilderCmd)
-	preferencesSetValueResultCmd.AddCommand(preferencesSetValueResultDescribeContentsCmd)
-	preferencesSetValueResultCmd.AddCommand(preferencesSetValueResultGetResultCodeCmd)
-	preferencesSetValueResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferencesSetValueResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferencesSetValueResultCmd.AddCommand(preferencesSetValueResultWriteToParcelCmd)
-	preferencesCmd.AddCommand(preferencesSetValueResultCmd)
-	preferencesSetValueResultBuilderCmd.AddCommand(preferencesSetValueResultBuilderBuildCmd)
-	preferencesCmd.AddCommand(preferencesSetValueResultBuilderCmd)
-	preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd.Flags().String("arg1", "", "arg1 (string)")
-	preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	preferencesSettingsPreferenceServiceClientCmd.AddCommand(preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd)
-	preferencesSettingsPreferenceServiceClientCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	preferencesSettingsPreferenceServiceClientCmd.AddCommand(preferencesSettingsPreferenceServiceClientCloseCmd)
-	preferencesCmd.AddCommand(preferencesSettingsPreferenceServiceClientCmd)
-	preferencesMetadataRequestCmd.AddCommand(preferencesMetadataRequestDescribeContentsCmd)
-	preferencesMetadataRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferencesMetadataRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferencesMetadataRequestCmd.AddCommand(preferencesMetadataRequestWriteToParcelCmd)
-	preferencesCmd.AddCommand(preferencesMetadataRequestCmd)
-	preferencesMetadataRequestBuilderCmd.AddCommand(preferencesMetadataRequestBuilderBuildCmd)
-	preferencesCmd.AddCommand(preferencesMetadataRequestBuilderCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataDescribeContentsCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetExtrasCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetKeyCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetLaunchIntentCmd)
+	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetReadPermissionsCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetScreenKeyCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetSummaryCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetTitleCmd)
+	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetWritePermissionsCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataGetWriteSensitivityCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataIsAvailableCmd)
 	preferencesSettingsPreferenceMetadataCmd.AddCommand(preferencesSettingsPreferenceMetadataIsEnabledCmd)
@@ -1934,16 +1960,21 @@ func init() {
 	preferencesSettingsPreferenceMetadataBuilderSetWriteSensitivityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	preferencesSettingsPreferenceMetadataBuilderCmd.AddCommand(preferencesSettingsPreferenceMetadataBuilderSetWriteSensitivityCmd)
 	preferencesCmd.AddCommand(preferencesSettingsPreferenceMetadataBuilderCmd)
-	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestDescribeContentsCmd)
-	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestGetPreferenceKeyCmd)
-	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestGetPreferenceValueCmd)
-	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestGetScreenKeyCmd)
-	preferencesSetValueRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	preferencesSetValueRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	preferencesSetValueRequestCmd.AddCommand(preferencesSetValueRequestWriteToParcelCmd)
-	preferencesCmd.AddCommand(preferencesSetValueRequestCmd)
-	preferencesSetValueRequestBuilderCmd.AddCommand(preferencesSetValueRequestBuilderBuildCmd)
-	preferencesCmd.AddCommand(preferencesSetValueRequestBuilderCmd)
+	preferencesMetadataRequestCmd.AddCommand(preferencesMetadataRequestDescribeContentsCmd)
+	preferencesMetadataRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferencesMetadataRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferencesMetadataRequestCmd.AddCommand(preferencesMetadataRequestWriteToParcelCmd)
+	preferencesCmd.AddCommand(preferencesMetadataRequestCmd)
+	preferencesMetadataRequestBuilderCmd.AddCommand(preferencesMetadataRequestBuilderBuildCmd)
+	preferencesCmd.AddCommand(preferencesMetadataRequestBuilderCmd)
+	preferencesSetValueResultCmd.AddCommand(preferencesSetValueResultDescribeContentsCmd)
+	preferencesSetValueResultCmd.AddCommand(preferencesSetValueResultGetResultCodeCmd)
+	preferencesSetValueResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferencesSetValueResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferencesSetValueResultCmd.AddCommand(preferencesSetValueResultWriteToParcelCmd)
+	preferencesCmd.AddCommand(preferencesSetValueResultCmd)
+	preferencesSetValueResultBuilderCmd.AddCommand(preferencesSetValueResultBuilderBuildCmd)
+	preferencesCmd.AddCommand(preferencesSetValueResultBuilderCmd)
 	preferencesGetValueResultCmd.AddCommand(preferencesGetValueResultDescribeContentsCmd)
 	preferencesGetValueResultCmd.AddCommand(preferencesGetValueResultGetMetadataCmd)
 	preferencesGetValueResultCmd.AddCommand(preferencesGetValueResultGetResultCodeCmd)
@@ -1958,5 +1989,25 @@ func init() {
 	preferencesGetValueResultBuilderSetValueCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	preferencesGetValueResultBuilderCmd.AddCommand(preferencesGetValueResultBuilderSetValueCmd)
 	preferencesCmd.AddCommand(preferencesGetValueResultBuilderCmd)
+	preferencesMetadataResultCmd.AddCommand(preferencesMetadataResultDescribeContentsCmd)
+	preferencesMetadataResultCmd.AddCommand(preferencesMetadataResultGetMetadataListCmd)
+	preferencesMetadataResultCmd.AddCommand(preferencesMetadataResultGetResultCodeCmd)
+	preferencesMetadataResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferencesMetadataResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	preferencesMetadataResultCmd.AddCommand(preferencesMetadataResultWriteToParcelCmd)
+	preferencesCmd.AddCommand(preferencesMetadataResultCmd)
+	preferencesMetadataResultBuilderCmd.AddCommand(preferencesMetadataResultBuilderBuildCmd)
+	preferencesCmd.AddCommand(preferencesMetadataResultBuilderCmd)
+	preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd.Flags().String("arg1", "", "arg1 (string)")
+	preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	preferencesSettingsPreferenceServiceClientCmd.AddCommand(preferencesSettingsPreferenceServiceClientNewSettingsPreferenceServiceClientCmd)
+	preferencesSettingsPreferenceServiceClientCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	preferencesSettingsPreferenceServiceClientCmd.AddCommand(preferencesSettingsPreferenceServiceClientCloseCmd)
+	preferencesCmd.AddCommand(preferencesSettingsPreferenceServiceClientCmd)
+	preferencesSettingsPreferenceServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	preferencesSettingsPreferenceServiceCmd.AddCommand(preferencesSettingsPreferenceServiceOnBindCmd)
+	preferencesCmd.AddCommand(preferencesSettingsPreferenceServiceCmd)
 	rootCmd.AddCommand(preferencesCmd)
 }

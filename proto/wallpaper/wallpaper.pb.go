@@ -511,6 +511,86 @@ func (x *GetContextUriResponse) GetResult() int64 {
 	return 0
 }
 
+type GetDescriptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptionRequest) Reset() {
+	*x = GetDescriptionRequest{}
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptionRequest) ProtoMessage() {}
+
+func (x *GetDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*GetDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{12}
+}
+
+type GetDescriptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptionResponse) Reset() {
+	*x = GetDescriptionResponse{}
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptionResponse) ProtoMessage() {}
+
+func (x *GetDescriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*GetDescriptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetDescriptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -519,7 +599,7 @@ type GetIdRequest struct {
 
 func (x *GetIdRequest) Reset() {
 	*x = GetIdRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[12]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -531,7 +611,7 @@ func (x *GetIdRequest) String() string {
 func (*GetIdRequest) ProtoMessage() {}
 
 func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[12]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -544,7 +624,7 @@ func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
 func (*GetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{12}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{14}
 }
 
 type GetIdResponse struct {
@@ -556,7 +636,7 @@ type GetIdResponse struct {
 
 func (x *GetIdResponse) Reset() {
 	*x = GetIdResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[13]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -568,7 +648,7 @@ func (x *GetIdResponse) String() string {
 func (*GetIdResponse) ProtoMessage() {}
 
 func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[13]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -581,7 +661,7 @@ func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
 func (*GetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{13}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetIdResponse) GetResult() string {
@@ -599,7 +679,7 @@ type GetThumbnailRequest struct {
 
 func (x *GetThumbnailRequest) Reset() {
 	*x = GetThumbnailRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[14]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -611,7 +691,7 @@ func (x *GetThumbnailRequest) String() string {
 func (*GetThumbnailRequest) ProtoMessage() {}
 
 func (x *GetThumbnailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[14]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -624,7 +704,7 @@ func (x *GetThumbnailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetThumbnailRequest.ProtoReflect.Descriptor instead.
 func (*GetThumbnailRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{14}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{16}
 }
 
 type GetThumbnailResponse struct {
@@ -636,7 +716,7 @@ type GetThumbnailResponse struct {
 
 func (x *GetThumbnailResponse) Reset() {
 	*x = GetThumbnailResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[15]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -648,7 +728,7 @@ func (x *GetThumbnailResponse) String() string {
 func (*GetThumbnailResponse) ProtoMessage() {}
 
 func (x *GetThumbnailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[15]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -661,7 +741,7 @@ func (x *GetThumbnailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetThumbnailResponse.ProtoReflect.Descriptor instead.
 func (*GetThumbnailResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{15}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetThumbnailResponse) GetResult() int64 {
@@ -679,7 +759,7 @@ type GetTitleRequest struct {
 
 func (x *GetTitleRequest) Reset() {
 	*x = GetTitleRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[16]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -691,7 +771,7 @@ func (x *GetTitleRequest) String() string {
 func (*GetTitleRequest) ProtoMessage() {}
 
 func (x *GetTitleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[16]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -704,7 +784,7 @@ func (x *GetTitleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTitleRequest.ProtoReflect.Descriptor instead.
 func (*GetTitleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{16}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{18}
 }
 
 type GetTitleResponse struct {
@@ -716,7 +796,7 @@ type GetTitleResponse struct {
 
 func (x *GetTitleResponse) Reset() {
 	*x = GetTitleResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[17]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -728,7 +808,7 @@ func (x *GetTitleResponse) String() string {
 func (*GetTitleResponse) ProtoMessage() {}
 
 func (x *GetTitleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[17]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -741,7 +821,7 @@ func (x *GetTitleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTitleResponse.ProtoReflect.Descriptor instead.
 func (*GetTitleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{17}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetTitleResponse) GetResult() int64 {
@@ -759,7 +839,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[18]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -771,7 +851,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[18]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -784,7 +864,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{18}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{20}
 }
 
 type HashCodeResponse struct {
@@ -796,7 +876,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[19]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -808,7 +888,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[19]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -821,7 +901,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{19}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -839,7 +919,7 @@ type ToBuilderRequest struct {
 
 func (x *ToBuilderRequest) Reset() {
 	*x = ToBuilderRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[20]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -851,7 +931,7 @@ func (x *ToBuilderRequest) String() string {
 func (*ToBuilderRequest) ProtoMessage() {}
 
 func (x *ToBuilderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[20]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -864,7 +944,7 @@ func (x *ToBuilderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToBuilderRequest.ProtoReflect.Descriptor instead.
 func (*ToBuilderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{20}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{22}
 }
 
 type ToBuilderResponse struct {
@@ -876,7 +956,7 @@ type ToBuilderResponse struct {
 
 func (x *ToBuilderResponse) Reset() {
 	*x = ToBuilderResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[21]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -888,7 +968,7 @@ func (x *ToBuilderResponse) String() string {
 func (*ToBuilderResponse) ProtoMessage() {}
 
 func (x *ToBuilderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[21]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -901,7 +981,7 @@ func (x *ToBuilderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToBuilderResponse.ProtoReflect.Descriptor instead.
 func (*ToBuilderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{21}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *ToBuilderResponse) GetResult() int64 {
@@ -919,7 +999,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[22]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -931,7 +1011,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[22]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -944,7 +1024,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{22}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{24}
 }
 
 type ToStringResponse struct {
@@ -956,7 +1036,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[23]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -968,7 +1048,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[23]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -981,7 +1061,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{23}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -1001,7 +1081,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[24]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1013,7 +1093,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[24]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1026,7 +1106,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{24}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -1051,7 +1131,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[25]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1063,7 +1143,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[25]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1076,7 +1156,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{25}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{27}
 }
 
 type BuildRequest struct {
@@ -1087,7 +1167,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[26]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1099,7 +1179,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[26]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1112,7 +1192,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{26}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{28}
 }
 
 type BuildResponse struct {
@@ -1124,7 +1204,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[27]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1136,7 +1216,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[27]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1149,7 +1229,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{27}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -1168,7 +1248,7 @@ type SetContentRequest struct {
 
 func (x *SetContentRequest) Reset() {
 	*x = SetContentRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[28]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1180,7 +1260,7 @@ func (x *SetContentRequest) String() string {
 func (*SetContentRequest) ProtoMessage() {}
 
 func (x *SetContentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[28]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1193,7 +1273,7 @@ func (x *SetContentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetContentRequest.ProtoReflect.Descriptor instead.
 func (*SetContentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{28}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *SetContentRequest) GetArg0() int64 {
@@ -1212,7 +1292,7 @@ type SetContentResponse struct {
 
 func (x *SetContentResponse) Reset() {
 	*x = SetContentResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[29]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1224,7 +1304,7 @@ func (x *SetContentResponse) String() string {
 func (*SetContentResponse) ProtoMessage() {}
 
 func (x *SetContentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[29]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1237,7 +1317,7 @@ func (x *SetContentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetContentResponse.ProtoReflect.Descriptor instead.
 func (*SetContentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{29}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *SetContentResponse) GetResult() int64 {
@@ -1256,7 +1336,7 @@ type SetContextDescriptionRequest struct {
 
 func (x *SetContextDescriptionRequest) Reset() {
 	*x = SetContextDescriptionRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[30]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1268,7 +1348,7 @@ func (x *SetContextDescriptionRequest) String() string {
 func (*SetContextDescriptionRequest) ProtoMessage() {}
 
 func (x *SetContextDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[30]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1281,7 +1361,7 @@ func (x *SetContextDescriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetContextDescriptionRequest.ProtoReflect.Descriptor instead.
 func (*SetContextDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{30}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *SetContextDescriptionRequest) GetArg0() string {
@@ -1300,7 +1380,7 @@ type SetContextDescriptionResponse struct {
 
 func (x *SetContextDescriptionResponse) Reset() {
 	*x = SetContextDescriptionResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[31]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1312,7 +1392,7 @@ func (x *SetContextDescriptionResponse) String() string {
 func (*SetContextDescriptionResponse) ProtoMessage() {}
 
 func (x *SetContextDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[31]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1325,7 +1405,7 @@ func (x *SetContextDescriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetContextDescriptionResponse.ProtoReflect.Descriptor instead.
 func (*SetContextDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{31}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *SetContextDescriptionResponse) GetResult() int64 {
@@ -1344,7 +1424,7 @@ type SetContextUriRequest struct {
 
 func (x *SetContextUriRequest) Reset() {
 	*x = SetContextUriRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[32]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1356,7 +1436,7 @@ func (x *SetContextUriRequest) String() string {
 func (*SetContextUriRequest) ProtoMessage() {}
 
 func (x *SetContextUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[32]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1369,7 +1449,7 @@ func (x *SetContextUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetContextUriRequest.ProtoReflect.Descriptor instead.
 func (*SetContextUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{32}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *SetContextUriRequest) GetArg0() int64 {
@@ -1388,7 +1468,7 @@ type SetContextUriResponse struct {
 
 func (x *SetContextUriResponse) Reset() {
 	*x = SetContextUriResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[33]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1400,7 +1480,7 @@ func (x *SetContextUriResponse) String() string {
 func (*SetContextUriResponse) ProtoMessage() {}
 
 func (x *SetContextUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[33]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1413,7 +1493,7 @@ func (x *SetContextUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetContextUriResponse.ProtoReflect.Descriptor instead.
 func (*SetContextUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{33}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *SetContextUriResponse) GetResult() int64 {
@@ -1432,7 +1512,7 @@ type SetIdRequest struct {
 
 func (x *SetIdRequest) Reset() {
 	*x = SetIdRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[34]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1444,7 +1524,7 @@ func (x *SetIdRequest) String() string {
 func (*SetIdRequest) ProtoMessage() {}
 
 func (x *SetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[34]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1457,7 +1537,7 @@ func (x *SetIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIdRequest.ProtoReflect.Descriptor instead.
 func (*SetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{34}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *SetIdRequest) GetArg0() string {
@@ -1476,7 +1556,7 @@ type SetIdResponse struct {
 
 func (x *SetIdResponse) Reset() {
 	*x = SetIdResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[35]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1488,7 +1568,7 @@ func (x *SetIdResponse) String() string {
 func (*SetIdResponse) ProtoMessage() {}
 
 func (x *SetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[35]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1501,7 +1581,7 @@ func (x *SetIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIdResponse.ProtoReflect.Descriptor instead.
 func (*SetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{35}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *SetIdResponse) GetResult() int64 {
@@ -1520,7 +1600,7 @@ type SetThumbnailRequest struct {
 
 func (x *SetThumbnailRequest) Reset() {
 	*x = SetThumbnailRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[36]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1532,7 +1612,7 @@ func (x *SetThumbnailRequest) String() string {
 func (*SetThumbnailRequest) ProtoMessage() {}
 
 func (x *SetThumbnailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[36]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1545,7 +1625,7 @@ func (x *SetThumbnailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetThumbnailRequest.ProtoReflect.Descriptor instead.
 func (*SetThumbnailRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{36}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *SetThumbnailRequest) GetArg0() int64 {
@@ -1564,7 +1644,7 @@ type SetThumbnailResponse struct {
 
 func (x *SetThumbnailResponse) Reset() {
 	*x = SetThumbnailResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[37]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1576,7 +1656,7 @@ func (x *SetThumbnailResponse) String() string {
 func (*SetThumbnailResponse) ProtoMessage() {}
 
 func (x *SetThumbnailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[37]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1589,7 +1669,7 @@ func (x *SetThumbnailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetThumbnailResponse.ProtoReflect.Descriptor instead.
 func (*SetThumbnailResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{37}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *SetThumbnailResponse) GetResult() int64 {
@@ -1608,7 +1688,7 @@ type SetTitleRequest struct {
 
 func (x *SetTitleRequest) Reset() {
 	*x = SetTitleRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[38]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1620,7 +1700,7 @@ func (x *SetTitleRequest) String() string {
 func (*SetTitleRequest) ProtoMessage() {}
 
 func (x *SetTitleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[38]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1633,7 +1713,7 @@ func (x *SetTitleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTitleRequest.ProtoReflect.Descriptor instead.
 func (*SetTitleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{38}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *SetTitleRequest) GetArg0() string {
@@ -1652,7 +1732,7 @@ type SetTitleResponse struct {
 
 func (x *SetTitleResponse) Reset() {
 	*x = SetTitleResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[39]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1664,7 +1744,7 @@ func (x *SetTitleResponse) String() string {
 func (*SetTitleResponse) ProtoMessage() {}
 
 func (x *SetTitleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[39]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1677,7 +1757,7 @@ func (x *SetTitleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTitleResponse.ProtoReflect.Descriptor instead.
 func (*SetTitleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{39}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *SetTitleResponse) GetResult() int64 {
@@ -1697,7 +1777,7 @@ type NewInstanceRequest struct {
 
 func (x *NewInstanceRequest) Reset() {
 	*x = NewInstanceRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[40]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1709,7 +1789,7 @@ func (x *NewInstanceRequest) String() string {
 func (*NewInstanceRequest) ProtoMessage() {}
 
 func (x *NewInstanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[40]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1722,7 +1802,7 @@ func (x *NewInstanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstanceRequest.ProtoReflect.Descriptor instead.
 func (*NewInstanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{40}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *NewInstanceRequest) GetArg0() int64 {
@@ -1748,7 +1828,7 @@ type NewInstanceResponse struct {
 
 func (x *NewInstanceResponse) Reset() {
 	*x = NewInstanceResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[41]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1760,7 +1840,7 @@ func (x *NewInstanceResponse) String() string {
 func (*NewInstanceResponse) ProtoMessage() {}
 
 func (x *NewInstanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[41]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1773,7 +1853,7 @@ func (x *NewInstanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstanceResponse.ProtoReflect.Descriptor instead.
 func (*NewInstanceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{41}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *NewInstanceResponse) GetResult() int64 {
@@ -1792,7 +1872,7 @@ type InstanceDescribeContentsRequest struct {
 
 func (x *InstanceDescribeContentsRequest) Reset() {
 	*x = InstanceDescribeContentsRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[42]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1804,7 +1884,7 @@ func (x *InstanceDescribeContentsRequest) String() string {
 func (*InstanceDescribeContentsRequest) ProtoMessage() {}
 
 func (x *InstanceDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[42]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1817,7 +1897,7 @@ func (x *InstanceDescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstanceDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*InstanceDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{42}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *InstanceDescribeContentsRequest) GetHandle() int64 {
@@ -1837,7 +1917,7 @@ type InstanceEqualsRequest struct {
 
 func (x *InstanceEqualsRequest) Reset() {
 	*x = InstanceEqualsRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[43]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1849,7 +1929,7 @@ func (x *InstanceEqualsRequest) String() string {
 func (*InstanceEqualsRequest) ProtoMessage() {}
 
 func (x *InstanceEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[43]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1862,7 +1942,7 @@ func (x *InstanceEqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstanceEqualsRequest.ProtoReflect.Descriptor instead.
 func (*InstanceEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{43}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *InstanceEqualsRequest) GetHandle() int64 {
@@ -1879,28 +1959,28 @@ func (x *InstanceEqualsRequest) GetArg0() int64 {
 	return 0
 }
 
-type GetDescriptionRequest struct {
+type InstanceGetDescriptionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDescriptionRequest) Reset() {
-	*x = GetDescriptionRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[44]
+func (x *InstanceGetDescriptionRequest) Reset() {
+	*x = InstanceGetDescriptionRequest{}
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetDescriptionRequest) String() string {
+func (x *InstanceGetDescriptionRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetDescriptionRequest) ProtoMessage() {}
+func (*InstanceGetDescriptionRequest) ProtoMessage() {}
 
-func (x *GetDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[44]
+func (x *InstanceGetDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1911,58 +1991,14 @@ func (x *GetDescriptionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetDescriptionRequest.ProtoReflect.Descriptor instead.
-func (*GetDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{44}
+// Deprecated: Use InstanceGetDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*InstanceGetDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{46}
 }
 
-func (x *GetDescriptionRequest) GetHandle() int64 {
+func (x *InstanceGetDescriptionRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
-	}
-	return 0
-}
-
-type GetDescriptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDescriptionResponse) Reset() {
-	*x = GetDescriptionResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDescriptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDescriptionResponse) ProtoMessage() {}
-
-func (x *GetDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDescriptionResponse.ProtoReflect.Descriptor instead.
-func (*GetDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *GetDescriptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
 	}
 	return 0
 }
@@ -1976,7 +2012,7 @@ type InstanceGetIdRequest struct {
 
 func (x *InstanceGetIdRequest) Reset() {
 	*x = InstanceGetIdRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[46]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1988,7 +2024,7 @@ func (x *InstanceGetIdRequest) String() string {
 func (*InstanceGetIdRequest) ProtoMessage() {}
 
 func (x *InstanceGetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[46]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2001,7 +2037,7 @@ func (x *InstanceGetIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstanceGetIdRequest.ProtoReflect.Descriptor instead.
 func (*InstanceGetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{46}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *InstanceGetIdRequest) GetHandle() int64 {
@@ -2020,7 +2056,7 @@ type GetInfoRequest struct {
 
 func (x *GetInfoRequest) Reset() {
 	*x = GetInfoRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[47]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2032,7 +2068,7 @@ func (x *GetInfoRequest) String() string {
 func (*GetInfoRequest) ProtoMessage() {}
 
 func (x *GetInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[47]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2045,7 +2081,7 @@ func (x *GetInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{47}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *GetInfoRequest) GetHandle() int64 {
@@ -2064,7 +2100,7 @@ type GetInfoResponse struct {
 
 func (x *GetInfoResponse) Reset() {
 	*x = GetInfoResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[48]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2076,7 +2112,7 @@ func (x *GetInfoResponse) String() string {
 func (*GetInfoResponse) ProtoMessage() {}
 
 func (x *GetInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[48]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2089,7 +2125,7 @@ func (x *GetInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{48}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *GetInfoResponse) GetResult() int64 {
@@ -2108,7 +2144,7 @@ type InstanceHashCodeRequest struct {
 
 func (x *InstanceHashCodeRequest) Reset() {
 	*x = InstanceHashCodeRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[49]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2120,7 +2156,7 @@ func (x *InstanceHashCodeRequest) String() string {
 func (*InstanceHashCodeRequest) ProtoMessage() {}
 
 func (x *InstanceHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[49]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2133,7 +2169,7 @@ func (x *InstanceHashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstanceHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*InstanceHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{49}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *InstanceHashCodeRequest) GetHandle() int64 {
@@ -2154,7 +2190,7 @@ type InstanceWriteToParcelRequest struct {
 
 func (x *InstanceWriteToParcelRequest) Reset() {
 	*x = InstanceWriteToParcelRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[50]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2166,7 +2202,7 @@ func (x *InstanceWriteToParcelRequest) String() string {
 func (*InstanceWriteToParcelRequest) ProtoMessage() {}
 
 func (x *InstanceWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[50]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2179,7 +2215,7 @@ func (x *InstanceWriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstanceWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*InstanceWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{50}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *InstanceWriteToParcelRequest) GetHandle() int64 {
@@ -2212,7 +2248,7 @@ type OnBindRequest struct {
 
 func (x *OnBindRequest) Reset() {
 	*x = OnBindRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[51]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2224,7 +2260,7 @@ func (x *OnBindRequest) String() string {
 func (*OnBindRequest) ProtoMessage() {}
 
 func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[51]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2237,7 +2273,7 @@ func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
 func (*OnBindRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{51}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *OnBindRequest) GetArg0() int64 {
@@ -2256,7 +2292,7 @@ type OnBindResponse struct {
 
 func (x *OnBindResponse) Reset() {
 	*x = OnBindResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[52]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2268,7 +2304,7 @@ func (x *OnBindResponse) String() string {
 func (*OnBindResponse) ProtoMessage() {}
 
 func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[52]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2281,7 +2317,7 @@ func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
 func (*OnBindResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{52}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *OnBindResponse) GetResult() int64 {
@@ -2299,7 +2335,7 @@ type OnCreateRequest struct {
 
 func (x *OnCreateRequest) Reset() {
 	*x = OnCreateRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[53]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2311,7 +2347,7 @@ func (x *OnCreateRequest) String() string {
 func (*OnCreateRequest) ProtoMessage() {}
 
 func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[53]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2324,7 +2360,7 @@ func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{53}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{54}
 }
 
 type OnCreateResponse struct {
@@ -2335,7 +2371,7 @@ type OnCreateResponse struct {
 
 func (x *OnCreateResponse) Reset() {
 	*x = OnCreateResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[54]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2347,7 +2383,7 @@ func (x *OnCreateResponse) String() string {
 func (*OnCreateResponse) ProtoMessage() {}
 
 func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[54]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2360,7 +2396,7 @@ func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{54}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{55}
 }
 
 type OnCreateEngine0Request struct {
@@ -2371,7 +2407,7 @@ type OnCreateEngine0Request struct {
 
 func (x *OnCreateEngine0Request) Reset() {
 	*x = OnCreateEngine0Request{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[55]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2383,7 +2419,7 @@ func (x *OnCreateEngine0Request) String() string {
 func (*OnCreateEngine0Request) ProtoMessage() {}
 
 func (x *OnCreateEngine0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[55]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2396,7 +2432,7 @@ func (x *OnCreateEngine0Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateEngine0Request.ProtoReflect.Descriptor instead.
 func (*OnCreateEngine0Request) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{55}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{56}
 }
 
 type OnCreateEngine0Response struct {
@@ -2408,7 +2444,7 @@ type OnCreateEngine0Response struct {
 
 func (x *OnCreateEngine0Response) Reset() {
 	*x = OnCreateEngine0Response{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[56]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2420,7 +2456,7 @@ func (x *OnCreateEngine0Response) String() string {
 func (*OnCreateEngine0Response) ProtoMessage() {}
 
 func (x *OnCreateEngine0Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[56]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2433,7 +2469,7 @@ func (x *OnCreateEngine0Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateEngine0Response.ProtoReflect.Descriptor instead.
 func (*OnCreateEngine0Response) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{56}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *OnCreateEngine0Response) GetResult() int64 {
@@ -2452,7 +2488,7 @@ type OnCreateEngine1_1Request struct {
 
 func (x *OnCreateEngine1_1Request) Reset() {
 	*x = OnCreateEngine1_1Request{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[57]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2464,7 +2500,7 @@ func (x *OnCreateEngine1_1Request) String() string {
 func (*OnCreateEngine1_1Request) ProtoMessage() {}
 
 func (x *OnCreateEngine1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[57]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2477,7 +2513,7 @@ func (x *OnCreateEngine1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateEngine1_1Request.ProtoReflect.Descriptor instead.
 func (*OnCreateEngine1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{57}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *OnCreateEngine1_1Request) GetArg0() int64 {
@@ -2496,7 +2532,7 @@ type OnCreateEngine1_1Response struct {
 
 func (x *OnCreateEngine1_1Response) Reset() {
 	*x = OnCreateEngine1_1Response{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[58]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2508,7 +2544,7 @@ func (x *OnCreateEngine1_1Response) String() string {
 func (*OnCreateEngine1_1Response) ProtoMessage() {}
 
 func (x *OnCreateEngine1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[58]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2521,7 +2557,7 @@ func (x *OnCreateEngine1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateEngine1_1Response.ProtoReflect.Descriptor instead.
 func (*OnCreateEngine1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{58}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *OnCreateEngine1_1Response) GetResult() int64 {
@@ -2539,7 +2575,7 @@ type OnDestroyRequest struct {
 
 func (x *OnDestroyRequest) Reset() {
 	*x = OnDestroyRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[59]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2551,7 +2587,7 @@ func (x *OnDestroyRequest) String() string {
 func (*OnDestroyRequest) ProtoMessage() {}
 
 func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[59]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2564,7 +2600,7 @@ func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDestroyRequest.ProtoReflect.Descriptor instead.
 func (*OnDestroyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{59}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{60}
 }
 
 type OnDestroyResponse struct {
@@ -2575,7 +2611,7 @@ type OnDestroyResponse struct {
 
 func (x *OnDestroyResponse) Reset() {
 	*x = OnDestroyResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[60]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2587,7 +2623,7 @@ func (x *OnDestroyResponse) String() string {
 func (*OnDestroyResponse) ProtoMessage() {}
 
 func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[60]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2600,7 +2636,7 @@ func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDestroyResponse.ProtoReflect.Descriptor instead.
 func (*OnDestroyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{60}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{61}
 }
 
 type GetDesiredMinimumHeightRequest struct {
@@ -2611,7 +2647,7 @@ type GetDesiredMinimumHeightRequest struct {
 
 func (x *GetDesiredMinimumHeightRequest) Reset() {
 	*x = GetDesiredMinimumHeightRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[61]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2623,7 +2659,7 @@ func (x *GetDesiredMinimumHeightRequest) String() string {
 func (*GetDesiredMinimumHeightRequest) ProtoMessage() {}
 
 func (x *GetDesiredMinimumHeightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[61]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2636,7 +2672,7 @@ func (x *GetDesiredMinimumHeightRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDesiredMinimumHeightRequest.ProtoReflect.Descriptor instead.
 func (*GetDesiredMinimumHeightRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{61}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{62}
 }
 
 type GetDesiredMinimumHeightResponse struct {
@@ -2648,7 +2684,7 @@ type GetDesiredMinimumHeightResponse struct {
 
 func (x *GetDesiredMinimumHeightResponse) Reset() {
 	*x = GetDesiredMinimumHeightResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[62]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2660,7 +2696,7 @@ func (x *GetDesiredMinimumHeightResponse) String() string {
 func (*GetDesiredMinimumHeightResponse) ProtoMessage() {}
 
 func (x *GetDesiredMinimumHeightResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[62]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2673,7 +2709,7 @@ func (x *GetDesiredMinimumHeightResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDesiredMinimumHeightResponse.ProtoReflect.Descriptor instead.
 func (*GetDesiredMinimumHeightResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{62}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *GetDesiredMinimumHeightResponse) GetResult() int32 {
@@ -2691,7 +2727,7 @@ type GetDesiredMinimumWidthRequest struct {
 
 func (x *GetDesiredMinimumWidthRequest) Reset() {
 	*x = GetDesiredMinimumWidthRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[63]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2703,7 +2739,7 @@ func (x *GetDesiredMinimumWidthRequest) String() string {
 func (*GetDesiredMinimumWidthRequest) ProtoMessage() {}
 
 func (x *GetDesiredMinimumWidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[63]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2716,7 +2752,7 @@ func (x *GetDesiredMinimumWidthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDesiredMinimumWidthRequest.ProtoReflect.Descriptor instead.
 func (*GetDesiredMinimumWidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{63}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{64}
 }
 
 type GetDesiredMinimumWidthResponse struct {
@@ -2728,7 +2764,7 @@ type GetDesiredMinimumWidthResponse struct {
 
 func (x *GetDesiredMinimumWidthResponse) Reset() {
 	*x = GetDesiredMinimumWidthResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[64]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2740,7 +2776,7 @@ func (x *GetDesiredMinimumWidthResponse) String() string {
 func (*GetDesiredMinimumWidthResponse) ProtoMessage() {}
 
 func (x *GetDesiredMinimumWidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[64]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2753,7 +2789,7 @@ func (x *GetDesiredMinimumWidthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDesiredMinimumWidthResponse.ProtoReflect.Descriptor instead.
 func (*GetDesiredMinimumWidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{64}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *GetDesiredMinimumWidthResponse) GetResult() int32 {
@@ -2771,7 +2807,7 @@ type GetDisplayContextRequest struct {
 
 func (x *GetDisplayContextRequest) Reset() {
 	*x = GetDisplayContextRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[65]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2783,7 +2819,7 @@ func (x *GetDisplayContextRequest) String() string {
 func (*GetDisplayContextRequest) ProtoMessage() {}
 
 func (x *GetDisplayContextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[65]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2796,7 +2832,7 @@ func (x *GetDisplayContextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDisplayContextRequest.ProtoReflect.Descriptor instead.
 func (*GetDisplayContextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{65}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{66}
 }
 
 type GetDisplayContextResponse struct {
@@ -2808,7 +2844,7 @@ type GetDisplayContextResponse struct {
 
 func (x *GetDisplayContextResponse) Reset() {
 	*x = GetDisplayContextResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[66]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2820,7 +2856,7 @@ func (x *GetDisplayContextResponse) String() string {
 func (*GetDisplayContextResponse) ProtoMessage() {}
 
 func (x *GetDisplayContextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[66]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2833,7 +2869,7 @@ func (x *GetDisplayContextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDisplayContextResponse.ProtoReflect.Descriptor instead.
 func (*GetDisplayContextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{66}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *GetDisplayContextResponse) GetResult() int64 {
@@ -2851,7 +2887,7 @@ type GetSurfaceHolderRequest struct {
 
 func (x *GetSurfaceHolderRequest) Reset() {
 	*x = GetSurfaceHolderRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[67]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2863,7 +2899,7 @@ func (x *GetSurfaceHolderRequest) String() string {
 func (*GetSurfaceHolderRequest) ProtoMessage() {}
 
 func (x *GetSurfaceHolderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[67]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2876,7 +2912,7 @@ func (x *GetSurfaceHolderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSurfaceHolderRequest.ProtoReflect.Descriptor instead.
 func (*GetSurfaceHolderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{67}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{68}
 }
 
 type GetSurfaceHolderResponse struct {
@@ -2888,7 +2924,7 @@ type GetSurfaceHolderResponse struct {
 
 func (x *GetSurfaceHolderResponse) Reset() {
 	*x = GetSurfaceHolderResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[68]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2900,7 +2936,7 @@ func (x *GetSurfaceHolderResponse) String() string {
 func (*GetSurfaceHolderResponse) ProtoMessage() {}
 
 func (x *GetSurfaceHolderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[68]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2913,7 +2949,7 @@ func (x *GetSurfaceHolderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSurfaceHolderResponse.ProtoReflect.Descriptor instead.
 func (*GetSurfaceHolderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{68}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *GetSurfaceHolderResponse) GetResult() int64 {
@@ -2931,7 +2967,7 @@ type GetWallpaperFlagsRequest struct {
 
 func (x *GetWallpaperFlagsRequest) Reset() {
 	*x = GetWallpaperFlagsRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[69]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2943,7 +2979,7 @@ func (x *GetWallpaperFlagsRequest) String() string {
 func (*GetWallpaperFlagsRequest) ProtoMessage() {}
 
 func (x *GetWallpaperFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[69]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2956,7 +2992,7 @@ func (x *GetWallpaperFlagsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWallpaperFlagsRequest.ProtoReflect.Descriptor instead.
 func (*GetWallpaperFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{69}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{70}
 }
 
 type GetWallpaperFlagsResponse struct {
@@ -2968,7 +3004,7 @@ type GetWallpaperFlagsResponse struct {
 
 func (x *GetWallpaperFlagsResponse) Reset() {
 	*x = GetWallpaperFlagsResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[70]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2980,7 +3016,7 @@ func (x *GetWallpaperFlagsResponse) String() string {
 func (*GetWallpaperFlagsResponse) ProtoMessage() {}
 
 func (x *GetWallpaperFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[70]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2993,7 +3029,7 @@ func (x *GetWallpaperFlagsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWallpaperFlagsResponse.ProtoReflect.Descriptor instead.
 func (*GetWallpaperFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{70}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetWallpaperFlagsResponse) GetResult() int32 {
@@ -3011,7 +3047,7 @@ type IsPreviewRequest struct {
 
 func (x *IsPreviewRequest) Reset() {
 	*x = IsPreviewRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[71]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3023,7 +3059,7 @@ func (x *IsPreviewRequest) String() string {
 func (*IsPreviewRequest) ProtoMessage() {}
 
 func (x *IsPreviewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[71]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3036,7 +3072,7 @@ func (x *IsPreviewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsPreviewRequest.ProtoReflect.Descriptor instead.
 func (*IsPreviewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{71}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{72}
 }
 
 type IsPreviewResponse struct {
@@ -3048,7 +3084,7 @@ type IsPreviewResponse struct {
 
 func (x *IsPreviewResponse) Reset() {
 	*x = IsPreviewResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[72]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3060,7 +3096,7 @@ func (x *IsPreviewResponse) String() string {
 func (*IsPreviewResponse) ProtoMessage() {}
 
 func (x *IsPreviewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[72]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3073,7 +3109,7 @@ func (x *IsPreviewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsPreviewResponse.ProtoReflect.Descriptor instead.
 func (*IsPreviewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{72}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *IsPreviewResponse) GetResult() bool {
@@ -3091,7 +3127,7 @@ type IsVisibleRequest struct {
 
 func (x *IsVisibleRequest) Reset() {
 	*x = IsVisibleRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[73]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3103,7 +3139,7 @@ func (x *IsVisibleRequest) String() string {
 func (*IsVisibleRequest) ProtoMessage() {}
 
 func (x *IsVisibleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[73]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3116,7 +3152,7 @@ func (x *IsVisibleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVisibleRequest.ProtoReflect.Descriptor instead.
 func (*IsVisibleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{73}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{74}
 }
 
 type IsVisibleResponse struct {
@@ -3128,7 +3164,7 @@ type IsVisibleResponse struct {
 
 func (x *IsVisibleResponse) Reset() {
 	*x = IsVisibleResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[74]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3140,7 +3176,7 @@ func (x *IsVisibleResponse) String() string {
 func (*IsVisibleResponse) ProtoMessage() {}
 
 func (x *IsVisibleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[74]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3153,7 +3189,7 @@ func (x *IsVisibleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVisibleResponse.ProtoReflect.Descriptor instead.
 func (*IsVisibleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{74}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *IsVisibleResponse) GetResult() bool {
@@ -3171,7 +3207,7 @@ type NotifyColorsChangedRequest struct {
 
 func (x *NotifyColorsChangedRequest) Reset() {
 	*x = NotifyColorsChangedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[75]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3183,7 +3219,7 @@ func (x *NotifyColorsChangedRequest) String() string {
 func (*NotifyColorsChangedRequest) ProtoMessage() {}
 
 func (x *NotifyColorsChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[75]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3196,7 +3232,7 @@ func (x *NotifyColorsChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyColorsChangedRequest.ProtoReflect.Descriptor instead.
 func (*NotifyColorsChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{75}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{76}
 }
 
 type NotifyColorsChangedResponse struct {
@@ -3207,7 +3243,7 @@ type NotifyColorsChangedResponse struct {
 
 func (x *NotifyColorsChangedResponse) Reset() {
 	*x = NotifyColorsChangedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[76]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3219,7 +3255,7 @@ func (x *NotifyColorsChangedResponse) String() string {
 func (*NotifyColorsChangedResponse) ProtoMessage() {}
 
 func (x *NotifyColorsChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[76]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3232,7 +3268,7 @@ func (x *NotifyColorsChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyColorsChangedResponse.ProtoReflect.Descriptor instead.
 func (*NotifyColorsChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{76}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{77}
 }
 
 type OnApplyWallpaperRequest struct {
@@ -3244,7 +3280,7 @@ type OnApplyWallpaperRequest struct {
 
 func (x *OnApplyWallpaperRequest) Reset() {
 	*x = OnApplyWallpaperRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[77]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3256,7 +3292,7 @@ func (x *OnApplyWallpaperRequest) String() string {
 func (*OnApplyWallpaperRequest) ProtoMessage() {}
 
 func (x *OnApplyWallpaperRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[77]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3269,7 +3305,7 @@ func (x *OnApplyWallpaperRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnApplyWallpaperRequest.ProtoReflect.Descriptor instead.
 func (*OnApplyWallpaperRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{77}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *OnApplyWallpaperRequest) GetArg0() int32 {
@@ -3288,7 +3324,7 @@ type OnApplyWallpaperResponse struct {
 
 func (x *OnApplyWallpaperResponse) Reset() {
 	*x = OnApplyWallpaperResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[78]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3300,7 +3336,7 @@ func (x *OnApplyWallpaperResponse) String() string {
 func (*OnApplyWallpaperResponse) ProtoMessage() {}
 
 func (x *OnApplyWallpaperResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[78]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3313,7 +3349,7 @@ func (x *OnApplyWallpaperResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnApplyWallpaperResponse.ProtoReflect.Descriptor instead.
 func (*OnApplyWallpaperResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{78}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *OnApplyWallpaperResponse) GetResult() int64 {
@@ -3332,7 +3368,7 @@ type OnApplyWindowInsetsRequest struct {
 
 func (x *OnApplyWindowInsetsRequest) Reset() {
 	*x = OnApplyWindowInsetsRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[79]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3344,7 +3380,7 @@ func (x *OnApplyWindowInsetsRequest) String() string {
 func (*OnApplyWindowInsetsRequest) ProtoMessage() {}
 
 func (x *OnApplyWindowInsetsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[79]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3357,7 +3393,7 @@ func (x *OnApplyWindowInsetsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnApplyWindowInsetsRequest.ProtoReflect.Descriptor instead.
 func (*OnApplyWindowInsetsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{79}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *OnApplyWindowInsetsRequest) GetArg0() int64 {
@@ -3375,7 +3411,7 @@ type OnApplyWindowInsetsResponse struct {
 
 func (x *OnApplyWindowInsetsResponse) Reset() {
 	*x = OnApplyWindowInsetsResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[80]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3387,7 +3423,7 @@ func (x *OnApplyWindowInsetsResponse) String() string {
 func (*OnApplyWindowInsetsResponse) ProtoMessage() {}
 
 func (x *OnApplyWindowInsetsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[80]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3400,7 +3436,7 @@ func (x *OnApplyWindowInsetsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnApplyWindowInsetsResponse.ProtoReflect.Descriptor instead.
 func (*OnApplyWindowInsetsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{80}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{81}
 }
 
 type OnCommandRequest struct {
@@ -3417,7 +3453,7 @@ type OnCommandRequest struct {
 
 func (x *OnCommandRequest) Reset() {
 	*x = OnCommandRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[81]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3429,7 +3465,7 @@ func (x *OnCommandRequest) String() string {
 func (*OnCommandRequest) ProtoMessage() {}
 
 func (x *OnCommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[81]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3442,7 +3478,7 @@ func (x *OnCommandRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCommandRequest.ProtoReflect.Descriptor instead.
 func (*OnCommandRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{81}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *OnCommandRequest) GetArg0() string {
@@ -3496,7 +3532,7 @@ type OnCommandResponse struct {
 
 func (x *OnCommandResponse) Reset() {
 	*x = OnCommandResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[82]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3508,7 +3544,7 @@ func (x *OnCommandResponse) String() string {
 func (*OnCommandResponse) ProtoMessage() {}
 
 func (x *OnCommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[82]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3521,7 +3557,7 @@ func (x *OnCommandResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCommandResponse.ProtoReflect.Descriptor instead.
 func (*OnCommandResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{82}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *OnCommandResponse) GetResult() int64 {
@@ -3539,7 +3575,7 @@ type OnComputeColorsRequest struct {
 
 func (x *OnComputeColorsRequest) Reset() {
 	*x = OnComputeColorsRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[83]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3551,7 +3587,7 @@ func (x *OnComputeColorsRequest) String() string {
 func (*OnComputeColorsRequest) ProtoMessage() {}
 
 func (x *OnComputeColorsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[83]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3564,7 +3600,7 @@ func (x *OnComputeColorsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnComputeColorsRequest.ProtoReflect.Descriptor instead.
 func (*OnComputeColorsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{83}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{84}
 }
 
 type OnComputeColorsResponse struct {
@@ -3576,7 +3612,7 @@ type OnComputeColorsResponse struct {
 
 func (x *OnComputeColorsResponse) Reset() {
 	*x = OnComputeColorsResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[84]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3588,7 +3624,7 @@ func (x *OnComputeColorsResponse) String() string {
 func (*OnComputeColorsResponse) ProtoMessage() {}
 
 func (x *OnComputeColorsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[84]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3601,7 +3637,7 @@ func (x *OnComputeColorsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnComputeColorsResponse.ProtoReflect.Descriptor instead.
 func (*OnComputeColorsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{84}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *OnComputeColorsResponse) GetResult() int64 {
@@ -3620,7 +3656,7 @@ type ServiceEngineOnCreateRequest struct {
 
 func (x *ServiceEngineOnCreateRequest) Reset() {
 	*x = ServiceEngineOnCreateRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[85]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3632,7 +3668,7 @@ func (x *ServiceEngineOnCreateRequest) String() string {
 func (*ServiceEngineOnCreateRequest) ProtoMessage() {}
 
 func (x *ServiceEngineOnCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[85]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3645,7 +3681,7 @@ func (x *ServiceEngineOnCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceEngineOnCreateRequest.ProtoReflect.Descriptor instead.
 func (*ServiceEngineOnCreateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{85}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *ServiceEngineOnCreateRequest) GetArg0() int64 {
@@ -3665,7 +3701,7 @@ type OnDesiredSizeChangedRequest struct {
 
 func (x *OnDesiredSizeChangedRequest) Reset() {
 	*x = OnDesiredSizeChangedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[86]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3677,7 +3713,7 @@ func (x *OnDesiredSizeChangedRequest) String() string {
 func (*OnDesiredSizeChangedRequest) ProtoMessage() {}
 
 func (x *OnDesiredSizeChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[86]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3690,7 +3726,7 @@ func (x *OnDesiredSizeChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDesiredSizeChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnDesiredSizeChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{86}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *OnDesiredSizeChangedRequest) GetArg0() int32 {
@@ -3715,7 +3751,7 @@ type OnDesiredSizeChangedResponse struct {
 
 func (x *OnDesiredSizeChangedResponse) Reset() {
 	*x = OnDesiredSizeChangedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[87]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3727,7 +3763,7 @@ func (x *OnDesiredSizeChangedResponse) String() string {
 func (*OnDesiredSizeChangedResponse) ProtoMessage() {}
 
 func (x *OnDesiredSizeChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[87]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3740,7 +3776,7 @@ func (x *OnDesiredSizeChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDesiredSizeChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnDesiredSizeChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{87}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{88}
 }
 
 type OnOffsetsChangedRequest struct {
@@ -3757,7 +3793,7 @@ type OnOffsetsChangedRequest struct {
 
 func (x *OnOffsetsChangedRequest) Reset() {
 	*x = OnOffsetsChangedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[88]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3769,7 +3805,7 @@ func (x *OnOffsetsChangedRequest) String() string {
 func (*OnOffsetsChangedRequest) ProtoMessage() {}
 
 func (x *OnOffsetsChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[88]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3782,7 +3818,7 @@ func (x *OnOffsetsChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnOffsetsChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnOffsetsChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{88}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *OnOffsetsChangedRequest) GetArg0() float32 {
@@ -3835,7 +3871,7 @@ type OnOffsetsChangedResponse struct {
 
 func (x *OnOffsetsChangedResponse) Reset() {
 	*x = OnOffsetsChangedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[89]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3847,7 +3883,7 @@ func (x *OnOffsetsChangedResponse) String() string {
 func (*OnOffsetsChangedResponse) ProtoMessage() {}
 
 func (x *OnOffsetsChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[89]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3860,7 +3896,7 @@ func (x *OnOffsetsChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnOffsetsChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnOffsetsChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{89}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{90}
 }
 
 type OnSurfaceChangedRequest struct {
@@ -3875,7 +3911,7 @@ type OnSurfaceChangedRequest struct {
 
 func (x *OnSurfaceChangedRequest) Reset() {
 	*x = OnSurfaceChangedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[90]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3887,7 +3923,7 @@ func (x *OnSurfaceChangedRequest) String() string {
 func (*OnSurfaceChangedRequest) ProtoMessage() {}
 
 func (x *OnSurfaceChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[90]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3900,7 +3936,7 @@ func (x *OnSurfaceChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnSurfaceChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{90}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *OnSurfaceChangedRequest) GetArg0() int64 {
@@ -3939,7 +3975,7 @@ type OnSurfaceChangedResponse struct {
 
 func (x *OnSurfaceChangedResponse) Reset() {
 	*x = OnSurfaceChangedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[91]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3951,7 +3987,7 @@ func (x *OnSurfaceChangedResponse) String() string {
 func (*OnSurfaceChangedResponse) ProtoMessage() {}
 
 func (x *OnSurfaceChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[91]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3964,7 +4000,7 @@ func (x *OnSurfaceChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnSurfaceChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{91}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{92}
 }
 
 type OnSurfaceCreatedRequest struct {
@@ -3976,7 +4012,7 @@ type OnSurfaceCreatedRequest struct {
 
 func (x *OnSurfaceCreatedRequest) Reset() {
 	*x = OnSurfaceCreatedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[92]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3988,7 +4024,7 @@ func (x *OnSurfaceCreatedRequest) String() string {
 func (*OnSurfaceCreatedRequest) ProtoMessage() {}
 
 func (x *OnSurfaceCreatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[92]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4001,7 +4037,7 @@ func (x *OnSurfaceCreatedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceCreatedRequest.ProtoReflect.Descriptor instead.
 func (*OnSurfaceCreatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{92}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *OnSurfaceCreatedRequest) GetArg0() int64 {
@@ -4019,7 +4055,7 @@ type OnSurfaceCreatedResponse struct {
 
 func (x *OnSurfaceCreatedResponse) Reset() {
 	*x = OnSurfaceCreatedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[93]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4031,7 +4067,7 @@ func (x *OnSurfaceCreatedResponse) String() string {
 func (*OnSurfaceCreatedResponse) ProtoMessage() {}
 
 func (x *OnSurfaceCreatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[93]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4044,7 +4080,7 @@ func (x *OnSurfaceCreatedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceCreatedResponse.ProtoReflect.Descriptor instead.
 func (*OnSurfaceCreatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{93}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{94}
 }
 
 type OnSurfaceDestroyedRequest struct {
@@ -4056,7 +4092,7 @@ type OnSurfaceDestroyedRequest struct {
 
 func (x *OnSurfaceDestroyedRequest) Reset() {
 	*x = OnSurfaceDestroyedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[94]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4068,7 +4104,7 @@ func (x *OnSurfaceDestroyedRequest) String() string {
 func (*OnSurfaceDestroyedRequest) ProtoMessage() {}
 
 func (x *OnSurfaceDestroyedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[94]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4081,7 +4117,7 @@ func (x *OnSurfaceDestroyedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceDestroyedRequest.ProtoReflect.Descriptor instead.
 func (*OnSurfaceDestroyedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{94}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *OnSurfaceDestroyedRequest) GetArg0() int64 {
@@ -4099,7 +4135,7 @@ type OnSurfaceDestroyedResponse struct {
 
 func (x *OnSurfaceDestroyedResponse) Reset() {
 	*x = OnSurfaceDestroyedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[95]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4111,7 +4147,7 @@ func (x *OnSurfaceDestroyedResponse) String() string {
 func (*OnSurfaceDestroyedResponse) ProtoMessage() {}
 
 func (x *OnSurfaceDestroyedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[95]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4124,7 +4160,7 @@ func (x *OnSurfaceDestroyedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceDestroyedResponse.ProtoReflect.Descriptor instead.
 func (*OnSurfaceDestroyedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{95}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{96}
 }
 
 type OnSurfaceRedrawNeededRequest struct {
@@ -4136,7 +4172,7 @@ type OnSurfaceRedrawNeededRequest struct {
 
 func (x *OnSurfaceRedrawNeededRequest) Reset() {
 	*x = OnSurfaceRedrawNeededRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[96]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4148,7 +4184,7 @@ func (x *OnSurfaceRedrawNeededRequest) String() string {
 func (*OnSurfaceRedrawNeededRequest) ProtoMessage() {}
 
 func (x *OnSurfaceRedrawNeededRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[96]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4161,7 +4197,7 @@ func (x *OnSurfaceRedrawNeededRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceRedrawNeededRequest.ProtoReflect.Descriptor instead.
 func (*OnSurfaceRedrawNeededRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{96}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *OnSurfaceRedrawNeededRequest) GetArg0() int64 {
@@ -4179,7 +4215,7 @@ type OnSurfaceRedrawNeededResponse struct {
 
 func (x *OnSurfaceRedrawNeededResponse) Reset() {
 	*x = OnSurfaceRedrawNeededResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[97]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4191,7 +4227,7 @@ func (x *OnSurfaceRedrawNeededResponse) String() string {
 func (*OnSurfaceRedrawNeededResponse) ProtoMessage() {}
 
 func (x *OnSurfaceRedrawNeededResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[97]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4204,7 +4240,7 @@ func (x *OnSurfaceRedrawNeededResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceRedrawNeededResponse.ProtoReflect.Descriptor instead.
 func (*OnSurfaceRedrawNeededResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{97}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{98}
 }
 
 type OnTouchEventRequest struct {
@@ -4216,7 +4252,7 @@ type OnTouchEventRequest struct {
 
 func (x *OnTouchEventRequest) Reset() {
 	*x = OnTouchEventRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[98]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4228,7 +4264,7 @@ func (x *OnTouchEventRequest) String() string {
 func (*OnTouchEventRequest) ProtoMessage() {}
 
 func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[98]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4241,7 +4277,7 @@ func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTouchEventRequest.ProtoReflect.Descriptor instead.
 func (*OnTouchEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{98}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *OnTouchEventRequest) GetArg0() int64 {
@@ -4259,7 +4295,7 @@ type OnTouchEventResponse struct {
 
 func (x *OnTouchEventResponse) Reset() {
 	*x = OnTouchEventResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[99]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4271,7 +4307,7 @@ func (x *OnTouchEventResponse) String() string {
 func (*OnTouchEventResponse) ProtoMessage() {}
 
 func (x *OnTouchEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[99]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4284,7 +4320,7 @@ func (x *OnTouchEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTouchEventResponse.ProtoReflect.Descriptor instead.
 func (*OnTouchEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{99}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{100}
 }
 
 type OnVisibilityChangedRequest struct {
@@ -4296,7 +4332,7 @@ type OnVisibilityChangedRequest struct {
 
 func (x *OnVisibilityChangedRequest) Reset() {
 	*x = OnVisibilityChangedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[100]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4308,7 +4344,7 @@ func (x *OnVisibilityChangedRequest) String() string {
 func (*OnVisibilityChangedRequest) ProtoMessage() {}
 
 func (x *OnVisibilityChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[100]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4321,7 +4357,7 @@ func (x *OnVisibilityChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnVisibilityChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnVisibilityChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{100}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *OnVisibilityChangedRequest) GetArg0() bool {
@@ -4339,7 +4375,7 @@ type OnVisibilityChangedResponse struct {
 
 func (x *OnVisibilityChangedResponse) Reset() {
 	*x = OnVisibilityChangedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[101]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4351,7 +4387,7 @@ func (x *OnVisibilityChangedResponse) String() string {
 func (*OnVisibilityChangedResponse) ProtoMessage() {}
 
 func (x *OnVisibilityChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[101]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4364,7 +4400,7 @@ func (x *OnVisibilityChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnVisibilityChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnVisibilityChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{101}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{102}
 }
 
 type OnWallpaperFlagsChangedRequest struct {
@@ -4376,7 +4412,7 @@ type OnWallpaperFlagsChangedRequest struct {
 
 func (x *OnWallpaperFlagsChangedRequest) Reset() {
 	*x = OnWallpaperFlagsChangedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[102]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4388,7 +4424,7 @@ func (x *OnWallpaperFlagsChangedRequest) String() string {
 func (*OnWallpaperFlagsChangedRequest) ProtoMessage() {}
 
 func (x *OnWallpaperFlagsChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[102]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4401,7 +4437,7 @@ func (x *OnWallpaperFlagsChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnWallpaperFlagsChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnWallpaperFlagsChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{102}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *OnWallpaperFlagsChangedRequest) GetArg0() int32 {
@@ -4419,7 +4455,7 @@ type OnWallpaperFlagsChangedResponse struct {
 
 func (x *OnWallpaperFlagsChangedResponse) Reset() {
 	*x = OnWallpaperFlagsChangedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[103]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4431,7 +4467,7 @@ func (x *OnWallpaperFlagsChangedResponse) String() string {
 func (*OnWallpaperFlagsChangedResponse) ProtoMessage() {}
 
 func (x *OnWallpaperFlagsChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[103]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4444,7 +4480,7 @@ func (x *OnWallpaperFlagsChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnWallpaperFlagsChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnWallpaperFlagsChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{103}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{104}
 }
 
 type OnZoomChangedRequest struct {
@@ -4456,7 +4492,7 @@ type OnZoomChangedRequest struct {
 
 func (x *OnZoomChangedRequest) Reset() {
 	*x = OnZoomChangedRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[104]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4468,7 +4504,7 @@ func (x *OnZoomChangedRequest) String() string {
 func (*OnZoomChangedRequest) ProtoMessage() {}
 
 func (x *OnZoomChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[104]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4481,7 +4517,7 @@ func (x *OnZoomChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnZoomChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnZoomChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{104}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *OnZoomChangedRequest) GetArg0() float32 {
@@ -4499,7 +4535,7 @@ type OnZoomChangedResponse struct {
 
 func (x *OnZoomChangedResponse) Reset() {
 	*x = OnZoomChangedResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[105]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4511,7 +4547,7 @@ func (x *OnZoomChangedResponse) String() string {
 func (*OnZoomChangedResponse) ProtoMessage() {}
 
 func (x *OnZoomChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[105]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4524,7 +4560,7 @@ func (x *OnZoomChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnZoomChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnZoomChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{105}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{106}
 }
 
 type SetOffsetNotificationsEnabledRequest struct {
@@ -4536,7 +4572,7 @@ type SetOffsetNotificationsEnabledRequest struct {
 
 func (x *SetOffsetNotificationsEnabledRequest) Reset() {
 	*x = SetOffsetNotificationsEnabledRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[106]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4548,7 +4584,7 @@ func (x *SetOffsetNotificationsEnabledRequest) String() string {
 func (*SetOffsetNotificationsEnabledRequest) ProtoMessage() {}
 
 func (x *SetOffsetNotificationsEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[106]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4561,7 +4597,7 @@ func (x *SetOffsetNotificationsEnabledRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetOffsetNotificationsEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetOffsetNotificationsEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{106}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *SetOffsetNotificationsEnabledRequest) GetArg0() bool {
@@ -4579,7 +4615,7 @@ type SetOffsetNotificationsEnabledResponse struct {
 
 func (x *SetOffsetNotificationsEnabledResponse) Reset() {
 	*x = SetOffsetNotificationsEnabledResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[107]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4591,7 +4627,7 @@ func (x *SetOffsetNotificationsEnabledResponse) String() string {
 func (*SetOffsetNotificationsEnabledResponse) ProtoMessage() {}
 
 func (x *SetOffsetNotificationsEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[107]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4604,7 +4640,7 @@ func (x *SetOffsetNotificationsEnabledResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetOffsetNotificationsEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetOffsetNotificationsEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{107}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{108}
 }
 
 type SetTouchEventsEnabledRequest struct {
@@ -4616,7 +4652,7 @@ type SetTouchEventsEnabledRequest struct {
 
 func (x *SetTouchEventsEnabledRequest) Reset() {
 	*x = SetTouchEventsEnabledRequest{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[108]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4628,7 +4664,7 @@ func (x *SetTouchEventsEnabledRequest) String() string {
 func (*SetTouchEventsEnabledRequest) ProtoMessage() {}
 
 func (x *SetTouchEventsEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[108]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4641,7 +4677,7 @@ func (x *SetTouchEventsEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTouchEventsEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetTouchEventsEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{108}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *SetTouchEventsEnabledRequest) GetArg0() bool {
@@ -4659,7 +4695,7 @@ type SetTouchEventsEnabledResponse struct {
 
 func (x *SetTouchEventsEnabledResponse) Reset() {
 	*x = SetTouchEventsEnabledResponse{}
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[109]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4671,7 +4707,7 @@ func (x *SetTouchEventsEnabledResponse) String() string {
 func (*SetTouchEventsEnabledResponse) ProtoMessage() {}
 
 func (x *SetTouchEventsEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[109]
+	mi := &file_proto_wallpaper_wallpaper_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4684,7 +4720,7 @@ func (x *SetTouchEventsEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTouchEventsEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetTouchEventsEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{109}
+	return file_proto_wallpaper_wallpaper_proto_rawDescGZIP(), []int{110}
 }
 
 var File_proto_wallpaper_wallpaper_proto protoreflect.FileDescriptor
@@ -4710,6 +4746,9 @@ const file_proto_wallpaper_wallpaper_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetContextUriRequest\"/\n" +
 	"\x15GetContextUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetDescriptionRequest\"0\n" +
+	"\x16GetDescriptionResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
 	"\fGetIdRequest\"'\n" +
 	"\rGetIdResponse\x12\x16\n" +
@@ -4769,11 +4808,9 @@ const file_proto_wallpaper_wallpaper_proto_rawDesc = "" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"C\n" +
 	"\x15InstanceEqualsRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"/\n" +
-	"\x15GetDescriptionRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
-	"\x16GetDescriptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dInstanceGetDescriptionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
 	"\x14InstanceGetIdRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
 	"\x0eGetInfoRequest\x12\x16\n" +
@@ -4889,7 +4926,7 @@ const file_proto_wallpaper_wallpaper_proto_rawDesc = "" +
 	"%SetOffsetNotificationsEnabledResponse\"2\n" +
 	"\x1cSetTouchEventsEnabledRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x1f\n" +
-	"\x1dSetTouchEventsEnabledResponse2\x84\b\n" +
+	"\x1dSetTouchEventsEnabledResponse2\xdb\b\n" +
 	"\x12DescriptionService\x12[\n" +
 	"\x10DescribeContents\x12\".wallpaper.DescribeContentsRequest\x1a#.wallpaper.DescribeContentsResponse\x12=\n" +
 	"\x06Equals\x12\x18.wallpaper.EqualsRequest\x1a\x19.wallpaper.EqualsResponse\x12O\n" +
@@ -4897,7 +4934,8 @@ const file_proto_wallpaper_wallpaper_proto_rawDesc = "" +
 	"\n" +
 	"GetContent\x12\x1c.wallpaper.GetContentRequest\x1a\x1d.wallpaper.GetContentResponse\x12j\n" +
 	"\x15GetContextDescription\x12'.wallpaper.GetContextDescriptionRequest\x1a(.wallpaper.GetContextDescriptionResponse\x12R\n" +
-	"\rGetContextUri\x12\x1f.wallpaper.GetContextUriRequest\x1a .wallpaper.GetContextUriResponse\x12:\n" +
+	"\rGetContextUri\x12\x1f.wallpaper.GetContextUriRequest\x1a .wallpaper.GetContextUriResponse\x12U\n" +
+	"\x0eGetDescription\x12 .wallpaper.GetDescriptionRequest\x1a!.wallpaper.GetDescriptionResponse\x12:\n" +
 	"\x05GetId\x12\x17.wallpaper.GetIdRequest\x1a\x18.wallpaper.GetIdResponse\x12O\n" +
 	"\fGetThumbnail\x12\x1e.wallpaper.GetThumbnailRequest\x1a\x1f.wallpaper.GetThumbnailResponse\x12C\n" +
 	"\bGetTitle\x12\x1a.wallpaper.GetTitleRequest\x1a\x1b.wallpaper.GetTitleResponse\x12C\n" +
@@ -4913,12 +4951,12 @@ const file_proto_wallpaper_wallpaper_proto_rawDesc = "" +
 	"\rSetContextUri\x12\x1f.wallpaper.SetContextUriRequest\x1a .wallpaper.SetContextUriResponse\x12:\n" +
 	"\x05SetId\x12\x17.wallpaper.SetIdRequest\x1a\x18.wallpaper.SetIdResponse\x12O\n" +
 	"\fSetThumbnail\x12\x1e.wallpaper.SetThumbnailRequest\x1a\x1f.wallpaper.SetThumbnailResponse\x12C\n" +
-	"\bSetTitle\x12\x1a.wallpaper.SetTitleRequest\x1a\x1b.wallpaper.SetTitleResponse2\x91\x05\n" +
+	"\bSetTitle\x12\x1a.wallpaper.SetTitleRequest\x1a\x1b.wallpaper.SetTitleResponse2\x99\x05\n" +
 	"\x0fInstanceService\x12L\n" +
 	"\vNewInstance\x12\x1d.wallpaper.NewInstanceRequest\x1a\x1e.wallpaper.NewInstanceResponse\x12c\n" +
 	"\x10DescribeContents\x12*.wallpaper.InstanceDescribeContentsRequest\x1a#.wallpaper.DescribeContentsResponse\x12E\n" +
-	"\x06Equals\x12 .wallpaper.InstanceEqualsRequest\x1a\x19.wallpaper.EqualsResponse\x12U\n" +
-	"\x0eGetDescription\x12 .wallpaper.GetDescriptionRequest\x1a!.wallpaper.GetDescriptionResponse\x12B\n" +
+	"\x06Equals\x12 .wallpaper.InstanceEqualsRequest\x1a\x19.wallpaper.EqualsResponse\x12]\n" +
+	"\x0eGetDescription\x12(.wallpaper.InstanceGetDescriptionRequest\x1a!.wallpaper.GetDescriptionResponse\x12B\n" +
 	"\x05GetId\x12\x1f.wallpaper.InstanceGetIdRequest\x1a\x18.wallpaper.GetIdResponse\x12@\n" +
 	"\aGetInfo\x12\x19.wallpaper.GetInfoRequest\x1a\x1a.wallpaper.GetInfoResponse\x12K\n" +
 	"\bHashCode\x12\".wallpaper.InstanceHashCodeRequest\x1a\x1b.wallpaper.HashCodeResponse\x12Z\n" +
@@ -4969,7 +5007,7 @@ func file_proto_wallpaper_wallpaper_proto_rawDescGZIP() []byte {
 	return file_proto_wallpaper_wallpaper_proto_rawDescData
 }
 
-var file_proto_wallpaper_wallpaper_proto_msgTypes = make([]protoimpl.MessageInfo, 110)
+var file_proto_wallpaper_wallpaper_proto_msgTypes = make([]protoimpl.MessageInfo, 111)
 var file_proto_wallpaper_wallpaper_proto_goTypes = []any{
 	(*DescribeContentsRequest)(nil),               // 0: wallpaper.DescribeContentsRequest
 	(*DescribeContentsResponse)(nil),              // 1: wallpaper.DescribeContentsResponse
@@ -4983,104 +5021,105 @@ var file_proto_wallpaper_wallpaper_proto_goTypes = []any{
 	(*GetContextDescriptionResponse)(nil),         // 9: wallpaper.GetContextDescriptionResponse
 	(*GetContextUriRequest)(nil),                  // 10: wallpaper.GetContextUriRequest
 	(*GetContextUriResponse)(nil),                 // 11: wallpaper.GetContextUriResponse
-	(*GetIdRequest)(nil),                          // 12: wallpaper.GetIdRequest
-	(*GetIdResponse)(nil),                         // 13: wallpaper.GetIdResponse
-	(*GetThumbnailRequest)(nil),                   // 14: wallpaper.GetThumbnailRequest
-	(*GetThumbnailResponse)(nil),                  // 15: wallpaper.GetThumbnailResponse
-	(*GetTitleRequest)(nil),                       // 16: wallpaper.GetTitleRequest
-	(*GetTitleResponse)(nil),                      // 17: wallpaper.GetTitleResponse
-	(*HashCodeRequest)(nil),                       // 18: wallpaper.HashCodeRequest
-	(*HashCodeResponse)(nil),                      // 19: wallpaper.HashCodeResponse
-	(*ToBuilderRequest)(nil),                      // 20: wallpaper.ToBuilderRequest
-	(*ToBuilderResponse)(nil),                     // 21: wallpaper.ToBuilderResponse
-	(*ToStringRequest)(nil),                       // 22: wallpaper.ToStringRequest
-	(*ToStringResponse)(nil),                      // 23: wallpaper.ToStringResponse
-	(*WriteToParcelRequest)(nil),                  // 24: wallpaper.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                 // 25: wallpaper.WriteToParcelResponse
-	(*BuildRequest)(nil),                          // 26: wallpaper.BuildRequest
-	(*BuildResponse)(nil),                         // 27: wallpaper.BuildResponse
-	(*SetContentRequest)(nil),                     // 28: wallpaper.SetContentRequest
-	(*SetContentResponse)(nil),                    // 29: wallpaper.SetContentResponse
-	(*SetContextDescriptionRequest)(nil),          // 30: wallpaper.SetContextDescriptionRequest
-	(*SetContextDescriptionResponse)(nil),         // 31: wallpaper.SetContextDescriptionResponse
-	(*SetContextUriRequest)(nil),                  // 32: wallpaper.SetContextUriRequest
-	(*SetContextUriResponse)(nil),                 // 33: wallpaper.SetContextUriResponse
-	(*SetIdRequest)(nil),                          // 34: wallpaper.SetIdRequest
-	(*SetIdResponse)(nil),                         // 35: wallpaper.SetIdResponse
-	(*SetThumbnailRequest)(nil),                   // 36: wallpaper.SetThumbnailRequest
-	(*SetThumbnailResponse)(nil),                  // 37: wallpaper.SetThumbnailResponse
-	(*SetTitleRequest)(nil),                       // 38: wallpaper.SetTitleRequest
-	(*SetTitleResponse)(nil),                      // 39: wallpaper.SetTitleResponse
-	(*NewInstanceRequest)(nil),                    // 40: wallpaper.NewInstanceRequest
-	(*NewInstanceResponse)(nil),                   // 41: wallpaper.NewInstanceResponse
-	(*InstanceDescribeContentsRequest)(nil),       // 42: wallpaper.InstanceDescribeContentsRequest
-	(*InstanceEqualsRequest)(nil),                 // 43: wallpaper.InstanceEqualsRequest
-	(*GetDescriptionRequest)(nil),                 // 44: wallpaper.GetDescriptionRequest
-	(*GetDescriptionResponse)(nil),                // 45: wallpaper.GetDescriptionResponse
-	(*InstanceGetIdRequest)(nil),                  // 46: wallpaper.InstanceGetIdRequest
-	(*GetInfoRequest)(nil),                        // 47: wallpaper.GetInfoRequest
-	(*GetInfoResponse)(nil),                       // 48: wallpaper.GetInfoResponse
-	(*InstanceHashCodeRequest)(nil),               // 49: wallpaper.InstanceHashCodeRequest
-	(*InstanceWriteToParcelRequest)(nil),          // 50: wallpaper.InstanceWriteToParcelRequest
-	(*OnBindRequest)(nil),                         // 51: wallpaper.OnBindRequest
-	(*OnBindResponse)(nil),                        // 52: wallpaper.OnBindResponse
-	(*OnCreateRequest)(nil),                       // 53: wallpaper.OnCreateRequest
-	(*OnCreateResponse)(nil),                      // 54: wallpaper.OnCreateResponse
-	(*OnCreateEngine0Request)(nil),                // 55: wallpaper.OnCreateEngine0Request
-	(*OnCreateEngine0Response)(nil),               // 56: wallpaper.OnCreateEngine0Response
-	(*OnCreateEngine1_1Request)(nil),              // 57: wallpaper.OnCreateEngine1_1Request
-	(*OnCreateEngine1_1Response)(nil),             // 58: wallpaper.OnCreateEngine1_1Response
-	(*OnDestroyRequest)(nil),                      // 59: wallpaper.OnDestroyRequest
-	(*OnDestroyResponse)(nil),                     // 60: wallpaper.OnDestroyResponse
-	(*GetDesiredMinimumHeightRequest)(nil),        // 61: wallpaper.GetDesiredMinimumHeightRequest
-	(*GetDesiredMinimumHeightResponse)(nil),       // 62: wallpaper.GetDesiredMinimumHeightResponse
-	(*GetDesiredMinimumWidthRequest)(nil),         // 63: wallpaper.GetDesiredMinimumWidthRequest
-	(*GetDesiredMinimumWidthResponse)(nil),        // 64: wallpaper.GetDesiredMinimumWidthResponse
-	(*GetDisplayContextRequest)(nil),              // 65: wallpaper.GetDisplayContextRequest
-	(*GetDisplayContextResponse)(nil),             // 66: wallpaper.GetDisplayContextResponse
-	(*GetSurfaceHolderRequest)(nil),               // 67: wallpaper.GetSurfaceHolderRequest
-	(*GetSurfaceHolderResponse)(nil),              // 68: wallpaper.GetSurfaceHolderResponse
-	(*GetWallpaperFlagsRequest)(nil),              // 69: wallpaper.GetWallpaperFlagsRequest
-	(*GetWallpaperFlagsResponse)(nil),             // 70: wallpaper.GetWallpaperFlagsResponse
-	(*IsPreviewRequest)(nil),                      // 71: wallpaper.IsPreviewRequest
-	(*IsPreviewResponse)(nil),                     // 72: wallpaper.IsPreviewResponse
-	(*IsVisibleRequest)(nil),                      // 73: wallpaper.IsVisibleRequest
-	(*IsVisibleResponse)(nil),                     // 74: wallpaper.IsVisibleResponse
-	(*NotifyColorsChangedRequest)(nil),            // 75: wallpaper.NotifyColorsChangedRequest
-	(*NotifyColorsChangedResponse)(nil),           // 76: wallpaper.NotifyColorsChangedResponse
-	(*OnApplyWallpaperRequest)(nil),               // 77: wallpaper.OnApplyWallpaperRequest
-	(*OnApplyWallpaperResponse)(nil),              // 78: wallpaper.OnApplyWallpaperResponse
-	(*OnApplyWindowInsetsRequest)(nil),            // 79: wallpaper.OnApplyWindowInsetsRequest
-	(*OnApplyWindowInsetsResponse)(nil),           // 80: wallpaper.OnApplyWindowInsetsResponse
-	(*OnCommandRequest)(nil),                      // 81: wallpaper.OnCommandRequest
-	(*OnCommandResponse)(nil),                     // 82: wallpaper.OnCommandResponse
-	(*OnComputeColorsRequest)(nil),                // 83: wallpaper.OnComputeColorsRequest
-	(*OnComputeColorsResponse)(nil),               // 84: wallpaper.OnComputeColorsResponse
-	(*ServiceEngineOnCreateRequest)(nil),          // 85: wallpaper.ServiceEngineOnCreateRequest
-	(*OnDesiredSizeChangedRequest)(nil),           // 86: wallpaper.OnDesiredSizeChangedRequest
-	(*OnDesiredSizeChangedResponse)(nil),          // 87: wallpaper.OnDesiredSizeChangedResponse
-	(*OnOffsetsChangedRequest)(nil),               // 88: wallpaper.OnOffsetsChangedRequest
-	(*OnOffsetsChangedResponse)(nil),              // 89: wallpaper.OnOffsetsChangedResponse
-	(*OnSurfaceChangedRequest)(nil),               // 90: wallpaper.OnSurfaceChangedRequest
-	(*OnSurfaceChangedResponse)(nil),              // 91: wallpaper.OnSurfaceChangedResponse
-	(*OnSurfaceCreatedRequest)(nil),               // 92: wallpaper.OnSurfaceCreatedRequest
-	(*OnSurfaceCreatedResponse)(nil),              // 93: wallpaper.OnSurfaceCreatedResponse
-	(*OnSurfaceDestroyedRequest)(nil),             // 94: wallpaper.OnSurfaceDestroyedRequest
-	(*OnSurfaceDestroyedResponse)(nil),            // 95: wallpaper.OnSurfaceDestroyedResponse
-	(*OnSurfaceRedrawNeededRequest)(nil),          // 96: wallpaper.OnSurfaceRedrawNeededRequest
-	(*OnSurfaceRedrawNeededResponse)(nil),         // 97: wallpaper.OnSurfaceRedrawNeededResponse
-	(*OnTouchEventRequest)(nil),                   // 98: wallpaper.OnTouchEventRequest
-	(*OnTouchEventResponse)(nil),                  // 99: wallpaper.OnTouchEventResponse
-	(*OnVisibilityChangedRequest)(nil),            // 100: wallpaper.OnVisibilityChangedRequest
-	(*OnVisibilityChangedResponse)(nil),           // 101: wallpaper.OnVisibilityChangedResponse
-	(*OnWallpaperFlagsChangedRequest)(nil),        // 102: wallpaper.OnWallpaperFlagsChangedRequest
-	(*OnWallpaperFlagsChangedResponse)(nil),       // 103: wallpaper.OnWallpaperFlagsChangedResponse
-	(*OnZoomChangedRequest)(nil),                  // 104: wallpaper.OnZoomChangedRequest
-	(*OnZoomChangedResponse)(nil),                 // 105: wallpaper.OnZoomChangedResponse
-	(*SetOffsetNotificationsEnabledRequest)(nil),  // 106: wallpaper.SetOffsetNotificationsEnabledRequest
-	(*SetOffsetNotificationsEnabledResponse)(nil), // 107: wallpaper.SetOffsetNotificationsEnabledResponse
-	(*SetTouchEventsEnabledRequest)(nil),          // 108: wallpaper.SetTouchEventsEnabledRequest
-	(*SetTouchEventsEnabledResponse)(nil),         // 109: wallpaper.SetTouchEventsEnabledResponse
+	(*GetDescriptionRequest)(nil),                 // 12: wallpaper.GetDescriptionRequest
+	(*GetDescriptionResponse)(nil),                // 13: wallpaper.GetDescriptionResponse
+	(*GetIdRequest)(nil),                          // 14: wallpaper.GetIdRequest
+	(*GetIdResponse)(nil),                         // 15: wallpaper.GetIdResponse
+	(*GetThumbnailRequest)(nil),                   // 16: wallpaper.GetThumbnailRequest
+	(*GetThumbnailResponse)(nil),                  // 17: wallpaper.GetThumbnailResponse
+	(*GetTitleRequest)(nil),                       // 18: wallpaper.GetTitleRequest
+	(*GetTitleResponse)(nil),                      // 19: wallpaper.GetTitleResponse
+	(*HashCodeRequest)(nil),                       // 20: wallpaper.HashCodeRequest
+	(*HashCodeResponse)(nil),                      // 21: wallpaper.HashCodeResponse
+	(*ToBuilderRequest)(nil),                      // 22: wallpaper.ToBuilderRequest
+	(*ToBuilderResponse)(nil),                     // 23: wallpaper.ToBuilderResponse
+	(*ToStringRequest)(nil),                       // 24: wallpaper.ToStringRequest
+	(*ToStringResponse)(nil),                      // 25: wallpaper.ToStringResponse
+	(*WriteToParcelRequest)(nil),                  // 26: wallpaper.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                 // 27: wallpaper.WriteToParcelResponse
+	(*BuildRequest)(nil),                          // 28: wallpaper.BuildRequest
+	(*BuildResponse)(nil),                         // 29: wallpaper.BuildResponse
+	(*SetContentRequest)(nil),                     // 30: wallpaper.SetContentRequest
+	(*SetContentResponse)(nil),                    // 31: wallpaper.SetContentResponse
+	(*SetContextDescriptionRequest)(nil),          // 32: wallpaper.SetContextDescriptionRequest
+	(*SetContextDescriptionResponse)(nil),         // 33: wallpaper.SetContextDescriptionResponse
+	(*SetContextUriRequest)(nil),                  // 34: wallpaper.SetContextUriRequest
+	(*SetContextUriResponse)(nil),                 // 35: wallpaper.SetContextUriResponse
+	(*SetIdRequest)(nil),                          // 36: wallpaper.SetIdRequest
+	(*SetIdResponse)(nil),                         // 37: wallpaper.SetIdResponse
+	(*SetThumbnailRequest)(nil),                   // 38: wallpaper.SetThumbnailRequest
+	(*SetThumbnailResponse)(nil),                  // 39: wallpaper.SetThumbnailResponse
+	(*SetTitleRequest)(nil),                       // 40: wallpaper.SetTitleRequest
+	(*SetTitleResponse)(nil),                      // 41: wallpaper.SetTitleResponse
+	(*NewInstanceRequest)(nil),                    // 42: wallpaper.NewInstanceRequest
+	(*NewInstanceResponse)(nil),                   // 43: wallpaper.NewInstanceResponse
+	(*InstanceDescribeContentsRequest)(nil),       // 44: wallpaper.InstanceDescribeContentsRequest
+	(*InstanceEqualsRequest)(nil),                 // 45: wallpaper.InstanceEqualsRequest
+	(*InstanceGetDescriptionRequest)(nil),         // 46: wallpaper.InstanceGetDescriptionRequest
+	(*InstanceGetIdRequest)(nil),                  // 47: wallpaper.InstanceGetIdRequest
+	(*GetInfoRequest)(nil),                        // 48: wallpaper.GetInfoRequest
+	(*GetInfoResponse)(nil),                       // 49: wallpaper.GetInfoResponse
+	(*InstanceHashCodeRequest)(nil),               // 50: wallpaper.InstanceHashCodeRequest
+	(*InstanceWriteToParcelRequest)(nil),          // 51: wallpaper.InstanceWriteToParcelRequest
+	(*OnBindRequest)(nil),                         // 52: wallpaper.OnBindRequest
+	(*OnBindResponse)(nil),                        // 53: wallpaper.OnBindResponse
+	(*OnCreateRequest)(nil),                       // 54: wallpaper.OnCreateRequest
+	(*OnCreateResponse)(nil),                      // 55: wallpaper.OnCreateResponse
+	(*OnCreateEngine0Request)(nil),                // 56: wallpaper.OnCreateEngine0Request
+	(*OnCreateEngine0Response)(nil),               // 57: wallpaper.OnCreateEngine0Response
+	(*OnCreateEngine1_1Request)(nil),              // 58: wallpaper.OnCreateEngine1_1Request
+	(*OnCreateEngine1_1Response)(nil),             // 59: wallpaper.OnCreateEngine1_1Response
+	(*OnDestroyRequest)(nil),                      // 60: wallpaper.OnDestroyRequest
+	(*OnDestroyResponse)(nil),                     // 61: wallpaper.OnDestroyResponse
+	(*GetDesiredMinimumHeightRequest)(nil),        // 62: wallpaper.GetDesiredMinimumHeightRequest
+	(*GetDesiredMinimumHeightResponse)(nil),       // 63: wallpaper.GetDesiredMinimumHeightResponse
+	(*GetDesiredMinimumWidthRequest)(nil),         // 64: wallpaper.GetDesiredMinimumWidthRequest
+	(*GetDesiredMinimumWidthResponse)(nil),        // 65: wallpaper.GetDesiredMinimumWidthResponse
+	(*GetDisplayContextRequest)(nil),              // 66: wallpaper.GetDisplayContextRequest
+	(*GetDisplayContextResponse)(nil),             // 67: wallpaper.GetDisplayContextResponse
+	(*GetSurfaceHolderRequest)(nil),               // 68: wallpaper.GetSurfaceHolderRequest
+	(*GetSurfaceHolderResponse)(nil),              // 69: wallpaper.GetSurfaceHolderResponse
+	(*GetWallpaperFlagsRequest)(nil),              // 70: wallpaper.GetWallpaperFlagsRequest
+	(*GetWallpaperFlagsResponse)(nil),             // 71: wallpaper.GetWallpaperFlagsResponse
+	(*IsPreviewRequest)(nil),                      // 72: wallpaper.IsPreviewRequest
+	(*IsPreviewResponse)(nil),                     // 73: wallpaper.IsPreviewResponse
+	(*IsVisibleRequest)(nil),                      // 74: wallpaper.IsVisibleRequest
+	(*IsVisibleResponse)(nil),                     // 75: wallpaper.IsVisibleResponse
+	(*NotifyColorsChangedRequest)(nil),            // 76: wallpaper.NotifyColorsChangedRequest
+	(*NotifyColorsChangedResponse)(nil),           // 77: wallpaper.NotifyColorsChangedResponse
+	(*OnApplyWallpaperRequest)(nil),               // 78: wallpaper.OnApplyWallpaperRequest
+	(*OnApplyWallpaperResponse)(nil),              // 79: wallpaper.OnApplyWallpaperResponse
+	(*OnApplyWindowInsetsRequest)(nil),            // 80: wallpaper.OnApplyWindowInsetsRequest
+	(*OnApplyWindowInsetsResponse)(nil),           // 81: wallpaper.OnApplyWindowInsetsResponse
+	(*OnCommandRequest)(nil),                      // 82: wallpaper.OnCommandRequest
+	(*OnCommandResponse)(nil),                     // 83: wallpaper.OnCommandResponse
+	(*OnComputeColorsRequest)(nil),                // 84: wallpaper.OnComputeColorsRequest
+	(*OnComputeColorsResponse)(nil),               // 85: wallpaper.OnComputeColorsResponse
+	(*ServiceEngineOnCreateRequest)(nil),          // 86: wallpaper.ServiceEngineOnCreateRequest
+	(*OnDesiredSizeChangedRequest)(nil),           // 87: wallpaper.OnDesiredSizeChangedRequest
+	(*OnDesiredSizeChangedResponse)(nil),          // 88: wallpaper.OnDesiredSizeChangedResponse
+	(*OnOffsetsChangedRequest)(nil),               // 89: wallpaper.OnOffsetsChangedRequest
+	(*OnOffsetsChangedResponse)(nil),              // 90: wallpaper.OnOffsetsChangedResponse
+	(*OnSurfaceChangedRequest)(nil),               // 91: wallpaper.OnSurfaceChangedRequest
+	(*OnSurfaceChangedResponse)(nil),              // 92: wallpaper.OnSurfaceChangedResponse
+	(*OnSurfaceCreatedRequest)(nil),               // 93: wallpaper.OnSurfaceCreatedRequest
+	(*OnSurfaceCreatedResponse)(nil),              // 94: wallpaper.OnSurfaceCreatedResponse
+	(*OnSurfaceDestroyedRequest)(nil),             // 95: wallpaper.OnSurfaceDestroyedRequest
+	(*OnSurfaceDestroyedResponse)(nil),            // 96: wallpaper.OnSurfaceDestroyedResponse
+	(*OnSurfaceRedrawNeededRequest)(nil),          // 97: wallpaper.OnSurfaceRedrawNeededRequest
+	(*OnSurfaceRedrawNeededResponse)(nil),         // 98: wallpaper.OnSurfaceRedrawNeededResponse
+	(*OnTouchEventRequest)(nil),                   // 99: wallpaper.OnTouchEventRequest
+	(*OnTouchEventResponse)(nil),                  // 100: wallpaper.OnTouchEventResponse
+	(*OnVisibilityChangedRequest)(nil),            // 101: wallpaper.OnVisibilityChangedRequest
+	(*OnVisibilityChangedResponse)(nil),           // 102: wallpaper.OnVisibilityChangedResponse
+	(*OnWallpaperFlagsChangedRequest)(nil),        // 103: wallpaper.OnWallpaperFlagsChangedRequest
+	(*OnWallpaperFlagsChangedResponse)(nil),       // 104: wallpaper.OnWallpaperFlagsChangedResponse
+	(*OnZoomChangedRequest)(nil),                  // 105: wallpaper.OnZoomChangedRequest
+	(*OnZoomChangedResponse)(nil),                 // 106: wallpaper.OnZoomChangedResponse
+	(*SetOffsetNotificationsEnabledRequest)(nil),  // 107: wallpaper.SetOffsetNotificationsEnabledRequest
+	(*SetOffsetNotificationsEnabledResponse)(nil), // 108: wallpaper.SetOffsetNotificationsEnabledResponse
+	(*SetTouchEventsEnabledRequest)(nil),          // 109: wallpaper.SetTouchEventsEnabledRequest
+	(*SetTouchEventsEnabledResponse)(nil),         // 110: wallpaper.SetTouchEventsEnabledResponse
 }
 var file_proto_wallpaper_wallpaper_proto_depIdxs = []int32{
 	0,   // 0: wallpaper.DescriptionService.DescribeContents:input_type -> wallpaper.DescribeContentsRequest
@@ -5089,120 +5128,122 @@ var file_proto_wallpaper_wallpaper_proto_depIdxs = []int32{
 	6,   // 3: wallpaper.DescriptionService.GetContent:input_type -> wallpaper.GetContentRequest
 	8,   // 4: wallpaper.DescriptionService.GetContextDescription:input_type -> wallpaper.GetContextDescriptionRequest
 	10,  // 5: wallpaper.DescriptionService.GetContextUri:input_type -> wallpaper.GetContextUriRequest
-	12,  // 6: wallpaper.DescriptionService.GetId:input_type -> wallpaper.GetIdRequest
-	14,  // 7: wallpaper.DescriptionService.GetThumbnail:input_type -> wallpaper.GetThumbnailRequest
-	16,  // 8: wallpaper.DescriptionService.GetTitle:input_type -> wallpaper.GetTitleRequest
-	18,  // 9: wallpaper.DescriptionService.HashCode:input_type -> wallpaper.HashCodeRequest
-	20,  // 10: wallpaper.DescriptionService.ToBuilder:input_type -> wallpaper.ToBuilderRequest
-	22,  // 11: wallpaper.DescriptionService.ToString:input_type -> wallpaper.ToStringRequest
-	24,  // 12: wallpaper.DescriptionService.WriteToParcel:input_type -> wallpaper.WriteToParcelRequest
-	26,  // 13: wallpaper.DescriptionBuilderService.Build:input_type -> wallpaper.BuildRequest
-	28,  // 14: wallpaper.DescriptionBuilderService.SetContent:input_type -> wallpaper.SetContentRequest
-	30,  // 15: wallpaper.DescriptionBuilderService.SetContextDescription:input_type -> wallpaper.SetContextDescriptionRequest
-	32,  // 16: wallpaper.DescriptionBuilderService.SetContextUri:input_type -> wallpaper.SetContextUriRequest
-	34,  // 17: wallpaper.DescriptionBuilderService.SetId:input_type -> wallpaper.SetIdRequest
-	36,  // 18: wallpaper.DescriptionBuilderService.SetThumbnail:input_type -> wallpaper.SetThumbnailRequest
-	38,  // 19: wallpaper.DescriptionBuilderService.SetTitle:input_type -> wallpaper.SetTitleRequest
-	40,  // 20: wallpaper.InstanceService.NewInstance:input_type -> wallpaper.NewInstanceRequest
-	42,  // 21: wallpaper.InstanceService.DescribeContents:input_type -> wallpaper.InstanceDescribeContentsRequest
-	43,  // 22: wallpaper.InstanceService.Equals:input_type -> wallpaper.InstanceEqualsRequest
-	44,  // 23: wallpaper.InstanceService.GetDescription:input_type -> wallpaper.GetDescriptionRequest
-	46,  // 24: wallpaper.InstanceService.GetId:input_type -> wallpaper.InstanceGetIdRequest
-	47,  // 25: wallpaper.InstanceService.GetInfo:input_type -> wallpaper.GetInfoRequest
-	49,  // 26: wallpaper.InstanceService.HashCode:input_type -> wallpaper.InstanceHashCodeRequest
-	50,  // 27: wallpaper.InstanceService.WriteToParcel:input_type -> wallpaper.InstanceWriteToParcelRequest
-	51,  // 28: wallpaper.ServiceService.OnBind:input_type -> wallpaper.OnBindRequest
-	53,  // 29: wallpaper.ServiceService.OnCreate:input_type -> wallpaper.OnCreateRequest
-	55,  // 30: wallpaper.ServiceService.OnCreateEngine0:input_type -> wallpaper.OnCreateEngine0Request
-	57,  // 31: wallpaper.ServiceService.OnCreateEngine1_1:input_type -> wallpaper.OnCreateEngine1_1Request
-	59,  // 32: wallpaper.ServiceService.OnDestroy:input_type -> wallpaper.OnDestroyRequest
-	61,  // 33: wallpaper.ServiceEngineService.GetDesiredMinimumHeight:input_type -> wallpaper.GetDesiredMinimumHeightRequest
-	63,  // 34: wallpaper.ServiceEngineService.GetDesiredMinimumWidth:input_type -> wallpaper.GetDesiredMinimumWidthRequest
-	65,  // 35: wallpaper.ServiceEngineService.GetDisplayContext:input_type -> wallpaper.GetDisplayContextRequest
-	67,  // 36: wallpaper.ServiceEngineService.GetSurfaceHolder:input_type -> wallpaper.GetSurfaceHolderRequest
-	69,  // 37: wallpaper.ServiceEngineService.GetWallpaperFlags:input_type -> wallpaper.GetWallpaperFlagsRequest
-	71,  // 38: wallpaper.ServiceEngineService.IsPreview:input_type -> wallpaper.IsPreviewRequest
-	73,  // 39: wallpaper.ServiceEngineService.IsVisible:input_type -> wallpaper.IsVisibleRequest
-	75,  // 40: wallpaper.ServiceEngineService.NotifyColorsChanged:input_type -> wallpaper.NotifyColorsChangedRequest
-	77,  // 41: wallpaper.ServiceEngineService.OnApplyWallpaper:input_type -> wallpaper.OnApplyWallpaperRequest
-	79,  // 42: wallpaper.ServiceEngineService.OnApplyWindowInsets:input_type -> wallpaper.OnApplyWindowInsetsRequest
-	81,  // 43: wallpaper.ServiceEngineService.OnCommand:input_type -> wallpaper.OnCommandRequest
-	83,  // 44: wallpaper.ServiceEngineService.OnComputeColors:input_type -> wallpaper.OnComputeColorsRequest
-	85,  // 45: wallpaper.ServiceEngineService.OnCreate:input_type -> wallpaper.ServiceEngineOnCreateRequest
-	86,  // 46: wallpaper.ServiceEngineService.OnDesiredSizeChanged:input_type -> wallpaper.OnDesiredSizeChangedRequest
-	59,  // 47: wallpaper.ServiceEngineService.OnDestroy:input_type -> wallpaper.OnDestroyRequest
-	88,  // 48: wallpaper.ServiceEngineService.OnOffsetsChanged:input_type -> wallpaper.OnOffsetsChangedRequest
-	90,  // 49: wallpaper.ServiceEngineService.OnSurfaceChanged:input_type -> wallpaper.OnSurfaceChangedRequest
-	92,  // 50: wallpaper.ServiceEngineService.OnSurfaceCreated:input_type -> wallpaper.OnSurfaceCreatedRequest
-	94,  // 51: wallpaper.ServiceEngineService.OnSurfaceDestroyed:input_type -> wallpaper.OnSurfaceDestroyedRequest
-	96,  // 52: wallpaper.ServiceEngineService.OnSurfaceRedrawNeeded:input_type -> wallpaper.OnSurfaceRedrawNeededRequest
-	98,  // 53: wallpaper.ServiceEngineService.OnTouchEvent:input_type -> wallpaper.OnTouchEventRequest
-	100, // 54: wallpaper.ServiceEngineService.OnVisibilityChanged:input_type -> wallpaper.OnVisibilityChangedRequest
-	102, // 55: wallpaper.ServiceEngineService.OnWallpaperFlagsChanged:input_type -> wallpaper.OnWallpaperFlagsChangedRequest
-	104, // 56: wallpaper.ServiceEngineService.OnZoomChanged:input_type -> wallpaper.OnZoomChangedRequest
-	106, // 57: wallpaper.ServiceEngineService.SetOffsetNotificationsEnabled:input_type -> wallpaper.SetOffsetNotificationsEnabledRequest
-	108, // 58: wallpaper.ServiceEngineService.SetTouchEventsEnabled:input_type -> wallpaper.SetTouchEventsEnabledRequest
-	1,   // 59: wallpaper.DescriptionService.DescribeContents:output_type -> wallpaper.DescribeContentsResponse
-	3,   // 60: wallpaper.DescriptionService.Equals:output_type -> wallpaper.EqualsResponse
-	5,   // 61: wallpaper.DescriptionService.GetComponent:output_type -> wallpaper.GetComponentResponse
-	7,   // 62: wallpaper.DescriptionService.GetContent:output_type -> wallpaper.GetContentResponse
-	9,   // 63: wallpaper.DescriptionService.GetContextDescription:output_type -> wallpaper.GetContextDescriptionResponse
-	11,  // 64: wallpaper.DescriptionService.GetContextUri:output_type -> wallpaper.GetContextUriResponse
-	13,  // 65: wallpaper.DescriptionService.GetId:output_type -> wallpaper.GetIdResponse
-	15,  // 66: wallpaper.DescriptionService.GetThumbnail:output_type -> wallpaper.GetThumbnailResponse
-	17,  // 67: wallpaper.DescriptionService.GetTitle:output_type -> wallpaper.GetTitleResponse
-	19,  // 68: wallpaper.DescriptionService.HashCode:output_type -> wallpaper.HashCodeResponse
-	21,  // 69: wallpaper.DescriptionService.ToBuilder:output_type -> wallpaper.ToBuilderResponse
-	23,  // 70: wallpaper.DescriptionService.ToString:output_type -> wallpaper.ToStringResponse
-	25,  // 71: wallpaper.DescriptionService.WriteToParcel:output_type -> wallpaper.WriteToParcelResponse
-	27,  // 72: wallpaper.DescriptionBuilderService.Build:output_type -> wallpaper.BuildResponse
-	29,  // 73: wallpaper.DescriptionBuilderService.SetContent:output_type -> wallpaper.SetContentResponse
-	31,  // 74: wallpaper.DescriptionBuilderService.SetContextDescription:output_type -> wallpaper.SetContextDescriptionResponse
-	33,  // 75: wallpaper.DescriptionBuilderService.SetContextUri:output_type -> wallpaper.SetContextUriResponse
-	35,  // 76: wallpaper.DescriptionBuilderService.SetId:output_type -> wallpaper.SetIdResponse
-	37,  // 77: wallpaper.DescriptionBuilderService.SetThumbnail:output_type -> wallpaper.SetThumbnailResponse
-	39,  // 78: wallpaper.DescriptionBuilderService.SetTitle:output_type -> wallpaper.SetTitleResponse
-	41,  // 79: wallpaper.InstanceService.NewInstance:output_type -> wallpaper.NewInstanceResponse
-	1,   // 80: wallpaper.InstanceService.DescribeContents:output_type -> wallpaper.DescribeContentsResponse
-	3,   // 81: wallpaper.InstanceService.Equals:output_type -> wallpaper.EqualsResponse
-	45,  // 82: wallpaper.InstanceService.GetDescription:output_type -> wallpaper.GetDescriptionResponse
-	13,  // 83: wallpaper.InstanceService.GetId:output_type -> wallpaper.GetIdResponse
-	48,  // 84: wallpaper.InstanceService.GetInfo:output_type -> wallpaper.GetInfoResponse
-	19,  // 85: wallpaper.InstanceService.HashCode:output_type -> wallpaper.HashCodeResponse
-	25,  // 86: wallpaper.InstanceService.WriteToParcel:output_type -> wallpaper.WriteToParcelResponse
-	52,  // 87: wallpaper.ServiceService.OnBind:output_type -> wallpaper.OnBindResponse
-	54,  // 88: wallpaper.ServiceService.OnCreate:output_type -> wallpaper.OnCreateResponse
-	56,  // 89: wallpaper.ServiceService.OnCreateEngine0:output_type -> wallpaper.OnCreateEngine0Response
-	58,  // 90: wallpaper.ServiceService.OnCreateEngine1_1:output_type -> wallpaper.OnCreateEngine1_1Response
-	60,  // 91: wallpaper.ServiceService.OnDestroy:output_type -> wallpaper.OnDestroyResponse
-	62,  // 92: wallpaper.ServiceEngineService.GetDesiredMinimumHeight:output_type -> wallpaper.GetDesiredMinimumHeightResponse
-	64,  // 93: wallpaper.ServiceEngineService.GetDesiredMinimumWidth:output_type -> wallpaper.GetDesiredMinimumWidthResponse
-	66,  // 94: wallpaper.ServiceEngineService.GetDisplayContext:output_type -> wallpaper.GetDisplayContextResponse
-	68,  // 95: wallpaper.ServiceEngineService.GetSurfaceHolder:output_type -> wallpaper.GetSurfaceHolderResponse
-	70,  // 96: wallpaper.ServiceEngineService.GetWallpaperFlags:output_type -> wallpaper.GetWallpaperFlagsResponse
-	72,  // 97: wallpaper.ServiceEngineService.IsPreview:output_type -> wallpaper.IsPreviewResponse
-	74,  // 98: wallpaper.ServiceEngineService.IsVisible:output_type -> wallpaper.IsVisibleResponse
-	76,  // 99: wallpaper.ServiceEngineService.NotifyColorsChanged:output_type -> wallpaper.NotifyColorsChangedResponse
-	78,  // 100: wallpaper.ServiceEngineService.OnApplyWallpaper:output_type -> wallpaper.OnApplyWallpaperResponse
-	80,  // 101: wallpaper.ServiceEngineService.OnApplyWindowInsets:output_type -> wallpaper.OnApplyWindowInsetsResponse
-	82,  // 102: wallpaper.ServiceEngineService.OnCommand:output_type -> wallpaper.OnCommandResponse
-	84,  // 103: wallpaper.ServiceEngineService.OnComputeColors:output_type -> wallpaper.OnComputeColorsResponse
-	54,  // 104: wallpaper.ServiceEngineService.OnCreate:output_type -> wallpaper.OnCreateResponse
-	87,  // 105: wallpaper.ServiceEngineService.OnDesiredSizeChanged:output_type -> wallpaper.OnDesiredSizeChangedResponse
-	60,  // 106: wallpaper.ServiceEngineService.OnDestroy:output_type -> wallpaper.OnDestroyResponse
-	89,  // 107: wallpaper.ServiceEngineService.OnOffsetsChanged:output_type -> wallpaper.OnOffsetsChangedResponse
-	91,  // 108: wallpaper.ServiceEngineService.OnSurfaceChanged:output_type -> wallpaper.OnSurfaceChangedResponse
-	93,  // 109: wallpaper.ServiceEngineService.OnSurfaceCreated:output_type -> wallpaper.OnSurfaceCreatedResponse
-	95,  // 110: wallpaper.ServiceEngineService.OnSurfaceDestroyed:output_type -> wallpaper.OnSurfaceDestroyedResponse
-	97,  // 111: wallpaper.ServiceEngineService.OnSurfaceRedrawNeeded:output_type -> wallpaper.OnSurfaceRedrawNeededResponse
-	99,  // 112: wallpaper.ServiceEngineService.OnTouchEvent:output_type -> wallpaper.OnTouchEventResponse
-	101, // 113: wallpaper.ServiceEngineService.OnVisibilityChanged:output_type -> wallpaper.OnVisibilityChangedResponse
-	103, // 114: wallpaper.ServiceEngineService.OnWallpaperFlagsChanged:output_type -> wallpaper.OnWallpaperFlagsChangedResponse
-	105, // 115: wallpaper.ServiceEngineService.OnZoomChanged:output_type -> wallpaper.OnZoomChangedResponse
-	107, // 116: wallpaper.ServiceEngineService.SetOffsetNotificationsEnabled:output_type -> wallpaper.SetOffsetNotificationsEnabledResponse
-	109, // 117: wallpaper.ServiceEngineService.SetTouchEventsEnabled:output_type -> wallpaper.SetTouchEventsEnabledResponse
-	59,  // [59:118] is the sub-list for method output_type
-	0,   // [0:59] is the sub-list for method input_type
+	12,  // 6: wallpaper.DescriptionService.GetDescription:input_type -> wallpaper.GetDescriptionRequest
+	14,  // 7: wallpaper.DescriptionService.GetId:input_type -> wallpaper.GetIdRequest
+	16,  // 8: wallpaper.DescriptionService.GetThumbnail:input_type -> wallpaper.GetThumbnailRequest
+	18,  // 9: wallpaper.DescriptionService.GetTitle:input_type -> wallpaper.GetTitleRequest
+	20,  // 10: wallpaper.DescriptionService.HashCode:input_type -> wallpaper.HashCodeRequest
+	22,  // 11: wallpaper.DescriptionService.ToBuilder:input_type -> wallpaper.ToBuilderRequest
+	24,  // 12: wallpaper.DescriptionService.ToString:input_type -> wallpaper.ToStringRequest
+	26,  // 13: wallpaper.DescriptionService.WriteToParcel:input_type -> wallpaper.WriteToParcelRequest
+	28,  // 14: wallpaper.DescriptionBuilderService.Build:input_type -> wallpaper.BuildRequest
+	30,  // 15: wallpaper.DescriptionBuilderService.SetContent:input_type -> wallpaper.SetContentRequest
+	32,  // 16: wallpaper.DescriptionBuilderService.SetContextDescription:input_type -> wallpaper.SetContextDescriptionRequest
+	34,  // 17: wallpaper.DescriptionBuilderService.SetContextUri:input_type -> wallpaper.SetContextUriRequest
+	36,  // 18: wallpaper.DescriptionBuilderService.SetId:input_type -> wallpaper.SetIdRequest
+	38,  // 19: wallpaper.DescriptionBuilderService.SetThumbnail:input_type -> wallpaper.SetThumbnailRequest
+	40,  // 20: wallpaper.DescriptionBuilderService.SetTitle:input_type -> wallpaper.SetTitleRequest
+	42,  // 21: wallpaper.InstanceService.NewInstance:input_type -> wallpaper.NewInstanceRequest
+	44,  // 22: wallpaper.InstanceService.DescribeContents:input_type -> wallpaper.InstanceDescribeContentsRequest
+	45,  // 23: wallpaper.InstanceService.Equals:input_type -> wallpaper.InstanceEqualsRequest
+	46,  // 24: wallpaper.InstanceService.GetDescription:input_type -> wallpaper.InstanceGetDescriptionRequest
+	47,  // 25: wallpaper.InstanceService.GetId:input_type -> wallpaper.InstanceGetIdRequest
+	48,  // 26: wallpaper.InstanceService.GetInfo:input_type -> wallpaper.GetInfoRequest
+	50,  // 27: wallpaper.InstanceService.HashCode:input_type -> wallpaper.InstanceHashCodeRequest
+	51,  // 28: wallpaper.InstanceService.WriteToParcel:input_type -> wallpaper.InstanceWriteToParcelRequest
+	52,  // 29: wallpaper.ServiceService.OnBind:input_type -> wallpaper.OnBindRequest
+	54,  // 30: wallpaper.ServiceService.OnCreate:input_type -> wallpaper.OnCreateRequest
+	56,  // 31: wallpaper.ServiceService.OnCreateEngine0:input_type -> wallpaper.OnCreateEngine0Request
+	58,  // 32: wallpaper.ServiceService.OnCreateEngine1_1:input_type -> wallpaper.OnCreateEngine1_1Request
+	60,  // 33: wallpaper.ServiceService.OnDestroy:input_type -> wallpaper.OnDestroyRequest
+	62,  // 34: wallpaper.ServiceEngineService.GetDesiredMinimumHeight:input_type -> wallpaper.GetDesiredMinimumHeightRequest
+	64,  // 35: wallpaper.ServiceEngineService.GetDesiredMinimumWidth:input_type -> wallpaper.GetDesiredMinimumWidthRequest
+	66,  // 36: wallpaper.ServiceEngineService.GetDisplayContext:input_type -> wallpaper.GetDisplayContextRequest
+	68,  // 37: wallpaper.ServiceEngineService.GetSurfaceHolder:input_type -> wallpaper.GetSurfaceHolderRequest
+	70,  // 38: wallpaper.ServiceEngineService.GetWallpaperFlags:input_type -> wallpaper.GetWallpaperFlagsRequest
+	72,  // 39: wallpaper.ServiceEngineService.IsPreview:input_type -> wallpaper.IsPreviewRequest
+	74,  // 40: wallpaper.ServiceEngineService.IsVisible:input_type -> wallpaper.IsVisibleRequest
+	76,  // 41: wallpaper.ServiceEngineService.NotifyColorsChanged:input_type -> wallpaper.NotifyColorsChangedRequest
+	78,  // 42: wallpaper.ServiceEngineService.OnApplyWallpaper:input_type -> wallpaper.OnApplyWallpaperRequest
+	80,  // 43: wallpaper.ServiceEngineService.OnApplyWindowInsets:input_type -> wallpaper.OnApplyWindowInsetsRequest
+	82,  // 44: wallpaper.ServiceEngineService.OnCommand:input_type -> wallpaper.OnCommandRequest
+	84,  // 45: wallpaper.ServiceEngineService.OnComputeColors:input_type -> wallpaper.OnComputeColorsRequest
+	86,  // 46: wallpaper.ServiceEngineService.OnCreate:input_type -> wallpaper.ServiceEngineOnCreateRequest
+	87,  // 47: wallpaper.ServiceEngineService.OnDesiredSizeChanged:input_type -> wallpaper.OnDesiredSizeChangedRequest
+	60,  // 48: wallpaper.ServiceEngineService.OnDestroy:input_type -> wallpaper.OnDestroyRequest
+	89,  // 49: wallpaper.ServiceEngineService.OnOffsetsChanged:input_type -> wallpaper.OnOffsetsChangedRequest
+	91,  // 50: wallpaper.ServiceEngineService.OnSurfaceChanged:input_type -> wallpaper.OnSurfaceChangedRequest
+	93,  // 51: wallpaper.ServiceEngineService.OnSurfaceCreated:input_type -> wallpaper.OnSurfaceCreatedRequest
+	95,  // 52: wallpaper.ServiceEngineService.OnSurfaceDestroyed:input_type -> wallpaper.OnSurfaceDestroyedRequest
+	97,  // 53: wallpaper.ServiceEngineService.OnSurfaceRedrawNeeded:input_type -> wallpaper.OnSurfaceRedrawNeededRequest
+	99,  // 54: wallpaper.ServiceEngineService.OnTouchEvent:input_type -> wallpaper.OnTouchEventRequest
+	101, // 55: wallpaper.ServiceEngineService.OnVisibilityChanged:input_type -> wallpaper.OnVisibilityChangedRequest
+	103, // 56: wallpaper.ServiceEngineService.OnWallpaperFlagsChanged:input_type -> wallpaper.OnWallpaperFlagsChangedRequest
+	105, // 57: wallpaper.ServiceEngineService.OnZoomChanged:input_type -> wallpaper.OnZoomChangedRequest
+	107, // 58: wallpaper.ServiceEngineService.SetOffsetNotificationsEnabled:input_type -> wallpaper.SetOffsetNotificationsEnabledRequest
+	109, // 59: wallpaper.ServiceEngineService.SetTouchEventsEnabled:input_type -> wallpaper.SetTouchEventsEnabledRequest
+	1,   // 60: wallpaper.DescriptionService.DescribeContents:output_type -> wallpaper.DescribeContentsResponse
+	3,   // 61: wallpaper.DescriptionService.Equals:output_type -> wallpaper.EqualsResponse
+	5,   // 62: wallpaper.DescriptionService.GetComponent:output_type -> wallpaper.GetComponentResponse
+	7,   // 63: wallpaper.DescriptionService.GetContent:output_type -> wallpaper.GetContentResponse
+	9,   // 64: wallpaper.DescriptionService.GetContextDescription:output_type -> wallpaper.GetContextDescriptionResponse
+	11,  // 65: wallpaper.DescriptionService.GetContextUri:output_type -> wallpaper.GetContextUriResponse
+	13,  // 66: wallpaper.DescriptionService.GetDescription:output_type -> wallpaper.GetDescriptionResponse
+	15,  // 67: wallpaper.DescriptionService.GetId:output_type -> wallpaper.GetIdResponse
+	17,  // 68: wallpaper.DescriptionService.GetThumbnail:output_type -> wallpaper.GetThumbnailResponse
+	19,  // 69: wallpaper.DescriptionService.GetTitle:output_type -> wallpaper.GetTitleResponse
+	21,  // 70: wallpaper.DescriptionService.HashCode:output_type -> wallpaper.HashCodeResponse
+	23,  // 71: wallpaper.DescriptionService.ToBuilder:output_type -> wallpaper.ToBuilderResponse
+	25,  // 72: wallpaper.DescriptionService.ToString:output_type -> wallpaper.ToStringResponse
+	27,  // 73: wallpaper.DescriptionService.WriteToParcel:output_type -> wallpaper.WriteToParcelResponse
+	29,  // 74: wallpaper.DescriptionBuilderService.Build:output_type -> wallpaper.BuildResponse
+	31,  // 75: wallpaper.DescriptionBuilderService.SetContent:output_type -> wallpaper.SetContentResponse
+	33,  // 76: wallpaper.DescriptionBuilderService.SetContextDescription:output_type -> wallpaper.SetContextDescriptionResponse
+	35,  // 77: wallpaper.DescriptionBuilderService.SetContextUri:output_type -> wallpaper.SetContextUriResponse
+	37,  // 78: wallpaper.DescriptionBuilderService.SetId:output_type -> wallpaper.SetIdResponse
+	39,  // 79: wallpaper.DescriptionBuilderService.SetThumbnail:output_type -> wallpaper.SetThumbnailResponse
+	41,  // 80: wallpaper.DescriptionBuilderService.SetTitle:output_type -> wallpaper.SetTitleResponse
+	43,  // 81: wallpaper.InstanceService.NewInstance:output_type -> wallpaper.NewInstanceResponse
+	1,   // 82: wallpaper.InstanceService.DescribeContents:output_type -> wallpaper.DescribeContentsResponse
+	3,   // 83: wallpaper.InstanceService.Equals:output_type -> wallpaper.EqualsResponse
+	13,  // 84: wallpaper.InstanceService.GetDescription:output_type -> wallpaper.GetDescriptionResponse
+	15,  // 85: wallpaper.InstanceService.GetId:output_type -> wallpaper.GetIdResponse
+	49,  // 86: wallpaper.InstanceService.GetInfo:output_type -> wallpaper.GetInfoResponse
+	21,  // 87: wallpaper.InstanceService.HashCode:output_type -> wallpaper.HashCodeResponse
+	27,  // 88: wallpaper.InstanceService.WriteToParcel:output_type -> wallpaper.WriteToParcelResponse
+	53,  // 89: wallpaper.ServiceService.OnBind:output_type -> wallpaper.OnBindResponse
+	55,  // 90: wallpaper.ServiceService.OnCreate:output_type -> wallpaper.OnCreateResponse
+	57,  // 91: wallpaper.ServiceService.OnCreateEngine0:output_type -> wallpaper.OnCreateEngine0Response
+	59,  // 92: wallpaper.ServiceService.OnCreateEngine1_1:output_type -> wallpaper.OnCreateEngine1_1Response
+	61,  // 93: wallpaper.ServiceService.OnDestroy:output_type -> wallpaper.OnDestroyResponse
+	63,  // 94: wallpaper.ServiceEngineService.GetDesiredMinimumHeight:output_type -> wallpaper.GetDesiredMinimumHeightResponse
+	65,  // 95: wallpaper.ServiceEngineService.GetDesiredMinimumWidth:output_type -> wallpaper.GetDesiredMinimumWidthResponse
+	67,  // 96: wallpaper.ServiceEngineService.GetDisplayContext:output_type -> wallpaper.GetDisplayContextResponse
+	69,  // 97: wallpaper.ServiceEngineService.GetSurfaceHolder:output_type -> wallpaper.GetSurfaceHolderResponse
+	71,  // 98: wallpaper.ServiceEngineService.GetWallpaperFlags:output_type -> wallpaper.GetWallpaperFlagsResponse
+	73,  // 99: wallpaper.ServiceEngineService.IsPreview:output_type -> wallpaper.IsPreviewResponse
+	75,  // 100: wallpaper.ServiceEngineService.IsVisible:output_type -> wallpaper.IsVisibleResponse
+	77,  // 101: wallpaper.ServiceEngineService.NotifyColorsChanged:output_type -> wallpaper.NotifyColorsChangedResponse
+	79,  // 102: wallpaper.ServiceEngineService.OnApplyWallpaper:output_type -> wallpaper.OnApplyWallpaperResponse
+	81,  // 103: wallpaper.ServiceEngineService.OnApplyWindowInsets:output_type -> wallpaper.OnApplyWindowInsetsResponse
+	83,  // 104: wallpaper.ServiceEngineService.OnCommand:output_type -> wallpaper.OnCommandResponse
+	85,  // 105: wallpaper.ServiceEngineService.OnComputeColors:output_type -> wallpaper.OnComputeColorsResponse
+	55,  // 106: wallpaper.ServiceEngineService.OnCreate:output_type -> wallpaper.OnCreateResponse
+	88,  // 107: wallpaper.ServiceEngineService.OnDesiredSizeChanged:output_type -> wallpaper.OnDesiredSizeChangedResponse
+	61,  // 108: wallpaper.ServiceEngineService.OnDestroy:output_type -> wallpaper.OnDestroyResponse
+	90,  // 109: wallpaper.ServiceEngineService.OnOffsetsChanged:output_type -> wallpaper.OnOffsetsChangedResponse
+	92,  // 110: wallpaper.ServiceEngineService.OnSurfaceChanged:output_type -> wallpaper.OnSurfaceChangedResponse
+	94,  // 111: wallpaper.ServiceEngineService.OnSurfaceCreated:output_type -> wallpaper.OnSurfaceCreatedResponse
+	96,  // 112: wallpaper.ServiceEngineService.OnSurfaceDestroyed:output_type -> wallpaper.OnSurfaceDestroyedResponse
+	98,  // 113: wallpaper.ServiceEngineService.OnSurfaceRedrawNeeded:output_type -> wallpaper.OnSurfaceRedrawNeededResponse
+	100, // 114: wallpaper.ServiceEngineService.OnTouchEvent:output_type -> wallpaper.OnTouchEventResponse
+	102, // 115: wallpaper.ServiceEngineService.OnVisibilityChanged:output_type -> wallpaper.OnVisibilityChangedResponse
+	104, // 116: wallpaper.ServiceEngineService.OnWallpaperFlagsChanged:output_type -> wallpaper.OnWallpaperFlagsChangedResponse
+	106, // 117: wallpaper.ServiceEngineService.OnZoomChanged:output_type -> wallpaper.OnZoomChangedResponse
+	108, // 118: wallpaper.ServiceEngineService.SetOffsetNotificationsEnabled:output_type -> wallpaper.SetOffsetNotificationsEnabledResponse
+	110, // 119: wallpaper.ServiceEngineService.SetTouchEventsEnabled:output_type -> wallpaper.SetTouchEventsEnabledResponse
+	60,  // [60:120] is the sub-list for method output_type
+	0,   // [0:60] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -5219,7 +5260,7 @@ func file_proto_wallpaper_wallpaper_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_wallpaper_wallpaper_proto_rawDesc), len(file_proto_wallpaper_wallpaper_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   110,
+			NumMessages:   111,
 			NumExtensions: 0,
 			NumServices:   5,
 		},

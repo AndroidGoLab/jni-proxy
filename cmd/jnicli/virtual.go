@@ -191,6 +191,22 @@ var virtualDeviceManagerGetVirtualDeviceCmd = &cobra.Command{
 	},
 }
 
+var virtualDeviceManagerGetVirtualDevicesCmd = &cobra.Command{
+	Use:   "get-virtual-devices",
+	Short: "GetVirtualDevices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceManagerServiceClient(grpcConn)
+		req := &pb.GetVirtualDevicesRequest{}
+		resp, err := client.GetVirtualDevices(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var virtualDeviceManagerRegisterVirtualDeviceListenerCmd = &cobra.Command{
 	Use:   "register-virtual-device-listener",
 	Short: "RegisterVirtualDeviceListener RPC",
@@ -247,6 +263,7 @@ func init() {
 	virtualCmd.AddCommand(virtualDeviceCmd)
 	virtualDeviceManagerGetVirtualDeviceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	virtualDeviceManagerCmd.AddCommand(virtualDeviceManagerGetVirtualDeviceCmd)
+	virtualDeviceManagerCmd.AddCommand(virtualDeviceManagerGetVirtualDevicesCmd)
 	virtualDeviceManagerRegisterVirtualDeviceListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	virtualDeviceManagerRegisterVirtualDeviceListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	virtualDeviceManagerCmd.AddCommand(virtualDeviceManagerRegisterVirtualDeviceListenerCmd)

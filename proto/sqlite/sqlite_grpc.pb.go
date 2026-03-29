@@ -21,2495 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SQLiteRawStatementService_BindBlob2_FullMethodName            = "/sqlite.SQLiteRawStatementService/BindBlob2"
-	SQLiteRawStatementService_BindBlob4_1_FullMethodName          = "/sqlite.SQLiteRawStatementService/BindBlob4_1"
-	SQLiteRawStatementService_BindDouble_FullMethodName           = "/sqlite.SQLiteRawStatementService/BindDouble"
-	SQLiteRawStatementService_BindInt_FullMethodName              = "/sqlite.SQLiteRawStatementService/BindInt"
-	SQLiteRawStatementService_BindLong_FullMethodName             = "/sqlite.SQLiteRawStatementService/BindLong"
-	SQLiteRawStatementService_BindNull_FullMethodName             = "/sqlite.SQLiteRawStatementService/BindNull"
-	SQLiteRawStatementService_BindText_FullMethodName             = "/sqlite.SQLiteRawStatementService/BindText"
-	SQLiteRawStatementService_ClearBindings_FullMethodName        = "/sqlite.SQLiteRawStatementService/ClearBindings"
-	SQLiteRawStatementService_Close_FullMethodName                = "/sqlite.SQLiteRawStatementService/Close"
-	SQLiteRawStatementService_GetColumnBlob_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnBlob"
-	SQLiteRawStatementService_GetColumnDouble_FullMethodName      = "/sqlite.SQLiteRawStatementService/GetColumnDouble"
-	SQLiteRawStatementService_GetColumnInt_FullMethodName         = "/sqlite.SQLiteRawStatementService/GetColumnInt"
-	SQLiteRawStatementService_GetColumnLength_FullMethodName      = "/sqlite.SQLiteRawStatementService/GetColumnLength"
-	SQLiteRawStatementService_GetColumnLong_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnLong"
-	SQLiteRawStatementService_GetColumnName_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnName"
-	SQLiteRawStatementService_GetColumnText_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnText"
-	SQLiteRawStatementService_GetColumnType_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnType"
-	SQLiteRawStatementService_GetParameterCount_FullMethodName    = "/sqlite.SQLiteRawStatementService/GetParameterCount"
-	SQLiteRawStatementService_GetParameterIndex_FullMethodName    = "/sqlite.SQLiteRawStatementService/GetParameterIndex"
-	SQLiteRawStatementService_GetParameterName_FullMethodName     = "/sqlite.SQLiteRawStatementService/GetParameterName"
-	SQLiteRawStatementService_GetResultColumnCount_FullMethodName = "/sqlite.SQLiteRawStatementService/GetResultColumnCount"
-	SQLiteRawStatementService_IsOpen_FullMethodName               = "/sqlite.SQLiteRawStatementService/IsOpen"
-	SQLiteRawStatementService_ReadColumnBlob_FullMethodName       = "/sqlite.SQLiteRawStatementService/ReadColumnBlob"
-	SQLiteRawStatementService_Reset_FullMethodName                = "/sqlite.SQLiteRawStatementService/Reset"
-	SQLiteRawStatementService_Step_FullMethodName                 = "/sqlite.SQLiteRawStatementService/Step"
-	SQLiteRawStatementService_ToString_FullMethodName             = "/sqlite.SQLiteRawStatementService/ToString"
-)
-
-// SQLiteRawStatementServiceClient is the client API for SQLiteRawStatementService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SQLiteRawStatementServiceClient interface {
-	BindBlob2(ctx context.Context, in *BindBlob2Request, opts ...grpc.CallOption) (*BindBlob2Response, error)
-	BindBlob4_1(ctx context.Context, in *BindBlob4_1Request, opts ...grpc.CallOption) (*BindBlob4_1Response, error)
-	BindDouble(ctx context.Context, in *BindDoubleRequest, opts ...grpc.CallOption) (*BindDoubleResponse, error)
-	BindInt(ctx context.Context, in *BindIntRequest, opts ...grpc.CallOption) (*BindIntResponse, error)
-	BindLong(ctx context.Context, in *BindLongRequest, opts ...grpc.CallOption) (*BindLongResponse, error)
-	BindNull(ctx context.Context, in *BindNullRequest, opts ...grpc.CallOption) (*BindNullResponse, error)
-	BindText(ctx context.Context, in *BindTextRequest, opts ...grpc.CallOption) (*BindTextResponse, error)
-	ClearBindings(ctx context.Context, in *ClearBindingsRequest, opts ...grpc.CallOption) (*ClearBindingsResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetColumnBlob(ctx context.Context, in *GetColumnBlobRequest, opts ...grpc.CallOption) (*GetColumnBlobResponse, error)
-	GetColumnDouble(ctx context.Context, in *GetColumnDoubleRequest, opts ...grpc.CallOption) (*GetColumnDoubleResponse, error)
-	GetColumnInt(ctx context.Context, in *GetColumnIntRequest, opts ...grpc.CallOption) (*GetColumnIntResponse, error)
-	GetColumnLength(ctx context.Context, in *GetColumnLengthRequest, opts ...grpc.CallOption) (*GetColumnLengthResponse, error)
-	GetColumnLong(ctx context.Context, in *GetColumnLongRequest, opts ...grpc.CallOption) (*GetColumnLongResponse, error)
-	GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error)
-	GetColumnText(ctx context.Context, in *GetColumnTextRequest, opts ...grpc.CallOption) (*GetColumnTextResponse, error)
-	GetColumnType(ctx context.Context, in *GetColumnTypeRequest, opts ...grpc.CallOption) (*GetColumnTypeResponse, error)
-	GetParameterCount(ctx context.Context, in *GetParameterCountRequest, opts ...grpc.CallOption) (*GetParameterCountResponse, error)
-	GetParameterIndex(ctx context.Context, in *GetParameterIndexRequest, opts ...grpc.CallOption) (*GetParameterIndexResponse, error)
-	GetParameterName(ctx context.Context, in *GetParameterNameRequest, opts ...grpc.CallOption) (*GetParameterNameResponse, error)
-	GetResultColumnCount(ctx context.Context, in *GetResultColumnCountRequest, opts ...grpc.CallOption) (*GetResultColumnCountResponse, error)
-	IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error)
-	ReadColumnBlob(ctx context.Context, in *ReadColumnBlobRequest, opts ...grpc.CallOption) (*ReadColumnBlobResponse, error)
-	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
-	Step(ctx context.Context, in *StepRequest, opts ...grpc.CallOption) (*StepResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type sQLiteRawStatementServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSQLiteRawStatementServiceClient(cc grpc.ClientConnInterface) SQLiteRawStatementServiceClient {
-	return &sQLiteRawStatementServiceClient{cc}
-}
-
-func (c *sQLiteRawStatementServiceClient) BindBlob2(ctx context.Context, in *BindBlob2Request, opts ...grpc.CallOption) (*BindBlob2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindBlob2Response)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindBlob2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) BindBlob4_1(ctx context.Context, in *BindBlob4_1Request, opts ...grpc.CallOption) (*BindBlob4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindBlob4_1Response)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindBlob4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) BindDouble(ctx context.Context, in *BindDoubleRequest, opts ...grpc.CallOption) (*BindDoubleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindDoubleResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindDouble_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) BindInt(ctx context.Context, in *BindIntRequest, opts ...grpc.CallOption) (*BindIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindIntResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) BindLong(ctx context.Context, in *BindLongRequest, opts ...grpc.CallOption) (*BindLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindLongResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) BindNull(ctx context.Context, in *BindNullRequest, opts ...grpc.CallOption) (*BindNullResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindNullResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindNull_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) BindText(ctx context.Context, in *BindTextRequest, opts ...grpc.CallOption) (*BindTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindTextResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) ClearBindings(ctx context.Context, in *ClearBindingsRequest, opts ...grpc.CallOption) (*ClearBindingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearBindingsResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_ClearBindings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetColumnBlob(ctx context.Context, in *GetColumnBlobRequest, opts ...grpc.CallOption) (*GetColumnBlobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnBlobResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnBlob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetColumnDouble(ctx context.Context, in *GetColumnDoubleRequest, opts ...grpc.CallOption) (*GetColumnDoubleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnDoubleResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnDouble_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetColumnInt(ctx context.Context, in *GetColumnIntRequest, opts ...grpc.CallOption) (*GetColumnIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnIntResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetColumnLength(ctx context.Context, in *GetColumnLengthRequest, opts ...grpc.CallOption) (*GetColumnLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnLengthResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetColumnLong(ctx context.Context, in *GetColumnLongRequest, opts ...grpc.CallOption) (*GetColumnLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnLongResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnNameResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetColumnText(ctx context.Context, in *GetColumnTextRequest, opts ...grpc.CallOption) (*GetColumnTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnTextResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetColumnType(ctx context.Context, in *GetColumnTypeRequest, opts ...grpc.CallOption) (*GetColumnTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnTypeResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetParameterCount(ctx context.Context, in *GetParameterCountRequest, opts ...grpc.CallOption) (*GetParameterCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetParameterCountResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetParameterCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetParameterIndex(ctx context.Context, in *GetParameterIndexRequest, opts ...grpc.CallOption) (*GetParameterIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetParameterIndexResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetParameterIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetParameterName(ctx context.Context, in *GetParameterNameRequest, opts ...grpc.CallOption) (*GetParameterNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetParameterNameResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetParameterName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) GetResultColumnCount(ctx context.Context, in *GetResultColumnCountRequest, opts ...grpc.CallOption) (*GetResultColumnCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResultColumnCountResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetResultColumnCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOpenResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_IsOpen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) ReadColumnBlob(ctx context.Context, in *ReadColumnBlobRequest, opts ...grpc.CallOption) (*ReadColumnBlobResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReadColumnBlobResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_ReadColumnBlob_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResetResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_Reset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) Step(ctx context.Context, in *StepRequest, opts ...grpc.CallOption) (*StepResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StepResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_Step_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteRawStatementServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SQLiteRawStatementService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SQLiteRawStatementServiceServer is the server API for SQLiteRawStatementService service.
-// All implementations must embed UnimplementedSQLiteRawStatementServiceServer
-// for forward compatibility.
-type SQLiteRawStatementServiceServer interface {
-	BindBlob2(context.Context, *BindBlob2Request) (*BindBlob2Response, error)
-	BindBlob4_1(context.Context, *BindBlob4_1Request) (*BindBlob4_1Response, error)
-	BindDouble(context.Context, *BindDoubleRequest) (*BindDoubleResponse, error)
-	BindInt(context.Context, *BindIntRequest) (*BindIntResponse, error)
-	BindLong(context.Context, *BindLongRequest) (*BindLongResponse, error)
-	BindNull(context.Context, *BindNullRequest) (*BindNullResponse, error)
-	BindText(context.Context, *BindTextRequest) (*BindTextResponse, error)
-	ClearBindings(context.Context, *ClearBindingsRequest) (*ClearBindingsResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	GetColumnBlob(context.Context, *GetColumnBlobRequest) (*GetColumnBlobResponse, error)
-	GetColumnDouble(context.Context, *GetColumnDoubleRequest) (*GetColumnDoubleResponse, error)
-	GetColumnInt(context.Context, *GetColumnIntRequest) (*GetColumnIntResponse, error)
-	GetColumnLength(context.Context, *GetColumnLengthRequest) (*GetColumnLengthResponse, error)
-	GetColumnLong(context.Context, *GetColumnLongRequest) (*GetColumnLongResponse, error)
-	GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error)
-	GetColumnText(context.Context, *GetColumnTextRequest) (*GetColumnTextResponse, error)
-	GetColumnType(context.Context, *GetColumnTypeRequest) (*GetColumnTypeResponse, error)
-	GetParameterCount(context.Context, *GetParameterCountRequest) (*GetParameterCountResponse, error)
-	GetParameterIndex(context.Context, *GetParameterIndexRequest) (*GetParameterIndexResponse, error)
-	GetParameterName(context.Context, *GetParameterNameRequest) (*GetParameterNameResponse, error)
-	GetResultColumnCount(context.Context, *GetResultColumnCountRequest) (*GetResultColumnCountResponse, error)
-	IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error)
-	ReadColumnBlob(context.Context, *ReadColumnBlobRequest) (*ReadColumnBlobResponse, error)
-	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
-	Step(context.Context, *StepRequest) (*StepResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedSQLiteRawStatementServiceServer()
-}
-
-// UnimplementedSQLiteRawStatementServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSQLiteRawStatementServiceServer struct{}
-
-func (UnimplementedSQLiteRawStatementServiceServer) BindBlob2(context.Context, *BindBlob2Request) (*BindBlob2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindBlob2 not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) BindBlob4_1(context.Context, *BindBlob4_1Request) (*BindBlob4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindBlob4_1 not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) BindDouble(context.Context, *BindDoubleRequest) (*BindDoubleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindDouble not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) BindInt(context.Context, *BindIntRequest) (*BindIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindInt not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) BindLong(context.Context, *BindLongRequest) (*BindLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindLong not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) BindNull(context.Context, *BindNullRequest) (*BindNullResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindNull not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) BindText(context.Context, *BindTextRequest) (*BindTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindText not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) ClearBindings(context.Context, *ClearBindingsRequest) (*ClearBindingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearBindings not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetColumnBlob(context.Context, *GetColumnBlobRequest) (*GetColumnBlobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnBlob not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetColumnDouble(context.Context, *GetColumnDoubleRequest) (*GetColumnDoubleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnDouble not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetColumnInt(context.Context, *GetColumnIntRequest) (*GetColumnIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnInt not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetColumnLength(context.Context, *GetColumnLengthRequest) (*GetColumnLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnLength not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetColumnLong(context.Context, *GetColumnLongRequest) (*GetColumnLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnLong not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnName not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetColumnText(context.Context, *GetColumnTextRequest) (*GetColumnTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnText not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetColumnType(context.Context, *GetColumnTypeRequest) (*GetColumnTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnType not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetParameterCount(context.Context, *GetParameterCountRequest) (*GetParameterCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetParameterCount not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetParameterIndex(context.Context, *GetParameterIndexRequest) (*GetParameterIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetParameterIndex not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetParameterName(context.Context, *GetParameterNameRequest) (*GetParameterNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetParameterName not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) GetResultColumnCount(context.Context, *GetResultColumnCountRequest) (*GetResultColumnCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResultColumnCount not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOpen not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) ReadColumnBlob(context.Context, *ReadColumnBlobRequest) (*ReadColumnBlobResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReadColumnBlob not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Reset not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) Step(context.Context, *StepRequest) (*StepResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Step not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSQLiteRawStatementServiceServer) mustEmbedUnimplementedSQLiteRawStatementServiceServer() {
-}
-func (UnimplementedSQLiteRawStatementServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSQLiteRawStatementServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SQLiteRawStatementServiceServer will
-// result in compilation errors.
-type UnsafeSQLiteRawStatementServiceServer interface {
-	mustEmbedUnimplementedSQLiteRawStatementServiceServer()
-}
-
-func RegisterSQLiteRawStatementServiceServer(s grpc.ServiceRegistrar, srv SQLiteRawStatementServiceServer) {
-	// If the following call panics, it indicates UnimplementedSQLiteRawStatementServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SQLiteRawStatementService_ServiceDesc, srv)
-}
-
-func _SQLiteRawStatementService_BindBlob2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindBlob2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).BindBlob2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_BindBlob2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).BindBlob2(ctx, req.(*BindBlob2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_BindBlob4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindBlob4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).BindBlob4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_BindBlob4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).BindBlob4_1(ctx, req.(*BindBlob4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_BindDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindDoubleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).BindDouble(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_BindDouble_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).BindDouble(ctx, req.(*BindDoubleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_BindInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).BindInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_BindInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).BindInt(ctx, req.(*BindIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_BindLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).BindLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_BindLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).BindLong(ctx, req.(*BindLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_BindNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindNullRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).BindNull(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_BindNull_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).BindNull(ctx, req.(*BindNullRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_BindText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).BindText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_BindText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).BindText(ctx, req.(*BindTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_ClearBindings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearBindingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).ClearBindings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_ClearBindings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).ClearBindings(ctx, req.(*ClearBindingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetColumnBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnBlobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnBlob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetColumnBlob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnBlob(ctx, req.(*GetColumnBlobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetColumnDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnDoubleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnDouble(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetColumnDouble_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnDouble(ctx, req.(*GetColumnDoubleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetColumnInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetColumnInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnInt(ctx, req.(*GetColumnIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetColumnLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetColumnLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnLength(ctx, req.(*GetColumnLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetColumnLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetColumnLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnLong(ctx, req.(*GetColumnLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetColumnName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetColumnName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnName(ctx, req.(*GetColumnNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetColumnText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetColumnText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnText(ctx, req.(*GetColumnTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetColumnType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetColumnType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetColumnType(ctx, req.(*GetColumnTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetParameterCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetParameterCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetParameterCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetParameterCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetParameterCount(ctx, req.(*GetParameterCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetParameterIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetParameterIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetParameterIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetParameterIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetParameterIndex(ctx, req.(*GetParameterIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetParameterName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetParameterNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetParameterName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetParameterName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetParameterName(ctx, req.(*GetParameterNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_GetResultColumnCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResultColumnCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).GetResultColumnCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_GetResultColumnCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).GetResultColumnCount(ctx, req.(*GetResultColumnCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_IsOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOpenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).IsOpen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_IsOpen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).IsOpen(ctx, req.(*IsOpenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_ReadColumnBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadColumnBlobRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).ReadColumnBlob(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_ReadColumnBlob_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).ReadColumnBlob(ctx, req.(*ReadColumnBlobRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_Reset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).Reset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_Reset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).Reset(ctx, req.(*ResetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_Step_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StepRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).Step(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_Step_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).Step(ctx, req.(*StepRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteRawStatementService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteRawStatementServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteRawStatementService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteRawStatementServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SQLiteRawStatementService_ServiceDesc is the grpc.ServiceDesc for SQLiteRawStatementService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SQLiteRawStatementService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sqlite.SQLiteRawStatementService",
-	HandlerType: (*SQLiteRawStatementServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "BindBlob2",
-			Handler:    _SQLiteRawStatementService_BindBlob2_Handler,
-		},
-		{
-			MethodName: "BindBlob4_1",
-			Handler:    _SQLiteRawStatementService_BindBlob4_1_Handler,
-		},
-		{
-			MethodName: "BindDouble",
-			Handler:    _SQLiteRawStatementService_BindDouble_Handler,
-		},
-		{
-			MethodName: "BindInt",
-			Handler:    _SQLiteRawStatementService_BindInt_Handler,
-		},
-		{
-			MethodName: "BindLong",
-			Handler:    _SQLiteRawStatementService_BindLong_Handler,
-		},
-		{
-			MethodName: "BindNull",
-			Handler:    _SQLiteRawStatementService_BindNull_Handler,
-		},
-		{
-			MethodName: "BindText",
-			Handler:    _SQLiteRawStatementService_BindText_Handler,
-		},
-		{
-			MethodName: "ClearBindings",
-			Handler:    _SQLiteRawStatementService_ClearBindings_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _SQLiteRawStatementService_Close_Handler,
-		},
-		{
-			MethodName: "GetColumnBlob",
-			Handler:    _SQLiteRawStatementService_GetColumnBlob_Handler,
-		},
-		{
-			MethodName: "GetColumnDouble",
-			Handler:    _SQLiteRawStatementService_GetColumnDouble_Handler,
-		},
-		{
-			MethodName: "GetColumnInt",
-			Handler:    _SQLiteRawStatementService_GetColumnInt_Handler,
-		},
-		{
-			MethodName: "GetColumnLength",
-			Handler:    _SQLiteRawStatementService_GetColumnLength_Handler,
-		},
-		{
-			MethodName: "GetColumnLong",
-			Handler:    _SQLiteRawStatementService_GetColumnLong_Handler,
-		},
-		{
-			MethodName: "GetColumnName",
-			Handler:    _SQLiteRawStatementService_GetColumnName_Handler,
-		},
-		{
-			MethodName: "GetColumnText",
-			Handler:    _SQLiteRawStatementService_GetColumnText_Handler,
-		},
-		{
-			MethodName: "GetColumnType",
-			Handler:    _SQLiteRawStatementService_GetColumnType_Handler,
-		},
-		{
-			MethodName: "GetParameterCount",
-			Handler:    _SQLiteRawStatementService_GetParameterCount_Handler,
-		},
-		{
-			MethodName: "GetParameterIndex",
-			Handler:    _SQLiteRawStatementService_GetParameterIndex_Handler,
-		},
-		{
-			MethodName: "GetParameterName",
-			Handler:    _SQLiteRawStatementService_GetParameterName_Handler,
-		},
-		{
-			MethodName: "GetResultColumnCount",
-			Handler:    _SQLiteRawStatementService_GetResultColumnCount_Handler,
-		},
-		{
-			MethodName: "IsOpen",
-			Handler:    _SQLiteRawStatementService_IsOpen_Handler,
-		},
-		{
-			MethodName: "ReadColumnBlob",
-			Handler:    _SQLiteRawStatementService_ReadColumnBlob_Handler,
-		},
-		{
-			MethodName: "Reset",
-			Handler:    _SQLiteRawStatementService_Reset_Handler,
-		},
-		{
-			MethodName: "Step",
-			Handler:    _SQLiteRawStatementService_Step_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SQLiteRawStatementService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sqlite/sqlite.proto",
-}
-
-const (
-	SQLiteCursorService_NewSQLiteCursor_FullMethodName          = "/sqlite.SQLiteCursorService/NewSQLiteCursor"
-	SQLiteCursorService_Close_FullMethodName                    = "/sqlite.SQLiteCursorService/Close"
-	SQLiteCursorService_Deactivate_FullMethodName               = "/sqlite.SQLiteCursorService/Deactivate"
-	SQLiteCursorService_GetColumnIndex_FullMethodName           = "/sqlite.SQLiteCursorService/GetColumnIndex"
-	SQLiteCursorService_GetColumnNames_FullMethodName           = "/sqlite.SQLiteCursorService/GetColumnNames"
-	SQLiteCursorService_GetCount_FullMethodName                 = "/sqlite.SQLiteCursorService/GetCount"
-	SQLiteCursorService_GetDatabase_FullMethodName              = "/sqlite.SQLiteCursorService/GetDatabase"
-	SQLiteCursorService_OnMove_FullMethodName                   = "/sqlite.SQLiteCursorService/OnMove"
-	SQLiteCursorService_Requery_FullMethodName                  = "/sqlite.SQLiteCursorService/Requery"
-	SQLiteCursorService_SetFillWindowForwardOnly_FullMethodName = "/sqlite.SQLiteCursorService/SetFillWindowForwardOnly"
-	SQLiteCursorService_SetSelectionArguments_FullMethodName    = "/sqlite.SQLiteCursorService/SetSelectionArguments"
-	SQLiteCursorService_SetWindow_FullMethodName                = "/sqlite.SQLiteCursorService/SetWindow"
-)
-
-// SQLiteCursorServiceClient is the client API for SQLiteCursorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SQLiteCursorServiceClient interface {
-	NewSQLiteCursor(ctx context.Context, in *NewSQLiteCursorRequest, opts ...grpc.CallOption) (*NewSQLiteCursorResponse, error)
-	Close(ctx context.Context, in *SQLiteCursorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error)
-	GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error)
-	GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error)
-	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
-	GetDatabase(ctx context.Context, in *GetDatabaseRequest, opts ...grpc.CallOption) (*GetDatabaseResponse, error)
-	OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
-	Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error)
-	SetFillWindowForwardOnly(ctx context.Context, in *SetFillWindowForwardOnlyRequest, opts ...grpc.CallOption) (*SetFillWindowForwardOnlyResponse, error)
-	SetSelectionArguments(ctx context.Context, in *SetSelectionArgumentsRequest, opts ...grpc.CallOption) (*SetSelectionArgumentsResponse, error)
-	SetWindow(ctx context.Context, in *SetWindowRequest, opts ...grpc.CallOption) (*SetWindowResponse, error)
-}
-
-type sQLiteCursorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSQLiteCursorServiceClient(cc grpc.ClientConnInterface) SQLiteCursorServiceClient {
-	return &sQLiteCursorServiceClient{cc}
-}
-
-func (c *sQLiteCursorServiceClient) NewSQLiteCursor(ctx context.Context, in *NewSQLiteCursorRequest, opts ...grpc.CallOption) (*NewSQLiteCursorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSQLiteCursorResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_NewSQLiteCursor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) Close(ctx context.Context, in *SQLiteCursorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeactivateResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_Deactivate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnIndexResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_GetColumnIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColumnNamesResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_GetColumnNames_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCountResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_GetCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) GetDatabase(ctx context.Context, in *GetDatabaseRequest, opts ...grpc.CallOption) (*GetDatabaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDatabaseResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_GetDatabase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnMoveResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_OnMove_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequeryResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_Requery_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) SetFillWindowForwardOnly(ctx context.Context, in *SetFillWindowForwardOnlyRequest, opts ...grpc.CallOption) (*SetFillWindowForwardOnlyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFillWindowForwardOnlyResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_SetFillWindowForwardOnly_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) SetSelectionArguments(ctx context.Context, in *SetSelectionArgumentsRequest, opts ...grpc.CallOption) (*SetSelectionArgumentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSelectionArgumentsResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_SetSelectionArguments_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorServiceClient) SetWindow(ctx context.Context, in *SetWindowRequest, opts ...grpc.CallOption) (*SetWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWindowResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorService_SetWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SQLiteCursorServiceServer is the server API for SQLiteCursorService service.
-// All implementations must embed UnimplementedSQLiteCursorServiceServer
-// for forward compatibility.
-type SQLiteCursorServiceServer interface {
-	NewSQLiteCursor(context.Context, *NewSQLiteCursorRequest) (*NewSQLiteCursorResponse, error)
-	Close(context.Context, *SQLiteCursorCloseRequest) (*CloseResponse, error)
-	Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error)
-	GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error)
-	GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error)
-	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
-	GetDatabase(context.Context, *GetDatabaseRequest) (*GetDatabaseResponse, error)
-	OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error)
-	Requery(context.Context, *RequeryRequest) (*RequeryResponse, error)
-	SetFillWindowForwardOnly(context.Context, *SetFillWindowForwardOnlyRequest) (*SetFillWindowForwardOnlyResponse, error)
-	SetSelectionArguments(context.Context, *SetSelectionArgumentsRequest) (*SetSelectionArgumentsResponse, error)
-	SetWindow(context.Context, *SetWindowRequest) (*SetWindowResponse, error)
-	mustEmbedUnimplementedSQLiteCursorServiceServer()
-}
-
-// UnimplementedSQLiteCursorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSQLiteCursorServiceServer struct{}
-
-func (UnimplementedSQLiteCursorServiceServer) NewSQLiteCursor(context.Context, *NewSQLiteCursorRequest) (*NewSQLiteCursorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSQLiteCursor not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) Close(context.Context, *SQLiteCursorCloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Deactivate not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnIndex not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColumnNames not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) GetDatabase(context.Context, *GetDatabaseRequest) (*GetDatabaseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDatabase not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnMove not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) Requery(context.Context, *RequeryRequest) (*RequeryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Requery not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) SetFillWindowForwardOnly(context.Context, *SetFillWindowForwardOnlyRequest) (*SetFillWindowForwardOnlyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFillWindowForwardOnly not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) SetSelectionArguments(context.Context, *SetSelectionArgumentsRequest) (*SetSelectionArgumentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSelectionArguments not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) SetWindow(context.Context, *SetWindowRequest) (*SetWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWindow not implemented")
-}
-func (UnimplementedSQLiteCursorServiceServer) mustEmbedUnimplementedSQLiteCursorServiceServer() {}
-func (UnimplementedSQLiteCursorServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeSQLiteCursorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SQLiteCursorServiceServer will
-// result in compilation errors.
-type UnsafeSQLiteCursorServiceServer interface {
-	mustEmbedUnimplementedSQLiteCursorServiceServer()
-}
-
-func RegisterSQLiteCursorServiceServer(s grpc.ServiceRegistrar, srv SQLiteCursorServiceServer) {
-	// If the following call panics, it indicates UnimplementedSQLiteCursorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SQLiteCursorService_ServiceDesc, srv)
-}
-
-func _SQLiteCursorService_NewSQLiteCursor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSQLiteCursorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).NewSQLiteCursor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_NewSQLiteCursor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).NewSQLiteCursor(ctx, req.(*NewSQLiteCursorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SQLiteCursorCloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).Close(ctx, req.(*SQLiteCursorCloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_Deactivate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeactivateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).Deactivate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_Deactivate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).Deactivate(ctx, req.(*DeactivateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_GetColumnIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).GetColumnIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_GetColumnIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).GetColumnIndex(ctx, req.(*GetColumnIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_GetColumnNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColumnNamesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).GetColumnNames(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_GetColumnNames_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).GetColumnNames(ctx, req.(*GetColumnNamesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).GetCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_GetCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).GetCount(ctx, req.(*GetCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_GetDatabase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDatabaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).GetDatabase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_GetDatabase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).GetDatabase(ctx, req.(*GetDatabaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_OnMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnMoveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).OnMove(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_OnMove_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).OnMove(ctx, req.(*OnMoveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_Requery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequeryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).Requery(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_Requery_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).Requery(ctx, req.(*RequeryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_SetFillWindowForwardOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFillWindowForwardOnlyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).SetFillWindowForwardOnly(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_SetFillWindowForwardOnly_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).SetFillWindowForwardOnly(ctx, req.(*SetFillWindowForwardOnlyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_SetSelectionArguments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSelectionArgumentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).SetSelectionArguments(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_SetSelectionArguments_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).SetSelectionArguments(ctx, req.(*SetSelectionArgumentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorService_SetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorServiceServer).SetWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorService_SetWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorServiceServer).SetWindow(ctx, req.(*SetWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SQLiteCursorService_ServiceDesc is the grpc.ServiceDesc for SQLiteCursorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SQLiteCursorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sqlite.SQLiteCursorService",
-	HandlerType: (*SQLiteCursorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSQLiteCursor",
-			Handler:    _SQLiteCursorService_NewSQLiteCursor_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _SQLiteCursorService_Close_Handler,
-		},
-		{
-			MethodName: "Deactivate",
-			Handler:    _SQLiteCursorService_Deactivate_Handler,
-		},
-		{
-			MethodName: "GetColumnIndex",
-			Handler:    _SQLiteCursorService_GetColumnIndex_Handler,
-		},
-		{
-			MethodName: "GetColumnNames",
-			Handler:    _SQLiteCursorService_GetColumnNames_Handler,
-		},
-		{
-			MethodName: "GetCount",
-			Handler:    _SQLiteCursorService_GetCount_Handler,
-		},
-		{
-			MethodName: "GetDatabase",
-			Handler:    _SQLiteCursorService_GetDatabase_Handler,
-		},
-		{
-			MethodName: "OnMove",
-			Handler:    _SQLiteCursorService_OnMove_Handler,
-		},
-		{
-			MethodName: "Requery",
-			Handler:    _SQLiteCursorService_Requery_Handler,
-		},
-		{
-			MethodName: "SetFillWindowForwardOnly",
-			Handler:    _SQLiteCursorService_SetFillWindowForwardOnly_Handler,
-		},
-		{
-			MethodName: "SetSelectionArguments",
-			Handler:    _SQLiteCursorService_SetSelectionArguments_Handler,
-		},
-		{
-			MethodName: "SetWindow",
-			Handler:    _SQLiteCursorService_SetWindow_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sqlite/sqlite.proto",
-}
-
-const (
-	SQLiteClosableService_AcquireReference_FullMethodName              = "/sqlite.SQLiteClosableService/AcquireReference"
-	SQLiteClosableService_Close_FullMethodName                         = "/sqlite.SQLiteClosableService/Close"
-	SQLiteClosableService_ReleaseReference_FullMethodName              = "/sqlite.SQLiteClosableService/ReleaseReference"
-	SQLiteClosableService_ReleaseReferenceFromContainer_FullMethodName = "/sqlite.SQLiteClosableService/ReleaseReferenceFromContainer"
-)
-
-// SQLiteClosableServiceClient is the client API for SQLiteClosableService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SQLiteClosableServiceClient interface {
-	AcquireReference(ctx context.Context, in *AcquireReferenceRequest, opts ...grpc.CallOption) (*AcquireReferenceResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	ReleaseReference(ctx context.Context, in *ReleaseReferenceRequest, opts ...grpc.CallOption) (*ReleaseReferenceResponse, error)
-	ReleaseReferenceFromContainer(ctx context.Context, in *ReleaseReferenceFromContainerRequest, opts ...grpc.CallOption) (*ReleaseReferenceFromContainerResponse, error)
-}
-
-type sQLiteClosableServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSQLiteClosableServiceClient(cc grpc.ClientConnInterface) SQLiteClosableServiceClient {
-	return &sQLiteClosableServiceClient{cc}
-}
-
-func (c *sQLiteClosableServiceClient) AcquireReference(ctx context.Context, in *AcquireReferenceRequest, opts ...grpc.CallOption) (*AcquireReferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AcquireReferenceResponse)
-	err := c.cc.Invoke(ctx, SQLiteClosableService_AcquireReference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteClosableServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, SQLiteClosableService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteClosableServiceClient) ReleaseReference(ctx context.Context, in *ReleaseReferenceRequest, opts ...grpc.CallOption) (*ReleaseReferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseReferenceResponse)
-	err := c.cc.Invoke(ctx, SQLiteClosableService_ReleaseReference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteClosableServiceClient) ReleaseReferenceFromContainer(ctx context.Context, in *ReleaseReferenceFromContainerRequest, opts ...grpc.CallOption) (*ReleaseReferenceFromContainerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseReferenceFromContainerResponse)
-	err := c.cc.Invoke(ctx, SQLiteClosableService_ReleaseReferenceFromContainer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SQLiteClosableServiceServer is the server API for SQLiteClosableService service.
-// All implementations must embed UnimplementedSQLiteClosableServiceServer
-// for forward compatibility.
-type SQLiteClosableServiceServer interface {
-	AcquireReference(context.Context, *AcquireReferenceRequest) (*AcquireReferenceResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	ReleaseReference(context.Context, *ReleaseReferenceRequest) (*ReleaseReferenceResponse, error)
-	ReleaseReferenceFromContainer(context.Context, *ReleaseReferenceFromContainerRequest) (*ReleaseReferenceFromContainerResponse, error)
-	mustEmbedUnimplementedSQLiteClosableServiceServer()
-}
-
-// UnimplementedSQLiteClosableServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSQLiteClosableServiceServer struct{}
-
-func (UnimplementedSQLiteClosableServiceServer) AcquireReference(context.Context, *AcquireReferenceRequest) (*AcquireReferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AcquireReference not implemented")
-}
-func (UnimplementedSQLiteClosableServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedSQLiteClosableServiceServer) ReleaseReference(context.Context, *ReleaseReferenceRequest) (*ReleaseReferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReleaseReference not implemented")
-}
-func (UnimplementedSQLiteClosableServiceServer) ReleaseReferenceFromContainer(context.Context, *ReleaseReferenceFromContainerRequest) (*ReleaseReferenceFromContainerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReleaseReferenceFromContainer not implemented")
-}
-func (UnimplementedSQLiteClosableServiceServer) mustEmbedUnimplementedSQLiteClosableServiceServer() {}
-func (UnimplementedSQLiteClosableServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeSQLiteClosableServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SQLiteClosableServiceServer will
-// result in compilation errors.
-type UnsafeSQLiteClosableServiceServer interface {
-	mustEmbedUnimplementedSQLiteClosableServiceServer()
-}
-
-func RegisterSQLiteClosableServiceServer(s grpc.ServiceRegistrar, srv SQLiteClosableServiceServer) {
-	// If the following call panics, it indicates UnimplementedSQLiteClosableServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SQLiteClosableService_ServiceDesc, srv)
-}
-
-func _SQLiteClosableService_AcquireReference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AcquireReferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteClosableServiceServer).AcquireReference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteClosableService_AcquireReference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteClosableServiceServer).AcquireReference(ctx, req.(*AcquireReferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteClosableService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteClosableServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteClosableService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteClosableServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteClosableService_ReleaseReference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReleaseReferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteClosableServiceServer).ReleaseReference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteClosableService_ReleaseReference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteClosableServiceServer).ReleaseReference(ctx, req.(*ReleaseReferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteClosableService_ReleaseReferenceFromContainer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReleaseReferenceFromContainerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteClosableServiceServer).ReleaseReferenceFromContainer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteClosableService_ReleaseReferenceFromContainer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteClosableServiceServer).ReleaseReferenceFromContainer(ctx, req.(*ReleaseReferenceFromContainerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SQLiteClosableService_ServiceDesc is the grpc.ServiceDesc for SQLiteClosableService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SQLiteClosableService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sqlite.SQLiteClosableService",
-	HandlerType: (*SQLiteClosableServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AcquireReference",
-			Handler:    _SQLiteClosableService_AcquireReference_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _SQLiteClosableService_Close_Handler,
-		},
-		{
-			MethodName: "ReleaseReference",
-			Handler:    _SQLiteClosableService_ReleaseReference_Handler,
-		},
-		{
-			MethodName: "ReleaseReferenceFromContainer",
-			Handler:    _SQLiteClosableService_ReleaseReferenceFromContainer_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sqlite/sqlite.proto",
-}
-
-const (
-	SQLiteTransactionListenerService_OnBegin_FullMethodName    = "/sqlite.SQLiteTransactionListenerService/OnBegin"
-	SQLiteTransactionListenerService_OnCommit_FullMethodName   = "/sqlite.SQLiteTransactionListenerService/OnCommit"
-	SQLiteTransactionListenerService_OnRollback_FullMethodName = "/sqlite.SQLiteTransactionListenerService/OnRollback"
-)
-
-// SQLiteTransactionListenerServiceClient is the client API for SQLiteTransactionListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SQLiteTransactionListenerServiceClient interface {
-	OnBegin(ctx context.Context, in *OnBeginRequest, opts ...grpc.CallOption) (*OnBeginResponse, error)
-	OnCommit(ctx context.Context, in *OnCommitRequest, opts ...grpc.CallOption) (*OnCommitResponse, error)
-	OnRollback(ctx context.Context, in *OnRollbackRequest, opts ...grpc.CallOption) (*OnRollbackResponse, error)
-}
-
-type sQLiteTransactionListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSQLiteTransactionListenerServiceClient(cc grpc.ClientConnInterface) SQLiteTransactionListenerServiceClient {
-	return &sQLiteTransactionListenerServiceClient{cc}
-}
-
-func (c *sQLiteTransactionListenerServiceClient) OnBegin(ctx context.Context, in *OnBeginRequest, opts ...grpc.CallOption) (*OnBeginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBeginResponse)
-	err := c.cc.Invoke(ctx, SQLiteTransactionListenerService_OnBegin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteTransactionListenerServiceClient) OnCommit(ctx context.Context, in *OnCommitRequest, opts ...grpc.CallOption) (*OnCommitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCommitResponse)
-	err := c.cc.Invoke(ctx, SQLiteTransactionListenerService_OnCommit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteTransactionListenerServiceClient) OnRollback(ctx context.Context, in *OnRollbackRequest, opts ...grpc.CallOption) (*OnRollbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRollbackResponse)
-	err := c.cc.Invoke(ctx, SQLiteTransactionListenerService_OnRollback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SQLiteTransactionListenerServiceServer is the server API for SQLiteTransactionListenerService service.
-// All implementations must embed UnimplementedSQLiteTransactionListenerServiceServer
-// for forward compatibility.
-type SQLiteTransactionListenerServiceServer interface {
-	OnBegin(context.Context, *OnBeginRequest) (*OnBeginResponse, error)
-	OnCommit(context.Context, *OnCommitRequest) (*OnCommitResponse, error)
-	OnRollback(context.Context, *OnRollbackRequest) (*OnRollbackResponse, error)
-	mustEmbedUnimplementedSQLiteTransactionListenerServiceServer()
-}
-
-// UnimplementedSQLiteTransactionListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSQLiteTransactionListenerServiceServer struct{}
-
-func (UnimplementedSQLiteTransactionListenerServiceServer) OnBegin(context.Context, *OnBeginRequest) (*OnBeginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBegin not implemented")
-}
-func (UnimplementedSQLiteTransactionListenerServiceServer) OnCommit(context.Context, *OnCommitRequest) (*OnCommitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCommit not implemented")
-}
-func (UnimplementedSQLiteTransactionListenerServiceServer) OnRollback(context.Context, *OnRollbackRequest) (*OnRollbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRollback not implemented")
-}
-func (UnimplementedSQLiteTransactionListenerServiceServer) mustEmbedUnimplementedSQLiteTransactionListenerServiceServer() {
-}
-func (UnimplementedSQLiteTransactionListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSQLiteTransactionListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SQLiteTransactionListenerServiceServer will
-// result in compilation errors.
-type UnsafeSQLiteTransactionListenerServiceServer interface {
-	mustEmbedUnimplementedSQLiteTransactionListenerServiceServer()
-}
-
-func RegisterSQLiteTransactionListenerServiceServer(s grpc.ServiceRegistrar, srv SQLiteTransactionListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSQLiteTransactionListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SQLiteTransactionListenerService_ServiceDesc, srv)
-}
-
-func _SQLiteTransactionListenerService_OnBegin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBeginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteTransactionListenerServiceServer).OnBegin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteTransactionListenerService_OnBegin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteTransactionListenerServiceServer).OnBegin(ctx, req.(*OnBeginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteTransactionListenerService_OnCommit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCommitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteTransactionListenerServiceServer).OnCommit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteTransactionListenerService_OnCommit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteTransactionListenerServiceServer).OnCommit(ctx, req.(*OnCommitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteTransactionListenerService_OnRollback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRollbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteTransactionListenerServiceServer).OnRollback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteTransactionListenerService_OnRollback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteTransactionListenerServiceServer).OnRollback(ctx, req.(*OnRollbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SQLiteTransactionListenerService_ServiceDesc is the grpc.ServiceDesc for SQLiteTransactionListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SQLiteTransactionListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sqlite.SQLiteTransactionListenerService",
-	HandlerType: (*SQLiteTransactionListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnBegin",
-			Handler:    _SQLiteTransactionListenerService_OnBegin_Handler,
-		},
-		{
-			MethodName: "OnCommit",
-			Handler:    _SQLiteTransactionListenerService_OnCommit_Handler,
-		},
-		{
-			MethodName: "OnRollback",
-			Handler:    _SQLiteTransactionListenerService_OnRollback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sqlite/sqlite.proto",
-}
-
-const (
-	SQLiteOpenHelperService_GetDatabaseName_FullMethodName             = "/sqlite.SQLiteOpenHelperService/GetDatabaseName"
-	SQLiteOpenHelperService_GetReadableDatabase_FullMethodName         = "/sqlite.SQLiteOpenHelperService/GetReadableDatabase"
-	SQLiteOpenHelperService_GetWritableDatabase_FullMethodName         = "/sqlite.SQLiteOpenHelperService/GetWritableDatabase"
-	SQLiteOpenHelperService_OnConfigure_FullMethodName                 = "/sqlite.SQLiteOpenHelperService/OnConfigure"
-	SQLiteOpenHelperService_OnCreate_FullMethodName                    = "/sqlite.SQLiteOpenHelperService/OnCreate"
-	SQLiteOpenHelperService_OnDowngrade_FullMethodName                 = "/sqlite.SQLiteOpenHelperService/OnDowngrade"
-	SQLiteOpenHelperService_OnOpen_FullMethodName                      = "/sqlite.SQLiteOpenHelperService/OnOpen"
-	SQLiteOpenHelperService_OnUpgrade_FullMethodName                   = "/sqlite.SQLiteOpenHelperService/OnUpgrade"
-	SQLiteOpenHelperService_SetIdleConnectionTimeout_FullMethodName    = "/sqlite.SQLiteOpenHelperService/SetIdleConnectionTimeout"
-	SQLiteOpenHelperService_SetLookasideConfig_FullMethodName          = "/sqlite.SQLiteOpenHelperService/SetLookasideConfig"
-	SQLiteOpenHelperService_SetOpenParams_FullMethodName               = "/sqlite.SQLiteOpenHelperService/SetOpenParams"
-	SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_FullMethodName = "/sqlite.SQLiteOpenHelperService/SetWriteAheadLoggingEnabled"
-)
-
-// SQLiteOpenHelperServiceClient is the client API for SQLiteOpenHelperService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SQLiteOpenHelperServiceClient interface {
-	GetDatabaseName(ctx context.Context, in *GetDatabaseNameRequest, opts ...grpc.CallOption) (*GetDatabaseNameResponse, error)
-	GetReadableDatabase(ctx context.Context, in *GetReadableDatabaseRequest, opts ...grpc.CallOption) (*GetReadableDatabaseResponse, error)
-	GetWritableDatabase(ctx context.Context, in *GetWritableDatabaseRequest, opts ...grpc.CallOption) (*GetWritableDatabaseResponse, error)
-	OnConfigure(ctx context.Context, in *OnConfigureRequest, opts ...grpc.CallOption) (*OnConfigureResponse, error)
-	OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error)
-	OnDowngrade(ctx context.Context, in *OnDowngradeRequest, opts ...grpc.CallOption) (*OnDowngradeResponse, error)
-	OnOpen(ctx context.Context, in *OnOpenRequest, opts ...grpc.CallOption) (*OnOpenResponse, error)
-	OnUpgrade(ctx context.Context, in *OnUpgradeRequest, opts ...grpc.CallOption) (*OnUpgradeResponse, error)
-	SetIdleConnectionTimeout(ctx context.Context, in *SetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*SetIdleConnectionTimeoutResponse, error)
-	SetLookasideConfig(ctx context.Context, in *SetLookasideConfigRequest, opts ...grpc.CallOption) (*SetLookasideConfigResponse, error)
-	SetOpenParams(ctx context.Context, in *SetOpenParamsRequest, opts ...grpc.CallOption) (*SetOpenParamsResponse, error)
-	SetWriteAheadLoggingEnabled(ctx context.Context, in *SetWriteAheadLoggingEnabledRequest, opts ...grpc.CallOption) (*SetWriteAheadLoggingEnabledResponse, error)
-}
-
-type sQLiteOpenHelperServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSQLiteOpenHelperServiceClient(cc grpc.ClientConnInterface) SQLiteOpenHelperServiceClient {
-	return &sQLiteOpenHelperServiceClient{cc}
-}
-
-func (c *sQLiteOpenHelperServiceClient) GetDatabaseName(ctx context.Context, in *GetDatabaseNameRequest, opts ...grpc.CallOption) (*GetDatabaseNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDatabaseNameResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_GetDatabaseName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) GetReadableDatabase(ctx context.Context, in *GetReadableDatabaseRequest, opts ...grpc.CallOption) (*GetReadableDatabaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReadableDatabaseResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_GetReadableDatabase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) GetWritableDatabase(ctx context.Context, in *GetWritableDatabaseRequest, opts ...grpc.CallOption) (*GetWritableDatabaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWritableDatabaseResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_GetWritableDatabase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) OnConfigure(ctx context.Context, in *OnConfigureRequest, opts ...grpc.CallOption) (*OnConfigureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnConfigureResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnConfigure_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCreateResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnCreate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) OnDowngrade(ctx context.Context, in *OnDowngradeRequest, opts ...grpc.CallOption) (*OnDowngradeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDowngradeResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnDowngrade_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) OnOpen(ctx context.Context, in *OnOpenRequest, opts ...grpc.CallOption) (*OnOpenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnOpenResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnOpen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) OnUpgrade(ctx context.Context, in *OnUpgradeRequest, opts ...grpc.CallOption) (*OnUpgradeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnUpgradeResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnUpgrade_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) SetIdleConnectionTimeout(ctx context.Context, in *SetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*SetIdleConnectionTimeoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIdleConnectionTimeoutResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_SetIdleConnectionTimeout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) SetLookasideConfig(ctx context.Context, in *SetLookasideConfigRequest, opts ...grpc.CallOption) (*SetLookasideConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLookasideConfigResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_SetLookasideConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) SetOpenParams(ctx context.Context, in *SetOpenParamsRequest, opts ...grpc.CallOption) (*SetOpenParamsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOpenParamsResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_SetOpenParams_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteOpenHelperServiceClient) SetWriteAheadLoggingEnabled(ctx context.Context, in *SetWriteAheadLoggingEnabledRequest, opts ...grpc.CallOption) (*SetWriteAheadLoggingEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWriteAheadLoggingEnabledResponse)
-	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SQLiteOpenHelperServiceServer is the server API for SQLiteOpenHelperService service.
-// All implementations must embed UnimplementedSQLiteOpenHelperServiceServer
-// for forward compatibility.
-type SQLiteOpenHelperServiceServer interface {
-	GetDatabaseName(context.Context, *GetDatabaseNameRequest) (*GetDatabaseNameResponse, error)
-	GetReadableDatabase(context.Context, *GetReadableDatabaseRequest) (*GetReadableDatabaseResponse, error)
-	GetWritableDatabase(context.Context, *GetWritableDatabaseRequest) (*GetWritableDatabaseResponse, error)
-	OnConfigure(context.Context, *OnConfigureRequest) (*OnConfigureResponse, error)
-	OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error)
-	OnDowngrade(context.Context, *OnDowngradeRequest) (*OnDowngradeResponse, error)
-	OnOpen(context.Context, *OnOpenRequest) (*OnOpenResponse, error)
-	OnUpgrade(context.Context, *OnUpgradeRequest) (*OnUpgradeResponse, error)
-	SetIdleConnectionTimeout(context.Context, *SetIdleConnectionTimeoutRequest) (*SetIdleConnectionTimeoutResponse, error)
-	SetLookasideConfig(context.Context, *SetLookasideConfigRequest) (*SetLookasideConfigResponse, error)
-	SetOpenParams(context.Context, *SetOpenParamsRequest) (*SetOpenParamsResponse, error)
-	SetWriteAheadLoggingEnabled(context.Context, *SetWriteAheadLoggingEnabledRequest) (*SetWriteAheadLoggingEnabledResponse, error)
-	mustEmbedUnimplementedSQLiteOpenHelperServiceServer()
-}
-
-// UnimplementedSQLiteOpenHelperServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSQLiteOpenHelperServiceServer struct{}
-
-func (UnimplementedSQLiteOpenHelperServiceServer) GetDatabaseName(context.Context, *GetDatabaseNameRequest) (*GetDatabaseNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDatabaseName not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) GetReadableDatabase(context.Context, *GetReadableDatabaseRequest) (*GetReadableDatabaseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReadableDatabase not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) GetWritableDatabase(context.Context, *GetWritableDatabaseRequest) (*GetWritableDatabaseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWritableDatabase not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) OnConfigure(context.Context, *OnConfigureRequest) (*OnConfigureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnConfigure not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCreate not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) OnDowngrade(context.Context, *OnDowngradeRequest) (*OnDowngradeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDowngrade not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) OnOpen(context.Context, *OnOpenRequest) (*OnOpenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnOpen not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) OnUpgrade(context.Context, *OnUpgradeRequest) (*OnUpgradeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnUpgrade not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) SetIdleConnectionTimeout(context.Context, *SetIdleConnectionTimeoutRequest) (*SetIdleConnectionTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIdleConnectionTimeout not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) SetLookasideConfig(context.Context, *SetLookasideConfigRequest) (*SetLookasideConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLookasideConfig not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) SetOpenParams(context.Context, *SetOpenParamsRequest) (*SetOpenParamsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOpenParams not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) SetWriteAheadLoggingEnabled(context.Context, *SetWriteAheadLoggingEnabledRequest) (*SetWriteAheadLoggingEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWriteAheadLoggingEnabled not implemented")
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) mustEmbedUnimplementedSQLiteOpenHelperServiceServer() {
-}
-func (UnimplementedSQLiteOpenHelperServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSQLiteOpenHelperServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SQLiteOpenHelperServiceServer will
-// result in compilation errors.
-type UnsafeSQLiteOpenHelperServiceServer interface {
-	mustEmbedUnimplementedSQLiteOpenHelperServiceServer()
-}
-
-func RegisterSQLiteOpenHelperServiceServer(s grpc.ServiceRegistrar, srv SQLiteOpenHelperServiceServer) {
-	// If the following call panics, it indicates UnimplementedSQLiteOpenHelperServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SQLiteOpenHelperService_ServiceDesc, srv)
-}
-
-func _SQLiteOpenHelperService_GetDatabaseName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDatabaseNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).GetDatabaseName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_GetDatabaseName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).GetDatabaseName(ctx, req.(*GetDatabaseNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_GetReadableDatabase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReadableDatabaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).GetReadableDatabase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_GetReadableDatabase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).GetReadableDatabase(ctx, req.(*GetReadableDatabaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_GetWritableDatabase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWritableDatabaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).GetWritableDatabase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_GetWritableDatabase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).GetWritableDatabase(ctx, req.(*GetWritableDatabaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_OnConfigure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnConfigureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).OnConfigure(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_OnConfigure_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).OnConfigure(ctx, req.(*OnConfigureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_OnCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCreateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).OnCreate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_OnCreate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).OnCreate(ctx, req.(*OnCreateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_OnDowngrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDowngradeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).OnDowngrade(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_OnDowngrade_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).OnDowngrade(ctx, req.(*OnDowngradeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_OnOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnOpenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).OnOpen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_OnOpen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).OnOpen(ctx, req.(*OnOpenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_OnUpgrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnUpgradeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).OnUpgrade(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_OnUpgrade_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).OnUpgrade(ctx, req.(*OnUpgradeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_SetIdleConnectionTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIdleConnectionTimeoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).SetIdleConnectionTimeout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_SetIdleConnectionTimeout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).SetIdleConnectionTimeout(ctx, req.(*SetIdleConnectionTimeoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_SetLookasideConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLookasideConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).SetLookasideConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_SetLookasideConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).SetLookasideConfig(ctx, req.(*SetLookasideConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_SetOpenParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOpenParamsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).SetOpenParams(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_SetOpenParams_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).SetOpenParams(ctx, req.(*SetOpenParamsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWriteAheadLoggingEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteOpenHelperServiceServer).SetWriteAheadLoggingEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteOpenHelperServiceServer).SetWriteAheadLoggingEnabled(ctx, req.(*SetWriteAheadLoggingEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SQLiteOpenHelperService_ServiceDesc is the grpc.ServiceDesc for SQLiteOpenHelperService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SQLiteOpenHelperService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sqlite.SQLiteOpenHelperService",
-	HandlerType: (*SQLiteOpenHelperServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetDatabaseName",
-			Handler:    _SQLiteOpenHelperService_GetDatabaseName_Handler,
-		},
-		{
-			MethodName: "GetReadableDatabase",
-			Handler:    _SQLiteOpenHelperService_GetReadableDatabase_Handler,
-		},
-		{
-			MethodName: "GetWritableDatabase",
-			Handler:    _SQLiteOpenHelperService_GetWritableDatabase_Handler,
-		},
-		{
-			MethodName: "OnConfigure",
-			Handler:    _SQLiteOpenHelperService_OnConfigure_Handler,
-		},
-		{
-			MethodName: "OnCreate",
-			Handler:    _SQLiteOpenHelperService_OnCreate_Handler,
-		},
-		{
-			MethodName: "OnDowngrade",
-			Handler:    _SQLiteOpenHelperService_OnDowngrade_Handler,
-		},
-		{
-			MethodName: "OnOpen",
-			Handler:    _SQLiteOpenHelperService_OnOpen_Handler,
-		},
-		{
-			MethodName: "OnUpgrade",
-			Handler:    _SQLiteOpenHelperService_OnUpgrade_Handler,
-		},
-		{
-			MethodName: "SetIdleConnectionTimeout",
-			Handler:    _SQLiteOpenHelperService_SetIdleConnectionTimeout_Handler,
-		},
-		{
-			MethodName: "SetLookasideConfig",
-			Handler:    _SQLiteOpenHelperService_SetLookasideConfig_Handler,
-		},
-		{
-			MethodName: "SetOpenParams",
-			Handler:    _SQLiteOpenHelperService_SetOpenParams_Handler,
-		},
-		{
-			MethodName: "SetWriteAheadLoggingEnabled",
-			Handler:    _SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sqlite/sqlite.proto",
-}
-
-const (
 	SQLiteProgramService_BindAllArgsAsStrings_FullMethodName = "/sqlite.SQLiteProgramService/BindAllArgsAsStrings"
 	SQLiteProgramService_BindBlob_FullMethodName             = "/sqlite.SQLiteProgramService/BindBlob"
 	SQLiteProgramService_BindDouble_FullMethodName           = "/sqlite.SQLiteProgramService/BindDouble"
@@ -6112,6 +3623,3183 @@ var SQLiteDatabaseOpenParamsService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	SQLiteStatementService_Execute_FullMethodName                          = "/sqlite.SQLiteStatementService/Execute"
+	SQLiteStatementService_ExecuteInsert_FullMethodName                    = "/sqlite.SQLiteStatementService/ExecuteInsert"
+	SQLiteStatementService_ExecuteUpdateDelete_FullMethodName              = "/sqlite.SQLiteStatementService/ExecuteUpdateDelete"
+	SQLiteStatementService_SimpleQueryForBlobFileDescriptor_FullMethodName = "/sqlite.SQLiteStatementService/SimpleQueryForBlobFileDescriptor"
+	SQLiteStatementService_SimpleQueryForLong_FullMethodName               = "/sqlite.SQLiteStatementService/SimpleQueryForLong"
+	SQLiteStatementService_SimpleQueryForString_FullMethodName             = "/sqlite.SQLiteStatementService/SimpleQueryForString"
+	SQLiteStatementService_ToString_FullMethodName                         = "/sqlite.SQLiteStatementService/ToString"
+)
+
+// SQLiteStatementServiceClient is the client API for SQLiteStatementService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SQLiteStatementServiceClient interface {
+	Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error)
+	ExecuteInsert(ctx context.Context, in *ExecuteInsertRequest, opts ...grpc.CallOption) (*ExecuteInsertResponse, error)
+	ExecuteUpdateDelete(ctx context.Context, in *ExecuteUpdateDeleteRequest, opts ...grpc.CallOption) (*ExecuteUpdateDeleteResponse, error)
+	SimpleQueryForBlobFileDescriptor(ctx context.Context, in *SimpleQueryForBlobFileDescriptorRequest, opts ...grpc.CallOption) (*SimpleQueryForBlobFileDescriptorResponse, error)
+	SimpleQueryForLong(ctx context.Context, in *SimpleQueryForLongRequest, opts ...grpc.CallOption) (*SimpleQueryForLongResponse, error)
+	SimpleQueryForString(ctx context.Context, in *SimpleQueryForStringRequest, opts ...grpc.CallOption) (*SimpleQueryForStringResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type sQLiteStatementServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSQLiteStatementServiceClient(cc grpc.ClientConnInterface) SQLiteStatementServiceClient {
+	return &sQLiteStatementServiceClient{cc}
+}
+
+func (c *sQLiteStatementServiceClient) Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExecuteResponse)
+	err := c.cc.Invoke(ctx, SQLiteStatementService_Execute_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteStatementServiceClient) ExecuteInsert(ctx context.Context, in *ExecuteInsertRequest, opts ...grpc.CallOption) (*ExecuteInsertResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExecuteInsertResponse)
+	err := c.cc.Invoke(ctx, SQLiteStatementService_ExecuteInsert_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteStatementServiceClient) ExecuteUpdateDelete(ctx context.Context, in *ExecuteUpdateDeleteRequest, opts ...grpc.CallOption) (*ExecuteUpdateDeleteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExecuteUpdateDeleteResponse)
+	err := c.cc.Invoke(ctx, SQLiteStatementService_ExecuteUpdateDelete_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteStatementServiceClient) SimpleQueryForBlobFileDescriptor(ctx context.Context, in *SimpleQueryForBlobFileDescriptorRequest, opts ...grpc.CallOption) (*SimpleQueryForBlobFileDescriptorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SimpleQueryForBlobFileDescriptorResponse)
+	err := c.cc.Invoke(ctx, SQLiteStatementService_SimpleQueryForBlobFileDescriptor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteStatementServiceClient) SimpleQueryForLong(ctx context.Context, in *SimpleQueryForLongRequest, opts ...grpc.CallOption) (*SimpleQueryForLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SimpleQueryForLongResponse)
+	err := c.cc.Invoke(ctx, SQLiteStatementService_SimpleQueryForLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteStatementServiceClient) SimpleQueryForString(ctx context.Context, in *SimpleQueryForStringRequest, opts ...grpc.CallOption) (*SimpleQueryForStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SimpleQueryForStringResponse)
+	err := c.cc.Invoke(ctx, SQLiteStatementService_SimpleQueryForString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteStatementServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SQLiteStatementService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SQLiteStatementServiceServer is the server API for SQLiteStatementService service.
+// All implementations must embed UnimplementedSQLiteStatementServiceServer
+// for forward compatibility.
+type SQLiteStatementServiceServer interface {
+	Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error)
+	ExecuteInsert(context.Context, *ExecuteInsertRequest) (*ExecuteInsertResponse, error)
+	ExecuteUpdateDelete(context.Context, *ExecuteUpdateDeleteRequest) (*ExecuteUpdateDeleteResponse, error)
+	SimpleQueryForBlobFileDescriptor(context.Context, *SimpleQueryForBlobFileDescriptorRequest) (*SimpleQueryForBlobFileDescriptorResponse, error)
+	SimpleQueryForLong(context.Context, *SimpleQueryForLongRequest) (*SimpleQueryForLongResponse, error)
+	SimpleQueryForString(context.Context, *SimpleQueryForStringRequest) (*SimpleQueryForStringResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedSQLiteStatementServiceServer()
+}
+
+// UnimplementedSQLiteStatementServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSQLiteStatementServiceServer struct{}
+
+func (UnimplementedSQLiteStatementServiceServer) Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Execute not implemented")
+}
+func (UnimplementedSQLiteStatementServiceServer) ExecuteInsert(context.Context, *ExecuteInsertRequest) (*ExecuteInsertResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExecuteInsert not implemented")
+}
+func (UnimplementedSQLiteStatementServiceServer) ExecuteUpdateDelete(context.Context, *ExecuteUpdateDeleteRequest) (*ExecuteUpdateDeleteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExecuteUpdateDelete not implemented")
+}
+func (UnimplementedSQLiteStatementServiceServer) SimpleQueryForBlobFileDescriptor(context.Context, *SimpleQueryForBlobFileDescriptorRequest) (*SimpleQueryForBlobFileDescriptorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SimpleQueryForBlobFileDescriptor not implemented")
+}
+func (UnimplementedSQLiteStatementServiceServer) SimpleQueryForLong(context.Context, *SimpleQueryForLongRequest) (*SimpleQueryForLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SimpleQueryForLong not implemented")
+}
+func (UnimplementedSQLiteStatementServiceServer) SimpleQueryForString(context.Context, *SimpleQueryForStringRequest) (*SimpleQueryForStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SimpleQueryForString not implemented")
+}
+func (UnimplementedSQLiteStatementServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSQLiteStatementServiceServer) mustEmbedUnimplementedSQLiteStatementServiceServer() {
+}
+func (UnimplementedSQLiteStatementServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSQLiteStatementServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SQLiteStatementServiceServer will
+// result in compilation errors.
+type UnsafeSQLiteStatementServiceServer interface {
+	mustEmbedUnimplementedSQLiteStatementServiceServer()
+}
+
+func RegisterSQLiteStatementServiceServer(s grpc.ServiceRegistrar, srv SQLiteStatementServiceServer) {
+	// If the following call panics, it indicates UnimplementedSQLiteStatementServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SQLiteStatementService_ServiceDesc, srv)
+}
+
+func _SQLiteStatementService_Execute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExecuteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteStatementServiceServer).Execute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteStatementService_Execute_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteStatementServiceServer).Execute(ctx, req.(*ExecuteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteStatementService_ExecuteInsert_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExecuteInsertRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteStatementServiceServer).ExecuteInsert(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteStatementService_ExecuteInsert_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteStatementServiceServer).ExecuteInsert(ctx, req.(*ExecuteInsertRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteStatementService_ExecuteUpdateDelete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExecuteUpdateDeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteStatementServiceServer).ExecuteUpdateDelete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteStatementService_ExecuteUpdateDelete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteStatementServiceServer).ExecuteUpdateDelete(ctx, req.(*ExecuteUpdateDeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteStatementService_SimpleQueryForBlobFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SimpleQueryForBlobFileDescriptorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteStatementServiceServer).SimpleQueryForBlobFileDescriptor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteStatementService_SimpleQueryForBlobFileDescriptor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteStatementServiceServer).SimpleQueryForBlobFileDescriptor(ctx, req.(*SimpleQueryForBlobFileDescriptorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteStatementService_SimpleQueryForLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SimpleQueryForLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteStatementServiceServer).SimpleQueryForLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteStatementService_SimpleQueryForLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteStatementServiceServer).SimpleQueryForLong(ctx, req.(*SimpleQueryForLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteStatementService_SimpleQueryForString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SimpleQueryForStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteStatementServiceServer).SimpleQueryForString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteStatementService_SimpleQueryForString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteStatementServiceServer).SimpleQueryForString(ctx, req.(*SimpleQueryForStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteStatementService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteStatementServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteStatementService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteStatementServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SQLiteStatementService_ServiceDesc is the grpc.ServiceDesc for SQLiteStatementService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SQLiteStatementService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sqlite.SQLiteStatementService",
+	HandlerType: (*SQLiteStatementServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Execute",
+			Handler:    _SQLiteStatementService_Execute_Handler,
+		},
+		{
+			MethodName: "ExecuteInsert",
+			Handler:    _SQLiteStatementService_ExecuteInsert_Handler,
+		},
+		{
+			MethodName: "ExecuteUpdateDelete",
+			Handler:    _SQLiteStatementService_ExecuteUpdateDelete_Handler,
+		},
+		{
+			MethodName: "SimpleQueryForBlobFileDescriptor",
+			Handler:    _SQLiteStatementService_SimpleQueryForBlobFileDescriptor_Handler,
+		},
+		{
+			MethodName: "SimpleQueryForLong",
+			Handler:    _SQLiteStatementService_SimpleQueryForLong_Handler,
+		},
+		{
+			MethodName: "SimpleQueryForString",
+			Handler:    _SQLiteStatementService_SimpleQueryForString_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SQLiteStatementService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sqlite/sqlite.proto",
+}
+
+const (
+	SQLiteOpenHelperService_GetDatabaseName_FullMethodName             = "/sqlite.SQLiteOpenHelperService/GetDatabaseName"
+	SQLiteOpenHelperService_GetReadableDatabase_FullMethodName         = "/sqlite.SQLiteOpenHelperService/GetReadableDatabase"
+	SQLiteOpenHelperService_GetWritableDatabase_FullMethodName         = "/sqlite.SQLiteOpenHelperService/GetWritableDatabase"
+	SQLiteOpenHelperService_OnConfigure_FullMethodName                 = "/sqlite.SQLiteOpenHelperService/OnConfigure"
+	SQLiteOpenHelperService_OnCreate_FullMethodName                    = "/sqlite.SQLiteOpenHelperService/OnCreate"
+	SQLiteOpenHelperService_OnDowngrade_FullMethodName                 = "/sqlite.SQLiteOpenHelperService/OnDowngrade"
+	SQLiteOpenHelperService_OnOpen_FullMethodName                      = "/sqlite.SQLiteOpenHelperService/OnOpen"
+	SQLiteOpenHelperService_OnUpgrade_FullMethodName                   = "/sqlite.SQLiteOpenHelperService/OnUpgrade"
+	SQLiteOpenHelperService_SetIdleConnectionTimeout_FullMethodName    = "/sqlite.SQLiteOpenHelperService/SetIdleConnectionTimeout"
+	SQLiteOpenHelperService_SetLookasideConfig_FullMethodName          = "/sqlite.SQLiteOpenHelperService/SetLookasideConfig"
+	SQLiteOpenHelperService_SetOpenParams_FullMethodName               = "/sqlite.SQLiteOpenHelperService/SetOpenParams"
+	SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_FullMethodName = "/sqlite.SQLiteOpenHelperService/SetWriteAheadLoggingEnabled"
+)
+
+// SQLiteOpenHelperServiceClient is the client API for SQLiteOpenHelperService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SQLiteOpenHelperServiceClient interface {
+	GetDatabaseName(ctx context.Context, in *GetDatabaseNameRequest, opts ...grpc.CallOption) (*GetDatabaseNameResponse, error)
+	GetReadableDatabase(ctx context.Context, in *GetReadableDatabaseRequest, opts ...grpc.CallOption) (*GetReadableDatabaseResponse, error)
+	GetWritableDatabase(ctx context.Context, in *GetWritableDatabaseRequest, opts ...grpc.CallOption) (*GetWritableDatabaseResponse, error)
+	OnConfigure(ctx context.Context, in *OnConfigureRequest, opts ...grpc.CallOption) (*OnConfigureResponse, error)
+	OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error)
+	OnDowngrade(ctx context.Context, in *OnDowngradeRequest, opts ...grpc.CallOption) (*OnDowngradeResponse, error)
+	OnOpen(ctx context.Context, in *OnOpenRequest, opts ...grpc.CallOption) (*OnOpenResponse, error)
+	OnUpgrade(ctx context.Context, in *OnUpgradeRequest, opts ...grpc.CallOption) (*OnUpgradeResponse, error)
+	SetIdleConnectionTimeout(ctx context.Context, in *SetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*SetIdleConnectionTimeoutResponse, error)
+	SetLookasideConfig(ctx context.Context, in *SetLookasideConfigRequest, opts ...grpc.CallOption) (*SetLookasideConfigResponse, error)
+	SetOpenParams(ctx context.Context, in *SetOpenParamsRequest, opts ...grpc.CallOption) (*SetOpenParamsResponse, error)
+	SetWriteAheadLoggingEnabled(ctx context.Context, in *SetWriteAheadLoggingEnabledRequest, opts ...grpc.CallOption) (*SetWriteAheadLoggingEnabledResponse, error)
+}
+
+type sQLiteOpenHelperServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSQLiteOpenHelperServiceClient(cc grpc.ClientConnInterface) SQLiteOpenHelperServiceClient {
+	return &sQLiteOpenHelperServiceClient{cc}
+}
+
+func (c *sQLiteOpenHelperServiceClient) GetDatabaseName(ctx context.Context, in *GetDatabaseNameRequest, opts ...grpc.CallOption) (*GetDatabaseNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDatabaseNameResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_GetDatabaseName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) GetReadableDatabase(ctx context.Context, in *GetReadableDatabaseRequest, opts ...grpc.CallOption) (*GetReadableDatabaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReadableDatabaseResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_GetReadableDatabase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) GetWritableDatabase(ctx context.Context, in *GetWritableDatabaseRequest, opts ...grpc.CallOption) (*GetWritableDatabaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWritableDatabaseResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_GetWritableDatabase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) OnConfigure(ctx context.Context, in *OnConfigureRequest, opts ...grpc.CallOption) (*OnConfigureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnConfigureResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnConfigure_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnCreate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) OnDowngrade(ctx context.Context, in *OnDowngradeRequest, opts ...grpc.CallOption) (*OnDowngradeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDowngradeResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnDowngrade_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) OnOpen(ctx context.Context, in *OnOpenRequest, opts ...grpc.CallOption) (*OnOpenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnOpenResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnOpen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) OnUpgrade(ctx context.Context, in *OnUpgradeRequest, opts ...grpc.CallOption) (*OnUpgradeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUpgradeResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_OnUpgrade_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) SetIdleConnectionTimeout(ctx context.Context, in *SetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*SetIdleConnectionTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIdleConnectionTimeoutResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_SetIdleConnectionTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) SetLookasideConfig(ctx context.Context, in *SetLookasideConfigRequest, opts ...grpc.CallOption) (*SetLookasideConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLookasideConfigResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_SetLookasideConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) SetOpenParams(ctx context.Context, in *SetOpenParamsRequest, opts ...grpc.CallOption) (*SetOpenParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOpenParamsResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_SetOpenParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteOpenHelperServiceClient) SetWriteAheadLoggingEnabled(ctx context.Context, in *SetWriteAheadLoggingEnabledRequest, opts ...grpc.CallOption) (*SetWriteAheadLoggingEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWriteAheadLoggingEnabledResponse)
+	err := c.cc.Invoke(ctx, SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SQLiteOpenHelperServiceServer is the server API for SQLiteOpenHelperService service.
+// All implementations must embed UnimplementedSQLiteOpenHelperServiceServer
+// for forward compatibility.
+type SQLiteOpenHelperServiceServer interface {
+	GetDatabaseName(context.Context, *GetDatabaseNameRequest) (*GetDatabaseNameResponse, error)
+	GetReadableDatabase(context.Context, *GetReadableDatabaseRequest) (*GetReadableDatabaseResponse, error)
+	GetWritableDatabase(context.Context, *GetWritableDatabaseRequest) (*GetWritableDatabaseResponse, error)
+	OnConfigure(context.Context, *OnConfigureRequest) (*OnConfigureResponse, error)
+	OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error)
+	OnDowngrade(context.Context, *OnDowngradeRequest) (*OnDowngradeResponse, error)
+	OnOpen(context.Context, *OnOpenRequest) (*OnOpenResponse, error)
+	OnUpgrade(context.Context, *OnUpgradeRequest) (*OnUpgradeResponse, error)
+	SetIdleConnectionTimeout(context.Context, *SetIdleConnectionTimeoutRequest) (*SetIdleConnectionTimeoutResponse, error)
+	SetLookasideConfig(context.Context, *SetLookasideConfigRequest) (*SetLookasideConfigResponse, error)
+	SetOpenParams(context.Context, *SetOpenParamsRequest) (*SetOpenParamsResponse, error)
+	SetWriteAheadLoggingEnabled(context.Context, *SetWriteAheadLoggingEnabledRequest) (*SetWriteAheadLoggingEnabledResponse, error)
+	mustEmbedUnimplementedSQLiteOpenHelperServiceServer()
+}
+
+// UnimplementedSQLiteOpenHelperServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSQLiteOpenHelperServiceServer struct{}
+
+func (UnimplementedSQLiteOpenHelperServiceServer) GetDatabaseName(context.Context, *GetDatabaseNameRequest) (*GetDatabaseNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDatabaseName not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) GetReadableDatabase(context.Context, *GetReadableDatabaseRequest) (*GetReadableDatabaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReadableDatabase not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) GetWritableDatabase(context.Context, *GetWritableDatabaseRequest) (*GetWritableDatabaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWritableDatabase not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) OnConfigure(context.Context, *OnConfigureRequest) (*OnConfigureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnConfigure not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreate not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) OnDowngrade(context.Context, *OnDowngradeRequest) (*OnDowngradeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDowngrade not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) OnOpen(context.Context, *OnOpenRequest) (*OnOpenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnOpen not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) OnUpgrade(context.Context, *OnUpgradeRequest) (*OnUpgradeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUpgrade not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) SetIdleConnectionTimeout(context.Context, *SetIdleConnectionTimeoutRequest) (*SetIdleConnectionTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIdleConnectionTimeout not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) SetLookasideConfig(context.Context, *SetLookasideConfigRequest) (*SetLookasideConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLookasideConfig not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) SetOpenParams(context.Context, *SetOpenParamsRequest) (*SetOpenParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOpenParams not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) SetWriteAheadLoggingEnabled(context.Context, *SetWriteAheadLoggingEnabledRequest) (*SetWriteAheadLoggingEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWriteAheadLoggingEnabled not implemented")
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) mustEmbedUnimplementedSQLiteOpenHelperServiceServer() {
+}
+func (UnimplementedSQLiteOpenHelperServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSQLiteOpenHelperServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SQLiteOpenHelperServiceServer will
+// result in compilation errors.
+type UnsafeSQLiteOpenHelperServiceServer interface {
+	mustEmbedUnimplementedSQLiteOpenHelperServiceServer()
+}
+
+func RegisterSQLiteOpenHelperServiceServer(s grpc.ServiceRegistrar, srv SQLiteOpenHelperServiceServer) {
+	// If the following call panics, it indicates UnimplementedSQLiteOpenHelperServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SQLiteOpenHelperService_ServiceDesc, srv)
+}
+
+func _SQLiteOpenHelperService_GetDatabaseName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDatabaseNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).GetDatabaseName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_GetDatabaseName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).GetDatabaseName(ctx, req.(*GetDatabaseNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_GetReadableDatabase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReadableDatabaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).GetReadableDatabase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_GetReadableDatabase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).GetReadableDatabase(ctx, req.(*GetReadableDatabaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_GetWritableDatabase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWritableDatabaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).GetWritableDatabase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_GetWritableDatabase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).GetWritableDatabase(ctx, req.(*GetWritableDatabaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_OnConfigure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnConfigureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).OnConfigure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_OnConfigure_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).OnConfigure(ctx, req.(*OnConfigureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_OnCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).OnCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_OnCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).OnCreate(ctx, req.(*OnCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_OnDowngrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDowngradeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).OnDowngrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_OnDowngrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).OnDowngrade(ctx, req.(*OnDowngradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_OnOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnOpenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).OnOpen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_OnOpen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).OnOpen(ctx, req.(*OnOpenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_OnUpgrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUpgradeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).OnUpgrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_OnUpgrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).OnUpgrade(ctx, req.(*OnUpgradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_SetIdleConnectionTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIdleConnectionTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).SetIdleConnectionTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_SetIdleConnectionTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).SetIdleConnectionTimeout(ctx, req.(*SetIdleConnectionTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_SetLookasideConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLookasideConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).SetLookasideConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_SetLookasideConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).SetLookasideConfig(ctx, req.(*SetLookasideConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_SetOpenParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOpenParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).SetOpenParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_SetOpenParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).SetOpenParams(ctx, req.(*SetOpenParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWriteAheadLoggingEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteOpenHelperServiceServer).SetWriteAheadLoggingEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteOpenHelperServiceServer).SetWriteAheadLoggingEnabled(ctx, req.(*SetWriteAheadLoggingEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SQLiteOpenHelperService_ServiceDesc is the grpc.ServiceDesc for SQLiteOpenHelperService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SQLiteOpenHelperService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sqlite.SQLiteOpenHelperService",
+	HandlerType: (*SQLiteOpenHelperServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetDatabaseName",
+			Handler:    _SQLiteOpenHelperService_GetDatabaseName_Handler,
+		},
+		{
+			MethodName: "GetReadableDatabase",
+			Handler:    _SQLiteOpenHelperService_GetReadableDatabase_Handler,
+		},
+		{
+			MethodName: "GetWritableDatabase",
+			Handler:    _SQLiteOpenHelperService_GetWritableDatabase_Handler,
+		},
+		{
+			MethodName: "OnConfigure",
+			Handler:    _SQLiteOpenHelperService_OnConfigure_Handler,
+		},
+		{
+			MethodName: "OnCreate",
+			Handler:    _SQLiteOpenHelperService_OnCreate_Handler,
+		},
+		{
+			MethodName: "OnDowngrade",
+			Handler:    _SQLiteOpenHelperService_OnDowngrade_Handler,
+		},
+		{
+			MethodName: "OnOpen",
+			Handler:    _SQLiteOpenHelperService_OnOpen_Handler,
+		},
+		{
+			MethodName: "OnUpgrade",
+			Handler:    _SQLiteOpenHelperService_OnUpgrade_Handler,
+		},
+		{
+			MethodName: "SetIdleConnectionTimeout",
+			Handler:    _SQLiteOpenHelperService_SetIdleConnectionTimeout_Handler,
+		},
+		{
+			MethodName: "SetLookasideConfig",
+			Handler:    _SQLiteOpenHelperService_SetLookasideConfig_Handler,
+		},
+		{
+			MethodName: "SetOpenParams",
+			Handler:    _SQLiteOpenHelperService_SetOpenParams_Handler,
+		},
+		{
+			MethodName: "SetWriteAheadLoggingEnabled",
+			Handler:    _SQLiteOpenHelperService_SetWriteAheadLoggingEnabled_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sqlite/sqlite.proto",
+}
+
+const (
+	SQLiteTransactionListenerService_OnBegin_FullMethodName    = "/sqlite.SQLiteTransactionListenerService/OnBegin"
+	SQLiteTransactionListenerService_OnCommit_FullMethodName   = "/sqlite.SQLiteTransactionListenerService/OnCommit"
+	SQLiteTransactionListenerService_OnRollback_FullMethodName = "/sqlite.SQLiteTransactionListenerService/OnRollback"
+)
+
+// SQLiteTransactionListenerServiceClient is the client API for SQLiteTransactionListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SQLiteTransactionListenerServiceClient interface {
+	OnBegin(ctx context.Context, in *OnBeginRequest, opts ...grpc.CallOption) (*OnBeginResponse, error)
+	OnCommit(ctx context.Context, in *OnCommitRequest, opts ...grpc.CallOption) (*OnCommitResponse, error)
+	OnRollback(ctx context.Context, in *OnRollbackRequest, opts ...grpc.CallOption) (*OnRollbackResponse, error)
+}
+
+type sQLiteTransactionListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSQLiteTransactionListenerServiceClient(cc grpc.ClientConnInterface) SQLiteTransactionListenerServiceClient {
+	return &sQLiteTransactionListenerServiceClient{cc}
+}
+
+func (c *sQLiteTransactionListenerServiceClient) OnBegin(ctx context.Context, in *OnBeginRequest, opts ...grpc.CallOption) (*OnBeginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBeginResponse)
+	err := c.cc.Invoke(ctx, SQLiteTransactionListenerService_OnBegin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteTransactionListenerServiceClient) OnCommit(ctx context.Context, in *OnCommitRequest, opts ...grpc.CallOption) (*OnCommitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCommitResponse)
+	err := c.cc.Invoke(ctx, SQLiteTransactionListenerService_OnCommit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteTransactionListenerServiceClient) OnRollback(ctx context.Context, in *OnRollbackRequest, opts ...grpc.CallOption) (*OnRollbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRollbackResponse)
+	err := c.cc.Invoke(ctx, SQLiteTransactionListenerService_OnRollback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SQLiteTransactionListenerServiceServer is the server API for SQLiteTransactionListenerService service.
+// All implementations must embed UnimplementedSQLiteTransactionListenerServiceServer
+// for forward compatibility.
+type SQLiteTransactionListenerServiceServer interface {
+	OnBegin(context.Context, *OnBeginRequest) (*OnBeginResponse, error)
+	OnCommit(context.Context, *OnCommitRequest) (*OnCommitResponse, error)
+	OnRollback(context.Context, *OnRollbackRequest) (*OnRollbackResponse, error)
+	mustEmbedUnimplementedSQLiteTransactionListenerServiceServer()
+}
+
+// UnimplementedSQLiteTransactionListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSQLiteTransactionListenerServiceServer struct{}
+
+func (UnimplementedSQLiteTransactionListenerServiceServer) OnBegin(context.Context, *OnBeginRequest) (*OnBeginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBegin not implemented")
+}
+func (UnimplementedSQLiteTransactionListenerServiceServer) OnCommit(context.Context, *OnCommitRequest) (*OnCommitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCommit not implemented")
+}
+func (UnimplementedSQLiteTransactionListenerServiceServer) OnRollback(context.Context, *OnRollbackRequest) (*OnRollbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRollback not implemented")
+}
+func (UnimplementedSQLiteTransactionListenerServiceServer) mustEmbedUnimplementedSQLiteTransactionListenerServiceServer() {
+}
+func (UnimplementedSQLiteTransactionListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSQLiteTransactionListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SQLiteTransactionListenerServiceServer will
+// result in compilation errors.
+type UnsafeSQLiteTransactionListenerServiceServer interface {
+	mustEmbedUnimplementedSQLiteTransactionListenerServiceServer()
+}
+
+func RegisterSQLiteTransactionListenerServiceServer(s grpc.ServiceRegistrar, srv SQLiteTransactionListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSQLiteTransactionListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SQLiteTransactionListenerService_ServiceDesc, srv)
+}
+
+func _SQLiteTransactionListenerService_OnBegin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBeginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteTransactionListenerServiceServer).OnBegin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteTransactionListenerService_OnBegin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteTransactionListenerServiceServer).OnBegin(ctx, req.(*OnBeginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteTransactionListenerService_OnCommit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCommitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteTransactionListenerServiceServer).OnCommit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteTransactionListenerService_OnCommit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteTransactionListenerServiceServer).OnCommit(ctx, req.(*OnCommitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteTransactionListenerService_OnRollback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRollbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteTransactionListenerServiceServer).OnRollback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteTransactionListenerService_OnRollback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteTransactionListenerServiceServer).OnRollback(ctx, req.(*OnRollbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SQLiteTransactionListenerService_ServiceDesc is the grpc.ServiceDesc for SQLiteTransactionListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SQLiteTransactionListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sqlite.SQLiteTransactionListenerService",
+	HandlerType: (*SQLiteTransactionListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnBegin",
+			Handler:    _SQLiteTransactionListenerService_OnBegin_Handler,
+		},
+		{
+			MethodName: "OnCommit",
+			Handler:    _SQLiteTransactionListenerService_OnCommit_Handler,
+		},
+		{
+			MethodName: "OnRollback",
+			Handler:    _SQLiteTransactionListenerService_OnRollback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sqlite/sqlite.proto",
+}
+
+const (
+	SQLiteCursorDriverService_CursorClosed_FullMethodName      = "/sqlite.SQLiteCursorDriverService/CursorClosed"
+	SQLiteCursorDriverService_CursorDeactivated_FullMethodName = "/sqlite.SQLiteCursorDriverService/CursorDeactivated"
+	SQLiteCursorDriverService_CursorRequeried_FullMethodName   = "/sqlite.SQLiteCursorDriverService/CursorRequeried"
+	SQLiteCursorDriverService_Query_FullMethodName             = "/sqlite.SQLiteCursorDriverService/Query"
+	SQLiteCursorDriverService_SetBindArguments_FullMethodName  = "/sqlite.SQLiteCursorDriverService/SetBindArguments"
+)
+
+// SQLiteCursorDriverServiceClient is the client API for SQLiteCursorDriverService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SQLiteCursorDriverServiceClient interface {
+	CursorClosed(ctx context.Context, in *CursorClosedRequest, opts ...grpc.CallOption) (*CursorClosedResponse, error)
+	CursorDeactivated(ctx context.Context, in *CursorDeactivatedRequest, opts ...grpc.CallOption) (*CursorDeactivatedResponse, error)
+	CursorRequeried(ctx context.Context, in *CursorRequeriedRequest, opts ...grpc.CallOption) (*CursorRequeriedResponse, error)
+	Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error)
+	SetBindArguments(ctx context.Context, in *SetBindArgumentsRequest, opts ...grpc.CallOption) (*SetBindArgumentsResponse, error)
+}
+
+type sQLiteCursorDriverServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSQLiteCursorDriverServiceClient(cc grpc.ClientConnInterface) SQLiteCursorDriverServiceClient {
+	return &sQLiteCursorDriverServiceClient{cc}
+}
+
+func (c *sQLiteCursorDriverServiceClient) CursorClosed(ctx context.Context, in *CursorClosedRequest, opts ...grpc.CallOption) (*CursorClosedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CursorClosedResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_CursorClosed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorDriverServiceClient) CursorDeactivated(ctx context.Context, in *CursorDeactivatedRequest, opts ...grpc.CallOption) (*CursorDeactivatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CursorDeactivatedResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_CursorDeactivated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorDriverServiceClient) CursorRequeried(ctx context.Context, in *CursorRequeriedRequest, opts ...grpc.CallOption) (*CursorRequeriedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CursorRequeriedResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_CursorRequeried_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorDriverServiceClient) Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_Query_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorDriverServiceClient) SetBindArguments(ctx context.Context, in *SetBindArgumentsRequest, opts ...grpc.CallOption) (*SetBindArgumentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBindArgumentsResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_SetBindArguments_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SQLiteCursorDriverServiceServer is the server API for SQLiteCursorDriverService service.
+// All implementations must embed UnimplementedSQLiteCursorDriverServiceServer
+// for forward compatibility.
+type SQLiteCursorDriverServiceServer interface {
+	CursorClosed(context.Context, *CursorClosedRequest) (*CursorClosedResponse, error)
+	CursorDeactivated(context.Context, *CursorDeactivatedRequest) (*CursorDeactivatedResponse, error)
+	CursorRequeried(context.Context, *CursorRequeriedRequest) (*CursorRequeriedResponse, error)
+	Query(context.Context, *QueryRequest) (*QueryResponse, error)
+	SetBindArguments(context.Context, *SetBindArgumentsRequest) (*SetBindArgumentsResponse, error)
+	mustEmbedUnimplementedSQLiteCursorDriverServiceServer()
+}
+
+// UnimplementedSQLiteCursorDriverServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSQLiteCursorDriverServiceServer struct{}
+
+func (UnimplementedSQLiteCursorDriverServiceServer) CursorClosed(context.Context, *CursorClosedRequest) (*CursorClosedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CursorClosed not implemented")
+}
+func (UnimplementedSQLiteCursorDriverServiceServer) CursorDeactivated(context.Context, *CursorDeactivatedRequest) (*CursorDeactivatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CursorDeactivated not implemented")
+}
+func (UnimplementedSQLiteCursorDriverServiceServer) CursorRequeried(context.Context, *CursorRequeriedRequest) (*CursorRequeriedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CursorRequeried not implemented")
+}
+func (UnimplementedSQLiteCursorDriverServiceServer) Query(context.Context, *QueryRequest) (*QueryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Query not implemented")
+}
+func (UnimplementedSQLiteCursorDriverServiceServer) SetBindArguments(context.Context, *SetBindArgumentsRequest) (*SetBindArgumentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBindArguments not implemented")
+}
+func (UnimplementedSQLiteCursorDriverServiceServer) mustEmbedUnimplementedSQLiteCursorDriverServiceServer() {
+}
+func (UnimplementedSQLiteCursorDriverServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSQLiteCursorDriverServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SQLiteCursorDriverServiceServer will
+// result in compilation errors.
+type UnsafeSQLiteCursorDriverServiceServer interface {
+	mustEmbedUnimplementedSQLiteCursorDriverServiceServer()
+}
+
+func RegisterSQLiteCursorDriverServiceServer(s grpc.ServiceRegistrar, srv SQLiteCursorDriverServiceServer) {
+	// If the following call panics, it indicates UnimplementedSQLiteCursorDriverServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SQLiteCursorDriverService_ServiceDesc, srv)
+}
+
+func _SQLiteCursorDriverService_CursorClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorClosedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorDriverServiceServer).CursorClosed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorDriverService_CursorClosed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorDriverServiceServer).CursorClosed(ctx, req.(*CursorClosedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorDriverService_CursorDeactivated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorDeactivatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorDriverServiceServer).CursorDeactivated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorDriverService_CursorDeactivated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorDriverServiceServer).CursorDeactivated(ctx, req.(*CursorDeactivatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorDriverService_CursorRequeried_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorRequeriedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorDriverServiceServer).CursorRequeried(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorDriverService_CursorRequeried_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorDriverServiceServer).CursorRequeried(ctx, req.(*CursorRequeriedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorDriverService_Query_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorDriverServiceServer).Query(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorDriverService_Query_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorDriverServiceServer).Query(ctx, req.(*QueryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorDriverService_SetBindArguments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBindArgumentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorDriverServiceServer).SetBindArguments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorDriverService_SetBindArguments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorDriverServiceServer).SetBindArguments(ctx, req.(*SetBindArgumentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SQLiteCursorDriverService_ServiceDesc is the grpc.ServiceDesc for SQLiteCursorDriverService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SQLiteCursorDriverService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sqlite.SQLiteCursorDriverService",
+	HandlerType: (*SQLiteCursorDriverServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CursorClosed",
+			Handler:    _SQLiteCursorDriverService_CursorClosed_Handler,
+		},
+		{
+			MethodName: "CursorDeactivated",
+			Handler:    _SQLiteCursorDriverService_CursorDeactivated_Handler,
+		},
+		{
+			MethodName: "CursorRequeried",
+			Handler:    _SQLiteCursorDriverService_CursorRequeried_Handler,
+		},
+		{
+			MethodName: "Query",
+			Handler:    _SQLiteCursorDriverService_Query_Handler,
+		},
+		{
+			MethodName: "SetBindArguments",
+			Handler:    _SQLiteCursorDriverService_SetBindArguments_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sqlite/sqlite.proto",
+}
+
+const (
+	SQLiteClosableService_AcquireReference_FullMethodName              = "/sqlite.SQLiteClosableService/AcquireReference"
+	SQLiteClosableService_Close_FullMethodName                         = "/sqlite.SQLiteClosableService/Close"
+	SQLiteClosableService_ReleaseReference_FullMethodName              = "/sqlite.SQLiteClosableService/ReleaseReference"
+	SQLiteClosableService_ReleaseReferenceFromContainer_FullMethodName = "/sqlite.SQLiteClosableService/ReleaseReferenceFromContainer"
+)
+
+// SQLiteClosableServiceClient is the client API for SQLiteClosableService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SQLiteClosableServiceClient interface {
+	AcquireReference(ctx context.Context, in *AcquireReferenceRequest, opts ...grpc.CallOption) (*AcquireReferenceResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	ReleaseReference(ctx context.Context, in *ReleaseReferenceRequest, opts ...grpc.CallOption) (*ReleaseReferenceResponse, error)
+	ReleaseReferenceFromContainer(ctx context.Context, in *ReleaseReferenceFromContainerRequest, opts ...grpc.CallOption) (*ReleaseReferenceFromContainerResponse, error)
+}
+
+type sQLiteClosableServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSQLiteClosableServiceClient(cc grpc.ClientConnInterface) SQLiteClosableServiceClient {
+	return &sQLiteClosableServiceClient{cc}
+}
+
+func (c *sQLiteClosableServiceClient) AcquireReference(ctx context.Context, in *AcquireReferenceRequest, opts ...grpc.CallOption) (*AcquireReferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AcquireReferenceResponse)
+	err := c.cc.Invoke(ctx, SQLiteClosableService_AcquireReference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteClosableServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SQLiteClosableService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteClosableServiceClient) ReleaseReference(ctx context.Context, in *ReleaseReferenceRequest, opts ...grpc.CallOption) (*ReleaseReferenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReleaseReferenceResponse)
+	err := c.cc.Invoke(ctx, SQLiteClosableService_ReleaseReference_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteClosableServiceClient) ReleaseReferenceFromContainer(ctx context.Context, in *ReleaseReferenceFromContainerRequest, opts ...grpc.CallOption) (*ReleaseReferenceFromContainerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReleaseReferenceFromContainerResponse)
+	err := c.cc.Invoke(ctx, SQLiteClosableService_ReleaseReferenceFromContainer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SQLiteClosableServiceServer is the server API for SQLiteClosableService service.
+// All implementations must embed UnimplementedSQLiteClosableServiceServer
+// for forward compatibility.
+type SQLiteClosableServiceServer interface {
+	AcquireReference(context.Context, *AcquireReferenceRequest) (*AcquireReferenceResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	ReleaseReference(context.Context, *ReleaseReferenceRequest) (*ReleaseReferenceResponse, error)
+	ReleaseReferenceFromContainer(context.Context, *ReleaseReferenceFromContainerRequest) (*ReleaseReferenceFromContainerResponse, error)
+	mustEmbedUnimplementedSQLiteClosableServiceServer()
+}
+
+// UnimplementedSQLiteClosableServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSQLiteClosableServiceServer struct{}
+
+func (UnimplementedSQLiteClosableServiceServer) AcquireReference(context.Context, *AcquireReferenceRequest) (*AcquireReferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AcquireReference not implemented")
+}
+func (UnimplementedSQLiteClosableServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSQLiteClosableServiceServer) ReleaseReference(context.Context, *ReleaseReferenceRequest) (*ReleaseReferenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReleaseReference not implemented")
+}
+func (UnimplementedSQLiteClosableServiceServer) ReleaseReferenceFromContainer(context.Context, *ReleaseReferenceFromContainerRequest) (*ReleaseReferenceFromContainerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReleaseReferenceFromContainer not implemented")
+}
+func (UnimplementedSQLiteClosableServiceServer) mustEmbedUnimplementedSQLiteClosableServiceServer() {}
+func (UnimplementedSQLiteClosableServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeSQLiteClosableServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SQLiteClosableServiceServer will
+// result in compilation errors.
+type UnsafeSQLiteClosableServiceServer interface {
+	mustEmbedUnimplementedSQLiteClosableServiceServer()
+}
+
+func RegisterSQLiteClosableServiceServer(s grpc.ServiceRegistrar, srv SQLiteClosableServiceServer) {
+	// If the following call panics, it indicates UnimplementedSQLiteClosableServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SQLiteClosableService_ServiceDesc, srv)
+}
+
+func _SQLiteClosableService_AcquireReference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AcquireReferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteClosableServiceServer).AcquireReference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteClosableService_AcquireReference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteClosableServiceServer).AcquireReference(ctx, req.(*AcquireReferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteClosableService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteClosableServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteClosableService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteClosableServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteClosableService_ReleaseReference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReleaseReferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteClosableServiceServer).ReleaseReference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteClosableService_ReleaseReference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteClosableServiceServer).ReleaseReference(ctx, req.(*ReleaseReferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteClosableService_ReleaseReferenceFromContainer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReleaseReferenceFromContainerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteClosableServiceServer).ReleaseReferenceFromContainer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteClosableService_ReleaseReferenceFromContainer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteClosableServiceServer).ReleaseReferenceFromContainer(ctx, req.(*ReleaseReferenceFromContainerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SQLiteClosableService_ServiceDesc is the grpc.ServiceDesc for SQLiteClosableService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SQLiteClosableService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sqlite.SQLiteClosableService",
+	HandlerType: (*SQLiteClosableServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AcquireReference",
+			Handler:    _SQLiteClosableService_AcquireReference_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SQLiteClosableService_Close_Handler,
+		},
+		{
+			MethodName: "ReleaseReference",
+			Handler:    _SQLiteClosableService_ReleaseReference_Handler,
+		},
+		{
+			MethodName: "ReleaseReferenceFromContainer",
+			Handler:    _SQLiteClosableService_ReleaseReferenceFromContainer_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sqlite/sqlite.proto",
+}
+
+const (
+	SQLiteRawStatementService_BindBlob2_FullMethodName            = "/sqlite.SQLiteRawStatementService/BindBlob2"
+	SQLiteRawStatementService_BindBlob4_1_FullMethodName          = "/sqlite.SQLiteRawStatementService/BindBlob4_1"
+	SQLiteRawStatementService_BindDouble_FullMethodName           = "/sqlite.SQLiteRawStatementService/BindDouble"
+	SQLiteRawStatementService_BindInt_FullMethodName              = "/sqlite.SQLiteRawStatementService/BindInt"
+	SQLiteRawStatementService_BindLong_FullMethodName             = "/sqlite.SQLiteRawStatementService/BindLong"
+	SQLiteRawStatementService_BindNull_FullMethodName             = "/sqlite.SQLiteRawStatementService/BindNull"
+	SQLiteRawStatementService_BindText_FullMethodName             = "/sqlite.SQLiteRawStatementService/BindText"
+	SQLiteRawStatementService_ClearBindings_FullMethodName        = "/sqlite.SQLiteRawStatementService/ClearBindings"
+	SQLiteRawStatementService_Close_FullMethodName                = "/sqlite.SQLiteRawStatementService/Close"
+	SQLiteRawStatementService_GetColumnBlob_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnBlob"
+	SQLiteRawStatementService_GetColumnDouble_FullMethodName      = "/sqlite.SQLiteRawStatementService/GetColumnDouble"
+	SQLiteRawStatementService_GetColumnInt_FullMethodName         = "/sqlite.SQLiteRawStatementService/GetColumnInt"
+	SQLiteRawStatementService_GetColumnLength_FullMethodName      = "/sqlite.SQLiteRawStatementService/GetColumnLength"
+	SQLiteRawStatementService_GetColumnLong_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnLong"
+	SQLiteRawStatementService_GetColumnName_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnName"
+	SQLiteRawStatementService_GetColumnText_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnText"
+	SQLiteRawStatementService_GetColumnType_FullMethodName        = "/sqlite.SQLiteRawStatementService/GetColumnType"
+	SQLiteRawStatementService_GetParameterCount_FullMethodName    = "/sqlite.SQLiteRawStatementService/GetParameterCount"
+	SQLiteRawStatementService_GetParameterIndex_FullMethodName    = "/sqlite.SQLiteRawStatementService/GetParameterIndex"
+	SQLiteRawStatementService_GetParameterName_FullMethodName     = "/sqlite.SQLiteRawStatementService/GetParameterName"
+	SQLiteRawStatementService_GetResultColumnCount_FullMethodName = "/sqlite.SQLiteRawStatementService/GetResultColumnCount"
+	SQLiteRawStatementService_IsOpen_FullMethodName               = "/sqlite.SQLiteRawStatementService/IsOpen"
+	SQLiteRawStatementService_ReadColumnBlob_FullMethodName       = "/sqlite.SQLiteRawStatementService/ReadColumnBlob"
+	SQLiteRawStatementService_Reset_FullMethodName                = "/sqlite.SQLiteRawStatementService/Reset"
+	SQLiteRawStatementService_Step_FullMethodName                 = "/sqlite.SQLiteRawStatementService/Step"
+	SQLiteRawStatementService_ToString_FullMethodName             = "/sqlite.SQLiteRawStatementService/ToString"
+)
+
+// SQLiteRawStatementServiceClient is the client API for SQLiteRawStatementService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SQLiteRawStatementServiceClient interface {
+	BindBlob2(ctx context.Context, in *BindBlob2Request, opts ...grpc.CallOption) (*BindBlob2Response, error)
+	BindBlob4_1(ctx context.Context, in *BindBlob4_1Request, opts ...grpc.CallOption) (*BindBlob4_1Response, error)
+	BindDouble(ctx context.Context, in *BindDoubleRequest, opts ...grpc.CallOption) (*BindDoubleResponse, error)
+	BindInt(ctx context.Context, in *BindIntRequest, opts ...grpc.CallOption) (*BindIntResponse, error)
+	BindLong(ctx context.Context, in *BindLongRequest, opts ...grpc.CallOption) (*BindLongResponse, error)
+	BindNull(ctx context.Context, in *BindNullRequest, opts ...grpc.CallOption) (*BindNullResponse, error)
+	BindText(ctx context.Context, in *BindTextRequest, opts ...grpc.CallOption) (*BindTextResponse, error)
+	ClearBindings(ctx context.Context, in *ClearBindingsRequest, opts ...grpc.CallOption) (*ClearBindingsResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetColumnBlob(ctx context.Context, in *GetColumnBlobRequest, opts ...grpc.CallOption) (*GetColumnBlobResponse, error)
+	GetColumnDouble(ctx context.Context, in *GetColumnDoubleRequest, opts ...grpc.CallOption) (*GetColumnDoubleResponse, error)
+	GetColumnInt(ctx context.Context, in *GetColumnIntRequest, opts ...grpc.CallOption) (*GetColumnIntResponse, error)
+	GetColumnLength(ctx context.Context, in *GetColumnLengthRequest, opts ...grpc.CallOption) (*GetColumnLengthResponse, error)
+	GetColumnLong(ctx context.Context, in *GetColumnLongRequest, opts ...grpc.CallOption) (*GetColumnLongResponse, error)
+	GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error)
+	GetColumnText(ctx context.Context, in *GetColumnTextRequest, opts ...grpc.CallOption) (*GetColumnTextResponse, error)
+	GetColumnType(ctx context.Context, in *GetColumnTypeRequest, opts ...grpc.CallOption) (*GetColumnTypeResponse, error)
+	GetParameterCount(ctx context.Context, in *GetParameterCountRequest, opts ...grpc.CallOption) (*GetParameterCountResponse, error)
+	GetParameterIndex(ctx context.Context, in *GetParameterIndexRequest, opts ...grpc.CallOption) (*GetParameterIndexResponse, error)
+	GetParameterName(ctx context.Context, in *GetParameterNameRequest, opts ...grpc.CallOption) (*GetParameterNameResponse, error)
+	GetResultColumnCount(ctx context.Context, in *GetResultColumnCountRequest, opts ...grpc.CallOption) (*GetResultColumnCountResponse, error)
+	IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error)
+	ReadColumnBlob(ctx context.Context, in *ReadColumnBlobRequest, opts ...grpc.CallOption) (*ReadColumnBlobResponse, error)
+	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
+	Step(ctx context.Context, in *StepRequest, opts ...grpc.CallOption) (*StepResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type sQLiteRawStatementServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSQLiteRawStatementServiceClient(cc grpc.ClientConnInterface) SQLiteRawStatementServiceClient {
+	return &sQLiteRawStatementServiceClient{cc}
+}
+
+func (c *sQLiteRawStatementServiceClient) BindBlob2(ctx context.Context, in *BindBlob2Request, opts ...grpc.CallOption) (*BindBlob2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindBlob2Response)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindBlob2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) BindBlob4_1(ctx context.Context, in *BindBlob4_1Request, opts ...grpc.CallOption) (*BindBlob4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindBlob4_1Response)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindBlob4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) BindDouble(ctx context.Context, in *BindDoubleRequest, opts ...grpc.CallOption) (*BindDoubleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindDoubleResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindDouble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) BindInt(ctx context.Context, in *BindIntRequest, opts ...grpc.CallOption) (*BindIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindIntResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) BindLong(ctx context.Context, in *BindLongRequest, opts ...grpc.CallOption) (*BindLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindLongResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) BindNull(ctx context.Context, in *BindNullRequest, opts ...grpc.CallOption) (*BindNullResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindNullResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindNull_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) BindText(ctx context.Context, in *BindTextRequest, opts ...grpc.CallOption) (*BindTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BindTextResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_BindText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) ClearBindings(ctx context.Context, in *ClearBindingsRequest, opts ...grpc.CallOption) (*ClearBindingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearBindingsResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_ClearBindings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetColumnBlob(ctx context.Context, in *GetColumnBlobRequest, opts ...grpc.CallOption) (*GetColumnBlobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnBlobResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnBlob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetColumnDouble(ctx context.Context, in *GetColumnDoubleRequest, opts ...grpc.CallOption) (*GetColumnDoubleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnDoubleResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnDouble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetColumnInt(ctx context.Context, in *GetColumnIntRequest, opts ...grpc.CallOption) (*GetColumnIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnIntResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetColumnLength(ctx context.Context, in *GetColumnLengthRequest, opts ...grpc.CallOption) (*GetColumnLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnLengthResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetColumnLong(ctx context.Context, in *GetColumnLongRequest, opts ...grpc.CallOption) (*GetColumnLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnLongResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnNameResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetColumnText(ctx context.Context, in *GetColumnTextRequest, opts ...grpc.CallOption) (*GetColumnTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnTextResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetColumnType(ctx context.Context, in *GetColumnTypeRequest, opts ...grpc.CallOption) (*GetColumnTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnTypeResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetColumnType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetParameterCount(ctx context.Context, in *GetParameterCountRequest, opts ...grpc.CallOption) (*GetParameterCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParameterCountResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetParameterCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetParameterIndex(ctx context.Context, in *GetParameterIndexRequest, opts ...grpc.CallOption) (*GetParameterIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParameterIndexResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetParameterIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetParameterName(ctx context.Context, in *GetParameterNameRequest, opts ...grpc.CallOption) (*GetParameterNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParameterNameResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetParameterName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) GetResultColumnCount(ctx context.Context, in *GetResultColumnCountRequest, opts ...grpc.CallOption) (*GetResultColumnCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResultColumnCountResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_GetResultColumnCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOpenResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_IsOpen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) ReadColumnBlob(ctx context.Context, in *ReadColumnBlobRequest, opts ...grpc.CallOption) (*ReadColumnBlobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReadColumnBlobResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_ReadColumnBlob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_Reset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) Step(ctx context.Context, in *StepRequest, opts ...grpc.CallOption) (*StepResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StepResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_Step_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteRawStatementServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SQLiteRawStatementService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SQLiteRawStatementServiceServer is the server API for SQLiteRawStatementService service.
+// All implementations must embed UnimplementedSQLiteRawStatementServiceServer
+// for forward compatibility.
+type SQLiteRawStatementServiceServer interface {
+	BindBlob2(context.Context, *BindBlob2Request) (*BindBlob2Response, error)
+	BindBlob4_1(context.Context, *BindBlob4_1Request) (*BindBlob4_1Response, error)
+	BindDouble(context.Context, *BindDoubleRequest) (*BindDoubleResponse, error)
+	BindInt(context.Context, *BindIntRequest) (*BindIntResponse, error)
+	BindLong(context.Context, *BindLongRequest) (*BindLongResponse, error)
+	BindNull(context.Context, *BindNullRequest) (*BindNullResponse, error)
+	BindText(context.Context, *BindTextRequest) (*BindTextResponse, error)
+	ClearBindings(context.Context, *ClearBindingsRequest) (*ClearBindingsResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetColumnBlob(context.Context, *GetColumnBlobRequest) (*GetColumnBlobResponse, error)
+	GetColumnDouble(context.Context, *GetColumnDoubleRequest) (*GetColumnDoubleResponse, error)
+	GetColumnInt(context.Context, *GetColumnIntRequest) (*GetColumnIntResponse, error)
+	GetColumnLength(context.Context, *GetColumnLengthRequest) (*GetColumnLengthResponse, error)
+	GetColumnLong(context.Context, *GetColumnLongRequest) (*GetColumnLongResponse, error)
+	GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error)
+	GetColumnText(context.Context, *GetColumnTextRequest) (*GetColumnTextResponse, error)
+	GetColumnType(context.Context, *GetColumnTypeRequest) (*GetColumnTypeResponse, error)
+	GetParameterCount(context.Context, *GetParameterCountRequest) (*GetParameterCountResponse, error)
+	GetParameterIndex(context.Context, *GetParameterIndexRequest) (*GetParameterIndexResponse, error)
+	GetParameterName(context.Context, *GetParameterNameRequest) (*GetParameterNameResponse, error)
+	GetResultColumnCount(context.Context, *GetResultColumnCountRequest) (*GetResultColumnCountResponse, error)
+	IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error)
+	ReadColumnBlob(context.Context, *ReadColumnBlobRequest) (*ReadColumnBlobResponse, error)
+	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
+	Step(context.Context, *StepRequest) (*StepResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedSQLiteRawStatementServiceServer()
+}
+
+// UnimplementedSQLiteRawStatementServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSQLiteRawStatementServiceServer struct{}
+
+func (UnimplementedSQLiteRawStatementServiceServer) BindBlob2(context.Context, *BindBlob2Request) (*BindBlob2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindBlob2 not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) BindBlob4_1(context.Context, *BindBlob4_1Request) (*BindBlob4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindBlob4_1 not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) BindDouble(context.Context, *BindDoubleRequest) (*BindDoubleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindDouble not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) BindInt(context.Context, *BindIntRequest) (*BindIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindInt not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) BindLong(context.Context, *BindLongRequest) (*BindLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindLong not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) BindNull(context.Context, *BindNullRequest) (*BindNullResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindNull not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) BindText(context.Context, *BindTextRequest) (*BindTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindText not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) ClearBindings(context.Context, *ClearBindingsRequest) (*ClearBindingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearBindings not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetColumnBlob(context.Context, *GetColumnBlobRequest) (*GetColumnBlobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnBlob not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetColumnDouble(context.Context, *GetColumnDoubleRequest) (*GetColumnDoubleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnDouble not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetColumnInt(context.Context, *GetColumnIntRequest) (*GetColumnIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnInt not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetColumnLength(context.Context, *GetColumnLengthRequest) (*GetColumnLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnLength not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetColumnLong(context.Context, *GetColumnLongRequest) (*GetColumnLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnLong not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnName not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetColumnText(context.Context, *GetColumnTextRequest) (*GetColumnTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnText not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetColumnType(context.Context, *GetColumnTypeRequest) (*GetColumnTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnType not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetParameterCount(context.Context, *GetParameterCountRequest) (*GetParameterCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParameterCount not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetParameterIndex(context.Context, *GetParameterIndexRequest) (*GetParameterIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParameterIndex not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetParameterName(context.Context, *GetParameterNameRequest) (*GetParameterNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParameterName not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) GetResultColumnCount(context.Context, *GetResultColumnCountRequest) (*GetResultColumnCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResultColumnCount not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOpen not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) ReadColumnBlob(context.Context, *ReadColumnBlobRequest) (*ReadColumnBlobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReadColumnBlob not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Reset not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) Step(context.Context, *StepRequest) (*StepResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Step not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSQLiteRawStatementServiceServer) mustEmbedUnimplementedSQLiteRawStatementServiceServer() {
+}
+func (UnimplementedSQLiteRawStatementServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSQLiteRawStatementServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SQLiteRawStatementServiceServer will
+// result in compilation errors.
+type UnsafeSQLiteRawStatementServiceServer interface {
+	mustEmbedUnimplementedSQLiteRawStatementServiceServer()
+}
+
+func RegisterSQLiteRawStatementServiceServer(s grpc.ServiceRegistrar, srv SQLiteRawStatementServiceServer) {
+	// If the following call panics, it indicates UnimplementedSQLiteRawStatementServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SQLiteRawStatementService_ServiceDesc, srv)
+}
+
+func _SQLiteRawStatementService_BindBlob2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindBlob2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).BindBlob2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_BindBlob2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).BindBlob2(ctx, req.(*BindBlob2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_BindBlob4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindBlob4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).BindBlob4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_BindBlob4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).BindBlob4_1(ctx, req.(*BindBlob4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_BindDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindDoubleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).BindDouble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_BindDouble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).BindDouble(ctx, req.(*BindDoubleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_BindInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).BindInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_BindInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).BindInt(ctx, req.(*BindIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_BindLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).BindLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_BindLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).BindLong(ctx, req.(*BindLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_BindNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindNullRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).BindNull(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_BindNull_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).BindNull(ctx, req.(*BindNullRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_BindText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).BindText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_BindText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).BindText(ctx, req.(*BindTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_ClearBindings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearBindingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).ClearBindings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_ClearBindings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).ClearBindings(ctx, req.(*ClearBindingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetColumnBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnBlobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnBlob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetColumnBlob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnBlob(ctx, req.(*GetColumnBlobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetColumnDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnDoubleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnDouble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetColumnDouble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnDouble(ctx, req.(*GetColumnDoubleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetColumnInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetColumnInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnInt(ctx, req.(*GetColumnIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetColumnLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetColumnLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnLength(ctx, req.(*GetColumnLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetColumnLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetColumnLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnLong(ctx, req.(*GetColumnLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetColumnName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetColumnName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnName(ctx, req.(*GetColumnNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetColumnText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetColumnText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnText(ctx, req.(*GetColumnTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetColumnType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetColumnType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetColumnType(ctx, req.(*GetColumnTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetParameterCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParameterCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetParameterCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetParameterCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetParameterCount(ctx, req.(*GetParameterCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetParameterIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParameterIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetParameterIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetParameterIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetParameterIndex(ctx, req.(*GetParameterIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetParameterName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParameterNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetParameterName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetParameterName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetParameterName(ctx, req.(*GetParameterNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_GetResultColumnCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResultColumnCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).GetResultColumnCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_GetResultColumnCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).GetResultColumnCount(ctx, req.(*GetResultColumnCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_IsOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOpenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).IsOpen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_IsOpen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).IsOpen(ctx, req.(*IsOpenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_ReadColumnBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadColumnBlobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).ReadColumnBlob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_ReadColumnBlob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).ReadColumnBlob(ctx, req.(*ReadColumnBlobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_Reset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).Reset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_Reset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).Reset(ctx, req.(*ResetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_Step_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StepRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).Step(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_Step_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).Step(ctx, req.(*StepRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteRawStatementService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteRawStatementServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteRawStatementService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteRawStatementServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SQLiteRawStatementService_ServiceDesc is the grpc.ServiceDesc for SQLiteRawStatementService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SQLiteRawStatementService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sqlite.SQLiteRawStatementService",
+	HandlerType: (*SQLiteRawStatementServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "BindBlob2",
+			Handler:    _SQLiteRawStatementService_BindBlob2_Handler,
+		},
+		{
+			MethodName: "BindBlob4_1",
+			Handler:    _SQLiteRawStatementService_BindBlob4_1_Handler,
+		},
+		{
+			MethodName: "BindDouble",
+			Handler:    _SQLiteRawStatementService_BindDouble_Handler,
+		},
+		{
+			MethodName: "BindInt",
+			Handler:    _SQLiteRawStatementService_BindInt_Handler,
+		},
+		{
+			MethodName: "BindLong",
+			Handler:    _SQLiteRawStatementService_BindLong_Handler,
+		},
+		{
+			MethodName: "BindNull",
+			Handler:    _SQLiteRawStatementService_BindNull_Handler,
+		},
+		{
+			MethodName: "BindText",
+			Handler:    _SQLiteRawStatementService_BindText_Handler,
+		},
+		{
+			MethodName: "ClearBindings",
+			Handler:    _SQLiteRawStatementService_ClearBindings_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SQLiteRawStatementService_Close_Handler,
+		},
+		{
+			MethodName: "GetColumnBlob",
+			Handler:    _SQLiteRawStatementService_GetColumnBlob_Handler,
+		},
+		{
+			MethodName: "GetColumnDouble",
+			Handler:    _SQLiteRawStatementService_GetColumnDouble_Handler,
+		},
+		{
+			MethodName: "GetColumnInt",
+			Handler:    _SQLiteRawStatementService_GetColumnInt_Handler,
+		},
+		{
+			MethodName: "GetColumnLength",
+			Handler:    _SQLiteRawStatementService_GetColumnLength_Handler,
+		},
+		{
+			MethodName: "GetColumnLong",
+			Handler:    _SQLiteRawStatementService_GetColumnLong_Handler,
+		},
+		{
+			MethodName: "GetColumnName",
+			Handler:    _SQLiteRawStatementService_GetColumnName_Handler,
+		},
+		{
+			MethodName: "GetColumnText",
+			Handler:    _SQLiteRawStatementService_GetColumnText_Handler,
+		},
+		{
+			MethodName: "GetColumnType",
+			Handler:    _SQLiteRawStatementService_GetColumnType_Handler,
+		},
+		{
+			MethodName: "GetParameterCount",
+			Handler:    _SQLiteRawStatementService_GetParameterCount_Handler,
+		},
+		{
+			MethodName: "GetParameterIndex",
+			Handler:    _SQLiteRawStatementService_GetParameterIndex_Handler,
+		},
+		{
+			MethodName: "GetParameterName",
+			Handler:    _SQLiteRawStatementService_GetParameterName_Handler,
+		},
+		{
+			MethodName: "GetResultColumnCount",
+			Handler:    _SQLiteRawStatementService_GetResultColumnCount_Handler,
+		},
+		{
+			MethodName: "IsOpen",
+			Handler:    _SQLiteRawStatementService_IsOpen_Handler,
+		},
+		{
+			MethodName: "ReadColumnBlob",
+			Handler:    _SQLiteRawStatementService_ReadColumnBlob_Handler,
+		},
+		{
+			MethodName: "Reset",
+			Handler:    _SQLiteRawStatementService_Reset_Handler,
+		},
+		{
+			MethodName: "Step",
+			Handler:    _SQLiteRawStatementService_Step_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SQLiteRawStatementService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sqlite/sqlite.proto",
+}
+
+const (
+	SQLiteQueryService_ToString_FullMethodName = "/sqlite.SQLiteQueryService/ToString"
+)
+
+// SQLiteQueryServiceClient is the client API for SQLiteQueryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SQLiteQueryServiceClient interface {
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type sQLiteQueryServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSQLiteQueryServiceClient(cc grpc.ClientConnInterface) SQLiteQueryServiceClient {
+	return &sQLiteQueryServiceClient{cc}
+}
+
+func (c *sQLiteQueryServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SQLiteQueryService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SQLiteQueryServiceServer is the server API for SQLiteQueryService service.
+// All implementations must embed UnimplementedSQLiteQueryServiceServer
+// for forward compatibility.
+type SQLiteQueryServiceServer interface {
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedSQLiteQueryServiceServer()
+}
+
+// UnimplementedSQLiteQueryServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSQLiteQueryServiceServer struct{}
+
+func (UnimplementedSQLiteQueryServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSQLiteQueryServiceServer) mustEmbedUnimplementedSQLiteQueryServiceServer() {}
+func (UnimplementedSQLiteQueryServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeSQLiteQueryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SQLiteQueryServiceServer will
+// result in compilation errors.
+type UnsafeSQLiteQueryServiceServer interface {
+	mustEmbedUnimplementedSQLiteQueryServiceServer()
+}
+
+func RegisterSQLiteQueryServiceServer(s grpc.ServiceRegistrar, srv SQLiteQueryServiceServer) {
+	// If the following call panics, it indicates UnimplementedSQLiteQueryServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SQLiteQueryService_ServiceDesc, srv)
+}
+
+func _SQLiteQueryService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteQueryServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteQueryService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteQueryServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SQLiteQueryService_ServiceDesc is the grpc.ServiceDesc for SQLiteQueryService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SQLiteQueryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sqlite.SQLiteQueryService",
+	HandlerType: (*SQLiteQueryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ToString",
+			Handler:    _SQLiteQueryService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sqlite/sqlite.proto",
+}
+
+const (
+	SQLiteCursorService_NewSQLiteCursor_FullMethodName          = "/sqlite.SQLiteCursorService/NewSQLiteCursor"
+	SQLiteCursorService_Close_FullMethodName                    = "/sqlite.SQLiteCursorService/Close"
+	SQLiteCursorService_Deactivate_FullMethodName               = "/sqlite.SQLiteCursorService/Deactivate"
+	SQLiteCursorService_GetColumnIndex_FullMethodName           = "/sqlite.SQLiteCursorService/GetColumnIndex"
+	SQLiteCursorService_GetColumnNames_FullMethodName           = "/sqlite.SQLiteCursorService/GetColumnNames"
+	SQLiteCursorService_GetCount_FullMethodName                 = "/sqlite.SQLiteCursorService/GetCount"
+	SQLiteCursorService_GetDatabase_FullMethodName              = "/sqlite.SQLiteCursorService/GetDatabase"
+	SQLiteCursorService_OnMove_FullMethodName                   = "/sqlite.SQLiteCursorService/OnMove"
+	SQLiteCursorService_Requery_FullMethodName                  = "/sqlite.SQLiteCursorService/Requery"
+	SQLiteCursorService_SetFillWindowForwardOnly_FullMethodName = "/sqlite.SQLiteCursorService/SetFillWindowForwardOnly"
+	SQLiteCursorService_SetSelectionArguments_FullMethodName    = "/sqlite.SQLiteCursorService/SetSelectionArguments"
+	SQLiteCursorService_SetWindow_FullMethodName                = "/sqlite.SQLiteCursorService/SetWindow"
+)
+
+// SQLiteCursorServiceClient is the client API for SQLiteCursorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SQLiteCursorServiceClient interface {
+	NewSQLiteCursor(ctx context.Context, in *NewSQLiteCursorRequest, opts ...grpc.CallOption) (*NewSQLiteCursorResponse, error)
+	Close(ctx context.Context, in *SQLiteCursorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error)
+	GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error)
+	GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error)
+	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
+	GetDatabase(ctx context.Context, in *GetDatabaseRequest, opts ...grpc.CallOption) (*GetDatabaseResponse, error)
+	OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error)
+	Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error)
+	SetFillWindowForwardOnly(ctx context.Context, in *SetFillWindowForwardOnlyRequest, opts ...grpc.CallOption) (*SetFillWindowForwardOnlyResponse, error)
+	SetSelectionArguments(ctx context.Context, in *SetSelectionArgumentsRequest, opts ...grpc.CallOption) (*SetSelectionArgumentsResponse, error)
+	SetWindow(ctx context.Context, in *SetWindowRequest, opts ...grpc.CallOption) (*SetWindowResponse, error)
+}
+
+type sQLiteCursorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSQLiteCursorServiceClient(cc grpc.ClientConnInterface) SQLiteCursorServiceClient {
+	return &sQLiteCursorServiceClient{cc}
+}
+
+func (c *sQLiteCursorServiceClient) NewSQLiteCursor(ctx context.Context, in *NewSQLiteCursorRequest, opts ...grpc.CallOption) (*NewSQLiteCursorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSQLiteCursorResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_NewSQLiteCursor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) Close(ctx context.Context, in *SQLiteCursorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeactivateResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_Deactivate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnIndexResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_GetColumnIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnNamesResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_GetColumnNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCountResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_GetCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) GetDatabase(ctx context.Context, in *GetDatabaseRequest, opts ...grpc.CallOption) (*GetDatabaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDatabaseResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_GetDatabase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) OnMove(ctx context.Context, in *OnMoveRequest, opts ...grpc.CallOption) (*OnMoveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMoveResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_OnMove_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequeryResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_Requery_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) SetFillWindowForwardOnly(ctx context.Context, in *SetFillWindowForwardOnlyRequest, opts ...grpc.CallOption) (*SetFillWindowForwardOnlyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFillWindowForwardOnlyResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_SetFillWindowForwardOnly_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) SetSelectionArguments(ctx context.Context, in *SetSelectionArgumentsRequest, opts ...grpc.CallOption) (*SetSelectionArgumentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSelectionArgumentsResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_SetSelectionArguments_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteCursorServiceClient) SetWindow(ctx context.Context, in *SetWindowRequest, opts ...grpc.CallOption) (*SetWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWindowResponse)
+	err := c.cc.Invoke(ctx, SQLiteCursorService_SetWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SQLiteCursorServiceServer is the server API for SQLiteCursorService service.
+// All implementations must embed UnimplementedSQLiteCursorServiceServer
+// for forward compatibility.
+type SQLiteCursorServiceServer interface {
+	NewSQLiteCursor(context.Context, *NewSQLiteCursorRequest) (*NewSQLiteCursorResponse, error)
+	Close(context.Context, *SQLiteCursorCloseRequest) (*CloseResponse, error)
+	Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error)
+	GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error)
+	GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error)
+	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
+	GetDatabase(context.Context, *GetDatabaseRequest) (*GetDatabaseResponse, error)
+	OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error)
+	Requery(context.Context, *RequeryRequest) (*RequeryResponse, error)
+	SetFillWindowForwardOnly(context.Context, *SetFillWindowForwardOnlyRequest) (*SetFillWindowForwardOnlyResponse, error)
+	SetSelectionArguments(context.Context, *SetSelectionArgumentsRequest) (*SetSelectionArgumentsResponse, error)
+	SetWindow(context.Context, *SetWindowRequest) (*SetWindowResponse, error)
+	mustEmbedUnimplementedSQLiteCursorServiceServer()
+}
+
+// UnimplementedSQLiteCursorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSQLiteCursorServiceServer struct{}
+
+func (UnimplementedSQLiteCursorServiceServer) NewSQLiteCursor(context.Context, *NewSQLiteCursorRequest) (*NewSQLiteCursorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSQLiteCursor not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) Close(context.Context, *SQLiteCursorCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Deactivate not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnIndex not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnNames not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) GetDatabase(context.Context, *GetDatabaseRequest) (*GetDatabaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDatabase not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) OnMove(context.Context, *OnMoveRequest) (*OnMoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMove not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) Requery(context.Context, *RequeryRequest) (*RequeryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Requery not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) SetFillWindowForwardOnly(context.Context, *SetFillWindowForwardOnlyRequest) (*SetFillWindowForwardOnlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFillWindowForwardOnly not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) SetSelectionArguments(context.Context, *SetSelectionArgumentsRequest) (*SetSelectionArgumentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSelectionArguments not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) SetWindow(context.Context, *SetWindowRequest) (*SetWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWindow not implemented")
+}
+func (UnimplementedSQLiteCursorServiceServer) mustEmbedUnimplementedSQLiteCursorServiceServer() {}
+func (UnimplementedSQLiteCursorServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeSQLiteCursorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SQLiteCursorServiceServer will
+// result in compilation errors.
+type UnsafeSQLiteCursorServiceServer interface {
+	mustEmbedUnimplementedSQLiteCursorServiceServer()
+}
+
+func RegisterSQLiteCursorServiceServer(s grpc.ServiceRegistrar, srv SQLiteCursorServiceServer) {
+	// If the following call panics, it indicates UnimplementedSQLiteCursorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SQLiteCursorService_ServiceDesc, srv)
+}
+
+func _SQLiteCursorService_NewSQLiteCursor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSQLiteCursorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).NewSQLiteCursor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_NewSQLiteCursor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).NewSQLiteCursor(ctx, req.(*NewSQLiteCursorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SQLiteCursorCloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).Close(ctx, req.(*SQLiteCursorCloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_Deactivate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeactivateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).Deactivate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_Deactivate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).Deactivate(ctx, req.(*DeactivateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_GetColumnIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).GetColumnIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_GetColumnIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).GetColumnIndex(ctx, req.(*GetColumnIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_GetColumnNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).GetColumnNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_GetColumnNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).GetColumnNames(ctx, req.(*GetColumnNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).GetCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_GetCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).GetCount(ctx, req.(*GetCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_GetDatabase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDatabaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).GetDatabase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_GetDatabase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).GetDatabase(ctx, req.(*GetDatabaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_OnMove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).OnMove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_OnMove_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).OnMove(ctx, req.(*OnMoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_Requery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequeryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).Requery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_Requery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).Requery(ctx, req.(*RequeryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_SetFillWindowForwardOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFillWindowForwardOnlyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).SetFillWindowForwardOnly(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_SetFillWindowForwardOnly_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).SetFillWindowForwardOnly(ctx, req.(*SetFillWindowForwardOnlyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_SetSelectionArguments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSelectionArgumentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).SetSelectionArguments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_SetSelectionArguments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).SetSelectionArguments(ctx, req.(*SetSelectionArgumentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteCursorService_SetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteCursorServiceServer).SetWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteCursorService_SetWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteCursorServiceServer).SetWindow(ctx, req.(*SetWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SQLiteCursorService_ServiceDesc is the grpc.ServiceDesc for SQLiteCursorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SQLiteCursorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "sqlite.SQLiteCursorService",
+	HandlerType: (*SQLiteCursorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSQLiteCursor",
+			Handler:    _SQLiteCursorService_NewSQLiteCursor_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SQLiteCursorService_Close_Handler,
+		},
+		{
+			MethodName: "Deactivate",
+			Handler:    _SQLiteCursorService_Deactivate_Handler,
+		},
+		{
+			MethodName: "GetColumnIndex",
+			Handler:    _SQLiteCursorService_GetColumnIndex_Handler,
+		},
+		{
+			MethodName: "GetColumnNames",
+			Handler:    _SQLiteCursorService_GetColumnNames_Handler,
+		},
+		{
+			MethodName: "GetCount",
+			Handler:    _SQLiteCursorService_GetCount_Handler,
+		},
+		{
+			MethodName: "GetDatabase",
+			Handler:    _SQLiteCursorService_GetDatabase_Handler,
+		},
+		{
+			MethodName: "OnMove",
+			Handler:    _SQLiteCursorService_OnMove_Handler,
+		},
+		{
+			MethodName: "Requery",
+			Handler:    _SQLiteCursorService_Requery_Handler,
+		},
+		{
+			MethodName: "SetFillWindowForwardOnly",
+			Handler:    _SQLiteCursorService_SetFillWindowForwardOnly_Handler,
+		},
+		{
+			MethodName: "SetSelectionArguments",
+			Handler:    _SQLiteCursorService_SetSelectionArguments_Handler,
+		},
+		{
+			MethodName: "SetWindow",
+			Handler:    _SQLiteCursorService_SetWindow_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/sqlite/sqlite.proto",
+}
+
+const (
 	SQLiteQueryBuilderService_NewSQLiteQueryBuilder_FullMethodName   = "/sqlite.SQLiteQueryBuilderService/NewSQLiteQueryBuilder"
 	SQLiteQueryBuilderService_AppendWhere_FullMethodName             = "/sqlite.SQLiteQueryBuilderService/AppendWhere"
 	SQLiteQueryBuilderService_AppendWhereEscapeString_FullMethodName = "/sqlite.SQLiteQueryBuilderService/AppendWhereEscapeString"
@@ -6121,6 +6809,7 @@ const (
 	SQLiteQueryBuilderService_BuildUnionQuery_FullMethodName         = "/sqlite.SQLiteQueryBuilderService/BuildUnionQuery"
 	SQLiteQueryBuilderService_Delete_FullMethodName                  = "/sqlite.SQLiteQueryBuilderService/Delete"
 	SQLiteQueryBuilderService_GetCursorFactory_FullMethodName        = "/sqlite.SQLiteQueryBuilderService/GetCursorFactory"
+	SQLiteQueryBuilderService_GetProjectionGreylist_FullMethodName   = "/sqlite.SQLiteQueryBuilderService/GetProjectionGreylist"
 	SQLiteQueryBuilderService_GetTables_FullMethodName               = "/sqlite.SQLiteQueryBuilderService/GetTables"
 	SQLiteQueryBuilderService_Insert_FullMethodName                  = "/sqlite.SQLiteQueryBuilderService/Insert"
 	SQLiteQueryBuilderService_IsDistinct_FullMethodName              = "/sqlite.SQLiteQueryBuilderService/IsDistinct"
@@ -6154,6 +6843,7 @@ type SQLiteQueryBuilderServiceClient interface {
 	BuildUnionQuery(ctx context.Context, in *BuildUnionQueryRequest, opts ...grpc.CallOption) (*BuildUnionQueryResponse, error)
 	Delete(ctx context.Context, in *SQLiteQueryBuilderDeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	GetCursorFactory(ctx context.Context, in *SQLiteQueryBuilderGetCursorFactoryRequest, opts ...grpc.CallOption) (*GetCursorFactoryResponse, error)
+	GetProjectionGreylist(ctx context.Context, in *GetProjectionGreylistRequest, opts ...grpc.CallOption) (*GetProjectionGreylistResponse, error)
 	GetTables(ctx context.Context, in *GetTablesRequest, opts ...grpc.CallOption) (*GetTablesResponse, error)
 	Insert(ctx context.Context, in *SQLiteQueryBuilderInsertRequest, opts ...grpc.CallOption) (*InsertResponse, error)
 	IsDistinct(ctx context.Context, in *IsDistinctRequest, opts ...grpc.CallOption) (*IsDistinctResponse, error)
@@ -6266,6 +6956,16 @@ func (c *sQLiteQueryBuilderServiceClient) GetCursorFactory(ctx context.Context, 
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCursorFactoryResponse)
 	err := c.cc.Invoke(ctx, SQLiteQueryBuilderService_GetCursorFactory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sQLiteQueryBuilderServiceClient) GetProjectionGreylist(ctx context.Context, in *GetProjectionGreylistRequest, opts ...grpc.CallOption) (*GetProjectionGreylistResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProjectionGreylistResponse)
+	err := c.cc.Invoke(ctx, SQLiteQueryBuilderService_GetProjectionGreylist_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -6465,6 +7165,7 @@ type SQLiteQueryBuilderServiceServer interface {
 	BuildUnionQuery(context.Context, *BuildUnionQueryRequest) (*BuildUnionQueryResponse, error)
 	Delete(context.Context, *SQLiteQueryBuilderDeleteRequest) (*DeleteResponse, error)
 	GetCursorFactory(context.Context, *SQLiteQueryBuilderGetCursorFactoryRequest) (*GetCursorFactoryResponse, error)
+	GetProjectionGreylist(context.Context, *GetProjectionGreylistRequest) (*GetProjectionGreylistResponse, error)
 	GetTables(context.Context, *GetTablesRequest) (*GetTablesResponse, error)
 	Insert(context.Context, *SQLiteQueryBuilderInsertRequest) (*InsertResponse, error)
 	IsDistinct(context.Context, *IsDistinctRequest) (*IsDistinctResponse, error)
@@ -6519,6 +7220,9 @@ func (UnimplementedSQLiteQueryBuilderServiceServer) Delete(context.Context, *SQL
 }
 func (UnimplementedSQLiteQueryBuilderServiceServer) GetCursorFactory(context.Context, *SQLiteQueryBuilderGetCursorFactoryRequest) (*GetCursorFactoryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCursorFactory not implemented")
+}
+func (UnimplementedSQLiteQueryBuilderServiceServer) GetProjectionGreylist(context.Context, *GetProjectionGreylistRequest) (*GetProjectionGreylistResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProjectionGreylist not implemented")
 }
 func (UnimplementedSQLiteQueryBuilderServiceServer) GetTables(context.Context, *GetTablesRequest) (*GetTablesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTables not implemented")
@@ -6754,6 +7458,24 @@ func _SQLiteQueryBuilderService_GetCursorFactory_Handler(srv interface{}, ctx co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SQLiteQueryBuilderServiceServer).GetCursorFactory(ctx, req.(*SQLiteQueryBuilderGetCursorFactoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SQLiteQueryBuilderService_GetProjectionGreylist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProjectionGreylistRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SQLiteQueryBuilderServiceServer).GetProjectionGreylist(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SQLiteQueryBuilderService_GetProjectionGreylist_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SQLiteQueryBuilderServiceServer).GetProjectionGreylist(ctx, req.(*GetProjectionGreylistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -7126,6 +7848,10 @@ var SQLiteQueryBuilderService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SQLiteQueryBuilderService_GetCursorFactory_Handler,
 		},
 		{
+			MethodName: "GetProjectionGreylist",
+			Handler:    _SQLiteQueryBuilderService_GetProjectionGreylist_Handler,
+		},
+		{
 			MethodName: "GetTables",
 			Handler:    _SQLiteQueryBuilderService_GetTables_Handler,
 		},
@@ -7196,694 +7922,6 @@ var SQLiteQueryBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "BuildQueryString",
 			Handler:    _SQLiteQueryBuilderService_BuildQueryString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sqlite/sqlite.proto",
-}
-
-const (
-	SQLiteCursorDriverService_CursorClosed_FullMethodName      = "/sqlite.SQLiteCursorDriverService/CursorClosed"
-	SQLiteCursorDriverService_CursorDeactivated_FullMethodName = "/sqlite.SQLiteCursorDriverService/CursorDeactivated"
-	SQLiteCursorDriverService_CursorRequeried_FullMethodName   = "/sqlite.SQLiteCursorDriverService/CursorRequeried"
-	SQLiteCursorDriverService_Query_FullMethodName             = "/sqlite.SQLiteCursorDriverService/Query"
-	SQLiteCursorDriverService_SetBindArguments_FullMethodName  = "/sqlite.SQLiteCursorDriverService/SetBindArguments"
-)
-
-// SQLiteCursorDriverServiceClient is the client API for SQLiteCursorDriverService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SQLiteCursorDriverServiceClient interface {
-	CursorClosed(ctx context.Context, in *CursorClosedRequest, opts ...grpc.CallOption) (*CursorClosedResponse, error)
-	CursorDeactivated(ctx context.Context, in *CursorDeactivatedRequest, opts ...grpc.CallOption) (*CursorDeactivatedResponse, error)
-	CursorRequeried(ctx context.Context, in *CursorRequeriedRequest, opts ...grpc.CallOption) (*CursorRequeriedResponse, error)
-	Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error)
-	SetBindArguments(ctx context.Context, in *SetBindArgumentsRequest, opts ...grpc.CallOption) (*SetBindArgumentsResponse, error)
-}
-
-type sQLiteCursorDriverServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSQLiteCursorDriverServiceClient(cc grpc.ClientConnInterface) SQLiteCursorDriverServiceClient {
-	return &sQLiteCursorDriverServiceClient{cc}
-}
-
-func (c *sQLiteCursorDriverServiceClient) CursorClosed(ctx context.Context, in *CursorClosedRequest, opts ...grpc.CallOption) (*CursorClosedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CursorClosedResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_CursorClosed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorDriverServiceClient) CursorDeactivated(ctx context.Context, in *CursorDeactivatedRequest, opts ...grpc.CallOption) (*CursorDeactivatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CursorDeactivatedResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_CursorDeactivated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorDriverServiceClient) CursorRequeried(ctx context.Context, in *CursorRequeriedRequest, opts ...grpc.CallOption) (*CursorRequeriedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CursorRequeriedResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_CursorRequeried_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorDriverServiceClient) Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_Query_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteCursorDriverServiceClient) SetBindArguments(ctx context.Context, in *SetBindArgumentsRequest, opts ...grpc.CallOption) (*SetBindArgumentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBindArgumentsResponse)
-	err := c.cc.Invoke(ctx, SQLiteCursorDriverService_SetBindArguments_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SQLiteCursorDriverServiceServer is the server API for SQLiteCursorDriverService service.
-// All implementations must embed UnimplementedSQLiteCursorDriverServiceServer
-// for forward compatibility.
-type SQLiteCursorDriverServiceServer interface {
-	CursorClosed(context.Context, *CursorClosedRequest) (*CursorClosedResponse, error)
-	CursorDeactivated(context.Context, *CursorDeactivatedRequest) (*CursorDeactivatedResponse, error)
-	CursorRequeried(context.Context, *CursorRequeriedRequest) (*CursorRequeriedResponse, error)
-	Query(context.Context, *QueryRequest) (*QueryResponse, error)
-	SetBindArguments(context.Context, *SetBindArgumentsRequest) (*SetBindArgumentsResponse, error)
-	mustEmbedUnimplementedSQLiteCursorDriverServiceServer()
-}
-
-// UnimplementedSQLiteCursorDriverServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSQLiteCursorDriverServiceServer struct{}
-
-func (UnimplementedSQLiteCursorDriverServiceServer) CursorClosed(context.Context, *CursorClosedRequest) (*CursorClosedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CursorClosed not implemented")
-}
-func (UnimplementedSQLiteCursorDriverServiceServer) CursorDeactivated(context.Context, *CursorDeactivatedRequest) (*CursorDeactivatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CursorDeactivated not implemented")
-}
-func (UnimplementedSQLiteCursorDriverServiceServer) CursorRequeried(context.Context, *CursorRequeriedRequest) (*CursorRequeriedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CursorRequeried not implemented")
-}
-func (UnimplementedSQLiteCursorDriverServiceServer) Query(context.Context, *QueryRequest) (*QueryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Query not implemented")
-}
-func (UnimplementedSQLiteCursorDriverServiceServer) SetBindArguments(context.Context, *SetBindArgumentsRequest) (*SetBindArgumentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBindArguments not implemented")
-}
-func (UnimplementedSQLiteCursorDriverServiceServer) mustEmbedUnimplementedSQLiteCursorDriverServiceServer() {
-}
-func (UnimplementedSQLiteCursorDriverServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSQLiteCursorDriverServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SQLiteCursorDriverServiceServer will
-// result in compilation errors.
-type UnsafeSQLiteCursorDriverServiceServer interface {
-	mustEmbedUnimplementedSQLiteCursorDriverServiceServer()
-}
-
-func RegisterSQLiteCursorDriverServiceServer(s grpc.ServiceRegistrar, srv SQLiteCursorDriverServiceServer) {
-	// If the following call panics, it indicates UnimplementedSQLiteCursorDriverServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SQLiteCursorDriverService_ServiceDesc, srv)
-}
-
-func _SQLiteCursorDriverService_CursorClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CursorClosedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorDriverServiceServer).CursorClosed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorDriverService_CursorClosed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorDriverServiceServer).CursorClosed(ctx, req.(*CursorClosedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorDriverService_CursorDeactivated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CursorDeactivatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorDriverServiceServer).CursorDeactivated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorDriverService_CursorDeactivated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorDriverServiceServer).CursorDeactivated(ctx, req.(*CursorDeactivatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorDriverService_CursorRequeried_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CursorRequeriedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorDriverServiceServer).CursorRequeried(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorDriverService_CursorRequeried_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorDriverServiceServer).CursorRequeried(ctx, req.(*CursorRequeriedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorDriverService_Query_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorDriverServiceServer).Query(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorDriverService_Query_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorDriverServiceServer).Query(ctx, req.(*QueryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteCursorDriverService_SetBindArguments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBindArgumentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteCursorDriverServiceServer).SetBindArguments(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteCursorDriverService_SetBindArguments_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteCursorDriverServiceServer).SetBindArguments(ctx, req.(*SetBindArgumentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SQLiteCursorDriverService_ServiceDesc is the grpc.ServiceDesc for SQLiteCursorDriverService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SQLiteCursorDriverService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sqlite.SQLiteCursorDriverService",
-	HandlerType: (*SQLiteCursorDriverServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CursorClosed",
-			Handler:    _SQLiteCursorDriverService_CursorClosed_Handler,
-		},
-		{
-			MethodName: "CursorDeactivated",
-			Handler:    _SQLiteCursorDriverService_CursorDeactivated_Handler,
-		},
-		{
-			MethodName: "CursorRequeried",
-			Handler:    _SQLiteCursorDriverService_CursorRequeried_Handler,
-		},
-		{
-			MethodName: "Query",
-			Handler:    _SQLiteCursorDriverService_Query_Handler,
-		},
-		{
-			MethodName: "SetBindArguments",
-			Handler:    _SQLiteCursorDriverService_SetBindArguments_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sqlite/sqlite.proto",
-}
-
-const (
-	SQLiteQueryService_ToString_FullMethodName = "/sqlite.SQLiteQueryService/ToString"
-)
-
-// SQLiteQueryServiceClient is the client API for SQLiteQueryService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SQLiteQueryServiceClient interface {
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type sQLiteQueryServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSQLiteQueryServiceClient(cc grpc.ClientConnInterface) SQLiteQueryServiceClient {
-	return &sQLiteQueryServiceClient{cc}
-}
-
-func (c *sQLiteQueryServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SQLiteQueryService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SQLiteQueryServiceServer is the server API for SQLiteQueryService service.
-// All implementations must embed UnimplementedSQLiteQueryServiceServer
-// for forward compatibility.
-type SQLiteQueryServiceServer interface {
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedSQLiteQueryServiceServer()
-}
-
-// UnimplementedSQLiteQueryServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSQLiteQueryServiceServer struct{}
-
-func (UnimplementedSQLiteQueryServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSQLiteQueryServiceServer) mustEmbedUnimplementedSQLiteQueryServiceServer() {}
-func (UnimplementedSQLiteQueryServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeSQLiteQueryServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SQLiteQueryServiceServer will
-// result in compilation errors.
-type UnsafeSQLiteQueryServiceServer interface {
-	mustEmbedUnimplementedSQLiteQueryServiceServer()
-}
-
-func RegisterSQLiteQueryServiceServer(s grpc.ServiceRegistrar, srv SQLiteQueryServiceServer) {
-	// If the following call panics, it indicates UnimplementedSQLiteQueryServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SQLiteQueryService_ServiceDesc, srv)
-}
-
-func _SQLiteQueryService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteQueryServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteQueryService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteQueryServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SQLiteQueryService_ServiceDesc is the grpc.ServiceDesc for SQLiteQueryService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SQLiteQueryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sqlite.SQLiteQueryService",
-	HandlerType: (*SQLiteQueryServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ToString",
-			Handler:    _SQLiteQueryService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/sqlite/sqlite.proto",
-}
-
-const (
-	SQLiteStatementService_Execute_FullMethodName                          = "/sqlite.SQLiteStatementService/Execute"
-	SQLiteStatementService_ExecuteInsert_FullMethodName                    = "/sqlite.SQLiteStatementService/ExecuteInsert"
-	SQLiteStatementService_ExecuteUpdateDelete_FullMethodName              = "/sqlite.SQLiteStatementService/ExecuteUpdateDelete"
-	SQLiteStatementService_SimpleQueryForBlobFileDescriptor_FullMethodName = "/sqlite.SQLiteStatementService/SimpleQueryForBlobFileDescriptor"
-	SQLiteStatementService_SimpleQueryForLong_FullMethodName               = "/sqlite.SQLiteStatementService/SimpleQueryForLong"
-	SQLiteStatementService_SimpleQueryForString_FullMethodName             = "/sqlite.SQLiteStatementService/SimpleQueryForString"
-	SQLiteStatementService_ToString_FullMethodName                         = "/sqlite.SQLiteStatementService/ToString"
-)
-
-// SQLiteStatementServiceClient is the client API for SQLiteStatementService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SQLiteStatementServiceClient interface {
-	Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error)
-	ExecuteInsert(ctx context.Context, in *ExecuteInsertRequest, opts ...grpc.CallOption) (*ExecuteInsertResponse, error)
-	ExecuteUpdateDelete(ctx context.Context, in *ExecuteUpdateDeleteRequest, opts ...grpc.CallOption) (*ExecuteUpdateDeleteResponse, error)
-	SimpleQueryForBlobFileDescriptor(ctx context.Context, in *SimpleQueryForBlobFileDescriptorRequest, opts ...grpc.CallOption) (*SimpleQueryForBlobFileDescriptorResponse, error)
-	SimpleQueryForLong(ctx context.Context, in *SimpleQueryForLongRequest, opts ...grpc.CallOption) (*SimpleQueryForLongResponse, error)
-	SimpleQueryForString(ctx context.Context, in *SimpleQueryForStringRequest, opts ...grpc.CallOption) (*SimpleQueryForStringResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type sQLiteStatementServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSQLiteStatementServiceClient(cc grpc.ClientConnInterface) SQLiteStatementServiceClient {
-	return &sQLiteStatementServiceClient{cc}
-}
-
-func (c *sQLiteStatementServiceClient) Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExecuteResponse)
-	err := c.cc.Invoke(ctx, SQLiteStatementService_Execute_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteStatementServiceClient) ExecuteInsert(ctx context.Context, in *ExecuteInsertRequest, opts ...grpc.CallOption) (*ExecuteInsertResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExecuteInsertResponse)
-	err := c.cc.Invoke(ctx, SQLiteStatementService_ExecuteInsert_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteStatementServiceClient) ExecuteUpdateDelete(ctx context.Context, in *ExecuteUpdateDeleteRequest, opts ...grpc.CallOption) (*ExecuteUpdateDeleteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExecuteUpdateDeleteResponse)
-	err := c.cc.Invoke(ctx, SQLiteStatementService_ExecuteUpdateDelete_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteStatementServiceClient) SimpleQueryForBlobFileDescriptor(ctx context.Context, in *SimpleQueryForBlobFileDescriptorRequest, opts ...grpc.CallOption) (*SimpleQueryForBlobFileDescriptorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SimpleQueryForBlobFileDescriptorResponse)
-	err := c.cc.Invoke(ctx, SQLiteStatementService_SimpleQueryForBlobFileDescriptor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteStatementServiceClient) SimpleQueryForLong(ctx context.Context, in *SimpleQueryForLongRequest, opts ...grpc.CallOption) (*SimpleQueryForLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SimpleQueryForLongResponse)
-	err := c.cc.Invoke(ctx, SQLiteStatementService_SimpleQueryForLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteStatementServiceClient) SimpleQueryForString(ctx context.Context, in *SimpleQueryForStringRequest, opts ...grpc.CallOption) (*SimpleQueryForStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SimpleQueryForStringResponse)
-	err := c.cc.Invoke(ctx, SQLiteStatementService_SimpleQueryForString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sQLiteStatementServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SQLiteStatementService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SQLiteStatementServiceServer is the server API for SQLiteStatementService service.
-// All implementations must embed UnimplementedSQLiteStatementServiceServer
-// for forward compatibility.
-type SQLiteStatementServiceServer interface {
-	Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error)
-	ExecuteInsert(context.Context, *ExecuteInsertRequest) (*ExecuteInsertResponse, error)
-	ExecuteUpdateDelete(context.Context, *ExecuteUpdateDeleteRequest) (*ExecuteUpdateDeleteResponse, error)
-	SimpleQueryForBlobFileDescriptor(context.Context, *SimpleQueryForBlobFileDescriptorRequest) (*SimpleQueryForBlobFileDescriptorResponse, error)
-	SimpleQueryForLong(context.Context, *SimpleQueryForLongRequest) (*SimpleQueryForLongResponse, error)
-	SimpleQueryForString(context.Context, *SimpleQueryForStringRequest) (*SimpleQueryForStringResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedSQLiteStatementServiceServer()
-}
-
-// UnimplementedSQLiteStatementServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSQLiteStatementServiceServer struct{}
-
-func (UnimplementedSQLiteStatementServiceServer) Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Execute not implemented")
-}
-func (UnimplementedSQLiteStatementServiceServer) ExecuteInsert(context.Context, *ExecuteInsertRequest) (*ExecuteInsertResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ExecuteInsert not implemented")
-}
-func (UnimplementedSQLiteStatementServiceServer) ExecuteUpdateDelete(context.Context, *ExecuteUpdateDeleteRequest) (*ExecuteUpdateDeleteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ExecuteUpdateDelete not implemented")
-}
-func (UnimplementedSQLiteStatementServiceServer) SimpleQueryForBlobFileDescriptor(context.Context, *SimpleQueryForBlobFileDescriptorRequest) (*SimpleQueryForBlobFileDescriptorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SimpleQueryForBlobFileDescriptor not implemented")
-}
-func (UnimplementedSQLiteStatementServiceServer) SimpleQueryForLong(context.Context, *SimpleQueryForLongRequest) (*SimpleQueryForLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SimpleQueryForLong not implemented")
-}
-func (UnimplementedSQLiteStatementServiceServer) SimpleQueryForString(context.Context, *SimpleQueryForStringRequest) (*SimpleQueryForStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SimpleQueryForString not implemented")
-}
-func (UnimplementedSQLiteStatementServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSQLiteStatementServiceServer) mustEmbedUnimplementedSQLiteStatementServiceServer() {
-}
-func (UnimplementedSQLiteStatementServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSQLiteStatementServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SQLiteStatementServiceServer will
-// result in compilation errors.
-type UnsafeSQLiteStatementServiceServer interface {
-	mustEmbedUnimplementedSQLiteStatementServiceServer()
-}
-
-func RegisterSQLiteStatementServiceServer(s grpc.ServiceRegistrar, srv SQLiteStatementServiceServer) {
-	// If the following call panics, it indicates UnimplementedSQLiteStatementServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SQLiteStatementService_ServiceDesc, srv)
-}
-
-func _SQLiteStatementService_Execute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExecuteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteStatementServiceServer).Execute(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteStatementService_Execute_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteStatementServiceServer).Execute(ctx, req.(*ExecuteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteStatementService_ExecuteInsert_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExecuteInsertRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteStatementServiceServer).ExecuteInsert(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteStatementService_ExecuteInsert_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteStatementServiceServer).ExecuteInsert(ctx, req.(*ExecuteInsertRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteStatementService_ExecuteUpdateDelete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExecuteUpdateDeleteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteStatementServiceServer).ExecuteUpdateDelete(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteStatementService_ExecuteUpdateDelete_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteStatementServiceServer).ExecuteUpdateDelete(ctx, req.(*ExecuteUpdateDeleteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteStatementService_SimpleQueryForBlobFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SimpleQueryForBlobFileDescriptorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteStatementServiceServer).SimpleQueryForBlobFileDescriptor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteStatementService_SimpleQueryForBlobFileDescriptor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteStatementServiceServer).SimpleQueryForBlobFileDescriptor(ctx, req.(*SimpleQueryForBlobFileDescriptorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteStatementService_SimpleQueryForLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SimpleQueryForLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteStatementServiceServer).SimpleQueryForLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteStatementService_SimpleQueryForLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteStatementServiceServer).SimpleQueryForLong(ctx, req.(*SimpleQueryForLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteStatementService_SimpleQueryForString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SimpleQueryForStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteStatementServiceServer).SimpleQueryForString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteStatementService_SimpleQueryForString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteStatementServiceServer).SimpleQueryForString(ctx, req.(*SimpleQueryForStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SQLiteStatementService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SQLiteStatementServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SQLiteStatementService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SQLiteStatementServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SQLiteStatementService_ServiceDesc is the grpc.ServiceDesc for SQLiteStatementService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SQLiteStatementService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sqlite.SQLiteStatementService",
-	HandlerType: (*SQLiteStatementServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Execute",
-			Handler:    _SQLiteStatementService_Execute_Handler,
-		},
-		{
-			MethodName: "ExecuteInsert",
-			Handler:    _SQLiteStatementService_ExecuteInsert_Handler,
-		},
-		{
-			MethodName: "ExecuteUpdateDelete",
-			Handler:    _SQLiteStatementService_ExecuteUpdateDelete_Handler,
-		},
-		{
-			MethodName: "SimpleQueryForBlobFileDescriptor",
-			Handler:    _SQLiteStatementService_SimpleQueryForBlobFileDescriptor_Handler,
-		},
-		{
-			MethodName: "SimpleQueryForLong",
-			Handler:    _SQLiteStatementService_SimpleQueryForLong_Handler,
-		},
-		{
-			MethodName: "SimpleQueryForString",
-			Handler:    _SQLiteStatementService_SimpleQueryForString_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SQLiteStatementService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -111,6 +111,1422 @@ func (x *ToStringResponse) GetResult() string {
 	return ""
 }
 
+type BreaksBetweenLettersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BreaksBetweenLettersRequest) Reset() {
+	*x = BreaksBetweenLettersRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BreaksBetweenLettersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BreaksBetweenLettersRequest) ProtoMessage() {}
+
+func (x *BreaksBetweenLettersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BreaksBetweenLettersRequest.ProtoReflect.Descriptor instead.
+func (*BreaksBetweenLettersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BreaksBetweenLettersRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BreaksBetweenLettersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BreaksBetweenLettersResponse) Reset() {
+	*x = BreaksBetweenLettersResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BreaksBetweenLettersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BreaksBetweenLettersResponse) ProtoMessage() {}
+
+func (x *BreaksBetweenLettersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BreaksBetweenLettersResponse.ProtoReflect.Descriptor instead.
+func (*BreaksBetweenLettersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *BreaksBetweenLettersResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetCode1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCode1Request) Reset() {
+	*x = GetCode1Request{}
+	mi := &file_proto_lang_lang_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCode1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCode1Request) ProtoMessage() {}
+
+func (x *GetCode1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCode1Request.ProtoReflect.Descriptor instead.
+func (*GetCode1Request) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetCode1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetCode1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCode1Response) Reset() {
+	*x = GetCode1Response{}
+	mi := &file_proto_lang_lang_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCode1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCode1Response) ProtoMessage() {}
+
+func (x *GetCode1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCode1Response.ProtoReflect.Descriptor instead.
+func (*GetCode1Response) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetCode1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCode1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCode1_1Request) Reset() {
+	*x = GetCode1_1Request{}
+	mi := &file_proto_lang_lang_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCode1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCode1_1Request) ProtoMessage() {}
+
+func (x *GetCode1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCode1_1Request.ProtoReflect.Descriptor instead.
+func (*GetCode1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetCode1_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetCode1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCode1_1Response) Reset() {
+	*x = GetCode1_1Response{}
+	mi := &file_proto_lang_lang_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCode1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCode1_1Response) ProtoMessage() {}
+
+func (x *GetCode1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCode1_1Response.ProtoReflect.Descriptor instead.
+func (*GetCode1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetCode1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCode1_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCode1_2Request) Reset() {
+	*x = GetCode1_2Request{}
+	mi := &file_proto_lang_lang_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCode1_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCode1_2Request) ProtoMessage() {}
+
+func (x *GetCode1_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCode1_2Request.ProtoReflect.Descriptor instead.
+func (*GetCode1_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetCode1_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetCode1_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCode1_2Response) Reset() {
+	*x = GetCode1_2Response{}
+	mi := &file_proto_lang_lang_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCode1_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCode1_2Response) ProtoMessage() {}
+
+func (x *GetCode1_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCode1_2Response.ProtoReflect.Descriptor instead.
+func (*GetCode1_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetCode1_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCodeFromNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCodeFromNameRequest) Reset() {
+	*x = GetCodeFromNameRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCodeFromNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCodeFromNameRequest) ProtoMessage() {}
+
+func (x *GetCodeFromNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCodeFromNameRequest.ProtoReflect.Descriptor instead.
+func (*GetCodeFromNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetCodeFromNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetCodeFromNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCodeFromNameResponse) Reset() {
+	*x = GetCodeFromNameResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCodeFromNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCodeFromNameResponse) ProtoMessage() {}
+
+func (x *GetCodeFromNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCodeFromNameResponse.ProtoReflect.Descriptor instead.
+func (*GetCodeFromNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetCodeFromNameResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameRequest) Reset() {
+	*x = GetNameRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameRequest) ProtoMessage() {}
+
+func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
+func (*GetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetNameRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameResponse) Reset() {
+	*x = GetNameResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameResponse) ProtoMessage() {}
+
+func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
+func (*GetNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSampleStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSampleStringRequest) Reset() {
+	*x = GetSampleStringRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSampleStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSampleStringRequest) ProtoMessage() {}
+
+func (x *GetSampleStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSampleStringRequest.ProtoReflect.Descriptor instead.
+func (*GetSampleStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetSampleStringRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetSampleStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSampleStringResponse) Reset() {
+	*x = GetSampleStringResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSampleStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSampleStringResponse) ProtoMessage() {}
+
+func (x *GetSampleStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSampleStringResponse.ProtoReflect.Descriptor instead.
+func (*GetSampleStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetSampleStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetScriptRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScriptRequest) Reset() {
+	*x = GetScriptRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScriptRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScriptRequest) ProtoMessage() {}
+
+func (x *GetScriptRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScriptRequest.ProtoReflect.Descriptor instead.
+func (*GetScriptRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetScriptRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetScriptResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScriptResponse) Reset() {
+	*x = GetScriptResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScriptResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScriptResponse) ProtoMessage() {}
+
+func (x *GetScriptResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScriptResponse.ProtoReflect.Descriptor instead.
+func (*GetScriptResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetScriptResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetScriptExtensionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScriptExtensionsRequest) Reset() {
+	*x = GetScriptExtensionsRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScriptExtensionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScriptExtensionsRequest) ProtoMessage() {}
+
+func (x *GetScriptExtensionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScriptExtensionsRequest.ProtoReflect.Descriptor instead.
+func (*GetScriptExtensionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetScriptExtensionsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetScriptExtensionsRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetScriptExtensionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScriptExtensionsResponse) Reset() {
+	*x = GetScriptExtensionsResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScriptExtensionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScriptExtensionsResponse) ProtoMessage() {}
+
+func (x *GetScriptExtensionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScriptExtensionsResponse.ProtoReflect.Descriptor instead.
+func (*GetScriptExtensionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetScriptExtensionsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetShortNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetShortNameRequest) Reset() {
+	*x = GetShortNameRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetShortNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetShortNameRequest) ProtoMessage() {}
+
+func (x *GetShortNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetShortNameRequest.ProtoReflect.Descriptor instead.
+func (*GetShortNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetShortNameRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetShortNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetShortNameResponse) Reset() {
+	*x = GetShortNameResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetShortNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetShortNameResponse) ProtoMessage() {}
+
+func (x *GetShortNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetShortNameResponse.ProtoReflect.Descriptor instead.
+func (*GetShortNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetShortNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetUsageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUsageRequest) Reset() {
+	*x = GetUsageRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUsageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUsageRequest) ProtoMessage() {}
+
+func (x *GetUsageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUsageRequest.ProtoReflect.Descriptor instead.
+func (*GetUsageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetUsageRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetUsageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUsageResponse) Reset() {
+	*x = GetUsageResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUsageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUsageResponse) ProtoMessage() {}
+
+func (x *GetUsageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUsageResponse.ProtoReflect.Descriptor instead.
+func (*GetUsageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetUsageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasScriptRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasScriptRequest) Reset() {
+	*x = HasScriptRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasScriptRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasScriptRequest) ProtoMessage() {}
+
+func (x *HasScriptRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasScriptRequest.ProtoReflect.Descriptor instead.
+func (*HasScriptRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *HasScriptRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *HasScriptRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type HasScriptResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasScriptResponse) Reset() {
+	*x = HasScriptResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasScriptResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasScriptResponse) ProtoMessage() {}
+
+func (x *HasScriptResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasScriptResponse.ProtoReflect.Descriptor instead.
+func (*HasScriptResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *HasScriptResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsCasedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsCasedRequest) Reset() {
+	*x = IsCasedRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsCasedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsCasedRequest) ProtoMessage() {}
+
+func (x *IsCasedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsCasedRequest.ProtoReflect.Descriptor instead.
+func (*IsCasedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *IsCasedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsCasedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsCasedResponse) Reset() {
+	*x = IsCasedResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsCasedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsCasedResponse) ProtoMessage() {}
+
+func (x *IsCasedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsCasedResponse.ProtoReflect.Descriptor instead.
+func (*IsCasedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *IsCasedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsRightToLeftRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRightToLeftRequest) Reset() {
+	*x = IsRightToLeftRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRightToLeftRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRightToLeftRequest) ProtoMessage() {}
+
+func (x *IsRightToLeftRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRightToLeftRequest.ProtoReflect.Descriptor instead.
+func (*IsRightToLeftRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *IsRightToLeftRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsRightToLeftResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRightToLeftResponse) Reset() {
+	*x = IsRightToLeftResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRightToLeftResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRightToLeftResponse) ProtoMessage() {}
+
+func (x *IsRightToLeftResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRightToLeftResponse.ProtoReflect.Descriptor instead.
+func (*IsRightToLeftResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *IsRightToLeftResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValuesRequest) Reset() {
+	*x = ValuesRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValuesRequest) ProtoMessage() {}
+
+func (x *ValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValuesRequest.ProtoReflect.Descriptor instead.
+func (*ValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{30}
+}
+
+type ValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValuesResponse) Reset() {
+	*x = ValuesResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValuesResponse) ProtoMessage() {}
+
+func (x *ValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValuesResponse.ProtoReflect.Descriptor instead.
+func (*ValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *ValuesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ValueOfRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOfRequest) Reset() {
+	*x = ValueOfRequest{}
+	mi := &file_proto_lang_lang_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOfRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOfRequest) ProtoMessage() {}
+
+func (x *ValueOfRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOfRequest.ProtoReflect.Descriptor instead.
+func (*ValueOfRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *ValueOfRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ValueOfResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOfResponse) Reset() {
+	*x = ValueOfResponse{}
+	mi := &file_proto_lang_lang_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOfResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOfResponse) ProtoMessage() {}
+
+func (x *ValueOfResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lang_lang_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOfResponse.ProtoReflect.Descriptor instead.
+func (*ValueOfResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *ValueOfResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type CharCountRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -120,7 +1536,7 @@ type CharCountRequest struct {
 
 func (x *CharCountRequest) Reset() {
 	*x = CharCountRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[2]
+	mi := &file_proto_lang_lang_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -132,7 +1548,7 @@ func (x *CharCountRequest) String() string {
 func (*CharCountRequest) ProtoMessage() {}
 
 func (x *CharCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[2]
+	mi := &file_proto_lang_lang_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -145,7 +1561,7 @@ func (x *CharCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CharCountRequest.ProtoReflect.Descriptor instead.
 func (*CharCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{2}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CharCountRequest) GetArg0() int32 {
@@ -164,7 +1580,7 @@ type CharCountResponse struct {
 
 func (x *CharCountResponse) Reset() {
 	*x = CharCountResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[3]
+	mi := &file_proto_lang_lang_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -176,7 +1592,7 @@ func (x *CharCountResponse) String() string {
 func (*CharCountResponse) ProtoMessage() {}
 
 func (x *CharCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[3]
+	mi := &file_proto_lang_lang_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -189,7 +1605,7 @@ func (x *CharCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CharCountResponse.ProtoReflect.Descriptor instead.
 func (*CharCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{3}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *CharCountResponse) GetResult() int32 {
@@ -209,7 +1625,7 @@ type CodePointAt2Request struct {
 
 func (x *CodePointAt2Request) Reset() {
 	*x = CodePointAt2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[4]
+	mi := &file_proto_lang_lang_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -221,7 +1637,7 @@ func (x *CodePointAt2Request) String() string {
 func (*CodePointAt2Request) ProtoMessage() {}
 
 func (x *CodePointAt2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[4]
+	mi := &file_proto_lang_lang_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -234,7 +1650,7 @@ func (x *CodePointAt2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointAt2Request.ProtoReflect.Descriptor instead.
 func (*CodePointAt2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{4}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *CodePointAt2Request) GetArg0() int64 {
@@ -260,7 +1676,7 @@ type CodePointAt2Response struct {
 
 func (x *CodePointAt2Response) Reset() {
 	*x = CodePointAt2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[5]
+	mi := &file_proto_lang_lang_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -272,7 +1688,7 @@ func (x *CodePointAt2Response) String() string {
 func (*CodePointAt2Response) ProtoMessage() {}
 
 func (x *CodePointAt2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[5]
+	mi := &file_proto_lang_lang_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -285,7 +1701,7 @@ func (x *CodePointAt2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointAt2Response.ProtoReflect.Descriptor instead.
 func (*CodePointAt2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{5}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *CodePointAt2Response) GetResult() int32 {
@@ -306,7 +1722,7 @@ type CodePointAt3_1Request struct {
 
 func (x *CodePointAt3_1Request) Reset() {
 	*x = CodePointAt3_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[6]
+	mi := &file_proto_lang_lang_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -318,7 +1734,7 @@ func (x *CodePointAt3_1Request) String() string {
 func (*CodePointAt3_1Request) ProtoMessage() {}
 
 func (x *CodePointAt3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[6]
+	mi := &file_proto_lang_lang_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -331,7 +1747,7 @@ func (x *CodePointAt3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointAt3_1Request.ProtoReflect.Descriptor instead.
 func (*CodePointAt3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{6}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *CodePointAt3_1Request) GetArg0() int64 {
@@ -364,7 +1780,7 @@ type CodePointAt3_1Response struct {
 
 func (x *CodePointAt3_1Response) Reset() {
 	*x = CodePointAt3_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[7]
+	mi := &file_proto_lang_lang_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -376,7 +1792,7 @@ func (x *CodePointAt3_1Response) String() string {
 func (*CodePointAt3_1Response) ProtoMessage() {}
 
 func (x *CodePointAt3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[7]
+	mi := &file_proto_lang_lang_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -389,7 +1805,7 @@ func (x *CodePointAt3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointAt3_1Response.ProtoReflect.Descriptor instead.
 func (*CodePointAt3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{7}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *CodePointAt3_1Response) GetResult() int32 {
@@ -409,7 +1825,7 @@ type CodePointAt2_2Request struct {
 
 func (x *CodePointAt2_2Request) Reset() {
 	*x = CodePointAt2_2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[8]
+	mi := &file_proto_lang_lang_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -421,7 +1837,7 @@ func (x *CodePointAt2_2Request) String() string {
 func (*CodePointAt2_2Request) ProtoMessage() {}
 
 func (x *CodePointAt2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[8]
+	mi := &file_proto_lang_lang_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -434,7 +1850,7 @@ func (x *CodePointAt2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointAt2_2Request.ProtoReflect.Descriptor instead.
 func (*CodePointAt2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{8}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *CodePointAt2_2Request) GetArg0() string {
@@ -460,7 +1876,7 @@ type CodePointAt2_2Response struct {
 
 func (x *CodePointAt2_2Response) Reset() {
 	*x = CodePointAt2_2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[9]
+	mi := &file_proto_lang_lang_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -472,7 +1888,7 @@ func (x *CodePointAt2_2Response) String() string {
 func (*CodePointAt2_2Response) ProtoMessage() {}
 
 func (x *CodePointAt2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[9]
+	mi := &file_proto_lang_lang_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -485,7 +1901,7 @@ func (x *CodePointAt2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointAt2_2Response.ProtoReflect.Descriptor instead.
 func (*CodePointAt2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{9}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *CodePointAt2_2Response) GetResult() int32 {
@@ -505,7 +1921,7 @@ type CodePointBefore2Request struct {
 
 func (x *CodePointBefore2Request) Reset() {
 	*x = CodePointBefore2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[10]
+	mi := &file_proto_lang_lang_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -517,7 +1933,7 @@ func (x *CodePointBefore2Request) String() string {
 func (*CodePointBefore2Request) ProtoMessage() {}
 
 func (x *CodePointBefore2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[10]
+	mi := &file_proto_lang_lang_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -530,7 +1946,7 @@ func (x *CodePointBefore2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointBefore2Request.ProtoReflect.Descriptor instead.
 func (*CodePointBefore2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{10}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *CodePointBefore2Request) GetArg0() int64 {
@@ -556,7 +1972,7 @@ type CodePointBefore2Response struct {
 
 func (x *CodePointBefore2Response) Reset() {
 	*x = CodePointBefore2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[11]
+	mi := &file_proto_lang_lang_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -568,7 +1984,7 @@ func (x *CodePointBefore2Response) String() string {
 func (*CodePointBefore2Response) ProtoMessage() {}
 
 func (x *CodePointBefore2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[11]
+	mi := &file_proto_lang_lang_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -581,7 +1997,7 @@ func (x *CodePointBefore2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointBefore2Response.ProtoReflect.Descriptor instead.
 func (*CodePointBefore2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{11}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *CodePointBefore2Response) GetResult() int32 {
@@ -602,7 +2018,7 @@ type CodePointBefore3_1Request struct {
 
 func (x *CodePointBefore3_1Request) Reset() {
 	*x = CodePointBefore3_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[12]
+	mi := &file_proto_lang_lang_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -614,7 +2030,7 @@ func (x *CodePointBefore3_1Request) String() string {
 func (*CodePointBefore3_1Request) ProtoMessage() {}
 
 func (x *CodePointBefore3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[12]
+	mi := &file_proto_lang_lang_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -627,7 +2043,7 @@ func (x *CodePointBefore3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointBefore3_1Request.ProtoReflect.Descriptor instead.
 func (*CodePointBefore3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{12}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *CodePointBefore3_1Request) GetArg0() int64 {
@@ -660,7 +2076,7 @@ type CodePointBefore3_1Response struct {
 
 func (x *CodePointBefore3_1Response) Reset() {
 	*x = CodePointBefore3_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[13]
+	mi := &file_proto_lang_lang_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -672,7 +2088,7 @@ func (x *CodePointBefore3_1Response) String() string {
 func (*CodePointBefore3_1Response) ProtoMessage() {}
 
 func (x *CodePointBefore3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[13]
+	mi := &file_proto_lang_lang_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -685,7 +2101,7 @@ func (x *CodePointBefore3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointBefore3_1Response.ProtoReflect.Descriptor instead.
 func (*CodePointBefore3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{13}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *CodePointBefore3_1Response) GetResult() int32 {
@@ -705,7 +2121,7 @@ type CodePointBefore2_2Request struct {
 
 func (x *CodePointBefore2_2Request) Reset() {
 	*x = CodePointBefore2_2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[14]
+	mi := &file_proto_lang_lang_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -717,7 +2133,7 @@ func (x *CodePointBefore2_2Request) String() string {
 func (*CodePointBefore2_2Request) ProtoMessage() {}
 
 func (x *CodePointBefore2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[14]
+	mi := &file_proto_lang_lang_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -730,7 +2146,7 @@ func (x *CodePointBefore2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointBefore2_2Request.ProtoReflect.Descriptor instead.
 func (*CodePointBefore2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{14}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *CodePointBefore2_2Request) GetArg0() string {
@@ -756,7 +2172,7 @@ type CodePointBefore2_2Response struct {
 
 func (x *CodePointBefore2_2Response) Reset() {
 	*x = CodePointBefore2_2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[15]
+	mi := &file_proto_lang_lang_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -768,7 +2184,7 @@ func (x *CodePointBefore2_2Response) String() string {
 func (*CodePointBefore2_2Response) ProtoMessage() {}
 
 func (x *CodePointBefore2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[15]
+	mi := &file_proto_lang_lang_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -781,7 +2197,7 @@ func (x *CodePointBefore2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointBefore2_2Response.ProtoReflect.Descriptor instead.
 func (*CodePointBefore2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{15}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *CodePointBefore2_2Response) GetResult() int32 {
@@ -802,7 +2218,7 @@ type CodePointCount3Request struct {
 
 func (x *CodePointCount3Request) Reset() {
 	*x = CodePointCount3Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[16]
+	mi := &file_proto_lang_lang_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -814,7 +2230,7 @@ func (x *CodePointCount3Request) String() string {
 func (*CodePointCount3Request) ProtoMessage() {}
 
 func (x *CodePointCount3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[16]
+	mi := &file_proto_lang_lang_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -827,7 +2243,7 @@ func (x *CodePointCount3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointCount3Request.ProtoReflect.Descriptor instead.
 func (*CodePointCount3Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{16}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *CodePointCount3Request) GetArg0() int64 {
@@ -860,7 +2276,7 @@ type CodePointCount3Response struct {
 
 func (x *CodePointCount3Response) Reset() {
 	*x = CodePointCount3Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[17]
+	mi := &file_proto_lang_lang_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -872,7 +2288,7 @@ func (x *CodePointCount3Response) String() string {
 func (*CodePointCount3Response) ProtoMessage() {}
 
 func (x *CodePointCount3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[17]
+	mi := &file_proto_lang_lang_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -885,7 +2301,7 @@ func (x *CodePointCount3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointCount3Response.ProtoReflect.Descriptor instead.
 func (*CodePointCount3Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{17}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *CodePointCount3Response) GetResult() int32 {
@@ -906,7 +2322,7 @@ type CodePointCount3_1Request struct {
 
 func (x *CodePointCount3_1Request) Reset() {
 	*x = CodePointCount3_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[18]
+	mi := &file_proto_lang_lang_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -918,7 +2334,7 @@ func (x *CodePointCount3_1Request) String() string {
 func (*CodePointCount3_1Request) ProtoMessage() {}
 
 func (x *CodePointCount3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[18]
+	mi := &file_proto_lang_lang_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -931,7 +2347,7 @@ func (x *CodePointCount3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointCount3_1Request.ProtoReflect.Descriptor instead.
 func (*CodePointCount3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{18}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *CodePointCount3_1Request) GetArg0() string {
@@ -964,7 +2380,7 @@ type CodePointCount3_1Response struct {
 
 func (x *CodePointCount3_1Response) Reset() {
 	*x = CodePointCount3_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[19]
+	mi := &file_proto_lang_lang_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -976,7 +2392,7 @@ func (x *CodePointCount3_1Response) String() string {
 func (*CodePointCount3_1Response) ProtoMessage() {}
 
 func (x *CodePointCount3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[19]
+	mi := &file_proto_lang_lang_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -989,7 +2405,7 @@ func (x *CodePointCount3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodePointCount3_1Response.ProtoReflect.Descriptor instead.
 func (*CodePointCount3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{19}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *CodePointCount3_1Response) GetResult() int32 {
@@ -1008,7 +2424,7 @@ type Digit1Request struct {
 
 func (x *Digit1Request) Reset() {
 	*x = Digit1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[20]
+	mi := &file_proto_lang_lang_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1020,7 +2436,7 @@ func (x *Digit1Request) String() string {
 func (*Digit1Request) ProtoMessage() {}
 
 func (x *Digit1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[20]
+	mi := &file_proto_lang_lang_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1033,7 +2449,7 @@ func (x *Digit1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Digit1Request.ProtoReflect.Descriptor instead.
 func (*Digit1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{20}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *Digit1Request) GetArg0() int32 {
@@ -1052,7 +2468,7 @@ type Digit1Response struct {
 
 func (x *Digit1Response) Reset() {
 	*x = Digit1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[21]
+	mi := &file_proto_lang_lang_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1064,7 +2480,7 @@ func (x *Digit1Response) String() string {
 func (*Digit1Response) ProtoMessage() {}
 
 func (x *Digit1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[21]
+	mi := &file_proto_lang_lang_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1077,7 +2493,7 @@ func (x *Digit1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Digit1Response.ProtoReflect.Descriptor instead.
 func (*Digit1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{21}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *Digit1Response) GetResult() int32 {
@@ -1097,7 +2513,7 @@ type Digit2_1Request struct {
 
 func (x *Digit2_1Request) Reset() {
 	*x = Digit2_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[22]
+	mi := &file_proto_lang_lang_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1109,7 +2525,7 @@ func (x *Digit2_1Request) String() string {
 func (*Digit2_1Request) ProtoMessage() {}
 
 func (x *Digit2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[22]
+	mi := &file_proto_lang_lang_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1122,7 +2538,7 @@ func (x *Digit2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Digit2_1Request.ProtoReflect.Descriptor instead.
 func (*Digit2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{22}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *Digit2_1Request) GetArg0() int32 {
@@ -1148,7 +2564,7 @@ type Digit2_1Response struct {
 
 func (x *Digit2_1Response) Reset() {
 	*x = Digit2_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[23]
+	mi := &file_proto_lang_lang_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1160,7 +2576,7 @@ func (x *Digit2_1Response) String() string {
 func (*Digit2_1Response) ProtoMessage() {}
 
 func (x *Digit2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[23]
+	mi := &file_proto_lang_lang_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1173,7 +2589,7 @@ func (x *Digit2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Digit2_1Response.ProtoReflect.Descriptor instead.
 func (*Digit2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{23}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *Digit2_1Response) GetResult() int32 {
@@ -1193,7 +2609,7 @@ type FoldCase2Request struct {
 
 func (x *FoldCase2Request) Reset() {
 	*x = FoldCase2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[24]
+	mi := &file_proto_lang_lang_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1205,7 +2621,7 @@ func (x *FoldCase2Request) String() string {
 func (*FoldCase2Request) ProtoMessage() {}
 
 func (x *FoldCase2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[24]
+	mi := &file_proto_lang_lang_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1218,7 +2634,7 @@ func (x *FoldCase2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoldCase2Request.ProtoReflect.Descriptor instead.
 func (*FoldCase2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{24}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *FoldCase2Request) GetArg0() int32 {
@@ -1244,7 +2660,7 @@ type FoldCase2Response struct {
 
 func (x *FoldCase2Response) Reset() {
 	*x = FoldCase2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[25]
+	mi := &file_proto_lang_lang_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1256,7 +2672,7 @@ func (x *FoldCase2Response) String() string {
 func (*FoldCase2Response) ProtoMessage() {}
 
 func (x *FoldCase2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[25]
+	mi := &file_proto_lang_lang_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1269,7 +2685,7 @@ func (x *FoldCase2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoldCase2Response.ProtoReflect.Descriptor instead.
 func (*FoldCase2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{25}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *FoldCase2Response) GetResult() int32 {
@@ -1289,7 +2705,7 @@ type FoldCase2_1Request struct {
 
 func (x *FoldCase2_1Request) Reset() {
 	*x = FoldCase2_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[26]
+	mi := &file_proto_lang_lang_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1301,7 +2717,7 @@ func (x *FoldCase2_1Request) String() string {
 func (*FoldCase2_1Request) ProtoMessage() {}
 
 func (x *FoldCase2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[26]
+	mi := &file_proto_lang_lang_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1314,7 +2730,7 @@ func (x *FoldCase2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoldCase2_1Request.ProtoReflect.Descriptor instead.
 func (*FoldCase2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{26}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *FoldCase2_1Request) GetArg0() int32 {
@@ -1340,7 +2756,7 @@ type FoldCase2_1Response struct {
 
 func (x *FoldCase2_1Response) Reset() {
 	*x = FoldCase2_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[27]
+	mi := &file_proto_lang_lang_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1352,7 +2768,7 @@ func (x *FoldCase2_1Response) String() string {
 func (*FoldCase2_1Response) ProtoMessage() {}
 
 func (x *FoldCase2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[27]
+	mi := &file_proto_lang_lang_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1365,7 +2781,7 @@ func (x *FoldCase2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoldCase2_1Response.ProtoReflect.Descriptor instead.
 func (*FoldCase2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{27}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *FoldCase2_1Response) GetResult() int32 {
@@ -1385,7 +2801,7 @@ type FoldCase2_2Request struct {
 
 func (x *FoldCase2_2Request) Reset() {
 	*x = FoldCase2_2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[28]
+	mi := &file_proto_lang_lang_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1397,7 +2813,7 @@ func (x *FoldCase2_2Request) String() string {
 func (*FoldCase2_2Request) ProtoMessage() {}
 
 func (x *FoldCase2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[28]
+	mi := &file_proto_lang_lang_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1410,7 +2826,7 @@ func (x *FoldCase2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoldCase2_2Request.ProtoReflect.Descriptor instead.
 func (*FoldCase2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{28}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *FoldCase2_2Request) GetArg0() string {
@@ -1436,7 +2852,7 @@ type FoldCase2_2Response struct {
 
 func (x *FoldCase2_2Response) Reset() {
 	*x = FoldCase2_2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[29]
+	mi := &file_proto_lang_lang_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1448,7 +2864,7 @@ func (x *FoldCase2_2Response) String() string {
 func (*FoldCase2_2Response) ProtoMessage() {}
 
 func (x *FoldCase2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[29]
+	mi := &file_proto_lang_lang_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1461,7 +2877,7 @@ func (x *FoldCase2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoldCase2_2Response.ProtoReflect.Descriptor instead.
 func (*FoldCase2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{29}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *FoldCase2_2Response) GetResult() string {
@@ -1481,7 +2897,7 @@ type FoldCase2_3Request struct {
 
 func (x *FoldCase2_3Request) Reset() {
 	*x = FoldCase2_3Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[30]
+	mi := &file_proto_lang_lang_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1493,7 +2909,7 @@ func (x *FoldCase2_3Request) String() string {
 func (*FoldCase2_3Request) ProtoMessage() {}
 
 func (x *FoldCase2_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[30]
+	mi := &file_proto_lang_lang_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1506,7 +2922,7 @@ func (x *FoldCase2_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoldCase2_3Request.ProtoReflect.Descriptor instead.
 func (*FoldCase2_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{30}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *FoldCase2_3Request) GetArg0() string {
@@ -1532,7 +2948,7 @@ type FoldCase2_3Response struct {
 
 func (x *FoldCase2_3Response) Reset() {
 	*x = FoldCase2_3Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[31]
+	mi := &file_proto_lang_lang_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1544,7 +2960,7 @@ func (x *FoldCase2_3Response) String() string {
 func (*FoldCase2_3Response) ProtoMessage() {}
 
 func (x *FoldCase2_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[31]
+	mi := &file_proto_lang_lang_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1557,7 +2973,7 @@ func (x *FoldCase2_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoldCase2_3Response.ProtoReflect.Descriptor instead.
 func (*FoldCase2_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{31}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *FoldCase2_3Response) GetResult() string {
@@ -1577,7 +2993,7 @@ type ForDigitRequest struct {
 
 func (x *ForDigitRequest) Reset() {
 	*x = ForDigitRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[32]
+	mi := &file_proto_lang_lang_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1589,7 +3005,7 @@ func (x *ForDigitRequest) String() string {
 func (*ForDigitRequest) ProtoMessage() {}
 
 func (x *ForDigitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[32]
+	mi := &file_proto_lang_lang_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1602,7 +3018,7 @@ func (x *ForDigitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForDigitRequest.ProtoReflect.Descriptor instead.
 func (*ForDigitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{32}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *ForDigitRequest) GetArg0() int32 {
@@ -1628,7 +3044,7 @@ type ForDigitResponse struct {
 
 func (x *ForDigitResponse) Reset() {
 	*x = ForDigitResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[33]
+	mi := &file_proto_lang_lang_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1640,7 +3056,7 @@ func (x *ForDigitResponse) String() string {
 func (*ForDigitResponse) ProtoMessage() {}
 
 func (x *ForDigitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[33]
+	mi := &file_proto_lang_lang_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1653,7 +3069,7 @@ func (x *ForDigitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForDigitResponse.ProtoReflect.Descriptor instead.
 func (*ForDigitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{33}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *ForDigitResponse) GetResult() int32 {
@@ -1672,7 +3088,7 @@ type GetAgeRequest struct {
 
 func (x *GetAgeRequest) Reset() {
 	*x = GetAgeRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[34]
+	mi := &file_proto_lang_lang_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1684,7 +3100,7 @@ func (x *GetAgeRequest) String() string {
 func (*GetAgeRequest) ProtoMessage() {}
 
 func (x *GetAgeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[34]
+	mi := &file_proto_lang_lang_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1697,7 +3113,7 @@ func (x *GetAgeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAgeRequest.ProtoReflect.Descriptor instead.
 func (*GetAgeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{34}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *GetAgeRequest) GetArg0() int32 {
@@ -1716,7 +3132,7 @@ type GetAgeResponse struct {
 
 func (x *GetAgeResponse) Reset() {
 	*x = GetAgeResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[35]
+	mi := &file_proto_lang_lang_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1728,7 +3144,7 @@ func (x *GetAgeResponse) String() string {
 func (*GetAgeResponse) ProtoMessage() {}
 
 func (x *GetAgeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[35]
+	mi := &file_proto_lang_lang_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1741,7 +3157,7 @@ func (x *GetAgeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAgeResponse.ProtoReflect.Descriptor instead.
 func (*GetAgeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{35}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *GetAgeResponse) GetResult() int64 {
@@ -1760,7 +3176,7 @@ type GetBidiPairedBracketRequest struct {
 
 func (x *GetBidiPairedBracketRequest) Reset() {
 	*x = GetBidiPairedBracketRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[36]
+	mi := &file_proto_lang_lang_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1772,7 +3188,7 @@ func (x *GetBidiPairedBracketRequest) String() string {
 func (*GetBidiPairedBracketRequest) ProtoMessage() {}
 
 func (x *GetBidiPairedBracketRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[36]
+	mi := &file_proto_lang_lang_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1785,7 +3201,7 @@ func (x *GetBidiPairedBracketRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBidiPairedBracketRequest.ProtoReflect.Descriptor instead.
 func (*GetBidiPairedBracketRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{36}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *GetBidiPairedBracketRequest) GetArg0() int32 {
@@ -1804,7 +3220,7 @@ type GetBidiPairedBracketResponse struct {
 
 func (x *GetBidiPairedBracketResponse) Reset() {
 	*x = GetBidiPairedBracketResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[37]
+	mi := &file_proto_lang_lang_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1816,7 +3232,7 @@ func (x *GetBidiPairedBracketResponse) String() string {
 func (*GetBidiPairedBracketResponse) ProtoMessage() {}
 
 func (x *GetBidiPairedBracketResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[37]
+	mi := &file_proto_lang_lang_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1829,7 +3245,7 @@ func (x *GetBidiPairedBracketResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBidiPairedBracketResponse.ProtoReflect.Descriptor instead.
 func (*GetBidiPairedBracketResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{37}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *GetBidiPairedBracketResponse) GetResult() int32 {
@@ -1848,7 +3264,7 @@ type GetCharFromExtendedNameRequest struct {
 
 func (x *GetCharFromExtendedNameRequest) Reset() {
 	*x = GetCharFromExtendedNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[38]
+	mi := &file_proto_lang_lang_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1860,7 +3276,7 @@ func (x *GetCharFromExtendedNameRequest) String() string {
 func (*GetCharFromExtendedNameRequest) ProtoMessage() {}
 
 func (x *GetCharFromExtendedNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[38]
+	mi := &file_proto_lang_lang_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1873,7 +3289,7 @@ func (x *GetCharFromExtendedNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCharFromExtendedNameRequest.ProtoReflect.Descriptor instead.
 func (*GetCharFromExtendedNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{38}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *GetCharFromExtendedNameRequest) GetArg0() string {
@@ -1892,7 +3308,7 @@ type GetCharFromExtendedNameResponse struct {
 
 func (x *GetCharFromExtendedNameResponse) Reset() {
 	*x = GetCharFromExtendedNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[39]
+	mi := &file_proto_lang_lang_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1904,7 +3320,7 @@ func (x *GetCharFromExtendedNameResponse) String() string {
 func (*GetCharFromExtendedNameResponse) ProtoMessage() {}
 
 func (x *GetCharFromExtendedNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[39]
+	mi := &file_proto_lang_lang_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1917,7 +3333,7 @@ func (x *GetCharFromExtendedNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCharFromExtendedNameResponse.ProtoReflect.Descriptor instead.
 func (*GetCharFromExtendedNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{39}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetCharFromExtendedNameResponse) GetResult() int32 {
@@ -1936,7 +3352,7 @@ type GetCharFromNameRequest struct {
 
 func (x *GetCharFromNameRequest) Reset() {
 	*x = GetCharFromNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[40]
+	mi := &file_proto_lang_lang_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1948,7 +3364,7 @@ func (x *GetCharFromNameRequest) String() string {
 func (*GetCharFromNameRequest) ProtoMessage() {}
 
 func (x *GetCharFromNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[40]
+	mi := &file_proto_lang_lang_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1961,7 +3377,7 @@ func (x *GetCharFromNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCharFromNameRequest.ProtoReflect.Descriptor instead.
 func (*GetCharFromNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{40}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *GetCharFromNameRequest) GetArg0() string {
@@ -1980,7 +3396,7 @@ type GetCharFromNameResponse struct {
 
 func (x *GetCharFromNameResponse) Reset() {
 	*x = GetCharFromNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[41]
+	mi := &file_proto_lang_lang_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1992,7 +3408,7 @@ func (x *GetCharFromNameResponse) String() string {
 func (*GetCharFromNameResponse) ProtoMessage() {}
 
 func (x *GetCharFromNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[41]
+	mi := &file_proto_lang_lang_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2005,7 +3421,7 @@ func (x *GetCharFromNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCharFromNameResponse.ProtoReflect.Descriptor instead.
 func (*GetCharFromNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{41}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *GetCharFromNameResponse) GetResult() int32 {
@@ -2024,7 +3440,7 @@ type GetCharFromNameAliasRequest struct {
 
 func (x *GetCharFromNameAliasRequest) Reset() {
 	*x = GetCharFromNameAliasRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[42]
+	mi := &file_proto_lang_lang_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2036,7 +3452,7 @@ func (x *GetCharFromNameAliasRequest) String() string {
 func (*GetCharFromNameAliasRequest) ProtoMessage() {}
 
 func (x *GetCharFromNameAliasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[42]
+	mi := &file_proto_lang_lang_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2049,7 +3465,7 @@ func (x *GetCharFromNameAliasRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCharFromNameAliasRequest.ProtoReflect.Descriptor instead.
 func (*GetCharFromNameAliasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{42}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *GetCharFromNameAliasRequest) GetArg0() string {
@@ -2068,7 +3484,7 @@ type GetCharFromNameAliasResponse struct {
 
 func (x *GetCharFromNameAliasResponse) Reset() {
 	*x = GetCharFromNameAliasResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[43]
+	mi := &file_proto_lang_lang_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2080,7 +3496,7 @@ func (x *GetCharFromNameAliasResponse) String() string {
 func (*GetCharFromNameAliasResponse) ProtoMessage() {}
 
 func (x *GetCharFromNameAliasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[43]
+	mi := &file_proto_lang_lang_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2093,7 +3509,7 @@ func (x *GetCharFromNameAliasResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCharFromNameAliasResponse.ProtoReflect.Descriptor instead.
 func (*GetCharFromNameAliasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{43}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *GetCharFromNameAliasResponse) GetResult() int32 {
@@ -2112,7 +3528,7 @@ type GetCodePoint1Request struct {
 
 func (x *GetCodePoint1Request) Reset() {
 	*x = GetCodePoint1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[44]
+	mi := &file_proto_lang_lang_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2124,7 +3540,7 @@ func (x *GetCodePoint1Request) String() string {
 func (*GetCodePoint1Request) ProtoMessage() {}
 
 func (x *GetCodePoint1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[44]
+	mi := &file_proto_lang_lang_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2137,7 +3553,7 @@ func (x *GetCodePoint1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCodePoint1Request.ProtoReflect.Descriptor instead.
 func (*GetCodePoint1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{44}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *GetCodePoint1Request) GetArg0() uint32 {
@@ -2156,7 +3572,7 @@ type GetCodePoint1Response struct {
 
 func (x *GetCodePoint1Response) Reset() {
 	*x = GetCodePoint1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[45]
+	mi := &file_proto_lang_lang_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2168,7 +3584,7 @@ func (x *GetCodePoint1Response) String() string {
 func (*GetCodePoint1Response) ProtoMessage() {}
 
 func (x *GetCodePoint1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[45]
+	mi := &file_proto_lang_lang_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2181,7 +3597,7 @@ func (x *GetCodePoint1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCodePoint1Response.ProtoReflect.Descriptor instead.
 func (*GetCodePoint1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{45}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *GetCodePoint1Response) GetResult() int32 {
@@ -2201,7 +3617,7 @@ type GetCodePoint2_1Request struct {
 
 func (x *GetCodePoint2_1Request) Reset() {
 	*x = GetCodePoint2_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[46]
+	mi := &file_proto_lang_lang_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2213,7 +3629,7 @@ func (x *GetCodePoint2_1Request) String() string {
 func (*GetCodePoint2_1Request) ProtoMessage() {}
 
 func (x *GetCodePoint2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[46]
+	mi := &file_proto_lang_lang_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2226,7 +3642,7 @@ func (x *GetCodePoint2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCodePoint2_1Request.ProtoReflect.Descriptor instead.
 func (*GetCodePoint2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{46}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *GetCodePoint2_1Request) GetArg0() uint32 {
@@ -2252,7 +3668,7 @@ type GetCodePoint2_1Response struct {
 
 func (x *GetCodePoint2_1Response) Reset() {
 	*x = GetCodePoint2_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[47]
+	mi := &file_proto_lang_lang_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2264,7 +3680,7 @@ func (x *GetCodePoint2_1Response) String() string {
 func (*GetCodePoint2_1Response) ProtoMessage() {}
 
 func (x *GetCodePoint2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[47]
+	mi := &file_proto_lang_lang_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2277,7 +3693,7 @@ func (x *GetCodePoint2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCodePoint2_1Response.ProtoReflect.Descriptor instead.
 func (*GetCodePoint2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{47}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *GetCodePoint2_1Response) GetResult() int32 {
@@ -2297,7 +3713,7 @@ type GetCodePoint2_2Request struct {
 
 func (x *GetCodePoint2_2Request) Reset() {
 	*x = GetCodePoint2_2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[48]
+	mi := &file_proto_lang_lang_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2309,7 +3725,7 @@ func (x *GetCodePoint2_2Request) String() string {
 func (*GetCodePoint2_2Request) ProtoMessage() {}
 
 func (x *GetCodePoint2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[48]
+	mi := &file_proto_lang_lang_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2322,7 +3738,7 @@ func (x *GetCodePoint2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCodePoint2_2Request.ProtoReflect.Descriptor instead.
 func (*GetCodePoint2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{48}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *GetCodePoint2_2Request) GetArg0() int32 {
@@ -2348,7 +3764,7 @@ type GetCodePoint2_2Response struct {
 
 func (x *GetCodePoint2_2Response) Reset() {
 	*x = GetCodePoint2_2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[49]
+	mi := &file_proto_lang_lang_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2360,7 +3776,7 @@ func (x *GetCodePoint2_2Response) String() string {
 func (*GetCodePoint2_2Response) ProtoMessage() {}
 
 func (x *GetCodePoint2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[49]
+	mi := &file_proto_lang_lang_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2373,7 +3789,7 @@ func (x *GetCodePoint2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCodePoint2_2Response.ProtoReflect.Descriptor instead.
 func (*GetCodePoint2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{49}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *GetCodePoint2_2Response) GetResult() int32 {
@@ -2392,7 +3808,7 @@ type GetCombiningClassRequest struct {
 
 func (x *GetCombiningClassRequest) Reset() {
 	*x = GetCombiningClassRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[50]
+	mi := &file_proto_lang_lang_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2404,7 +3820,7 @@ func (x *GetCombiningClassRequest) String() string {
 func (*GetCombiningClassRequest) ProtoMessage() {}
 
 func (x *GetCombiningClassRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[50]
+	mi := &file_proto_lang_lang_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2417,7 +3833,7 @@ func (x *GetCombiningClassRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCombiningClassRequest.ProtoReflect.Descriptor instead.
 func (*GetCombiningClassRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{50}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *GetCombiningClassRequest) GetArg0() int32 {
@@ -2436,7 +3852,7 @@ type GetCombiningClassResponse struct {
 
 func (x *GetCombiningClassResponse) Reset() {
 	*x = GetCombiningClassResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[51]
+	mi := &file_proto_lang_lang_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2448,7 +3864,7 @@ func (x *GetCombiningClassResponse) String() string {
 func (*GetCombiningClassResponse) ProtoMessage() {}
 
 func (x *GetCombiningClassResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[51]
+	mi := &file_proto_lang_lang_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2461,7 +3877,7 @@ func (x *GetCombiningClassResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCombiningClassResponse.ProtoReflect.Descriptor instead.
 func (*GetCombiningClassResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{51}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *GetCombiningClassResponse) GetResult() int32 {
@@ -2480,7 +3896,7 @@ type GetDirectionRequest struct {
 
 func (x *GetDirectionRequest) Reset() {
 	*x = GetDirectionRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[52]
+	mi := &file_proto_lang_lang_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2492,7 +3908,7 @@ func (x *GetDirectionRequest) String() string {
 func (*GetDirectionRequest) ProtoMessage() {}
 
 func (x *GetDirectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[52]
+	mi := &file_proto_lang_lang_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2505,7 +3921,7 @@ func (x *GetDirectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDirectionRequest.ProtoReflect.Descriptor instead.
 func (*GetDirectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{52}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *GetDirectionRequest) GetArg0() int32 {
@@ -2524,7 +3940,7 @@ type GetDirectionResponse struct {
 
 func (x *GetDirectionResponse) Reset() {
 	*x = GetDirectionResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[53]
+	mi := &file_proto_lang_lang_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2536,7 +3952,7 @@ func (x *GetDirectionResponse) String() string {
 func (*GetDirectionResponse) ProtoMessage() {}
 
 func (x *GetDirectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[53]
+	mi := &file_proto_lang_lang_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2549,7 +3965,7 @@ func (x *GetDirectionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDirectionResponse.ProtoReflect.Descriptor instead.
 func (*GetDirectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{53}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *GetDirectionResponse) GetResult() int32 {
@@ -2568,7 +3984,7 @@ type GetDirectionalityRequest struct {
 
 func (x *GetDirectionalityRequest) Reset() {
 	*x = GetDirectionalityRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[54]
+	mi := &file_proto_lang_lang_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2580,7 +3996,7 @@ func (x *GetDirectionalityRequest) String() string {
 func (*GetDirectionalityRequest) ProtoMessage() {}
 
 func (x *GetDirectionalityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[54]
+	mi := &file_proto_lang_lang_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2593,7 +4009,7 @@ func (x *GetDirectionalityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDirectionalityRequest.ProtoReflect.Descriptor instead.
 func (*GetDirectionalityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{54}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *GetDirectionalityRequest) GetArg0() int32 {
@@ -2612,7 +4028,7 @@ type GetDirectionalityResponse struct {
 
 func (x *GetDirectionalityResponse) Reset() {
 	*x = GetDirectionalityResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[55]
+	mi := &file_proto_lang_lang_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2624,7 +4040,7 @@ func (x *GetDirectionalityResponse) String() string {
 func (*GetDirectionalityResponse) ProtoMessage() {}
 
 func (x *GetDirectionalityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[55]
+	mi := &file_proto_lang_lang_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2637,7 +4053,7 @@ func (x *GetDirectionalityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDirectionalityResponse.ProtoReflect.Descriptor instead.
 func (*GetDirectionalityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{55}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *GetDirectionalityResponse) GetResult() uint32 {
@@ -2656,7 +4072,7 @@ type GetExtendedNameRequest struct {
 
 func (x *GetExtendedNameRequest) Reset() {
 	*x = GetExtendedNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[56]
+	mi := &file_proto_lang_lang_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2668,7 +4084,7 @@ func (x *GetExtendedNameRequest) String() string {
 func (*GetExtendedNameRequest) ProtoMessage() {}
 
 func (x *GetExtendedNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[56]
+	mi := &file_proto_lang_lang_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2681,7 +4097,7 @@ func (x *GetExtendedNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetExtendedNameRequest.ProtoReflect.Descriptor instead.
 func (*GetExtendedNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{56}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *GetExtendedNameRequest) GetArg0() int32 {
@@ -2700,7 +4116,7 @@ type GetExtendedNameResponse struct {
 
 func (x *GetExtendedNameResponse) Reset() {
 	*x = GetExtendedNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[57]
+	mi := &file_proto_lang_lang_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2712,7 +4128,7 @@ func (x *GetExtendedNameResponse) String() string {
 func (*GetExtendedNameResponse) ProtoMessage() {}
 
 func (x *GetExtendedNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[57]
+	mi := &file_proto_lang_lang_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2725,7 +4141,7 @@ func (x *GetExtendedNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetExtendedNameResponse.ProtoReflect.Descriptor instead.
 func (*GetExtendedNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{57}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *GetExtendedNameResponse) GetResult() string {
@@ -2743,7 +4159,7 @@ type GetExtendedNameIteratorRequest struct {
 
 func (x *GetExtendedNameIteratorRequest) Reset() {
 	*x = GetExtendedNameIteratorRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[58]
+	mi := &file_proto_lang_lang_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2755,7 +4171,7 @@ func (x *GetExtendedNameIteratorRequest) String() string {
 func (*GetExtendedNameIteratorRequest) ProtoMessage() {}
 
 func (x *GetExtendedNameIteratorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[58]
+	mi := &file_proto_lang_lang_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2768,7 +4184,7 @@ func (x *GetExtendedNameIteratorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetExtendedNameIteratorRequest.ProtoReflect.Descriptor instead.
 func (*GetExtendedNameIteratorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{58}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{90}
 }
 
 type GetExtendedNameIteratorResponse struct {
@@ -2780,7 +4196,7 @@ type GetExtendedNameIteratorResponse struct {
 
 func (x *GetExtendedNameIteratorResponse) Reset() {
 	*x = GetExtendedNameIteratorResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[59]
+	mi := &file_proto_lang_lang_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2792,7 +4208,7 @@ func (x *GetExtendedNameIteratorResponse) String() string {
 func (*GetExtendedNameIteratorResponse) ProtoMessage() {}
 
 func (x *GetExtendedNameIteratorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[59]
+	mi := &file_proto_lang_lang_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2805,7 +4221,7 @@ func (x *GetExtendedNameIteratorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetExtendedNameIteratorResponse.ProtoReflect.Descriptor instead.
 func (*GetExtendedNameIteratorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{59}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *GetExtendedNameIteratorResponse) GetResult() int64 {
@@ -2824,7 +4240,7 @@ type GetHanNumericValueRequest struct {
 
 func (x *GetHanNumericValueRequest) Reset() {
 	*x = GetHanNumericValueRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[60]
+	mi := &file_proto_lang_lang_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2836,7 +4252,7 @@ func (x *GetHanNumericValueRequest) String() string {
 func (*GetHanNumericValueRequest) ProtoMessage() {}
 
 func (x *GetHanNumericValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[60]
+	mi := &file_proto_lang_lang_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2849,7 +4265,7 @@ func (x *GetHanNumericValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHanNumericValueRequest.ProtoReflect.Descriptor instead.
 func (*GetHanNumericValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{60}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *GetHanNumericValueRequest) GetArg0() int32 {
@@ -2868,7 +4284,7 @@ type GetHanNumericValueResponse struct {
 
 func (x *GetHanNumericValueResponse) Reset() {
 	*x = GetHanNumericValueResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[61]
+	mi := &file_proto_lang_lang_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2880,7 +4296,7 @@ func (x *GetHanNumericValueResponse) String() string {
 func (*GetHanNumericValueResponse) ProtoMessage() {}
 
 func (x *GetHanNumericValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[61]
+	mi := &file_proto_lang_lang_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2893,7 +4309,7 @@ func (x *GetHanNumericValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHanNumericValueResponse.ProtoReflect.Descriptor instead.
 func (*GetHanNumericValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{61}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *GetHanNumericValueResponse) GetResult() int32 {
@@ -2912,7 +4328,7 @@ type GetIntPropertyMaxValueRequest struct {
 
 func (x *GetIntPropertyMaxValueRequest) Reset() {
 	*x = GetIntPropertyMaxValueRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[62]
+	mi := &file_proto_lang_lang_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2924,7 +4340,7 @@ func (x *GetIntPropertyMaxValueRequest) String() string {
 func (*GetIntPropertyMaxValueRequest) ProtoMessage() {}
 
 func (x *GetIntPropertyMaxValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[62]
+	mi := &file_proto_lang_lang_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2937,7 +4353,7 @@ func (x *GetIntPropertyMaxValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIntPropertyMaxValueRequest.ProtoReflect.Descriptor instead.
 func (*GetIntPropertyMaxValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{62}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *GetIntPropertyMaxValueRequest) GetArg0() int32 {
@@ -2956,7 +4372,7 @@ type GetIntPropertyMaxValueResponse struct {
 
 func (x *GetIntPropertyMaxValueResponse) Reset() {
 	*x = GetIntPropertyMaxValueResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[63]
+	mi := &file_proto_lang_lang_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2968,7 +4384,7 @@ func (x *GetIntPropertyMaxValueResponse) String() string {
 func (*GetIntPropertyMaxValueResponse) ProtoMessage() {}
 
 func (x *GetIntPropertyMaxValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[63]
+	mi := &file_proto_lang_lang_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2981,7 +4397,7 @@ func (x *GetIntPropertyMaxValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIntPropertyMaxValueResponse.ProtoReflect.Descriptor instead.
 func (*GetIntPropertyMaxValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{63}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *GetIntPropertyMaxValueResponse) GetResult() int32 {
@@ -3000,7 +4416,7 @@ type GetIntPropertyMinValueRequest struct {
 
 func (x *GetIntPropertyMinValueRequest) Reset() {
 	*x = GetIntPropertyMinValueRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[64]
+	mi := &file_proto_lang_lang_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3012,7 +4428,7 @@ func (x *GetIntPropertyMinValueRequest) String() string {
 func (*GetIntPropertyMinValueRequest) ProtoMessage() {}
 
 func (x *GetIntPropertyMinValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[64]
+	mi := &file_proto_lang_lang_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3025,7 +4441,7 @@ func (x *GetIntPropertyMinValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIntPropertyMinValueRequest.ProtoReflect.Descriptor instead.
 func (*GetIntPropertyMinValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{64}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *GetIntPropertyMinValueRequest) GetArg0() int32 {
@@ -3044,7 +4460,7 @@ type GetIntPropertyMinValueResponse struct {
 
 func (x *GetIntPropertyMinValueResponse) Reset() {
 	*x = GetIntPropertyMinValueResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[65]
+	mi := &file_proto_lang_lang_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3056,7 +4472,7 @@ func (x *GetIntPropertyMinValueResponse) String() string {
 func (*GetIntPropertyMinValueResponse) ProtoMessage() {}
 
 func (x *GetIntPropertyMinValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[65]
+	mi := &file_proto_lang_lang_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3069,7 +4485,7 @@ func (x *GetIntPropertyMinValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIntPropertyMinValueResponse.ProtoReflect.Descriptor instead.
 func (*GetIntPropertyMinValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{65}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *GetIntPropertyMinValueResponse) GetResult() int32 {
@@ -3089,7 +4505,7 @@ type GetIntPropertyValueRequest struct {
 
 func (x *GetIntPropertyValueRequest) Reset() {
 	*x = GetIntPropertyValueRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[66]
+	mi := &file_proto_lang_lang_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3101,7 +4517,7 @@ func (x *GetIntPropertyValueRequest) String() string {
 func (*GetIntPropertyValueRequest) ProtoMessage() {}
 
 func (x *GetIntPropertyValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[66]
+	mi := &file_proto_lang_lang_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3114,7 +4530,7 @@ func (x *GetIntPropertyValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIntPropertyValueRequest.ProtoReflect.Descriptor instead.
 func (*GetIntPropertyValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{66}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *GetIntPropertyValueRequest) GetArg0() int32 {
@@ -3140,7 +4556,7 @@ type GetIntPropertyValueResponse struct {
 
 func (x *GetIntPropertyValueResponse) Reset() {
 	*x = GetIntPropertyValueResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[67]
+	mi := &file_proto_lang_lang_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3152,7 +4568,7 @@ func (x *GetIntPropertyValueResponse) String() string {
 func (*GetIntPropertyValueResponse) ProtoMessage() {}
 
 func (x *GetIntPropertyValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[67]
+	mi := &file_proto_lang_lang_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3165,7 +4581,7 @@ func (x *GetIntPropertyValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIntPropertyValueResponse.ProtoReflect.Descriptor instead.
 func (*GetIntPropertyValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{67}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *GetIntPropertyValueResponse) GetResult() int32 {
@@ -3184,7 +4600,7 @@ type GetMirrorRequest struct {
 
 func (x *GetMirrorRequest) Reset() {
 	*x = GetMirrorRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[68]
+	mi := &file_proto_lang_lang_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3196,7 +4612,7 @@ func (x *GetMirrorRequest) String() string {
 func (*GetMirrorRequest) ProtoMessage() {}
 
 func (x *GetMirrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[68]
+	mi := &file_proto_lang_lang_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3209,7 +4625,7 @@ func (x *GetMirrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMirrorRequest.ProtoReflect.Descriptor instead.
 func (*GetMirrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{68}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *GetMirrorRequest) GetArg0() int32 {
@@ -3228,7 +4644,7 @@ type GetMirrorResponse struct {
 
 func (x *GetMirrorResponse) Reset() {
 	*x = GetMirrorResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[69]
+	mi := &file_proto_lang_lang_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3240,7 +4656,7 @@ func (x *GetMirrorResponse) String() string {
 func (*GetMirrorResponse) ProtoMessage() {}
 
 func (x *GetMirrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[69]
+	mi := &file_proto_lang_lang_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3253,7 +4669,7 @@ func (x *GetMirrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMirrorResponse.ProtoReflect.Descriptor instead.
 func (*GetMirrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{69}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *GetMirrorResponse) GetResult() int32 {
@@ -3272,7 +4688,7 @@ type GetName1Request struct {
 
 func (x *GetName1Request) Reset() {
 	*x = GetName1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[70]
+	mi := &file_proto_lang_lang_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3284,7 +4700,7 @@ func (x *GetName1Request) String() string {
 func (*GetName1Request) ProtoMessage() {}
 
 func (x *GetName1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[70]
+	mi := &file_proto_lang_lang_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3297,7 +4713,7 @@ func (x *GetName1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetName1Request.ProtoReflect.Descriptor instead.
 func (*GetName1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{70}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *GetName1Request) GetArg0() int32 {
@@ -3316,7 +4732,7 @@ type GetName1Response struct {
 
 func (x *GetName1Response) Reset() {
 	*x = GetName1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[71]
+	mi := &file_proto_lang_lang_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3328,7 +4744,7 @@ func (x *GetName1Response) String() string {
 func (*GetName1Response) ProtoMessage() {}
 
 func (x *GetName1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[71]
+	mi := &file_proto_lang_lang_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3341,7 +4757,7 @@ func (x *GetName1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetName1Response.ProtoReflect.Descriptor instead.
 func (*GetName1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{71}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *GetName1Response) GetResult() string {
@@ -3361,7 +4777,7 @@ type GetName2_1Request struct {
 
 func (x *GetName2_1Request) Reset() {
 	*x = GetName2_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[72]
+	mi := &file_proto_lang_lang_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3373,7 +4789,7 @@ func (x *GetName2_1Request) String() string {
 func (*GetName2_1Request) ProtoMessage() {}
 
 func (x *GetName2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[72]
+	mi := &file_proto_lang_lang_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3386,7 +4802,7 @@ func (x *GetName2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetName2_1Request.ProtoReflect.Descriptor instead.
 func (*GetName2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{72}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *GetName2_1Request) GetArg0() string {
@@ -3412,7 +4828,7 @@ type GetName2_1Response struct {
 
 func (x *GetName2_1Response) Reset() {
 	*x = GetName2_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[73]
+	mi := &file_proto_lang_lang_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3424,7 +4840,7 @@ func (x *GetName2_1Response) String() string {
 func (*GetName2_1Response) ProtoMessage() {}
 
 func (x *GetName2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[73]
+	mi := &file_proto_lang_lang_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3437,7 +4853,7 @@ func (x *GetName2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetName2_1Response.ProtoReflect.Descriptor instead.
 func (*GetName2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{73}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *GetName2_1Response) GetResult() string {
@@ -3456,7 +4872,7 @@ type GetNameAliasRequest struct {
 
 func (x *GetNameAliasRequest) Reset() {
 	*x = GetNameAliasRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[74]
+	mi := &file_proto_lang_lang_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3468,7 +4884,7 @@ func (x *GetNameAliasRequest) String() string {
 func (*GetNameAliasRequest) ProtoMessage() {}
 
 func (x *GetNameAliasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[74]
+	mi := &file_proto_lang_lang_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3481,7 +4897,7 @@ func (x *GetNameAliasRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameAliasRequest.ProtoReflect.Descriptor instead.
 func (*GetNameAliasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{74}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *GetNameAliasRequest) GetArg0() int32 {
@@ -3500,7 +4916,7 @@ type GetNameAliasResponse struct {
 
 func (x *GetNameAliasResponse) Reset() {
 	*x = GetNameAliasResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[75]
+	mi := &file_proto_lang_lang_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3512,7 +4928,7 @@ func (x *GetNameAliasResponse) String() string {
 func (*GetNameAliasResponse) ProtoMessage() {}
 
 func (x *GetNameAliasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[75]
+	mi := &file_proto_lang_lang_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3525,7 +4941,7 @@ func (x *GetNameAliasResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameAliasResponse.ProtoReflect.Descriptor instead.
 func (*GetNameAliasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{75}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *GetNameAliasResponse) GetResult() string {
@@ -3543,7 +4959,7 @@ type GetNameIteratorRequest struct {
 
 func (x *GetNameIteratorRequest) Reset() {
 	*x = GetNameIteratorRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[76]
+	mi := &file_proto_lang_lang_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3555,7 +4971,7 @@ func (x *GetNameIteratorRequest) String() string {
 func (*GetNameIteratorRequest) ProtoMessage() {}
 
 func (x *GetNameIteratorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[76]
+	mi := &file_proto_lang_lang_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3568,7 +4984,7 @@ func (x *GetNameIteratorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameIteratorRequest.ProtoReflect.Descriptor instead.
 func (*GetNameIteratorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{76}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{108}
 }
 
 type GetNameIteratorResponse struct {
@@ -3580,7 +4996,7 @@ type GetNameIteratorResponse struct {
 
 func (x *GetNameIteratorResponse) Reset() {
 	*x = GetNameIteratorResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[77]
+	mi := &file_proto_lang_lang_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3592,7 +5008,7 @@ func (x *GetNameIteratorResponse) String() string {
 func (*GetNameIteratorResponse) ProtoMessage() {}
 
 func (x *GetNameIteratorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[77]
+	mi := &file_proto_lang_lang_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3605,7 +5021,7 @@ func (x *GetNameIteratorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameIteratorResponse.ProtoReflect.Descriptor instead.
 func (*GetNameIteratorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{77}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *GetNameIteratorResponse) GetResult() int64 {
@@ -3624,7 +5040,7 @@ type GetNumericValueRequest struct {
 
 func (x *GetNumericValueRequest) Reset() {
 	*x = GetNumericValueRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[78]
+	mi := &file_proto_lang_lang_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3636,7 +5052,7 @@ func (x *GetNumericValueRequest) String() string {
 func (*GetNumericValueRequest) ProtoMessage() {}
 
 func (x *GetNumericValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[78]
+	mi := &file_proto_lang_lang_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3649,7 +5065,7 @@ func (x *GetNumericValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNumericValueRequest.ProtoReflect.Descriptor instead.
 func (*GetNumericValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{78}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *GetNumericValueRequest) GetArg0() int32 {
@@ -3668,7 +5084,7 @@ type GetNumericValueResponse struct {
 
 func (x *GetNumericValueResponse) Reset() {
 	*x = GetNumericValueResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[79]
+	mi := &file_proto_lang_lang_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3680,7 +5096,7 @@ func (x *GetNumericValueResponse) String() string {
 func (*GetNumericValueResponse) ProtoMessage() {}
 
 func (x *GetNumericValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[79]
+	mi := &file_proto_lang_lang_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3693,7 +5109,7 @@ func (x *GetNumericValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNumericValueResponse.ProtoReflect.Descriptor instead.
 func (*GetNumericValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{79}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *GetNumericValueResponse) GetResult() int32 {
@@ -3712,7 +5128,7 @@ type GetPropertyEnumRequest struct {
 
 func (x *GetPropertyEnumRequest) Reset() {
 	*x = GetPropertyEnumRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[80]
+	mi := &file_proto_lang_lang_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3724,7 +5140,7 @@ func (x *GetPropertyEnumRequest) String() string {
 func (*GetPropertyEnumRequest) ProtoMessage() {}
 
 func (x *GetPropertyEnumRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[80]
+	mi := &file_proto_lang_lang_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3737,7 +5153,7 @@ func (x *GetPropertyEnumRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyEnumRequest.ProtoReflect.Descriptor instead.
 func (*GetPropertyEnumRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{80}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *GetPropertyEnumRequest) GetArg0() string {
@@ -3756,7 +5172,7 @@ type GetPropertyEnumResponse struct {
 
 func (x *GetPropertyEnumResponse) Reset() {
 	*x = GetPropertyEnumResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[81]
+	mi := &file_proto_lang_lang_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3768,7 +5184,7 @@ func (x *GetPropertyEnumResponse) String() string {
 func (*GetPropertyEnumResponse) ProtoMessage() {}
 
 func (x *GetPropertyEnumResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[81]
+	mi := &file_proto_lang_lang_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3781,7 +5197,7 @@ func (x *GetPropertyEnumResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyEnumResponse.ProtoReflect.Descriptor instead.
 func (*GetPropertyEnumResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{81}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *GetPropertyEnumResponse) GetResult() int32 {
@@ -3801,7 +5217,7 @@ type GetPropertyNameRequest struct {
 
 func (x *GetPropertyNameRequest) Reset() {
 	*x = GetPropertyNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[82]
+	mi := &file_proto_lang_lang_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3813,7 +5229,7 @@ func (x *GetPropertyNameRequest) String() string {
 func (*GetPropertyNameRequest) ProtoMessage() {}
 
 func (x *GetPropertyNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[82]
+	mi := &file_proto_lang_lang_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3826,7 +5242,7 @@ func (x *GetPropertyNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyNameRequest.ProtoReflect.Descriptor instead.
 func (*GetPropertyNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{82}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *GetPropertyNameRequest) GetArg0() int32 {
@@ -3852,7 +5268,7 @@ type GetPropertyNameResponse struct {
 
 func (x *GetPropertyNameResponse) Reset() {
 	*x = GetPropertyNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[83]
+	mi := &file_proto_lang_lang_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3864,7 +5280,7 @@ func (x *GetPropertyNameResponse) String() string {
 func (*GetPropertyNameResponse) ProtoMessage() {}
 
 func (x *GetPropertyNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[83]
+	mi := &file_proto_lang_lang_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3877,7 +5293,7 @@ func (x *GetPropertyNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyNameResponse.ProtoReflect.Descriptor instead.
 func (*GetPropertyNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{83}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *GetPropertyNameResponse) GetResult() string {
@@ -3897,7 +5313,7 @@ type GetPropertyValueEnumRequest struct {
 
 func (x *GetPropertyValueEnumRequest) Reset() {
 	*x = GetPropertyValueEnumRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[84]
+	mi := &file_proto_lang_lang_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3909,7 +5325,7 @@ func (x *GetPropertyValueEnumRequest) String() string {
 func (*GetPropertyValueEnumRequest) ProtoMessage() {}
 
 func (x *GetPropertyValueEnumRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[84]
+	mi := &file_proto_lang_lang_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3922,7 +5338,7 @@ func (x *GetPropertyValueEnumRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyValueEnumRequest.ProtoReflect.Descriptor instead.
 func (*GetPropertyValueEnumRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{84}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *GetPropertyValueEnumRequest) GetArg0() int32 {
@@ -3948,7 +5364,7 @@ type GetPropertyValueEnumResponse struct {
 
 func (x *GetPropertyValueEnumResponse) Reset() {
 	*x = GetPropertyValueEnumResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[85]
+	mi := &file_proto_lang_lang_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3960,7 +5376,7 @@ func (x *GetPropertyValueEnumResponse) String() string {
 func (*GetPropertyValueEnumResponse) ProtoMessage() {}
 
 func (x *GetPropertyValueEnumResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[85]
+	mi := &file_proto_lang_lang_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3973,7 +5389,7 @@ func (x *GetPropertyValueEnumResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyValueEnumResponse.ProtoReflect.Descriptor instead.
 func (*GetPropertyValueEnumResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{85}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *GetPropertyValueEnumResponse) GetResult() int32 {
@@ -3994,7 +5410,7 @@ type GetPropertyValueNameRequest struct {
 
 func (x *GetPropertyValueNameRequest) Reset() {
 	*x = GetPropertyValueNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[86]
+	mi := &file_proto_lang_lang_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4006,7 +5422,7 @@ func (x *GetPropertyValueNameRequest) String() string {
 func (*GetPropertyValueNameRequest) ProtoMessage() {}
 
 func (x *GetPropertyValueNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[86]
+	mi := &file_proto_lang_lang_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4019,7 +5435,7 @@ func (x *GetPropertyValueNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyValueNameRequest.ProtoReflect.Descriptor instead.
 func (*GetPropertyValueNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{86}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *GetPropertyValueNameRequest) GetArg0() int32 {
@@ -4052,7 +5468,7 @@ type GetPropertyValueNameResponse struct {
 
 func (x *GetPropertyValueNameResponse) Reset() {
 	*x = GetPropertyValueNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[87]
+	mi := &file_proto_lang_lang_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4064,7 +5480,7 @@ func (x *GetPropertyValueNameResponse) String() string {
 func (*GetPropertyValueNameResponse) ProtoMessage() {}
 
 func (x *GetPropertyValueNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[87]
+	mi := &file_proto_lang_lang_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4077,7 +5493,7 @@ func (x *GetPropertyValueNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyValueNameResponse.ProtoReflect.Descriptor instead.
 func (*GetPropertyValueNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{87}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *GetPropertyValueNameResponse) GetResult() string {
@@ -4096,7 +5512,7 @@ type GetTypeRequest struct {
 
 func (x *GetTypeRequest) Reset() {
 	*x = GetTypeRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[88]
+	mi := &file_proto_lang_lang_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4108,7 +5524,7 @@ func (x *GetTypeRequest) String() string {
 func (*GetTypeRequest) ProtoMessage() {}
 
 func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[88]
+	mi := &file_proto_lang_lang_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4121,7 +5537,7 @@ func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{88}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *GetTypeRequest) GetArg0() int32 {
@@ -4140,7 +5556,7 @@ type GetTypeResponse struct {
 
 func (x *GetTypeResponse) Reset() {
 	*x = GetTypeResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[89]
+	mi := &file_proto_lang_lang_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4152,7 +5568,7 @@ func (x *GetTypeResponse) String() string {
 func (*GetTypeResponse) ProtoMessage() {}
 
 func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[89]
+	mi := &file_proto_lang_lang_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4165,7 +5581,7 @@ func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{89}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *GetTypeResponse) GetResult() int32 {
@@ -4183,7 +5599,7 @@ type GetTypeIteratorRequest struct {
 
 func (x *GetTypeIteratorRequest) Reset() {
 	*x = GetTypeIteratorRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[90]
+	mi := &file_proto_lang_lang_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4195,7 +5611,7 @@ func (x *GetTypeIteratorRequest) String() string {
 func (*GetTypeIteratorRequest) ProtoMessage() {}
 
 func (x *GetTypeIteratorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[90]
+	mi := &file_proto_lang_lang_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4208,7 +5624,7 @@ func (x *GetTypeIteratorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTypeIteratorRequest.ProtoReflect.Descriptor instead.
 func (*GetTypeIteratorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{90}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{122}
 }
 
 type GetTypeIteratorResponse struct {
@@ -4220,7 +5636,7 @@ type GetTypeIteratorResponse struct {
 
 func (x *GetTypeIteratorResponse) Reset() {
 	*x = GetTypeIteratorResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[91]
+	mi := &file_proto_lang_lang_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4232,7 +5648,7 @@ func (x *GetTypeIteratorResponse) String() string {
 func (*GetTypeIteratorResponse) ProtoMessage() {}
 
 func (x *GetTypeIteratorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[91]
+	mi := &file_proto_lang_lang_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4245,7 +5661,7 @@ func (x *GetTypeIteratorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTypeIteratorResponse.ProtoReflect.Descriptor instead.
 func (*GetTypeIteratorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{91}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *GetTypeIteratorResponse) GetResult() int64 {
@@ -4264,7 +5680,7 @@ type GetUnicodeNumericValueRequest struct {
 
 func (x *GetUnicodeNumericValueRequest) Reset() {
 	*x = GetUnicodeNumericValueRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[92]
+	mi := &file_proto_lang_lang_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4276,7 +5692,7 @@ func (x *GetUnicodeNumericValueRequest) String() string {
 func (*GetUnicodeNumericValueRequest) ProtoMessage() {}
 
 func (x *GetUnicodeNumericValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[92]
+	mi := &file_proto_lang_lang_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4289,7 +5705,7 @@ func (x *GetUnicodeNumericValueRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUnicodeNumericValueRequest.ProtoReflect.Descriptor instead.
 func (*GetUnicodeNumericValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{92}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *GetUnicodeNumericValueRequest) GetArg0() int32 {
@@ -4308,7 +5724,7 @@ type GetUnicodeNumericValueResponse struct {
 
 func (x *GetUnicodeNumericValueResponse) Reset() {
 	*x = GetUnicodeNumericValueResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[93]
+	mi := &file_proto_lang_lang_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4320,7 +5736,7 @@ func (x *GetUnicodeNumericValueResponse) String() string {
 func (*GetUnicodeNumericValueResponse) ProtoMessage() {}
 
 func (x *GetUnicodeNumericValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[93]
+	mi := &file_proto_lang_lang_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4333,7 +5749,7 @@ func (x *GetUnicodeNumericValueResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUnicodeNumericValueResponse.ProtoReflect.Descriptor instead.
 func (*GetUnicodeNumericValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{93}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *GetUnicodeNumericValueResponse) GetResult() float64 {
@@ -4351,7 +5767,7 @@ type GetUnicodeVersionRequest struct {
 
 func (x *GetUnicodeVersionRequest) Reset() {
 	*x = GetUnicodeVersionRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[94]
+	mi := &file_proto_lang_lang_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4363,7 +5779,7 @@ func (x *GetUnicodeVersionRequest) String() string {
 func (*GetUnicodeVersionRequest) ProtoMessage() {}
 
 func (x *GetUnicodeVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[94]
+	mi := &file_proto_lang_lang_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4376,7 +5792,7 @@ func (x *GetUnicodeVersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUnicodeVersionRequest.ProtoReflect.Descriptor instead.
 func (*GetUnicodeVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{94}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{126}
 }
 
 type GetUnicodeVersionResponse struct {
@@ -4388,7 +5804,7 @@ type GetUnicodeVersionResponse struct {
 
 func (x *GetUnicodeVersionResponse) Reset() {
 	*x = GetUnicodeVersionResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[95]
+	mi := &file_proto_lang_lang_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4400,7 +5816,7 @@ func (x *GetUnicodeVersionResponse) String() string {
 func (*GetUnicodeVersionResponse) ProtoMessage() {}
 
 func (x *GetUnicodeVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[95]
+	mi := &file_proto_lang_lang_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4413,7 +5829,7 @@ func (x *GetUnicodeVersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUnicodeVersionResponse.ProtoReflect.Descriptor instead.
 func (*GetUnicodeVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{95}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *GetUnicodeVersionResponse) GetResult() int64 {
@@ -4433,7 +5849,7 @@ type HasBinaryProperty2Request struct {
 
 func (x *HasBinaryProperty2Request) Reset() {
 	*x = HasBinaryProperty2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[96]
+	mi := &file_proto_lang_lang_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4445,7 +5861,7 @@ func (x *HasBinaryProperty2Request) String() string {
 func (*HasBinaryProperty2Request) ProtoMessage() {}
 
 func (x *HasBinaryProperty2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[96]
+	mi := &file_proto_lang_lang_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4458,7 +5874,7 @@ func (x *HasBinaryProperty2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasBinaryProperty2Request.ProtoReflect.Descriptor instead.
 func (*HasBinaryProperty2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{96}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *HasBinaryProperty2Request) GetArg0() int32 {
@@ -4484,7 +5900,7 @@ type HasBinaryProperty2Response struct {
 
 func (x *HasBinaryProperty2Response) Reset() {
 	*x = HasBinaryProperty2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[97]
+	mi := &file_proto_lang_lang_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4496,7 +5912,7 @@ func (x *HasBinaryProperty2Response) String() string {
 func (*HasBinaryProperty2Response) ProtoMessage() {}
 
 func (x *HasBinaryProperty2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[97]
+	mi := &file_proto_lang_lang_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4509,7 +5925,7 @@ func (x *HasBinaryProperty2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasBinaryProperty2Response.ProtoReflect.Descriptor instead.
 func (*HasBinaryProperty2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{97}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *HasBinaryProperty2Response) GetResult() bool {
@@ -4529,7 +5945,7 @@ type HasBinaryProperty2_1Request struct {
 
 func (x *HasBinaryProperty2_1Request) Reset() {
 	*x = HasBinaryProperty2_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[98]
+	mi := &file_proto_lang_lang_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4541,7 +5957,7 @@ func (x *HasBinaryProperty2_1Request) String() string {
 func (*HasBinaryProperty2_1Request) ProtoMessage() {}
 
 func (x *HasBinaryProperty2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[98]
+	mi := &file_proto_lang_lang_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4554,7 +5970,7 @@ func (x *HasBinaryProperty2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasBinaryProperty2_1Request.ProtoReflect.Descriptor instead.
 func (*HasBinaryProperty2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{98}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *HasBinaryProperty2_1Request) GetArg0() string {
@@ -4580,7 +5996,7 @@ type HasBinaryProperty2_1Response struct {
 
 func (x *HasBinaryProperty2_1Response) Reset() {
 	*x = HasBinaryProperty2_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[99]
+	mi := &file_proto_lang_lang_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4592,7 +6008,7 @@ func (x *HasBinaryProperty2_1Response) String() string {
 func (*HasBinaryProperty2_1Response) ProtoMessage() {}
 
 func (x *HasBinaryProperty2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[99]
+	mi := &file_proto_lang_lang_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4605,7 +6021,7 @@ func (x *HasBinaryProperty2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasBinaryProperty2_1Response.ProtoReflect.Descriptor instead.
 func (*HasBinaryProperty2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{99}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *HasBinaryProperty2_1Response) GetResult() bool {
@@ -4624,7 +6040,7 @@ type IsBMPRequest struct {
 
 func (x *IsBMPRequest) Reset() {
 	*x = IsBMPRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[100]
+	mi := &file_proto_lang_lang_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4636,7 +6052,7 @@ func (x *IsBMPRequest) String() string {
 func (*IsBMPRequest) ProtoMessage() {}
 
 func (x *IsBMPRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[100]
+	mi := &file_proto_lang_lang_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4649,7 +6065,7 @@ func (x *IsBMPRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsBMPRequest.ProtoReflect.Descriptor instead.
 func (*IsBMPRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{100}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *IsBMPRequest) GetArg0() int32 {
@@ -4668,7 +6084,7 @@ type IsBMPResponse struct {
 
 func (x *IsBMPResponse) Reset() {
 	*x = IsBMPResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[101]
+	mi := &file_proto_lang_lang_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4680,7 +6096,7 @@ func (x *IsBMPResponse) String() string {
 func (*IsBMPResponse) ProtoMessage() {}
 
 func (x *IsBMPResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[101]
+	mi := &file_proto_lang_lang_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4693,7 +6109,7 @@ func (x *IsBMPResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsBMPResponse.ProtoReflect.Descriptor instead.
 func (*IsBMPResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{101}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *IsBMPResponse) GetResult() bool {
@@ -4712,7 +6128,7 @@ type IsBaseFormRequest struct {
 
 func (x *IsBaseFormRequest) Reset() {
 	*x = IsBaseFormRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[102]
+	mi := &file_proto_lang_lang_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4724,7 +6140,7 @@ func (x *IsBaseFormRequest) String() string {
 func (*IsBaseFormRequest) ProtoMessage() {}
 
 func (x *IsBaseFormRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[102]
+	mi := &file_proto_lang_lang_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4737,7 +6153,7 @@ func (x *IsBaseFormRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsBaseFormRequest.ProtoReflect.Descriptor instead.
 func (*IsBaseFormRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{102}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *IsBaseFormRequest) GetArg0() int32 {
@@ -4756,7 +6172,7 @@ type IsBaseFormResponse struct {
 
 func (x *IsBaseFormResponse) Reset() {
 	*x = IsBaseFormResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[103]
+	mi := &file_proto_lang_lang_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4768,7 +6184,7 @@ func (x *IsBaseFormResponse) String() string {
 func (*IsBaseFormResponse) ProtoMessage() {}
 
 func (x *IsBaseFormResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[103]
+	mi := &file_proto_lang_lang_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4781,7 +6197,7 @@ func (x *IsBaseFormResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsBaseFormResponse.ProtoReflect.Descriptor instead.
 func (*IsBaseFormResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{103}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *IsBaseFormResponse) GetResult() bool {
@@ -4800,7 +6216,7 @@ type IsDefinedRequest struct {
 
 func (x *IsDefinedRequest) Reset() {
 	*x = IsDefinedRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[104]
+	mi := &file_proto_lang_lang_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4812,7 +6228,7 @@ func (x *IsDefinedRequest) String() string {
 func (*IsDefinedRequest) ProtoMessage() {}
 
 func (x *IsDefinedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[104]
+	mi := &file_proto_lang_lang_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4825,7 +6241,7 @@ func (x *IsDefinedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDefinedRequest.ProtoReflect.Descriptor instead.
 func (*IsDefinedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{104}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *IsDefinedRequest) GetArg0() int32 {
@@ -4844,7 +6260,7 @@ type IsDefinedResponse struct {
 
 func (x *IsDefinedResponse) Reset() {
 	*x = IsDefinedResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[105]
+	mi := &file_proto_lang_lang_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4856,7 +6272,7 @@ func (x *IsDefinedResponse) String() string {
 func (*IsDefinedResponse) ProtoMessage() {}
 
 func (x *IsDefinedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[105]
+	mi := &file_proto_lang_lang_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4869,7 +6285,7 @@ func (x *IsDefinedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDefinedResponse.ProtoReflect.Descriptor instead.
 func (*IsDefinedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{105}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *IsDefinedResponse) GetResult() bool {
@@ -4888,7 +6304,7 @@ type IsDigitRequest struct {
 
 func (x *IsDigitRequest) Reset() {
 	*x = IsDigitRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[106]
+	mi := &file_proto_lang_lang_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4900,7 +6316,7 @@ func (x *IsDigitRequest) String() string {
 func (*IsDigitRequest) ProtoMessage() {}
 
 func (x *IsDigitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[106]
+	mi := &file_proto_lang_lang_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4913,7 +6329,7 @@ func (x *IsDigitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDigitRequest.ProtoReflect.Descriptor instead.
 func (*IsDigitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{106}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *IsDigitRequest) GetArg0() int32 {
@@ -4932,7 +6348,7 @@ type IsDigitResponse struct {
 
 func (x *IsDigitResponse) Reset() {
 	*x = IsDigitResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[107]
+	mi := &file_proto_lang_lang_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4944,7 +6360,7 @@ func (x *IsDigitResponse) String() string {
 func (*IsDigitResponse) ProtoMessage() {}
 
 func (x *IsDigitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[107]
+	mi := &file_proto_lang_lang_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4957,7 +6373,7 @@ func (x *IsDigitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDigitResponse.ProtoReflect.Descriptor instead.
 func (*IsDigitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{107}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *IsDigitResponse) GetResult() bool {
@@ -4976,7 +6392,7 @@ type IsHighSurrogate1Request struct {
 
 func (x *IsHighSurrogate1Request) Reset() {
 	*x = IsHighSurrogate1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[108]
+	mi := &file_proto_lang_lang_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4988,7 +6404,7 @@ func (x *IsHighSurrogate1Request) String() string {
 func (*IsHighSurrogate1Request) ProtoMessage() {}
 
 func (x *IsHighSurrogate1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[108]
+	mi := &file_proto_lang_lang_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5001,7 +6417,7 @@ func (x *IsHighSurrogate1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsHighSurrogate1Request.ProtoReflect.Descriptor instead.
 func (*IsHighSurrogate1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{108}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *IsHighSurrogate1Request) GetArg0() uint32 {
@@ -5020,7 +6436,7 @@ type IsHighSurrogate1Response struct {
 
 func (x *IsHighSurrogate1Response) Reset() {
 	*x = IsHighSurrogate1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[109]
+	mi := &file_proto_lang_lang_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5032,7 +6448,7 @@ func (x *IsHighSurrogate1Response) String() string {
 func (*IsHighSurrogate1Response) ProtoMessage() {}
 
 func (x *IsHighSurrogate1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[109]
+	mi := &file_proto_lang_lang_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5045,7 +6461,7 @@ func (x *IsHighSurrogate1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsHighSurrogate1Response.ProtoReflect.Descriptor instead.
 func (*IsHighSurrogate1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{109}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *IsHighSurrogate1Response) GetResult() bool {
@@ -5064,7 +6480,7 @@ type IsHighSurrogate1_1Request struct {
 
 func (x *IsHighSurrogate1_1Request) Reset() {
 	*x = IsHighSurrogate1_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[110]
+	mi := &file_proto_lang_lang_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5076,7 +6492,7 @@ func (x *IsHighSurrogate1_1Request) String() string {
 func (*IsHighSurrogate1_1Request) ProtoMessage() {}
 
 func (x *IsHighSurrogate1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[110]
+	mi := &file_proto_lang_lang_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5089,7 +6505,7 @@ func (x *IsHighSurrogate1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsHighSurrogate1_1Request.ProtoReflect.Descriptor instead.
 func (*IsHighSurrogate1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{110}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *IsHighSurrogate1_1Request) GetArg0() int32 {
@@ -5108,7 +6524,7 @@ type IsHighSurrogate1_1Response struct {
 
 func (x *IsHighSurrogate1_1Response) Reset() {
 	*x = IsHighSurrogate1_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[111]
+	mi := &file_proto_lang_lang_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5120,7 +6536,7 @@ func (x *IsHighSurrogate1_1Response) String() string {
 func (*IsHighSurrogate1_1Response) ProtoMessage() {}
 
 func (x *IsHighSurrogate1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[111]
+	mi := &file_proto_lang_lang_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5133,7 +6549,7 @@ func (x *IsHighSurrogate1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsHighSurrogate1_1Response.ProtoReflect.Descriptor instead.
 func (*IsHighSurrogate1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{111}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *IsHighSurrogate1_1Response) GetResult() bool {
@@ -5152,7 +6568,7 @@ type IsISOControlRequest struct {
 
 func (x *IsISOControlRequest) Reset() {
 	*x = IsISOControlRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[112]
+	mi := &file_proto_lang_lang_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5164,7 +6580,7 @@ func (x *IsISOControlRequest) String() string {
 func (*IsISOControlRequest) ProtoMessage() {}
 
 func (x *IsISOControlRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[112]
+	mi := &file_proto_lang_lang_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5177,7 +6593,7 @@ func (x *IsISOControlRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsISOControlRequest.ProtoReflect.Descriptor instead.
 func (*IsISOControlRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{112}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *IsISOControlRequest) GetArg0() int32 {
@@ -5196,7 +6612,7 @@ type IsISOControlResponse struct {
 
 func (x *IsISOControlResponse) Reset() {
 	*x = IsISOControlResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[113]
+	mi := &file_proto_lang_lang_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5208,7 +6624,7 @@ func (x *IsISOControlResponse) String() string {
 func (*IsISOControlResponse) ProtoMessage() {}
 
 func (x *IsISOControlResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[113]
+	mi := &file_proto_lang_lang_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5221,7 +6637,7 @@ func (x *IsISOControlResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsISOControlResponse.ProtoReflect.Descriptor instead.
 func (*IsISOControlResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{113}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *IsISOControlResponse) GetResult() bool {
@@ -5240,7 +6656,7 @@ type IsIdentifierIgnorableRequest struct {
 
 func (x *IsIdentifierIgnorableRequest) Reset() {
 	*x = IsIdentifierIgnorableRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[114]
+	mi := &file_proto_lang_lang_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5252,7 +6668,7 @@ func (x *IsIdentifierIgnorableRequest) String() string {
 func (*IsIdentifierIgnorableRequest) ProtoMessage() {}
 
 func (x *IsIdentifierIgnorableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[114]
+	mi := &file_proto_lang_lang_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5265,7 +6681,7 @@ func (x *IsIdentifierIgnorableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsIdentifierIgnorableRequest.ProtoReflect.Descriptor instead.
 func (*IsIdentifierIgnorableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{114}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *IsIdentifierIgnorableRequest) GetArg0() int32 {
@@ -5284,7 +6700,7 @@ type IsIdentifierIgnorableResponse struct {
 
 func (x *IsIdentifierIgnorableResponse) Reset() {
 	*x = IsIdentifierIgnorableResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[115]
+	mi := &file_proto_lang_lang_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5296,7 +6712,7 @@ func (x *IsIdentifierIgnorableResponse) String() string {
 func (*IsIdentifierIgnorableResponse) ProtoMessage() {}
 
 func (x *IsIdentifierIgnorableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[115]
+	mi := &file_proto_lang_lang_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5309,7 +6725,7 @@ func (x *IsIdentifierIgnorableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsIdentifierIgnorableResponse.ProtoReflect.Descriptor instead.
 func (*IsIdentifierIgnorableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{115}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *IsIdentifierIgnorableResponse) GetResult() bool {
@@ -5328,7 +6744,7 @@ type IsJavaIdentifierPartRequest struct {
 
 func (x *IsJavaIdentifierPartRequest) Reset() {
 	*x = IsJavaIdentifierPartRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[116]
+	mi := &file_proto_lang_lang_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5340,7 +6756,7 @@ func (x *IsJavaIdentifierPartRequest) String() string {
 func (*IsJavaIdentifierPartRequest) ProtoMessage() {}
 
 func (x *IsJavaIdentifierPartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[116]
+	mi := &file_proto_lang_lang_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5353,7 +6769,7 @@ func (x *IsJavaIdentifierPartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsJavaIdentifierPartRequest.ProtoReflect.Descriptor instead.
 func (*IsJavaIdentifierPartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{116}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *IsJavaIdentifierPartRequest) GetArg0() int32 {
@@ -5372,7 +6788,7 @@ type IsJavaIdentifierPartResponse struct {
 
 func (x *IsJavaIdentifierPartResponse) Reset() {
 	*x = IsJavaIdentifierPartResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[117]
+	mi := &file_proto_lang_lang_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5384,7 +6800,7 @@ func (x *IsJavaIdentifierPartResponse) String() string {
 func (*IsJavaIdentifierPartResponse) ProtoMessage() {}
 
 func (x *IsJavaIdentifierPartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[117]
+	mi := &file_proto_lang_lang_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5397,7 +6813,7 @@ func (x *IsJavaIdentifierPartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsJavaIdentifierPartResponse.ProtoReflect.Descriptor instead.
 func (*IsJavaIdentifierPartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{117}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *IsJavaIdentifierPartResponse) GetResult() bool {
@@ -5416,7 +6832,7 @@ type IsJavaIdentifierStartRequest struct {
 
 func (x *IsJavaIdentifierStartRequest) Reset() {
 	*x = IsJavaIdentifierStartRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[118]
+	mi := &file_proto_lang_lang_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5428,7 +6844,7 @@ func (x *IsJavaIdentifierStartRequest) String() string {
 func (*IsJavaIdentifierStartRequest) ProtoMessage() {}
 
 func (x *IsJavaIdentifierStartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[118]
+	mi := &file_proto_lang_lang_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5441,7 +6857,7 @@ func (x *IsJavaIdentifierStartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsJavaIdentifierStartRequest.ProtoReflect.Descriptor instead.
 func (*IsJavaIdentifierStartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{118}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *IsJavaIdentifierStartRequest) GetArg0() int32 {
@@ -5460,7 +6876,7 @@ type IsJavaIdentifierStartResponse struct {
 
 func (x *IsJavaIdentifierStartResponse) Reset() {
 	*x = IsJavaIdentifierStartResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[119]
+	mi := &file_proto_lang_lang_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5472,7 +6888,7 @@ func (x *IsJavaIdentifierStartResponse) String() string {
 func (*IsJavaIdentifierStartResponse) ProtoMessage() {}
 
 func (x *IsJavaIdentifierStartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[119]
+	mi := &file_proto_lang_lang_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5485,7 +6901,7 @@ func (x *IsJavaIdentifierStartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsJavaIdentifierStartResponse.ProtoReflect.Descriptor instead.
 func (*IsJavaIdentifierStartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{119}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *IsJavaIdentifierStartResponse) GetResult() bool {
@@ -5504,7 +6920,7 @@ type IsLegal1Request struct {
 
 func (x *IsLegal1Request) Reset() {
 	*x = IsLegal1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[120]
+	mi := &file_proto_lang_lang_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5516,7 +6932,7 @@ func (x *IsLegal1Request) String() string {
 func (*IsLegal1Request) ProtoMessage() {}
 
 func (x *IsLegal1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[120]
+	mi := &file_proto_lang_lang_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5529,7 +6945,7 @@ func (x *IsLegal1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLegal1Request.ProtoReflect.Descriptor instead.
 func (*IsLegal1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{120}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *IsLegal1Request) GetArg0() int32 {
@@ -5548,7 +6964,7 @@ type IsLegal1Response struct {
 
 func (x *IsLegal1Response) Reset() {
 	*x = IsLegal1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[121]
+	mi := &file_proto_lang_lang_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5560,7 +6976,7 @@ func (x *IsLegal1Response) String() string {
 func (*IsLegal1Response) ProtoMessage() {}
 
 func (x *IsLegal1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[121]
+	mi := &file_proto_lang_lang_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5573,7 +6989,7 @@ func (x *IsLegal1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLegal1Response.ProtoReflect.Descriptor instead.
 func (*IsLegal1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{121}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *IsLegal1Response) GetResult() bool {
@@ -5592,7 +7008,7 @@ type IsLegal1_1Request struct {
 
 func (x *IsLegal1_1Request) Reset() {
 	*x = IsLegal1_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[122]
+	mi := &file_proto_lang_lang_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5604,7 +7020,7 @@ func (x *IsLegal1_1Request) String() string {
 func (*IsLegal1_1Request) ProtoMessage() {}
 
 func (x *IsLegal1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[122]
+	mi := &file_proto_lang_lang_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5617,7 +7033,7 @@ func (x *IsLegal1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLegal1_1Request.ProtoReflect.Descriptor instead.
 func (*IsLegal1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{122}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *IsLegal1_1Request) GetArg0() string {
@@ -5636,7 +7052,7 @@ type IsLegal1_1Response struct {
 
 func (x *IsLegal1_1Response) Reset() {
 	*x = IsLegal1_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[123]
+	mi := &file_proto_lang_lang_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5648,7 +7064,7 @@ func (x *IsLegal1_1Response) String() string {
 func (*IsLegal1_1Response) ProtoMessage() {}
 
 func (x *IsLegal1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[123]
+	mi := &file_proto_lang_lang_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5661,7 +7077,7 @@ func (x *IsLegal1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLegal1_1Response.ProtoReflect.Descriptor instead.
 func (*IsLegal1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{123}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *IsLegal1_1Response) GetResult() bool {
@@ -5680,7 +7096,7 @@ type IsLetterRequest struct {
 
 func (x *IsLetterRequest) Reset() {
 	*x = IsLetterRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[124]
+	mi := &file_proto_lang_lang_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5692,7 +7108,7 @@ func (x *IsLetterRequest) String() string {
 func (*IsLetterRequest) ProtoMessage() {}
 
 func (x *IsLetterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[124]
+	mi := &file_proto_lang_lang_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5705,7 +7121,7 @@ func (x *IsLetterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLetterRequest.ProtoReflect.Descriptor instead.
 func (*IsLetterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{124}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *IsLetterRequest) GetArg0() int32 {
@@ -5724,7 +7140,7 @@ type IsLetterResponse struct {
 
 func (x *IsLetterResponse) Reset() {
 	*x = IsLetterResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[125]
+	mi := &file_proto_lang_lang_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5736,7 +7152,7 @@ func (x *IsLetterResponse) String() string {
 func (*IsLetterResponse) ProtoMessage() {}
 
 func (x *IsLetterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[125]
+	mi := &file_proto_lang_lang_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5749,7 +7165,7 @@ func (x *IsLetterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLetterResponse.ProtoReflect.Descriptor instead.
 func (*IsLetterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{125}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *IsLetterResponse) GetResult() bool {
@@ -5768,7 +7184,7 @@ type IsLetterOrDigitRequest struct {
 
 func (x *IsLetterOrDigitRequest) Reset() {
 	*x = IsLetterOrDigitRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[126]
+	mi := &file_proto_lang_lang_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5780,7 +7196,7 @@ func (x *IsLetterOrDigitRequest) String() string {
 func (*IsLetterOrDigitRequest) ProtoMessage() {}
 
 func (x *IsLetterOrDigitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[126]
+	mi := &file_proto_lang_lang_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5793,7 +7209,7 @@ func (x *IsLetterOrDigitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLetterOrDigitRequest.ProtoReflect.Descriptor instead.
 func (*IsLetterOrDigitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{126}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *IsLetterOrDigitRequest) GetArg0() int32 {
@@ -5812,7 +7228,7 @@ type IsLetterOrDigitResponse struct {
 
 func (x *IsLetterOrDigitResponse) Reset() {
 	*x = IsLetterOrDigitResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[127]
+	mi := &file_proto_lang_lang_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5824,7 +7240,7 @@ func (x *IsLetterOrDigitResponse) String() string {
 func (*IsLetterOrDigitResponse) ProtoMessage() {}
 
 func (x *IsLetterOrDigitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[127]
+	mi := &file_proto_lang_lang_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5837,7 +7253,7 @@ func (x *IsLetterOrDigitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLetterOrDigitResponse.ProtoReflect.Descriptor instead.
 func (*IsLetterOrDigitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{127}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *IsLetterOrDigitResponse) GetResult() bool {
@@ -5856,7 +7272,7 @@ type IsLowSurrogate1Request struct {
 
 func (x *IsLowSurrogate1Request) Reset() {
 	*x = IsLowSurrogate1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[128]
+	mi := &file_proto_lang_lang_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5868,7 +7284,7 @@ func (x *IsLowSurrogate1Request) String() string {
 func (*IsLowSurrogate1Request) ProtoMessage() {}
 
 func (x *IsLowSurrogate1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[128]
+	mi := &file_proto_lang_lang_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5881,7 +7297,7 @@ func (x *IsLowSurrogate1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLowSurrogate1Request.ProtoReflect.Descriptor instead.
 func (*IsLowSurrogate1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{128}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *IsLowSurrogate1Request) GetArg0() uint32 {
@@ -5900,7 +7316,7 @@ type IsLowSurrogate1Response struct {
 
 func (x *IsLowSurrogate1Response) Reset() {
 	*x = IsLowSurrogate1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[129]
+	mi := &file_proto_lang_lang_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5912,7 +7328,7 @@ func (x *IsLowSurrogate1Response) String() string {
 func (*IsLowSurrogate1Response) ProtoMessage() {}
 
 func (x *IsLowSurrogate1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[129]
+	mi := &file_proto_lang_lang_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5925,7 +7341,7 @@ func (x *IsLowSurrogate1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLowSurrogate1Response.ProtoReflect.Descriptor instead.
 func (*IsLowSurrogate1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{129}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *IsLowSurrogate1Response) GetResult() bool {
@@ -5944,7 +7360,7 @@ type IsLowSurrogate1_1Request struct {
 
 func (x *IsLowSurrogate1_1Request) Reset() {
 	*x = IsLowSurrogate1_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[130]
+	mi := &file_proto_lang_lang_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5956,7 +7372,7 @@ func (x *IsLowSurrogate1_1Request) String() string {
 func (*IsLowSurrogate1_1Request) ProtoMessage() {}
 
 func (x *IsLowSurrogate1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[130]
+	mi := &file_proto_lang_lang_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5969,7 +7385,7 @@ func (x *IsLowSurrogate1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLowSurrogate1_1Request.ProtoReflect.Descriptor instead.
 func (*IsLowSurrogate1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{130}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *IsLowSurrogate1_1Request) GetArg0() int32 {
@@ -5988,7 +7404,7 @@ type IsLowSurrogate1_1Response struct {
 
 func (x *IsLowSurrogate1_1Response) Reset() {
 	*x = IsLowSurrogate1_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[131]
+	mi := &file_proto_lang_lang_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6000,7 +7416,7 @@ func (x *IsLowSurrogate1_1Response) String() string {
 func (*IsLowSurrogate1_1Response) ProtoMessage() {}
 
 func (x *IsLowSurrogate1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[131]
+	mi := &file_proto_lang_lang_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6013,7 +7429,7 @@ func (x *IsLowSurrogate1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLowSurrogate1_1Response.ProtoReflect.Descriptor instead.
 func (*IsLowSurrogate1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{131}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *IsLowSurrogate1_1Response) GetResult() bool {
@@ -6032,7 +7448,7 @@ type IsLowerCaseRequest struct {
 
 func (x *IsLowerCaseRequest) Reset() {
 	*x = IsLowerCaseRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[132]
+	mi := &file_proto_lang_lang_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6044,7 +7460,7 @@ func (x *IsLowerCaseRequest) String() string {
 func (*IsLowerCaseRequest) ProtoMessage() {}
 
 func (x *IsLowerCaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[132]
+	mi := &file_proto_lang_lang_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6057,7 +7473,7 @@ func (x *IsLowerCaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLowerCaseRequest.ProtoReflect.Descriptor instead.
 func (*IsLowerCaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{132}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{164}
 }
 
 func (x *IsLowerCaseRequest) GetArg0() int32 {
@@ -6076,7 +7492,7 @@ type IsLowerCaseResponse struct {
 
 func (x *IsLowerCaseResponse) Reset() {
 	*x = IsLowerCaseResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[133]
+	mi := &file_proto_lang_lang_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6088,7 +7504,7 @@ func (x *IsLowerCaseResponse) String() string {
 func (*IsLowerCaseResponse) ProtoMessage() {}
 
 func (x *IsLowerCaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[133]
+	mi := &file_proto_lang_lang_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6101,7 +7517,7 @@ func (x *IsLowerCaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLowerCaseResponse.ProtoReflect.Descriptor instead.
 func (*IsLowerCaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{133}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *IsLowerCaseResponse) GetResult() bool {
@@ -6120,7 +7536,7 @@ type IsMirroredRequest struct {
 
 func (x *IsMirroredRequest) Reset() {
 	*x = IsMirroredRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[134]
+	mi := &file_proto_lang_lang_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6132,7 +7548,7 @@ func (x *IsMirroredRequest) String() string {
 func (*IsMirroredRequest) ProtoMessage() {}
 
 func (x *IsMirroredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[134]
+	mi := &file_proto_lang_lang_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6145,7 +7561,7 @@ func (x *IsMirroredRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsMirroredRequest.ProtoReflect.Descriptor instead.
 func (*IsMirroredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{134}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *IsMirroredRequest) GetArg0() int32 {
@@ -6164,7 +7580,7 @@ type IsMirroredResponse struct {
 
 func (x *IsMirroredResponse) Reset() {
 	*x = IsMirroredResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[135]
+	mi := &file_proto_lang_lang_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6176,7 +7592,7 @@ func (x *IsMirroredResponse) String() string {
 func (*IsMirroredResponse) ProtoMessage() {}
 
 func (x *IsMirroredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[135]
+	mi := &file_proto_lang_lang_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6189,7 +7605,7 @@ func (x *IsMirroredResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsMirroredResponse.ProtoReflect.Descriptor instead.
 func (*IsMirroredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{135}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *IsMirroredResponse) GetResult() bool {
@@ -6208,7 +7624,7 @@ type IsPrintableRequest struct {
 
 func (x *IsPrintableRequest) Reset() {
 	*x = IsPrintableRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[136]
+	mi := &file_proto_lang_lang_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6220,7 +7636,7 @@ func (x *IsPrintableRequest) String() string {
 func (*IsPrintableRequest) ProtoMessage() {}
 
 func (x *IsPrintableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[136]
+	mi := &file_proto_lang_lang_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6233,7 +7649,7 @@ func (x *IsPrintableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsPrintableRequest.ProtoReflect.Descriptor instead.
 func (*IsPrintableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{136}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *IsPrintableRequest) GetArg0() int32 {
@@ -6252,7 +7668,7 @@ type IsPrintableResponse struct {
 
 func (x *IsPrintableResponse) Reset() {
 	*x = IsPrintableResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[137]
+	mi := &file_proto_lang_lang_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6264,7 +7680,7 @@ func (x *IsPrintableResponse) String() string {
 func (*IsPrintableResponse) ProtoMessage() {}
 
 func (x *IsPrintableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[137]
+	mi := &file_proto_lang_lang_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6277,7 +7693,7 @@ func (x *IsPrintableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsPrintableResponse.ProtoReflect.Descriptor instead.
 func (*IsPrintableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{137}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *IsPrintableResponse) GetResult() bool {
@@ -6296,7 +7712,7 @@ type IsSpaceCharRequest struct {
 
 func (x *IsSpaceCharRequest) Reset() {
 	*x = IsSpaceCharRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[138]
+	mi := &file_proto_lang_lang_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6308,7 +7724,7 @@ func (x *IsSpaceCharRequest) String() string {
 func (*IsSpaceCharRequest) ProtoMessage() {}
 
 func (x *IsSpaceCharRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[138]
+	mi := &file_proto_lang_lang_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6321,7 +7737,7 @@ func (x *IsSpaceCharRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSpaceCharRequest.ProtoReflect.Descriptor instead.
 func (*IsSpaceCharRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{138}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *IsSpaceCharRequest) GetArg0() int32 {
@@ -6340,7 +7756,7 @@ type IsSpaceCharResponse struct {
 
 func (x *IsSpaceCharResponse) Reset() {
 	*x = IsSpaceCharResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[139]
+	mi := &file_proto_lang_lang_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6352,7 +7768,7 @@ func (x *IsSpaceCharResponse) String() string {
 func (*IsSpaceCharResponse) ProtoMessage() {}
 
 func (x *IsSpaceCharResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[139]
+	mi := &file_proto_lang_lang_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6365,7 +7781,7 @@ func (x *IsSpaceCharResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSpaceCharResponse.ProtoReflect.Descriptor instead.
 func (*IsSpaceCharResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{139}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *IsSpaceCharResponse) GetResult() bool {
@@ -6384,7 +7800,7 @@ type IsSupplementaryRequest struct {
 
 func (x *IsSupplementaryRequest) Reset() {
 	*x = IsSupplementaryRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[140]
+	mi := &file_proto_lang_lang_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6396,7 +7812,7 @@ func (x *IsSupplementaryRequest) String() string {
 func (*IsSupplementaryRequest) ProtoMessage() {}
 
 func (x *IsSupplementaryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[140]
+	mi := &file_proto_lang_lang_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6409,7 +7825,7 @@ func (x *IsSupplementaryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSupplementaryRequest.ProtoReflect.Descriptor instead.
 func (*IsSupplementaryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{140}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *IsSupplementaryRequest) GetArg0() int32 {
@@ -6428,7 +7844,7 @@ type IsSupplementaryResponse struct {
 
 func (x *IsSupplementaryResponse) Reset() {
 	*x = IsSupplementaryResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[141]
+	mi := &file_proto_lang_lang_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6440,7 +7856,7 @@ func (x *IsSupplementaryResponse) String() string {
 func (*IsSupplementaryResponse) ProtoMessage() {}
 
 func (x *IsSupplementaryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[141]
+	mi := &file_proto_lang_lang_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6453,7 +7869,7 @@ func (x *IsSupplementaryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSupplementaryResponse.ProtoReflect.Descriptor instead.
 func (*IsSupplementaryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{141}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *IsSupplementaryResponse) GetResult() bool {
@@ -6472,7 +7888,7 @@ type IsSupplementaryCodePointRequest struct {
 
 func (x *IsSupplementaryCodePointRequest) Reset() {
 	*x = IsSupplementaryCodePointRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[142]
+	mi := &file_proto_lang_lang_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6484,7 +7900,7 @@ func (x *IsSupplementaryCodePointRequest) String() string {
 func (*IsSupplementaryCodePointRequest) ProtoMessage() {}
 
 func (x *IsSupplementaryCodePointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[142]
+	mi := &file_proto_lang_lang_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6497,7 +7913,7 @@ func (x *IsSupplementaryCodePointRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSupplementaryCodePointRequest.ProtoReflect.Descriptor instead.
 func (*IsSupplementaryCodePointRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{142}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *IsSupplementaryCodePointRequest) GetArg0() int32 {
@@ -6516,7 +7932,7 @@ type IsSupplementaryCodePointResponse struct {
 
 func (x *IsSupplementaryCodePointResponse) Reset() {
 	*x = IsSupplementaryCodePointResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[143]
+	mi := &file_proto_lang_lang_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6528,7 +7944,7 @@ func (x *IsSupplementaryCodePointResponse) String() string {
 func (*IsSupplementaryCodePointResponse) ProtoMessage() {}
 
 func (x *IsSupplementaryCodePointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[143]
+	mi := &file_proto_lang_lang_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6541,7 +7957,7 @@ func (x *IsSupplementaryCodePointResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSupplementaryCodePointResponse.ProtoReflect.Descriptor instead.
 func (*IsSupplementaryCodePointResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{143}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *IsSupplementaryCodePointResponse) GetResult() bool {
@@ -6561,7 +7977,7 @@ type IsSurrogatePair2Request struct {
 
 func (x *IsSurrogatePair2Request) Reset() {
 	*x = IsSurrogatePair2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[144]
+	mi := &file_proto_lang_lang_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6573,7 +7989,7 @@ func (x *IsSurrogatePair2Request) String() string {
 func (*IsSurrogatePair2Request) ProtoMessage() {}
 
 func (x *IsSurrogatePair2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[144]
+	mi := &file_proto_lang_lang_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6586,7 +8002,7 @@ func (x *IsSurrogatePair2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSurrogatePair2Request.ProtoReflect.Descriptor instead.
 func (*IsSurrogatePair2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{144}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *IsSurrogatePair2Request) GetArg0() uint32 {
@@ -6612,7 +8028,7 @@ type IsSurrogatePair2Response struct {
 
 func (x *IsSurrogatePair2Response) Reset() {
 	*x = IsSurrogatePair2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[145]
+	mi := &file_proto_lang_lang_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6624,7 +8040,7 @@ func (x *IsSurrogatePair2Response) String() string {
 func (*IsSurrogatePair2Response) ProtoMessage() {}
 
 func (x *IsSurrogatePair2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[145]
+	mi := &file_proto_lang_lang_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6637,7 +8053,7 @@ func (x *IsSurrogatePair2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSurrogatePair2Response.ProtoReflect.Descriptor instead.
 func (*IsSurrogatePair2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{145}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *IsSurrogatePair2Response) GetResult() bool {
@@ -6657,7 +8073,7 @@ type IsSurrogatePair2_1Request struct {
 
 func (x *IsSurrogatePair2_1Request) Reset() {
 	*x = IsSurrogatePair2_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[146]
+	mi := &file_proto_lang_lang_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6669,7 +8085,7 @@ func (x *IsSurrogatePair2_1Request) String() string {
 func (*IsSurrogatePair2_1Request) ProtoMessage() {}
 
 func (x *IsSurrogatePair2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[146]
+	mi := &file_proto_lang_lang_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6682,7 +8098,7 @@ func (x *IsSurrogatePair2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSurrogatePair2_1Request.ProtoReflect.Descriptor instead.
 func (*IsSurrogatePair2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{146}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *IsSurrogatePair2_1Request) GetArg0() int32 {
@@ -6708,7 +8124,7 @@ type IsSurrogatePair2_1Response struct {
 
 func (x *IsSurrogatePair2_1Response) Reset() {
 	*x = IsSurrogatePair2_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[147]
+	mi := &file_proto_lang_lang_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6720,7 +8136,7 @@ func (x *IsSurrogatePair2_1Response) String() string {
 func (*IsSurrogatePair2_1Response) ProtoMessage() {}
 
 func (x *IsSurrogatePair2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[147]
+	mi := &file_proto_lang_lang_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6733,7 +8149,7 @@ func (x *IsSurrogatePair2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSurrogatePair2_1Response.ProtoReflect.Descriptor instead.
 func (*IsSurrogatePair2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{147}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *IsSurrogatePair2_1Response) GetResult() bool {
@@ -6752,7 +8168,7 @@ type IsTitleCaseRequest struct {
 
 func (x *IsTitleCaseRequest) Reset() {
 	*x = IsTitleCaseRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[148]
+	mi := &file_proto_lang_lang_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6764,7 +8180,7 @@ func (x *IsTitleCaseRequest) String() string {
 func (*IsTitleCaseRequest) ProtoMessage() {}
 
 func (x *IsTitleCaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[148]
+	mi := &file_proto_lang_lang_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6777,7 +8193,7 @@ func (x *IsTitleCaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTitleCaseRequest.ProtoReflect.Descriptor instead.
 func (*IsTitleCaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{148}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *IsTitleCaseRequest) GetArg0() int32 {
@@ -6796,7 +8212,7 @@ type IsTitleCaseResponse struct {
 
 func (x *IsTitleCaseResponse) Reset() {
 	*x = IsTitleCaseResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[149]
+	mi := &file_proto_lang_lang_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6808,7 +8224,7 @@ func (x *IsTitleCaseResponse) String() string {
 func (*IsTitleCaseResponse) ProtoMessage() {}
 
 func (x *IsTitleCaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[149]
+	mi := &file_proto_lang_lang_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6821,7 +8237,7 @@ func (x *IsTitleCaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTitleCaseResponse.ProtoReflect.Descriptor instead.
 func (*IsTitleCaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{149}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *IsTitleCaseResponse) GetResult() bool {
@@ -6840,7 +8256,7 @@ type IsUAlphabeticRequest struct {
 
 func (x *IsUAlphabeticRequest) Reset() {
 	*x = IsUAlphabeticRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[150]
+	mi := &file_proto_lang_lang_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6852,7 +8268,7 @@ func (x *IsUAlphabeticRequest) String() string {
 func (*IsUAlphabeticRequest) ProtoMessage() {}
 
 func (x *IsUAlphabeticRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[150]
+	mi := &file_proto_lang_lang_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6865,7 +8281,7 @@ func (x *IsUAlphabeticRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUAlphabeticRequest.ProtoReflect.Descriptor instead.
 func (*IsUAlphabeticRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{150}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{182}
 }
 
 func (x *IsUAlphabeticRequest) GetArg0() int32 {
@@ -6884,7 +8300,7 @@ type IsUAlphabeticResponse struct {
 
 func (x *IsUAlphabeticResponse) Reset() {
 	*x = IsUAlphabeticResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[151]
+	mi := &file_proto_lang_lang_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6896,7 +8312,7 @@ func (x *IsUAlphabeticResponse) String() string {
 func (*IsUAlphabeticResponse) ProtoMessage() {}
 
 func (x *IsUAlphabeticResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[151]
+	mi := &file_proto_lang_lang_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6909,7 +8325,7 @@ func (x *IsUAlphabeticResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUAlphabeticResponse.ProtoReflect.Descriptor instead.
 func (*IsUAlphabeticResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{151}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{183}
 }
 
 func (x *IsUAlphabeticResponse) GetResult() bool {
@@ -6928,7 +8344,7 @@ type IsULowercaseRequest struct {
 
 func (x *IsULowercaseRequest) Reset() {
 	*x = IsULowercaseRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[152]
+	mi := &file_proto_lang_lang_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6940,7 +8356,7 @@ func (x *IsULowercaseRequest) String() string {
 func (*IsULowercaseRequest) ProtoMessage() {}
 
 func (x *IsULowercaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[152]
+	mi := &file_proto_lang_lang_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6953,7 +8369,7 @@ func (x *IsULowercaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsULowercaseRequest.ProtoReflect.Descriptor instead.
 func (*IsULowercaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{152}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{184}
 }
 
 func (x *IsULowercaseRequest) GetArg0() int32 {
@@ -6972,7 +8388,7 @@ type IsULowercaseResponse struct {
 
 func (x *IsULowercaseResponse) Reset() {
 	*x = IsULowercaseResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[153]
+	mi := &file_proto_lang_lang_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6984,7 +8400,7 @@ func (x *IsULowercaseResponse) String() string {
 func (*IsULowercaseResponse) ProtoMessage() {}
 
 func (x *IsULowercaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[153]
+	mi := &file_proto_lang_lang_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6997,7 +8413,7 @@ func (x *IsULowercaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsULowercaseResponse.ProtoReflect.Descriptor instead.
 func (*IsULowercaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{153}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{185}
 }
 
 func (x *IsULowercaseResponse) GetResult() bool {
@@ -7016,7 +8432,7 @@ type IsUUppercaseRequest struct {
 
 func (x *IsUUppercaseRequest) Reset() {
 	*x = IsUUppercaseRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[154]
+	mi := &file_proto_lang_lang_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7028,7 +8444,7 @@ func (x *IsUUppercaseRequest) String() string {
 func (*IsUUppercaseRequest) ProtoMessage() {}
 
 func (x *IsUUppercaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[154]
+	mi := &file_proto_lang_lang_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7041,7 +8457,7 @@ func (x *IsUUppercaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUUppercaseRequest.ProtoReflect.Descriptor instead.
 func (*IsUUppercaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{154}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{186}
 }
 
 func (x *IsUUppercaseRequest) GetArg0() int32 {
@@ -7060,7 +8476,7 @@ type IsUUppercaseResponse struct {
 
 func (x *IsUUppercaseResponse) Reset() {
 	*x = IsUUppercaseResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[155]
+	mi := &file_proto_lang_lang_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7072,7 +8488,7 @@ func (x *IsUUppercaseResponse) String() string {
 func (*IsUUppercaseResponse) ProtoMessage() {}
 
 func (x *IsUUppercaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[155]
+	mi := &file_proto_lang_lang_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7085,7 +8501,7 @@ func (x *IsUUppercaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUUppercaseResponse.ProtoReflect.Descriptor instead.
 func (*IsUUppercaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{155}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{187}
 }
 
 func (x *IsUUppercaseResponse) GetResult() bool {
@@ -7104,7 +8520,7 @@ type IsUWhiteSpaceRequest struct {
 
 func (x *IsUWhiteSpaceRequest) Reset() {
 	*x = IsUWhiteSpaceRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[156]
+	mi := &file_proto_lang_lang_proto_msgTypes[188]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7116,7 +8532,7 @@ func (x *IsUWhiteSpaceRequest) String() string {
 func (*IsUWhiteSpaceRequest) ProtoMessage() {}
 
 func (x *IsUWhiteSpaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[156]
+	mi := &file_proto_lang_lang_proto_msgTypes[188]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7129,7 +8545,7 @@ func (x *IsUWhiteSpaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUWhiteSpaceRequest.ProtoReflect.Descriptor instead.
 func (*IsUWhiteSpaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{156}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{188}
 }
 
 func (x *IsUWhiteSpaceRequest) GetArg0() int32 {
@@ -7148,7 +8564,7 @@ type IsUWhiteSpaceResponse struct {
 
 func (x *IsUWhiteSpaceResponse) Reset() {
 	*x = IsUWhiteSpaceResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[157]
+	mi := &file_proto_lang_lang_proto_msgTypes[189]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7160,7 +8576,7 @@ func (x *IsUWhiteSpaceResponse) String() string {
 func (*IsUWhiteSpaceResponse) ProtoMessage() {}
 
 func (x *IsUWhiteSpaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[157]
+	mi := &file_proto_lang_lang_proto_msgTypes[189]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7173,7 +8589,7 @@ func (x *IsUWhiteSpaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUWhiteSpaceResponse.ProtoReflect.Descriptor instead.
 func (*IsUWhiteSpaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{157}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{189}
 }
 
 func (x *IsUWhiteSpaceResponse) GetResult() bool {
@@ -7192,7 +8608,7 @@ type IsUnicodeIdentifierPartRequest struct {
 
 func (x *IsUnicodeIdentifierPartRequest) Reset() {
 	*x = IsUnicodeIdentifierPartRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[158]
+	mi := &file_proto_lang_lang_proto_msgTypes[190]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7204,7 +8620,7 @@ func (x *IsUnicodeIdentifierPartRequest) String() string {
 func (*IsUnicodeIdentifierPartRequest) ProtoMessage() {}
 
 func (x *IsUnicodeIdentifierPartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[158]
+	mi := &file_proto_lang_lang_proto_msgTypes[190]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7217,7 +8633,7 @@ func (x *IsUnicodeIdentifierPartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUnicodeIdentifierPartRequest.ProtoReflect.Descriptor instead.
 func (*IsUnicodeIdentifierPartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{158}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{190}
 }
 
 func (x *IsUnicodeIdentifierPartRequest) GetArg0() int32 {
@@ -7236,7 +8652,7 @@ type IsUnicodeIdentifierPartResponse struct {
 
 func (x *IsUnicodeIdentifierPartResponse) Reset() {
 	*x = IsUnicodeIdentifierPartResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[159]
+	mi := &file_proto_lang_lang_proto_msgTypes[191]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7248,7 +8664,7 @@ func (x *IsUnicodeIdentifierPartResponse) String() string {
 func (*IsUnicodeIdentifierPartResponse) ProtoMessage() {}
 
 func (x *IsUnicodeIdentifierPartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[159]
+	mi := &file_proto_lang_lang_proto_msgTypes[191]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7261,7 +8677,7 @@ func (x *IsUnicodeIdentifierPartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUnicodeIdentifierPartResponse.ProtoReflect.Descriptor instead.
 func (*IsUnicodeIdentifierPartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{159}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{191}
 }
 
 func (x *IsUnicodeIdentifierPartResponse) GetResult() bool {
@@ -7280,7 +8696,7 @@ type IsUnicodeIdentifierStartRequest struct {
 
 func (x *IsUnicodeIdentifierStartRequest) Reset() {
 	*x = IsUnicodeIdentifierStartRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[160]
+	mi := &file_proto_lang_lang_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7292,7 +8708,7 @@ func (x *IsUnicodeIdentifierStartRequest) String() string {
 func (*IsUnicodeIdentifierStartRequest) ProtoMessage() {}
 
 func (x *IsUnicodeIdentifierStartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[160]
+	mi := &file_proto_lang_lang_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7305,7 +8721,7 @@ func (x *IsUnicodeIdentifierStartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUnicodeIdentifierStartRequest.ProtoReflect.Descriptor instead.
 func (*IsUnicodeIdentifierStartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{160}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *IsUnicodeIdentifierStartRequest) GetArg0() int32 {
@@ -7324,7 +8740,7 @@ type IsUnicodeIdentifierStartResponse struct {
 
 func (x *IsUnicodeIdentifierStartResponse) Reset() {
 	*x = IsUnicodeIdentifierStartResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[161]
+	mi := &file_proto_lang_lang_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7336,7 +8752,7 @@ func (x *IsUnicodeIdentifierStartResponse) String() string {
 func (*IsUnicodeIdentifierStartResponse) ProtoMessage() {}
 
 func (x *IsUnicodeIdentifierStartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[161]
+	mi := &file_proto_lang_lang_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7349,7 +8765,7 @@ func (x *IsUnicodeIdentifierStartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUnicodeIdentifierStartResponse.ProtoReflect.Descriptor instead.
 func (*IsUnicodeIdentifierStartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{161}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{193}
 }
 
 func (x *IsUnicodeIdentifierStartResponse) GetResult() bool {
@@ -7368,7 +8784,7 @@ type IsUpperCaseRequest struct {
 
 func (x *IsUpperCaseRequest) Reset() {
 	*x = IsUpperCaseRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[162]
+	mi := &file_proto_lang_lang_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7380,7 +8796,7 @@ func (x *IsUpperCaseRequest) String() string {
 func (*IsUpperCaseRequest) ProtoMessage() {}
 
 func (x *IsUpperCaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[162]
+	mi := &file_proto_lang_lang_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7393,7 +8809,7 @@ func (x *IsUpperCaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUpperCaseRequest.ProtoReflect.Descriptor instead.
 func (*IsUpperCaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{162}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{194}
 }
 
 func (x *IsUpperCaseRequest) GetArg0() int32 {
@@ -7412,7 +8828,7 @@ type IsUpperCaseResponse struct {
 
 func (x *IsUpperCaseResponse) Reset() {
 	*x = IsUpperCaseResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[163]
+	mi := &file_proto_lang_lang_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7424,7 +8840,7 @@ func (x *IsUpperCaseResponse) String() string {
 func (*IsUpperCaseResponse) ProtoMessage() {}
 
 func (x *IsUpperCaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[163]
+	mi := &file_proto_lang_lang_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7437,7 +8853,7 @@ func (x *IsUpperCaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUpperCaseResponse.ProtoReflect.Descriptor instead.
 func (*IsUpperCaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{163}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{195}
 }
 
 func (x *IsUpperCaseResponse) GetResult() bool {
@@ -7456,7 +8872,7 @@ type IsValidCodePointRequest struct {
 
 func (x *IsValidCodePointRequest) Reset() {
 	*x = IsValidCodePointRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[164]
+	mi := &file_proto_lang_lang_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7468,7 +8884,7 @@ func (x *IsValidCodePointRequest) String() string {
 func (*IsValidCodePointRequest) ProtoMessage() {}
 
 func (x *IsValidCodePointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[164]
+	mi := &file_proto_lang_lang_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7481,7 +8897,7 @@ func (x *IsValidCodePointRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsValidCodePointRequest.ProtoReflect.Descriptor instead.
 func (*IsValidCodePointRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{164}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{196}
 }
 
 func (x *IsValidCodePointRequest) GetArg0() int32 {
@@ -7500,7 +8916,7 @@ type IsValidCodePointResponse struct {
 
 func (x *IsValidCodePointResponse) Reset() {
 	*x = IsValidCodePointResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[165]
+	mi := &file_proto_lang_lang_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7512,7 +8928,7 @@ func (x *IsValidCodePointResponse) String() string {
 func (*IsValidCodePointResponse) ProtoMessage() {}
 
 func (x *IsValidCodePointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[165]
+	mi := &file_proto_lang_lang_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7525,7 +8941,7 @@ func (x *IsValidCodePointResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsValidCodePointResponse.ProtoReflect.Descriptor instead.
 func (*IsValidCodePointResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{165}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{197}
 }
 
 func (x *IsValidCodePointResponse) GetResult() bool {
@@ -7544,7 +8960,7 @@ type IsWhitespaceRequest struct {
 
 func (x *IsWhitespaceRequest) Reset() {
 	*x = IsWhitespaceRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[166]
+	mi := &file_proto_lang_lang_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7556,7 +8972,7 @@ func (x *IsWhitespaceRequest) String() string {
 func (*IsWhitespaceRequest) ProtoMessage() {}
 
 func (x *IsWhitespaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[166]
+	mi := &file_proto_lang_lang_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7569,7 +8985,7 @@ func (x *IsWhitespaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsWhitespaceRequest.ProtoReflect.Descriptor instead.
 func (*IsWhitespaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{166}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{198}
 }
 
 func (x *IsWhitespaceRequest) GetArg0() int32 {
@@ -7588,7 +9004,7 @@ type IsWhitespaceResponse struct {
 
 func (x *IsWhitespaceResponse) Reset() {
 	*x = IsWhitespaceResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[167]
+	mi := &file_proto_lang_lang_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7600,7 +9016,7 @@ func (x *IsWhitespaceResponse) String() string {
 func (*IsWhitespaceResponse) ProtoMessage() {}
 
 func (x *IsWhitespaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[167]
+	mi := &file_proto_lang_lang_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7613,7 +9029,7 @@ func (x *IsWhitespaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsWhitespaceResponse.ProtoReflect.Descriptor instead.
 func (*IsWhitespaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{167}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *IsWhitespaceResponse) GetResult() bool {
@@ -7636,7 +9052,7 @@ type OffsetByCodePoints5Request struct {
 
 func (x *OffsetByCodePoints5Request) Reset() {
 	*x = OffsetByCodePoints5Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[168]
+	mi := &file_proto_lang_lang_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7648,7 +9064,7 @@ func (x *OffsetByCodePoints5Request) String() string {
 func (*OffsetByCodePoints5Request) ProtoMessage() {}
 
 func (x *OffsetByCodePoints5Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[168]
+	mi := &file_proto_lang_lang_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7661,7 +9077,7 @@ func (x *OffsetByCodePoints5Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OffsetByCodePoints5Request.ProtoReflect.Descriptor instead.
 func (*OffsetByCodePoints5Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{168}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{200}
 }
 
 func (x *OffsetByCodePoints5Request) GetArg0() int64 {
@@ -7708,7 +9124,7 @@ type OffsetByCodePoints5Response struct {
 
 func (x *OffsetByCodePoints5Response) Reset() {
 	*x = OffsetByCodePoints5Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[169]
+	mi := &file_proto_lang_lang_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7720,7 +9136,7 @@ func (x *OffsetByCodePoints5Response) String() string {
 func (*OffsetByCodePoints5Response) ProtoMessage() {}
 
 func (x *OffsetByCodePoints5Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[169]
+	mi := &file_proto_lang_lang_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7733,7 +9149,7 @@ func (x *OffsetByCodePoints5Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OffsetByCodePoints5Response.ProtoReflect.Descriptor instead.
 func (*OffsetByCodePoints5Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{169}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *OffsetByCodePoints5Response) GetResult() int32 {
@@ -7754,7 +9170,7 @@ type OffsetByCodePoints3_1Request struct {
 
 func (x *OffsetByCodePoints3_1Request) Reset() {
 	*x = OffsetByCodePoints3_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[170]
+	mi := &file_proto_lang_lang_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7766,7 +9182,7 @@ func (x *OffsetByCodePoints3_1Request) String() string {
 func (*OffsetByCodePoints3_1Request) ProtoMessage() {}
 
 func (x *OffsetByCodePoints3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[170]
+	mi := &file_proto_lang_lang_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7779,7 +9195,7 @@ func (x *OffsetByCodePoints3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OffsetByCodePoints3_1Request.ProtoReflect.Descriptor instead.
 func (*OffsetByCodePoints3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{170}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{202}
 }
 
 func (x *OffsetByCodePoints3_1Request) GetArg0() string {
@@ -7812,7 +9228,7 @@ type OffsetByCodePoints3_1Response struct {
 
 func (x *OffsetByCodePoints3_1Response) Reset() {
 	*x = OffsetByCodePoints3_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[171]
+	mi := &file_proto_lang_lang_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7824,7 +9240,7 @@ func (x *OffsetByCodePoints3_1Response) String() string {
 func (*OffsetByCodePoints3_1Response) ProtoMessage() {}
 
 func (x *OffsetByCodePoints3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[171]
+	mi := &file_proto_lang_lang_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7837,7 +9253,7 @@ func (x *OffsetByCodePoints3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OffsetByCodePoints3_1Response.ProtoReflect.Descriptor instead.
 func (*OffsetByCodePoints3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{171}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *OffsetByCodePoints3_1Response) GetResult() int32 {
@@ -7856,7 +9272,7 @@ type ToChars1Request struct {
 
 func (x *ToChars1Request) Reset() {
 	*x = ToChars1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[172]
+	mi := &file_proto_lang_lang_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7868,7 +9284,7 @@ func (x *ToChars1Request) String() string {
 func (*ToChars1Request) ProtoMessage() {}
 
 func (x *ToChars1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[172]
+	mi := &file_proto_lang_lang_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7881,7 +9297,7 @@ func (x *ToChars1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToChars1Request.ProtoReflect.Descriptor instead.
 func (*ToChars1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{172}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{204}
 }
 
 func (x *ToChars1Request) GetArg0() int32 {
@@ -7900,7 +9316,7 @@ type ToChars1Response struct {
 
 func (x *ToChars1Response) Reset() {
 	*x = ToChars1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[173]
+	mi := &file_proto_lang_lang_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7912,7 +9328,7 @@ func (x *ToChars1Response) String() string {
 func (*ToChars1Response) ProtoMessage() {}
 
 func (x *ToChars1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[173]
+	mi := &file_proto_lang_lang_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7925,7 +9341,7 @@ func (x *ToChars1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToChars1Response.ProtoReflect.Descriptor instead.
 func (*ToChars1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{173}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *ToChars1Response) GetResult() int64 {
@@ -7946,7 +9362,7 @@ type ToChars3_1Request struct {
 
 func (x *ToChars3_1Request) Reset() {
 	*x = ToChars3_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[174]
+	mi := &file_proto_lang_lang_proto_msgTypes[206]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7958,7 +9374,7 @@ func (x *ToChars3_1Request) String() string {
 func (*ToChars3_1Request) ProtoMessage() {}
 
 func (x *ToChars3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[174]
+	mi := &file_proto_lang_lang_proto_msgTypes[206]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7971,7 +9387,7 @@ func (x *ToChars3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToChars3_1Request.ProtoReflect.Descriptor instead.
 func (*ToChars3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{174}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{206}
 }
 
 func (x *ToChars3_1Request) GetArg0() int32 {
@@ -8004,7 +9420,7 @@ type ToChars3_1Response struct {
 
 func (x *ToChars3_1Response) Reset() {
 	*x = ToChars3_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[175]
+	mi := &file_proto_lang_lang_proto_msgTypes[207]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8016,7 +9432,7 @@ func (x *ToChars3_1Response) String() string {
 func (*ToChars3_1Response) ProtoMessage() {}
 
 func (x *ToChars3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[175]
+	mi := &file_proto_lang_lang_proto_msgTypes[207]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8029,7 +9445,7 @@ func (x *ToChars3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToChars3_1Response.ProtoReflect.Descriptor instead.
 func (*ToChars3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{175}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{207}
 }
 
 func (x *ToChars3_1Response) GetResult() int32 {
@@ -8049,7 +9465,7 @@ type ToCodePoint2Request struct {
 
 func (x *ToCodePoint2Request) Reset() {
 	*x = ToCodePoint2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[176]
+	mi := &file_proto_lang_lang_proto_msgTypes[208]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8061,7 +9477,7 @@ func (x *ToCodePoint2Request) String() string {
 func (*ToCodePoint2Request) ProtoMessage() {}
 
 func (x *ToCodePoint2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[176]
+	mi := &file_proto_lang_lang_proto_msgTypes[208]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8074,7 +9490,7 @@ func (x *ToCodePoint2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToCodePoint2Request.ProtoReflect.Descriptor instead.
 func (*ToCodePoint2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{176}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{208}
 }
 
 func (x *ToCodePoint2Request) GetArg0() uint32 {
@@ -8100,7 +9516,7 @@ type ToCodePoint2Response struct {
 
 func (x *ToCodePoint2Response) Reset() {
 	*x = ToCodePoint2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[177]
+	mi := &file_proto_lang_lang_proto_msgTypes[209]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8112,7 +9528,7 @@ func (x *ToCodePoint2Response) String() string {
 func (*ToCodePoint2Response) ProtoMessage() {}
 
 func (x *ToCodePoint2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[177]
+	mi := &file_proto_lang_lang_proto_msgTypes[209]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8125,7 +9541,7 @@ func (x *ToCodePoint2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToCodePoint2Response.ProtoReflect.Descriptor instead.
 func (*ToCodePoint2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{177}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{209}
 }
 
 func (x *ToCodePoint2Response) GetResult() int32 {
@@ -8145,7 +9561,7 @@ type ToCodePoint2_1Request struct {
 
 func (x *ToCodePoint2_1Request) Reset() {
 	*x = ToCodePoint2_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[178]
+	mi := &file_proto_lang_lang_proto_msgTypes[210]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8157,7 +9573,7 @@ func (x *ToCodePoint2_1Request) String() string {
 func (*ToCodePoint2_1Request) ProtoMessage() {}
 
 func (x *ToCodePoint2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[178]
+	mi := &file_proto_lang_lang_proto_msgTypes[210]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8170,7 +9586,7 @@ func (x *ToCodePoint2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToCodePoint2_1Request.ProtoReflect.Descriptor instead.
 func (*ToCodePoint2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{178}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{210}
 }
 
 func (x *ToCodePoint2_1Request) GetArg0() int32 {
@@ -8196,7 +9612,7 @@ type ToCodePoint2_1Response struct {
 
 func (x *ToCodePoint2_1Response) Reset() {
 	*x = ToCodePoint2_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[179]
+	mi := &file_proto_lang_lang_proto_msgTypes[211]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8208,7 +9624,7 @@ func (x *ToCodePoint2_1Response) String() string {
 func (*ToCodePoint2_1Response) ProtoMessage() {}
 
 func (x *ToCodePoint2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[179]
+	mi := &file_proto_lang_lang_proto_msgTypes[211]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8221,7 +9637,7 @@ func (x *ToCodePoint2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToCodePoint2_1Response.ProtoReflect.Descriptor instead.
 func (*ToCodePoint2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{179}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{211}
 }
 
 func (x *ToCodePoint2_1Response) GetResult() int32 {
@@ -8241,7 +9657,7 @@ type ToLowerCase2Request struct {
 
 func (x *ToLowerCase2Request) Reset() {
 	*x = ToLowerCase2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[180]
+	mi := &file_proto_lang_lang_proto_msgTypes[212]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8253,7 +9669,7 @@ func (x *ToLowerCase2Request) String() string {
 func (*ToLowerCase2Request) ProtoMessage() {}
 
 func (x *ToLowerCase2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[180]
+	mi := &file_proto_lang_lang_proto_msgTypes[212]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8266,7 +9682,7 @@ func (x *ToLowerCase2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToLowerCase2Request.ProtoReflect.Descriptor instead.
 func (*ToLowerCase2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{180}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{212}
 }
 
 func (x *ToLowerCase2Request) GetArg0() int64 {
@@ -8292,7 +9708,7 @@ type ToLowerCase2Response struct {
 
 func (x *ToLowerCase2Response) Reset() {
 	*x = ToLowerCase2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[181]
+	mi := &file_proto_lang_lang_proto_msgTypes[213]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8304,7 +9720,7 @@ func (x *ToLowerCase2Response) String() string {
 func (*ToLowerCase2Response) ProtoMessage() {}
 
 func (x *ToLowerCase2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[181]
+	mi := &file_proto_lang_lang_proto_msgTypes[213]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8317,7 +9733,7 @@ func (x *ToLowerCase2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToLowerCase2Response.ProtoReflect.Descriptor instead.
 func (*ToLowerCase2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{181}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{213}
 }
 
 func (x *ToLowerCase2Response) GetResult() string {
@@ -8336,7 +9752,7 @@ type ToLowerCase1_1Request struct {
 
 func (x *ToLowerCase1_1Request) Reset() {
 	*x = ToLowerCase1_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[182]
+	mi := &file_proto_lang_lang_proto_msgTypes[214]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8348,7 +9764,7 @@ func (x *ToLowerCase1_1Request) String() string {
 func (*ToLowerCase1_1Request) ProtoMessage() {}
 
 func (x *ToLowerCase1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[182]
+	mi := &file_proto_lang_lang_proto_msgTypes[214]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8361,7 +9777,7 @@ func (x *ToLowerCase1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToLowerCase1_1Request.ProtoReflect.Descriptor instead.
 func (*ToLowerCase1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{182}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{214}
 }
 
 func (x *ToLowerCase1_1Request) GetArg0() int32 {
@@ -8380,7 +9796,7 @@ type ToLowerCase1_1Response struct {
 
 func (x *ToLowerCase1_1Response) Reset() {
 	*x = ToLowerCase1_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[183]
+	mi := &file_proto_lang_lang_proto_msgTypes[215]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8392,7 +9808,7 @@ func (x *ToLowerCase1_1Response) String() string {
 func (*ToLowerCase1_1Response) ProtoMessage() {}
 
 func (x *ToLowerCase1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[183]
+	mi := &file_proto_lang_lang_proto_msgTypes[215]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8405,7 +9821,7 @@ func (x *ToLowerCase1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToLowerCase1_1Response.ProtoReflect.Descriptor instead.
 func (*ToLowerCase1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{183}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{215}
 }
 
 func (x *ToLowerCase1_1Response) GetResult() int32 {
@@ -8424,7 +9840,7 @@ type ToLowerCase1_2Request struct {
 
 func (x *ToLowerCase1_2Request) Reset() {
 	*x = ToLowerCase1_2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[184]
+	mi := &file_proto_lang_lang_proto_msgTypes[216]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8436,7 +9852,7 @@ func (x *ToLowerCase1_2Request) String() string {
 func (*ToLowerCase1_2Request) ProtoMessage() {}
 
 func (x *ToLowerCase1_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[184]
+	mi := &file_proto_lang_lang_proto_msgTypes[216]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8449,7 +9865,7 @@ func (x *ToLowerCase1_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToLowerCase1_2Request.ProtoReflect.Descriptor instead.
 func (*ToLowerCase1_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{184}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{216}
 }
 
 func (x *ToLowerCase1_2Request) GetArg0() string {
@@ -8468,7 +9884,7 @@ type ToLowerCase1_2Response struct {
 
 func (x *ToLowerCase1_2Response) Reset() {
 	*x = ToLowerCase1_2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[185]
+	mi := &file_proto_lang_lang_proto_msgTypes[217]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8480,7 +9896,7 @@ func (x *ToLowerCase1_2Response) String() string {
 func (*ToLowerCase1_2Response) ProtoMessage() {}
 
 func (x *ToLowerCase1_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[185]
+	mi := &file_proto_lang_lang_proto_msgTypes[217]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8493,7 +9909,7 @@ func (x *ToLowerCase1_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToLowerCase1_2Response.ProtoReflect.Descriptor instead.
 func (*ToLowerCase1_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{185}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{217}
 }
 
 func (x *ToLowerCase1_2Response) GetResult() string {
@@ -8513,7 +9929,7 @@ type ToLowerCase2_3Request struct {
 
 func (x *ToLowerCase2_3Request) Reset() {
 	*x = ToLowerCase2_3Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[186]
+	mi := &file_proto_lang_lang_proto_msgTypes[218]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8525,7 +9941,7 @@ func (x *ToLowerCase2_3Request) String() string {
 func (*ToLowerCase2_3Request) ProtoMessage() {}
 
 func (x *ToLowerCase2_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[186]
+	mi := &file_proto_lang_lang_proto_msgTypes[218]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8538,7 +9954,7 @@ func (x *ToLowerCase2_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToLowerCase2_3Request.ProtoReflect.Descriptor instead.
 func (*ToLowerCase2_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{186}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{218}
 }
 
 func (x *ToLowerCase2_3Request) GetArg0() int64 {
@@ -8564,7 +9980,7 @@ type ToLowerCase2_3Response struct {
 
 func (x *ToLowerCase2_3Response) Reset() {
 	*x = ToLowerCase2_3Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[187]
+	mi := &file_proto_lang_lang_proto_msgTypes[219]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8576,7 +9992,7 @@ func (x *ToLowerCase2_3Response) String() string {
 func (*ToLowerCase2_3Response) ProtoMessage() {}
 
 func (x *ToLowerCase2_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[187]
+	mi := &file_proto_lang_lang_proto_msgTypes[219]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8589,7 +10005,7 @@ func (x *ToLowerCase2_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToLowerCase2_3Response.ProtoReflect.Descriptor instead.
 func (*ToLowerCase2_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{187}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{219}
 }
 
 func (x *ToLowerCase2_3Response) GetResult() string {
@@ -8610,7 +10026,7 @@ type ToTitleCase3Request struct {
 
 func (x *ToTitleCase3Request) Reset() {
 	*x = ToTitleCase3Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[188]
+	mi := &file_proto_lang_lang_proto_msgTypes[220]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8622,7 +10038,7 @@ func (x *ToTitleCase3Request) String() string {
 func (*ToTitleCase3Request) ProtoMessage() {}
 
 func (x *ToTitleCase3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[188]
+	mi := &file_proto_lang_lang_proto_msgTypes[220]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8635,7 +10051,7 @@ func (x *ToTitleCase3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase3Request.ProtoReflect.Descriptor instead.
 func (*ToTitleCase3Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{188}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{220}
 }
 
 func (x *ToTitleCase3Request) GetArg0() int64 {
@@ -8668,7 +10084,7 @@ type ToTitleCase3Response struct {
 
 func (x *ToTitleCase3Response) Reset() {
 	*x = ToTitleCase3Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[189]
+	mi := &file_proto_lang_lang_proto_msgTypes[221]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8680,7 +10096,7 @@ func (x *ToTitleCase3Response) String() string {
 func (*ToTitleCase3Response) ProtoMessage() {}
 
 func (x *ToTitleCase3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[189]
+	mi := &file_proto_lang_lang_proto_msgTypes[221]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8693,7 +10109,7 @@ func (x *ToTitleCase3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase3Response.ProtoReflect.Descriptor instead.
 func (*ToTitleCase3Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{189}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{221}
 }
 
 func (x *ToTitleCase3Response) GetResult() string {
@@ -8715,7 +10131,7 @@ type ToTitleCase4_1Request struct {
 
 func (x *ToTitleCase4_1Request) Reset() {
 	*x = ToTitleCase4_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[190]
+	mi := &file_proto_lang_lang_proto_msgTypes[222]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8727,7 +10143,7 @@ func (x *ToTitleCase4_1Request) String() string {
 func (*ToTitleCase4_1Request) ProtoMessage() {}
 
 func (x *ToTitleCase4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[190]
+	mi := &file_proto_lang_lang_proto_msgTypes[222]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8740,7 +10156,7 @@ func (x *ToTitleCase4_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase4_1Request.ProtoReflect.Descriptor instead.
 func (*ToTitleCase4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{190}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{222}
 }
 
 func (x *ToTitleCase4_1Request) GetArg0() int64 {
@@ -8780,7 +10196,7 @@ type ToTitleCase4_1Response struct {
 
 func (x *ToTitleCase4_1Response) Reset() {
 	*x = ToTitleCase4_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[191]
+	mi := &file_proto_lang_lang_proto_msgTypes[223]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8792,7 +10208,7 @@ func (x *ToTitleCase4_1Response) String() string {
 func (*ToTitleCase4_1Response) ProtoMessage() {}
 
 func (x *ToTitleCase4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[191]
+	mi := &file_proto_lang_lang_proto_msgTypes[223]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8805,7 +10221,7 @@ func (x *ToTitleCase4_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase4_1Response.ProtoReflect.Descriptor instead.
 func (*ToTitleCase4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{191}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{223}
 }
 
 func (x *ToTitleCase4_1Response) GetResult() string {
@@ -8824,7 +10240,7 @@ type ToTitleCase1_2Request struct {
 
 func (x *ToTitleCase1_2Request) Reset() {
 	*x = ToTitleCase1_2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[192]
+	mi := &file_proto_lang_lang_proto_msgTypes[224]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8836,7 +10252,7 @@ func (x *ToTitleCase1_2Request) String() string {
 func (*ToTitleCase1_2Request) ProtoMessage() {}
 
 func (x *ToTitleCase1_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[192]
+	mi := &file_proto_lang_lang_proto_msgTypes[224]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8849,7 +10265,7 @@ func (x *ToTitleCase1_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase1_2Request.ProtoReflect.Descriptor instead.
 func (*ToTitleCase1_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{192}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{224}
 }
 
 func (x *ToTitleCase1_2Request) GetArg0() int32 {
@@ -8868,7 +10284,7 @@ type ToTitleCase1_2Response struct {
 
 func (x *ToTitleCase1_2Response) Reset() {
 	*x = ToTitleCase1_2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[193]
+	mi := &file_proto_lang_lang_proto_msgTypes[225]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8880,7 +10296,7 @@ func (x *ToTitleCase1_2Response) String() string {
 func (*ToTitleCase1_2Response) ProtoMessage() {}
 
 func (x *ToTitleCase1_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[193]
+	mi := &file_proto_lang_lang_proto_msgTypes[225]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8893,7 +10309,7 @@ func (x *ToTitleCase1_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase1_2Response.ProtoReflect.Descriptor instead.
 func (*ToTitleCase1_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{193}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{225}
 }
 
 func (x *ToTitleCase1_2Response) GetResult() int32 {
@@ -8913,7 +10329,7 @@ type ToTitleCase2_3Request struct {
 
 func (x *ToTitleCase2_3Request) Reset() {
 	*x = ToTitleCase2_3Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[194]
+	mi := &file_proto_lang_lang_proto_msgTypes[226]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8925,7 +10341,7 @@ func (x *ToTitleCase2_3Request) String() string {
 func (*ToTitleCase2_3Request) ProtoMessage() {}
 
 func (x *ToTitleCase2_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[194]
+	mi := &file_proto_lang_lang_proto_msgTypes[226]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8938,7 +10354,7 @@ func (x *ToTitleCase2_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase2_3Request.ProtoReflect.Descriptor instead.
 func (*ToTitleCase2_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{194}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{226}
 }
 
 func (x *ToTitleCase2_3Request) GetArg0() string {
@@ -8964,7 +10380,7 @@ type ToTitleCase2_3Response struct {
 
 func (x *ToTitleCase2_3Response) Reset() {
 	*x = ToTitleCase2_3Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[195]
+	mi := &file_proto_lang_lang_proto_msgTypes[227]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8976,7 +10392,7 @@ func (x *ToTitleCase2_3Response) String() string {
 func (*ToTitleCase2_3Response) ProtoMessage() {}
 
 func (x *ToTitleCase2_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[195]
+	mi := &file_proto_lang_lang_proto_msgTypes[227]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8989,7 +10405,7 @@ func (x *ToTitleCase2_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase2_3Response.ProtoReflect.Descriptor instead.
 func (*ToTitleCase2_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{195}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{227}
 }
 
 func (x *ToTitleCase2_3Response) GetResult() string {
@@ -9010,7 +10426,7 @@ type ToTitleCase3_4Request struct {
 
 func (x *ToTitleCase3_4Request) Reset() {
 	*x = ToTitleCase3_4Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[196]
+	mi := &file_proto_lang_lang_proto_msgTypes[228]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9022,7 +10438,7 @@ func (x *ToTitleCase3_4Request) String() string {
 func (*ToTitleCase3_4Request) ProtoMessage() {}
 
 func (x *ToTitleCase3_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[196]
+	mi := &file_proto_lang_lang_proto_msgTypes[228]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9035,7 +10451,7 @@ func (x *ToTitleCase3_4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase3_4Request.ProtoReflect.Descriptor instead.
 func (*ToTitleCase3_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{196}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{228}
 }
 
 func (x *ToTitleCase3_4Request) GetArg0() int64 {
@@ -9068,7 +10484,7 @@ type ToTitleCase3_4Response struct {
 
 func (x *ToTitleCase3_4Response) Reset() {
 	*x = ToTitleCase3_4Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[197]
+	mi := &file_proto_lang_lang_proto_msgTypes[229]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9080,7 +10496,7 @@ func (x *ToTitleCase3_4Response) String() string {
 func (*ToTitleCase3_4Response) ProtoMessage() {}
 
 func (x *ToTitleCase3_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[197]
+	mi := &file_proto_lang_lang_proto_msgTypes[229]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9093,7 +10509,7 @@ func (x *ToTitleCase3_4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase3_4Response.ProtoReflect.Descriptor instead.
 func (*ToTitleCase3_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{197}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{229}
 }
 
 func (x *ToTitleCase3_4Response) GetResult() string {
@@ -9115,7 +10531,7 @@ type ToTitleCase4_5Request struct {
 
 func (x *ToTitleCase4_5Request) Reset() {
 	*x = ToTitleCase4_5Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[198]
+	mi := &file_proto_lang_lang_proto_msgTypes[230]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9127,7 +10543,7 @@ func (x *ToTitleCase4_5Request) String() string {
 func (*ToTitleCase4_5Request) ProtoMessage() {}
 
 func (x *ToTitleCase4_5Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[198]
+	mi := &file_proto_lang_lang_proto_msgTypes[230]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9140,7 +10556,7 @@ func (x *ToTitleCase4_5Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase4_5Request.ProtoReflect.Descriptor instead.
 func (*ToTitleCase4_5Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{198}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{230}
 }
 
 func (x *ToTitleCase4_5Request) GetArg0() int64 {
@@ -9180,7 +10596,7 @@ type ToTitleCase4_5Response struct {
 
 func (x *ToTitleCase4_5Response) Reset() {
 	*x = ToTitleCase4_5Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[199]
+	mi := &file_proto_lang_lang_proto_msgTypes[231]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9192,7 +10608,7 @@ func (x *ToTitleCase4_5Response) String() string {
 func (*ToTitleCase4_5Response) ProtoMessage() {}
 
 func (x *ToTitleCase4_5Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[199]
+	mi := &file_proto_lang_lang_proto_msgTypes[231]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9205,7 +10621,7 @@ func (x *ToTitleCase4_5Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToTitleCase4_5Response.ProtoReflect.Descriptor instead.
 func (*ToTitleCase4_5Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{199}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{231}
 }
 
 func (x *ToTitleCase4_5Response) GetResult() string {
@@ -9225,7 +10641,7 @@ type ToUpperCase2Request struct {
 
 func (x *ToUpperCase2Request) Reset() {
 	*x = ToUpperCase2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[200]
+	mi := &file_proto_lang_lang_proto_msgTypes[232]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9237,7 +10653,7 @@ func (x *ToUpperCase2Request) String() string {
 func (*ToUpperCase2Request) ProtoMessage() {}
 
 func (x *ToUpperCase2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[200]
+	mi := &file_proto_lang_lang_proto_msgTypes[232]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9250,7 +10666,7 @@ func (x *ToUpperCase2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToUpperCase2Request.ProtoReflect.Descriptor instead.
 func (*ToUpperCase2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{200}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{232}
 }
 
 func (x *ToUpperCase2Request) GetArg0() int64 {
@@ -9276,7 +10692,7 @@ type ToUpperCase2Response struct {
 
 func (x *ToUpperCase2Response) Reset() {
 	*x = ToUpperCase2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[201]
+	mi := &file_proto_lang_lang_proto_msgTypes[233]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9288,7 +10704,7 @@ func (x *ToUpperCase2Response) String() string {
 func (*ToUpperCase2Response) ProtoMessage() {}
 
 func (x *ToUpperCase2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[201]
+	mi := &file_proto_lang_lang_proto_msgTypes[233]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9301,7 +10717,7 @@ func (x *ToUpperCase2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToUpperCase2Response.ProtoReflect.Descriptor instead.
 func (*ToUpperCase2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{201}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{233}
 }
 
 func (x *ToUpperCase2Response) GetResult() string {
@@ -9320,7 +10736,7 @@ type ToUpperCase1_1Request struct {
 
 func (x *ToUpperCase1_1Request) Reset() {
 	*x = ToUpperCase1_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[202]
+	mi := &file_proto_lang_lang_proto_msgTypes[234]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9332,7 +10748,7 @@ func (x *ToUpperCase1_1Request) String() string {
 func (*ToUpperCase1_1Request) ProtoMessage() {}
 
 func (x *ToUpperCase1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[202]
+	mi := &file_proto_lang_lang_proto_msgTypes[234]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9345,7 +10761,7 @@ func (x *ToUpperCase1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToUpperCase1_1Request.ProtoReflect.Descriptor instead.
 func (*ToUpperCase1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{202}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{234}
 }
 
 func (x *ToUpperCase1_1Request) GetArg0() int32 {
@@ -9364,7 +10780,7 @@ type ToUpperCase1_1Response struct {
 
 func (x *ToUpperCase1_1Response) Reset() {
 	*x = ToUpperCase1_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[203]
+	mi := &file_proto_lang_lang_proto_msgTypes[235]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9376,7 +10792,7 @@ func (x *ToUpperCase1_1Response) String() string {
 func (*ToUpperCase1_1Response) ProtoMessage() {}
 
 func (x *ToUpperCase1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[203]
+	mi := &file_proto_lang_lang_proto_msgTypes[235]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9389,7 +10805,7 @@ func (x *ToUpperCase1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToUpperCase1_1Response.ProtoReflect.Descriptor instead.
 func (*ToUpperCase1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{203}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{235}
 }
 
 func (x *ToUpperCase1_1Response) GetResult() int32 {
@@ -9408,7 +10824,7 @@ type ToUpperCase1_2Request struct {
 
 func (x *ToUpperCase1_2Request) Reset() {
 	*x = ToUpperCase1_2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[204]
+	mi := &file_proto_lang_lang_proto_msgTypes[236]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9420,7 +10836,7 @@ func (x *ToUpperCase1_2Request) String() string {
 func (*ToUpperCase1_2Request) ProtoMessage() {}
 
 func (x *ToUpperCase1_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[204]
+	mi := &file_proto_lang_lang_proto_msgTypes[236]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9433,7 +10849,7 @@ func (x *ToUpperCase1_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToUpperCase1_2Request.ProtoReflect.Descriptor instead.
 func (*ToUpperCase1_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{204}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{236}
 }
 
 func (x *ToUpperCase1_2Request) GetArg0() string {
@@ -9452,7 +10868,7 @@ type ToUpperCase1_2Response struct {
 
 func (x *ToUpperCase1_2Response) Reset() {
 	*x = ToUpperCase1_2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[205]
+	mi := &file_proto_lang_lang_proto_msgTypes[237]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9464,7 +10880,7 @@ func (x *ToUpperCase1_2Response) String() string {
 func (*ToUpperCase1_2Response) ProtoMessage() {}
 
 func (x *ToUpperCase1_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[205]
+	mi := &file_proto_lang_lang_proto_msgTypes[237]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9477,7 +10893,7 @@ func (x *ToUpperCase1_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToUpperCase1_2Response.ProtoReflect.Descriptor instead.
 func (*ToUpperCase1_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{205}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{237}
 }
 
 func (x *ToUpperCase1_2Response) GetResult() string {
@@ -9497,7 +10913,7 @@ type ToUpperCase2_3Request struct {
 
 func (x *ToUpperCase2_3Request) Reset() {
 	*x = ToUpperCase2_3Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[206]
+	mi := &file_proto_lang_lang_proto_msgTypes[238]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9509,7 +10925,7 @@ func (x *ToUpperCase2_3Request) String() string {
 func (*ToUpperCase2_3Request) ProtoMessage() {}
 
 func (x *ToUpperCase2_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[206]
+	mi := &file_proto_lang_lang_proto_msgTypes[238]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9522,7 +10938,7 @@ func (x *ToUpperCase2_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToUpperCase2_3Request.ProtoReflect.Descriptor instead.
 func (*ToUpperCase2_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{206}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{238}
 }
 
 func (x *ToUpperCase2_3Request) GetArg0() int64 {
@@ -9548,7 +10964,7 @@ type ToUpperCase2_3Response struct {
 
 func (x *ToUpperCase2_3Response) Reset() {
 	*x = ToUpperCase2_3Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[207]
+	mi := &file_proto_lang_lang_proto_msgTypes[239]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9560,7 +10976,7 @@ func (x *ToUpperCase2_3Response) String() string {
 func (*ToUpperCase2_3Response) ProtoMessage() {}
 
 func (x *ToUpperCase2_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[207]
+	mi := &file_proto_lang_lang_proto_msgTypes[239]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9573,7 +10989,7 @@ func (x *ToUpperCase2_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToUpperCase2_3Response.ProtoReflect.Descriptor instead.
 func (*ToUpperCase2_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{207}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{239}
 }
 
 func (x *ToUpperCase2_3Response) GetResult() string {
@@ -9591,7 +11007,7 @@ type GetIDRequest struct {
 
 func (x *GetIDRequest) Reset() {
 	*x = GetIDRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[208]
+	mi := &file_proto_lang_lang_proto_msgTypes[240]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9603,7 +11019,7 @@ func (x *GetIDRequest) String() string {
 func (*GetIDRequest) ProtoMessage() {}
 
 func (x *GetIDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[208]
+	mi := &file_proto_lang_lang_proto_msgTypes[240]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9616,7 +11032,7 @@ func (x *GetIDRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIDRequest.ProtoReflect.Descriptor instead.
 func (*GetIDRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{208}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{240}
 }
 
 type GetIDResponse struct {
@@ -9628,7 +11044,7 @@ type GetIDResponse struct {
 
 func (x *GetIDResponse) Reset() {
 	*x = GetIDResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[209]
+	mi := &file_proto_lang_lang_proto_msgTypes[241]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9640,7 +11056,7 @@ func (x *GetIDResponse) String() string {
 func (*GetIDResponse) ProtoMessage() {}
 
 func (x *GetIDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[209]
+	mi := &file_proto_lang_lang_proto_msgTypes[241]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9653,7 +11069,7 @@ func (x *GetIDResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIDResponse.ProtoReflect.Descriptor instead.
 func (*GetIDResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{209}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{241}
 }
 
 func (x *GetIDResponse) GetResult() int32 {
@@ -9672,7 +11088,7 @@ type ForNameRequest struct {
 
 func (x *ForNameRequest) Reset() {
 	*x = ForNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[210]
+	mi := &file_proto_lang_lang_proto_msgTypes[242]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9684,7 +11100,7 @@ func (x *ForNameRequest) String() string {
 func (*ForNameRequest) ProtoMessage() {}
 
 func (x *ForNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[210]
+	mi := &file_proto_lang_lang_proto_msgTypes[242]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9697,7 +11113,7 @@ func (x *ForNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForNameRequest.ProtoReflect.Descriptor instead.
 func (*ForNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{210}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{242}
 }
 
 func (x *ForNameRequest) GetArg0() string {
@@ -9716,7 +11132,7 @@ type ForNameResponse struct {
 
 func (x *ForNameResponse) Reset() {
 	*x = ForNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[211]
+	mi := &file_proto_lang_lang_proto_msgTypes[243]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9728,7 +11144,7 @@ func (x *ForNameResponse) String() string {
 func (*ForNameResponse) ProtoMessage() {}
 
 func (x *ForNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[211]
+	mi := &file_proto_lang_lang_proto_msgTypes[243]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9741,7 +11157,7 @@ func (x *ForNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForNameResponse.ProtoReflect.Descriptor instead.
 func (*ForNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{211}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{243}
 }
 
 func (x *ForNameResponse) GetResult() int64 {
@@ -9760,7 +11176,7 @@ type GetInstanceRequest struct {
 
 func (x *GetInstanceRequest) Reset() {
 	*x = GetInstanceRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[212]
+	mi := &file_proto_lang_lang_proto_msgTypes[244]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9772,7 +11188,7 @@ func (x *GetInstanceRequest) String() string {
 func (*GetInstanceRequest) ProtoMessage() {}
 
 func (x *GetInstanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[212]
+	mi := &file_proto_lang_lang_proto_msgTypes[244]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9785,7 +11201,7 @@ func (x *GetInstanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstanceRequest.ProtoReflect.Descriptor instead.
 func (*GetInstanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{212}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{244}
 }
 
 func (x *GetInstanceRequest) GetArg0() int32 {
@@ -9804,7 +11220,7 @@ type GetInstanceResponse struct {
 
 func (x *GetInstanceResponse) Reset() {
 	*x = GetInstanceResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[213]
+	mi := &file_proto_lang_lang_proto_msgTypes[245]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9816,7 +11232,7 @@ func (x *GetInstanceResponse) String() string {
 func (*GetInstanceResponse) ProtoMessage() {}
 
 func (x *GetInstanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[213]
+	mi := &file_proto_lang_lang_proto_msgTypes[245]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9829,7 +11245,7 @@ func (x *GetInstanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstanceResponse.ProtoReflect.Descriptor instead.
 func (*GetInstanceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{213}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{245}
 }
 
 func (x *GetInstanceResponse) GetResult() int64 {
@@ -9848,7 +11264,7 @@ type OfRequest struct {
 
 func (x *OfRequest) Reset() {
 	*x = OfRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[214]
+	mi := &file_proto_lang_lang_proto_msgTypes[246]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9860,7 +11276,7 @@ func (x *OfRequest) String() string {
 func (*OfRequest) ProtoMessage() {}
 
 func (x *OfRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[214]
+	mi := &file_proto_lang_lang_proto_msgTypes[246]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9873,7 +11289,7 @@ func (x *OfRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OfRequest.ProtoReflect.Descriptor instead.
 func (*OfRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{214}
+	return file_proto_lang_lang_proto_rawDescGZIP(), []int{246}
 }
 
 func (x *OfRequest) GetArg0() int32 {
@@ -9892,7 +11308,7 @@ type OfResponse struct {
 
 func (x *OfResponse) Reset() {
 	*x = OfResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[215]
+	mi := &file_proto_lang_lang_proto_msgTypes[247]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9904,7 +11320,7 @@ func (x *OfResponse) String() string {
 func (*OfResponse) ProtoMessage() {}
 
 func (x *OfResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[215]
+	mi := &file_proto_lang_lang_proto_msgTypes[247]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9917,1426 +11333,10 @@ func (x *OfResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OfResponse.ProtoReflect.Descriptor instead.
 func (*OfResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{215}
-}
-
-func (x *OfResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type BreaksBetweenLettersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BreaksBetweenLettersRequest) Reset() {
-	*x = BreaksBetweenLettersRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[216]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BreaksBetweenLettersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BreaksBetweenLettersRequest) ProtoMessage() {}
-
-func (x *BreaksBetweenLettersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[216]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BreaksBetweenLettersRequest.ProtoReflect.Descriptor instead.
-func (*BreaksBetweenLettersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{216}
-}
-
-func (x *BreaksBetweenLettersRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type BreaksBetweenLettersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BreaksBetweenLettersResponse) Reset() {
-	*x = BreaksBetweenLettersResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[217]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BreaksBetweenLettersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BreaksBetweenLettersResponse) ProtoMessage() {}
-
-func (x *BreaksBetweenLettersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[217]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BreaksBetweenLettersResponse.ProtoReflect.Descriptor instead.
-func (*BreaksBetweenLettersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{217}
-}
-
-func (x *BreaksBetweenLettersResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetCode1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCode1Request) Reset() {
-	*x = GetCode1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[218]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCode1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCode1Request) ProtoMessage() {}
-
-func (x *GetCode1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[218]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCode1Request.ProtoReflect.Descriptor instead.
-func (*GetCode1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{218}
-}
-
-func (x *GetCode1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetCode1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCode1Response) Reset() {
-	*x = GetCode1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[219]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCode1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCode1Response) ProtoMessage() {}
-
-func (x *GetCode1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[219]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCode1Response.ProtoReflect.Descriptor instead.
-func (*GetCode1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{219}
-}
-
-func (x *GetCode1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCode1_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCode1_1Request) Reset() {
-	*x = GetCode1_1Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[220]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCode1_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCode1_1Request) ProtoMessage() {}
-
-func (x *GetCode1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[220]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCode1_1Request.ProtoReflect.Descriptor instead.
-func (*GetCode1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{220}
-}
-
-func (x *GetCode1_1Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type GetCode1_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCode1_1Response) Reset() {
-	*x = GetCode1_1Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[221]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCode1_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCode1_1Response) ProtoMessage() {}
-
-func (x *GetCode1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[221]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCode1_1Response.ProtoReflect.Descriptor instead.
-func (*GetCode1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{221}
-}
-
-func (x *GetCode1_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCode1_2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCode1_2Request) Reset() {
-	*x = GetCode1_2Request{}
-	mi := &file_proto_lang_lang_proto_msgTypes[222]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCode1_2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCode1_2Request) ProtoMessage() {}
-
-func (x *GetCode1_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[222]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCode1_2Request.ProtoReflect.Descriptor instead.
-func (*GetCode1_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{222}
-}
-
-func (x *GetCode1_2Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetCode1_2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCode1_2Response) Reset() {
-	*x = GetCode1_2Response{}
-	mi := &file_proto_lang_lang_proto_msgTypes[223]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCode1_2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCode1_2Response) ProtoMessage() {}
-
-func (x *GetCode1_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[223]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCode1_2Response.ProtoReflect.Descriptor instead.
-func (*GetCode1_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{223}
-}
-
-func (x *GetCode1_2Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCodeFromNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCodeFromNameRequest) Reset() {
-	*x = GetCodeFromNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[224]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCodeFromNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCodeFromNameRequest) ProtoMessage() {}
-
-func (x *GetCodeFromNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[224]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCodeFromNameRequest.ProtoReflect.Descriptor instead.
-func (*GetCodeFromNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{224}
-}
-
-func (x *GetCodeFromNameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type GetCodeFromNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCodeFromNameResponse) Reset() {
-	*x = GetCodeFromNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[225]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCodeFromNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCodeFromNameResponse) ProtoMessage() {}
-
-func (x *GetCodeFromNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[225]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCodeFromNameResponse.ProtoReflect.Descriptor instead.
-func (*GetCodeFromNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{225}
-}
-
-func (x *GetCodeFromNameResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNameRequest) Reset() {
-	*x = GetNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[226]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNameRequest) ProtoMessage() {}
-
-func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[226]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
-func (*GetNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{226}
-}
-
-func (x *GetNameRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNameResponse) Reset() {
-	*x = GetNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[227]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNameResponse) ProtoMessage() {}
-
-func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[227]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
-func (*GetNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{227}
-}
-
-func (x *GetNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetSampleStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSampleStringRequest) Reset() {
-	*x = GetSampleStringRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[228]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSampleStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSampleStringRequest) ProtoMessage() {}
-
-func (x *GetSampleStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[228]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSampleStringRequest.ProtoReflect.Descriptor instead.
-func (*GetSampleStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{228}
-}
-
-func (x *GetSampleStringRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetSampleStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSampleStringResponse) Reset() {
-	*x = GetSampleStringResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[229]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSampleStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSampleStringResponse) ProtoMessage() {}
-
-func (x *GetSampleStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[229]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSampleStringResponse.ProtoReflect.Descriptor instead.
-func (*GetSampleStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{229}
-}
-
-func (x *GetSampleStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetScriptRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetScriptRequest) Reset() {
-	*x = GetScriptRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[230]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetScriptRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetScriptRequest) ProtoMessage() {}
-
-func (x *GetScriptRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[230]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetScriptRequest.ProtoReflect.Descriptor instead.
-func (*GetScriptRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{230}
-}
-
-func (x *GetScriptRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetScriptResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetScriptResponse) Reset() {
-	*x = GetScriptResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[231]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetScriptResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetScriptResponse) ProtoMessage() {}
-
-func (x *GetScriptResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[231]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetScriptResponse.ProtoReflect.Descriptor instead.
-func (*GetScriptResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{231}
-}
-
-func (x *GetScriptResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetScriptExtensionsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetScriptExtensionsRequest) Reset() {
-	*x = GetScriptExtensionsRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[232]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetScriptExtensionsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetScriptExtensionsRequest) ProtoMessage() {}
-
-func (x *GetScriptExtensionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[232]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetScriptExtensionsRequest.ProtoReflect.Descriptor instead.
-func (*GetScriptExtensionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{232}
-}
-
-func (x *GetScriptExtensionsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *GetScriptExtensionsRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetScriptExtensionsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetScriptExtensionsResponse) Reset() {
-	*x = GetScriptExtensionsResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[233]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetScriptExtensionsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetScriptExtensionsResponse) ProtoMessage() {}
-
-func (x *GetScriptExtensionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[233]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetScriptExtensionsResponse.ProtoReflect.Descriptor instead.
-func (*GetScriptExtensionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{233}
-}
-
-func (x *GetScriptExtensionsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetShortNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetShortNameRequest) Reset() {
-	*x = GetShortNameRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[234]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetShortNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetShortNameRequest) ProtoMessage() {}
-
-func (x *GetShortNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[234]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetShortNameRequest.ProtoReflect.Descriptor instead.
-func (*GetShortNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{234}
-}
-
-func (x *GetShortNameRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetShortNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetShortNameResponse) Reset() {
-	*x = GetShortNameResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[235]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetShortNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetShortNameResponse) ProtoMessage() {}
-
-func (x *GetShortNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[235]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetShortNameResponse.ProtoReflect.Descriptor instead.
-func (*GetShortNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{235}
-}
-
-func (x *GetShortNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetUsageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUsageRequest) Reset() {
-	*x = GetUsageRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[236]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUsageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUsageRequest) ProtoMessage() {}
-
-func (x *GetUsageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[236]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUsageRequest.ProtoReflect.Descriptor instead.
-func (*GetUsageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{236}
-}
-
-func (x *GetUsageRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetUsageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUsageResponse) Reset() {
-	*x = GetUsageResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[237]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUsageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUsageResponse) ProtoMessage() {}
-
-func (x *GetUsageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[237]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUsageResponse.ProtoReflect.Descriptor instead.
-func (*GetUsageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{237}
-}
-
-func (x *GetUsageResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HasScriptRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasScriptRequest) Reset() {
-	*x = HasScriptRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[238]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasScriptRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasScriptRequest) ProtoMessage() {}
-
-func (x *HasScriptRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[238]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasScriptRequest.ProtoReflect.Descriptor instead.
-func (*HasScriptRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{238}
-}
-
-func (x *HasScriptRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *HasScriptRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type HasScriptResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasScriptResponse) Reset() {
-	*x = HasScriptResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[239]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasScriptResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasScriptResponse) ProtoMessage() {}
-
-func (x *HasScriptResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[239]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasScriptResponse.ProtoReflect.Descriptor instead.
-func (*HasScriptResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{239}
-}
-
-func (x *HasScriptResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsCasedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsCasedRequest) Reset() {
-	*x = IsCasedRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[240]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsCasedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsCasedRequest) ProtoMessage() {}
-
-func (x *IsCasedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[240]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsCasedRequest.ProtoReflect.Descriptor instead.
-func (*IsCasedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{240}
-}
-
-func (x *IsCasedRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IsCasedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsCasedResponse) Reset() {
-	*x = IsCasedResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[241]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsCasedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsCasedResponse) ProtoMessage() {}
-
-func (x *IsCasedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[241]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsCasedResponse.ProtoReflect.Descriptor instead.
-func (*IsCasedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{241}
-}
-
-func (x *IsCasedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsRightToLeftRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRightToLeftRequest) Reset() {
-	*x = IsRightToLeftRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[242]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRightToLeftRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRightToLeftRequest) ProtoMessage() {}
-
-func (x *IsRightToLeftRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[242]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRightToLeftRequest.ProtoReflect.Descriptor instead.
-func (*IsRightToLeftRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{242}
-}
-
-func (x *IsRightToLeftRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IsRightToLeftResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRightToLeftResponse) Reset() {
-	*x = IsRightToLeftResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[243]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRightToLeftResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRightToLeftResponse) ProtoMessage() {}
-
-func (x *IsRightToLeftResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[243]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRightToLeftResponse.ProtoReflect.Descriptor instead.
-func (*IsRightToLeftResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{243}
-}
-
-func (x *IsRightToLeftResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ValuesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ValuesRequest) Reset() {
-	*x = ValuesRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[244]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValuesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValuesRequest) ProtoMessage() {}
-
-func (x *ValuesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[244]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ValuesRequest.ProtoReflect.Descriptor instead.
-func (*ValuesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{244}
-}
-
-type ValuesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ValuesResponse) Reset() {
-	*x = ValuesResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[245]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValuesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValuesResponse) ProtoMessage() {}
-
-func (x *ValuesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[245]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ValuesResponse.ProtoReflect.Descriptor instead.
-func (*ValuesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{245}
-}
-
-func (x *ValuesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ValueOfRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ValueOfRequest) Reset() {
-	*x = ValueOfRequest{}
-	mi := &file_proto_lang_lang_proto_msgTypes[246]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValueOfRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValueOfRequest) ProtoMessage() {}
-
-func (x *ValueOfRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[246]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ValueOfRequest.ProtoReflect.Descriptor instead.
-func (*ValueOfRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lang_lang_proto_rawDescGZIP(), []int{246}
-}
-
-func (x *ValueOfRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type ValueOfResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ValueOfResponse) Reset() {
-	*x = ValueOfResponse{}
-	mi := &file_proto_lang_lang_proto_msgTypes[247]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValueOfResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValueOfResponse) ProtoMessage() {}
-
-func (x *ValueOfResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lang_lang_proto_msgTypes[247]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ValueOfResponse.ProtoReflect.Descriptor instead.
-func (*ValueOfResponse) Descriptor() ([]byte, []int) {
 	return file_proto_lang_lang_proto_rawDescGZIP(), []int{247}
 }
 
-func (x *ValueOfResponse) GetResult() int64 {
+func (x *OfResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -11351,7 +11351,72 @@ const file_proto_lang_lang_proto_rawDesc = "" +
 	"\x0fToStringRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"1\n" +
+	"\x1bBreaksBetweenLettersRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
+	"\x1cBreaksBetweenLettersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"%\n" +
+	"\x0fGetCode1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"\x10GetCode1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11GetCode1_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
+	"\x12GetCode1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11GetCode1_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
+	"\x12GetCode1_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16GetCodeFromNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
+	"\x17GetCodeFromNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
+	"\x0eGetNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
+	"\x0fGetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\",\n" +
+	"\x16GetSampleStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17GetSampleStringResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"&\n" +
+	"\x10GetScriptRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
+	"\x11GetScriptResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"D\n" +
+	"\x1aGetScriptExtensionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"5\n" +
+	"\x1bGetScriptExtensionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x13GetShortNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\".\n" +
+	"\x14GetShortNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"%\n" +
+	"\x0fGetUsageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
+	"\x10GetUsageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"\x10HasScriptRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"+\n" +
+	"\x11HasScriptResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"$\n" +
+	"\x0eIsCasedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
+	"\x0fIsCasedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x14IsRightToLeftRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15IsRightToLeftResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
+	"\rValuesRequest\"(\n" +
+	"\x0eValuesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eValueOfRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fValueOfResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
 	"\x10CharCountRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
 	"\x11CharCountResponse\x12\x16\n" +
@@ -11830,75 +11895,30 @@ const file_proto_lang_lang_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"$\n" +
 	"\n" +
 	"OfResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x1bBreaksBetweenLettersRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
-	"\x1cBreaksBetweenLettersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"%\n" +
-	"\x0fGetCode1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
-	"\x10GetCode1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"\x11GetCode1_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
-	"\x12GetCode1_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"\x11GetCode1_2Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
-	"\x12GetCode1_2Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x16GetCodeFromNameRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
-	"\x17GetCodeFromNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
-	"\x0eGetNameRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
-	"\x0fGetNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\",\n" +
-	"\x16GetSampleStringRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
-	"\x17GetSampleStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"&\n" +
-	"\x10GetScriptRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
-	"\x11GetScriptResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"D\n" +
-	"\x1aGetScriptExtensionsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"5\n" +
-	"\x1bGetScriptExtensionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
-	"\x13GetShortNameRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\".\n" +
-	"\x14GetShortNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"%\n" +
-	"\x0fGetUsageRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
-	"\x10GetUsageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
-	"\x10HasScriptRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"+\n" +
-	"\x11HasScriptResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"$\n" +
-	"\x0eIsCasedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
-	"\x0fIsCasedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
-	"\x14IsRightToLeftRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
-	"\x15IsRightToLeftResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
-	"\rValuesRequest\"(\n" +
-	"\x0eValuesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eValueOfRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
-	"\x0fValueOfResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2W\n" +
-	"\x1aUCharacterDirectionService\x129\n" +
-	"\bToString\x12\x15.lang.ToStringRequest\x1a\x16.lang.ToStringResponse2V\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2V\n" +
 	"\x19UCharacterCategoryService\x129\n" +
+	"\bToString\x12\x15.lang.ToStringRequest\x1a\x16.lang.ToStringResponse2\xe0\a\n" +
+	"\x0eUScriptService\x12]\n" +
+	"\x14BreaksBetweenLetters\x12!.lang.BreaksBetweenLettersRequest\x1a\".lang.BreaksBetweenLettersResponse\x129\n" +
+	"\bGetCode1\x12\x15.lang.GetCode1Request\x1a\x16.lang.GetCode1Response\x12?\n" +
+	"\n" +
+	"GetCode1_1\x12\x17.lang.GetCode1_1Request\x1a\x18.lang.GetCode1_1Response\x12?\n" +
+	"\n" +
+	"GetCode1_2\x12\x17.lang.GetCode1_2Request\x1a\x18.lang.GetCode1_2Response\x12N\n" +
+	"\x0fGetCodeFromName\x12\x1c.lang.GetCodeFromNameRequest\x1a\x1d.lang.GetCodeFromNameResponse\x126\n" +
+	"\aGetName\x12\x14.lang.GetNameRequest\x1a\x15.lang.GetNameResponse\x12N\n" +
+	"\x0fGetSampleString\x12\x1c.lang.GetSampleStringRequest\x1a\x1d.lang.GetSampleStringResponse\x12<\n" +
+	"\tGetScript\x12\x16.lang.GetScriptRequest\x1a\x17.lang.GetScriptResponse\x12Z\n" +
+	"\x13GetScriptExtensions\x12 .lang.GetScriptExtensionsRequest\x1a!.lang.GetScriptExtensionsResponse\x12E\n" +
+	"\fGetShortName\x12\x19.lang.GetShortNameRequest\x1a\x1a.lang.GetShortNameResponse\x129\n" +
+	"\bGetUsage\x12\x15.lang.GetUsageRequest\x1a\x16.lang.GetUsageResponse\x12<\n" +
+	"\tHasScript\x12\x16.lang.HasScriptRequest\x1a\x17.lang.HasScriptResponse\x126\n" +
+	"\aIsCased\x12\x14.lang.IsCasedRequest\x1a\x15.lang.IsCasedResponse\x12H\n" +
+	"\rIsRightToLeft\x12\x1a.lang.IsRightToLeftRequest\x1a\x1b.lang.IsRightToLeftResponse2\x88\x01\n" +
+	"\x19UScriptScriptUsageService\x123\n" +
+	"\x06Values\x12\x13.lang.ValuesRequest\x1a\x14.lang.ValuesResponse\x126\n" +
+	"\aValueOf\x12\x14.lang.ValueOfRequest\x1a\x15.lang.ValueOfResponse2W\n" +
+	"\x1aUCharacterDirectionService\x129\n" +
 	"\bToString\x12\x15.lang.ToStringRequest\x1a\x16.lang.ToStringResponse2\xaf?\n" +
 	"\x11UCharacterService\x12<\n" +
 	"\tCharCount\x12\x16.lang.CharCountRequest\x1a\x17.lang.CharCountResponse\x12E\n" +
@@ -12014,27 +12034,7 @@ const file_proto_lang_lang_proto_rawDesc = "" +
 	"\x05GetID\x12\x12.lang.GetIDRequest\x1a\x13.lang.GetIDResponse\x126\n" +
 	"\aForName\x12\x14.lang.ForNameRequest\x1a\x15.lang.ForNameResponse\x12B\n" +
 	"\vGetInstance\x12\x18.lang.GetInstanceRequest\x1a\x19.lang.GetInstanceResponse\x12'\n" +
-	"\x02Of\x12\x0f.lang.OfRequest\x1a\x10.lang.OfResponse2\xe0\a\n" +
-	"\x0eUScriptService\x12]\n" +
-	"\x14BreaksBetweenLetters\x12!.lang.BreaksBetweenLettersRequest\x1a\".lang.BreaksBetweenLettersResponse\x129\n" +
-	"\bGetCode1\x12\x15.lang.GetCode1Request\x1a\x16.lang.GetCode1Response\x12?\n" +
-	"\n" +
-	"GetCode1_1\x12\x17.lang.GetCode1_1Request\x1a\x18.lang.GetCode1_1Response\x12?\n" +
-	"\n" +
-	"GetCode1_2\x12\x17.lang.GetCode1_2Request\x1a\x18.lang.GetCode1_2Response\x12N\n" +
-	"\x0fGetCodeFromName\x12\x1c.lang.GetCodeFromNameRequest\x1a\x1d.lang.GetCodeFromNameResponse\x126\n" +
-	"\aGetName\x12\x14.lang.GetNameRequest\x1a\x15.lang.GetNameResponse\x12N\n" +
-	"\x0fGetSampleString\x12\x1c.lang.GetSampleStringRequest\x1a\x1d.lang.GetSampleStringResponse\x12<\n" +
-	"\tGetScript\x12\x16.lang.GetScriptRequest\x1a\x17.lang.GetScriptResponse\x12Z\n" +
-	"\x13GetScriptExtensions\x12 .lang.GetScriptExtensionsRequest\x1a!.lang.GetScriptExtensionsResponse\x12E\n" +
-	"\fGetShortName\x12\x19.lang.GetShortNameRequest\x1a\x1a.lang.GetShortNameResponse\x129\n" +
-	"\bGetUsage\x12\x15.lang.GetUsageRequest\x1a\x16.lang.GetUsageResponse\x12<\n" +
-	"\tHasScript\x12\x16.lang.HasScriptRequest\x1a\x17.lang.HasScriptResponse\x126\n" +
-	"\aIsCased\x12\x14.lang.IsCasedRequest\x1a\x15.lang.IsCasedResponse\x12H\n" +
-	"\rIsRightToLeft\x12\x1a.lang.IsRightToLeftRequest\x1a\x1b.lang.IsRightToLeftResponse2\x88\x01\n" +
-	"\x19UScriptScriptUsageService\x123\n" +
-	"\x06Values\x12\x13.lang.ValuesRequest\x1a\x14.lang.ValuesResponse\x126\n" +
-	"\aValueOf\x12\x14.lang.ValueOfRequest\x1a\x15.lang.ValueOfResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/langb\x06proto3"
+	"\x02Of\x12\x0f.lang.OfRequest\x1a\x10.lang.OfResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/langb\x06proto3"
 
 var (
 	file_proto_lang_lang_proto_rawDescOnce sync.Once
@@ -12052,506 +12052,506 @@ var file_proto_lang_lang_proto_msgTypes = make([]protoimpl.MessageInfo, 248)
 var file_proto_lang_lang_proto_goTypes = []any{
 	(*ToStringRequest)(nil),                  // 0: lang.ToStringRequest
 	(*ToStringResponse)(nil),                 // 1: lang.ToStringResponse
-	(*CharCountRequest)(nil),                 // 2: lang.CharCountRequest
-	(*CharCountResponse)(nil),                // 3: lang.CharCountResponse
-	(*CodePointAt2Request)(nil),              // 4: lang.CodePointAt2Request
-	(*CodePointAt2Response)(nil),             // 5: lang.CodePointAt2Response
-	(*CodePointAt3_1Request)(nil),            // 6: lang.CodePointAt3_1Request
-	(*CodePointAt3_1Response)(nil),           // 7: lang.CodePointAt3_1Response
-	(*CodePointAt2_2Request)(nil),            // 8: lang.CodePointAt2_2Request
-	(*CodePointAt2_2Response)(nil),           // 9: lang.CodePointAt2_2Response
-	(*CodePointBefore2Request)(nil),          // 10: lang.CodePointBefore2Request
-	(*CodePointBefore2Response)(nil),         // 11: lang.CodePointBefore2Response
-	(*CodePointBefore3_1Request)(nil),        // 12: lang.CodePointBefore3_1Request
-	(*CodePointBefore3_1Response)(nil),       // 13: lang.CodePointBefore3_1Response
-	(*CodePointBefore2_2Request)(nil),        // 14: lang.CodePointBefore2_2Request
-	(*CodePointBefore2_2Response)(nil),       // 15: lang.CodePointBefore2_2Response
-	(*CodePointCount3Request)(nil),           // 16: lang.CodePointCount3Request
-	(*CodePointCount3Response)(nil),          // 17: lang.CodePointCount3Response
-	(*CodePointCount3_1Request)(nil),         // 18: lang.CodePointCount3_1Request
-	(*CodePointCount3_1Response)(nil),        // 19: lang.CodePointCount3_1Response
-	(*Digit1Request)(nil),                    // 20: lang.Digit1Request
-	(*Digit1Response)(nil),                   // 21: lang.Digit1Response
-	(*Digit2_1Request)(nil),                  // 22: lang.Digit2_1Request
-	(*Digit2_1Response)(nil),                 // 23: lang.Digit2_1Response
-	(*FoldCase2Request)(nil),                 // 24: lang.FoldCase2Request
-	(*FoldCase2Response)(nil),                // 25: lang.FoldCase2Response
-	(*FoldCase2_1Request)(nil),               // 26: lang.FoldCase2_1Request
-	(*FoldCase2_1Response)(nil),              // 27: lang.FoldCase2_1Response
-	(*FoldCase2_2Request)(nil),               // 28: lang.FoldCase2_2Request
-	(*FoldCase2_2Response)(nil),              // 29: lang.FoldCase2_2Response
-	(*FoldCase2_3Request)(nil),               // 30: lang.FoldCase2_3Request
-	(*FoldCase2_3Response)(nil),              // 31: lang.FoldCase2_3Response
-	(*ForDigitRequest)(nil),                  // 32: lang.ForDigitRequest
-	(*ForDigitResponse)(nil),                 // 33: lang.ForDigitResponse
-	(*GetAgeRequest)(nil),                    // 34: lang.GetAgeRequest
-	(*GetAgeResponse)(nil),                   // 35: lang.GetAgeResponse
-	(*GetBidiPairedBracketRequest)(nil),      // 36: lang.GetBidiPairedBracketRequest
-	(*GetBidiPairedBracketResponse)(nil),     // 37: lang.GetBidiPairedBracketResponse
-	(*GetCharFromExtendedNameRequest)(nil),   // 38: lang.GetCharFromExtendedNameRequest
-	(*GetCharFromExtendedNameResponse)(nil),  // 39: lang.GetCharFromExtendedNameResponse
-	(*GetCharFromNameRequest)(nil),           // 40: lang.GetCharFromNameRequest
-	(*GetCharFromNameResponse)(nil),          // 41: lang.GetCharFromNameResponse
-	(*GetCharFromNameAliasRequest)(nil),      // 42: lang.GetCharFromNameAliasRequest
-	(*GetCharFromNameAliasResponse)(nil),     // 43: lang.GetCharFromNameAliasResponse
-	(*GetCodePoint1Request)(nil),             // 44: lang.GetCodePoint1Request
-	(*GetCodePoint1Response)(nil),            // 45: lang.GetCodePoint1Response
-	(*GetCodePoint2_1Request)(nil),           // 46: lang.GetCodePoint2_1Request
-	(*GetCodePoint2_1Response)(nil),          // 47: lang.GetCodePoint2_1Response
-	(*GetCodePoint2_2Request)(nil),           // 48: lang.GetCodePoint2_2Request
-	(*GetCodePoint2_2Response)(nil),          // 49: lang.GetCodePoint2_2Response
-	(*GetCombiningClassRequest)(nil),         // 50: lang.GetCombiningClassRequest
-	(*GetCombiningClassResponse)(nil),        // 51: lang.GetCombiningClassResponse
-	(*GetDirectionRequest)(nil),              // 52: lang.GetDirectionRequest
-	(*GetDirectionResponse)(nil),             // 53: lang.GetDirectionResponse
-	(*GetDirectionalityRequest)(nil),         // 54: lang.GetDirectionalityRequest
-	(*GetDirectionalityResponse)(nil),        // 55: lang.GetDirectionalityResponse
-	(*GetExtendedNameRequest)(nil),           // 56: lang.GetExtendedNameRequest
-	(*GetExtendedNameResponse)(nil),          // 57: lang.GetExtendedNameResponse
-	(*GetExtendedNameIteratorRequest)(nil),   // 58: lang.GetExtendedNameIteratorRequest
-	(*GetExtendedNameIteratorResponse)(nil),  // 59: lang.GetExtendedNameIteratorResponse
-	(*GetHanNumericValueRequest)(nil),        // 60: lang.GetHanNumericValueRequest
-	(*GetHanNumericValueResponse)(nil),       // 61: lang.GetHanNumericValueResponse
-	(*GetIntPropertyMaxValueRequest)(nil),    // 62: lang.GetIntPropertyMaxValueRequest
-	(*GetIntPropertyMaxValueResponse)(nil),   // 63: lang.GetIntPropertyMaxValueResponse
-	(*GetIntPropertyMinValueRequest)(nil),    // 64: lang.GetIntPropertyMinValueRequest
-	(*GetIntPropertyMinValueResponse)(nil),   // 65: lang.GetIntPropertyMinValueResponse
-	(*GetIntPropertyValueRequest)(nil),       // 66: lang.GetIntPropertyValueRequest
-	(*GetIntPropertyValueResponse)(nil),      // 67: lang.GetIntPropertyValueResponse
-	(*GetMirrorRequest)(nil),                 // 68: lang.GetMirrorRequest
-	(*GetMirrorResponse)(nil),                // 69: lang.GetMirrorResponse
-	(*GetName1Request)(nil),                  // 70: lang.GetName1Request
-	(*GetName1Response)(nil),                 // 71: lang.GetName1Response
-	(*GetName2_1Request)(nil),                // 72: lang.GetName2_1Request
-	(*GetName2_1Response)(nil),               // 73: lang.GetName2_1Response
-	(*GetNameAliasRequest)(nil),              // 74: lang.GetNameAliasRequest
-	(*GetNameAliasResponse)(nil),             // 75: lang.GetNameAliasResponse
-	(*GetNameIteratorRequest)(nil),           // 76: lang.GetNameIteratorRequest
-	(*GetNameIteratorResponse)(nil),          // 77: lang.GetNameIteratorResponse
-	(*GetNumericValueRequest)(nil),           // 78: lang.GetNumericValueRequest
-	(*GetNumericValueResponse)(nil),          // 79: lang.GetNumericValueResponse
-	(*GetPropertyEnumRequest)(nil),           // 80: lang.GetPropertyEnumRequest
-	(*GetPropertyEnumResponse)(nil),          // 81: lang.GetPropertyEnumResponse
-	(*GetPropertyNameRequest)(nil),           // 82: lang.GetPropertyNameRequest
-	(*GetPropertyNameResponse)(nil),          // 83: lang.GetPropertyNameResponse
-	(*GetPropertyValueEnumRequest)(nil),      // 84: lang.GetPropertyValueEnumRequest
-	(*GetPropertyValueEnumResponse)(nil),     // 85: lang.GetPropertyValueEnumResponse
-	(*GetPropertyValueNameRequest)(nil),      // 86: lang.GetPropertyValueNameRequest
-	(*GetPropertyValueNameResponse)(nil),     // 87: lang.GetPropertyValueNameResponse
-	(*GetTypeRequest)(nil),                   // 88: lang.GetTypeRequest
-	(*GetTypeResponse)(nil),                  // 89: lang.GetTypeResponse
-	(*GetTypeIteratorRequest)(nil),           // 90: lang.GetTypeIteratorRequest
-	(*GetTypeIteratorResponse)(nil),          // 91: lang.GetTypeIteratorResponse
-	(*GetUnicodeNumericValueRequest)(nil),    // 92: lang.GetUnicodeNumericValueRequest
-	(*GetUnicodeNumericValueResponse)(nil),   // 93: lang.GetUnicodeNumericValueResponse
-	(*GetUnicodeVersionRequest)(nil),         // 94: lang.GetUnicodeVersionRequest
-	(*GetUnicodeVersionResponse)(nil),        // 95: lang.GetUnicodeVersionResponse
-	(*HasBinaryProperty2Request)(nil),        // 96: lang.HasBinaryProperty2Request
-	(*HasBinaryProperty2Response)(nil),       // 97: lang.HasBinaryProperty2Response
-	(*HasBinaryProperty2_1Request)(nil),      // 98: lang.HasBinaryProperty2_1Request
-	(*HasBinaryProperty2_1Response)(nil),     // 99: lang.HasBinaryProperty2_1Response
-	(*IsBMPRequest)(nil),                     // 100: lang.IsBMPRequest
-	(*IsBMPResponse)(nil),                    // 101: lang.IsBMPResponse
-	(*IsBaseFormRequest)(nil),                // 102: lang.IsBaseFormRequest
-	(*IsBaseFormResponse)(nil),               // 103: lang.IsBaseFormResponse
-	(*IsDefinedRequest)(nil),                 // 104: lang.IsDefinedRequest
-	(*IsDefinedResponse)(nil),                // 105: lang.IsDefinedResponse
-	(*IsDigitRequest)(nil),                   // 106: lang.IsDigitRequest
-	(*IsDigitResponse)(nil),                  // 107: lang.IsDigitResponse
-	(*IsHighSurrogate1Request)(nil),          // 108: lang.IsHighSurrogate1Request
-	(*IsHighSurrogate1Response)(nil),         // 109: lang.IsHighSurrogate1Response
-	(*IsHighSurrogate1_1Request)(nil),        // 110: lang.IsHighSurrogate1_1Request
-	(*IsHighSurrogate1_1Response)(nil),       // 111: lang.IsHighSurrogate1_1Response
-	(*IsISOControlRequest)(nil),              // 112: lang.IsISOControlRequest
-	(*IsISOControlResponse)(nil),             // 113: lang.IsISOControlResponse
-	(*IsIdentifierIgnorableRequest)(nil),     // 114: lang.IsIdentifierIgnorableRequest
-	(*IsIdentifierIgnorableResponse)(nil),    // 115: lang.IsIdentifierIgnorableResponse
-	(*IsJavaIdentifierPartRequest)(nil),      // 116: lang.IsJavaIdentifierPartRequest
-	(*IsJavaIdentifierPartResponse)(nil),     // 117: lang.IsJavaIdentifierPartResponse
-	(*IsJavaIdentifierStartRequest)(nil),     // 118: lang.IsJavaIdentifierStartRequest
-	(*IsJavaIdentifierStartResponse)(nil),    // 119: lang.IsJavaIdentifierStartResponse
-	(*IsLegal1Request)(nil),                  // 120: lang.IsLegal1Request
-	(*IsLegal1Response)(nil),                 // 121: lang.IsLegal1Response
-	(*IsLegal1_1Request)(nil),                // 122: lang.IsLegal1_1Request
-	(*IsLegal1_1Response)(nil),               // 123: lang.IsLegal1_1Response
-	(*IsLetterRequest)(nil),                  // 124: lang.IsLetterRequest
-	(*IsLetterResponse)(nil),                 // 125: lang.IsLetterResponse
-	(*IsLetterOrDigitRequest)(nil),           // 126: lang.IsLetterOrDigitRequest
-	(*IsLetterOrDigitResponse)(nil),          // 127: lang.IsLetterOrDigitResponse
-	(*IsLowSurrogate1Request)(nil),           // 128: lang.IsLowSurrogate1Request
-	(*IsLowSurrogate1Response)(nil),          // 129: lang.IsLowSurrogate1Response
-	(*IsLowSurrogate1_1Request)(nil),         // 130: lang.IsLowSurrogate1_1Request
-	(*IsLowSurrogate1_1Response)(nil),        // 131: lang.IsLowSurrogate1_1Response
-	(*IsLowerCaseRequest)(nil),               // 132: lang.IsLowerCaseRequest
-	(*IsLowerCaseResponse)(nil),              // 133: lang.IsLowerCaseResponse
-	(*IsMirroredRequest)(nil),                // 134: lang.IsMirroredRequest
-	(*IsMirroredResponse)(nil),               // 135: lang.IsMirroredResponse
-	(*IsPrintableRequest)(nil),               // 136: lang.IsPrintableRequest
-	(*IsPrintableResponse)(nil),              // 137: lang.IsPrintableResponse
-	(*IsSpaceCharRequest)(nil),               // 138: lang.IsSpaceCharRequest
-	(*IsSpaceCharResponse)(nil),              // 139: lang.IsSpaceCharResponse
-	(*IsSupplementaryRequest)(nil),           // 140: lang.IsSupplementaryRequest
-	(*IsSupplementaryResponse)(nil),          // 141: lang.IsSupplementaryResponse
-	(*IsSupplementaryCodePointRequest)(nil),  // 142: lang.IsSupplementaryCodePointRequest
-	(*IsSupplementaryCodePointResponse)(nil), // 143: lang.IsSupplementaryCodePointResponse
-	(*IsSurrogatePair2Request)(nil),          // 144: lang.IsSurrogatePair2Request
-	(*IsSurrogatePair2Response)(nil),         // 145: lang.IsSurrogatePair2Response
-	(*IsSurrogatePair2_1Request)(nil),        // 146: lang.IsSurrogatePair2_1Request
-	(*IsSurrogatePair2_1Response)(nil),       // 147: lang.IsSurrogatePair2_1Response
-	(*IsTitleCaseRequest)(nil),               // 148: lang.IsTitleCaseRequest
-	(*IsTitleCaseResponse)(nil),              // 149: lang.IsTitleCaseResponse
-	(*IsUAlphabeticRequest)(nil),             // 150: lang.IsUAlphabeticRequest
-	(*IsUAlphabeticResponse)(nil),            // 151: lang.IsUAlphabeticResponse
-	(*IsULowercaseRequest)(nil),              // 152: lang.IsULowercaseRequest
-	(*IsULowercaseResponse)(nil),             // 153: lang.IsULowercaseResponse
-	(*IsUUppercaseRequest)(nil),              // 154: lang.IsUUppercaseRequest
-	(*IsUUppercaseResponse)(nil),             // 155: lang.IsUUppercaseResponse
-	(*IsUWhiteSpaceRequest)(nil),             // 156: lang.IsUWhiteSpaceRequest
-	(*IsUWhiteSpaceResponse)(nil),            // 157: lang.IsUWhiteSpaceResponse
-	(*IsUnicodeIdentifierPartRequest)(nil),   // 158: lang.IsUnicodeIdentifierPartRequest
-	(*IsUnicodeIdentifierPartResponse)(nil),  // 159: lang.IsUnicodeIdentifierPartResponse
-	(*IsUnicodeIdentifierStartRequest)(nil),  // 160: lang.IsUnicodeIdentifierStartRequest
-	(*IsUnicodeIdentifierStartResponse)(nil), // 161: lang.IsUnicodeIdentifierStartResponse
-	(*IsUpperCaseRequest)(nil),               // 162: lang.IsUpperCaseRequest
-	(*IsUpperCaseResponse)(nil),              // 163: lang.IsUpperCaseResponse
-	(*IsValidCodePointRequest)(nil),          // 164: lang.IsValidCodePointRequest
-	(*IsValidCodePointResponse)(nil),         // 165: lang.IsValidCodePointResponse
-	(*IsWhitespaceRequest)(nil),              // 166: lang.IsWhitespaceRequest
-	(*IsWhitespaceResponse)(nil),             // 167: lang.IsWhitespaceResponse
-	(*OffsetByCodePoints5Request)(nil),       // 168: lang.OffsetByCodePoints5Request
-	(*OffsetByCodePoints5Response)(nil),      // 169: lang.OffsetByCodePoints5Response
-	(*OffsetByCodePoints3_1Request)(nil),     // 170: lang.OffsetByCodePoints3_1Request
-	(*OffsetByCodePoints3_1Response)(nil),    // 171: lang.OffsetByCodePoints3_1Response
-	(*ToChars1Request)(nil),                  // 172: lang.ToChars1Request
-	(*ToChars1Response)(nil),                 // 173: lang.ToChars1Response
-	(*ToChars3_1Request)(nil),                // 174: lang.ToChars3_1Request
-	(*ToChars3_1Response)(nil),               // 175: lang.ToChars3_1Response
-	(*ToCodePoint2Request)(nil),              // 176: lang.ToCodePoint2Request
-	(*ToCodePoint2Response)(nil),             // 177: lang.ToCodePoint2Response
-	(*ToCodePoint2_1Request)(nil),            // 178: lang.ToCodePoint2_1Request
-	(*ToCodePoint2_1Response)(nil),           // 179: lang.ToCodePoint2_1Response
-	(*ToLowerCase2Request)(nil),              // 180: lang.ToLowerCase2Request
-	(*ToLowerCase2Response)(nil),             // 181: lang.ToLowerCase2Response
-	(*ToLowerCase1_1Request)(nil),            // 182: lang.ToLowerCase1_1Request
-	(*ToLowerCase1_1Response)(nil),           // 183: lang.ToLowerCase1_1Response
-	(*ToLowerCase1_2Request)(nil),            // 184: lang.ToLowerCase1_2Request
-	(*ToLowerCase1_2Response)(nil),           // 185: lang.ToLowerCase1_2Response
-	(*ToLowerCase2_3Request)(nil),            // 186: lang.ToLowerCase2_3Request
-	(*ToLowerCase2_3Response)(nil),           // 187: lang.ToLowerCase2_3Response
-	(*ToTitleCase3Request)(nil),              // 188: lang.ToTitleCase3Request
-	(*ToTitleCase3Response)(nil),             // 189: lang.ToTitleCase3Response
-	(*ToTitleCase4_1Request)(nil),            // 190: lang.ToTitleCase4_1Request
-	(*ToTitleCase4_1Response)(nil),           // 191: lang.ToTitleCase4_1Response
-	(*ToTitleCase1_2Request)(nil),            // 192: lang.ToTitleCase1_2Request
-	(*ToTitleCase1_2Response)(nil),           // 193: lang.ToTitleCase1_2Response
-	(*ToTitleCase2_3Request)(nil),            // 194: lang.ToTitleCase2_3Request
-	(*ToTitleCase2_3Response)(nil),           // 195: lang.ToTitleCase2_3Response
-	(*ToTitleCase3_4Request)(nil),            // 196: lang.ToTitleCase3_4Request
-	(*ToTitleCase3_4Response)(nil),           // 197: lang.ToTitleCase3_4Response
-	(*ToTitleCase4_5Request)(nil),            // 198: lang.ToTitleCase4_5Request
-	(*ToTitleCase4_5Response)(nil),           // 199: lang.ToTitleCase4_5Response
-	(*ToUpperCase2Request)(nil),              // 200: lang.ToUpperCase2Request
-	(*ToUpperCase2Response)(nil),             // 201: lang.ToUpperCase2Response
-	(*ToUpperCase1_1Request)(nil),            // 202: lang.ToUpperCase1_1Request
-	(*ToUpperCase1_1Response)(nil),           // 203: lang.ToUpperCase1_1Response
-	(*ToUpperCase1_2Request)(nil),            // 204: lang.ToUpperCase1_2Request
-	(*ToUpperCase1_2Response)(nil),           // 205: lang.ToUpperCase1_2Response
-	(*ToUpperCase2_3Request)(nil),            // 206: lang.ToUpperCase2_3Request
-	(*ToUpperCase2_3Response)(nil),           // 207: lang.ToUpperCase2_3Response
-	(*GetIDRequest)(nil),                     // 208: lang.GetIDRequest
-	(*GetIDResponse)(nil),                    // 209: lang.GetIDResponse
-	(*ForNameRequest)(nil),                   // 210: lang.ForNameRequest
-	(*ForNameResponse)(nil),                  // 211: lang.ForNameResponse
-	(*GetInstanceRequest)(nil),               // 212: lang.GetInstanceRequest
-	(*GetInstanceResponse)(nil),              // 213: lang.GetInstanceResponse
-	(*OfRequest)(nil),                        // 214: lang.OfRequest
-	(*OfResponse)(nil),                       // 215: lang.OfResponse
-	(*BreaksBetweenLettersRequest)(nil),      // 216: lang.BreaksBetweenLettersRequest
-	(*BreaksBetweenLettersResponse)(nil),     // 217: lang.BreaksBetweenLettersResponse
-	(*GetCode1Request)(nil),                  // 218: lang.GetCode1Request
-	(*GetCode1Response)(nil),                 // 219: lang.GetCode1Response
-	(*GetCode1_1Request)(nil),                // 220: lang.GetCode1_1Request
-	(*GetCode1_1Response)(nil),               // 221: lang.GetCode1_1Response
-	(*GetCode1_2Request)(nil),                // 222: lang.GetCode1_2Request
-	(*GetCode1_2Response)(nil),               // 223: lang.GetCode1_2Response
-	(*GetCodeFromNameRequest)(nil),           // 224: lang.GetCodeFromNameRequest
-	(*GetCodeFromNameResponse)(nil),          // 225: lang.GetCodeFromNameResponse
-	(*GetNameRequest)(nil),                   // 226: lang.GetNameRequest
-	(*GetNameResponse)(nil),                  // 227: lang.GetNameResponse
-	(*GetSampleStringRequest)(nil),           // 228: lang.GetSampleStringRequest
-	(*GetSampleStringResponse)(nil),          // 229: lang.GetSampleStringResponse
-	(*GetScriptRequest)(nil),                 // 230: lang.GetScriptRequest
-	(*GetScriptResponse)(nil),                // 231: lang.GetScriptResponse
-	(*GetScriptExtensionsRequest)(nil),       // 232: lang.GetScriptExtensionsRequest
-	(*GetScriptExtensionsResponse)(nil),      // 233: lang.GetScriptExtensionsResponse
-	(*GetShortNameRequest)(nil),              // 234: lang.GetShortNameRequest
-	(*GetShortNameResponse)(nil),             // 235: lang.GetShortNameResponse
-	(*GetUsageRequest)(nil),                  // 236: lang.GetUsageRequest
-	(*GetUsageResponse)(nil),                 // 237: lang.GetUsageResponse
-	(*HasScriptRequest)(nil),                 // 238: lang.HasScriptRequest
-	(*HasScriptResponse)(nil),                // 239: lang.HasScriptResponse
-	(*IsCasedRequest)(nil),                   // 240: lang.IsCasedRequest
-	(*IsCasedResponse)(nil),                  // 241: lang.IsCasedResponse
-	(*IsRightToLeftRequest)(nil),             // 242: lang.IsRightToLeftRequest
-	(*IsRightToLeftResponse)(nil),            // 243: lang.IsRightToLeftResponse
-	(*ValuesRequest)(nil),                    // 244: lang.ValuesRequest
-	(*ValuesResponse)(nil),                   // 245: lang.ValuesResponse
-	(*ValueOfRequest)(nil),                   // 246: lang.ValueOfRequest
-	(*ValueOfResponse)(nil),                  // 247: lang.ValueOfResponse
+	(*BreaksBetweenLettersRequest)(nil),      // 2: lang.BreaksBetweenLettersRequest
+	(*BreaksBetweenLettersResponse)(nil),     // 3: lang.BreaksBetweenLettersResponse
+	(*GetCode1Request)(nil),                  // 4: lang.GetCode1Request
+	(*GetCode1Response)(nil),                 // 5: lang.GetCode1Response
+	(*GetCode1_1Request)(nil),                // 6: lang.GetCode1_1Request
+	(*GetCode1_1Response)(nil),               // 7: lang.GetCode1_1Response
+	(*GetCode1_2Request)(nil),                // 8: lang.GetCode1_2Request
+	(*GetCode1_2Response)(nil),               // 9: lang.GetCode1_2Response
+	(*GetCodeFromNameRequest)(nil),           // 10: lang.GetCodeFromNameRequest
+	(*GetCodeFromNameResponse)(nil),          // 11: lang.GetCodeFromNameResponse
+	(*GetNameRequest)(nil),                   // 12: lang.GetNameRequest
+	(*GetNameResponse)(nil),                  // 13: lang.GetNameResponse
+	(*GetSampleStringRequest)(nil),           // 14: lang.GetSampleStringRequest
+	(*GetSampleStringResponse)(nil),          // 15: lang.GetSampleStringResponse
+	(*GetScriptRequest)(nil),                 // 16: lang.GetScriptRequest
+	(*GetScriptResponse)(nil),                // 17: lang.GetScriptResponse
+	(*GetScriptExtensionsRequest)(nil),       // 18: lang.GetScriptExtensionsRequest
+	(*GetScriptExtensionsResponse)(nil),      // 19: lang.GetScriptExtensionsResponse
+	(*GetShortNameRequest)(nil),              // 20: lang.GetShortNameRequest
+	(*GetShortNameResponse)(nil),             // 21: lang.GetShortNameResponse
+	(*GetUsageRequest)(nil),                  // 22: lang.GetUsageRequest
+	(*GetUsageResponse)(nil),                 // 23: lang.GetUsageResponse
+	(*HasScriptRequest)(nil),                 // 24: lang.HasScriptRequest
+	(*HasScriptResponse)(nil),                // 25: lang.HasScriptResponse
+	(*IsCasedRequest)(nil),                   // 26: lang.IsCasedRequest
+	(*IsCasedResponse)(nil),                  // 27: lang.IsCasedResponse
+	(*IsRightToLeftRequest)(nil),             // 28: lang.IsRightToLeftRequest
+	(*IsRightToLeftResponse)(nil),            // 29: lang.IsRightToLeftResponse
+	(*ValuesRequest)(nil),                    // 30: lang.ValuesRequest
+	(*ValuesResponse)(nil),                   // 31: lang.ValuesResponse
+	(*ValueOfRequest)(nil),                   // 32: lang.ValueOfRequest
+	(*ValueOfResponse)(nil),                  // 33: lang.ValueOfResponse
+	(*CharCountRequest)(nil),                 // 34: lang.CharCountRequest
+	(*CharCountResponse)(nil),                // 35: lang.CharCountResponse
+	(*CodePointAt2Request)(nil),              // 36: lang.CodePointAt2Request
+	(*CodePointAt2Response)(nil),             // 37: lang.CodePointAt2Response
+	(*CodePointAt3_1Request)(nil),            // 38: lang.CodePointAt3_1Request
+	(*CodePointAt3_1Response)(nil),           // 39: lang.CodePointAt3_1Response
+	(*CodePointAt2_2Request)(nil),            // 40: lang.CodePointAt2_2Request
+	(*CodePointAt2_2Response)(nil),           // 41: lang.CodePointAt2_2Response
+	(*CodePointBefore2Request)(nil),          // 42: lang.CodePointBefore2Request
+	(*CodePointBefore2Response)(nil),         // 43: lang.CodePointBefore2Response
+	(*CodePointBefore3_1Request)(nil),        // 44: lang.CodePointBefore3_1Request
+	(*CodePointBefore3_1Response)(nil),       // 45: lang.CodePointBefore3_1Response
+	(*CodePointBefore2_2Request)(nil),        // 46: lang.CodePointBefore2_2Request
+	(*CodePointBefore2_2Response)(nil),       // 47: lang.CodePointBefore2_2Response
+	(*CodePointCount3Request)(nil),           // 48: lang.CodePointCount3Request
+	(*CodePointCount3Response)(nil),          // 49: lang.CodePointCount3Response
+	(*CodePointCount3_1Request)(nil),         // 50: lang.CodePointCount3_1Request
+	(*CodePointCount3_1Response)(nil),        // 51: lang.CodePointCount3_1Response
+	(*Digit1Request)(nil),                    // 52: lang.Digit1Request
+	(*Digit1Response)(nil),                   // 53: lang.Digit1Response
+	(*Digit2_1Request)(nil),                  // 54: lang.Digit2_1Request
+	(*Digit2_1Response)(nil),                 // 55: lang.Digit2_1Response
+	(*FoldCase2Request)(nil),                 // 56: lang.FoldCase2Request
+	(*FoldCase2Response)(nil),                // 57: lang.FoldCase2Response
+	(*FoldCase2_1Request)(nil),               // 58: lang.FoldCase2_1Request
+	(*FoldCase2_1Response)(nil),              // 59: lang.FoldCase2_1Response
+	(*FoldCase2_2Request)(nil),               // 60: lang.FoldCase2_2Request
+	(*FoldCase2_2Response)(nil),              // 61: lang.FoldCase2_2Response
+	(*FoldCase2_3Request)(nil),               // 62: lang.FoldCase2_3Request
+	(*FoldCase2_3Response)(nil),              // 63: lang.FoldCase2_3Response
+	(*ForDigitRequest)(nil),                  // 64: lang.ForDigitRequest
+	(*ForDigitResponse)(nil),                 // 65: lang.ForDigitResponse
+	(*GetAgeRequest)(nil),                    // 66: lang.GetAgeRequest
+	(*GetAgeResponse)(nil),                   // 67: lang.GetAgeResponse
+	(*GetBidiPairedBracketRequest)(nil),      // 68: lang.GetBidiPairedBracketRequest
+	(*GetBidiPairedBracketResponse)(nil),     // 69: lang.GetBidiPairedBracketResponse
+	(*GetCharFromExtendedNameRequest)(nil),   // 70: lang.GetCharFromExtendedNameRequest
+	(*GetCharFromExtendedNameResponse)(nil),  // 71: lang.GetCharFromExtendedNameResponse
+	(*GetCharFromNameRequest)(nil),           // 72: lang.GetCharFromNameRequest
+	(*GetCharFromNameResponse)(nil),          // 73: lang.GetCharFromNameResponse
+	(*GetCharFromNameAliasRequest)(nil),      // 74: lang.GetCharFromNameAliasRequest
+	(*GetCharFromNameAliasResponse)(nil),     // 75: lang.GetCharFromNameAliasResponse
+	(*GetCodePoint1Request)(nil),             // 76: lang.GetCodePoint1Request
+	(*GetCodePoint1Response)(nil),            // 77: lang.GetCodePoint1Response
+	(*GetCodePoint2_1Request)(nil),           // 78: lang.GetCodePoint2_1Request
+	(*GetCodePoint2_1Response)(nil),          // 79: lang.GetCodePoint2_1Response
+	(*GetCodePoint2_2Request)(nil),           // 80: lang.GetCodePoint2_2Request
+	(*GetCodePoint2_2Response)(nil),          // 81: lang.GetCodePoint2_2Response
+	(*GetCombiningClassRequest)(nil),         // 82: lang.GetCombiningClassRequest
+	(*GetCombiningClassResponse)(nil),        // 83: lang.GetCombiningClassResponse
+	(*GetDirectionRequest)(nil),              // 84: lang.GetDirectionRequest
+	(*GetDirectionResponse)(nil),             // 85: lang.GetDirectionResponse
+	(*GetDirectionalityRequest)(nil),         // 86: lang.GetDirectionalityRequest
+	(*GetDirectionalityResponse)(nil),        // 87: lang.GetDirectionalityResponse
+	(*GetExtendedNameRequest)(nil),           // 88: lang.GetExtendedNameRequest
+	(*GetExtendedNameResponse)(nil),          // 89: lang.GetExtendedNameResponse
+	(*GetExtendedNameIteratorRequest)(nil),   // 90: lang.GetExtendedNameIteratorRequest
+	(*GetExtendedNameIteratorResponse)(nil),  // 91: lang.GetExtendedNameIteratorResponse
+	(*GetHanNumericValueRequest)(nil),        // 92: lang.GetHanNumericValueRequest
+	(*GetHanNumericValueResponse)(nil),       // 93: lang.GetHanNumericValueResponse
+	(*GetIntPropertyMaxValueRequest)(nil),    // 94: lang.GetIntPropertyMaxValueRequest
+	(*GetIntPropertyMaxValueResponse)(nil),   // 95: lang.GetIntPropertyMaxValueResponse
+	(*GetIntPropertyMinValueRequest)(nil),    // 96: lang.GetIntPropertyMinValueRequest
+	(*GetIntPropertyMinValueResponse)(nil),   // 97: lang.GetIntPropertyMinValueResponse
+	(*GetIntPropertyValueRequest)(nil),       // 98: lang.GetIntPropertyValueRequest
+	(*GetIntPropertyValueResponse)(nil),      // 99: lang.GetIntPropertyValueResponse
+	(*GetMirrorRequest)(nil),                 // 100: lang.GetMirrorRequest
+	(*GetMirrorResponse)(nil),                // 101: lang.GetMirrorResponse
+	(*GetName1Request)(nil),                  // 102: lang.GetName1Request
+	(*GetName1Response)(nil),                 // 103: lang.GetName1Response
+	(*GetName2_1Request)(nil),                // 104: lang.GetName2_1Request
+	(*GetName2_1Response)(nil),               // 105: lang.GetName2_1Response
+	(*GetNameAliasRequest)(nil),              // 106: lang.GetNameAliasRequest
+	(*GetNameAliasResponse)(nil),             // 107: lang.GetNameAliasResponse
+	(*GetNameIteratorRequest)(nil),           // 108: lang.GetNameIteratorRequest
+	(*GetNameIteratorResponse)(nil),          // 109: lang.GetNameIteratorResponse
+	(*GetNumericValueRequest)(nil),           // 110: lang.GetNumericValueRequest
+	(*GetNumericValueResponse)(nil),          // 111: lang.GetNumericValueResponse
+	(*GetPropertyEnumRequest)(nil),           // 112: lang.GetPropertyEnumRequest
+	(*GetPropertyEnumResponse)(nil),          // 113: lang.GetPropertyEnumResponse
+	(*GetPropertyNameRequest)(nil),           // 114: lang.GetPropertyNameRequest
+	(*GetPropertyNameResponse)(nil),          // 115: lang.GetPropertyNameResponse
+	(*GetPropertyValueEnumRequest)(nil),      // 116: lang.GetPropertyValueEnumRequest
+	(*GetPropertyValueEnumResponse)(nil),     // 117: lang.GetPropertyValueEnumResponse
+	(*GetPropertyValueNameRequest)(nil),      // 118: lang.GetPropertyValueNameRequest
+	(*GetPropertyValueNameResponse)(nil),     // 119: lang.GetPropertyValueNameResponse
+	(*GetTypeRequest)(nil),                   // 120: lang.GetTypeRequest
+	(*GetTypeResponse)(nil),                  // 121: lang.GetTypeResponse
+	(*GetTypeIteratorRequest)(nil),           // 122: lang.GetTypeIteratorRequest
+	(*GetTypeIteratorResponse)(nil),          // 123: lang.GetTypeIteratorResponse
+	(*GetUnicodeNumericValueRequest)(nil),    // 124: lang.GetUnicodeNumericValueRequest
+	(*GetUnicodeNumericValueResponse)(nil),   // 125: lang.GetUnicodeNumericValueResponse
+	(*GetUnicodeVersionRequest)(nil),         // 126: lang.GetUnicodeVersionRequest
+	(*GetUnicodeVersionResponse)(nil),        // 127: lang.GetUnicodeVersionResponse
+	(*HasBinaryProperty2Request)(nil),        // 128: lang.HasBinaryProperty2Request
+	(*HasBinaryProperty2Response)(nil),       // 129: lang.HasBinaryProperty2Response
+	(*HasBinaryProperty2_1Request)(nil),      // 130: lang.HasBinaryProperty2_1Request
+	(*HasBinaryProperty2_1Response)(nil),     // 131: lang.HasBinaryProperty2_1Response
+	(*IsBMPRequest)(nil),                     // 132: lang.IsBMPRequest
+	(*IsBMPResponse)(nil),                    // 133: lang.IsBMPResponse
+	(*IsBaseFormRequest)(nil),                // 134: lang.IsBaseFormRequest
+	(*IsBaseFormResponse)(nil),               // 135: lang.IsBaseFormResponse
+	(*IsDefinedRequest)(nil),                 // 136: lang.IsDefinedRequest
+	(*IsDefinedResponse)(nil),                // 137: lang.IsDefinedResponse
+	(*IsDigitRequest)(nil),                   // 138: lang.IsDigitRequest
+	(*IsDigitResponse)(nil),                  // 139: lang.IsDigitResponse
+	(*IsHighSurrogate1Request)(nil),          // 140: lang.IsHighSurrogate1Request
+	(*IsHighSurrogate1Response)(nil),         // 141: lang.IsHighSurrogate1Response
+	(*IsHighSurrogate1_1Request)(nil),        // 142: lang.IsHighSurrogate1_1Request
+	(*IsHighSurrogate1_1Response)(nil),       // 143: lang.IsHighSurrogate1_1Response
+	(*IsISOControlRequest)(nil),              // 144: lang.IsISOControlRequest
+	(*IsISOControlResponse)(nil),             // 145: lang.IsISOControlResponse
+	(*IsIdentifierIgnorableRequest)(nil),     // 146: lang.IsIdentifierIgnorableRequest
+	(*IsIdentifierIgnorableResponse)(nil),    // 147: lang.IsIdentifierIgnorableResponse
+	(*IsJavaIdentifierPartRequest)(nil),      // 148: lang.IsJavaIdentifierPartRequest
+	(*IsJavaIdentifierPartResponse)(nil),     // 149: lang.IsJavaIdentifierPartResponse
+	(*IsJavaIdentifierStartRequest)(nil),     // 150: lang.IsJavaIdentifierStartRequest
+	(*IsJavaIdentifierStartResponse)(nil),    // 151: lang.IsJavaIdentifierStartResponse
+	(*IsLegal1Request)(nil),                  // 152: lang.IsLegal1Request
+	(*IsLegal1Response)(nil),                 // 153: lang.IsLegal1Response
+	(*IsLegal1_1Request)(nil),                // 154: lang.IsLegal1_1Request
+	(*IsLegal1_1Response)(nil),               // 155: lang.IsLegal1_1Response
+	(*IsLetterRequest)(nil),                  // 156: lang.IsLetterRequest
+	(*IsLetterResponse)(nil),                 // 157: lang.IsLetterResponse
+	(*IsLetterOrDigitRequest)(nil),           // 158: lang.IsLetterOrDigitRequest
+	(*IsLetterOrDigitResponse)(nil),          // 159: lang.IsLetterOrDigitResponse
+	(*IsLowSurrogate1Request)(nil),           // 160: lang.IsLowSurrogate1Request
+	(*IsLowSurrogate1Response)(nil),          // 161: lang.IsLowSurrogate1Response
+	(*IsLowSurrogate1_1Request)(nil),         // 162: lang.IsLowSurrogate1_1Request
+	(*IsLowSurrogate1_1Response)(nil),        // 163: lang.IsLowSurrogate1_1Response
+	(*IsLowerCaseRequest)(nil),               // 164: lang.IsLowerCaseRequest
+	(*IsLowerCaseResponse)(nil),              // 165: lang.IsLowerCaseResponse
+	(*IsMirroredRequest)(nil),                // 166: lang.IsMirroredRequest
+	(*IsMirroredResponse)(nil),               // 167: lang.IsMirroredResponse
+	(*IsPrintableRequest)(nil),               // 168: lang.IsPrintableRequest
+	(*IsPrintableResponse)(nil),              // 169: lang.IsPrintableResponse
+	(*IsSpaceCharRequest)(nil),               // 170: lang.IsSpaceCharRequest
+	(*IsSpaceCharResponse)(nil),              // 171: lang.IsSpaceCharResponse
+	(*IsSupplementaryRequest)(nil),           // 172: lang.IsSupplementaryRequest
+	(*IsSupplementaryResponse)(nil),          // 173: lang.IsSupplementaryResponse
+	(*IsSupplementaryCodePointRequest)(nil),  // 174: lang.IsSupplementaryCodePointRequest
+	(*IsSupplementaryCodePointResponse)(nil), // 175: lang.IsSupplementaryCodePointResponse
+	(*IsSurrogatePair2Request)(nil),          // 176: lang.IsSurrogatePair2Request
+	(*IsSurrogatePair2Response)(nil),         // 177: lang.IsSurrogatePair2Response
+	(*IsSurrogatePair2_1Request)(nil),        // 178: lang.IsSurrogatePair2_1Request
+	(*IsSurrogatePair2_1Response)(nil),       // 179: lang.IsSurrogatePair2_1Response
+	(*IsTitleCaseRequest)(nil),               // 180: lang.IsTitleCaseRequest
+	(*IsTitleCaseResponse)(nil),              // 181: lang.IsTitleCaseResponse
+	(*IsUAlphabeticRequest)(nil),             // 182: lang.IsUAlphabeticRequest
+	(*IsUAlphabeticResponse)(nil),            // 183: lang.IsUAlphabeticResponse
+	(*IsULowercaseRequest)(nil),              // 184: lang.IsULowercaseRequest
+	(*IsULowercaseResponse)(nil),             // 185: lang.IsULowercaseResponse
+	(*IsUUppercaseRequest)(nil),              // 186: lang.IsUUppercaseRequest
+	(*IsUUppercaseResponse)(nil),             // 187: lang.IsUUppercaseResponse
+	(*IsUWhiteSpaceRequest)(nil),             // 188: lang.IsUWhiteSpaceRequest
+	(*IsUWhiteSpaceResponse)(nil),            // 189: lang.IsUWhiteSpaceResponse
+	(*IsUnicodeIdentifierPartRequest)(nil),   // 190: lang.IsUnicodeIdentifierPartRequest
+	(*IsUnicodeIdentifierPartResponse)(nil),  // 191: lang.IsUnicodeIdentifierPartResponse
+	(*IsUnicodeIdentifierStartRequest)(nil),  // 192: lang.IsUnicodeIdentifierStartRequest
+	(*IsUnicodeIdentifierStartResponse)(nil), // 193: lang.IsUnicodeIdentifierStartResponse
+	(*IsUpperCaseRequest)(nil),               // 194: lang.IsUpperCaseRequest
+	(*IsUpperCaseResponse)(nil),              // 195: lang.IsUpperCaseResponse
+	(*IsValidCodePointRequest)(nil),          // 196: lang.IsValidCodePointRequest
+	(*IsValidCodePointResponse)(nil),         // 197: lang.IsValidCodePointResponse
+	(*IsWhitespaceRequest)(nil),              // 198: lang.IsWhitespaceRequest
+	(*IsWhitespaceResponse)(nil),             // 199: lang.IsWhitespaceResponse
+	(*OffsetByCodePoints5Request)(nil),       // 200: lang.OffsetByCodePoints5Request
+	(*OffsetByCodePoints5Response)(nil),      // 201: lang.OffsetByCodePoints5Response
+	(*OffsetByCodePoints3_1Request)(nil),     // 202: lang.OffsetByCodePoints3_1Request
+	(*OffsetByCodePoints3_1Response)(nil),    // 203: lang.OffsetByCodePoints3_1Response
+	(*ToChars1Request)(nil),                  // 204: lang.ToChars1Request
+	(*ToChars1Response)(nil),                 // 205: lang.ToChars1Response
+	(*ToChars3_1Request)(nil),                // 206: lang.ToChars3_1Request
+	(*ToChars3_1Response)(nil),               // 207: lang.ToChars3_1Response
+	(*ToCodePoint2Request)(nil),              // 208: lang.ToCodePoint2Request
+	(*ToCodePoint2Response)(nil),             // 209: lang.ToCodePoint2Response
+	(*ToCodePoint2_1Request)(nil),            // 210: lang.ToCodePoint2_1Request
+	(*ToCodePoint2_1Response)(nil),           // 211: lang.ToCodePoint2_1Response
+	(*ToLowerCase2Request)(nil),              // 212: lang.ToLowerCase2Request
+	(*ToLowerCase2Response)(nil),             // 213: lang.ToLowerCase2Response
+	(*ToLowerCase1_1Request)(nil),            // 214: lang.ToLowerCase1_1Request
+	(*ToLowerCase1_1Response)(nil),           // 215: lang.ToLowerCase1_1Response
+	(*ToLowerCase1_2Request)(nil),            // 216: lang.ToLowerCase1_2Request
+	(*ToLowerCase1_2Response)(nil),           // 217: lang.ToLowerCase1_2Response
+	(*ToLowerCase2_3Request)(nil),            // 218: lang.ToLowerCase2_3Request
+	(*ToLowerCase2_3Response)(nil),           // 219: lang.ToLowerCase2_3Response
+	(*ToTitleCase3Request)(nil),              // 220: lang.ToTitleCase3Request
+	(*ToTitleCase3Response)(nil),             // 221: lang.ToTitleCase3Response
+	(*ToTitleCase4_1Request)(nil),            // 222: lang.ToTitleCase4_1Request
+	(*ToTitleCase4_1Response)(nil),           // 223: lang.ToTitleCase4_1Response
+	(*ToTitleCase1_2Request)(nil),            // 224: lang.ToTitleCase1_2Request
+	(*ToTitleCase1_2Response)(nil),           // 225: lang.ToTitleCase1_2Response
+	(*ToTitleCase2_3Request)(nil),            // 226: lang.ToTitleCase2_3Request
+	(*ToTitleCase2_3Response)(nil),           // 227: lang.ToTitleCase2_3Response
+	(*ToTitleCase3_4Request)(nil),            // 228: lang.ToTitleCase3_4Request
+	(*ToTitleCase3_4Response)(nil),           // 229: lang.ToTitleCase3_4Response
+	(*ToTitleCase4_5Request)(nil),            // 230: lang.ToTitleCase4_5Request
+	(*ToTitleCase4_5Response)(nil),           // 231: lang.ToTitleCase4_5Response
+	(*ToUpperCase2Request)(nil),              // 232: lang.ToUpperCase2Request
+	(*ToUpperCase2Response)(nil),             // 233: lang.ToUpperCase2Response
+	(*ToUpperCase1_1Request)(nil),            // 234: lang.ToUpperCase1_1Request
+	(*ToUpperCase1_1Response)(nil),           // 235: lang.ToUpperCase1_1Response
+	(*ToUpperCase1_2Request)(nil),            // 236: lang.ToUpperCase1_2Request
+	(*ToUpperCase1_2Response)(nil),           // 237: lang.ToUpperCase1_2Response
+	(*ToUpperCase2_3Request)(nil),            // 238: lang.ToUpperCase2_3Request
+	(*ToUpperCase2_3Response)(nil),           // 239: lang.ToUpperCase2_3Response
+	(*GetIDRequest)(nil),                     // 240: lang.GetIDRequest
+	(*GetIDResponse)(nil),                    // 241: lang.GetIDResponse
+	(*ForNameRequest)(nil),                   // 242: lang.ForNameRequest
+	(*ForNameResponse)(nil),                  // 243: lang.ForNameResponse
+	(*GetInstanceRequest)(nil),               // 244: lang.GetInstanceRequest
+	(*GetInstanceResponse)(nil),              // 245: lang.GetInstanceResponse
+	(*OfRequest)(nil),                        // 246: lang.OfRequest
+	(*OfResponse)(nil),                       // 247: lang.OfResponse
 }
 var file_proto_lang_lang_proto_depIdxs = []int32{
-	0,   // 0: lang.UCharacterDirectionService.ToString:input_type -> lang.ToStringRequest
-	0,   // 1: lang.UCharacterCategoryService.ToString:input_type -> lang.ToStringRequest
-	2,   // 2: lang.UCharacterService.CharCount:input_type -> lang.CharCountRequest
-	4,   // 3: lang.UCharacterService.CodePointAt2:input_type -> lang.CodePointAt2Request
-	6,   // 4: lang.UCharacterService.CodePointAt3_1:input_type -> lang.CodePointAt3_1Request
-	8,   // 5: lang.UCharacterService.CodePointAt2_2:input_type -> lang.CodePointAt2_2Request
-	10,  // 6: lang.UCharacterService.CodePointBefore2:input_type -> lang.CodePointBefore2Request
-	12,  // 7: lang.UCharacterService.CodePointBefore3_1:input_type -> lang.CodePointBefore3_1Request
-	14,  // 8: lang.UCharacterService.CodePointBefore2_2:input_type -> lang.CodePointBefore2_2Request
-	16,  // 9: lang.UCharacterService.CodePointCount3:input_type -> lang.CodePointCount3Request
-	18,  // 10: lang.UCharacterService.CodePointCount3_1:input_type -> lang.CodePointCount3_1Request
-	20,  // 11: lang.UCharacterService.Digit1:input_type -> lang.Digit1Request
-	22,  // 12: lang.UCharacterService.Digit2_1:input_type -> lang.Digit2_1Request
-	24,  // 13: lang.UCharacterService.FoldCase2:input_type -> lang.FoldCase2Request
-	26,  // 14: lang.UCharacterService.FoldCase2_1:input_type -> lang.FoldCase2_1Request
-	28,  // 15: lang.UCharacterService.FoldCase2_2:input_type -> lang.FoldCase2_2Request
-	30,  // 16: lang.UCharacterService.FoldCase2_3:input_type -> lang.FoldCase2_3Request
-	32,  // 17: lang.UCharacterService.ForDigit:input_type -> lang.ForDigitRequest
-	34,  // 18: lang.UCharacterService.GetAge:input_type -> lang.GetAgeRequest
-	36,  // 19: lang.UCharacterService.GetBidiPairedBracket:input_type -> lang.GetBidiPairedBracketRequest
-	38,  // 20: lang.UCharacterService.GetCharFromExtendedName:input_type -> lang.GetCharFromExtendedNameRequest
-	40,  // 21: lang.UCharacterService.GetCharFromName:input_type -> lang.GetCharFromNameRequest
-	42,  // 22: lang.UCharacterService.GetCharFromNameAlias:input_type -> lang.GetCharFromNameAliasRequest
-	44,  // 23: lang.UCharacterService.GetCodePoint1:input_type -> lang.GetCodePoint1Request
-	46,  // 24: lang.UCharacterService.GetCodePoint2_1:input_type -> lang.GetCodePoint2_1Request
-	48,  // 25: lang.UCharacterService.GetCodePoint2_2:input_type -> lang.GetCodePoint2_2Request
-	50,  // 26: lang.UCharacterService.GetCombiningClass:input_type -> lang.GetCombiningClassRequest
-	52,  // 27: lang.UCharacterService.GetDirection:input_type -> lang.GetDirectionRequest
-	54,  // 28: lang.UCharacterService.GetDirectionality:input_type -> lang.GetDirectionalityRequest
-	56,  // 29: lang.UCharacterService.GetExtendedName:input_type -> lang.GetExtendedNameRequest
-	58,  // 30: lang.UCharacterService.GetExtendedNameIterator:input_type -> lang.GetExtendedNameIteratorRequest
-	60,  // 31: lang.UCharacterService.GetHanNumericValue:input_type -> lang.GetHanNumericValueRequest
-	62,  // 32: lang.UCharacterService.GetIntPropertyMaxValue:input_type -> lang.GetIntPropertyMaxValueRequest
-	64,  // 33: lang.UCharacterService.GetIntPropertyMinValue:input_type -> lang.GetIntPropertyMinValueRequest
-	66,  // 34: lang.UCharacterService.GetIntPropertyValue:input_type -> lang.GetIntPropertyValueRequest
-	68,  // 35: lang.UCharacterService.GetMirror:input_type -> lang.GetMirrorRequest
-	70,  // 36: lang.UCharacterService.GetName1:input_type -> lang.GetName1Request
-	72,  // 37: lang.UCharacterService.GetName2_1:input_type -> lang.GetName2_1Request
-	74,  // 38: lang.UCharacterService.GetNameAlias:input_type -> lang.GetNameAliasRequest
-	76,  // 39: lang.UCharacterService.GetNameIterator:input_type -> lang.GetNameIteratorRequest
-	78,  // 40: lang.UCharacterService.GetNumericValue:input_type -> lang.GetNumericValueRequest
-	80,  // 41: lang.UCharacterService.GetPropertyEnum:input_type -> lang.GetPropertyEnumRequest
-	82,  // 42: lang.UCharacterService.GetPropertyName:input_type -> lang.GetPropertyNameRequest
-	84,  // 43: lang.UCharacterService.GetPropertyValueEnum:input_type -> lang.GetPropertyValueEnumRequest
-	86,  // 44: lang.UCharacterService.GetPropertyValueName:input_type -> lang.GetPropertyValueNameRequest
-	88,  // 45: lang.UCharacterService.GetType:input_type -> lang.GetTypeRequest
-	90,  // 46: lang.UCharacterService.GetTypeIterator:input_type -> lang.GetTypeIteratorRequest
-	92,  // 47: lang.UCharacterService.GetUnicodeNumericValue:input_type -> lang.GetUnicodeNumericValueRequest
-	94,  // 48: lang.UCharacterService.GetUnicodeVersion:input_type -> lang.GetUnicodeVersionRequest
-	96,  // 49: lang.UCharacterService.HasBinaryProperty2:input_type -> lang.HasBinaryProperty2Request
-	98,  // 50: lang.UCharacterService.HasBinaryProperty2_1:input_type -> lang.HasBinaryProperty2_1Request
-	100, // 51: lang.UCharacterService.IsBMP:input_type -> lang.IsBMPRequest
-	102, // 52: lang.UCharacterService.IsBaseForm:input_type -> lang.IsBaseFormRequest
-	104, // 53: lang.UCharacterService.IsDefined:input_type -> lang.IsDefinedRequest
-	106, // 54: lang.UCharacterService.IsDigit:input_type -> lang.IsDigitRequest
-	108, // 55: lang.UCharacterService.IsHighSurrogate1:input_type -> lang.IsHighSurrogate1Request
-	110, // 56: lang.UCharacterService.IsHighSurrogate1_1:input_type -> lang.IsHighSurrogate1_1Request
-	112, // 57: lang.UCharacterService.IsISOControl:input_type -> lang.IsISOControlRequest
-	114, // 58: lang.UCharacterService.IsIdentifierIgnorable:input_type -> lang.IsIdentifierIgnorableRequest
-	116, // 59: lang.UCharacterService.IsJavaIdentifierPart:input_type -> lang.IsJavaIdentifierPartRequest
-	118, // 60: lang.UCharacterService.IsJavaIdentifierStart:input_type -> lang.IsJavaIdentifierStartRequest
-	120, // 61: lang.UCharacterService.IsLegal1:input_type -> lang.IsLegal1Request
-	122, // 62: lang.UCharacterService.IsLegal1_1:input_type -> lang.IsLegal1_1Request
-	124, // 63: lang.UCharacterService.IsLetter:input_type -> lang.IsLetterRequest
-	126, // 64: lang.UCharacterService.IsLetterOrDigit:input_type -> lang.IsLetterOrDigitRequest
-	128, // 65: lang.UCharacterService.IsLowSurrogate1:input_type -> lang.IsLowSurrogate1Request
-	130, // 66: lang.UCharacterService.IsLowSurrogate1_1:input_type -> lang.IsLowSurrogate1_1Request
-	132, // 67: lang.UCharacterService.IsLowerCase:input_type -> lang.IsLowerCaseRequest
-	134, // 68: lang.UCharacterService.IsMirrored:input_type -> lang.IsMirroredRequest
-	136, // 69: lang.UCharacterService.IsPrintable:input_type -> lang.IsPrintableRequest
-	138, // 70: lang.UCharacterService.IsSpaceChar:input_type -> lang.IsSpaceCharRequest
-	140, // 71: lang.UCharacterService.IsSupplementary:input_type -> lang.IsSupplementaryRequest
-	142, // 72: lang.UCharacterService.IsSupplementaryCodePoint:input_type -> lang.IsSupplementaryCodePointRequest
-	144, // 73: lang.UCharacterService.IsSurrogatePair2:input_type -> lang.IsSurrogatePair2Request
-	146, // 74: lang.UCharacterService.IsSurrogatePair2_1:input_type -> lang.IsSurrogatePair2_1Request
-	148, // 75: lang.UCharacterService.IsTitleCase:input_type -> lang.IsTitleCaseRequest
-	150, // 76: lang.UCharacterService.IsUAlphabetic:input_type -> lang.IsUAlphabeticRequest
-	152, // 77: lang.UCharacterService.IsULowercase:input_type -> lang.IsULowercaseRequest
-	154, // 78: lang.UCharacterService.IsUUppercase:input_type -> lang.IsUUppercaseRequest
-	156, // 79: lang.UCharacterService.IsUWhiteSpace:input_type -> lang.IsUWhiteSpaceRequest
-	158, // 80: lang.UCharacterService.IsUnicodeIdentifierPart:input_type -> lang.IsUnicodeIdentifierPartRequest
-	160, // 81: lang.UCharacterService.IsUnicodeIdentifierStart:input_type -> lang.IsUnicodeIdentifierStartRequest
-	162, // 82: lang.UCharacterService.IsUpperCase:input_type -> lang.IsUpperCaseRequest
-	164, // 83: lang.UCharacterService.IsValidCodePoint:input_type -> lang.IsValidCodePointRequest
-	166, // 84: lang.UCharacterService.IsWhitespace:input_type -> lang.IsWhitespaceRequest
-	168, // 85: lang.UCharacterService.OffsetByCodePoints5:input_type -> lang.OffsetByCodePoints5Request
-	170, // 86: lang.UCharacterService.OffsetByCodePoints3_1:input_type -> lang.OffsetByCodePoints3_1Request
-	172, // 87: lang.UCharacterService.ToChars1:input_type -> lang.ToChars1Request
-	174, // 88: lang.UCharacterService.ToChars3_1:input_type -> lang.ToChars3_1Request
-	176, // 89: lang.UCharacterService.ToCodePoint2:input_type -> lang.ToCodePoint2Request
-	178, // 90: lang.UCharacterService.ToCodePoint2_1:input_type -> lang.ToCodePoint2_1Request
-	180, // 91: lang.UCharacterService.ToLowerCase2:input_type -> lang.ToLowerCase2Request
-	182, // 92: lang.UCharacterService.ToLowerCase1_1:input_type -> lang.ToLowerCase1_1Request
-	184, // 93: lang.UCharacterService.ToLowerCase1_2:input_type -> lang.ToLowerCase1_2Request
-	186, // 94: lang.UCharacterService.ToLowerCase2_3:input_type -> lang.ToLowerCase2_3Request
-	0,   // 95: lang.UCharacterService.ToString:input_type -> lang.ToStringRequest
-	188, // 96: lang.UCharacterService.ToTitleCase3:input_type -> lang.ToTitleCase3Request
-	190, // 97: lang.UCharacterService.ToTitleCase4_1:input_type -> lang.ToTitleCase4_1Request
-	192, // 98: lang.UCharacterService.ToTitleCase1_2:input_type -> lang.ToTitleCase1_2Request
-	194, // 99: lang.UCharacterService.ToTitleCase2_3:input_type -> lang.ToTitleCase2_3Request
-	196, // 100: lang.UCharacterService.ToTitleCase3_4:input_type -> lang.ToTitleCase3_4Request
-	198, // 101: lang.UCharacterService.ToTitleCase4_5:input_type -> lang.ToTitleCase4_5Request
-	200, // 102: lang.UCharacterService.ToUpperCase2:input_type -> lang.ToUpperCase2Request
-	202, // 103: lang.UCharacterService.ToUpperCase1_1:input_type -> lang.ToUpperCase1_1Request
-	204, // 104: lang.UCharacterService.ToUpperCase1_2:input_type -> lang.ToUpperCase1_2Request
-	206, // 105: lang.UCharacterService.ToUpperCase2_3:input_type -> lang.ToUpperCase2_3Request
-	208, // 106: lang.UCharacterUnicodeBlockService.GetID:input_type -> lang.GetIDRequest
-	210, // 107: lang.UCharacterUnicodeBlockService.ForName:input_type -> lang.ForNameRequest
-	212, // 108: lang.UCharacterUnicodeBlockService.GetInstance:input_type -> lang.GetInstanceRequest
-	214, // 109: lang.UCharacterUnicodeBlockService.Of:input_type -> lang.OfRequest
-	216, // 110: lang.UScriptService.BreaksBetweenLetters:input_type -> lang.BreaksBetweenLettersRequest
-	218, // 111: lang.UScriptService.GetCode1:input_type -> lang.GetCode1Request
-	220, // 112: lang.UScriptService.GetCode1_1:input_type -> lang.GetCode1_1Request
-	222, // 113: lang.UScriptService.GetCode1_2:input_type -> lang.GetCode1_2Request
-	224, // 114: lang.UScriptService.GetCodeFromName:input_type -> lang.GetCodeFromNameRequest
-	226, // 115: lang.UScriptService.GetName:input_type -> lang.GetNameRequest
-	228, // 116: lang.UScriptService.GetSampleString:input_type -> lang.GetSampleStringRequest
-	230, // 117: lang.UScriptService.GetScript:input_type -> lang.GetScriptRequest
-	232, // 118: lang.UScriptService.GetScriptExtensions:input_type -> lang.GetScriptExtensionsRequest
-	234, // 119: lang.UScriptService.GetShortName:input_type -> lang.GetShortNameRequest
-	236, // 120: lang.UScriptService.GetUsage:input_type -> lang.GetUsageRequest
-	238, // 121: lang.UScriptService.HasScript:input_type -> lang.HasScriptRequest
-	240, // 122: lang.UScriptService.IsCased:input_type -> lang.IsCasedRequest
-	242, // 123: lang.UScriptService.IsRightToLeft:input_type -> lang.IsRightToLeftRequest
-	244, // 124: lang.UScriptScriptUsageService.Values:input_type -> lang.ValuesRequest
-	246, // 125: lang.UScriptScriptUsageService.ValueOf:input_type -> lang.ValueOfRequest
-	1,   // 126: lang.UCharacterDirectionService.ToString:output_type -> lang.ToStringResponse
-	1,   // 127: lang.UCharacterCategoryService.ToString:output_type -> lang.ToStringResponse
-	3,   // 128: lang.UCharacterService.CharCount:output_type -> lang.CharCountResponse
-	5,   // 129: lang.UCharacterService.CodePointAt2:output_type -> lang.CodePointAt2Response
-	7,   // 130: lang.UCharacterService.CodePointAt3_1:output_type -> lang.CodePointAt3_1Response
-	9,   // 131: lang.UCharacterService.CodePointAt2_2:output_type -> lang.CodePointAt2_2Response
-	11,  // 132: lang.UCharacterService.CodePointBefore2:output_type -> lang.CodePointBefore2Response
-	13,  // 133: lang.UCharacterService.CodePointBefore3_1:output_type -> lang.CodePointBefore3_1Response
-	15,  // 134: lang.UCharacterService.CodePointBefore2_2:output_type -> lang.CodePointBefore2_2Response
-	17,  // 135: lang.UCharacterService.CodePointCount3:output_type -> lang.CodePointCount3Response
-	19,  // 136: lang.UCharacterService.CodePointCount3_1:output_type -> lang.CodePointCount3_1Response
-	21,  // 137: lang.UCharacterService.Digit1:output_type -> lang.Digit1Response
-	23,  // 138: lang.UCharacterService.Digit2_1:output_type -> lang.Digit2_1Response
-	25,  // 139: lang.UCharacterService.FoldCase2:output_type -> lang.FoldCase2Response
-	27,  // 140: lang.UCharacterService.FoldCase2_1:output_type -> lang.FoldCase2_1Response
-	29,  // 141: lang.UCharacterService.FoldCase2_2:output_type -> lang.FoldCase2_2Response
-	31,  // 142: lang.UCharacterService.FoldCase2_3:output_type -> lang.FoldCase2_3Response
-	33,  // 143: lang.UCharacterService.ForDigit:output_type -> lang.ForDigitResponse
-	35,  // 144: lang.UCharacterService.GetAge:output_type -> lang.GetAgeResponse
-	37,  // 145: lang.UCharacterService.GetBidiPairedBracket:output_type -> lang.GetBidiPairedBracketResponse
-	39,  // 146: lang.UCharacterService.GetCharFromExtendedName:output_type -> lang.GetCharFromExtendedNameResponse
-	41,  // 147: lang.UCharacterService.GetCharFromName:output_type -> lang.GetCharFromNameResponse
-	43,  // 148: lang.UCharacterService.GetCharFromNameAlias:output_type -> lang.GetCharFromNameAliasResponse
-	45,  // 149: lang.UCharacterService.GetCodePoint1:output_type -> lang.GetCodePoint1Response
-	47,  // 150: lang.UCharacterService.GetCodePoint2_1:output_type -> lang.GetCodePoint2_1Response
-	49,  // 151: lang.UCharacterService.GetCodePoint2_2:output_type -> lang.GetCodePoint2_2Response
-	51,  // 152: lang.UCharacterService.GetCombiningClass:output_type -> lang.GetCombiningClassResponse
-	53,  // 153: lang.UCharacterService.GetDirection:output_type -> lang.GetDirectionResponse
-	55,  // 154: lang.UCharacterService.GetDirectionality:output_type -> lang.GetDirectionalityResponse
-	57,  // 155: lang.UCharacterService.GetExtendedName:output_type -> lang.GetExtendedNameResponse
-	59,  // 156: lang.UCharacterService.GetExtendedNameIterator:output_type -> lang.GetExtendedNameIteratorResponse
-	61,  // 157: lang.UCharacterService.GetHanNumericValue:output_type -> lang.GetHanNumericValueResponse
-	63,  // 158: lang.UCharacterService.GetIntPropertyMaxValue:output_type -> lang.GetIntPropertyMaxValueResponse
-	65,  // 159: lang.UCharacterService.GetIntPropertyMinValue:output_type -> lang.GetIntPropertyMinValueResponse
-	67,  // 160: lang.UCharacterService.GetIntPropertyValue:output_type -> lang.GetIntPropertyValueResponse
-	69,  // 161: lang.UCharacterService.GetMirror:output_type -> lang.GetMirrorResponse
-	71,  // 162: lang.UCharacterService.GetName1:output_type -> lang.GetName1Response
-	73,  // 163: lang.UCharacterService.GetName2_1:output_type -> lang.GetName2_1Response
-	75,  // 164: lang.UCharacterService.GetNameAlias:output_type -> lang.GetNameAliasResponse
-	77,  // 165: lang.UCharacterService.GetNameIterator:output_type -> lang.GetNameIteratorResponse
-	79,  // 166: lang.UCharacterService.GetNumericValue:output_type -> lang.GetNumericValueResponse
-	81,  // 167: lang.UCharacterService.GetPropertyEnum:output_type -> lang.GetPropertyEnumResponse
-	83,  // 168: lang.UCharacterService.GetPropertyName:output_type -> lang.GetPropertyNameResponse
-	85,  // 169: lang.UCharacterService.GetPropertyValueEnum:output_type -> lang.GetPropertyValueEnumResponse
-	87,  // 170: lang.UCharacterService.GetPropertyValueName:output_type -> lang.GetPropertyValueNameResponse
-	89,  // 171: lang.UCharacterService.GetType:output_type -> lang.GetTypeResponse
-	91,  // 172: lang.UCharacterService.GetTypeIterator:output_type -> lang.GetTypeIteratorResponse
-	93,  // 173: lang.UCharacterService.GetUnicodeNumericValue:output_type -> lang.GetUnicodeNumericValueResponse
-	95,  // 174: lang.UCharacterService.GetUnicodeVersion:output_type -> lang.GetUnicodeVersionResponse
-	97,  // 175: lang.UCharacterService.HasBinaryProperty2:output_type -> lang.HasBinaryProperty2Response
-	99,  // 176: lang.UCharacterService.HasBinaryProperty2_1:output_type -> lang.HasBinaryProperty2_1Response
-	101, // 177: lang.UCharacterService.IsBMP:output_type -> lang.IsBMPResponse
-	103, // 178: lang.UCharacterService.IsBaseForm:output_type -> lang.IsBaseFormResponse
-	105, // 179: lang.UCharacterService.IsDefined:output_type -> lang.IsDefinedResponse
-	107, // 180: lang.UCharacterService.IsDigit:output_type -> lang.IsDigitResponse
-	109, // 181: lang.UCharacterService.IsHighSurrogate1:output_type -> lang.IsHighSurrogate1Response
-	111, // 182: lang.UCharacterService.IsHighSurrogate1_1:output_type -> lang.IsHighSurrogate1_1Response
-	113, // 183: lang.UCharacterService.IsISOControl:output_type -> lang.IsISOControlResponse
-	115, // 184: lang.UCharacterService.IsIdentifierIgnorable:output_type -> lang.IsIdentifierIgnorableResponse
-	117, // 185: lang.UCharacterService.IsJavaIdentifierPart:output_type -> lang.IsJavaIdentifierPartResponse
-	119, // 186: lang.UCharacterService.IsJavaIdentifierStart:output_type -> lang.IsJavaIdentifierStartResponse
-	121, // 187: lang.UCharacterService.IsLegal1:output_type -> lang.IsLegal1Response
-	123, // 188: lang.UCharacterService.IsLegal1_1:output_type -> lang.IsLegal1_1Response
-	125, // 189: lang.UCharacterService.IsLetter:output_type -> lang.IsLetterResponse
-	127, // 190: lang.UCharacterService.IsLetterOrDigit:output_type -> lang.IsLetterOrDigitResponse
-	129, // 191: lang.UCharacterService.IsLowSurrogate1:output_type -> lang.IsLowSurrogate1Response
-	131, // 192: lang.UCharacterService.IsLowSurrogate1_1:output_type -> lang.IsLowSurrogate1_1Response
-	133, // 193: lang.UCharacterService.IsLowerCase:output_type -> lang.IsLowerCaseResponse
-	135, // 194: lang.UCharacterService.IsMirrored:output_type -> lang.IsMirroredResponse
-	137, // 195: lang.UCharacterService.IsPrintable:output_type -> lang.IsPrintableResponse
-	139, // 196: lang.UCharacterService.IsSpaceChar:output_type -> lang.IsSpaceCharResponse
-	141, // 197: lang.UCharacterService.IsSupplementary:output_type -> lang.IsSupplementaryResponse
-	143, // 198: lang.UCharacterService.IsSupplementaryCodePoint:output_type -> lang.IsSupplementaryCodePointResponse
-	145, // 199: lang.UCharacterService.IsSurrogatePair2:output_type -> lang.IsSurrogatePair2Response
-	147, // 200: lang.UCharacterService.IsSurrogatePair2_1:output_type -> lang.IsSurrogatePair2_1Response
-	149, // 201: lang.UCharacterService.IsTitleCase:output_type -> lang.IsTitleCaseResponse
-	151, // 202: lang.UCharacterService.IsUAlphabetic:output_type -> lang.IsUAlphabeticResponse
-	153, // 203: lang.UCharacterService.IsULowercase:output_type -> lang.IsULowercaseResponse
-	155, // 204: lang.UCharacterService.IsUUppercase:output_type -> lang.IsUUppercaseResponse
-	157, // 205: lang.UCharacterService.IsUWhiteSpace:output_type -> lang.IsUWhiteSpaceResponse
-	159, // 206: lang.UCharacterService.IsUnicodeIdentifierPart:output_type -> lang.IsUnicodeIdentifierPartResponse
-	161, // 207: lang.UCharacterService.IsUnicodeIdentifierStart:output_type -> lang.IsUnicodeIdentifierStartResponse
-	163, // 208: lang.UCharacterService.IsUpperCase:output_type -> lang.IsUpperCaseResponse
-	165, // 209: lang.UCharacterService.IsValidCodePoint:output_type -> lang.IsValidCodePointResponse
-	167, // 210: lang.UCharacterService.IsWhitespace:output_type -> lang.IsWhitespaceResponse
-	169, // 211: lang.UCharacterService.OffsetByCodePoints5:output_type -> lang.OffsetByCodePoints5Response
-	171, // 212: lang.UCharacterService.OffsetByCodePoints3_1:output_type -> lang.OffsetByCodePoints3_1Response
-	173, // 213: lang.UCharacterService.ToChars1:output_type -> lang.ToChars1Response
-	175, // 214: lang.UCharacterService.ToChars3_1:output_type -> lang.ToChars3_1Response
-	177, // 215: lang.UCharacterService.ToCodePoint2:output_type -> lang.ToCodePoint2Response
-	179, // 216: lang.UCharacterService.ToCodePoint2_1:output_type -> lang.ToCodePoint2_1Response
-	181, // 217: lang.UCharacterService.ToLowerCase2:output_type -> lang.ToLowerCase2Response
-	183, // 218: lang.UCharacterService.ToLowerCase1_1:output_type -> lang.ToLowerCase1_1Response
-	185, // 219: lang.UCharacterService.ToLowerCase1_2:output_type -> lang.ToLowerCase1_2Response
-	187, // 220: lang.UCharacterService.ToLowerCase2_3:output_type -> lang.ToLowerCase2_3Response
-	1,   // 221: lang.UCharacterService.ToString:output_type -> lang.ToStringResponse
-	189, // 222: lang.UCharacterService.ToTitleCase3:output_type -> lang.ToTitleCase3Response
-	191, // 223: lang.UCharacterService.ToTitleCase4_1:output_type -> lang.ToTitleCase4_1Response
-	193, // 224: lang.UCharacterService.ToTitleCase1_2:output_type -> lang.ToTitleCase1_2Response
-	195, // 225: lang.UCharacterService.ToTitleCase2_3:output_type -> lang.ToTitleCase2_3Response
-	197, // 226: lang.UCharacterService.ToTitleCase3_4:output_type -> lang.ToTitleCase3_4Response
-	199, // 227: lang.UCharacterService.ToTitleCase4_5:output_type -> lang.ToTitleCase4_5Response
-	201, // 228: lang.UCharacterService.ToUpperCase2:output_type -> lang.ToUpperCase2Response
-	203, // 229: lang.UCharacterService.ToUpperCase1_1:output_type -> lang.ToUpperCase1_1Response
-	205, // 230: lang.UCharacterService.ToUpperCase1_2:output_type -> lang.ToUpperCase1_2Response
-	207, // 231: lang.UCharacterService.ToUpperCase2_3:output_type -> lang.ToUpperCase2_3Response
-	209, // 232: lang.UCharacterUnicodeBlockService.GetID:output_type -> lang.GetIDResponse
-	211, // 233: lang.UCharacterUnicodeBlockService.ForName:output_type -> lang.ForNameResponse
-	213, // 234: lang.UCharacterUnicodeBlockService.GetInstance:output_type -> lang.GetInstanceResponse
-	215, // 235: lang.UCharacterUnicodeBlockService.Of:output_type -> lang.OfResponse
-	217, // 236: lang.UScriptService.BreaksBetweenLetters:output_type -> lang.BreaksBetweenLettersResponse
-	219, // 237: lang.UScriptService.GetCode1:output_type -> lang.GetCode1Response
-	221, // 238: lang.UScriptService.GetCode1_1:output_type -> lang.GetCode1_1Response
-	223, // 239: lang.UScriptService.GetCode1_2:output_type -> lang.GetCode1_2Response
-	225, // 240: lang.UScriptService.GetCodeFromName:output_type -> lang.GetCodeFromNameResponse
-	227, // 241: lang.UScriptService.GetName:output_type -> lang.GetNameResponse
-	229, // 242: lang.UScriptService.GetSampleString:output_type -> lang.GetSampleStringResponse
-	231, // 243: lang.UScriptService.GetScript:output_type -> lang.GetScriptResponse
-	233, // 244: lang.UScriptService.GetScriptExtensions:output_type -> lang.GetScriptExtensionsResponse
-	235, // 245: lang.UScriptService.GetShortName:output_type -> lang.GetShortNameResponse
-	237, // 246: lang.UScriptService.GetUsage:output_type -> lang.GetUsageResponse
-	239, // 247: lang.UScriptService.HasScript:output_type -> lang.HasScriptResponse
-	241, // 248: lang.UScriptService.IsCased:output_type -> lang.IsCasedResponse
-	243, // 249: lang.UScriptService.IsRightToLeft:output_type -> lang.IsRightToLeftResponse
-	245, // 250: lang.UScriptScriptUsageService.Values:output_type -> lang.ValuesResponse
-	247, // 251: lang.UScriptScriptUsageService.ValueOf:output_type -> lang.ValueOfResponse
+	0,   // 0: lang.UCharacterCategoryService.ToString:input_type -> lang.ToStringRequest
+	2,   // 1: lang.UScriptService.BreaksBetweenLetters:input_type -> lang.BreaksBetweenLettersRequest
+	4,   // 2: lang.UScriptService.GetCode1:input_type -> lang.GetCode1Request
+	6,   // 3: lang.UScriptService.GetCode1_1:input_type -> lang.GetCode1_1Request
+	8,   // 4: lang.UScriptService.GetCode1_2:input_type -> lang.GetCode1_2Request
+	10,  // 5: lang.UScriptService.GetCodeFromName:input_type -> lang.GetCodeFromNameRequest
+	12,  // 6: lang.UScriptService.GetName:input_type -> lang.GetNameRequest
+	14,  // 7: lang.UScriptService.GetSampleString:input_type -> lang.GetSampleStringRequest
+	16,  // 8: lang.UScriptService.GetScript:input_type -> lang.GetScriptRequest
+	18,  // 9: lang.UScriptService.GetScriptExtensions:input_type -> lang.GetScriptExtensionsRequest
+	20,  // 10: lang.UScriptService.GetShortName:input_type -> lang.GetShortNameRequest
+	22,  // 11: lang.UScriptService.GetUsage:input_type -> lang.GetUsageRequest
+	24,  // 12: lang.UScriptService.HasScript:input_type -> lang.HasScriptRequest
+	26,  // 13: lang.UScriptService.IsCased:input_type -> lang.IsCasedRequest
+	28,  // 14: lang.UScriptService.IsRightToLeft:input_type -> lang.IsRightToLeftRequest
+	30,  // 15: lang.UScriptScriptUsageService.Values:input_type -> lang.ValuesRequest
+	32,  // 16: lang.UScriptScriptUsageService.ValueOf:input_type -> lang.ValueOfRequest
+	0,   // 17: lang.UCharacterDirectionService.ToString:input_type -> lang.ToStringRequest
+	34,  // 18: lang.UCharacterService.CharCount:input_type -> lang.CharCountRequest
+	36,  // 19: lang.UCharacterService.CodePointAt2:input_type -> lang.CodePointAt2Request
+	38,  // 20: lang.UCharacterService.CodePointAt3_1:input_type -> lang.CodePointAt3_1Request
+	40,  // 21: lang.UCharacterService.CodePointAt2_2:input_type -> lang.CodePointAt2_2Request
+	42,  // 22: lang.UCharacterService.CodePointBefore2:input_type -> lang.CodePointBefore2Request
+	44,  // 23: lang.UCharacterService.CodePointBefore3_1:input_type -> lang.CodePointBefore3_1Request
+	46,  // 24: lang.UCharacterService.CodePointBefore2_2:input_type -> lang.CodePointBefore2_2Request
+	48,  // 25: lang.UCharacterService.CodePointCount3:input_type -> lang.CodePointCount3Request
+	50,  // 26: lang.UCharacterService.CodePointCount3_1:input_type -> lang.CodePointCount3_1Request
+	52,  // 27: lang.UCharacterService.Digit1:input_type -> lang.Digit1Request
+	54,  // 28: lang.UCharacterService.Digit2_1:input_type -> lang.Digit2_1Request
+	56,  // 29: lang.UCharacterService.FoldCase2:input_type -> lang.FoldCase2Request
+	58,  // 30: lang.UCharacterService.FoldCase2_1:input_type -> lang.FoldCase2_1Request
+	60,  // 31: lang.UCharacterService.FoldCase2_2:input_type -> lang.FoldCase2_2Request
+	62,  // 32: lang.UCharacterService.FoldCase2_3:input_type -> lang.FoldCase2_3Request
+	64,  // 33: lang.UCharacterService.ForDigit:input_type -> lang.ForDigitRequest
+	66,  // 34: lang.UCharacterService.GetAge:input_type -> lang.GetAgeRequest
+	68,  // 35: lang.UCharacterService.GetBidiPairedBracket:input_type -> lang.GetBidiPairedBracketRequest
+	70,  // 36: lang.UCharacterService.GetCharFromExtendedName:input_type -> lang.GetCharFromExtendedNameRequest
+	72,  // 37: lang.UCharacterService.GetCharFromName:input_type -> lang.GetCharFromNameRequest
+	74,  // 38: lang.UCharacterService.GetCharFromNameAlias:input_type -> lang.GetCharFromNameAliasRequest
+	76,  // 39: lang.UCharacterService.GetCodePoint1:input_type -> lang.GetCodePoint1Request
+	78,  // 40: lang.UCharacterService.GetCodePoint2_1:input_type -> lang.GetCodePoint2_1Request
+	80,  // 41: lang.UCharacterService.GetCodePoint2_2:input_type -> lang.GetCodePoint2_2Request
+	82,  // 42: lang.UCharacterService.GetCombiningClass:input_type -> lang.GetCombiningClassRequest
+	84,  // 43: lang.UCharacterService.GetDirection:input_type -> lang.GetDirectionRequest
+	86,  // 44: lang.UCharacterService.GetDirectionality:input_type -> lang.GetDirectionalityRequest
+	88,  // 45: lang.UCharacterService.GetExtendedName:input_type -> lang.GetExtendedNameRequest
+	90,  // 46: lang.UCharacterService.GetExtendedNameIterator:input_type -> lang.GetExtendedNameIteratorRequest
+	92,  // 47: lang.UCharacterService.GetHanNumericValue:input_type -> lang.GetHanNumericValueRequest
+	94,  // 48: lang.UCharacterService.GetIntPropertyMaxValue:input_type -> lang.GetIntPropertyMaxValueRequest
+	96,  // 49: lang.UCharacterService.GetIntPropertyMinValue:input_type -> lang.GetIntPropertyMinValueRequest
+	98,  // 50: lang.UCharacterService.GetIntPropertyValue:input_type -> lang.GetIntPropertyValueRequest
+	100, // 51: lang.UCharacterService.GetMirror:input_type -> lang.GetMirrorRequest
+	102, // 52: lang.UCharacterService.GetName1:input_type -> lang.GetName1Request
+	104, // 53: lang.UCharacterService.GetName2_1:input_type -> lang.GetName2_1Request
+	106, // 54: lang.UCharacterService.GetNameAlias:input_type -> lang.GetNameAliasRequest
+	108, // 55: lang.UCharacterService.GetNameIterator:input_type -> lang.GetNameIteratorRequest
+	110, // 56: lang.UCharacterService.GetNumericValue:input_type -> lang.GetNumericValueRequest
+	112, // 57: lang.UCharacterService.GetPropertyEnum:input_type -> lang.GetPropertyEnumRequest
+	114, // 58: lang.UCharacterService.GetPropertyName:input_type -> lang.GetPropertyNameRequest
+	116, // 59: lang.UCharacterService.GetPropertyValueEnum:input_type -> lang.GetPropertyValueEnumRequest
+	118, // 60: lang.UCharacterService.GetPropertyValueName:input_type -> lang.GetPropertyValueNameRequest
+	120, // 61: lang.UCharacterService.GetType:input_type -> lang.GetTypeRequest
+	122, // 62: lang.UCharacterService.GetTypeIterator:input_type -> lang.GetTypeIteratorRequest
+	124, // 63: lang.UCharacterService.GetUnicodeNumericValue:input_type -> lang.GetUnicodeNumericValueRequest
+	126, // 64: lang.UCharacterService.GetUnicodeVersion:input_type -> lang.GetUnicodeVersionRequest
+	128, // 65: lang.UCharacterService.HasBinaryProperty2:input_type -> lang.HasBinaryProperty2Request
+	130, // 66: lang.UCharacterService.HasBinaryProperty2_1:input_type -> lang.HasBinaryProperty2_1Request
+	132, // 67: lang.UCharacterService.IsBMP:input_type -> lang.IsBMPRequest
+	134, // 68: lang.UCharacterService.IsBaseForm:input_type -> lang.IsBaseFormRequest
+	136, // 69: lang.UCharacterService.IsDefined:input_type -> lang.IsDefinedRequest
+	138, // 70: lang.UCharacterService.IsDigit:input_type -> lang.IsDigitRequest
+	140, // 71: lang.UCharacterService.IsHighSurrogate1:input_type -> lang.IsHighSurrogate1Request
+	142, // 72: lang.UCharacterService.IsHighSurrogate1_1:input_type -> lang.IsHighSurrogate1_1Request
+	144, // 73: lang.UCharacterService.IsISOControl:input_type -> lang.IsISOControlRequest
+	146, // 74: lang.UCharacterService.IsIdentifierIgnorable:input_type -> lang.IsIdentifierIgnorableRequest
+	148, // 75: lang.UCharacterService.IsJavaIdentifierPart:input_type -> lang.IsJavaIdentifierPartRequest
+	150, // 76: lang.UCharacterService.IsJavaIdentifierStart:input_type -> lang.IsJavaIdentifierStartRequest
+	152, // 77: lang.UCharacterService.IsLegal1:input_type -> lang.IsLegal1Request
+	154, // 78: lang.UCharacterService.IsLegal1_1:input_type -> lang.IsLegal1_1Request
+	156, // 79: lang.UCharacterService.IsLetter:input_type -> lang.IsLetterRequest
+	158, // 80: lang.UCharacterService.IsLetterOrDigit:input_type -> lang.IsLetterOrDigitRequest
+	160, // 81: lang.UCharacterService.IsLowSurrogate1:input_type -> lang.IsLowSurrogate1Request
+	162, // 82: lang.UCharacterService.IsLowSurrogate1_1:input_type -> lang.IsLowSurrogate1_1Request
+	164, // 83: lang.UCharacterService.IsLowerCase:input_type -> lang.IsLowerCaseRequest
+	166, // 84: lang.UCharacterService.IsMirrored:input_type -> lang.IsMirroredRequest
+	168, // 85: lang.UCharacterService.IsPrintable:input_type -> lang.IsPrintableRequest
+	170, // 86: lang.UCharacterService.IsSpaceChar:input_type -> lang.IsSpaceCharRequest
+	172, // 87: lang.UCharacterService.IsSupplementary:input_type -> lang.IsSupplementaryRequest
+	174, // 88: lang.UCharacterService.IsSupplementaryCodePoint:input_type -> lang.IsSupplementaryCodePointRequest
+	176, // 89: lang.UCharacterService.IsSurrogatePair2:input_type -> lang.IsSurrogatePair2Request
+	178, // 90: lang.UCharacterService.IsSurrogatePair2_1:input_type -> lang.IsSurrogatePair2_1Request
+	180, // 91: lang.UCharacterService.IsTitleCase:input_type -> lang.IsTitleCaseRequest
+	182, // 92: lang.UCharacterService.IsUAlphabetic:input_type -> lang.IsUAlphabeticRequest
+	184, // 93: lang.UCharacterService.IsULowercase:input_type -> lang.IsULowercaseRequest
+	186, // 94: lang.UCharacterService.IsUUppercase:input_type -> lang.IsUUppercaseRequest
+	188, // 95: lang.UCharacterService.IsUWhiteSpace:input_type -> lang.IsUWhiteSpaceRequest
+	190, // 96: lang.UCharacterService.IsUnicodeIdentifierPart:input_type -> lang.IsUnicodeIdentifierPartRequest
+	192, // 97: lang.UCharacterService.IsUnicodeIdentifierStart:input_type -> lang.IsUnicodeIdentifierStartRequest
+	194, // 98: lang.UCharacterService.IsUpperCase:input_type -> lang.IsUpperCaseRequest
+	196, // 99: lang.UCharacterService.IsValidCodePoint:input_type -> lang.IsValidCodePointRequest
+	198, // 100: lang.UCharacterService.IsWhitespace:input_type -> lang.IsWhitespaceRequest
+	200, // 101: lang.UCharacterService.OffsetByCodePoints5:input_type -> lang.OffsetByCodePoints5Request
+	202, // 102: lang.UCharacterService.OffsetByCodePoints3_1:input_type -> lang.OffsetByCodePoints3_1Request
+	204, // 103: lang.UCharacterService.ToChars1:input_type -> lang.ToChars1Request
+	206, // 104: lang.UCharacterService.ToChars3_1:input_type -> lang.ToChars3_1Request
+	208, // 105: lang.UCharacterService.ToCodePoint2:input_type -> lang.ToCodePoint2Request
+	210, // 106: lang.UCharacterService.ToCodePoint2_1:input_type -> lang.ToCodePoint2_1Request
+	212, // 107: lang.UCharacterService.ToLowerCase2:input_type -> lang.ToLowerCase2Request
+	214, // 108: lang.UCharacterService.ToLowerCase1_1:input_type -> lang.ToLowerCase1_1Request
+	216, // 109: lang.UCharacterService.ToLowerCase1_2:input_type -> lang.ToLowerCase1_2Request
+	218, // 110: lang.UCharacterService.ToLowerCase2_3:input_type -> lang.ToLowerCase2_3Request
+	0,   // 111: lang.UCharacterService.ToString:input_type -> lang.ToStringRequest
+	220, // 112: lang.UCharacterService.ToTitleCase3:input_type -> lang.ToTitleCase3Request
+	222, // 113: lang.UCharacterService.ToTitleCase4_1:input_type -> lang.ToTitleCase4_1Request
+	224, // 114: lang.UCharacterService.ToTitleCase1_2:input_type -> lang.ToTitleCase1_2Request
+	226, // 115: lang.UCharacterService.ToTitleCase2_3:input_type -> lang.ToTitleCase2_3Request
+	228, // 116: lang.UCharacterService.ToTitleCase3_4:input_type -> lang.ToTitleCase3_4Request
+	230, // 117: lang.UCharacterService.ToTitleCase4_5:input_type -> lang.ToTitleCase4_5Request
+	232, // 118: lang.UCharacterService.ToUpperCase2:input_type -> lang.ToUpperCase2Request
+	234, // 119: lang.UCharacterService.ToUpperCase1_1:input_type -> lang.ToUpperCase1_1Request
+	236, // 120: lang.UCharacterService.ToUpperCase1_2:input_type -> lang.ToUpperCase1_2Request
+	238, // 121: lang.UCharacterService.ToUpperCase2_3:input_type -> lang.ToUpperCase2_3Request
+	240, // 122: lang.UCharacterUnicodeBlockService.GetID:input_type -> lang.GetIDRequest
+	242, // 123: lang.UCharacterUnicodeBlockService.ForName:input_type -> lang.ForNameRequest
+	244, // 124: lang.UCharacterUnicodeBlockService.GetInstance:input_type -> lang.GetInstanceRequest
+	246, // 125: lang.UCharacterUnicodeBlockService.Of:input_type -> lang.OfRequest
+	1,   // 126: lang.UCharacterCategoryService.ToString:output_type -> lang.ToStringResponse
+	3,   // 127: lang.UScriptService.BreaksBetweenLetters:output_type -> lang.BreaksBetweenLettersResponse
+	5,   // 128: lang.UScriptService.GetCode1:output_type -> lang.GetCode1Response
+	7,   // 129: lang.UScriptService.GetCode1_1:output_type -> lang.GetCode1_1Response
+	9,   // 130: lang.UScriptService.GetCode1_2:output_type -> lang.GetCode1_2Response
+	11,  // 131: lang.UScriptService.GetCodeFromName:output_type -> lang.GetCodeFromNameResponse
+	13,  // 132: lang.UScriptService.GetName:output_type -> lang.GetNameResponse
+	15,  // 133: lang.UScriptService.GetSampleString:output_type -> lang.GetSampleStringResponse
+	17,  // 134: lang.UScriptService.GetScript:output_type -> lang.GetScriptResponse
+	19,  // 135: lang.UScriptService.GetScriptExtensions:output_type -> lang.GetScriptExtensionsResponse
+	21,  // 136: lang.UScriptService.GetShortName:output_type -> lang.GetShortNameResponse
+	23,  // 137: lang.UScriptService.GetUsage:output_type -> lang.GetUsageResponse
+	25,  // 138: lang.UScriptService.HasScript:output_type -> lang.HasScriptResponse
+	27,  // 139: lang.UScriptService.IsCased:output_type -> lang.IsCasedResponse
+	29,  // 140: lang.UScriptService.IsRightToLeft:output_type -> lang.IsRightToLeftResponse
+	31,  // 141: lang.UScriptScriptUsageService.Values:output_type -> lang.ValuesResponse
+	33,  // 142: lang.UScriptScriptUsageService.ValueOf:output_type -> lang.ValueOfResponse
+	1,   // 143: lang.UCharacterDirectionService.ToString:output_type -> lang.ToStringResponse
+	35,  // 144: lang.UCharacterService.CharCount:output_type -> lang.CharCountResponse
+	37,  // 145: lang.UCharacterService.CodePointAt2:output_type -> lang.CodePointAt2Response
+	39,  // 146: lang.UCharacterService.CodePointAt3_1:output_type -> lang.CodePointAt3_1Response
+	41,  // 147: lang.UCharacterService.CodePointAt2_2:output_type -> lang.CodePointAt2_2Response
+	43,  // 148: lang.UCharacterService.CodePointBefore2:output_type -> lang.CodePointBefore2Response
+	45,  // 149: lang.UCharacterService.CodePointBefore3_1:output_type -> lang.CodePointBefore3_1Response
+	47,  // 150: lang.UCharacterService.CodePointBefore2_2:output_type -> lang.CodePointBefore2_2Response
+	49,  // 151: lang.UCharacterService.CodePointCount3:output_type -> lang.CodePointCount3Response
+	51,  // 152: lang.UCharacterService.CodePointCount3_1:output_type -> lang.CodePointCount3_1Response
+	53,  // 153: lang.UCharacterService.Digit1:output_type -> lang.Digit1Response
+	55,  // 154: lang.UCharacterService.Digit2_1:output_type -> lang.Digit2_1Response
+	57,  // 155: lang.UCharacterService.FoldCase2:output_type -> lang.FoldCase2Response
+	59,  // 156: lang.UCharacterService.FoldCase2_1:output_type -> lang.FoldCase2_1Response
+	61,  // 157: lang.UCharacterService.FoldCase2_2:output_type -> lang.FoldCase2_2Response
+	63,  // 158: lang.UCharacterService.FoldCase2_3:output_type -> lang.FoldCase2_3Response
+	65,  // 159: lang.UCharacterService.ForDigit:output_type -> lang.ForDigitResponse
+	67,  // 160: lang.UCharacterService.GetAge:output_type -> lang.GetAgeResponse
+	69,  // 161: lang.UCharacterService.GetBidiPairedBracket:output_type -> lang.GetBidiPairedBracketResponse
+	71,  // 162: lang.UCharacterService.GetCharFromExtendedName:output_type -> lang.GetCharFromExtendedNameResponse
+	73,  // 163: lang.UCharacterService.GetCharFromName:output_type -> lang.GetCharFromNameResponse
+	75,  // 164: lang.UCharacterService.GetCharFromNameAlias:output_type -> lang.GetCharFromNameAliasResponse
+	77,  // 165: lang.UCharacterService.GetCodePoint1:output_type -> lang.GetCodePoint1Response
+	79,  // 166: lang.UCharacterService.GetCodePoint2_1:output_type -> lang.GetCodePoint2_1Response
+	81,  // 167: lang.UCharacterService.GetCodePoint2_2:output_type -> lang.GetCodePoint2_2Response
+	83,  // 168: lang.UCharacterService.GetCombiningClass:output_type -> lang.GetCombiningClassResponse
+	85,  // 169: lang.UCharacterService.GetDirection:output_type -> lang.GetDirectionResponse
+	87,  // 170: lang.UCharacterService.GetDirectionality:output_type -> lang.GetDirectionalityResponse
+	89,  // 171: lang.UCharacterService.GetExtendedName:output_type -> lang.GetExtendedNameResponse
+	91,  // 172: lang.UCharacterService.GetExtendedNameIterator:output_type -> lang.GetExtendedNameIteratorResponse
+	93,  // 173: lang.UCharacterService.GetHanNumericValue:output_type -> lang.GetHanNumericValueResponse
+	95,  // 174: lang.UCharacterService.GetIntPropertyMaxValue:output_type -> lang.GetIntPropertyMaxValueResponse
+	97,  // 175: lang.UCharacterService.GetIntPropertyMinValue:output_type -> lang.GetIntPropertyMinValueResponse
+	99,  // 176: lang.UCharacterService.GetIntPropertyValue:output_type -> lang.GetIntPropertyValueResponse
+	101, // 177: lang.UCharacterService.GetMirror:output_type -> lang.GetMirrorResponse
+	103, // 178: lang.UCharacterService.GetName1:output_type -> lang.GetName1Response
+	105, // 179: lang.UCharacterService.GetName2_1:output_type -> lang.GetName2_1Response
+	107, // 180: lang.UCharacterService.GetNameAlias:output_type -> lang.GetNameAliasResponse
+	109, // 181: lang.UCharacterService.GetNameIterator:output_type -> lang.GetNameIteratorResponse
+	111, // 182: lang.UCharacterService.GetNumericValue:output_type -> lang.GetNumericValueResponse
+	113, // 183: lang.UCharacterService.GetPropertyEnum:output_type -> lang.GetPropertyEnumResponse
+	115, // 184: lang.UCharacterService.GetPropertyName:output_type -> lang.GetPropertyNameResponse
+	117, // 185: lang.UCharacterService.GetPropertyValueEnum:output_type -> lang.GetPropertyValueEnumResponse
+	119, // 186: lang.UCharacterService.GetPropertyValueName:output_type -> lang.GetPropertyValueNameResponse
+	121, // 187: lang.UCharacterService.GetType:output_type -> lang.GetTypeResponse
+	123, // 188: lang.UCharacterService.GetTypeIterator:output_type -> lang.GetTypeIteratorResponse
+	125, // 189: lang.UCharacterService.GetUnicodeNumericValue:output_type -> lang.GetUnicodeNumericValueResponse
+	127, // 190: lang.UCharacterService.GetUnicodeVersion:output_type -> lang.GetUnicodeVersionResponse
+	129, // 191: lang.UCharacterService.HasBinaryProperty2:output_type -> lang.HasBinaryProperty2Response
+	131, // 192: lang.UCharacterService.HasBinaryProperty2_1:output_type -> lang.HasBinaryProperty2_1Response
+	133, // 193: lang.UCharacterService.IsBMP:output_type -> lang.IsBMPResponse
+	135, // 194: lang.UCharacterService.IsBaseForm:output_type -> lang.IsBaseFormResponse
+	137, // 195: lang.UCharacterService.IsDefined:output_type -> lang.IsDefinedResponse
+	139, // 196: lang.UCharacterService.IsDigit:output_type -> lang.IsDigitResponse
+	141, // 197: lang.UCharacterService.IsHighSurrogate1:output_type -> lang.IsHighSurrogate1Response
+	143, // 198: lang.UCharacterService.IsHighSurrogate1_1:output_type -> lang.IsHighSurrogate1_1Response
+	145, // 199: lang.UCharacterService.IsISOControl:output_type -> lang.IsISOControlResponse
+	147, // 200: lang.UCharacterService.IsIdentifierIgnorable:output_type -> lang.IsIdentifierIgnorableResponse
+	149, // 201: lang.UCharacterService.IsJavaIdentifierPart:output_type -> lang.IsJavaIdentifierPartResponse
+	151, // 202: lang.UCharacterService.IsJavaIdentifierStart:output_type -> lang.IsJavaIdentifierStartResponse
+	153, // 203: lang.UCharacterService.IsLegal1:output_type -> lang.IsLegal1Response
+	155, // 204: lang.UCharacterService.IsLegal1_1:output_type -> lang.IsLegal1_1Response
+	157, // 205: lang.UCharacterService.IsLetter:output_type -> lang.IsLetterResponse
+	159, // 206: lang.UCharacterService.IsLetterOrDigit:output_type -> lang.IsLetterOrDigitResponse
+	161, // 207: lang.UCharacterService.IsLowSurrogate1:output_type -> lang.IsLowSurrogate1Response
+	163, // 208: lang.UCharacterService.IsLowSurrogate1_1:output_type -> lang.IsLowSurrogate1_1Response
+	165, // 209: lang.UCharacterService.IsLowerCase:output_type -> lang.IsLowerCaseResponse
+	167, // 210: lang.UCharacterService.IsMirrored:output_type -> lang.IsMirroredResponse
+	169, // 211: lang.UCharacterService.IsPrintable:output_type -> lang.IsPrintableResponse
+	171, // 212: lang.UCharacterService.IsSpaceChar:output_type -> lang.IsSpaceCharResponse
+	173, // 213: lang.UCharacterService.IsSupplementary:output_type -> lang.IsSupplementaryResponse
+	175, // 214: lang.UCharacterService.IsSupplementaryCodePoint:output_type -> lang.IsSupplementaryCodePointResponse
+	177, // 215: lang.UCharacterService.IsSurrogatePair2:output_type -> lang.IsSurrogatePair2Response
+	179, // 216: lang.UCharacterService.IsSurrogatePair2_1:output_type -> lang.IsSurrogatePair2_1Response
+	181, // 217: lang.UCharacterService.IsTitleCase:output_type -> lang.IsTitleCaseResponse
+	183, // 218: lang.UCharacterService.IsUAlphabetic:output_type -> lang.IsUAlphabeticResponse
+	185, // 219: lang.UCharacterService.IsULowercase:output_type -> lang.IsULowercaseResponse
+	187, // 220: lang.UCharacterService.IsUUppercase:output_type -> lang.IsUUppercaseResponse
+	189, // 221: lang.UCharacterService.IsUWhiteSpace:output_type -> lang.IsUWhiteSpaceResponse
+	191, // 222: lang.UCharacterService.IsUnicodeIdentifierPart:output_type -> lang.IsUnicodeIdentifierPartResponse
+	193, // 223: lang.UCharacterService.IsUnicodeIdentifierStart:output_type -> lang.IsUnicodeIdentifierStartResponse
+	195, // 224: lang.UCharacterService.IsUpperCase:output_type -> lang.IsUpperCaseResponse
+	197, // 225: lang.UCharacterService.IsValidCodePoint:output_type -> lang.IsValidCodePointResponse
+	199, // 226: lang.UCharacterService.IsWhitespace:output_type -> lang.IsWhitespaceResponse
+	201, // 227: lang.UCharacterService.OffsetByCodePoints5:output_type -> lang.OffsetByCodePoints5Response
+	203, // 228: lang.UCharacterService.OffsetByCodePoints3_1:output_type -> lang.OffsetByCodePoints3_1Response
+	205, // 229: lang.UCharacterService.ToChars1:output_type -> lang.ToChars1Response
+	207, // 230: lang.UCharacterService.ToChars3_1:output_type -> lang.ToChars3_1Response
+	209, // 231: lang.UCharacterService.ToCodePoint2:output_type -> lang.ToCodePoint2Response
+	211, // 232: lang.UCharacterService.ToCodePoint2_1:output_type -> lang.ToCodePoint2_1Response
+	213, // 233: lang.UCharacterService.ToLowerCase2:output_type -> lang.ToLowerCase2Response
+	215, // 234: lang.UCharacterService.ToLowerCase1_1:output_type -> lang.ToLowerCase1_1Response
+	217, // 235: lang.UCharacterService.ToLowerCase1_2:output_type -> lang.ToLowerCase1_2Response
+	219, // 236: lang.UCharacterService.ToLowerCase2_3:output_type -> lang.ToLowerCase2_3Response
+	1,   // 237: lang.UCharacterService.ToString:output_type -> lang.ToStringResponse
+	221, // 238: lang.UCharacterService.ToTitleCase3:output_type -> lang.ToTitleCase3Response
+	223, // 239: lang.UCharacterService.ToTitleCase4_1:output_type -> lang.ToTitleCase4_1Response
+	225, // 240: lang.UCharacterService.ToTitleCase1_2:output_type -> lang.ToTitleCase1_2Response
+	227, // 241: lang.UCharacterService.ToTitleCase2_3:output_type -> lang.ToTitleCase2_3Response
+	229, // 242: lang.UCharacterService.ToTitleCase3_4:output_type -> lang.ToTitleCase3_4Response
+	231, // 243: lang.UCharacterService.ToTitleCase4_5:output_type -> lang.ToTitleCase4_5Response
+	233, // 244: lang.UCharacterService.ToUpperCase2:output_type -> lang.ToUpperCase2Response
+	235, // 245: lang.UCharacterService.ToUpperCase1_1:output_type -> lang.ToUpperCase1_1Response
+	237, // 246: lang.UCharacterService.ToUpperCase1_2:output_type -> lang.ToUpperCase1_2Response
+	239, // 247: lang.UCharacterService.ToUpperCase2_3:output_type -> lang.ToUpperCase2_3Response
+	241, // 248: lang.UCharacterUnicodeBlockService.GetID:output_type -> lang.GetIDResponse
+	243, // 249: lang.UCharacterUnicodeBlockService.ForName:output_type -> lang.ForNameResponse
+	245, // 250: lang.UCharacterUnicodeBlockService.GetInstance:output_type -> lang.GetInstanceResponse
+	247, // 251: lang.UCharacterUnicodeBlockService.Of:output_type -> lang.OfResponse
 	126, // [126:252] is the sub-list for method output_type
 	0,   // [0:126] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name

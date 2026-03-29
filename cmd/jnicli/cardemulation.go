@@ -12,6 +12,237 @@ var cardemulationCmd = &cobra.Command{
 	Short: "cardemulation service operations",
 }
 
+var cardemulationHostNfcFServiceCmd = &cobra.Command{
+	Use:   "host-nfc-f-service",
+	Short: "HostNfcFServiceService operations",
+}
+
+var cardemulationHostNfcFServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostNfcFServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationHostNfcFServiceOnDeactivatedCmd = &cobra.Command{
+	Use:   "on-deactivated",
+	Short: "OnDeactivated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostNfcFServiceServiceClient(grpcConn)
+		req := &pb.OnDeactivatedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDeactivated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationHostNfcFServiceProcessNfcFPacketCmd = &cobra.Command{
+	Use:   "process-nfc-f-packet",
+	Short: "ProcessNfcFPacket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostNfcFServiceServiceClient(grpcConn)
+		req := &pb.ProcessNfcFPacketRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ProcessNfcFPacket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationHostNfcFServiceSendResponsePacketCmd = &cobra.Command{
+	Use:   "send-response-packet",
+	Short: "SendResponsePacket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHostNfcFServiceServiceClient(grpcConn)
+		req := &pb.SendResponsePacketRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendResponsePacket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationNfcFCardEmulationCmd = &cobra.Command{
+	Use:   "nfc-f-card-emulation",
+	Short: "NfcFCardEmulationService operations",
+}
+
+var cardemulationNfcFCardEmulationDisableServiceCmd = &cobra.Command{
+	Use:   "disable-service",
+	Short: "DisableService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
+		req := &pb.DisableServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DisableService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationNfcFCardEmulationEnableServiceCmd = &cobra.Command{
+	Use:   "enable-service",
+	Short: "EnableService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
+		req := &pb.EnableServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.EnableService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationNfcFCardEmulationGetNfcid2ForServiceCmd = &cobra.Command{
+	Use:   "get-nfcid2for-service",
+	Short: "GetNfcid2ForService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
+		req := &pb.GetNfcid2ForServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetNfcid2ForService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationNfcFCardEmulationGetSystemCodeForServiceCmd = &cobra.Command{
+	Use:   "get-system-code-for-service",
+	Short: "GetSystemCodeForService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
+		req := &pb.GetSystemCodeForServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSystemCodeForService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationNfcFCardEmulationRegisterSystemCodeForServiceCmd = &cobra.Command{
+	Use:   "register-system-code-for-service",
+	Short: "RegisterSystemCodeForService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
+		req := &pb.RegisterSystemCodeForServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterSystemCodeForService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationNfcFCardEmulationSetNfcid2ForServiceCmd = &cobra.Command{
+	Use:   "set-nfcid2for-service",
+	Short: "SetNfcid2ForService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
+		req := &pb.SetNfcid2ForServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetNfcid2ForService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationNfcFCardEmulationUnregisterSystemCodeForServiceCmd = &cobra.Command{
+	Use:   "unregister-system-code-for-service",
+	Short: "UnregisterSystemCodeForService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
+		req := &pb.UnregisterSystemCodeForServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterSystemCodeForService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var cardemulationHostApduServiceCmd = &cobra.Command{
 	Use:   "host-apdu-service",
 	Short: "HostApduServiceService operations",
@@ -112,253 +343,6 @@ var cardemulationHostApduServiceSendResponseApduCmd = &cobra.Command{
 	},
 }
 
-var cardemulationPollingFrameCmd = &cobra.Command{
-	Use:   "polling-frame",
-	Short: "PollingFrameService operations",
-}
-
-var cardemulationPollingFrameDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPollingFrameServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationPollingFrameGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPollingFrameServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationPollingFrameGetTimestampCmd = &cobra.Command{
-	Use:   "get-timestamp",
-	Short: "GetTimestamp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPollingFrameServiceClient(grpcConn)
-		req := &pb.GetTimestampRequest{}
-		resp, err := client.GetTimestamp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationPollingFrameGetTriggeredAutoTransactCmd = &cobra.Command{
-	Use:   "get-triggered-auto-transact",
-	Short: "GetTriggeredAutoTransact RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPollingFrameServiceClient(grpcConn)
-		req := &pb.GetTriggeredAutoTransactRequest{}
-		resp, err := client.GetTriggeredAutoTransact(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationPollingFrameGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPollingFrameServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationPollingFrameGetVendorSpecificGainCmd = &cobra.Command{
-	Use:   "get-vendor-specific-gain",
-	Short: "GetVendorSpecificGain RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPollingFrameServiceClient(grpcConn)
-		req := &pb.GetVendorSpecificGainRequest{}
-		resp, err := client.GetVendorSpecificGain(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationPollingFrameToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPollingFrameServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationPollingFrameWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPollingFrameServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationHostNfcFServiceCmd = &cobra.Command{
-	Use:   "host-nfc-f-service",
-	Short: "HostNfcFServiceService operations",
-}
-
-var cardemulationHostNfcFServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostNfcFServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationHostNfcFServiceOnDeactivatedCmd = &cobra.Command{
-	Use:   "on-deactivated",
-	Short: "OnDeactivated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostNfcFServiceServiceClient(grpcConn)
-		req := &pb.OnDeactivatedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDeactivated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationHostNfcFServiceProcessNfcFPacketCmd = &cobra.Command{
-	Use:   "process-nfc-f-packet",
-	Short: "ProcessNfcFPacket RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostNfcFServiceServiceClient(grpcConn)
-		req := &pb.ProcessNfcFPacketRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ProcessNfcFPacket(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationHostNfcFServiceSendResponsePacketCmd = &cobra.Command{
-	Use:   "send-response-packet",
-	Short: "SendResponsePacket RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHostNfcFServiceServiceClient(grpcConn)
-		req := &pb.SendResponsePacketRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SendResponsePacket(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationOffHostApduServiceCmd = &cobra.Command{
-	Use:   "off-host-apdu-service",
-	Short: "OffHostApduServiceService operations",
-}
-
-var cardemulationOffHostApduServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOffHostApduServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var cardemulationCardEmulationCmd = &cobra.Command{
 	Use:   "card-emulation",
 	Short: "CardEmulationService operations",
@@ -376,6 +360,44 @@ var cardemulationCardEmulationCategoryAllowsForegroundPreferenceCmd = &cobra.Com
 			req.Arg0 = v
 		}
 		resp, err := client.CategoryAllowsForegroundPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationCardEmulationGetAidsForPreferredPaymentServiceCmd = &cobra.Command{
+	Use:   "get-aids-for-preferred-payment-service",
+	Short: "GetAidsForPreferredPaymentService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCardEmulationServiceClient(grpcConn)
+		req := &pb.GetAidsForPreferredPaymentServiceRequest{}
+		resp, err := client.GetAidsForPreferredPaymentService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationCardEmulationGetAidsForServiceCmd = &cobra.Command{
+	Use:   "get-aids-for-service",
+	Short: "GetAidsForService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCardEmulationServiceClient(grpcConn)
+		req := &pb.GetAidsForServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetAidsForService(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -787,23 +809,23 @@ var cardemulationCardEmulationUnsetPreferredServiceCmd = &cobra.Command{
 	},
 }
 
-var cardemulationNfcFCardEmulationCmd = &cobra.Command{
-	Use:   "nfc-f-card-emulation",
-	Short: "NfcFCardEmulationService operations",
+var cardemulationOffHostApduServiceCmd = &cobra.Command{
+	Use:   "off-host-apdu-service",
+	Short: "OffHostApduServiceService operations",
 }
 
-var cardemulationNfcFCardEmulationDisableServiceCmd = &cobra.Command{
-	Use:   "disable-service",
-	Short: "DisableService RPC",
+var cardemulationOffHostApduServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
-		req := &pb.DisableServiceRequest{}
+		client := pb.NewOffHostApduServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.DisableService(ctx, req)
+		resp, err := client.OnBind(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -811,122 +833,138 @@ var cardemulationNfcFCardEmulationDisableServiceCmd = &cobra.Command{
 	},
 }
 
-var cardemulationNfcFCardEmulationEnableServiceCmd = &cobra.Command{
-	Use:   "enable-service",
-	Short: "EnableService RPC",
+var cardemulationPollingFrameCmd = &cobra.Command{
+	Use:   "polling-frame",
+	Short: "PollingFrameService operations",
+}
+
+var cardemulationPollingFrameDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
-		req := &pb.EnableServiceRequest{}
+		client := pb.NewPollingFrameServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationPollingFrameGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPollingFrameServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationPollingFrameGetTimestampCmd = &cobra.Command{
+	Use:   "get-timestamp",
+	Short: "GetTimestamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPollingFrameServiceClient(grpcConn)
+		req := &pb.GetTimestampRequest{}
+		resp, err := client.GetTimestamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationPollingFrameGetTriggeredAutoTransactCmd = &cobra.Command{
+	Use:   "get-triggered-auto-transact",
+	Short: "GetTriggeredAutoTransact RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPollingFrameServiceClient(grpcConn)
+		req := &pb.GetTriggeredAutoTransactRequest{}
+		resp, err := client.GetTriggeredAutoTransact(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationPollingFrameGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPollingFrameServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationPollingFrameGetVendorSpecificGainCmd = &cobra.Command{
+	Use:   "get-vendor-specific-gain",
+	Short: "GetVendorSpecificGain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPollingFrameServiceClient(grpcConn)
+		req := &pb.GetVendorSpecificGainRequest{}
+		resp, err := client.GetVendorSpecificGain(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationPollingFrameToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPollingFrameServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cardemulationPollingFrameWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPollingFrameServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.EnableService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationNfcFCardEmulationGetNfcid2ForServiceCmd = &cobra.Command{
-	Use:   "get-nfcid2for-service",
-	Short: "GetNfcid2ForService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
-		req := &pb.GetNfcid2ForServiceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetNfcid2ForService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationNfcFCardEmulationGetSystemCodeForServiceCmd = &cobra.Command{
-	Use:   "get-system-code-for-service",
-	Short: "GetSystemCodeForService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
-		req := &pb.GetSystemCodeForServiceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSystemCodeForService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationNfcFCardEmulationRegisterSystemCodeForServiceCmd = &cobra.Command{
-	Use:   "register-system-code-for-service",
-	Short: "RegisterSystemCodeForService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
-		req := &pb.RegisterSystemCodeForServiceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RegisterSystemCodeForService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationNfcFCardEmulationSetNfcid2ForServiceCmd = &cobra.Command{
-	Use:   "set-nfcid2for-service",
-	Short: "SetNfcid2ForService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
-		req := &pb.SetNfcid2ForServiceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetNfcid2ForService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cardemulationNfcFCardEmulationUnregisterSystemCodeForServiceCmd = &cobra.Command{
-	Use:   "unregister-system-code-for-service",
-	Short: "UnregisterSystemCodeForService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNfcFCardEmulationServiceClient(grpcConn)
-		req := &pb.UnregisterSystemCodeForServiceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterSystemCodeForService(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -935,6 +973,34 @@ var cardemulationNfcFCardEmulationUnregisterSystemCodeForServiceCmd = &cobra.Com
 }
 
 func init() {
+	cardemulationHostNfcFServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationHostNfcFServiceCmd.AddCommand(cardemulationHostNfcFServiceOnBindCmd)
+	cardemulationHostNfcFServiceOnDeactivatedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	cardemulationHostNfcFServiceCmd.AddCommand(cardemulationHostNfcFServiceOnDeactivatedCmd)
+	cardemulationHostNfcFServiceProcessNfcFPacketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationHostNfcFServiceProcessNfcFPacketCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	cardemulationHostNfcFServiceCmd.AddCommand(cardemulationHostNfcFServiceProcessNfcFPacketCmd)
+	cardemulationHostNfcFServiceSendResponsePacketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationHostNfcFServiceCmd.AddCommand(cardemulationHostNfcFServiceSendResponsePacketCmd)
+	cardemulationCmd.AddCommand(cardemulationHostNfcFServiceCmd)
+	cardemulationNfcFCardEmulationDisableServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationDisableServiceCmd)
+	cardemulationNfcFCardEmulationEnableServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationNfcFCardEmulationEnableServiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationEnableServiceCmd)
+	cardemulationNfcFCardEmulationGetNfcid2ForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationGetNfcid2ForServiceCmd)
+	cardemulationNfcFCardEmulationGetSystemCodeForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationGetSystemCodeForServiceCmd)
+	cardemulationNfcFCardEmulationRegisterSystemCodeForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationNfcFCardEmulationRegisterSystemCodeForServiceCmd.Flags().String("arg1", "", "arg1 (string)")
+	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationRegisterSystemCodeForServiceCmd)
+	cardemulationNfcFCardEmulationSetNfcid2ForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationNfcFCardEmulationSetNfcid2ForServiceCmd.Flags().String("arg1", "", "arg1 (string)")
+	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationSetNfcid2ForServiceCmd)
+	cardemulationNfcFCardEmulationUnregisterSystemCodeForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationUnregisterSystemCodeForServiceCmd)
+	cardemulationCmd.AddCommand(cardemulationNfcFCardEmulationCmd)
 	cardemulationHostApduServiceCmd.AddCommand(cardemulationHostApduServiceNotifyUnhandledCmd)
 	cardemulationHostApduServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	cardemulationHostApduServiceCmd.AddCommand(cardemulationHostApduServiceOnBindCmd)
@@ -946,32 +1012,12 @@ func init() {
 	cardemulationHostApduServiceSendResponseApduCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	cardemulationHostApduServiceCmd.AddCommand(cardemulationHostApduServiceSendResponseApduCmd)
 	cardemulationCmd.AddCommand(cardemulationHostApduServiceCmd)
-	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameDescribeContentsCmd)
-	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetDataCmd)
-	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetTimestampCmd)
-	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetTriggeredAutoTransactCmd)
-	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetTypeCmd)
-	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetVendorSpecificGainCmd)
-	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameToStringCmd)
-	cardemulationPollingFrameWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationPollingFrameWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameWriteToParcelCmd)
-	cardemulationCmd.AddCommand(cardemulationPollingFrameCmd)
-	cardemulationHostNfcFServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationHostNfcFServiceCmd.AddCommand(cardemulationHostNfcFServiceOnBindCmd)
-	cardemulationHostNfcFServiceOnDeactivatedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	cardemulationHostNfcFServiceCmd.AddCommand(cardemulationHostNfcFServiceOnDeactivatedCmd)
-	cardemulationHostNfcFServiceProcessNfcFPacketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationHostNfcFServiceProcessNfcFPacketCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	cardemulationHostNfcFServiceCmd.AddCommand(cardemulationHostNfcFServiceProcessNfcFPacketCmd)
-	cardemulationHostNfcFServiceSendResponsePacketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationHostNfcFServiceCmd.AddCommand(cardemulationHostNfcFServiceSendResponsePacketCmd)
-	cardemulationCmd.AddCommand(cardemulationHostNfcFServiceCmd)
-	cardemulationOffHostApduServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationOffHostApduServiceCmd.AddCommand(cardemulationOffHostApduServiceOnBindCmd)
-	cardemulationCmd.AddCommand(cardemulationOffHostApduServiceCmd)
 	cardemulationCardEmulationCategoryAllowsForegroundPreferenceCmd.Flags().String("arg0", "", "arg0 (string)")
 	cardemulationCardEmulationCmd.AddCommand(cardemulationCardEmulationCategoryAllowsForegroundPreferenceCmd)
+	cardemulationCardEmulationCmd.AddCommand(cardemulationCardEmulationGetAidsForPreferredPaymentServiceCmd)
+	cardemulationCardEmulationGetAidsForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationCardEmulationGetAidsForServiceCmd.Flags().String("arg1", "", "arg1 (string)")
+	cardemulationCardEmulationCmd.AddCommand(cardemulationCardEmulationGetAidsForServiceCmd)
 	cardemulationCardEmulationCmd.AddCommand(cardemulationCardEmulationGetDefaultNfcSubscriptionIdCmd)
 	cardemulationCardEmulationCmd.AddCommand(cardemulationCardEmulationGetDescriptionForPreferredPaymentServiceCmd)
 	cardemulationCardEmulationCmd.AddCommand(cardemulationCardEmulationGetRouteDestinationForPreferredPaymentServiceCmd)
@@ -1021,23 +1067,19 @@ func init() {
 	cardemulationCardEmulationUnsetPreferredServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	cardemulationCardEmulationCmd.AddCommand(cardemulationCardEmulationUnsetPreferredServiceCmd)
 	cardemulationCmd.AddCommand(cardemulationCardEmulationCmd)
-	cardemulationNfcFCardEmulationDisableServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationDisableServiceCmd)
-	cardemulationNfcFCardEmulationEnableServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationNfcFCardEmulationEnableServiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationEnableServiceCmd)
-	cardemulationNfcFCardEmulationGetNfcid2ForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationGetNfcid2ForServiceCmd)
-	cardemulationNfcFCardEmulationGetSystemCodeForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationGetSystemCodeForServiceCmd)
-	cardemulationNfcFCardEmulationRegisterSystemCodeForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationNfcFCardEmulationRegisterSystemCodeForServiceCmd.Flags().String("arg1", "", "arg1 (string)")
-	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationRegisterSystemCodeForServiceCmd)
-	cardemulationNfcFCardEmulationSetNfcid2ForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationNfcFCardEmulationSetNfcid2ForServiceCmd.Flags().String("arg1", "", "arg1 (string)")
-	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationSetNfcid2ForServiceCmd)
-	cardemulationNfcFCardEmulationUnregisterSystemCodeForServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cardemulationNfcFCardEmulationCmd.AddCommand(cardemulationNfcFCardEmulationUnregisterSystemCodeForServiceCmd)
-	cardemulationCmd.AddCommand(cardemulationNfcFCardEmulationCmd)
+	cardemulationOffHostApduServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationOffHostApduServiceCmd.AddCommand(cardemulationOffHostApduServiceOnBindCmd)
+	cardemulationCmd.AddCommand(cardemulationOffHostApduServiceCmd)
+	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameDescribeContentsCmd)
+	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetDataCmd)
+	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetTimestampCmd)
+	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetTriggeredAutoTransactCmd)
+	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetTypeCmd)
+	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameGetVendorSpecificGainCmd)
+	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameToStringCmd)
+	cardemulationPollingFrameWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	cardemulationPollingFrameWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	cardemulationPollingFrameCmd.AddCommand(cardemulationPollingFrameWriteToParcelCmd)
+	cardemulationCmd.AddCommand(cardemulationPollingFrameCmd)
 	rootCmd.AddCommand(cardemulationCmd)
 }

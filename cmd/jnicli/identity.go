@@ -12,6 +12,89 @@ var identityCmd = &cobra.Command{
 	Short: "identity service operations",
 }
 
+var identityPersonalizationDataBuilderCmd = &cobra.Command{
+	Use:   "personalization-data-builder",
+	Short: "PersonalizationDataBuilderService operations",
+}
+
+var identityPersonalizationDataBuilderAddAccessControlProfileCmd = &cobra.Command{
+	Use:   "add-access-control-profile",
+	Short: "AddAccessControlProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersonalizationDataBuilderServiceClient(grpcConn)
+		req := &pb.AddAccessControlProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAccessControlProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityPersonalizationDataBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPersonalizationDataBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityAccessControlProfileIdCmd = &cobra.Command{
+	Use:   "access-control-profile-id",
+	Short: "AccessControlProfileIdService operations",
+}
+
+var identityAccessControlProfileIdNewAccessControlProfileIdCmd = &cobra.Command{
+	Use:   "new-access-control-profile-id",
+	Short: "NewAccessControlProfileId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessControlProfileIdServiceClient(grpcConn)
+		req := &pb.NewAccessControlProfileIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewAccessControlProfileId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityAccessControlProfileIdGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessControlProfileIdServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var identityCredentialDataResultCmd = &cobra.Command{
 	Use:   "credential-data-result",
 	Short: "CredentialDataResultService operations",
@@ -140,6 +223,60 @@ var identityCredentialDataResultEntriesGetEntryCmd = &cobra.Command{
 	},
 }
 
+var identityCredentialDataResultEntriesGetEntryNamesCmd = &cobra.Command{
+	Use:   "get-entry-names",
+	Short: "GetEntryNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataResultEntriesServiceClient(grpcConn)
+		req := &pb.GetEntryNamesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetEntryNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataResultEntriesGetNamespacesCmd = &cobra.Command{
+	Use:   "get-namespaces",
+	Short: "GetNamespaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataResultEntriesServiceClient(grpcConn)
+		req := &pb.GetNamespacesRequest{}
+		resp, err := client.GetNamespaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataResultEntriesGetRetrievedEntryNamesCmd = &cobra.Command{
+	Use:   "get-retrieved-entry-names",
+	Short: "GetRetrievedEntryNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataResultEntriesServiceClient(grpcConn)
+		req := &pb.GetRetrievedEntryNamesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetRetrievedEntryNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var identityCredentialDataResultEntriesGetStatusCmd = &cobra.Command{
 	Use:   "get-status",
 	Short: "GetStatus RPC",
@@ -162,20 +299,20 @@ var identityCredentialDataResultEntriesGetStatusCmd = &cobra.Command{
 	},
 }
 
-var identityResultDataCmd = &cobra.Command{
-	Use:   "result-data",
-	Short: "ResultDataService operations",
+var identityAuthenticationKeyMetadataCmd = &cobra.Command{
+	Use:   "authentication-key-metadata",
+	Short: "AuthenticationKeyMetadataService operations",
 }
 
-var identityResultDataGetAuthenticatedDataCmd = &cobra.Command{
-	Use:   "get-authenticated-data",
-	Short: "GetAuthenticatedData RPC",
+var identityAuthenticationKeyMetadataGetExpirationDateCmd = &cobra.Command{
+	Use:   "get-expiration-date",
+	Short: "GetExpirationDate RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewResultDataServiceClient(grpcConn)
-		req := &pb.GetAuthenticatedDataRequest{}
-		resp, err := client.GetAuthenticatedData(ctx, req)
+		client := pb.NewAuthenticationKeyMetadataServiceClient(grpcConn)
+		req := &pb.GetExpirationDateRequest{}
+		resp, err := client.GetExpirationDate(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -183,115 +320,15 @@ var identityResultDataGetAuthenticatedDataCmd = &cobra.Command{
 	},
 }
 
-var identityResultDataGetEntryCmd = &cobra.Command{
-	Use:   "get-entry",
-	Short: "GetEntry RPC",
+var identityAuthenticationKeyMetadataGetUsageCountCmd = &cobra.Command{
+	Use:   "get-usage-count",
+	Short: "GetUsageCount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewResultDataServiceClient(grpcConn)
-		req := &pb.GetEntryRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetEntry(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityResultDataGetMessageAuthenticationCodeCmd = &cobra.Command{
-	Use:   "get-message-authentication-code",
-	Short: "GetMessageAuthenticationCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResultDataServiceClient(grpcConn)
-		req := &pb.GetMessageAuthenticationCodeRequest{}
-		resp, err := client.GetMessageAuthenticationCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityResultDataGetStaticAuthenticationDataCmd = &cobra.Command{
-	Use:   "get-static-authentication-data",
-	Short: "GetStaticAuthenticationData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResultDataServiceClient(grpcConn)
-		req := &pb.GetStaticAuthenticationDataRequest{}
-		resp, err := client.GetStaticAuthenticationData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityResultDataGetStatusCmd = &cobra.Command{
-	Use:   "get-status",
-	Short: "GetStatus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResultDataServiceClient(grpcConn)
-		req := &pb.GetStatusRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityPersonalizationDataBuilderCmd = &cobra.Command{
-	Use:   "personalization-data-builder",
-	Short: "PersonalizationDataBuilderService operations",
-}
-
-var identityPersonalizationDataBuilderAddAccessControlProfileCmd = &cobra.Command{
-	Use:   "add-access-control-profile",
-	Short: "AddAccessControlProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersonalizationDataBuilderServiceClient(grpcConn)
-		req := &pb.AddAccessControlProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddAccessControlProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityPersonalizationDataBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPersonalizationDataBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
+		client := pb.NewAuthenticationKeyMetadataServiceClient(grpcConn)
+		req := &pb.GetUsageCountRequest{}
+		resp, err := client.GetUsageCount(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -380,309 +417,6 @@ var identityPresentationSessionSetSessionTranscriptCmd = &cobra.Command{
 	},
 }
 
-var identityAccessControlProfileBuilderCmd = &cobra.Command{
-	Use:   "access-control-profile-builder",
-	Short: "AccessControlProfileBuilderService operations",
-}
-
-var identityAccessControlProfileBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessControlProfileBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityAccessControlProfileBuilderSetReaderCertificateCmd = &cobra.Command{
-	Use:   "set-reader-certificate",
-	Short: "SetReaderCertificate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessControlProfileBuilderServiceClient(grpcConn)
-		req := &pb.SetReaderCertificateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReaderCertificate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityAccessControlProfileBuilderSetUserAuthenticationRequiredCmd = &cobra.Command{
-	Use:   "set-user-authentication-required",
-	Short: "SetUserAuthenticationRequired RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessControlProfileBuilderServiceClient(grpcConn)
-		req := &pb.SetUserAuthenticationRequiredRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUserAuthenticationRequired(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityAccessControlProfileBuilderSetUserAuthenticationTimeoutCmd = &cobra.Command{
-	Use:   "set-user-authentication-timeout",
-	Short: "SetUserAuthenticationTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessControlProfileBuilderServiceClient(grpcConn)
-		req := &pb.SetUserAuthenticationTimeoutRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUserAuthenticationTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestCmd = &cobra.Command{
-	Use:   "credential-data-request",
-	Short: "CredentialDataRequestService operations",
-}
-
-var identityCredentialDataRequestGetReaderSignatureCmd = &cobra.Command{
-	Use:   "get-reader-signature",
-	Short: "GetReaderSignature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
-		req := &pb.GetReaderSignatureRequest{}
-		resp, err := client.GetReaderSignature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestGetRequestMessageCmd = &cobra.Command{
-	Use:   "get-request-message",
-	Short: "GetRequestMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
-		req := &pb.GetRequestMessageRequest{}
-		resp, err := client.GetRequestMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestIsAllowUsingExhaustedKeysCmd = &cobra.Command{
-	Use:   "is-allow-using-exhausted-keys",
-	Short: "IsAllowUsingExhaustedKeys RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
-		req := &pb.IsAllowUsingExhaustedKeysRequest{}
-		resp, err := client.IsAllowUsingExhaustedKeys(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestIsAllowUsingExpiredKeysCmd = &cobra.Command{
-	Use:   "is-allow-using-expired-keys",
-	Short: "IsAllowUsingExpiredKeys RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
-		req := &pb.IsAllowUsingExpiredKeysRequest{}
-		resp, err := client.IsAllowUsingExpiredKeys(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestIsIncrementUseCountCmd = &cobra.Command{
-	Use:   "is-increment-use-count",
-	Short: "IsIncrementUseCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
-		req := &pb.IsIncrementUseCountRequest{}
-		resp, err := client.IsIncrementUseCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestBuilderCmd = &cobra.Command{
-	Use:   "credential-data-request-builder",
-	Short: "CredentialDataRequestBuilderService operations",
-}
-
-var identityCredentialDataRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestBuilderSetAllowUsingExhaustedKeysCmd = &cobra.Command{
-	Use:   "set-allow-using-exhausted-keys",
-	Short: "SetAllowUsingExhaustedKeys RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAllowUsingExhaustedKeysRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowUsingExhaustedKeys(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestBuilderSetAllowUsingExpiredKeysCmd = &cobra.Command{
-	Use:   "set-allow-using-expired-keys",
-	Short: "SetAllowUsingExpiredKeys RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAllowUsingExpiredKeysRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowUsingExpiredKeys(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestBuilderSetIncrementUseCountCmd = &cobra.Command{
-	Use:   "set-increment-use-count",
-	Short: "SetIncrementUseCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetIncrementUseCountRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIncrementUseCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestBuilderSetReaderSignatureCmd = &cobra.Command{
-	Use:   "set-reader-signature",
-	Short: "SetReaderSignature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetReaderSignatureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReaderSignature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityCredentialDataRequestBuilderSetRequestMessageCmd = &cobra.Command{
-	Use:   "set-request-message",
-	Short: "SetRequestMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetRequestMessageRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRequestMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityWritableIdentityCredentialCmd = &cobra.Command{
-	Use:   "writable-identity-credential",
-	Short: "WritableIdentityCredentialService operations",
-}
-
-var identityWritableIdentityCredentialPersonalizeCmd = &cobra.Command{
-	Use:   "personalize",
-	Short: "Personalize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWritableIdentityCredentialServiceClient(grpcConn)
-		req := &pb.PersonalizeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Personalize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var identityCredentialCmd = &cobra.Command{
 	Use:   "credential",
 	Short: "CredentialService operations",
@@ -761,6 +495,22 @@ var identityCredentialEncryptMessageToReaderCmd = &cobra.Command{
 	},
 }
 
+var identityCredentialGetAuthKeysNeedingCertificationCmd = &cobra.Command{
+	Use:   "get-auth-keys-needing-certification",
+	Short: "GetAuthKeysNeedingCertification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.GetAuthKeysNeedingCertificationRequest{}
+		resp, err := client.GetAuthKeysNeedingCertification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var identityCredentialGetAuthenticationDataUsageCountCmd = &cobra.Command{
 	Use:   "get-authentication-data-usage-count",
 	Short: "GetAuthenticationDataUsageCount RPC",
@@ -770,6 +520,38 @@ var identityCredentialGetAuthenticationDataUsageCountCmd = &cobra.Command{
 		client := pb.NewCredentialServiceClient(grpcConn)
 		req := &pb.GetAuthenticationDataUsageCountRequest{}
 		resp, err := client.GetAuthenticationDataUsageCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialGetAuthenticationKeyMetadataCmd = &cobra.Command{
+	Use:   "get-authentication-key-metadata",
+	Short: "GetAuthenticationKeyMetadata RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.GetAuthenticationKeyMetadataRequest{}
+		resp, err := client.GetAuthenticationKeyMetadata(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialGetCredentialKeyCertificateChainCmd = &cobra.Command{
+	Use:   "get-credential-key-certificate-chain",
+	Short: "GetCredentialKeyCertificateChain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.GetCredentialKeyCertificateChainRequest{}
+		resp, err := client.GetCredentialKeyCertificateChain(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1107,20 +889,20 @@ var identityCredentialStoreGetInstanceCmd = &cobra.Command{
 	},
 }
 
-var identityAuthenticationKeyMetadataCmd = &cobra.Command{
-	Use:   "authentication-key-metadata",
-	Short: "AuthenticationKeyMetadataService operations",
+var identityAccessControlProfileBuilderCmd = &cobra.Command{
+	Use:   "access-control-profile-builder",
+	Short: "AccessControlProfileBuilderService operations",
 }
 
-var identityAuthenticationKeyMetadataGetExpirationDateCmd = &cobra.Command{
-	Use:   "get-expiration-date",
-	Short: "GetExpirationDate RPC",
+var identityAccessControlProfileBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAuthenticationKeyMetadataServiceClient(grpcConn)
-		req := &pb.GetExpirationDateRequest{}
-		resp, err := client.GetExpirationDate(ctx, req)
+		client := pb.NewAccessControlProfileBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1128,39 +910,18 @@ var identityAuthenticationKeyMetadataGetExpirationDateCmd = &cobra.Command{
 	},
 }
 
-var identityAuthenticationKeyMetadataGetUsageCountCmd = &cobra.Command{
-	Use:   "get-usage-count",
-	Short: "GetUsageCount RPC",
+var identityAccessControlProfileBuilderSetReaderCertificateCmd = &cobra.Command{
+	Use:   "set-reader-certificate",
+	Short: "SetReaderCertificate RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAuthenticationKeyMetadataServiceClient(grpcConn)
-		req := &pb.GetUsageCountRequest{}
-		resp, err := client.GetUsageCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var identityAccessControlProfileIdCmd = &cobra.Command{
-	Use:   "access-control-profile-id",
-	Short: "AccessControlProfileIdService operations",
-}
-
-var identityAccessControlProfileIdNewAccessControlProfileIdCmd = &cobra.Command{
-	Use:   "new-access-control-profile-id",
-	Short: "NewAccessControlProfileId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccessControlProfileIdServiceClient(grpcConn)
-		req := &pb.NewAccessControlProfileIdRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewAccessControlProfileBuilderServiceClient(grpcConn)
+		req := &pb.SetReaderCertificateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewAccessControlProfileId(ctx, req)
+		resp, err := client.SetReaderCertificate(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1168,18 +929,432 @@ var identityAccessControlProfileIdNewAccessControlProfileIdCmd = &cobra.Command{
 	},
 }
 
-var identityAccessControlProfileIdGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
+var identityAccessControlProfileBuilderSetUserAuthenticationRequiredCmd = &cobra.Command{
+	Use:   "set-user-authentication-required",
+	Short: "SetUserAuthenticationRequired RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccessControlProfileIdServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewAccessControlProfileBuilderServiceClient(grpcConn)
+		req := &pb.SetUserAuthenticationRequiredRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
 		}
-		resp, err := client.GetId(ctx, req)
+		resp, err := client.SetUserAuthenticationRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityAccessControlProfileBuilderSetUserAuthenticationTimeoutCmd = &cobra.Command{
+	Use:   "set-user-authentication-timeout",
+	Short: "SetUserAuthenticationTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccessControlProfileBuilderServiceClient(grpcConn)
+		req := &pb.SetUserAuthenticationTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUserAuthenticationTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityResultDataCmd = &cobra.Command{
+	Use:   "result-data",
+	Short: "ResultDataService operations",
+}
+
+var identityResultDataGetAuthenticatedDataCmd = &cobra.Command{
+	Use:   "get-authenticated-data",
+	Short: "GetAuthenticatedData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResultDataServiceClient(grpcConn)
+		req := &pb.GetAuthenticatedDataRequest{}
+		resp, err := client.GetAuthenticatedData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityResultDataGetEntryCmd = &cobra.Command{
+	Use:   "get-entry",
+	Short: "GetEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResultDataServiceClient(grpcConn)
+		req := &pb.GetEntryRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityResultDataGetEntryNamesCmd = &cobra.Command{
+	Use:   "get-entry-names",
+	Short: "GetEntryNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResultDataServiceClient(grpcConn)
+		req := &pb.GetEntryNamesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetEntryNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityResultDataGetMessageAuthenticationCodeCmd = &cobra.Command{
+	Use:   "get-message-authentication-code",
+	Short: "GetMessageAuthenticationCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResultDataServiceClient(grpcConn)
+		req := &pb.GetMessageAuthenticationCodeRequest{}
+		resp, err := client.GetMessageAuthenticationCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityResultDataGetNamespacesCmd = &cobra.Command{
+	Use:   "get-namespaces",
+	Short: "GetNamespaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResultDataServiceClient(grpcConn)
+		req := &pb.GetNamespacesRequest{}
+		resp, err := client.GetNamespaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityResultDataGetRetrievedEntryNamesCmd = &cobra.Command{
+	Use:   "get-retrieved-entry-names",
+	Short: "GetRetrievedEntryNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResultDataServiceClient(grpcConn)
+		req := &pb.GetRetrievedEntryNamesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetRetrievedEntryNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityResultDataGetStaticAuthenticationDataCmd = &cobra.Command{
+	Use:   "get-static-authentication-data",
+	Short: "GetStaticAuthenticationData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResultDataServiceClient(grpcConn)
+		req := &pb.GetStaticAuthenticationDataRequest{}
+		resp, err := client.GetStaticAuthenticationData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityResultDataGetStatusCmd = &cobra.Command{
+	Use:   "get-status",
+	Short: "GetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResultDataServiceClient(grpcConn)
+		req := &pb.GetStatusRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityWritableIdentityCredentialCmd = &cobra.Command{
+	Use:   "writable-identity-credential",
+	Short: "WritableIdentityCredentialService operations",
+}
+
+var identityWritableIdentityCredentialGetCredentialKeyCertificateChainCmd = &cobra.Command{
+	Use:   "get-credential-key-certificate-chain",
+	Short: "GetCredentialKeyCertificateChain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWritableIdentityCredentialServiceClient(grpcConn)
+		req := &pb.WritableIdentityCredentialGetCredentialKeyCertificateChainRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCredentialKeyCertificateChain(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityWritableIdentityCredentialPersonalizeCmd = &cobra.Command{
+	Use:   "personalize",
+	Short: "Personalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWritableIdentityCredentialServiceClient(grpcConn)
+		req := &pb.PersonalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Personalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestCmd = &cobra.Command{
+	Use:   "credential-data-request",
+	Short: "CredentialDataRequestService operations",
+}
+
+var identityCredentialDataRequestGetReaderSignatureCmd = &cobra.Command{
+	Use:   "get-reader-signature",
+	Short: "GetReaderSignature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
+		req := &pb.GetReaderSignatureRequest{}
+		resp, err := client.GetReaderSignature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestGetRequestMessageCmd = &cobra.Command{
+	Use:   "get-request-message",
+	Short: "GetRequestMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
+		req := &pb.GetRequestMessageRequest{}
+		resp, err := client.GetRequestMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestIsAllowUsingExhaustedKeysCmd = &cobra.Command{
+	Use:   "is-allow-using-exhausted-keys",
+	Short: "IsAllowUsingExhaustedKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
+		req := &pb.IsAllowUsingExhaustedKeysRequest{}
+		resp, err := client.IsAllowUsingExhaustedKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestIsAllowUsingExpiredKeysCmd = &cobra.Command{
+	Use:   "is-allow-using-expired-keys",
+	Short: "IsAllowUsingExpiredKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
+		req := &pb.IsAllowUsingExpiredKeysRequest{}
+		resp, err := client.IsAllowUsingExpiredKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestIsIncrementUseCountCmd = &cobra.Command{
+	Use:   "is-increment-use-count",
+	Short: "IsIncrementUseCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestServiceClient(grpcConn)
+		req := &pb.IsIncrementUseCountRequest{}
+		resp, err := client.IsIncrementUseCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestBuilderCmd = &cobra.Command{
+	Use:   "credential-data-request-builder",
+	Short: "CredentialDataRequestBuilderService operations",
+}
+
+var identityCredentialDataRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestBuilderSetAllowUsingExhaustedKeysCmd = &cobra.Command{
+	Use:   "set-allow-using-exhausted-keys",
+	Short: "SetAllowUsingExhaustedKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAllowUsingExhaustedKeysRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowUsingExhaustedKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestBuilderSetAllowUsingExpiredKeysCmd = &cobra.Command{
+	Use:   "set-allow-using-expired-keys",
+	Short: "SetAllowUsingExpiredKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAllowUsingExpiredKeysRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowUsingExpiredKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestBuilderSetIncrementUseCountCmd = &cobra.Command{
+	Use:   "set-increment-use-count",
+	Short: "SetIncrementUseCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetIncrementUseCountRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIncrementUseCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestBuilderSetReaderSignatureCmd = &cobra.Command{
+	Use:   "set-reader-signature",
+	Short: "SetReaderSignature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetReaderSignatureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReaderSignature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var identityCredentialDataRequestBuilderSetRequestMessageCmd = &cobra.Command{
+	Use:   "set-request-message",
+	Short: "SetRequestMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDataRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetRequestMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequestMessage(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1188,6 +1363,15 @@ var identityAccessControlProfileIdGetIdCmd = &cobra.Command{
 }
 
 func init() {
+	identityPersonalizationDataBuilderAddAccessControlProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	identityPersonalizationDataBuilderCmd.AddCommand(identityPersonalizationDataBuilderAddAccessControlProfileCmd)
+	identityPersonalizationDataBuilderCmd.AddCommand(identityPersonalizationDataBuilderBuildCmd)
+	identityCmd.AddCommand(identityPersonalizationDataBuilderCmd)
+	identityAccessControlProfileIdNewAccessControlProfileIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	identityAccessControlProfileIdCmd.AddCommand(identityAccessControlProfileIdNewAccessControlProfileIdCmd)
+	identityAccessControlProfileIdGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	identityAccessControlProfileIdCmd.AddCommand(identityAccessControlProfileIdGetIdCmd)
+	identityCmd.AddCommand(identityAccessControlProfileIdCmd)
 	identityCredentialDataResultCmd.AddCommand(identityCredentialDataResultGetDeviceMacCmd)
 	identityCredentialDataResultCmd.AddCommand(identityCredentialDataResultGetDeviceNameSpacesCmd)
 	identityCredentialDataResultCmd.AddCommand(identityCredentialDataResultGetDeviceSignatureCmd)
@@ -1198,24 +1382,18 @@ func init() {
 	identityCredentialDataResultEntriesGetEntryCmd.Flags().String("arg0", "", "arg0 (string)")
 	identityCredentialDataResultEntriesGetEntryCmd.Flags().String("arg1", "", "arg1 (string)")
 	identityCredentialDataResultEntriesCmd.AddCommand(identityCredentialDataResultEntriesGetEntryCmd)
+	identityCredentialDataResultEntriesGetEntryNamesCmd.Flags().String("arg0", "", "arg0 (string)")
+	identityCredentialDataResultEntriesCmd.AddCommand(identityCredentialDataResultEntriesGetEntryNamesCmd)
+	identityCredentialDataResultEntriesCmd.AddCommand(identityCredentialDataResultEntriesGetNamespacesCmd)
+	identityCredentialDataResultEntriesGetRetrievedEntryNamesCmd.Flags().String("arg0", "", "arg0 (string)")
+	identityCredentialDataResultEntriesCmd.AddCommand(identityCredentialDataResultEntriesGetRetrievedEntryNamesCmd)
 	identityCredentialDataResultEntriesGetStatusCmd.Flags().String("arg0", "", "arg0 (string)")
 	identityCredentialDataResultEntriesGetStatusCmd.Flags().String("arg1", "", "arg1 (string)")
 	identityCredentialDataResultEntriesCmd.AddCommand(identityCredentialDataResultEntriesGetStatusCmd)
 	identityCmd.AddCommand(identityCredentialDataResultEntriesCmd)
-	identityResultDataCmd.AddCommand(identityResultDataGetAuthenticatedDataCmd)
-	identityResultDataGetEntryCmd.Flags().String("arg0", "", "arg0 (string)")
-	identityResultDataGetEntryCmd.Flags().String("arg1", "", "arg1 (string)")
-	identityResultDataCmd.AddCommand(identityResultDataGetEntryCmd)
-	identityResultDataCmd.AddCommand(identityResultDataGetMessageAuthenticationCodeCmd)
-	identityResultDataCmd.AddCommand(identityResultDataGetStaticAuthenticationDataCmd)
-	identityResultDataGetStatusCmd.Flags().String("arg0", "", "arg0 (string)")
-	identityResultDataGetStatusCmd.Flags().String("arg1", "", "arg1 (string)")
-	identityResultDataCmd.AddCommand(identityResultDataGetStatusCmd)
-	identityCmd.AddCommand(identityResultDataCmd)
-	identityPersonalizationDataBuilderAddAccessControlProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	identityPersonalizationDataBuilderCmd.AddCommand(identityPersonalizationDataBuilderAddAccessControlProfileCmd)
-	identityPersonalizationDataBuilderCmd.AddCommand(identityPersonalizationDataBuilderBuildCmd)
-	identityCmd.AddCommand(identityPersonalizationDataBuilderCmd)
+	identityAuthenticationKeyMetadataCmd.AddCommand(identityAuthenticationKeyMetadataGetExpirationDateCmd)
+	identityAuthenticationKeyMetadataCmd.AddCommand(identityAuthenticationKeyMetadataGetUsageCountCmd)
+	identityCmd.AddCommand(identityAuthenticationKeyMetadataCmd)
 	identityPresentationSessionGetCredentialDataCmd.Flags().String("arg0", "", "arg0 (string)")
 	identityPresentationSessionGetCredentialDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	identityPresentationSessionCmd.AddCommand(identityPresentationSessionGetCredentialDataCmd)
@@ -1225,35 +1403,6 @@ func init() {
 	identityPresentationSessionSetSessionTranscriptCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	identityPresentationSessionCmd.AddCommand(identityPresentationSessionSetSessionTranscriptCmd)
 	identityCmd.AddCommand(identityPresentationSessionCmd)
-	identityAccessControlProfileBuilderCmd.AddCommand(identityAccessControlProfileBuilderBuildCmd)
-	identityAccessControlProfileBuilderSetReaderCertificateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	identityAccessControlProfileBuilderCmd.AddCommand(identityAccessControlProfileBuilderSetReaderCertificateCmd)
-	identityAccessControlProfileBuilderSetUserAuthenticationRequiredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	identityAccessControlProfileBuilderCmd.AddCommand(identityAccessControlProfileBuilderSetUserAuthenticationRequiredCmd)
-	identityAccessControlProfileBuilderSetUserAuthenticationTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	identityAccessControlProfileBuilderCmd.AddCommand(identityAccessControlProfileBuilderSetUserAuthenticationTimeoutCmd)
-	identityCmd.AddCommand(identityAccessControlProfileBuilderCmd)
-	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestGetReaderSignatureCmd)
-	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestGetRequestMessageCmd)
-	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestIsAllowUsingExhaustedKeysCmd)
-	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestIsAllowUsingExpiredKeysCmd)
-	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestIsIncrementUseCountCmd)
-	identityCmd.AddCommand(identityCredentialDataRequestCmd)
-	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderBuildCmd)
-	identityCredentialDataRequestBuilderSetAllowUsingExhaustedKeysCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetAllowUsingExhaustedKeysCmd)
-	identityCredentialDataRequestBuilderSetAllowUsingExpiredKeysCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetAllowUsingExpiredKeysCmd)
-	identityCredentialDataRequestBuilderSetIncrementUseCountCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetIncrementUseCountCmd)
-	identityCredentialDataRequestBuilderSetReaderSignatureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetReaderSignatureCmd)
-	identityCredentialDataRequestBuilderSetRequestMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetRequestMessageCmd)
-	identityCmd.AddCommand(identityCredentialDataRequestBuilderCmd)
-	identityWritableIdentityCredentialPersonalizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	identityWritableIdentityCredentialCmd.AddCommand(identityWritableIdentityCredentialPersonalizeCmd)
-	identityCmd.AddCommand(identityWritableIdentityCredentialCmd)
 	identityCredentialCmd.AddCommand(identityCredentialCreateEphemeralKeyPairCmd)
 	identityCredentialDecryptMessageFromReaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	identityCredentialCmd.AddCommand(identityCredentialDecryptMessageFromReaderCmd)
@@ -1261,7 +1410,10 @@ func init() {
 	identityCredentialCmd.AddCommand(identityCredentialDeleteCmd)
 	identityCredentialEncryptMessageToReaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	identityCredentialCmd.AddCommand(identityCredentialEncryptMessageToReaderCmd)
+	identityCredentialCmd.AddCommand(identityCredentialGetAuthKeysNeedingCertificationCmd)
 	identityCredentialCmd.AddCommand(identityCredentialGetAuthenticationDataUsageCountCmd)
+	identityCredentialCmd.AddCommand(identityCredentialGetAuthenticationKeyMetadataCmd)
+	identityCredentialCmd.AddCommand(identityCredentialGetCredentialKeyCertificateChainCmd)
 	identityCredentialProveOwnershipCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	identityCredentialCmd.AddCommand(identityCredentialProveOwnershipCmd)
 	identityCredentialSetAllowUsingExhaustedKeysCmd.Flags().Bool("arg0", false, "arg0 (bool)")
@@ -1303,13 +1455,51 @@ func init() {
 	identityCredentialStoreGetInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	identityCredentialStoreCmd.AddCommand(identityCredentialStoreGetInstanceCmd)
 	identityCmd.AddCommand(identityCredentialStoreCmd)
-	identityAuthenticationKeyMetadataCmd.AddCommand(identityAuthenticationKeyMetadataGetExpirationDateCmd)
-	identityAuthenticationKeyMetadataCmd.AddCommand(identityAuthenticationKeyMetadataGetUsageCountCmd)
-	identityCmd.AddCommand(identityAuthenticationKeyMetadataCmd)
-	identityAccessControlProfileIdNewAccessControlProfileIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	identityAccessControlProfileIdCmd.AddCommand(identityAccessControlProfileIdNewAccessControlProfileIdCmd)
-	identityAccessControlProfileIdGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	identityAccessControlProfileIdCmd.AddCommand(identityAccessControlProfileIdGetIdCmd)
-	identityCmd.AddCommand(identityAccessControlProfileIdCmd)
+	identityAccessControlProfileBuilderCmd.AddCommand(identityAccessControlProfileBuilderBuildCmd)
+	identityAccessControlProfileBuilderSetReaderCertificateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	identityAccessControlProfileBuilderCmd.AddCommand(identityAccessControlProfileBuilderSetReaderCertificateCmd)
+	identityAccessControlProfileBuilderSetUserAuthenticationRequiredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	identityAccessControlProfileBuilderCmd.AddCommand(identityAccessControlProfileBuilderSetUserAuthenticationRequiredCmd)
+	identityAccessControlProfileBuilderSetUserAuthenticationTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	identityAccessControlProfileBuilderCmd.AddCommand(identityAccessControlProfileBuilderSetUserAuthenticationTimeoutCmd)
+	identityCmd.AddCommand(identityAccessControlProfileBuilderCmd)
+	identityResultDataCmd.AddCommand(identityResultDataGetAuthenticatedDataCmd)
+	identityResultDataGetEntryCmd.Flags().String("arg0", "", "arg0 (string)")
+	identityResultDataGetEntryCmd.Flags().String("arg1", "", "arg1 (string)")
+	identityResultDataCmd.AddCommand(identityResultDataGetEntryCmd)
+	identityResultDataGetEntryNamesCmd.Flags().String("arg0", "", "arg0 (string)")
+	identityResultDataCmd.AddCommand(identityResultDataGetEntryNamesCmd)
+	identityResultDataCmd.AddCommand(identityResultDataGetMessageAuthenticationCodeCmd)
+	identityResultDataCmd.AddCommand(identityResultDataGetNamespacesCmd)
+	identityResultDataGetRetrievedEntryNamesCmd.Flags().String("arg0", "", "arg0 (string)")
+	identityResultDataCmd.AddCommand(identityResultDataGetRetrievedEntryNamesCmd)
+	identityResultDataCmd.AddCommand(identityResultDataGetStaticAuthenticationDataCmd)
+	identityResultDataGetStatusCmd.Flags().String("arg0", "", "arg0 (string)")
+	identityResultDataGetStatusCmd.Flags().String("arg1", "", "arg1 (string)")
+	identityResultDataCmd.AddCommand(identityResultDataGetStatusCmd)
+	identityCmd.AddCommand(identityResultDataCmd)
+	identityWritableIdentityCredentialGetCredentialKeyCertificateChainCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	identityWritableIdentityCredentialCmd.AddCommand(identityWritableIdentityCredentialGetCredentialKeyCertificateChainCmd)
+	identityWritableIdentityCredentialPersonalizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	identityWritableIdentityCredentialCmd.AddCommand(identityWritableIdentityCredentialPersonalizeCmd)
+	identityCmd.AddCommand(identityWritableIdentityCredentialCmd)
+	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestGetReaderSignatureCmd)
+	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestGetRequestMessageCmd)
+	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestIsAllowUsingExhaustedKeysCmd)
+	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestIsAllowUsingExpiredKeysCmd)
+	identityCredentialDataRequestCmd.AddCommand(identityCredentialDataRequestIsIncrementUseCountCmd)
+	identityCmd.AddCommand(identityCredentialDataRequestCmd)
+	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderBuildCmd)
+	identityCredentialDataRequestBuilderSetAllowUsingExhaustedKeysCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetAllowUsingExhaustedKeysCmd)
+	identityCredentialDataRequestBuilderSetAllowUsingExpiredKeysCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetAllowUsingExpiredKeysCmd)
+	identityCredentialDataRequestBuilderSetIncrementUseCountCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetIncrementUseCountCmd)
+	identityCredentialDataRequestBuilderSetReaderSignatureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetReaderSignatureCmd)
+	identityCredentialDataRequestBuilderSetRequestMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	identityCredentialDataRequestBuilderCmd.AddCommand(identityCredentialDataRequestBuilderSetRequestMessageCmd)
+	identityCmd.AddCommand(identityCredentialDataRequestBuilderCmd)
 	rootCmd.AddCommand(identityCmd)
 }

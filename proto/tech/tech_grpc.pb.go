@@ -21,481 +21,659 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	NfcFService_Close_FullMethodName                  = "/tech.NfcFService/Close"
-	NfcFService_Connect_FullMethodName                = "/tech.NfcFService/Connect"
-	NfcFService_GetManufacturer_FullMethodName        = "/tech.NfcFService/GetManufacturer"
-	NfcFService_GetMaxTransceiveLength_FullMethodName = "/tech.NfcFService/GetMaxTransceiveLength"
-	NfcFService_GetSystemCode_FullMethodName          = "/tech.NfcFService/GetSystemCode"
-	NfcFService_GetTag_FullMethodName                 = "/tech.NfcFService/GetTag"
-	NfcFService_GetTimeout_FullMethodName             = "/tech.NfcFService/GetTimeout"
-	NfcFService_IsConnected_FullMethodName            = "/tech.NfcFService/IsConnected"
-	NfcFService_SetTimeout_FullMethodName             = "/tech.NfcFService/SetTimeout"
-	NfcFService_Transceive_FullMethodName             = "/tech.NfcFService/Transceive"
-	NfcFService_Get_FullMethodName                    = "/tech.NfcFService/Get"
+	NfcBarcodeService_Close_FullMethodName       = "/tech.NfcBarcodeService/Close"
+	NfcBarcodeService_Connect_FullMethodName     = "/tech.NfcBarcodeService/Connect"
+	NfcBarcodeService_GetBarcode_FullMethodName  = "/tech.NfcBarcodeService/GetBarcode"
+	NfcBarcodeService_GetTag_FullMethodName      = "/tech.NfcBarcodeService/GetTag"
+	NfcBarcodeService_GetType_FullMethodName     = "/tech.NfcBarcodeService/GetType"
+	NfcBarcodeService_IsConnected_FullMethodName = "/tech.NfcBarcodeService/IsConnected"
+	NfcBarcodeService_Get_FullMethodName         = "/tech.NfcBarcodeService/Get"
 )
 
-// NfcFServiceClient is the client API for NfcFService service.
+// NfcBarcodeServiceClient is the client API for NfcBarcodeService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NfcFServiceClient interface {
+type NfcBarcodeServiceClient interface {
 	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
 	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
-	GetManufacturer(ctx context.Context, in *GetManufacturerRequest, opts ...grpc.CallOption) (*GetManufacturerResponse, error)
-	GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error)
-	GetSystemCode(ctx context.Context, in *GetSystemCodeRequest, opts ...grpc.CallOption) (*GetSystemCodeResponse, error)
+	GetBarcode(ctx context.Context, in *GetBarcodeRequest, opts ...grpc.CallOption) (*GetBarcodeResponse, error)
 	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
-	GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
 	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
-	SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error)
-	Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 }
 
-type nfcFServiceClient struct {
+type nfcBarcodeServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewNfcFServiceClient(cc grpc.ClientConnInterface) NfcFServiceClient {
-	return &nfcFServiceClient{cc}
+func NewNfcBarcodeServiceClient(cc grpc.ClientConnInterface) NfcBarcodeServiceClient {
+	return &nfcBarcodeServiceClient{cc}
 }
 
-func (c *nfcFServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *nfcBarcodeServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, NfcFService_Close_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBarcodeService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcFServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
+func (c *nfcBarcodeServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ConnectResponse)
-	err := c.cc.Invoke(ctx, NfcFService_Connect_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBarcodeService_Connect_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcFServiceClient) GetManufacturer(ctx context.Context, in *GetManufacturerRequest, opts ...grpc.CallOption) (*GetManufacturerResponse, error) {
+func (c *nfcBarcodeServiceClient) GetBarcode(ctx context.Context, in *GetBarcodeRequest, opts ...grpc.CallOption) (*GetBarcodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetManufacturerResponse)
-	err := c.cc.Invoke(ctx, NfcFService_GetManufacturer_FullMethodName, in, out, cOpts...)
+	out := new(GetBarcodeResponse)
+	err := c.cc.Invoke(ctx, NfcBarcodeService_GetBarcode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcFServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxTransceiveLengthResponse)
-	err := c.cc.Invoke(ctx, NfcFService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFServiceClient) GetSystemCode(ctx context.Context, in *GetSystemCodeRequest, opts ...grpc.CallOption) (*GetSystemCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSystemCodeResponse)
-	err := c.cc.Invoke(ctx, NfcFService_GetSystemCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+func (c *nfcBarcodeServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, NfcFService_GetTag_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBarcodeService_GetTag_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcFServiceClient) GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error) {
+func (c *nfcBarcodeServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTimeoutResponse)
-	err := c.cc.Invoke(ctx, NfcFService_GetTimeout_FullMethodName, in, out, cOpts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, NfcBarcodeService_GetType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcFServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+func (c *nfcBarcodeServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsConnectedResponse)
-	err := c.cc.Invoke(ctx, NfcFService_IsConnected_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBarcodeService_IsConnected_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcFServiceClient) SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTimeoutResponse)
-	err := c.cc.Invoke(ctx, NfcFService_SetTimeout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TransceiveResponse)
-	err := c.cc.Invoke(ctx, NfcFService_Transceive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcFServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+func (c *nfcBarcodeServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, NfcFService_Get_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBarcodeService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// NfcFServiceServer is the server API for NfcFService service.
-// All implementations must embed UnimplementedNfcFServiceServer
+// NfcBarcodeServiceServer is the server API for NfcBarcodeService service.
+// All implementations must embed UnimplementedNfcBarcodeServiceServer
 // for forward compatibility.
-type NfcFServiceServer interface {
+type NfcBarcodeServiceServer interface {
 	Close(context.Context, *CloseRequest) (*CloseResponse, error)
 	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
-	GetManufacturer(context.Context, *GetManufacturerRequest) (*GetManufacturerResponse, error)
-	GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error)
-	GetSystemCode(context.Context, *GetSystemCodeRequest) (*GetSystemCodeResponse, error)
+	GetBarcode(context.Context, *GetBarcodeRequest) (*GetBarcodeResponse, error)
 	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
-	GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
 	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
-	SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error)
-	Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedNfcFServiceServer()
+	mustEmbedUnimplementedNfcBarcodeServiceServer()
 }
 
-// UnimplementedNfcFServiceServer must be embedded to have
+// UnimplementedNfcBarcodeServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedNfcFServiceServer struct{}
+type UnimplementedNfcBarcodeServiceServer struct{}
 
-func (UnimplementedNfcFServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+func (UnimplementedNfcBarcodeServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedNfcFServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
+func (UnimplementedNfcBarcodeServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
 }
-func (UnimplementedNfcFServiceServer) GetManufacturer(context.Context, *GetManufacturerRequest) (*GetManufacturerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetManufacturer not implemented")
+func (UnimplementedNfcBarcodeServiceServer) GetBarcode(context.Context, *GetBarcodeRequest) (*GetBarcodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBarcode not implemented")
 }
-func (UnimplementedNfcFServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxTransceiveLength not implemented")
-}
-func (UnimplementedNfcFServiceServer) GetSystemCode(context.Context, *GetSystemCodeRequest) (*GetSystemCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSystemCode not implemented")
-}
-func (UnimplementedNfcFServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+func (UnimplementedNfcBarcodeServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
 }
-func (UnimplementedNfcFServiceServer) GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTimeout not implemented")
+func (UnimplementedNfcBarcodeServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
 }
-func (UnimplementedNfcFServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+func (UnimplementedNfcBarcodeServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
 }
-func (UnimplementedNfcFServiceServer) SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTimeout not implemented")
-}
-func (UnimplementedNfcFServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Transceive not implemented")
-}
-func (UnimplementedNfcFServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+func (UnimplementedNfcBarcodeServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedNfcFServiceServer) mustEmbedUnimplementedNfcFServiceServer() {}
-func (UnimplementedNfcFServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedNfcBarcodeServiceServer) mustEmbedUnimplementedNfcBarcodeServiceServer() {}
+func (UnimplementedNfcBarcodeServiceServer) testEmbeddedByValue()                           {}
 
-// UnsafeNfcFServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NfcFServiceServer will
+// UnsafeNfcBarcodeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NfcBarcodeServiceServer will
 // result in compilation errors.
-type UnsafeNfcFServiceServer interface {
-	mustEmbedUnimplementedNfcFServiceServer()
+type UnsafeNfcBarcodeServiceServer interface {
+	mustEmbedUnimplementedNfcBarcodeServiceServer()
 }
 
-func RegisterNfcFServiceServer(s grpc.ServiceRegistrar, srv NfcFServiceServer) {
-	// If the following call panics, it indicates UnimplementedNfcFServiceServer was
+func RegisterNfcBarcodeServiceServer(s grpc.ServiceRegistrar, srv NfcBarcodeServiceServer) {
+	// If the following call panics, it indicates UnimplementedNfcBarcodeServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&NfcFService_ServiceDesc, srv)
+	s.RegisterService(&NfcBarcodeService_ServiceDesc, srv)
 }
 
-func _NfcFService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBarcodeService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcFServiceServer).Close(ctx, in)
+		return srv.(NfcBarcodeServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcFService_Close_FullMethodName,
+		FullMethod: NfcBarcodeService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).Close(ctx, req.(*CloseRequest))
+		return srv.(NfcBarcodeServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcFService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBarcodeService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ConnectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcFServiceServer).Connect(ctx, in)
+		return srv.(NfcBarcodeServiceServer).Connect(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcFService_Connect_FullMethodName,
+		FullMethod: NfcBarcodeService_Connect_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).Connect(ctx, req.(*ConnectRequest))
+		return srv.(NfcBarcodeServiceServer).Connect(ctx, req.(*ConnectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcFService_GetManufacturer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetManufacturerRequest)
+func _NfcBarcodeService_GetBarcode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBarcodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcFServiceServer).GetManufacturer(ctx, in)
+		return srv.(NfcBarcodeServiceServer).GetBarcode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcFService_GetManufacturer_FullMethodName,
+		FullMethod: NfcBarcodeService_GetBarcode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).GetManufacturer(ctx, req.(*GetManufacturerRequest))
+		return srv.(NfcBarcodeServiceServer).GetBarcode(ctx, req.(*GetBarcodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcFService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxTransceiveLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFServiceServer).GetMaxTransceiveLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFService_GetMaxTransceiveLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFService_GetSystemCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSystemCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFServiceServer).GetSystemCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFService_GetSystemCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).GetSystemCode(ctx, req.(*GetSystemCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBarcodeService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTagRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcFServiceServer).GetTag(ctx, in)
+		return srv.(NfcBarcodeServiceServer).GetTag(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcFService_GetTag_FullMethodName,
+		FullMethod: NfcBarcodeService_GetTag_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).GetTag(ctx, req.(*GetTagRequest))
+		return srv.(NfcBarcodeServiceServer).GetTag(ctx, req.(*GetTagRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcFService_GetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimeoutRequest)
+func _NfcBarcodeService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcFServiceServer).GetTimeout(ctx, in)
+		return srv.(NfcBarcodeServiceServer).GetType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcFService_GetTimeout_FullMethodName,
+		FullMethod: NfcBarcodeService_GetType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).GetTimeout(ctx, req.(*GetTimeoutRequest))
+		return srv.(NfcBarcodeServiceServer).GetType(ctx, req.(*GetTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcFService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBarcodeService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsConnectedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcFServiceServer).IsConnected(ctx, in)
+		return srv.(NfcBarcodeServiceServer).IsConnected(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcFService_IsConnected_FullMethodName,
+		FullMethod: NfcBarcodeService_IsConnected_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+		return srv.(NfcBarcodeServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcFService_SetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTimeoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFServiceServer).SetTimeout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFService_SetTimeout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).SetTimeout(ctx, req.(*SetTimeoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransceiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcFServiceServer).Transceive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcFService_Transceive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).Transceive(ctx, req.(*TransceiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcFService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBarcodeService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcFServiceServer).Get(ctx, in)
+		return srv.(NfcBarcodeServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcFService_Get_FullMethodName,
+		FullMethod: NfcBarcodeService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcFServiceServer).Get(ctx, req.(*GetRequest))
+		return srv.(NfcBarcodeServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// NfcFService_ServiceDesc is the grpc.ServiceDesc for NfcFService service.
+// NfcBarcodeService_ServiceDesc is the grpc.ServiceDesc for NfcBarcodeService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var NfcFService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "tech.NfcFService",
-	HandlerType: (*NfcFServiceServer)(nil),
+var NfcBarcodeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tech.NfcBarcodeService",
+	HandlerType: (*NfcBarcodeServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Close",
-			Handler:    _NfcFService_Close_Handler,
+			Handler:    _NfcBarcodeService_Close_Handler,
 		},
 		{
 			MethodName: "Connect",
-			Handler:    _NfcFService_Connect_Handler,
+			Handler:    _NfcBarcodeService_Connect_Handler,
 		},
 		{
-			MethodName: "GetManufacturer",
-			Handler:    _NfcFService_GetManufacturer_Handler,
-		},
-		{
-			MethodName: "GetMaxTransceiveLength",
-			Handler:    _NfcFService_GetMaxTransceiveLength_Handler,
-		},
-		{
-			MethodName: "GetSystemCode",
-			Handler:    _NfcFService_GetSystemCode_Handler,
+			MethodName: "GetBarcode",
+			Handler:    _NfcBarcodeService_GetBarcode_Handler,
 		},
 		{
 			MethodName: "GetTag",
-			Handler:    _NfcFService_GetTag_Handler,
+			Handler:    _NfcBarcodeService_GetTag_Handler,
 		},
 		{
-			MethodName: "GetTimeout",
-			Handler:    _NfcFService_GetTimeout_Handler,
+			MethodName: "GetType",
+			Handler:    _NfcBarcodeService_GetType_Handler,
 		},
 		{
 			MethodName: "IsConnected",
-			Handler:    _NfcFService_IsConnected_Handler,
-		},
-		{
-			MethodName: "SetTimeout",
-			Handler:    _NfcFService_SetTimeout_Handler,
-		},
-		{
-			MethodName: "Transceive",
-			Handler:    _NfcFService_Transceive_Handler,
+			Handler:    _NfcBarcodeService_IsConnected_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _NfcFService_Get_Handler,
+			Handler:    _NfcBarcodeService_Get_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tech/tech.proto",
+}
+
+const (
+	NdefFormatableService_Close_FullMethodName          = "/tech.NdefFormatableService/Close"
+	NdefFormatableService_Connect_FullMethodName        = "/tech.NdefFormatableService/Connect"
+	NdefFormatableService_Format_FullMethodName         = "/tech.NdefFormatableService/Format"
+	NdefFormatableService_FormatReadOnly_FullMethodName = "/tech.NdefFormatableService/FormatReadOnly"
+	NdefFormatableService_GetTag_FullMethodName         = "/tech.NdefFormatableService/GetTag"
+	NdefFormatableService_IsConnected_FullMethodName    = "/tech.NdefFormatableService/IsConnected"
+	NdefFormatableService_Get_FullMethodName            = "/tech.NdefFormatableService/Get"
+)
+
+// NdefFormatableServiceClient is the client API for NdefFormatableService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NdefFormatableServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
+	Format(ctx context.Context, in *FormatRequest, opts ...grpc.CallOption) (*FormatResponse, error)
+	FormatReadOnly(ctx context.Context, in *FormatReadOnlyRequest, opts ...grpc.CallOption) (*FormatReadOnlyResponse, error)
+	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type ndefFormatableServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNdefFormatableServiceClient(cc grpc.ClientConnInterface) NdefFormatableServiceClient {
+	return &ndefFormatableServiceClient{cc}
+}
+
+func (c *ndefFormatableServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, NdefFormatableService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefFormatableServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ConnectResponse)
+	err := c.cc.Invoke(ctx, NdefFormatableService_Connect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefFormatableServiceClient) Format(ctx context.Context, in *FormatRequest, opts ...grpc.CallOption) (*FormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatResponse)
+	err := c.cc.Invoke(ctx, NdefFormatableService_Format_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefFormatableServiceClient) FormatReadOnly(ctx context.Context, in *FormatReadOnlyRequest, opts ...grpc.CallOption) (*FormatReadOnlyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatReadOnlyResponse)
+	err := c.cc.Invoke(ctx, NdefFormatableService_FormatReadOnly_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefFormatableServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTagResponse)
+	err := c.cc.Invoke(ctx, NdefFormatableService_GetTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefFormatableServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsConnectedResponse)
+	err := c.cc.Invoke(ctx, NdefFormatableService_IsConnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefFormatableServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, NdefFormatableService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NdefFormatableServiceServer is the server API for NdefFormatableService service.
+// All implementations must embed UnimplementedNdefFormatableServiceServer
+// for forward compatibility.
+type NdefFormatableServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
+	Format(context.Context, *FormatRequest) (*FormatResponse, error)
+	FormatReadOnly(context.Context, *FormatReadOnlyRequest) (*FormatReadOnlyResponse, error)
+	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
+	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedNdefFormatableServiceServer()
+}
+
+// UnimplementedNdefFormatableServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNdefFormatableServiceServer struct{}
+
+func (UnimplementedNdefFormatableServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedNdefFormatableServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
+}
+func (UnimplementedNdefFormatableServiceServer) Format(context.Context, *FormatRequest) (*FormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Format not implemented")
+}
+func (UnimplementedNdefFormatableServiceServer) FormatReadOnly(context.Context, *FormatReadOnlyRequest) (*FormatReadOnlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FormatReadOnly not implemented")
+}
+func (UnimplementedNdefFormatableServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
+}
+func (UnimplementedNdefFormatableServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
+}
+func (UnimplementedNdefFormatableServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedNdefFormatableServiceServer) mustEmbedUnimplementedNdefFormatableServiceServer() {}
+func (UnimplementedNdefFormatableServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeNdefFormatableServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NdefFormatableServiceServer will
+// result in compilation errors.
+type UnsafeNdefFormatableServiceServer interface {
+	mustEmbedUnimplementedNdefFormatableServiceServer()
+}
+
+func RegisterNdefFormatableServiceServer(s grpc.ServiceRegistrar, srv NdefFormatableServiceServer) {
+	// If the following call panics, it indicates UnimplementedNdefFormatableServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NdefFormatableService_ServiceDesc, srv)
+}
+
+func _NdefFormatableService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefFormatableServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefFormatableService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefFormatableServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefFormatableService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefFormatableServiceServer).Connect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefFormatableService_Connect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefFormatableServiceServer).Connect(ctx, req.(*ConnectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefFormatableService_Format_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefFormatableServiceServer).Format(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefFormatableService_Format_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefFormatableServiceServer).Format(ctx, req.(*FormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefFormatableService_FormatReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatReadOnlyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefFormatableServiceServer).FormatReadOnly(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefFormatableService_FormatReadOnly_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefFormatableServiceServer).FormatReadOnly(ctx, req.(*FormatReadOnlyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefFormatableService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefFormatableServiceServer).GetTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefFormatableService_GetTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefFormatableServiceServer).GetTag(ctx, req.(*GetTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefFormatableService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsConnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefFormatableServiceServer).IsConnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefFormatableService_IsConnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefFormatableServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefFormatableService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefFormatableServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefFormatableService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefFormatableServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NdefFormatableService_ServiceDesc is the grpc.ServiceDesc for NdefFormatableService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NdefFormatableService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tech.NdefFormatableService",
+	HandlerType: (*NdefFormatableServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _NdefFormatableService_Close_Handler,
+		},
+		{
+			MethodName: "Connect",
+			Handler:    _NdefFormatableService_Connect_Handler,
+		},
+		{
+			MethodName: "Format",
+			Handler:    _NdefFormatableService_Format_Handler,
+		},
+		{
+			MethodName: "FormatReadOnly",
+			Handler:    _NdefFormatableService_FormatReadOnly_Handler,
+		},
+		{
+			MethodName: "GetTag",
+			Handler:    _NdefFormatableService_GetTag_Handler,
+		},
+		{
+			MethodName: "IsConnected",
+			Handler:    _NdefFormatableService_IsConnected_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _NdefFormatableService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1024,811 +1202,481 @@ var MifareUltralightService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	NfcBService_Close_FullMethodName                  = "/tech.NfcBService/Close"
-	NfcBService_Connect_FullMethodName                = "/tech.NfcBService/Connect"
-	NfcBService_GetApplicationData_FullMethodName     = "/tech.NfcBService/GetApplicationData"
-	NfcBService_GetMaxTransceiveLength_FullMethodName = "/tech.NfcBService/GetMaxTransceiveLength"
-	NfcBService_GetProtocolInfo_FullMethodName        = "/tech.NfcBService/GetProtocolInfo"
-	NfcBService_GetTag_FullMethodName                 = "/tech.NfcBService/GetTag"
-	NfcBService_IsConnected_FullMethodName            = "/tech.NfcBService/IsConnected"
-	NfcBService_Transceive_FullMethodName             = "/tech.NfcBService/Transceive"
-	NfcBService_Get_FullMethodName                    = "/tech.NfcBService/Get"
+	NfcAService_Close_FullMethodName                  = "/tech.NfcAService/Close"
+	NfcAService_Connect_FullMethodName                = "/tech.NfcAService/Connect"
+	NfcAService_GetAtqa_FullMethodName                = "/tech.NfcAService/GetAtqa"
+	NfcAService_GetMaxTransceiveLength_FullMethodName = "/tech.NfcAService/GetMaxTransceiveLength"
+	NfcAService_GetSak_FullMethodName                 = "/tech.NfcAService/GetSak"
+	NfcAService_GetTag_FullMethodName                 = "/tech.NfcAService/GetTag"
+	NfcAService_GetTimeout_FullMethodName             = "/tech.NfcAService/GetTimeout"
+	NfcAService_IsConnected_FullMethodName            = "/tech.NfcAService/IsConnected"
+	NfcAService_SetTimeout_FullMethodName             = "/tech.NfcAService/SetTimeout"
+	NfcAService_Transceive_FullMethodName             = "/tech.NfcAService/Transceive"
+	NfcAService_Get_FullMethodName                    = "/tech.NfcAService/Get"
 )
 
-// NfcBServiceClient is the client API for NfcBService service.
+// NfcAServiceClient is the client API for NfcAService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NfcBServiceClient interface {
+type NfcAServiceClient interface {
 	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
 	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
-	GetApplicationData(ctx context.Context, in *GetApplicationDataRequest, opts ...grpc.CallOption) (*GetApplicationDataResponse, error)
+	GetAtqa(ctx context.Context, in *GetAtqaRequest, opts ...grpc.CallOption) (*GetAtqaResponse, error)
 	GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error)
-	GetProtocolInfo(ctx context.Context, in *GetProtocolInfoRequest, opts ...grpc.CallOption) (*GetProtocolInfoResponse, error)
+	GetSak(ctx context.Context, in *GetSakRequest, opts ...grpc.CallOption) (*GetSakResponse, error)
 	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error)
 	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
+	SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error)
 	Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 }
 
-type nfcBServiceClient struct {
+type nfcAServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewNfcBServiceClient(cc grpc.ClientConnInterface) NfcBServiceClient {
-	return &nfcBServiceClient{cc}
+func NewNfcAServiceClient(cc grpc.ClientConnInterface) NfcAServiceClient {
+	return &nfcAServiceClient{cc}
 }
 
-func (c *nfcBServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *nfcAServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, NfcBService_Close_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcAService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
+func (c *nfcAServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ConnectResponse)
-	err := c.cc.Invoke(ctx, NfcBService_Connect_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcAService_Connect_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBServiceClient) GetApplicationData(ctx context.Context, in *GetApplicationDataRequest, opts ...grpc.CallOption) (*GetApplicationDataResponse, error) {
+func (c *nfcAServiceClient) GetAtqa(ctx context.Context, in *GetAtqaRequest, opts ...grpc.CallOption) (*GetAtqaResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationDataResponse)
-	err := c.cc.Invoke(ctx, NfcBService_GetApplicationData_FullMethodName, in, out, cOpts...)
+	out := new(GetAtqaResponse)
+	err := c.cc.Invoke(ctx, NfcAService_GetAtqa_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
+func (c *nfcAServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaxTransceiveLengthResponse)
-	err := c.cc.Invoke(ctx, NfcBService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcAService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBServiceClient) GetProtocolInfo(ctx context.Context, in *GetProtocolInfoRequest, opts ...grpc.CallOption) (*GetProtocolInfoResponse, error) {
+func (c *nfcAServiceClient) GetSak(ctx context.Context, in *GetSakRequest, opts ...grpc.CallOption) (*GetSakResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProtocolInfoResponse)
-	err := c.cc.Invoke(ctx, NfcBService_GetProtocolInfo_FullMethodName, in, out, cOpts...)
+	out := new(GetSakResponse)
+	err := c.cc.Invoke(ctx, NfcAService_GetSak_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+func (c *nfcAServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, NfcBService_GetTag_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcAService_GetTag_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+func (c *nfcAServiceClient) GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeoutResponse)
+	err := c.cc.Invoke(ctx, NfcAService_GetTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcAServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsConnectedResponse)
-	err := c.cc.Invoke(ctx, NfcBService_IsConnected_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcAService_IsConnected_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
+func (c *nfcAServiceClient) SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeoutResponse)
+	err := c.cc.Invoke(ctx, NfcAService_SetTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcAServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TransceiveResponse)
-	err := c.cc.Invoke(ctx, NfcBService_Transceive_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcAService_Transceive_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+func (c *nfcAServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, NfcBService_Get_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcAService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// NfcBServiceServer is the server API for NfcBService service.
-// All implementations must embed UnimplementedNfcBServiceServer
+// NfcAServiceServer is the server API for NfcAService service.
+// All implementations must embed UnimplementedNfcAServiceServer
 // for forward compatibility.
-type NfcBServiceServer interface {
+type NfcAServiceServer interface {
 	Close(context.Context, *CloseRequest) (*CloseResponse, error)
 	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
-	GetApplicationData(context.Context, *GetApplicationDataRequest) (*GetApplicationDataResponse, error)
+	GetAtqa(context.Context, *GetAtqaRequest) (*GetAtqaResponse, error)
 	GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error)
-	GetProtocolInfo(context.Context, *GetProtocolInfoRequest) (*GetProtocolInfoResponse, error)
+	GetSak(context.Context, *GetSakRequest) (*GetSakResponse, error)
 	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
+	GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error)
 	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
+	SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error)
 	Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedNfcBServiceServer()
+	mustEmbedUnimplementedNfcAServiceServer()
 }
 
-// UnimplementedNfcBServiceServer must be embedded to have
+// UnimplementedNfcAServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedNfcBServiceServer struct{}
+type UnimplementedNfcAServiceServer struct{}
 
-func (UnimplementedNfcBServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+func (UnimplementedNfcAServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedNfcBServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
+func (UnimplementedNfcAServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
 }
-func (UnimplementedNfcBServiceServer) GetApplicationData(context.Context, *GetApplicationDataRequest) (*GetApplicationDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationData not implemented")
+func (UnimplementedNfcAServiceServer) GetAtqa(context.Context, *GetAtqaRequest) (*GetAtqaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAtqa not implemented")
 }
-func (UnimplementedNfcBServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
+func (UnimplementedNfcAServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxTransceiveLength not implemented")
 }
-func (UnimplementedNfcBServiceServer) GetProtocolInfo(context.Context, *GetProtocolInfoRequest) (*GetProtocolInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProtocolInfo not implemented")
+func (UnimplementedNfcAServiceServer) GetSak(context.Context, *GetSakRequest) (*GetSakResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSak not implemented")
 }
-func (UnimplementedNfcBServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+func (UnimplementedNfcAServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
 }
-func (UnimplementedNfcBServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+func (UnimplementedNfcAServiceServer) GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeout not implemented")
+}
+func (UnimplementedNfcAServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
 }
-func (UnimplementedNfcBServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
+func (UnimplementedNfcAServiceServer) SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeout not implemented")
+}
+func (UnimplementedNfcAServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Transceive not implemented")
 }
-func (UnimplementedNfcBServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+func (UnimplementedNfcAServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedNfcBServiceServer) mustEmbedUnimplementedNfcBServiceServer() {}
-func (UnimplementedNfcBServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedNfcAServiceServer) mustEmbedUnimplementedNfcAServiceServer() {}
+func (UnimplementedNfcAServiceServer) testEmbeddedByValue()                     {}
 
-// UnsafeNfcBServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NfcBServiceServer will
+// UnsafeNfcAServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NfcAServiceServer will
 // result in compilation errors.
-type UnsafeNfcBServiceServer interface {
-	mustEmbedUnimplementedNfcBServiceServer()
+type UnsafeNfcAServiceServer interface {
+	mustEmbedUnimplementedNfcAServiceServer()
 }
 
-func RegisterNfcBServiceServer(s grpc.ServiceRegistrar, srv NfcBServiceServer) {
-	// If the following call panics, it indicates UnimplementedNfcBServiceServer was
+func RegisterNfcAServiceServer(s grpc.ServiceRegistrar, srv NfcAServiceServer) {
+	// If the following call panics, it indicates UnimplementedNfcAServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&NfcBService_ServiceDesc, srv)
+	s.RegisterService(&NfcAService_ServiceDesc, srv)
 }
 
-func _NfcBService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcAService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).Close(ctx, in)
+		return srv.(NfcAServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_Close_FullMethodName,
+		FullMethod: NfcAService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).Close(ctx, req.(*CloseRequest))
+		return srv.(NfcAServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcAService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ConnectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).Connect(ctx, in)
+		return srv.(NfcAServiceServer).Connect(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_Connect_FullMethodName,
+		FullMethod: NfcAService_Connect_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).Connect(ctx, req.(*ConnectRequest))
+		return srv.(NfcAServiceServer).Connect(ctx, req.(*ConnectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBService_GetApplicationData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationDataRequest)
+func _NfcAService_GetAtqa_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAtqaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).GetApplicationData(ctx, in)
+		return srv.(NfcAServiceServer).GetAtqa(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_GetApplicationData_FullMethodName,
+		FullMethod: NfcAService_GetAtqa_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).GetApplicationData(ctx, req.(*GetApplicationDataRequest))
+		return srv.(NfcAServiceServer).GetAtqa(ctx, req.(*GetAtqaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcAService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaxTransceiveLengthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).GetMaxTransceiveLength(ctx, in)
+		return srv.(NfcAServiceServer).GetMaxTransceiveLength(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_GetMaxTransceiveLength_FullMethodName,
+		FullMethod: NfcAService_GetMaxTransceiveLength_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
+		return srv.(NfcAServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBService_GetProtocolInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProtocolInfoRequest)
+func _NfcAService_GetSak_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSakRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).GetProtocolInfo(ctx, in)
+		return srv.(NfcAServiceServer).GetSak(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_GetProtocolInfo_FullMethodName,
+		FullMethod: NfcAService_GetSak_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).GetProtocolInfo(ctx, req.(*GetProtocolInfoRequest))
+		return srv.(NfcAServiceServer).GetSak(ctx, req.(*GetSakRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcAService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTagRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).GetTag(ctx, in)
+		return srv.(NfcAServiceServer).GetTag(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_GetTag_FullMethodName,
+		FullMethod: NfcAService_GetTag_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).GetTag(ctx, req.(*GetTagRequest))
+		return srv.(NfcAServiceServer).GetTag(ctx, req.(*GetTagRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcAService_GetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcAServiceServer).GetTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcAService_GetTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcAServiceServer).GetTimeout(ctx, req.(*GetTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcAService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsConnectedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).IsConnected(ctx, in)
+		return srv.(NfcAServiceServer).IsConnected(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_IsConnected_FullMethodName,
+		FullMethod: NfcAService_IsConnected_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+		return srv.(NfcAServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcAService_SetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcAServiceServer).SetTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcAService_SetTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcAServiceServer).SetTimeout(ctx, req.(*SetTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcAService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TransceiveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).Transceive(ctx, in)
+		return srv.(NfcAServiceServer).Transceive(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_Transceive_FullMethodName,
+		FullMethod: NfcAService_Transceive_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).Transceive(ctx, req.(*TransceiveRequest))
+		return srv.(NfcAServiceServer).Transceive(ctx, req.(*TransceiveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcAService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBServiceServer).Get(ctx, in)
+		return srv.(NfcAServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBService_Get_FullMethodName,
+		FullMethod: NfcAService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBServiceServer).Get(ctx, req.(*GetRequest))
+		return srv.(NfcAServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// NfcBService_ServiceDesc is the grpc.ServiceDesc for NfcBService service.
+// NfcAService_ServiceDesc is the grpc.ServiceDesc for NfcAService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var NfcBService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "tech.NfcBService",
-	HandlerType: (*NfcBServiceServer)(nil),
+var NfcAService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tech.NfcAService",
+	HandlerType: (*NfcAServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Close",
-			Handler:    _NfcBService_Close_Handler,
+			Handler:    _NfcAService_Close_Handler,
 		},
 		{
 			MethodName: "Connect",
-			Handler:    _NfcBService_Connect_Handler,
+			Handler:    _NfcAService_Connect_Handler,
 		},
 		{
-			MethodName: "GetApplicationData",
-			Handler:    _NfcBService_GetApplicationData_Handler,
-		},
-		{
-			MethodName: "GetMaxTransceiveLength",
-			Handler:    _NfcBService_GetMaxTransceiveLength_Handler,
-		},
-		{
-			MethodName: "GetProtocolInfo",
-			Handler:    _NfcBService_GetProtocolInfo_Handler,
-		},
-		{
-			MethodName: "GetTag",
-			Handler:    _NfcBService_GetTag_Handler,
-		},
-		{
-			MethodName: "IsConnected",
-			Handler:    _NfcBService_IsConnected_Handler,
-		},
-		{
-			MethodName: "Transceive",
-			Handler:    _NfcBService_Transceive_Handler,
-		},
-		{
-			MethodName: "Get",
-			Handler:    _NfcBService_Get_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/tech/tech.proto",
-}
-
-const (
-	NfcVService_Close_FullMethodName                  = "/tech.NfcVService/Close"
-	NfcVService_Connect_FullMethodName                = "/tech.NfcVService/Connect"
-	NfcVService_GetDsfId_FullMethodName               = "/tech.NfcVService/GetDsfId"
-	NfcVService_GetMaxTransceiveLength_FullMethodName = "/tech.NfcVService/GetMaxTransceiveLength"
-	NfcVService_GetResponseFlags_FullMethodName       = "/tech.NfcVService/GetResponseFlags"
-	NfcVService_GetTag_FullMethodName                 = "/tech.NfcVService/GetTag"
-	NfcVService_IsConnected_FullMethodName            = "/tech.NfcVService/IsConnected"
-	NfcVService_Transceive_FullMethodName             = "/tech.NfcVService/Transceive"
-	NfcVService_Get_FullMethodName                    = "/tech.NfcVService/Get"
-)
-
-// NfcVServiceClient is the client API for NfcVService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NfcVServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
-	GetDsfId(ctx context.Context, in *GetDsfIdRequest, opts ...grpc.CallOption) (*GetDsfIdResponse, error)
-	GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error)
-	GetResponseFlags(ctx context.Context, in *GetResponseFlagsRequest, opts ...grpc.CallOption) (*GetResponseFlagsResponse, error)
-	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
-	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
-	Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error)
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type nfcVServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNfcVServiceClient(cc grpc.ClientConnInterface) NfcVServiceClient {
-	return &nfcVServiceClient{cc}
-}
-
-func (c *nfcVServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, NfcVService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcVServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConnectResponse)
-	err := c.cc.Invoke(ctx, NfcVService_Connect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcVServiceClient) GetDsfId(ctx context.Context, in *GetDsfIdRequest, opts ...grpc.CallOption) (*GetDsfIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDsfIdResponse)
-	err := c.cc.Invoke(ctx, NfcVService_GetDsfId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcVServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxTransceiveLengthResponse)
-	err := c.cc.Invoke(ctx, NfcVService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcVServiceClient) GetResponseFlags(ctx context.Context, in *GetResponseFlagsRequest, opts ...grpc.CallOption) (*GetResponseFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponseFlagsResponse)
-	err := c.cc.Invoke(ctx, NfcVService_GetResponseFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcVServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, NfcVService_GetTag_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcVServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsConnectedResponse)
-	err := c.cc.Invoke(ctx, NfcVService_IsConnected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcVServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TransceiveResponse)
-	err := c.cc.Invoke(ctx, NfcVService_Transceive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcVServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, NfcVService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NfcVServiceServer is the server API for NfcVService service.
-// All implementations must embed UnimplementedNfcVServiceServer
-// for forward compatibility.
-type NfcVServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
-	GetDsfId(context.Context, *GetDsfIdRequest) (*GetDsfIdResponse, error)
-	GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error)
-	GetResponseFlags(context.Context, *GetResponseFlagsRequest) (*GetResponseFlagsResponse, error)
-	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
-	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
-	Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error)
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedNfcVServiceServer()
-}
-
-// UnimplementedNfcVServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNfcVServiceServer struct{}
-
-func (UnimplementedNfcVServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedNfcVServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
-}
-func (UnimplementedNfcVServiceServer) GetDsfId(context.Context, *GetDsfIdRequest) (*GetDsfIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDsfId not implemented")
-}
-func (UnimplementedNfcVServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxTransceiveLength not implemented")
-}
-func (UnimplementedNfcVServiceServer) GetResponseFlags(context.Context, *GetResponseFlagsRequest) (*GetResponseFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResponseFlags not implemented")
-}
-func (UnimplementedNfcVServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
-}
-func (UnimplementedNfcVServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
-}
-func (UnimplementedNfcVServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Transceive not implemented")
-}
-func (UnimplementedNfcVServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedNfcVServiceServer) mustEmbedUnimplementedNfcVServiceServer() {}
-func (UnimplementedNfcVServiceServer) testEmbeddedByValue()                     {}
-
-// UnsafeNfcVServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NfcVServiceServer will
-// result in compilation errors.
-type UnsafeNfcVServiceServer interface {
-	mustEmbedUnimplementedNfcVServiceServer()
-}
-
-func RegisterNfcVServiceServer(s grpc.ServiceRegistrar, srv NfcVServiceServer) {
-	// If the following call panics, it indicates UnimplementedNfcVServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NfcVService_ServiceDesc, srv)
-}
-
-func _NfcVService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcVService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConnectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).Connect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_Connect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).Connect(ctx, req.(*ConnectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcVService_GetDsfId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDsfIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).GetDsfId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_GetDsfId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).GetDsfId(ctx, req.(*GetDsfIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcVService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxTransceiveLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).GetMaxTransceiveLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_GetMaxTransceiveLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcVService_GetResponseFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResponseFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).GetResponseFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_GetResponseFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).GetResponseFlags(ctx, req.(*GetResponseFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcVService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTagRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).GetTag(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_GetTag_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).GetTag(ctx, req.(*GetTagRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcVService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsConnectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).IsConnected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_IsConnected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcVService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransceiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).Transceive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_Transceive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).Transceive(ctx, req.(*TransceiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcVService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcVServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcVService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcVServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NfcVService_ServiceDesc is the grpc.ServiceDesc for NfcVService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NfcVService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "tech.NfcVService",
-	HandlerType: (*NfcVServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _NfcVService_Close_Handler,
-		},
-		{
-			MethodName: "Connect",
-			Handler:    _NfcVService_Connect_Handler,
-		},
-		{
-			MethodName: "GetDsfId",
-			Handler:    _NfcVService_GetDsfId_Handler,
+			MethodName: "GetAtqa",
+			Handler:    _NfcAService_GetAtqa_Handler,
 		},
 		{
 			MethodName: "GetMaxTransceiveLength",
-			Handler:    _NfcVService_GetMaxTransceiveLength_Handler,
+			Handler:    _NfcAService_GetMaxTransceiveLength_Handler,
 		},
 		{
-			MethodName: "GetResponseFlags",
-			Handler:    _NfcVService_GetResponseFlags_Handler,
+			MethodName: "GetSak",
+			Handler:    _NfcAService_GetSak_Handler,
 		},
 		{
 			MethodName: "GetTag",
-			Handler:    _NfcVService_GetTag_Handler,
+			Handler:    _NfcAService_GetTag_Handler,
+		},
+		{
+			MethodName: "GetTimeout",
+			Handler:    _NfcAService_GetTimeout_Handler,
 		},
 		{
 			MethodName: "IsConnected",
-			Handler:    _NfcVService_IsConnected_Handler,
+			Handler:    _NfcAService_IsConnected_Handler,
+		},
+		{
+			MethodName: "SetTimeout",
+			Handler:    _NfcAService_SetTimeout_Handler,
 		},
 		{
 			MethodName: "Transceive",
-			Handler:    _NfcVService_Transceive_Handler,
+			Handler:    _NfcAService_Transceive_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _NfcVService_Get_Handler,
+			Handler:    _NfcAService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2812,811 +2660,405 @@ var MifareClassicService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	NdefFormatableService_Close_FullMethodName          = "/tech.NdefFormatableService/Close"
-	NdefFormatableService_Connect_FullMethodName        = "/tech.NdefFormatableService/Connect"
-	NdefFormatableService_Format_FullMethodName         = "/tech.NdefFormatableService/Format"
-	NdefFormatableService_FormatReadOnly_FullMethodName = "/tech.NdefFormatableService/FormatReadOnly"
-	NdefFormatableService_GetTag_FullMethodName         = "/tech.NdefFormatableService/GetTag"
-	NdefFormatableService_IsConnected_FullMethodName    = "/tech.NdefFormatableService/IsConnected"
-	NdefFormatableService_Get_FullMethodName            = "/tech.NdefFormatableService/Get"
+	NfcVService_Close_FullMethodName                  = "/tech.NfcVService/Close"
+	NfcVService_Connect_FullMethodName                = "/tech.NfcVService/Connect"
+	NfcVService_GetDsfId_FullMethodName               = "/tech.NfcVService/GetDsfId"
+	NfcVService_GetMaxTransceiveLength_FullMethodName = "/tech.NfcVService/GetMaxTransceiveLength"
+	NfcVService_GetResponseFlags_FullMethodName       = "/tech.NfcVService/GetResponseFlags"
+	NfcVService_GetTag_FullMethodName                 = "/tech.NfcVService/GetTag"
+	NfcVService_IsConnected_FullMethodName            = "/tech.NfcVService/IsConnected"
+	NfcVService_Transceive_FullMethodName             = "/tech.NfcVService/Transceive"
+	NfcVService_Get_FullMethodName                    = "/tech.NfcVService/Get"
 )
 
-// NdefFormatableServiceClient is the client API for NdefFormatableService service.
+// NfcVServiceClient is the client API for NfcVService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NdefFormatableServiceClient interface {
+type NfcVServiceClient interface {
 	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
 	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
-	Format(ctx context.Context, in *FormatRequest, opts ...grpc.CallOption) (*FormatResponse, error)
-	FormatReadOnly(ctx context.Context, in *FormatReadOnlyRequest, opts ...grpc.CallOption) (*FormatReadOnlyResponse, error)
-	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
-	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type ndefFormatableServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNdefFormatableServiceClient(cc grpc.ClientConnInterface) NdefFormatableServiceClient {
-	return &ndefFormatableServiceClient{cc}
-}
-
-func (c *ndefFormatableServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, NdefFormatableService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ndefFormatableServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConnectResponse)
-	err := c.cc.Invoke(ctx, NdefFormatableService_Connect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ndefFormatableServiceClient) Format(ctx context.Context, in *FormatRequest, opts ...grpc.CallOption) (*FormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatResponse)
-	err := c.cc.Invoke(ctx, NdefFormatableService_Format_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ndefFormatableServiceClient) FormatReadOnly(ctx context.Context, in *FormatReadOnlyRequest, opts ...grpc.CallOption) (*FormatReadOnlyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatReadOnlyResponse)
-	err := c.cc.Invoke(ctx, NdefFormatableService_FormatReadOnly_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ndefFormatableServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, NdefFormatableService_GetTag_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ndefFormatableServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsConnectedResponse)
-	err := c.cc.Invoke(ctx, NdefFormatableService_IsConnected_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ndefFormatableServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, NdefFormatableService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NdefFormatableServiceServer is the server API for NdefFormatableService service.
-// All implementations must embed UnimplementedNdefFormatableServiceServer
-// for forward compatibility.
-type NdefFormatableServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
-	Format(context.Context, *FormatRequest) (*FormatResponse, error)
-	FormatReadOnly(context.Context, *FormatReadOnlyRequest) (*FormatReadOnlyResponse, error)
-	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
-	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedNdefFormatableServiceServer()
-}
-
-// UnimplementedNdefFormatableServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNdefFormatableServiceServer struct{}
-
-func (UnimplementedNdefFormatableServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedNdefFormatableServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
-}
-func (UnimplementedNdefFormatableServiceServer) Format(context.Context, *FormatRequest) (*FormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Format not implemented")
-}
-func (UnimplementedNdefFormatableServiceServer) FormatReadOnly(context.Context, *FormatReadOnlyRequest) (*FormatReadOnlyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FormatReadOnly not implemented")
-}
-func (UnimplementedNdefFormatableServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
-}
-func (UnimplementedNdefFormatableServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
-}
-func (UnimplementedNdefFormatableServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedNdefFormatableServiceServer) mustEmbedUnimplementedNdefFormatableServiceServer() {}
-func (UnimplementedNdefFormatableServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeNdefFormatableServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NdefFormatableServiceServer will
-// result in compilation errors.
-type UnsafeNdefFormatableServiceServer interface {
-	mustEmbedUnimplementedNdefFormatableServiceServer()
-}
-
-func RegisterNdefFormatableServiceServer(s grpc.ServiceRegistrar, srv NdefFormatableServiceServer) {
-	// If the following call panics, it indicates UnimplementedNdefFormatableServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NdefFormatableService_ServiceDesc, srv)
-}
-
-func _NdefFormatableService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NdefFormatableServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NdefFormatableService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NdefFormatableServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NdefFormatableService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConnectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NdefFormatableServiceServer).Connect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NdefFormatableService_Connect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NdefFormatableServiceServer).Connect(ctx, req.(*ConnectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NdefFormatableService_Format_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NdefFormatableServiceServer).Format(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NdefFormatableService_Format_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NdefFormatableServiceServer).Format(ctx, req.(*FormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NdefFormatableService_FormatReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatReadOnlyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NdefFormatableServiceServer).FormatReadOnly(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NdefFormatableService_FormatReadOnly_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NdefFormatableServiceServer).FormatReadOnly(ctx, req.(*FormatReadOnlyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NdefFormatableService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTagRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NdefFormatableServiceServer).GetTag(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NdefFormatableService_GetTag_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NdefFormatableServiceServer).GetTag(ctx, req.(*GetTagRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NdefFormatableService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsConnectedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NdefFormatableServiceServer).IsConnected(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NdefFormatableService_IsConnected_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NdefFormatableServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NdefFormatableService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NdefFormatableServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NdefFormatableService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NdefFormatableServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NdefFormatableService_ServiceDesc is the grpc.ServiceDesc for NdefFormatableService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NdefFormatableService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "tech.NdefFormatableService",
-	HandlerType: (*NdefFormatableServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _NdefFormatableService_Close_Handler,
-		},
-		{
-			MethodName: "Connect",
-			Handler:    _NdefFormatableService_Connect_Handler,
-		},
-		{
-			MethodName: "Format",
-			Handler:    _NdefFormatableService_Format_Handler,
-		},
-		{
-			MethodName: "FormatReadOnly",
-			Handler:    _NdefFormatableService_FormatReadOnly_Handler,
-		},
-		{
-			MethodName: "GetTag",
-			Handler:    _NdefFormatableService_GetTag_Handler,
-		},
-		{
-			MethodName: "IsConnected",
-			Handler:    _NdefFormatableService_IsConnected_Handler,
-		},
-		{
-			MethodName: "Get",
-			Handler:    _NdefFormatableService_Get_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/tech/tech.proto",
-}
-
-const (
-	NfcAService_Close_FullMethodName                  = "/tech.NfcAService/Close"
-	NfcAService_Connect_FullMethodName                = "/tech.NfcAService/Connect"
-	NfcAService_GetAtqa_FullMethodName                = "/tech.NfcAService/GetAtqa"
-	NfcAService_GetMaxTransceiveLength_FullMethodName = "/tech.NfcAService/GetMaxTransceiveLength"
-	NfcAService_GetSak_FullMethodName                 = "/tech.NfcAService/GetSak"
-	NfcAService_GetTag_FullMethodName                 = "/tech.NfcAService/GetTag"
-	NfcAService_GetTimeout_FullMethodName             = "/tech.NfcAService/GetTimeout"
-	NfcAService_IsConnected_FullMethodName            = "/tech.NfcAService/IsConnected"
-	NfcAService_SetTimeout_FullMethodName             = "/tech.NfcAService/SetTimeout"
-	NfcAService_Transceive_FullMethodName             = "/tech.NfcAService/Transceive"
-	NfcAService_Get_FullMethodName                    = "/tech.NfcAService/Get"
-)
-
-// NfcAServiceClient is the client API for NfcAService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NfcAServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
-	GetAtqa(ctx context.Context, in *GetAtqaRequest, opts ...grpc.CallOption) (*GetAtqaResponse, error)
+	GetDsfId(ctx context.Context, in *GetDsfIdRequest, opts ...grpc.CallOption) (*GetDsfIdResponse, error)
 	GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error)
-	GetSak(ctx context.Context, in *GetSakRequest, opts ...grpc.CallOption) (*GetSakResponse, error)
+	GetResponseFlags(ctx context.Context, in *GetResponseFlagsRequest, opts ...grpc.CallOption) (*GetResponseFlagsResponse, error)
 	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
-	GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error)
 	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
-	SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error)
 	Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 }
 
-type nfcAServiceClient struct {
+type nfcVServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewNfcAServiceClient(cc grpc.ClientConnInterface) NfcAServiceClient {
-	return &nfcAServiceClient{cc}
+func NewNfcVServiceClient(cc grpc.ClientConnInterface) NfcVServiceClient {
+	return &nfcVServiceClient{cc}
 }
 
-func (c *nfcAServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *nfcVServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, NfcAService_Close_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcVService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcAServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
+func (c *nfcVServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ConnectResponse)
-	err := c.cc.Invoke(ctx, NfcAService_Connect_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcVService_Connect_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcAServiceClient) GetAtqa(ctx context.Context, in *GetAtqaRequest, opts ...grpc.CallOption) (*GetAtqaResponse, error) {
+func (c *nfcVServiceClient) GetDsfId(ctx context.Context, in *GetDsfIdRequest, opts ...grpc.CallOption) (*GetDsfIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAtqaResponse)
-	err := c.cc.Invoke(ctx, NfcAService_GetAtqa_FullMethodName, in, out, cOpts...)
+	out := new(GetDsfIdResponse)
+	err := c.cc.Invoke(ctx, NfcVService_GetDsfId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcAServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
+func (c *nfcVServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaxTransceiveLengthResponse)
-	err := c.cc.Invoke(ctx, NfcAService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcVService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcAServiceClient) GetSak(ctx context.Context, in *GetSakRequest, opts ...grpc.CallOption) (*GetSakResponse, error) {
+func (c *nfcVServiceClient) GetResponseFlags(ctx context.Context, in *GetResponseFlagsRequest, opts ...grpc.CallOption) (*GetResponseFlagsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSakResponse)
-	err := c.cc.Invoke(ctx, NfcAService_GetSak_FullMethodName, in, out, cOpts...)
+	out := new(GetResponseFlagsResponse)
+	err := c.cc.Invoke(ctx, NfcVService_GetResponseFlags_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcAServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+func (c *nfcVServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, NfcAService_GetTag_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcVService_GetTag_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcAServiceClient) GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTimeoutResponse)
-	err := c.cc.Invoke(ctx, NfcAService_GetTimeout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcAServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+func (c *nfcVServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsConnectedResponse)
-	err := c.cc.Invoke(ctx, NfcAService_IsConnected_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcVService_IsConnected_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcAServiceClient) SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTimeoutResponse)
-	err := c.cc.Invoke(ctx, NfcAService_SetTimeout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcAServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
+func (c *nfcVServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TransceiveResponse)
-	err := c.cc.Invoke(ctx, NfcAService_Transceive_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcVService_Transceive_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcAServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+func (c *nfcVServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, NfcAService_Get_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcVService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// NfcAServiceServer is the server API for NfcAService service.
-// All implementations must embed UnimplementedNfcAServiceServer
+// NfcVServiceServer is the server API for NfcVService service.
+// All implementations must embed UnimplementedNfcVServiceServer
 // for forward compatibility.
-type NfcAServiceServer interface {
+type NfcVServiceServer interface {
 	Close(context.Context, *CloseRequest) (*CloseResponse, error)
 	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
-	GetAtqa(context.Context, *GetAtqaRequest) (*GetAtqaResponse, error)
+	GetDsfId(context.Context, *GetDsfIdRequest) (*GetDsfIdResponse, error)
 	GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error)
-	GetSak(context.Context, *GetSakRequest) (*GetSakResponse, error)
+	GetResponseFlags(context.Context, *GetResponseFlagsRequest) (*GetResponseFlagsResponse, error)
 	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
-	GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error)
 	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
-	SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error)
 	Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedNfcAServiceServer()
+	mustEmbedUnimplementedNfcVServiceServer()
 }
 
-// UnimplementedNfcAServiceServer must be embedded to have
+// UnimplementedNfcVServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedNfcAServiceServer struct{}
+type UnimplementedNfcVServiceServer struct{}
 
-func (UnimplementedNfcAServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+func (UnimplementedNfcVServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedNfcAServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
+func (UnimplementedNfcVServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
 }
-func (UnimplementedNfcAServiceServer) GetAtqa(context.Context, *GetAtqaRequest) (*GetAtqaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAtqa not implemented")
+func (UnimplementedNfcVServiceServer) GetDsfId(context.Context, *GetDsfIdRequest) (*GetDsfIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDsfId not implemented")
 }
-func (UnimplementedNfcAServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
+func (UnimplementedNfcVServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxTransceiveLength not implemented")
 }
-func (UnimplementedNfcAServiceServer) GetSak(context.Context, *GetSakRequest) (*GetSakResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSak not implemented")
+func (UnimplementedNfcVServiceServer) GetResponseFlags(context.Context, *GetResponseFlagsRequest) (*GetResponseFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResponseFlags not implemented")
 }
-func (UnimplementedNfcAServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+func (UnimplementedNfcVServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
 }
-func (UnimplementedNfcAServiceServer) GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTimeout not implemented")
-}
-func (UnimplementedNfcAServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+func (UnimplementedNfcVServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
 }
-func (UnimplementedNfcAServiceServer) SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTimeout not implemented")
-}
-func (UnimplementedNfcAServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
+func (UnimplementedNfcVServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Transceive not implemented")
 }
-func (UnimplementedNfcAServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+func (UnimplementedNfcVServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedNfcAServiceServer) mustEmbedUnimplementedNfcAServiceServer() {}
-func (UnimplementedNfcAServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedNfcVServiceServer) mustEmbedUnimplementedNfcVServiceServer() {}
+func (UnimplementedNfcVServiceServer) testEmbeddedByValue()                     {}
 
-// UnsafeNfcAServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NfcAServiceServer will
+// UnsafeNfcVServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NfcVServiceServer will
 // result in compilation errors.
-type UnsafeNfcAServiceServer interface {
-	mustEmbedUnimplementedNfcAServiceServer()
+type UnsafeNfcVServiceServer interface {
+	mustEmbedUnimplementedNfcVServiceServer()
 }
 
-func RegisterNfcAServiceServer(s grpc.ServiceRegistrar, srv NfcAServiceServer) {
-	// If the following call panics, it indicates UnimplementedNfcAServiceServer was
+func RegisterNfcVServiceServer(s grpc.ServiceRegistrar, srv NfcVServiceServer) {
+	// If the following call panics, it indicates UnimplementedNfcVServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&NfcAService_ServiceDesc, srv)
+	s.RegisterService(&NfcVService_ServiceDesc, srv)
 }
 
-func _NfcAService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcVService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).Close(ctx, in)
+		return srv.(NfcVServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_Close_FullMethodName,
+		FullMethod: NfcVService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).Close(ctx, req.(*CloseRequest))
+		return srv.(NfcVServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcAService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcVService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ConnectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).Connect(ctx, in)
+		return srv.(NfcVServiceServer).Connect(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_Connect_FullMethodName,
+		FullMethod: NfcVService_Connect_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).Connect(ctx, req.(*ConnectRequest))
+		return srv.(NfcVServiceServer).Connect(ctx, req.(*ConnectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcAService_GetAtqa_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAtqaRequest)
+func _NfcVService_GetDsfId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDsfIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).GetAtqa(ctx, in)
+		return srv.(NfcVServiceServer).GetDsfId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_GetAtqa_FullMethodName,
+		FullMethod: NfcVService_GetDsfId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).GetAtqa(ctx, req.(*GetAtqaRequest))
+		return srv.(NfcVServiceServer).GetDsfId(ctx, req.(*GetDsfIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcAService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcVService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaxTransceiveLengthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).GetMaxTransceiveLength(ctx, in)
+		return srv.(NfcVServiceServer).GetMaxTransceiveLength(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_GetMaxTransceiveLength_FullMethodName,
+		FullMethod: NfcVService_GetMaxTransceiveLength_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
+		return srv.(NfcVServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcAService_GetSak_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSakRequest)
+func _NfcVService_GetResponseFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResponseFlagsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).GetSak(ctx, in)
+		return srv.(NfcVServiceServer).GetResponseFlags(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_GetSak_FullMethodName,
+		FullMethod: NfcVService_GetResponseFlags_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).GetSak(ctx, req.(*GetSakRequest))
+		return srv.(NfcVServiceServer).GetResponseFlags(ctx, req.(*GetResponseFlagsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcAService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcVService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTagRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).GetTag(ctx, in)
+		return srv.(NfcVServiceServer).GetTag(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_GetTag_FullMethodName,
+		FullMethod: NfcVService_GetTag_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).GetTag(ctx, req.(*GetTagRequest))
+		return srv.(NfcVServiceServer).GetTag(ctx, req.(*GetTagRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcAService_GetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimeoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcAServiceServer).GetTimeout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcAService_GetTimeout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).GetTimeout(ctx, req.(*GetTimeoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcAService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcVService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsConnectedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).IsConnected(ctx, in)
+		return srv.(NfcVServiceServer).IsConnected(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_IsConnected_FullMethodName,
+		FullMethod: NfcVService_IsConnected_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+		return srv.(NfcVServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcAService_SetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTimeoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcAServiceServer).SetTimeout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcAService_SetTimeout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).SetTimeout(ctx, req.(*SetTimeoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcAService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcVService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TransceiveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).Transceive(ctx, in)
+		return srv.(NfcVServiceServer).Transceive(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_Transceive_FullMethodName,
+		FullMethod: NfcVService_Transceive_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).Transceive(ctx, req.(*TransceiveRequest))
+		return srv.(NfcVServiceServer).Transceive(ctx, req.(*TransceiveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcAService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcVService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcAServiceServer).Get(ctx, in)
+		return srv.(NfcVServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcAService_Get_FullMethodName,
+		FullMethod: NfcVService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcAServiceServer).Get(ctx, req.(*GetRequest))
+		return srv.(NfcVServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// NfcAService_ServiceDesc is the grpc.ServiceDesc for NfcAService service.
+// NfcVService_ServiceDesc is the grpc.ServiceDesc for NfcVService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var NfcAService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "tech.NfcAService",
-	HandlerType: (*NfcAServiceServer)(nil),
+var NfcVService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tech.NfcVService",
+	HandlerType: (*NfcVServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Close",
-			Handler:    _NfcAService_Close_Handler,
+			Handler:    _NfcVService_Close_Handler,
 		},
 		{
 			MethodName: "Connect",
-			Handler:    _NfcAService_Connect_Handler,
+			Handler:    _NfcVService_Connect_Handler,
 		},
 		{
-			MethodName: "GetAtqa",
-			Handler:    _NfcAService_GetAtqa_Handler,
+			MethodName: "GetDsfId",
+			Handler:    _NfcVService_GetDsfId_Handler,
 		},
 		{
 			MethodName: "GetMaxTransceiveLength",
-			Handler:    _NfcAService_GetMaxTransceiveLength_Handler,
+			Handler:    _NfcVService_GetMaxTransceiveLength_Handler,
 		},
 		{
-			MethodName: "GetSak",
-			Handler:    _NfcAService_GetSak_Handler,
+			MethodName: "GetResponseFlags",
+			Handler:    _NfcVService_GetResponseFlags_Handler,
 		},
 		{
 			MethodName: "GetTag",
-			Handler:    _NfcAService_GetTag_Handler,
-		},
-		{
-			MethodName: "GetTimeout",
-			Handler:    _NfcAService_GetTimeout_Handler,
+			Handler:    _NfcVService_GetTag_Handler,
 		},
 		{
 			MethodName: "IsConnected",
-			Handler:    _NfcAService_IsConnected_Handler,
-		},
-		{
-			MethodName: "SetTimeout",
-			Handler:    _NfcAService_SetTimeout_Handler,
+			Handler:    _NfcVService_IsConnected_Handler,
 		},
 		{
 			MethodName: "Transceive",
-			Handler:    _NfcAService_Transceive_Handler,
+			Handler:    _NfcVService_Transceive_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _NfcAService_Get_Handler,
+			Handler:    _NfcVService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3624,329 +3066,405 @@ var NfcAService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	NfcBarcodeService_Close_FullMethodName       = "/tech.NfcBarcodeService/Close"
-	NfcBarcodeService_Connect_FullMethodName     = "/tech.NfcBarcodeService/Connect"
-	NfcBarcodeService_GetBarcode_FullMethodName  = "/tech.NfcBarcodeService/GetBarcode"
-	NfcBarcodeService_GetTag_FullMethodName      = "/tech.NfcBarcodeService/GetTag"
-	NfcBarcodeService_GetType_FullMethodName     = "/tech.NfcBarcodeService/GetType"
-	NfcBarcodeService_IsConnected_FullMethodName = "/tech.NfcBarcodeService/IsConnected"
-	NfcBarcodeService_Get_FullMethodName         = "/tech.NfcBarcodeService/Get"
+	NfcBService_Close_FullMethodName                  = "/tech.NfcBService/Close"
+	NfcBService_Connect_FullMethodName                = "/tech.NfcBService/Connect"
+	NfcBService_GetApplicationData_FullMethodName     = "/tech.NfcBService/GetApplicationData"
+	NfcBService_GetMaxTransceiveLength_FullMethodName = "/tech.NfcBService/GetMaxTransceiveLength"
+	NfcBService_GetProtocolInfo_FullMethodName        = "/tech.NfcBService/GetProtocolInfo"
+	NfcBService_GetTag_FullMethodName                 = "/tech.NfcBService/GetTag"
+	NfcBService_IsConnected_FullMethodName            = "/tech.NfcBService/IsConnected"
+	NfcBService_Transceive_FullMethodName             = "/tech.NfcBService/Transceive"
+	NfcBService_Get_FullMethodName                    = "/tech.NfcBService/Get"
 )
 
-// NfcBarcodeServiceClient is the client API for NfcBarcodeService service.
+// NfcBServiceClient is the client API for NfcBService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NfcBarcodeServiceClient interface {
+type NfcBServiceClient interface {
 	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
 	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
-	GetBarcode(ctx context.Context, in *GetBarcodeRequest, opts ...grpc.CallOption) (*GetBarcodeResponse, error)
+	GetApplicationData(ctx context.Context, in *GetApplicationDataRequest, opts ...grpc.CallOption) (*GetApplicationDataResponse, error)
+	GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error)
+	GetProtocolInfo(ctx context.Context, in *GetProtocolInfoRequest, opts ...grpc.CallOption) (*GetProtocolInfoResponse, error)
 	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
 	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
+	Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 }
 
-type nfcBarcodeServiceClient struct {
+type nfcBServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewNfcBarcodeServiceClient(cc grpc.ClientConnInterface) NfcBarcodeServiceClient {
-	return &nfcBarcodeServiceClient{cc}
+func NewNfcBServiceClient(cc grpc.ClientConnInterface) NfcBServiceClient {
+	return &nfcBServiceClient{cc}
 }
 
-func (c *nfcBarcodeServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *nfcBServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, NfcBarcodeService_Close_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBarcodeServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
+func (c *nfcBServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ConnectResponse)
-	err := c.cc.Invoke(ctx, NfcBarcodeService_Connect_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBService_Connect_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBarcodeServiceClient) GetBarcode(ctx context.Context, in *GetBarcodeRequest, opts ...grpc.CallOption) (*GetBarcodeResponse, error) {
+func (c *nfcBServiceClient) GetApplicationData(ctx context.Context, in *GetApplicationDataRequest, opts ...grpc.CallOption) (*GetApplicationDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBarcodeResponse)
-	err := c.cc.Invoke(ctx, NfcBarcodeService_GetBarcode_FullMethodName, in, out, cOpts...)
+	out := new(GetApplicationDataResponse)
+	err := c.cc.Invoke(ctx, NfcBService_GetApplicationData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBarcodeServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+func (c *nfcBServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxTransceiveLengthResponse)
+	err := c.cc.Invoke(ctx, NfcBService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcBServiceClient) GetProtocolInfo(ctx context.Context, in *GetProtocolInfoRequest, opts ...grpc.CallOption) (*GetProtocolInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProtocolInfoResponse)
+	err := c.cc.Invoke(ctx, NfcBService_GetProtocolInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcBServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, NfcBarcodeService_GetTag_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBService_GetTag_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBarcodeServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, NfcBarcodeService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *nfcBarcodeServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+func (c *nfcBServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsConnectedResponse)
-	err := c.cc.Invoke(ctx, NfcBarcodeService_IsConnected_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBService_IsConnected_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *nfcBarcodeServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+func (c *nfcBServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TransceiveResponse)
+	err := c.cc.Invoke(ctx, NfcBService_Transceive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcBServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, NfcBarcodeService_Get_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, NfcBService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// NfcBarcodeServiceServer is the server API for NfcBarcodeService service.
-// All implementations must embed UnimplementedNfcBarcodeServiceServer
+// NfcBServiceServer is the server API for NfcBService service.
+// All implementations must embed UnimplementedNfcBServiceServer
 // for forward compatibility.
-type NfcBarcodeServiceServer interface {
+type NfcBServiceServer interface {
 	Close(context.Context, *CloseRequest) (*CloseResponse, error)
 	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
-	GetBarcode(context.Context, *GetBarcodeRequest) (*GetBarcodeResponse, error)
+	GetApplicationData(context.Context, *GetApplicationDataRequest) (*GetApplicationDataResponse, error)
+	GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error)
+	GetProtocolInfo(context.Context, *GetProtocolInfoRequest) (*GetProtocolInfoResponse, error)
 	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
 	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
+	Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedNfcBarcodeServiceServer()
+	mustEmbedUnimplementedNfcBServiceServer()
 }
 
-// UnimplementedNfcBarcodeServiceServer must be embedded to have
+// UnimplementedNfcBServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedNfcBarcodeServiceServer struct{}
+type UnimplementedNfcBServiceServer struct{}
 
-func (UnimplementedNfcBarcodeServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+func (UnimplementedNfcBServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedNfcBarcodeServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
+func (UnimplementedNfcBServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
 }
-func (UnimplementedNfcBarcodeServiceServer) GetBarcode(context.Context, *GetBarcodeRequest) (*GetBarcodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBarcode not implemented")
+func (UnimplementedNfcBServiceServer) GetApplicationData(context.Context, *GetApplicationDataRequest) (*GetApplicationDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetApplicationData not implemented")
 }
-func (UnimplementedNfcBarcodeServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+func (UnimplementedNfcBServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxTransceiveLength not implemented")
+}
+func (UnimplementedNfcBServiceServer) GetProtocolInfo(context.Context, *GetProtocolInfoRequest) (*GetProtocolInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProtocolInfo not implemented")
+}
+func (UnimplementedNfcBServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
 }
-func (UnimplementedNfcBarcodeServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedNfcBarcodeServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+func (UnimplementedNfcBServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
 }
-func (UnimplementedNfcBarcodeServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+func (UnimplementedNfcBServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Transceive not implemented")
+}
+func (UnimplementedNfcBServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedNfcBarcodeServiceServer) mustEmbedUnimplementedNfcBarcodeServiceServer() {}
-func (UnimplementedNfcBarcodeServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedNfcBServiceServer) mustEmbedUnimplementedNfcBServiceServer() {}
+func (UnimplementedNfcBServiceServer) testEmbeddedByValue()                     {}
 
-// UnsafeNfcBarcodeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NfcBarcodeServiceServer will
+// UnsafeNfcBServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NfcBServiceServer will
 // result in compilation errors.
-type UnsafeNfcBarcodeServiceServer interface {
-	mustEmbedUnimplementedNfcBarcodeServiceServer()
+type UnsafeNfcBServiceServer interface {
+	mustEmbedUnimplementedNfcBServiceServer()
 }
 
-func RegisterNfcBarcodeServiceServer(s grpc.ServiceRegistrar, srv NfcBarcodeServiceServer) {
-	// If the following call panics, it indicates UnimplementedNfcBarcodeServiceServer was
+func RegisterNfcBServiceServer(s grpc.ServiceRegistrar, srv NfcBServiceServer) {
+	// If the following call panics, it indicates UnimplementedNfcBServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&NfcBarcodeService_ServiceDesc, srv)
+	s.RegisterService(&NfcBService_ServiceDesc, srv)
 }
 
-func _NfcBarcodeService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBarcodeServiceServer).Close(ctx, in)
+		return srv.(NfcBServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBarcodeService_Close_FullMethodName,
+		FullMethod: NfcBService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBarcodeServiceServer).Close(ctx, req.(*CloseRequest))
+		return srv.(NfcBServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBarcodeService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ConnectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBarcodeServiceServer).Connect(ctx, in)
+		return srv.(NfcBServiceServer).Connect(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBarcodeService_Connect_FullMethodName,
+		FullMethod: NfcBService_Connect_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBarcodeServiceServer).Connect(ctx, req.(*ConnectRequest))
+		return srv.(NfcBServiceServer).Connect(ctx, req.(*ConnectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBarcodeService_GetBarcode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBarcodeRequest)
+func _NfcBService_GetApplicationData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetApplicationDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBarcodeServiceServer).GetBarcode(ctx, in)
+		return srv.(NfcBServiceServer).GetApplicationData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBarcodeService_GetBarcode_FullMethodName,
+		FullMethod: NfcBService_GetApplicationData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBarcodeServiceServer).GetBarcode(ctx, req.(*GetBarcodeRequest))
+		return srv.(NfcBServiceServer).GetApplicationData(ctx, req.(*GetApplicationDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBarcodeService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxTransceiveLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcBServiceServer).GetMaxTransceiveLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcBService_GetMaxTransceiveLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcBServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcBService_GetProtocolInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProtocolInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcBServiceServer).GetProtocolInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcBService_GetProtocolInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcBServiceServer).GetProtocolInfo(ctx, req.(*GetProtocolInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcBService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTagRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBarcodeServiceServer).GetTag(ctx, in)
+		return srv.(NfcBServiceServer).GetTag(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBarcodeService_GetTag_FullMethodName,
+		FullMethod: NfcBService_GetTag_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBarcodeServiceServer).GetTag(ctx, req.(*GetTagRequest))
+		return srv.(NfcBServiceServer).GetTag(ctx, req.(*GetTagRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBarcodeService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NfcBarcodeServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NfcBarcodeService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBarcodeServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NfcBarcodeService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsConnectedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBarcodeServiceServer).IsConnected(ctx, in)
+		return srv.(NfcBServiceServer).IsConnected(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBarcodeService_IsConnected_FullMethodName,
+		FullMethod: NfcBService_IsConnected_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBarcodeServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+		return srv.(NfcBServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NfcBarcodeService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _NfcBService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TransceiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcBServiceServer).Transceive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcBService_Transceive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcBServiceServer).Transceive(ctx, req.(*TransceiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcBService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NfcBarcodeServiceServer).Get(ctx, in)
+		return srv.(NfcBServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NfcBarcodeService_Get_FullMethodName,
+		FullMethod: NfcBService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NfcBarcodeServiceServer).Get(ctx, req.(*GetRequest))
+		return srv.(NfcBServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// NfcBarcodeService_ServiceDesc is the grpc.ServiceDesc for NfcBarcodeService service.
+// NfcBService_ServiceDesc is the grpc.ServiceDesc for NfcBService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var NfcBarcodeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "tech.NfcBarcodeService",
-	HandlerType: (*NfcBarcodeServiceServer)(nil),
+var NfcBService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tech.NfcBService",
+	HandlerType: (*NfcBServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Close",
-			Handler:    _NfcBarcodeService_Close_Handler,
+			Handler:    _NfcBService_Close_Handler,
 		},
 		{
 			MethodName: "Connect",
-			Handler:    _NfcBarcodeService_Connect_Handler,
+			Handler:    _NfcBService_Connect_Handler,
 		},
 		{
-			MethodName: "GetBarcode",
-			Handler:    _NfcBarcodeService_GetBarcode_Handler,
+			MethodName: "GetApplicationData",
+			Handler:    _NfcBService_GetApplicationData_Handler,
+		},
+		{
+			MethodName: "GetMaxTransceiveLength",
+			Handler:    _NfcBService_GetMaxTransceiveLength_Handler,
+		},
+		{
+			MethodName: "GetProtocolInfo",
+			Handler:    _NfcBService_GetProtocolInfo_Handler,
 		},
 		{
 			MethodName: "GetTag",
-			Handler:    _NfcBarcodeService_GetTag_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _NfcBarcodeService_GetType_Handler,
+			Handler:    _NfcBService_GetTag_Handler,
 		},
 		{
 			MethodName: "IsConnected",
-			Handler:    _NfcBarcodeService_IsConnected_Handler,
+			Handler:    _NfcBService_IsConnected_Handler,
+		},
+		{
+			MethodName: "Transceive",
+			Handler:    _NfcBService_Transceive_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _NfcBarcodeService_Get_Handler,
+			Handler:    _NfcBService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4163,6 +3681,488 @@ var TagTechnologyService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IsConnected",
 			Handler:    _TagTechnologyService_IsConnected_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tech/tech.proto",
+}
+
+const (
+	NfcFService_Close_FullMethodName                  = "/tech.NfcFService/Close"
+	NfcFService_Connect_FullMethodName                = "/tech.NfcFService/Connect"
+	NfcFService_GetManufacturer_FullMethodName        = "/tech.NfcFService/GetManufacturer"
+	NfcFService_GetMaxTransceiveLength_FullMethodName = "/tech.NfcFService/GetMaxTransceiveLength"
+	NfcFService_GetSystemCode_FullMethodName          = "/tech.NfcFService/GetSystemCode"
+	NfcFService_GetTag_FullMethodName                 = "/tech.NfcFService/GetTag"
+	NfcFService_GetTimeout_FullMethodName             = "/tech.NfcFService/GetTimeout"
+	NfcFService_IsConnected_FullMethodName            = "/tech.NfcFService/IsConnected"
+	NfcFService_SetTimeout_FullMethodName             = "/tech.NfcFService/SetTimeout"
+	NfcFService_Transceive_FullMethodName             = "/tech.NfcFService/Transceive"
+	NfcFService_Get_FullMethodName                    = "/tech.NfcFService/Get"
+)
+
+// NfcFServiceClient is the client API for NfcFService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NfcFServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
+	GetManufacturer(ctx context.Context, in *GetManufacturerRequest, opts ...grpc.CallOption) (*GetManufacturerResponse, error)
+	GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error)
+	GetSystemCode(ctx context.Context, in *GetSystemCodeRequest, opts ...grpc.CallOption) (*GetSystemCodeResponse, error)
+	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error)
+	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
+	SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error)
+	Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type nfcFServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNfcFServiceClient(cc grpc.ClientConnInterface) NfcFServiceClient {
+	return &nfcFServiceClient{cc}
+}
+
+func (c *nfcFServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, NfcFService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ConnectResponse)
+	err := c.cc.Invoke(ctx, NfcFService_Connect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) GetManufacturer(ctx context.Context, in *GetManufacturerRequest, opts ...grpc.CallOption) (*GetManufacturerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetManufacturerResponse)
+	err := c.cc.Invoke(ctx, NfcFService_GetManufacturer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxTransceiveLengthResponse)
+	err := c.cc.Invoke(ctx, NfcFService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) GetSystemCode(ctx context.Context, in *GetSystemCodeRequest, opts ...grpc.CallOption) (*GetSystemCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSystemCodeResponse)
+	err := c.cc.Invoke(ctx, NfcFService_GetSystemCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTagResponse)
+	err := c.cc.Invoke(ctx, NfcFService_GetTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeoutResponse)
+	err := c.cc.Invoke(ctx, NfcFService_GetTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsConnectedResponse)
+	err := c.cc.Invoke(ctx, NfcFService_IsConnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeoutResponse)
+	err := c.cc.Invoke(ctx, NfcFService_SetTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TransceiveResponse)
+	err := c.cc.Invoke(ctx, NfcFService_Transceive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nfcFServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, NfcFService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NfcFServiceServer is the server API for NfcFService service.
+// All implementations must embed UnimplementedNfcFServiceServer
+// for forward compatibility.
+type NfcFServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
+	GetManufacturer(context.Context, *GetManufacturerRequest) (*GetManufacturerResponse, error)
+	GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error)
+	GetSystemCode(context.Context, *GetSystemCodeRequest) (*GetSystemCodeResponse, error)
+	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
+	GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error)
+	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
+	SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error)
+	Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedNfcFServiceServer()
+}
+
+// UnimplementedNfcFServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNfcFServiceServer struct{}
+
+func (UnimplementedNfcFServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedNfcFServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
+}
+func (UnimplementedNfcFServiceServer) GetManufacturer(context.Context, *GetManufacturerRequest) (*GetManufacturerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetManufacturer not implemented")
+}
+func (UnimplementedNfcFServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxTransceiveLength not implemented")
+}
+func (UnimplementedNfcFServiceServer) GetSystemCode(context.Context, *GetSystemCodeRequest) (*GetSystemCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSystemCode not implemented")
+}
+func (UnimplementedNfcFServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
+}
+func (UnimplementedNfcFServiceServer) GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeout not implemented")
+}
+func (UnimplementedNfcFServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
+}
+func (UnimplementedNfcFServiceServer) SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeout not implemented")
+}
+func (UnimplementedNfcFServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Transceive not implemented")
+}
+func (UnimplementedNfcFServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedNfcFServiceServer) mustEmbedUnimplementedNfcFServiceServer() {}
+func (UnimplementedNfcFServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeNfcFServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NfcFServiceServer will
+// result in compilation errors.
+type UnsafeNfcFServiceServer interface {
+	mustEmbedUnimplementedNfcFServiceServer()
+}
+
+func RegisterNfcFServiceServer(s grpc.ServiceRegistrar, srv NfcFServiceServer) {
+	// If the following call panics, it indicates UnimplementedNfcFServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NfcFService_ServiceDesc, srv)
+}
+
+func _NfcFService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).Connect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_Connect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).Connect(ctx, req.(*ConnectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_GetManufacturer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetManufacturerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).GetManufacturer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_GetManufacturer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).GetManufacturer(ctx, req.(*GetManufacturerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxTransceiveLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).GetMaxTransceiveLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_GetMaxTransceiveLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_GetSystemCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSystemCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).GetSystemCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_GetSystemCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).GetSystemCode(ctx, req.(*GetSystemCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).GetTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_GetTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).GetTag(ctx, req.(*GetTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_GetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).GetTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_GetTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).GetTimeout(ctx, req.(*GetTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsConnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).IsConnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_IsConnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_SetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).SetTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_SetTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).SetTimeout(ctx, req.(*SetTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TransceiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).Transceive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_Transceive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).Transceive(ctx, req.(*TransceiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NfcFService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NfcFServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NfcFService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NfcFServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NfcFService_ServiceDesc is the grpc.ServiceDesc for NfcFService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NfcFService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tech.NfcFService",
+	HandlerType: (*NfcFServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _NfcFService_Close_Handler,
+		},
+		{
+			MethodName: "Connect",
+			Handler:    _NfcFService_Connect_Handler,
+		},
+		{
+			MethodName: "GetManufacturer",
+			Handler:    _NfcFService_GetManufacturer_Handler,
+		},
+		{
+			MethodName: "GetMaxTransceiveLength",
+			Handler:    _NfcFService_GetMaxTransceiveLength_Handler,
+		},
+		{
+			MethodName: "GetSystemCode",
+			Handler:    _NfcFService_GetSystemCode_Handler,
+		},
+		{
+			MethodName: "GetTag",
+			Handler:    _NfcFService_GetTag_Handler,
+		},
+		{
+			MethodName: "GetTimeout",
+			Handler:    _NfcFService_GetTimeout_Handler,
+		},
+		{
+			MethodName: "IsConnected",
+			Handler:    _NfcFService_IsConnected_Handler,
+		},
+		{
+			MethodName: "SetTimeout",
+			Handler:    _NfcFService_SetTimeout_Handler,
+		},
+		{
+			MethodName: "Transceive",
+			Handler:    _NfcFService_Transceive_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _NfcFService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

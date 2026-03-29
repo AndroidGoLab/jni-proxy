@@ -6,6 +6,185 @@ package companion;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/companion";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetAssociatedDeviceRequest {
+}
+
+message GetAssociatedDeviceResponse {
+  int64 result = 1;
+}
+
+message GetDeviceIdRequest {
+}
+
+message GetDeviceIdResponse {
+  int64 result = 1;
+}
+
+message GetDeviceMacAddressRequest {
+}
+
+message GetDeviceMacAddressResponse {
+  int64 result = 1;
+}
+
+message GetDeviceProfileRequest {
+}
+
+message GetDeviceProfileResponse {
+  string result = 1;
+}
+
+message GetDisplayNameRequest {
+}
+
+message GetDisplayNameResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetSystemDataSyncFlagsRequest {
+}
+
+message GetSystemDataSyncFlagsResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsSelfManagedRequest {
+}
+
+message IsSelfManagedResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message IsForceConfirmationRequest {
+}
+
+message IsForceConfirmationResponse {
+  bool result = 1;
+}
+
+message IsSingleDeviceRequest {
+}
+
+message IsSingleDeviceResponse {
+  bool result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetDeviceProfileRequest {
+  string arg0 = 1;
+}
+
+message SetDeviceProfileResponse {
+  int64 result = 1;
+}
+
+message SetDisplayNameRequest {
+  string arg0 = 1;
+}
+
+message SetDisplayNameResponse {
+  int64 result = 1;
+}
+
+message SetForceConfirmationRequest {
+  bool arg0 = 1;
+}
+
+message SetForceConfirmationResponse {
+  int64 result = 1;
+}
+
+message SetSelfManagedRequest {
+  bool arg0 = 1;
+}
+
+message SetSelfManagedResponse {
+  int64 result = 1;
+}
+
+message SetSingleDeviceRequest {
+  bool arg0 = 1;
+}
+
+message SetSingleDeviceResponse {
+  int64 result = 1;
+}
+
+message AddServiceUuidRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddServiceUuidResponse {
+  int64 result = 1;
+}
+
+message SetAddressRequest {
+  string arg0 = 1;
+}
+
+message SetAddressResponse {
+  int64 result = 1;
+}
+
+message SetNamePatternRequest {
+  int64 arg0 = 1;
+}
+
+message SetNamePatternResponse {
+  int64 result = 1;
+}
+
 message NewDevicePresenceEventRequest {
   int32 arg0 = 1;
   int32 arg1 = 2;
@@ -16,21 +195,13 @@ message NewDevicePresenceEventResponse {
   int64 result = 1;
 }
 
-message DescribeContentsRequest {
+message DevicePresenceEventDescribeContentsRequest {
   int64 handle = 1;
 }
 
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
+message DevicePresenceEventEqualsRequest {
   int64 handle = 1;
   int64 arg0 = 2;
-}
-
-message EqualsResponse {
-  bool result = 1;
 }
 
 message GetAssociationIdRequest {
@@ -57,29 +228,40 @@ message GetUuidResponse {
   int64 result = 1;
 }
 
-message HashCodeRequest {
+message DevicePresenceEventHashCodeRequest {
   int64 handle = 1;
 }
 
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ToStringRequest {
+message DevicePresenceEventToStringRequest {
   int64 handle = 1;
 }
 
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
+message DevicePresenceEventWriteToParcelRequest {
   int64 handle = 1;
   int64 arg0 = 2;
   int32 arg1 = 3;
 }
 
-message WriteToParcelResponse {
+message ObservingDevicePresenceRequestGetAssociationIdRequest {
+}
+
+message ObservingDevicePresenceRequestGetUuidRequest {
+}
+
+message SetAssociationIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetAssociationIdResponse {
+  int64 result = 1;
+}
+
+message SetUuidRequest {
+  int64 arg0 = 1;
+}
+
+message SetUuidResponse {
+  int64 result = 1;
 }
 
 message AssociateRequest {
@@ -150,6 +332,20 @@ message EnableSystemDataSyncForTypesRequest {
 }
 
 message EnableSystemDataSyncForTypesResponse {
+}
+
+message GetAssociationsRequest {
+}
+
+message GetAssociationsResponse {
+  int64 result = 1;
+}
+
+message GetMyAssociationsRequest {
+}
+
+message GetMyAssociationsResponse {
+  int64 result = 1;
 }
 
 message HasNotificationAccessRequest {
@@ -255,92 +451,33 @@ message OnFailure1_1Request {
 message OnFailure1_1Response {
 }
 
-message AssociatedDeviceDescribeContentsRequest {
+message GetCustomIdRequest {
 }
 
-message AssociatedDeviceEqualsRequest {
-  int64 arg0 = 1;
+message GetCustomIdResponse {
+  string result = 1;
 }
 
-message GetBleDeviceRequest {
+message GetMacAddressRequest {
 }
 
-message GetBleDeviceResponse {
+message GetMacAddressResponse {
   int64 result = 1;
 }
 
-message GetBluetoothDeviceRequest {
-}
-
-message GetBluetoothDeviceResponse {
-  int64 result = 1;
-}
-
-message GetWifiDeviceRequest {
-}
-
-message GetWifiDeviceResponse {
-  int64 result = 1;
-}
-
-message AssociatedDeviceHashCodeRequest {
-}
-
-message AssociatedDeviceToStringRequest {
-}
-
-message AssociatedDeviceWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message BluetoothDeviceFilterDescribeContentsRequest {
-}
-
-message BluetoothDeviceFilterEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message BluetoothDeviceFilterHashCodeRequest {
-}
-
-message BluetoothDeviceFilterToStringRequest {
-}
-
-message BluetoothDeviceFilterWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message AddServiceUuidRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message AddServiceUuidResponse {
-  int64 result = 1;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetAddressRequest {
+message SetCustomIdRequest {
   string arg0 = 1;
 }
 
-message SetAddressResponse {
+message SetCustomIdResponse {
   int64 result = 1;
 }
 
-message SetNamePatternRequest {
+message SetMacAddressRequest {
   int64 arg0 = 1;
 }
 
-message SetNamePatternResponse {
+message SetMacAddressResponse {
   int64 result = 1;
 }
 
@@ -387,154 +524,6 @@ message OnDevicePresenceEventRequest {
 message OnDevicePresenceEventResponse {
 }
 
-message ObservingDevicePresenceRequestDescribeContentsRequest {
-}
-
-message ObservingDevicePresenceRequestEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message ObservingDevicePresenceRequestGetAssociationIdRequest {
-}
-
-message ObservingDevicePresenceRequestGetUuidRequest {
-}
-
-message ObservingDevicePresenceRequestHashCodeRequest {
-}
-
-message ObservingDevicePresenceRequestToStringRequest {
-}
-
-message ObservingDevicePresenceRequestWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetAssociationIdRequest {
-  int32 arg0 = 1;
-}
-
-message SetAssociationIdResponse {
-  int64 result = 1;
-}
-
-message SetUuidRequest {
-  int64 arg0 = 1;
-}
-
-message SetUuidResponse {
-  int64 result = 1;
-}
-
-message AssociationRequestDescribeContentsRequest {
-}
-
-message AssociationRequestEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetDeviceProfileRequest {
-}
-
-message GetDeviceProfileResponse {
-  string result = 1;
-}
-
-message GetDisplayNameRequest {
-}
-
-message GetDisplayNameResponse {
-  int64 result = 1;
-}
-
-message AssociationRequestHashCodeRequest {
-}
-
-message IsForceConfirmationRequest {
-}
-
-message IsForceConfirmationResponse {
-  bool result = 1;
-}
-
-message IsSelfManagedRequest {
-}
-
-message IsSelfManagedResponse {
-  bool result = 1;
-}
-
-message IsSingleDeviceRequest {
-}
-
-message IsSingleDeviceResponse {
-  bool result = 1;
-}
-
-message AssociationRequestToStringRequest {
-}
-
-message AssociationRequestWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetDeviceProfileRequest {
-  string arg0 = 1;
-}
-
-message SetDeviceProfileResponse {
-  int64 result = 1;
-}
-
-message SetDisplayNameRequest {
-  string arg0 = 1;
-}
-
-message SetDisplayNameResponse {
-  int64 result = 1;
-}
-
-message SetForceConfirmationRequest {
-  bool arg0 = 1;
-}
-
-message SetForceConfirmationResponse {
-  int64 result = 1;
-}
-
-message SetSelfManagedRequest {
-  bool arg0 = 1;
-}
-
-message SetSelfManagedResponse {
-  int64 result = 1;
-}
-
-message SetSingleDeviceRequest {
-  bool arg0 = 1;
-}
-
-message SetSingleDeviceResponse {
-  int64 result = 1;
-}
-
-message WifiDeviceFilterDescribeContentsRequest {
-}
-
-message WifiDeviceFilterEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message WifiDeviceFilterHashCodeRequest {
-}
-
-message WifiDeviceFilterWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
 message SetBssidRequest {
   int64 arg0 = 1;
 }
@@ -551,123 +540,25 @@ message SetBssidMaskResponse {
   int64 result = 1;
 }
 
-message DeviceIdDescribeContentsRequest {
+message GetBleDeviceRequest {
 }
 
-message DeviceIdEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetCustomIdRequest {
-}
-
-message GetCustomIdResponse {
-  string result = 1;
-}
-
-message GetMacAddressRequest {
-}
-
-message GetMacAddressResponse {
+message GetBleDeviceResponse {
   int64 result = 1;
 }
 
-message DeviceIdHashCodeRequest {
+message GetBluetoothDeviceRequest {
 }
 
-message DeviceIdToStringRequest {
-}
-
-message DeviceIdWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetCustomIdRequest {
-  string arg0 = 1;
-}
-
-message SetCustomIdResponse {
+message GetBluetoothDeviceResponse {
   int64 result = 1;
 }
 
-message SetMacAddressRequest {
-  int64 arg0 = 1;
+message GetWifiDeviceRequest {
 }
 
-message SetMacAddressResponse {
+message GetWifiDeviceResponse {
   int64 result = 1;
-}
-
-message AssociationInfoDescribeContentsRequest {
-}
-
-message AssociationInfoEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetAssociatedDeviceRequest {
-}
-
-message GetAssociatedDeviceResponse {
-  int64 result = 1;
-}
-
-message GetDeviceIdRequest {
-}
-
-message GetDeviceIdResponse {
-  int64 result = 1;
-}
-
-message GetDeviceMacAddressRequest {
-}
-
-message GetDeviceMacAddressResponse {
-  int64 result = 1;
-}
-
-message GetIdRequest {
-}
-
-message GetIdResponse {
-  int32 result = 1;
-}
-
-message GetSystemDataSyncFlagsRequest {
-}
-
-message GetSystemDataSyncFlagsResponse {
-  int32 result = 1;
-}
-
-message AssociationInfoHashCodeRequest {
-}
-
-message AssociationInfoToStringRequest {
-}
-
-message AssociationInfoWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message BluetoothLeDeviceFilterDescribeContentsRequest {
-}
-
-message BluetoothLeDeviceFilterEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message BluetoothLeDeviceFilterHashCodeRequest {
-}
-
-message BluetoothLeDeviceFilterToStringRequest {
-}
-
-message BluetoothLeDeviceFilterWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
 message GetRenamePrefixLengthLimitRequest {
@@ -717,16 +608,85 @@ message SetScanFilterResponse {
   int64 result = 1;
 }
 
-service DevicePresenceEventService {
-  rpc NewDevicePresenceEvent (NewDevicePresenceEventRequest) returns (NewDevicePresenceEventResponse);
+service AssociationInfoService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAssociationId (GetAssociationIdRequest) returns (GetAssociationIdResponse);
-  rpc GetEvent (GetEventRequest) returns (GetEventResponse);
-  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
+  rpc GetAssociatedDevice (GetAssociatedDeviceRequest) returns (GetAssociatedDeviceResponse);
+  rpc GetDeviceId (GetDeviceIdRequest) returns (GetDeviceIdResponse);
+  rpc GetDeviceMacAddress (GetDeviceMacAddressRequest) returns (GetDeviceMacAddressResponse);
+  rpc GetDeviceProfile (GetDeviceProfileRequest) returns (GetDeviceProfileResponse);
+  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetSystemDataSyncFlags (GetSystemDataSyncFlagsRequest) returns (GetSystemDataSyncFlagsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsSelfManaged (IsSelfManagedRequest) returns (IsSelfManagedResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AssociationRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDeviceProfile (GetDeviceProfileRequest) returns (GetDeviceProfileResponse);
+  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsForceConfirmation (IsForceConfirmationRequest) returns (IsForceConfirmationResponse);
+  rpc IsSelfManaged (IsSelfManagedRequest) returns (IsSelfManagedResponse);
+  rpc IsSingleDevice (IsSingleDeviceRequest) returns (IsSingleDeviceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AssociationRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDeviceProfile (SetDeviceProfileRequest) returns (SetDeviceProfileResponse);
+  rpc SetDisplayName (SetDisplayNameRequest) returns (SetDisplayNameResponse);
+  rpc SetForceConfirmation (SetForceConfirmationRequest) returns (SetForceConfirmationResponse);
+  rpc SetSelfManaged (SetSelfManagedRequest) returns (SetSelfManagedResponse);
+  rpc SetSingleDevice (SetSingleDeviceRequest) returns (SetSingleDeviceResponse);
+}
+
+service BluetoothDeviceFilterService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BluetoothDeviceFilterBuilderService {
+  rpc AddServiceUuid (AddServiceUuidRequest) returns (AddServiceUuidResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAddress (SetAddressRequest) returns (SetAddressResponse);
+  rpc SetNamePattern (SetNamePatternRequest) returns (SetNamePatternResponse);
+}
+
+service DevicePresenceEventService {
+  rpc NewDevicePresenceEvent (NewDevicePresenceEventRequest) returns (NewDevicePresenceEventResponse);
+  rpc DescribeContents (DevicePresenceEventDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (DevicePresenceEventEqualsRequest) returns (EqualsResponse);
+  rpc GetAssociationId (GetAssociationIdRequest) returns (GetAssociationIdResponse);
+  rpc GetEvent (GetEventRequest) returns (GetEventResponse);
+  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
+  rpc HashCode (DevicePresenceEventHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (DevicePresenceEventToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DevicePresenceEventWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ObservingDevicePresenceRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAssociationId (ObservingDevicePresenceRequestGetAssociationIdRequest) returns (GetAssociationIdResponse);
+  rpc GetUuid (ObservingDevicePresenceRequestGetUuidRequest) returns (GetUuidResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ObservingDevicePresenceRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAssociationId (SetAssociationIdRequest) returns (SetAssociationIdResponse);
+  rpc SetUuid (SetUuidRequest) returns (SetUuidResponse);
 }
 
 service DeviceManagerService {
@@ -739,6 +699,8 @@ service DeviceManagerService {
   rpc Disassociate1 (Disassociate1Request) returns (Disassociate1Response);
   rpc Disassociate1_1 (Disassociate1_1Request) returns (Disassociate1_1Response);
   rpc EnableSystemDataSyncForTypes (EnableSystemDataSyncForTypesRequest) returns (EnableSystemDataSyncForTypesResponse);
+  rpc GetAssociations (GetAssociationsRequest) returns (GetAssociationsResponse);
+  rpc GetMyAssociations (GetMyAssociationsRequest) returns (GetMyAssociationsResponse);
   rpc HasNotificationAccess (HasNotificationAccessRequest) returns (HasNotificationAccessResponse);
   rpc IsPermissionTransferUserConsented (IsPermissionTransferUserConsentedRequest) returns (IsPermissionTransferUserConsentedResponse);
   rpc RemoveBond (RemoveBondRequest) returns (RemoveBondResponse);
@@ -758,30 +720,20 @@ service DeviceManagerCallbackService {
   rpc OnFailure1_1 (OnFailure1_1Request) returns (OnFailure1_1Response);
 }
 
-service AssociatedDeviceService {
-  rpc DescribeContents (AssociatedDeviceDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (AssociatedDeviceEqualsRequest) returns (EqualsResponse);
-  rpc GetBleDevice (GetBleDeviceRequest) returns (GetBleDeviceResponse);
-  rpc GetBluetoothDevice (GetBluetoothDeviceRequest) returns (GetBluetoothDeviceResponse);
-  rpc GetWifiDevice (GetWifiDeviceRequest) returns (GetWifiDeviceResponse);
-  rpc HashCode (AssociatedDeviceHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (AssociatedDeviceToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (AssociatedDeviceWriteToParcelRequest) returns (WriteToParcelResponse);
+service DeviceIdService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCustomId (GetCustomIdRequest) returns (GetCustomIdResponse);
+  rpc GetMacAddress (GetMacAddressRequest) returns (GetMacAddressResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service BluetoothDeviceFilterService {
-  rpc DescribeContents (BluetoothDeviceFilterDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (BluetoothDeviceFilterEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (BluetoothDeviceFilterHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (BluetoothDeviceFilterToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (BluetoothDeviceFilterWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service BluetoothDeviceFilterBuilderService {
-  rpc AddServiceUuid (AddServiceUuidRequest) returns (AddServiceUuidResponse);
+service DeviceIdBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetAddress (SetAddressRequest) returns (SetAddressResponse);
-  rpc SetNamePattern (SetNamePatternRequest) returns (SetNamePatternResponse);
+  rpc SetCustomId (SetCustomIdRequest) returns (SetCustomIdResponse);
+  rpc SetMacAddress (SetMacAddressRequest) returns (SetMacAddressResponse);
 }
 
 service DeviceServiceService {
@@ -795,49 +747,11 @@ service DeviceServiceService {
   rpc OnDevicePresenceEvent (OnDevicePresenceEventRequest) returns (OnDevicePresenceEventResponse);
 }
 
-service ObservingDevicePresenceRequestService {
-  rpc DescribeContents (ObservingDevicePresenceRequestDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ObservingDevicePresenceRequestEqualsRequest) returns (EqualsResponse);
-  rpc GetAssociationId (ObservingDevicePresenceRequestGetAssociationIdRequest) returns (GetAssociationIdResponse);
-  rpc GetUuid (ObservingDevicePresenceRequestGetUuidRequest) returns (GetUuidResponse);
-  rpc HashCode (ObservingDevicePresenceRequestHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ObservingDevicePresenceRequestToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ObservingDevicePresenceRequestWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ObservingDevicePresenceRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetAssociationId (SetAssociationIdRequest) returns (SetAssociationIdResponse);
-  rpc SetUuid (SetUuidRequest) returns (SetUuidResponse);
-}
-
-service AssociationRequestService {
-  rpc DescribeContents (AssociationRequestDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (AssociationRequestEqualsRequest) returns (EqualsResponse);
-  rpc GetDeviceProfile (GetDeviceProfileRequest) returns (GetDeviceProfileResponse);
-  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
-  rpc HashCode (AssociationRequestHashCodeRequest) returns (HashCodeResponse);
-  rpc IsForceConfirmation (IsForceConfirmationRequest) returns (IsForceConfirmationResponse);
-  rpc IsSelfManaged (IsSelfManagedRequest) returns (IsSelfManagedResponse);
-  rpc IsSingleDevice (IsSingleDeviceRequest) returns (IsSingleDeviceResponse);
-  rpc ToString (AssociationRequestToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (AssociationRequestWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service AssociationRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetDeviceProfile (SetDeviceProfileRequest) returns (SetDeviceProfileResponse);
-  rpc SetDisplayName (SetDisplayNameRequest) returns (SetDisplayNameResponse);
-  rpc SetForceConfirmation (SetForceConfirmationRequest) returns (SetForceConfirmationResponse);
-  rpc SetSelfManaged (SetSelfManagedRequest) returns (SetSelfManagedResponse);
-  rpc SetSingleDevice (SetSingleDeviceRequest) returns (SetSingleDeviceResponse);
-}
-
 service WifiDeviceFilterService {
-  rpc DescribeContents (WifiDeviceFilterDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (WifiDeviceFilterEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (WifiDeviceFilterHashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (WifiDeviceFilterWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service WifiDeviceFilterBuilderService {
@@ -847,44 +761,23 @@ service WifiDeviceFilterBuilderService {
   rpc SetNamePattern (SetNamePatternRequest) returns (SetNamePatternResponse);
 }
 
-service DeviceIdService {
-  rpc DescribeContents (DeviceIdDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (DeviceIdEqualsRequest) returns (EqualsResponse);
-  rpc GetCustomId (GetCustomIdRequest) returns (GetCustomIdResponse);
-  rpc GetMacAddress (GetMacAddressRequest) returns (GetMacAddressResponse);
-  rpc HashCode (DeviceIdHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (DeviceIdToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (DeviceIdWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service DeviceIdBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetCustomId (SetCustomIdRequest) returns (SetCustomIdResponse);
-  rpc SetMacAddress (SetMacAddressRequest) returns (SetMacAddressResponse);
-}
-
-service AssociationInfoService {
-  rpc DescribeContents (AssociationInfoDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (AssociationInfoEqualsRequest) returns (EqualsResponse);
-  rpc GetAssociatedDevice (GetAssociatedDeviceRequest) returns (GetAssociatedDeviceResponse);
-  rpc GetDeviceId (GetDeviceIdRequest) returns (GetDeviceIdResponse);
-  rpc GetDeviceMacAddress (GetDeviceMacAddressRequest) returns (GetDeviceMacAddressResponse);
-  rpc GetDeviceProfile (GetDeviceProfileRequest) returns (GetDeviceProfileResponse);
-  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
-  rpc GetSystemDataSyncFlags (GetSystemDataSyncFlagsRequest) returns (GetSystemDataSyncFlagsResponse);
-  rpc HashCode (AssociationInfoHashCodeRequest) returns (HashCodeResponse);
-  rpc IsSelfManaged (IsSelfManagedRequest) returns (IsSelfManagedResponse);
-  rpc ToString (AssociationInfoToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (AssociationInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+service AssociatedDeviceService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBleDevice (GetBleDeviceRequest) returns (GetBleDeviceResponse);
+  rpc GetBluetoothDevice (GetBluetoothDeviceRequest) returns (GetBluetoothDeviceResponse);
+  rpc GetWifiDevice (GetWifiDeviceRequest) returns (GetWifiDeviceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service BluetoothLeDeviceFilterService {
-  rpc DescribeContents (BluetoothLeDeviceFilterDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (BluetoothLeDeviceFilterEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (BluetoothLeDeviceFilterHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (BluetoothLeDeviceFilterToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (BluetoothLeDeviceFilterWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
   rpc GetRenamePrefixLengthLimit (GetRenamePrefixLengthLimitRequest) returns (GetRenamePrefixLengthLimitResponse);
 }
 

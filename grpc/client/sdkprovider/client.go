@@ -9,6 +9,26 @@ import (
 	"google.golang.org/grpc"
 )
 
+// SdkSandboxActivityHandlerClient wraps the gRPC SdkSandboxActivityHandlerService client.
+type SdkSandboxActivityHandlerClient struct {
+	svc pb.SdkSandboxActivityHandlerServiceClient
+}
+
+// NewSdkSandboxActivityHandlerClient creates a new SdkSandboxActivityHandler client.
+func NewSdkSandboxActivityHandlerClient(cc grpc.ClientConnInterface) *SdkSandboxActivityHandlerClient {
+	return &SdkSandboxActivityHandlerClient{
+		svc: pb.NewSdkSandboxActivityHandlerServiceClient(cc),
+	}
+}
+
+// OnActivityCreated calls the OnActivityCreated RPC.
+func (c *SdkSandboxActivityHandlerClient) OnActivityCreated(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnActivityCreated(ctx, &pb.OnActivityCreatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // SdkSandboxControllerClient wraps the gRPC SdkSandboxControllerService client.
 type SdkSandboxControllerClient struct {
 	svc pb.SdkSandboxControllerServiceClient
@@ -19,6 +39,15 @@ func NewSdkSandboxControllerClient(cc grpc.ClientConnInterface) *SdkSandboxContr
 	return &SdkSandboxControllerClient{
 		svc: pb.NewSdkSandboxControllerServiceClient(cc),
 	}
+}
+
+// GetAppOwnedSdkSandboxInterfaces calls the GetAppOwnedSdkSandboxInterfaces RPC.
+func (c *SdkSandboxControllerClient) GetAppOwnedSdkSandboxInterfaces(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppOwnedSdkSandboxInterfaces(ctx, &pb.GetAppOwnedSdkSandboxInterfacesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // GetClientPackageName calls the GetClientPackageName RPC.
@@ -33,6 +62,15 @@ func (c *SdkSandboxControllerClient) GetClientPackageName(ctx context.Context) (
 // GetClientSharedPreferences calls the GetClientSharedPreferences RPC.
 func (c *SdkSandboxControllerClient) GetClientSharedPreferences(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetClientSharedPreferences(ctx, &pb.GetClientSharedPreferencesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSandboxedSdks calls the GetSandboxedSdks RPC.
+func (c *SdkSandboxControllerClient) GetSandboxedSdks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSandboxedSdks(ctx, &pb.GetSandboxedSdksRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -71,26 +109,6 @@ func NewSdkSandboxClientImportanceListenerClient(cc grpc.ClientConnInterface) *S
 // OnForegroundImportanceChanged calls the OnForegroundImportanceChanged RPC.
 func (c *SdkSandboxClientImportanceListenerClient) OnForegroundImportanceChanged(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.OnForegroundImportanceChanged(ctx, &pb.OnForegroundImportanceChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SdkSandboxActivityHandlerClient wraps the gRPC SdkSandboxActivityHandlerService client.
-type SdkSandboxActivityHandlerClient struct {
-	svc pb.SdkSandboxActivityHandlerServiceClient
-}
-
-// NewSdkSandboxActivityHandlerClient creates a new SdkSandboxActivityHandler client.
-func NewSdkSandboxActivityHandlerClient(cc grpc.ClientConnInterface) *SdkSandboxActivityHandlerClient {
-	return &SdkSandboxActivityHandlerClient{
-		svc: pb.NewSdkSandboxActivityHandlerServiceClient(cc),
-	}
-}
-
-// OnActivityCreated calls the OnActivityCreated RPC.
-func (c *SdkSandboxActivityHandlerClient) OnActivityCreated(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnActivityCreated(ctx, &pb.OnActivityCreatedRequest{
 		Arg0: arg0,
 	})
 	return err

@@ -12,20 +12,20 @@ var animationCmd = &cobra.Command{
 	Short: "animation service operations",
 }
 
-var animationTimeAnimatorCmd = &cobra.Command{
-	Use:   "time-animator",
-	Short: "TimeAnimatorService operations",
+var animationArgbEvaluatorCmd = &cobra.Command{
+	Use:   "argb-evaluator",
+	Short: "ArgbEvaluatorService operations",
 }
 
-var animationTimeAnimatorNewTimeAnimatorCmd = &cobra.Command{
-	Use:   "new-time-animator",
-	Short: "NewTimeAnimator RPC",
+var animationArgbEvaluatorNewArgbEvaluatorCmd = &cobra.Command{
+	Use:   "new-argb-evaluator",
+	Short: "NewArgbEvaluator RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTimeAnimatorServiceClient(grpcConn)
-		req := &pb.NewTimeAnimatorRequest{}
-		resp, err := client.NewTimeAnimator(ctx, req)
+		client := pb.NewArgbEvaluatorServiceClient(grpcConn)
+		req := &pb.NewArgbEvaluatorRequest{}
+		resp, err := client.NewArgbEvaluator(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -33,152 +33,14 @@ var animationTimeAnimatorNewTimeAnimatorCmd = &cobra.Command{
 	},
 }
 
-var animationTimeAnimatorSetCurrentPlayTimeCmd = &cobra.Command{
-	Use:   "set-current-play-time",
-	Short: "SetCurrentPlayTime RPC",
+var animationArgbEvaluatorEvaluateCmd = &cobra.Command{
+	Use:   "evaluate",
+	Short: "Evaluate RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTimeAnimatorServiceClient(grpcConn)
-		req := &pb.SetCurrentPlayTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCurrentPlayTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationTimeAnimatorSetTimeListenerCmd = &cobra.Command{
-	Use:   "set-time-listener",
-	Short: "SetTimeListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeAnimatorServiceClient(grpcConn)
-		req := &pb.SetTimeListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTimeListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationTimeAnimatorStartCmd = &cobra.Command{
-	Use:   "start",
-	Short: "Start RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeAnimatorServiceClient(grpcConn)
-		req := &pb.StartRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Start(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationTimeAnimatorTimeListenerCmd = &cobra.Command{
-	Use:   "time-animator-time-listener",
-	Short: "TimeAnimatorTimeListenerService operations",
-}
-
-var animationTimeAnimatorTimeListenerOnTimeUpdateCmd = &cobra.Command{
-	Use:   "on-time-update",
-	Short: "OnTimeUpdate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeAnimatorTimeListenerServiceClient(grpcConn)
-		req := &pb.OnTimeUpdateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnTimeUpdate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationTimeInterpolatorCmd = &cobra.Command{
-	Use:   "time-interpolator",
-	Short: "TimeInterpolatorService operations",
-}
-
-var animationTimeInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTimeInterpolatorServiceClient(grpcConn)
-		req := &pb.GetInterpolationRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationRectEvaluatorCmd = &cobra.Command{
-	Use:   "rect-evaluator",
-	Short: "RectEvaluatorService operations",
-}
-
-var animationRectEvaluatorNewRectEvaluatorCmd = &cobra.Command{
-	Use:   "new-rect-evaluator",
-	Short: "NewRectEvaluator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRectEvaluatorServiceClient(grpcConn)
-		req := &pb.NewRectEvaluatorRequest{}
-		resp, err := client.NewRectEvaluator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationRectEvaluatorEvaluate3Cmd = &cobra.Command{
-	Use:   "evaluate3",
-	Short: "Evaluate3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRectEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3Request{}
+		client := pb.NewArgbEvaluatorServiceClient(grpcConn)
+		req := &pb.EvaluateRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -191,7 +53,7 @@ var animationRectEvaluatorEvaluate3Cmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.Evaluate3(ctx, req)
+		resp, err := client.Evaluate(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -199,475 +61,18 @@ var animationRectEvaluatorEvaluate3Cmd = &cobra.Command{
 	},
 }
 
-var animationRectEvaluatorEvaluate3_1Cmd = &cobra.Command{
-	Use:   "evaluate3_1",
-	Short: "Evaluate3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRectEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
+var animationAnimatorListenerAdapterCmd = &cobra.Command{
+	Use:   "animator-listener-adapter",
+	Short: "AnimatorListenerAdapterService operations",
 }
 
-var animationAnimatorCmd = &cobra.Command{
-	Use:   "animator",
-	Short: "AnimatorService operations",
-}
-
-var animationAnimatorAddListenerCmd = &cobra.Command{
-	Use:   "add-listener",
-	Short: "AddListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.AddListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorAddPauseListenerCmd = &cobra.Command{
-	Use:   "add-pause-listener",
-	Short: "AddPauseListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.AddPauseListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddPauseListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorEndCmd = &cobra.Command{
-	Use:   "end",
-	Short: "End RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.EndRequest{}
-		resp, err := client.End(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorGetDurationCmd = &cobra.Command{
-	Use:   "get-duration",
-	Short: "GetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.GetDurationRequest{}
-		resp, err := client.GetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorGetInterpolatorCmd = &cobra.Command{
-	Use:   "get-interpolator",
-	Short: "GetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.GetInterpolatorRequest{}
-		resp, err := client.GetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorGetStartDelayCmd = &cobra.Command{
-	Use:   "get-start-delay",
-	Short: "GetStartDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.GetStartDelayRequest{}
-		resp, err := client.GetStartDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorGetTotalDurationCmd = &cobra.Command{
-	Use:   "get-total-duration",
-	Short: "GetTotalDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.GetTotalDurationRequest{}
-		resp, err := client.GetTotalDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorIsPausedCmd = &cobra.Command{
-	Use:   "is-paused",
-	Short: "IsPaused RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.IsPausedRequest{}
-		resp, err := client.IsPaused(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorIsRunningCmd = &cobra.Command{
-	Use:   "is-running",
-	Short: "IsRunning RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.IsRunningRequest{}
-		resp, err := client.IsRunning(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorIsStartedCmd = &cobra.Command{
-	Use:   "is-started",
-	Short: "IsStarted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.IsStartedRequest{}
-		resp, err := client.IsStarted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorPauseCmd = &cobra.Command{
-	Use:   "pause",
-	Short: "Pause RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.PauseRequest{}
-		resp, err := client.Pause(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorRemoveAllListenersCmd = &cobra.Command{
-	Use:   "remove-all-listeners",
-	Short: "RemoveAllListeners RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.RemoveAllListenersRequest{}
-		resp, err := client.RemoveAllListeners(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorRemoveListenerCmd = &cobra.Command{
-	Use:   "remove-listener",
-	Short: "RemoveListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.RemoveListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorRemovePauseListenerCmd = &cobra.Command{
-	Use:   "remove-pause-listener",
-	Short: "RemovePauseListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.RemovePauseListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemovePauseListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorResumeCmd = &cobra.Command{
-	Use:   "resume",
-	Short: "Resume RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.ResumeRequest{}
-		resp, err := client.Resume(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetDurationCmd = &cobra.Command{
-	Use:   "set-duration",
-	Short: "SetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.SetDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetInterpolatorCmd = &cobra.Command{
-	Use:   "set-interpolator",
-	Short: "SetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.SetInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetStartDelayCmd = &cobra.Command{
-	Use:   "set-start-delay",
-	Short: "SetStartDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.SetStartDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetTargetCmd = &cobra.Command{
-	Use:   "set-target",
-	Short: "SetTarget RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.SetTargetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTarget(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetupEndValuesCmd = &cobra.Command{
-	Use:   "setup-end-values",
-	Short: "SetupEndValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.SetupEndValuesRequest{}
-		resp, err := client.SetupEndValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetupStartValuesCmd = &cobra.Command{
-	Use:   "setup-start-values",
-	Short: "SetupStartValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.SetupStartValuesRequest{}
-		resp, err := client.SetupStartValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorStartCmd = &cobra.Command{
-	Use:   "start",
-	Short: "Start RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.AnimatorStartRequest{}
-		resp, err := client.Start(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorAnimatorListenerCmd = &cobra.Command{
-	Use:   "animator-animator-listener",
-	Short: "AnimatorAnimatorListenerService operations",
-}
-
-var animationAnimatorAnimatorListenerOnAnimationCancelCmd = &cobra.Command{
+var animationAnimatorListenerAdapterOnAnimationCancelCmd = &cobra.Command{
 	Use:   "on-animation-cancel",
 	Short: "OnAnimationCancel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAnimatorAnimatorListenerServiceClient(grpcConn)
+		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
 		req := &pb.OnAnimationCancelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -680,13 +85,13 @@ var animationAnimatorAnimatorListenerOnAnimationCancelCmd = &cobra.Command{
 	},
 }
 
-var animationAnimatorAnimatorListenerOnAnimationEndCmd = &cobra.Command{
+var animationAnimatorListenerAdapterOnAnimationEndCmd = &cobra.Command{
 	Use:   "on-animation-end",
 	Short: "OnAnimationEnd RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAnimatorAnimatorListenerServiceClient(grpcConn)
+		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
 		req := &pb.OnAnimationEndRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -699,56 +104,13 @@ var animationAnimatorAnimatorListenerOnAnimationEndCmd = &cobra.Command{
 	},
 }
 
-var animationAnimatorAnimatorListenerOnAnimationRepeatCmd = &cobra.Command{
-	Use:   "on-animation-repeat",
-	Short: "OnAnimationRepeat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorAnimatorListenerServiceClient(grpcConn)
-		req := &pb.OnAnimationRepeatRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationRepeat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorAnimatorListenerOnAnimationStartCmd = &cobra.Command{
-	Use:   "on-animation-start",
-	Short: "OnAnimationStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorAnimatorListenerServiceClient(grpcConn)
-		req := &pb.OnAnimationStartRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorAnimatorPauseListenerCmd = &cobra.Command{
-	Use:   "animator-animator-pause-listener",
-	Short: "AnimatorAnimatorPauseListenerService operations",
-}
-
-var animationAnimatorAnimatorPauseListenerOnAnimationPauseCmd = &cobra.Command{
+var animationAnimatorListenerAdapterOnAnimationPauseCmd = &cobra.Command{
 	Use:   "on-animation-pause",
 	Short: "OnAnimationPause RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAnimatorAnimatorPauseListenerServiceClient(grpcConn)
+		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
 		req := &pb.OnAnimationPauseRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -761,13 +123,32 @@ var animationAnimatorAnimatorPauseListenerOnAnimationPauseCmd = &cobra.Command{
 	},
 }
 
-var animationAnimatorAnimatorPauseListenerOnAnimationResumeCmd = &cobra.Command{
+var animationAnimatorListenerAdapterOnAnimationRepeatCmd = &cobra.Command{
+	Use:   "on-animation-repeat",
+	Short: "OnAnimationRepeat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
+		req := &pb.OnAnimationRepeatRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationRepeat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorListenerAdapterOnAnimationResumeCmd = &cobra.Command{
 	Use:   "on-animation-resume",
 	Short: "OnAnimationResume RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAnimatorAnimatorPauseListenerServiceClient(grpcConn)
+		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
 		req := &pb.OnAnimationResumeRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -780,481 +161,18 @@ var animationAnimatorAnimatorPauseListenerOnAnimationResumeCmd = &cobra.Command{
 	},
 }
 
-var animationFloatArrayEvaluatorCmd = &cobra.Command{
-	Use:   "float-array-evaluator",
-	Short: "FloatArrayEvaluatorService operations",
-}
-
-var animationFloatArrayEvaluatorNewFloatArrayEvaluatorCmd = &cobra.Command{
-	Use:   "new-float-array-evaluator",
-	Short: "NewFloatArrayEvaluator RPC",
+var animationAnimatorListenerAdapterOnAnimationStartCmd = &cobra.Command{
+	Use:   "on-animation-start",
+	Short: "OnAnimationStart RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFloatArrayEvaluatorServiceClient(grpcConn)
-		req := &pb.NewFloatArrayEvaluatorRequest{}
-		resp, err := client.NewFloatArrayEvaluator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationFloatArrayEvaluatorEvaluate3Cmd = &cobra.Command{
-	Use:   "evaluate3",
-	Short: "Evaluate3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloatArrayEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationFloatArrayEvaluatorEvaluate3_1Cmd = &cobra.Command{
-	Use:   "evaluate3_1",
-	Short: "Evaluate3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloatArrayEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationStateListAnimatorCmd = &cobra.Command{
-	Use:   "state-list-animator",
-	Short: "StateListAnimatorService operations",
-}
-
-var animationStateListAnimatorNewStateListAnimatorCmd = &cobra.Command{
-	Use:   "new-state-list-animator",
-	Short: "NewStateListAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateListAnimatorServiceClient(grpcConn)
-		req := &pb.NewStateListAnimatorRequest{}
-		resp, err := client.NewStateListAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationStateListAnimatorAddStateCmd = &cobra.Command{
-	Use:   "add-state",
-	Short: "AddState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateListAnimatorServiceClient(grpcConn)
-		req := &pb.AddStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
+		req := &pb.OnAnimationStartRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationStateListAnimatorClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateListAnimatorServiceClient(grpcConn)
-		req := &pb.StateListAnimatorClone0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationStateListAnimatorJumpToCurrentStateCmd = &cobra.Command{
-	Use:   "jump-to-current-state",
-	Short: "JumpToCurrentState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateListAnimatorServiceClient(grpcConn)
-		req := &pb.JumpToCurrentStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.JumpToCurrentState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationStateListAnimatorClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateListAnimatorServiceClient(grpcConn)
-		req := &pb.StateListAnimatorClone0_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationIntEvaluatorCmd = &cobra.Command{
-	Use:   "int-evaluator",
-	Short: "IntEvaluatorService operations",
-}
-
-var animationIntEvaluatorNewIntEvaluatorCmd = &cobra.Command{
-	Use:   "new-int-evaluator",
-	Short: "NewIntEvaluator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntEvaluatorServiceClient(grpcConn)
-		req := &pb.NewIntEvaluatorRequest{}
-		resp, err := client.NewIntEvaluator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationIntEvaluatorEvaluate3Cmd = &cobra.Command{
-	Use:   "evaluate3",
-	Short: "Evaluate3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationIntEvaluatorEvaluate3_1Cmd = &cobra.Command{
-	Use:   "evaluate3_1",
-	Short: "Evaluate3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorInflaterCmd = &cobra.Command{
-	Use:   "animator-inflater",
-	Short: "AnimatorInflaterService operations",
-}
-
-var animationAnimatorInflaterNewAnimatorInflaterCmd = &cobra.Command{
-	Use:   "new-animator-inflater",
-	Short: "NewAnimatorInflater RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorInflaterServiceClient(grpcConn)
-		req := &pb.NewAnimatorInflaterRequest{}
-		resp, err := client.NewAnimatorInflater(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorInflaterLoadAnimatorCmd = &cobra.Command{
-	Use:   "load-animator",
-	Short: "LoadAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorInflaterServiceClient(grpcConn)
-		req := &pb.LoadAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorInflaterLoadStateListAnimatorCmd = &cobra.Command{
-	Use:   "load-state-list-animator",
-	Short: "LoadStateListAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorInflaterServiceClient(grpcConn)
-		req := &pb.LoadStateListAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadStateListAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPointFEvaluatorCmd = &cobra.Command{
-	Use:   "point-f-evaluator",
-	Short: "PointFEvaluatorService operations",
-}
-
-var animationPointFEvaluatorNewPointFEvaluatorCmd = &cobra.Command{
-	Use:   "new-point-f-evaluator",
-	Short: "NewPointFEvaluator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPointFEvaluatorServiceClient(grpcConn)
-		req := &pb.NewPointFEvaluatorRequest{}
-		resp, err := client.NewPointFEvaluator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPointFEvaluatorEvaluate3Cmd = &cobra.Command{
-	Use:   "evaluate3",
-	Short: "Evaluate3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPointFEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPointFEvaluatorEvaluate3_1Cmd = &cobra.Command{
-	Use:   "evaluate3_1",
-	Short: "Evaluate3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPointFEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationFloatEvaluatorCmd = &cobra.Command{
-	Use:   "float-evaluator",
-	Short: "FloatEvaluatorService operations",
-}
-
-var animationFloatEvaluatorNewFloatEvaluatorCmd = &cobra.Command{
-	Use:   "new-float-evaluator",
-	Short: "NewFloatEvaluator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloatEvaluatorServiceClient(grpcConn)
-		req := &pb.NewFloatEvaluatorRequest{}
-		resp, err := client.NewFloatEvaluator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationFloatEvaluatorEvaluate3Cmd = &cobra.Command{
-	Use:   "evaluate3",
-	Short: "Evaluate3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloatEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationFloatEvaluatorEvaluate3_1Cmd = &cobra.Command{
-	Use:   "evaluate3_1",
-	Short: "Evaluate3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFloatEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3_1(ctx, req)
+		resp, err := client.OnAnimationStart(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1312,7 +230,7 @@ var animationValueAnimatorCancelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorCancelRequest{}
+		req := &pb.CancelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1331,7 +249,7 @@ var animationValueAnimatorClone0Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorClone0Request{}
+		req := &pb.Clone0Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1350,7 +268,7 @@ var animationValueAnimatorEndCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorEndRequest{}
+		req := &pb.EndRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1448,7 +366,7 @@ var animationValueAnimatorGetDurationCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorGetDurationRequest{}
+		req := &pb.GetDurationRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1467,7 +385,7 @@ var animationValueAnimatorGetInterpolatorCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorGetInterpolatorRequest{}
+		req := &pb.GetInterpolatorRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1524,7 +442,7 @@ var animationValueAnimatorGetStartDelayCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorGetStartDelayRequest{}
+		req := &pb.GetStartDelayRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1543,7 +461,7 @@ var animationValueAnimatorGetTotalDurationCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorGetTotalDurationRequest{}
+		req := &pb.GetTotalDurationRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1581,7 +499,7 @@ var animationValueAnimatorIsRunningCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorIsRunningRequest{}
+		req := &pb.IsRunningRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1600,7 +518,7 @@ var animationValueAnimatorIsStartedCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorIsStartedRequest{}
+		req := &pb.IsStartedRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1619,7 +537,7 @@ var animationValueAnimatorPauseCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorPauseRequest{}
+		req := &pb.PauseRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1679,7 +597,7 @@ var animationValueAnimatorResumeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorResumeRequest{}
+		req := &pb.ResumeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1849,7 +767,7 @@ var animationValueAnimatorSetInterpolatorCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorSetInterpolatorRequest{}
+		req := &pb.SetInterpolatorRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1937,7 +855,7 @@ var animationValueAnimatorSetStartDelayCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorSetStartDelayRequest{}
+		req := &pb.SetStartDelayRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2041,7 +959,7 @@ var animationValueAnimatorClone0_1Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewValueAnimatorServiceClient(grpcConn)
-		req := &pb.ValueAnimatorClone0_1Request{}
+		req := &pb.Clone0_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2356,1338 +1274,6 @@ var animationValueAnimatorDurationScaleChangeListenerOnChangedCmd = &cobra.Comma
 	},
 }
 
-var animationIntArrayEvaluatorCmd = &cobra.Command{
-	Use:   "int-array-evaluator",
-	Short: "IntArrayEvaluatorService operations",
-}
-
-var animationIntArrayEvaluatorNewIntArrayEvaluatorCmd = &cobra.Command{
-	Use:   "new-int-array-evaluator",
-	Short: "NewIntArrayEvaluator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntArrayEvaluatorServiceClient(grpcConn)
-		req := &pb.NewIntArrayEvaluatorRequest{}
-		resp, err := client.NewIntArrayEvaluator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationIntArrayEvaluatorEvaluate3Cmd = &cobra.Command{
-	Use:   "evaluate3",
-	Short: "Evaluate3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntArrayEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationIntArrayEvaluatorEvaluate3_1Cmd = &cobra.Command{
-	Use:   "evaluate3_1",
-	Short: "Evaluate3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntArrayEvaluatorServiceClient(grpcConn)
-		req := &pb.Evaluate3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationArgbEvaluatorCmd = &cobra.Command{
-	Use:   "argb-evaluator",
-	Short: "ArgbEvaluatorService operations",
-}
-
-var animationArgbEvaluatorNewArgbEvaluatorCmd = &cobra.Command{
-	Use:   "new-argb-evaluator",
-	Short: "NewArgbEvaluator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArgbEvaluatorServiceClient(grpcConn)
-		req := &pb.NewArgbEvaluatorRequest{}
-		resp, err := client.NewArgbEvaluator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationArgbEvaluatorEvaluateCmd = &cobra.Command{
-	Use:   "evaluate",
-	Short: "Evaluate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewArgbEvaluatorServiceClient(grpcConn)
-		req := &pb.EvaluateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Evaluate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorListenerAdapterCmd = &cobra.Command{
-	Use:   "animator-listener-adapter",
-	Short: "AnimatorListenerAdapterService operations",
-}
-
-var animationAnimatorListenerAdapterOnAnimationCancelCmd = &cobra.Command{
-	Use:   "on-animation-cancel",
-	Short: "OnAnimationCancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnAnimationCancelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationCancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorListenerAdapterOnAnimationEndCmd = &cobra.Command{
-	Use:   "on-animation-end",
-	Short: "OnAnimationEnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnAnimationEndRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationEnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorListenerAdapterOnAnimationPauseCmd = &cobra.Command{
-	Use:   "on-animation-pause",
-	Short: "OnAnimationPause RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnAnimationPauseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationPause(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorListenerAdapterOnAnimationRepeatCmd = &cobra.Command{
-	Use:   "on-animation-repeat",
-	Short: "OnAnimationRepeat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnAnimationRepeatRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationRepeat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorListenerAdapterOnAnimationResumeCmd = &cobra.Command{
-	Use:   "on-animation-resume",
-	Short: "OnAnimationResume RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnAnimationResumeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationResume(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorListenerAdapterOnAnimationStartCmd = &cobra.Command{
-	Use:   "on-animation-start",
-	Short: "OnAnimationStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorListenerAdapterServiceClient(grpcConn)
-		req := &pb.OnAnimationStartRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderCmd = &cobra.Command{
-	Use:   "property-values-holder",
-	Short: "PropertyValuesHolderService operations",
-}
-
-var animationPropertyValuesHolderClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderGetPropertyNameCmd = &cobra.Command{
-	Use:   "get-property-name",
-	Short: "GetPropertyName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.GetPropertyNameRequest{}
-		resp, err := client.GetPropertyName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderSetConverterCmd = &cobra.Command{
-	Use:   "set-converter",
-	Short: "SetConverter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.SetConverterRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConverter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderSetEvaluatorCmd = &cobra.Command{
-	Use:   "set-evaluator",
-	Short: "SetEvaluator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.PropertyValuesHolderSetEvaluatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEvaluator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderSetFloatValuesCmd = &cobra.Command{
-	Use:   "set-float-values",
-	Short: "SetFloatValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.PropertyValuesHolderSetFloatValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFloatValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderSetIntValuesCmd = &cobra.Command{
-	Use:   "set-int-values",
-	Short: "SetIntValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.PropertyValuesHolderSetIntValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIntValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderSetKeyframesCmd = &cobra.Command{
-	Use:   "set-keyframes",
-	Short: "SetKeyframes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.SetKeyframesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetKeyframes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderSetObjectValuesCmd = &cobra.Command{
-	Use:   "set-object-values",
-	Short: "SetObjectValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.PropertyValuesHolderSetObjectValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetObjectValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderSetPropertyCmd = &cobra.Command{
-	Use:   "set-property",
-	Short: "SetProperty RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.SetPropertyRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetProperty(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderSetPropertyNameCmd = &cobra.Command{
-	Use:   "set-property-name",
-	Short: "SetPropertyName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.SetPropertyNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPropertyName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.PropertyValuesHolderToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfFloatCmd = &cobra.Command{
-	Use:   "of-float",
-	Short: "OfFloat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.PropertyValuesHolderOfFloatRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OfFloat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfIntCmd = &cobra.Command{
-	Use:   "of-int",
-	Short: "OfInt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.PropertyValuesHolderOfIntRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OfInt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfKeyframe2Cmd = &cobra.Command{
-	Use:   "of-keyframe2",
-	Short: "OfKeyframe2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.OfKeyframe2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OfKeyframe2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfKeyframe2_1Cmd = &cobra.Command{
-	Use:   "of-keyframe2_1",
-	Short: "OfKeyframe2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.OfKeyframe2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OfKeyframe2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfMultiFloat2Cmd = &cobra.Command{
-	Use:   "of-multi-float2",
-	Short: "OfMultiFloat2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.OfMultiFloat2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OfMultiFloat2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfMultiFloat2_1Cmd = &cobra.Command{
-	Use:   "of-multi-float2_1",
-	Short: "OfMultiFloat2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.OfMultiFloat2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OfMultiFloat2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfMultiInt2Cmd = &cobra.Command{
-	Use:   "of-multi-int2",
-	Short: "OfMultiInt2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.OfMultiInt2Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OfMultiInt2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfMultiInt2_1Cmd = &cobra.Command{
-	Use:   "of-multi-int2_1",
-	Short: "OfMultiInt2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.OfMultiInt2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OfMultiInt2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPropertyValuesHolderOfObjectCmd = &cobra.Command{
-	Use:   "of-object",
-	Short: "OfObject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
-		req := &pb.PropertyValuesHolderOfObjectRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OfObject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionCmd = &cobra.Command{
-	Use:   "layout-transition",
-	Short: "LayoutTransitionService operations",
-}
-
-var animationLayoutTransitionNewLayoutTransitionCmd = &cobra.Command{
-	Use:   "new-layout-transition",
-	Short: "NewLayoutTransition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.NewLayoutTransitionRequest{}
-		resp, err := client.NewLayoutTransition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionAddChildCmd = &cobra.Command{
-	Use:   "add-child",
-	Short: "AddChild RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.AddChildRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddChild(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionAddTransitionListenerCmd = &cobra.Command{
-	Use:   "add-transition-listener",
-	Short: "AddTransitionListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.AddTransitionListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTransitionListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionDisableTransitionTypeCmd = &cobra.Command{
-	Use:   "disable-transition-type",
-	Short: "DisableTransitionType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.DisableTransitionTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.DisableTransitionType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionEnableTransitionTypeCmd = &cobra.Command{
-	Use:   "enable-transition-type",
-	Short: "EnableTransitionType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.EnableTransitionTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.EnableTransitionType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionGetAnimatorCmd = &cobra.Command{
-	Use:   "get-animator",
-	Short: "GetAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.GetAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionGetDurationCmd = &cobra.Command{
-	Use:   "get-duration",
-	Short: "GetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.LayoutTransitionGetDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionGetInterpolatorCmd = &cobra.Command{
-	Use:   "get-interpolator",
-	Short: "GetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.LayoutTransitionGetInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionGetStaggerCmd = &cobra.Command{
-	Use:   "get-stagger",
-	Short: "GetStagger RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.GetStaggerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetStagger(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionGetStartDelayCmd = &cobra.Command{
-	Use:   "get-start-delay",
-	Short: "GetStartDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.LayoutTransitionGetStartDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetStartDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionHideChild2Cmd = &cobra.Command{
-	Use:   "hide-child2",
-	Short: "HideChild2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.HideChild2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.HideChild2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionHideChild3_1Cmd = &cobra.Command{
-	Use:   "hide-child3_1",
-	Short: "HideChild3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.HideChild3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.HideChild3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionIsChangingLayoutCmd = &cobra.Command{
-	Use:   "is-changing-layout",
-	Short: "IsChangingLayout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.IsChangingLayoutRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsChangingLayout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionIsRunningCmd = &cobra.Command{
-	Use:   "is-running",
-	Short: "IsRunning RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.LayoutTransitionIsRunningRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsRunning(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionIsTransitionTypeEnabledCmd = &cobra.Command{
-	Use:   "is-transition-type-enabled",
-	Short: "IsTransitionTypeEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.IsTransitionTypeEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsTransitionTypeEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionRemoveChildCmd = &cobra.Command{
-	Use:   "remove-child",
-	Short: "RemoveChild RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.RemoveChildRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RemoveChild(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionRemoveTransitionListenerCmd = &cobra.Command{
-	Use:   "remove-transition-listener",
-	Short: "RemoveTransitionListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.RemoveTransitionListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveTransitionListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionSetAnimateParentHierarchyCmd = &cobra.Command{
-	Use:   "set-animate-parent-hierarchy",
-	Short: "SetAnimateParentHierarchy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.SetAnimateParentHierarchyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAnimateParentHierarchy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionSetAnimatorCmd = &cobra.Command{
-	Use:   "set-animator",
-	Short: "SetAnimator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.SetAnimatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetAnimator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionSetDuration2Cmd = &cobra.Command{
-	Use:   "set-duration2",
-	Short: "SetDuration2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.SetDuration2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetDuration2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionSetDuration1_1Cmd = &cobra.Command{
-	Use:   "set-duration1_1",
-	Short: "SetDuration1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.SetDuration1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionSetInterpolatorCmd = &cobra.Command{
-	Use:   "set-interpolator",
-	Short: "SetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.LayoutTransitionSetInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionSetStaggerCmd = &cobra.Command{
-	Use:   "set-stagger",
-	Short: "SetStagger RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.SetStaggerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetStagger(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionSetStartDelayCmd = &cobra.Command{
-	Use:   "set-start-delay",
-	Short: "SetStartDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.LayoutTransitionSetStartDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetStartDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionShowChild2Cmd = &cobra.Command{
-	Use:   "show-child2",
-	Short: "ShowChild2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.ShowChild2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ShowChild2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionShowChild3_1Cmd = &cobra.Command{
-	Use:   "show-child3_1",
-	Short: "ShowChild3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionServiceClient(grpcConn)
-		req := &pb.ShowChild3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ShowChild3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionTransitionListenerCmd = &cobra.Command{
-	Use:   "layout-transition-transition-listener",
-	Short: "LayoutTransitionTransitionListenerService operations",
-}
-
-var animationLayoutTransitionTransitionListenerEndTransitionCmd = &cobra.Command{
-	Use:   "end-transition",
-	Short: "EndTransition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionTransitionListenerServiceClient(grpcConn)
-		req := &pb.EndTransitionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.EndTransition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutTransitionTransitionListenerStartTransitionCmd = &cobra.Command{
-	Use:   "start-transition",
-	Short: "StartTransition RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutTransitionTransitionListenerServiceClient(grpcConn)
-		req := &pb.StartTransitionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.StartTransition(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var animationObjectAnimatorCmd = &cobra.Command{
 	Use:   "object-animator",
 	Short: "ObjectAnimatorService operations",
@@ -3716,7 +1302,7 @@ var animationObjectAnimatorClone0Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectAnimatorServiceClient(grpcConn)
-		req := &pb.ObjectAnimatorClone0Request{}
+		req := &pb.Clone0Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3735,7 +1321,7 @@ var animationObjectAnimatorGetPropertyNameCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectAnimatorServiceClient(grpcConn)
-		req := &pb.ObjectAnimatorGetPropertyNameRequest{}
+		req := &pb.GetPropertyNameRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3883,7 +1469,7 @@ var animationObjectAnimatorSetPropertyCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectAnimatorServiceClient(grpcConn)
-		req := &pb.ObjectAnimatorSetPropertyRequest{}
+		req := &pb.SetPropertyRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3905,7 +1491,7 @@ var animationObjectAnimatorSetPropertyNameCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectAnimatorServiceClient(grpcConn)
-		req := &pb.ObjectAnimatorSetPropertyNameRequest{}
+		req := &pb.SetPropertyNameRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3927,7 +1513,7 @@ var animationObjectAnimatorSetTargetCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectAnimatorServiceClient(grpcConn)
-		req := &pb.ObjectAnimatorSetTargetRequest{}
+		req := &pb.SetTargetRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3949,7 +1535,7 @@ var animationObjectAnimatorSetupEndValuesCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectAnimatorServiceClient(grpcConn)
-		req := &pb.ObjectAnimatorSetupEndValuesRequest{}
+		req := &pb.SetupEndValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3968,7 +1554,7 @@ var animationObjectAnimatorSetupStartValuesCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectAnimatorServiceClient(grpcConn)
-		req := &pb.ObjectAnimatorSetupStartValuesRequest{}
+		req := &pb.SetupStartValuesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4047,7 +1633,7 @@ var animationObjectAnimatorClone0_1Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewObjectAnimatorServiceClient(grpcConn)
-		req := &pb.ObjectAnimatorClone0_1Request{}
+		req := &pb.Clone0_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -4433,660 +2019,23 @@ var animationObjectAnimatorOfPropertyValuesHolderCmd = &cobra.Command{
 	},
 }
 
-var animationAnimatorSetCmd = &cobra.Command{
-	Use:   "animator-set",
-	Short: "AnimatorSetService operations",
+var animationTimeInterpolatorCmd = &cobra.Command{
+	Use:   "time-interpolator",
+	Short: "TimeInterpolatorService operations",
 }
 
-var animationAnimatorSetNewAnimatorSetCmd = &cobra.Command{
-	Use:   "new-animator-set",
-	Short: "NewAnimatorSet RPC",
+var animationTimeInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.NewAnimatorSetRequest{}
-		resp, err := client.NewAnimatorSet(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetCancelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetClone0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetEndCmd = &cobra.Command{
-	Use:   "end",
-	Short: "End RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetEndRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.End(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetGetCurrentPlayTimeCmd = &cobra.Command{
-	Use:   "get-current-play-time",
-	Short: "GetCurrentPlayTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.GetCurrentPlayTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentPlayTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetGetDurationCmd = &cobra.Command{
-	Use:   "get-duration",
-	Short: "GetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetGetDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetGetInterpolatorCmd = &cobra.Command{
-	Use:   "get-interpolator",
-	Short: "GetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetGetInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetGetStartDelayCmd = &cobra.Command{
-	Use:   "get-start-delay",
-	Short: "GetStartDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetGetStartDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStartDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetGetTotalDurationCmd = &cobra.Command{
-	Use:   "get-total-duration",
-	Short: "GetTotalDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetGetTotalDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTotalDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetIsRunningCmd = &cobra.Command{
-	Use:   "is-running",
-	Short: "IsRunning RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetIsRunningRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsRunning(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetIsStartedCmd = &cobra.Command{
-	Use:   "is-started",
-	Short: "IsStarted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetIsStartedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsStarted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetPauseCmd = &cobra.Command{
-	Use:   "pause",
-	Short: "Pause RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetPauseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Pause(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetPlayCmd = &cobra.Command{
-	Use:   "play",
-	Short: "Play RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.PlayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewTimeInterpolatorServiceClient(grpcConn)
+		req := &pb.GetInterpolationRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Play(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetPlaySequentiallyCmd = &cobra.Command{
-	Use:   "play-sequentially",
-	Short: "PlaySequentially RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.PlaySequentiallyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PlaySequentially(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetPlayTogetherCmd = &cobra.Command{
-	Use:   "play-together",
-	Short: "PlayTogether RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.PlayTogetherRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PlayTogether(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetResumeCmd = &cobra.Command{
-	Use:   "resume",
-	Short: "Resume RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetResumeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Resume(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetReverseCmd = &cobra.Command{
-	Use:   "reverse",
-	Short: "Reverse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.ReverseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Reverse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetSetCurrentPlayTimeCmd = &cobra.Command{
-	Use:   "set-current-play-time",
-	Short: "SetCurrentPlayTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.SetCurrentPlayTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCurrentPlayTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetSetDuration1Cmd = &cobra.Command{
-	Use:   "set-duration1",
-	Short: "SetDuration1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.SetDuration1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetSetInterpolatorCmd = &cobra.Command{
-	Use:   "set-interpolator",
-	Short: "SetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetSetInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetSetStartDelayCmd = &cobra.Command{
-	Use:   "set-start-delay",
-	Short: "SetStartDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetSetStartDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetSetTargetCmd = &cobra.Command{
-	Use:   "set-target",
-	Short: "SetTarget RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetSetTargetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTarget(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetSetupEndValuesCmd = &cobra.Command{
-	Use:   "setup-end-values",
-	Short: "SetupEndValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetSetupEndValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SetupEndValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetSetupStartValuesCmd = &cobra.Command{
-	Use:   "setup-start-values",
-	Short: "SetupStartValues RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetSetupStartValuesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.SetupStartValues(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetStartCmd = &cobra.Command{
-	Use:   "start",
-	Short: "Start RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.StartRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Start(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetSetDuration1_1Cmd = &cobra.Command{
-	Use:   "set-duration1_1",
-	Short: "SetDuration1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.SetDuration1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.AnimatorSetClone0_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetClone0_2Cmd = &cobra.Command{
-	Use:   "clone0_2",
-	Short: "Clone0_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetServiceClient(grpcConn)
-		req := &pb.Clone0_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetBuilderCmd = &cobra.Command{
-	Use:   "animator-set-builder",
-	Short: "AnimatorSetBuilderService operations",
-}
-
-var animationAnimatorSetBuilderAfter1Cmd = &cobra.Command{
-	Use:   "after1",
-	Short: "After1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetBuilderServiceClient(grpcConn)
-		req := &pb.After1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.After1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetBuilderAfter1_1Cmd = &cobra.Command{
-	Use:   "after1_1",
-	Short: "After1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetBuilderServiceClient(grpcConn)
-		req := &pb.After1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.After1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetBuilderBeforeCmd = &cobra.Command{
-	Use:   "before",
-	Short: "Before RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetBuilderServiceClient(grpcConn)
-		req := &pb.BeforeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Before(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimatorSetBuilderWithCmd = &cobra.Command{
-	Use:   "with",
-	Short: "With RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimatorSetBuilderServiceClient(grpcConn)
-		req := &pb.WithRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.With(ctx, req)
+		resp, err := client.GetInterpolation(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5106,7 +2055,7 @@ var animationKeyframeClone0Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewKeyframeServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
+		req := &pb.KeyframeClone0Request{}
 		resp, err := client.Clone0(ctx, req)
 		if err != nil {
 			return err
@@ -5138,7 +2087,7 @@ var animationKeyframeGetInterpolatorCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewKeyframeServiceClient(grpcConn)
-		req := &pb.GetInterpolatorRequest{}
+		req := &pb.KeyframeGetInterpolatorRequest{}
 		resp, err := client.GetInterpolator(ctx, req)
 		if err != nil {
 			return err
@@ -5221,7 +2170,7 @@ var animationKeyframeSetInterpolatorCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewKeyframeServiceClient(grpcConn)
-		req := &pb.SetInterpolatorRequest{}
+		req := &pb.KeyframeSetInterpolatorRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -5259,7 +2208,7 @@ var animationKeyframeClone0_1Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewKeyframeServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
+		req := &pb.KeyframeClone0_1Request{}
 		resp, err := client.Clone0_1(ctx, req)
 		if err != nil {
 			return err
@@ -5391,26 +2340,20 @@ var animationKeyframeOfObject2_1Cmd = &cobra.Command{
 	},
 }
 
-var animationAccelerateDecelerateInterpolatorCmd = &cobra.Command{
-	Use:   "accelerate-decelerate-interpolator",
-	Short: "AccelerateDecelerateInterpolatorService operations",
+var animationIntEvaluatorCmd = &cobra.Command{
+	Use:   "int-evaluator",
+	Short: "IntEvaluatorService operations",
 }
 
-var animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolatorCmd = &cobra.Command{
-	Use:   "new-accelerate-decelerate-interpolator",
-	Short: "NewAccelerateDecelerateInterpolator RPC",
+var animationIntEvaluatorNewIntEvaluatorCmd = &cobra.Command{
+	Use:   "new-int-evaluator",
+	Short: "NewIntEvaluator RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccelerateDecelerateInterpolatorServiceClient(grpcConn)
-		req := &pb.NewAccelerateDecelerateInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewAccelerateDecelerateInterpolator(ctx, req)
+		client := pb.NewIntEvaluatorServiceClient(grpcConn)
+		req := &pb.NewIntEvaluatorRequest{}
+		resp, err := client.NewIntEvaluator(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5418,48 +2361,27 @@ var animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolator
 	},
 }
 
-var animationAccelerateDecelerateInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
+var animationIntEvaluatorEvaluate3Cmd = &cobra.Command{
+	Use:   "evaluate3",
+	Short: "Evaluate3 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccelerateDecelerateInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
+		client := pb.NewIntEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationDecelerateInterpolatorCmd = &cobra.Command{
-	Use:   "decelerate-interpolator",
-	Short: "DecelerateInterpolatorService operations",
-}
-
-var animationDecelerateInterpolatorNewDecelerateInterpolatorCmd = &cobra.Command{
-	Use:   "new-decelerate-interpolator",
-	Short: "NewDecelerateInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDecelerateInterpolatorServiceClient(grpcConn)
-		req := &pb.NewDecelerateInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewDecelerateInterpolator(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5467,21 +2389,27 @@ var animationDecelerateInterpolatorNewDecelerateInterpolatorCmd = &cobra.Command
 	},
 }
 
-var animationDecelerateInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
+var animationIntEvaluatorEvaluate3_1Cmd = &cobra.Command{
+	Use:   "evaluate3_1",
+	Short: "Evaluate3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDecelerateInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
+		client := pb.NewIntEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetInterpolation(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5489,26 +2417,357 @@ var animationDecelerateInterpolatorGetInterpolationCmd = &cobra.Command{
 	},
 }
 
-var animationAccelerateInterpolatorCmd = &cobra.Command{
-	Use:   "accelerate-interpolator",
-	Short: "AccelerateInterpolatorService operations",
+var animationAnimatorInflaterCmd = &cobra.Command{
+	Use:   "animator-inflater",
+	Short: "AnimatorInflaterService operations",
 }
 
-var animationAccelerateInterpolatorNewAccelerateInterpolatorCmd = &cobra.Command{
-	Use:   "new-accelerate-interpolator",
-	Short: "NewAccelerateInterpolator RPC",
+var animationAnimatorInflaterNewAnimatorInflaterCmd = &cobra.Command{
+	Use:   "new-animator-inflater",
+	Short: "NewAnimatorInflater RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccelerateInterpolatorServiceClient(grpcConn)
-		req := &pb.NewAccelerateInterpolatorRequest{}
+		client := pb.NewAnimatorInflaterServiceClient(grpcConn)
+		req := &pb.NewAnimatorInflaterRequest{}
+		resp, err := client.NewAnimatorInflater(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorInflaterLoadAnimatorCmd = &cobra.Command{
+	Use:   "load-animator",
+	Short: "LoadAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorInflaterServiceClient(grpcConn)
+		req := &pb.LoadAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorInflaterLoadStateListAnimatorCmd = &cobra.Command{
+	Use:   "load-state-list-animator",
+	Short: "LoadStateListAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorInflaterServiceClient(grpcConn)
+		req := &pb.LoadStateListAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadStateListAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderCmd = &cobra.Command{
+	Use:   "property-values-holder",
+	Short: "PropertyValuesHolderService operations",
+}
+
+var animationPropertyValuesHolderClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderClone0Request{}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderGetPropertyNameCmd = &cobra.Command{
+	Use:   "get-property-name",
+	Short: "GetPropertyName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderGetPropertyNameRequest{}
+		resp, err := client.GetPropertyName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderSetConverterCmd = &cobra.Command{
+	Use:   "set-converter",
+	Short: "SetConverter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.SetConverterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConverter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderSetEvaluatorCmd = &cobra.Command{
+	Use:   "set-evaluator",
+	Short: "SetEvaluator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderSetEvaluatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEvaluator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderSetFloatValuesCmd = &cobra.Command{
+	Use:   "set-float-values",
+	Short: "SetFloatValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderSetFloatValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFloatValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderSetIntValuesCmd = &cobra.Command{
+	Use:   "set-int-values",
+	Short: "SetIntValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderSetIntValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIntValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderSetKeyframesCmd = &cobra.Command{
+	Use:   "set-keyframes",
+	Short: "SetKeyframes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.SetKeyframesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetKeyframes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderSetObjectValuesCmd = &cobra.Command{
+	Use:   "set-object-values",
+	Short: "SetObjectValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderSetObjectValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetObjectValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderSetPropertyCmd = &cobra.Command{
+	Use:   "set-property",
+	Short: "SetProperty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderSetPropertyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProperty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderSetPropertyNameCmd = &cobra.Command{
+	Use:   "set-property-name",
+	Short: "SetPropertyName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderSetPropertyNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPropertyName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderClone0_1Request{}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderOfFloatCmd = &cobra.Command{
+	Use:   "of-float",
+	Short: "OfFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderOfFloatRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OfFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderOfIntCmd = &cobra.Command{
+	Use:   "of-int",
+	Short: "OfInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderOfIntRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OfInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderOfKeyframe2Cmd = &cobra.Command{
+	Use:   "of-keyframe2",
+	Short: "OfKeyframe2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.OfKeyframe2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewAccelerateInterpolator(ctx, req)
+		resp, err := client.OfKeyframe2(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5516,48 +2775,297 @@ var animationAccelerateInterpolatorNewAccelerateInterpolatorCmd = &cobra.Command
 	},
 }
 
-var animationAccelerateInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
+var animationPropertyValuesHolderOfKeyframe2_1Cmd = &cobra.Command{
+	Use:   "of-keyframe2_1",
+	Short: "OfKeyframe2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccelerateInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.OfKeyframe2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OfKeyframe2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderOfMultiFloat2Cmd = &cobra.Command{
+	Use:   "of-multi-float2",
+	Short: "OfMultiFloat2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.OfMultiFloat2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OfMultiFloat2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderOfMultiFloat2_1Cmd = &cobra.Command{
+	Use:   "of-multi-float2_1",
+	Short: "OfMultiFloat2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.OfMultiFloat2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OfMultiFloat2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderOfMultiInt2Cmd = &cobra.Command{
+	Use:   "of-multi-int2",
+	Short: "OfMultiInt2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.OfMultiInt2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OfMultiInt2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderOfMultiInt2_1Cmd = &cobra.Command{
+	Use:   "of-multi-int2_1",
+	Short: "OfMultiInt2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.OfMultiInt2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OfMultiInt2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPropertyValuesHolderOfObjectCmd = &cobra.Command{
+	Use:   "of-object",
+	Short: "OfObject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyValuesHolderServiceClient(grpcConn)
+		req := &pb.PropertyValuesHolderOfObjectRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OfObject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationTimeAnimatorCmd = &cobra.Command{
+	Use:   "time-animator",
+	Short: "TimeAnimatorService operations",
+}
+
+var animationTimeAnimatorNewTimeAnimatorCmd = &cobra.Command{
+	Use:   "new-time-animator",
+	Short: "NewTimeAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeAnimatorServiceClient(grpcConn)
+		req := &pb.NewTimeAnimatorRequest{}
+		resp, err := client.NewTimeAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationTimeAnimatorSetCurrentPlayTimeCmd = &cobra.Command{
+	Use:   "set-current-play-time",
+	Short: "SetCurrentPlayTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeAnimatorServiceClient(grpcConn)
+		req := &pb.SetCurrentPlayTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCurrentPlayTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationTimeAnimatorSetTimeListenerCmd = &cobra.Command{
+	Use:   "set-time-listener",
+	Short: "SetTimeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeAnimatorServiceClient(grpcConn)
+		req := &pb.SetTimeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTimeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationTimeAnimatorStartCmd = &cobra.Command{
+	Use:   "start",
+	Short: "Start RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeAnimatorServiceClient(grpcConn)
+		req := &pb.StartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Start(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationTimeAnimatorTimeListenerCmd = &cobra.Command{
+	Use:   "time-animator-time-listener",
+	Short: "TimeAnimatorTimeListenerService operations",
+}
+
+var animationTimeAnimatorTimeListenerOnTimeUpdateCmd = &cobra.Command{
+	Use:   "on-time-update",
+	Short: "OnTimeUpdate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTimeAnimatorTimeListenerServiceClient(grpcConn)
+		req := &pb.OnTimeUpdateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnTimeUpdate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationFloatArrayEvaluatorCmd = &cobra.Command{
+	Use:   "float-array-evaluator",
+	Short: "FloatArrayEvaluatorService operations",
+}
+
+var animationFloatArrayEvaluatorNewFloatArrayEvaluatorCmd = &cobra.Command{
+	Use:   "new-float-array-evaluator",
+	Short: "NewFloatArrayEvaluator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloatArrayEvaluatorServiceClient(grpcConn)
+		req := &pb.NewFloatArrayEvaluatorRequest{}
+		resp, err := client.NewFloatArrayEvaluator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationFloatArrayEvaluatorEvaluate3Cmd = &cobra.Command{
+	Use:   "evaluate3",
+	Short: "Evaluate3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloatArrayEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationPathInterpolatorCmd = &cobra.Command{
-	Use:   "path-interpolator",
-	Short: "PathInterpolatorService operations",
-}
-
-var animationPathInterpolatorNewPathInterpolatorCmd = &cobra.Command{
-	Use:   "new-path-interpolator",
-	Short: "NewPathInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathInterpolatorServiceClient(grpcConn)
-		req := &pb.NewPathInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewPathInterpolator(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5565,48 +3073,27 @@ var animationPathInterpolatorNewPathInterpolatorCmd = &cobra.Command{
 	},
 }
 
-var animationPathInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
+var animationFloatArrayEvaluatorEvaluate3_1Cmd = &cobra.Command{
+	Use:   "evaluate3_1",
+	Short: "Evaluate3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPathInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
+		client := pb.NewFloatArrayEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLinearInterpolatorCmd = &cobra.Command{
-	Use:   "linear-interpolator",
-	Short: "LinearInterpolatorService operations",
-}
-
-var animationLinearInterpolatorNewLinearInterpolatorCmd = &cobra.Command{
-	Use:   "new-linear-interpolator",
-	Short: "NewLinearInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLinearInterpolatorServiceClient(grpcConn)
-		req := &pb.NewLinearInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewLinearInterpolator(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5614,48 +3101,45 @@ var animationLinearInterpolatorNewLinearInterpolatorCmd = &cobra.Command{
 	},
 }
 
-var animationLinearInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
+var animationLayoutTransitionCmd = &cobra.Command{
+	Use:   "layout-transition",
+	Short: "LayoutTransitionService operations",
+}
+
+var animationLayoutTransitionNewLayoutTransitionCmd = &cobra.Command{
+	Use:   "new-layout-transition",
+	Short: "NewLayoutTransition RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLinearInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.NewLayoutTransitionRequest{}
+		resp, err := client.NewLayoutTransition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionAddChildCmd = &cobra.Command{
+	Use:   "add-child",
+	Short: "AddChild RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.AddChildRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationScaleAnimationCmd = &cobra.Command{
-	Use:   "scale-animation",
-	Short: "ScaleAnimationService operations",
-}
-
-var animationScaleAnimationNewScaleAnimationCmd = &cobra.Command{
-	Use:   "new-scale-animation",
-	Short: "NewScaleAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScaleAnimationServiceClient(grpcConn)
-		req := &pb.NewScaleAnimationRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewScaleAnimation(ctx, req)
+		resp, err := client.AddChild(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5663,30 +3147,2297 @@ var animationScaleAnimationNewScaleAnimationCmd = &cobra.Command{
 	},
 }
 
-var animationScaleAnimationInitializeCmd = &cobra.Command{
-	Use:   "initialize",
-	Short: "Initialize RPC",
+var animationLayoutTransitionAddTransitionListenerCmd = &cobra.Command{
+	Use:   "add-transition-listener",
+	Short: "AddTransitionListener RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleAnimationServiceClient(grpcConn)
-		req := &pb.InitializeRequest{}
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.AddTransitionListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTransitionListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionDisableTransitionTypeCmd = &cobra.Command{
+	Use:   "disable-transition-type",
+	Short: "DisableTransitionType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.DisableTransitionTypeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+		resp, err := client.DisableTransitionType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionEnableTransitionTypeCmd = &cobra.Command{
+	Use:   "enable-transition-type",
+	Short: "EnableTransitionType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.EnableTransitionTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.EnableTransitionType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionGetAnimatorCmd = &cobra.Command{
+	Use:   "get-animator",
+	Short: "GetAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.GetAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionGetDurationCmd = &cobra.Command{
+	Use:   "get-duration",
+	Short: "GetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.LayoutTransitionGetDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionGetInterpolatorCmd = &cobra.Command{
+	Use:   "get-interpolator",
+	Short: "GetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.LayoutTransitionGetInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionGetStaggerCmd = &cobra.Command{
+	Use:   "get-stagger",
+	Short: "GetStagger RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.GetStaggerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStagger(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionGetStartDelayCmd = &cobra.Command{
+	Use:   "get-start-delay",
+	Short: "GetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.LayoutTransitionGetStartDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStartDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionGetTransitionListenersCmd = &cobra.Command{
+	Use:   "get-transition-listeners",
+	Short: "GetTransitionListeners RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.GetTransitionListenersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTransitionListeners(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionHideChild2Cmd = &cobra.Command{
+	Use:   "hide-child2",
+	Short: "HideChild2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.HideChild2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.HideChild2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionHideChild3_1Cmd = &cobra.Command{
+	Use:   "hide-child3_1",
+	Short: "HideChild3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.HideChild3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
 			req.Arg2 = v
 		}
+		resp, err := client.HideChild3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionIsChangingLayoutCmd = &cobra.Command{
+	Use:   "is-changing-layout",
+	Short: "IsChangingLayout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.IsChangingLayoutRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsChangingLayout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionIsRunningCmd = &cobra.Command{
+	Use:   "is-running",
+	Short: "IsRunning RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.IsRunningRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsRunning(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionIsTransitionTypeEnabledCmd = &cobra.Command{
+	Use:   "is-transition-type-enabled",
+	Short: "IsTransitionTypeEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.IsTransitionTypeEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsTransitionTypeEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionRemoveChildCmd = &cobra.Command{
+	Use:   "remove-child",
+	Short: "RemoveChild RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.RemoveChildRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RemoveChild(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionRemoveTransitionListenerCmd = &cobra.Command{
+	Use:   "remove-transition-listener",
+	Short: "RemoveTransitionListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.RemoveTransitionListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTransitionListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionSetAnimateParentHierarchyCmd = &cobra.Command{
+	Use:   "set-animate-parent-hierarchy",
+	Short: "SetAnimateParentHierarchy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.SetAnimateParentHierarchyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAnimateParentHierarchy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionSetAnimatorCmd = &cobra.Command{
+	Use:   "set-animator",
+	Short: "SetAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.SetAnimatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionSetDuration2Cmd = &cobra.Command{
+	Use:   "set-duration2",
+	Short: "SetDuration2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.SetDuration2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetDuration2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionSetDuration1_1Cmd = &cobra.Command{
+	Use:   "set-duration1_1",
+	Short: "SetDuration1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.SetDuration1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionSetInterpolatorCmd = &cobra.Command{
+	Use:   "set-interpolator",
+	Short: "SetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.LayoutTransitionSetInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionSetStaggerCmd = &cobra.Command{
+	Use:   "set-stagger",
+	Short: "SetStagger RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.SetStaggerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetStagger(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionSetStartDelayCmd = &cobra.Command{
+	Use:   "set-start-delay",
+	Short: "SetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.LayoutTransitionSetStartDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetStartDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionShowChild2Cmd = &cobra.Command{
+	Use:   "show-child2",
+	Short: "ShowChild2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.ShowChild2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ShowChild2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionShowChild3_1Cmd = &cobra.Command{
+	Use:   "show-child3_1",
+	Short: "ShowChild3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionServiceClient(grpcConn)
+		req := &pb.ShowChild3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ShowChild3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionTransitionListenerCmd = &cobra.Command{
+	Use:   "layout-transition-transition-listener",
+	Short: "LayoutTransitionTransitionListenerService operations",
+}
+
+var animationLayoutTransitionTransitionListenerEndTransitionCmd = &cobra.Command{
+	Use:   "end-transition",
+	Short: "EndTransition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionTransitionListenerServiceClient(grpcConn)
+		req := &pb.EndTransitionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
 		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
 			req.Arg3 = v
 		}
-		resp, err := client.Initialize(ctx, req)
+		resp, err := client.EndTransition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutTransitionTransitionListenerStartTransitionCmd = &cobra.Command{
+	Use:   "start-transition",
+	Short: "StartTransition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutTransitionTransitionListenerServiceClient(grpcConn)
+		req := &pb.StartTransitionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.StartTransition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPointFEvaluatorCmd = &cobra.Command{
+	Use:   "point-f-evaluator",
+	Short: "PointFEvaluatorService operations",
+}
+
+var animationPointFEvaluatorNewPointFEvaluatorCmd = &cobra.Command{
+	Use:   "new-point-f-evaluator",
+	Short: "NewPointFEvaluator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPointFEvaluatorServiceClient(grpcConn)
+		req := &pb.NewPointFEvaluatorRequest{}
+		resp, err := client.NewPointFEvaluator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPointFEvaluatorEvaluate3Cmd = &cobra.Command{
+	Use:   "evaluate3",
+	Short: "Evaluate3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPointFEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPointFEvaluatorEvaluate3_1Cmd = &cobra.Command{
+	Use:   "evaluate3_1",
+	Short: "Evaluate3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPointFEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationFloatEvaluatorCmd = &cobra.Command{
+	Use:   "float-evaluator",
+	Short: "FloatEvaluatorService operations",
+}
+
+var animationFloatEvaluatorNewFloatEvaluatorCmd = &cobra.Command{
+	Use:   "new-float-evaluator",
+	Short: "NewFloatEvaluator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloatEvaluatorServiceClient(grpcConn)
+		req := &pb.NewFloatEvaluatorRequest{}
+		resp, err := client.NewFloatEvaluator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationFloatEvaluatorEvaluate3Cmd = &cobra.Command{
+	Use:   "evaluate3",
+	Short: "Evaluate3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloatEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationFloatEvaluatorEvaluate3_1Cmd = &cobra.Command{
+	Use:   "evaluate3_1",
+	Short: "Evaluate3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFloatEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetCmd = &cobra.Command{
+	Use:   "animator-set",
+	Short: "AnimatorSetService operations",
+}
+
+var animationAnimatorSetNewAnimatorSetCmd = &cobra.Command{
+	Use:   "new-animator-set",
+	Short: "NewAnimatorSet RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.NewAnimatorSetRequest{}
+		resp, err := client.NewAnimatorSet(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.Clone0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetEndCmd = &cobra.Command{
+	Use:   "end",
+	Short: "End RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.EndRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.End(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetGetChildAnimationsCmd = &cobra.Command{
+	Use:   "get-child-animations",
+	Short: "GetChildAnimations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.GetChildAnimationsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChildAnimations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetGetCurrentPlayTimeCmd = &cobra.Command{
+	Use:   "get-current-play-time",
+	Short: "GetCurrentPlayTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.GetCurrentPlayTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentPlayTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetGetDurationCmd = &cobra.Command{
+	Use:   "get-duration",
+	Short: "GetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.GetDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetGetInterpolatorCmd = &cobra.Command{
+	Use:   "get-interpolator",
+	Short: "GetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.GetInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetGetStartDelayCmd = &cobra.Command{
+	Use:   "get-start-delay",
+	Short: "GetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.GetStartDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStartDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetGetTotalDurationCmd = &cobra.Command{
+	Use:   "get-total-duration",
+	Short: "GetTotalDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.GetTotalDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTotalDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetIsRunningCmd = &cobra.Command{
+	Use:   "is-running",
+	Short: "IsRunning RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.IsRunningRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsRunning(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetIsStartedCmd = &cobra.Command{
+	Use:   "is-started",
+	Short: "IsStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.IsStartedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetPauseCmd = &cobra.Command{
+	Use:   "pause",
+	Short: "Pause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.PauseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Pause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetPlayCmd = &cobra.Command{
+	Use:   "play",
+	Short: "Play RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.PlayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Play(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetPlaySequentiallyCmd = &cobra.Command{
+	Use:   "play-sequentially",
+	Short: "PlaySequentially RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.PlaySequentiallyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PlaySequentially(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetPlayTogetherCmd = &cobra.Command{
+	Use:   "play-together",
+	Short: "PlayTogether RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.PlayTogetherRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PlayTogether(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetResumeCmd = &cobra.Command{
+	Use:   "resume",
+	Short: "Resume RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.ResumeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Resume(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetReverseCmd = &cobra.Command{
+	Use:   "reverse",
+	Short: "Reverse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.ReverseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Reverse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetSetCurrentPlayTimeCmd = &cobra.Command{
+	Use:   "set-current-play-time",
+	Short: "SetCurrentPlayTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.SetCurrentPlayTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCurrentPlayTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetSetDuration1Cmd = &cobra.Command{
+	Use:   "set-duration1",
+	Short: "SetDuration1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.SetDuration1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetSetInterpolatorCmd = &cobra.Command{
+	Use:   "set-interpolator",
+	Short: "SetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.SetInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetSetStartDelayCmd = &cobra.Command{
+	Use:   "set-start-delay",
+	Short: "SetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.SetStartDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetSetTargetCmd = &cobra.Command{
+	Use:   "set-target",
+	Short: "SetTarget RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.SetTargetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTarget(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetSetupEndValuesCmd = &cobra.Command{
+	Use:   "setup-end-values",
+	Short: "SetupEndValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.SetupEndValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SetupEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetSetupStartValuesCmd = &cobra.Command{
+	Use:   "setup-start-values",
+	Short: "SetupStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.SetupStartValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SetupStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetStartCmd = &cobra.Command{
+	Use:   "start",
+	Short: "Start RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.StartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Start(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetSetDuration1_1Cmd = &cobra.Command{
+	Use:   "set-duration1_1",
+	Short: "SetDuration1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.SetDuration1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.Clone0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetClone0_2Cmd = &cobra.Command{
+	Use:   "clone0_2",
+	Short: "Clone0_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetServiceClient(grpcConn)
+		req := &pb.Clone0_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetBuilderCmd = &cobra.Command{
+	Use:   "animator-set-builder",
+	Short: "AnimatorSetBuilderService operations",
+}
+
+var animationAnimatorSetBuilderAfter1Cmd = &cobra.Command{
+	Use:   "after1",
+	Short: "After1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetBuilderServiceClient(grpcConn)
+		req := &pb.After1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.After1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetBuilderAfter1_1Cmd = &cobra.Command{
+	Use:   "after1_1",
+	Short: "After1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetBuilderServiceClient(grpcConn)
+		req := &pb.After1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.After1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetBuilderBeforeCmd = &cobra.Command{
+	Use:   "before",
+	Short: "Before RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetBuilderServiceClient(grpcConn)
+		req := &pb.BeforeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Before(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetBuilderWithCmd = &cobra.Command{
+	Use:   "with",
+	Short: "With RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorSetBuilderServiceClient(grpcConn)
+		req := &pb.WithRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.With(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationIntArrayEvaluatorCmd = &cobra.Command{
+	Use:   "int-array-evaluator",
+	Short: "IntArrayEvaluatorService operations",
+}
+
+var animationIntArrayEvaluatorNewIntArrayEvaluatorCmd = &cobra.Command{
+	Use:   "new-int-array-evaluator",
+	Short: "NewIntArrayEvaluator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntArrayEvaluatorServiceClient(grpcConn)
+		req := &pb.NewIntArrayEvaluatorRequest{}
+		resp, err := client.NewIntArrayEvaluator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationIntArrayEvaluatorEvaluate3Cmd = &cobra.Command{
+	Use:   "evaluate3",
+	Short: "Evaluate3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntArrayEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationIntArrayEvaluatorEvaluate3_1Cmd = &cobra.Command{
+	Use:   "evaluate3_1",
+	Short: "Evaluate3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntArrayEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationRectEvaluatorCmd = &cobra.Command{
+	Use:   "rect-evaluator",
+	Short: "RectEvaluatorService operations",
+}
+
+var animationRectEvaluatorNewRectEvaluatorCmd = &cobra.Command{
+	Use:   "new-rect-evaluator",
+	Short: "NewRectEvaluator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRectEvaluatorServiceClient(grpcConn)
+		req := &pb.NewRectEvaluatorRequest{}
+		resp, err := client.NewRectEvaluator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationRectEvaluatorEvaluate3Cmd = &cobra.Command{
+	Use:   "evaluate3",
+	Short: "Evaluate3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRectEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationRectEvaluatorEvaluate3_1Cmd = &cobra.Command{
+	Use:   "evaluate3_1",
+	Short: "Evaluate3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRectEvaluatorServiceClient(grpcConn)
+		req := &pb.Evaluate3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Evaluate3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorCmd = &cobra.Command{
+	Use:   "animator",
+	Short: "AnimatorService operations",
+}
+
+var animationAnimatorAddListenerCmd = &cobra.Command{
+	Use:   "add-listener",
+	Short: "AddListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AddListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorAddPauseListenerCmd = &cobra.Command{
+	Use:   "add-pause-listener",
+	Short: "AddPauseListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AddPauseListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPauseListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorCancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorClone0Request{}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorEndCmd = &cobra.Command{
+	Use:   "end",
+	Short: "End RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorEndRequest{}
+		resp, err := client.End(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorGetDurationCmd = &cobra.Command{
+	Use:   "get-duration",
+	Short: "GetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorGetDurationRequest{}
+		resp, err := client.GetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorGetInterpolatorCmd = &cobra.Command{
+	Use:   "get-interpolator",
+	Short: "GetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorGetInterpolatorRequest{}
+		resp, err := client.GetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorGetListenersCmd = &cobra.Command{
+	Use:   "get-listeners",
+	Short: "GetListeners RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.GetListenersRequest{}
+		resp, err := client.GetListeners(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorGetStartDelayCmd = &cobra.Command{
+	Use:   "get-start-delay",
+	Short: "GetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorGetStartDelayRequest{}
+		resp, err := client.GetStartDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorGetTotalDurationCmd = &cobra.Command{
+	Use:   "get-total-duration",
+	Short: "GetTotalDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorGetTotalDurationRequest{}
+		resp, err := client.GetTotalDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorIsPausedCmd = &cobra.Command{
+	Use:   "is-paused",
+	Short: "IsPaused RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.IsPausedRequest{}
+		resp, err := client.IsPaused(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorIsRunningCmd = &cobra.Command{
+	Use:   "is-running",
+	Short: "IsRunning RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorIsRunningRequest{}
+		resp, err := client.IsRunning(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorIsStartedCmd = &cobra.Command{
+	Use:   "is-started",
+	Short: "IsStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorIsStartedRequest{}
+		resp, err := client.IsStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorPauseCmd = &cobra.Command{
+	Use:   "pause",
+	Short: "Pause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorPauseRequest{}
+		resp, err := client.Pause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorRemoveAllListenersCmd = &cobra.Command{
+	Use:   "remove-all-listeners",
+	Short: "RemoveAllListeners RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.RemoveAllListenersRequest{}
+		resp, err := client.RemoveAllListeners(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorRemoveListenerCmd = &cobra.Command{
+	Use:   "remove-listener",
+	Short: "RemoveListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.RemoveListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorRemovePauseListenerCmd = &cobra.Command{
+	Use:   "remove-pause-listener",
+	Short: "RemovePauseListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.RemovePauseListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemovePauseListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorResumeCmd = &cobra.Command{
+	Use:   "resume",
+	Short: "Resume RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorResumeRequest{}
+		resp, err := client.Resume(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetDurationCmd = &cobra.Command{
+	Use:   "set-duration",
+	Short: "SetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.SetDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetInterpolatorCmd = &cobra.Command{
+	Use:   "set-interpolator",
+	Short: "SetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorSetInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetStartDelayCmd = &cobra.Command{
+	Use:   "set-start-delay",
+	Short: "SetStartDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorSetStartDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetTargetCmd = &cobra.Command{
+	Use:   "set-target",
+	Short: "SetTarget RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorSetTargetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTarget(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetupEndValuesCmd = &cobra.Command{
+	Use:   "setup-end-values",
+	Short: "SetupEndValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorSetupEndValuesRequest{}
+		resp, err := client.SetupEndValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorSetupStartValuesCmd = &cobra.Command{
+	Use:   "setup-start-values",
+	Short: "SetupStartValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorSetupStartValuesRequest{}
+		resp, err := client.SetupStartValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorStartCmd = &cobra.Command{
+	Use:   "start",
+	Short: "Start RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorStartRequest{}
+		resp, err := client.Start(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorServiceClient(grpcConn)
+		req := &pb.AnimatorClone0_1Request{}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorAnimatorListenerCmd = &cobra.Command{
+	Use:   "animator-animator-listener",
+	Short: "AnimatorAnimatorListenerService operations",
+}
+
+var animationAnimatorAnimatorListenerOnAnimationCancelCmd = &cobra.Command{
+	Use:   "on-animation-cancel",
+	Short: "OnAnimationCancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorAnimatorListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationCancelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationCancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorAnimatorListenerOnAnimationEndCmd = &cobra.Command{
+	Use:   "on-animation-end",
+	Short: "OnAnimationEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorAnimatorListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationEndRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorAnimatorListenerOnAnimationRepeatCmd = &cobra.Command{
+	Use:   "on-animation-repeat",
+	Short: "OnAnimationRepeat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorAnimatorListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationRepeatRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationRepeat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorAnimatorListenerOnAnimationStartCmd = &cobra.Command{
+	Use:   "on-animation-start",
+	Short: "OnAnimationStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorAnimatorListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationStartRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorAnimatorPauseListenerCmd = &cobra.Command{
+	Use:   "animator-animator-pause-listener",
+	Short: "AnimatorAnimatorPauseListenerService operations",
+}
+
+var animationAnimatorAnimatorPauseListenerOnAnimationPauseCmd = &cobra.Command{
+	Use:   "on-animation-pause",
+	Short: "OnAnimationPause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorAnimatorPauseListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationPauseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationPause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimatorAnimatorPauseListenerOnAnimationResumeCmd = &cobra.Command{
+	Use:   "on-animation-resume",
+	Short: "OnAnimationResume RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimatorAnimatorPauseListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationResumeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationResume(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationStateListAnimatorCmd = &cobra.Command{
+	Use:   "state-list-animator",
+	Short: "StateListAnimatorService operations",
+}
+
+var animationStateListAnimatorNewStateListAnimatorCmd = &cobra.Command{
+	Use:   "new-state-list-animator",
+	Short: "NewStateListAnimator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateListAnimatorServiceClient(grpcConn)
+		req := &pb.NewStateListAnimatorRequest{}
+		resp, err := client.NewStateListAnimator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationStateListAnimatorAddStateCmd = &cobra.Command{
+	Use:   "add-state",
+	Short: "AddState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateListAnimatorServiceClient(grpcConn)
+		req := &pb.AddStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationStateListAnimatorClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateListAnimatorServiceClient(grpcConn)
+		req := &pb.Clone0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationStateListAnimatorJumpToCurrentStateCmd = &cobra.Command{
+	Use:   "jump-to-current-state",
+	Short: "JumpToCurrentState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateListAnimatorServiceClient(grpcConn)
+		req := &pb.JumpToCurrentStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.JumpToCurrentState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationStateListAnimatorClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateListAnimatorServiceClient(grpcConn)
+		req := &pb.Clone0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5904,1295 +5655,6 @@ var animationGridLayoutAnimationControllerWillOverlapCmd = &cobra.Command{
 	},
 }
 
-var animationAnimationCmd = &cobra.Command{
-	Use:   "animation",
-	Short: "AnimationService operations",
-}
-
-var animationAnimationCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationComputeDurationHintCmd = &cobra.Command{
-	Use:   "compute-duration-hint",
-	Short: "ComputeDurationHint RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.ComputeDurationHintRequest{}
-		resp, err := client.ComputeDurationHint(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetBackdropColorCmd = &cobra.Command{
-	Use:   "get-backdrop-color",
-	Short: "GetBackdropColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetBackdropColorRequest{}
-		resp, err := client.GetBackdropColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetBackgroundColorCmd = &cobra.Command{
-	Use:   "get-background-color",
-	Short: "GetBackgroundColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetBackgroundColorRequest{}
-		resp, err := client.GetBackgroundColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetDetachWallpaperCmd = &cobra.Command{
-	Use:   "get-detach-wallpaper",
-	Short: "GetDetachWallpaper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetDetachWallpaperRequest{}
-		resp, err := client.GetDetachWallpaper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetDurationCmd = &cobra.Command{
-	Use:   "get-duration",
-	Short: "GetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetDurationRequest{}
-		resp, err := client.GetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetFillAfterCmd = &cobra.Command{
-	Use:   "get-fill-after",
-	Short: "GetFillAfter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetFillAfterRequest{}
-		resp, err := client.GetFillAfter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetFillBeforeCmd = &cobra.Command{
-	Use:   "get-fill-before",
-	Short: "GetFillBefore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetFillBeforeRequest{}
-		resp, err := client.GetFillBefore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetInterpolatorCmd = &cobra.Command{
-	Use:   "get-interpolator",
-	Short: "GetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetInterpolatorRequest{}
-		resp, err := client.GetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetRepeatCountCmd = &cobra.Command{
-	Use:   "get-repeat-count",
-	Short: "GetRepeatCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.AnimationGetRepeatCountRequest{}
-		resp, err := client.GetRepeatCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetRepeatModeCmd = &cobra.Command{
-	Use:   "get-repeat-mode",
-	Short: "GetRepeatMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.AnimationGetRepeatModeRequest{}
-		resp, err := client.GetRepeatMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetShowBackdropCmd = &cobra.Command{
-	Use:   "get-show-backdrop",
-	Short: "GetShowBackdrop RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetShowBackdropRequest{}
-		resp, err := client.GetShowBackdrop(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetStartOffsetCmd = &cobra.Command{
-	Use:   "get-start-offset",
-	Short: "GetStartOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetStartOffsetRequest{}
-		resp, err := client.GetStartOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetStartTimeRequest{}
-		resp, err := client.GetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetTransformation2Cmd = &cobra.Command{
-	Use:   "get-transformation2",
-	Short: "GetTransformation2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetTransformation2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetTransformation2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetTransformation3_1Cmd = &cobra.Command{
-	Use:   "get-transformation3_1",
-	Short: "GetTransformation3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetTransformation3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.GetTransformation3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationGetZAdjustmentCmd = &cobra.Command{
-	Use:   "get-z-adjustment",
-	Short: "GetZAdjustment RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.GetZAdjustmentRequest{}
-		resp, err := client.GetZAdjustment(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationHasEndedCmd = &cobra.Command{
-	Use:   "has-ended",
-	Short: "HasEnded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.HasEndedRequest{}
-		resp, err := client.HasEnded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationHasStartedCmd = &cobra.Command{
-	Use:   "has-started",
-	Short: "HasStarted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.HasStartedRequest{}
-		resp, err := client.HasStarted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationInitializeCmd = &cobra.Command{
-	Use:   "initialize",
-	Short: "Initialize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.AnimationInitializeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.Initialize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationIsFillEnabledCmd = &cobra.Command{
-	Use:   "is-fill-enabled",
-	Short: "IsFillEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.IsFillEnabledRequest{}
-		resp, err := client.IsFillEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationIsInitializedCmd = &cobra.Command{
-	Use:   "is-initialized",
-	Short: "IsInitialized RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.IsInitializedRequest{}
-		resp, err := client.IsInitialized(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationResetCmd = &cobra.Command{
-	Use:   "reset",
-	Short: "Reset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.ResetRequest{}
-		resp, err := client.Reset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationRestrictDurationCmd = &cobra.Command{
-	Use:   "restrict-duration",
-	Short: "RestrictDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.RestrictDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestrictDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationScaleCurrentDurationCmd = &cobra.Command{
-	Use:   "scale-current-duration",
-	Short: "ScaleCurrentDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.ScaleCurrentDurationRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ScaleCurrentDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetAnimationListenerCmd = &cobra.Command{
-	Use:   "set-animation-listener",
-	Short: "SetAnimationListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetAnimationListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAnimationListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetBackdropColorCmd = &cobra.Command{
-	Use:   "set-backdrop-color",
-	Short: "SetBackdropColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetBackdropColorRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBackdropColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetBackgroundColorCmd = &cobra.Command{
-	Use:   "set-background-color",
-	Short: "SetBackgroundColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetBackgroundColorRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBackgroundColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetDetachWallpaperCmd = &cobra.Command{
-	Use:   "set-detach-wallpaper",
-	Short: "SetDetachWallpaper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetDetachWallpaperRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDetachWallpaper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetDurationCmd = &cobra.Command{
-	Use:   "set-duration",
-	Short: "SetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetFillAfterCmd = &cobra.Command{
-	Use:   "set-fill-after",
-	Short: "SetFillAfter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetFillAfterRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFillAfter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetFillBeforeCmd = &cobra.Command{
-	Use:   "set-fill-before",
-	Short: "SetFillBefore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetFillBeforeRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFillBefore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetFillEnabledCmd = &cobra.Command{
-	Use:   "set-fill-enabled",
-	Short: "SetFillEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetFillEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFillEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetInterpolator2Cmd = &cobra.Command{
-	Use:   "set-interpolator2",
-	Short: "SetInterpolator2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetInterpolator2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetInterpolator2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetInterpolator1_1Cmd = &cobra.Command{
-	Use:   "set-interpolator1_1",
-	Short: "SetInterpolator1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetInterpolator1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInterpolator1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetRepeatCountCmd = &cobra.Command{
-	Use:   "set-repeat-count",
-	Short: "SetRepeatCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.AnimationSetRepeatCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRepeatCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetRepeatModeCmd = &cobra.Command{
-	Use:   "set-repeat-mode",
-	Short: "SetRepeatMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.AnimationSetRepeatModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRepeatMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetShowBackdropCmd = &cobra.Command{
-	Use:   "set-show-backdrop",
-	Short: "SetShowBackdrop RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetShowBackdropRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShowBackdrop(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetStartOffsetCmd = &cobra.Command{
-	Use:   "set-start-offset",
-	Short: "SetStartOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetStartOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetStartTimeCmd = &cobra.Command{
-	Use:   "set-start-time",
-	Short: "SetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetStartTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationSetZAdjustmentCmd = &cobra.Command{
-	Use:   "set-z-adjustment",
-	Short: "SetZAdjustment RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.SetZAdjustmentRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetZAdjustment(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationStartCmd = &cobra.Command{
-	Use:   "start",
-	Short: "Start RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.AnimationStartRequest{}
-		resp, err := client.Start(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationStartNowCmd = &cobra.Command{
-	Use:   "start-now",
-	Short: "StartNow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.StartNowRequest{}
-		resp, err := client.StartNow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationWillChangeBoundsCmd = &cobra.Command{
-	Use:   "will-change-bounds",
-	Short: "WillChangeBounds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.WillChangeBoundsRequest{}
-		resp, err := client.WillChangeBounds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationWillChangeTransformationMatrixCmd = &cobra.Command{
-	Use:   "will-change-transformation-matrix",
-	Short: "WillChangeTransformationMatrix RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationServiceClient(grpcConn)
-		req := &pb.WillChangeTransformationMatrixRequest{}
-		resp, err := client.WillChangeTransformationMatrix(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationListenerCmd = &cobra.Command{
-	Use:   "animation-listener",
-	Short: "AnimationListenerService operations",
-}
-
-var animationAnimationListenerOnAnimationEndCmd = &cobra.Command{
-	Use:   "on-animation-end",
-	Short: "OnAnimationEnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationListenerServiceClient(grpcConn)
-		req := &pb.OnAnimationEndRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationEnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationListenerOnAnimationRepeatCmd = &cobra.Command{
-	Use:   "on-animation-repeat",
-	Short: "OnAnimationRepeat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationListenerServiceClient(grpcConn)
-		req := &pb.OnAnimationRepeatRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationRepeat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnimationListenerOnAnimationStartCmd = &cobra.Command{
-	Use:   "on-animation-start",
-	Short: "OnAnimationStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnimationListenerServiceClient(grpcConn)
-		req := &pb.OnAnimationStartRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnAnimationStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerCmd = &cobra.Command{
-	Use:   "layout-animation-controller",
-	Short: "LayoutAnimationControllerService operations",
-}
-
-var animationLayoutAnimationControllerNewLayoutAnimationControllerCmd = &cobra.Command{
-	Use:   "new-layout-animation-controller",
-	Short: "NewLayoutAnimationController RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.NewLayoutAnimationControllerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewLayoutAnimationController(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerGetAnimationCmd = &cobra.Command{
-	Use:   "get-animation",
-	Short: "GetAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.GetAnimationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAnimation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerGetAnimationForViewCmd = &cobra.Command{
-	Use:   "get-animation-for-view",
-	Short: "GetAnimationForView RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.GetAnimationForViewRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetAnimationForView(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerGetDelayCmd = &cobra.Command{
-	Use:   "get-delay",
-	Short: "GetDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.GetDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerGetInterpolatorCmd = &cobra.Command{
-	Use:   "get-interpolator",
-	Short: "GetInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.LayoutAnimationControllerGetInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerGetOrderCmd = &cobra.Command{
-	Use:   "get-order",
-	Short: "GetOrder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.GetOrderRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetOrder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerIsDoneCmd = &cobra.Command{
-	Use:   "is-done",
-	Short: "IsDone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.IsDoneRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsDone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerSetAnimation2Cmd = &cobra.Command{
-	Use:   "set-animation2",
-	Short: "SetAnimation2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.SetAnimation2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetAnimation2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerSetAnimation1_1Cmd = &cobra.Command{
-	Use:   "set-animation1_1",
-	Short: "SetAnimation1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.SetAnimation1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAnimation1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerSetDelayCmd = &cobra.Command{
-	Use:   "set-delay",
-	Short: "SetDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.SetDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerSetInterpolator2Cmd = &cobra.Command{
-	Use:   "set-interpolator2",
-	Short: "SetInterpolator2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.LayoutAnimationControllerSetInterpolator2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetInterpolator2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerSetInterpolator1_1Cmd = &cobra.Command{
-	Use:   "set-interpolator1_1",
-	Short: "SetInterpolator1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.LayoutAnimationControllerSetInterpolator1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInterpolator1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerSetOrderCmd = &cobra.Command{
-	Use:   "set-order",
-	Short: "SetOrder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.SetOrderRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOrder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerStartCmd = &cobra.Command{
-	Use:   "start",
-	Short: "Start RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.LayoutAnimationControllerStartRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Start(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationLayoutAnimationControllerWillOverlapCmd = &cobra.Command{
-	Use:   "will-overlap",
-	Short: "WillOverlap RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
-		req := &pb.WillOverlapRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.WillOverlap(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnticipateOvershootInterpolatorCmd = &cobra.Command{
-	Use:   "anticipate-overshoot-interpolator",
-	Short: "AnticipateOvershootInterpolatorService operations",
-}
-
-var animationAnticipateOvershootInterpolatorNewAnticipateOvershootInterpolatorCmd = &cobra.Command{
-	Use:   "new-anticipate-overshoot-interpolator",
-	Short: "NewAnticipateOvershootInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnticipateOvershootInterpolatorServiceClient(grpcConn)
-		req := &pb.NewAnticipateOvershootInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewAnticipateOvershootInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnticipateOvershootInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnticipateOvershootInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationCycleInterpolatorCmd = &cobra.Command{
-	Use:   "cycle-interpolator",
-	Short: "CycleInterpolatorService operations",
-}
-
-var animationCycleInterpolatorNewCycleInterpolatorCmd = &cobra.Command{
-	Use:   "new-cycle-interpolator",
-	Short: "NewCycleInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCycleInterpolatorServiceClient(grpcConn)
-		req := &pb.NewCycleInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewCycleInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationCycleInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCycleInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var animationRotateAnimationCmd = &cobra.Command{
 	Use:   "rotate-animation",
 	Short: "RotateAnimationService operations",
@@ -7251,26 +5713,26 @@ var animationRotateAnimationInitializeCmd = &cobra.Command{
 	},
 }
 
-var animationAlphaAnimationCmd = &cobra.Command{
-	Use:   "alpha-animation",
-	Short: "AlphaAnimationService operations",
+var animationCycleInterpolatorCmd = &cobra.Command{
+	Use:   "cycle-interpolator",
+	Short: "CycleInterpolatorService operations",
 }
 
-var animationAlphaAnimationNewAlphaAnimationCmd = &cobra.Command{
-	Use:   "new-alpha-animation",
-	Short: "NewAlphaAnimation RPC",
+var animationCycleInterpolatorNewCycleInterpolatorCmd = &cobra.Command{
+	Use:   "new-cycle-interpolator",
+	Short: "NewCycleInterpolator RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAlphaAnimationServiceClient(grpcConn)
-		req := &pb.NewAlphaAnimationRequest{}
+		client := pb.NewCycleInterpolatorServiceClient(grpcConn)
+		req := &pb.NewCycleInterpolatorRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewAlphaAnimation(ctx, req)
+		resp, err := client.NewCycleInterpolator(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7278,14 +5740,412 @@ var animationAlphaAnimationNewAlphaAnimationCmd = &cobra.Command{
 	},
 }
 
-var animationAlphaAnimationWillChangeBoundsCmd = &cobra.Command{
+var animationCycleInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCycleInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetCmd = &cobra.Command{
+	Use:   "set",
+	Short: "SetService operations",
+}
+
+var animationSetNewSetCmd = &cobra.Command{
+	Use:   "new-set",
+	Short: "NewSet RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.NewSetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewSet(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetAddAnimationCmd = &cobra.Command{
+	Use:   "add-animation",
+	Short: "AddAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.AddAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetComputeDurationHintCmd = &cobra.Command{
+	Use:   "compute-duration-hint",
+	Short: "ComputeDurationHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.ComputeDurationHintRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ComputeDurationHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetGetAnimationsCmd = &cobra.Command{
+	Use:   "get-animations",
+	Short: "GetAnimations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.GetAnimationsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAnimations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetGetDurationCmd = &cobra.Command{
+	Use:   "get-duration",
+	Short: "GetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.GetDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.GetStartTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetGetTransformationCmd = &cobra.Command{
+	Use:   "get-transformation",
+	Short: "GetTransformation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.GetTransformationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTransformation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetInitializeCmd = &cobra.Command{
+	Use:   "initialize",
+	Short: "Initialize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.InitializeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Initialize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.ResetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetRestrictDurationCmd = &cobra.Command{
+	Use:   "restrict-duration",
+	Short: "RestrictDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.RestrictDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestrictDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetScaleCurrentDurationCmd = &cobra.Command{
+	Use:   "scale-current-duration",
+	Short: "ScaleCurrentDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.ScaleCurrentDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ScaleCurrentDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetSetDurationCmd = &cobra.Command{
+	Use:   "set-duration",
+	Short: "SetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetSetDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetSetFillAfterCmd = &cobra.Command{
+	Use:   "set-fill-after",
+	Short: "SetFillAfter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetFillAfterRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFillAfter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetSetFillBeforeCmd = &cobra.Command{
+	Use:   "set-fill-before",
+	Short: "SetFillBefore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetFillBeforeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFillBefore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetSetRepeatModeCmd = &cobra.Command{
+	Use:   "set-repeat-mode",
+	Short: "SetRepeatMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetRepeatModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRepeatMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetSetStartOffsetCmd = &cobra.Command{
+	Use:   "set-start-offset",
+	Short: "SetStartOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetStartOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetSetStartTimeCmd = &cobra.Command{
+	Use:   "set-start-time",
+	Short: "SetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.SetStartTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationSetWillChangeBoundsCmd = &cobra.Command{
 	Use:   "will-change-bounds",
 	Short: "WillChangeBounds RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAlphaAnimationServiceClient(grpcConn)
-		req := &pb.AlphaAnimationWillChangeBoundsRequest{}
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.WillChangeBoundsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -7297,14 +6157,14 @@ var animationAlphaAnimationWillChangeBoundsCmd = &cobra.Command{
 	},
 }
 
-var animationAlphaAnimationWillChangeTransformationMatrixCmd = &cobra.Command{
+var animationSetWillChangeTransformationMatrixCmd = &cobra.Command{
 	Use:   "will-change-transformation-matrix",
 	Short: "WillChangeTransformationMatrix RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAlphaAnimationServiceClient(grpcConn)
-		req := &pb.AlphaAnimationWillChangeTransformationMatrixRequest{}
+		client := pb.NewSetServiceClient(grpcConn)
+		req := &pb.WillChangeTransformationMatrixRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -7316,64 +6176,26 @@ var animationAlphaAnimationWillChangeTransformationMatrixCmd = &cobra.Command{
 	},
 }
 
-var animationUtilsCmd = &cobra.Command{
-	Use:   "utils",
-	Short: "UtilsService operations",
+var animationDecelerateInterpolatorCmd = &cobra.Command{
+	Use:   "decelerate-interpolator",
+	Short: "DecelerateInterpolatorService operations",
 }
 
-var animationUtilsNewUtilsCmd = &cobra.Command{
-	Use:   "new-utils",
-	Short: "NewUtils RPC",
+var animationDecelerateInterpolatorNewDecelerateInterpolatorCmd = &cobra.Command{
+	Use:   "new-decelerate-interpolator",
+	Short: "NewDecelerateInterpolator RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.NewUtilsRequest{}
-		resp, err := client.NewUtils(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationUtilsCurrentAnimationTimeMillisCmd = &cobra.Command{
-	Use:   "current-animation-time-millis",
-	Short: "CurrentAnimationTimeMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.CurrentAnimationTimeMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.CurrentAnimationTimeMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationUtilsLoadAnimationCmd = &cobra.Command{
-	Use:   "load-animation",
-	Short: "LoadAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.LoadAnimationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewDecelerateInterpolatorServiceClient(grpcConn)
+		req := &pb.NewDecelerateInterpolatorRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.LoadAnimation(ctx, req)
+		resp, err := client.NewDecelerateInterpolator(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7381,121 +6203,21 @@ var animationUtilsLoadAnimationCmd = &cobra.Command{
 	},
 }
 
-var animationUtilsLoadInterpolatorCmd = &cobra.Command{
-	Use:   "load-interpolator",
-	Short: "LoadInterpolator RPC",
+var animationDecelerateInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.LoadInterpolatorRequest{}
+		client := pb.NewDecelerateInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationUtilsLoadLayoutAnimationCmd = &cobra.Command{
-	Use:   "load-layout-animation",
-	Short: "LoadLayoutAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.LoadLayoutAnimationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LoadLayoutAnimation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationUtilsMakeInAnimationCmd = &cobra.Command{
-	Use:   "make-in-animation",
-	Short: "MakeInAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.MakeInAnimationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MakeInAnimation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationUtilsMakeInChildBottomAnimationCmd = &cobra.Command{
-	Use:   "make-in-child-bottom-animation",
-	Short: "MakeInChildBottomAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.MakeInChildBottomAnimationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MakeInChildBottomAnimation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationUtilsMakeOutAnimationCmd = &cobra.Command{
-	Use:   "make-out-animation",
-	Short: "MakeOutAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUtilsServiceClient(grpcConn)
-		req := &pb.MakeOutAnimationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MakeOutAnimation(ctx, req)
+		resp, err := client.GetInterpolation(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7726,55 +6448,6 @@ var animationTransformationToStringCmd = &cobra.Command{
 	},
 }
 
-var animationBounceInterpolatorCmd = &cobra.Command{
-	Use:   "bounce-interpolator",
-	Short: "BounceInterpolatorService operations",
-}
-
-var animationBounceInterpolatorNewBounceInterpolatorCmd = &cobra.Command{
-	Use:   "new-bounce-interpolator",
-	Short: "NewBounceInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBounceInterpolatorServiceClient(grpcConn)
-		req := &pb.NewBounceInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewBounceInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationBounceInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBounceInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var animationOvershootInterpolatorCmd = &cobra.Command{
 	Use:   "overshoot-interpolator",
 	Short: "OvershootInterpolatorService operations",
@@ -7809,7 +6482,7 @@ var animationOvershootInterpolatorGetInterpolationCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewOvershootInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -7817,6 +6490,1850 @@ var animationOvershootInterpolatorGetInterpolationCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationUtilsCmd = &cobra.Command{
+	Use:   "utils",
+	Short: "UtilsService operations",
+}
+
+var animationUtilsNewUtilsCmd = &cobra.Command{
+	Use:   "new-utils",
+	Short: "NewUtils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.NewUtilsRequest{}
+		resp, err := client.NewUtils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationUtilsCurrentAnimationTimeMillisCmd = &cobra.Command{
+	Use:   "current-animation-time-millis",
+	Short: "CurrentAnimationTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.CurrentAnimationTimeMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CurrentAnimationTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationUtilsLoadAnimationCmd = &cobra.Command{
+	Use:   "load-animation",
+	Short: "LoadAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.LoadAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationUtilsLoadInterpolatorCmd = &cobra.Command{
+	Use:   "load-interpolator",
+	Short: "LoadInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.LoadInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationUtilsLoadLayoutAnimationCmd = &cobra.Command{
+	Use:   "load-layout-animation",
+	Short: "LoadLayoutAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.LoadLayoutAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadLayoutAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationUtilsMakeInAnimationCmd = &cobra.Command{
+	Use:   "make-in-animation",
+	Short: "MakeInAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.MakeInAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MakeInAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationUtilsMakeInChildBottomAnimationCmd = &cobra.Command{
+	Use:   "make-in-child-bottom-animation",
+	Short: "MakeInChildBottomAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.MakeInChildBottomAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MakeInChildBottomAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationUtilsMakeOutAnimationCmd = &cobra.Command{
+	Use:   "make-out-animation",
+	Short: "MakeOutAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUtilsServiceClient(grpcConn)
+		req := &pb.MakeOutAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MakeOutAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPathInterpolatorCmd = &cobra.Command{
+	Use:   "path-interpolator",
+	Short: "PathInterpolatorService operations",
+}
+
+var animationPathInterpolatorNewPathInterpolatorCmd = &cobra.Command{
+	Use:   "new-path-interpolator",
+	Short: "NewPathInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathInterpolatorServiceClient(grpcConn)
+		req := &pb.NewPathInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewPathInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationPathInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAlphaAnimationCmd = &cobra.Command{
+	Use:   "alpha-animation",
+	Short: "AlphaAnimationService operations",
+}
+
+var animationAlphaAnimationNewAlphaAnimationCmd = &cobra.Command{
+	Use:   "new-alpha-animation",
+	Short: "NewAlphaAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAlphaAnimationServiceClient(grpcConn)
+		req := &pb.NewAlphaAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAlphaAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAlphaAnimationWillChangeBoundsCmd = &cobra.Command{
+	Use:   "will-change-bounds",
+	Short: "WillChangeBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAlphaAnimationServiceClient(grpcConn)
+		req := &pb.WillChangeBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.WillChangeBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAlphaAnimationWillChangeTransformationMatrixCmd = &cobra.Command{
+	Use:   "will-change-transformation-matrix",
+	Short: "WillChangeTransformationMatrix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAlphaAnimationServiceClient(grpcConn)
+		req := &pb.WillChangeTransformationMatrixRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.WillChangeTransformationMatrix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationBounceInterpolatorCmd = &cobra.Command{
+	Use:   "bounce-interpolator",
+	Short: "BounceInterpolatorService operations",
+}
+
+var animationBounceInterpolatorNewBounceInterpolatorCmd = &cobra.Command{
+	Use:   "new-bounce-interpolator",
+	Short: "NewBounceInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBounceInterpolatorServiceClient(grpcConn)
+		req := &pb.NewBounceInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewBounceInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationBounceInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBounceInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLinearInterpolatorCmd = &cobra.Command{
+	Use:   "linear-interpolator",
+	Short: "LinearInterpolatorService operations",
+}
+
+var animationLinearInterpolatorNewLinearInterpolatorCmd = &cobra.Command{
+	Use:   "new-linear-interpolator",
+	Short: "NewLinearInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLinearInterpolatorServiceClient(grpcConn)
+		req := &pb.NewLinearInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewLinearInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLinearInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLinearInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnticipateOvershootInterpolatorCmd = &cobra.Command{
+	Use:   "anticipate-overshoot-interpolator",
+	Short: "AnticipateOvershootInterpolatorService operations",
+}
+
+var animationAnticipateOvershootInterpolatorNewAnticipateOvershootInterpolatorCmd = &cobra.Command{
+	Use:   "new-anticipate-overshoot-interpolator",
+	Short: "NewAnticipateOvershootInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnticipateOvershootInterpolatorServiceClient(grpcConn)
+		req := &pb.NewAnticipateOvershootInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAnticipateOvershootInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnticipateOvershootInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnticipateOvershootInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnticipateInterpolatorCmd = &cobra.Command{
+	Use:   "anticipate-interpolator",
+	Short: "AnticipateInterpolatorService operations",
+}
+
+var animationAnticipateInterpolatorNewAnticipateInterpolatorCmd = &cobra.Command{
+	Use:   "new-anticipate-interpolator",
+	Short: "NewAnticipateInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnticipateInterpolatorServiceClient(grpcConn)
+		req := &pb.NewAnticipateInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAnticipateInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnticipateInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnticipateInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationScaleAnimationCmd = &cobra.Command{
+	Use:   "scale-animation",
+	Short: "ScaleAnimationService operations",
+}
+
+var animationScaleAnimationNewScaleAnimationCmd = &cobra.Command{
+	Use:   "new-scale-animation",
+	Short: "NewScaleAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleAnimationServiceClient(grpcConn)
+		req := &pb.NewScaleAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewScaleAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationScaleAnimationInitializeCmd = &cobra.Command{
+	Use:   "initialize",
+	Short: "Initialize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleAnimationServiceClient(grpcConn)
+		req := &pb.InitializeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Initialize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerCmd = &cobra.Command{
+	Use:   "layout-animation-controller",
+	Short: "LayoutAnimationControllerService operations",
+}
+
+var animationLayoutAnimationControllerNewLayoutAnimationControllerCmd = &cobra.Command{
+	Use:   "new-layout-animation-controller",
+	Short: "NewLayoutAnimationController RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.NewLayoutAnimationControllerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewLayoutAnimationController(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerGetAnimationCmd = &cobra.Command{
+	Use:   "get-animation",
+	Short: "GetAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.GetAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerGetAnimationForViewCmd = &cobra.Command{
+	Use:   "get-animation-for-view",
+	Short: "GetAnimationForView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.GetAnimationForViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAnimationForView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerGetDelayCmd = &cobra.Command{
+	Use:   "get-delay",
+	Short: "GetDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.GetDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerGetInterpolatorCmd = &cobra.Command{
+	Use:   "get-interpolator",
+	Short: "GetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.GetInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerGetOrderCmd = &cobra.Command{
+	Use:   "get-order",
+	Short: "GetOrder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.GetOrderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOrder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerIsDoneCmd = &cobra.Command{
+	Use:   "is-done",
+	Short: "IsDone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.IsDoneRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsDone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerSetAnimation2Cmd = &cobra.Command{
+	Use:   "set-animation2",
+	Short: "SetAnimation2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.SetAnimation2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetAnimation2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerSetAnimation1_1Cmd = &cobra.Command{
+	Use:   "set-animation1_1",
+	Short: "SetAnimation1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.SetAnimation1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAnimation1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerSetDelayCmd = &cobra.Command{
+	Use:   "set-delay",
+	Short: "SetDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.SetDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerSetInterpolator2Cmd = &cobra.Command{
+	Use:   "set-interpolator2",
+	Short: "SetInterpolator2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.SetInterpolator2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetInterpolator2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerSetInterpolator1_1Cmd = &cobra.Command{
+	Use:   "set-interpolator1_1",
+	Short: "SetInterpolator1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.SetInterpolator1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterpolator1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerSetOrderCmd = &cobra.Command{
+	Use:   "set-order",
+	Short: "SetOrder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.SetOrderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerStartCmd = &cobra.Command{
+	Use:   "start",
+	Short: "Start RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.StartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Start(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationLayoutAnimationControllerWillOverlapCmd = &cobra.Command{
+	Use:   "will-overlap",
+	Short: "WillOverlap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLayoutAnimationControllerServiceClient(grpcConn)
+		req := &pb.WillOverlapRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.WillOverlap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAccelerateDecelerateInterpolatorCmd = &cobra.Command{
+	Use:   "accelerate-decelerate-interpolator",
+	Short: "AccelerateDecelerateInterpolatorService operations",
+}
+
+var animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolatorCmd = &cobra.Command{
+	Use:   "new-accelerate-decelerate-interpolator",
+	Short: "NewAccelerateDecelerateInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccelerateDecelerateInterpolatorServiceClient(grpcConn)
+		req := &pb.NewAccelerateDecelerateInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAccelerateDecelerateInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAccelerateDecelerateInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccelerateDecelerateInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAccelerateInterpolatorCmd = &cobra.Command{
+	Use:   "accelerate-interpolator",
+	Short: "AccelerateInterpolatorService operations",
+}
+
+var animationAccelerateInterpolatorNewAccelerateInterpolatorCmd = &cobra.Command{
+	Use:   "new-accelerate-interpolator",
+	Short: "NewAccelerateInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccelerateInterpolatorServiceClient(grpcConn)
+		req := &pb.NewAccelerateInterpolatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAccelerateInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAccelerateInterpolatorGetInterpolationCmd = &cobra.Command{
+	Use:   "get-interpolation",
+	Short: "GetInterpolation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccelerateInterpolatorServiceClient(grpcConn)
+		req := &pb.CycleInterpolatorGetInterpolationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInterpolation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationCmd = &cobra.Command{
+	Use:   "animation",
+	Short: "AnimationService operations",
+}
+
+var animationAnimationCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationCancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationComputeDurationHintCmd = &cobra.Command{
+	Use:   "compute-duration-hint",
+	Short: "ComputeDurationHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationComputeDurationHintRequest{}
+		resp, err := client.ComputeDurationHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetBackdropColorCmd = &cobra.Command{
+	Use:   "get-backdrop-color",
+	Short: "GetBackdropColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetBackdropColorRequest{}
+		resp, err := client.GetBackdropColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetBackgroundColorCmd = &cobra.Command{
+	Use:   "get-background-color",
+	Short: "GetBackgroundColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetBackgroundColorRequest{}
+		resp, err := client.GetBackgroundColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetDetachWallpaperCmd = &cobra.Command{
+	Use:   "get-detach-wallpaper",
+	Short: "GetDetachWallpaper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetDetachWallpaperRequest{}
+		resp, err := client.GetDetachWallpaper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetDurationCmd = &cobra.Command{
+	Use:   "get-duration",
+	Short: "GetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationGetDurationRequest{}
+		resp, err := client.GetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetFillAfterCmd = &cobra.Command{
+	Use:   "get-fill-after",
+	Short: "GetFillAfter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetFillAfterRequest{}
+		resp, err := client.GetFillAfter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetFillBeforeCmd = &cobra.Command{
+	Use:   "get-fill-before",
+	Short: "GetFillBefore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetFillBeforeRequest{}
+		resp, err := client.GetFillBefore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetInterpolatorCmd = &cobra.Command{
+	Use:   "get-interpolator",
+	Short: "GetInterpolator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationGetInterpolatorRequest{}
+		resp, err := client.GetInterpolator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetRepeatCountCmd = &cobra.Command{
+	Use:   "get-repeat-count",
+	Short: "GetRepeatCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationGetRepeatCountRequest{}
+		resp, err := client.GetRepeatCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetRepeatModeCmd = &cobra.Command{
+	Use:   "get-repeat-mode",
+	Short: "GetRepeatMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationGetRepeatModeRequest{}
+		resp, err := client.GetRepeatMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetShowBackdropCmd = &cobra.Command{
+	Use:   "get-show-backdrop",
+	Short: "GetShowBackdrop RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetShowBackdropRequest{}
+		resp, err := client.GetShowBackdrop(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetStartOffsetCmd = &cobra.Command{
+	Use:   "get-start-offset",
+	Short: "GetStartOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetStartOffsetRequest{}
+		resp, err := client.GetStartOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetStartTimeCmd = &cobra.Command{
+	Use:   "get-start-time",
+	Short: "GetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationGetStartTimeRequest{}
+		resp, err := client.GetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetTransformation2Cmd = &cobra.Command{
+	Use:   "get-transformation2",
+	Short: "GetTransformation2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetTransformation2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTransformation2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetTransformation3_1Cmd = &cobra.Command{
+	Use:   "get-transformation3_1",
+	Short: "GetTransformation3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetTransformation3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetTransformation3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationGetZAdjustmentCmd = &cobra.Command{
+	Use:   "get-z-adjustment",
+	Short: "GetZAdjustment RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.GetZAdjustmentRequest{}
+		resp, err := client.GetZAdjustment(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationHasEndedCmd = &cobra.Command{
+	Use:   "has-ended",
+	Short: "HasEnded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.HasEndedRequest{}
+		resp, err := client.HasEnded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationHasStartedCmd = &cobra.Command{
+	Use:   "has-started",
+	Short: "HasStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.HasStartedRequest{}
+		resp, err := client.HasStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationInitializeCmd = &cobra.Command{
+	Use:   "initialize",
+	Short: "Initialize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationInitializeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Initialize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationIsFillEnabledCmd = &cobra.Command{
+	Use:   "is-fill-enabled",
+	Short: "IsFillEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.IsFillEnabledRequest{}
+		resp, err := client.IsFillEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationIsInitializedCmd = &cobra.Command{
+	Use:   "is-initialized",
+	Short: "IsInitialized RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.IsInitializedRequest{}
+		resp, err := client.IsInitialized(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationResetRequest{}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationRestrictDurationCmd = &cobra.Command{
+	Use:   "restrict-duration",
+	Short: "RestrictDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationRestrictDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestrictDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationScaleCurrentDurationCmd = &cobra.Command{
+	Use:   "scale-current-duration",
+	Short: "ScaleCurrentDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationScaleCurrentDurationRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ScaleCurrentDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetAnimationListenerCmd = &cobra.Command{
+	Use:   "set-animation-listener",
+	Short: "SetAnimationListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.SetAnimationListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAnimationListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetBackdropColorCmd = &cobra.Command{
+	Use:   "set-backdrop-color",
+	Short: "SetBackdropColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.SetBackdropColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBackdropColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetBackgroundColorCmd = &cobra.Command{
+	Use:   "set-background-color",
+	Short: "SetBackgroundColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.SetBackgroundColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBackgroundColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetDetachWallpaperCmd = &cobra.Command{
+	Use:   "set-detach-wallpaper",
+	Short: "SetDetachWallpaper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.SetDetachWallpaperRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDetachWallpaper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetDurationCmd = &cobra.Command{
+	Use:   "set-duration",
+	Short: "SetDuration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetDurationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetFillAfterCmd = &cobra.Command{
+	Use:   "set-fill-after",
+	Short: "SetFillAfter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetFillAfterRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFillAfter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetFillBeforeCmd = &cobra.Command{
+	Use:   "set-fill-before",
+	Short: "SetFillBefore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetFillBeforeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFillBefore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetFillEnabledCmd = &cobra.Command{
+	Use:   "set-fill-enabled",
+	Short: "SetFillEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.SetFillEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFillEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetInterpolator2Cmd = &cobra.Command{
+	Use:   "set-interpolator2",
+	Short: "SetInterpolator2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetInterpolator2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetInterpolator2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetInterpolator1_1Cmd = &cobra.Command{
+	Use:   "set-interpolator1_1",
+	Short: "SetInterpolator1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetInterpolator1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterpolator1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetRepeatCountCmd = &cobra.Command{
+	Use:   "set-repeat-count",
+	Short: "SetRepeatCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetRepeatCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRepeatCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetRepeatModeCmd = &cobra.Command{
+	Use:   "set-repeat-mode",
+	Short: "SetRepeatMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetRepeatModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRepeatMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetShowBackdropCmd = &cobra.Command{
+	Use:   "set-show-backdrop",
+	Short: "SetShowBackdrop RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.SetShowBackdropRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShowBackdrop(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetStartOffsetCmd = &cobra.Command{
+	Use:   "set-start-offset",
+	Short: "SetStartOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetStartOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetStartTimeCmd = &cobra.Command{
+	Use:   "set-start-time",
+	Short: "SetStartTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationSetStartTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationSetZAdjustmentCmd = &cobra.Command{
+	Use:   "set-z-adjustment",
+	Short: "SetZAdjustment RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.SetZAdjustmentRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZAdjustment(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationStartCmd = &cobra.Command{
+	Use:   "start",
+	Short: "Start RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationStartRequest{}
+		resp, err := client.Start(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationStartNowCmd = &cobra.Command{
+	Use:   "start-now",
+	Short: "StartNow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.StartNowRequest{}
+		resp, err := client.StartNow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationWillChangeBoundsCmd = &cobra.Command{
+	Use:   "will-change-bounds",
+	Short: "WillChangeBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationWillChangeBoundsRequest{}
+		resp, err := client.WillChangeBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationWillChangeTransformationMatrixCmd = &cobra.Command{
+	Use:   "will-change-transformation-matrix",
+	Short: "WillChangeTransformationMatrix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationServiceClient(grpcConn)
+		req := &pb.AnimationWillChangeTransformationMatrixRequest{}
+		resp, err := client.WillChangeTransformationMatrix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationListenerCmd = &cobra.Command{
+	Use:   "animation-listener",
+	Short: "AnimationListenerService operations",
+}
+
+var animationAnimationListenerOnAnimationEndCmd = &cobra.Command{
+	Use:   "on-animation-end",
+	Short: "OnAnimationEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationEndRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationListenerOnAnimationRepeatCmd = &cobra.Command{
+	Use:   "on-animation-repeat",
+	Short: "OnAnimationRepeat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationRepeatRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationRepeat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var animationAnimationListenerOnAnimationStartCmd = &cobra.Command{
+	Use:   "on-animation-start",
+	Short: "OnAnimationStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAnimationListenerServiceClient(grpcConn)
+		req := &pb.OnAnimationStartRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAnimationStart(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -7882,599 +8399,27 @@ var animationTranslateAnimationInitializeCmd = &cobra.Command{
 	},
 }
 
-var animationSetCmd = &cobra.Command{
-	Use:   "set",
-	Short: "SetService operations",
-}
-
-var animationSetNewSetCmd = &cobra.Command{
-	Use:   "new-set",
-	Short: "NewSet RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.NewSetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewSet(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetAddAnimationCmd = &cobra.Command{
-	Use:   "add-animation",
-	Short: "AddAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.AddAnimationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddAnimation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetComputeDurationHintCmd = &cobra.Command{
-	Use:   "compute-duration-hint",
-	Short: "ComputeDurationHint RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetComputeDurationHintRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ComputeDurationHint(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetGetDurationCmd = &cobra.Command{
-	Use:   "get-duration",
-	Short: "GetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetGetDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetGetStartTimeCmd = &cobra.Command{
-	Use:   "get-start-time",
-	Short: "GetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetGetStartTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetGetTransformationCmd = &cobra.Command{
-	Use:   "get-transformation",
-	Short: "GetTransformation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.GetTransformationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetTransformation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetInitializeCmd = &cobra.Command{
-	Use:   "initialize",
-	Short: "Initialize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.InitializeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.Initialize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetResetCmd = &cobra.Command{
-	Use:   "reset",
-	Short: "Reset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetResetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Reset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetRestrictDurationCmd = &cobra.Command{
-	Use:   "restrict-duration",
-	Short: "RestrictDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetRestrictDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestrictDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetScaleCurrentDurationCmd = &cobra.Command{
-	Use:   "scale-current-duration",
-	Short: "ScaleCurrentDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetScaleCurrentDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ScaleCurrentDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetSetDurationCmd = &cobra.Command{
-	Use:   "set-duration",
-	Short: "SetDuration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetSetDurationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDuration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetSetFillAfterCmd = &cobra.Command{
-	Use:   "set-fill-after",
-	Short: "SetFillAfter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetSetFillAfterRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFillAfter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetSetFillBeforeCmd = &cobra.Command{
-	Use:   "set-fill-before",
-	Short: "SetFillBefore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetSetFillBeforeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFillBefore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetSetRepeatModeCmd = &cobra.Command{
-	Use:   "set-repeat-mode",
-	Short: "SetRepeatMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetSetRepeatModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRepeatMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetSetStartOffsetCmd = &cobra.Command{
-	Use:   "set-start-offset",
-	Short: "SetStartOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetSetStartOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetSetStartTimeCmd = &cobra.Command{
-	Use:   "set-start-time",
-	Short: "SetStartTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetSetStartTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStartTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetWillChangeBoundsCmd = &cobra.Command{
-	Use:   "will-change-bounds",
-	Short: "WillChangeBounds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetWillChangeBoundsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.WillChangeBounds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationSetWillChangeTransformationMatrixCmd = &cobra.Command{
-	Use:   "will-change-transformation-matrix",
-	Short: "WillChangeTransformationMatrix RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSetServiceClient(grpcConn)
-		req := &pb.SetWillChangeTransformationMatrixRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.WillChangeTransformationMatrix(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnticipateInterpolatorCmd = &cobra.Command{
-	Use:   "anticipate-interpolator",
-	Short: "AnticipateInterpolatorService operations",
-}
-
-var animationAnticipateInterpolatorNewAnticipateInterpolatorCmd = &cobra.Command{
-	Use:   "new-anticipate-interpolator",
-	Short: "NewAnticipateInterpolator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnticipateInterpolatorServiceClient(grpcConn)
-		req := &pb.NewAnticipateInterpolatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewAnticipateInterpolator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var animationAnticipateInterpolatorGetInterpolationCmd = &cobra.Command{
-	Use:   "get-interpolation",
-	Short: "GetInterpolation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAnticipateInterpolatorServiceClient(grpcConn)
-		req := &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInterpolation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
-	animationTimeAnimatorCmd.AddCommand(animationTimeAnimatorNewTimeAnimatorCmd)
-	animationTimeAnimatorSetCurrentPlayTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTimeAnimatorSetCurrentPlayTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationTimeAnimatorCmd.AddCommand(animationTimeAnimatorSetCurrentPlayTimeCmd)
-	animationTimeAnimatorSetTimeListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTimeAnimatorSetTimeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationTimeAnimatorCmd.AddCommand(animationTimeAnimatorSetTimeListenerCmd)
-	animationTimeAnimatorStartCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTimeAnimatorCmd.AddCommand(animationTimeAnimatorStartCmd)
-	animationCmd.AddCommand(animationTimeAnimatorCmd)
-	animationTimeAnimatorTimeListenerOnTimeUpdateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationTimeAnimatorTimeListenerOnTimeUpdateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationTimeAnimatorTimeListenerOnTimeUpdateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationTimeAnimatorTimeListenerCmd.AddCommand(animationTimeAnimatorTimeListenerOnTimeUpdateCmd)
-	animationCmd.AddCommand(animationTimeAnimatorTimeListenerCmd)
-	animationTimeInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationTimeInterpolatorCmd.AddCommand(animationTimeInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationTimeInterpolatorCmd)
-	animationRectEvaluatorCmd.AddCommand(animationRectEvaluatorNewRectEvaluatorCmd)
-	animationRectEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationRectEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationRectEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationRectEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationRectEvaluatorCmd.AddCommand(animationRectEvaluatorEvaluate3Cmd)
-	animationRectEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationRectEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationRectEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationRectEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationRectEvaluatorCmd.AddCommand(animationRectEvaluatorEvaluate3_1Cmd)
-	animationCmd.AddCommand(animationRectEvaluatorCmd)
-	animationAnimatorAddListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorCmd.AddCommand(animationAnimatorAddListenerCmd)
-	animationAnimatorAddPauseListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorCmd.AddCommand(animationAnimatorAddPauseListenerCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorCancelCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorClone0Cmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorEndCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorGetDurationCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorGetInterpolatorCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorGetStartDelayCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorGetTotalDurationCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorIsPausedCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorIsRunningCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorIsStartedCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorPauseCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorRemoveAllListenersCmd)
-	animationAnimatorRemoveListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorCmd.AddCommand(animationAnimatorRemoveListenerCmd)
-	animationAnimatorRemovePauseListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorCmd.AddCommand(animationAnimatorRemovePauseListenerCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorResumeCmd)
-	animationAnimatorSetDurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorCmd.AddCommand(animationAnimatorSetDurationCmd)
-	animationAnimatorSetInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorCmd.AddCommand(animationAnimatorSetInterpolatorCmd)
-	animationAnimatorSetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorCmd.AddCommand(animationAnimatorSetStartDelayCmd)
-	animationAnimatorSetTargetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorCmd.AddCommand(animationAnimatorSetTargetCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorSetupEndValuesCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorSetupStartValuesCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorStartCmd)
-	animationAnimatorCmd.AddCommand(animationAnimatorClone0_1Cmd)
-	animationCmd.AddCommand(animationAnimatorCmd)
-	animationAnimatorAnimatorListenerOnAnimationCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorAnimatorListenerCmd.AddCommand(animationAnimatorAnimatorListenerOnAnimationCancelCmd)
-	animationAnimatorAnimatorListenerOnAnimationEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorAnimatorListenerCmd.AddCommand(animationAnimatorAnimatorListenerOnAnimationEndCmd)
-	animationAnimatorAnimatorListenerOnAnimationRepeatCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorAnimatorListenerCmd.AddCommand(animationAnimatorAnimatorListenerOnAnimationRepeatCmd)
-	animationAnimatorAnimatorListenerOnAnimationStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorAnimatorListenerCmd.AddCommand(animationAnimatorAnimatorListenerOnAnimationStartCmd)
-	animationCmd.AddCommand(animationAnimatorAnimatorListenerCmd)
-	animationAnimatorAnimatorPauseListenerOnAnimationPauseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorAnimatorPauseListenerCmd.AddCommand(animationAnimatorAnimatorPauseListenerOnAnimationPauseCmd)
-	animationAnimatorAnimatorPauseListenerOnAnimationResumeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorAnimatorPauseListenerCmd.AddCommand(animationAnimatorAnimatorPauseListenerOnAnimationResumeCmd)
-	animationCmd.AddCommand(animationAnimatorAnimatorPauseListenerCmd)
-	animationFloatArrayEvaluatorCmd.AddCommand(animationFloatArrayEvaluatorNewFloatArrayEvaluatorCmd)
-	animationFloatArrayEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationFloatArrayEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationFloatArrayEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationFloatArrayEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationFloatArrayEvaluatorCmd.AddCommand(animationFloatArrayEvaluatorEvaluate3Cmd)
-	animationFloatArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationFloatArrayEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationFloatArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationFloatArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationFloatArrayEvaluatorCmd.AddCommand(animationFloatArrayEvaluatorEvaluate3_1Cmd)
-	animationCmd.AddCommand(animationFloatArrayEvaluatorCmd)
-	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorNewStateListAnimatorCmd)
-	animationStateListAnimatorAddStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationStateListAnimatorAddStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationStateListAnimatorAddStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorAddStateCmd)
-	animationStateListAnimatorClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorClone0Cmd)
-	animationStateListAnimatorJumpToCurrentStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorJumpToCurrentStateCmd)
-	animationStateListAnimatorClone0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorClone0_1Cmd)
-	animationCmd.AddCommand(animationStateListAnimatorCmd)
-	animationIntEvaluatorCmd.AddCommand(animationIntEvaluatorNewIntEvaluatorCmd)
-	animationIntEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationIntEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationIntEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationIntEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationIntEvaluatorCmd.AddCommand(animationIntEvaluatorEvaluate3Cmd)
-	animationIntEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationIntEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationIntEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationIntEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationIntEvaluatorCmd.AddCommand(animationIntEvaluatorEvaluate3_1Cmd)
-	animationCmd.AddCommand(animationIntEvaluatorCmd)
-	animationAnimatorInflaterCmd.AddCommand(animationAnimatorInflaterNewAnimatorInflaterCmd)
-	animationAnimatorInflaterLoadAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationAnimatorInflaterLoadAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorInflaterLoadAnimatorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationAnimatorInflaterCmd.AddCommand(animationAnimatorInflaterLoadAnimatorCmd)
-	animationAnimatorInflaterLoadStateListAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationAnimatorInflaterLoadStateListAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorInflaterLoadStateListAnimatorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationAnimatorInflaterCmd.AddCommand(animationAnimatorInflaterLoadStateListAnimatorCmd)
-	animationCmd.AddCommand(animationAnimatorInflaterCmd)
-	animationPointFEvaluatorCmd.AddCommand(animationPointFEvaluatorNewPointFEvaluatorCmd)
-	animationPointFEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationPointFEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationPointFEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPointFEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationPointFEvaluatorCmd.AddCommand(animationPointFEvaluatorEvaluate3Cmd)
-	animationPointFEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationPointFEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationPointFEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPointFEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationPointFEvaluatorCmd.AddCommand(animationPointFEvaluatorEvaluate3_1Cmd)
-	animationCmd.AddCommand(animationPointFEvaluatorCmd)
-	animationFloatEvaluatorCmd.AddCommand(animationFloatEvaluatorNewFloatEvaluatorCmd)
-	animationFloatEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationFloatEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationFloatEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationFloatEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationFloatEvaluatorCmd.AddCommand(animationFloatEvaluatorEvaluate3Cmd)
-	animationFloatEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationFloatEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationFloatEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationFloatEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationFloatEvaluatorCmd.AddCommand(animationFloatEvaluatorEvaluate3_1Cmd)
-	animationCmd.AddCommand(animationFloatEvaluatorCmd)
+	animationArgbEvaluatorCmd.AddCommand(animationArgbEvaluatorNewArgbEvaluatorCmd)
+	animationArgbEvaluatorEvaluateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationArgbEvaluatorEvaluateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationArgbEvaluatorEvaluateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationArgbEvaluatorEvaluateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationArgbEvaluatorCmd.AddCommand(animationArgbEvaluatorEvaluateCmd)
+	animationCmd.AddCommand(animationArgbEvaluatorCmd)
+	animationAnimatorListenerAdapterOnAnimationCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationCancelCmd)
+	animationAnimatorListenerAdapterOnAnimationEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationEndCmd)
+	animationAnimatorListenerAdapterOnAnimationPauseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationPauseCmd)
+	animationAnimatorListenerAdapterOnAnimationRepeatCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationRepeatCmd)
+	animationAnimatorListenerAdapterOnAnimationResumeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationResumeCmd)
+	animationAnimatorListenerAdapterOnAnimationStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationStartCmd)
+	animationCmd.AddCommand(animationAnimatorListenerAdapterCmd)
 	animationValueAnimatorCmd.AddCommand(animationValueAnimatorNewValueAnimatorCmd)
 	animationValueAnimatorAddUpdateListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
 	animationValueAnimatorAddUpdateListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -8608,186 +8553,6 @@ func init() {
 	animationValueAnimatorDurationScaleChangeListenerOnChangedCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
 	animationValueAnimatorDurationScaleChangeListenerCmd.AddCommand(animationValueAnimatorDurationScaleChangeListenerOnChangedCmd)
 	animationCmd.AddCommand(animationValueAnimatorDurationScaleChangeListenerCmd)
-	animationIntArrayEvaluatorCmd.AddCommand(animationIntArrayEvaluatorNewIntArrayEvaluatorCmd)
-	animationIntArrayEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationIntArrayEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationIntArrayEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationIntArrayEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationIntArrayEvaluatorCmd.AddCommand(animationIntArrayEvaluatorEvaluate3Cmd)
-	animationIntArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationIntArrayEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationIntArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationIntArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationIntArrayEvaluatorCmd.AddCommand(animationIntArrayEvaluatorEvaluate3_1Cmd)
-	animationCmd.AddCommand(animationIntArrayEvaluatorCmd)
-	animationArgbEvaluatorCmd.AddCommand(animationArgbEvaluatorNewArgbEvaluatorCmd)
-	animationArgbEvaluatorEvaluateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationArgbEvaluatorEvaluateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationArgbEvaluatorEvaluateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationArgbEvaluatorEvaluateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationArgbEvaluatorCmd.AddCommand(animationArgbEvaluatorEvaluateCmd)
-	animationCmd.AddCommand(animationArgbEvaluatorCmd)
-	animationAnimatorListenerAdapterOnAnimationCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationCancelCmd)
-	animationAnimatorListenerAdapterOnAnimationEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationEndCmd)
-	animationAnimatorListenerAdapterOnAnimationPauseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationPauseCmd)
-	animationAnimatorListenerAdapterOnAnimationRepeatCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationRepeatCmd)
-	animationAnimatorListenerAdapterOnAnimationResumeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationResumeCmd)
-	animationAnimatorListenerAdapterOnAnimationStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnimatorListenerAdapterCmd.AddCommand(animationAnimatorListenerAdapterOnAnimationStartCmd)
-	animationCmd.AddCommand(animationAnimatorListenerAdapterCmd)
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderClone0Cmd)
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderGetPropertyNameCmd)
-	animationPropertyValuesHolderSetConverterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetConverterCmd)
-	animationPropertyValuesHolderSetEvaluatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetEvaluatorCmd)
-	animationPropertyValuesHolderSetFloatValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetFloatValuesCmd)
-	animationPropertyValuesHolderSetIntValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetIntValuesCmd)
-	animationPropertyValuesHolderSetKeyframesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetKeyframesCmd)
-	animationPropertyValuesHolderSetObjectValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetObjectValuesCmd)
-	animationPropertyValuesHolderSetPropertyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetPropertyCmd)
-	animationPropertyValuesHolderSetPropertyNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetPropertyNameCmd)
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderToStringCmd)
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderClone0_1Cmd)
-	animationPropertyValuesHolderOfFloatCmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderOfFloatCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfFloatCmd)
-	animationPropertyValuesHolderOfIntCmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderOfIntCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfIntCmd)
-	animationPropertyValuesHolderOfKeyframe2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPropertyValuesHolderOfKeyframe2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfKeyframe2Cmd)
-	animationPropertyValuesHolderOfKeyframe2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderOfKeyframe2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfKeyframe2_1Cmd)
-	animationPropertyValuesHolderOfMultiFloat2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderOfMultiFloat2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfMultiFloat2Cmd)
-	animationPropertyValuesHolderOfMultiFloat2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderOfMultiFloat2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfMultiFloat2_1Cmd)
-	animationPropertyValuesHolderOfMultiInt2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderOfMultiInt2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfMultiInt2Cmd)
-	animationPropertyValuesHolderOfMultiInt2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderOfMultiInt2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfMultiInt2_1Cmd)
-	animationPropertyValuesHolderOfObjectCmd.Flags().String("arg0", "", "arg0 (string)")
-	animationPropertyValuesHolderOfObjectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPropertyValuesHolderOfObjectCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfObjectCmd)
-	animationCmd.AddCommand(animationPropertyValuesHolderCmd)
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionNewLayoutTransitionCmd)
-	animationLayoutTransitionAddChildCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionAddChildCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionAddChildCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionAddChildCmd)
-	animationLayoutTransitionAddTransitionListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionAddTransitionListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionAddTransitionListenerCmd)
-	animationLayoutTransitionDisableTransitionTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionDisableTransitionTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionDisableTransitionTypeCmd)
-	animationLayoutTransitionEnableTransitionTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionEnableTransitionTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionEnableTransitionTypeCmd)
-	animationLayoutTransitionGetAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionGetAnimatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetAnimatorCmd)
-	animationLayoutTransitionGetDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionGetDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetDurationCmd)
-	animationLayoutTransitionGetInterpolatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionGetInterpolatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetInterpolatorCmd)
-	animationLayoutTransitionGetStaggerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionGetStaggerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetStaggerCmd)
-	animationLayoutTransitionGetStartDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionGetStartDelayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetStartDelayCmd)
-	animationLayoutTransitionHideChild2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionHideChild2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionHideChild2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionHideChild2Cmd)
-	animationLayoutTransitionHideChild3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionHideChild3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionHideChild3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionHideChild3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionHideChild3_1Cmd)
-	animationLayoutTransitionIsChangingLayoutCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionIsChangingLayoutCmd)
-	animationLayoutTransitionIsRunningCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionIsRunningCmd)
-	animationLayoutTransitionIsTransitionTypeEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionIsTransitionTypeEnabledCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionIsTransitionTypeEnabledCmd)
-	animationLayoutTransitionRemoveChildCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionRemoveChildCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionRemoveChildCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionRemoveChildCmd)
-	animationLayoutTransitionRemoveTransitionListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionRemoveTransitionListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionRemoveTransitionListenerCmd)
-	animationLayoutTransitionSetAnimateParentHierarchyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionSetAnimateParentHierarchyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetAnimateParentHierarchyCmd)
-	animationLayoutTransitionSetAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionSetAnimatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionSetAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetAnimatorCmd)
-	animationLayoutTransitionSetDuration2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionSetDuration2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionSetDuration2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetDuration2Cmd)
-	animationLayoutTransitionSetDuration1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionSetDuration1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetDuration1_1Cmd)
-	animationLayoutTransitionSetInterpolatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionSetInterpolatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionSetInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetInterpolatorCmd)
-	animationLayoutTransitionSetStaggerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionSetStaggerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionSetStaggerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetStaggerCmd)
-	animationLayoutTransitionSetStartDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionSetStartDelayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutTransitionSetStartDelayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetStartDelayCmd)
-	animationLayoutTransitionShowChild2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionShowChild2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionShowChild2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionShowChild2Cmd)
-	animationLayoutTransitionShowChild3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutTransitionShowChild3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionShowChild3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionShowChild3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionShowChild3_1Cmd)
-	animationCmd.AddCommand(animationLayoutTransitionCmd)
-	animationLayoutTransitionTransitionListenerEndTransitionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionTransitionListenerEndTransitionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionTransitionListenerEndTransitionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationLayoutTransitionTransitionListenerEndTransitionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	animationLayoutTransitionTransitionListenerCmd.AddCommand(animationLayoutTransitionTransitionListenerEndTransitionCmd)
-	animationLayoutTransitionTransitionListenerStartTransitionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutTransitionTransitionListenerStartTransitionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutTransitionTransitionListenerStartTransitionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	animationLayoutTransitionTransitionListenerStartTransitionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	animationLayoutTransitionTransitionListenerCmd.AddCommand(animationLayoutTransitionTransitionListenerStartTransitionCmd)
-	animationCmd.AddCommand(animationLayoutTransitionTransitionListenerCmd)
 	animationObjectAnimatorCmd.AddCommand(animationObjectAnimatorNewObjectAnimatorCmd)
 	animationObjectAnimatorClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	animationObjectAnimatorCmd.AddCommand(animationObjectAnimatorClone0Cmd)
@@ -8897,6 +8662,261 @@ func init() {
 	animationObjectAnimatorOfPropertyValuesHolderCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	animationObjectAnimatorCmd.AddCommand(animationObjectAnimatorOfPropertyValuesHolderCmd)
 	animationCmd.AddCommand(animationObjectAnimatorCmd)
+	animationTimeInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationTimeInterpolatorCmd.AddCommand(animationTimeInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationTimeInterpolatorCmd)
+	animationKeyframeCmd.AddCommand(animationKeyframeClone0Cmd)
+	animationKeyframeCmd.AddCommand(animationKeyframeGetFractionCmd)
+	animationKeyframeCmd.AddCommand(animationKeyframeGetInterpolatorCmd)
+	animationKeyframeCmd.AddCommand(animationKeyframeGetTypeCmd)
+	animationKeyframeCmd.AddCommand(animationKeyframeGetValueCmd)
+	animationKeyframeCmd.AddCommand(animationKeyframeHasValueCmd)
+	animationKeyframeSetFractionCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationKeyframeCmd.AddCommand(animationKeyframeSetFractionCmd)
+	animationKeyframeSetInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationKeyframeCmd.AddCommand(animationKeyframeSetInterpolatorCmd)
+	animationKeyframeSetValueCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationKeyframeCmd.AddCommand(animationKeyframeSetValueCmd)
+	animationKeyframeCmd.AddCommand(animationKeyframeClone0_1Cmd)
+	animationKeyframeOfFloat1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationKeyframeCmd.AddCommand(animationKeyframeOfFloat1Cmd)
+	animationKeyframeOfFloat2_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationKeyframeOfFloat2_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	animationKeyframeCmd.AddCommand(animationKeyframeOfFloat2_1Cmd)
+	animationKeyframeOfInt1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationKeyframeCmd.AddCommand(animationKeyframeOfInt1Cmd)
+	animationKeyframeOfInt2_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationKeyframeOfInt2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationKeyframeCmd.AddCommand(animationKeyframeOfInt2_1Cmd)
+	animationKeyframeOfObject1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationKeyframeCmd.AddCommand(animationKeyframeOfObject1Cmd)
+	animationKeyframeOfObject2_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationKeyframeOfObject2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationKeyframeCmd.AddCommand(animationKeyframeOfObject2_1Cmd)
+	animationCmd.AddCommand(animationKeyframeCmd)
+	animationIntEvaluatorCmd.AddCommand(animationIntEvaluatorNewIntEvaluatorCmd)
+	animationIntEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationIntEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationIntEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationIntEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationIntEvaluatorCmd.AddCommand(animationIntEvaluatorEvaluate3Cmd)
+	animationIntEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationIntEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationIntEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationIntEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationIntEvaluatorCmd.AddCommand(animationIntEvaluatorEvaluate3_1Cmd)
+	animationCmd.AddCommand(animationIntEvaluatorCmd)
+	animationAnimatorInflaterCmd.AddCommand(animationAnimatorInflaterNewAnimatorInflaterCmd)
+	animationAnimatorInflaterLoadAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAnimatorInflaterLoadAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorInflaterLoadAnimatorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationAnimatorInflaterCmd.AddCommand(animationAnimatorInflaterLoadAnimatorCmd)
+	animationAnimatorInflaterLoadStateListAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAnimatorInflaterLoadStateListAnimatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorInflaterLoadStateListAnimatorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationAnimatorInflaterCmd.AddCommand(animationAnimatorInflaterLoadStateListAnimatorCmd)
+	animationCmd.AddCommand(animationAnimatorInflaterCmd)
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderClone0Cmd)
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderGetPropertyNameCmd)
+	animationPropertyValuesHolderSetConverterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetConverterCmd)
+	animationPropertyValuesHolderSetEvaluatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetEvaluatorCmd)
+	animationPropertyValuesHolderSetFloatValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetFloatValuesCmd)
+	animationPropertyValuesHolderSetIntValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetIntValuesCmd)
+	animationPropertyValuesHolderSetKeyframesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetKeyframesCmd)
+	animationPropertyValuesHolderSetObjectValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetObjectValuesCmd)
+	animationPropertyValuesHolderSetPropertyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetPropertyCmd)
+	animationPropertyValuesHolderSetPropertyNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderSetPropertyNameCmd)
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderToStringCmd)
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderClone0_1Cmd)
+	animationPropertyValuesHolderOfFloatCmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderOfFloatCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfFloatCmd)
+	animationPropertyValuesHolderOfIntCmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderOfIntCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfIntCmd)
+	animationPropertyValuesHolderOfKeyframe2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPropertyValuesHolderOfKeyframe2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfKeyframe2Cmd)
+	animationPropertyValuesHolderOfKeyframe2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderOfKeyframe2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfKeyframe2_1Cmd)
+	animationPropertyValuesHolderOfMultiFloat2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderOfMultiFloat2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfMultiFloat2Cmd)
+	animationPropertyValuesHolderOfMultiFloat2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderOfMultiFloat2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfMultiFloat2_1Cmd)
+	animationPropertyValuesHolderOfMultiInt2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderOfMultiInt2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfMultiInt2Cmd)
+	animationPropertyValuesHolderOfMultiInt2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderOfMultiInt2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfMultiInt2_1Cmd)
+	animationPropertyValuesHolderOfObjectCmd.Flags().String("arg0", "", "arg0 (string)")
+	animationPropertyValuesHolderOfObjectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPropertyValuesHolderOfObjectCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationPropertyValuesHolderCmd.AddCommand(animationPropertyValuesHolderOfObjectCmd)
+	animationCmd.AddCommand(animationPropertyValuesHolderCmd)
+	animationTimeAnimatorCmd.AddCommand(animationTimeAnimatorNewTimeAnimatorCmd)
+	animationTimeAnimatorSetCurrentPlayTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTimeAnimatorSetCurrentPlayTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationTimeAnimatorCmd.AddCommand(animationTimeAnimatorSetCurrentPlayTimeCmd)
+	animationTimeAnimatorSetTimeListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTimeAnimatorSetTimeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationTimeAnimatorCmd.AddCommand(animationTimeAnimatorSetTimeListenerCmd)
+	animationTimeAnimatorStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTimeAnimatorCmd.AddCommand(animationTimeAnimatorStartCmd)
+	animationCmd.AddCommand(animationTimeAnimatorCmd)
+	animationTimeAnimatorTimeListenerOnTimeUpdateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationTimeAnimatorTimeListenerOnTimeUpdateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationTimeAnimatorTimeListenerOnTimeUpdateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationTimeAnimatorTimeListenerCmd.AddCommand(animationTimeAnimatorTimeListenerOnTimeUpdateCmd)
+	animationCmd.AddCommand(animationTimeAnimatorTimeListenerCmd)
+	animationFloatArrayEvaluatorCmd.AddCommand(animationFloatArrayEvaluatorNewFloatArrayEvaluatorCmd)
+	animationFloatArrayEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationFloatArrayEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationFloatArrayEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationFloatArrayEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationFloatArrayEvaluatorCmd.AddCommand(animationFloatArrayEvaluatorEvaluate3Cmd)
+	animationFloatArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationFloatArrayEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationFloatArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationFloatArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationFloatArrayEvaluatorCmd.AddCommand(animationFloatArrayEvaluatorEvaluate3_1Cmd)
+	animationCmd.AddCommand(animationFloatArrayEvaluatorCmd)
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionNewLayoutTransitionCmd)
+	animationLayoutTransitionAddChildCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionAddChildCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionAddChildCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionAddChildCmd)
+	animationLayoutTransitionAddTransitionListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionAddTransitionListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionAddTransitionListenerCmd)
+	animationLayoutTransitionDisableTransitionTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionDisableTransitionTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionDisableTransitionTypeCmd)
+	animationLayoutTransitionEnableTransitionTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionEnableTransitionTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionEnableTransitionTypeCmd)
+	animationLayoutTransitionGetAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionGetAnimatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetAnimatorCmd)
+	animationLayoutTransitionGetDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionGetDurationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetDurationCmd)
+	animationLayoutTransitionGetInterpolatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionGetInterpolatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetInterpolatorCmd)
+	animationLayoutTransitionGetStaggerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionGetStaggerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetStaggerCmd)
+	animationLayoutTransitionGetStartDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionGetStartDelayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetStartDelayCmd)
+	animationLayoutTransitionGetTransitionListenersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionGetTransitionListenersCmd)
+	animationLayoutTransitionHideChild2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionHideChild2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionHideChild2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionHideChild2Cmd)
+	animationLayoutTransitionHideChild3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionHideChild3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionHideChild3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionHideChild3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionHideChild3_1Cmd)
+	animationLayoutTransitionIsChangingLayoutCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionIsChangingLayoutCmd)
+	animationLayoutTransitionIsRunningCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionIsRunningCmd)
+	animationLayoutTransitionIsTransitionTypeEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionIsTransitionTypeEnabledCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionIsTransitionTypeEnabledCmd)
+	animationLayoutTransitionRemoveChildCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionRemoveChildCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionRemoveChildCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionRemoveChildCmd)
+	animationLayoutTransitionRemoveTransitionListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionRemoveTransitionListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionRemoveTransitionListenerCmd)
+	animationLayoutTransitionSetAnimateParentHierarchyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionSetAnimateParentHierarchyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetAnimateParentHierarchyCmd)
+	animationLayoutTransitionSetAnimatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionSetAnimatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionSetAnimatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetAnimatorCmd)
+	animationLayoutTransitionSetDuration2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionSetDuration2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionSetDuration2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetDuration2Cmd)
+	animationLayoutTransitionSetDuration1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionSetDuration1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetDuration1_1Cmd)
+	animationLayoutTransitionSetInterpolatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionSetInterpolatorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionSetInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetInterpolatorCmd)
+	animationLayoutTransitionSetStaggerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionSetStaggerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionSetStaggerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetStaggerCmd)
+	animationLayoutTransitionSetStartDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionSetStartDelayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutTransitionSetStartDelayCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionSetStartDelayCmd)
+	animationLayoutTransitionShowChild2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionShowChild2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionShowChild2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionShowChild2Cmd)
+	animationLayoutTransitionShowChild3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutTransitionShowChild3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionShowChild3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionShowChild3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	animationLayoutTransitionCmd.AddCommand(animationLayoutTransitionShowChild3_1Cmd)
+	animationCmd.AddCommand(animationLayoutTransitionCmd)
+	animationLayoutTransitionTransitionListenerEndTransitionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionTransitionListenerEndTransitionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionTransitionListenerEndTransitionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationLayoutTransitionTransitionListenerEndTransitionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	animationLayoutTransitionTransitionListenerCmd.AddCommand(animationLayoutTransitionTransitionListenerEndTransitionCmd)
+	animationLayoutTransitionTransitionListenerStartTransitionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutTransitionTransitionListenerStartTransitionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutTransitionTransitionListenerStartTransitionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationLayoutTransitionTransitionListenerStartTransitionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	animationLayoutTransitionTransitionListenerCmd.AddCommand(animationLayoutTransitionTransitionListenerStartTransitionCmd)
+	animationCmd.AddCommand(animationLayoutTransitionTransitionListenerCmd)
+	animationPointFEvaluatorCmd.AddCommand(animationPointFEvaluatorNewPointFEvaluatorCmd)
+	animationPointFEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationPointFEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationPointFEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPointFEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationPointFEvaluatorCmd.AddCommand(animationPointFEvaluatorEvaluate3Cmd)
+	animationPointFEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationPointFEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationPointFEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPointFEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationPointFEvaluatorCmd.AddCommand(animationPointFEvaluatorEvaluate3_1Cmd)
+	animationCmd.AddCommand(animationPointFEvaluatorCmd)
+	animationFloatEvaluatorCmd.AddCommand(animationFloatEvaluatorNewFloatEvaluatorCmd)
+	animationFloatEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationFloatEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationFloatEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationFloatEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationFloatEvaluatorCmd.AddCommand(animationFloatEvaluatorEvaluate3Cmd)
+	animationFloatEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationFloatEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationFloatEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationFloatEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationFloatEvaluatorCmd.AddCommand(animationFloatEvaluatorEvaluate3_1Cmd)
+	animationCmd.AddCommand(animationFloatEvaluatorCmd)
 	animationAnimatorSetCmd.AddCommand(animationAnimatorSetNewAnimatorSetCmd)
 	animationAnimatorSetCancelCmd.Flags().Int64("handle", 0, "handle (int64)")
 	animationAnimatorSetCmd.AddCommand(animationAnimatorSetCancelCmd)
@@ -8904,6 +8924,8 @@ func init() {
 	animationAnimatorSetCmd.AddCommand(animationAnimatorSetClone0Cmd)
 	animationAnimatorSetEndCmd.Flags().Int64("handle", 0, "handle (int64)")
 	animationAnimatorSetCmd.AddCommand(animationAnimatorSetEndCmd)
+	animationAnimatorSetGetChildAnimationsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAnimatorSetCmd.AddCommand(animationAnimatorSetGetChildAnimationsCmd)
 	animationAnimatorSetGetCurrentPlayTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	animationAnimatorSetCmd.AddCommand(animationAnimatorSetGetCurrentPlayTimeCmd)
 	animationAnimatorSetGetDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -8973,80 +8995,91 @@ func init() {
 	animationAnimatorSetBuilderWithCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	animationAnimatorSetBuilderCmd.AddCommand(animationAnimatorSetBuilderWithCmd)
 	animationCmd.AddCommand(animationAnimatorSetBuilderCmd)
-	animationKeyframeCmd.AddCommand(animationKeyframeClone0Cmd)
-	animationKeyframeCmd.AddCommand(animationKeyframeGetFractionCmd)
-	animationKeyframeCmd.AddCommand(animationKeyframeGetInterpolatorCmd)
-	animationKeyframeCmd.AddCommand(animationKeyframeGetTypeCmd)
-	animationKeyframeCmd.AddCommand(animationKeyframeGetValueCmd)
-	animationKeyframeCmd.AddCommand(animationKeyframeHasValueCmd)
-	animationKeyframeSetFractionCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationKeyframeCmd.AddCommand(animationKeyframeSetFractionCmd)
-	animationKeyframeSetInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationKeyframeCmd.AddCommand(animationKeyframeSetInterpolatorCmd)
-	animationKeyframeSetValueCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationKeyframeCmd.AddCommand(animationKeyframeSetValueCmd)
-	animationKeyframeCmd.AddCommand(animationKeyframeClone0_1Cmd)
-	animationKeyframeOfFloat1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationKeyframeCmd.AddCommand(animationKeyframeOfFloat1Cmd)
-	animationKeyframeOfFloat2_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationKeyframeOfFloat2_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	animationKeyframeCmd.AddCommand(animationKeyframeOfFloat2_1Cmd)
-	animationKeyframeOfInt1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationKeyframeCmd.AddCommand(animationKeyframeOfInt1Cmd)
-	animationKeyframeOfInt2_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationKeyframeOfInt2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationKeyframeCmd.AddCommand(animationKeyframeOfInt2_1Cmd)
-	animationKeyframeOfObject1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationKeyframeCmd.AddCommand(animationKeyframeOfObject1Cmd)
-	animationKeyframeOfObject2_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationKeyframeOfObject2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationKeyframeCmd.AddCommand(animationKeyframeOfObject2_1Cmd)
-	animationCmd.AddCommand(animationKeyframeCmd)
-	animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationAccelerateDecelerateInterpolatorCmd.AddCommand(animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolatorCmd)
-	animationAccelerateDecelerateInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationAccelerateDecelerateInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationAccelerateDecelerateInterpolatorCmd.AddCommand(animationAccelerateDecelerateInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationAccelerateDecelerateInterpolatorCmd)
-	animationDecelerateInterpolatorNewDecelerateInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationDecelerateInterpolatorNewDecelerateInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationDecelerateInterpolatorCmd.AddCommand(animationDecelerateInterpolatorNewDecelerateInterpolatorCmd)
-	animationDecelerateInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationDecelerateInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationDecelerateInterpolatorCmd.AddCommand(animationDecelerateInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationDecelerateInterpolatorCmd)
-	animationAccelerateInterpolatorNewAccelerateInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAccelerateInterpolatorNewAccelerateInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationAccelerateInterpolatorCmd.AddCommand(animationAccelerateInterpolatorNewAccelerateInterpolatorCmd)
-	animationAccelerateInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationAccelerateInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationAccelerateInterpolatorCmd.AddCommand(animationAccelerateInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationAccelerateInterpolatorCmd)
-	animationPathInterpolatorNewPathInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationPathInterpolatorNewPathInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationPathInterpolatorCmd.AddCommand(animationPathInterpolatorNewPathInterpolatorCmd)
-	animationPathInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationPathInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationPathInterpolatorCmd.AddCommand(animationPathInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationPathInterpolatorCmd)
-	animationLinearInterpolatorNewLinearInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLinearInterpolatorNewLinearInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLinearInterpolatorCmd.AddCommand(animationLinearInterpolatorNewLinearInterpolatorCmd)
-	animationLinearInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLinearInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationLinearInterpolatorCmd.AddCommand(animationLinearInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationLinearInterpolatorCmd)
-	animationScaleAnimationNewScaleAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationScaleAnimationNewScaleAnimationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationScaleAnimationCmd.AddCommand(animationScaleAnimationNewScaleAnimationCmd)
-	animationScaleAnimationInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationScaleAnimationInitializeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationScaleAnimationInitializeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationScaleAnimationInitializeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	animationScaleAnimationInitializeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	animationScaleAnimationCmd.AddCommand(animationScaleAnimationInitializeCmd)
-	animationCmd.AddCommand(animationScaleAnimationCmd)
+	animationIntArrayEvaluatorCmd.AddCommand(animationIntArrayEvaluatorNewIntArrayEvaluatorCmd)
+	animationIntArrayEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationIntArrayEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationIntArrayEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationIntArrayEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationIntArrayEvaluatorCmd.AddCommand(animationIntArrayEvaluatorEvaluate3Cmd)
+	animationIntArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationIntArrayEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationIntArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationIntArrayEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationIntArrayEvaluatorCmd.AddCommand(animationIntArrayEvaluatorEvaluate3_1Cmd)
+	animationCmd.AddCommand(animationIntArrayEvaluatorCmd)
+	animationRectEvaluatorCmd.AddCommand(animationRectEvaluatorNewRectEvaluatorCmd)
+	animationRectEvaluatorEvaluate3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationRectEvaluatorEvaluate3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationRectEvaluatorEvaluate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationRectEvaluatorEvaluate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationRectEvaluatorCmd.AddCommand(animationRectEvaluatorEvaluate3Cmd)
+	animationRectEvaluatorEvaluate3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationRectEvaluatorEvaluate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationRectEvaluatorEvaluate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationRectEvaluatorEvaluate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	animationRectEvaluatorCmd.AddCommand(animationRectEvaluatorEvaluate3_1Cmd)
+	animationCmd.AddCommand(animationRectEvaluatorCmd)
+	animationAnimatorAddListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorCmd.AddCommand(animationAnimatorAddListenerCmd)
+	animationAnimatorAddPauseListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorCmd.AddCommand(animationAnimatorAddPauseListenerCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorCancelCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorClone0Cmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorEndCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorGetDurationCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorGetInterpolatorCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorGetListenersCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorGetStartDelayCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorGetTotalDurationCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorIsPausedCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorIsRunningCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorIsStartedCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorPauseCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorRemoveAllListenersCmd)
+	animationAnimatorRemoveListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorCmd.AddCommand(animationAnimatorRemoveListenerCmd)
+	animationAnimatorRemovePauseListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorCmd.AddCommand(animationAnimatorRemovePauseListenerCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorResumeCmd)
+	animationAnimatorSetDurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorCmd.AddCommand(animationAnimatorSetDurationCmd)
+	animationAnimatorSetInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorCmd.AddCommand(animationAnimatorSetInterpolatorCmd)
+	animationAnimatorSetStartDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorCmd.AddCommand(animationAnimatorSetStartDelayCmd)
+	animationAnimatorSetTargetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorCmd.AddCommand(animationAnimatorSetTargetCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorSetupEndValuesCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorSetupStartValuesCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorStartCmd)
+	animationAnimatorCmd.AddCommand(animationAnimatorClone0_1Cmd)
+	animationCmd.AddCommand(animationAnimatorCmd)
+	animationAnimatorAnimatorListenerOnAnimationCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorAnimatorListenerCmd.AddCommand(animationAnimatorAnimatorListenerOnAnimationCancelCmd)
+	animationAnimatorAnimatorListenerOnAnimationEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorAnimatorListenerCmd.AddCommand(animationAnimatorAnimatorListenerOnAnimationEndCmd)
+	animationAnimatorAnimatorListenerOnAnimationRepeatCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorAnimatorListenerCmd.AddCommand(animationAnimatorAnimatorListenerOnAnimationRepeatCmd)
+	animationAnimatorAnimatorListenerOnAnimationStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorAnimatorListenerCmd.AddCommand(animationAnimatorAnimatorListenerOnAnimationStartCmd)
+	animationCmd.AddCommand(animationAnimatorAnimatorListenerCmd)
+	animationAnimatorAnimatorPauseListenerOnAnimationPauseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorAnimatorPauseListenerCmd.AddCommand(animationAnimatorAnimatorPauseListenerOnAnimationPauseCmd)
+	animationAnimatorAnimatorPauseListenerOnAnimationResumeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnimatorAnimatorPauseListenerCmd.AddCommand(animationAnimatorAnimatorPauseListenerOnAnimationResumeCmd)
+	animationCmd.AddCommand(animationAnimatorAnimatorPauseListenerCmd)
+	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorNewStateListAnimatorCmd)
+	animationStateListAnimatorAddStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationStateListAnimatorAddStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationStateListAnimatorAddStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorAddStateCmd)
+	animationStateListAnimatorClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorClone0Cmd)
+	animationStateListAnimatorJumpToCurrentStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorJumpToCurrentStateCmd)
+	animationStateListAnimatorClone0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationStateListAnimatorCmd.AddCommand(animationStateListAnimatorClone0_1Cmd)
+	animationCmd.AddCommand(animationStateListAnimatorCmd)
 	animationGridLayoutAnimationControllerNewGridLayoutAnimationControllerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	animationGridLayoutAnimationControllerNewGridLayoutAnimationControllerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	animationGridLayoutAnimationControllerCmd.AddCommand(animationGridLayoutAnimationControllerNewGridLayoutAnimationControllerCmd)
@@ -9073,6 +9106,253 @@ func init() {
 	animationGridLayoutAnimationControllerWillOverlapCmd.Flags().Int64("handle", 0, "handle (int64)")
 	animationGridLayoutAnimationControllerCmd.AddCommand(animationGridLayoutAnimationControllerWillOverlapCmd)
 	animationCmd.AddCommand(animationGridLayoutAnimationControllerCmd)
+	animationRotateAnimationNewRotateAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationRotateAnimationNewRotateAnimationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationRotateAnimationCmd.AddCommand(animationRotateAnimationNewRotateAnimationCmd)
+	animationRotateAnimationInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationRotateAnimationInitializeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationRotateAnimationInitializeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationRotateAnimationInitializeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	animationRotateAnimationInitializeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	animationRotateAnimationCmd.AddCommand(animationRotateAnimationInitializeCmd)
+	animationCmd.AddCommand(animationRotateAnimationCmd)
+	animationCycleInterpolatorNewCycleInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationCycleInterpolatorNewCycleInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationCycleInterpolatorCmd.AddCommand(animationCycleInterpolatorNewCycleInterpolatorCmd)
+	animationCycleInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationCycleInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationCycleInterpolatorCmd.AddCommand(animationCycleInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationCycleInterpolatorCmd)
+	animationSetNewSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationSetNewSetCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationSetCmd.AddCommand(animationSetNewSetCmd)
+	animationSetAddAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetAddAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationSetCmd.AddCommand(animationSetAddAnimationCmd)
+	animationSetComputeDurationHintCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetCmd.AddCommand(animationSetComputeDurationHintCmd)
+	animationSetGetAnimationsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetCmd.AddCommand(animationSetGetAnimationsCmd)
+	animationSetGetDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetCmd.AddCommand(animationSetGetDurationCmd)
+	animationSetGetStartTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetCmd.AddCommand(animationSetGetStartTimeCmd)
+	animationSetGetTransformationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetGetTransformationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationSetGetTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationSetCmd.AddCommand(animationSetGetTransformationCmd)
+	animationSetInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetInitializeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationSetInitializeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationSetInitializeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	animationSetInitializeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	animationSetCmd.AddCommand(animationSetInitializeCmd)
+	animationSetResetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetCmd.AddCommand(animationSetResetCmd)
+	animationSetRestrictDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetRestrictDurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationSetCmd.AddCommand(animationSetRestrictDurationCmd)
+	animationSetScaleCurrentDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetScaleCurrentDurationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationSetCmd.AddCommand(animationSetScaleCurrentDurationCmd)
+	animationSetSetDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetSetDurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationSetCmd.AddCommand(animationSetSetDurationCmd)
+	animationSetSetFillAfterCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetSetFillAfterCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	animationSetCmd.AddCommand(animationSetSetFillAfterCmd)
+	animationSetSetFillBeforeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetSetFillBeforeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	animationSetCmd.AddCommand(animationSetSetFillBeforeCmd)
+	animationSetSetRepeatModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetSetRepeatModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationSetCmd.AddCommand(animationSetSetRepeatModeCmd)
+	animationSetSetStartOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetSetStartOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationSetCmd.AddCommand(animationSetSetStartOffsetCmd)
+	animationSetSetStartTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetSetStartTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationSetCmd.AddCommand(animationSetSetStartTimeCmd)
+	animationSetWillChangeBoundsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetCmd.AddCommand(animationSetWillChangeBoundsCmd)
+	animationSetWillChangeTransformationMatrixCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationSetCmd.AddCommand(animationSetWillChangeTransformationMatrixCmd)
+	animationCmd.AddCommand(animationSetCmd)
+	animationDecelerateInterpolatorNewDecelerateInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationDecelerateInterpolatorNewDecelerateInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationDecelerateInterpolatorCmd.AddCommand(animationDecelerateInterpolatorNewDecelerateInterpolatorCmd)
+	animationDecelerateInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationDecelerateInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationDecelerateInterpolatorCmd.AddCommand(animationDecelerateInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationDecelerateInterpolatorCmd)
+	animationTransformationCmd.AddCommand(animationTransformationNewTransformationCmd)
+	animationTransformationClearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationCmd.AddCommand(animationTransformationClearCmd)
+	animationTransformationComposeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationComposeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationTransformationCmd.AddCommand(animationTransformationComposeCmd)
+	animationTransformationGetAlphaCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationCmd.AddCommand(animationTransformationGetAlphaCmd)
+	animationTransformationGetMatrixCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationCmd.AddCommand(animationTransformationGetMatrixCmd)
+	animationTransformationGetTransformationTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationCmd.AddCommand(animationTransformationGetTransformationTypeCmd)
+	animationTransformationSetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationTransformationCmd.AddCommand(animationTransformationSetCmd)
+	animationTransformationSetAlphaCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationSetAlphaCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationTransformationCmd.AddCommand(animationTransformationSetAlphaCmd)
+	animationTransformationSetTransformationTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationSetTransformationTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationTransformationCmd.AddCommand(animationTransformationSetTransformationTypeCmd)
+	animationTransformationToShortStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationCmd.AddCommand(animationTransformationToShortStringCmd)
+	animationTransformationToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationTransformationCmd.AddCommand(animationTransformationToStringCmd)
+	animationCmd.AddCommand(animationTransformationCmd)
+	animationOvershootInterpolatorNewOvershootInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationOvershootInterpolatorNewOvershootInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationOvershootInterpolatorCmd.AddCommand(animationOvershootInterpolatorNewOvershootInterpolatorCmd)
+	animationOvershootInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationOvershootInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationOvershootInterpolatorCmd.AddCommand(animationOvershootInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationOvershootInterpolatorCmd)
+	animationUtilsCmd.AddCommand(animationUtilsNewUtilsCmd)
+	animationUtilsCurrentAnimationTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationUtilsCmd.AddCommand(animationUtilsCurrentAnimationTimeMillisCmd)
+	animationUtilsLoadAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationUtilsLoadAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationUtilsLoadAnimationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationUtilsCmd.AddCommand(animationUtilsLoadAnimationCmd)
+	animationUtilsLoadInterpolatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationUtilsLoadInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationUtilsLoadInterpolatorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationUtilsCmd.AddCommand(animationUtilsLoadInterpolatorCmd)
+	animationUtilsLoadLayoutAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationUtilsLoadLayoutAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationUtilsLoadLayoutAnimationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationUtilsCmd.AddCommand(animationUtilsLoadLayoutAnimationCmd)
+	animationUtilsMakeInAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationUtilsMakeInAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationUtilsMakeInAnimationCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	animationUtilsCmd.AddCommand(animationUtilsMakeInAnimationCmd)
+	animationUtilsMakeInChildBottomAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationUtilsMakeInChildBottomAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationUtilsCmd.AddCommand(animationUtilsMakeInChildBottomAnimationCmd)
+	animationUtilsMakeOutAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationUtilsMakeOutAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationUtilsMakeOutAnimationCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	animationUtilsCmd.AddCommand(animationUtilsMakeOutAnimationCmd)
+	animationCmd.AddCommand(animationUtilsCmd)
+	animationPathInterpolatorNewPathInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationPathInterpolatorNewPathInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationPathInterpolatorCmd.AddCommand(animationPathInterpolatorNewPathInterpolatorCmd)
+	animationPathInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationPathInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationPathInterpolatorCmd.AddCommand(animationPathInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationPathInterpolatorCmd)
+	animationAlphaAnimationNewAlphaAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAlphaAnimationNewAlphaAnimationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationAlphaAnimationCmd.AddCommand(animationAlphaAnimationNewAlphaAnimationCmd)
+	animationAlphaAnimationWillChangeBoundsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAlphaAnimationCmd.AddCommand(animationAlphaAnimationWillChangeBoundsCmd)
+	animationAlphaAnimationWillChangeTransformationMatrixCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAlphaAnimationCmd.AddCommand(animationAlphaAnimationWillChangeTransformationMatrixCmd)
+	animationCmd.AddCommand(animationAlphaAnimationCmd)
+	animationBounceInterpolatorNewBounceInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationBounceInterpolatorNewBounceInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationBounceInterpolatorCmd.AddCommand(animationBounceInterpolatorNewBounceInterpolatorCmd)
+	animationBounceInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationBounceInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationBounceInterpolatorCmd.AddCommand(animationBounceInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationBounceInterpolatorCmd)
+	animationLinearInterpolatorNewLinearInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLinearInterpolatorNewLinearInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLinearInterpolatorCmd.AddCommand(animationLinearInterpolatorNewLinearInterpolatorCmd)
+	animationLinearInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLinearInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationLinearInterpolatorCmd.AddCommand(animationLinearInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationLinearInterpolatorCmd)
+	animationAnticipateOvershootInterpolatorNewAnticipateOvershootInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnticipateOvershootInterpolatorNewAnticipateOvershootInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationAnticipateOvershootInterpolatorCmd.AddCommand(animationAnticipateOvershootInterpolatorNewAnticipateOvershootInterpolatorCmd)
+	animationAnticipateOvershootInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAnticipateOvershootInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationAnticipateOvershootInterpolatorCmd.AddCommand(animationAnticipateOvershootInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationAnticipateOvershootInterpolatorCmd)
+	animationAnticipateInterpolatorNewAnticipateInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAnticipateInterpolatorNewAnticipateInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationAnticipateInterpolatorCmd.AddCommand(animationAnticipateInterpolatorNewAnticipateInterpolatorCmd)
+	animationAnticipateInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAnticipateInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationAnticipateInterpolatorCmd.AddCommand(animationAnticipateInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationAnticipateInterpolatorCmd)
+	animationScaleAnimationNewScaleAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationScaleAnimationNewScaleAnimationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationScaleAnimationCmd.AddCommand(animationScaleAnimationNewScaleAnimationCmd)
+	animationScaleAnimationInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationScaleAnimationInitializeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationScaleAnimationInitializeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationScaleAnimationInitializeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	animationScaleAnimationInitializeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	animationScaleAnimationCmd.AddCommand(animationScaleAnimationInitializeCmd)
+	animationCmd.AddCommand(animationScaleAnimationCmd)
+	animationLayoutAnimationControllerNewLayoutAnimationControllerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutAnimationControllerNewLayoutAnimationControllerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerNewLayoutAnimationControllerCmd)
+	animationLayoutAnimationControllerGetAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetAnimationCmd)
+	animationLayoutAnimationControllerGetAnimationForViewCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerGetAnimationForViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetAnimationForViewCmd)
+	animationLayoutAnimationControllerGetDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetDelayCmd)
+	animationLayoutAnimationControllerGetInterpolatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetInterpolatorCmd)
+	animationLayoutAnimationControllerGetOrderCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetOrderCmd)
+	animationLayoutAnimationControllerIsDoneCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerIsDoneCmd)
+	animationLayoutAnimationControllerSetAnimation2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerSetAnimation2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutAnimationControllerSetAnimation2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetAnimation2Cmd)
+	animationLayoutAnimationControllerSetAnimation1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerSetAnimation1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetAnimation1_1Cmd)
+	animationLayoutAnimationControllerSetDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerSetDelayCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetDelayCmd)
+	animationLayoutAnimationControllerSetInterpolator2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerSetInterpolator2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutAnimationControllerSetInterpolator2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetInterpolator2Cmd)
+	animationLayoutAnimationControllerSetInterpolator1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerSetInterpolator1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetInterpolator1_1Cmd)
+	animationLayoutAnimationControllerSetOrderCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerSetOrderCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetOrderCmd)
+	animationLayoutAnimationControllerStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerStartCmd)
+	animationLayoutAnimationControllerWillOverlapCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerWillOverlapCmd)
+	animationCmd.AddCommand(animationLayoutAnimationControllerCmd)
+	animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationAccelerateDecelerateInterpolatorCmd.AddCommand(animationAccelerateDecelerateInterpolatorNewAccelerateDecelerateInterpolatorCmd)
+	animationAccelerateDecelerateInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAccelerateDecelerateInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationAccelerateDecelerateInterpolatorCmd.AddCommand(animationAccelerateDecelerateInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationAccelerateDecelerateInterpolatorCmd)
+	animationAccelerateInterpolatorNewAccelerateInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	animationAccelerateInterpolatorNewAccelerateInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	animationAccelerateInterpolatorCmd.AddCommand(animationAccelerateInterpolatorNewAccelerateInterpolatorCmd)
+	animationAccelerateInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	animationAccelerateInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	animationAccelerateInterpolatorCmd.AddCommand(animationAccelerateInterpolatorGetInterpolationCmd)
+	animationCmd.AddCommand(animationAccelerateInterpolatorCmd)
 	animationAnimationCmd.AddCommand(animationAnimationCancelCmd)
 	animationAnimationCmd.AddCommand(animationAnimationComputeDurationHintCmd)
 	animationAnimationCmd.AddCommand(animationAnimationGetBackdropColorCmd)
@@ -9154,146 +9434,6 @@ func init() {
 	animationAnimationListenerOnAnimationStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	animationAnimationListenerCmd.AddCommand(animationAnimationListenerOnAnimationStartCmd)
 	animationCmd.AddCommand(animationAnimationListenerCmd)
-	animationLayoutAnimationControllerNewLayoutAnimationControllerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutAnimationControllerNewLayoutAnimationControllerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerNewLayoutAnimationControllerCmd)
-	animationLayoutAnimationControllerGetAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetAnimationCmd)
-	animationLayoutAnimationControllerGetAnimationForViewCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerGetAnimationForViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetAnimationForViewCmd)
-	animationLayoutAnimationControllerGetDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetDelayCmd)
-	animationLayoutAnimationControllerGetInterpolatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetInterpolatorCmd)
-	animationLayoutAnimationControllerGetOrderCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerGetOrderCmd)
-	animationLayoutAnimationControllerIsDoneCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerIsDoneCmd)
-	animationLayoutAnimationControllerSetAnimation2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerSetAnimation2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutAnimationControllerSetAnimation2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetAnimation2Cmd)
-	animationLayoutAnimationControllerSetAnimation1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerSetAnimation1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetAnimation1_1Cmd)
-	animationLayoutAnimationControllerSetDelayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerSetDelayCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetDelayCmd)
-	animationLayoutAnimationControllerSetInterpolator2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerSetInterpolator2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutAnimationControllerSetInterpolator2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetInterpolator2Cmd)
-	animationLayoutAnimationControllerSetInterpolator1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerSetInterpolator1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetInterpolator1_1Cmd)
-	animationLayoutAnimationControllerSetOrderCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerSetOrderCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerSetOrderCmd)
-	animationLayoutAnimationControllerStartCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerStartCmd)
-	animationLayoutAnimationControllerWillOverlapCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationLayoutAnimationControllerCmd.AddCommand(animationLayoutAnimationControllerWillOverlapCmd)
-	animationCmd.AddCommand(animationLayoutAnimationControllerCmd)
-	animationAnticipateOvershootInterpolatorNewAnticipateOvershootInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnticipateOvershootInterpolatorNewAnticipateOvershootInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationAnticipateOvershootInterpolatorCmd.AddCommand(animationAnticipateOvershootInterpolatorNewAnticipateOvershootInterpolatorCmd)
-	animationAnticipateOvershootInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationAnticipateOvershootInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationAnticipateOvershootInterpolatorCmd.AddCommand(animationAnticipateOvershootInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationAnticipateOvershootInterpolatorCmd)
-	animationCycleInterpolatorNewCycleInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationCycleInterpolatorNewCycleInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationCycleInterpolatorCmd.AddCommand(animationCycleInterpolatorNewCycleInterpolatorCmd)
-	animationCycleInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationCycleInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationCycleInterpolatorCmd.AddCommand(animationCycleInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationCycleInterpolatorCmd)
-	animationRotateAnimationNewRotateAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationRotateAnimationNewRotateAnimationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationRotateAnimationCmd.AddCommand(animationRotateAnimationNewRotateAnimationCmd)
-	animationRotateAnimationInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationRotateAnimationInitializeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationRotateAnimationInitializeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationRotateAnimationInitializeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	animationRotateAnimationInitializeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	animationRotateAnimationCmd.AddCommand(animationRotateAnimationInitializeCmd)
-	animationCmd.AddCommand(animationRotateAnimationCmd)
-	animationAlphaAnimationNewAlphaAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAlphaAnimationNewAlphaAnimationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationAlphaAnimationCmd.AddCommand(animationAlphaAnimationNewAlphaAnimationCmd)
-	animationAlphaAnimationWillChangeBoundsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationAlphaAnimationCmd.AddCommand(animationAlphaAnimationWillChangeBoundsCmd)
-	animationAlphaAnimationWillChangeTransformationMatrixCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationAlphaAnimationCmd.AddCommand(animationAlphaAnimationWillChangeTransformationMatrixCmd)
-	animationCmd.AddCommand(animationAlphaAnimationCmd)
-	animationUtilsCmd.AddCommand(animationUtilsNewUtilsCmd)
-	animationUtilsCurrentAnimationTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationUtilsCmd.AddCommand(animationUtilsCurrentAnimationTimeMillisCmd)
-	animationUtilsLoadAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationUtilsLoadAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationUtilsLoadAnimationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationUtilsCmd.AddCommand(animationUtilsLoadAnimationCmd)
-	animationUtilsLoadInterpolatorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationUtilsLoadInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationUtilsLoadInterpolatorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationUtilsCmd.AddCommand(animationUtilsLoadInterpolatorCmd)
-	animationUtilsLoadLayoutAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationUtilsLoadLayoutAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationUtilsLoadLayoutAnimationCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationUtilsCmd.AddCommand(animationUtilsLoadLayoutAnimationCmd)
-	animationUtilsMakeInAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationUtilsMakeInAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationUtilsMakeInAnimationCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	animationUtilsCmd.AddCommand(animationUtilsMakeInAnimationCmd)
-	animationUtilsMakeInChildBottomAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationUtilsMakeInChildBottomAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationUtilsCmd.AddCommand(animationUtilsMakeInChildBottomAnimationCmd)
-	animationUtilsMakeOutAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationUtilsMakeOutAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationUtilsMakeOutAnimationCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	animationUtilsCmd.AddCommand(animationUtilsMakeOutAnimationCmd)
-	animationCmd.AddCommand(animationUtilsCmd)
-	animationTransformationCmd.AddCommand(animationTransformationNewTransformationCmd)
-	animationTransformationClearCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationCmd.AddCommand(animationTransformationClearCmd)
-	animationTransformationComposeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationComposeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationTransformationCmd.AddCommand(animationTransformationComposeCmd)
-	animationTransformationGetAlphaCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationCmd.AddCommand(animationTransformationGetAlphaCmd)
-	animationTransformationGetMatrixCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationCmd.AddCommand(animationTransformationGetMatrixCmd)
-	animationTransformationGetTransformationTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationCmd.AddCommand(animationTransformationGetTransformationTypeCmd)
-	animationTransformationSetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationTransformationCmd.AddCommand(animationTransformationSetCmd)
-	animationTransformationSetAlphaCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationSetAlphaCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationTransformationCmd.AddCommand(animationTransformationSetAlphaCmd)
-	animationTransformationSetTransformationTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationSetTransformationTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationTransformationCmd.AddCommand(animationTransformationSetTransformationTypeCmd)
-	animationTransformationToShortStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationCmd.AddCommand(animationTransformationToShortStringCmd)
-	animationTransformationToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationTransformationCmd.AddCommand(animationTransformationToStringCmd)
-	animationCmd.AddCommand(animationTransformationCmd)
-	animationBounceInterpolatorNewBounceInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationBounceInterpolatorNewBounceInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationBounceInterpolatorCmd.AddCommand(animationBounceInterpolatorNewBounceInterpolatorCmd)
-	animationBounceInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationBounceInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationBounceInterpolatorCmd.AddCommand(animationBounceInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationBounceInterpolatorCmd)
-	animationOvershootInterpolatorNewOvershootInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationOvershootInterpolatorNewOvershootInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationOvershootInterpolatorCmd.AddCommand(animationOvershootInterpolatorNewOvershootInterpolatorCmd)
-	animationOvershootInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationOvershootInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationOvershootInterpolatorCmd.AddCommand(animationOvershootInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationOvershootInterpolatorCmd)
 	animationTranslateAnimationNewTranslateAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	animationTranslateAnimationNewTranslateAnimationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	animationTranslateAnimationCmd.AddCommand(animationTranslateAnimationNewTranslateAnimationCmd)
@@ -9304,65 +9444,5 @@ func init() {
 	animationTranslateAnimationInitializeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
 	animationTranslateAnimationCmd.AddCommand(animationTranslateAnimationInitializeCmd)
 	animationCmd.AddCommand(animationTranslateAnimationCmd)
-	animationSetNewSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationSetNewSetCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationSetCmd.AddCommand(animationSetNewSetCmd)
-	animationSetAddAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetAddAnimationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationSetCmd.AddCommand(animationSetAddAnimationCmd)
-	animationSetComputeDurationHintCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetCmd.AddCommand(animationSetComputeDurationHintCmd)
-	animationSetGetDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetCmd.AddCommand(animationSetGetDurationCmd)
-	animationSetGetStartTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetCmd.AddCommand(animationSetGetStartTimeCmd)
-	animationSetGetTransformationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetGetTransformationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationSetGetTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationSetCmd.AddCommand(animationSetGetTransformationCmd)
-	animationSetInitializeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetInitializeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationSetInitializeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	animationSetInitializeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	animationSetInitializeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	animationSetCmd.AddCommand(animationSetInitializeCmd)
-	animationSetResetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetCmd.AddCommand(animationSetResetCmd)
-	animationSetRestrictDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetRestrictDurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationSetCmd.AddCommand(animationSetRestrictDurationCmd)
-	animationSetScaleCurrentDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetScaleCurrentDurationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationSetCmd.AddCommand(animationSetScaleCurrentDurationCmd)
-	animationSetSetDurationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetSetDurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationSetCmd.AddCommand(animationSetSetDurationCmd)
-	animationSetSetFillAfterCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetSetFillAfterCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	animationSetCmd.AddCommand(animationSetSetFillAfterCmd)
-	animationSetSetFillBeforeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetSetFillBeforeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	animationSetCmd.AddCommand(animationSetSetFillBeforeCmd)
-	animationSetSetRepeatModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetSetRepeatModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	animationSetCmd.AddCommand(animationSetSetRepeatModeCmd)
-	animationSetSetStartOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetSetStartOffsetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationSetCmd.AddCommand(animationSetSetStartOffsetCmd)
-	animationSetSetStartTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetSetStartTimeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationSetCmd.AddCommand(animationSetSetStartTimeCmd)
-	animationSetWillChangeBoundsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetCmd.AddCommand(animationSetWillChangeBoundsCmd)
-	animationSetWillChangeTransformationMatrixCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationSetCmd.AddCommand(animationSetWillChangeTransformationMatrixCmd)
-	animationCmd.AddCommand(animationSetCmd)
-	animationAnticipateInterpolatorNewAnticipateInterpolatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	animationAnticipateInterpolatorNewAnticipateInterpolatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	animationAnticipateInterpolatorCmd.AddCommand(animationAnticipateInterpolatorNewAnticipateInterpolatorCmd)
-	animationAnticipateInterpolatorGetInterpolationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	animationAnticipateInterpolatorGetInterpolationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	animationAnticipateInterpolatorCmd.AddCommand(animationAnticipateInterpolatorGetInterpolationCmd)
-	animationCmd.AddCommand(animationAnticipateInterpolatorCmd)
 	rootCmd.AddCommand(animationCmd)
 }

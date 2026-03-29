@@ -33,6 +33,14 @@ message GetPageResponse {
   int32 result = 1;
 }
 
+message GetSelectedTextContentsRequest {
+  int64 handle = 1;
+}
+
+message GetSelectedTextContentsResponse {
+  int64 result = 1;
+}
+
 message GetStartRequest {
   int64 handle = 1;
 }
@@ -94,6 +102,7 @@ service PageSelectionService {
   rpc NewPageSelection (NewPageSelectionRequest) returns (NewPageSelectionResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetPage (GetPageRequest) returns (GetPageResponse);
+  rpc GetSelectedTextContents (GetSelectedTextContentsRequest) returns (GetSelectedTextContentsResponse);
   rpc GetStart (GetStartRequest) returns (GetStartResponse);
   rpc GetStop (GetStopRequest) returns (GetStopResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);

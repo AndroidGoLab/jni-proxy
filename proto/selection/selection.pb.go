@@ -311,6 +311,94 @@ func (x *GetPageResponse) GetResult() int32 {
 	return 0
 }
 
+type GetSelectedTextContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectedTextContentsRequest) Reset() {
+	*x = GetSelectedTextContentsRequest{}
+	mi := &file_proto_selection_selection_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectedTextContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectedTextContentsRequest) ProtoMessage() {}
+
+func (x *GetSelectedTextContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_selection_selection_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectedTextContentsRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectedTextContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetSelectedTextContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSelectedTextContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectedTextContentsResponse) Reset() {
+	*x = GetSelectedTextContentsResponse{}
+	mi := &file_proto_selection_selection_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectedTextContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectedTextContentsResponse) ProtoMessage() {}
+
+func (x *GetSelectedTextContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_selection_selection_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectedTextContentsResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectedTextContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetSelectedTextContentsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetStartRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -320,7 +408,7 @@ type GetStartRequest struct {
 
 func (x *GetStartRequest) Reset() {
 	*x = GetStartRequest{}
-	mi := &file_proto_selection_selection_proto_msgTypes[6]
+	mi := &file_proto_selection_selection_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -332,7 +420,7 @@ func (x *GetStartRequest) String() string {
 func (*GetStartRequest) ProtoMessage() {}
 
 func (x *GetStartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[6]
+	mi := &file_proto_selection_selection_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -345,7 +433,7 @@ func (x *GetStartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStartRequest.ProtoReflect.Descriptor instead.
 func (*GetStartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{6}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetStartRequest) GetHandle() int64 {
@@ -364,7 +452,7 @@ type GetStartResponse struct {
 
 func (x *GetStartResponse) Reset() {
 	*x = GetStartResponse{}
-	mi := &file_proto_selection_selection_proto_msgTypes[7]
+	mi := &file_proto_selection_selection_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -376,7 +464,7 @@ func (x *GetStartResponse) String() string {
 func (*GetStartResponse) ProtoMessage() {}
 
 func (x *GetStartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[7]
+	mi := &file_proto_selection_selection_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -389,7 +477,7 @@ func (x *GetStartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStartResponse.ProtoReflect.Descriptor instead.
 func (*GetStartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{7}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetStartResponse) GetResult() int64 {
@@ -408,7 +496,7 @@ type GetStopRequest struct {
 
 func (x *GetStopRequest) Reset() {
 	*x = GetStopRequest{}
-	mi := &file_proto_selection_selection_proto_msgTypes[8]
+	mi := &file_proto_selection_selection_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -420,7 +508,7 @@ func (x *GetStopRequest) String() string {
 func (*GetStopRequest) ProtoMessage() {}
 
 func (x *GetStopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[8]
+	mi := &file_proto_selection_selection_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -433,7 +521,7 @@ func (x *GetStopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStopRequest.ProtoReflect.Descriptor instead.
 func (*GetStopRequest) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{8}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetStopRequest) GetHandle() int64 {
@@ -452,7 +540,7 @@ type GetStopResponse struct {
 
 func (x *GetStopResponse) Reset() {
 	*x = GetStopResponse{}
-	mi := &file_proto_selection_selection_proto_msgTypes[9]
+	mi := &file_proto_selection_selection_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -464,7 +552,7 @@ func (x *GetStopResponse) String() string {
 func (*GetStopResponse) ProtoMessage() {}
 
 func (x *GetStopResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[9]
+	mi := &file_proto_selection_selection_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -477,7 +565,7 @@ func (x *GetStopResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStopResponse.ProtoReflect.Descriptor instead.
 func (*GetStopResponse) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{9}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetStopResponse) GetResult() int64 {
@@ -498,7 +586,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_selection_selection_proto_msgTypes[10]
+	mi := &file_proto_selection_selection_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -510,7 +598,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[10]
+	mi := &file_proto_selection_selection_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -523,7 +611,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{10}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *WriteToParcelRequest) GetHandle() int64 {
@@ -555,7 +643,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_selection_selection_proto_msgTypes[11]
+	mi := &file_proto_selection_selection_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -567,7 +655,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[11]
+	mi := &file_proto_selection_selection_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -580,7 +668,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{11}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{13}
 }
 
 type NewBoundaryRequest struct {
@@ -592,7 +680,7 @@ type NewBoundaryRequest struct {
 
 func (x *NewBoundaryRequest) Reset() {
 	*x = NewBoundaryRequest{}
-	mi := &file_proto_selection_selection_proto_msgTypes[12]
+	mi := &file_proto_selection_selection_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -604,7 +692,7 @@ func (x *NewBoundaryRequest) String() string {
 func (*NewBoundaryRequest) ProtoMessage() {}
 
 func (x *NewBoundaryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[12]
+	mi := &file_proto_selection_selection_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -617,7 +705,7 @@ func (x *NewBoundaryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewBoundaryRequest.ProtoReflect.Descriptor instead.
 func (*NewBoundaryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{12}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *NewBoundaryRequest) GetArg0() int64 {
@@ -636,7 +724,7 @@ type NewBoundaryResponse struct {
 
 func (x *NewBoundaryResponse) Reset() {
 	*x = NewBoundaryResponse{}
-	mi := &file_proto_selection_selection_proto_msgTypes[13]
+	mi := &file_proto_selection_selection_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -648,7 +736,7 @@ func (x *NewBoundaryResponse) String() string {
 func (*NewBoundaryResponse) ProtoMessage() {}
 
 func (x *NewBoundaryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[13]
+	mi := &file_proto_selection_selection_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -661,7 +749,7 @@ func (x *NewBoundaryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewBoundaryResponse.ProtoReflect.Descriptor instead.
 func (*NewBoundaryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{13}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *NewBoundaryResponse) GetResult() int64 {
@@ -680,7 +768,7 @@ type GetIndexRequest struct {
 
 func (x *GetIndexRequest) Reset() {
 	*x = GetIndexRequest{}
-	mi := &file_proto_selection_selection_proto_msgTypes[14]
+	mi := &file_proto_selection_selection_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -692,7 +780,7 @@ func (x *GetIndexRequest) String() string {
 func (*GetIndexRequest) ProtoMessage() {}
 
 func (x *GetIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[14]
+	mi := &file_proto_selection_selection_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -705,7 +793,7 @@ func (x *GetIndexRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIndexRequest.ProtoReflect.Descriptor instead.
 func (*GetIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{14}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetIndexRequest) GetHandle() int64 {
@@ -724,7 +812,7 @@ type GetIndexResponse struct {
 
 func (x *GetIndexResponse) Reset() {
 	*x = GetIndexResponse{}
-	mi := &file_proto_selection_selection_proto_msgTypes[15]
+	mi := &file_proto_selection_selection_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -736,7 +824,7 @@ func (x *GetIndexResponse) String() string {
 func (*GetIndexResponse) ProtoMessage() {}
 
 func (x *GetIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[15]
+	mi := &file_proto_selection_selection_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -749,7 +837,7 @@ func (x *GetIndexResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIndexResponse.ProtoReflect.Descriptor instead.
 func (*GetIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{15}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetIndexResponse) GetResult() int32 {
@@ -768,7 +856,7 @@ type GetIsRtlRequest struct {
 
 func (x *GetIsRtlRequest) Reset() {
 	*x = GetIsRtlRequest{}
-	mi := &file_proto_selection_selection_proto_msgTypes[16]
+	mi := &file_proto_selection_selection_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -780,7 +868,7 @@ func (x *GetIsRtlRequest) String() string {
 func (*GetIsRtlRequest) ProtoMessage() {}
 
 func (x *GetIsRtlRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[16]
+	mi := &file_proto_selection_selection_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -793,7 +881,7 @@ func (x *GetIsRtlRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIsRtlRequest.ProtoReflect.Descriptor instead.
 func (*GetIsRtlRequest) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{16}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetIsRtlRequest) GetHandle() int64 {
@@ -812,7 +900,7 @@ type GetIsRtlResponse struct {
 
 func (x *GetIsRtlResponse) Reset() {
 	*x = GetIsRtlResponse{}
-	mi := &file_proto_selection_selection_proto_msgTypes[17]
+	mi := &file_proto_selection_selection_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -824,7 +912,7 @@ func (x *GetIsRtlResponse) String() string {
 func (*GetIsRtlResponse) ProtoMessage() {}
 
 func (x *GetIsRtlResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[17]
+	mi := &file_proto_selection_selection_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -837,7 +925,7 @@ func (x *GetIsRtlResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIsRtlResponse.ProtoReflect.Descriptor instead.
 func (*GetIsRtlResponse) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{17}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetIsRtlResponse) GetResult() bool {
@@ -856,7 +944,7 @@ type GetPointRequest struct {
 
 func (x *GetPointRequest) Reset() {
 	*x = GetPointRequest{}
-	mi := &file_proto_selection_selection_proto_msgTypes[18]
+	mi := &file_proto_selection_selection_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -868,7 +956,7 @@ func (x *GetPointRequest) String() string {
 func (*GetPointRequest) ProtoMessage() {}
 
 func (x *GetPointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[18]
+	mi := &file_proto_selection_selection_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -881,7 +969,7 @@ func (x *GetPointRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPointRequest.ProtoReflect.Descriptor instead.
 func (*GetPointRequest) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{18}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetPointRequest) GetHandle() int64 {
@@ -900,7 +988,7 @@ type GetPointResponse struct {
 
 func (x *GetPointResponse) Reset() {
 	*x = GetPointResponse{}
-	mi := &file_proto_selection_selection_proto_msgTypes[19]
+	mi := &file_proto_selection_selection_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -912,7 +1000,7 @@ func (x *GetPointResponse) String() string {
 func (*GetPointResponse) ProtoMessage() {}
 
 func (x *GetPointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_selection_selection_proto_msgTypes[19]
+	mi := &file_proto_selection_selection_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -925,7 +1013,7 @@ func (x *GetPointResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPointResponse.ProtoReflect.Descriptor instead.
 func (*GetPointResponse) Descriptor() ([]byte, []int) {
-	return file_proto_selection_selection_proto_rawDescGZIP(), []int{19}
+	return file_proto_selection_selection_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetPointResponse) GetResult() int64 {
@@ -954,7 +1042,11 @@ const file_proto_selection_selection_proto_rawDesc = "" +
 	"\x0eGetPageRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
 	"\x0fGetPageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"8\n" +
+	"\x1eGetSelectedTextContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fGetSelectedTextContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
 	"\x0fGetStartRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10GetStartResponse\x12\x16\n" +
@@ -983,11 +1075,12 @@ const file_proto_selection_selection_proto_rawDesc = "" +
 	"\x0fGetPointRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10GetPointResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xed\x03\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xdf\x04\n" +
 	"\x14PageSelectionService\x12[\n" +
 	"\x10NewPageSelection\x12\".selection.NewPageSelectionRequest\x1a#.selection.NewPageSelectionResponse\x12[\n" +
 	"\x10DescribeContents\x12\".selection.DescribeContentsRequest\x1a#.selection.DescribeContentsResponse\x12@\n" +
-	"\aGetPage\x12\x19.selection.GetPageRequest\x1a\x1a.selection.GetPageResponse\x12C\n" +
+	"\aGetPage\x12\x19.selection.GetPageRequest\x1a\x1a.selection.GetPageResponse\x12p\n" +
+	"\x17GetSelectedTextContents\x12).selection.GetSelectedTextContentsRequest\x1a*.selection.GetSelectedTextContentsResponse\x12C\n" +
 	"\bGetStart\x12\x1a.selection.GetStartRequest\x1a\x1b.selection.GetStartResponse\x12@\n" +
 	"\aGetStop\x12\x19.selection.GetStopRequest\x1a\x1a.selection.GetStopResponse\x12R\n" +
 	"\rWriteToParcel\x12\x1f.selection.WriteToParcelRequest\x1a .selection.WriteToParcelResponse2\xdf\x03\n" +
@@ -1011,56 +1104,60 @@ func file_proto_selection_selection_proto_rawDescGZIP() []byte {
 	return file_proto_selection_selection_proto_rawDescData
 }
 
-var file_proto_selection_selection_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_proto_selection_selection_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_proto_selection_selection_proto_goTypes = []any{
-	(*NewPageSelectionRequest)(nil),  // 0: selection.NewPageSelectionRequest
-	(*NewPageSelectionResponse)(nil), // 1: selection.NewPageSelectionResponse
-	(*DescribeContentsRequest)(nil),  // 2: selection.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil), // 3: selection.DescribeContentsResponse
-	(*GetPageRequest)(nil),           // 4: selection.GetPageRequest
-	(*GetPageResponse)(nil),          // 5: selection.GetPageResponse
-	(*GetStartRequest)(nil),          // 6: selection.GetStartRequest
-	(*GetStartResponse)(nil),         // 7: selection.GetStartResponse
-	(*GetStopRequest)(nil),           // 8: selection.GetStopRequest
-	(*GetStopResponse)(nil),          // 9: selection.GetStopResponse
-	(*WriteToParcelRequest)(nil),     // 10: selection.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),    // 11: selection.WriteToParcelResponse
-	(*NewBoundaryRequest)(nil),       // 12: selection.NewBoundaryRequest
-	(*NewBoundaryResponse)(nil),      // 13: selection.NewBoundaryResponse
-	(*GetIndexRequest)(nil),          // 14: selection.GetIndexRequest
-	(*GetIndexResponse)(nil),         // 15: selection.GetIndexResponse
-	(*GetIsRtlRequest)(nil),          // 16: selection.GetIsRtlRequest
-	(*GetIsRtlResponse)(nil),         // 17: selection.GetIsRtlResponse
-	(*GetPointRequest)(nil),          // 18: selection.GetPointRequest
-	(*GetPointResponse)(nil),         // 19: selection.GetPointResponse
+	(*NewPageSelectionRequest)(nil),         // 0: selection.NewPageSelectionRequest
+	(*NewPageSelectionResponse)(nil),        // 1: selection.NewPageSelectionResponse
+	(*DescribeContentsRequest)(nil),         // 2: selection.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),        // 3: selection.DescribeContentsResponse
+	(*GetPageRequest)(nil),                  // 4: selection.GetPageRequest
+	(*GetPageResponse)(nil),                 // 5: selection.GetPageResponse
+	(*GetSelectedTextContentsRequest)(nil),  // 6: selection.GetSelectedTextContentsRequest
+	(*GetSelectedTextContentsResponse)(nil), // 7: selection.GetSelectedTextContentsResponse
+	(*GetStartRequest)(nil),                 // 8: selection.GetStartRequest
+	(*GetStartResponse)(nil),                // 9: selection.GetStartResponse
+	(*GetStopRequest)(nil),                  // 10: selection.GetStopRequest
+	(*GetStopResponse)(nil),                 // 11: selection.GetStopResponse
+	(*WriteToParcelRequest)(nil),            // 12: selection.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),           // 13: selection.WriteToParcelResponse
+	(*NewBoundaryRequest)(nil),              // 14: selection.NewBoundaryRequest
+	(*NewBoundaryResponse)(nil),             // 15: selection.NewBoundaryResponse
+	(*GetIndexRequest)(nil),                 // 16: selection.GetIndexRequest
+	(*GetIndexResponse)(nil),                // 17: selection.GetIndexResponse
+	(*GetIsRtlRequest)(nil),                 // 18: selection.GetIsRtlRequest
+	(*GetIsRtlResponse)(nil),                // 19: selection.GetIsRtlResponse
+	(*GetPointRequest)(nil),                 // 20: selection.GetPointRequest
+	(*GetPointResponse)(nil),                // 21: selection.GetPointResponse
 }
 var file_proto_selection_selection_proto_depIdxs = []int32{
 	0,  // 0: selection.PageSelectionService.NewPageSelection:input_type -> selection.NewPageSelectionRequest
 	2,  // 1: selection.PageSelectionService.DescribeContents:input_type -> selection.DescribeContentsRequest
 	4,  // 2: selection.PageSelectionService.GetPage:input_type -> selection.GetPageRequest
-	6,  // 3: selection.PageSelectionService.GetStart:input_type -> selection.GetStartRequest
-	8,  // 4: selection.PageSelectionService.GetStop:input_type -> selection.GetStopRequest
-	10, // 5: selection.PageSelectionService.WriteToParcel:input_type -> selection.WriteToParcelRequest
-	12, // 6: selection.BoundaryService.NewBoundary:input_type -> selection.NewBoundaryRequest
-	2,  // 7: selection.BoundaryService.DescribeContents:input_type -> selection.DescribeContentsRequest
-	14, // 8: selection.BoundaryService.GetIndex:input_type -> selection.GetIndexRequest
-	16, // 9: selection.BoundaryService.GetIsRtl:input_type -> selection.GetIsRtlRequest
-	18, // 10: selection.BoundaryService.GetPoint:input_type -> selection.GetPointRequest
-	10, // 11: selection.BoundaryService.WriteToParcel:input_type -> selection.WriteToParcelRequest
-	1,  // 12: selection.PageSelectionService.NewPageSelection:output_type -> selection.NewPageSelectionResponse
-	3,  // 13: selection.PageSelectionService.DescribeContents:output_type -> selection.DescribeContentsResponse
-	5,  // 14: selection.PageSelectionService.GetPage:output_type -> selection.GetPageResponse
-	7,  // 15: selection.PageSelectionService.GetStart:output_type -> selection.GetStartResponse
-	9,  // 16: selection.PageSelectionService.GetStop:output_type -> selection.GetStopResponse
-	11, // 17: selection.PageSelectionService.WriteToParcel:output_type -> selection.WriteToParcelResponse
-	13, // 18: selection.BoundaryService.NewBoundary:output_type -> selection.NewBoundaryResponse
-	3,  // 19: selection.BoundaryService.DescribeContents:output_type -> selection.DescribeContentsResponse
-	15, // 20: selection.BoundaryService.GetIndex:output_type -> selection.GetIndexResponse
-	17, // 21: selection.BoundaryService.GetIsRtl:output_type -> selection.GetIsRtlResponse
-	19, // 22: selection.BoundaryService.GetPoint:output_type -> selection.GetPointResponse
-	11, // 23: selection.BoundaryService.WriteToParcel:output_type -> selection.WriteToParcelResponse
-	12, // [12:24] is the sub-list for method output_type
-	0,  // [0:12] is the sub-list for method input_type
+	6,  // 3: selection.PageSelectionService.GetSelectedTextContents:input_type -> selection.GetSelectedTextContentsRequest
+	8,  // 4: selection.PageSelectionService.GetStart:input_type -> selection.GetStartRequest
+	10, // 5: selection.PageSelectionService.GetStop:input_type -> selection.GetStopRequest
+	12, // 6: selection.PageSelectionService.WriteToParcel:input_type -> selection.WriteToParcelRequest
+	14, // 7: selection.BoundaryService.NewBoundary:input_type -> selection.NewBoundaryRequest
+	2,  // 8: selection.BoundaryService.DescribeContents:input_type -> selection.DescribeContentsRequest
+	16, // 9: selection.BoundaryService.GetIndex:input_type -> selection.GetIndexRequest
+	18, // 10: selection.BoundaryService.GetIsRtl:input_type -> selection.GetIsRtlRequest
+	20, // 11: selection.BoundaryService.GetPoint:input_type -> selection.GetPointRequest
+	12, // 12: selection.BoundaryService.WriteToParcel:input_type -> selection.WriteToParcelRequest
+	1,  // 13: selection.PageSelectionService.NewPageSelection:output_type -> selection.NewPageSelectionResponse
+	3,  // 14: selection.PageSelectionService.DescribeContents:output_type -> selection.DescribeContentsResponse
+	5,  // 15: selection.PageSelectionService.GetPage:output_type -> selection.GetPageResponse
+	7,  // 16: selection.PageSelectionService.GetSelectedTextContents:output_type -> selection.GetSelectedTextContentsResponse
+	9,  // 17: selection.PageSelectionService.GetStart:output_type -> selection.GetStartResponse
+	11, // 18: selection.PageSelectionService.GetStop:output_type -> selection.GetStopResponse
+	13, // 19: selection.PageSelectionService.WriteToParcel:output_type -> selection.WriteToParcelResponse
+	15, // 20: selection.BoundaryService.NewBoundary:output_type -> selection.NewBoundaryResponse
+	3,  // 21: selection.BoundaryService.DescribeContents:output_type -> selection.DescribeContentsResponse
+	17, // 22: selection.BoundaryService.GetIndex:output_type -> selection.GetIndexResponse
+	19, // 23: selection.BoundaryService.GetIsRtl:output_type -> selection.GetIsRtlResponse
+	21, // 24: selection.BoundaryService.GetPoint:output_type -> selection.GetPointResponse
+	13, // 25: selection.BoundaryService.WriteToParcel:output_type -> selection.WriteToParcelResponse
+	13, // [13:26] is the sub-list for method output_type
+	0,  // [0:13] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1077,7 +1174,7 @@ func file_proto_selection_selection_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_selection_selection_proto_rawDesc), len(file_proto_selection_selection_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   20,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

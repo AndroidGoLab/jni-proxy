@@ -23,2390 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type GetDataTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDataTypeRequest) Reset() {
-	*x = GetDataTypeRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDataTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDataTypeRequest) ProtoMessage() {}
-
-func (x *GetDataTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDataTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetDataTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{0}
-}
-
-type GetDataTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDataTypeResponse) Reset() {
-	*x = GetDataTypeResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDataTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDataTypeResponse) ProtoMessage() {}
-
-func (x *GetDataTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDataTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetDataTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GetDataTypeResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetMeasurementRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementRequest) Reset() {
-	*x = GetMeasurementRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementRequest) ProtoMessage() {}
-
-func (x *GetMeasurementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementRequest.ProtoReflect.Descriptor instead.
-func (*GetMeasurementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *GetMeasurementRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetMeasurementResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementResponse) Reset() {
-	*x = GetMeasurementResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementResponse) ProtoMessage() {}
-
-func (x *GetMeasurementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementResponse.ProtoReflect.Descriptor instead.
-func (*GetMeasurementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *GetMeasurementResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMeasurementKeyAtRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementKeyAtRequest) Reset() {
-	*x = GetMeasurementKeyAtRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementKeyAtRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementKeyAtRequest) ProtoMessage() {}
-
-func (x *GetMeasurementKeyAtRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementKeyAtRequest.ProtoReflect.Descriptor instead.
-func (*GetMeasurementKeyAtRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *GetMeasurementKeyAtRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetMeasurementKeyAtResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementKeyAtResponse) Reset() {
-	*x = GetMeasurementKeyAtResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementKeyAtResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementKeyAtResponse) ProtoMessage() {}
-
-func (x *GetMeasurementKeyAtResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementKeyAtResponse.ProtoReflect.Descriptor instead.
-func (*GetMeasurementKeyAtResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetMeasurementKeyAtResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMeasurementKeyCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementKeyCountRequest) Reset() {
-	*x = GetMeasurementKeyCountRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementKeyCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementKeyCountRequest) ProtoMessage() {}
-
-func (x *GetMeasurementKeyCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementKeyCountRequest.ProtoReflect.Descriptor instead.
-func (*GetMeasurementKeyCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{6}
-}
-
-type GetMeasurementKeyCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementKeyCountResponse) Reset() {
-	*x = GetMeasurementKeyCountResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementKeyCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementKeyCountResponse) ProtoMessage() {}
-
-func (x *GetMeasurementKeyCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementKeyCountResponse.ProtoReflect.Descriptor instead.
-func (*GetMeasurementKeyCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetMeasurementKeyCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMeasurementsKeyAtRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementsKeyAtRequest) Reset() {
-	*x = GetMeasurementsKeyAtRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementsKeyAtRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementsKeyAtRequest) ProtoMessage() {}
-
-func (x *GetMeasurementsKeyAtRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementsKeyAtRequest.ProtoReflect.Descriptor instead.
-func (*GetMeasurementsKeyAtRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *GetMeasurementsKeyAtRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetMeasurementsKeyAtResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementsKeyAtResponse) Reset() {
-	*x = GetMeasurementsKeyAtResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementsKeyAtResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementsKeyAtResponse) ProtoMessage() {}
-
-func (x *GetMeasurementsKeyAtResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementsKeyAtResponse.ProtoReflect.Descriptor instead.
-func (*GetMeasurementsKeyAtResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetMeasurementsKeyAtResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMeasurementsKeyCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementsKeyCountRequest) Reset() {
-	*x = GetMeasurementsKeyCountRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementsKeyCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementsKeyCountRequest) ProtoMessage() {}
-
-func (x *GetMeasurementsKeyCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementsKeyCountRequest.ProtoReflect.Descriptor instead.
-func (*GetMeasurementsKeyCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{10}
-}
-
-type GetMeasurementsKeyCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementsKeyCountResponse) Reset() {
-	*x = GetMeasurementsKeyCountResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementsKeyCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementsKeyCountResponse) ProtoMessage() {}
-
-func (x *GetMeasurementsKeyCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementsKeyCountResponse.ProtoReflect.Descriptor instead.
-func (*GetMeasurementsKeyCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *GetMeasurementsKeyCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetStatsKeyAtRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStatsKeyAtRequest) Reset() {
-	*x = GetStatsKeyAtRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStatsKeyAtRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStatsKeyAtRequest) ProtoMessage() {}
-
-func (x *GetStatsKeyAtRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStatsKeyAtRequest.ProtoReflect.Descriptor instead.
-func (*GetStatsKeyAtRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *GetStatsKeyAtRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetStatsKeyAtResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStatsKeyAtResponse) Reset() {
-	*x = GetStatsKeyAtResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStatsKeyAtResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStatsKeyAtResponse) ProtoMessage() {}
-
-func (x *GetStatsKeyAtResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStatsKeyAtResponse.ProtoReflect.Descriptor instead.
-func (*GetStatsKeyAtResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetStatsKeyAtResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetStatsKeyCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStatsKeyCountRequest) Reset() {
-	*x = GetStatsKeyCountRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStatsKeyCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStatsKeyCountRequest) ProtoMessage() {}
-
-func (x *GetStatsKeyCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStatsKeyCountRequest.ProtoReflect.Descriptor instead.
-func (*GetStatsKeyCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{14}
-}
-
-type GetStatsKeyCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStatsKeyCountResponse) Reset() {
-	*x = GetStatsKeyCountResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStatsKeyCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStatsKeyCountResponse) ProtoMessage() {}
-
-func (x *GetStatsKeyCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStatsKeyCountResponse.ProtoReflect.Descriptor instead.
-func (*GetStatsKeyCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *GetStatsKeyCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerRequest) Reset() {
-	*x = GetTimerRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerRequest) ProtoMessage() {}
-
-func (x *GetTimerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerRequest.ProtoReflect.Descriptor instead.
-func (*GetTimerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *GetTimerRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetTimerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerResponse) Reset() {
-	*x = GetTimerResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerResponse) ProtoMessage() {}
-
-func (x *GetTimerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerResponse.ProtoReflect.Descriptor instead.
-func (*GetTimerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetTimerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimerCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerCountRequest) Reset() {
-	*x = GetTimerCountRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerCountRequest) ProtoMessage() {}
-
-func (x *GetTimerCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerCountRequest.ProtoReflect.Descriptor instead.
-func (*GetTimerCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *GetTimerCountRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetTimerCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerCountResponse) Reset() {
-	*x = GetTimerCountResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerCountResponse) ProtoMessage() {}
-
-func (x *GetTimerCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerCountResponse.ProtoReflect.Descriptor instead.
-func (*GetTimerCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetTimerCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimerKeyAtRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerKeyAtRequest) Reset() {
-	*x = GetTimerKeyAtRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerKeyAtRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerKeyAtRequest) ProtoMessage() {}
-
-func (x *GetTimerKeyAtRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerKeyAtRequest.ProtoReflect.Descriptor instead.
-func (*GetTimerKeyAtRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *GetTimerKeyAtRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetTimerKeyAtResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerKeyAtResponse) Reset() {
-	*x = GetTimerKeyAtResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerKeyAtResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerKeyAtResponse) ProtoMessage() {}
-
-func (x *GetTimerKeyAtResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerKeyAtResponse.ProtoReflect.Descriptor instead.
-func (*GetTimerKeyAtResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetTimerKeyAtResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimerKeyCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerKeyCountRequest) Reset() {
-	*x = GetTimerKeyCountRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerKeyCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerKeyCountRequest) ProtoMessage() {}
-
-func (x *GetTimerKeyCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerKeyCountRequest.ProtoReflect.Descriptor instead.
-func (*GetTimerKeyCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{22}
-}
-
-type GetTimerKeyCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerKeyCountResponse) Reset() {
-	*x = GetTimerKeyCountResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerKeyCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerKeyCountResponse) ProtoMessage() {}
-
-func (x *GetTimerKeyCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerKeyCountResponse.ProtoReflect.Descriptor instead.
-func (*GetTimerKeyCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *GetTimerKeyCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimerTimeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerTimeRequest) Reset() {
-	*x = GetTimerTimeRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerTimeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerTimeRequest) ProtoMessage() {}
-
-func (x *GetTimerTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerTimeRequest.ProtoReflect.Descriptor instead.
-func (*GetTimerTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *GetTimerTimeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetTimerTimeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimerTimeResponse) Reset() {
-	*x = GetTimerTimeResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimerTimeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimerTimeResponse) ProtoMessage() {}
-
-func (x *GetTimerTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimerTimeResponse.ProtoReflect.Descriptor instead.
-func (*GetTimerTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *GetTimerTimeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimersKeyAtRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimersKeyAtRequest) Reset() {
-	*x = GetTimersKeyAtRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimersKeyAtRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimersKeyAtRequest) ProtoMessage() {}
-
-func (x *GetTimersKeyAtRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimersKeyAtRequest.ProtoReflect.Descriptor instead.
-func (*GetTimersKeyAtRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *GetTimersKeyAtRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetTimersKeyAtResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimersKeyAtResponse) Reset() {
-	*x = GetTimersKeyAtResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimersKeyAtResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimersKeyAtResponse) ProtoMessage() {}
-
-func (x *GetTimersKeyAtResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimersKeyAtResponse.ProtoReflect.Descriptor instead.
-func (*GetTimersKeyAtResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *GetTimersKeyAtResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimersKeyCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimersKeyCountRequest) Reset() {
-	*x = GetTimersKeyCountRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimersKeyCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimersKeyCountRequest) ProtoMessage() {}
-
-func (x *GetTimersKeyCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimersKeyCountRequest.ProtoReflect.Descriptor instead.
-func (*GetTimersKeyCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{28}
-}
-
-type GetTimersKeyCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimersKeyCountResponse) Reset() {
-	*x = GetTimersKeyCountResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimersKeyCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimersKeyCountResponse) ProtoMessage() {}
-
-func (x *GetTimersKeyCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimersKeyCountResponse.ProtoReflect.Descriptor instead.
-func (*GetTimersKeyCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetTimersKeyCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HasMeasurementRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMeasurementRequest) Reset() {
-	*x = HasMeasurementRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMeasurementRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMeasurementRequest) ProtoMessage() {}
-
-func (x *HasMeasurementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMeasurementRequest.ProtoReflect.Descriptor instead.
-func (*HasMeasurementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *HasMeasurementRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasMeasurementResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMeasurementResponse) Reset() {
-	*x = HasMeasurementResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMeasurementResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMeasurementResponse) ProtoMessage() {}
-
-func (x *HasMeasurementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMeasurementResponse.ProtoReflect.Descriptor instead.
-func (*HasMeasurementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *HasMeasurementResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasMeasurementsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMeasurementsRequest) Reset() {
-	*x = HasMeasurementsRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMeasurementsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMeasurementsRequest) ProtoMessage() {}
-
-func (x *HasMeasurementsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMeasurementsRequest.ProtoReflect.Descriptor instead.
-func (*HasMeasurementsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *HasMeasurementsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasMeasurementsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMeasurementsResponse) Reset() {
-	*x = HasMeasurementsResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMeasurementsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMeasurementsResponse) ProtoMessage() {}
-
-func (x *HasMeasurementsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMeasurementsResponse.ProtoReflect.Descriptor instead.
-func (*HasMeasurementsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *HasMeasurementsResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasStatsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasStatsRequest) Reset() {
-	*x = HasStatsRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasStatsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasStatsRequest) ProtoMessage() {}
-
-func (x *HasStatsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasStatsRequest.ProtoReflect.Descriptor instead.
-func (*HasStatsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{34}
-}
-
-func (x *HasStatsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasStatsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasStatsResponse) Reset() {
-	*x = HasStatsResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasStatsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasStatsResponse) ProtoMessage() {}
-
-func (x *HasStatsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasStatsResponse.ProtoReflect.Descriptor instead.
-func (*HasStatsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *HasStatsResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasTimerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasTimerRequest) Reset() {
-	*x = HasTimerRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasTimerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasTimerRequest) ProtoMessage() {}
-
-func (x *HasTimerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasTimerRequest.ProtoReflect.Descriptor instead.
-func (*HasTimerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *HasTimerRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasTimerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasTimerResponse) Reset() {
-	*x = HasTimerResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasTimerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasTimerResponse) ProtoMessage() {}
-
-func (x *HasTimerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasTimerResponse.ProtoReflect.Descriptor instead.
-func (*HasTimerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *HasTimerResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasTimersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasTimersRequest) Reset() {
-	*x = HasTimersRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasTimersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasTimersRequest) ProtoMessage() {}
-
-func (x *HasTimersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasTimersRequest.ProtoReflect.Descriptor instead.
-func (*HasTimersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *HasTimersRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasTimersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasTimersResponse) Reset() {
-	*x = HasTimersResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasTimersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasTimersResponse) ProtoMessage() {}
-
-func (x *HasTimersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasTimersResponse.ProtoReflect.Descriptor instead.
-func (*HasTimersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *HasTimersResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetCpuHeadroomRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCpuHeadroomRequest) Reset() {
-	*x = GetCpuHeadroomRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCpuHeadroomRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCpuHeadroomRequest) ProtoMessage() {}
-
-func (x *GetCpuHeadroomRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCpuHeadroomRequest.ProtoReflect.Descriptor instead.
-func (*GetCpuHeadroomRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *GetCpuHeadroomRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetCpuHeadroomResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCpuHeadroomResponse) Reset() {
-	*x = GetCpuHeadroomResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCpuHeadroomResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCpuHeadroomResponse) ProtoMessage() {}
-
-func (x *GetCpuHeadroomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCpuHeadroomResponse.ProtoReflect.Descriptor instead.
-func (*GetCpuHeadroomResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *GetCpuHeadroomResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCpuHeadroomMinIntervalMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCpuHeadroomMinIntervalMillisRequest) Reset() {
-	*x = GetCpuHeadroomMinIntervalMillisRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCpuHeadroomMinIntervalMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCpuHeadroomMinIntervalMillisRequest) ProtoMessage() {}
-
-func (x *GetCpuHeadroomMinIntervalMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCpuHeadroomMinIntervalMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetCpuHeadroomMinIntervalMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{42}
-}
-
-type GetCpuHeadroomMinIntervalMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCpuHeadroomMinIntervalMillisResponse) Reset() {
-	*x = GetCpuHeadroomMinIntervalMillisResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCpuHeadroomMinIntervalMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCpuHeadroomMinIntervalMillisResponse) ProtoMessage() {}
-
-func (x *GetCpuHeadroomMinIntervalMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCpuHeadroomMinIntervalMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetCpuHeadroomMinIntervalMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetCpuHeadroomMinIntervalMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetGpuHeadroomRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetGpuHeadroomRequest) Reset() {
-	*x = GetGpuHeadroomRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetGpuHeadroomRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetGpuHeadroomRequest) ProtoMessage() {}
-
-func (x *GetGpuHeadroomRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetGpuHeadroomRequest.ProtoReflect.Descriptor instead.
-func (*GetGpuHeadroomRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *GetGpuHeadroomRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetGpuHeadroomResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetGpuHeadroomResponse) Reset() {
-	*x = GetGpuHeadroomResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetGpuHeadroomResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetGpuHeadroomResponse) ProtoMessage() {}
-
-func (x *GetGpuHeadroomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetGpuHeadroomResponse.ProtoReflect.Descriptor instead.
-func (*GetGpuHeadroomResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *GetGpuHeadroomResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetGpuHeadroomMinIntervalMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetGpuHeadroomMinIntervalMillisRequest) Reset() {
-	*x = GetGpuHeadroomMinIntervalMillisRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetGpuHeadroomMinIntervalMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetGpuHeadroomMinIntervalMillisRequest) ProtoMessage() {}
-
-func (x *GetGpuHeadroomMinIntervalMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetGpuHeadroomMinIntervalMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetGpuHeadroomMinIntervalMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{46}
-}
-
-type GetGpuHeadroomMinIntervalMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetGpuHeadroomMinIntervalMillisResponse) Reset() {
-	*x = GetGpuHeadroomMinIntervalMillisResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetGpuHeadroomMinIntervalMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetGpuHeadroomMinIntervalMillisResponse) ProtoMessage() {}
-
-func (x *GetGpuHeadroomMinIntervalMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetGpuHeadroomMinIntervalMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetGpuHeadroomMinIntervalMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetGpuHeadroomMinIntervalMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMaxCpuHeadroomTidsSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxCpuHeadroomTidsSizeRequest) Reset() {
-	*x = GetMaxCpuHeadroomTidsSizeRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxCpuHeadroomTidsSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxCpuHeadroomTidsSizeRequest) ProtoMessage() {}
-
-func (x *GetMaxCpuHeadroomTidsSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxCpuHeadroomTidsSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxCpuHeadroomTidsSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{48}
-}
-
-type GetMaxCpuHeadroomTidsSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxCpuHeadroomTidsSizeResponse) Reset() {
-	*x = GetMaxCpuHeadroomTidsSizeResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxCpuHeadroomTidsSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxCpuHeadroomTidsSizeResponse) ProtoMessage() {}
-
-func (x *GetMaxCpuHeadroomTidsSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxCpuHeadroomTidsSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxCpuHeadroomTidsSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *GetMaxCpuHeadroomTidsSizeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type TakeMyUidSnapshotRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TakeMyUidSnapshotRequest) Reset() {
-	*x = TakeMyUidSnapshotRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TakeMyUidSnapshotRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TakeMyUidSnapshotRequest) ProtoMessage() {}
-
-func (x *TakeMyUidSnapshotRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TakeMyUidSnapshotRequest.ProtoReflect.Descriptor instead.
-func (*TakeMyUidSnapshotRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{50}
-}
-
-type TakeMyUidSnapshotResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TakeMyUidSnapshotResponse) Reset() {
-	*x = TakeMyUidSnapshotResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TakeMyUidSnapshotResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TakeMyUidSnapshotResponse) ProtoMessage() {}
-
-func (x *TakeMyUidSnapshotResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TakeMyUidSnapshotResponse.ProtoReflect.Descriptor instead.
-func (*TakeMyUidSnapshotResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *TakeMyUidSnapshotResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type TakeUidSnapshotRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TakeUidSnapshotRequest) Reset() {
-	*x = TakeUidSnapshotRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TakeUidSnapshotRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TakeUidSnapshotRequest) ProtoMessage() {}
-
-func (x *TakeUidSnapshotRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TakeUidSnapshotRequest.ProtoReflect.Descriptor instead.
-func (*TakeUidSnapshotRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *TakeUidSnapshotRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type TakeUidSnapshotResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TakeUidSnapshotResponse) Reset() {
-	*x = TakeUidSnapshotResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TakeUidSnapshotResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TakeUidSnapshotResponse) ProtoMessage() {}
-
-func (x *TakeUidSnapshotResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TakeUidSnapshotResponse.ProtoReflect.Descriptor instead.
-func (*TakeUidSnapshotResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *TakeUidSnapshotResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type TakeUidSnapshotsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TakeUidSnapshotsRequest) Reset() {
-	*x = TakeUidSnapshotsRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TakeUidSnapshotsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TakeUidSnapshotsRequest) ProtoMessage() {}
-
-func (x *TakeUidSnapshotsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TakeUidSnapshotsRequest.ProtoReflect.Descriptor instead.
-func (*TakeUidSnapshotsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *TakeUidSnapshotsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type TakeUidSnapshotsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TakeUidSnapshotsResponse) Reset() {
-	*x = TakeUidSnapshotsResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TakeUidSnapshotsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TakeUidSnapshotsResponse) ProtoMessage() {}
-
-func (x *TakeUidSnapshotsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TakeUidSnapshotsResponse.ProtoReflect.Descriptor instead.
-func (*TakeUidSnapshotsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *TakeUidSnapshotsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type NewTimerStatRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -2415,7 +31,7 @@ type NewTimerStatRequest struct {
 
 func (x *NewTimerStatRequest) Reset() {
 	*x = NewTimerStatRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[56]
+	mi := &file_proto_health_health_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2427,7 +43,7 @@ func (x *NewTimerStatRequest) String() string {
 func (*NewTimerStatRequest) ProtoMessage() {}
 
 func (x *NewTimerStatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[56]
+	mi := &file_proto_health_health_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2440,7 +56,7 @@ func (x *NewTimerStatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTimerStatRequest.ProtoReflect.Descriptor instead.
 func (*NewTimerStatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{56}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{0}
 }
 
 type NewTimerStatResponse struct {
@@ -2452,7 +68,7 @@ type NewTimerStatResponse struct {
 
 func (x *NewTimerStatResponse) Reset() {
 	*x = NewTimerStatResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[57]
+	mi := &file_proto_health_health_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2464,7 +80,7 @@ func (x *NewTimerStatResponse) String() string {
 func (*NewTimerStatResponse) ProtoMessage() {}
 
 func (x *NewTimerStatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[57]
+	mi := &file_proto_health_health_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2477,7 +93,7 @@ func (x *NewTimerStatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTimerStatResponse.ProtoReflect.Descriptor instead.
 func (*NewTimerStatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{57}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *NewTimerStatResponse) GetResult() int64 {
@@ -2496,7 +112,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[58]
+	mi := &file_proto_health_health_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2508,7 +124,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[58]
+	mi := &file_proto_health_health_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2521,7 +137,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{58}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *DescribeContentsRequest) GetHandle() int64 {
@@ -2540,7 +156,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[59]
+	mi := &file_proto_health_health_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2552,7 +168,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[59]
+	mi := &file_proto_health_health_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2565,7 +181,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{59}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -2584,7 +200,7 @@ type GetCountRequest struct {
 
 func (x *GetCountRequest) Reset() {
 	*x = GetCountRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[60]
+	mi := &file_proto_health_health_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2596,7 +212,7 @@ func (x *GetCountRequest) String() string {
 func (*GetCountRequest) ProtoMessage() {}
 
 func (x *GetCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[60]
+	mi := &file_proto_health_health_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2609,7 +225,7 @@ func (x *GetCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCountRequest.ProtoReflect.Descriptor instead.
 func (*GetCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{60}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetCountRequest) GetHandle() int64 {
@@ -2628,7 +244,7 @@ type GetCountResponse struct {
 
 func (x *GetCountResponse) Reset() {
 	*x = GetCountResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[61]
+	mi := &file_proto_health_health_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2640,7 +256,7 @@ func (x *GetCountResponse) String() string {
 func (*GetCountResponse) ProtoMessage() {}
 
 func (x *GetCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[61]
+	mi := &file_proto_health_health_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2653,7 +269,7 @@ func (x *GetCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCountResponse.ProtoReflect.Descriptor instead.
 func (*GetCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{61}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetCountResponse) GetResult() int32 {
@@ -2672,7 +288,7 @@ type GetTimeRequest struct {
 
 func (x *GetTimeRequest) Reset() {
 	*x = GetTimeRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[62]
+	mi := &file_proto_health_health_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2684,7 +300,7 @@ func (x *GetTimeRequest) String() string {
 func (*GetTimeRequest) ProtoMessage() {}
 
 func (x *GetTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[62]
+	mi := &file_proto_health_health_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2697,7 +313,7 @@ func (x *GetTimeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimeRequest.ProtoReflect.Descriptor instead.
 func (*GetTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{62}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetTimeRequest) GetHandle() int64 {
@@ -2716,7 +332,7 @@ type GetTimeResponse struct {
 
 func (x *GetTimeResponse) Reset() {
 	*x = GetTimeResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[63]
+	mi := &file_proto_health_health_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2728,7 +344,7 @@ func (x *GetTimeResponse) String() string {
 func (*GetTimeResponse) ProtoMessage() {}
 
 func (x *GetTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[63]
+	mi := &file_proto_health_health_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2741,7 +357,7 @@ func (x *GetTimeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimeResponse.ProtoReflect.Descriptor instead.
 func (*GetTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{63}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetTimeResponse) GetResult() int64 {
@@ -2761,7 +377,7 @@ type SetCountRequest struct {
 
 func (x *SetCountRequest) Reset() {
 	*x = SetCountRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[64]
+	mi := &file_proto_health_health_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2773,7 +389,7 @@ func (x *SetCountRequest) String() string {
 func (*SetCountRequest) ProtoMessage() {}
 
 func (x *SetCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[64]
+	mi := &file_proto_health_health_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2786,7 +402,7 @@ func (x *SetCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCountRequest.ProtoReflect.Descriptor instead.
 func (*SetCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{64}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *SetCountRequest) GetHandle() int64 {
@@ -2811,7 +427,7 @@ type SetCountResponse struct {
 
 func (x *SetCountResponse) Reset() {
 	*x = SetCountResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[65]
+	mi := &file_proto_health_health_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2823,7 +439,7 @@ func (x *SetCountResponse) String() string {
 func (*SetCountResponse) ProtoMessage() {}
 
 func (x *SetCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[65]
+	mi := &file_proto_health_health_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2836,7 +452,7 @@ func (x *SetCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCountResponse.ProtoReflect.Descriptor instead.
 func (*SetCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{65}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{9}
 }
 
 type SetTimeRequest struct {
@@ -2849,7 +465,7 @@ type SetTimeRequest struct {
 
 func (x *SetTimeRequest) Reset() {
 	*x = SetTimeRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[66]
+	mi := &file_proto_health_health_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2861,7 +477,7 @@ func (x *SetTimeRequest) String() string {
 func (*SetTimeRequest) ProtoMessage() {}
 
 func (x *SetTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[66]
+	mi := &file_proto_health_health_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2874,7 +490,7 @@ func (x *SetTimeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTimeRequest.ProtoReflect.Descriptor instead.
 func (*SetTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{66}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SetTimeRequest) GetHandle() int64 {
@@ -2899,7 +515,7 @@ type SetTimeResponse struct {
 
 func (x *SetTimeResponse) Reset() {
 	*x = SetTimeResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[67]
+	mi := &file_proto_health_health_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2911,7 +527,7 @@ func (x *SetTimeResponse) String() string {
 func (*SetTimeResponse) ProtoMessage() {}
 
 func (x *SetTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[67]
+	mi := &file_proto_health_health_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2924,7 +540,7 @@ func (x *SetTimeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTimeResponse.ProtoReflect.Descriptor instead.
 func (*SetTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{67}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{11}
 }
 
 type WriteToParcelRequest struct {
@@ -2938,7 +554,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_health_health_proto_msgTypes[68]
+	mi := &file_proto_health_health_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2950,7 +566,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[68]
+	mi := &file_proto_health_health_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2963,7 +579,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_health_health_proto_rawDescGZIP(), []int{68}
+	return file_proto_health_health_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *WriteToParcelRequest) GetHandle() int64 {
@@ -2995,7 +611,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_health_health_proto_msgTypes[69]
+	mi := &file_proto_health_health_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3007,7 +623,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_health_health_proto_msgTypes[69]
+	mi := &file_proto_health_health_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3020,14 +636,2426 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{13}
+}
+
+type GetDataTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataTypeRequest) Reset() {
+	*x = GetDataTypeRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataTypeRequest) ProtoMessage() {}
+
+func (x *GetDataTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetDataTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{14}
+}
+
+type GetDataTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataTypeResponse) Reset() {
+	*x = GetDataTypeResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataTypeResponse) ProtoMessage() {}
+
+func (x *GetDataTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetDataTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetDataTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetMeasurementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementRequest) Reset() {
+	*x = GetMeasurementRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementRequest) ProtoMessage() {}
+
+func (x *GetMeasurementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementRequest.ProtoReflect.Descriptor instead.
+func (*GetMeasurementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetMeasurementRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMeasurementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementResponse) Reset() {
+	*x = GetMeasurementResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementResponse) ProtoMessage() {}
+
+func (x *GetMeasurementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementResponse.ProtoReflect.Descriptor instead.
+func (*GetMeasurementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetMeasurementResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMeasurementKeyAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementKeyAtRequest) Reset() {
+	*x = GetMeasurementKeyAtRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementKeyAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementKeyAtRequest) ProtoMessage() {}
+
+func (x *GetMeasurementKeyAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementKeyAtRequest.ProtoReflect.Descriptor instead.
+func (*GetMeasurementKeyAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetMeasurementKeyAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMeasurementKeyAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementKeyAtResponse) Reset() {
+	*x = GetMeasurementKeyAtResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementKeyAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementKeyAtResponse) ProtoMessage() {}
+
+func (x *GetMeasurementKeyAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementKeyAtResponse.ProtoReflect.Descriptor instead.
+func (*GetMeasurementKeyAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetMeasurementKeyAtResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMeasurementKeyCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementKeyCountRequest) Reset() {
+	*x = GetMeasurementKeyCountRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementKeyCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementKeyCountRequest) ProtoMessage() {}
+
+func (x *GetMeasurementKeyCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementKeyCountRequest.ProtoReflect.Descriptor instead.
+func (*GetMeasurementKeyCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{20}
+}
+
+type GetMeasurementKeyCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementKeyCountResponse) Reset() {
+	*x = GetMeasurementKeyCountResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementKeyCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementKeyCountResponse) ProtoMessage() {}
+
+func (x *GetMeasurementKeyCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementKeyCountResponse.ProtoReflect.Descriptor instead.
+func (*GetMeasurementKeyCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetMeasurementKeyCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMeasurementsKeyAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementsKeyAtRequest) Reset() {
+	*x = GetMeasurementsKeyAtRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementsKeyAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementsKeyAtRequest) ProtoMessage() {}
+
+func (x *GetMeasurementsKeyAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementsKeyAtRequest.ProtoReflect.Descriptor instead.
+func (*GetMeasurementsKeyAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetMeasurementsKeyAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMeasurementsKeyAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementsKeyAtResponse) Reset() {
+	*x = GetMeasurementsKeyAtResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementsKeyAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementsKeyAtResponse) ProtoMessage() {}
+
+func (x *GetMeasurementsKeyAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementsKeyAtResponse.ProtoReflect.Descriptor instead.
+func (*GetMeasurementsKeyAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetMeasurementsKeyAtResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMeasurementsKeyCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementsKeyCountRequest) Reset() {
+	*x = GetMeasurementsKeyCountRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementsKeyCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementsKeyCountRequest) ProtoMessage() {}
+
+func (x *GetMeasurementsKeyCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementsKeyCountRequest.ProtoReflect.Descriptor instead.
+func (*GetMeasurementsKeyCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{24}
+}
+
+type GetMeasurementsKeyCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementsKeyCountResponse) Reset() {
+	*x = GetMeasurementsKeyCountResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementsKeyCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementsKeyCountResponse) ProtoMessage() {}
+
+func (x *GetMeasurementsKeyCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementsKeyCountResponse.ProtoReflect.Descriptor instead.
+func (*GetMeasurementsKeyCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetMeasurementsKeyCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStatsKeyAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStatsKeyAtRequest) Reset() {
+	*x = GetStatsKeyAtRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStatsKeyAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStatsKeyAtRequest) ProtoMessage() {}
+
+func (x *GetStatsKeyAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStatsKeyAtRequest.ProtoReflect.Descriptor instead.
+func (*GetStatsKeyAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetStatsKeyAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetStatsKeyAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStatsKeyAtResponse) Reset() {
+	*x = GetStatsKeyAtResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStatsKeyAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStatsKeyAtResponse) ProtoMessage() {}
+
+func (x *GetStatsKeyAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStatsKeyAtResponse.ProtoReflect.Descriptor instead.
+func (*GetStatsKeyAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetStatsKeyAtResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStatsKeyCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStatsKeyCountRequest) Reset() {
+	*x = GetStatsKeyCountRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStatsKeyCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStatsKeyCountRequest) ProtoMessage() {}
+
+func (x *GetStatsKeyCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStatsKeyCountRequest.ProtoReflect.Descriptor instead.
+func (*GetStatsKeyCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{28}
+}
+
+type GetStatsKeyCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStatsKeyCountResponse) Reset() {
+	*x = GetStatsKeyCountResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStatsKeyCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStatsKeyCountResponse) ProtoMessage() {}
+
+func (x *GetStatsKeyCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStatsKeyCountResponse.ProtoReflect.Descriptor instead.
+func (*GetStatsKeyCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetStatsKeyCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerRequest) Reset() {
+	*x = GetTimerRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerRequest) ProtoMessage() {}
+
+func (x *GetTimerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerRequest.ProtoReflect.Descriptor instead.
+func (*GetTimerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetTimerRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTimerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerResponse) Reset() {
+	*x = GetTimerResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerResponse) ProtoMessage() {}
+
+func (x *GetTimerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerResponse.ProtoReflect.Descriptor instead.
+func (*GetTimerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetTimerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimerCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerCountRequest) Reset() {
+	*x = GetTimerCountRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerCountRequest) ProtoMessage() {}
+
+func (x *GetTimerCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerCountRequest.ProtoReflect.Descriptor instead.
+func (*GetTimerCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetTimerCountRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTimerCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerCountResponse) Reset() {
+	*x = GetTimerCountResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerCountResponse) ProtoMessage() {}
+
+func (x *GetTimerCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerCountResponse.ProtoReflect.Descriptor instead.
+func (*GetTimerCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetTimerCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimerKeyAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerKeyAtRequest) Reset() {
+	*x = GetTimerKeyAtRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerKeyAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerKeyAtRequest) ProtoMessage() {}
+
+func (x *GetTimerKeyAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerKeyAtRequest.ProtoReflect.Descriptor instead.
+func (*GetTimerKeyAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetTimerKeyAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTimerKeyAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerKeyAtResponse) Reset() {
+	*x = GetTimerKeyAtResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerKeyAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerKeyAtResponse) ProtoMessage() {}
+
+func (x *GetTimerKeyAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerKeyAtResponse.ProtoReflect.Descriptor instead.
+func (*GetTimerKeyAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetTimerKeyAtResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimerKeyCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerKeyCountRequest) Reset() {
+	*x = GetTimerKeyCountRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerKeyCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerKeyCountRequest) ProtoMessage() {}
+
+func (x *GetTimerKeyCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerKeyCountRequest.ProtoReflect.Descriptor instead.
+func (*GetTimerKeyCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{36}
+}
+
+type GetTimerKeyCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerKeyCountResponse) Reset() {
+	*x = GetTimerKeyCountResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerKeyCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerKeyCountResponse) ProtoMessage() {}
+
+func (x *GetTimerKeyCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerKeyCountResponse.ProtoReflect.Descriptor instead.
+func (*GetTimerKeyCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetTimerKeyCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimerTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerTimeRequest) Reset() {
+	*x = GetTimerTimeRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerTimeRequest) ProtoMessage() {}
+
+func (x *GetTimerTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetTimerTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetTimerTimeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTimerTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimerTimeResponse) Reset() {
+	*x = GetTimerTimeResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimerTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimerTimeResponse) ProtoMessage() {}
+
+func (x *GetTimerTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimerTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetTimerTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetTimerTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimersKeyAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimersKeyAtRequest) Reset() {
+	*x = GetTimersKeyAtRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimersKeyAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimersKeyAtRequest) ProtoMessage() {}
+
+func (x *GetTimersKeyAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimersKeyAtRequest.ProtoReflect.Descriptor instead.
+func (*GetTimersKeyAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetTimersKeyAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTimersKeyAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimersKeyAtResponse) Reset() {
+	*x = GetTimersKeyAtResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimersKeyAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimersKeyAtResponse) ProtoMessage() {}
+
+func (x *GetTimersKeyAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimersKeyAtResponse.ProtoReflect.Descriptor instead.
+func (*GetTimersKeyAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetTimersKeyAtResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimersKeyCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimersKeyCountRequest) Reset() {
+	*x = GetTimersKeyCountRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimersKeyCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimersKeyCountRequest) ProtoMessage() {}
+
+func (x *GetTimersKeyCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimersKeyCountRequest.ProtoReflect.Descriptor instead.
+func (*GetTimersKeyCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{42}
+}
+
+type GetTimersKeyCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimersKeyCountResponse) Reset() {
+	*x = GetTimersKeyCountResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimersKeyCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimersKeyCountResponse) ProtoMessage() {}
+
+func (x *GetTimersKeyCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimersKeyCountResponse.ProtoReflect.Descriptor instead.
+func (*GetTimersKeyCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetTimersKeyCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasMeasurementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasMeasurementRequest) Reset() {
+	*x = HasMeasurementRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasMeasurementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasMeasurementRequest) ProtoMessage() {}
+
+func (x *HasMeasurementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasMeasurementRequest.ProtoReflect.Descriptor instead.
+func (*HasMeasurementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *HasMeasurementRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasMeasurementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasMeasurementResponse) Reset() {
+	*x = HasMeasurementResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasMeasurementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasMeasurementResponse) ProtoMessage() {}
+
+func (x *HasMeasurementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasMeasurementResponse.ProtoReflect.Descriptor instead.
+func (*HasMeasurementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *HasMeasurementResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasMeasurementsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasMeasurementsRequest) Reset() {
+	*x = HasMeasurementsRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasMeasurementsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasMeasurementsRequest) ProtoMessage() {}
+
+func (x *HasMeasurementsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasMeasurementsRequest.ProtoReflect.Descriptor instead.
+func (*HasMeasurementsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *HasMeasurementsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasMeasurementsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasMeasurementsResponse) Reset() {
+	*x = HasMeasurementsResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasMeasurementsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasMeasurementsResponse) ProtoMessage() {}
+
+func (x *HasMeasurementsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasMeasurementsResponse.ProtoReflect.Descriptor instead.
+func (*HasMeasurementsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *HasMeasurementsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasStatsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasStatsRequest) Reset() {
+	*x = HasStatsRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasStatsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasStatsRequest) ProtoMessage() {}
+
+func (x *HasStatsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasStatsRequest.ProtoReflect.Descriptor instead.
+func (*HasStatsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *HasStatsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasStatsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasStatsResponse) Reset() {
+	*x = HasStatsResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasStatsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasStatsResponse) ProtoMessage() {}
+
+func (x *HasStatsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasStatsResponse.ProtoReflect.Descriptor instead.
+func (*HasStatsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *HasStatsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasTimerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasTimerRequest) Reset() {
+	*x = HasTimerRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasTimerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasTimerRequest) ProtoMessage() {}
+
+func (x *HasTimerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasTimerRequest.ProtoReflect.Descriptor instead.
+func (*HasTimerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *HasTimerRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasTimerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasTimerResponse) Reset() {
+	*x = HasTimerResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasTimerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasTimerResponse) ProtoMessage() {}
+
+func (x *HasTimerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasTimerResponse.ProtoReflect.Descriptor instead.
+func (*HasTimerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *HasTimerResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasTimersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasTimersRequest) Reset() {
+	*x = HasTimersRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasTimersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasTimersRequest) ProtoMessage() {}
+
+func (x *HasTimersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasTimersRequest.ProtoReflect.Descriptor instead.
+func (*HasTimersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *HasTimersRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasTimersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasTimersResponse) Reset() {
+	*x = HasTimersResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasTimersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasTimersResponse) ProtoMessage() {}
+
+func (x *HasTimersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasTimersResponse.ProtoReflect.Descriptor instead.
+func (*HasTimersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *HasTimersResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetCpuHeadroomRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCpuHeadroomRequest) Reset() {
+	*x = GetCpuHeadroomRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCpuHeadroomRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCpuHeadroomRequest) ProtoMessage() {}
+
+func (x *GetCpuHeadroomRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCpuHeadroomRequest.ProtoReflect.Descriptor instead.
+func (*GetCpuHeadroomRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *GetCpuHeadroomRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetCpuHeadroomResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCpuHeadroomResponse) Reset() {
+	*x = GetCpuHeadroomResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCpuHeadroomResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCpuHeadroomResponse) ProtoMessage() {}
+
+func (x *GetCpuHeadroomResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCpuHeadroomResponse.ProtoReflect.Descriptor instead.
+func (*GetCpuHeadroomResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetCpuHeadroomResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCpuHeadroomMinIntervalMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCpuHeadroomMinIntervalMillisRequest) Reset() {
+	*x = GetCpuHeadroomMinIntervalMillisRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCpuHeadroomMinIntervalMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCpuHeadroomMinIntervalMillisRequest) ProtoMessage() {}
+
+func (x *GetCpuHeadroomMinIntervalMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCpuHeadroomMinIntervalMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetCpuHeadroomMinIntervalMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{56}
+}
+
+type GetCpuHeadroomMinIntervalMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCpuHeadroomMinIntervalMillisResponse) Reset() {
+	*x = GetCpuHeadroomMinIntervalMillisResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCpuHeadroomMinIntervalMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCpuHeadroomMinIntervalMillisResponse) ProtoMessage() {}
+
+func (x *GetCpuHeadroomMinIntervalMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCpuHeadroomMinIntervalMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetCpuHeadroomMinIntervalMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *GetCpuHeadroomMinIntervalMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGpuHeadroomRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGpuHeadroomRequest) Reset() {
+	*x = GetGpuHeadroomRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGpuHeadroomRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGpuHeadroomRequest) ProtoMessage() {}
+
+func (x *GetGpuHeadroomRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGpuHeadroomRequest.ProtoReflect.Descriptor instead.
+func (*GetGpuHeadroomRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *GetGpuHeadroomRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetGpuHeadroomResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGpuHeadroomResponse) Reset() {
+	*x = GetGpuHeadroomResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGpuHeadroomResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGpuHeadroomResponse) ProtoMessage() {}
+
+func (x *GetGpuHeadroomResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGpuHeadroomResponse.ProtoReflect.Descriptor instead.
+func (*GetGpuHeadroomResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetGpuHeadroomResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGpuHeadroomMinIntervalMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGpuHeadroomMinIntervalMillisRequest) Reset() {
+	*x = GetGpuHeadroomMinIntervalMillisRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGpuHeadroomMinIntervalMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGpuHeadroomMinIntervalMillisRequest) ProtoMessage() {}
+
+func (x *GetGpuHeadroomMinIntervalMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGpuHeadroomMinIntervalMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetGpuHeadroomMinIntervalMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{60}
+}
+
+type GetGpuHeadroomMinIntervalMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGpuHeadroomMinIntervalMillisResponse) Reset() {
+	*x = GetGpuHeadroomMinIntervalMillisResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGpuHeadroomMinIntervalMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGpuHeadroomMinIntervalMillisResponse) ProtoMessage() {}
+
+func (x *GetGpuHeadroomMinIntervalMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGpuHeadroomMinIntervalMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetGpuHeadroomMinIntervalMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetGpuHeadroomMinIntervalMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxCpuHeadroomTidsSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxCpuHeadroomTidsSizeRequest) Reset() {
+	*x = GetMaxCpuHeadroomTidsSizeRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxCpuHeadroomTidsSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxCpuHeadroomTidsSizeRequest) ProtoMessage() {}
+
+func (x *GetMaxCpuHeadroomTidsSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxCpuHeadroomTidsSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxCpuHeadroomTidsSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{62}
+}
+
+type GetMaxCpuHeadroomTidsSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxCpuHeadroomTidsSizeResponse) Reset() {
+	*x = GetMaxCpuHeadroomTidsSizeResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxCpuHeadroomTidsSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxCpuHeadroomTidsSizeResponse) ProtoMessage() {}
+
+func (x *GetMaxCpuHeadroomTidsSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxCpuHeadroomTidsSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxCpuHeadroomTidsSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetMaxCpuHeadroomTidsSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TakeMyUidSnapshotRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeMyUidSnapshotRequest) Reset() {
+	*x = TakeMyUidSnapshotRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeMyUidSnapshotRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeMyUidSnapshotRequest) ProtoMessage() {}
+
+func (x *TakeMyUidSnapshotRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeMyUidSnapshotRequest.ProtoReflect.Descriptor instead.
+func (*TakeMyUidSnapshotRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{64}
+}
+
+type TakeMyUidSnapshotResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeMyUidSnapshotResponse) Reset() {
+	*x = TakeMyUidSnapshotResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeMyUidSnapshotResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeMyUidSnapshotResponse) ProtoMessage() {}
+
+func (x *TakeMyUidSnapshotResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeMyUidSnapshotResponse.ProtoReflect.Descriptor instead.
+func (*TakeMyUidSnapshotResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *TakeMyUidSnapshotResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TakeUidSnapshotRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeUidSnapshotRequest) Reset() {
+	*x = TakeUidSnapshotRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeUidSnapshotRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeUidSnapshotRequest) ProtoMessage() {}
+
+func (x *TakeUidSnapshotRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeUidSnapshotRequest.ProtoReflect.Descriptor instead.
+func (*TakeUidSnapshotRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *TakeUidSnapshotRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type TakeUidSnapshotResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeUidSnapshotResponse) Reset() {
+	*x = TakeUidSnapshotResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeUidSnapshotResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeUidSnapshotResponse) ProtoMessage() {}
+
+func (x *TakeUidSnapshotResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeUidSnapshotResponse.ProtoReflect.Descriptor instead.
+func (*TakeUidSnapshotResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *TakeUidSnapshotResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TakeUidSnapshotsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeUidSnapshotsRequest) Reset() {
+	*x = TakeUidSnapshotsRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeUidSnapshotsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeUidSnapshotsRequest) ProtoMessage() {}
+
+func (x *TakeUidSnapshotsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeUidSnapshotsRequest.ProtoReflect.Descriptor instead.
+func (*TakeUidSnapshotsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *TakeUidSnapshotsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type TakeUidSnapshotsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeUidSnapshotsResponse) Reset() {
+	*x = TakeUidSnapshotsResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeUidSnapshotsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeUidSnapshotsResponse) ProtoMessage() {}
+
+func (x *TakeUidSnapshotsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeUidSnapshotsResponse.ProtoReflect.Descriptor instead.
+func (*TakeUidSnapshotsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *TakeUidSnapshotsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 var File_proto_health_health_proto protoreflect.FileDescriptor
 
 const file_proto_health_health_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/health/health.proto\x12\x06health\"\x14\n" +
+	"\x19proto/health/health.proto\x12\x06health\"\x15\n" +
+	"\x13NewTimerStatRequest\".\n" +
+	"\x14NewTimerStatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fGetCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
+	"\x0eGetTimeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
+	"\x0fSetCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x12\n" +
+	"\x10SetCountResponse\"<\n" +
+	"\x0eSetTimeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fSetTimeResponse\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x14\n" +
 	"\x12GetDataTypeRequest\"-\n" +
 	"\x13GetDataTypeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
@@ -3129,35 +3157,15 @@ const file_proto_health_health_proto_rawDesc = "" +
 	"\x17TakeUidSnapshotsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
 	"\x18TakeUidSnapshotsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13NewTimerStatRequest\".\n" +
-	"\x14NewTimerStatResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x17DescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
-	"\x0fGetCountRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10GetCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
-	"\x0eGetTimeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
-	"\x0fGetTimeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
-	"\x0fSetCountRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x12\n" +
-	"\x10SetCountResponse\"<\n" +
-	"\x0eSetTimeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fSetTimeResponse\"V\n" +
-	"\x14WriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse2\xf1\f\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xf8\x03\n" +
+	"\x10TimerStatService\x12I\n" +
+	"\fNewTimerStat\x12\x1b.health.NewTimerStatRequest\x1a\x1c.health.NewTimerStatResponse\x12U\n" +
+	"\x10DescribeContents\x12\x1f.health.DescribeContentsRequest\x1a .health.DescribeContentsResponse\x12=\n" +
+	"\bGetCount\x12\x17.health.GetCountRequest\x1a\x18.health.GetCountResponse\x12:\n" +
+	"\aGetTime\x12\x16.health.GetTimeRequest\x1a\x17.health.GetTimeResponse\x12=\n" +
+	"\bSetCount\x12\x17.health.SetCountRequest\x1a\x18.health.SetCountResponse\x12:\n" +
+	"\aSetTime\x12\x16.health.SetTimeRequest\x1a\x17.health.SetTimeResponse\x12L\n" +
+	"\rWriteToParcel\x12\x1c.health.WriteToParcelRequest\x1a\x1d.health.WriteToParcelResponse2\xf1\f\n" +
 	"\fStatsService\x12F\n" +
 	"\vGetDataType\x12\x1a.health.GetDataTypeRequest\x1a\x1b.health.GetDataTypeResponse\x12O\n" +
 	"\x0eGetMeasurement\x12\x1d.health.GetMeasurementRequest\x1a\x1e.health.GetMeasurementResponse\x12^\n" +
@@ -3187,15 +3195,7 @@ const file_proto_health_health_proto_rawDesc = "" +
 	"\x19GetMaxCpuHeadroomTidsSize\x12(.health.GetMaxCpuHeadroomTidsSizeRequest\x1a).health.GetMaxCpuHeadroomTidsSizeResponse\x12X\n" +
 	"\x11TakeMyUidSnapshot\x12 .health.TakeMyUidSnapshotRequest\x1a!.health.TakeMyUidSnapshotResponse\x12R\n" +
 	"\x0fTakeUidSnapshot\x12\x1e.health.TakeUidSnapshotRequest\x1a\x1f.health.TakeUidSnapshotResponse\x12U\n" +
-	"\x10TakeUidSnapshots\x12\x1f.health.TakeUidSnapshotsRequest\x1a .health.TakeUidSnapshotsResponse2\xf8\x03\n" +
-	"\x10TimerStatService\x12I\n" +
-	"\fNewTimerStat\x12\x1b.health.NewTimerStatRequest\x1a\x1c.health.NewTimerStatResponse\x12U\n" +
-	"\x10DescribeContents\x12\x1f.health.DescribeContentsRequest\x1a .health.DescribeContentsResponse\x12=\n" +
-	"\bGetCount\x12\x17.health.GetCountRequest\x1a\x18.health.GetCountResponse\x12:\n" +
-	"\aGetTime\x12\x16.health.GetTimeRequest\x1a\x17.health.GetTimeResponse\x12=\n" +
-	"\bSetCount\x12\x17.health.SetCountRequest\x1a\x18.health.SetCountResponse\x12:\n" +
-	"\aSetTime\x12\x16.health.SetTimeRequest\x1a\x17.health.SetTimeResponse\x12L\n" +
-	"\rWriteToParcel\x12\x1c.health.WriteToParcelRequest\x1a\x1d.health.WriteToParcelResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/healthb\x06proto3"
+	"\x10TakeUidSnapshots\x12\x1f.health.TakeUidSnapshotsRequest\x1a .health.TakeUidSnapshotsResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/healthb\x06proto3"
 
 var (
 	file_proto_health_health_proto_rawDescOnce sync.Once
@@ -3211,148 +3211,148 @@ func file_proto_health_health_proto_rawDescGZIP() []byte {
 
 var file_proto_health_health_proto_msgTypes = make([]protoimpl.MessageInfo, 70)
 var file_proto_health_health_proto_goTypes = []any{
-	(*GetDataTypeRequest)(nil),                      // 0: health.GetDataTypeRequest
-	(*GetDataTypeResponse)(nil),                     // 1: health.GetDataTypeResponse
-	(*GetMeasurementRequest)(nil),                   // 2: health.GetMeasurementRequest
-	(*GetMeasurementResponse)(nil),                  // 3: health.GetMeasurementResponse
-	(*GetMeasurementKeyAtRequest)(nil),              // 4: health.GetMeasurementKeyAtRequest
-	(*GetMeasurementKeyAtResponse)(nil),             // 5: health.GetMeasurementKeyAtResponse
-	(*GetMeasurementKeyCountRequest)(nil),           // 6: health.GetMeasurementKeyCountRequest
-	(*GetMeasurementKeyCountResponse)(nil),          // 7: health.GetMeasurementKeyCountResponse
-	(*GetMeasurementsKeyAtRequest)(nil),             // 8: health.GetMeasurementsKeyAtRequest
-	(*GetMeasurementsKeyAtResponse)(nil),            // 9: health.GetMeasurementsKeyAtResponse
-	(*GetMeasurementsKeyCountRequest)(nil),          // 10: health.GetMeasurementsKeyCountRequest
-	(*GetMeasurementsKeyCountResponse)(nil),         // 11: health.GetMeasurementsKeyCountResponse
-	(*GetStatsKeyAtRequest)(nil),                    // 12: health.GetStatsKeyAtRequest
-	(*GetStatsKeyAtResponse)(nil),                   // 13: health.GetStatsKeyAtResponse
-	(*GetStatsKeyCountRequest)(nil),                 // 14: health.GetStatsKeyCountRequest
-	(*GetStatsKeyCountResponse)(nil),                // 15: health.GetStatsKeyCountResponse
-	(*GetTimerRequest)(nil),                         // 16: health.GetTimerRequest
-	(*GetTimerResponse)(nil),                        // 17: health.GetTimerResponse
-	(*GetTimerCountRequest)(nil),                    // 18: health.GetTimerCountRequest
-	(*GetTimerCountResponse)(nil),                   // 19: health.GetTimerCountResponse
-	(*GetTimerKeyAtRequest)(nil),                    // 20: health.GetTimerKeyAtRequest
-	(*GetTimerKeyAtResponse)(nil),                   // 21: health.GetTimerKeyAtResponse
-	(*GetTimerKeyCountRequest)(nil),                 // 22: health.GetTimerKeyCountRequest
-	(*GetTimerKeyCountResponse)(nil),                // 23: health.GetTimerKeyCountResponse
-	(*GetTimerTimeRequest)(nil),                     // 24: health.GetTimerTimeRequest
-	(*GetTimerTimeResponse)(nil),                    // 25: health.GetTimerTimeResponse
-	(*GetTimersKeyAtRequest)(nil),                   // 26: health.GetTimersKeyAtRequest
-	(*GetTimersKeyAtResponse)(nil),                  // 27: health.GetTimersKeyAtResponse
-	(*GetTimersKeyCountRequest)(nil),                // 28: health.GetTimersKeyCountRequest
-	(*GetTimersKeyCountResponse)(nil),               // 29: health.GetTimersKeyCountResponse
-	(*HasMeasurementRequest)(nil),                   // 30: health.HasMeasurementRequest
-	(*HasMeasurementResponse)(nil),                  // 31: health.HasMeasurementResponse
-	(*HasMeasurementsRequest)(nil),                  // 32: health.HasMeasurementsRequest
-	(*HasMeasurementsResponse)(nil),                 // 33: health.HasMeasurementsResponse
-	(*HasStatsRequest)(nil),                         // 34: health.HasStatsRequest
-	(*HasStatsResponse)(nil),                        // 35: health.HasStatsResponse
-	(*HasTimerRequest)(nil),                         // 36: health.HasTimerRequest
-	(*HasTimerResponse)(nil),                        // 37: health.HasTimerResponse
-	(*HasTimersRequest)(nil),                        // 38: health.HasTimersRequest
-	(*HasTimersResponse)(nil),                       // 39: health.HasTimersResponse
-	(*GetCpuHeadroomRequest)(nil),                   // 40: health.GetCpuHeadroomRequest
-	(*GetCpuHeadroomResponse)(nil),                  // 41: health.GetCpuHeadroomResponse
-	(*GetCpuHeadroomMinIntervalMillisRequest)(nil),  // 42: health.GetCpuHeadroomMinIntervalMillisRequest
-	(*GetCpuHeadroomMinIntervalMillisResponse)(nil), // 43: health.GetCpuHeadroomMinIntervalMillisResponse
-	(*GetGpuHeadroomRequest)(nil),                   // 44: health.GetGpuHeadroomRequest
-	(*GetGpuHeadroomResponse)(nil),                  // 45: health.GetGpuHeadroomResponse
-	(*GetGpuHeadroomMinIntervalMillisRequest)(nil),  // 46: health.GetGpuHeadroomMinIntervalMillisRequest
-	(*GetGpuHeadroomMinIntervalMillisResponse)(nil), // 47: health.GetGpuHeadroomMinIntervalMillisResponse
-	(*GetMaxCpuHeadroomTidsSizeRequest)(nil),        // 48: health.GetMaxCpuHeadroomTidsSizeRequest
-	(*GetMaxCpuHeadroomTidsSizeResponse)(nil),       // 49: health.GetMaxCpuHeadroomTidsSizeResponse
-	(*TakeMyUidSnapshotRequest)(nil),                // 50: health.TakeMyUidSnapshotRequest
-	(*TakeMyUidSnapshotResponse)(nil),               // 51: health.TakeMyUidSnapshotResponse
-	(*TakeUidSnapshotRequest)(nil),                  // 52: health.TakeUidSnapshotRequest
-	(*TakeUidSnapshotResponse)(nil),                 // 53: health.TakeUidSnapshotResponse
-	(*TakeUidSnapshotsRequest)(nil),                 // 54: health.TakeUidSnapshotsRequest
-	(*TakeUidSnapshotsResponse)(nil),                // 55: health.TakeUidSnapshotsResponse
-	(*NewTimerStatRequest)(nil),                     // 56: health.NewTimerStatRequest
-	(*NewTimerStatResponse)(nil),                    // 57: health.NewTimerStatResponse
-	(*DescribeContentsRequest)(nil),                 // 58: health.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                // 59: health.DescribeContentsResponse
-	(*GetCountRequest)(nil),                         // 60: health.GetCountRequest
-	(*GetCountResponse)(nil),                        // 61: health.GetCountResponse
-	(*GetTimeRequest)(nil),                          // 62: health.GetTimeRequest
-	(*GetTimeResponse)(nil),                         // 63: health.GetTimeResponse
-	(*SetCountRequest)(nil),                         // 64: health.SetCountRequest
-	(*SetCountResponse)(nil),                        // 65: health.SetCountResponse
-	(*SetTimeRequest)(nil),                          // 66: health.SetTimeRequest
-	(*SetTimeResponse)(nil),                         // 67: health.SetTimeResponse
-	(*WriteToParcelRequest)(nil),                    // 68: health.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                   // 69: health.WriteToParcelResponse
+	(*NewTimerStatRequest)(nil),                     // 0: health.NewTimerStatRequest
+	(*NewTimerStatResponse)(nil),                    // 1: health.NewTimerStatResponse
+	(*DescribeContentsRequest)(nil),                 // 2: health.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                // 3: health.DescribeContentsResponse
+	(*GetCountRequest)(nil),                         // 4: health.GetCountRequest
+	(*GetCountResponse)(nil),                        // 5: health.GetCountResponse
+	(*GetTimeRequest)(nil),                          // 6: health.GetTimeRequest
+	(*GetTimeResponse)(nil),                         // 7: health.GetTimeResponse
+	(*SetCountRequest)(nil),                         // 8: health.SetCountRequest
+	(*SetCountResponse)(nil),                        // 9: health.SetCountResponse
+	(*SetTimeRequest)(nil),                          // 10: health.SetTimeRequest
+	(*SetTimeResponse)(nil),                         // 11: health.SetTimeResponse
+	(*WriteToParcelRequest)(nil),                    // 12: health.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                   // 13: health.WriteToParcelResponse
+	(*GetDataTypeRequest)(nil),                      // 14: health.GetDataTypeRequest
+	(*GetDataTypeResponse)(nil),                     // 15: health.GetDataTypeResponse
+	(*GetMeasurementRequest)(nil),                   // 16: health.GetMeasurementRequest
+	(*GetMeasurementResponse)(nil),                  // 17: health.GetMeasurementResponse
+	(*GetMeasurementKeyAtRequest)(nil),              // 18: health.GetMeasurementKeyAtRequest
+	(*GetMeasurementKeyAtResponse)(nil),             // 19: health.GetMeasurementKeyAtResponse
+	(*GetMeasurementKeyCountRequest)(nil),           // 20: health.GetMeasurementKeyCountRequest
+	(*GetMeasurementKeyCountResponse)(nil),          // 21: health.GetMeasurementKeyCountResponse
+	(*GetMeasurementsKeyAtRequest)(nil),             // 22: health.GetMeasurementsKeyAtRequest
+	(*GetMeasurementsKeyAtResponse)(nil),            // 23: health.GetMeasurementsKeyAtResponse
+	(*GetMeasurementsKeyCountRequest)(nil),          // 24: health.GetMeasurementsKeyCountRequest
+	(*GetMeasurementsKeyCountResponse)(nil),         // 25: health.GetMeasurementsKeyCountResponse
+	(*GetStatsKeyAtRequest)(nil),                    // 26: health.GetStatsKeyAtRequest
+	(*GetStatsKeyAtResponse)(nil),                   // 27: health.GetStatsKeyAtResponse
+	(*GetStatsKeyCountRequest)(nil),                 // 28: health.GetStatsKeyCountRequest
+	(*GetStatsKeyCountResponse)(nil),                // 29: health.GetStatsKeyCountResponse
+	(*GetTimerRequest)(nil),                         // 30: health.GetTimerRequest
+	(*GetTimerResponse)(nil),                        // 31: health.GetTimerResponse
+	(*GetTimerCountRequest)(nil),                    // 32: health.GetTimerCountRequest
+	(*GetTimerCountResponse)(nil),                   // 33: health.GetTimerCountResponse
+	(*GetTimerKeyAtRequest)(nil),                    // 34: health.GetTimerKeyAtRequest
+	(*GetTimerKeyAtResponse)(nil),                   // 35: health.GetTimerKeyAtResponse
+	(*GetTimerKeyCountRequest)(nil),                 // 36: health.GetTimerKeyCountRequest
+	(*GetTimerKeyCountResponse)(nil),                // 37: health.GetTimerKeyCountResponse
+	(*GetTimerTimeRequest)(nil),                     // 38: health.GetTimerTimeRequest
+	(*GetTimerTimeResponse)(nil),                    // 39: health.GetTimerTimeResponse
+	(*GetTimersKeyAtRequest)(nil),                   // 40: health.GetTimersKeyAtRequest
+	(*GetTimersKeyAtResponse)(nil),                  // 41: health.GetTimersKeyAtResponse
+	(*GetTimersKeyCountRequest)(nil),                // 42: health.GetTimersKeyCountRequest
+	(*GetTimersKeyCountResponse)(nil),               // 43: health.GetTimersKeyCountResponse
+	(*HasMeasurementRequest)(nil),                   // 44: health.HasMeasurementRequest
+	(*HasMeasurementResponse)(nil),                  // 45: health.HasMeasurementResponse
+	(*HasMeasurementsRequest)(nil),                  // 46: health.HasMeasurementsRequest
+	(*HasMeasurementsResponse)(nil),                 // 47: health.HasMeasurementsResponse
+	(*HasStatsRequest)(nil),                         // 48: health.HasStatsRequest
+	(*HasStatsResponse)(nil),                        // 49: health.HasStatsResponse
+	(*HasTimerRequest)(nil),                         // 50: health.HasTimerRequest
+	(*HasTimerResponse)(nil),                        // 51: health.HasTimerResponse
+	(*HasTimersRequest)(nil),                        // 52: health.HasTimersRequest
+	(*HasTimersResponse)(nil),                       // 53: health.HasTimersResponse
+	(*GetCpuHeadroomRequest)(nil),                   // 54: health.GetCpuHeadroomRequest
+	(*GetCpuHeadroomResponse)(nil),                  // 55: health.GetCpuHeadroomResponse
+	(*GetCpuHeadroomMinIntervalMillisRequest)(nil),  // 56: health.GetCpuHeadroomMinIntervalMillisRequest
+	(*GetCpuHeadroomMinIntervalMillisResponse)(nil), // 57: health.GetCpuHeadroomMinIntervalMillisResponse
+	(*GetGpuHeadroomRequest)(nil),                   // 58: health.GetGpuHeadroomRequest
+	(*GetGpuHeadroomResponse)(nil),                  // 59: health.GetGpuHeadroomResponse
+	(*GetGpuHeadroomMinIntervalMillisRequest)(nil),  // 60: health.GetGpuHeadroomMinIntervalMillisRequest
+	(*GetGpuHeadroomMinIntervalMillisResponse)(nil), // 61: health.GetGpuHeadroomMinIntervalMillisResponse
+	(*GetMaxCpuHeadroomTidsSizeRequest)(nil),        // 62: health.GetMaxCpuHeadroomTidsSizeRequest
+	(*GetMaxCpuHeadroomTidsSizeResponse)(nil),       // 63: health.GetMaxCpuHeadroomTidsSizeResponse
+	(*TakeMyUidSnapshotRequest)(nil),                // 64: health.TakeMyUidSnapshotRequest
+	(*TakeMyUidSnapshotResponse)(nil),               // 65: health.TakeMyUidSnapshotResponse
+	(*TakeUidSnapshotRequest)(nil),                  // 66: health.TakeUidSnapshotRequest
+	(*TakeUidSnapshotResponse)(nil),                 // 67: health.TakeUidSnapshotResponse
+	(*TakeUidSnapshotsRequest)(nil),                 // 68: health.TakeUidSnapshotsRequest
+	(*TakeUidSnapshotsResponse)(nil),                // 69: health.TakeUidSnapshotsResponse
 }
 var file_proto_health_health_proto_depIdxs = []int32{
-	0,  // 0: health.StatsService.GetDataType:input_type -> health.GetDataTypeRequest
-	2,  // 1: health.StatsService.GetMeasurement:input_type -> health.GetMeasurementRequest
-	4,  // 2: health.StatsService.GetMeasurementKeyAt:input_type -> health.GetMeasurementKeyAtRequest
-	6,  // 3: health.StatsService.GetMeasurementKeyCount:input_type -> health.GetMeasurementKeyCountRequest
-	8,  // 4: health.StatsService.GetMeasurementsKeyAt:input_type -> health.GetMeasurementsKeyAtRequest
-	10, // 5: health.StatsService.GetMeasurementsKeyCount:input_type -> health.GetMeasurementsKeyCountRequest
-	12, // 6: health.StatsService.GetStatsKeyAt:input_type -> health.GetStatsKeyAtRequest
-	14, // 7: health.StatsService.GetStatsKeyCount:input_type -> health.GetStatsKeyCountRequest
-	16, // 8: health.StatsService.GetTimer:input_type -> health.GetTimerRequest
-	18, // 9: health.StatsService.GetTimerCount:input_type -> health.GetTimerCountRequest
-	20, // 10: health.StatsService.GetTimerKeyAt:input_type -> health.GetTimerKeyAtRequest
-	22, // 11: health.StatsService.GetTimerKeyCount:input_type -> health.GetTimerKeyCountRequest
-	24, // 12: health.StatsService.GetTimerTime:input_type -> health.GetTimerTimeRequest
-	26, // 13: health.StatsService.GetTimersKeyAt:input_type -> health.GetTimersKeyAtRequest
-	28, // 14: health.StatsService.GetTimersKeyCount:input_type -> health.GetTimersKeyCountRequest
-	30, // 15: health.StatsService.HasMeasurement:input_type -> health.HasMeasurementRequest
-	32, // 16: health.StatsService.HasMeasurements:input_type -> health.HasMeasurementsRequest
-	34, // 17: health.StatsService.HasStats:input_type -> health.HasStatsRequest
-	36, // 18: health.StatsService.HasTimer:input_type -> health.HasTimerRequest
-	38, // 19: health.StatsService.HasTimers:input_type -> health.HasTimersRequest
-	40, // 20: health.SystemHealthManagerService.GetCpuHeadroom:input_type -> health.GetCpuHeadroomRequest
-	42, // 21: health.SystemHealthManagerService.GetCpuHeadroomMinIntervalMillis:input_type -> health.GetCpuHeadroomMinIntervalMillisRequest
-	44, // 22: health.SystemHealthManagerService.GetGpuHeadroom:input_type -> health.GetGpuHeadroomRequest
-	46, // 23: health.SystemHealthManagerService.GetGpuHeadroomMinIntervalMillis:input_type -> health.GetGpuHeadroomMinIntervalMillisRequest
-	48, // 24: health.SystemHealthManagerService.GetMaxCpuHeadroomTidsSize:input_type -> health.GetMaxCpuHeadroomTidsSizeRequest
-	50, // 25: health.SystemHealthManagerService.TakeMyUidSnapshot:input_type -> health.TakeMyUidSnapshotRequest
-	52, // 26: health.SystemHealthManagerService.TakeUidSnapshot:input_type -> health.TakeUidSnapshotRequest
-	54, // 27: health.SystemHealthManagerService.TakeUidSnapshots:input_type -> health.TakeUidSnapshotsRequest
-	56, // 28: health.TimerStatService.NewTimerStat:input_type -> health.NewTimerStatRequest
-	58, // 29: health.TimerStatService.DescribeContents:input_type -> health.DescribeContentsRequest
-	60, // 30: health.TimerStatService.GetCount:input_type -> health.GetCountRequest
-	62, // 31: health.TimerStatService.GetTime:input_type -> health.GetTimeRequest
-	64, // 32: health.TimerStatService.SetCount:input_type -> health.SetCountRequest
-	66, // 33: health.TimerStatService.SetTime:input_type -> health.SetTimeRequest
-	68, // 34: health.TimerStatService.WriteToParcel:input_type -> health.WriteToParcelRequest
-	1,  // 35: health.StatsService.GetDataType:output_type -> health.GetDataTypeResponse
-	3,  // 36: health.StatsService.GetMeasurement:output_type -> health.GetMeasurementResponse
-	5,  // 37: health.StatsService.GetMeasurementKeyAt:output_type -> health.GetMeasurementKeyAtResponse
-	7,  // 38: health.StatsService.GetMeasurementKeyCount:output_type -> health.GetMeasurementKeyCountResponse
-	9,  // 39: health.StatsService.GetMeasurementsKeyAt:output_type -> health.GetMeasurementsKeyAtResponse
-	11, // 40: health.StatsService.GetMeasurementsKeyCount:output_type -> health.GetMeasurementsKeyCountResponse
-	13, // 41: health.StatsService.GetStatsKeyAt:output_type -> health.GetStatsKeyAtResponse
-	15, // 42: health.StatsService.GetStatsKeyCount:output_type -> health.GetStatsKeyCountResponse
-	17, // 43: health.StatsService.GetTimer:output_type -> health.GetTimerResponse
-	19, // 44: health.StatsService.GetTimerCount:output_type -> health.GetTimerCountResponse
-	21, // 45: health.StatsService.GetTimerKeyAt:output_type -> health.GetTimerKeyAtResponse
-	23, // 46: health.StatsService.GetTimerKeyCount:output_type -> health.GetTimerKeyCountResponse
-	25, // 47: health.StatsService.GetTimerTime:output_type -> health.GetTimerTimeResponse
-	27, // 48: health.StatsService.GetTimersKeyAt:output_type -> health.GetTimersKeyAtResponse
-	29, // 49: health.StatsService.GetTimersKeyCount:output_type -> health.GetTimersKeyCountResponse
-	31, // 50: health.StatsService.HasMeasurement:output_type -> health.HasMeasurementResponse
-	33, // 51: health.StatsService.HasMeasurements:output_type -> health.HasMeasurementsResponse
-	35, // 52: health.StatsService.HasStats:output_type -> health.HasStatsResponse
-	37, // 53: health.StatsService.HasTimer:output_type -> health.HasTimerResponse
-	39, // 54: health.StatsService.HasTimers:output_type -> health.HasTimersResponse
-	41, // 55: health.SystemHealthManagerService.GetCpuHeadroom:output_type -> health.GetCpuHeadroomResponse
-	43, // 56: health.SystemHealthManagerService.GetCpuHeadroomMinIntervalMillis:output_type -> health.GetCpuHeadroomMinIntervalMillisResponse
-	45, // 57: health.SystemHealthManagerService.GetGpuHeadroom:output_type -> health.GetGpuHeadroomResponse
-	47, // 58: health.SystemHealthManagerService.GetGpuHeadroomMinIntervalMillis:output_type -> health.GetGpuHeadroomMinIntervalMillisResponse
-	49, // 59: health.SystemHealthManagerService.GetMaxCpuHeadroomTidsSize:output_type -> health.GetMaxCpuHeadroomTidsSizeResponse
-	51, // 60: health.SystemHealthManagerService.TakeMyUidSnapshot:output_type -> health.TakeMyUidSnapshotResponse
-	53, // 61: health.SystemHealthManagerService.TakeUidSnapshot:output_type -> health.TakeUidSnapshotResponse
-	55, // 62: health.SystemHealthManagerService.TakeUidSnapshots:output_type -> health.TakeUidSnapshotsResponse
-	57, // 63: health.TimerStatService.NewTimerStat:output_type -> health.NewTimerStatResponse
-	59, // 64: health.TimerStatService.DescribeContents:output_type -> health.DescribeContentsResponse
-	61, // 65: health.TimerStatService.GetCount:output_type -> health.GetCountResponse
-	63, // 66: health.TimerStatService.GetTime:output_type -> health.GetTimeResponse
-	65, // 67: health.TimerStatService.SetCount:output_type -> health.SetCountResponse
-	67, // 68: health.TimerStatService.SetTime:output_type -> health.SetTimeResponse
-	69, // 69: health.TimerStatService.WriteToParcel:output_type -> health.WriteToParcelResponse
+	0,  // 0: health.TimerStatService.NewTimerStat:input_type -> health.NewTimerStatRequest
+	2,  // 1: health.TimerStatService.DescribeContents:input_type -> health.DescribeContentsRequest
+	4,  // 2: health.TimerStatService.GetCount:input_type -> health.GetCountRequest
+	6,  // 3: health.TimerStatService.GetTime:input_type -> health.GetTimeRequest
+	8,  // 4: health.TimerStatService.SetCount:input_type -> health.SetCountRequest
+	10, // 5: health.TimerStatService.SetTime:input_type -> health.SetTimeRequest
+	12, // 6: health.TimerStatService.WriteToParcel:input_type -> health.WriteToParcelRequest
+	14, // 7: health.StatsService.GetDataType:input_type -> health.GetDataTypeRequest
+	16, // 8: health.StatsService.GetMeasurement:input_type -> health.GetMeasurementRequest
+	18, // 9: health.StatsService.GetMeasurementKeyAt:input_type -> health.GetMeasurementKeyAtRequest
+	20, // 10: health.StatsService.GetMeasurementKeyCount:input_type -> health.GetMeasurementKeyCountRequest
+	22, // 11: health.StatsService.GetMeasurementsKeyAt:input_type -> health.GetMeasurementsKeyAtRequest
+	24, // 12: health.StatsService.GetMeasurementsKeyCount:input_type -> health.GetMeasurementsKeyCountRequest
+	26, // 13: health.StatsService.GetStatsKeyAt:input_type -> health.GetStatsKeyAtRequest
+	28, // 14: health.StatsService.GetStatsKeyCount:input_type -> health.GetStatsKeyCountRequest
+	30, // 15: health.StatsService.GetTimer:input_type -> health.GetTimerRequest
+	32, // 16: health.StatsService.GetTimerCount:input_type -> health.GetTimerCountRequest
+	34, // 17: health.StatsService.GetTimerKeyAt:input_type -> health.GetTimerKeyAtRequest
+	36, // 18: health.StatsService.GetTimerKeyCount:input_type -> health.GetTimerKeyCountRequest
+	38, // 19: health.StatsService.GetTimerTime:input_type -> health.GetTimerTimeRequest
+	40, // 20: health.StatsService.GetTimersKeyAt:input_type -> health.GetTimersKeyAtRequest
+	42, // 21: health.StatsService.GetTimersKeyCount:input_type -> health.GetTimersKeyCountRequest
+	44, // 22: health.StatsService.HasMeasurement:input_type -> health.HasMeasurementRequest
+	46, // 23: health.StatsService.HasMeasurements:input_type -> health.HasMeasurementsRequest
+	48, // 24: health.StatsService.HasStats:input_type -> health.HasStatsRequest
+	50, // 25: health.StatsService.HasTimer:input_type -> health.HasTimerRequest
+	52, // 26: health.StatsService.HasTimers:input_type -> health.HasTimersRequest
+	54, // 27: health.SystemHealthManagerService.GetCpuHeadroom:input_type -> health.GetCpuHeadroomRequest
+	56, // 28: health.SystemHealthManagerService.GetCpuHeadroomMinIntervalMillis:input_type -> health.GetCpuHeadroomMinIntervalMillisRequest
+	58, // 29: health.SystemHealthManagerService.GetGpuHeadroom:input_type -> health.GetGpuHeadroomRequest
+	60, // 30: health.SystemHealthManagerService.GetGpuHeadroomMinIntervalMillis:input_type -> health.GetGpuHeadroomMinIntervalMillisRequest
+	62, // 31: health.SystemHealthManagerService.GetMaxCpuHeadroomTidsSize:input_type -> health.GetMaxCpuHeadroomTidsSizeRequest
+	64, // 32: health.SystemHealthManagerService.TakeMyUidSnapshot:input_type -> health.TakeMyUidSnapshotRequest
+	66, // 33: health.SystemHealthManagerService.TakeUidSnapshot:input_type -> health.TakeUidSnapshotRequest
+	68, // 34: health.SystemHealthManagerService.TakeUidSnapshots:input_type -> health.TakeUidSnapshotsRequest
+	1,  // 35: health.TimerStatService.NewTimerStat:output_type -> health.NewTimerStatResponse
+	3,  // 36: health.TimerStatService.DescribeContents:output_type -> health.DescribeContentsResponse
+	5,  // 37: health.TimerStatService.GetCount:output_type -> health.GetCountResponse
+	7,  // 38: health.TimerStatService.GetTime:output_type -> health.GetTimeResponse
+	9,  // 39: health.TimerStatService.SetCount:output_type -> health.SetCountResponse
+	11, // 40: health.TimerStatService.SetTime:output_type -> health.SetTimeResponse
+	13, // 41: health.TimerStatService.WriteToParcel:output_type -> health.WriteToParcelResponse
+	15, // 42: health.StatsService.GetDataType:output_type -> health.GetDataTypeResponse
+	17, // 43: health.StatsService.GetMeasurement:output_type -> health.GetMeasurementResponse
+	19, // 44: health.StatsService.GetMeasurementKeyAt:output_type -> health.GetMeasurementKeyAtResponse
+	21, // 45: health.StatsService.GetMeasurementKeyCount:output_type -> health.GetMeasurementKeyCountResponse
+	23, // 46: health.StatsService.GetMeasurementsKeyAt:output_type -> health.GetMeasurementsKeyAtResponse
+	25, // 47: health.StatsService.GetMeasurementsKeyCount:output_type -> health.GetMeasurementsKeyCountResponse
+	27, // 48: health.StatsService.GetStatsKeyAt:output_type -> health.GetStatsKeyAtResponse
+	29, // 49: health.StatsService.GetStatsKeyCount:output_type -> health.GetStatsKeyCountResponse
+	31, // 50: health.StatsService.GetTimer:output_type -> health.GetTimerResponse
+	33, // 51: health.StatsService.GetTimerCount:output_type -> health.GetTimerCountResponse
+	35, // 52: health.StatsService.GetTimerKeyAt:output_type -> health.GetTimerKeyAtResponse
+	37, // 53: health.StatsService.GetTimerKeyCount:output_type -> health.GetTimerKeyCountResponse
+	39, // 54: health.StatsService.GetTimerTime:output_type -> health.GetTimerTimeResponse
+	41, // 55: health.StatsService.GetTimersKeyAt:output_type -> health.GetTimersKeyAtResponse
+	43, // 56: health.StatsService.GetTimersKeyCount:output_type -> health.GetTimersKeyCountResponse
+	45, // 57: health.StatsService.HasMeasurement:output_type -> health.HasMeasurementResponse
+	47, // 58: health.StatsService.HasMeasurements:output_type -> health.HasMeasurementsResponse
+	49, // 59: health.StatsService.HasStats:output_type -> health.HasStatsResponse
+	51, // 60: health.StatsService.HasTimer:output_type -> health.HasTimerResponse
+	53, // 61: health.StatsService.HasTimers:output_type -> health.HasTimersResponse
+	55, // 62: health.SystemHealthManagerService.GetCpuHeadroom:output_type -> health.GetCpuHeadroomResponse
+	57, // 63: health.SystemHealthManagerService.GetCpuHeadroomMinIntervalMillis:output_type -> health.GetCpuHeadroomMinIntervalMillisResponse
+	59, // 64: health.SystemHealthManagerService.GetGpuHeadroom:output_type -> health.GetGpuHeadroomResponse
+	61, // 65: health.SystemHealthManagerService.GetGpuHeadroomMinIntervalMillis:output_type -> health.GetGpuHeadroomMinIntervalMillisResponse
+	63, // 66: health.SystemHealthManagerService.GetMaxCpuHeadroomTidsSize:output_type -> health.GetMaxCpuHeadroomTidsSizeResponse
+	65, // 67: health.SystemHealthManagerService.TakeMyUidSnapshot:output_type -> health.TakeMyUidSnapshotResponse
+	67, // 68: health.SystemHealthManagerService.TakeUidSnapshot:output_type -> health.TakeUidSnapshotResponse
+	69, // 69: health.SystemHealthManagerService.TakeUidSnapshots:output_type -> health.TakeUidSnapshotsResponse
 	35, // [35:70] is the sub-list for method output_type
 	0,  // [0:35] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

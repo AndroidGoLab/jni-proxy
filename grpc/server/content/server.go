@@ -68,6 +68,52 @@ func (s *RestrictionsManagerServer) GetApplicationRestrictions(_ context.Context
 	return &pb.GetApplicationRestrictionsResponse{Result: handle}, nil
 }
 
+func (s *RestrictionsManagerServer) GetApplicationRestrictionsPerAdmin(_ context.Context, req *pb.GetApplicationRestrictionsPerAdminRequest) (*pb.GetApplicationRestrictionsPerAdminResponse, error) {
+	mgr, err := jnipkg.NewRestrictionsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetApplicationRestrictionsPerAdmin()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetApplicationRestrictionsPerAdminResponse{Result: handle}, nil
+}
+
+func (s *RestrictionsManagerServer) GetManifestRestrictions(_ context.Context, req *pb.GetManifestRestrictionsRequest) (*pb.GetManifestRestrictionsResponse, error) {
+	mgr, err := jnipkg.NewRestrictionsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetManifestRestrictions(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetManifestRestrictionsResponse{Result: handle}, nil
+}
+
 func (s *RestrictionsManagerServer) HasRestrictionsProvider(_ context.Context, req *pb.HasRestrictionsProviderRequest) (*pb.HasRestrictionsProviderResponse, error) {
 	mgr, err := jnipkg.NewRestrictionsManager(s.Ctx)
 	if err != nil {

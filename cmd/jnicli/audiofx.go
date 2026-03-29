@@ -12,210 +12,6 @@ var audiofxCmd = &cobra.Command{
 	Short: "audiofx service operations",
 }
 
-var audiofxBassBoostCmd = &cobra.Command{
-	Use:   "bass-boost",
-	Short: "BassBoostService operations",
-}
-
-var audiofxBassBoostNewBassBoostCmd = &cobra.Command{
-	Use:   "new-bass-boost",
-	Short: "NewBassBoost RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostServiceClient(grpcConn)
-		req := &pb.NewBassBoostRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewBassBoost(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxBassBoostGetPropertiesCmd = &cobra.Command{
-	Use:   "get-properties",
-	Short: "GetProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostServiceClient(grpcConn)
-		req := &pb.GetPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxBassBoostGetRoundedStrengthCmd = &cobra.Command{
-	Use:   "get-rounded-strength",
-	Short: "GetRoundedStrength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostServiceClient(grpcConn)
-		req := &pb.GetRoundedStrengthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRoundedStrength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxBassBoostGetStrengthSupportedCmd = &cobra.Command{
-	Use:   "get-strength-supported",
-	Short: "GetStrengthSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostServiceClient(grpcConn)
-		req := &pb.GetStrengthSupportedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStrengthSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxBassBoostSetParameterListenerCmd = &cobra.Command{
-	Use:   "set-parameter-listener",
-	Short: "SetParameterListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostServiceClient(grpcConn)
-		req := &pb.SetParameterListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetParameterListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxBassBoostSetPropertiesCmd = &cobra.Command{
-	Use:   "set-properties",
-	Short: "SetProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostServiceClient(grpcConn)
-		req := &pb.SetPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxBassBoostSetStrengthCmd = &cobra.Command{
-	Use:   "set-strength",
-	Short: "SetStrength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostServiceClient(grpcConn)
-		req := &pb.SetStrengthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStrength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxBassBoostOnParameterChangeListenerCmd = &cobra.Command{
-	Use:   "bass-boost-on-parameter-change-listener",
-	Short: "BassBoostOnParameterChangeListenerService operations",
-}
-
-var audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd = &cobra.Command{
-	Use:   "on-parameter-change",
-	Short: "OnParameterChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostOnParameterChangeListenerServiceClient(grpcConn)
-		req := &pb.OnParameterChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnParameterChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxBassBoostSettingsCmd = &cobra.Command{
-	Use:   "bass-boost-settings",
-	Short: "BassBoostSettingsService operations",
-}
-
-var audiofxBassBoostSettingsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBassBoostSettingsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var audiofxAutomaticGainControlCmd = &cobra.Command{
 	Use:   "automatic-gain-control",
 	Short: "AutomaticGainControlService operations",
@@ -256,23 +52,26 @@ var audiofxAutomaticGainControlIsAvailableCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerCmd = &cobra.Command{
-	Use:   "visualizer",
-	Short: "VisualizerService operations",
+var audiofxPresetReverbCmd = &cobra.Command{
+	Use:   "preset-reverb",
+	Short: "PresetReverbService operations",
 }
 
-var audiofxVisualizerNewVisualizerCmd = &cobra.Command{
-	Use:   "new-visualizer",
-	Short: "NewVisualizer RPC",
+var audiofxPresetReverbNewPresetReverbCmd = &cobra.Command{
+	Use:   "new-preset-reverb",
+	Short: "NewPresetReverb RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.NewVisualizerRequest{}
+		client := pb.NewPresetReverbServiceClient(grpcConn)
+		req := &pb.NewPresetReverbRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewVisualizer(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewPresetReverb(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -280,18 +79,18 @@ var audiofxVisualizerNewVisualizerCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerGetCaptureSizeCmd = &cobra.Command{
-	Use:   "get-capture-size",
-	Short: "GetCaptureSize RPC",
+var audiofxPresetReverbGetPresetCmd = &cobra.Command{
+	Use:   "get-preset",
+	Short: "GetPreset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetCaptureSizeRequest{}
+		client := pb.NewPresetReverbServiceClient(grpcConn)
+		req := &pb.GetPresetRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetCaptureSize(ctx, req)
+		resp, err := client.GetPreset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -299,18 +98,18 @@ var audiofxVisualizerGetCaptureSizeCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerGetEnabledCmd = &cobra.Command{
-	Use:   "get-enabled",
-	Short: "GetEnabled RPC",
+var audiofxPresetReverbGetPropertiesCmd = &cobra.Command{
+	Use:   "get-properties",
+	Short: "GetProperties RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetEnabledRequest{}
+		client := pb.NewPresetReverbServiceClient(grpcConn)
+		req := &pb.GetPropertiesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetEnabled(ctx, req)
+		resp, err := client.GetProperties(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -318,62 +117,21 @@ var audiofxVisualizerGetEnabledCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerGetFftCmd = &cobra.Command{
-	Use:   "get-fft",
-	Short: "GetFft RPC",
+var audiofxPresetReverbSetParameterListenerCmd = &cobra.Command{
+	Use:   "set-parameter-listener",
+	Short: "SetParameterListener RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetFftRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFft(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerGetMeasurementModeCmd = &cobra.Command{
-	Use:   "get-measurement-mode",
-	Short: "GetMeasurementMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetMeasurementModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMeasurementMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerGetMeasurementPeakRmsCmd = &cobra.Command{
-	Use:   "get-measurement-peak-rms",
-	Short: "GetMeasurementPeakRms RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetMeasurementPeakRmsRequest{}
+		client := pb.NewPresetReverbServiceClient(grpcConn)
+		req := &pb.SetParameterListenerRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetMeasurementPeakRms(ctx, req)
+		resp, err := client.SetParameterListener(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -381,100 +139,21 @@ var audiofxVisualizerGetMeasurementPeakRmsCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerGetSamplingRateCmd = &cobra.Command{
-	Use:   "get-sampling-rate",
-	Short: "GetSamplingRate RPC",
+var audiofxPresetReverbSetPresetCmd = &cobra.Command{
+	Use:   "set-preset",
+	Short: "SetPreset RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetSamplingRateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSamplingRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerGetScalingModeCmd = &cobra.Command{
-	Use:   "get-scaling-mode",
-	Short: "GetScalingMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetScalingModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetScalingMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerGetWaveFormCmd = &cobra.Command{
-	Use:   "get-wave-form",
-	Short: "GetWaveForm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetWaveFormRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetWaveForm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerReleaseCmd = &cobra.Command{
-	Use:   "release",
-	Short: "Release RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.ReleaseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Release(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerSetCaptureSizeCmd = &cobra.Command{
-	Use:   "set-capture-size",
-	Short: "SetCaptureSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.SetCaptureSizeRequest{}
+		client := pb.NewPresetReverbServiceClient(grpcConn)
+		req := &pb.SetPresetRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetCaptureSize(ctx, req)
+		resp, err := client.SetPreset(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -482,30 +161,54 @@ var audiofxVisualizerSetCaptureSizeCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerSetDataCaptureListenerCmd = &cobra.Command{
-	Use:   "set-data-capture-listener",
-	Short: "SetDataCaptureListener RPC",
+var audiofxPresetReverbSetPropertiesCmd = &cobra.Command{
+	Use:   "set-properties",
+	Short: "SetProperties RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.SetDataCaptureListenerRequest{}
+		client := pb.NewPresetReverbServiceClient(grpcConn)
+		req := &pb.SetPropertiesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxPresetReverbOnParameterChangeListenerCmd = &cobra.Command{
+	Use:   "preset-reverb-on-parameter-change-listener",
+	Short: "PresetReverbOnParameterChangeListenerService operations",
+}
+
+var audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd = &cobra.Command{
+	Use:   "on-parameter-change",
+	Short: "OnParameterChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresetReverbOnParameterChangeListenerServiceClient(grpcConn)
+		req := &pb.OnParameterChangeRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
 			req.Arg3 = v
 		}
-		resp, err := client.SetDataCaptureListener(ctx, req)
+		resp, err := client.OnParameterChange(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -513,21 +216,20 @@ var audiofxVisualizerSetDataCaptureListenerCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerSetEnabledCmd = &cobra.Command{
-	Use:   "set-enabled",
-	Short: "SetEnabled RPC",
+var audiofxPresetReverbSettingsCmd = &cobra.Command{
+	Use:   "preset-reverb-settings",
+	Short: "PresetReverbSettingsService operations",
+}
+
+var audiofxPresetReverbSettingsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.SetEnabledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnabled(ctx, req)
+		client := pb.NewPresetReverbSettingsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -535,21 +237,23 @@ var audiofxVisualizerSetEnabledCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerSetMeasurementModeCmd = &cobra.Command{
-	Use:   "set-measurement-mode",
-	Short: "SetMeasurementMode RPC",
+var audiofxAcousticEchoCancelerCmd = &cobra.Command{
+	Use:   "acoustic-echo-canceler",
+	Short: "AcousticEchoCancelerService operations",
+}
+
+var audiofxAcousticEchoCancelerCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.SetMeasurementModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewAcousticEchoCancelerServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetMeasurementMode(ctx, req)
+		resp, err := client.Create(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -557,114 +261,15 @@ var audiofxVisualizerSetMeasurementModeCmd = &cobra.Command{
 	},
 }
 
-var audiofxVisualizerSetScalingModeCmd = &cobra.Command{
-	Use:   "set-scaling-mode",
-	Short: "SetScalingMode RPC",
+var audiofxAcousticEchoCancelerIsAvailableCmd = &cobra.Command{
+	Use:   "is-available",
+	Short: "IsAvailable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.SetScalingModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScalingMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerGetCaptureSizeRangeCmd = &cobra.Command{
-	Use:   "get-capture-size-range",
-	Short: "GetCaptureSizeRange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetCaptureSizeRangeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCaptureSizeRange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerGetMaxCaptureRateCmd = &cobra.Command{
-	Use:   "get-max-capture-rate",
-	Short: "GetMaxCaptureRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerServiceClient(grpcConn)
-		req := &pb.GetMaxCaptureRateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMaxCaptureRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerOnDataCaptureListenerCmd = &cobra.Command{
-	Use:   "visualizer-on-data-capture-listener",
-	Short: "VisualizerOnDataCaptureListenerService operations",
-}
-
-var audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd = &cobra.Command{
-	Use:   "on-fft-data-capture",
-	Short: "OnFftDataCapture RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerOnDataCaptureListenerServiceClient(grpcConn)
-		req := &pb.OnFftDataCaptureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnFftDataCapture(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd = &cobra.Command{
-	Use:   "on-wave-form-data-capture",
-	Short: "OnWaveFormDataCapture RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisualizerOnDataCaptureListenerServiceClient(grpcConn)
-		req := &pb.OnWaveFormDataCaptureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnWaveFormDataCapture(ctx, req)
+		client := pb.NewAcousticEchoCancelerServiceClient(grpcConn)
+		req := &pb.IsAvailableRequest{}
+		resp, err := client.IsAvailable(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1226,278 +831,23 @@ var audiofxEnvironmentalReverbSettingsToStringCmd = &cobra.Command{
 	},
 }
 
-var audiofxAudioEffectCmd = &cobra.Command{
-	Use:   "audio-effect",
-	Short: "AudioEffectService operations",
+var audiofxNoiseSuppressorCmd = &cobra.Command{
+	Use:   "noise-suppressor",
+	Short: "NoiseSuppressorService operations",
 }
 
-var audiofxAudioEffectGetDescriptorCmd = &cobra.Command{
-	Use:   "get-descriptor",
-	Short: "GetDescriptor RPC",
+var audiofxNoiseSuppressorCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.GetDescriptorRequest{}
-		resp, err := client.GetDescriptor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectGetEnabledCmd = &cobra.Command{
-	Use:   "get-enabled",
-	Short: "GetEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.AudioEffectGetEnabledRequest{}
-		resp, err := client.GetEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectHasControlCmd = &cobra.Command{
-	Use:   "has-control",
-	Short: "HasControl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.HasControlRequest{}
-		resp, err := client.HasControl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectReleaseCmd = &cobra.Command{
-	Use:   "release",
-	Short: "Release RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.AudioEffectReleaseRequest{}
-		resp, err := client.Release(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectSetControlStatusListenerCmd = &cobra.Command{
-	Use:   "set-control-status-listener",
-	Short: "SetControlStatusListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.SetControlStatusListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetControlStatusListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectSetEnableStatusListenerCmd = &cobra.Command{
-	Use:   "set-enable-status-listener",
-	Short: "SetEnableStatusListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.SetEnableStatusListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnableStatusListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectSetEnabledCmd = &cobra.Command{
-	Use:   "set-enabled",
-	Short: "SetEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.AudioEffectSetEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectQueryEffectsCmd = &cobra.Command{
-	Use:   "query-effects",
-	Short: "QueryEffects RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectServiceClient(grpcConn)
-		req := &pb.QueryEffectsRequest{}
-		resp, err := client.QueryEffects(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectDescriptorCmd = &cobra.Command{
-	Use:   "audio-effect-descriptor",
-	Short: "AudioEffectDescriptorService operations",
-}
-
-var audiofxAudioEffectDescriptorEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectDescriptorServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectDescriptorHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectDescriptorServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectOnControlStatusChangeListenerCmd = &cobra.Command{
-	Use:   "audio-effect-on-control-status-change-listener",
-	Short: "AudioEffectOnControlStatusChangeListenerService operations",
-}
-
-var audiofxAudioEffectOnControlStatusChangeListenerOnControlStatusChangeCmd = &cobra.Command{
-	Use:   "on-control-status-change",
-	Short: "OnControlStatusChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectOnControlStatusChangeListenerServiceClient(grpcConn)
-		req := &pb.OnControlStatusChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnControlStatusChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAudioEffectOnEnableStatusChangeListenerCmd = &cobra.Command{
-	Use:   "audio-effect-on-enable-status-change-listener",
-	Short: "AudioEffectOnEnableStatusChangeListenerService operations",
-}
-
-var audiofxAudioEffectOnEnableStatusChangeListenerOnEnableStatusChangeCmd = &cobra.Command{
-	Use:   "on-enable-status-change",
-	Short: "OnEnableStatusChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioEffectOnEnableStatusChangeListenerServiceClient(grpcConn)
-		req := &pb.OnEnableStatusChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnEnableStatusChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerCmd = &cobra.Command{
-	Use:   "equalizer",
-	Short: "EqualizerService operations",
-}
-
-var audiofxEqualizerNewEqualizerCmd = &cobra.Command{
-	Use:   "new-equalizer",
-	Short: "NewEqualizer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.NewEqualizerRequest{}
+		client := pb.NewNoiseSuppressorServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewEqualizer(ctx, req)
+		resp, err := client.Create(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1505,602 +855,15 @@ var audiofxEqualizerNewEqualizerCmd = &cobra.Command{
 	},
 }
 
-var audiofxEqualizerGetBandCmd = &cobra.Command{
-	Use:   "get-band",
-	Short: "GetBand RPC",
+var audiofxNoiseSuppressorIsAvailableCmd = &cobra.Command{
+	Use:   "is-available",
+	Short: "IsAvailable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetBandRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBand(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetBandFreqRangeCmd = &cobra.Command{
-	Use:   "get-band-freq-range",
-	Short: "GetBandFreqRange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetBandFreqRangeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBandFreqRange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetBandLevelCmd = &cobra.Command{
-	Use:   "get-band-level",
-	Short: "GetBandLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetBandLevelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBandLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetBandLevelRangeCmd = &cobra.Command{
-	Use:   "get-band-level-range",
-	Short: "GetBandLevelRange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetBandLevelRangeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetBandLevelRange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetCenterFreqCmd = &cobra.Command{
-	Use:   "get-center-freq",
-	Short: "GetCenterFreq RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetCenterFreqRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCenterFreq(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetCurrentPresetCmd = &cobra.Command{
-	Use:   "get-current-preset",
-	Short: "GetCurrentPreset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetCurrentPresetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCurrentPreset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetNumberOfBandsCmd = &cobra.Command{
-	Use:   "get-number-of-bands",
-	Short: "GetNumberOfBands RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetNumberOfBandsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNumberOfBands(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetNumberOfPresetsCmd = &cobra.Command{
-	Use:   "get-number-of-presets",
-	Short: "GetNumberOfPresets RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetNumberOfPresetsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNumberOfPresets(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetPresetNameCmd = &cobra.Command{
-	Use:   "get-preset-name",
-	Short: "GetPresetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetPresetNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPresetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerGetPropertiesCmd = &cobra.Command{
-	Use:   "get-properties",
-	Short: "GetProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.GetPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerSetBandLevelCmd = &cobra.Command{
-	Use:   "set-band-level",
-	Short: "SetBandLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.SetBandLevelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetBandLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerSetParameterListenerCmd = &cobra.Command{
-	Use:   "set-parameter-listener",
-	Short: "SetParameterListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.SetParameterListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetParameterListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerSetPropertiesCmd = &cobra.Command{
-	Use:   "set-properties",
-	Short: "SetProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.SetPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerUsePresetCmd = &cobra.Command{
-	Use:   "use-preset",
-	Short: "UsePreset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerServiceClient(grpcConn)
-		req := &pb.UsePresetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UsePreset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerOnParameterChangeListenerCmd = &cobra.Command{
-	Use:   "equalizer-on-parameter-change-listener",
-	Short: "EqualizerOnParameterChangeListenerService operations",
-}
-
-var audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd = &cobra.Command{
-	Use:   "on-parameter-change",
-	Short: "OnParameterChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerOnParameterChangeListenerServiceClient(grpcConn)
-		req := &pb.EqualizerOnParameterChangeListenerOnParameterChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.OnParameterChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxEqualizerSettingsCmd = &cobra.Command{
-	Use:   "equalizer-settings",
-	Short: "EqualizerSettingsService operations",
-}
-
-var audiofxEqualizerSettingsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEqualizerSettingsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxPresetReverbCmd = &cobra.Command{
-	Use:   "preset-reverb",
-	Short: "PresetReverbService operations",
-}
-
-var audiofxPresetReverbNewPresetReverbCmd = &cobra.Command{
-	Use:   "new-preset-reverb",
-	Short: "NewPresetReverb RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresetReverbServiceClient(grpcConn)
-		req := &pb.NewPresetReverbRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewPresetReverb(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxPresetReverbGetPresetCmd = &cobra.Command{
-	Use:   "get-preset",
-	Short: "GetPreset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresetReverbServiceClient(grpcConn)
-		req := &pb.GetPresetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPreset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxPresetReverbGetPropertiesCmd = &cobra.Command{
-	Use:   "get-properties",
-	Short: "GetProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresetReverbServiceClient(grpcConn)
-		req := &pb.GetPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxPresetReverbSetParameterListenerCmd = &cobra.Command{
-	Use:   "set-parameter-listener",
-	Short: "SetParameterListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresetReverbServiceClient(grpcConn)
-		req := &pb.SetParameterListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetParameterListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxPresetReverbSetPresetCmd = &cobra.Command{
-	Use:   "set-preset",
-	Short: "SetPreset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresetReverbServiceClient(grpcConn)
-		req := &pb.SetPresetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPreset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxPresetReverbSetPropertiesCmd = &cobra.Command{
-	Use:   "set-properties",
-	Short: "SetProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresetReverbServiceClient(grpcConn)
-		req := &pb.SetPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxPresetReverbOnParameterChangeListenerCmd = &cobra.Command{
-	Use:   "preset-reverb-on-parameter-change-listener",
-	Short: "PresetReverbOnParameterChangeListenerService operations",
-}
-
-var audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd = &cobra.Command{
-	Use:   "on-parameter-change",
-	Short: "OnParameterChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresetReverbOnParameterChangeListenerServiceClient(grpcConn)
-		req := &pb.OnParameterChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.OnParameterChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxPresetReverbSettingsCmd = &cobra.Command{
-	Use:   "preset-reverb-settings",
-	Short: "PresetReverbSettingsService operations",
-}
-
-var audiofxPresetReverbSettingsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresetReverbSettingsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxLoudnessEnhancerCmd = &cobra.Command{
-	Use:   "loudness-enhancer",
-	Short: "LoudnessEnhancerService operations",
-}
-
-var audiofxLoudnessEnhancerNewLoudnessEnhancerCmd = &cobra.Command{
-	Use:   "new-loudness-enhancer",
-	Short: "NewLoudnessEnhancer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLoudnessEnhancerServiceClient(grpcConn)
-		req := &pb.NewLoudnessEnhancerRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewLoudnessEnhancer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxLoudnessEnhancerGetTargetGainCmd = &cobra.Command{
-	Use:   "get-target-gain",
-	Short: "GetTargetGain RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLoudnessEnhancerServiceClient(grpcConn)
-		req := &pb.GetTargetGainRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTargetGain(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxLoudnessEnhancerSetTargetGainCmd = &cobra.Command{
-	Use:   "set-target-gain",
-	Short: "SetTargetGain RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLoudnessEnhancerServiceClient(grpcConn)
-		req := &pb.SetTargetGainRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTargetGain(ctx, req)
+		client := pb.NewNoiseSuppressorServiceClient(grpcConn)
+		req := &pb.IsAvailableRequest{}
+		resp, err := client.IsAvailable(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2881,7 +1644,7 @@ var audiofxDynamicsProcessingBandBaseSetEnabledCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewDynamicsProcessingBandBaseServiceClient(grpcConn)
-		req := &pb.DynamicsProcessingBandBaseSetEnabledRequest{}
+		req := &pb.SetEnabledRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -4009,7 +2772,7 @@ var audiofxDynamicsProcessingEqGetBandCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewDynamicsProcessingEqServiceClient(grpcConn)
-		req := &pb.DynamicsProcessingEqGetBandRequest{}
+		req := &pb.GetBandRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -4358,7 +3121,7 @@ var audiofxDynamicsProcessingMbcGetBandCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewDynamicsProcessingMbcServiceClient(grpcConn)
-		req := &pb.DynamicsProcessingMbcGetBandRequest{}
+		req := &pb.GetBandRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -4788,7 +3551,7 @@ var audiofxDynamicsProcessingStageSetEnabledCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewDynamicsProcessingStageServiceClient(grpcConn)
-		req := &pb.DynamicsProcessingStageSetEnabledRequest{}
+		req := &pb.SetEnabledRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -4816,18 +3579,273 @@ var audiofxDynamicsProcessingStageToStringCmd = &cobra.Command{
 	},
 }
 
-var audiofxNoiseSuppressorCmd = &cobra.Command{
-	Use:   "noise-suppressor",
-	Short: "NoiseSuppressorService operations",
+var audiofxBassBoostCmd = &cobra.Command{
+	Use:   "bass-boost",
+	Short: "BassBoostService operations",
 }
 
-var audiofxNoiseSuppressorCreateCmd = &cobra.Command{
+var audiofxBassBoostNewBassBoostCmd = &cobra.Command{
+	Use:   "new-bass-boost",
+	Short: "NewBassBoost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostServiceClient(grpcConn)
+		req := &pb.NewBassBoostRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewBassBoost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxBassBoostGetPropertiesCmd = &cobra.Command{
+	Use:   "get-properties",
+	Short: "GetProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostServiceClient(grpcConn)
+		req := &pb.GetPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxBassBoostGetRoundedStrengthCmd = &cobra.Command{
+	Use:   "get-rounded-strength",
+	Short: "GetRoundedStrength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostServiceClient(grpcConn)
+		req := &pb.GetRoundedStrengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRoundedStrength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxBassBoostGetStrengthSupportedCmd = &cobra.Command{
+	Use:   "get-strength-supported",
+	Short: "GetStrengthSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostServiceClient(grpcConn)
+		req := &pb.GetStrengthSupportedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStrengthSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxBassBoostSetParameterListenerCmd = &cobra.Command{
+	Use:   "set-parameter-listener",
+	Short: "SetParameterListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostServiceClient(grpcConn)
+		req := &pb.SetParameterListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetParameterListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxBassBoostSetPropertiesCmd = &cobra.Command{
+	Use:   "set-properties",
+	Short: "SetProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostServiceClient(grpcConn)
+		req := &pb.SetPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxBassBoostSetStrengthCmd = &cobra.Command{
+	Use:   "set-strength",
+	Short: "SetStrength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostServiceClient(grpcConn)
+		req := &pb.SetStrengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStrength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxBassBoostOnParameterChangeListenerCmd = &cobra.Command{
+	Use:   "bass-boost-on-parameter-change-listener",
+	Short: "BassBoostOnParameterChangeListenerService operations",
+}
+
+var audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd = &cobra.Command{
+	Use:   "on-parameter-change",
+	Short: "OnParameterChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostOnParameterChangeListenerServiceClient(grpcConn)
+		req := &pb.OnParameterChangeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnParameterChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxBassBoostSettingsCmd = &cobra.Command{
+	Use:   "bass-boost-settings",
+	Short: "BassBoostSettingsService operations",
+}
+
+var audiofxBassBoostSettingsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBassBoostSettingsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxHapticGeneratorCmd = &cobra.Command{
+	Use:   "haptic-generator",
+	Short: "HapticGeneratorService operations",
+}
+
+var audiofxHapticGeneratorCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHapticGeneratorServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxHapticGeneratorReleaseCmd = &cobra.Command{
+	Use:   "release",
+	Short: "Release RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHapticGeneratorServiceClient(grpcConn)
+		req := &pb.ReleaseRequest{}
+		resp, err := client.Release(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxHapticGeneratorSetEnabledCmd = &cobra.Command{
+	Use:   "set-enabled",
+	Short: "SetEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHapticGeneratorServiceClient(grpcConn)
+		req := &pb.SetEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxHapticGeneratorCreateCmd = &cobra.Command{
 	Use:   "create",
 	Short: "Create RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNoiseSuppressorServiceClient(grpcConn)
+		client := pb.NewHapticGeneratorServiceClient(grpcConn)
 		req := &pb.CreateRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -4840,15 +3858,1128 @@ var audiofxNoiseSuppressorCreateCmd = &cobra.Command{
 	},
 }
 
-var audiofxNoiseSuppressorIsAvailableCmd = &cobra.Command{
+var audiofxHapticGeneratorIsAvailableCmd = &cobra.Command{
 	Use:   "is-available",
 	Short: "IsAvailable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNoiseSuppressorServiceClient(grpcConn)
+		client := pb.NewHapticGeneratorServiceClient(grpcConn)
 		req := &pb.IsAvailableRequest{}
 		resp, err := client.IsAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxLoudnessEnhancerCmd = &cobra.Command{
+	Use:   "loudness-enhancer",
+	Short: "LoudnessEnhancerService operations",
+}
+
+var audiofxLoudnessEnhancerNewLoudnessEnhancerCmd = &cobra.Command{
+	Use:   "new-loudness-enhancer",
+	Short: "NewLoudnessEnhancer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoudnessEnhancerServiceClient(grpcConn)
+		req := &pb.NewLoudnessEnhancerRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewLoudnessEnhancer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxLoudnessEnhancerGetTargetGainCmd = &cobra.Command{
+	Use:   "get-target-gain",
+	Short: "GetTargetGain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoudnessEnhancerServiceClient(grpcConn)
+		req := &pb.GetTargetGainRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTargetGain(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxLoudnessEnhancerSetTargetGainCmd = &cobra.Command{
+	Use:   "set-target-gain",
+	Short: "SetTargetGain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoudnessEnhancerServiceClient(grpcConn)
+		req := &pb.SetTargetGainRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTargetGain(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectCmd = &cobra.Command{
+	Use:   "audio-effect",
+	Short: "AudioEffectService operations",
+}
+
+var audiofxAudioEffectGetDescriptorCmd = &cobra.Command{
+	Use:   "get-descriptor",
+	Short: "GetDescriptor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.GetDescriptorRequest{}
+		resp, err := client.GetDescriptor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectGetEnabledCmd = &cobra.Command{
+	Use:   "get-enabled",
+	Short: "GetEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.GetEnabledRequest{}
+		resp, err := client.GetEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectHasControlCmd = &cobra.Command{
+	Use:   "has-control",
+	Short: "HasControl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.HasControlRequest{}
+		resp, err := client.HasControl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectReleaseCmd = &cobra.Command{
+	Use:   "release",
+	Short: "Release RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.ReleaseRequest{}
+		resp, err := client.Release(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectSetControlStatusListenerCmd = &cobra.Command{
+	Use:   "set-control-status-listener",
+	Short: "SetControlStatusListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.SetControlStatusListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetControlStatusListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectSetEnableStatusListenerCmd = &cobra.Command{
+	Use:   "set-enable-status-listener",
+	Short: "SetEnableStatusListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.SetEnableStatusListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnableStatusListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectSetEnabledCmd = &cobra.Command{
+	Use:   "set-enabled",
+	Short: "SetEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.SetEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectQueryEffectsCmd = &cobra.Command{
+	Use:   "query-effects",
+	Short: "QueryEffects RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectServiceClient(grpcConn)
+		req := &pb.QueryEffectsRequest{}
+		resp, err := client.QueryEffects(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectDescriptorCmd = &cobra.Command{
+	Use:   "audio-effect-descriptor",
+	Short: "AudioEffectDescriptorService operations",
+}
+
+var audiofxAudioEffectDescriptorEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectDescriptorServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectDescriptorHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectDescriptorServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectOnControlStatusChangeListenerCmd = &cobra.Command{
+	Use:   "audio-effect-on-control-status-change-listener",
+	Short: "AudioEffectOnControlStatusChangeListenerService operations",
+}
+
+var audiofxAudioEffectOnControlStatusChangeListenerOnControlStatusChangeCmd = &cobra.Command{
+	Use:   "on-control-status-change",
+	Short: "OnControlStatusChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectOnControlStatusChangeListenerServiceClient(grpcConn)
+		req := &pb.OnControlStatusChangeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnControlStatusChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxAudioEffectOnEnableStatusChangeListenerCmd = &cobra.Command{
+	Use:   "audio-effect-on-enable-status-change-listener",
+	Short: "AudioEffectOnEnableStatusChangeListenerService operations",
+}
+
+var audiofxAudioEffectOnEnableStatusChangeListenerOnEnableStatusChangeCmd = &cobra.Command{
+	Use:   "on-enable-status-change",
+	Short: "OnEnableStatusChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioEffectOnEnableStatusChangeListenerServiceClient(grpcConn)
+		req := &pb.OnEnableStatusChangeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnEnableStatusChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerCmd = &cobra.Command{
+	Use:   "equalizer",
+	Short: "EqualizerService operations",
+}
+
+var audiofxEqualizerNewEqualizerCmd = &cobra.Command{
+	Use:   "new-equalizer",
+	Short: "NewEqualizer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.NewEqualizerRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewEqualizer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetBandCmd = &cobra.Command{
+	Use:   "get-band",
+	Short: "GetBand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.EqualizerGetBandRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetBandFreqRangeCmd = &cobra.Command{
+	Use:   "get-band-freq-range",
+	Short: "GetBandFreqRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetBandFreqRangeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBandFreqRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetBandLevelCmd = &cobra.Command{
+	Use:   "get-band-level",
+	Short: "GetBandLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetBandLevelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBandLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetBandLevelRangeCmd = &cobra.Command{
+	Use:   "get-band-level-range",
+	Short: "GetBandLevelRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetBandLevelRangeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBandLevelRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetCenterFreqCmd = &cobra.Command{
+	Use:   "get-center-freq",
+	Short: "GetCenterFreq RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetCenterFreqRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCenterFreq(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetCurrentPresetCmd = &cobra.Command{
+	Use:   "get-current-preset",
+	Short: "GetCurrentPreset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetCurrentPresetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCurrentPreset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetNumberOfBandsCmd = &cobra.Command{
+	Use:   "get-number-of-bands",
+	Short: "GetNumberOfBands RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetNumberOfBandsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNumberOfBands(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetNumberOfPresetsCmd = &cobra.Command{
+	Use:   "get-number-of-presets",
+	Short: "GetNumberOfPresets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetNumberOfPresetsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNumberOfPresets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetPresetNameCmd = &cobra.Command{
+	Use:   "get-preset-name",
+	Short: "GetPresetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetPresetNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPresetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerGetPropertiesCmd = &cobra.Command{
+	Use:   "get-properties",
+	Short: "GetProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.GetPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerSetBandLevelCmd = &cobra.Command{
+	Use:   "set-band-level",
+	Short: "SetBandLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.SetBandLevelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetBandLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerSetParameterListenerCmd = &cobra.Command{
+	Use:   "set-parameter-listener",
+	Short: "SetParameterListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.SetParameterListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetParameterListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerSetPropertiesCmd = &cobra.Command{
+	Use:   "set-properties",
+	Short: "SetProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.SetPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerUsePresetCmd = &cobra.Command{
+	Use:   "use-preset",
+	Short: "UsePreset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerServiceClient(grpcConn)
+		req := &pb.UsePresetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UsePreset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerOnParameterChangeListenerCmd = &cobra.Command{
+	Use:   "equalizer-on-parameter-change-listener",
+	Short: "EqualizerOnParameterChangeListenerService operations",
+}
+
+var audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd = &cobra.Command{
+	Use:   "on-parameter-change",
+	Short: "OnParameterChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerOnParameterChangeListenerServiceClient(grpcConn)
+		req := &pb.EqualizerOnParameterChangeListenerOnParameterChangeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnParameterChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxEqualizerSettingsCmd = &cobra.Command{
+	Use:   "equalizer-settings",
+	Short: "EqualizerSettingsService operations",
+}
+
+var audiofxEqualizerSettingsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEqualizerSettingsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerCmd = &cobra.Command{
+	Use:   "visualizer",
+	Short: "VisualizerService operations",
+}
+
+var audiofxVisualizerNewVisualizerCmd = &cobra.Command{
+	Use:   "new-visualizer",
+	Short: "NewVisualizer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.NewVisualizerRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewVisualizer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetCaptureSizeCmd = &cobra.Command{
+	Use:   "get-capture-size",
+	Short: "GetCaptureSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetCaptureSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCaptureSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetEnabledCmd = &cobra.Command{
+	Use:   "get-enabled",
+	Short: "GetEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.VisualizerGetEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetFftCmd = &cobra.Command{
+	Use:   "get-fft",
+	Short: "GetFft RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetFftRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFft(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetMeasurementModeCmd = &cobra.Command{
+	Use:   "get-measurement-mode",
+	Short: "GetMeasurementMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetMeasurementModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMeasurementMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetMeasurementPeakRmsCmd = &cobra.Command{
+	Use:   "get-measurement-peak-rms",
+	Short: "GetMeasurementPeakRms RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetMeasurementPeakRmsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMeasurementPeakRms(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetSamplingRateCmd = &cobra.Command{
+	Use:   "get-sampling-rate",
+	Short: "GetSamplingRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetSamplingRateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSamplingRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetScalingModeCmd = &cobra.Command{
+	Use:   "get-scaling-mode",
+	Short: "GetScalingMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetScalingModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScalingMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetWaveFormCmd = &cobra.Command{
+	Use:   "get-wave-form",
+	Short: "GetWaveForm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetWaveFormRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetWaveForm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerReleaseCmd = &cobra.Command{
+	Use:   "release",
+	Short: "Release RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.VisualizerReleaseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Release(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerSetCaptureSizeCmd = &cobra.Command{
+	Use:   "set-capture-size",
+	Short: "SetCaptureSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.SetCaptureSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCaptureSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerSetDataCaptureListenerCmd = &cobra.Command{
+	Use:   "set-data-capture-listener",
+	Short: "SetDataCaptureListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.SetDataCaptureListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetDataCaptureListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerSetEnabledCmd = &cobra.Command{
+	Use:   "set-enabled",
+	Short: "SetEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.VisualizerSetEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerSetMeasurementModeCmd = &cobra.Command{
+	Use:   "set-measurement-mode",
+	Short: "SetMeasurementMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.SetMeasurementModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMeasurementMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerSetScalingModeCmd = &cobra.Command{
+	Use:   "set-scaling-mode",
+	Short: "SetScalingMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.SetScalingModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScalingMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetCaptureSizeRangeCmd = &cobra.Command{
+	Use:   "get-capture-size-range",
+	Short: "GetCaptureSizeRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetCaptureSizeRangeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCaptureSizeRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerGetMaxCaptureRateCmd = &cobra.Command{
+	Use:   "get-max-capture-rate",
+	Short: "GetMaxCaptureRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerServiceClient(grpcConn)
+		req := &pb.GetMaxCaptureRateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMaxCaptureRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerOnDataCaptureListenerCmd = &cobra.Command{
+	Use:   "visualizer-on-data-capture-listener",
+	Short: "VisualizerOnDataCaptureListenerService operations",
+}
+
+var audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd = &cobra.Command{
+	Use:   "on-fft-data-capture",
+	Short: "OnFftDataCapture RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerOnDataCaptureListenerServiceClient(grpcConn)
+		req := &pb.OnFftDataCaptureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnFftDataCapture(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd = &cobra.Command{
+	Use:   "on-wave-form-data-capture",
+	Short: "OnWaveFormDataCapture RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualizerOnDataCaptureListenerServiceClient(grpcConn)
+		req := &pb.OnWaveFormDataCaptureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnWaveFormDataCapture(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5154,224 +5285,40 @@ var audiofxVirtualizerSettingsToStringCmd = &cobra.Command{
 	},
 }
 
-var audiofxAcousticEchoCancelerCmd = &cobra.Command{
-	Use:   "acoustic-echo-canceler",
-	Short: "AcousticEchoCancelerService operations",
-}
-
-var audiofxAcousticEchoCancelerCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAcousticEchoCancelerServiceClient(grpcConn)
-		req := &pb.CreateRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxAcousticEchoCancelerIsAvailableCmd = &cobra.Command{
-	Use:   "is-available",
-	Short: "IsAvailable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAcousticEchoCancelerServiceClient(grpcConn)
-		req := &pb.IsAvailableRequest{}
-		resp, err := client.IsAvailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxHapticGeneratorCmd = &cobra.Command{
-	Use:   "haptic-generator",
-	Short: "HapticGeneratorService operations",
-}
-
-var audiofxHapticGeneratorCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHapticGeneratorServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxHapticGeneratorReleaseCmd = &cobra.Command{
-	Use:   "release",
-	Short: "Release RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHapticGeneratorServiceClient(grpcConn)
-		req := &pb.HapticGeneratorReleaseRequest{}
-		resp, err := client.Release(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxHapticGeneratorSetEnabledCmd = &cobra.Command{
-	Use:   "set-enabled",
-	Short: "SetEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHapticGeneratorServiceClient(grpcConn)
-		req := &pb.HapticGeneratorSetEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxHapticGeneratorCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHapticGeneratorServiceClient(grpcConn)
-		req := &pb.CreateRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var audiofxHapticGeneratorIsAvailableCmd = &cobra.Command{
-	Use:   "is-available",
-	Short: "IsAvailable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHapticGeneratorServiceClient(grpcConn)
-		req := &pb.IsAvailableRequest{}
-		resp, err := client.IsAvailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
-	audiofxBassBoostNewBassBoostCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxBassBoostNewBassBoostCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	audiofxBassBoostCmd.AddCommand(audiofxBassBoostNewBassBoostCmd)
-	audiofxBassBoostGetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxBassBoostCmd.AddCommand(audiofxBassBoostGetPropertiesCmd)
-	audiofxBassBoostGetRoundedStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxBassBoostCmd.AddCommand(audiofxBassBoostGetRoundedStrengthCmd)
-	audiofxBassBoostGetStrengthSupportedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxBassBoostCmd.AddCommand(audiofxBassBoostGetStrengthSupportedCmd)
-	audiofxBassBoostSetParameterListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxBassBoostSetParameterListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxBassBoostCmd.AddCommand(audiofxBassBoostSetParameterListenerCmd)
-	audiofxBassBoostSetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxBassBoostSetPropertiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxBassBoostCmd.AddCommand(audiofxBassBoostSetPropertiesCmd)
-	audiofxBassBoostSetStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxBassBoostSetStrengthCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxBassBoostCmd.AddCommand(audiofxBassBoostSetStrengthCmd)
-	audiofxCmd.AddCommand(audiofxBassBoostCmd)
-	audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	audiofxBassBoostOnParameterChangeListenerCmd.AddCommand(audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd)
-	audiofxCmd.AddCommand(audiofxBassBoostOnParameterChangeListenerCmd)
-	audiofxBassBoostSettingsCmd.AddCommand(audiofxBassBoostSettingsToStringCmd)
-	audiofxCmd.AddCommand(audiofxBassBoostSettingsCmd)
 	audiofxAutomaticGainControlCreateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	audiofxAutomaticGainControlCmd.AddCommand(audiofxAutomaticGainControlCreateCmd)
 	audiofxAutomaticGainControlCmd.AddCommand(audiofxAutomaticGainControlIsAvailableCmd)
 	audiofxCmd.AddCommand(audiofxAutomaticGainControlCmd)
-	audiofxVisualizerNewVisualizerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerNewVisualizerCmd)
-	audiofxVisualizerGetCaptureSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetCaptureSizeCmd)
-	audiofxVisualizerGetEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetEnabledCmd)
-	audiofxVisualizerGetFftCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerGetFftCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetFftCmd)
-	audiofxVisualizerGetMeasurementModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetMeasurementModeCmd)
-	audiofxVisualizerGetMeasurementPeakRmsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerGetMeasurementPeakRmsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetMeasurementPeakRmsCmd)
-	audiofxVisualizerGetSamplingRateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetSamplingRateCmd)
-	audiofxVisualizerGetScalingModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetScalingModeCmd)
-	audiofxVisualizerGetWaveFormCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerGetWaveFormCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetWaveFormCmd)
-	audiofxVisualizerReleaseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerReleaseCmd)
-	audiofxVisualizerSetCaptureSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerSetCaptureSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetCaptureSizeCmd)
-	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Bool("arg3", false, "arg3 (bool)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetDataCaptureListenerCmd)
-	audiofxVisualizerSetEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetEnabledCmd)
-	audiofxVisualizerSetMeasurementModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerSetMeasurementModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetMeasurementModeCmd)
-	audiofxVisualizerSetScalingModeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerSetScalingModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetScalingModeCmd)
-	audiofxVisualizerGetCaptureSizeRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetCaptureSizeRangeCmd)
-	audiofxVisualizerGetMaxCaptureRateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetMaxCaptureRateCmd)
-	audiofxCmd.AddCommand(audiofxVisualizerCmd)
-	audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	audiofxVisualizerOnDataCaptureListenerCmd.AddCommand(audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd)
-	audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	audiofxVisualizerOnDataCaptureListenerCmd.AddCommand(audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd)
-	audiofxCmd.AddCommand(audiofxVisualizerOnDataCaptureListenerCmd)
+	audiofxPresetReverbNewPresetReverbCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxPresetReverbNewPresetReverbCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbNewPresetReverbCmd)
+	audiofxPresetReverbGetPresetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbGetPresetCmd)
+	audiofxPresetReverbGetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbGetPropertiesCmd)
+	audiofxPresetReverbSetParameterListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxPresetReverbSetParameterListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbSetParameterListenerCmd)
+	audiofxPresetReverbSetPresetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxPresetReverbSetPresetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbSetPresetCmd)
+	audiofxPresetReverbSetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxPresetReverbSetPropertiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbSetPropertiesCmd)
+	audiofxCmd.AddCommand(audiofxPresetReverbCmd)
+	audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	audiofxPresetReverbOnParameterChangeListenerCmd.AddCommand(audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd)
+	audiofxCmd.AddCommand(audiofxPresetReverbOnParameterChangeListenerCmd)
+	audiofxPresetReverbSettingsCmd.AddCommand(audiofxPresetReverbSettingsToStringCmd)
+	audiofxCmd.AddCommand(audiofxPresetReverbSettingsCmd)
+	audiofxAcousticEchoCancelerCreateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxAcousticEchoCancelerCmd.AddCommand(audiofxAcousticEchoCancelerCreateCmd)
+	audiofxAcousticEchoCancelerCmd.AddCommand(audiofxAcousticEchoCancelerIsAvailableCmd)
+	audiofxCmd.AddCommand(audiofxAcousticEchoCancelerCmd)
 	audiofxEnvironmentalReverbNewEnvironmentalReverbCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	audiofxEnvironmentalReverbNewEnvironmentalReverbCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	audiofxEnvironmentalReverbCmd.AddCommand(audiofxEnvironmentalReverbNewEnvironmentalReverbCmd)
@@ -5442,115 +5389,10 @@ func init() {
 	audiofxCmd.AddCommand(audiofxEnvironmentalReverbOnParameterChangeListenerCmd)
 	audiofxEnvironmentalReverbSettingsCmd.AddCommand(audiofxEnvironmentalReverbSettingsToStringCmd)
 	audiofxCmd.AddCommand(audiofxEnvironmentalReverbSettingsCmd)
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectGetDescriptorCmd)
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectGetEnabledCmd)
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectGetIdCmd)
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectHasControlCmd)
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectReleaseCmd)
-	audiofxAudioEffectSetControlStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectSetControlStatusListenerCmd)
-	audiofxAudioEffectSetEnableStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectSetEnableStatusListenerCmd)
-	audiofxAudioEffectSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectSetEnabledCmd)
-	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectQueryEffectsCmd)
-	audiofxCmd.AddCommand(audiofxAudioEffectCmd)
-	audiofxAudioEffectDescriptorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxAudioEffectDescriptorCmd.AddCommand(audiofxAudioEffectDescriptorEqualsCmd)
-	audiofxAudioEffectDescriptorCmd.AddCommand(audiofxAudioEffectDescriptorHashCodeCmd)
-	audiofxCmd.AddCommand(audiofxAudioEffectDescriptorCmd)
-	audiofxAudioEffectOnControlStatusChangeListenerOnControlStatusChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxAudioEffectOnControlStatusChangeListenerOnControlStatusChangeCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	audiofxAudioEffectOnControlStatusChangeListenerCmd.AddCommand(audiofxAudioEffectOnControlStatusChangeListenerOnControlStatusChangeCmd)
-	audiofxCmd.AddCommand(audiofxAudioEffectOnControlStatusChangeListenerCmd)
-	audiofxAudioEffectOnEnableStatusChangeListenerOnEnableStatusChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxAudioEffectOnEnableStatusChangeListenerOnEnableStatusChangeCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	audiofxAudioEffectOnEnableStatusChangeListenerCmd.AddCommand(audiofxAudioEffectOnEnableStatusChangeListenerOnEnableStatusChangeCmd)
-	audiofxCmd.AddCommand(audiofxAudioEffectOnEnableStatusChangeListenerCmd)
-	audiofxEqualizerNewEqualizerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxEqualizerNewEqualizerCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerNewEqualizerCmd)
-	audiofxEqualizerGetBandCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerGetBandCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetBandCmd)
-	audiofxEqualizerGetBandFreqRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerGetBandFreqRangeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetBandFreqRangeCmd)
-	audiofxEqualizerGetBandLevelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerGetBandLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetBandLevelCmd)
-	audiofxEqualizerGetBandLevelRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetBandLevelRangeCmd)
-	audiofxEqualizerGetCenterFreqCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerGetCenterFreqCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetCenterFreqCmd)
-	audiofxEqualizerGetCurrentPresetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetCurrentPresetCmd)
-	audiofxEqualizerGetNumberOfBandsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetNumberOfBandsCmd)
-	audiofxEqualizerGetNumberOfPresetsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetNumberOfPresetsCmd)
-	audiofxEqualizerGetPresetNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerGetPresetNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetPresetNameCmd)
-	audiofxEqualizerGetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetPropertiesCmd)
-	audiofxEqualizerSetBandLevelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerSetBandLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxEqualizerSetBandLevelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerSetBandLevelCmd)
-	audiofxEqualizerSetParameterListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerSetParameterListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerSetParameterListenerCmd)
-	audiofxEqualizerSetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerSetPropertiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerSetPropertiesCmd)
-	audiofxEqualizerUsePresetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxEqualizerUsePresetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxEqualizerCmd.AddCommand(audiofxEqualizerUsePresetCmd)
-	audiofxCmd.AddCommand(audiofxEqualizerCmd)
-	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	audiofxEqualizerOnParameterChangeListenerCmd.AddCommand(audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd)
-	audiofxCmd.AddCommand(audiofxEqualizerOnParameterChangeListenerCmd)
-	audiofxEqualizerSettingsCmd.AddCommand(audiofxEqualizerSettingsToStringCmd)
-	audiofxCmd.AddCommand(audiofxEqualizerSettingsCmd)
-	audiofxPresetReverbNewPresetReverbCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxPresetReverbNewPresetReverbCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbNewPresetReverbCmd)
-	audiofxPresetReverbGetPresetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbGetPresetCmd)
-	audiofxPresetReverbGetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbGetPropertiesCmd)
-	audiofxPresetReverbSetParameterListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxPresetReverbSetParameterListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbSetParameterListenerCmd)
-	audiofxPresetReverbSetPresetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxPresetReverbSetPresetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbSetPresetCmd)
-	audiofxPresetReverbSetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxPresetReverbSetPropertiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxPresetReverbCmd.AddCommand(audiofxPresetReverbSetPropertiesCmd)
-	audiofxCmd.AddCommand(audiofxPresetReverbCmd)
-	audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	audiofxPresetReverbOnParameterChangeListenerCmd.AddCommand(audiofxPresetReverbOnParameterChangeListenerOnParameterChangeCmd)
-	audiofxCmd.AddCommand(audiofxPresetReverbOnParameterChangeListenerCmd)
-	audiofxPresetReverbSettingsCmd.AddCommand(audiofxPresetReverbSettingsToStringCmd)
-	audiofxCmd.AddCommand(audiofxPresetReverbSettingsCmd)
-	audiofxLoudnessEnhancerNewLoudnessEnhancerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxLoudnessEnhancerCmd.AddCommand(audiofxLoudnessEnhancerNewLoudnessEnhancerCmd)
-	audiofxLoudnessEnhancerGetTargetGainCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxLoudnessEnhancerCmd.AddCommand(audiofxLoudnessEnhancerGetTargetGainCmd)
-	audiofxLoudnessEnhancerSetTargetGainCmd.Flags().Int64("handle", 0, "handle (int64)")
-	audiofxLoudnessEnhancerSetTargetGainCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxLoudnessEnhancerCmd.AddCommand(audiofxLoudnessEnhancerSetTargetGainCmd)
-	audiofxCmd.AddCommand(audiofxLoudnessEnhancerCmd)
+	audiofxNoiseSuppressorCreateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxNoiseSuppressorCmd.AddCommand(audiofxNoiseSuppressorCreateCmd)
+	audiofxNoiseSuppressorCmd.AddCommand(audiofxNoiseSuppressorIsAvailableCmd)
+	audiofxCmd.AddCommand(audiofxNoiseSuppressorCmd)
 	audiofxDynamicsProcessingNewDynamicsProcessingCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	audiofxDynamicsProcessingCmd.AddCommand(audiofxDynamicsProcessingNewDynamicsProcessingCmd)
 	audiofxDynamicsProcessingGetChannelByChannelIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -5857,10 +5699,180 @@ func init() {
 	audiofxDynamicsProcessingStageCmd.AddCommand(audiofxDynamicsProcessingStageSetEnabledCmd)
 	audiofxDynamicsProcessingStageCmd.AddCommand(audiofxDynamicsProcessingStageToStringCmd)
 	audiofxCmd.AddCommand(audiofxDynamicsProcessingStageCmd)
-	audiofxNoiseSuppressorCreateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxNoiseSuppressorCmd.AddCommand(audiofxNoiseSuppressorCreateCmd)
-	audiofxNoiseSuppressorCmd.AddCommand(audiofxNoiseSuppressorIsAvailableCmd)
-	audiofxCmd.AddCommand(audiofxNoiseSuppressorCmd)
+	audiofxBassBoostNewBassBoostCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxBassBoostNewBassBoostCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	audiofxBassBoostCmd.AddCommand(audiofxBassBoostNewBassBoostCmd)
+	audiofxBassBoostGetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxBassBoostCmd.AddCommand(audiofxBassBoostGetPropertiesCmd)
+	audiofxBassBoostGetRoundedStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxBassBoostCmd.AddCommand(audiofxBassBoostGetRoundedStrengthCmd)
+	audiofxBassBoostGetStrengthSupportedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxBassBoostCmd.AddCommand(audiofxBassBoostGetStrengthSupportedCmd)
+	audiofxBassBoostSetParameterListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxBassBoostSetParameterListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxBassBoostCmd.AddCommand(audiofxBassBoostSetParameterListenerCmd)
+	audiofxBassBoostSetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxBassBoostSetPropertiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxBassBoostCmd.AddCommand(audiofxBassBoostSetPropertiesCmd)
+	audiofxBassBoostSetStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxBassBoostSetStrengthCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxBassBoostCmd.AddCommand(audiofxBassBoostSetStrengthCmd)
+	audiofxCmd.AddCommand(audiofxBassBoostCmd)
+	audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	audiofxBassBoostOnParameterChangeListenerCmd.AddCommand(audiofxBassBoostOnParameterChangeListenerOnParameterChangeCmd)
+	audiofxCmd.AddCommand(audiofxBassBoostOnParameterChangeListenerCmd)
+	audiofxBassBoostSettingsCmd.AddCommand(audiofxBassBoostSettingsToStringCmd)
+	audiofxCmd.AddCommand(audiofxBassBoostSettingsCmd)
+	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorCloseCmd)
+	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorReleaseCmd)
+	audiofxHapticGeneratorSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorSetEnabledCmd)
+	audiofxHapticGeneratorCreateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorCreateCmd)
+	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorIsAvailableCmd)
+	audiofxCmd.AddCommand(audiofxHapticGeneratorCmd)
+	audiofxLoudnessEnhancerNewLoudnessEnhancerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxLoudnessEnhancerCmd.AddCommand(audiofxLoudnessEnhancerNewLoudnessEnhancerCmd)
+	audiofxLoudnessEnhancerGetTargetGainCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxLoudnessEnhancerCmd.AddCommand(audiofxLoudnessEnhancerGetTargetGainCmd)
+	audiofxLoudnessEnhancerSetTargetGainCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxLoudnessEnhancerSetTargetGainCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxLoudnessEnhancerCmd.AddCommand(audiofxLoudnessEnhancerSetTargetGainCmd)
+	audiofxCmd.AddCommand(audiofxLoudnessEnhancerCmd)
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectGetDescriptorCmd)
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectGetEnabledCmd)
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectGetIdCmd)
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectHasControlCmd)
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectReleaseCmd)
+	audiofxAudioEffectSetControlStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectSetControlStatusListenerCmd)
+	audiofxAudioEffectSetEnableStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectSetEnableStatusListenerCmd)
+	audiofxAudioEffectSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectSetEnabledCmd)
+	audiofxAudioEffectCmd.AddCommand(audiofxAudioEffectQueryEffectsCmd)
+	audiofxCmd.AddCommand(audiofxAudioEffectCmd)
+	audiofxAudioEffectDescriptorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxAudioEffectDescriptorCmd.AddCommand(audiofxAudioEffectDescriptorEqualsCmd)
+	audiofxAudioEffectDescriptorCmd.AddCommand(audiofxAudioEffectDescriptorHashCodeCmd)
+	audiofxCmd.AddCommand(audiofxAudioEffectDescriptorCmd)
+	audiofxAudioEffectOnControlStatusChangeListenerOnControlStatusChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxAudioEffectOnControlStatusChangeListenerOnControlStatusChangeCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	audiofxAudioEffectOnControlStatusChangeListenerCmd.AddCommand(audiofxAudioEffectOnControlStatusChangeListenerOnControlStatusChangeCmd)
+	audiofxCmd.AddCommand(audiofxAudioEffectOnControlStatusChangeListenerCmd)
+	audiofxAudioEffectOnEnableStatusChangeListenerOnEnableStatusChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxAudioEffectOnEnableStatusChangeListenerOnEnableStatusChangeCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	audiofxAudioEffectOnEnableStatusChangeListenerCmd.AddCommand(audiofxAudioEffectOnEnableStatusChangeListenerOnEnableStatusChangeCmd)
+	audiofxCmd.AddCommand(audiofxAudioEffectOnEnableStatusChangeListenerCmd)
+	audiofxEqualizerNewEqualizerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxEqualizerNewEqualizerCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerNewEqualizerCmd)
+	audiofxEqualizerGetBandCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerGetBandCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetBandCmd)
+	audiofxEqualizerGetBandFreqRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerGetBandFreqRangeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetBandFreqRangeCmd)
+	audiofxEqualizerGetBandLevelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerGetBandLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetBandLevelCmd)
+	audiofxEqualizerGetBandLevelRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetBandLevelRangeCmd)
+	audiofxEqualizerGetCenterFreqCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerGetCenterFreqCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetCenterFreqCmd)
+	audiofxEqualizerGetCurrentPresetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetCurrentPresetCmd)
+	audiofxEqualizerGetNumberOfBandsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetNumberOfBandsCmd)
+	audiofxEqualizerGetNumberOfPresetsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetNumberOfPresetsCmd)
+	audiofxEqualizerGetPresetNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerGetPresetNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetPresetNameCmd)
+	audiofxEqualizerGetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerGetPropertiesCmd)
+	audiofxEqualizerSetBandLevelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerSetBandLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxEqualizerSetBandLevelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerSetBandLevelCmd)
+	audiofxEqualizerSetParameterListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerSetParameterListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerSetParameterListenerCmd)
+	audiofxEqualizerSetPropertiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerSetPropertiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerSetPropertiesCmd)
+	audiofxEqualizerUsePresetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxEqualizerUsePresetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxEqualizerCmd.AddCommand(audiofxEqualizerUsePresetCmd)
+	audiofxCmd.AddCommand(audiofxEqualizerCmd)
+	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	audiofxEqualizerOnParameterChangeListenerCmd.AddCommand(audiofxEqualizerOnParameterChangeListenerOnParameterChangeCmd)
+	audiofxCmd.AddCommand(audiofxEqualizerOnParameterChangeListenerCmd)
+	audiofxEqualizerSettingsCmd.AddCommand(audiofxEqualizerSettingsToStringCmd)
+	audiofxCmd.AddCommand(audiofxEqualizerSettingsCmd)
+	audiofxVisualizerNewVisualizerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerNewVisualizerCmd)
+	audiofxVisualizerGetCaptureSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetCaptureSizeCmd)
+	audiofxVisualizerGetEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetEnabledCmd)
+	audiofxVisualizerGetFftCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerGetFftCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetFftCmd)
+	audiofxVisualizerGetMeasurementModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetMeasurementModeCmd)
+	audiofxVisualizerGetMeasurementPeakRmsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerGetMeasurementPeakRmsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetMeasurementPeakRmsCmd)
+	audiofxVisualizerGetSamplingRateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetSamplingRateCmd)
+	audiofxVisualizerGetScalingModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetScalingModeCmd)
+	audiofxVisualizerGetWaveFormCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerGetWaveFormCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetWaveFormCmd)
+	audiofxVisualizerReleaseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerReleaseCmd)
+	audiofxVisualizerSetCaptureSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerSetCaptureSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetCaptureSizeCmd)
+	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	audiofxVisualizerSetDataCaptureListenerCmd.Flags().Bool("arg3", false, "arg3 (bool)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetDataCaptureListenerCmd)
+	audiofxVisualizerSetEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetEnabledCmd)
+	audiofxVisualizerSetMeasurementModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerSetMeasurementModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetMeasurementModeCmd)
+	audiofxVisualizerSetScalingModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerSetScalingModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerSetScalingModeCmd)
+	audiofxVisualizerGetCaptureSizeRangeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetCaptureSizeRangeCmd)
+	audiofxVisualizerGetMaxCaptureRateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	audiofxVisualizerCmd.AddCommand(audiofxVisualizerGetMaxCaptureRateCmd)
+	audiofxCmd.AddCommand(audiofxVisualizerCmd)
+	audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	audiofxVisualizerOnDataCaptureListenerCmd.AddCommand(audiofxVisualizerOnDataCaptureListenerOnFftDataCaptureCmd)
+	audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	audiofxVisualizerOnDataCaptureListenerCmd.AddCommand(audiofxVisualizerOnDataCaptureListenerOnWaveFormDataCaptureCmd)
+	audiofxCmd.AddCommand(audiofxVisualizerOnDataCaptureListenerCmd)
 	audiofxVirtualizerNewVirtualizerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	audiofxVirtualizerNewVirtualizerCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	audiofxVirtualizerCmd.AddCommand(audiofxVirtualizerNewVirtualizerCmd)
@@ -5902,17 +5914,5 @@ func init() {
 	audiofxCmd.AddCommand(audiofxVirtualizerOnParameterChangeListenerCmd)
 	audiofxVirtualizerSettingsCmd.AddCommand(audiofxVirtualizerSettingsToStringCmd)
 	audiofxCmd.AddCommand(audiofxVirtualizerSettingsCmd)
-	audiofxAcousticEchoCancelerCreateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxAcousticEchoCancelerCmd.AddCommand(audiofxAcousticEchoCancelerCreateCmd)
-	audiofxAcousticEchoCancelerCmd.AddCommand(audiofxAcousticEchoCancelerIsAvailableCmd)
-	audiofxCmd.AddCommand(audiofxAcousticEchoCancelerCmd)
-	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorCloseCmd)
-	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorReleaseCmd)
-	audiofxHapticGeneratorSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorSetEnabledCmd)
-	audiofxHapticGeneratorCreateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorCreateCmd)
-	audiofxHapticGeneratorCmd.AddCommand(audiofxHapticGeneratorIsAvailableCmd)
-	audiofxCmd.AddCommand(audiofxHapticGeneratorCmd)
 	rootCmd.AddCommand(audiofxCmd)
 }

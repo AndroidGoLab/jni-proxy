@@ -37,7 +37,7 @@ func (s *FontStyleServer) NewFontStyle(_ context.Context, req *pb.NewFontStyleRe
 	return &pb.NewFontStyleResponse{Result: handle}, nil
 }
 
-func (s *FontStyleServer) Equals(_ context.Context, req *pb.FontStyleEqualsRequest) (*pb.EqualsResponse, error) {
+func (s *FontStyleServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -79,7 +79,7 @@ func (s *FontStyleServer) GetWeight(_ context.Context, req *pb.GetWeightRequest)
 	return &pb.GetWeightResponse{Result: result}, nil
 }
 
-func (s *FontStyleServer) HashCode(_ context.Context, req *pb.FontStyleHashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *FontStyleServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -93,7 +93,7 @@ func (s *FontStyleServer) HashCode(_ context.Context, req *pb.FontStyleHashCodeR
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *FontStyleServer) ToString(_ context.Context, req *pb.FontStyleToStringRequest) (*pb.ToStringResponse, error) {
+func (s *FontStyleServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -129,7 +129,7 @@ func (s *FontVariationAxisServer) NewFontVariationAxis(_ context.Context, req *p
 	return &pb.NewFontVariationAxisResponse{Result: handle}, nil
 }
 
-func (s *FontVariationAxisServer) Equals(_ context.Context, req *pb.FontVariationAxisEqualsRequest) (*pb.EqualsResponse, error) {
+func (s *FontVariationAxisServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -171,7 +171,7 @@ func (s *FontVariationAxisServer) GetTag(_ context.Context, req *pb.GetTagReques
 	return &pb.GetTagResponse{Result: result}, nil
 }
 
-func (s *FontVariationAxisServer) HashCode(_ context.Context, req *pb.FontVariationAxisHashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *FontVariationAxisServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -185,7 +185,7 @@ func (s *FontVariationAxisServer) HashCode(_ context.Context, req *pb.FontVariat
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *FontVariationAxisServer) ToString(_ context.Context, req *pb.FontVariationAxisToStringRequest) (*pb.ToStringResponse, error) {
+func (s *FontVariationAxisServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")

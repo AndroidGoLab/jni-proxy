@@ -21,1034 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ItemService_DescribeContents_FullMethodName = "/slice.ItemService/DescribeContents"
-	ItemService_GetAction_FullMethodName        = "/slice.ItemService/GetAction"
-	ItemService_GetBundle_FullMethodName        = "/slice.ItemService/GetBundle"
-	ItemService_GetFormat_FullMethodName        = "/slice.ItemService/GetFormat"
-	ItemService_GetIcon_FullMethodName          = "/slice.ItemService/GetIcon"
-	ItemService_GetInt_FullMethodName           = "/slice.ItemService/GetInt"
-	ItemService_GetLong_FullMethodName          = "/slice.ItemService/GetLong"
-	ItemService_GetRemoteInput_FullMethodName   = "/slice.ItemService/GetRemoteInput"
-	ItemService_GetSlice_FullMethodName         = "/slice.ItemService/GetSlice"
-	ItemService_GetSubType_FullMethodName       = "/slice.ItemService/GetSubType"
-	ItemService_GetText_FullMethodName          = "/slice.ItemService/GetText"
-	ItemService_HasHint_FullMethodName          = "/slice.ItemService/HasHint"
-	ItemService_WriteToParcel_FullMethodName    = "/slice.ItemService/WriteToParcel"
-)
-
-// ItemServiceClient is the client API for ItemService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ItemServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error)
-	GetBundle(ctx context.Context, in *GetBundleRequest, opts ...grpc.CallOption) (*GetBundleResponse, error)
-	GetFormat(ctx context.Context, in *GetFormatRequest, opts ...grpc.CallOption) (*GetFormatResponse, error)
-	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
-	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
-	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
-	GetRemoteInput(ctx context.Context, in *GetRemoteInputRequest, opts ...grpc.CallOption) (*GetRemoteInputResponse, error)
-	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
-	GetSubType(ctx context.Context, in *GetSubTypeRequest, opts ...grpc.CallOption) (*GetSubTypeResponse, error)
-	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
-	HasHint(ctx context.Context, in *HasHintRequest, opts ...grpc.CallOption) (*HasHintResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type itemServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewItemServiceClient(cc grpc.ClientConnInterface) ItemServiceClient {
-	return &itemServiceClient{cc}
-}
-
-func (c *itemServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ItemService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActionResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetAction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetBundle(ctx context.Context, in *GetBundleRequest, opts ...grpc.CallOption) (*GetBundleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBundleResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetBundle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetFormat(ctx context.Context, in *GetFormatRequest, opts ...grpc.CallOption) (*GetFormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFormatResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetFormat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetIcon_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetRemoteInput(ctx context.Context, in *GetRemoteInputRequest, opts ...grpc.CallOption) (*GetRemoteInputResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRemoteInputResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetRemoteInput_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSliceResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetSlice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetSubType(ctx context.Context, in *GetSubTypeRequest, opts ...grpc.CallOption) (*GetSubTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSubTypeResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetSubType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextResponse)
-	err := c.cc.Invoke(ctx, ItemService_GetText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) HasHint(ctx context.Context, in *HasHintRequest, opts ...grpc.CallOption) (*HasHintResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasHintResponse)
-	err := c.cc.Invoke(ctx, ItemService_HasHint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *itemServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ItemService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ItemServiceServer is the server API for ItemService service.
-// All implementations must embed UnimplementedItemServiceServer
-// for forward compatibility.
-type ItemServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error)
-	GetBundle(context.Context, *GetBundleRequest) (*GetBundleResponse, error)
-	GetFormat(context.Context, *GetFormatRequest) (*GetFormatResponse, error)
-	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
-	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
-	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
-	GetRemoteInput(context.Context, *GetRemoteInputRequest) (*GetRemoteInputResponse, error)
-	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
-	GetSubType(context.Context, *GetSubTypeRequest) (*GetSubTypeResponse, error)
-	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
-	HasHint(context.Context, *HasHintRequest) (*HasHintResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedItemServiceServer()
-}
-
-// UnimplementedItemServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedItemServiceServer struct{}
-
-func (UnimplementedItemServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedItemServiceServer) GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAction not implemented")
-}
-func (UnimplementedItemServiceServer) GetBundle(context.Context, *GetBundleRequest) (*GetBundleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBundle not implemented")
-}
-func (UnimplementedItemServiceServer) GetFormat(context.Context, *GetFormatRequest) (*GetFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFormat not implemented")
-}
-func (UnimplementedItemServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
-}
-func (UnimplementedItemServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
-}
-func (UnimplementedItemServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
-}
-func (UnimplementedItemServiceServer) GetRemoteInput(context.Context, *GetRemoteInputRequest) (*GetRemoteInputResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRemoteInput not implemented")
-}
-func (UnimplementedItemServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
-}
-func (UnimplementedItemServiceServer) GetSubType(context.Context, *GetSubTypeRequest) (*GetSubTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSubType not implemented")
-}
-func (UnimplementedItemServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
-}
-func (UnimplementedItemServiceServer) HasHint(context.Context, *HasHintRequest) (*HasHintResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasHint not implemented")
-}
-func (UnimplementedItemServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedItemServiceServer) mustEmbedUnimplementedItemServiceServer() {}
-func (UnimplementedItemServiceServer) testEmbeddedByValue()                     {}
-
-// UnsafeItemServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ItemServiceServer will
-// result in compilation errors.
-type UnsafeItemServiceServer interface {
-	mustEmbedUnimplementedItemServiceServer()
-}
-
-func RegisterItemServiceServer(s grpc.ServiceRegistrar, srv ItemServiceServer) {
-	// If the following call panics, it indicates UnimplementedItemServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ItemService_ServiceDesc, srv)
-}
-
-func _ItemService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetAction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetAction(ctx, req.(*GetActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBundleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetBundle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetBundle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetBundle(ctx, req.(*GetBundleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetFormat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetFormat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetFormat(ctx, req.(*GetFormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetIcon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetIcon_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetIcon(ctx, req.(*GetIconRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetInt(ctx, req.(*GetIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetLong(ctx, req.(*GetLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetRemoteInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRemoteInputRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetRemoteInput(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetRemoteInput_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetRemoteInput(ctx, req.(*GetRemoteInputRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSliceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetSlice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetSlice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetSubType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSubTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetSubType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetSubType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetSubType(ctx, req.(*GetSubTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).GetText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_GetText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).GetText(ctx, req.(*GetTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_HasHint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasHintRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).HasHint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_HasHint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).HasHint(ctx, req.(*HasHintRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ItemService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ItemServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ItemService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ItemServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ItemService_ServiceDesc is the grpc.ServiceDesc for ItemService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ItemService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "slice.ItemService",
-	HandlerType: (*ItemServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ItemService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetAction",
-			Handler:    _ItemService_GetAction_Handler,
-		},
-		{
-			MethodName: "GetBundle",
-			Handler:    _ItemService_GetBundle_Handler,
-		},
-		{
-			MethodName: "GetFormat",
-			Handler:    _ItemService_GetFormat_Handler,
-		},
-		{
-			MethodName: "GetIcon",
-			Handler:    _ItemService_GetIcon_Handler,
-		},
-		{
-			MethodName: "GetInt",
-			Handler:    _ItemService_GetInt_Handler,
-		},
-		{
-			MethodName: "GetLong",
-			Handler:    _ItemService_GetLong_Handler,
-		},
-		{
-			MethodName: "GetRemoteInput",
-			Handler:    _ItemService_GetRemoteInput_Handler,
-		},
-		{
-			MethodName: "GetSlice",
-			Handler:    _ItemService_GetSlice_Handler,
-		},
-		{
-			MethodName: "GetSubType",
-			Handler:    _ItemService_GetSubType_Handler,
-		},
-		{
-			MethodName: "GetText",
-			Handler:    _ItemService_GetText_Handler,
-		},
-		{
-			MethodName: "HasHint",
-			Handler:    _ItemService_HasHint_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ItemService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/slice/slice.proto",
-}
-
-const (
-	ManagerService_CheckSlicePermission_FullMethodName  = "/slice.ManagerService/CheckSlicePermission"
-	ManagerService_GrantSlicePermission_FullMethodName  = "/slice.ManagerService/GrantSlicePermission"
-	ManagerService_MapIntentToUri_FullMethodName        = "/slice.ManagerService/MapIntentToUri"
-	ManagerService_RevokeSlicePermission_FullMethodName = "/slice.ManagerService/RevokeSlicePermission"
-	ManagerService_UnpinSlice_FullMethodName            = "/slice.ManagerService/UnpinSlice"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	CheckSlicePermission(ctx context.Context, in *CheckSlicePermissionRequest, opts ...grpc.CallOption) (*CheckSlicePermissionResponse, error)
-	GrantSlicePermission(ctx context.Context, in *GrantSlicePermissionRequest, opts ...grpc.CallOption) (*GrantSlicePermissionResponse, error)
-	MapIntentToUri(ctx context.Context, in *MapIntentToUriRequest, opts ...grpc.CallOption) (*MapIntentToUriResponse, error)
-	RevokeSlicePermission(ctx context.Context, in *RevokeSlicePermissionRequest, opts ...grpc.CallOption) (*RevokeSlicePermissionResponse, error)
-	UnpinSlice(ctx context.Context, in *UnpinSliceRequest, opts ...grpc.CallOption) (*UnpinSliceResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) CheckSlicePermission(ctx context.Context, in *CheckSlicePermissionRequest, opts ...grpc.CallOption) (*CheckSlicePermissionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckSlicePermissionResponse)
-	err := c.cc.Invoke(ctx, ManagerService_CheckSlicePermission_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GrantSlicePermission(ctx context.Context, in *GrantSlicePermissionRequest, opts ...grpc.CallOption) (*GrantSlicePermissionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GrantSlicePermissionResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GrantSlicePermission_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) MapIntentToUri(ctx context.Context, in *MapIntentToUriRequest, opts ...grpc.CallOption) (*MapIntentToUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapIntentToUriResponse)
-	err := c.cc.Invoke(ctx, ManagerService_MapIntentToUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) RevokeSlicePermission(ctx context.Context, in *RevokeSlicePermissionRequest, opts ...grpc.CallOption) (*RevokeSlicePermissionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RevokeSlicePermissionResponse)
-	err := c.cc.Invoke(ctx, ManagerService_RevokeSlicePermission_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) UnpinSlice(ctx context.Context, in *UnpinSliceRequest, opts ...grpc.CallOption) (*UnpinSliceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnpinSliceResponse)
-	err := c.cc.Invoke(ctx, ManagerService_UnpinSlice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	CheckSlicePermission(context.Context, *CheckSlicePermissionRequest) (*CheckSlicePermissionResponse, error)
-	GrantSlicePermission(context.Context, *GrantSlicePermissionRequest) (*GrantSlicePermissionResponse, error)
-	MapIntentToUri(context.Context, *MapIntentToUriRequest) (*MapIntentToUriResponse, error)
-	RevokeSlicePermission(context.Context, *RevokeSlicePermissionRequest) (*RevokeSlicePermissionResponse, error)
-	UnpinSlice(context.Context, *UnpinSliceRequest) (*UnpinSliceResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) CheckSlicePermission(context.Context, *CheckSlicePermissionRequest) (*CheckSlicePermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckSlicePermission not implemented")
-}
-func (UnimplementedManagerServiceServer) GrantSlicePermission(context.Context, *GrantSlicePermissionRequest) (*GrantSlicePermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GrantSlicePermission not implemented")
-}
-func (UnimplementedManagerServiceServer) MapIntentToUri(context.Context, *MapIntentToUriRequest) (*MapIntentToUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapIntentToUri not implemented")
-}
-func (UnimplementedManagerServiceServer) RevokeSlicePermission(context.Context, *RevokeSlicePermissionRequest) (*RevokeSlicePermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RevokeSlicePermission not implemented")
-}
-func (UnimplementedManagerServiceServer) UnpinSlice(context.Context, *UnpinSliceRequest) (*UnpinSliceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnpinSlice not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_CheckSlicePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckSlicePermissionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).CheckSlicePermission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_CheckSlicePermission_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).CheckSlicePermission(ctx, req.(*CheckSlicePermissionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GrantSlicePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GrantSlicePermissionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GrantSlicePermission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GrantSlicePermission_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GrantSlicePermission(ctx, req.(*GrantSlicePermissionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_MapIntentToUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapIntentToUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).MapIntentToUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_MapIntentToUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).MapIntentToUri(ctx, req.(*MapIntentToUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_RevokeSlicePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RevokeSlicePermissionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RevokeSlicePermission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RevokeSlicePermission_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RevokeSlicePermission(ctx, req.(*RevokeSlicePermissionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_UnpinSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnpinSliceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UnpinSlice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UnpinSlice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UnpinSlice(ctx, req.(*UnpinSliceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "slice.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CheckSlicePermission",
-			Handler:    _ManagerService_CheckSlicePermission_Handler,
-		},
-		{
-			MethodName: "GrantSlicePermission",
-			Handler:    _ManagerService_GrantSlicePermission_Handler,
-		},
-		{
-			MethodName: "MapIntentToUri",
-			Handler:    _ManagerService_MapIntentToUri_Handler,
-		},
-		{
-			MethodName: "RevokeSlicePermission",
-			Handler:    _ManagerService_RevokeSlicePermission_Handler,
-		},
-		{
-			MethodName: "UnpinSlice",
-			Handler:    _ManagerService_UnpinSlice_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/slice/slice.proto",
-}
-
-const (
-	MetricsService_NewMetrics_FullMethodName = "/slice.MetricsService/NewMetrics"
-	MetricsService_LogHidden_FullMethodName  = "/slice.MetricsService/LogHidden"
-	MetricsService_LogTouch_FullMethodName   = "/slice.MetricsService/LogTouch"
-	MetricsService_LogVisible_FullMethodName = "/slice.MetricsService/LogVisible"
-)
-
-// MetricsServiceClient is the client API for MetricsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MetricsServiceClient interface {
-	NewMetrics(ctx context.Context, in *NewMetricsRequest, opts ...grpc.CallOption) (*NewMetricsResponse, error)
-	LogHidden(ctx context.Context, in *LogHiddenRequest, opts ...grpc.CallOption) (*LogHiddenResponse, error)
-	LogTouch(ctx context.Context, in *LogTouchRequest, opts ...grpc.CallOption) (*LogTouchResponse, error)
-	LogVisible(ctx context.Context, in *LogVisibleRequest, opts ...grpc.CallOption) (*LogVisibleResponse, error)
-}
-
-type metricsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMetricsServiceClient(cc grpc.ClientConnInterface) MetricsServiceClient {
-	return &metricsServiceClient{cc}
-}
-
-func (c *metricsServiceClient) NewMetrics(ctx context.Context, in *NewMetricsRequest, opts ...grpc.CallOption) (*NewMetricsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewMetricsResponse)
-	err := c.cc.Invoke(ctx, MetricsService_NewMetrics_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *metricsServiceClient) LogHidden(ctx context.Context, in *LogHiddenRequest, opts ...grpc.CallOption) (*LogHiddenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LogHiddenResponse)
-	err := c.cc.Invoke(ctx, MetricsService_LogHidden_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *metricsServiceClient) LogTouch(ctx context.Context, in *LogTouchRequest, opts ...grpc.CallOption) (*LogTouchResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LogTouchResponse)
-	err := c.cc.Invoke(ctx, MetricsService_LogTouch_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *metricsServiceClient) LogVisible(ctx context.Context, in *LogVisibleRequest, opts ...grpc.CallOption) (*LogVisibleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LogVisibleResponse)
-	err := c.cc.Invoke(ctx, MetricsService_LogVisible_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MetricsServiceServer is the server API for MetricsService service.
-// All implementations must embed UnimplementedMetricsServiceServer
-// for forward compatibility.
-type MetricsServiceServer interface {
-	NewMetrics(context.Context, *NewMetricsRequest) (*NewMetricsResponse, error)
-	LogHidden(context.Context, *LogHiddenRequest) (*LogHiddenResponse, error)
-	LogTouch(context.Context, *LogTouchRequest) (*LogTouchResponse, error)
-	LogVisible(context.Context, *LogVisibleRequest) (*LogVisibleResponse, error)
-	mustEmbedUnimplementedMetricsServiceServer()
-}
-
-// UnimplementedMetricsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMetricsServiceServer struct{}
-
-func (UnimplementedMetricsServiceServer) NewMetrics(context.Context, *NewMetricsRequest) (*NewMetricsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewMetrics not implemented")
-}
-func (UnimplementedMetricsServiceServer) LogHidden(context.Context, *LogHiddenRequest) (*LogHiddenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LogHidden not implemented")
-}
-func (UnimplementedMetricsServiceServer) LogTouch(context.Context, *LogTouchRequest) (*LogTouchResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LogTouch not implemented")
-}
-func (UnimplementedMetricsServiceServer) LogVisible(context.Context, *LogVisibleRequest) (*LogVisibleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method LogVisible not implemented")
-}
-func (UnimplementedMetricsServiceServer) mustEmbedUnimplementedMetricsServiceServer() {}
-func (UnimplementedMetricsServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeMetricsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MetricsServiceServer will
-// result in compilation errors.
-type UnsafeMetricsServiceServer interface {
-	mustEmbedUnimplementedMetricsServiceServer()
-}
-
-func RegisterMetricsServiceServer(s grpc.ServiceRegistrar, srv MetricsServiceServer) {
-	// If the following call panics, it indicates UnimplementedMetricsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MetricsService_ServiceDesc, srv)
-}
-
-func _MetricsService_NewMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewMetricsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetricsServiceServer).NewMetrics(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetricsService_NewMetrics_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).NewMetrics(ctx, req.(*NewMetricsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MetricsService_LogHidden_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LogHiddenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetricsServiceServer).LogHidden(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetricsService_LogHidden_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).LogHidden(ctx, req.(*LogHiddenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MetricsService_LogTouch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LogTouchRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetricsServiceServer).LogTouch(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetricsService_LogTouch_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).LogTouch(ctx, req.(*LogTouchRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MetricsService_LogVisible_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LogVisibleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetricsServiceServer).LogVisible(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetricsService_LogVisible_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).LogVisible(ctx, req.(*LogVisibleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MetricsService_ServiceDesc is the grpc.ServiceDesc for MetricsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MetricsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "slice.MetricsService",
-	HandlerType: (*MetricsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewMetrics",
-			Handler:    _MetricsService_NewMetrics_Handler,
-		},
-		{
-			MethodName: "LogHidden",
-			Handler:    _MetricsService_LogHidden_Handler,
-		},
-		{
-			MethodName: "LogTouch",
-			Handler:    _MetricsService_LogTouch_Handler,
-		},
-		{
-			MethodName: "LogVisible",
-			Handler:    _MetricsService_LogVisible_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/slice/slice.proto",
-}
-
-const (
 	SpecService_NewSpec_FullMethodName          = "/slice.SpecService/NewSpec"
 	SpecService_CanRender_FullMethodName        = "/slice.SpecService/CanRender"
 	SpecService_DescribeContents_FullMethodName = "/slice.SpecService/DescribeContents"
@@ -1065,12 +37,12 @@ const (
 type SpecServiceClient interface {
 	NewSpec(ctx context.Context, in *NewSpecRequest, opts ...grpc.CallOption) (*NewSpecResponse, error)
 	CanRender(ctx context.Context, in *CanRenderRequest, opts ...grpc.CallOption) (*CanRenderResponse, error)
-	DescribeContents(ctx context.Context, in *SpecDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetRevision(ctx context.Context, in *GetRevisionRequest, opts ...grpc.CallOption) (*GetRevisionResponse, error)
 	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *SpecWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type specServiceClient struct {
@@ -1101,7 +73,7 @@ func (c *specServiceClient) CanRender(ctx context.Context, in *CanRenderRequest,
 	return out, nil
 }
 
-func (c *specServiceClient) DescribeContents(ctx context.Context, in *SpecDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *specServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, SpecService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -1151,7 +123,7 @@ func (c *specServiceClient) ToString(ctx context.Context, in *ToStringRequest, o
 	return out, nil
 }
 
-func (c *specServiceClient) WriteToParcel(ctx context.Context, in *SpecWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *specServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, SpecService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -1167,12 +139,12 @@ func (c *specServiceClient) WriteToParcel(ctx context.Context, in *SpecWriteToPa
 type SpecServiceServer interface {
 	NewSpec(context.Context, *NewSpecRequest) (*NewSpecResponse, error)
 	CanRender(context.Context, *CanRenderRequest) (*CanRenderResponse, error)
-	DescribeContents(context.Context, *SpecDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetRevision(context.Context, *GetRevisionRequest) (*GetRevisionResponse, error)
 	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *SpecWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedSpecServiceServer()
 }
 
@@ -1189,7 +161,7 @@ func (UnimplementedSpecServiceServer) NewSpec(context.Context, *NewSpecRequest) 
 func (UnimplementedSpecServiceServer) CanRender(context.Context, *CanRenderRequest) (*CanRenderResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CanRender not implemented")
 }
-func (UnimplementedSpecServiceServer) DescribeContents(context.Context, *SpecDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedSpecServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedSpecServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
@@ -1204,7 +176,7 @@ func (UnimplementedSpecServiceServer) GetType(context.Context, *GetTypeRequest) 
 func (UnimplementedSpecServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedSpecServiceServer) WriteToParcel(context.Context, *SpecWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedSpecServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedSpecServiceServer) mustEmbedUnimplementedSpecServiceServer() {}
@@ -1265,7 +237,7 @@ func _SpecService_CanRender_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _SpecService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SpecDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1277,7 +249,7 @@ func _SpecService_DescribeContents_Handler(srv interface{}, ctx context.Context,
 		FullMethod: SpecService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpecServiceServer).DescribeContents(ctx, req.(*SpecDescribeContentsRequest))
+		return srv.(SpecServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1355,7 +327,7 @@ func _SpecService_ToString_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _SpecService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SpecWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1367,7 +339,7 @@ func _SpecService_WriteToParcel_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: SpecService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpecServiceServer).WriteToParcel(ctx, req.(*SpecWriteToParcelRequest))
+		return srv.(SpecServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1417,565 +389,9 @@ var SpecService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ProviderService_AttachInfo_FullMethodName                = "/slice.ProviderService/AttachInfo"
-	ProviderService_Call_FullMethodName                      = "/slice.ProviderService/Call"
-	ProviderService_Delete_FullMethodName                    = "/slice.ProviderService/Delete"
-	ProviderService_GetType_FullMethodName                   = "/slice.ProviderService/GetType"
-	ProviderService_Insert_FullMethodName                    = "/slice.ProviderService/Insert"
-	ProviderService_OnCreatePermissionRequest_FullMethodName = "/slice.ProviderService/OnCreatePermissionRequest"
-	ProviderService_OnMapIntentToUri_FullMethodName          = "/slice.ProviderService/OnMapIntentToUri"
-	ProviderService_OnSlicePinned_FullMethodName             = "/slice.ProviderService/OnSlicePinned"
-	ProviderService_OnSliceUnpinned_FullMethodName           = "/slice.ProviderService/OnSliceUnpinned"
-	ProviderService_Query4_FullMethodName                    = "/slice.ProviderService/Query4"
-	ProviderService_Query5_1_FullMethodName                  = "/slice.ProviderService/Query5_1"
-	ProviderService_Query6_2_FullMethodName                  = "/slice.ProviderService/Query6_2"
-	ProviderService_Update_FullMethodName                    = "/slice.ProviderService/Update"
-)
-
-// ProviderServiceClient is the client API for ProviderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ProviderServiceClient interface {
-	AttachInfo(ctx context.Context, in *AttachInfoRequest, opts ...grpc.CallOption) (*AttachInfoResponse, error)
-	Call(ctx context.Context, in *CallRequest, opts ...grpc.CallOption) (*CallResponse, error)
-	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
-	GetType(ctx context.Context, in *ProviderGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	Insert(ctx context.Context, in *InsertRequest, opts ...grpc.CallOption) (*InsertResponse, error)
-	OnCreatePermissionRequest(ctx context.Context, in *OnCreatePermissionRequestRequest, opts ...grpc.CallOption) (*OnCreatePermissionRequestResponse, error)
-	OnMapIntentToUri(ctx context.Context, in *OnMapIntentToUriRequest, opts ...grpc.CallOption) (*OnMapIntentToUriResponse, error)
-	OnSlicePinned(ctx context.Context, in *OnSlicePinnedRequest, opts ...grpc.CallOption) (*OnSlicePinnedResponse, error)
-	OnSliceUnpinned(ctx context.Context, in *OnSliceUnpinnedRequest, opts ...grpc.CallOption) (*OnSliceUnpinnedResponse, error)
-	Query4(ctx context.Context, in *Query4Request, opts ...grpc.CallOption) (*Query4Response, error)
-	Query5_1(ctx context.Context, in *Query5_1Request, opts ...grpc.CallOption) (*Query5_1Response, error)
-	Query6_2(ctx context.Context, in *Query6_2Request, opts ...grpc.CallOption) (*Query6_2Response, error)
-	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
-}
-
-type providerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewProviderServiceClient(cc grpc.ClientConnInterface) ProviderServiceClient {
-	return &providerServiceClient{cc}
-}
-
-func (c *providerServiceClient) AttachInfo(ctx context.Context, in *AttachInfoRequest, opts ...grpc.CallOption) (*AttachInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AttachInfoResponse)
-	err := c.cc.Invoke(ctx, ProviderService_AttachInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) Call(ctx context.Context, in *CallRequest, opts ...grpc.CallOption) (*CallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CallResponse)
-	err := c.cc.Invoke(ctx, ProviderService_Call_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteResponse)
-	err := c.cc.Invoke(ctx, ProviderService_Delete_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) GetType(ctx context.Context, in *ProviderGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, ProviderService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) Insert(ctx context.Context, in *InsertRequest, opts ...grpc.CallOption) (*InsertResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InsertResponse)
-	err := c.cc.Invoke(ctx, ProviderService_Insert_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) OnCreatePermissionRequest(ctx context.Context, in *OnCreatePermissionRequestRequest, opts ...grpc.CallOption) (*OnCreatePermissionRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCreatePermissionRequestResponse)
-	err := c.cc.Invoke(ctx, ProviderService_OnCreatePermissionRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) OnMapIntentToUri(ctx context.Context, in *OnMapIntentToUriRequest, opts ...grpc.CallOption) (*OnMapIntentToUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnMapIntentToUriResponse)
-	err := c.cc.Invoke(ctx, ProviderService_OnMapIntentToUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) OnSlicePinned(ctx context.Context, in *OnSlicePinnedRequest, opts ...grpc.CallOption) (*OnSlicePinnedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSlicePinnedResponse)
-	err := c.cc.Invoke(ctx, ProviderService_OnSlicePinned_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) OnSliceUnpinned(ctx context.Context, in *OnSliceUnpinnedRequest, opts ...grpc.CallOption) (*OnSliceUnpinnedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSliceUnpinnedResponse)
-	err := c.cc.Invoke(ctx, ProviderService_OnSliceUnpinned_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) Query4(ctx context.Context, in *Query4Request, opts ...grpc.CallOption) (*Query4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Query4Response)
-	err := c.cc.Invoke(ctx, ProviderService_Query4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) Query5_1(ctx context.Context, in *Query5_1Request, opts ...grpc.CallOption) (*Query5_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Query5_1Response)
-	err := c.cc.Invoke(ctx, ProviderService_Query5_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) Query6_2(ctx context.Context, in *Query6_2Request, opts ...grpc.CallOption) (*Query6_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Query6_2Response)
-	err := c.cc.Invoke(ctx, ProviderService_Query6_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateResponse)
-	err := c.cc.Invoke(ctx, ProviderService_Update_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ProviderServiceServer is the server API for ProviderService service.
-// All implementations must embed UnimplementedProviderServiceServer
-// for forward compatibility.
-type ProviderServiceServer interface {
-	AttachInfo(context.Context, *AttachInfoRequest) (*AttachInfoResponse, error)
-	Call(context.Context, *CallRequest) (*CallResponse, error)
-	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
-	GetType(context.Context, *ProviderGetTypeRequest) (*GetTypeResponse, error)
-	Insert(context.Context, *InsertRequest) (*InsertResponse, error)
-	OnCreatePermissionRequest(context.Context, *OnCreatePermissionRequestRequest) (*OnCreatePermissionRequestResponse, error)
-	OnMapIntentToUri(context.Context, *OnMapIntentToUriRequest) (*OnMapIntentToUriResponse, error)
-	OnSlicePinned(context.Context, *OnSlicePinnedRequest) (*OnSlicePinnedResponse, error)
-	OnSliceUnpinned(context.Context, *OnSliceUnpinnedRequest) (*OnSliceUnpinnedResponse, error)
-	Query4(context.Context, *Query4Request) (*Query4Response, error)
-	Query5_1(context.Context, *Query5_1Request) (*Query5_1Response, error)
-	Query6_2(context.Context, *Query6_2Request) (*Query6_2Response, error)
-	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
-	mustEmbedUnimplementedProviderServiceServer()
-}
-
-// UnimplementedProviderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedProviderServiceServer struct{}
-
-func (UnimplementedProviderServiceServer) AttachInfo(context.Context, *AttachInfoRequest) (*AttachInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AttachInfo not implemented")
-}
-func (UnimplementedProviderServiceServer) Call(context.Context, *CallRequest) (*CallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Call not implemented")
-}
-func (UnimplementedProviderServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Delete not implemented")
-}
-func (UnimplementedProviderServiceServer) GetType(context.Context, *ProviderGetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedProviderServiceServer) Insert(context.Context, *InsertRequest) (*InsertResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Insert not implemented")
-}
-func (UnimplementedProviderServiceServer) OnCreatePermissionRequest(context.Context, *OnCreatePermissionRequestRequest) (*OnCreatePermissionRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCreatePermissionRequest not implemented")
-}
-func (UnimplementedProviderServiceServer) OnMapIntentToUri(context.Context, *OnMapIntentToUriRequest) (*OnMapIntentToUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnMapIntentToUri not implemented")
-}
-func (UnimplementedProviderServiceServer) OnSlicePinned(context.Context, *OnSlicePinnedRequest) (*OnSlicePinnedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSlicePinned not implemented")
-}
-func (UnimplementedProviderServiceServer) OnSliceUnpinned(context.Context, *OnSliceUnpinnedRequest) (*OnSliceUnpinnedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSliceUnpinned not implemented")
-}
-func (UnimplementedProviderServiceServer) Query4(context.Context, *Query4Request) (*Query4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Query4 not implemented")
-}
-func (UnimplementedProviderServiceServer) Query5_1(context.Context, *Query5_1Request) (*Query5_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Query5_1 not implemented")
-}
-func (UnimplementedProviderServiceServer) Query6_2(context.Context, *Query6_2Request) (*Query6_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Query6_2 not implemented")
-}
-func (UnimplementedProviderServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Update not implemented")
-}
-func (UnimplementedProviderServiceServer) mustEmbedUnimplementedProviderServiceServer() {}
-func (UnimplementedProviderServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafeProviderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ProviderServiceServer will
-// result in compilation errors.
-type UnsafeProviderServiceServer interface {
-	mustEmbedUnimplementedProviderServiceServer()
-}
-
-func RegisterProviderServiceServer(s grpc.ServiceRegistrar, srv ProviderServiceServer) {
-	// If the following call panics, it indicates UnimplementedProviderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ProviderService_ServiceDesc, srv)
-}
-
-func _ProviderService_AttachInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AttachInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).AttachInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_AttachInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).AttachInfo(ctx, req.(*AttachInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_Call_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).Call(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_Call_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).Call(ctx, req.(*CallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).Delete(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_Delete_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).Delete(ctx, req.(*DeleteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProviderGetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).GetType(ctx, req.(*ProviderGetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_Insert_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InsertRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).Insert(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_Insert_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).Insert(ctx, req.(*InsertRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_OnCreatePermissionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCreatePermissionRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).OnCreatePermissionRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_OnCreatePermissionRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).OnCreatePermissionRequest(ctx, req.(*OnCreatePermissionRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_OnMapIntentToUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnMapIntentToUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).OnMapIntentToUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_OnMapIntentToUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).OnMapIntentToUri(ctx, req.(*OnMapIntentToUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_OnSlicePinned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSlicePinnedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).OnSlicePinned(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_OnSlicePinned_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).OnSlicePinned(ctx, req.(*OnSlicePinnedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_OnSliceUnpinned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSliceUnpinnedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).OnSliceUnpinned(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_OnSliceUnpinned_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).OnSliceUnpinned(ctx, req.(*OnSliceUnpinnedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_Query4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Query4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).Query4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_Query4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).Query4(ctx, req.(*Query4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_Query5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Query5_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).Query5_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_Query5_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).Query5_1(ctx, req.(*Query5_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_Query6_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Query6_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).Query6_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_Query6_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).Query6_2(ctx, req.(*Query6_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).Update(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_Update_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).Update(ctx, req.(*UpdateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ProviderService_ServiceDesc is the grpc.ServiceDesc for ProviderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ProviderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "slice.ProviderService",
-	HandlerType: (*ProviderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AttachInfo",
-			Handler:    _ProviderService_AttachInfo_Handler,
-		},
-		{
-			MethodName: "Call",
-			Handler:    _ProviderService_Call_Handler,
-		},
-		{
-			MethodName: "Delete",
-			Handler:    _ProviderService_Delete_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _ProviderService_GetType_Handler,
-		},
-		{
-			MethodName: "Insert",
-			Handler:    _ProviderService_Insert_Handler,
-		},
-		{
-			MethodName: "OnCreatePermissionRequest",
-			Handler:    _ProviderService_OnCreatePermissionRequest_Handler,
-		},
-		{
-			MethodName: "OnMapIntentToUri",
-			Handler:    _ProviderService_OnMapIntentToUri_Handler,
-		},
-		{
-			MethodName: "OnSlicePinned",
-			Handler:    _ProviderService_OnSlicePinned_Handler,
-		},
-		{
-			MethodName: "OnSliceUnpinned",
-			Handler:    _ProviderService_OnSliceUnpinned_Handler,
-		},
-		{
-			MethodName: "Query4",
-			Handler:    _ProviderService_Query4_Handler,
-		},
-		{
-			MethodName: "Query5_1",
-			Handler:    _ProviderService_Query5_1_Handler,
-		},
-		{
-			MethodName: "Query6_2",
-			Handler:    _ProviderService_Query6_2_Handler,
-		},
-		{
-			MethodName: "Update",
-			Handler:    _ProviderService_Update_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/slice/slice.proto",
-}
-
-const (
 	SliceService_DescribeContents_FullMethodName = "/slice.SliceService/DescribeContents"
+	SliceService_GetHints_FullMethodName         = "/slice.SliceService/GetHints"
+	SliceService_GetItems_FullMethodName         = "/slice.SliceService/GetItems"
 	SliceService_GetSpec_FullMethodName          = "/slice.SliceService/GetSpec"
 	SliceService_GetUri_FullMethodName           = "/slice.SliceService/GetUri"
 	SliceService_IsCallerNeeded_FullMethodName   = "/slice.SliceService/IsCallerNeeded"
@@ -1987,12 +403,14 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SliceServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *SliceDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetHints(ctx context.Context, in *GetHintsRequest, opts ...grpc.CallOption) (*GetHintsResponse, error)
+	GetItems(ctx context.Context, in *GetItemsRequest, opts ...grpc.CallOption) (*GetItemsResponse, error)
 	GetSpec(ctx context.Context, in *GetSpecRequest, opts ...grpc.CallOption) (*GetSpecResponse, error)
 	GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error)
 	IsCallerNeeded(ctx context.Context, in *IsCallerNeededRequest, opts ...grpc.CallOption) (*IsCallerNeededResponse, error)
 	ToString(ctx context.Context, in *SliceToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *SliceWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type sliceServiceClient struct {
@@ -2003,10 +421,30 @@ func NewSliceServiceClient(cc grpc.ClientConnInterface) SliceServiceClient {
 	return &sliceServiceClient{cc}
 }
 
-func (c *sliceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *sliceServiceClient) DescribeContents(ctx context.Context, in *SliceDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, SliceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sliceServiceClient) GetHints(ctx context.Context, in *GetHintsRequest, opts ...grpc.CallOption) (*GetHintsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHintsResponse)
+	err := c.cc.Invoke(ctx, SliceService_GetHints_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sliceServiceClient) GetItems(ctx context.Context, in *GetItemsRequest, opts ...grpc.CallOption) (*GetItemsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetItemsResponse)
+	err := c.cc.Invoke(ctx, SliceService_GetItems_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2053,7 +491,7 @@ func (c *sliceServiceClient) ToString(ctx context.Context, in *SliceToStringRequ
 	return out, nil
 }
 
-func (c *sliceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *sliceServiceClient) WriteToParcel(ctx context.Context, in *SliceWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, SliceService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -2067,12 +505,14 @@ func (c *sliceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParce
 // All implementations must embed UnimplementedSliceServiceServer
 // for forward compatibility.
 type SliceServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *SliceDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetHints(context.Context, *GetHintsRequest) (*GetHintsResponse, error)
+	GetItems(context.Context, *GetItemsRequest) (*GetItemsResponse, error)
 	GetSpec(context.Context, *GetSpecRequest) (*GetSpecResponse, error)
 	GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error)
 	IsCallerNeeded(context.Context, *IsCallerNeededRequest) (*IsCallerNeededResponse, error)
 	ToString(context.Context, *SliceToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *SliceWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedSliceServiceServer()
 }
 
@@ -2083,8 +523,14 @@ type SliceServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSliceServiceServer struct{}
 
-func (UnimplementedSliceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedSliceServiceServer) DescribeContents(context.Context, *SliceDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSliceServiceServer) GetHints(context.Context, *GetHintsRequest) (*GetHintsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHints not implemented")
+}
+func (UnimplementedSliceServiceServer) GetItems(context.Context, *GetItemsRequest) (*GetItemsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetItems not implemented")
 }
 func (UnimplementedSliceServiceServer) GetSpec(context.Context, *GetSpecRequest) (*GetSpecResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSpec not implemented")
@@ -2098,7 +544,7 @@ func (UnimplementedSliceServiceServer) IsCallerNeeded(context.Context, *IsCaller
 func (UnimplementedSliceServiceServer) ToString(context.Context, *SliceToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedSliceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedSliceServiceServer) WriteToParcel(context.Context, *SliceWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedSliceServiceServer) mustEmbedUnimplementedSliceServiceServer() {}
@@ -2123,7 +569,7 @@ func RegisterSliceServiceServer(s grpc.ServiceRegistrar, srv SliceServiceServer)
 }
 
 func _SliceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(SliceDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2135,7 +581,43 @@ func _SliceService_DescribeContents_Handler(srv interface{}, ctx context.Context
 		FullMethod: SliceService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SliceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(SliceServiceServer).DescribeContents(ctx, req.(*SliceDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SliceService_GetHints_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHintsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SliceServiceServer).GetHints(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SliceService_GetHints_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SliceServiceServer).GetHints(ctx, req.(*GetHintsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SliceService_GetItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetItemsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SliceServiceServer).GetItems(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SliceService_GetItems_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SliceServiceServer).GetItems(ctx, req.(*GetItemsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2213,7 +695,7 @@ func _SliceService_ToString_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _SliceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(SliceWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2225,7 +707,7 @@ func _SliceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: SliceService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SliceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(SliceServiceServer).WriteToParcel(ctx, req.(*SliceWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2240,6 +722,14 @@ var SliceService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DescribeContents",
 			Handler:    _SliceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetHints",
+			Handler:    _SliceService_GetHints_Handler,
+		},
+		{
+			MethodName: "GetItems",
+			Handler:    _SliceService_GetItems_Handler,
 		},
 		{
 			MethodName: "GetSpec",
@@ -2476,6 +966,1782 @@ var BuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetCallerNeeded",
 			Handler:    _BuilderService_SetCallerNeeded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/slice/slice.proto",
+}
+
+const (
+	ProviderService_AttachInfo_FullMethodName                = "/slice.ProviderService/AttachInfo"
+	ProviderService_Call_FullMethodName                      = "/slice.ProviderService/Call"
+	ProviderService_Delete_FullMethodName                    = "/slice.ProviderService/Delete"
+	ProviderService_GetType_FullMethodName                   = "/slice.ProviderService/GetType"
+	ProviderService_Insert_FullMethodName                    = "/slice.ProviderService/Insert"
+	ProviderService_OnCreatePermissionRequest_FullMethodName = "/slice.ProviderService/OnCreatePermissionRequest"
+	ProviderService_OnGetSliceDescendants_FullMethodName     = "/slice.ProviderService/OnGetSliceDescendants"
+	ProviderService_OnMapIntentToUri_FullMethodName          = "/slice.ProviderService/OnMapIntentToUri"
+	ProviderService_OnSlicePinned_FullMethodName             = "/slice.ProviderService/OnSlicePinned"
+	ProviderService_OnSliceUnpinned_FullMethodName           = "/slice.ProviderService/OnSliceUnpinned"
+	ProviderService_Query4_FullMethodName                    = "/slice.ProviderService/Query4"
+	ProviderService_Query5_1_FullMethodName                  = "/slice.ProviderService/Query5_1"
+	ProviderService_Query6_2_FullMethodName                  = "/slice.ProviderService/Query6_2"
+	ProviderService_Update_FullMethodName                    = "/slice.ProviderService/Update"
+)
+
+// ProviderServiceClient is the client API for ProviderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ProviderServiceClient interface {
+	AttachInfo(ctx context.Context, in *AttachInfoRequest, opts ...grpc.CallOption) (*AttachInfoResponse, error)
+	Call(ctx context.Context, in *CallRequest, opts ...grpc.CallOption) (*CallResponse, error)
+	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
+	GetType(ctx context.Context, in *ProviderGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	Insert(ctx context.Context, in *InsertRequest, opts ...grpc.CallOption) (*InsertResponse, error)
+	OnCreatePermissionRequest(ctx context.Context, in *OnCreatePermissionRequestRequest, opts ...grpc.CallOption) (*OnCreatePermissionRequestResponse, error)
+	OnGetSliceDescendants(ctx context.Context, in *OnGetSliceDescendantsRequest, opts ...grpc.CallOption) (*OnGetSliceDescendantsResponse, error)
+	OnMapIntentToUri(ctx context.Context, in *OnMapIntentToUriRequest, opts ...grpc.CallOption) (*OnMapIntentToUriResponse, error)
+	OnSlicePinned(ctx context.Context, in *OnSlicePinnedRequest, opts ...grpc.CallOption) (*OnSlicePinnedResponse, error)
+	OnSliceUnpinned(ctx context.Context, in *OnSliceUnpinnedRequest, opts ...grpc.CallOption) (*OnSliceUnpinnedResponse, error)
+	Query4(ctx context.Context, in *Query4Request, opts ...grpc.CallOption) (*Query4Response, error)
+	Query5_1(ctx context.Context, in *Query5_1Request, opts ...grpc.CallOption) (*Query5_1Response, error)
+	Query6_2(ctx context.Context, in *Query6_2Request, opts ...grpc.CallOption) (*Query6_2Response, error)
+	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
+}
+
+type providerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewProviderServiceClient(cc grpc.ClientConnInterface) ProviderServiceClient {
+	return &providerServiceClient{cc}
+}
+
+func (c *providerServiceClient) AttachInfo(ctx context.Context, in *AttachInfoRequest, opts ...grpc.CallOption) (*AttachInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AttachInfoResponse)
+	err := c.cc.Invoke(ctx, ProviderService_AttachInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) Call(ctx context.Context, in *CallRequest, opts ...grpc.CallOption) (*CallResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CallResponse)
+	err := c.cc.Invoke(ctx, ProviderService_Call_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteResponse)
+	err := c.cc.Invoke(ctx, ProviderService_Delete_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) GetType(ctx context.Context, in *ProviderGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, ProviderService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) Insert(ctx context.Context, in *InsertRequest, opts ...grpc.CallOption) (*InsertResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InsertResponse)
+	err := c.cc.Invoke(ctx, ProviderService_Insert_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) OnCreatePermissionRequest(ctx context.Context, in *OnCreatePermissionRequestRequest, opts ...grpc.CallOption) (*OnCreatePermissionRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreatePermissionRequestResponse)
+	err := c.cc.Invoke(ctx, ProviderService_OnCreatePermissionRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) OnGetSliceDescendants(ctx context.Context, in *OnGetSliceDescendantsRequest, opts ...grpc.CallOption) (*OnGetSliceDescendantsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGetSliceDescendantsResponse)
+	err := c.cc.Invoke(ctx, ProviderService_OnGetSliceDescendants_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) OnMapIntentToUri(ctx context.Context, in *OnMapIntentToUriRequest, opts ...grpc.CallOption) (*OnMapIntentToUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMapIntentToUriResponse)
+	err := c.cc.Invoke(ctx, ProviderService_OnMapIntentToUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) OnSlicePinned(ctx context.Context, in *OnSlicePinnedRequest, opts ...grpc.CallOption) (*OnSlicePinnedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSlicePinnedResponse)
+	err := c.cc.Invoke(ctx, ProviderService_OnSlicePinned_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) OnSliceUnpinned(ctx context.Context, in *OnSliceUnpinnedRequest, opts ...grpc.CallOption) (*OnSliceUnpinnedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSliceUnpinnedResponse)
+	err := c.cc.Invoke(ctx, ProviderService_OnSliceUnpinned_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) Query4(ctx context.Context, in *Query4Request, opts ...grpc.CallOption) (*Query4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Query4Response)
+	err := c.cc.Invoke(ctx, ProviderService_Query4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) Query5_1(ctx context.Context, in *Query5_1Request, opts ...grpc.CallOption) (*Query5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Query5_1Response)
+	err := c.cc.Invoke(ctx, ProviderService_Query5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) Query6_2(ctx context.Context, in *Query6_2Request, opts ...grpc.CallOption) (*Query6_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Query6_2Response)
+	err := c.cc.Invoke(ctx, ProviderService_Query6_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateResponse)
+	err := c.cc.Invoke(ctx, ProviderService_Update_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ProviderServiceServer is the server API for ProviderService service.
+// All implementations must embed UnimplementedProviderServiceServer
+// for forward compatibility.
+type ProviderServiceServer interface {
+	AttachInfo(context.Context, *AttachInfoRequest) (*AttachInfoResponse, error)
+	Call(context.Context, *CallRequest) (*CallResponse, error)
+	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
+	GetType(context.Context, *ProviderGetTypeRequest) (*GetTypeResponse, error)
+	Insert(context.Context, *InsertRequest) (*InsertResponse, error)
+	OnCreatePermissionRequest(context.Context, *OnCreatePermissionRequestRequest) (*OnCreatePermissionRequestResponse, error)
+	OnGetSliceDescendants(context.Context, *OnGetSliceDescendantsRequest) (*OnGetSliceDescendantsResponse, error)
+	OnMapIntentToUri(context.Context, *OnMapIntentToUriRequest) (*OnMapIntentToUriResponse, error)
+	OnSlicePinned(context.Context, *OnSlicePinnedRequest) (*OnSlicePinnedResponse, error)
+	OnSliceUnpinned(context.Context, *OnSliceUnpinnedRequest) (*OnSliceUnpinnedResponse, error)
+	Query4(context.Context, *Query4Request) (*Query4Response, error)
+	Query5_1(context.Context, *Query5_1Request) (*Query5_1Response, error)
+	Query6_2(context.Context, *Query6_2Request) (*Query6_2Response, error)
+	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
+	mustEmbedUnimplementedProviderServiceServer()
+}
+
+// UnimplementedProviderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedProviderServiceServer struct{}
+
+func (UnimplementedProviderServiceServer) AttachInfo(context.Context, *AttachInfoRequest) (*AttachInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AttachInfo not implemented")
+}
+func (UnimplementedProviderServiceServer) Call(context.Context, *CallRequest) (*CallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Call not implemented")
+}
+func (UnimplementedProviderServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Delete not implemented")
+}
+func (UnimplementedProviderServiceServer) GetType(context.Context, *ProviderGetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedProviderServiceServer) Insert(context.Context, *InsertRequest) (*InsertResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Insert not implemented")
+}
+func (UnimplementedProviderServiceServer) OnCreatePermissionRequest(context.Context, *OnCreatePermissionRequestRequest) (*OnCreatePermissionRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreatePermissionRequest not implemented")
+}
+func (UnimplementedProviderServiceServer) OnGetSliceDescendants(context.Context, *OnGetSliceDescendantsRequest) (*OnGetSliceDescendantsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGetSliceDescendants not implemented")
+}
+func (UnimplementedProviderServiceServer) OnMapIntentToUri(context.Context, *OnMapIntentToUriRequest) (*OnMapIntentToUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMapIntentToUri not implemented")
+}
+func (UnimplementedProviderServiceServer) OnSlicePinned(context.Context, *OnSlicePinnedRequest) (*OnSlicePinnedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSlicePinned not implemented")
+}
+func (UnimplementedProviderServiceServer) OnSliceUnpinned(context.Context, *OnSliceUnpinnedRequest) (*OnSliceUnpinnedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSliceUnpinned not implemented")
+}
+func (UnimplementedProviderServiceServer) Query4(context.Context, *Query4Request) (*Query4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Query4 not implemented")
+}
+func (UnimplementedProviderServiceServer) Query5_1(context.Context, *Query5_1Request) (*Query5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Query5_1 not implemented")
+}
+func (UnimplementedProviderServiceServer) Query6_2(context.Context, *Query6_2Request) (*Query6_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Query6_2 not implemented")
+}
+func (UnimplementedProviderServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedProviderServiceServer) mustEmbedUnimplementedProviderServiceServer() {}
+func (UnimplementedProviderServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeProviderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProviderServiceServer will
+// result in compilation errors.
+type UnsafeProviderServiceServer interface {
+	mustEmbedUnimplementedProviderServiceServer()
+}
+
+func RegisterProviderServiceServer(s grpc.ServiceRegistrar, srv ProviderServiceServer) {
+	// If the following call panics, it indicates UnimplementedProviderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ProviderService_ServiceDesc, srv)
+}
+
+func _ProviderService_AttachInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttachInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).AttachInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_AttachInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).AttachInfo(ctx, req.(*AttachInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_Call_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).Call(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_Call_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).Call(ctx, req.(*CallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_Delete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).Delete(ctx, req.(*DeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProviderGetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).GetType(ctx, req.(*ProviderGetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_Insert_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InsertRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).Insert(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_Insert_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).Insert(ctx, req.(*InsertRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_OnCreatePermissionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreatePermissionRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).OnCreatePermissionRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_OnCreatePermissionRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).OnCreatePermissionRequest(ctx, req.(*OnCreatePermissionRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_OnGetSliceDescendants_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGetSliceDescendantsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).OnGetSliceDescendants(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_OnGetSliceDescendants_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).OnGetSliceDescendants(ctx, req.(*OnGetSliceDescendantsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_OnMapIntentToUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMapIntentToUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).OnMapIntentToUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_OnMapIntentToUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).OnMapIntentToUri(ctx, req.(*OnMapIntentToUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_OnSlicePinned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSlicePinnedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).OnSlicePinned(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_OnSlicePinned_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).OnSlicePinned(ctx, req.(*OnSlicePinnedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_OnSliceUnpinned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSliceUnpinnedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).OnSliceUnpinned(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_OnSliceUnpinned_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).OnSliceUnpinned(ctx, req.(*OnSliceUnpinnedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_Query4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Query4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).Query4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_Query4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).Query4(ctx, req.(*Query4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_Query5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Query5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).Query5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_Query5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).Query5_1(ctx, req.(*Query5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_Query6_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Query6_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).Query6_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_Query6_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).Query6_2(ctx, req.(*Query6_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).Update(ctx, req.(*UpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ProviderService_ServiceDesc is the grpc.ServiceDesc for ProviderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ProviderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "slice.ProviderService",
+	HandlerType: (*ProviderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AttachInfo",
+			Handler:    _ProviderService_AttachInfo_Handler,
+		},
+		{
+			MethodName: "Call",
+			Handler:    _ProviderService_Call_Handler,
+		},
+		{
+			MethodName: "Delete",
+			Handler:    _ProviderService_Delete_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _ProviderService_GetType_Handler,
+		},
+		{
+			MethodName: "Insert",
+			Handler:    _ProviderService_Insert_Handler,
+		},
+		{
+			MethodName: "OnCreatePermissionRequest",
+			Handler:    _ProviderService_OnCreatePermissionRequest_Handler,
+		},
+		{
+			MethodName: "OnGetSliceDescendants",
+			Handler:    _ProviderService_OnGetSliceDescendants_Handler,
+		},
+		{
+			MethodName: "OnMapIntentToUri",
+			Handler:    _ProviderService_OnMapIntentToUri_Handler,
+		},
+		{
+			MethodName: "OnSlicePinned",
+			Handler:    _ProviderService_OnSlicePinned_Handler,
+		},
+		{
+			MethodName: "OnSliceUnpinned",
+			Handler:    _ProviderService_OnSliceUnpinned_Handler,
+		},
+		{
+			MethodName: "Query4",
+			Handler:    _ProviderService_Query4_Handler,
+		},
+		{
+			MethodName: "Query5_1",
+			Handler:    _ProviderService_Query5_1_Handler,
+		},
+		{
+			MethodName: "Query6_2",
+			Handler:    _ProviderService_Query6_2_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _ProviderService_Update_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/slice/slice.proto",
+}
+
+const (
+	ItemService_DescribeContents_FullMethodName = "/slice.ItemService/DescribeContents"
+	ItemService_GetAction_FullMethodName        = "/slice.ItemService/GetAction"
+	ItemService_GetBundle_FullMethodName        = "/slice.ItemService/GetBundle"
+	ItemService_GetFormat_FullMethodName        = "/slice.ItemService/GetFormat"
+	ItemService_GetHints_FullMethodName         = "/slice.ItemService/GetHints"
+	ItemService_GetIcon_FullMethodName          = "/slice.ItemService/GetIcon"
+	ItemService_GetInt_FullMethodName           = "/slice.ItemService/GetInt"
+	ItemService_GetLong_FullMethodName          = "/slice.ItemService/GetLong"
+	ItemService_GetRemoteInput_FullMethodName   = "/slice.ItemService/GetRemoteInput"
+	ItemService_GetSlice_FullMethodName         = "/slice.ItemService/GetSlice"
+	ItemService_GetSubType_FullMethodName       = "/slice.ItemService/GetSubType"
+	ItemService_GetText_FullMethodName          = "/slice.ItemService/GetText"
+	ItemService_HasHint_FullMethodName          = "/slice.ItemService/HasHint"
+	ItemService_WriteToParcel_FullMethodName    = "/slice.ItemService/WriteToParcel"
+)
+
+// ItemServiceClient is the client API for ItemService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ItemServiceClient interface {
+	DescribeContents(ctx context.Context, in *ItemDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error)
+	GetBundle(ctx context.Context, in *GetBundleRequest, opts ...grpc.CallOption) (*GetBundleResponse, error)
+	GetFormat(ctx context.Context, in *GetFormatRequest, opts ...grpc.CallOption) (*GetFormatResponse, error)
+	GetHints(ctx context.Context, in *GetHintsRequest, opts ...grpc.CallOption) (*GetHintsResponse, error)
+	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
+	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
+	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
+	GetRemoteInput(ctx context.Context, in *GetRemoteInputRequest, opts ...grpc.CallOption) (*GetRemoteInputResponse, error)
+	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
+	GetSubType(ctx context.Context, in *GetSubTypeRequest, opts ...grpc.CallOption) (*GetSubTypeResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	HasHint(ctx context.Context, in *HasHintRequest, opts ...grpc.CallOption) (*HasHintResponse, error)
+	WriteToParcel(ctx context.Context, in *ItemWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type itemServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewItemServiceClient(cc grpc.ClientConnInterface) ItemServiceClient {
+	return &itemServiceClient{cc}
+}
+
+func (c *itemServiceClient) DescribeContents(ctx context.Context, in *ItemDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ItemService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetBundle(ctx context.Context, in *GetBundleRequest, opts ...grpc.CallOption) (*GetBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBundleResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetFormat(ctx context.Context, in *GetFormatRequest, opts ...grpc.CallOption) (*GetFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFormatResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetHints(ctx context.Context, in *GetHintsRequest, opts ...grpc.CallOption) (*GetHintsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHintsResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetHints_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetRemoteInput(ctx context.Context, in *GetRemoteInputRequest, opts ...grpc.CallOption) (*GetRemoteInputResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRemoteInputResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetRemoteInput_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetSlice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetSubType(ctx context.Context, in *GetSubTypeRequest, opts ...grpc.CallOption) (*GetSubTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSubTypeResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetSubType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, ItemService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) HasHint(ctx context.Context, in *HasHintRequest, opts ...grpc.CallOption) (*HasHintResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasHintResponse)
+	err := c.cc.Invoke(ctx, ItemService_HasHint_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemServiceClient) WriteToParcel(ctx context.Context, in *ItemWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ItemService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ItemServiceServer is the server API for ItemService service.
+// All implementations must embed UnimplementedItemServiceServer
+// for forward compatibility.
+type ItemServiceServer interface {
+	DescribeContents(context.Context, *ItemDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error)
+	GetBundle(context.Context, *GetBundleRequest) (*GetBundleResponse, error)
+	GetFormat(context.Context, *GetFormatRequest) (*GetFormatResponse, error)
+	GetHints(context.Context, *GetHintsRequest) (*GetHintsResponse, error)
+	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
+	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
+	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
+	GetRemoteInput(context.Context, *GetRemoteInputRequest) (*GetRemoteInputResponse, error)
+	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
+	GetSubType(context.Context, *GetSubTypeRequest) (*GetSubTypeResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	HasHint(context.Context, *HasHintRequest) (*HasHintResponse, error)
+	WriteToParcel(context.Context, *ItemWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedItemServiceServer()
+}
+
+// UnimplementedItemServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedItemServiceServer struct{}
+
+func (UnimplementedItemServiceServer) DescribeContents(context.Context, *ItemDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedItemServiceServer) GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAction not implemented")
+}
+func (UnimplementedItemServiceServer) GetBundle(context.Context, *GetBundleRequest) (*GetBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBundle not implemented")
+}
+func (UnimplementedItemServiceServer) GetFormat(context.Context, *GetFormatRequest) (*GetFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFormat not implemented")
+}
+func (UnimplementedItemServiceServer) GetHints(context.Context, *GetHintsRequest) (*GetHintsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHints not implemented")
+}
+func (UnimplementedItemServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
+}
+func (UnimplementedItemServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
+}
+func (UnimplementedItemServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
+}
+func (UnimplementedItemServiceServer) GetRemoteInput(context.Context, *GetRemoteInputRequest) (*GetRemoteInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRemoteInput not implemented")
+}
+func (UnimplementedItemServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
+}
+func (UnimplementedItemServiceServer) GetSubType(context.Context, *GetSubTypeRequest) (*GetSubTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSubType not implemented")
+}
+func (UnimplementedItemServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedItemServiceServer) HasHint(context.Context, *HasHintRequest) (*HasHintResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasHint not implemented")
+}
+func (UnimplementedItemServiceServer) WriteToParcel(context.Context, *ItemWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedItemServiceServer) mustEmbedUnimplementedItemServiceServer() {}
+func (UnimplementedItemServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeItemServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ItemServiceServer will
+// result in compilation errors.
+type UnsafeItemServiceServer interface {
+	mustEmbedUnimplementedItemServiceServer()
+}
+
+func RegisterItemServiceServer(s grpc.ServiceRegistrar, srv ItemServiceServer) {
+	// If the following call panics, it indicates UnimplementedItemServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ItemService_ServiceDesc, srv)
+}
+
+func _ItemService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ItemDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).DescribeContents(ctx, req.(*ItemDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetAction(ctx, req.(*GetActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetBundle(ctx, req.(*GetBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetFormat(ctx, req.(*GetFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetHints_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHintsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetHints(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetHints_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetHints(ctx, req.(*GetHintsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetIcon(ctx, req.(*GetIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetInt(ctx, req.(*GetIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetLong(ctx, req.(*GetLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetRemoteInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRemoteInputRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetRemoteInput(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetRemoteInput_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetRemoteInput(ctx, req.(*GetRemoteInputRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSliceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetSlice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetSlice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetSubType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSubTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetSubType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetSubType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetSubType(ctx, req.(*GetSubTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_HasHint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasHintRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).HasHint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_HasHint_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).HasHint(ctx, req.(*HasHintRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ItemWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemServiceServer).WriteToParcel(ctx, req.(*ItemWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ItemService_ServiceDesc is the grpc.ServiceDesc for ItemService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ItemService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "slice.ItemService",
+	HandlerType: (*ItemServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ItemService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetAction",
+			Handler:    _ItemService_GetAction_Handler,
+		},
+		{
+			MethodName: "GetBundle",
+			Handler:    _ItemService_GetBundle_Handler,
+		},
+		{
+			MethodName: "GetFormat",
+			Handler:    _ItemService_GetFormat_Handler,
+		},
+		{
+			MethodName: "GetHints",
+			Handler:    _ItemService_GetHints_Handler,
+		},
+		{
+			MethodName: "GetIcon",
+			Handler:    _ItemService_GetIcon_Handler,
+		},
+		{
+			MethodName: "GetInt",
+			Handler:    _ItemService_GetInt_Handler,
+		},
+		{
+			MethodName: "GetLong",
+			Handler:    _ItemService_GetLong_Handler,
+		},
+		{
+			MethodName: "GetRemoteInput",
+			Handler:    _ItemService_GetRemoteInput_Handler,
+		},
+		{
+			MethodName: "GetSlice",
+			Handler:    _ItemService_GetSlice_Handler,
+		},
+		{
+			MethodName: "GetSubType",
+			Handler:    _ItemService_GetSubType_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _ItemService_GetText_Handler,
+		},
+		{
+			MethodName: "HasHint",
+			Handler:    _ItemService_HasHint_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ItemService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/slice/slice.proto",
+}
+
+const (
+	MetricsService_NewMetrics_FullMethodName = "/slice.MetricsService/NewMetrics"
+	MetricsService_LogHidden_FullMethodName  = "/slice.MetricsService/LogHidden"
+	MetricsService_LogTouch_FullMethodName   = "/slice.MetricsService/LogTouch"
+	MetricsService_LogVisible_FullMethodName = "/slice.MetricsService/LogVisible"
+)
+
+// MetricsServiceClient is the client API for MetricsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MetricsServiceClient interface {
+	NewMetrics(ctx context.Context, in *NewMetricsRequest, opts ...grpc.CallOption) (*NewMetricsResponse, error)
+	LogHidden(ctx context.Context, in *LogHiddenRequest, opts ...grpc.CallOption) (*LogHiddenResponse, error)
+	LogTouch(ctx context.Context, in *LogTouchRequest, opts ...grpc.CallOption) (*LogTouchResponse, error)
+	LogVisible(ctx context.Context, in *LogVisibleRequest, opts ...grpc.CallOption) (*LogVisibleResponse, error)
+}
+
+type metricsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMetricsServiceClient(cc grpc.ClientConnInterface) MetricsServiceClient {
+	return &metricsServiceClient{cc}
+}
+
+func (c *metricsServiceClient) NewMetrics(ctx context.Context, in *NewMetricsRequest, opts ...grpc.CallOption) (*NewMetricsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewMetricsResponse)
+	err := c.cc.Invoke(ctx, MetricsService_NewMetrics_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *metricsServiceClient) LogHidden(ctx context.Context, in *LogHiddenRequest, opts ...grpc.CallOption) (*LogHiddenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LogHiddenResponse)
+	err := c.cc.Invoke(ctx, MetricsService_LogHidden_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *metricsServiceClient) LogTouch(ctx context.Context, in *LogTouchRequest, opts ...grpc.CallOption) (*LogTouchResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LogTouchResponse)
+	err := c.cc.Invoke(ctx, MetricsService_LogTouch_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *metricsServiceClient) LogVisible(ctx context.Context, in *LogVisibleRequest, opts ...grpc.CallOption) (*LogVisibleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LogVisibleResponse)
+	err := c.cc.Invoke(ctx, MetricsService_LogVisible_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MetricsServiceServer is the server API for MetricsService service.
+// All implementations must embed UnimplementedMetricsServiceServer
+// for forward compatibility.
+type MetricsServiceServer interface {
+	NewMetrics(context.Context, *NewMetricsRequest) (*NewMetricsResponse, error)
+	LogHidden(context.Context, *LogHiddenRequest) (*LogHiddenResponse, error)
+	LogTouch(context.Context, *LogTouchRequest) (*LogTouchResponse, error)
+	LogVisible(context.Context, *LogVisibleRequest) (*LogVisibleResponse, error)
+	mustEmbedUnimplementedMetricsServiceServer()
+}
+
+// UnimplementedMetricsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMetricsServiceServer struct{}
+
+func (UnimplementedMetricsServiceServer) NewMetrics(context.Context, *NewMetricsRequest) (*NewMetricsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewMetrics not implemented")
+}
+func (UnimplementedMetricsServiceServer) LogHidden(context.Context, *LogHiddenRequest) (*LogHiddenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LogHidden not implemented")
+}
+func (UnimplementedMetricsServiceServer) LogTouch(context.Context, *LogTouchRequest) (*LogTouchResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LogTouch not implemented")
+}
+func (UnimplementedMetricsServiceServer) LogVisible(context.Context, *LogVisibleRequest) (*LogVisibleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LogVisible not implemented")
+}
+func (UnimplementedMetricsServiceServer) mustEmbedUnimplementedMetricsServiceServer() {}
+func (UnimplementedMetricsServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeMetricsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MetricsServiceServer will
+// result in compilation errors.
+type UnsafeMetricsServiceServer interface {
+	mustEmbedUnimplementedMetricsServiceServer()
+}
+
+func RegisterMetricsServiceServer(s grpc.ServiceRegistrar, srv MetricsServiceServer) {
+	// If the following call panics, it indicates UnimplementedMetricsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MetricsService_ServiceDesc, srv)
+}
+
+func _MetricsService_NewMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewMetricsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetricsServiceServer).NewMetrics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetricsService_NewMetrics_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetricsServiceServer).NewMetrics(ctx, req.(*NewMetricsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MetricsService_LogHidden_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LogHiddenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetricsServiceServer).LogHidden(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetricsService_LogHidden_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetricsServiceServer).LogHidden(ctx, req.(*LogHiddenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MetricsService_LogTouch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LogTouchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetricsServiceServer).LogTouch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetricsService_LogTouch_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetricsServiceServer).LogTouch(ctx, req.(*LogTouchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MetricsService_LogVisible_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LogVisibleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetricsServiceServer).LogVisible(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetricsService_LogVisible_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetricsServiceServer).LogVisible(ctx, req.(*LogVisibleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MetricsService_ServiceDesc is the grpc.ServiceDesc for MetricsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MetricsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "slice.MetricsService",
+	HandlerType: (*MetricsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewMetrics",
+			Handler:    _MetricsService_NewMetrics_Handler,
+		},
+		{
+			MethodName: "LogHidden",
+			Handler:    _MetricsService_LogHidden_Handler,
+		},
+		{
+			MethodName: "LogTouch",
+			Handler:    _MetricsService_LogTouch_Handler,
+		},
+		{
+			MethodName: "LogVisible",
+			Handler:    _MetricsService_LogVisible_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/slice/slice.proto",
+}
+
+const (
+	ManagerService_CheckSlicePermission_FullMethodName  = "/slice.ManagerService/CheckSlicePermission"
+	ManagerService_GetPinnedSlices_FullMethodName       = "/slice.ManagerService/GetPinnedSlices"
+	ManagerService_GetPinnedSpecs_FullMethodName        = "/slice.ManagerService/GetPinnedSpecs"
+	ManagerService_GetSliceDescendants_FullMethodName   = "/slice.ManagerService/GetSliceDescendants"
+	ManagerService_GrantSlicePermission_FullMethodName  = "/slice.ManagerService/GrantSlicePermission"
+	ManagerService_MapIntentToUri_FullMethodName        = "/slice.ManagerService/MapIntentToUri"
+	ManagerService_RevokeSlicePermission_FullMethodName = "/slice.ManagerService/RevokeSlicePermission"
+	ManagerService_UnpinSlice_FullMethodName            = "/slice.ManagerService/UnpinSlice"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	CheckSlicePermission(ctx context.Context, in *CheckSlicePermissionRequest, opts ...grpc.CallOption) (*CheckSlicePermissionResponse, error)
+	GetPinnedSlices(ctx context.Context, in *GetPinnedSlicesRequest, opts ...grpc.CallOption) (*GetPinnedSlicesResponse, error)
+	GetPinnedSpecs(ctx context.Context, in *GetPinnedSpecsRequest, opts ...grpc.CallOption) (*GetPinnedSpecsResponse, error)
+	GetSliceDescendants(ctx context.Context, in *GetSliceDescendantsRequest, opts ...grpc.CallOption) (*GetSliceDescendantsResponse, error)
+	GrantSlicePermission(ctx context.Context, in *GrantSlicePermissionRequest, opts ...grpc.CallOption) (*GrantSlicePermissionResponse, error)
+	MapIntentToUri(ctx context.Context, in *MapIntentToUriRequest, opts ...grpc.CallOption) (*MapIntentToUriResponse, error)
+	RevokeSlicePermission(ctx context.Context, in *RevokeSlicePermissionRequest, opts ...grpc.CallOption) (*RevokeSlicePermissionResponse, error)
+	UnpinSlice(ctx context.Context, in *UnpinSliceRequest, opts ...grpc.CallOption) (*UnpinSliceResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) CheckSlicePermission(ctx context.Context, in *CheckSlicePermissionRequest, opts ...grpc.CallOption) (*CheckSlicePermissionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckSlicePermissionResponse)
+	err := c.cc.Invoke(ctx, ManagerService_CheckSlicePermission_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetPinnedSlices(ctx context.Context, in *GetPinnedSlicesRequest, opts ...grpc.CallOption) (*GetPinnedSlicesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPinnedSlicesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetPinnedSlices_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetPinnedSpecs(ctx context.Context, in *GetPinnedSpecsRequest, opts ...grpc.CallOption) (*GetPinnedSpecsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPinnedSpecsResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetPinnedSpecs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetSliceDescendants(ctx context.Context, in *GetSliceDescendantsRequest, opts ...grpc.CallOption) (*GetSliceDescendantsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceDescendantsResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetSliceDescendants_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GrantSlicePermission(ctx context.Context, in *GrantSlicePermissionRequest, opts ...grpc.CallOption) (*GrantSlicePermissionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GrantSlicePermissionResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GrantSlicePermission_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) MapIntentToUri(ctx context.Context, in *MapIntentToUriRequest, opts ...grpc.CallOption) (*MapIntentToUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapIntentToUriResponse)
+	err := c.cc.Invoke(ctx, ManagerService_MapIntentToUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RevokeSlicePermission(ctx context.Context, in *RevokeSlicePermissionRequest, opts ...grpc.CallOption) (*RevokeSlicePermissionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RevokeSlicePermissionResponse)
+	err := c.cc.Invoke(ctx, ManagerService_RevokeSlicePermission_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) UnpinSlice(ctx context.Context, in *UnpinSliceRequest, opts ...grpc.CallOption) (*UnpinSliceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnpinSliceResponse)
+	err := c.cc.Invoke(ctx, ManagerService_UnpinSlice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	CheckSlicePermission(context.Context, *CheckSlicePermissionRequest) (*CheckSlicePermissionResponse, error)
+	GetPinnedSlices(context.Context, *GetPinnedSlicesRequest) (*GetPinnedSlicesResponse, error)
+	GetPinnedSpecs(context.Context, *GetPinnedSpecsRequest) (*GetPinnedSpecsResponse, error)
+	GetSliceDescendants(context.Context, *GetSliceDescendantsRequest) (*GetSliceDescendantsResponse, error)
+	GrantSlicePermission(context.Context, *GrantSlicePermissionRequest) (*GrantSlicePermissionResponse, error)
+	MapIntentToUri(context.Context, *MapIntentToUriRequest) (*MapIntentToUriResponse, error)
+	RevokeSlicePermission(context.Context, *RevokeSlicePermissionRequest) (*RevokeSlicePermissionResponse, error)
+	UnpinSlice(context.Context, *UnpinSliceRequest) (*UnpinSliceResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) CheckSlicePermission(context.Context, *CheckSlicePermissionRequest) (*CheckSlicePermissionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckSlicePermission not implemented")
+}
+func (UnimplementedManagerServiceServer) GetPinnedSlices(context.Context, *GetPinnedSlicesRequest) (*GetPinnedSlicesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPinnedSlices not implemented")
+}
+func (UnimplementedManagerServiceServer) GetPinnedSpecs(context.Context, *GetPinnedSpecsRequest) (*GetPinnedSpecsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPinnedSpecs not implemented")
+}
+func (UnimplementedManagerServiceServer) GetSliceDescendants(context.Context, *GetSliceDescendantsRequest) (*GetSliceDescendantsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSliceDescendants not implemented")
+}
+func (UnimplementedManagerServiceServer) GrantSlicePermission(context.Context, *GrantSlicePermissionRequest) (*GrantSlicePermissionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GrantSlicePermission not implemented")
+}
+func (UnimplementedManagerServiceServer) MapIntentToUri(context.Context, *MapIntentToUriRequest) (*MapIntentToUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapIntentToUri not implemented")
+}
+func (UnimplementedManagerServiceServer) RevokeSlicePermission(context.Context, *RevokeSlicePermissionRequest) (*RevokeSlicePermissionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RevokeSlicePermission not implemented")
+}
+func (UnimplementedManagerServiceServer) UnpinSlice(context.Context, *UnpinSliceRequest) (*UnpinSliceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnpinSlice not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_CheckSlicePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckSlicePermissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).CheckSlicePermission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_CheckSlicePermission_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).CheckSlicePermission(ctx, req.(*CheckSlicePermissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetPinnedSlices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPinnedSlicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetPinnedSlices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetPinnedSlices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetPinnedSlices(ctx, req.(*GetPinnedSlicesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetPinnedSpecs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPinnedSpecsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetPinnedSpecs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetPinnedSpecs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetPinnedSpecs(ctx, req.(*GetPinnedSpecsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetSliceDescendants_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSliceDescendantsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetSliceDescendants(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetSliceDescendants_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetSliceDescendants(ctx, req.(*GetSliceDescendantsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GrantSlicePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GrantSlicePermissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GrantSlicePermission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GrantSlicePermission_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GrantSlicePermission(ctx, req.(*GrantSlicePermissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_MapIntentToUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapIntentToUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).MapIntentToUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_MapIntentToUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).MapIntentToUri(ctx, req.(*MapIntentToUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RevokeSlicePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RevokeSlicePermissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RevokeSlicePermission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RevokeSlicePermission_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RevokeSlicePermission(ctx, req.(*RevokeSlicePermissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_UnpinSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnpinSliceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).UnpinSlice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_UnpinSlice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).UnpinSlice(ctx, req.(*UnpinSliceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "slice.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CheckSlicePermission",
+			Handler:    _ManagerService_CheckSlicePermission_Handler,
+		},
+		{
+			MethodName: "GetPinnedSlices",
+			Handler:    _ManagerService_GetPinnedSlices_Handler,
+		},
+		{
+			MethodName: "GetPinnedSpecs",
+			Handler:    _ManagerService_GetPinnedSpecs_Handler,
+		},
+		{
+			MethodName: "GetSliceDescendants",
+			Handler:    _ManagerService_GetSliceDescendants_Handler,
+		},
+		{
+			MethodName: "GrantSlicePermission",
+			Handler:    _ManagerService_GrantSlicePermission_Handler,
+		},
+		{
+			MethodName: "MapIntentToUri",
+			Handler:    _ManagerService_MapIntentToUri_Handler,
+		},
+		{
+			MethodName: "RevokeSlicePermission",
+			Handler:    _ManagerService_RevokeSlicePermission_Handler,
+		},
+		{
+			MethodName: "UnpinSlice",
+			Handler:    _ManagerService_UnpinSlice_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

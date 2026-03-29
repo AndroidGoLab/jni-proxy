@@ -9,6 +9,141 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ChangeLogTokenResponseClient wraps the gRPC ChangeLogTokenResponseService client.
+type ChangeLogTokenResponseClient struct {
+	svc pb.ChangeLogTokenResponseServiceClient
+}
+
+// NewChangeLogTokenResponseClient creates a new ChangeLogTokenResponse client.
+func NewChangeLogTokenResponseClient(cc grpc.ClientConnInterface) *ChangeLogTokenResponseClient {
+	return &ChangeLogTokenResponseClient{
+		svc: pb.NewChangeLogTokenResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ChangeLogTokenResponseClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetToken calls the GetToken RPC.
+func (c *ChangeLogTokenResponseClient) GetToken(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetToken(ctx, &pb.GetTokenRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ChangeLogTokenResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ChangeLogsResponseClient wraps the gRPC ChangeLogsResponseService client.
+type ChangeLogsResponseClient struct {
+	svc pb.ChangeLogsResponseServiceClient
+}
+
+// NewChangeLogsResponseClient creates a new ChangeLogsResponse client.
+func NewChangeLogsResponseClient(cc grpc.ClientConnInterface) *ChangeLogsResponseClient {
+	return &ChangeLogsResponseClient{
+		svc: pb.NewChangeLogsResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ChangeLogsResponseClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeletedLogs calls the GetDeletedLogs RPC.
+func (c *ChangeLogsResponseClient) GetDeletedLogs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeletedLogs(ctx, &pb.GetDeletedLogsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextChangesToken calls the GetNextChangesToken RPC.
+func (c *ChangeLogsResponseClient) GetNextChangesToken(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNextChangesToken(ctx, &pb.GetNextChangesTokenRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUpsertedRecords calls the GetUpsertedRecords RPC.
+func (c *ChangeLogsResponseClient) GetUpsertedRecords(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUpsertedRecords(ctx, &pb.GetUpsertedRecordsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMorePages calls the HasMorePages RPC.
+func (c *ChangeLogsResponseClient) HasMorePages(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMorePages(ctx, &pb.HasMorePagesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ChangeLogsResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ChangeLogsResponseDeletedLogClient wraps the gRPC ChangeLogsResponseDeletedLogService client.
+type ChangeLogsResponseDeletedLogClient struct {
+	svc pb.ChangeLogsResponseDeletedLogServiceClient
+}
+
+// NewChangeLogsResponseDeletedLogClient creates a new ChangeLogsResponseDeletedLog client.
+func NewChangeLogsResponseDeletedLogClient(cc grpc.ClientConnInterface) *ChangeLogsResponseDeletedLogClient {
+	return &ChangeLogsResponseDeletedLogClient{
+		svc: pb.NewChangeLogsResponseDeletedLogServiceClient(cc),
+	}
+}
+
+// GetDeletedRecordId calls the GetDeletedRecordId RPC.
+func (c *ChangeLogsResponseDeletedLogClient) GetDeletedRecordId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDeletedRecordId(ctx, &pb.GetDeletedRecordIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeletedTime calls the GetDeletedTime RPC.
+func (c *ChangeLogsResponseDeletedLogClient) GetDeletedTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeletedTime(ctx, &pb.GetDeletedTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ChangeLogsRequestClient wraps the gRPC ChangeLogsRequestService client.
 type ChangeLogsRequestClient struct {
 	svc pb.ChangeLogsRequestServiceClient
@@ -110,6 +245,15 @@ func (c *ChangeLogTokenRequestClient) DescribeContents(ctx context.Context) (int
 	return resp.GetResult(), nil
 }
 
+// GetDataOriginFilters calls the GetDataOriginFilters RPC.
+func (c *ChangeLogTokenRequestClient) GetDataOriginFilters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataOriginFilters(ctx, &pb.GetDataOriginFiltersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *ChangeLogTokenRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
@@ -149,121 +293,4 @@ func (c *ChangeLogTokenRequestBuilderClient) Build(ctx context.Context) (int64, 
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// ChangeLogsResponseClient wraps the gRPC ChangeLogsResponseService client.
-type ChangeLogsResponseClient struct {
-	svc pb.ChangeLogsResponseServiceClient
-}
-
-// NewChangeLogsResponseClient creates a new ChangeLogsResponse client.
-func NewChangeLogsResponseClient(cc grpc.ClientConnInterface) *ChangeLogsResponseClient {
-	return &ChangeLogsResponseClient{
-		svc: pb.NewChangeLogsResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ChangeLogsResponseClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNextChangesToken calls the GetNextChangesToken RPC.
-func (c *ChangeLogsResponseClient) GetNextChangesToken(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNextChangesToken(ctx, &pb.GetNextChangesTokenRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasMorePages calls the HasMorePages RPC.
-func (c *ChangeLogsResponseClient) HasMorePages(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasMorePages(ctx, &pb.HasMorePagesRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ChangeLogsResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ChangeLogsResponseDeletedLogClient wraps the gRPC ChangeLogsResponseDeletedLogService client.
-type ChangeLogsResponseDeletedLogClient struct {
-	svc pb.ChangeLogsResponseDeletedLogServiceClient
-}
-
-// NewChangeLogsResponseDeletedLogClient creates a new ChangeLogsResponseDeletedLog client.
-func NewChangeLogsResponseDeletedLogClient(cc grpc.ClientConnInterface) *ChangeLogsResponseDeletedLogClient {
-	return &ChangeLogsResponseDeletedLogClient{
-		svc: pb.NewChangeLogsResponseDeletedLogServiceClient(cc),
-	}
-}
-
-// GetDeletedRecordId calls the GetDeletedRecordId RPC.
-func (c *ChangeLogsResponseDeletedLogClient) GetDeletedRecordId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDeletedRecordId(ctx, &pb.GetDeletedRecordIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeletedTime calls the GetDeletedTime RPC.
-func (c *ChangeLogsResponseDeletedLogClient) GetDeletedTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDeletedTime(ctx, &pb.GetDeletedTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ChangeLogTokenResponseClient wraps the gRPC ChangeLogTokenResponseService client.
-type ChangeLogTokenResponseClient struct {
-	svc pb.ChangeLogTokenResponseServiceClient
-}
-
-// NewChangeLogTokenResponseClient creates a new ChangeLogTokenResponse client.
-func NewChangeLogTokenResponseClient(cc grpc.ClientConnInterface) *ChangeLogTokenResponseClient {
-	return &ChangeLogTokenResponseClient{
-		svc: pb.NewChangeLogTokenResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ChangeLogTokenResponseClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetToken calls the GetToken RPC.
-func (c *ChangeLogTokenResponseClient) GetToken(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetToken(ctx, &pb.GetTokenRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ChangeLogTokenResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
 }

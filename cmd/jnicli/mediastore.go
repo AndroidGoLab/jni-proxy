@@ -80,6 +80,28 @@ var mediastoreMediaStoreGetDocumentUriCmd = &cobra.Command{
 	},
 }
 
+var mediastoreMediaStoreGetExternalVolumeNamesCmd = &cobra.Command{
+	Use:   "get-external-volume-names",
+	Short: "GetExternalVolumeNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaStoreServiceClient(grpcConn)
+		req := &pb.GetExternalVolumeNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetExternalVolumeNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var mediastoreMediaStoreGetGenerationCmd = &cobra.Command{
 	Use:   "get-generation",
 	Short: "GetGeneration RPC",
@@ -186,6 +208,28 @@ var mediastoreMediaStoreGetPickImagesMaxLimitCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetPickImagesMaxLimit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var mediastoreMediaStoreGetRecentExternalVolumeNamesCmd = &cobra.Command{
+	Use:   "get-recent-external-volume-names",
+	Short: "GetRecentExternalVolumeNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaStoreServiceClient(grpcConn)
+		req := &pb.GetRecentExternalVolumeNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetRecentExternalVolumeNames(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -710,6 +754,9 @@ func init() {
 	mediastoreMediaStoreGetDocumentUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	mediastoreMediaStoreGetDocumentUriCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	mediastoreMediaStoreCmd.AddCommand(mediastoreMediaStoreGetDocumentUriCmd)
+	mediastoreMediaStoreGetExternalVolumeNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mediastoreMediaStoreGetExternalVolumeNamesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mediastoreMediaStoreCmd.AddCommand(mediastoreMediaStoreGetExternalVolumeNamesCmd)
 	mediastoreMediaStoreGetGenerationCmd.Flags().Int64("handle", 0, "handle (int64)")
 	mediastoreMediaStoreGetGenerationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	mediastoreMediaStoreGetGenerationCmd.Flags().String("arg1", "", "arg1 (string)")
@@ -726,6 +773,9 @@ func init() {
 	mediastoreMediaStoreCmd.AddCommand(mediastoreMediaStoreGetOriginalMediaFormatFileDescriptorCmd)
 	mediastoreMediaStoreGetPickImagesMaxLimitCmd.Flags().Int64("handle", 0, "handle (int64)")
 	mediastoreMediaStoreCmd.AddCommand(mediastoreMediaStoreGetPickImagesMaxLimitCmd)
+	mediastoreMediaStoreGetRecentExternalVolumeNamesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	mediastoreMediaStoreGetRecentExternalVolumeNamesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	mediastoreMediaStoreCmd.AddCommand(mediastoreMediaStoreGetRecentExternalVolumeNamesCmd)
 	mediastoreMediaStoreGetRedactedUriCmd.Flags().Int64("handle", 0, "handle (int64)")
 	mediastoreMediaStoreGetRedactedUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	mediastoreMediaStoreGetRedactedUriCmd.Flags().Int64("arg1", 0, "arg1 (int64)")

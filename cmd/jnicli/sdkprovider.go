@@ -12,9 +12,49 @@ var sdkproviderCmd = &cobra.Command{
 	Short: "sdkprovider service operations",
 }
 
+var sdkproviderSdkSandboxActivityHandlerCmd = &cobra.Command{
+	Use:   "sdk-sandbox-activity-handler",
+	Short: "SdkSandboxActivityHandlerService operations",
+}
+
+var sdkproviderSdkSandboxActivityHandlerOnActivityCreatedCmd = &cobra.Command{
+	Use:   "on-activity-created",
+	Short: "OnActivityCreated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSdkSandboxActivityHandlerServiceClient(grpcConn)
+		req := &pb.OnActivityCreatedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnActivityCreated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var sdkproviderSdkSandboxControllerCmd = &cobra.Command{
 	Use:   "sdk-sandbox-controller",
 	Short: "SdkSandboxControllerService operations",
+}
+
+var sdkproviderSdkSandboxControllerGetAppOwnedSdkSandboxInterfacesCmd = &cobra.Command{
+	Use:   "get-app-owned-sdk-sandbox-interfaces",
+	Short: "GetAppOwnedSdkSandboxInterfaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSdkSandboxControllerServiceClient(grpcConn)
+		req := &pb.GetAppOwnedSdkSandboxInterfacesRequest{}
+		resp, err := client.GetAppOwnedSdkSandboxInterfaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
 var sdkproviderSdkSandboxControllerGetClientPackageNameCmd = &cobra.Command{
@@ -42,6 +82,22 @@ var sdkproviderSdkSandboxControllerGetClientSharedPreferencesCmd = &cobra.Comman
 		client := pb.NewSdkSandboxControllerServiceClient(grpcConn)
 		req := &pb.GetClientSharedPreferencesRequest{}
 		resp, err := client.GetClientSharedPreferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sdkproviderSdkSandboxControllerGetSandboxedSdksCmd = &cobra.Command{
+	Use:   "get-sandboxed-sdks",
+	Short: "GetSandboxedSdks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSdkSandboxControllerServiceClient(grpcConn)
+		req := &pb.GetSandboxedSdksRequest{}
+		resp, err := client.GetSandboxedSdks(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -114,33 +170,14 @@ var sdkproviderSdkSandboxClientImportanceListenerOnForegroundImportanceChangedCm
 	},
 }
 
-var sdkproviderSdkSandboxActivityHandlerCmd = &cobra.Command{
-	Use:   "sdk-sandbox-activity-handler",
-	Short: "SdkSandboxActivityHandlerService operations",
-}
-
-var sdkproviderSdkSandboxActivityHandlerOnActivityCreatedCmd = &cobra.Command{
-	Use:   "on-activity-created",
-	Short: "OnActivityCreated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSdkSandboxActivityHandlerServiceClient(grpcConn)
-		req := &pb.OnActivityCreatedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnActivityCreated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	sdkproviderSdkSandboxActivityHandlerOnActivityCreatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sdkproviderSdkSandboxActivityHandlerCmd.AddCommand(sdkproviderSdkSandboxActivityHandlerOnActivityCreatedCmd)
+	sdkproviderCmd.AddCommand(sdkproviderSdkSandboxActivityHandlerCmd)
+	sdkproviderSdkSandboxControllerCmd.AddCommand(sdkproviderSdkSandboxControllerGetAppOwnedSdkSandboxInterfacesCmd)
 	sdkproviderSdkSandboxControllerCmd.AddCommand(sdkproviderSdkSandboxControllerGetClientPackageNameCmd)
 	sdkproviderSdkSandboxControllerCmd.AddCommand(sdkproviderSdkSandboxControllerGetClientSharedPreferencesCmd)
+	sdkproviderSdkSandboxControllerCmd.AddCommand(sdkproviderSdkSandboxControllerGetSandboxedSdksCmd)
 	sdkproviderSdkSandboxControllerRegisterSdkSandboxClientImportanceListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sdkproviderSdkSandboxControllerRegisterSdkSandboxClientImportanceListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	sdkproviderSdkSandboxControllerCmd.AddCommand(sdkproviderSdkSandboxControllerRegisterSdkSandboxClientImportanceListenerCmd)
@@ -150,8 +187,5 @@ func init() {
 	sdkproviderSdkSandboxClientImportanceListenerOnForegroundImportanceChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	sdkproviderSdkSandboxClientImportanceListenerCmd.AddCommand(sdkproviderSdkSandboxClientImportanceListenerOnForegroundImportanceChangedCmd)
 	sdkproviderCmd.AddCommand(sdkproviderSdkSandboxClientImportanceListenerCmd)
-	sdkproviderSdkSandboxActivityHandlerOnActivityCreatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sdkproviderSdkSandboxActivityHandlerCmd.AddCommand(sdkproviderSdkSandboxActivityHandlerOnActivityCreatedCmd)
-	sdkproviderCmd.AddCommand(sdkproviderSdkSandboxActivityHandlerCmd)
 	rootCmd.AddCommand(sdkproviderCmd)
 }

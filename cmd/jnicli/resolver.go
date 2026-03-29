@@ -989,6 +989,38 @@ var resolverContentResolverDelete3_1Cmd = &cobra.Command{
 	},
 }
 
+var resolverContentResolverGetOutgoingPersistedUriPermissionsCmd = &cobra.Command{
+	Use:   "get-outgoing-persisted-uri-permissions",
+	Short: "GetOutgoingPersistedUriPermissions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.GetOutgoingPersistedUriPermissionsRequest{}
+		resp, err := client.GetOutgoingPersistedUriPermissions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverGetPersistedUriPermissionsCmd = &cobra.Command{
+	Use:   "get-persisted-uri-permissions",
+	Short: "GetPersistedUriPermissions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.GetPersistedUriPermissionsRequest{}
+		resp, err := client.GetPersistedUriPermissions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverContentResolverGetStreamTypesCmd = &cobra.Command{
 	Use:   "get-stream-types",
 	Short: "GetStreamTypes RPC",
@@ -1885,6 +1917,22 @@ var resolverContentResolverGetCurrentSyncCmd = &cobra.Command{
 	},
 }
 
+var resolverContentResolverGetCurrentSyncsCmd = &cobra.Command{
+	Use:   "get-current-syncs",
+	Short: "GetCurrentSyncs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.GetCurrentSyncsRequest{}
+		resp, err := client.GetCurrentSyncs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverContentResolverGetIsSyncableCmd = &cobra.Command{
 	Use:   "get-is-syncable",
 	Short: "GetIsSyncable RPC",
@@ -1916,6 +1964,28 @@ var resolverContentResolverGetMasterSyncAutomaticallyCmd = &cobra.Command{
 		client := pb.NewContentResolverServiceClient(grpcConn)
 		req := &pb.GetMasterSyncAutomaticallyRequest{}
 		resp, err := client.GetMasterSyncAutomatically(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverGetPeriodicSyncsCmd = &cobra.Command{
+	Use:   "get-periodic-syncs",
+	Short: "GetPeriodicSyncs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.GetPeriodicSyncsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPeriodicSyncs(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2529,6 +2599,22 @@ var resolverUriGetPathCmd = &cobra.Command{
 	},
 }
 
+var resolverUriGetPathSegmentsCmd = &cobra.Command{
+	Use:   "get-path-segments",
+	Short: "GetPathSegments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetPathSegmentsRequest{}
+		resp, err := client.GetPathSegments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverUriGetPortCmd = &cobra.Command{
 	Use:   "get-port",
 	Short: "GetPort RPC",
@@ -2573,6 +2659,41 @@ var resolverUriGetQueryParameterCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetQueryParameter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetQueryParameterNamesCmd = &cobra.Command{
+	Use:   "get-query-parameter-names",
+	Short: "GetQueryParameterNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetQueryParameterNamesRequest{}
+		resp, err := client.GetQueryParameterNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetQueryParametersCmd = &cobra.Command{
+	Use:   "get-query-parameters",
+	Short: "GetQueryParameters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetQueryParametersRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetQueryParameters(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3347,6 +3468,8 @@ func init() {
 	resolverContentResolverDelete3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
 	resolverContentResolverDelete3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverDelete3_1Cmd)
+	resolverContentResolverCmd.AddCommand(resolverContentResolverGetOutgoingPersistedUriPermissionsCmd)
+	resolverContentResolverCmd.AddCommand(resolverContentResolverGetPersistedUriPermissionsCmd)
 	resolverContentResolverGetStreamTypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverGetStreamTypesCmd.Flags().String("arg1", "", "arg1 (string)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverGetStreamTypesCmd)
@@ -3481,10 +3604,14 @@ func init() {
 	resolverContentResolverCancelSync1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverCancelSync1_1Cmd)
 	resolverContentResolverCmd.AddCommand(resolverContentResolverGetCurrentSyncCmd)
+	resolverContentResolverCmd.AddCommand(resolverContentResolverGetCurrentSyncsCmd)
 	resolverContentResolverGetIsSyncableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverGetIsSyncableCmd.Flags().String("arg1", "", "arg1 (string)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverGetIsSyncableCmd)
 	resolverContentResolverCmd.AddCommand(resolverContentResolverGetMasterSyncAutomaticallyCmd)
+	resolverContentResolverGetPeriodicSyncsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverGetPeriodicSyncsCmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverGetPeriodicSyncsCmd)
 	resolverContentResolverCmd.AddCommand(resolverContentResolverGetSyncAdapterTypesCmd)
 	resolverContentResolverGetSyncAutomaticallyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverGetSyncAutomaticallyCmd.Flags().String("arg1", "", "arg1 (string)")
@@ -3547,10 +3674,14 @@ func init() {
 	resolverUriCmd.AddCommand(resolverUriGetHostCmd)
 	resolverUriCmd.AddCommand(resolverUriGetLastPathSegmentCmd)
 	resolverUriCmd.AddCommand(resolverUriGetPathCmd)
+	resolverUriCmd.AddCommand(resolverUriGetPathSegmentsCmd)
 	resolverUriCmd.AddCommand(resolverUriGetPortCmd)
 	resolverUriCmd.AddCommand(resolverUriGetQueryCmd)
 	resolverUriGetQueryParameterCmd.Flags().String("arg0", "", "arg0 (string)")
 	resolverUriCmd.AddCommand(resolverUriGetQueryParameterCmd)
+	resolverUriCmd.AddCommand(resolverUriGetQueryParameterNamesCmd)
+	resolverUriGetQueryParametersCmd.Flags().String("arg0", "", "arg0 (string)")
+	resolverUriCmd.AddCommand(resolverUriGetQueryParametersCmd)
 	resolverUriCmd.AddCommand(resolverUriGetSchemeCmd)
 	resolverUriCmd.AddCommand(resolverUriGetSchemeSpecificPartCmd)
 	resolverUriCmd.AddCommand(resolverUriGetUserInfoCmd)

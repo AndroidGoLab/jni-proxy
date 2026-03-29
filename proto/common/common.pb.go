@@ -1023,26 +1023,27 @@ func (x *SetMaxCountResponse) GetResult() int64 {
 	return 0
 }
 
-type GetAppInstallFiltersRequest struct {
+type FromStringRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAppInstallFiltersRequest) Reset() {
-	*x = GetAppInstallFiltersRequest{}
+func (x *FromStringRequest) Reset() {
+	*x = FromStringRequest{}
 	mi := &file_proto_common_common_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAppInstallFiltersRequest) String() string {
+func (x *FromStringRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAppInstallFiltersRequest) ProtoMessage() {}
+func (*FromStringRequest) ProtoMessage() {}
 
-func (x *GetAppInstallFiltersRequest) ProtoReflect() protoreflect.Message {
+func (x *FromStringRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_common_common_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1054,32 +1055,39 @@ func (x *GetAppInstallFiltersRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAppInstallFiltersRequest.ProtoReflect.Descriptor instead.
-func (*GetAppInstallFiltersRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use FromStringRequest.ProtoReflect.Descriptor instead.
+func (*FromStringRequest) Descriptor() ([]byte, []int) {
 	return file_proto_common_common_proto_rawDescGZIP(), []int{24}
 }
 
-type GetAppInstallFiltersResponse struct {
+func (x *FromStringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type FromStringResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAppInstallFiltersResponse) Reset() {
-	*x = GetAppInstallFiltersResponse{}
+func (x *FromStringResponse) Reset() {
+	*x = FromStringResponse{}
 	mi := &file_proto_common_common_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAppInstallFiltersResponse) String() string {
+func (x *FromStringResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAppInstallFiltersResponse) ProtoMessage() {}
+func (*FromStringResponse) ProtoMessage() {}
 
-func (x *GetAppInstallFiltersResponse) ProtoReflect() protoreflect.Message {
+func (x *FromStringResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_common_common_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1091,38 +1099,38 @@ func (x *GetAppInstallFiltersResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAppInstallFiltersResponse.ProtoReflect.Descriptor instead.
-func (*GetAppInstallFiltersResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use FromStringResponse.ProtoReflect.Descriptor instead.
+func (*FromStringResponse) Descriptor() ([]byte, []int) {
 	return file_proto_common_common_proto_rawDescGZIP(), []int{25}
 }
 
-func (x *GetAppInstallFiltersResponse) GetResult() int64 {
+func (x *FromStringResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetFrequencyCapFiltersRequest struct {
+type GetKeyedFrequencyCapsForClickEventsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFrequencyCapFiltersRequest) Reset() {
-	*x = GetFrequencyCapFiltersRequest{}
+func (x *GetKeyedFrequencyCapsForClickEventsRequest) Reset() {
+	*x = GetKeyedFrequencyCapsForClickEventsRequest{}
 	mi := &file_proto_common_common_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFrequencyCapFiltersRequest) String() string {
+func (x *GetKeyedFrequencyCapsForClickEventsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFrequencyCapFiltersRequest) ProtoMessage() {}
+func (*GetKeyedFrequencyCapsForClickEventsRequest) ProtoMessage() {}
 
-func (x *GetFrequencyCapFiltersRequest) ProtoReflect() protoreflect.Message {
+func (x *GetKeyedFrequencyCapsForClickEventsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_common_common_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1134,32 +1142,32 @@ func (x *GetFrequencyCapFiltersRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFrequencyCapFiltersRequest.ProtoReflect.Descriptor instead.
-func (*GetFrequencyCapFiltersRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetKeyedFrequencyCapsForClickEventsRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyedFrequencyCapsForClickEventsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_common_common_proto_rawDescGZIP(), []int{26}
 }
 
-type GetFrequencyCapFiltersResponse struct {
+type GetKeyedFrequencyCapsForClickEventsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFrequencyCapFiltersResponse) Reset() {
-	*x = GetFrequencyCapFiltersResponse{}
+func (x *GetKeyedFrequencyCapsForClickEventsResponse) Reset() {
+	*x = GetKeyedFrequencyCapsForClickEventsResponse{}
 	mi := &file_proto_common_common_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFrequencyCapFiltersResponse) String() string {
+func (x *GetKeyedFrequencyCapsForClickEventsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFrequencyCapFiltersResponse) ProtoMessage() {}
+func (*GetKeyedFrequencyCapsForClickEventsResponse) ProtoMessage() {}
 
-func (x *GetFrequencyCapFiltersResponse) ProtoReflect() protoreflect.Message {
+func (x *GetKeyedFrequencyCapsForClickEventsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_common_common_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1171,39 +1179,38 @@ func (x *GetFrequencyCapFiltersResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFrequencyCapFiltersResponse.ProtoReflect.Descriptor instead.
-func (*GetFrequencyCapFiltersResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetKeyedFrequencyCapsForClickEventsResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyedFrequencyCapsForClickEventsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_common_common_proto_rawDescGZIP(), []int{27}
 }
 
-func (x *GetFrequencyCapFiltersResponse) GetResult() int64 {
+func (x *GetKeyedFrequencyCapsForClickEventsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetAppInstallFiltersRequest struct {
+type GetKeyedFrequencyCapsForImpressionEventsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetAppInstallFiltersRequest) Reset() {
-	*x = SetAppInstallFiltersRequest{}
+func (x *GetKeyedFrequencyCapsForImpressionEventsRequest) Reset() {
+	*x = GetKeyedFrequencyCapsForImpressionEventsRequest{}
 	mi := &file_proto_common_common_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetAppInstallFiltersRequest) String() string {
+func (x *GetKeyedFrequencyCapsForImpressionEventsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetAppInstallFiltersRequest) ProtoMessage() {}
+func (*GetKeyedFrequencyCapsForImpressionEventsRequest) ProtoMessage() {}
 
-func (x *SetAppInstallFiltersRequest) ProtoReflect() protoreflect.Message {
+func (x *GetKeyedFrequencyCapsForImpressionEventsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_common_common_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1215,39 +1222,32 @@ func (x *SetAppInstallFiltersRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetAppInstallFiltersRequest.ProtoReflect.Descriptor instead.
-func (*SetAppInstallFiltersRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetKeyedFrequencyCapsForImpressionEventsRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyedFrequencyCapsForImpressionEventsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_common_common_proto_rawDescGZIP(), []int{28}
 }
 
-func (x *SetAppInstallFiltersRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAppInstallFiltersResponse struct {
+type GetKeyedFrequencyCapsForImpressionEventsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetAppInstallFiltersResponse) Reset() {
-	*x = SetAppInstallFiltersResponse{}
+func (x *GetKeyedFrequencyCapsForImpressionEventsResponse) Reset() {
+	*x = GetKeyedFrequencyCapsForImpressionEventsResponse{}
 	mi := &file_proto_common_common_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetAppInstallFiltersResponse) String() string {
+func (x *GetKeyedFrequencyCapsForImpressionEventsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetAppInstallFiltersResponse) ProtoMessage() {}
+func (*GetKeyedFrequencyCapsForImpressionEventsResponse) ProtoMessage() {}
 
-func (x *SetAppInstallFiltersResponse) ProtoReflect() protoreflect.Message {
+func (x *GetKeyedFrequencyCapsForImpressionEventsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_common_common_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1259,39 +1259,38 @@ func (x *SetAppInstallFiltersResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetAppInstallFiltersResponse.ProtoReflect.Descriptor instead.
-func (*SetAppInstallFiltersResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetKeyedFrequencyCapsForImpressionEventsResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyedFrequencyCapsForImpressionEventsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_common_common_proto_rawDescGZIP(), []int{29}
 }
 
-func (x *SetAppInstallFiltersResponse) GetResult() int64 {
+func (x *GetKeyedFrequencyCapsForImpressionEventsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetFrequencyCapFiltersRequest struct {
+type GetKeyedFrequencyCapsForViewEventsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetFrequencyCapFiltersRequest) Reset() {
-	*x = SetFrequencyCapFiltersRequest{}
+func (x *GetKeyedFrequencyCapsForViewEventsRequest) Reset() {
+	*x = GetKeyedFrequencyCapsForViewEventsRequest{}
 	mi := &file_proto_common_common_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetFrequencyCapFiltersRequest) String() string {
+func (x *GetKeyedFrequencyCapsForViewEventsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetFrequencyCapFiltersRequest) ProtoMessage() {}
+func (*GetKeyedFrequencyCapsForViewEventsRequest) ProtoMessage() {}
 
-func (x *SetFrequencyCapFiltersRequest) ProtoReflect() protoreflect.Message {
+func (x *GetKeyedFrequencyCapsForViewEventsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_common_common_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1303,39 +1302,32 @@ func (x *SetFrequencyCapFiltersRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetFrequencyCapFiltersRequest.ProtoReflect.Descriptor instead.
-func (*SetFrequencyCapFiltersRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetKeyedFrequencyCapsForViewEventsRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyedFrequencyCapsForViewEventsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_common_common_proto_rawDescGZIP(), []int{30}
 }
 
-func (x *SetFrequencyCapFiltersRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetFrequencyCapFiltersResponse struct {
+type GetKeyedFrequencyCapsForViewEventsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetFrequencyCapFiltersResponse) Reset() {
-	*x = SetFrequencyCapFiltersResponse{}
+func (x *GetKeyedFrequencyCapsForViewEventsResponse) Reset() {
+	*x = GetKeyedFrequencyCapsForViewEventsResponse{}
 	mi := &file_proto_common_common_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetFrequencyCapFiltersResponse) String() string {
+func (x *GetKeyedFrequencyCapsForViewEventsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetFrequencyCapFiltersResponse) ProtoMessage() {}
+func (*GetKeyedFrequencyCapsForViewEventsResponse) ProtoMessage() {}
 
-func (x *SetFrequencyCapFiltersResponse) ProtoReflect() protoreflect.Message {
+func (x *GetKeyedFrequencyCapsForViewEventsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_common_common_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1347,12 +1339,92 @@ func (x *SetFrequencyCapFiltersResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetFrequencyCapFiltersResponse.ProtoReflect.Descriptor instead.
-func (*SetFrequencyCapFiltersResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetKeyedFrequencyCapsForViewEventsResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyedFrequencyCapsForViewEventsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_common_common_proto_rawDescGZIP(), []int{31}
 }
 
-func (x *SetFrequencyCapFiltersResponse) GetResult() int64 {
+func (x *GetKeyedFrequencyCapsForViewEventsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKeyedFrequencyCapsForWinEventsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyedFrequencyCapsForWinEventsRequest) Reset() {
+	*x = GetKeyedFrequencyCapsForWinEventsRequest{}
+	mi := &file_proto_common_common_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyedFrequencyCapsForWinEventsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyedFrequencyCapsForWinEventsRequest) ProtoMessage() {}
+
+func (x *GetKeyedFrequencyCapsForWinEventsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyedFrequencyCapsForWinEventsRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyedFrequencyCapsForWinEventsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{32}
+}
+
+type GetKeyedFrequencyCapsForWinEventsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyedFrequencyCapsForWinEventsResponse) Reset() {
+	*x = GetKeyedFrequencyCapsForWinEventsResponse{}
+	mi := &file_proto_common_common_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyedFrequencyCapsForWinEventsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyedFrequencyCapsForWinEventsResponse) ProtoMessage() {}
+
+func (x *GetKeyedFrequencyCapsForWinEventsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyedFrequencyCapsForWinEventsResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyedFrequencyCapsForWinEventsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetKeyedFrequencyCapsForWinEventsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1369,7 +1441,7 @@ type NewComponentAdDataRequest struct {
 
 func (x *NewComponentAdDataRequest) Reset() {
 	*x = NewComponentAdDataRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[32]
+	mi := &file_proto_common_common_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1381,7 +1453,7 @@ func (x *NewComponentAdDataRequest) String() string {
 func (*NewComponentAdDataRequest) ProtoMessage() {}
 
 func (x *NewComponentAdDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[32]
+	mi := &file_proto_common_common_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1394,7 +1466,7 @@ func (x *NewComponentAdDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewComponentAdDataRequest.ProtoReflect.Descriptor instead.
 func (*NewComponentAdDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{32}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *NewComponentAdDataRequest) GetArg0() int64 {
@@ -1420,7 +1492,7 @@ type NewComponentAdDataResponse struct {
 
 func (x *NewComponentAdDataResponse) Reset() {
 	*x = NewComponentAdDataResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[33]
+	mi := &file_proto_common_common_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1432,7 +1504,7 @@ func (x *NewComponentAdDataResponse) String() string {
 func (*NewComponentAdDataResponse) ProtoMessage() {}
 
 func (x *NewComponentAdDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[33]
+	mi := &file_proto_common_common_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1445,7 +1517,7 @@ func (x *NewComponentAdDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewComponentAdDataResponse.ProtoReflect.Descriptor instead.
 func (*NewComponentAdDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{33}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *NewComponentAdDataResponse) GetResult() int64 {
@@ -1464,7 +1536,7 @@ type ComponentAdDataDescribeContentsRequest struct {
 
 func (x *ComponentAdDataDescribeContentsRequest) Reset() {
 	*x = ComponentAdDataDescribeContentsRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[34]
+	mi := &file_proto_common_common_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1476,7 +1548,7 @@ func (x *ComponentAdDataDescribeContentsRequest) String() string {
 func (*ComponentAdDataDescribeContentsRequest) ProtoMessage() {}
 
 func (x *ComponentAdDataDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[34]
+	mi := &file_proto_common_common_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1489,7 +1561,7 @@ func (x *ComponentAdDataDescribeContentsRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use ComponentAdDataDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*ComponentAdDataDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{34}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *ComponentAdDataDescribeContentsRequest) GetHandle() int64 {
@@ -1509,7 +1581,7 @@ type ComponentAdDataEqualsRequest struct {
 
 func (x *ComponentAdDataEqualsRequest) Reset() {
 	*x = ComponentAdDataEqualsRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[35]
+	mi := &file_proto_common_common_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1521,7 +1593,7 @@ func (x *ComponentAdDataEqualsRequest) String() string {
 func (*ComponentAdDataEqualsRequest) ProtoMessage() {}
 
 func (x *ComponentAdDataEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[35]
+	mi := &file_proto_common_common_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1534,7 +1606,7 @@ func (x *ComponentAdDataEqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ComponentAdDataEqualsRequest.ProtoReflect.Descriptor instead.
 func (*ComponentAdDataEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{35}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *ComponentAdDataEqualsRequest) GetHandle() int64 {
@@ -1560,7 +1632,7 @@ type GetAdRenderIdRequest struct {
 
 func (x *GetAdRenderIdRequest) Reset() {
 	*x = GetAdRenderIdRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[36]
+	mi := &file_proto_common_common_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1572,7 +1644,7 @@ func (x *GetAdRenderIdRequest) String() string {
 func (*GetAdRenderIdRequest) ProtoMessage() {}
 
 func (x *GetAdRenderIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[36]
+	mi := &file_proto_common_common_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1585,7 +1657,7 @@ func (x *GetAdRenderIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdRenderIdRequest.ProtoReflect.Descriptor instead.
 func (*GetAdRenderIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{36}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetAdRenderIdRequest) GetHandle() int64 {
@@ -1604,7 +1676,7 @@ type GetAdRenderIdResponse struct {
 
 func (x *GetAdRenderIdResponse) Reset() {
 	*x = GetAdRenderIdResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[37]
+	mi := &file_proto_common_common_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1616,7 +1688,7 @@ func (x *GetAdRenderIdResponse) String() string {
 func (*GetAdRenderIdResponse) ProtoMessage() {}
 
 func (x *GetAdRenderIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[37]
+	mi := &file_proto_common_common_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1629,7 +1701,7 @@ func (x *GetAdRenderIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdRenderIdResponse.ProtoReflect.Descriptor instead.
 func (*GetAdRenderIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{37}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetAdRenderIdResponse) GetResult() string {
@@ -1648,7 +1720,7 @@ type GetRenderUriRequest struct {
 
 func (x *GetRenderUriRequest) Reset() {
 	*x = GetRenderUriRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[38]
+	mi := &file_proto_common_common_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1660,7 +1732,7 @@ func (x *GetRenderUriRequest) String() string {
 func (*GetRenderUriRequest) ProtoMessage() {}
 
 func (x *GetRenderUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[38]
+	mi := &file_proto_common_common_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1673,7 +1745,7 @@ func (x *GetRenderUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRenderUriRequest.ProtoReflect.Descriptor instead.
 func (*GetRenderUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{38}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *GetRenderUriRequest) GetHandle() int64 {
@@ -1692,7 +1764,7 @@ type GetRenderUriResponse struct {
 
 func (x *GetRenderUriResponse) Reset() {
 	*x = GetRenderUriResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[39]
+	mi := &file_proto_common_common_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1704,7 +1776,7 @@ func (x *GetRenderUriResponse) String() string {
 func (*GetRenderUriResponse) ProtoMessage() {}
 
 func (x *GetRenderUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[39]
+	mi := &file_proto_common_common_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1717,7 +1789,7 @@ func (x *GetRenderUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRenderUriResponse.ProtoReflect.Descriptor instead.
 func (*GetRenderUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{39}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetRenderUriResponse) GetResult() int64 {
@@ -1736,7 +1808,7 @@ type ComponentAdDataHashCodeRequest struct {
 
 func (x *ComponentAdDataHashCodeRequest) Reset() {
 	*x = ComponentAdDataHashCodeRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[40]
+	mi := &file_proto_common_common_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1748,7 +1820,7 @@ func (x *ComponentAdDataHashCodeRequest) String() string {
 func (*ComponentAdDataHashCodeRequest) ProtoMessage() {}
 
 func (x *ComponentAdDataHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[40]
+	mi := &file_proto_common_common_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1761,7 +1833,7 @@ func (x *ComponentAdDataHashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ComponentAdDataHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*ComponentAdDataHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{40}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *ComponentAdDataHashCodeRequest) GetHandle() int64 {
@@ -1780,7 +1852,7 @@ type ComponentAdDataToStringRequest struct {
 
 func (x *ComponentAdDataToStringRequest) Reset() {
 	*x = ComponentAdDataToStringRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[41]
+	mi := &file_proto_common_common_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1792,7 +1864,7 @@ func (x *ComponentAdDataToStringRequest) String() string {
 func (*ComponentAdDataToStringRequest) ProtoMessage() {}
 
 func (x *ComponentAdDataToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[41]
+	mi := &file_proto_common_common_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1805,7 +1877,7 @@ func (x *ComponentAdDataToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ComponentAdDataToStringRequest.ProtoReflect.Descriptor instead.
 func (*ComponentAdDataToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{41}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *ComponentAdDataToStringRequest) GetHandle() int64 {
@@ -1826,7 +1898,7 @@ type ComponentAdDataWriteToParcelRequest struct {
 
 func (x *ComponentAdDataWriteToParcelRequest) Reset() {
 	*x = ComponentAdDataWriteToParcelRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[42]
+	mi := &file_proto_common_common_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1838,7 +1910,7 @@ func (x *ComponentAdDataWriteToParcelRequest) String() string {
 func (*ComponentAdDataWriteToParcelRequest) ProtoMessage() {}
 
 func (x *ComponentAdDataWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[42]
+	mi := &file_proto_common_common_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1851,7 +1923,7 @@ func (x *ComponentAdDataWriteToParcelRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ComponentAdDataWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*ComponentAdDataWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{42}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *ComponentAdDataWriteToParcelRequest) GetHandle() int64 {
@@ -1875,28 +1947,27 @@ func (x *ComponentAdDataWriteToParcelRequest) GetArg1() int32 {
 	return 0
 }
 
-type FromStringRequest struct {
+type GetAdCounterKeysRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *FromStringRequest) Reset() {
-	*x = FromStringRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[43]
+func (x *GetAdCounterKeysRequest) Reset() {
+	*x = GetAdCounterKeysRequest{}
+	mi := &file_proto_common_common_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *FromStringRequest) String() string {
+func (x *GetAdCounterKeysRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FromStringRequest) ProtoMessage() {}
+func (*GetAdCounterKeysRequest) ProtoMessage() {}
 
-func (x *FromStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[43]
+func (x *GetAdCounterKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1907,40 +1978,33 @@ func (x *FromStringRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FromStringRequest.ProtoReflect.Descriptor instead.
-func (*FromStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{43}
+// Deprecated: Use GetAdCounterKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetAdCounterKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{45}
 }
 
-func (x *FromStringRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type FromStringResponse struct {
+type GetAdCounterKeysResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *FromStringResponse) Reset() {
-	*x = FromStringResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[44]
+func (x *GetAdCounterKeysResponse) Reset() {
+	*x = GetAdCounterKeysResponse{}
+	mi := &file_proto_common_common_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *FromStringResponse) String() string {
+func (x *GetAdCounterKeysResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FromStringResponse) ProtoMessage() {}
+func (*GetAdCounterKeysResponse) ProtoMessage() {}
 
-func (x *FromStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[44]
+func (x *GetAdCounterKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1951,12 +2015,12 @@ func (x *FromStringResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FromStringResponse.ProtoReflect.Descriptor instead.
-func (*FromStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{44}
+// Deprecated: Use GetAdCounterKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetAdCounterKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{46}
 }
 
-func (x *FromStringResponse) GetResult() int64 {
+func (x *GetAdCounterKeysResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1971,7 +2035,7 @@ type GetAdFiltersRequest struct {
 
 func (x *GetAdFiltersRequest) Reset() {
 	*x = GetAdFiltersRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[45]
+	mi := &file_proto_common_common_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1983,7 +2047,7 @@ func (x *GetAdFiltersRequest) String() string {
 func (*GetAdFiltersRequest) ProtoMessage() {}
 
 func (x *GetAdFiltersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[45]
+	mi := &file_proto_common_common_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1996,7 +2060,7 @@ func (x *GetAdFiltersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdFiltersRequest.ProtoReflect.Descriptor instead.
 func (*GetAdFiltersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{45}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{47}
 }
 
 type GetAdFiltersResponse struct {
@@ -2008,7 +2072,7 @@ type GetAdFiltersResponse struct {
 
 func (x *GetAdFiltersResponse) Reset() {
 	*x = GetAdFiltersResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[46]
+	mi := &file_proto_common_common_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2020,7 +2084,7 @@ func (x *GetAdFiltersResponse) String() string {
 func (*GetAdFiltersResponse) ProtoMessage() {}
 
 func (x *GetAdFiltersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[46]
+	mi := &file_proto_common_common_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2033,7 +2097,7 @@ func (x *GetAdFiltersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdFiltersResponse.ProtoReflect.Descriptor instead.
 func (*GetAdFiltersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{46}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *GetAdFiltersResponse) GetResult() int64 {
@@ -2051,7 +2115,7 @@ type AdDataGetAdRenderIdRequest struct {
 
 func (x *AdDataGetAdRenderIdRequest) Reset() {
 	*x = AdDataGetAdRenderIdRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[47]
+	mi := &file_proto_common_common_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2063,7 +2127,7 @@ func (x *AdDataGetAdRenderIdRequest) String() string {
 func (*AdDataGetAdRenderIdRequest) ProtoMessage() {}
 
 func (x *AdDataGetAdRenderIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[47]
+	mi := &file_proto_common_common_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2076,7 +2140,7 @@ func (x *AdDataGetAdRenderIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdDataGetAdRenderIdRequest.ProtoReflect.Descriptor instead.
 func (*AdDataGetAdRenderIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{47}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{49}
 }
 
 type GetMetadataRequest struct {
@@ -2087,7 +2151,7 @@ type GetMetadataRequest struct {
 
 func (x *GetMetadataRequest) Reset() {
 	*x = GetMetadataRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[48]
+	mi := &file_proto_common_common_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2099,7 +2163,7 @@ func (x *GetMetadataRequest) String() string {
 func (*GetMetadataRequest) ProtoMessage() {}
 
 func (x *GetMetadataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[48]
+	mi := &file_proto_common_common_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2112,7 +2176,7 @@ func (x *GetMetadataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetadataRequest.ProtoReflect.Descriptor instead.
 func (*GetMetadataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{48}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{50}
 }
 
 type GetMetadataResponse struct {
@@ -2124,7 +2188,7 @@ type GetMetadataResponse struct {
 
 func (x *GetMetadataResponse) Reset() {
 	*x = GetMetadataResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[49]
+	mi := &file_proto_common_common_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2136,7 +2200,7 @@ func (x *GetMetadataResponse) String() string {
 func (*GetMetadataResponse) ProtoMessage() {}
 
 func (x *GetMetadataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[49]
+	mi := &file_proto_common_common_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2149,7 +2213,7 @@ func (x *GetMetadataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetadataResponse.ProtoReflect.Descriptor instead.
 func (*GetMetadataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{49}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *GetMetadataResponse) GetResult() string {
@@ -2167,7 +2231,7 @@ type AdDataGetRenderUriRequest struct {
 
 func (x *AdDataGetRenderUriRequest) Reset() {
 	*x = AdDataGetRenderUriRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[50]
+	mi := &file_proto_common_common_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2179,7 +2243,7 @@ func (x *AdDataGetRenderUriRequest) String() string {
 func (*AdDataGetRenderUriRequest) ProtoMessage() {}
 
 func (x *AdDataGetRenderUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[50]
+	mi := &file_proto_common_common_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2192,7 +2256,7 @@ func (x *AdDataGetRenderUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdDataGetRenderUriRequest.ProtoReflect.Descriptor instead.
 func (*AdDataGetRenderUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{50}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{52}
 }
 
 type SetAdFiltersRequest struct {
@@ -2204,7 +2268,7 @@ type SetAdFiltersRequest struct {
 
 func (x *SetAdFiltersRequest) Reset() {
 	*x = SetAdFiltersRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[51]
+	mi := &file_proto_common_common_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2216,7 +2280,7 @@ func (x *SetAdFiltersRequest) String() string {
 func (*SetAdFiltersRequest) ProtoMessage() {}
 
 func (x *SetAdFiltersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[51]
+	mi := &file_proto_common_common_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2229,7 +2293,7 @@ func (x *SetAdFiltersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAdFiltersRequest.ProtoReflect.Descriptor instead.
 func (*SetAdFiltersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{51}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *SetAdFiltersRequest) GetArg0() int64 {
@@ -2248,7 +2312,7 @@ type SetAdFiltersResponse struct {
 
 func (x *SetAdFiltersResponse) Reset() {
 	*x = SetAdFiltersResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[52]
+	mi := &file_proto_common_common_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2260,7 +2324,7 @@ func (x *SetAdFiltersResponse) String() string {
 func (*SetAdFiltersResponse) ProtoMessage() {}
 
 func (x *SetAdFiltersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[52]
+	mi := &file_proto_common_common_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2273,7 +2337,7 @@ func (x *SetAdFiltersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAdFiltersResponse.ProtoReflect.Descriptor instead.
 func (*SetAdFiltersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{52}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *SetAdFiltersResponse) GetResult() int64 {
@@ -2292,7 +2356,7 @@ type SetAdRenderIdRequest struct {
 
 func (x *SetAdRenderIdRequest) Reset() {
 	*x = SetAdRenderIdRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[53]
+	mi := &file_proto_common_common_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2304,7 +2368,7 @@ func (x *SetAdRenderIdRequest) String() string {
 func (*SetAdRenderIdRequest) ProtoMessage() {}
 
 func (x *SetAdRenderIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[53]
+	mi := &file_proto_common_common_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2317,7 +2381,7 @@ func (x *SetAdRenderIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAdRenderIdRequest.ProtoReflect.Descriptor instead.
 func (*SetAdRenderIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{53}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *SetAdRenderIdRequest) GetArg0() string {
@@ -2336,7 +2400,7 @@ type SetAdRenderIdResponse struct {
 
 func (x *SetAdRenderIdResponse) Reset() {
 	*x = SetAdRenderIdResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[54]
+	mi := &file_proto_common_common_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2348,7 +2412,7 @@ func (x *SetAdRenderIdResponse) String() string {
 func (*SetAdRenderIdResponse) ProtoMessage() {}
 
 func (x *SetAdRenderIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[54]
+	mi := &file_proto_common_common_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2361,7 +2425,7 @@ func (x *SetAdRenderIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAdRenderIdResponse.ProtoReflect.Descriptor instead.
 func (*SetAdRenderIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{54}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SetAdRenderIdResponse) GetResult() int64 {
@@ -2380,7 +2444,7 @@ type SetMetadataRequest struct {
 
 func (x *SetMetadataRequest) Reset() {
 	*x = SetMetadataRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[55]
+	mi := &file_proto_common_common_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2392,7 +2456,7 @@ func (x *SetMetadataRequest) String() string {
 func (*SetMetadataRequest) ProtoMessage() {}
 
 func (x *SetMetadataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[55]
+	mi := &file_proto_common_common_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2405,7 +2469,7 @@ func (x *SetMetadataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMetadataRequest.ProtoReflect.Descriptor instead.
 func (*SetMetadataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{55}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *SetMetadataRequest) GetArg0() string {
@@ -2424,7 +2488,7 @@ type SetMetadataResponse struct {
 
 func (x *SetMetadataResponse) Reset() {
 	*x = SetMetadataResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[56]
+	mi := &file_proto_common_common_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2436,7 +2500,7 @@ func (x *SetMetadataResponse) String() string {
 func (*SetMetadataResponse) ProtoMessage() {}
 
 func (x *SetMetadataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[56]
+	mi := &file_proto_common_common_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2449,7 +2513,7 @@ func (x *SetMetadataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMetadataResponse.ProtoReflect.Descriptor instead.
 func (*SetMetadataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{56}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *SetMetadataResponse) GetResult() int64 {
@@ -2468,7 +2532,7 @@ type SetRenderUriRequest struct {
 
 func (x *SetRenderUriRequest) Reset() {
 	*x = SetRenderUriRequest{}
-	mi := &file_proto_common_common_proto_msgTypes[57]
+	mi := &file_proto_common_common_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2480,7 +2544,7 @@ func (x *SetRenderUriRequest) String() string {
 func (*SetRenderUriRequest) ProtoMessage() {}
 
 func (x *SetRenderUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[57]
+	mi := &file_proto_common_common_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2493,7 +2557,7 @@ func (x *SetRenderUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRenderUriRequest.ProtoReflect.Descriptor instead.
 func (*SetRenderUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{57}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *SetRenderUriRequest) GetArg0() int64 {
@@ -2512,7 +2576,7 @@ type SetRenderUriResponse struct {
 
 func (x *SetRenderUriResponse) Reset() {
 	*x = SetRenderUriResponse{}
-	mi := &file_proto_common_common_proto_msgTypes[58]
+	mi := &file_proto_common_common_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2524,7 +2588,7 @@ func (x *SetRenderUriResponse) String() string {
 func (*SetRenderUriResponse) ProtoMessage() {}
 
 func (x *SetRenderUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_common_common_proto_msgTypes[58]
+	mi := &file_proto_common_common_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2537,10 +2601,426 @@ func (x *SetRenderUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRenderUriResponse.ProtoReflect.Descriptor instead.
 func (*SetRenderUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_common_common_proto_rawDescGZIP(), []int{58}
+	return file_proto_common_common_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *SetRenderUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAppInstallFiltersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAppInstallFiltersRequest) Reset() {
+	*x = GetAppInstallFiltersRequest{}
+	mi := &file_proto_common_common_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAppInstallFiltersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAppInstallFiltersRequest) ProtoMessage() {}
+
+func (x *GetAppInstallFiltersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAppInstallFiltersRequest.ProtoReflect.Descriptor instead.
+func (*GetAppInstallFiltersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{61}
+}
+
+type GetAppInstallFiltersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAppInstallFiltersResponse) Reset() {
+	*x = GetAppInstallFiltersResponse{}
+	mi := &file_proto_common_common_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAppInstallFiltersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAppInstallFiltersResponse) ProtoMessage() {}
+
+func (x *GetAppInstallFiltersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAppInstallFiltersResponse.ProtoReflect.Descriptor instead.
+func (*GetAppInstallFiltersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetAppInstallFiltersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFrequencyCapFiltersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFrequencyCapFiltersRequest) Reset() {
+	*x = GetFrequencyCapFiltersRequest{}
+	mi := &file_proto_common_common_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFrequencyCapFiltersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFrequencyCapFiltersRequest) ProtoMessage() {}
+
+func (x *GetFrequencyCapFiltersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFrequencyCapFiltersRequest.ProtoReflect.Descriptor instead.
+func (*GetFrequencyCapFiltersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{63}
+}
+
+type GetFrequencyCapFiltersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFrequencyCapFiltersResponse) Reset() {
+	*x = GetFrequencyCapFiltersResponse{}
+	mi := &file_proto_common_common_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFrequencyCapFiltersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFrequencyCapFiltersResponse) ProtoMessage() {}
+
+func (x *GetFrequencyCapFiltersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFrequencyCapFiltersResponse.ProtoReflect.Descriptor instead.
+func (*GetFrequencyCapFiltersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetFrequencyCapFiltersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAppInstallFiltersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAppInstallFiltersRequest) Reset() {
+	*x = SetAppInstallFiltersRequest{}
+	mi := &file_proto_common_common_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAppInstallFiltersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAppInstallFiltersRequest) ProtoMessage() {}
+
+func (x *SetAppInstallFiltersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAppInstallFiltersRequest.ProtoReflect.Descriptor instead.
+func (*SetAppInstallFiltersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *SetAppInstallFiltersRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAppInstallFiltersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAppInstallFiltersResponse) Reset() {
+	*x = SetAppInstallFiltersResponse{}
+	mi := &file_proto_common_common_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAppInstallFiltersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAppInstallFiltersResponse) ProtoMessage() {}
+
+func (x *SetAppInstallFiltersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAppInstallFiltersResponse.ProtoReflect.Descriptor instead.
+func (*SetAppInstallFiltersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *SetAppInstallFiltersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFrequencyCapFiltersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFrequencyCapFiltersRequest) Reset() {
+	*x = SetFrequencyCapFiltersRequest{}
+	mi := &file_proto_common_common_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFrequencyCapFiltersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFrequencyCapFiltersRequest) ProtoMessage() {}
+
+func (x *SetFrequencyCapFiltersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFrequencyCapFiltersRequest.ProtoReflect.Descriptor instead.
+func (*SetFrequencyCapFiltersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *SetFrequencyCapFiltersRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFrequencyCapFiltersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFrequencyCapFiltersResponse) Reset() {
+	*x = SetFrequencyCapFiltersResponse{}
+	mi := &file_proto_common_common_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFrequencyCapFiltersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFrequencyCapFiltersResponse) ProtoMessage() {}
+
+func (x *SetFrequencyCapFiltersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFrequencyCapFiltersResponse.ProtoReflect.Descriptor instead.
+func (*SetFrequencyCapFiltersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *SetFrequencyCapFiltersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPackageNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNamesRequest) Reset() {
+	*x = GetPackageNamesRequest{}
+	mi := &file_proto_common_common_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNamesRequest) ProtoMessage() {}
+
+func (x *GetPackageNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNamesRequest.ProtoReflect.Descriptor instead.
+func (*GetPackageNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{69}
+}
+
+type GetPackageNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNamesResponse) Reset() {
+	*x = GetPackageNamesResponse{}
+	mi := &file_proto_common_common_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNamesResponse) ProtoMessage() {}
+
+func (x *GetPackageNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_common_common_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNamesResponse.ProtoReflect.Descriptor instead.
+func (*GetPackageNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_common_common_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetPackageNamesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2592,20 +3072,22 @@ const file_proto_common_common_proto_rawDesc = "" +
 	"\x12SetMaxCountRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
 	"\x13SetMaxCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bGetAppInstallFiltersRequest\"6\n" +
-	"\x1cGetAppInstallFiltersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
-	"\x1dGetFrequencyCapFiltersRequest\"8\n" +
-	"\x1eGetFrequencyCapFiltersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11FromStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
+	"\x12FromStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"*GetKeyedFrequencyCapsForClickEventsRequest\"E\n" +
+	"+GetKeyedFrequencyCapsForClickEventsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x1bSetAppInstallFiltersRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
-	"\x1cSetAppInstallFiltersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
-	"\x1dSetFrequencyCapFiltersRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
-	"\x1eSetFrequencyCapFiltersResponse\x12\x16\n" +
+	"/GetKeyedFrequencyCapsForImpressionEventsRequest\"J\n" +
+	"0GetKeyedFrequencyCapsForImpressionEventsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	")GetKeyedFrequencyCapsForViewEventsRequest\"D\n" +
+	"*GetKeyedFrequencyCapsForViewEventsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"(GetKeyedFrequencyCapsForWinEventsRequest\"C\n" +
+	")GetKeyedFrequencyCapsForWinEventsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
 	"\x19NewComponentAdDataRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
@@ -2632,10 +3114,9 @@ const file_proto_common_common_proto_rawDesc = "" +
 	"#ComponentAdDataWriteToParcelRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"'\n" +
-	"\x11FromStringRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
-	"\x12FromStringResponse\x12\x16\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x19\n" +
+	"\x17GetAdCounterKeysRequest\"2\n" +
+	"\x18GetAdCounterKeysResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
 	"\x13GetAdFiltersRequest\".\n" +
 	"\x14GetAdFiltersResponse\x12\x16\n" +
@@ -2660,6 +3141,23 @@ const file_proto_common_common_proto_rawDesc = "" +
 	"\x13SetRenderUriRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
 	"\x14SetRenderUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetAppInstallFiltersRequest\"6\n" +
+	"\x1cGetAppInstallFiltersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dGetFrequencyCapFiltersRequest\"8\n" +
+	"\x1eGetFrequencyCapFiltersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetAppInstallFiltersRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cSetAppInstallFiltersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dSetFrequencyCapFiltersRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eSetFrequencyCapFiltersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetPackageNamesRequest\"1\n" +
+	"\x17GetPackageNamesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result2\xda\x04\n" +
 	"\x18KeyedFrequencyCapService\x12U\n" +
 	"\x10DescribeContents\x12\x1f.common.DescribeContentsRequest\x1a .common.DescribeContentsResponse\x127\n" +
@@ -2674,19 +3172,27 @@ const file_proto_common_common_proto_rawDesc = "" +
 	"\x05Build\x12\x14.common.BuildRequest\x1a\x15.common.BuildResponse\x12R\n" +
 	"\x0fSetAdCounterKey\x12\x1e.common.SetAdCounterKeyRequest\x1a\x1f.common.SetAdCounterKeyResponse\x12F\n" +
 	"\vSetInterval\x12\x1a.common.SetIntervalRequest\x1a\x1b.common.SetIntervalResponse\x12F\n" +
-	"\vSetMaxCount\x12\x1a.common.SetMaxCountRequest\x1a\x1b.common.SetMaxCountResponse2\xba\x04\n" +
-	"\x10AdFiltersService\x12U\n" +
+	"\vSetMaxCount\x12\x1a.common.SetMaxCountRequest\x1a\x1b.common.SetMaxCountResponse2\xbc\x03\n" +
+	"\x19AdSelectionSignalsService\x12U\n" +
 	"\x10DescribeContents\x12\x1f.common.DescribeContentsRequest\x1a .common.DescribeContentsResponse\x127\n" +
-	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12a\n" +
-	"\x14GetAppInstallFilters\x12#.common.GetAppInstallFiltersRequest\x1a$.common.GetAppInstallFiltersResponse\x12g\n" +
-	"\x16GetFrequencyCapFilters\x12%.common.GetFrequencyCapFiltersRequest\x1a&.common.GetFrequencyCapFiltersResponse\x12=\n" +
+	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12=\n" +
 	"\bHashCode\x12\x17.common.HashCodeRequest\x1a\x18.common.HashCodeResponse\x12=\n" +
 	"\bToString\x12\x17.common.ToStringRequest\x1a\x18.common.ToStringResponse\x12L\n" +
-	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse2\x9b\x02\n" +
-	"\x17AdFiltersBuilderService\x124\n" +
-	"\x05Build\x12\x14.common.BuildRequest\x1a\x15.common.BuildResponse\x12a\n" +
-	"\x14SetAppInstallFilters\x12#.common.SetAppInstallFiltersRequest\x1a$.common.SetAppInstallFiltersResponse\x12g\n" +
-	"\x16SetFrequencyCapFilters\x12%.common.SetFrequencyCapFiltersRequest\x1a&.common.SetFrequencyCapFiltersResponse2\xb5\x05\n" +
+	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse\x12C\n" +
+	"\n" +
+	"FromString\x12\x19.common.FromStringRequest\x1a\x1a.common.FromStringResponse2\xc2\a\n" +
+	"\x1aFrequencyCapFiltersService\x12U\n" +
+	"\x10DescribeContents\x12\x1f.common.DescribeContentsRequest\x1a .common.DescribeContentsResponse\x127\n" +
+	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12\x8e\x01\n" +
+	"#GetKeyedFrequencyCapsForClickEvents\x122.common.GetKeyedFrequencyCapsForClickEventsRequest\x1a3.common.GetKeyedFrequencyCapsForClickEventsResponse\x12\x9d\x01\n" +
+	"(GetKeyedFrequencyCapsForImpressionEvents\x127.common.GetKeyedFrequencyCapsForImpressionEventsRequest\x1a8.common.GetKeyedFrequencyCapsForImpressionEventsResponse\x12\x8b\x01\n" +
+	"\"GetKeyedFrequencyCapsForViewEvents\x121.common.GetKeyedFrequencyCapsForViewEventsRequest\x1a2.common.GetKeyedFrequencyCapsForViewEventsResponse\x12\x88\x01\n" +
+	"!GetKeyedFrequencyCapsForWinEvents\x120.common.GetKeyedFrequencyCapsForWinEventsRequest\x1a1.common.GetKeyedFrequencyCapsForWinEventsResponse\x12=\n" +
+	"\bHashCode\x12\x17.common.HashCodeRequest\x1a\x18.common.HashCodeResponse\x12=\n" +
+	"\bToString\x12\x17.common.ToStringRequest\x1a\x18.common.ToStringResponse\x12L\n" +
+	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse2Y\n" +
+	"!FrequencyCapFiltersBuilderService\x124\n" +
+	"\x05Build\x12\x14.common.BuildRequest\x1a\x15.common.BuildResponse2\xb5\x05\n" +
 	"\x16ComponentAdDataService\x12[\n" +
 	"\x12NewComponentAdData\x12!.common.NewComponentAdDataRequest\x1a\".common.NewComponentAdDataResponse\x12d\n" +
 	"\x10DescribeContents\x12..common.ComponentAdDataDescribeContentsRequest\x1a .common.DescribeContentsResponse\x12F\n" +
@@ -2703,26 +3209,11 @@ const file_proto_common_common_proto_rawDesc = "" +
 	"\bToString\x12\x17.common.ToStringRequest\x1a\x18.common.ToStringResponse\x12L\n" +
 	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse\x12C\n" +
 	"\n" +
-	"FromString\x12\x19.common.FromStringRequest\x1a\x1a.common.FromStringResponse2\xf6\x02\n" +
-	"\x18AppInstallFiltersService\x12U\n" +
-	"\x10DescribeContents\x12\x1f.common.DescribeContentsRequest\x1a .common.DescribeContentsResponse\x127\n" +
-	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12=\n" +
-	"\bHashCode\x12\x17.common.HashCodeRequest\x1a\x18.common.HashCodeResponse\x12=\n" +
-	"\bToString\x12\x17.common.ToStringRequest\x1a\x18.common.ToStringResponse\x12L\n" +
-	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse2W\n" +
-	"\x1fAppInstallFiltersBuilderService\x124\n" +
-	"\x05Build\x12\x14.common.BuildRequest\x1a\x15.common.BuildResponse2\xf8\x02\n" +
-	"\x1aFrequencyCapFiltersService\x12U\n" +
-	"\x10DescribeContents\x12\x1f.common.DescribeContentsRequest\x1a .common.DescribeContentsResponse\x127\n" +
-	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12=\n" +
-	"\bHashCode\x12\x17.common.HashCodeRequest\x1a\x18.common.HashCodeResponse\x12=\n" +
-	"\bToString\x12\x17.common.ToStringRequest\x1a\x18.common.ToStringResponse\x12L\n" +
-	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse2Y\n" +
-	"!FrequencyCapFiltersBuilderService\x124\n" +
-	"\x05Build\x12\x14.common.BuildRequest\x1a\x15.common.BuildResponse2\xa3\x05\n" +
+	"FromString\x12\x19.common.FromStringRequest\x1a\x1a.common.FromStringResponse2\xfa\x05\n" +
 	"\rAdDataService\x12U\n" +
 	"\x10DescribeContents\x12\x1f.common.DescribeContentsRequest\x1a .common.DescribeContentsResponse\x127\n" +
-	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12I\n" +
+	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12U\n" +
+	"\x10GetAdCounterKeys\x12\x1f.common.GetAdCounterKeysRequest\x1a .common.GetAdCounterKeysResponse\x12I\n" +
 	"\fGetAdFilters\x12\x1b.common.GetAdFiltersRequest\x1a\x1c.common.GetAdFiltersResponse\x12R\n" +
 	"\rGetAdRenderId\x12\".common.AdDataGetAdRenderIdRequest\x1a\x1d.common.GetAdRenderIdResponse\x12F\n" +
 	"\vGetMetadata\x12\x1a.common.GetMetadataRequest\x1a\x1b.common.GetMetadataResponse\x12O\n" +
@@ -2735,15 +3226,28 @@ const file_proto_common_common_proto_rawDesc = "" +
 	"\fSetAdFilters\x12\x1b.common.SetAdFiltersRequest\x1a\x1c.common.SetAdFiltersResponse\x12L\n" +
 	"\rSetAdRenderId\x12\x1c.common.SetAdRenderIdRequest\x1a\x1d.common.SetAdRenderIdResponse\x12F\n" +
 	"\vSetMetadata\x12\x1a.common.SetMetadataRequest\x1a\x1b.common.SetMetadataResponse\x12I\n" +
-	"\fSetRenderUri\x12\x1b.common.SetRenderUriRequest\x1a\x1c.common.SetRenderUriResponse2\xbc\x03\n" +
-	"\x19AdSelectionSignalsService\x12U\n" +
+	"\fSetRenderUri\x12\x1b.common.SetRenderUriRequest\x1a\x1c.common.SetRenderUriResponse2\xba\x04\n" +
+	"\x10AdFiltersService\x12U\n" +
 	"\x10DescribeContents\x12\x1f.common.DescribeContentsRequest\x1a .common.DescribeContentsResponse\x127\n" +
-	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12=\n" +
+	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12a\n" +
+	"\x14GetAppInstallFilters\x12#.common.GetAppInstallFiltersRequest\x1a$.common.GetAppInstallFiltersResponse\x12g\n" +
+	"\x16GetFrequencyCapFilters\x12%.common.GetFrequencyCapFiltersRequest\x1a&.common.GetFrequencyCapFiltersResponse\x12=\n" +
 	"\bHashCode\x12\x17.common.HashCodeRequest\x1a\x18.common.HashCodeResponse\x12=\n" +
 	"\bToString\x12\x17.common.ToStringRequest\x1a\x18.common.ToStringResponse\x12L\n" +
-	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse\x12C\n" +
-	"\n" +
-	"FromString\x12\x19.common.FromStringRequest\x1a\x1a.common.FromStringResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/commonb\x06proto3"
+	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse2\x9b\x02\n" +
+	"\x17AdFiltersBuilderService\x124\n" +
+	"\x05Build\x12\x14.common.BuildRequest\x1a\x15.common.BuildResponse\x12a\n" +
+	"\x14SetAppInstallFilters\x12#.common.SetAppInstallFiltersRequest\x1a$.common.SetAppInstallFiltersResponse\x12g\n" +
+	"\x16SetFrequencyCapFilters\x12%.common.SetFrequencyCapFiltersRequest\x1a&.common.SetFrequencyCapFiltersResponse2\xca\x03\n" +
+	"\x18AppInstallFiltersService\x12U\n" +
+	"\x10DescribeContents\x12\x1f.common.DescribeContentsRequest\x1a .common.DescribeContentsResponse\x127\n" +
+	"\x06Equals\x12\x15.common.EqualsRequest\x1a\x16.common.EqualsResponse\x12R\n" +
+	"\x0fGetPackageNames\x12\x1e.common.GetPackageNamesRequest\x1a\x1f.common.GetPackageNamesResponse\x12=\n" +
+	"\bHashCode\x12\x17.common.HashCodeRequest\x1a\x18.common.HashCodeResponse\x12=\n" +
+	"\bToString\x12\x17.common.ToStringRequest\x1a\x18.common.ToStringResponse\x12L\n" +
+	"\rWriteToParcel\x12\x1c.common.WriteToParcelRequest\x1a\x1d.common.WriteToParcelResponse2W\n" +
+	"\x1fAppInstallFiltersBuilderService\x124\n" +
+	"\x05Build\x12\x14.common.BuildRequest\x1a\x15.common.BuildResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/commonb\x06proto3"
 
 var (
 	file_proto_common_common_proto_rawDescOnce sync.Once
@@ -2757,67 +3261,79 @@ func file_proto_common_common_proto_rawDescGZIP() []byte {
 	return file_proto_common_common_proto_rawDescData
 }
 
-var file_proto_common_common_proto_msgTypes = make([]protoimpl.MessageInfo, 59)
+var file_proto_common_common_proto_msgTypes = make([]protoimpl.MessageInfo, 71)
 var file_proto_common_common_proto_goTypes = []any{
-	(*DescribeContentsRequest)(nil),                // 0: common.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),               // 1: common.DescribeContentsResponse
-	(*EqualsRequest)(nil),                          // 2: common.EqualsRequest
-	(*EqualsResponse)(nil),                         // 3: common.EqualsResponse
-	(*GetAdCounterKeyRequest)(nil),                 // 4: common.GetAdCounterKeyRequest
-	(*GetAdCounterKeyResponse)(nil),                // 5: common.GetAdCounterKeyResponse
-	(*GetIntervalRequest)(nil),                     // 6: common.GetIntervalRequest
-	(*GetIntervalResponse)(nil),                    // 7: common.GetIntervalResponse
-	(*GetMaxCountRequest)(nil),                     // 8: common.GetMaxCountRequest
-	(*GetMaxCountResponse)(nil),                    // 9: common.GetMaxCountResponse
-	(*HashCodeRequest)(nil),                        // 10: common.HashCodeRequest
-	(*HashCodeResponse)(nil),                       // 11: common.HashCodeResponse
-	(*ToStringRequest)(nil),                        // 12: common.ToStringRequest
-	(*ToStringResponse)(nil),                       // 13: common.ToStringResponse
-	(*WriteToParcelRequest)(nil),                   // 14: common.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                  // 15: common.WriteToParcelResponse
-	(*BuildRequest)(nil),                           // 16: common.BuildRequest
-	(*BuildResponse)(nil),                          // 17: common.BuildResponse
-	(*SetAdCounterKeyRequest)(nil),                 // 18: common.SetAdCounterKeyRequest
-	(*SetAdCounterKeyResponse)(nil),                // 19: common.SetAdCounterKeyResponse
-	(*SetIntervalRequest)(nil),                     // 20: common.SetIntervalRequest
-	(*SetIntervalResponse)(nil),                    // 21: common.SetIntervalResponse
-	(*SetMaxCountRequest)(nil),                     // 22: common.SetMaxCountRequest
-	(*SetMaxCountResponse)(nil),                    // 23: common.SetMaxCountResponse
-	(*GetAppInstallFiltersRequest)(nil),            // 24: common.GetAppInstallFiltersRequest
-	(*GetAppInstallFiltersResponse)(nil),           // 25: common.GetAppInstallFiltersResponse
-	(*GetFrequencyCapFiltersRequest)(nil),          // 26: common.GetFrequencyCapFiltersRequest
-	(*GetFrequencyCapFiltersResponse)(nil),         // 27: common.GetFrequencyCapFiltersResponse
-	(*SetAppInstallFiltersRequest)(nil),            // 28: common.SetAppInstallFiltersRequest
-	(*SetAppInstallFiltersResponse)(nil),           // 29: common.SetAppInstallFiltersResponse
-	(*SetFrequencyCapFiltersRequest)(nil),          // 30: common.SetFrequencyCapFiltersRequest
-	(*SetFrequencyCapFiltersResponse)(nil),         // 31: common.SetFrequencyCapFiltersResponse
-	(*NewComponentAdDataRequest)(nil),              // 32: common.NewComponentAdDataRequest
-	(*NewComponentAdDataResponse)(nil),             // 33: common.NewComponentAdDataResponse
-	(*ComponentAdDataDescribeContentsRequest)(nil), // 34: common.ComponentAdDataDescribeContentsRequest
-	(*ComponentAdDataEqualsRequest)(nil),           // 35: common.ComponentAdDataEqualsRequest
-	(*GetAdRenderIdRequest)(nil),                   // 36: common.GetAdRenderIdRequest
-	(*GetAdRenderIdResponse)(nil),                  // 37: common.GetAdRenderIdResponse
-	(*GetRenderUriRequest)(nil),                    // 38: common.GetRenderUriRequest
-	(*GetRenderUriResponse)(nil),                   // 39: common.GetRenderUriResponse
-	(*ComponentAdDataHashCodeRequest)(nil),         // 40: common.ComponentAdDataHashCodeRequest
-	(*ComponentAdDataToStringRequest)(nil),         // 41: common.ComponentAdDataToStringRequest
-	(*ComponentAdDataWriteToParcelRequest)(nil),    // 42: common.ComponentAdDataWriteToParcelRequest
-	(*FromStringRequest)(nil),                      // 43: common.FromStringRequest
-	(*FromStringResponse)(nil),                     // 44: common.FromStringResponse
-	(*GetAdFiltersRequest)(nil),                    // 45: common.GetAdFiltersRequest
-	(*GetAdFiltersResponse)(nil),                   // 46: common.GetAdFiltersResponse
-	(*AdDataGetAdRenderIdRequest)(nil),             // 47: common.AdDataGetAdRenderIdRequest
-	(*GetMetadataRequest)(nil),                     // 48: common.GetMetadataRequest
-	(*GetMetadataResponse)(nil),                    // 49: common.GetMetadataResponse
-	(*AdDataGetRenderUriRequest)(nil),              // 50: common.AdDataGetRenderUriRequest
-	(*SetAdFiltersRequest)(nil),                    // 51: common.SetAdFiltersRequest
-	(*SetAdFiltersResponse)(nil),                   // 52: common.SetAdFiltersResponse
-	(*SetAdRenderIdRequest)(nil),                   // 53: common.SetAdRenderIdRequest
-	(*SetAdRenderIdResponse)(nil),                  // 54: common.SetAdRenderIdResponse
-	(*SetMetadataRequest)(nil),                     // 55: common.SetMetadataRequest
-	(*SetMetadataResponse)(nil),                    // 56: common.SetMetadataResponse
-	(*SetRenderUriRequest)(nil),                    // 57: common.SetRenderUriRequest
-	(*SetRenderUriResponse)(nil),                   // 58: common.SetRenderUriResponse
+	(*DescribeContentsRequest)(nil),                          // 0: common.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                         // 1: common.DescribeContentsResponse
+	(*EqualsRequest)(nil),                                    // 2: common.EqualsRequest
+	(*EqualsResponse)(nil),                                   // 3: common.EqualsResponse
+	(*GetAdCounterKeyRequest)(nil),                           // 4: common.GetAdCounterKeyRequest
+	(*GetAdCounterKeyResponse)(nil),                          // 5: common.GetAdCounterKeyResponse
+	(*GetIntervalRequest)(nil),                               // 6: common.GetIntervalRequest
+	(*GetIntervalResponse)(nil),                              // 7: common.GetIntervalResponse
+	(*GetMaxCountRequest)(nil),                               // 8: common.GetMaxCountRequest
+	(*GetMaxCountResponse)(nil),                              // 9: common.GetMaxCountResponse
+	(*HashCodeRequest)(nil),                                  // 10: common.HashCodeRequest
+	(*HashCodeResponse)(nil),                                 // 11: common.HashCodeResponse
+	(*ToStringRequest)(nil),                                  // 12: common.ToStringRequest
+	(*ToStringResponse)(nil),                                 // 13: common.ToStringResponse
+	(*WriteToParcelRequest)(nil),                             // 14: common.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                            // 15: common.WriteToParcelResponse
+	(*BuildRequest)(nil),                                     // 16: common.BuildRequest
+	(*BuildResponse)(nil),                                    // 17: common.BuildResponse
+	(*SetAdCounterKeyRequest)(nil),                           // 18: common.SetAdCounterKeyRequest
+	(*SetAdCounterKeyResponse)(nil),                          // 19: common.SetAdCounterKeyResponse
+	(*SetIntervalRequest)(nil),                               // 20: common.SetIntervalRequest
+	(*SetIntervalResponse)(nil),                              // 21: common.SetIntervalResponse
+	(*SetMaxCountRequest)(nil),                               // 22: common.SetMaxCountRequest
+	(*SetMaxCountResponse)(nil),                              // 23: common.SetMaxCountResponse
+	(*FromStringRequest)(nil),                                // 24: common.FromStringRequest
+	(*FromStringResponse)(nil),                               // 25: common.FromStringResponse
+	(*GetKeyedFrequencyCapsForClickEventsRequest)(nil),       // 26: common.GetKeyedFrequencyCapsForClickEventsRequest
+	(*GetKeyedFrequencyCapsForClickEventsResponse)(nil),      // 27: common.GetKeyedFrequencyCapsForClickEventsResponse
+	(*GetKeyedFrequencyCapsForImpressionEventsRequest)(nil),  // 28: common.GetKeyedFrequencyCapsForImpressionEventsRequest
+	(*GetKeyedFrequencyCapsForImpressionEventsResponse)(nil), // 29: common.GetKeyedFrequencyCapsForImpressionEventsResponse
+	(*GetKeyedFrequencyCapsForViewEventsRequest)(nil),        // 30: common.GetKeyedFrequencyCapsForViewEventsRequest
+	(*GetKeyedFrequencyCapsForViewEventsResponse)(nil),       // 31: common.GetKeyedFrequencyCapsForViewEventsResponse
+	(*GetKeyedFrequencyCapsForWinEventsRequest)(nil),         // 32: common.GetKeyedFrequencyCapsForWinEventsRequest
+	(*GetKeyedFrequencyCapsForWinEventsResponse)(nil),        // 33: common.GetKeyedFrequencyCapsForWinEventsResponse
+	(*NewComponentAdDataRequest)(nil),                        // 34: common.NewComponentAdDataRequest
+	(*NewComponentAdDataResponse)(nil),                       // 35: common.NewComponentAdDataResponse
+	(*ComponentAdDataDescribeContentsRequest)(nil),           // 36: common.ComponentAdDataDescribeContentsRequest
+	(*ComponentAdDataEqualsRequest)(nil),                     // 37: common.ComponentAdDataEqualsRequest
+	(*GetAdRenderIdRequest)(nil),                             // 38: common.GetAdRenderIdRequest
+	(*GetAdRenderIdResponse)(nil),                            // 39: common.GetAdRenderIdResponse
+	(*GetRenderUriRequest)(nil),                              // 40: common.GetRenderUriRequest
+	(*GetRenderUriResponse)(nil),                             // 41: common.GetRenderUriResponse
+	(*ComponentAdDataHashCodeRequest)(nil),                   // 42: common.ComponentAdDataHashCodeRequest
+	(*ComponentAdDataToStringRequest)(nil),                   // 43: common.ComponentAdDataToStringRequest
+	(*ComponentAdDataWriteToParcelRequest)(nil),              // 44: common.ComponentAdDataWriteToParcelRequest
+	(*GetAdCounterKeysRequest)(nil),                          // 45: common.GetAdCounterKeysRequest
+	(*GetAdCounterKeysResponse)(nil),                         // 46: common.GetAdCounterKeysResponse
+	(*GetAdFiltersRequest)(nil),                              // 47: common.GetAdFiltersRequest
+	(*GetAdFiltersResponse)(nil),                             // 48: common.GetAdFiltersResponse
+	(*AdDataGetAdRenderIdRequest)(nil),                       // 49: common.AdDataGetAdRenderIdRequest
+	(*GetMetadataRequest)(nil),                               // 50: common.GetMetadataRequest
+	(*GetMetadataResponse)(nil),                              // 51: common.GetMetadataResponse
+	(*AdDataGetRenderUriRequest)(nil),                        // 52: common.AdDataGetRenderUriRequest
+	(*SetAdFiltersRequest)(nil),                              // 53: common.SetAdFiltersRequest
+	(*SetAdFiltersResponse)(nil),                             // 54: common.SetAdFiltersResponse
+	(*SetAdRenderIdRequest)(nil),                             // 55: common.SetAdRenderIdRequest
+	(*SetAdRenderIdResponse)(nil),                            // 56: common.SetAdRenderIdResponse
+	(*SetMetadataRequest)(nil),                               // 57: common.SetMetadataRequest
+	(*SetMetadataResponse)(nil),                              // 58: common.SetMetadataResponse
+	(*SetRenderUriRequest)(nil),                              // 59: common.SetRenderUriRequest
+	(*SetRenderUriResponse)(nil),                             // 60: common.SetRenderUriResponse
+	(*GetAppInstallFiltersRequest)(nil),                      // 61: common.GetAppInstallFiltersRequest
+	(*GetAppInstallFiltersResponse)(nil),                     // 62: common.GetAppInstallFiltersResponse
+	(*GetFrequencyCapFiltersRequest)(nil),                    // 63: common.GetFrequencyCapFiltersRequest
+	(*GetFrequencyCapFiltersResponse)(nil),                   // 64: common.GetFrequencyCapFiltersResponse
+	(*SetAppInstallFiltersRequest)(nil),                      // 65: common.SetAppInstallFiltersRequest
+	(*SetAppInstallFiltersResponse)(nil),                     // 66: common.SetAppInstallFiltersResponse
+	(*SetFrequencyCapFiltersRequest)(nil),                    // 67: common.SetFrequencyCapFiltersRequest
+	(*SetFrequencyCapFiltersResponse)(nil),                   // 68: common.SetFrequencyCapFiltersResponse
+	(*GetPackageNamesRequest)(nil),                           // 69: common.GetPackageNamesRequest
+	(*GetPackageNamesResponse)(nil),                          // 70: common.GetPackageNamesResponse
 }
 var file_proto_common_common_proto_depIdxs = []int32{
 	0,  // 0: common.KeyedFrequencyCapService.DescribeContents:input_type -> common.DescribeContentsRequest
@@ -2832,132 +3348,144 @@ var file_proto_common_common_proto_depIdxs = []int32{
 	18, // 9: common.KeyedFrequencyCapBuilderService.SetAdCounterKey:input_type -> common.SetAdCounterKeyRequest
 	20, // 10: common.KeyedFrequencyCapBuilderService.SetInterval:input_type -> common.SetIntervalRequest
 	22, // 11: common.KeyedFrequencyCapBuilderService.SetMaxCount:input_type -> common.SetMaxCountRequest
-	0,  // 12: common.AdFiltersService.DescribeContents:input_type -> common.DescribeContentsRequest
-	2,  // 13: common.AdFiltersService.Equals:input_type -> common.EqualsRequest
-	24, // 14: common.AdFiltersService.GetAppInstallFilters:input_type -> common.GetAppInstallFiltersRequest
-	26, // 15: common.AdFiltersService.GetFrequencyCapFilters:input_type -> common.GetFrequencyCapFiltersRequest
-	10, // 16: common.AdFiltersService.HashCode:input_type -> common.HashCodeRequest
-	12, // 17: common.AdFiltersService.ToString:input_type -> common.ToStringRequest
-	14, // 18: common.AdFiltersService.WriteToParcel:input_type -> common.WriteToParcelRequest
-	16, // 19: common.AdFiltersBuilderService.Build:input_type -> common.BuildRequest
-	28, // 20: common.AdFiltersBuilderService.SetAppInstallFilters:input_type -> common.SetAppInstallFiltersRequest
-	30, // 21: common.AdFiltersBuilderService.SetFrequencyCapFilters:input_type -> common.SetFrequencyCapFiltersRequest
-	32, // 22: common.ComponentAdDataService.NewComponentAdData:input_type -> common.NewComponentAdDataRequest
-	34, // 23: common.ComponentAdDataService.DescribeContents:input_type -> common.ComponentAdDataDescribeContentsRequest
-	35, // 24: common.ComponentAdDataService.Equals:input_type -> common.ComponentAdDataEqualsRequest
-	36, // 25: common.ComponentAdDataService.GetAdRenderId:input_type -> common.GetAdRenderIdRequest
-	38, // 26: common.ComponentAdDataService.GetRenderUri:input_type -> common.GetRenderUriRequest
-	40, // 27: common.ComponentAdDataService.HashCode:input_type -> common.ComponentAdDataHashCodeRequest
-	41, // 28: common.ComponentAdDataService.ToString:input_type -> common.ComponentAdDataToStringRequest
-	42, // 29: common.ComponentAdDataService.WriteToParcel:input_type -> common.ComponentAdDataWriteToParcelRequest
-	0,  // 30: common.AdTechIdentifierService.DescribeContents:input_type -> common.DescribeContentsRequest
-	2,  // 31: common.AdTechIdentifierService.Equals:input_type -> common.EqualsRequest
-	10, // 32: common.AdTechIdentifierService.HashCode:input_type -> common.HashCodeRequest
-	12, // 33: common.AdTechIdentifierService.ToString:input_type -> common.ToStringRequest
-	14, // 34: common.AdTechIdentifierService.WriteToParcel:input_type -> common.WriteToParcelRequest
-	43, // 35: common.AdTechIdentifierService.FromString:input_type -> common.FromStringRequest
-	0,  // 36: common.AppInstallFiltersService.DescribeContents:input_type -> common.DescribeContentsRequest
-	2,  // 37: common.AppInstallFiltersService.Equals:input_type -> common.EqualsRequest
-	10, // 38: common.AppInstallFiltersService.HashCode:input_type -> common.HashCodeRequest
-	12, // 39: common.AppInstallFiltersService.ToString:input_type -> common.ToStringRequest
-	14, // 40: common.AppInstallFiltersService.WriteToParcel:input_type -> common.WriteToParcelRequest
-	16, // 41: common.AppInstallFiltersBuilderService.Build:input_type -> common.BuildRequest
-	0,  // 42: common.FrequencyCapFiltersService.DescribeContents:input_type -> common.DescribeContentsRequest
-	2,  // 43: common.FrequencyCapFiltersService.Equals:input_type -> common.EqualsRequest
-	10, // 44: common.FrequencyCapFiltersService.HashCode:input_type -> common.HashCodeRequest
-	12, // 45: common.FrequencyCapFiltersService.ToString:input_type -> common.ToStringRequest
-	14, // 46: common.FrequencyCapFiltersService.WriteToParcel:input_type -> common.WriteToParcelRequest
-	16, // 47: common.FrequencyCapFiltersBuilderService.Build:input_type -> common.BuildRequest
-	0,  // 48: common.AdDataService.DescribeContents:input_type -> common.DescribeContentsRequest
-	2,  // 49: common.AdDataService.Equals:input_type -> common.EqualsRequest
-	45, // 50: common.AdDataService.GetAdFilters:input_type -> common.GetAdFiltersRequest
-	47, // 51: common.AdDataService.GetAdRenderId:input_type -> common.AdDataGetAdRenderIdRequest
-	48, // 52: common.AdDataService.GetMetadata:input_type -> common.GetMetadataRequest
-	50, // 53: common.AdDataService.GetRenderUri:input_type -> common.AdDataGetRenderUriRequest
-	10, // 54: common.AdDataService.HashCode:input_type -> common.HashCodeRequest
-	12, // 55: common.AdDataService.ToString:input_type -> common.ToStringRequest
-	14, // 56: common.AdDataService.WriteToParcel:input_type -> common.WriteToParcelRequest
-	16, // 57: common.AdDataBuilderService.Build:input_type -> common.BuildRequest
-	51, // 58: common.AdDataBuilderService.SetAdFilters:input_type -> common.SetAdFiltersRequest
-	53, // 59: common.AdDataBuilderService.SetAdRenderId:input_type -> common.SetAdRenderIdRequest
-	55, // 60: common.AdDataBuilderService.SetMetadata:input_type -> common.SetMetadataRequest
-	57, // 61: common.AdDataBuilderService.SetRenderUri:input_type -> common.SetRenderUriRequest
-	0,  // 62: common.AdSelectionSignalsService.DescribeContents:input_type -> common.DescribeContentsRequest
-	2,  // 63: common.AdSelectionSignalsService.Equals:input_type -> common.EqualsRequest
-	10, // 64: common.AdSelectionSignalsService.HashCode:input_type -> common.HashCodeRequest
-	12, // 65: common.AdSelectionSignalsService.ToString:input_type -> common.ToStringRequest
-	14, // 66: common.AdSelectionSignalsService.WriteToParcel:input_type -> common.WriteToParcelRequest
-	43, // 67: common.AdSelectionSignalsService.FromString:input_type -> common.FromStringRequest
-	1,  // 68: common.KeyedFrequencyCapService.DescribeContents:output_type -> common.DescribeContentsResponse
-	3,  // 69: common.KeyedFrequencyCapService.Equals:output_type -> common.EqualsResponse
-	5,  // 70: common.KeyedFrequencyCapService.GetAdCounterKey:output_type -> common.GetAdCounterKeyResponse
-	7,  // 71: common.KeyedFrequencyCapService.GetInterval:output_type -> common.GetIntervalResponse
-	9,  // 72: common.KeyedFrequencyCapService.GetMaxCount:output_type -> common.GetMaxCountResponse
-	11, // 73: common.KeyedFrequencyCapService.HashCode:output_type -> common.HashCodeResponse
-	13, // 74: common.KeyedFrequencyCapService.ToString:output_type -> common.ToStringResponse
-	15, // 75: common.KeyedFrequencyCapService.WriteToParcel:output_type -> common.WriteToParcelResponse
-	17, // 76: common.KeyedFrequencyCapBuilderService.Build:output_type -> common.BuildResponse
-	19, // 77: common.KeyedFrequencyCapBuilderService.SetAdCounterKey:output_type -> common.SetAdCounterKeyResponse
-	21, // 78: common.KeyedFrequencyCapBuilderService.SetInterval:output_type -> common.SetIntervalResponse
-	23, // 79: common.KeyedFrequencyCapBuilderService.SetMaxCount:output_type -> common.SetMaxCountResponse
-	1,  // 80: common.AdFiltersService.DescribeContents:output_type -> common.DescribeContentsResponse
-	3,  // 81: common.AdFiltersService.Equals:output_type -> common.EqualsResponse
-	25, // 82: common.AdFiltersService.GetAppInstallFilters:output_type -> common.GetAppInstallFiltersResponse
-	27, // 83: common.AdFiltersService.GetFrequencyCapFilters:output_type -> common.GetFrequencyCapFiltersResponse
-	11, // 84: common.AdFiltersService.HashCode:output_type -> common.HashCodeResponse
-	13, // 85: common.AdFiltersService.ToString:output_type -> common.ToStringResponse
-	15, // 86: common.AdFiltersService.WriteToParcel:output_type -> common.WriteToParcelResponse
-	17, // 87: common.AdFiltersBuilderService.Build:output_type -> common.BuildResponse
-	29, // 88: common.AdFiltersBuilderService.SetAppInstallFilters:output_type -> common.SetAppInstallFiltersResponse
-	31, // 89: common.AdFiltersBuilderService.SetFrequencyCapFilters:output_type -> common.SetFrequencyCapFiltersResponse
-	33, // 90: common.ComponentAdDataService.NewComponentAdData:output_type -> common.NewComponentAdDataResponse
-	1,  // 91: common.ComponentAdDataService.DescribeContents:output_type -> common.DescribeContentsResponse
-	3,  // 92: common.ComponentAdDataService.Equals:output_type -> common.EqualsResponse
-	37, // 93: common.ComponentAdDataService.GetAdRenderId:output_type -> common.GetAdRenderIdResponse
-	39, // 94: common.ComponentAdDataService.GetRenderUri:output_type -> common.GetRenderUriResponse
-	11, // 95: common.ComponentAdDataService.HashCode:output_type -> common.HashCodeResponse
-	13, // 96: common.ComponentAdDataService.ToString:output_type -> common.ToStringResponse
-	15, // 97: common.ComponentAdDataService.WriteToParcel:output_type -> common.WriteToParcelResponse
-	1,  // 98: common.AdTechIdentifierService.DescribeContents:output_type -> common.DescribeContentsResponse
-	3,  // 99: common.AdTechIdentifierService.Equals:output_type -> common.EqualsResponse
-	11, // 100: common.AdTechIdentifierService.HashCode:output_type -> common.HashCodeResponse
-	13, // 101: common.AdTechIdentifierService.ToString:output_type -> common.ToStringResponse
-	15, // 102: common.AdTechIdentifierService.WriteToParcel:output_type -> common.WriteToParcelResponse
-	44, // 103: common.AdTechIdentifierService.FromString:output_type -> common.FromStringResponse
-	1,  // 104: common.AppInstallFiltersService.DescribeContents:output_type -> common.DescribeContentsResponse
-	3,  // 105: common.AppInstallFiltersService.Equals:output_type -> common.EqualsResponse
-	11, // 106: common.AppInstallFiltersService.HashCode:output_type -> common.HashCodeResponse
-	13, // 107: common.AppInstallFiltersService.ToString:output_type -> common.ToStringResponse
-	15, // 108: common.AppInstallFiltersService.WriteToParcel:output_type -> common.WriteToParcelResponse
-	17, // 109: common.AppInstallFiltersBuilderService.Build:output_type -> common.BuildResponse
-	1,  // 110: common.FrequencyCapFiltersService.DescribeContents:output_type -> common.DescribeContentsResponse
-	3,  // 111: common.FrequencyCapFiltersService.Equals:output_type -> common.EqualsResponse
-	11, // 112: common.FrequencyCapFiltersService.HashCode:output_type -> common.HashCodeResponse
-	13, // 113: common.FrequencyCapFiltersService.ToString:output_type -> common.ToStringResponse
-	15, // 114: common.FrequencyCapFiltersService.WriteToParcel:output_type -> common.WriteToParcelResponse
-	17, // 115: common.FrequencyCapFiltersBuilderService.Build:output_type -> common.BuildResponse
+	0,  // 12: common.AdSelectionSignalsService.DescribeContents:input_type -> common.DescribeContentsRequest
+	2,  // 13: common.AdSelectionSignalsService.Equals:input_type -> common.EqualsRequest
+	10, // 14: common.AdSelectionSignalsService.HashCode:input_type -> common.HashCodeRequest
+	12, // 15: common.AdSelectionSignalsService.ToString:input_type -> common.ToStringRequest
+	14, // 16: common.AdSelectionSignalsService.WriteToParcel:input_type -> common.WriteToParcelRequest
+	24, // 17: common.AdSelectionSignalsService.FromString:input_type -> common.FromStringRequest
+	0,  // 18: common.FrequencyCapFiltersService.DescribeContents:input_type -> common.DescribeContentsRequest
+	2,  // 19: common.FrequencyCapFiltersService.Equals:input_type -> common.EqualsRequest
+	26, // 20: common.FrequencyCapFiltersService.GetKeyedFrequencyCapsForClickEvents:input_type -> common.GetKeyedFrequencyCapsForClickEventsRequest
+	28, // 21: common.FrequencyCapFiltersService.GetKeyedFrequencyCapsForImpressionEvents:input_type -> common.GetKeyedFrequencyCapsForImpressionEventsRequest
+	30, // 22: common.FrequencyCapFiltersService.GetKeyedFrequencyCapsForViewEvents:input_type -> common.GetKeyedFrequencyCapsForViewEventsRequest
+	32, // 23: common.FrequencyCapFiltersService.GetKeyedFrequencyCapsForWinEvents:input_type -> common.GetKeyedFrequencyCapsForWinEventsRequest
+	10, // 24: common.FrequencyCapFiltersService.HashCode:input_type -> common.HashCodeRequest
+	12, // 25: common.FrequencyCapFiltersService.ToString:input_type -> common.ToStringRequest
+	14, // 26: common.FrequencyCapFiltersService.WriteToParcel:input_type -> common.WriteToParcelRequest
+	16, // 27: common.FrequencyCapFiltersBuilderService.Build:input_type -> common.BuildRequest
+	34, // 28: common.ComponentAdDataService.NewComponentAdData:input_type -> common.NewComponentAdDataRequest
+	36, // 29: common.ComponentAdDataService.DescribeContents:input_type -> common.ComponentAdDataDescribeContentsRequest
+	37, // 30: common.ComponentAdDataService.Equals:input_type -> common.ComponentAdDataEqualsRequest
+	38, // 31: common.ComponentAdDataService.GetAdRenderId:input_type -> common.GetAdRenderIdRequest
+	40, // 32: common.ComponentAdDataService.GetRenderUri:input_type -> common.GetRenderUriRequest
+	42, // 33: common.ComponentAdDataService.HashCode:input_type -> common.ComponentAdDataHashCodeRequest
+	43, // 34: common.ComponentAdDataService.ToString:input_type -> common.ComponentAdDataToStringRequest
+	44, // 35: common.ComponentAdDataService.WriteToParcel:input_type -> common.ComponentAdDataWriteToParcelRequest
+	0,  // 36: common.AdTechIdentifierService.DescribeContents:input_type -> common.DescribeContentsRequest
+	2,  // 37: common.AdTechIdentifierService.Equals:input_type -> common.EqualsRequest
+	10, // 38: common.AdTechIdentifierService.HashCode:input_type -> common.HashCodeRequest
+	12, // 39: common.AdTechIdentifierService.ToString:input_type -> common.ToStringRequest
+	14, // 40: common.AdTechIdentifierService.WriteToParcel:input_type -> common.WriteToParcelRequest
+	24, // 41: common.AdTechIdentifierService.FromString:input_type -> common.FromStringRequest
+	0,  // 42: common.AdDataService.DescribeContents:input_type -> common.DescribeContentsRequest
+	2,  // 43: common.AdDataService.Equals:input_type -> common.EqualsRequest
+	45, // 44: common.AdDataService.GetAdCounterKeys:input_type -> common.GetAdCounterKeysRequest
+	47, // 45: common.AdDataService.GetAdFilters:input_type -> common.GetAdFiltersRequest
+	49, // 46: common.AdDataService.GetAdRenderId:input_type -> common.AdDataGetAdRenderIdRequest
+	50, // 47: common.AdDataService.GetMetadata:input_type -> common.GetMetadataRequest
+	52, // 48: common.AdDataService.GetRenderUri:input_type -> common.AdDataGetRenderUriRequest
+	10, // 49: common.AdDataService.HashCode:input_type -> common.HashCodeRequest
+	12, // 50: common.AdDataService.ToString:input_type -> common.ToStringRequest
+	14, // 51: common.AdDataService.WriteToParcel:input_type -> common.WriteToParcelRequest
+	16, // 52: common.AdDataBuilderService.Build:input_type -> common.BuildRequest
+	53, // 53: common.AdDataBuilderService.SetAdFilters:input_type -> common.SetAdFiltersRequest
+	55, // 54: common.AdDataBuilderService.SetAdRenderId:input_type -> common.SetAdRenderIdRequest
+	57, // 55: common.AdDataBuilderService.SetMetadata:input_type -> common.SetMetadataRequest
+	59, // 56: common.AdDataBuilderService.SetRenderUri:input_type -> common.SetRenderUriRequest
+	0,  // 57: common.AdFiltersService.DescribeContents:input_type -> common.DescribeContentsRequest
+	2,  // 58: common.AdFiltersService.Equals:input_type -> common.EqualsRequest
+	61, // 59: common.AdFiltersService.GetAppInstallFilters:input_type -> common.GetAppInstallFiltersRequest
+	63, // 60: common.AdFiltersService.GetFrequencyCapFilters:input_type -> common.GetFrequencyCapFiltersRequest
+	10, // 61: common.AdFiltersService.HashCode:input_type -> common.HashCodeRequest
+	12, // 62: common.AdFiltersService.ToString:input_type -> common.ToStringRequest
+	14, // 63: common.AdFiltersService.WriteToParcel:input_type -> common.WriteToParcelRequest
+	16, // 64: common.AdFiltersBuilderService.Build:input_type -> common.BuildRequest
+	65, // 65: common.AdFiltersBuilderService.SetAppInstallFilters:input_type -> common.SetAppInstallFiltersRequest
+	67, // 66: common.AdFiltersBuilderService.SetFrequencyCapFilters:input_type -> common.SetFrequencyCapFiltersRequest
+	0,  // 67: common.AppInstallFiltersService.DescribeContents:input_type -> common.DescribeContentsRequest
+	2,  // 68: common.AppInstallFiltersService.Equals:input_type -> common.EqualsRequest
+	69, // 69: common.AppInstallFiltersService.GetPackageNames:input_type -> common.GetPackageNamesRequest
+	10, // 70: common.AppInstallFiltersService.HashCode:input_type -> common.HashCodeRequest
+	12, // 71: common.AppInstallFiltersService.ToString:input_type -> common.ToStringRequest
+	14, // 72: common.AppInstallFiltersService.WriteToParcel:input_type -> common.WriteToParcelRequest
+	16, // 73: common.AppInstallFiltersBuilderService.Build:input_type -> common.BuildRequest
+	1,  // 74: common.KeyedFrequencyCapService.DescribeContents:output_type -> common.DescribeContentsResponse
+	3,  // 75: common.KeyedFrequencyCapService.Equals:output_type -> common.EqualsResponse
+	5,  // 76: common.KeyedFrequencyCapService.GetAdCounterKey:output_type -> common.GetAdCounterKeyResponse
+	7,  // 77: common.KeyedFrequencyCapService.GetInterval:output_type -> common.GetIntervalResponse
+	9,  // 78: common.KeyedFrequencyCapService.GetMaxCount:output_type -> common.GetMaxCountResponse
+	11, // 79: common.KeyedFrequencyCapService.HashCode:output_type -> common.HashCodeResponse
+	13, // 80: common.KeyedFrequencyCapService.ToString:output_type -> common.ToStringResponse
+	15, // 81: common.KeyedFrequencyCapService.WriteToParcel:output_type -> common.WriteToParcelResponse
+	17, // 82: common.KeyedFrequencyCapBuilderService.Build:output_type -> common.BuildResponse
+	19, // 83: common.KeyedFrequencyCapBuilderService.SetAdCounterKey:output_type -> common.SetAdCounterKeyResponse
+	21, // 84: common.KeyedFrequencyCapBuilderService.SetInterval:output_type -> common.SetIntervalResponse
+	23, // 85: common.KeyedFrequencyCapBuilderService.SetMaxCount:output_type -> common.SetMaxCountResponse
+	1,  // 86: common.AdSelectionSignalsService.DescribeContents:output_type -> common.DescribeContentsResponse
+	3,  // 87: common.AdSelectionSignalsService.Equals:output_type -> common.EqualsResponse
+	11, // 88: common.AdSelectionSignalsService.HashCode:output_type -> common.HashCodeResponse
+	13, // 89: common.AdSelectionSignalsService.ToString:output_type -> common.ToStringResponse
+	15, // 90: common.AdSelectionSignalsService.WriteToParcel:output_type -> common.WriteToParcelResponse
+	25, // 91: common.AdSelectionSignalsService.FromString:output_type -> common.FromStringResponse
+	1,  // 92: common.FrequencyCapFiltersService.DescribeContents:output_type -> common.DescribeContentsResponse
+	3,  // 93: common.FrequencyCapFiltersService.Equals:output_type -> common.EqualsResponse
+	27, // 94: common.FrequencyCapFiltersService.GetKeyedFrequencyCapsForClickEvents:output_type -> common.GetKeyedFrequencyCapsForClickEventsResponse
+	29, // 95: common.FrequencyCapFiltersService.GetKeyedFrequencyCapsForImpressionEvents:output_type -> common.GetKeyedFrequencyCapsForImpressionEventsResponse
+	31, // 96: common.FrequencyCapFiltersService.GetKeyedFrequencyCapsForViewEvents:output_type -> common.GetKeyedFrequencyCapsForViewEventsResponse
+	33, // 97: common.FrequencyCapFiltersService.GetKeyedFrequencyCapsForWinEvents:output_type -> common.GetKeyedFrequencyCapsForWinEventsResponse
+	11, // 98: common.FrequencyCapFiltersService.HashCode:output_type -> common.HashCodeResponse
+	13, // 99: common.FrequencyCapFiltersService.ToString:output_type -> common.ToStringResponse
+	15, // 100: common.FrequencyCapFiltersService.WriteToParcel:output_type -> common.WriteToParcelResponse
+	17, // 101: common.FrequencyCapFiltersBuilderService.Build:output_type -> common.BuildResponse
+	35, // 102: common.ComponentAdDataService.NewComponentAdData:output_type -> common.NewComponentAdDataResponse
+	1,  // 103: common.ComponentAdDataService.DescribeContents:output_type -> common.DescribeContentsResponse
+	3,  // 104: common.ComponentAdDataService.Equals:output_type -> common.EqualsResponse
+	39, // 105: common.ComponentAdDataService.GetAdRenderId:output_type -> common.GetAdRenderIdResponse
+	41, // 106: common.ComponentAdDataService.GetRenderUri:output_type -> common.GetRenderUriResponse
+	11, // 107: common.ComponentAdDataService.HashCode:output_type -> common.HashCodeResponse
+	13, // 108: common.ComponentAdDataService.ToString:output_type -> common.ToStringResponse
+	15, // 109: common.ComponentAdDataService.WriteToParcel:output_type -> common.WriteToParcelResponse
+	1,  // 110: common.AdTechIdentifierService.DescribeContents:output_type -> common.DescribeContentsResponse
+	3,  // 111: common.AdTechIdentifierService.Equals:output_type -> common.EqualsResponse
+	11, // 112: common.AdTechIdentifierService.HashCode:output_type -> common.HashCodeResponse
+	13, // 113: common.AdTechIdentifierService.ToString:output_type -> common.ToStringResponse
+	15, // 114: common.AdTechIdentifierService.WriteToParcel:output_type -> common.WriteToParcelResponse
+	25, // 115: common.AdTechIdentifierService.FromString:output_type -> common.FromStringResponse
 	1,  // 116: common.AdDataService.DescribeContents:output_type -> common.DescribeContentsResponse
 	3,  // 117: common.AdDataService.Equals:output_type -> common.EqualsResponse
-	46, // 118: common.AdDataService.GetAdFilters:output_type -> common.GetAdFiltersResponse
-	37, // 119: common.AdDataService.GetAdRenderId:output_type -> common.GetAdRenderIdResponse
-	49, // 120: common.AdDataService.GetMetadata:output_type -> common.GetMetadataResponse
-	39, // 121: common.AdDataService.GetRenderUri:output_type -> common.GetRenderUriResponse
-	11, // 122: common.AdDataService.HashCode:output_type -> common.HashCodeResponse
-	13, // 123: common.AdDataService.ToString:output_type -> common.ToStringResponse
-	15, // 124: common.AdDataService.WriteToParcel:output_type -> common.WriteToParcelResponse
-	17, // 125: common.AdDataBuilderService.Build:output_type -> common.BuildResponse
-	52, // 126: common.AdDataBuilderService.SetAdFilters:output_type -> common.SetAdFiltersResponse
-	54, // 127: common.AdDataBuilderService.SetAdRenderId:output_type -> common.SetAdRenderIdResponse
-	56, // 128: common.AdDataBuilderService.SetMetadata:output_type -> common.SetMetadataResponse
-	58, // 129: common.AdDataBuilderService.SetRenderUri:output_type -> common.SetRenderUriResponse
-	1,  // 130: common.AdSelectionSignalsService.DescribeContents:output_type -> common.DescribeContentsResponse
-	3,  // 131: common.AdSelectionSignalsService.Equals:output_type -> common.EqualsResponse
-	11, // 132: common.AdSelectionSignalsService.HashCode:output_type -> common.HashCodeResponse
-	13, // 133: common.AdSelectionSignalsService.ToString:output_type -> common.ToStringResponse
-	15, // 134: common.AdSelectionSignalsService.WriteToParcel:output_type -> common.WriteToParcelResponse
-	44, // 135: common.AdSelectionSignalsService.FromString:output_type -> common.FromStringResponse
-	68, // [68:136] is the sub-list for method output_type
-	0,  // [0:68] is the sub-list for method input_type
+	46, // 118: common.AdDataService.GetAdCounterKeys:output_type -> common.GetAdCounterKeysResponse
+	48, // 119: common.AdDataService.GetAdFilters:output_type -> common.GetAdFiltersResponse
+	39, // 120: common.AdDataService.GetAdRenderId:output_type -> common.GetAdRenderIdResponse
+	51, // 121: common.AdDataService.GetMetadata:output_type -> common.GetMetadataResponse
+	41, // 122: common.AdDataService.GetRenderUri:output_type -> common.GetRenderUriResponse
+	11, // 123: common.AdDataService.HashCode:output_type -> common.HashCodeResponse
+	13, // 124: common.AdDataService.ToString:output_type -> common.ToStringResponse
+	15, // 125: common.AdDataService.WriteToParcel:output_type -> common.WriteToParcelResponse
+	17, // 126: common.AdDataBuilderService.Build:output_type -> common.BuildResponse
+	54, // 127: common.AdDataBuilderService.SetAdFilters:output_type -> common.SetAdFiltersResponse
+	56, // 128: common.AdDataBuilderService.SetAdRenderId:output_type -> common.SetAdRenderIdResponse
+	58, // 129: common.AdDataBuilderService.SetMetadata:output_type -> common.SetMetadataResponse
+	60, // 130: common.AdDataBuilderService.SetRenderUri:output_type -> common.SetRenderUriResponse
+	1,  // 131: common.AdFiltersService.DescribeContents:output_type -> common.DescribeContentsResponse
+	3,  // 132: common.AdFiltersService.Equals:output_type -> common.EqualsResponse
+	62, // 133: common.AdFiltersService.GetAppInstallFilters:output_type -> common.GetAppInstallFiltersResponse
+	64, // 134: common.AdFiltersService.GetFrequencyCapFilters:output_type -> common.GetFrequencyCapFiltersResponse
+	11, // 135: common.AdFiltersService.HashCode:output_type -> common.HashCodeResponse
+	13, // 136: common.AdFiltersService.ToString:output_type -> common.ToStringResponse
+	15, // 137: common.AdFiltersService.WriteToParcel:output_type -> common.WriteToParcelResponse
+	17, // 138: common.AdFiltersBuilderService.Build:output_type -> common.BuildResponse
+	66, // 139: common.AdFiltersBuilderService.SetAppInstallFilters:output_type -> common.SetAppInstallFiltersResponse
+	68, // 140: common.AdFiltersBuilderService.SetFrequencyCapFilters:output_type -> common.SetFrequencyCapFiltersResponse
+	1,  // 141: common.AppInstallFiltersService.DescribeContents:output_type -> common.DescribeContentsResponse
+	3,  // 142: common.AppInstallFiltersService.Equals:output_type -> common.EqualsResponse
+	70, // 143: common.AppInstallFiltersService.GetPackageNames:output_type -> common.GetPackageNamesResponse
+	11, // 144: common.AppInstallFiltersService.HashCode:output_type -> common.HashCodeResponse
+	13, // 145: common.AppInstallFiltersService.ToString:output_type -> common.ToStringResponse
+	15, // 146: common.AppInstallFiltersService.WriteToParcel:output_type -> common.WriteToParcelResponse
+	17, // 147: common.AppInstallFiltersBuilderService.Build:output_type -> common.BuildResponse
+	74, // [74:148] is the sub-list for method output_type
+	0,  // [0:74] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -2974,7 +3502,7 @@ func file_proto_common_common_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_common_common_proto_rawDesc), len(file_proto_common_common_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   59,
+			NumMessages:   71,
 			NumExtensions: 0,
 			NumServices:   13,
 		},

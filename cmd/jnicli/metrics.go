@@ -12,6 +12,78 @@ var metricsCmd = &cobra.Command{
 	Short: "metrics service operations",
 }
 
+var metricsRecordingSessionCmd = &cobra.Command{
+	Use:   "recording-session",
+	Short: "RecordingSessionService operations",
+}
+
+var metricsRecordingSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordingSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsRecordingSessionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordingSessionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsRecordingSessionGetSessionIdCmd = &cobra.Command{
+	Use:   "get-session-id",
+	Short: "GetSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordingSessionServiceClient(grpcConn)
+		req := &pb.GetSessionIdRequest{}
+		resp, err := client.GetSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsRecordingSessionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRecordingSessionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var metricsEditingEndedEventCmd = &cobra.Command{
 	Use:   "editing-ended-event",
 	Short: "EditingEndedEventService operations",
@@ -109,6 +181,22 @@ var metricsEditingEndedEventGetFinalStateCmd = &cobra.Command{
 		client := pb.NewEditingEndedEventServiceClient(grpcConn)
 		req := &pb.GetFinalStateRequest{}
 		resp, err := client.GetFinalState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsEditingEndedEventGetInputMediaItemInfosCmd = &cobra.Command{
+	Use:   "get-input-media-item-infos",
+	Short: "GetInputMediaItemInfos RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditingEndedEventServiceClient(grpcConn)
+		req := &pb.GetInputMediaItemInfosRequest{}
+		resp, err := client.GetInputMediaItemInfos(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -442,18 +530,18 @@ var metricsEditingEndedEventBuilderSetTimeSinceCreatedMillisCmd = &cobra.Command
 	},
 }
 
-var metricsMediaItemInfoCmd = &cobra.Command{
-	Use:   "media-item-info",
-	Short: "MediaItemInfoService operations",
+var metricsPlaybackStateEventCmd = &cobra.Command{
+	Use:   "playback-state-event",
+	Short: "PlaybackStateEventService operations",
 }
 
-var metricsMediaItemInfoDescribeContentsCmd = &cobra.Command{
+var metricsPlaybackStateEventDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -463,13 +551,13 @@ var metricsMediaItemInfoDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoEqualsCmd = &cobra.Command{
+var metricsPlaybackStateEventEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -482,15 +570,15 @@ var metricsMediaItemInfoEqualsCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoGetAudioChannelCountCmd = &cobra.Command{
-	Use:   "get-audio-channel-count",
-	Short: "GetAudioChannelCount RPC",
+var metricsPlaybackStateEventGetMetricsBundleCmd = &cobra.Command{
+	Use:   "get-metrics-bundle",
+	Short: "GetMetricsBundle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetAudioChannelCountRequest{}
-		resp, err := client.GetAudioChannelCount(ctx, req)
+		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
+		req := &pb.GetMetricsBundleRequest{}
+		resp, err := client.GetMetricsBundle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -498,15 +586,15 @@ var metricsMediaItemInfoGetAudioChannelCountCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoGetAudioSampleCountCmd = &cobra.Command{
-	Use:   "get-audio-sample-count",
-	Short: "GetAudioSampleCount RPC",
+var metricsPlaybackStateEventGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetAudioSampleCountRequest{}
-		resp, err := client.GetAudioSampleCount(ctx, req)
+		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		resp, err := client.GetState(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -514,15 +602,15 @@ var metricsMediaItemInfoGetAudioSampleCountCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoGetAudioSampleRateHzCmd = &cobra.Command{
-	Use:   "get-audio-sample-rate-hz",
-	Short: "GetAudioSampleRateHz RPC",
+var metricsPlaybackStateEventGetTimeSinceCreatedMillisCmd = &cobra.Command{
+	Use:   "get-time-since-created-millis",
+	Short: "GetTimeSinceCreatedMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetAudioSampleRateHzRequest{}
-		resp, err := client.GetAudioSampleRateHz(ctx, req)
+		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
+		req := &pb.GetTimeSinceCreatedMillisRequest{}
+		resp, err := client.GetTimeSinceCreatedMillis(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -530,157 +618,13 @@ var metricsMediaItemInfoGetAudioSampleRateHzCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoGetClipDurationMillisCmd = &cobra.Command{
-	Use:   "get-clip-duration-millis",
-	Short: "GetClipDurationMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetClipDurationMillisRequest{}
-		resp, err := client.GetClipDurationMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoGetContainerMimeTypeCmd = &cobra.Command{
-	Use:   "get-container-mime-type",
-	Short: "GetContainerMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetContainerMimeTypeRequest{}
-		resp, err := client.GetContainerMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoGetDataTypesCmd = &cobra.Command{
-	Use:   "get-data-types",
-	Short: "GetDataTypes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetDataTypesRequest{}
-		resp, err := client.GetDataTypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoGetDurationMillisCmd = &cobra.Command{
-	Use:   "get-duration-millis",
-	Short: "GetDurationMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetDurationMillisRequest{}
-		resp, err := client.GetDurationMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoGetSourceTypeCmd = &cobra.Command{
-	Use:   "get-source-type",
-	Short: "GetSourceType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetSourceTypeRequest{}
-		resp, err := client.GetSourceType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoGetVideoDataSpaceCmd = &cobra.Command{
-	Use:   "get-video-data-space",
-	Short: "GetVideoDataSpace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetVideoDataSpaceRequest{}
-		resp, err := client.GetVideoDataSpace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoGetVideoFrameRateCmd = &cobra.Command{
-	Use:   "get-video-frame-rate",
-	Short: "GetVideoFrameRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetVideoFrameRateRequest{}
-		resp, err := client.GetVideoFrameRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoGetVideoSampleCountCmd = &cobra.Command{
-	Use:   "get-video-sample-count",
-	Short: "GetVideoSampleCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetVideoSampleCountRequest{}
-		resp, err := client.GetVideoSampleCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoGetVideoSizeCmd = &cobra.Command{
-	Use:   "get-video-size",
-	Short: "GetVideoSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.GetVideoSizeRequest{}
-		resp, err := client.GetVideoSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoHashCodeCmd = &cobra.Command{
+var metricsPlaybackStateEventHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -690,29 +634,13 @@ var metricsMediaItemInfoHashCodeCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoWriteToParcelCmd = &cobra.Command{
+var metricsPlaybackStateEventWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -728,75 +656,18 @@ var metricsMediaItemInfoWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderCmd = &cobra.Command{
-	Use:   "media-item-info-builder",
-	Short: "MediaItemInfoBuilderService operations",
+var metricsPlaybackStateEventBuilderCmd = &cobra.Command{
+	Use:   "playback-state-event-builder",
+	Short: "PlaybackStateEventBuilderService operations",
 }
 
-var metricsMediaItemInfoBuilderAddCodecNameCmd = &cobra.Command{
-	Use:   "add-codec-name",
-	Short: "AddCodecName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.AddCodecNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddCodecName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoBuilderAddDataTypeCmd = &cobra.Command{
-	Use:   "add-data-type",
-	Short: "AddDataType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.AddDataTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddDataType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoBuilderAddSampleMimeTypeCmd = &cobra.Command{
-	Use:   "add-sample-mime-type",
-	Short: "AddSampleMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.AddSampleMimeTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddSampleMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoBuilderBuildCmd = &cobra.Command{
+var metricsPlaybackStateEventBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		client := pb.NewPlaybackStateEventBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -806,37 +677,18 @@ var metricsMediaItemInfoBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetAudioChannelCountCmd = &cobra.Command{
-	Use:   "set-audio-channel-count",
-	Short: "SetAudioChannelCount RPC",
+var metricsPlaybackStateEventBuilderSetMetricsBundleCmd = &cobra.Command{
+	Use:   "set-metrics-bundle",
+	Short: "SetMetricsBundle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetAudioChannelCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAudioChannelCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoBuilderSetAudioSampleCountCmd = &cobra.Command{
-	Use:   "set-audio-sample-count",
-	Short: "SetAudioSampleCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetAudioSampleCountRequest{}
+		client := pb.NewPlaybackStateEventBuilderServiceClient(grpcConn)
+		req := &pb.SetMetricsBundleRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetAudioSampleCount(ctx, req)
+		resp, err := client.SetMetricsBundle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -844,18 +696,18 @@ var metricsMediaItemInfoBuilderSetAudioSampleCountCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetAudioSampleRateHzCmd = &cobra.Command{
-	Use:   "set-audio-sample-rate-hz",
-	Short: "SetAudioSampleRateHz RPC",
+var metricsPlaybackStateEventBuilderSetStateCmd = &cobra.Command{
+	Use:   "set-state",
+	Short: "SetState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetAudioSampleRateHzRequest{}
+		client := pb.NewPlaybackStateEventBuilderServiceClient(grpcConn)
+		req := &pb.SetStateRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetAudioSampleRateHz(ctx, req)
+		resp, err := client.SetState(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -863,18 +715,18 @@ var metricsMediaItemInfoBuilderSetAudioSampleRateHzCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetClipDurationMillisCmd = &cobra.Command{
-	Use:   "set-clip-duration-millis",
-	Short: "SetClipDurationMillis RPC",
+var metricsPlaybackStateEventBuilderSetTimeSinceCreatedMillisCmd = &cobra.Command{
+	Use:   "set-time-since-created-millis",
+	Short: "SetTimeSinceCreatedMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetClipDurationMillisRequest{}
+		client := pb.NewPlaybackStateEventBuilderServiceClient(grpcConn)
+		req := &pb.SetTimeSinceCreatedMillisRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetClipDurationMillis(ctx, req)
+		resp, err := client.SetTimeSinceCreatedMillis(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -882,13 +734,564 @@ var metricsMediaItemInfoBuilderSetClipDurationMillisCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetContainerMimeTypeCmd = &cobra.Command{
+var metricsMediaMetricsManagerCmd = &cobra.Command{
+	Use:   "media-metrics-manager",
+	Short: "MediaMetricsManagerService operations",
+}
+
+var metricsMediaMetricsManagerCreateBundleSessionCmd = &cobra.Command{
+	Use:   "create-bundle-session",
+	Short: "CreateBundleSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
+		req := &pb.CreateBundleSessionRequest{}
+		resp, err := client.CreateBundleSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaMetricsManagerCreateEditingSessionCmd = &cobra.Command{
+	Use:   "create-editing-session",
+	Short: "CreateEditingSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
+		req := &pb.CreateEditingSessionRequest{}
+		resp, err := client.CreateEditingSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaMetricsManagerCreatePlaybackSessionCmd = &cobra.Command{
+	Use:   "create-playback-session",
+	Short: "CreatePlaybackSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
+		req := &pb.CreatePlaybackSessionRequest{}
+		resp, err := client.CreatePlaybackSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaMetricsManagerCreateRecordingSessionCmd = &cobra.Command{
+	Use:   "create-recording-session",
+	Short: "CreateRecordingSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
+		req := &pb.CreateRecordingSessionRequest{}
+		resp, err := client.CreateRecordingSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaMetricsManagerCreateTranscodingSessionCmd = &cobra.Command{
+	Use:   "create-transcoding-session",
+	Short: "CreateTranscodingSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
+		req := &pb.CreateTranscodingSessionRequest{}
+		resp, err := client.CreateTranscodingSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaMetricsManagerReleaseSessionIdCmd = &cobra.Command{
+	Use:   "release-session-id",
+	Short: "ReleaseSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
+		req := &pb.ReleaseSessionIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReleaseSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventCmd = &cobra.Command{
+	Use:   "track-change-event",
+	Short: "TrackChangeEventService operations",
+}
+
+var metricsTrackChangeEventDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetAudioSampleRateCmd = &cobra.Command{
+	Use:   "get-audio-sample-rate",
+	Short: "GetAudioSampleRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetAudioSampleRateRequest{}
+		resp, err := client.GetAudioSampleRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetBitrateCmd = &cobra.Command{
+	Use:   "get-bitrate",
+	Short: "GetBitrate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetBitrateRequest{}
+		resp, err := client.GetBitrate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetChannelCountCmd = &cobra.Command{
+	Use:   "get-channel-count",
+	Short: "GetChannelCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetChannelCountRequest{}
+		resp, err := client.GetChannelCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetCodecNameCmd = &cobra.Command{
+	Use:   "get-codec-name",
+	Short: "GetCodecName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetCodecNameRequest{}
+		resp, err := client.GetCodecName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetContainerMimeTypeCmd = &cobra.Command{
+	Use:   "get-container-mime-type",
+	Short: "GetContainerMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetContainerMimeTypeRequest{}
+		resp, err := client.GetContainerMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetHeightCmd = &cobra.Command{
+	Use:   "get-height",
+	Short: "GetHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetHeightRequest{}
+		resp, err := client.GetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetLanguageCmd = &cobra.Command{
+	Use:   "get-language",
+	Short: "GetLanguage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetLanguageRequest{}
+		resp, err := client.GetLanguage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetLanguageRegionCmd = &cobra.Command{
+	Use:   "get-language-region",
+	Short: "GetLanguageRegion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetLanguageRegionRequest{}
+		resp, err := client.GetLanguageRegion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetMetricsBundleCmd = &cobra.Command{
+	Use:   "get-metrics-bundle",
+	Short: "GetMetricsBundle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetMetricsBundleRequest{}
+		resp, err := client.GetMetricsBundle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetSampleMimeTypeCmd = &cobra.Command{
+	Use:   "get-sample-mime-type",
+	Short: "GetSampleMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetSampleMimeTypeRequest{}
+		resp, err := client.GetSampleMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetTimeSinceCreatedMillisCmd = &cobra.Command{
+	Use:   "get-time-since-created-millis",
+	Short: "GetTimeSinceCreatedMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetTimeSinceCreatedMillisRequest{}
+		resp, err := client.GetTimeSinceCreatedMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetTrackChangeReasonCmd = &cobra.Command{
+	Use:   "get-track-change-reason",
+	Short: "GetTrackChangeReason RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetTrackChangeReasonRequest{}
+		resp, err := client.GetTrackChangeReason(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetTrackStateCmd = &cobra.Command{
+	Use:   "get-track-state",
+	Short: "GetTrackState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetTrackStateRequest{}
+		resp, err := client.GetTrackState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetTrackTypeCmd = &cobra.Command{
+	Use:   "get-track-type",
+	Short: "GetTrackType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetTrackTypeRequest{}
+		resp, err := client.GetTrackType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetVideoFrameRateCmd = &cobra.Command{
+	Use:   "get-video-frame-rate",
+	Short: "GetVideoFrameRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetVideoFrameRateRequest{}
+		resp, err := client.GetVideoFrameRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventGetWidthCmd = &cobra.Command{
+	Use:   "get-width",
+	Short: "GetWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.GetWidthRequest{}
+		resp, err := client.GetWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderCmd = &cobra.Command{
+	Use:   "track-change-event-builder",
+	Short: "TrackChangeEventBuilderService operations",
+}
+
+var metricsTrackChangeEventBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetAudioSampleRateCmd = &cobra.Command{
+	Use:   "set-audio-sample-rate",
+	Short: "SetAudioSampleRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetAudioSampleRateRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAudioSampleRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetBitrateCmd = &cobra.Command{
+	Use:   "set-bitrate",
+	Short: "SetBitrate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetBitrateRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBitrate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetChannelCountCmd = &cobra.Command{
+	Use:   "set-channel-count",
+	Short: "SetChannelCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetChannelCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChannelCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetCodecNameCmd = &cobra.Command{
+	Use:   "set-codec-name",
+	Short: "SetCodecName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetCodecNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCodecName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetContainerMimeTypeCmd = &cobra.Command{
 	Use:   "set-container-mime-type",
 	Short: "SetContainerMimeType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
 		req := &pb.SetContainerMimeTypeRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -901,18 +1304,75 @@ var metricsMediaItemInfoBuilderSetContainerMimeTypeCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetDurationMillisCmd = &cobra.Command{
-	Use:   "set-duration-millis",
-	Short: "SetDurationMillis RPC",
+var metricsTrackChangeEventBuilderSetHeightCmd = &cobra.Command{
+	Use:   "set-height",
+	Short: "SetHeight RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetDurationMillisRequest{}
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetHeightRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetLanguageCmd = &cobra.Command{
+	Use:   "set-language",
+	Short: "SetLanguage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetLanguageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLanguage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetLanguageRegionCmd = &cobra.Command{
+	Use:   "set-language-region",
+	Short: "SetLanguageRegion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetLanguageRegionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLanguageRegion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetMetricsBundleCmd = &cobra.Command{
+	Use:   "set-metrics-bundle",
+	Short: "SetMetricsBundle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetMetricsBundleRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetDurationMillis(ctx, req)
+		resp, err := client.SetMetricsBundle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -920,18 +1380,18 @@ var metricsMediaItemInfoBuilderSetDurationMillisCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetSourceTypeCmd = &cobra.Command{
-	Use:   "set-source-type",
-	Short: "SetSourceType RPC",
+var metricsTrackChangeEventBuilderSetSampleMimeTypeCmd = &cobra.Command{
+	Use:   "set-sample-mime-type",
+	Short: "SetSampleMimeType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetSourceTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetSampleMimeTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetSourceType(ctx, req)
+		resp, err := client.SetSampleMimeType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -939,18 +1399,18 @@ var metricsMediaItemInfoBuilderSetSourceTypeCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetVideoDataSpaceCmd = &cobra.Command{
-	Use:   "set-video-data-space",
-	Short: "SetVideoDataSpace RPC",
+var metricsTrackChangeEventBuilderSetTimeSinceCreatedMillisCmd = &cobra.Command{
+	Use:   "set-time-since-created-millis",
+	Short: "SetTimeSinceCreatedMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetVideoDataSpaceRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetTimeSinceCreatedMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetVideoDataSpace(ctx, req)
+		resp, err := client.SetTimeSinceCreatedMillis(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -958,13 +1418,51 @@ var metricsMediaItemInfoBuilderSetVideoDataSpaceCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetVideoFrameRateCmd = &cobra.Command{
+var metricsTrackChangeEventBuilderSetTrackChangeReasonCmd = &cobra.Command{
+	Use:   "set-track-change-reason",
+	Short: "SetTrackChangeReason RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetTrackChangeReasonRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTrackChangeReason(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetTrackStateCmd = &cobra.Command{
+	Use:   "set-track-state",
+	Short: "SetTrackState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetTrackStateRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTrackState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTrackChangeEventBuilderSetVideoFrameRateCmd = &cobra.Command{
 	Use:   "set-video-frame-rate",
 	Short: "SetVideoFrameRate RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
 		req := &pb.SetVideoFrameRateRequest{}
 		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
 			req.Arg0 = v
@@ -977,37 +1475,18 @@ var metricsMediaItemInfoBuilderSetVideoFrameRateCmd = &cobra.Command{
 	},
 }
 
-var metricsMediaItemInfoBuilderSetVideoSampleCountCmd = &cobra.Command{
-	Use:   "set-video-sample-count",
-	Short: "SetVideoSampleCount RPC",
+var metricsTrackChangeEventBuilderSetWidthCmd = &cobra.Command{
+	Use:   "set-width",
+	Short: "SetWidth RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetVideoSampleCountRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
+		req := &pb.SetWidthRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetVideoSampleCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaItemInfoBuilderSetVideoSizeCmd = &cobra.Command{
-	Use:   "set-video-size",
-	Short: "SetVideoSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetVideoSizeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVideoSize(ctx, req)
+		resp, err := client.SetWidth(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1999,468 +2478,6 @@ var metricsPlaybackErrorEventBuilderSetTimeSinceCreatedMillisCmd = &cobra.Comman
 	},
 }
 
-var metricsPlaybackStateEventCmd = &cobra.Command{
-	Use:   "playback-state-event",
-	Short: "PlaybackStateEventService operations",
-}
-
-var metricsPlaybackStateEventDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventGetMetricsBundleCmd = &cobra.Command{
-	Use:   "get-metrics-bundle",
-	Short: "GetMetricsBundle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
-		req := &pb.GetMetricsBundleRequest{}
-		resp, err := client.GetMetricsBundle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventGetStateCmd = &cobra.Command{
-	Use:   "get-state",
-	Short: "GetState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
-		req := &pb.GetStateRequest{}
-		resp, err := client.GetState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventGetTimeSinceCreatedMillisCmd = &cobra.Command{
-	Use:   "get-time-since-created-millis",
-	Short: "GetTimeSinceCreatedMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
-		req := &pb.GetTimeSinceCreatedMillisRequest{}
-		resp, err := client.GetTimeSinceCreatedMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventBuilderCmd = &cobra.Command{
-	Use:   "playback-state-event-builder",
-	Short: "PlaybackStateEventBuilderService operations",
-}
-
-var metricsPlaybackStateEventBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventBuilderSetMetricsBundleCmd = &cobra.Command{
-	Use:   "set-metrics-bundle",
-	Short: "SetMetricsBundle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventBuilderServiceClient(grpcConn)
-		req := &pb.SetMetricsBundleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMetricsBundle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventBuilderSetStateCmd = &cobra.Command{
-	Use:   "set-state",
-	Short: "SetState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventBuilderServiceClient(grpcConn)
-		req := &pb.SetStateRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackStateEventBuilderSetTimeSinceCreatedMillisCmd = &cobra.Command{
-	Use:   "set-time-since-created-millis",
-	Short: "SetTimeSinceCreatedMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackStateEventBuilderServiceClient(grpcConn)
-		req := &pb.SetTimeSinceCreatedMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTimeSinceCreatedMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionCmd = &cobra.Command{
-	Use:   "playback-session",
-	Short: "PlaybackSessionService operations",
-}
-
-var metricsPlaybackSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionGetSessionIdCmd = &cobra.Command{
-	Use:   "get-session-id",
-	Short: "GetSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.GetSessionIdRequest{}
-		resp, err := client.GetSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionReportNetworkEventCmd = &cobra.Command{
-	Use:   "report-network-event",
-	Short: "ReportNetworkEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.ReportNetworkEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReportNetworkEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionReportPlaybackErrorEventCmd = &cobra.Command{
-	Use:   "report-playback-error-event",
-	Short: "ReportPlaybackErrorEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.ReportPlaybackErrorEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReportPlaybackErrorEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionReportPlaybackMetricsCmd = &cobra.Command{
-	Use:   "report-playback-metrics",
-	Short: "ReportPlaybackMetrics RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.ReportPlaybackMetricsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReportPlaybackMetrics(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionReportPlaybackStateEventCmd = &cobra.Command{
-	Use:   "report-playback-state-event",
-	Short: "ReportPlaybackStateEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.ReportPlaybackStateEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReportPlaybackStateEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsPlaybackSessionReportTrackChangeEventCmd = &cobra.Command{
-	Use:   "report-track-change-event",
-	Short: "ReportTrackChangeEvent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPlaybackSessionServiceClient(grpcConn)
-		req := &pb.ReportTrackChangeEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReportTrackChangeEvent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsBundleSessionCmd = &cobra.Command{
-	Use:   "bundle-session",
-	Short: "BundleSessionService operations",
-}
-
-var metricsBundleSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBundleSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsBundleSessionEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBundleSessionServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsBundleSessionGetSessionIdCmd = &cobra.Command{
-	Use:   "get-session-id",
-	Short: "GetSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBundleSessionServiceClient(grpcConn)
-		req := &pb.GetSessionIdRequest{}
-		resp, err := client.GetSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsBundleSessionHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBundleSessionServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsBundleSessionReportBundleMetricsCmd = &cobra.Command{
-	Use:   "report-bundle-metrics",
-	Short: "ReportBundleMetrics RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBundleSessionServiceClient(grpcConn)
-		req := &pb.ReportBundleMetricsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReportBundleMetrics(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var metricsNetworkEventCmd = &cobra.Command{
 	Use:   "network-event",
 	Short: "NetworkEventService operations",
@@ -2681,6 +2698,1013 @@ var metricsNetworkEventBuilderSetTimeSinceCreatedMillisCmd = &cobra.Command{
 	},
 }
 
+var metricsTranscodingSessionCmd = &cobra.Command{
+	Use:   "transcoding-session",
+	Short: "TranscodingSessionService operations",
+}
+
+var metricsTranscodingSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTranscodingSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTranscodingSessionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTranscodingSessionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTranscodingSessionGetSessionIdCmd = &cobra.Command{
+	Use:   "get-session-id",
+	Short: "GetSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTranscodingSessionServiceClient(grpcConn)
+		req := &pb.GetSessionIdRequest{}
+		resp, err := client.GetSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsTranscodingSessionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTranscodingSessionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsLogSessionIdCmd = &cobra.Command{
+	Use:   "log-session-id",
+	Short: "LogSessionIdService operations",
+}
+
+var metricsLogSessionIdEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLogSessionIdServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsLogSessionIdGetStringIdCmd = &cobra.Command{
+	Use:   "get-string-id",
+	Short: "GetStringId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLogSessionIdServiceClient(grpcConn)
+		req := &pb.GetStringIdRequest{}
+		resp, err := client.GetStringId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsLogSessionIdHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLogSessionIdServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsLogSessionIdToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLogSessionIdServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoCmd = &cobra.Command{
+	Use:   "media-item-info",
+	Short: "MediaItemInfoService operations",
+}
+
+var metricsMediaItemInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetAudioChannelCountCmd = &cobra.Command{
+	Use:   "get-audio-channel-count",
+	Short: "GetAudioChannelCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetAudioChannelCountRequest{}
+		resp, err := client.GetAudioChannelCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetAudioSampleCountCmd = &cobra.Command{
+	Use:   "get-audio-sample-count",
+	Short: "GetAudioSampleCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetAudioSampleCountRequest{}
+		resp, err := client.GetAudioSampleCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetAudioSampleRateHzCmd = &cobra.Command{
+	Use:   "get-audio-sample-rate-hz",
+	Short: "GetAudioSampleRateHz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetAudioSampleRateHzRequest{}
+		resp, err := client.GetAudioSampleRateHz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetClipDurationMillisCmd = &cobra.Command{
+	Use:   "get-clip-duration-millis",
+	Short: "GetClipDurationMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetClipDurationMillisRequest{}
+		resp, err := client.GetClipDurationMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetCodecNamesCmd = &cobra.Command{
+	Use:   "get-codec-names",
+	Short: "GetCodecNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetCodecNamesRequest{}
+		resp, err := client.GetCodecNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetContainerMimeTypeCmd = &cobra.Command{
+	Use:   "get-container-mime-type",
+	Short: "GetContainerMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetContainerMimeTypeRequest{}
+		resp, err := client.GetContainerMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetDataTypesCmd = &cobra.Command{
+	Use:   "get-data-types",
+	Short: "GetDataTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetDataTypesRequest{}
+		resp, err := client.GetDataTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetDurationMillisCmd = &cobra.Command{
+	Use:   "get-duration-millis",
+	Short: "GetDurationMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetDurationMillisRequest{}
+		resp, err := client.GetDurationMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetSampleMimeTypesCmd = &cobra.Command{
+	Use:   "get-sample-mime-types",
+	Short: "GetSampleMimeTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetSampleMimeTypesRequest{}
+		resp, err := client.GetSampleMimeTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetSourceTypeCmd = &cobra.Command{
+	Use:   "get-source-type",
+	Short: "GetSourceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetSourceTypeRequest{}
+		resp, err := client.GetSourceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetVideoDataSpaceCmd = &cobra.Command{
+	Use:   "get-video-data-space",
+	Short: "GetVideoDataSpace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetVideoDataSpaceRequest{}
+		resp, err := client.GetVideoDataSpace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetVideoFrameRateCmd = &cobra.Command{
+	Use:   "get-video-frame-rate",
+	Short: "GetVideoFrameRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetVideoFrameRateRequest{}
+		resp, err := client.GetVideoFrameRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetVideoSampleCountCmd = &cobra.Command{
+	Use:   "get-video-sample-count",
+	Short: "GetVideoSampleCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetVideoSampleCountRequest{}
+		resp, err := client.GetVideoSampleCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoGetVideoSizeCmd = &cobra.Command{
+	Use:   "get-video-size",
+	Short: "GetVideoSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.GetVideoSizeRequest{}
+		resp, err := client.GetVideoSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderCmd = &cobra.Command{
+	Use:   "media-item-info-builder",
+	Short: "MediaItemInfoBuilderService operations",
+}
+
+var metricsMediaItemInfoBuilderAddCodecNameCmd = &cobra.Command{
+	Use:   "add-codec-name",
+	Short: "AddCodecName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddCodecNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddCodecName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderAddDataTypeCmd = &cobra.Command{
+	Use:   "add-data-type",
+	Short: "AddDataType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddDataTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDataType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderAddSampleMimeTypeCmd = &cobra.Command{
+	Use:   "add-sample-mime-type",
+	Short: "AddSampleMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddSampleMimeTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddSampleMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetAudioChannelCountCmd = &cobra.Command{
+	Use:   "set-audio-channel-count",
+	Short: "SetAudioChannelCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetAudioChannelCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAudioChannelCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetAudioSampleCountCmd = &cobra.Command{
+	Use:   "set-audio-sample-count",
+	Short: "SetAudioSampleCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetAudioSampleCountRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAudioSampleCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetAudioSampleRateHzCmd = &cobra.Command{
+	Use:   "set-audio-sample-rate-hz",
+	Short: "SetAudioSampleRateHz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetAudioSampleRateHzRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAudioSampleRateHz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetClipDurationMillisCmd = &cobra.Command{
+	Use:   "set-clip-duration-millis",
+	Short: "SetClipDurationMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetClipDurationMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetClipDurationMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetContainerMimeTypeCmd = &cobra.Command{
+	Use:   "set-container-mime-type",
+	Short: "SetContainerMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetContainerMimeTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContainerMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetDurationMillisCmd = &cobra.Command{
+	Use:   "set-duration-millis",
+	Short: "SetDurationMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetDurationMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDurationMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetSourceTypeCmd = &cobra.Command{
+	Use:   "set-source-type",
+	Short: "SetSourceType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetSourceTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSourceType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetVideoDataSpaceCmd = &cobra.Command{
+	Use:   "set-video-data-space",
+	Short: "SetVideoDataSpace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetVideoDataSpaceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVideoDataSpace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetVideoFrameRateCmd = &cobra.Command{
+	Use:   "set-video-frame-rate",
+	Short: "SetVideoFrameRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetVideoFrameRateRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVideoFrameRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetVideoSampleCountCmd = &cobra.Command{
+	Use:   "set-video-sample-count",
+	Short: "SetVideoSampleCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetVideoSampleCountRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVideoSampleCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsMediaItemInfoBuilderSetVideoSizeCmd = &cobra.Command{
+	Use:   "set-video-size",
+	Short: "SetVideoSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaItemInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetVideoSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVideoSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsBundleSessionCmd = &cobra.Command{
+	Use:   "bundle-session",
+	Short: "BundleSessionService operations",
+}
+
+var metricsBundleSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBundleSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsBundleSessionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBundleSessionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsBundleSessionGetSessionIdCmd = &cobra.Command{
+	Use:   "get-session-id",
+	Short: "GetSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBundleSessionServiceClient(grpcConn)
+		req := &pb.GetSessionIdRequest{}
+		resp, err := client.GetSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsBundleSessionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBundleSessionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsBundleSessionReportBundleMetricsCmd = &cobra.Command{
+	Use:   "report-bundle-metrics",
+	Short: "ReportBundleMetrics RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBundleSessionServiceClient(grpcConn)
+		req := &pb.ReportBundleMetricsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportBundleMetrics(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionCmd = &cobra.Command{
+	Use:   "playback-session",
+	Short: "PlaybackSessionService operations",
+}
+
+var metricsPlaybackSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionGetSessionIdCmd = &cobra.Command{
+	Use:   "get-session-id",
+	Short: "GetSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.GetSessionIdRequest{}
+		resp, err := client.GetSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionReportNetworkEventCmd = &cobra.Command{
+	Use:   "report-network-event",
+	Short: "ReportNetworkEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.ReportNetworkEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportNetworkEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionReportPlaybackErrorEventCmd = &cobra.Command{
+	Use:   "report-playback-error-event",
+	Short: "ReportPlaybackErrorEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.ReportPlaybackErrorEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportPlaybackErrorEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionReportPlaybackMetricsCmd = &cobra.Command{
+	Use:   "report-playback-metrics",
+	Short: "ReportPlaybackMetrics RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.ReportPlaybackMetricsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportPlaybackMetrics(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionReportPlaybackStateEventCmd = &cobra.Command{
+	Use:   "report-playback-state-event",
+	Short: "ReportPlaybackStateEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.ReportPlaybackStateEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportPlaybackStateEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var metricsPlaybackSessionReportTrackChangeEventCmd = &cobra.Command{
+	Use:   "report-track-change-event",
+	Short: "ReportTrackChangeEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPlaybackSessionServiceClient(grpcConn)
+		req := &pb.ReportTrackChangeEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportTrackChangeEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var metricsEditingSessionCmd = &cobra.Command{
 	Use:   "editing-session",
 	Short: "EditingSessionService operations",
@@ -2772,838 +3796,6 @@ var metricsEditingSessionReportEditingEndedEventCmd = &cobra.Command{
 	},
 }
 
-var metricsTrackChangeEventCmd = &cobra.Command{
-	Use:   "track-change-event",
-	Short: "TrackChangeEventService operations",
-}
-
-var metricsTrackChangeEventDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetAudioSampleRateCmd = &cobra.Command{
-	Use:   "get-audio-sample-rate",
-	Short: "GetAudioSampleRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetAudioSampleRateRequest{}
-		resp, err := client.GetAudioSampleRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetBitrateCmd = &cobra.Command{
-	Use:   "get-bitrate",
-	Short: "GetBitrate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetBitrateRequest{}
-		resp, err := client.GetBitrate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetChannelCountCmd = &cobra.Command{
-	Use:   "get-channel-count",
-	Short: "GetChannelCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetChannelCountRequest{}
-		resp, err := client.GetChannelCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetCodecNameCmd = &cobra.Command{
-	Use:   "get-codec-name",
-	Short: "GetCodecName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetCodecNameRequest{}
-		resp, err := client.GetCodecName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetContainerMimeTypeCmd = &cobra.Command{
-	Use:   "get-container-mime-type",
-	Short: "GetContainerMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetContainerMimeTypeRequest{}
-		resp, err := client.GetContainerMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetHeightCmd = &cobra.Command{
-	Use:   "get-height",
-	Short: "GetHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetHeightRequest{}
-		resp, err := client.GetHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetLanguageCmd = &cobra.Command{
-	Use:   "get-language",
-	Short: "GetLanguage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetLanguageRequest{}
-		resp, err := client.GetLanguage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetLanguageRegionCmd = &cobra.Command{
-	Use:   "get-language-region",
-	Short: "GetLanguageRegion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetLanguageRegionRequest{}
-		resp, err := client.GetLanguageRegion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetMetricsBundleCmd = &cobra.Command{
-	Use:   "get-metrics-bundle",
-	Short: "GetMetricsBundle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetMetricsBundleRequest{}
-		resp, err := client.GetMetricsBundle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetSampleMimeTypeCmd = &cobra.Command{
-	Use:   "get-sample-mime-type",
-	Short: "GetSampleMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetSampleMimeTypeRequest{}
-		resp, err := client.GetSampleMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetTimeSinceCreatedMillisCmd = &cobra.Command{
-	Use:   "get-time-since-created-millis",
-	Short: "GetTimeSinceCreatedMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetTimeSinceCreatedMillisRequest{}
-		resp, err := client.GetTimeSinceCreatedMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetTrackChangeReasonCmd = &cobra.Command{
-	Use:   "get-track-change-reason",
-	Short: "GetTrackChangeReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetTrackChangeReasonRequest{}
-		resp, err := client.GetTrackChangeReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetTrackStateCmd = &cobra.Command{
-	Use:   "get-track-state",
-	Short: "GetTrackState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetTrackStateRequest{}
-		resp, err := client.GetTrackState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetTrackTypeCmd = &cobra.Command{
-	Use:   "get-track-type",
-	Short: "GetTrackType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetTrackTypeRequest{}
-		resp, err := client.GetTrackType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetVideoFrameRateCmd = &cobra.Command{
-	Use:   "get-video-frame-rate",
-	Short: "GetVideoFrameRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetVideoFrameRateRequest{}
-		resp, err := client.GetVideoFrameRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventGetWidthCmd = &cobra.Command{
-	Use:   "get-width",
-	Short: "GetWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.GetWidthRequest{}
-		resp, err := client.GetWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderCmd = &cobra.Command{
-	Use:   "track-change-event-builder",
-	Short: "TrackChangeEventBuilderService operations",
-}
-
-var metricsTrackChangeEventBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetAudioSampleRateCmd = &cobra.Command{
-	Use:   "set-audio-sample-rate",
-	Short: "SetAudioSampleRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetAudioSampleRateRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAudioSampleRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetBitrateCmd = &cobra.Command{
-	Use:   "set-bitrate",
-	Short: "SetBitrate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetBitrateRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBitrate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetChannelCountCmd = &cobra.Command{
-	Use:   "set-channel-count",
-	Short: "SetChannelCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetChannelCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetChannelCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetCodecNameCmd = &cobra.Command{
-	Use:   "set-codec-name",
-	Short: "SetCodecName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetCodecNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCodecName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetContainerMimeTypeCmd = &cobra.Command{
-	Use:   "set-container-mime-type",
-	Short: "SetContainerMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetContainerMimeTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetContainerMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetHeightCmd = &cobra.Command{
-	Use:   "set-height",
-	Short: "SetHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetHeightRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetLanguageCmd = &cobra.Command{
-	Use:   "set-language",
-	Short: "SetLanguage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetLanguageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLanguage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetLanguageRegionCmd = &cobra.Command{
-	Use:   "set-language-region",
-	Short: "SetLanguageRegion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetLanguageRegionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLanguageRegion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetMetricsBundleCmd = &cobra.Command{
-	Use:   "set-metrics-bundle",
-	Short: "SetMetricsBundle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetMetricsBundleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMetricsBundle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetSampleMimeTypeCmd = &cobra.Command{
-	Use:   "set-sample-mime-type",
-	Short: "SetSampleMimeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetSampleMimeTypeRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSampleMimeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetTimeSinceCreatedMillisCmd = &cobra.Command{
-	Use:   "set-time-since-created-millis",
-	Short: "SetTimeSinceCreatedMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetTimeSinceCreatedMillisRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTimeSinceCreatedMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetTrackChangeReasonCmd = &cobra.Command{
-	Use:   "set-track-change-reason",
-	Short: "SetTrackChangeReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetTrackChangeReasonRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTrackChangeReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetTrackStateCmd = &cobra.Command{
-	Use:   "set-track-state",
-	Short: "SetTrackState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetTrackStateRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTrackState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetVideoFrameRateCmd = &cobra.Command{
-	Use:   "set-video-frame-rate",
-	Short: "SetVideoFrameRate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetVideoFrameRateRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVideoFrameRate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTrackChangeEventBuilderSetWidthCmd = &cobra.Command{
-	Use:   "set-width",
-	Short: "SetWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrackChangeEventBuilderServiceClient(grpcConn)
-		req := &pb.SetWidthRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTranscodingSessionCmd = &cobra.Command{
-	Use:   "transcoding-session",
-	Short: "TranscodingSessionService operations",
-}
-
-var metricsTranscodingSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTranscodingSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTranscodingSessionEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTranscodingSessionServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTranscodingSessionGetSessionIdCmd = &cobra.Command{
-	Use:   "get-session-id",
-	Short: "GetSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTranscodingSessionServiceClient(grpcConn)
-		req := &pb.GetSessionIdRequest{}
-		resp, err := client.GetSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsTranscodingSessionHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTranscodingSessionServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaMetricsManagerCmd = &cobra.Command{
-	Use:   "media-metrics-manager",
-	Short: "MediaMetricsManagerService operations",
-}
-
-var metricsMediaMetricsManagerCreateBundleSessionCmd = &cobra.Command{
-	Use:   "create-bundle-session",
-	Short: "CreateBundleSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
-		req := &pb.CreateBundleSessionRequest{}
-		resp, err := client.CreateBundleSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaMetricsManagerCreateEditingSessionCmd = &cobra.Command{
-	Use:   "create-editing-session",
-	Short: "CreateEditingSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
-		req := &pb.CreateEditingSessionRequest{}
-		resp, err := client.CreateEditingSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaMetricsManagerCreatePlaybackSessionCmd = &cobra.Command{
-	Use:   "create-playback-session",
-	Short: "CreatePlaybackSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
-		req := &pb.CreatePlaybackSessionRequest{}
-		resp, err := client.CreatePlaybackSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaMetricsManagerCreateRecordingSessionCmd = &cobra.Command{
-	Use:   "create-recording-session",
-	Short: "CreateRecordingSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
-		req := &pb.CreateRecordingSessionRequest{}
-		resp, err := client.CreateRecordingSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaMetricsManagerCreateTranscodingSessionCmd = &cobra.Command{
-	Use:   "create-transcoding-session",
-	Short: "CreateTranscodingSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
-		req := &pb.CreateTranscodingSessionRequest{}
-		resp, err := client.CreateTranscodingSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsMediaMetricsManagerReleaseSessionIdCmd = &cobra.Command{
-	Use:   "release-session-id",
-	Short: "ReleaseSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMediaMetricsManagerServiceClient(grpcConn)
-		req := &pb.ReleaseSessionIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReleaseSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var metricsEventCmd = &cobra.Command{
 	Use:   "event",
 	Short: "EventService operations",
@@ -3641,151 +3833,13 @@ var metricsEventGetTimeSinceCreatedMillisCmd = &cobra.Command{
 	},
 }
 
-var metricsRecordingSessionCmd = &cobra.Command{
-	Use:   "recording-session",
-	Short: "RecordingSessionService operations",
-}
-
-var metricsRecordingSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordingSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsRecordingSessionEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordingSessionServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsRecordingSessionGetSessionIdCmd = &cobra.Command{
-	Use:   "get-session-id",
-	Short: "GetSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordingSessionServiceClient(grpcConn)
-		req := &pb.GetSessionIdRequest{}
-		resp, err := client.GetSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsRecordingSessionHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRecordingSessionServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsLogSessionIdCmd = &cobra.Command{
-	Use:   "log-session-id",
-	Short: "LogSessionIdService operations",
-}
-
-var metricsLogSessionIdEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLogSessionIdServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsLogSessionIdGetStringIdCmd = &cobra.Command{
-	Use:   "get-string-id",
-	Short: "GetStringId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLogSessionIdServiceClient(grpcConn)
-		req := &pb.GetStringIdRequest{}
-		resp, err := client.GetStringId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsLogSessionIdHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLogSessionIdServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var metricsLogSessionIdToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLogSessionIdServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	metricsRecordingSessionCmd.AddCommand(metricsRecordingSessionCloseCmd)
+	metricsRecordingSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsRecordingSessionCmd.AddCommand(metricsRecordingSessionEqualsCmd)
+	metricsRecordingSessionCmd.AddCommand(metricsRecordingSessionGetSessionIdCmd)
+	metricsRecordingSessionCmd.AddCommand(metricsRecordingSessionHashCodeCmd)
+	metricsCmd.AddCommand(metricsRecordingSessionCmd)
 	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventDescribeContentsCmd)
 	metricsEditingEndedEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventEqualsCmd)
@@ -3793,6 +3847,7 @@ func init() {
 	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventGetExporterNameCmd)
 	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventGetFinalProgressPercentCmd)
 	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventGetFinalStateCmd)
+	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventGetInputMediaItemInfosCmd)
 	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventGetMetricsBundleCmd)
 	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventGetMuxerNameCmd)
 	metricsEditingEndedEventCmd.AddCommand(metricsEditingEndedEventGetOperationTypesCmd)
@@ -3824,57 +3879,90 @@ func init() {
 	metricsEditingEndedEventBuilderSetTimeSinceCreatedMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	metricsEditingEndedEventBuilderCmd.AddCommand(metricsEditingEndedEventBuilderSetTimeSinceCreatedMillisCmd)
 	metricsCmd.AddCommand(metricsEditingEndedEventBuilderCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoDescribeContentsCmd)
-	metricsMediaItemInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoEqualsCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetAudioChannelCountCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetAudioSampleCountCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetAudioSampleRateHzCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetClipDurationMillisCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetContainerMimeTypeCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetDataTypesCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetDurationMillisCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetSourceTypeCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetVideoDataSpaceCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetVideoFrameRateCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetVideoSampleCountCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetVideoSizeCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoHashCodeCmd)
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoToStringCmd)
-	metricsMediaItemInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsMediaItemInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoWriteToParcelCmd)
-	metricsCmd.AddCommand(metricsMediaItemInfoCmd)
-	metricsMediaItemInfoBuilderAddCodecNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderAddCodecNameCmd)
-	metricsMediaItemInfoBuilderAddDataTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderAddDataTypeCmd)
-	metricsMediaItemInfoBuilderAddSampleMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderAddSampleMimeTypeCmd)
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderBuildCmd)
-	metricsMediaItemInfoBuilderSetAudioChannelCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetAudioChannelCountCmd)
-	metricsMediaItemInfoBuilderSetAudioSampleCountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetAudioSampleCountCmd)
-	metricsMediaItemInfoBuilderSetAudioSampleRateHzCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetAudioSampleRateHzCmd)
-	metricsMediaItemInfoBuilderSetClipDurationMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetClipDurationMillisCmd)
-	metricsMediaItemInfoBuilderSetContainerMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetContainerMimeTypeCmd)
-	metricsMediaItemInfoBuilderSetDurationMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetDurationMillisCmd)
-	metricsMediaItemInfoBuilderSetSourceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetSourceTypeCmd)
-	metricsMediaItemInfoBuilderSetVideoDataSpaceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetVideoDataSpaceCmd)
-	metricsMediaItemInfoBuilderSetVideoFrameRateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetVideoFrameRateCmd)
-	metricsMediaItemInfoBuilderSetVideoSampleCountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetVideoSampleCountCmd)
-	metricsMediaItemInfoBuilderSetVideoSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetVideoSizeCmd)
-	metricsCmd.AddCommand(metricsMediaItemInfoBuilderCmd)
+	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventDescribeContentsCmd)
+	metricsPlaybackStateEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventEqualsCmd)
+	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventGetMetricsBundleCmd)
+	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventGetStateCmd)
+	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventGetTimeSinceCreatedMillisCmd)
+	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventHashCodeCmd)
+	metricsPlaybackStateEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackStateEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventWriteToParcelCmd)
+	metricsCmd.AddCommand(metricsPlaybackStateEventCmd)
+	metricsPlaybackStateEventBuilderCmd.AddCommand(metricsPlaybackStateEventBuilderBuildCmd)
+	metricsPlaybackStateEventBuilderSetMetricsBundleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackStateEventBuilderCmd.AddCommand(metricsPlaybackStateEventBuilderSetMetricsBundleCmd)
+	metricsPlaybackStateEventBuilderSetStateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsPlaybackStateEventBuilderCmd.AddCommand(metricsPlaybackStateEventBuilderSetStateCmd)
+	metricsPlaybackStateEventBuilderSetTimeSinceCreatedMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackStateEventBuilderCmd.AddCommand(metricsPlaybackStateEventBuilderSetTimeSinceCreatedMillisCmd)
+	metricsCmd.AddCommand(metricsPlaybackStateEventBuilderCmd)
+	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreateBundleSessionCmd)
+	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreateEditingSessionCmd)
+	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreatePlaybackSessionCmd)
+	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreateRecordingSessionCmd)
+	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreateTranscodingSessionCmd)
+	metricsMediaMetricsManagerReleaseSessionIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerReleaseSessionIdCmd)
+	metricsCmd.AddCommand(metricsMediaMetricsManagerCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventDescribeContentsCmd)
+	metricsTrackChangeEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventEqualsCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetAudioSampleRateCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetBitrateCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetChannelCountCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetCodecNameCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetContainerMimeTypeCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetHeightCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetLanguageCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetLanguageRegionCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetMetricsBundleCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetSampleMimeTypeCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetTimeSinceCreatedMillisCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetTrackChangeReasonCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetTrackStateCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetTrackTypeCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetVideoFrameRateCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetWidthCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventHashCodeCmd)
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventToStringCmd)
+	metricsTrackChangeEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsTrackChangeEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventWriteToParcelCmd)
+	metricsCmd.AddCommand(metricsTrackChangeEventCmd)
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderBuildCmd)
+	metricsTrackChangeEventBuilderSetAudioSampleRateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetAudioSampleRateCmd)
+	metricsTrackChangeEventBuilderSetBitrateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetBitrateCmd)
+	metricsTrackChangeEventBuilderSetChannelCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetChannelCountCmd)
+	metricsTrackChangeEventBuilderSetCodecNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetCodecNameCmd)
+	metricsTrackChangeEventBuilderSetContainerMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetContainerMimeTypeCmd)
+	metricsTrackChangeEventBuilderSetHeightCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetHeightCmd)
+	metricsTrackChangeEventBuilderSetLanguageCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetLanguageCmd)
+	metricsTrackChangeEventBuilderSetLanguageRegionCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetLanguageRegionCmd)
+	metricsTrackChangeEventBuilderSetMetricsBundleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetMetricsBundleCmd)
+	metricsTrackChangeEventBuilderSetSampleMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetSampleMimeTypeCmd)
+	metricsTrackChangeEventBuilderSetTimeSinceCreatedMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetTimeSinceCreatedMillisCmd)
+	metricsTrackChangeEventBuilderSetTrackChangeReasonCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetTrackChangeReasonCmd)
+	metricsTrackChangeEventBuilderSetTrackStateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetTrackStateCmd)
+	metricsTrackChangeEventBuilderSetVideoFrameRateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetVideoFrameRateCmd)
+	metricsTrackChangeEventBuilderSetWidthCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetWidthCmd)
+	metricsCmd.AddCommand(metricsTrackChangeEventBuilderCmd)
 	metricsPlaybackMetricsCmd.AddCommand(metricsPlaybackMetricsDescribeContentsCmd)
 	metricsPlaybackMetricsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	metricsPlaybackMetricsCmd.AddCommand(metricsPlaybackMetricsEqualsCmd)
@@ -3962,49 +4050,6 @@ func init() {
 	metricsPlaybackErrorEventBuilderSetTimeSinceCreatedMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	metricsPlaybackErrorEventBuilderCmd.AddCommand(metricsPlaybackErrorEventBuilderSetTimeSinceCreatedMillisCmd)
 	metricsCmd.AddCommand(metricsPlaybackErrorEventBuilderCmd)
-	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventDescribeContentsCmd)
-	metricsPlaybackStateEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventEqualsCmd)
-	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventGetMetricsBundleCmd)
-	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventGetStateCmd)
-	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventGetTimeSinceCreatedMillisCmd)
-	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventHashCodeCmd)
-	metricsPlaybackStateEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackStateEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	metricsPlaybackStateEventCmd.AddCommand(metricsPlaybackStateEventWriteToParcelCmd)
-	metricsCmd.AddCommand(metricsPlaybackStateEventCmd)
-	metricsPlaybackStateEventBuilderCmd.AddCommand(metricsPlaybackStateEventBuilderBuildCmd)
-	metricsPlaybackStateEventBuilderSetMetricsBundleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackStateEventBuilderCmd.AddCommand(metricsPlaybackStateEventBuilderSetMetricsBundleCmd)
-	metricsPlaybackStateEventBuilderSetStateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsPlaybackStateEventBuilderCmd.AddCommand(metricsPlaybackStateEventBuilderSetStateCmd)
-	metricsPlaybackStateEventBuilderSetTimeSinceCreatedMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackStateEventBuilderCmd.AddCommand(metricsPlaybackStateEventBuilderSetTimeSinceCreatedMillisCmd)
-	metricsCmd.AddCommand(metricsPlaybackStateEventBuilderCmd)
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionCloseCmd)
-	metricsPlaybackSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionEqualsCmd)
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionGetSessionIdCmd)
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionHashCodeCmd)
-	metricsPlaybackSessionReportNetworkEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportNetworkEventCmd)
-	metricsPlaybackSessionReportPlaybackErrorEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportPlaybackErrorEventCmd)
-	metricsPlaybackSessionReportPlaybackMetricsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportPlaybackMetricsCmd)
-	metricsPlaybackSessionReportPlaybackStateEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportPlaybackStateEventCmd)
-	metricsPlaybackSessionReportTrackChangeEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportTrackChangeEventCmd)
-	metricsCmd.AddCommand(metricsPlaybackSessionCmd)
-	metricsBundleSessionCmd.AddCommand(metricsBundleSessionCloseCmd)
-	metricsBundleSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsBundleSessionCmd.AddCommand(metricsBundleSessionEqualsCmd)
-	metricsBundleSessionCmd.AddCommand(metricsBundleSessionGetSessionIdCmd)
-	metricsBundleSessionCmd.AddCommand(metricsBundleSessionHashCodeCmd)
-	metricsBundleSessionReportBundleMetricsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsBundleSessionCmd.AddCommand(metricsBundleSessionReportBundleMetricsCmd)
-	metricsCmd.AddCommand(metricsBundleSessionCmd)
 	metricsNetworkEventCmd.AddCommand(metricsNetworkEventDescribeContentsCmd)
 	metricsNetworkEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	metricsNetworkEventCmd.AddCommand(metricsNetworkEventEqualsCmd)
@@ -4025,6 +4070,95 @@ func init() {
 	metricsNetworkEventBuilderSetTimeSinceCreatedMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	metricsNetworkEventBuilderCmd.AddCommand(metricsNetworkEventBuilderSetTimeSinceCreatedMillisCmd)
 	metricsCmd.AddCommand(metricsNetworkEventBuilderCmd)
+	metricsTranscodingSessionCmd.AddCommand(metricsTranscodingSessionCloseCmd)
+	metricsTranscodingSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsTranscodingSessionCmd.AddCommand(metricsTranscodingSessionEqualsCmd)
+	metricsTranscodingSessionCmd.AddCommand(metricsTranscodingSessionGetSessionIdCmd)
+	metricsTranscodingSessionCmd.AddCommand(metricsTranscodingSessionHashCodeCmd)
+	metricsCmd.AddCommand(metricsTranscodingSessionCmd)
+	metricsLogSessionIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsLogSessionIdCmd.AddCommand(metricsLogSessionIdEqualsCmd)
+	metricsLogSessionIdCmd.AddCommand(metricsLogSessionIdGetStringIdCmd)
+	metricsLogSessionIdCmd.AddCommand(metricsLogSessionIdHashCodeCmd)
+	metricsLogSessionIdCmd.AddCommand(metricsLogSessionIdToStringCmd)
+	metricsCmd.AddCommand(metricsLogSessionIdCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoDescribeContentsCmd)
+	metricsMediaItemInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoEqualsCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetAudioChannelCountCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetAudioSampleCountCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetAudioSampleRateHzCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetClipDurationMillisCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetCodecNamesCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetContainerMimeTypeCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetDataTypesCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetDurationMillisCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetSampleMimeTypesCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetSourceTypeCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetVideoDataSpaceCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetVideoFrameRateCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetVideoSampleCountCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoGetVideoSizeCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoHashCodeCmd)
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoToStringCmd)
+	metricsMediaItemInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsMediaItemInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	metricsMediaItemInfoCmd.AddCommand(metricsMediaItemInfoWriteToParcelCmd)
+	metricsCmd.AddCommand(metricsMediaItemInfoCmd)
+	metricsMediaItemInfoBuilderAddCodecNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderAddCodecNameCmd)
+	metricsMediaItemInfoBuilderAddDataTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderAddDataTypeCmd)
+	metricsMediaItemInfoBuilderAddSampleMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderAddSampleMimeTypeCmd)
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderBuildCmd)
+	metricsMediaItemInfoBuilderSetAudioChannelCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetAudioChannelCountCmd)
+	metricsMediaItemInfoBuilderSetAudioSampleCountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetAudioSampleCountCmd)
+	metricsMediaItemInfoBuilderSetAudioSampleRateHzCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetAudioSampleRateHzCmd)
+	metricsMediaItemInfoBuilderSetClipDurationMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetClipDurationMillisCmd)
+	metricsMediaItemInfoBuilderSetContainerMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetContainerMimeTypeCmd)
+	metricsMediaItemInfoBuilderSetDurationMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetDurationMillisCmd)
+	metricsMediaItemInfoBuilderSetSourceTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetSourceTypeCmd)
+	metricsMediaItemInfoBuilderSetVideoDataSpaceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetVideoDataSpaceCmd)
+	metricsMediaItemInfoBuilderSetVideoFrameRateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetVideoFrameRateCmd)
+	metricsMediaItemInfoBuilderSetVideoSampleCountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetVideoSampleCountCmd)
+	metricsMediaItemInfoBuilderSetVideoSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsMediaItemInfoBuilderCmd.AddCommand(metricsMediaItemInfoBuilderSetVideoSizeCmd)
+	metricsCmd.AddCommand(metricsMediaItemInfoBuilderCmd)
+	metricsBundleSessionCmd.AddCommand(metricsBundleSessionCloseCmd)
+	metricsBundleSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsBundleSessionCmd.AddCommand(metricsBundleSessionEqualsCmd)
+	metricsBundleSessionCmd.AddCommand(metricsBundleSessionGetSessionIdCmd)
+	metricsBundleSessionCmd.AddCommand(metricsBundleSessionHashCodeCmd)
+	metricsBundleSessionReportBundleMetricsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsBundleSessionCmd.AddCommand(metricsBundleSessionReportBundleMetricsCmd)
+	metricsCmd.AddCommand(metricsBundleSessionCmd)
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionCloseCmd)
+	metricsPlaybackSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionEqualsCmd)
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionGetSessionIdCmd)
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionHashCodeCmd)
+	metricsPlaybackSessionReportNetworkEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportNetworkEventCmd)
+	metricsPlaybackSessionReportPlaybackErrorEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportPlaybackErrorEventCmd)
+	metricsPlaybackSessionReportPlaybackMetricsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportPlaybackMetricsCmd)
+	metricsPlaybackSessionReportPlaybackStateEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportPlaybackStateEventCmd)
+	metricsPlaybackSessionReportTrackChangeEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	metricsPlaybackSessionCmd.AddCommand(metricsPlaybackSessionReportTrackChangeEventCmd)
+	metricsCmd.AddCommand(metricsPlaybackSessionCmd)
 	metricsEditingSessionCmd.AddCommand(metricsEditingSessionCloseCmd)
 	metricsEditingSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	metricsEditingSessionCmd.AddCommand(metricsEditingSessionEqualsCmd)
@@ -4033,91 +4167,8 @@ func init() {
 	metricsEditingSessionReportEditingEndedEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	metricsEditingSessionCmd.AddCommand(metricsEditingSessionReportEditingEndedEventCmd)
 	metricsCmd.AddCommand(metricsEditingSessionCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventDescribeContentsCmd)
-	metricsTrackChangeEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventEqualsCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetAudioSampleRateCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetBitrateCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetChannelCountCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetCodecNameCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetContainerMimeTypeCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetHeightCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetLanguageCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetLanguageRegionCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetMetricsBundleCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetSampleMimeTypeCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetTimeSinceCreatedMillisCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetTrackChangeReasonCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetTrackStateCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetTrackTypeCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetVideoFrameRateCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventGetWidthCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventHashCodeCmd)
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventToStringCmd)
-	metricsTrackChangeEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsTrackChangeEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	metricsTrackChangeEventCmd.AddCommand(metricsTrackChangeEventWriteToParcelCmd)
-	metricsCmd.AddCommand(metricsTrackChangeEventCmd)
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderBuildCmd)
-	metricsTrackChangeEventBuilderSetAudioSampleRateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetAudioSampleRateCmd)
-	metricsTrackChangeEventBuilderSetBitrateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetBitrateCmd)
-	metricsTrackChangeEventBuilderSetChannelCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetChannelCountCmd)
-	metricsTrackChangeEventBuilderSetCodecNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetCodecNameCmd)
-	metricsTrackChangeEventBuilderSetContainerMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetContainerMimeTypeCmd)
-	metricsTrackChangeEventBuilderSetHeightCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetHeightCmd)
-	metricsTrackChangeEventBuilderSetLanguageCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetLanguageCmd)
-	metricsTrackChangeEventBuilderSetLanguageRegionCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetLanguageRegionCmd)
-	metricsTrackChangeEventBuilderSetMetricsBundleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetMetricsBundleCmd)
-	metricsTrackChangeEventBuilderSetSampleMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetSampleMimeTypeCmd)
-	metricsTrackChangeEventBuilderSetTimeSinceCreatedMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetTimeSinceCreatedMillisCmd)
-	metricsTrackChangeEventBuilderSetTrackChangeReasonCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetTrackChangeReasonCmd)
-	metricsTrackChangeEventBuilderSetTrackStateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetTrackStateCmd)
-	metricsTrackChangeEventBuilderSetVideoFrameRateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetVideoFrameRateCmd)
-	metricsTrackChangeEventBuilderSetWidthCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	metricsTrackChangeEventBuilderCmd.AddCommand(metricsTrackChangeEventBuilderSetWidthCmd)
-	metricsCmd.AddCommand(metricsTrackChangeEventBuilderCmd)
-	metricsTranscodingSessionCmd.AddCommand(metricsTranscodingSessionCloseCmd)
-	metricsTranscodingSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsTranscodingSessionCmd.AddCommand(metricsTranscodingSessionEqualsCmd)
-	metricsTranscodingSessionCmd.AddCommand(metricsTranscodingSessionGetSessionIdCmd)
-	metricsTranscodingSessionCmd.AddCommand(metricsTranscodingSessionHashCodeCmd)
-	metricsCmd.AddCommand(metricsTranscodingSessionCmd)
-	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreateBundleSessionCmd)
-	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreateEditingSessionCmd)
-	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreatePlaybackSessionCmd)
-	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreateRecordingSessionCmd)
-	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerCreateTranscodingSessionCmd)
-	metricsMediaMetricsManagerReleaseSessionIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	metricsMediaMetricsManagerCmd.AddCommand(metricsMediaMetricsManagerReleaseSessionIdCmd)
-	metricsCmd.AddCommand(metricsMediaMetricsManagerCmd)
 	metricsEventCmd.AddCommand(metricsEventGetMetricsBundleCmd)
 	metricsEventCmd.AddCommand(metricsEventGetTimeSinceCreatedMillisCmd)
 	metricsCmd.AddCommand(metricsEventCmd)
-	metricsRecordingSessionCmd.AddCommand(metricsRecordingSessionCloseCmd)
-	metricsRecordingSessionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsRecordingSessionCmd.AddCommand(metricsRecordingSessionEqualsCmd)
-	metricsRecordingSessionCmd.AddCommand(metricsRecordingSessionGetSessionIdCmd)
-	metricsRecordingSessionCmd.AddCommand(metricsRecordingSessionHashCodeCmd)
-	metricsCmd.AddCommand(metricsRecordingSessionCmd)
-	metricsLogSessionIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	metricsLogSessionIdCmd.AddCommand(metricsLogSessionIdEqualsCmd)
-	metricsLogSessionIdCmd.AddCommand(metricsLogSessionIdGetStringIdCmd)
-	metricsLogSessionIdCmd.AddCommand(metricsLogSessionIdHashCodeCmd)
-	metricsLogSessionIdCmd.AddCommand(metricsLogSessionIdToStringCmd)
-	metricsCmd.AddCommand(metricsLogSessionIdCmd)
 	rootCmd.AddCommand(metricsCmd)
 }

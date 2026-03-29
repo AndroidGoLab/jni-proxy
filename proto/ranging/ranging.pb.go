@@ -191,26 +191,26 @@ func (x *EqualsResponse) GetResult() bool {
 	return false
 }
 
-type GetDataNotificationConfigRequest struct {
+type GetUuidRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDataNotificationConfigRequest) Reset() {
-	*x = GetDataNotificationConfigRequest{}
+func (x *GetUuidRequest) Reset() {
+	*x = GetUuidRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetDataNotificationConfigRequest) String() string {
+func (x *GetUuidRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetDataNotificationConfigRequest) ProtoMessage() {}
+func (*GetUuidRequest) ProtoMessage() {}
 
-func (x *GetDataNotificationConfigRequest) ProtoReflect() protoreflect.Message {
+func (x *GetUuidRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -222,32 +222,32 @@ func (x *GetDataNotificationConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetDataNotificationConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetDataNotificationConfigRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetUuidRequest.ProtoReflect.Descriptor instead.
+func (*GetUuidRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{4}
 }
 
-type GetDataNotificationConfigResponse struct {
+type GetUuidResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDataNotificationConfigResponse) Reset() {
-	*x = GetDataNotificationConfigResponse{}
+func (x *GetUuidResponse) Reset() {
+	*x = GetUuidResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetDataNotificationConfigResponse) String() string {
+func (x *GetUuidResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetDataNotificationConfigResponse) ProtoMessage() {}
+func (*GetUuidResponse) ProtoMessage() {}
 
-func (x *GetDataNotificationConfigResponse) ProtoReflect() protoreflect.Message {
+func (x *GetUuidResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -259,172 +259,12 @@ func (x *GetDataNotificationConfigResponse) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetDataNotificationConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetDataNotificationConfigResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetUuidResponse.ProtoReflect.Descriptor instead.
+func (*GetUuidResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetDataNotificationConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRangingMeasurementsLimitRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingMeasurementsLimitRequest) Reset() {
-	*x = GetRangingMeasurementsLimitRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRangingMeasurementsLimitRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRangingMeasurementsLimitRequest) ProtoMessage() {}
-
-func (x *GetRangingMeasurementsLimitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRangingMeasurementsLimitRequest.ProtoReflect.Descriptor instead.
-func (*GetRangingMeasurementsLimitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{6}
-}
-
-type GetRangingMeasurementsLimitResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingMeasurementsLimitResponse) Reset() {
-	*x = GetRangingMeasurementsLimitResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRangingMeasurementsLimitResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRangingMeasurementsLimitResponse) ProtoMessage() {}
-
-func (x *GetRangingMeasurementsLimitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRangingMeasurementsLimitResponse.ProtoReflect.Descriptor instead.
-func (*GetRangingMeasurementsLimitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetRangingMeasurementsLimitResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSensorFusionParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSensorFusionParamsRequest) Reset() {
-	*x = GetSensorFusionParamsRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSensorFusionParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSensorFusionParamsRequest) ProtoMessage() {}
-
-func (x *GetSensorFusionParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSensorFusionParamsRequest.ProtoReflect.Descriptor instead.
-func (*GetSensorFusionParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{8}
-}
-
-type GetSensorFusionParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSensorFusionParamsResponse) Reset() {
-	*x = GetSensorFusionParamsResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSensorFusionParamsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSensorFusionParamsResponse) ProtoMessage() {}
-
-func (x *GetSensorFusionParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSensorFusionParamsResponse.ProtoReflect.Descriptor instead.
-func (*GetSensorFusionParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetSensorFusionParamsResponse) GetResult() int64 {
+func (x *GetUuidResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -439,7 +279,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[10]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -451,7 +291,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[10]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -464,7 +304,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{10}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{6}
 }
 
 type HashCodeResponse struct {
@@ -476,7 +316,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[11]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -488,7 +328,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[11]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -501,7 +341,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{11}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -509,86 +349,6 @@ func (x *HashCodeResponse) GetResult() int32 {
 		return x.Result
 	}
 	return 0
-}
-
-type IsAngleOfArrivalNeededRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsAngleOfArrivalNeededRequest) Reset() {
-	*x = IsAngleOfArrivalNeededRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsAngleOfArrivalNeededRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsAngleOfArrivalNeededRequest) ProtoMessage() {}
-
-func (x *IsAngleOfArrivalNeededRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsAngleOfArrivalNeededRequest.ProtoReflect.Descriptor instead.
-func (*IsAngleOfArrivalNeededRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{12}
-}
-
-type IsAngleOfArrivalNeededResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsAngleOfArrivalNeededResponse) Reset() {
-	*x = IsAngleOfArrivalNeededResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsAngleOfArrivalNeededResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsAngleOfArrivalNeededResponse) ProtoMessage() {}
-
-func (x *IsAngleOfArrivalNeededResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsAngleOfArrivalNeededResponse.ProtoReflect.Descriptor instead.
-func (*IsAngleOfArrivalNeededResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *IsAngleOfArrivalNeededResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
 }
 
 type ToStringRequest struct {
@@ -599,7 +359,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[14]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -611,7 +371,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[14]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -624,7 +384,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{14}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{8}
 }
 
 type ToStringResponse struct {
@@ -636,7 +396,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[15]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -648,7 +408,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[15]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -661,7 +421,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{15}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -681,7 +441,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[16]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -693,7 +453,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[16]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -706,7 +466,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{16}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -731,7 +491,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[17]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -743,7 +503,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[17]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -756,7 +516,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{17}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{11}
 }
 
 type BuildRequest struct {
@@ -767,7 +527,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[18]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -779,7 +539,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[18]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -792,7 +552,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{18}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{12}
 }
 
 type BuildResponse struct {
@@ -804,7 +564,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[19]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -816,7 +576,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[19]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -829,7 +589,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{19}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -837,6 +597,414 @@ func (x *BuildResponse) GetResult() int64 {
 		return x.Result
 	}
 	return 0
+}
+
+type SetUuidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUuidRequest) Reset() {
+	*x = SetUuidRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUuidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUuidRequest) ProtoMessage() {}
+
+func (x *SetUuidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUuidRequest.ProtoReflect.Descriptor instead.
+func (*SetUuidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *SetUuidRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUuidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUuidResponse) Reset() {
+	*x = SetUuidResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUuidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUuidResponse) ProtoMessage() {}
+
+func (x *SetUuidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUuidResponse.ProtoReflect.Descriptor instead.
+func (*SetUuidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *SetUuidResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDataNotificationConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataNotificationConfigRequest) Reset() {
+	*x = GetDataNotificationConfigRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataNotificationConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataNotificationConfigRequest) ProtoMessage() {}
+
+func (x *GetDataNotificationConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataNotificationConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetDataNotificationConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{16}
+}
+
+type GetDataNotificationConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataNotificationConfigResponse) Reset() {
+	*x = GetDataNotificationConfigResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataNotificationConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataNotificationConfigResponse) ProtoMessage() {}
+
+func (x *GetDataNotificationConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataNotificationConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetDataNotificationConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetDataNotificationConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRangingMeasurementsLimitRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingMeasurementsLimitRequest) Reset() {
+	*x = GetRangingMeasurementsLimitRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingMeasurementsLimitRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingMeasurementsLimitRequest) ProtoMessage() {}
+
+func (x *GetRangingMeasurementsLimitRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingMeasurementsLimitRequest.ProtoReflect.Descriptor instead.
+func (*GetRangingMeasurementsLimitRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{18}
+}
+
+type GetRangingMeasurementsLimitResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingMeasurementsLimitResponse) Reset() {
+	*x = GetRangingMeasurementsLimitResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingMeasurementsLimitResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingMeasurementsLimitResponse) ProtoMessage() {}
+
+func (x *GetRangingMeasurementsLimitResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingMeasurementsLimitResponse.ProtoReflect.Descriptor instead.
+func (*GetRangingMeasurementsLimitResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetRangingMeasurementsLimitResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSensorFusionParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSensorFusionParamsRequest) Reset() {
+	*x = GetSensorFusionParamsRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSensorFusionParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSensorFusionParamsRequest) ProtoMessage() {}
+
+func (x *GetSensorFusionParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSensorFusionParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetSensorFusionParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{20}
+}
+
+type GetSensorFusionParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSensorFusionParamsResponse) Reset() {
+	*x = GetSensorFusionParamsResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSensorFusionParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSensorFusionParamsResponse) ProtoMessage() {}
+
+func (x *GetSensorFusionParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSensorFusionParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetSensorFusionParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetSensorFusionParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsAngleOfArrivalNeededRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAngleOfArrivalNeededRequest) Reset() {
+	*x = IsAngleOfArrivalNeededRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAngleOfArrivalNeededRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAngleOfArrivalNeededRequest) ProtoMessage() {}
+
+func (x *IsAngleOfArrivalNeededRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAngleOfArrivalNeededRequest.ProtoReflect.Descriptor instead.
+func (*IsAngleOfArrivalNeededRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{22}
+}
+
+type IsAngleOfArrivalNeededResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAngleOfArrivalNeededResponse) Reset() {
+	*x = IsAngleOfArrivalNeededResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAngleOfArrivalNeededResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAngleOfArrivalNeededResponse) ProtoMessage() {}
+
+func (x *IsAngleOfArrivalNeededResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAngleOfArrivalNeededResponse.ProtoReflect.Descriptor instead.
+func (*IsAngleOfArrivalNeededResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *IsAngleOfArrivalNeededResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
 }
 
 type SetAngleOfArrivalNeededRequest struct {
@@ -848,7 +1016,7 @@ type SetAngleOfArrivalNeededRequest struct {
 
 func (x *SetAngleOfArrivalNeededRequest) Reset() {
 	*x = SetAngleOfArrivalNeededRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[20]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -860,7 +1028,7 @@ func (x *SetAngleOfArrivalNeededRequest) String() string {
 func (*SetAngleOfArrivalNeededRequest) ProtoMessage() {}
 
 func (x *SetAngleOfArrivalNeededRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[20]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -873,7 +1041,7 @@ func (x *SetAngleOfArrivalNeededRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAngleOfArrivalNeededRequest.ProtoReflect.Descriptor instead.
 func (*SetAngleOfArrivalNeededRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{20}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *SetAngleOfArrivalNeededRequest) GetArg0() bool {
@@ -892,7 +1060,7 @@ type SetAngleOfArrivalNeededResponse struct {
 
 func (x *SetAngleOfArrivalNeededResponse) Reset() {
 	*x = SetAngleOfArrivalNeededResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[21]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -904,7 +1072,7 @@ func (x *SetAngleOfArrivalNeededResponse) String() string {
 func (*SetAngleOfArrivalNeededResponse) ProtoMessage() {}
 
 func (x *SetAngleOfArrivalNeededResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[21]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -917,7 +1085,7 @@ func (x *SetAngleOfArrivalNeededResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAngleOfArrivalNeededResponse.ProtoReflect.Descriptor instead.
 func (*SetAngleOfArrivalNeededResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{21}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *SetAngleOfArrivalNeededResponse) GetResult() int64 {
@@ -936,7 +1104,7 @@ type SetDataNotificationConfigRequest struct {
 
 func (x *SetDataNotificationConfigRequest) Reset() {
 	*x = SetDataNotificationConfigRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[22]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -948,7 +1116,7 @@ func (x *SetDataNotificationConfigRequest) String() string {
 func (*SetDataNotificationConfigRequest) ProtoMessage() {}
 
 func (x *SetDataNotificationConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[22]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -961,7 +1129,7 @@ func (x *SetDataNotificationConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataNotificationConfigRequest.ProtoReflect.Descriptor instead.
 func (*SetDataNotificationConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{22}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *SetDataNotificationConfigRequest) GetArg0() int64 {
@@ -980,7 +1148,7 @@ type SetDataNotificationConfigResponse struct {
 
 func (x *SetDataNotificationConfigResponse) Reset() {
 	*x = SetDataNotificationConfigResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[23]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -992,7 +1160,7 @@ func (x *SetDataNotificationConfigResponse) String() string {
 func (*SetDataNotificationConfigResponse) ProtoMessage() {}
 
 func (x *SetDataNotificationConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[23]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1005,7 +1173,7 @@ func (x *SetDataNotificationConfigResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetDataNotificationConfigResponse.ProtoReflect.Descriptor instead.
 func (*SetDataNotificationConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{23}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *SetDataNotificationConfigResponse) GetResult() int64 {
@@ -1024,7 +1192,7 @@ type SetRangingMeasurementsLimitRequest struct {
 
 func (x *SetRangingMeasurementsLimitRequest) Reset() {
 	*x = SetRangingMeasurementsLimitRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[24]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1036,7 +1204,7 @@ func (x *SetRangingMeasurementsLimitRequest) String() string {
 func (*SetRangingMeasurementsLimitRequest) ProtoMessage() {}
 
 func (x *SetRangingMeasurementsLimitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[24]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1049,7 +1217,7 @@ func (x *SetRangingMeasurementsLimitRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetRangingMeasurementsLimitRequest.ProtoReflect.Descriptor instead.
 func (*SetRangingMeasurementsLimitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{24}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *SetRangingMeasurementsLimitRequest) GetArg0() int32 {
@@ -1068,7 +1236,7 @@ type SetRangingMeasurementsLimitResponse struct {
 
 func (x *SetRangingMeasurementsLimitResponse) Reset() {
 	*x = SetRangingMeasurementsLimitResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[25]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1080,7 +1248,7 @@ func (x *SetRangingMeasurementsLimitResponse) String() string {
 func (*SetRangingMeasurementsLimitResponse) ProtoMessage() {}
 
 func (x *SetRangingMeasurementsLimitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[25]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1093,7 +1261,7 @@ func (x *SetRangingMeasurementsLimitResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetRangingMeasurementsLimitResponse.ProtoReflect.Descriptor instead.
 func (*SetRangingMeasurementsLimitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{25}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *SetRangingMeasurementsLimitResponse) GetResult() int64 {
@@ -1112,7 +1280,7 @@ type SetSensorFusionParamsRequest struct {
 
 func (x *SetSensorFusionParamsRequest) Reset() {
 	*x = SetSensorFusionParamsRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[26]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1124,7 +1292,7 @@ func (x *SetSensorFusionParamsRequest) String() string {
 func (*SetSensorFusionParamsRequest) ProtoMessage() {}
 
 func (x *SetSensorFusionParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[26]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1137,7 +1305,7 @@ func (x *SetSensorFusionParamsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSensorFusionParamsRequest.ProtoReflect.Descriptor instead.
 func (*SetSensorFusionParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{26}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *SetSensorFusionParamsRequest) GetArg0() int64 {
@@ -1156,7 +1324,7 @@ type SetSensorFusionParamsResponse struct {
 
 func (x *SetSensorFusionParamsResponse) Reset() {
 	*x = SetSensorFusionParamsResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[27]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +1336,7 @@ func (x *SetSensorFusionParamsResponse) String() string {
 func (*SetSensorFusionParamsResponse) ProtoMessage() {}
 
 func (x *SetSensorFusionParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[27]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +1349,7 @@ func (x *SetSensorFusionParamsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSensorFusionParamsResponse.ProtoReflect.Descriptor instead.
 func (*SetSensorFusionParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{27}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *SetSensorFusionParamsResponse) GetResult() int64 {
@@ -1191,186 +1359,26 @@ func (x *SetSensorFusionParamsResponse) GetResult() int64 {
 	return 0
 }
 
-type GetConfidenceRequest struct {
+type GetDeviceRoleRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetConfidenceRequest) Reset() {
-	*x = GetConfidenceRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetConfidenceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetConfidenceRequest) ProtoMessage() {}
-
-func (x *GetConfidenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetConfidenceRequest.ProtoReflect.Descriptor instead.
-func (*GetConfidenceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{28}
-}
-
-type GetConfidenceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetConfidenceResponse) Reset() {
-	*x = GetConfidenceResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetConfidenceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetConfidenceResponse) ProtoMessage() {}
-
-func (x *GetConfidenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetConfidenceResponse.ProtoReflect.Descriptor instead.
-func (*GetConfidenceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetConfidenceResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMeasurementRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementRequest) Reset() {
-	*x = GetMeasurementRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementRequest) ProtoMessage() {}
-
-func (x *GetMeasurementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementRequest.ProtoReflect.Descriptor instead.
-func (*GetMeasurementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{30}
-}
-
-type GetMeasurementResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMeasurementResponse) Reset() {
-	*x = GetMeasurementResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMeasurementResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMeasurementResponse) ProtoMessage() {}
-
-func (x *GetMeasurementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMeasurementResponse.ProtoReflect.Descriptor instead.
-func (*GetMeasurementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *GetMeasurementResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAzimuthRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAzimuthRequest) Reset() {
-	*x = GetAzimuthRequest{}
+func (x *GetDeviceRoleRequest) Reset() {
+	*x = GetDeviceRoleRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAzimuthRequest) String() string {
+func (x *GetDeviceRoleRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAzimuthRequest) ProtoMessage() {}
+func (*GetDeviceRoleRequest) ProtoMessage() {}
 
-func (x *GetAzimuthRequest) ProtoReflect() protoreflect.Message {
+func (x *GetDeviceRoleRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1382,32 +1390,32 @@ func (x *GetAzimuthRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAzimuthRequest.ProtoReflect.Descriptor instead.
-func (*GetAzimuthRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetDeviceRoleRequest.ProtoReflect.Descriptor instead.
+func (*GetDeviceRoleRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{32}
 }
 
-type GetAzimuthResponse struct {
+type GetDeviceRoleResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAzimuthResponse) Reset() {
-	*x = GetAzimuthResponse{}
+func (x *GetDeviceRoleResponse) Reset() {
+	*x = GetDeviceRoleResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAzimuthResponse) String() string {
+func (x *GetDeviceRoleResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAzimuthResponse) ProtoMessage() {}
+func (*GetDeviceRoleResponse) ProtoMessage() {}
 
-func (x *GetAzimuthResponse) ProtoReflect() protoreflect.Message {
+func (x *GetDeviceRoleResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1419,38 +1427,38 @@ func (x *GetAzimuthResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAzimuthResponse.ProtoReflect.Descriptor instead.
-func (*GetAzimuthResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetDeviceRoleResponse.ProtoReflect.Descriptor instead.
+func (*GetDeviceRoleResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{33}
 }
 
-func (x *GetAzimuthResponse) GetResult() int64 {
+func (x *GetDeviceRoleResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetDistanceRequest struct {
+type GetRangingParamsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDistanceRequest) Reset() {
-	*x = GetDistanceRequest{}
+func (x *GetRangingParamsRequest) Reset() {
+	*x = GetRangingParamsRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetDistanceRequest) String() string {
+func (x *GetRangingParamsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetDistanceRequest) ProtoMessage() {}
+func (*GetRangingParamsRequest) ProtoMessage() {}
 
-func (x *GetDistanceRequest) ProtoReflect() protoreflect.Message {
+func (x *GetRangingParamsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1462,32 +1470,32 @@ func (x *GetDistanceRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetDistanceRequest.ProtoReflect.Descriptor instead.
-func (*GetDistanceRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetRangingParamsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{34}
 }
 
-type GetDistanceResponse struct {
+type GetRangingParamsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDistanceResponse) Reset() {
-	*x = GetDistanceResponse{}
+func (x *GetRangingParamsResponse) Reset() {
+	*x = GetRangingParamsResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetDistanceResponse) String() string {
+func (x *GetRangingParamsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetDistanceResponse) ProtoMessage() {}
+func (*GetRangingParamsResponse) ProtoMessage() {}
 
-func (x *GetDistanceResponse) ProtoReflect() protoreflect.Message {
+func (x *GetRangingParamsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1499,38 +1507,38 @@ func (x *GetDistanceResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetDistanceResponse.ProtoReflect.Descriptor instead.
-func (*GetDistanceResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetRangingParamsResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{35}
 }
 
-func (x *GetDistanceResponse) GetResult() int64 {
+func (x *GetRangingParamsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetElevationRequest struct {
+type GetSessionConfigRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetElevationRequest) Reset() {
-	*x = GetElevationRequest{}
+func (x *GetSessionConfigRequest) Reset() {
+	*x = GetSessionConfigRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetElevationRequest) String() string {
+func (x *GetSessionConfigRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetElevationRequest) ProtoMessage() {}
+func (*GetSessionConfigRequest) ProtoMessage() {}
 
-func (x *GetElevationRequest) ProtoReflect() protoreflect.Message {
+func (x *GetSessionConfigRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1542,32 +1550,32 @@ func (x *GetElevationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetElevationRequest.ProtoReflect.Descriptor instead.
-func (*GetElevationRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetSessionConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetSessionConfigRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{36}
 }
 
-type GetElevationResponse struct {
+type GetSessionConfigResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetElevationResponse) Reset() {
-	*x = GetElevationResponse{}
+func (x *GetSessionConfigResponse) Reset() {
+	*x = GetSessionConfigResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetElevationResponse) String() string {
+func (x *GetSessionConfigResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetElevationResponse) ProtoMessage() {}
+func (*GetSessionConfigResponse) ProtoMessage() {}
 
-func (x *GetElevationResponse) ProtoReflect() protoreflect.Message {
+func (x *GetSessionConfigResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1579,38 +1587,39 @@ func (x *GetElevationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetElevationResponse.ProtoReflect.Descriptor instead.
-func (*GetElevationResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetSessionConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetSessionConfigResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{37}
 }
 
-func (x *GetElevationResponse) GetResult() int64 {
+func (x *GetSessionConfigResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetRangingTechnologyRequest struct {
+type SetSessionConfigRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetRangingTechnologyRequest) Reset() {
-	*x = GetRangingTechnologyRequest{}
+func (x *SetSessionConfigRequest) Reset() {
+	*x = SetSessionConfigRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetRangingTechnologyRequest) String() string {
+func (x *SetSessionConfigRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRangingTechnologyRequest) ProtoMessage() {}
+func (*SetSessionConfigRequest) ProtoMessage() {}
 
-func (x *GetRangingTechnologyRequest) ProtoReflect() protoreflect.Message {
+func (x *SetSessionConfigRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1622,193 +1631,40 @@ func (x *GetRangingTechnologyRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRangingTechnologyRequest.ProtoReflect.Descriptor instead.
-func (*GetRangingTechnologyRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetSessionConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetSessionConfigRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{38}
 }
 
-type GetRangingTechnologyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingTechnologyResponse) Reset() {
-	*x = GetRangingTechnologyResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRangingTechnologyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRangingTechnologyResponse) ProtoMessage() {}
-
-func (x *GetRangingTechnologyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[39]
+func (x *SetSessionConfigRequest) GetArg0() int64 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRangingTechnologyResponse.ProtoReflect.Descriptor instead.
-func (*GetRangingTechnologyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *GetRangingTechnologyResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
+		return x.Arg0
 	}
 	return 0
 }
 
-type GetRssiRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRssiRequest) Reset() {
-	*x = GetRssiRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRssiRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRssiRequest) ProtoMessage() {}
-
-func (x *GetRssiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRssiRequest.ProtoReflect.Descriptor instead.
-func (*GetRssiRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{40}
-}
-
-type GetRssiResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRssiResponse) Reset() {
-	*x = GetRssiResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRssiResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRssiResponse) ProtoMessage() {}
-
-func (x *GetRssiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRssiResponse.ProtoReflect.Descriptor instead.
-func (*GetRssiResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *GetRssiResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimestampMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimestampMillisRequest) Reset() {
-	*x = GetTimestampMillisRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimestampMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimestampMillisRequest) ProtoMessage() {}
-
-func (x *GetTimestampMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimestampMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetTimestampMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{42}
-}
-
-type GetTimestampMillisResponse struct {
+type SetSessionConfigResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTimestampMillisResponse) Reset() {
-	*x = GetTimestampMillisResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[43]
+func (x *SetSessionConfigResponse) Reset() {
+	*x = SetSessionConfigResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTimestampMillisResponse) String() string {
+func (x *SetSessionConfigResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTimestampMillisResponse) ProtoMessage() {}
+func (*SetSessionConfigResponse) ProtoMessage() {}
 
-func (x *GetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[43]
+func (x *SetSessionConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1819,39 +1675,39 @@ func (x *GetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTimestampMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetTimestampMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{43}
+// Deprecated: Use SetSessionConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetSessionConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{39}
 }
 
-func (x *GetTimestampMillisResponse) GetResult() int64 {
+func (x *SetSessionConfigResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type HasRssiRequest struct {
+type IsSensorFusionEnabledRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HasRssiRequest) Reset() {
-	*x = HasRssiRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[44]
+func (x *IsSensorFusionEnabledRequest) Reset() {
+	*x = IsSensorFusionEnabledRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HasRssiRequest) String() string {
+func (x *IsSensorFusionEnabledRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HasRssiRequest) ProtoMessage() {}
+func (*IsSensorFusionEnabledRequest) ProtoMessage() {}
 
-func (x *HasRssiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[44]
+func (x *IsSensorFusionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1862,33 +1718,33 @@ func (x *HasRssiRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HasRssiRequest.ProtoReflect.Descriptor instead.
-func (*HasRssiRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{44}
+// Deprecated: Use IsSensorFusionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsSensorFusionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{40}
 }
 
-type HasRssiResponse struct {
+type IsSensorFusionEnabledResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HasRssiResponse) Reset() {
-	*x = HasRssiResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[45]
+func (x *IsSensorFusionEnabledResponse) Reset() {
+	*x = IsSensorFusionEnabledResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HasRssiResponse) String() string {
+func (x *IsSensorFusionEnabledResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HasRssiResponse) ProtoMessage() {}
+func (*IsSensorFusionEnabledResponse) ProtoMessage() {}
 
-func (x *HasRssiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[45]
+func (x *IsSensorFusionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1899,39 +1755,40 @@ func (x *HasRssiResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HasRssiResponse.ProtoReflect.Descriptor instead.
-func (*HasRssiResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{45}
+// Deprecated: Use IsSensorFusionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsSensorFusionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{41}
 }
 
-func (x *HasRssiResponse) GetResult() bool {
+func (x *IsSensorFusionEnabledResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
 	return false
 }
 
-type GetNotificationConfigTypeRequest struct {
+type SetSensorFusionEnabledRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetNotificationConfigTypeRequest) Reset() {
-	*x = GetNotificationConfigTypeRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[46]
+func (x *SetSensorFusionEnabledRequest) Reset() {
+	*x = SetSensorFusionEnabledRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetNotificationConfigTypeRequest) String() string {
+func (x *SetSensorFusionEnabledRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetNotificationConfigTypeRequest) ProtoMessage() {}
+func (*SetSensorFusionEnabledRequest) ProtoMessage() {}
 
-func (x *GetNotificationConfigTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[46]
+func (x *SetSensorFusionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1942,281 +1799,40 @@ func (x *GetNotificationConfigTypeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetNotificationConfigTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetNotificationConfigTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{46}
+// Deprecated: Use SetSensorFusionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetSensorFusionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{42}
 }
 
-type GetNotificationConfigTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNotificationConfigTypeResponse) Reset() {
-	*x = GetNotificationConfigTypeResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNotificationConfigTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNotificationConfigTypeResponse) ProtoMessage() {}
-
-func (x *GetNotificationConfigTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNotificationConfigTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetNotificationConfigTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetNotificationConfigTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetProximityFarCmRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProximityFarCmRequest) Reset() {
-	*x = GetProximityFarCmRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProximityFarCmRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProximityFarCmRequest) ProtoMessage() {}
-
-func (x *GetProximityFarCmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProximityFarCmRequest.ProtoReflect.Descriptor instead.
-func (*GetProximityFarCmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{48}
-}
-
-type GetProximityFarCmResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProximityFarCmResponse) Reset() {
-	*x = GetProximityFarCmResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProximityFarCmResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProximityFarCmResponse) ProtoMessage() {}
-
-func (x *GetProximityFarCmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProximityFarCmResponse.ProtoReflect.Descriptor instead.
-func (*GetProximityFarCmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *GetProximityFarCmResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetProximityNearCmRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProximityNearCmRequest) Reset() {
-	*x = GetProximityNearCmRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProximityNearCmRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProximityNearCmRequest) ProtoMessage() {}
-
-func (x *GetProximityNearCmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProximityNearCmRequest.ProtoReflect.Descriptor instead.
-func (*GetProximityNearCmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{50}
-}
-
-type GetProximityNearCmResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProximityNearCmResponse) Reset() {
-	*x = GetProximityNearCmResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProximityNearCmResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProximityNearCmResponse) ProtoMessage() {}
-
-func (x *GetProximityNearCmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProximityNearCmResponse.ProtoReflect.Descriptor instead.
-func (*GetProximityNearCmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *GetProximityNearCmResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetNotificationConfigTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetNotificationConfigTypeRequest) Reset() {
-	*x = SetNotificationConfigTypeRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetNotificationConfigTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetNotificationConfigTypeRequest) ProtoMessage() {}
-
-func (x *SetNotificationConfigTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetNotificationConfigTypeRequest.ProtoReflect.Descriptor instead.
-func (*SetNotificationConfigTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *SetNotificationConfigTypeRequest) GetArg0() int32 {
+func (x *SetSensorFusionEnabledRequest) GetArg0() bool {
 	if x != nil {
 		return x.Arg0
 	}
-	return 0
+	return false
 }
 
-type SetNotificationConfigTypeResponse struct {
+type SetSensorFusionEnabledResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetNotificationConfigTypeResponse) Reset() {
-	*x = SetNotificationConfigTypeResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[53]
+func (x *SetSensorFusionEnabledResponse) Reset() {
+	*x = SetSensorFusionEnabledResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetNotificationConfigTypeResponse) String() string {
+func (x *SetSensorFusionEnabledResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetNotificationConfigTypeResponse) ProtoMessage() {}
+func (*SetSensorFusionEnabledResponse) ProtoMessage() {}
 
-func (x *SetNotificationConfigTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[53]
+func (x *SetSensorFusionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2227,268 +1843,12 @@ func (x *SetNotificationConfigTypeResponse) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetNotificationConfigTypeResponse.ProtoReflect.Descriptor instead.
-func (*SetNotificationConfigTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{53}
+// Deprecated: Use SetSensorFusionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetSensorFusionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{43}
 }
 
-func (x *SetNotificationConfigTypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetProximityFarCmRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProximityFarCmRequest) Reset() {
-	*x = SetProximityFarCmRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProximityFarCmRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProximityFarCmRequest) ProtoMessage() {}
-
-func (x *SetProximityFarCmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProximityFarCmRequest.ProtoReflect.Descriptor instead.
-func (*SetProximityFarCmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *SetProximityFarCmRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetProximityFarCmResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProximityFarCmResponse) Reset() {
-	*x = SetProximityFarCmResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProximityFarCmResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProximityFarCmResponse) ProtoMessage() {}
-
-func (x *SetProximityFarCmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProximityFarCmResponse.ProtoReflect.Descriptor instead.
-func (*SetProximityFarCmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *SetProximityFarCmResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetProximityNearCmRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProximityNearCmRequest) Reset() {
-	*x = SetProximityNearCmRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProximityNearCmRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProximityNearCmRequest) ProtoMessage() {}
-
-func (x *SetProximityNearCmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProximityNearCmRequest.ProtoReflect.Descriptor instead.
-func (*SetProximityNearCmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *SetProximityNearCmRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetProximityNearCmResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProximityNearCmResponse) Reset() {
-	*x = SetProximityNearCmResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProximityNearCmResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProximityNearCmResponse) ProtoMessage() {}
-
-func (x *SetProximityNearCmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProximityNearCmResponse.ProtoReflect.Descriptor instead.
-func (*SetProximityNearCmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *SetProximityNearCmResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRangingSessionTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingSessionTypeRequest) Reset() {
-	*x = GetRangingSessionTypeRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRangingSessionTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRangingSessionTypeRequest) ProtoMessage() {}
-
-func (x *GetRangingSessionTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRangingSessionTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetRangingSessionTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{58}
-}
-
-type GetRangingSessionTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingSessionTypeResponse) Reset() {
-	*x = GetRangingSessionTypeResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRangingSessionTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRangingSessionTypeResponse) ProtoMessage() {}
-
-func (x *GetRangingSessionTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRangingSessionTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetRangingSessionTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *GetRangingSessionTypeResponse) GetResult() int32 {
+func (x *SetSensorFusionEnabledResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2504,7 +1864,7 @@ type AddDeviceToRangingSessionRequest struct {
 
 func (x *AddDeviceToRangingSessionRequest) Reset() {
 	*x = AddDeviceToRangingSessionRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[60]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2516,7 +1876,7 @@ func (x *AddDeviceToRangingSessionRequest) String() string {
 func (*AddDeviceToRangingSessionRequest) ProtoMessage() {}
 
 func (x *AddDeviceToRangingSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[60]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2529,7 +1889,7 @@ func (x *AddDeviceToRangingSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddDeviceToRangingSessionRequest.ProtoReflect.Descriptor instead.
 func (*AddDeviceToRangingSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{60}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *AddDeviceToRangingSessionRequest) GetArg0() int64 {
@@ -2547,7 +1907,7 @@ type AddDeviceToRangingSessionResponse struct {
 
 func (x *AddDeviceToRangingSessionResponse) Reset() {
 	*x = AddDeviceToRangingSessionResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[61]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2559,7 +1919,7 @@ func (x *AddDeviceToRangingSessionResponse) String() string {
 func (*AddDeviceToRangingSessionResponse) ProtoMessage() {}
 
 func (x *AddDeviceToRangingSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[61]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2572,7 +1932,7 @@ func (x *AddDeviceToRangingSessionResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use AddDeviceToRangingSessionResponse.ProtoReflect.Descriptor instead.
 func (*AddDeviceToRangingSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{61}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{45}
 }
 
 type CloseRequest struct {
@@ -2583,7 +1943,7 @@ type CloseRequest struct {
 
 func (x *CloseRequest) Reset() {
 	*x = CloseRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[62]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2595,7 +1955,7 @@ func (x *CloseRequest) String() string {
 func (*CloseRequest) ProtoMessage() {}
 
 func (x *CloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[62]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2608,7 +1968,7 @@ func (x *CloseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
 func (*CloseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{62}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{46}
 }
 
 type CloseResponse struct {
@@ -2619,7 +1979,7 @@ type CloseResponse struct {
 
 func (x *CloseResponse) Reset() {
 	*x = CloseResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[63]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2631,7 +1991,7 @@ func (x *CloseResponse) String() string {
 func (*CloseResponse) ProtoMessage() {}
 
 func (x *CloseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[63]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2644,7 +2004,7 @@ func (x *CloseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
 func (*CloseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{63}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{47}
 }
 
 type ReconfigureRangingIntervalRequest struct {
@@ -2656,7 +2016,7 @@ type ReconfigureRangingIntervalRequest struct {
 
 func (x *ReconfigureRangingIntervalRequest) Reset() {
 	*x = ReconfigureRangingIntervalRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[64]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2668,7 +2028,7 @@ func (x *ReconfigureRangingIntervalRequest) String() string {
 func (*ReconfigureRangingIntervalRequest) ProtoMessage() {}
 
 func (x *ReconfigureRangingIntervalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[64]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2681,7 +2041,7 @@ func (x *ReconfigureRangingIntervalRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ReconfigureRangingIntervalRequest.ProtoReflect.Descriptor instead.
 func (*ReconfigureRangingIntervalRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{64}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *ReconfigureRangingIntervalRequest) GetArg0() int32 {
@@ -2699,7 +2059,7 @@ type ReconfigureRangingIntervalResponse struct {
 
 func (x *ReconfigureRangingIntervalResponse) Reset() {
 	*x = ReconfigureRangingIntervalResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[65]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2711,7 +2071,7 @@ func (x *ReconfigureRangingIntervalResponse) String() string {
 func (*ReconfigureRangingIntervalResponse) ProtoMessage() {}
 
 func (x *ReconfigureRangingIntervalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[65]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2724,7 +2084,7 @@ func (x *ReconfigureRangingIntervalResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use ReconfigureRangingIntervalResponse.ProtoReflect.Descriptor instead.
 func (*ReconfigureRangingIntervalResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{65}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{49}
 }
 
 type RemoveDeviceFromRangingSessionRequest struct {
@@ -2736,7 +2096,7 @@ type RemoveDeviceFromRangingSessionRequest struct {
 
 func (x *RemoveDeviceFromRangingSessionRequest) Reset() {
 	*x = RemoveDeviceFromRangingSessionRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[66]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2748,7 +2108,7 @@ func (x *RemoveDeviceFromRangingSessionRequest) String() string {
 func (*RemoveDeviceFromRangingSessionRequest) ProtoMessage() {}
 
 func (x *RemoveDeviceFromRangingSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[66]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2761,7 +2121,7 @@ func (x *RemoveDeviceFromRangingSessionRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RemoveDeviceFromRangingSessionRequest.ProtoReflect.Descriptor instead.
 func (*RemoveDeviceFromRangingSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{66}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *RemoveDeviceFromRangingSessionRequest) GetArg0() int64 {
@@ -2779,7 +2139,7 @@ type RemoveDeviceFromRangingSessionResponse struct {
 
 func (x *RemoveDeviceFromRangingSessionResponse) Reset() {
 	*x = RemoveDeviceFromRangingSessionResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[67]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2791,7 +2151,7 @@ func (x *RemoveDeviceFromRangingSessionResponse) String() string {
 func (*RemoveDeviceFromRangingSessionResponse) ProtoMessage() {}
 
 func (x *RemoveDeviceFromRangingSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[67]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2804,7 +2164,7 @@ func (x *RemoveDeviceFromRangingSessionResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use RemoveDeviceFromRangingSessionResponse.ProtoReflect.Descriptor instead.
 func (*RemoveDeviceFromRangingSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{67}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{51}
 }
 
 type StartRequest struct {
@@ -2816,7 +2176,7 @@ type StartRequest struct {
 
 func (x *StartRequest) Reset() {
 	*x = StartRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[68]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2828,7 +2188,7 @@ func (x *StartRequest) String() string {
 func (*StartRequest) ProtoMessage() {}
 
 func (x *StartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[68]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2841,7 +2201,7 @@ func (x *StartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRequest.ProtoReflect.Descriptor instead.
 func (*StartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{68}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *StartRequest) GetArg0() int64 {
@@ -2860,7 +2220,7 @@ type StartResponse struct {
 
 func (x *StartResponse) Reset() {
 	*x = StartResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[69]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2872,7 +2232,7 @@ func (x *StartResponse) String() string {
 func (*StartResponse) ProtoMessage() {}
 
 func (x *StartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[69]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2885,7 +2245,7 @@ func (x *StartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartResponse.ProtoReflect.Descriptor instead.
 func (*StartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{69}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *StartResponse) GetResult() int64 {
@@ -2903,7 +2263,7 @@ type StopRequest struct {
 
 func (x *StopRequest) Reset() {
 	*x = StopRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[70]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2915,7 +2275,7 @@ func (x *StopRequest) String() string {
 func (*StopRequest) ProtoMessage() {}
 
 func (x *StopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[70]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2928,7 +2288,7 @@ func (x *StopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopRequest.ProtoReflect.Descriptor instead.
 func (*StopRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{70}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{54}
 }
 
 type StopResponse struct {
@@ -2939,7 +2299,7 @@ type StopResponse struct {
 
 func (x *StopResponse) Reset() {
 	*x = StopResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[71]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2951,7 +2311,7 @@ func (x *StopResponse) String() string {
 func (*StopResponse) ProtoMessage() {}
 
 func (x *StopResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[71]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2964,7 +2324,7 @@ func (x *StopResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopResponse.ProtoReflect.Descriptor instead.
 func (*StopResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{71}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{55}
 }
 
 type OnClosedRequest struct {
@@ -2976,7 +2336,7 @@ type OnClosedRequest struct {
 
 func (x *OnClosedRequest) Reset() {
 	*x = OnClosedRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[72]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2988,7 +2348,7 @@ func (x *OnClosedRequest) String() string {
 func (*OnClosedRequest) ProtoMessage() {}
 
 func (x *OnClosedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[72]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3001,7 +2361,7 @@ func (x *OnClosedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnClosedRequest.ProtoReflect.Descriptor instead.
 func (*OnClosedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{72}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *OnClosedRequest) GetArg0() int32 {
@@ -3019,7 +2379,7 @@ type OnClosedResponse struct {
 
 func (x *OnClosedResponse) Reset() {
 	*x = OnClosedResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[73]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3031,7 +2391,7 @@ func (x *OnClosedResponse) String() string {
 func (*OnClosedResponse) ProtoMessage() {}
 
 func (x *OnClosedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[73]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3044,7 +2404,7 @@ func (x *OnClosedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnClosedResponse.ProtoReflect.Descriptor instead.
 func (*OnClosedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{73}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{57}
 }
 
 type OnOpenFailedRequest struct {
@@ -3056,7 +2416,7 @@ type OnOpenFailedRequest struct {
 
 func (x *OnOpenFailedRequest) Reset() {
 	*x = OnOpenFailedRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[74]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3068,7 +2428,7 @@ func (x *OnOpenFailedRequest) String() string {
 func (*OnOpenFailedRequest) ProtoMessage() {}
 
 func (x *OnOpenFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[74]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3081,7 +2441,7 @@ func (x *OnOpenFailedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnOpenFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnOpenFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{74}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *OnOpenFailedRequest) GetArg0() int32 {
@@ -3099,7 +2459,7 @@ type OnOpenFailedResponse struct {
 
 func (x *OnOpenFailedResponse) Reset() {
 	*x = OnOpenFailedResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[75]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3111,7 +2471,7 @@ func (x *OnOpenFailedResponse) String() string {
 func (*OnOpenFailedResponse) ProtoMessage() {}
 
 func (x *OnOpenFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[75]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3124,7 +2484,7 @@ func (x *OnOpenFailedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnOpenFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnOpenFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{75}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{59}
 }
 
 type OnOpenedRequest struct {
@@ -3135,7 +2495,7 @@ type OnOpenedRequest struct {
 
 func (x *OnOpenedRequest) Reset() {
 	*x = OnOpenedRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[76]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3147,7 +2507,7 @@ func (x *OnOpenedRequest) String() string {
 func (*OnOpenedRequest) ProtoMessage() {}
 
 func (x *OnOpenedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[76]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3160,7 +2520,7 @@ func (x *OnOpenedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnOpenedRequest.ProtoReflect.Descriptor instead.
 func (*OnOpenedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{76}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{60}
 }
 
 type OnOpenedResponse struct {
@@ -3171,7 +2531,7 @@ type OnOpenedResponse struct {
 
 func (x *OnOpenedResponse) Reset() {
 	*x = OnOpenedResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[77]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3183,7 +2543,7 @@ func (x *OnOpenedResponse) String() string {
 func (*OnOpenedResponse) ProtoMessage() {}
 
 func (x *OnOpenedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[77]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3196,7 +2556,7 @@ func (x *OnOpenedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnOpenedResponse.ProtoReflect.Descriptor instead.
 func (*OnOpenedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{77}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{61}
 }
 
 type OnResultsRequest struct {
@@ -3209,7 +2569,7 @@ type OnResultsRequest struct {
 
 func (x *OnResultsRequest) Reset() {
 	*x = OnResultsRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[78]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3221,7 +2581,7 @@ func (x *OnResultsRequest) String() string {
 func (*OnResultsRequest) ProtoMessage() {}
 
 func (x *OnResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[78]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3234,7 +2594,7 @@ func (x *OnResultsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnResultsRequest.ProtoReflect.Descriptor instead.
 func (*OnResultsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{78}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *OnResultsRequest) GetArg0() int64 {
@@ -3259,7 +2619,7 @@ type OnResultsResponse struct {
 
 func (x *OnResultsResponse) Reset() {
 	*x = OnResultsResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[79]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3271,7 +2631,7 @@ func (x *OnResultsResponse) String() string {
 func (*OnResultsResponse) ProtoMessage() {}
 
 func (x *OnResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[79]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3284,7 +2644,7 @@ func (x *OnResultsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnResultsResponse.ProtoReflect.Descriptor instead.
 func (*OnResultsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{79}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{63}
 }
 
 type OnStartedRequest struct {
@@ -3297,7 +2657,7 @@ type OnStartedRequest struct {
 
 func (x *OnStartedRequest) Reset() {
 	*x = OnStartedRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[80]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3309,7 +2669,7 @@ func (x *OnStartedRequest) String() string {
 func (*OnStartedRequest) ProtoMessage() {}
 
 func (x *OnStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[80]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3322,7 +2682,7 @@ func (x *OnStartedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartedRequest.ProtoReflect.Descriptor instead.
 func (*OnStartedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{80}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *OnStartedRequest) GetArg0() int64 {
@@ -3347,7 +2707,7 @@ type OnStartedResponse struct {
 
 func (x *OnStartedResponse) Reset() {
 	*x = OnStartedResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[81]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3359,7 +2719,7 @@ func (x *OnStartedResponse) String() string {
 func (*OnStartedResponse) ProtoMessage() {}
 
 func (x *OnStartedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[81]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3372,7 +2732,7 @@ func (x *OnStartedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartedResponse.ProtoReflect.Descriptor instead.
 func (*OnStartedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{81}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{65}
 }
 
 type OnStoppedRequest struct {
@@ -3385,7 +2745,7 @@ type OnStoppedRequest struct {
 
 func (x *OnStoppedRequest) Reset() {
 	*x = OnStoppedRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[82]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3397,7 +2757,7 @@ func (x *OnStoppedRequest) String() string {
 func (*OnStoppedRequest) ProtoMessage() {}
 
 func (x *OnStoppedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[82]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3410,7 +2770,7 @@ func (x *OnStoppedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStoppedRequest.ProtoReflect.Descriptor instead.
 func (*OnStoppedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{82}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *OnStoppedRequest) GetArg0() int64 {
@@ -3435,7 +2795,7 @@ type OnStoppedResponse struct {
 
 func (x *OnStoppedResponse) Reset() {
 	*x = OnStoppedResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[83]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3447,7 +2807,7 @@ func (x *OnStoppedResponse) String() string {
 func (*OnStoppedResponse) ProtoMessage() {}
 
 func (x *OnStoppedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[83]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3460,30 +2820,30 @@ func (x *OnStoppedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStoppedResponse.ProtoReflect.Descriptor instead.
 func (*OnStoppedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{83}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{67}
 }
 
-type IsSensorFusionEnabledRequest struct {
+type GetCsCapabilitiesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *IsSensorFusionEnabledRequest) Reset() {
-	*x = IsSensorFusionEnabledRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[84]
+func (x *GetCsCapabilitiesRequest) Reset() {
+	*x = GetCsCapabilitiesRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IsSensorFusionEnabledRequest) String() string {
+func (x *GetCsCapabilitiesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IsSensorFusionEnabledRequest) ProtoMessage() {}
+func (*GetCsCapabilitiesRequest) ProtoMessage() {}
 
-func (x *IsSensorFusionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[84]
+func (x *GetCsCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3494,120 +2854,752 @@ func (x *IsSensorFusionEnabledRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use IsSensorFusionEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsSensorFusionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{84}
+// Deprecated: Use GetCsCapabilitiesRequest.ProtoReflect.Descriptor instead.
+func (*GetCsCapabilitiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{68}
 }
 
-type IsSensorFusionEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSensorFusionEnabledResponse) Reset() {
-	*x = IsSensorFusionEnabledResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSensorFusionEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSensorFusionEnabledResponse) ProtoMessage() {}
-
-func (x *IsSensorFusionEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSensorFusionEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsSensorFusionEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{85}
-}
-
-func (x *IsSensorFusionEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type SetSensorFusionEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSensorFusionEnabledRequest) Reset() {
-	*x = SetSensorFusionEnabledRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSensorFusionEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSensorFusionEnabledRequest) ProtoMessage() {}
-
-func (x *SetSensorFusionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSensorFusionEnabledRequest.ProtoReflect.Descriptor instead.
-func (*SetSensorFusionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *SetSensorFusionEnabledRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetSensorFusionEnabledResponse struct {
+type GetCsCapabilitiesResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetSensorFusionEnabledResponse) Reset() {
-	*x = SetSensorFusionEnabledResponse{}
+func (x *GetCsCapabilitiesResponse) Reset() {
+	*x = GetCsCapabilitiesResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCsCapabilitiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCsCapabilitiesResponse) ProtoMessage() {}
+
+func (x *GetCsCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCsCapabilitiesResponse.ProtoReflect.Descriptor instead.
+func (*GetCsCapabilitiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetCsCapabilitiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRttRangingCapabilitiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRttRangingCapabilitiesRequest) Reset() {
+	*x = GetRttRangingCapabilitiesRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRttRangingCapabilitiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRttRangingCapabilitiesRequest) ProtoMessage() {}
+
+func (x *GetRttRangingCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRttRangingCapabilitiesRequest.ProtoReflect.Descriptor instead.
+func (*GetRttRangingCapabilitiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{70}
+}
+
+type GetRttRangingCapabilitiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRttRangingCapabilitiesResponse) Reset() {
+	*x = GetRttRangingCapabilitiesResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRttRangingCapabilitiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRttRangingCapabilitiesResponse) ProtoMessage() {}
+
+func (x *GetRttRangingCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRttRangingCapabilitiesResponse.ProtoReflect.Descriptor instead.
+func (*GetRttRangingCapabilitiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *GetRttRangingCapabilitiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUwbCapabilitiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUwbCapabilitiesRequest) Reset() {
+	*x = GetUwbCapabilitiesRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUwbCapabilitiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUwbCapabilitiesRequest) ProtoMessage() {}
+
+func (x *GetUwbCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUwbCapabilitiesRequest.ProtoReflect.Descriptor instead.
+func (*GetUwbCapabilitiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{72}
+}
+
+type GetUwbCapabilitiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUwbCapabilitiesResponse) Reset() {
+	*x = GetUwbCapabilitiesResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUwbCapabilitiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUwbCapabilitiesResponse) ProtoMessage() {}
+
+func (x *GetUwbCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUwbCapabilitiesResponse.ProtoReflect.Descriptor instead.
+func (*GetUwbCapabilitiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetUwbCapabilitiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRangingSessionTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingSessionTypeRequest) Reset() {
+	*x = GetRangingSessionTypeRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingSessionTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingSessionTypeRequest) ProtoMessage() {}
+
+func (x *GetRangingSessionTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingSessionTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetRangingSessionTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{74}
+}
+
+type GetRangingSessionTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingSessionTypeResponse) Reset() {
+	*x = GetRangingSessionTypeResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingSessionTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingSessionTypeResponse) ProtoMessage() {}
+
+func (x *GetRangingSessionTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingSessionTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetRangingSessionTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetRangingSessionTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetConfidenceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfidenceRequest) Reset() {
+	*x = GetConfidenceRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfidenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfidenceRequest) ProtoMessage() {}
+
+func (x *GetConfidenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfidenceRequest.ProtoReflect.Descriptor instead.
+func (*GetConfidenceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{76}
+}
+
+type GetConfidenceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfidenceResponse) Reset() {
+	*x = GetConfidenceResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfidenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfidenceResponse) ProtoMessage() {}
+
+func (x *GetConfidenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfidenceResponse.ProtoReflect.Descriptor instead.
+func (*GetConfidenceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetConfidenceResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMeasurementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementRequest) Reset() {
+	*x = GetMeasurementRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementRequest) ProtoMessage() {}
+
+func (x *GetMeasurementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementRequest.ProtoReflect.Descriptor instead.
+func (*GetMeasurementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{78}
+}
+
+type GetMeasurementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementResponse) Reset() {
+	*x = GetMeasurementResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementResponse) ProtoMessage() {}
+
+func (x *GetMeasurementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementResponse.ProtoReflect.Descriptor instead.
+func (*GetMeasurementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetMeasurementResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAzimuthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAzimuthRequest) Reset() {
+	*x = GetAzimuthRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAzimuthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAzimuthRequest) ProtoMessage() {}
+
+func (x *GetAzimuthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAzimuthRequest.ProtoReflect.Descriptor instead.
+func (*GetAzimuthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{80}
+}
+
+type GetAzimuthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAzimuthResponse) Reset() {
+	*x = GetAzimuthResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAzimuthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAzimuthResponse) ProtoMessage() {}
+
+func (x *GetAzimuthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAzimuthResponse.ProtoReflect.Descriptor instead.
+func (*GetAzimuthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *GetAzimuthResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDistanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDistanceRequest) Reset() {
+	*x = GetDistanceRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDistanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDistanceRequest) ProtoMessage() {}
+
+func (x *GetDistanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDistanceRequest.ProtoReflect.Descriptor instead.
+func (*GetDistanceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{82}
+}
+
+type GetDistanceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDistanceResponse) Reset() {
+	*x = GetDistanceResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDistanceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDistanceResponse) ProtoMessage() {}
+
+func (x *GetDistanceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDistanceResponse.ProtoReflect.Descriptor instead.
+func (*GetDistanceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *GetDistanceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetElevationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetElevationRequest) Reset() {
+	*x = GetElevationRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetElevationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetElevationRequest) ProtoMessage() {}
+
+func (x *GetElevationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetElevationRequest.ProtoReflect.Descriptor instead.
+func (*GetElevationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{84}
+}
+
+type GetElevationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetElevationResponse) Reset() {
+	*x = GetElevationResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetElevationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetElevationResponse) ProtoMessage() {}
+
+func (x *GetElevationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetElevationResponse.ProtoReflect.Descriptor instead.
+func (*GetElevationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *GetElevationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRangingTechnologyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingTechnologyRequest) Reset() {
+	*x = GetRangingTechnologyRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingTechnologyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingTechnologyRequest) ProtoMessage() {}
+
+func (x *GetRangingTechnologyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingTechnologyRequest.ProtoReflect.Descriptor instead.
+func (*GetRangingTechnologyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{86}
+}
+
+type GetRangingTechnologyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingTechnologyResponse) Reset() {
+	*x = GetRangingTechnologyResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetSensorFusionEnabledResponse) String() string {
+func (x *GetRangingTechnologyResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetSensorFusionEnabledResponse) ProtoMessage() {}
+func (*GetRangingTechnologyResponse) ProtoMessage() {}
 
-func (x *SetSensorFusionEnabledResponse) ProtoReflect() protoreflect.Message {
+func (x *GetRangingTechnologyResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3619,16 +3611,256 @@ func (x *SetSensorFusionEnabledResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetSensorFusionEnabledResponse.ProtoReflect.Descriptor instead.
-func (*SetSensorFusionEnabledResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRangingTechnologyResponse.ProtoReflect.Descriptor instead.
+func (*GetRangingTechnologyResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{87}
 }
 
-func (x *SetSensorFusionEnabledResponse) GetResult() int64 {
+func (x *GetRangingTechnologyResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
+}
+
+type GetRssiRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRssiRequest) Reset() {
+	*x = GetRssiRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRssiRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRssiRequest) ProtoMessage() {}
+
+func (x *GetRssiRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRssiRequest.ProtoReflect.Descriptor instead.
+func (*GetRssiRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{88}
+}
+
+type GetRssiResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRssiResponse) Reset() {
+	*x = GetRssiResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRssiResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRssiResponse) ProtoMessage() {}
+
+func (x *GetRssiResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRssiResponse.ProtoReflect.Descriptor instead.
+func (*GetRssiResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *GetRssiResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimestampMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampMillisRequest) Reset() {
+	*x = GetTimestampMillisRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampMillisRequest) ProtoMessage() {}
+
+func (x *GetTimestampMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetTimestampMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{90}
+}
+
+type GetTimestampMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampMillisResponse) Reset() {
+	*x = GetTimestampMillisResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampMillisResponse) ProtoMessage() {}
+
+func (x *GetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetTimestampMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *GetTimestampMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasRssiRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasRssiRequest) Reset() {
+	*x = HasRssiRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasRssiRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasRssiRequest) ProtoMessage() {}
+
+func (x *HasRssiRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasRssiRequest.ProtoReflect.Descriptor instead.
+func (*HasRssiRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{92}
+}
+
+type HasRssiResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasRssiResponse) Reset() {
+	*x = HasRssiResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasRssiResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasRssiResponse) ProtoMessage() {}
+
+func (x *HasRssiResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasRssiResponse.ProtoReflect.Descriptor instead.
+func (*HasRssiResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *HasRssiResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
 }
 
 type CreateRangingSessionRequest struct {
@@ -3641,7 +3873,7 @@ type CreateRangingSessionRequest struct {
 
 func (x *CreateRangingSessionRequest) Reset() {
 	*x = CreateRangingSessionRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[88]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3653,7 +3885,7 @@ func (x *CreateRangingSessionRequest) String() string {
 func (*CreateRangingSessionRequest) ProtoMessage() {}
 
 func (x *CreateRangingSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[88]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3666,7 +3898,7 @@ func (x *CreateRangingSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRangingSessionRequest.ProtoReflect.Descriptor instead.
 func (*CreateRangingSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{88}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *CreateRangingSessionRequest) GetArg0() int64 {
@@ -3692,7 +3924,7 @@ type CreateRangingSessionResponse struct {
 
 func (x *CreateRangingSessionResponse) Reset() {
 	*x = CreateRangingSessionResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[89]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3704,7 +3936,7 @@ func (x *CreateRangingSessionResponse) String() string {
 func (*CreateRangingSessionResponse) ProtoMessage() {}
 
 func (x *CreateRangingSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[89]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3717,7 +3949,7 @@ func (x *CreateRangingSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRangingSessionResponse.ProtoReflect.Descriptor instead.
 func (*CreateRangingSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{89}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *CreateRangingSessionResponse) GetResult() int64 {
@@ -3737,7 +3969,7 @@ type RegisterCapabilitiesCallbackRequest struct {
 
 func (x *RegisterCapabilitiesCallbackRequest) Reset() {
 	*x = RegisterCapabilitiesCallbackRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[90]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3749,7 +3981,7 @@ func (x *RegisterCapabilitiesCallbackRequest) String() string {
 func (*RegisterCapabilitiesCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterCapabilitiesCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[90]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3762,7 +3994,7 @@ func (x *RegisterCapabilitiesCallbackRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RegisterCapabilitiesCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterCapabilitiesCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{90}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *RegisterCapabilitiesCallbackRequest) GetArg0() int64 {
@@ -3787,7 +4019,7 @@ type RegisterCapabilitiesCallbackResponse struct {
 
 func (x *RegisterCapabilitiesCallbackResponse) Reset() {
 	*x = RegisterCapabilitiesCallbackResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[91]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3799,7 +4031,7 @@ func (x *RegisterCapabilitiesCallbackResponse) String() string {
 func (*RegisterCapabilitiesCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterCapabilitiesCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[91]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3812,7 +4044,7 @@ func (x *RegisterCapabilitiesCallbackResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use RegisterCapabilitiesCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterCapabilitiesCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{91}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{97}
 }
 
 type UnregisterCapabilitiesCallbackRequest struct {
@@ -3824,7 +4056,7 @@ type UnregisterCapabilitiesCallbackRequest struct {
 
 func (x *UnregisterCapabilitiesCallbackRequest) Reset() {
 	*x = UnregisterCapabilitiesCallbackRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[92]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3836,7 +4068,7 @@ func (x *UnregisterCapabilitiesCallbackRequest) String() string {
 func (*UnregisterCapabilitiesCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterCapabilitiesCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[92]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3849,7 +4081,7 @@ func (x *UnregisterCapabilitiesCallbackRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UnregisterCapabilitiesCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterCapabilitiesCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{92}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *UnregisterCapabilitiesCallbackRequest) GetArg0() int64 {
@@ -3867,7 +4099,7 @@ type UnregisterCapabilitiesCallbackResponse struct {
 
 func (x *UnregisterCapabilitiesCallbackResponse) Reset() {
 	*x = UnregisterCapabilitiesCallbackResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[93]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3879,7 +4111,7 @@ func (x *UnregisterCapabilitiesCallbackResponse) String() string {
 func (*UnregisterCapabilitiesCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterCapabilitiesCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[93]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3892,7 +4124,7 @@ func (x *UnregisterCapabilitiesCallbackResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use UnregisterCapabilitiesCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterCapabilitiesCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{93}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{99}
 }
 
 type OnRangingCapabilitiesRequest struct {
@@ -3904,7 +4136,7 @@ type OnRangingCapabilitiesRequest struct {
 
 func (x *OnRangingCapabilitiesRequest) Reset() {
 	*x = OnRangingCapabilitiesRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[94]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3916,7 +4148,7 @@ func (x *OnRangingCapabilitiesRequest) String() string {
 func (*OnRangingCapabilitiesRequest) ProtoMessage() {}
 
 func (x *OnRangingCapabilitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[94]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3929,7 +4161,7 @@ func (x *OnRangingCapabilitiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRangingCapabilitiesRequest.ProtoReflect.Descriptor instead.
 func (*OnRangingCapabilitiesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{94}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *OnRangingCapabilitiesRequest) GetArg0() int64 {
@@ -3947,7 +4179,7 @@ type OnRangingCapabilitiesResponse struct {
 
 func (x *OnRangingCapabilitiesResponse) Reset() {
 	*x = OnRangingCapabilitiesResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[95]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3959,7 +4191,7 @@ func (x *OnRangingCapabilitiesResponse) String() string {
 func (*OnRangingCapabilitiesResponse) ProtoMessage() {}
 
 func (x *OnRangingCapabilitiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[95]
+	mi := &file_proto_ranging_ranging_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3972,30 +4204,30 @@ func (x *OnRangingCapabilitiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRangingCapabilitiesResponse.ProtoReflect.Descriptor instead.
 func (*OnRangingCapabilitiesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{95}
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{101}
 }
 
-type GetUuidRequest struct {
+type GetNotificationConfigTypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetUuidRequest) Reset() {
-	*x = GetUuidRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[96]
+func (x *GetNotificationConfigTypeRequest) Reset() {
+	*x = GetNotificationConfigTypeRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetUuidRequest) String() string {
+func (x *GetNotificationConfigTypeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetUuidRequest) ProtoMessage() {}
+func (*GetNotificationConfigTypeRequest) ProtoMessage() {}
 
-func (x *GetUuidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[96]
+func (x *GetNotificationConfigTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4006,280 +4238,32 @@ func (x *GetUuidRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetUuidRequest.ProtoReflect.Descriptor instead.
-func (*GetUuidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{96}
+// Deprecated: Use GetNotificationConfigTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetNotificationConfigTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{102}
 }
 
-type GetUuidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUuidResponse) Reset() {
-	*x = GetUuidResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUuidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUuidResponse) ProtoMessage() {}
-
-func (x *GetUuidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUuidResponse.ProtoReflect.Descriptor instead.
-func (*GetUuidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{97}
-}
-
-func (x *GetUuidResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetUuidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUuidRequest) Reset() {
-	*x = SetUuidRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUuidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUuidRequest) ProtoMessage() {}
-
-func (x *SetUuidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUuidRequest.ProtoReflect.Descriptor instead.
-func (*SetUuidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *SetUuidRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetUuidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUuidResponse) Reset() {
-	*x = SetUuidResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUuidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUuidResponse) ProtoMessage() {}
-
-func (x *SetUuidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUuidResponse.ProtoReflect.Descriptor instead.
-func (*SetUuidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{99}
-}
-
-func (x *SetUuidResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDeviceRoleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDeviceRoleRequest) Reset() {
-	*x = GetDeviceRoleRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeviceRoleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeviceRoleRequest) ProtoMessage() {}
-
-func (x *GetDeviceRoleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeviceRoleRequest.ProtoReflect.Descriptor instead.
-func (*GetDeviceRoleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{100}
-}
-
-type GetDeviceRoleResponse struct {
+type GetNotificationConfigTypeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDeviceRoleResponse) Reset() {
-	*x = GetDeviceRoleResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeviceRoleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeviceRoleResponse) ProtoMessage() {}
-
-func (x *GetDeviceRoleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeviceRoleResponse.ProtoReflect.Descriptor instead.
-func (*GetDeviceRoleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{101}
-}
-
-func (x *GetDeviceRoleResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRangingParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingParamsRequest) Reset() {
-	*x = GetRangingParamsRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRangingParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRangingParamsRequest) ProtoMessage() {}
-
-func (x *GetRangingParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*GetRangingParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{102}
-}
-
-type GetRangingParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingParamsResponse) Reset() {
-	*x = GetRangingParamsResponse{}
+func (x *GetNotificationConfigTypeResponse) Reset() {
+	*x = GetNotificationConfigTypeResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetRangingParamsResponse) String() string {
+func (x *GetNotificationConfigTypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRangingParamsResponse) ProtoMessage() {}
+func (*GetNotificationConfigTypeResponse) ProtoMessage() {}
 
-func (x *GetRangingParamsResponse) ProtoReflect() protoreflect.Message {
+func (x *GetNotificationConfigTypeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4291,38 +4275,38 @@ func (x *GetRangingParamsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*GetRangingParamsResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetNotificationConfigTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetNotificationConfigTypeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{103}
 }
 
-func (x *GetRangingParamsResponse) GetResult() int64 {
+func (x *GetNotificationConfigTypeResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetSessionConfigRequest struct {
+type GetProximityFarCmRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSessionConfigRequest) Reset() {
-	*x = GetSessionConfigRequest{}
+func (x *GetProximityFarCmRequest) Reset() {
+	*x = GetProximityFarCmRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSessionConfigRequest) String() string {
+func (x *GetProximityFarCmRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSessionConfigRequest) ProtoMessage() {}
+func (*GetProximityFarCmRequest) ProtoMessage() {}
 
-func (x *GetSessionConfigRequest) ProtoReflect() protoreflect.Message {
+func (x *GetProximityFarCmRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4334,32 +4318,32 @@ func (x *GetSessionConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSessionConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetSessionConfigRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetProximityFarCmRequest.ProtoReflect.Descriptor instead.
+func (*GetProximityFarCmRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{104}
 }
 
-type GetSessionConfigResponse struct {
+type GetProximityFarCmResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSessionConfigResponse) Reset() {
-	*x = GetSessionConfigResponse{}
+func (x *GetProximityFarCmResponse) Reset() {
+	*x = GetProximityFarCmResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSessionConfigResponse) String() string {
+func (x *GetProximityFarCmResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSessionConfigResponse) ProtoMessage() {}
+func (*GetProximityFarCmResponse) ProtoMessage() {}
 
-func (x *GetSessionConfigResponse) ProtoReflect() protoreflect.Message {
+func (x *GetProximityFarCmResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4371,39 +4355,38 @@ func (x *GetSessionConfigResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSessionConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetSessionConfigResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetProximityFarCmResponse.ProtoReflect.Descriptor instead.
+func (*GetProximityFarCmResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{105}
 }
 
-func (x *GetSessionConfigResponse) GetResult() int64 {
+func (x *GetProximityFarCmResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetSessionConfigRequest struct {
+type GetProximityNearCmRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetSessionConfigRequest) Reset() {
-	*x = SetSessionConfigRequest{}
+func (x *GetProximityNearCmRequest) Reset() {
+	*x = GetProximityNearCmRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetSessionConfigRequest) String() string {
+func (x *GetProximityNearCmRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetSessionConfigRequest) ProtoMessage() {}
+func (*GetProximityNearCmRequest) ProtoMessage() {}
 
-func (x *SetSessionConfigRequest) ProtoReflect() protoreflect.Message {
+func (x *GetProximityNearCmRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4415,119 +4398,120 @@ func (x *SetSessionConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetSessionConfigRequest.ProtoReflect.Descriptor instead.
-func (*SetSessionConfigRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetProximityNearCmRequest.ProtoReflect.Descriptor instead.
+func (*GetProximityNearCmRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{106}
 }
 
-func (x *SetSessionConfigRequest) GetArg0() int64 {
+type GetProximityNearCmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProximityNearCmResponse) Reset() {
+	*x = GetProximityNearCmResponse{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProximityNearCmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProximityNearCmResponse) ProtoMessage() {}
+
+func (x *GetProximityNearCmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProximityNearCmResponse.ProtoReflect.Descriptor instead.
+func (*GetProximityNearCmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *GetProximityNearCmResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNotificationConfigTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNotificationConfigTypeRequest) Reset() {
+	*x = SetNotificationConfigTypeRequest{}
+	mi := &file_proto_ranging_ranging_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNotificationConfigTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNotificationConfigTypeRequest) ProtoMessage() {}
+
+func (x *SetNotificationConfigTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ranging_ranging_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNotificationConfigTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetNotificationConfigTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *SetNotificationConfigTypeRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type SetSessionConfigResponse struct {
+type SetNotificationConfigTypeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetSessionConfigResponse) Reset() {
-	*x = SetSessionConfigResponse{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSessionConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSessionConfigResponse) ProtoMessage() {}
-
-func (x *SetSessionConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSessionConfigResponse.ProtoReflect.Descriptor instead.
-func (*SetSessionConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{107}
-}
-
-func (x *SetSessionConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCsCapabilitiesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCsCapabilitiesRequest) Reset() {
-	*x = GetCsCapabilitiesRequest{}
-	mi := &file_proto_ranging_ranging_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCsCapabilitiesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCsCapabilitiesRequest) ProtoMessage() {}
-
-func (x *GetCsCapabilitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ranging_ranging_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCsCapabilitiesRequest.ProtoReflect.Descriptor instead.
-func (*GetCsCapabilitiesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{108}
-}
-
-type GetCsCapabilitiesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCsCapabilitiesResponse) Reset() {
-	*x = GetCsCapabilitiesResponse{}
+func (x *SetNotificationConfigTypeResponse) Reset() {
+	*x = SetNotificationConfigTypeResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCsCapabilitiesResponse) String() string {
+func (x *SetNotificationConfigTypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCsCapabilitiesResponse) ProtoMessage() {}
+func (*SetNotificationConfigTypeResponse) ProtoMessage() {}
 
-func (x *GetCsCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+func (x *SetNotificationConfigTypeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4539,38 +4523,39 @@ func (x *GetCsCapabilitiesResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCsCapabilitiesResponse.ProtoReflect.Descriptor instead.
-func (*GetCsCapabilitiesResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetNotificationConfigTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetNotificationConfigTypeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{109}
 }
 
-func (x *GetCsCapabilitiesResponse) GetResult() int64 {
+func (x *SetNotificationConfigTypeResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetRttRangingCapabilitiesRequest struct {
+type SetProximityFarCmRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetRttRangingCapabilitiesRequest) Reset() {
-	*x = GetRttRangingCapabilitiesRequest{}
+func (x *SetProximityFarCmRequest) Reset() {
+	*x = SetProximityFarCmRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetRttRangingCapabilitiesRequest) String() string {
+func (x *SetProximityFarCmRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRttRangingCapabilitiesRequest) ProtoMessage() {}
+func (*SetProximityFarCmRequest) ProtoMessage() {}
 
-func (x *GetRttRangingCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+func (x *SetProximityFarCmRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4582,32 +4567,39 @@ func (x *GetRttRangingCapabilitiesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRttRangingCapabilitiesRequest.ProtoReflect.Descriptor instead.
-func (*GetRttRangingCapabilitiesRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetProximityFarCmRequest.ProtoReflect.Descriptor instead.
+func (*SetProximityFarCmRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{110}
 }
 
-type GetRttRangingCapabilitiesResponse struct {
+func (x *SetProximityFarCmRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetProximityFarCmResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetRttRangingCapabilitiesResponse) Reset() {
-	*x = GetRttRangingCapabilitiesResponse{}
+func (x *SetProximityFarCmResponse) Reset() {
+	*x = SetProximityFarCmResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetRttRangingCapabilitiesResponse) String() string {
+func (x *SetProximityFarCmResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRttRangingCapabilitiesResponse) ProtoMessage() {}
+func (*SetProximityFarCmResponse) ProtoMessage() {}
 
-func (x *GetRttRangingCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+func (x *SetProximityFarCmResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4619,38 +4611,39 @@ func (x *GetRttRangingCapabilitiesResponse) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRttRangingCapabilitiesResponse.ProtoReflect.Descriptor instead.
-func (*GetRttRangingCapabilitiesResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetProximityFarCmResponse.ProtoReflect.Descriptor instead.
+func (*SetProximityFarCmResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{111}
 }
 
-func (x *GetRttRangingCapabilitiesResponse) GetResult() int64 {
+func (x *SetProximityFarCmResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetUwbCapabilitiesRequest struct {
+type SetProximityNearCmRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetUwbCapabilitiesRequest) Reset() {
-	*x = GetUwbCapabilitiesRequest{}
+func (x *SetProximityNearCmRequest) Reset() {
+	*x = SetProximityNearCmRequest{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetUwbCapabilitiesRequest) String() string {
+func (x *SetProximityNearCmRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetUwbCapabilitiesRequest) ProtoMessage() {}
+func (*SetProximityNearCmRequest) ProtoMessage() {}
 
-func (x *GetUwbCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+func (x *SetProximityNearCmRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4662,32 +4655,39 @@ func (x *GetUwbCapabilitiesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetUwbCapabilitiesRequest.ProtoReflect.Descriptor instead.
-func (*GetUwbCapabilitiesRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetProximityNearCmRequest.ProtoReflect.Descriptor instead.
+func (*SetProximityNearCmRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{112}
 }
 
-type GetUwbCapabilitiesResponse struct {
+func (x *SetProximityNearCmRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetProximityNearCmResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetUwbCapabilitiesResponse) Reset() {
-	*x = GetUwbCapabilitiesResponse{}
+func (x *SetProximityNearCmResponse) Reset() {
+	*x = SetProximityNearCmResponse{}
 	mi := &file_proto_ranging_ranging_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetUwbCapabilitiesResponse) String() string {
+func (x *SetProximityNearCmResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetUwbCapabilitiesResponse) ProtoMessage() {}
+func (*SetProximityNearCmResponse) ProtoMessage() {}
 
-func (x *GetUwbCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+func (x *SetProximityNearCmResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ranging_ranging_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4699,12 +4699,12 @@ func (x *GetUwbCapabilitiesResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetUwbCapabilitiesResponse.ProtoReflect.Descriptor instead.
-func (*GetUwbCapabilitiesResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetProximityNearCmResponse.ProtoReflect.Descriptor instead.
+func (*SetProximityNearCmResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ranging_ranging_proto_rawDescGZIP(), []int{113}
 }
 
-func (x *GetUwbCapabilitiesResponse) GetResult() int64 {
+func (x *SetProximityNearCmResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -4722,22 +4722,13 @@ const file_proto_ranging_ranging_proto_rawDesc = "" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\"\n" +
-	" GetDataNotificationConfigRequest\";\n" +
-	"!GetDataNotificationConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\"GetRangingMeasurementsLimitRequest\"=\n" +
-	"#GetRangingMeasurementsLimitResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
-	"\x1cGetSensorFusionParamsRequest\"7\n" +
-	"\x1dGetSensorFusionParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x10\n" +
+	"\x0eGetUuidRequest\")\n" +
+	"\x0fGetUuidResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
 	"\x0fHashCodeRequest\"*\n" +
 	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
-	"\x1dIsAngleOfArrivalNeededRequest\"8\n" +
-	"\x1eIsAngleOfArrivalNeededResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
 	"\x0fToStringRequest\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
@@ -4747,7 +4738,23 @@ const file_proto_ranging_ranging_proto_rawDesc = "" +
 	"\x15WriteToParcelResponse\"\x0e\n" +
 	"\fBuildRequest\"'\n" +
 	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eSetUuidRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
+	"\x0fSetUuidResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" GetDataNotificationConfigRequest\";\n" +
+	"!GetDataNotificationConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetRangingMeasurementsLimitRequest\"=\n" +
+	"#GetRangingMeasurementsLimitResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetSensorFusionParamsRequest\"7\n" +
+	"\x1dGetSensorFusionParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dIsAngleOfArrivalNeededRequest\"8\n" +
+	"\x1eIsAngleOfArrivalNeededResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"4\n" +
 	"\x1eSetAngleOfArrivalNeededRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"9\n" +
 	"\x1fSetAngleOfArrivalNeededResponse\x12\x16\n" +
@@ -4764,57 +4771,26 @@ const file_proto_ranging_ranging_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
 	"\x1dSetSensorFusionParamsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
-	"\x14GetConfidenceRequest\"/\n" +
-	"\x15GetConfidenceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
-	"\x15GetMeasurementRequest\"0\n" +
-	"\x16GetMeasurementResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x13\n" +
-	"\x11GetAzimuthRequest\",\n" +
-	"\x12GetAzimuthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12GetDistanceRequest\"-\n" +
-	"\x13GetDistanceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetElevationRequest\".\n" +
-	"\x14GetElevationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bGetRangingTechnologyRequest\"6\n" +
-	"\x1cGetRangingTechnologyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
-	"\x0eGetRssiRequest\")\n" +
-	"\x0fGetRssiResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
-	"\x19GetTimestampMillisRequest\"4\n" +
-	"\x1aGetTimestampMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
-	"\x0eHasRssiRequest\")\n" +
-	"\x0fHasRssiResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\"\n" +
-	" GetNotificationConfigTypeRequest\";\n" +
-	"!GetNotificationConfigTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
-	"\x18GetProximityFarCmRequest\"3\n" +
-	"\x19GetProximityFarCmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
-	"\x19GetProximityNearCmRequest\"4\n" +
-	"\x1aGetProximityNearCmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"6\n" +
-	" SetNotificationConfigTypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\";\n" +
-	"!SetNotificationConfigTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
-	"\x18SetProximityFarCmRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
-	"\x19SetProximityFarCmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19SetProximityNearCmRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
-	"\x1aSetProximityNearCmResponse\x12\x16\n" +
+	"\x14GetDeviceRoleRequest\"/\n" +
+	"\x15GetDeviceRoleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetRangingParamsRequest\"2\n" +
+	"\x18GetRangingParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetSessionConfigRequest\"2\n" +
+	"\x18GetSessionConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetSessionConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18SetSessionConfigResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
-	"\x1cGetRangingSessionTypeRequest\"7\n" +
-	"\x1dGetRangingSessionTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"6\n" +
+	"\x1cIsSensorFusionEnabledRequest\"7\n" +
+	"\x1dIsSensorFusionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"3\n" +
+	"\x1dSetSensorFusionEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"8\n" +
+	"\x1eSetSensorFusionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
 	" AddDeviceToRangingSessionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"#\n" +
 	"!AddDeviceToRangingSessionResponse\"\x0e\n" +
@@ -4851,14 +4827,46 @@ const file_proto_ranging_ranging_proto_rawDesc = "" +
 	"\x10OnStoppedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x13\n" +
-	"\x11OnStoppedResponse\"\x1e\n" +
-	"\x1cIsSensorFusionEnabledRequest\"7\n" +
-	"\x1dIsSensorFusionEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"3\n" +
-	"\x1dSetSensorFusionEnabledRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"8\n" +
-	"\x1eSetSensorFusionEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x11OnStoppedResponse\"\x1a\n" +
+	"\x18GetCsCapabilitiesRequest\"3\n" +
+	"\x19GetCsCapabilitiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" GetRttRangingCapabilitiesRequest\";\n" +
+	"!GetRttRangingCapabilitiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetUwbCapabilitiesRequest\"4\n" +
+	"\x1aGetUwbCapabilitiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cGetRangingSessionTypeRequest\"7\n" +
+	"\x1dGetRangingSessionTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetConfidenceRequest\"/\n" +
+	"\x15GetConfidenceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetMeasurementRequest\"0\n" +
+	"\x16GetMeasurementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\x13\n" +
+	"\x11GetAzimuthRequest\",\n" +
+	"\x12GetAzimuthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetDistanceRequest\"-\n" +
+	"\x13GetDistanceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetElevationRequest\".\n" +
+	"\x14GetElevationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetRangingTechnologyRequest\"6\n" +
+	"\x1cGetRangingTechnologyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
+	"\x0eGetRssiRequest\")\n" +
+	"\x0fGetRssiResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetTimestampMillisRequest\"4\n" +
+	"\x1aGetTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eHasRssiRequest\")\n" +
+	"\x0fHasRssiResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
 	"\x1bCreateRangingSessionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"6\n" +
@@ -4873,36 +4881,38 @@ const file_proto_ranging_ranging_proto_rawDesc = "" +
 	"&UnregisterCapabilitiesCallbackResponse\"2\n" +
 	"\x1cOnRangingCapabilitiesRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1f\n" +
-	"\x1dOnRangingCapabilitiesResponse\"\x10\n" +
-	"\x0eGetUuidRequest\")\n" +
-	"\x0fGetUuidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eSetUuidRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
-	"\x0fSetUuidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
-	"\x14GetDeviceRoleRequest\"/\n" +
-	"\x15GetDeviceRoleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
-	"\x17GetRangingParamsRequest\"2\n" +
-	"\x18GetRangingParamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
-	"\x17GetSessionConfigRequest\"2\n" +
-	"\x18GetSessionConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x17SetSessionConfigRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
-	"\x18SetSessionConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
-	"\x18GetCsCapabilitiesRequest\"3\n" +
-	"\x19GetCsCapabilitiesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" GetRttRangingCapabilitiesRequest\";\n" +
-	"!GetRttRangingCapabilitiesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19GetUwbCapabilitiesRequest\"4\n" +
-	"\x1aGetUwbCapabilitiesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xbd\x06\n" +
+	"\x1dOnRangingCapabilitiesResponse\"\"\n" +
+	" GetNotificationConfigTypeRequest\";\n" +
+	"!GetNotificationConfigTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetProximityFarCmRequest\"3\n" +
+	"\x19GetProximityFarCmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetProximityNearCmRequest\"4\n" +
+	"\x1aGetProximityNearCmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"6\n" +
+	" SetNotificationConfigTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\";\n" +
+	"!SetNotificationConfigTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetProximityFarCmRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
+	"\x19SetProximityFarCmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetProximityNearCmRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
+	"\x1aSetProximityNearCmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xb3\x03\n" +
+	"\rDeviceService\x12W\n" +
+	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x129\n" +
+	"\x06Equals\x12\x16.ranging.EqualsRequest\x1a\x17.ranging.EqualsResponse\x12<\n" +
+	"\aGetUuid\x12\x17.ranging.GetUuidRequest\x1a\x18.ranging.GetUuidResponse\x12?\n" +
+	"\bHashCode\x12\x18.ranging.HashCodeRequest\x1a\x19.ranging.HashCodeResponse\x12?\n" +
+	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\x8c\x01\n" +
+	"\x14DeviceBuilderService\x126\n" +
+	"\x05Build\x12\x15.ranging.BuildRequest\x1a\x16.ranging.BuildResponse\x12<\n" +
+	"\aSetUuid\x12\x17.ranging.SetUuidRequest\x1a\x18.ranging.SetUuidResponse2\xbd\x06\n" +
 	"\x14SessionConfigService\x12W\n" +
 	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x129\n" +
 	"\x06Equals\x12\x16.ranging.EqualsRequest\x1a\x17.ranging.EqualsResponse\x12r\n" +
@@ -4918,7 +4928,52 @@ const file_proto_ranging_ranging_proto_rawDesc = "" +
 	"\x17SetAngleOfArrivalNeeded\x12'.ranging.SetAngleOfArrivalNeededRequest\x1a(.ranging.SetAngleOfArrivalNeededResponse\x12r\n" +
 	"\x19SetDataNotificationConfig\x12).ranging.SetDataNotificationConfigRequest\x1a*.ranging.SetDataNotificationConfigResponse\x12x\n" +
 	"\x1bSetRangingMeasurementsLimit\x12+.ranging.SetRangingMeasurementsLimitRequest\x1a,.ranging.SetRangingMeasurementsLimitResponse\x12f\n" +
-	"\x15SetSensorFusionParams\x12%.ranging.SetSensorFusionParamsRequest\x1a&.ranging.SetSensorFusionParamsResponse2\xa1\x03\n" +
+	"\x15SetSensorFusionParams\x12%.ranging.SetSensorFusionParamsRequest\x1a&.ranging.SetSensorFusionParamsResponse2\xff\x03\n" +
+	"\x11PreferenceService\x12W\n" +
+	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x12N\n" +
+	"\rGetDeviceRole\x12\x1d.ranging.GetDeviceRoleRequest\x1a\x1e.ranging.GetDeviceRoleResponse\x12W\n" +
+	"\x10GetRangingParams\x12 .ranging.GetRangingParamsRequest\x1a!.ranging.GetRangingParamsResponse\x12W\n" +
+	"\x10GetSessionConfig\x12 .ranging.GetSessionConfigRequest\x1a!.ranging.GetSessionConfigResponse\x12?\n" +
+	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\xab\x01\n" +
+	"\x18PreferenceBuilderService\x126\n" +
+	"\x05Build\x12\x15.ranging.BuildRequest\x1a\x16.ranging.BuildResponse\x12W\n" +
+	"\x10SetSessionConfig\x12 .ranging.SetSessionConfigRequest\x1a!.ranging.SetSessionConfigResponse2\xe9\x03\n" +
+	"\x19SensorFusionParamsService\x12W\n" +
+	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x129\n" +
+	"\x06Equals\x12\x16.ranging.EqualsRequest\x1a\x17.ranging.EqualsResponse\x12?\n" +
+	"\bHashCode\x12\x18.ranging.HashCodeRequest\x1a\x19.ranging.HashCodeResponse\x12f\n" +
+	"\x15IsSensorFusionEnabled\x12%.ranging.IsSensorFusionEnabledRequest\x1a&.ranging.IsSensorFusionEnabledResponse\x12?\n" +
+	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\xc5\x01\n" +
+	" SensorFusionParamsBuilderService\x126\n" +
+	"\x05Build\x12\x15.ranging.BuildRequest\x1a\x16.ranging.BuildResponse\x12i\n" +
+	"\x16SetSensorFusionEnabled\x12&.ranging.SetSensorFusionEnabledRequest\x1a'.ranging.SetSensorFusionEnabledResponse2\xe5\x04\n" +
+	"\x0eSessionService\x12r\n" +
+	"\x19AddDeviceToRangingSession\x12).ranging.AddDeviceToRangingSessionRequest\x1a*.ranging.AddDeviceToRangingSessionResponse\x126\n" +
+	"\x05Close\x12\x15.ranging.CloseRequest\x1a\x16.ranging.CloseResponse\x12u\n" +
+	"\x1aReconfigureRangingInterval\x12*.ranging.ReconfigureRangingIntervalRequest\x1a+.ranging.ReconfigureRangingIntervalResponse\x12\x81\x01\n" +
+	"\x1eRemoveDeviceFromRangingSession\x12..ranging.RemoveDeviceFromRangingSessionRequest\x1a/.ranging.RemoveDeviceFromRangingSessionResponse\x126\n" +
+	"\x05Start\x12\x15.ranging.StartRequest\x1a\x16.ranging.StartResponse\x123\n" +
+	"\x04Stop\x12\x14.ranging.StopRequest\x1a\x15.ranging.StopResponse\x12?\n" +
+	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse2\xb3\x03\n" +
+	"\x16SessionCallbackService\x12?\n" +
+	"\bOnClosed\x12\x18.ranging.OnClosedRequest\x1a\x19.ranging.OnClosedResponse\x12K\n" +
+	"\fOnOpenFailed\x12\x1c.ranging.OnOpenFailedRequest\x1a\x1d.ranging.OnOpenFailedResponse\x12?\n" +
+	"\bOnOpened\x12\x18.ranging.OnOpenedRequest\x1a\x19.ranging.OnOpenedResponse\x12B\n" +
+	"\tOnResults\x12\x19.ranging.OnResultsRequest\x1a\x1a.ranging.OnResultsResponse\x12B\n" +
+	"\tOnStarted\x12\x19.ranging.OnStartedRequest\x1a\x1a.ranging.OnStartedResponse\x12B\n" +
+	"\tOnStopped\x12\x19.ranging.OnStoppedRequest\x1a\x1a.ranging.OnStoppedResponse2\xae\x04\n" +
+	"\x13CapabilitiesService\x12W\n" +
+	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x12Z\n" +
+	"\x11GetCsCapabilities\x12!.ranging.GetCsCapabilitiesRequest\x1a\".ranging.GetCsCapabilitiesResponse\x12r\n" +
+	"\x19GetRttRangingCapabilities\x12).ranging.GetRttRangingCapabilitiesRequest\x1a*.ranging.GetRttRangingCapabilitiesResponse\x12]\n" +
+	"\x12GetUwbCapabilities\x12\".ranging.GetUwbCapabilitiesRequest\x1a#.ranging.GetUwbCapabilitiesResponse\x12?\n" +
+	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\xb8\x01\n" +
+	"\rConfigService\x12f\n" +
+	"\x15GetRangingSessionType\x12%.ranging.GetRangingSessionTypeRequest\x1a&.ranging.GetRangingSessionTypeResponse\x12?\n" +
+	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse2\xa1\x03\n" +
 	"\x12MeasurementService\x12W\n" +
 	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x12N\n" +
 	"\rGetConfidence\x12\x1d.ranging.GetConfidenceRequest\x1a\x1e.ranging.GetConfidenceResponse\x12Q\n" +
@@ -4935,7 +4990,13 @@ const file_proto_ranging_ranging_proto_rawDesc = "" +
 	"\aGetRssi\x12\x17.ranging.GetRssiRequest\x1a\x18.ranging.GetRssiResponse\x12]\n" +
 	"\x12GetTimestampMillis\x12\".ranging.GetTimestampMillisRequest\x1a#.ranging.GetTimestampMillisResponse\x12<\n" +
 	"\aHasRssi\x12\x17.ranging.HasRssiRequest\x1a\x18.ranging.HasRssiResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\xb4\x05\n" +
+	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\xf6\x02\n" +
+	"\x0eManagerService\x12c\n" +
+	"\x14CreateRangingSession\x12$.ranging.CreateRangingSessionRequest\x1a%.ranging.CreateRangingSessionResponse\x12{\n" +
+	"\x1cRegisterCapabilitiesCallback\x12,.ranging.RegisterCapabilitiesCallbackRequest\x1a-.ranging.RegisterCapabilitiesCallbackResponse\x12\x81\x01\n" +
+	"\x1eUnregisterCapabilitiesCallback\x12..ranging.UnregisterCapabilitiesCallbackRequest\x1a/.ranging.UnregisterCapabilitiesCallbackResponse2\x93\x01\n" +
+	")ManagerRangingCapabilitiesCallbackService\x12f\n" +
+	"\x15OnRangingCapabilities\x12%.ranging.OnRangingCapabilitiesRequest\x1a&.ranging.OnRangingCapabilitiesResponse2\xb4\x05\n" +
 	"\x1dDataNotificationConfigService\x12W\n" +
 	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x129\n" +
 	"\x06Equals\x12\x16.ranging.EqualsRequest\x1a\x17.ranging.EqualsResponse\x12r\n" +
@@ -4949,68 +5010,7 @@ const file_proto_ranging_ranging_proto_rawDesc = "" +
 	"\x05Build\x12\x15.ranging.BuildRequest\x1a\x16.ranging.BuildResponse\x12r\n" +
 	"\x19SetNotificationConfigType\x12).ranging.SetNotificationConfigTypeRequest\x1a*.ranging.SetNotificationConfigTypeResponse\x12Z\n" +
 	"\x11SetProximityFarCm\x12!.ranging.SetProximityFarCmRequest\x1a\".ranging.SetProximityFarCmResponse\x12]\n" +
-	"\x12SetProximityNearCm\x12\".ranging.SetProximityNearCmRequest\x1a#.ranging.SetProximityNearCmResponse2\xb8\x01\n" +
-	"\rConfigService\x12f\n" +
-	"\x15GetRangingSessionType\x12%.ranging.GetRangingSessionTypeRequest\x1a&.ranging.GetRangingSessionTypeResponse\x12?\n" +
-	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse2\xe5\x04\n" +
-	"\x0eSessionService\x12r\n" +
-	"\x19AddDeviceToRangingSession\x12).ranging.AddDeviceToRangingSessionRequest\x1a*.ranging.AddDeviceToRangingSessionResponse\x126\n" +
-	"\x05Close\x12\x15.ranging.CloseRequest\x1a\x16.ranging.CloseResponse\x12u\n" +
-	"\x1aReconfigureRangingInterval\x12*.ranging.ReconfigureRangingIntervalRequest\x1a+.ranging.ReconfigureRangingIntervalResponse\x12\x81\x01\n" +
-	"\x1eRemoveDeviceFromRangingSession\x12..ranging.RemoveDeviceFromRangingSessionRequest\x1a/.ranging.RemoveDeviceFromRangingSessionResponse\x126\n" +
-	"\x05Start\x12\x15.ranging.StartRequest\x1a\x16.ranging.StartResponse\x123\n" +
-	"\x04Stop\x12\x14.ranging.StopRequest\x1a\x15.ranging.StopResponse\x12?\n" +
-	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse2\xb3\x03\n" +
-	"\x16SessionCallbackService\x12?\n" +
-	"\bOnClosed\x12\x18.ranging.OnClosedRequest\x1a\x19.ranging.OnClosedResponse\x12K\n" +
-	"\fOnOpenFailed\x12\x1c.ranging.OnOpenFailedRequest\x1a\x1d.ranging.OnOpenFailedResponse\x12?\n" +
-	"\bOnOpened\x12\x18.ranging.OnOpenedRequest\x1a\x19.ranging.OnOpenedResponse\x12B\n" +
-	"\tOnResults\x12\x19.ranging.OnResultsRequest\x1a\x1a.ranging.OnResultsResponse\x12B\n" +
-	"\tOnStarted\x12\x19.ranging.OnStartedRequest\x1a\x1a.ranging.OnStartedResponse\x12B\n" +
-	"\tOnStopped\x12\x19.ranging.OnStoppedRequest\x1a\x1a.ranging.OnStoppedResponse2\xe9\x03\n" +
-	"\x19SensorFusionParamsService\x12W\n" +
-	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x129\n" +
-	"\x06Equals\x12\x16.ranging.EqualsRequest\x1a\x17.ranging.EqualsResponse\x12?\n" +
-	"\bHashCode\x12\x18.ranging.HashCodeRequest\x1a\x19.ranging.HashCodeResponse\x12f\n" +
-	"\x15IsSensorFusionEnabled\x12%.ranging.IsSensorFusionEnabledRequest\x1a&.ranging.IsSensorFusionEnabledResponse\x12?\n" +
-	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\xc5\x01\n" +
-	" SensorFusionParamsBuilderService\x126\n" +
-	"\x05Build\x12\x15.ranging.BuildRequest\x1a\x16.ranging.BuildResponse\x12i\n" +
-	"\x16SetSensorFusionEnabled\x12&.ranging.SetSensorFusionEnabledRequest\x1a'.ranging.SetSensorFusionEnabledResponse2\xf6\x02\n" +
-	"\x0eManagerService\x12c\n" +
-	"\x14CreateRangingSession\x12$.ranging.CreateRangingSessionRequest\x1a%.ranging.CreateRangingSessionResponse\x12{\n" +
-	"\x1cRegisterCapabilitiesCallback\x12,.ranging.RegisterCapabilitiesCallbackRequest\x1a-.ranging.RegisterCapabilitiesCallbackResponse\x12\x81\x01\n" +
-	"\x1eUnregisterCapabilitiesCallback\x12..ranging.UnregisterCapabilitiesCallbackRequest\x1a/.ranging.UnregisterCapabilitiesCallbackResponse2\x93\x01\n" +
-	")ManagerRangingCapabilitiesCallbackService\x12f\n" +
-	"\x15OnRangingCapabilities\x12%.ranging.OnRangingCapabilitiesRequest\x1a&.ranging.OnRangingCapabilitiesResponse2\xb3\x03\n" +
-	"\rDeviceService\x12W\n" +
-	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x129\n" +
-	"\x06Equals\x12\x16.ranging.EqualsRequest\x1a\x17.ranging.EqualsResponse\x12<\n" +
-	"\aGetUuid\x12\x17.ranging.GetUuidRequest\x1a\x18.ranging.GetUuidResponse\x12?\n" +
-	"\bHashCode\x12\x18.ranging.HashCodeRequest\x1a\x19.ranging.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\x8c\x01\n" +
-	"\x14DeviceBuilderService\x126\n" +
-	"\x05Build\x12\x15.ranging.BuildRequest\x1a\x16.ranging.BuildResponse\x12<\n" +
-	"\aSetUuid\x12\x17.ranging.SetUuidRequest\x1a\x18.ranging.SetUuidResponse2\xff\x03\n" +
-	"\x11PreferenceService\x12W\n" +
-	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x12N\n" +
-	"\rGetDeviceRole\x12\x1d.ranging.GetDeviceRoleRequest\x1a\x1e.ranging.GetDeviceRoleResponse\x12W\n" +
-	"\x10GetRangingParams\x12 .ranging.GetRangingParamsRequest\x1a!.ranging.GetRangingParamsResponse\x12W\n" +
-	"\x10GetSessionConfig\x12 .ranging.GetSessionConfigRequest\x1a!.ranging.GetSessionConfigResponse\x12?\n" +
-	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponse2\xab\x01\n" +
-	"\x18PreferenceBuilderService\x126\n" +
-	"\x05Build\x12\x15.ranging.BuildRequest\x1a\x16.ranging.BuildResponse\x12W\n" +
-	"\x10SetSessionConfig\x12 .ranging.SetSessionConfigRequest\x1a!.ranging.SetSessionConfigResponse2\xae\x04\n" +
-	"\x13CapabilitiesService\x12W\n" +
-	"\x10DescribeContents\x12 .ranging.DescribeContentsRequest\x1a!.ranging.DescribeContentsResponse\x12Z\n" +
-	"\x11GetCsCapabilities\x12!.ranging.GetCsCapabilitiesRequest\x1a\".ranging.GetCsCapabilitiesResponse\x12r\n" +
-	"\x19GetRttRangingCapabilities\x12).ranging.GetRttRangingCapabilitiesRequest\x1a*.ranging.GetRttRangingCapabilitiesResponse\x12]\n" +
-	"\x12GetUwbCapabilities\x12\".ranging.GetUwbCapabilitiesRequest\x1a#.ranging.GetUwbCapabilitiesResponse\x12?\n" +
-	"\bToString\x12\x18.ranging.ToStringRequest\x1a\x19.ranging.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.ranging.WriteToParcelRequest\x1a\x1e.ranging.WriteToParcelResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/rangingb\x06proto3"
+	"\x12SetProximityNearCm\x12\".ranging.SetProximityNearCmRequest\x1a#.ranging.SetProximityNearCmResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/rangingb\x06proto3"
 
 var (
 	file_proto_ranging_ranging_proto_rawDescOnce sync.Once
@@ -5030,296 +5030,296 @@ var file_proto_ranging_ranging_proto_goTypes = []any{
 	(*DescribeContentsResponse)(nil),               // 1: ranging.DescribeContentsResponse
 	(*EqualsRequest)(nil),                          // 2: ranging.EqualsRequest
 	(*EqualsResponse)(nil),                         // 3: ranging.EqualsResponse
-	(*GetDataNotificationConfigRequest)(nil),       // 4: ranging.GetDataNotificationConfigRequest
-	(*GetDataNotificationConfigResponse)(nil),      // 5: ranging.GetDataNotificationConfigResponse
-	(*GetRangingMeasurementsLimitRequest)(nil),     // 6: ranging.GetRangingMeasurementsLimitRequest
-	(*GetRangingMeasurementsLimitResponse)(nil),    // 7: ranging.GetRangingMeasurementsLimitResponse
-	(*GetSensorFusionParamsRequest)(nil),           // 8: ranging.GetSensorFusionParamsRequest
-	(*GetSensorFusionParamsResponse)(nil),          // 9: ranging.GetSensorFusionParamsResponse
-	(*HashCodeRequest)(nil),                        // 10: ranging.HashCodeRequest
-	(*HashCodeResponse)(nil),                       // 11: ranging.HashCodeResponse
-	(*IsAngleOfArrivalNeededRequest)(nil),          // 12: ranging.IsAngleOfArrivalNeededRequest
-	(*IsAngleOfArrivalNeededResponse)(nil),         // 13: ranging.IsAngleOfArrivalNeededResponse
-	(*ToStringRequest)(nil),                        // 14: ranging.ToStringRequest
-	(*ToStringResponse)(nil),                       // 15: ranging.ToStringResponse
-	(*WriteToParcelRequest)(nil),                   // 16: ranging.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                  // 17: ranging.WriteToParcelResponse
-	(*BuildRequest)(nil),                           // 18: ranging.BuildRequest
-	(*BuildResponse)(nil),                          // 19: ranging.BuildResponse
-	(*SetAngleOfArrivalNeededRequest)(nil),         // 20: ranging.SetAngleOfArrivalNeededRequest
-	(*SetAngleOfArrivalNeededResponse)(nil),        // 21: ranging.SetAngleOfArrivalNeededResponse
-	(*SetDataNotificationConfigRequest)(nil),       // 22: ranging.SetDataNotificationConfigRequest
-	(*SetDataNotificationConfigResponse)(nil),      // 23: ranging.SetDataNotificationConfigResponse
-	(*SetRangingMeasurementsLimitRequest)(nil),     // 24: ranging.SetRangingMeasurementsLimitRequest
-	(*SetRangingMeasurementsLimitResponse)(nil),    // 25: ranging.SetRangingMeasurementsLimitResponse
-	(*SetSensorFusionParamsRequest)(nil),           // 26: ranging.SetSensorFusionParamsRequest
-	(*SetSensorFusionParamsResponse)(nil),          // 27: ranging.SetSensorFusionParamsResponse
-	(*GetConfidenceRequest)(nil),                   // 28: ranging.GetConfidenceRequest
-	(*GetConfidenceResponse)(nil),                  // 29: ranging.GetConfidenceResponse
-	(*GetMeasurementRequest)(nil),                  // 30: ranging.GetMeasurementRequest
-	(*GetMeasurementResponse)(nil),                 // 31: ranging.GetMeasurementResponse
-	(*GetAzimuthRequest)(nil),                      // 32: ranging.GetAzimuthRequest
-	(*GetAzimuthResponse)(nil),                     // 33: ranging.GetAzimuthResponse
-	(*GetDistanceRequest)(nil),                     // 34: ranging.GetDistanceRequest
-	(*GetDistanceResponse)(nil),                    // 35: ranging.GetDistanceResponse
-	(*GetElevationRequest)(nil),                    // 36: ranging.GetElevationRequest
-	(*GetElevationResponse)(nil),                   // 37: ranging.GetElevationResponse
-	(*GetRangingTechnologyRequest)(nil),            // 38: ranging.GetRangingTechnologyRequest
-	(*GetRangingTechnologyResponse)(nil),           // 39: ranging.GetRangingTechnologyResponse
-	(*GetRssiRequest)(nil),                         // 40: ranging.GetRssiRequest
-	(*GetRssiResponse)(nil),                        // 41: ranging.GetRssiResponse
-	(*GetTimestampMillisRequest)(nil),              // 42: ranging.GetTimestampMillisRequest
-	(*GetTimestampMillisResponse)(nil),             // 43: ranging.GetTimestampMillisResponse
-	(*HasRssiRequest)(nil),                         // 44: ranging.HasRssiRequest
-	(*HasRssiResponse)(nil),                        // 45: ranging.HasRssiResponse
-	(*GetNotificationConfigTypeRequest)(nil),       // 46: ranging.GetNotificationConfigTypeRequest
-	(*GetNotificationConfigTypeResponse)(nil),      // 47: ranging.GetNotificationConfigTypeResponse
-	(*GetProximityFarCmRequest)(nil),               // 48: ranging.GetProximityFarCmRequest
-	(*GetProximityFarCmResponse)(nil),              // 49: ranging.GetProximityFarCmResponse
-	(*GetProximityNearCmRequest)(nil),              // 50: ranging.GetProximityNearCmRequest
-	(*GetProximityNearCmResponse)(nil),             // 51: ranging.GetProximityNearCmResponse
-	(*SetNotificationConfigTypeRequest)(nil),       // 52: ranging.SetNotificationConfigTypeRequest
-	(*SetNotificationConfigTypeResponse)(nil),      // 53: ranging.SetNotificationConfigTypeResponse
-	(*SetProximityFarCmRequest)(nil),               // 54: ranging.SetProximityFarCmRequest
-	(*SetProximityFarCmResponse)(nil),              // 55: ranging.SetProximityFarCmResponse
-	(*SetProximityNearCmRequest)(nil),              // 56: ranging.SetProximityNearCmRequest
-	(*SetProximityNearCmResponse)(nil),             // 57: ranging.SetProximityNearCmResponse
-	(*GetRangingSessionTypeRequest)(nil),           // 58: ranging.GetRangingSessionTypeRequest
-	(*GetRangingSessionTypeResponse)(nil),          // 59: ranging.GetRangingSessionTypeResponse
-	(*AddDeviceToRangingSessionRequest)(nil),       // 60: ranging.AddDeviceToRangingSessionRequest
-	(*AddDeviceToRangingSessionResponse)(nil),      // 61: ranging.AddDeviceToRangingSessionResponse
-	(*CloseRequest)(nil),                           // 62: ranging.CloseRequest
-	(*CloseResponse)(nil),                          // 63: ranging.CloseResponse
-	(*ReconfigureRangingIntervalRequest)(nil),      // 64: ranging.ReconfigureRangingIntervalRequest
-	(*ReconfigureRangingIntervalResponse)(nil),     // 65: ranging.ReconfigureRangingIntervalResponse
-	(*RemoveDeviceFromRangingSessionRequest)(nil),  // 66: ranging.RemoveDeviceFromRangingSessionRequest
-	(*RemoveDeviceFromRangingSessionResponse)(nil), // 67: ranging.RemoveDeviceFromRangingSessionResponse
-	(*StartRequest)(nil),                           // 68: ranging.StartRequest
-	(*StartResponse)(nil),                          // 69: ranging.StartResponse
-	(*StopRequest)(nil),                            // 70: ranging.StopRequest
-	(*StopResponse)(nil),                           // 71: ranging.StopResponse
-	(*OnClosedRequest)(nil),                        // 72: ranging.OnClosedRequest
-	(*OnClosedResponse)(nil),                       // 73: ranging.OnClosedResponse
-	(*OnOpenFailedRequest)(nil),                    // 74: ranging.OnOpenFailedRequest
-	(*OnOpenFailedResponse)(nil),                   // 75: ranging.OnOpenFailedResponse
-	(*OnOpenedRequest)(nil),                        // 76: ranging.OnOpenedRequest
-	(*OnOpenedResponse)(nil),                       // 77: ranging.OnOpenedResponse
-	(*OnResultsRequest)(nil),                       // 78: ranging.OnResultsRequest
-	(*OnResultsResponse)(nil),                      // 79: ranging.OnResultsResponse
-	(*OnStartedRequest)(nil),                       // 80: ranging.OnStartedRequest
-	(*OnStartedResponse)(nil),                      // 81: ranging.OnStartedResponse
-	(*OnStoppedRequest)(nil),                       // 82: ranging.OnStoppedRequest
-	(*OnStoppedResponse)(nil),                      // 83: ranging.OnStoppedResponse
-	(*IsSensorFusionEnabledRequest)(nil),           // 84: ranging.IsSensorFusionEnabledRequest
-	(*IsSensorFusionEnabledResponse)(nil),          // 85: ranging.IsSensorFusionEnabledResponse
-	(*SetSensorFusionEnabledRequest)(nil),          // 86: ranging.SetSensorFusionEnabledRequest
-	(*SetSensorFusionEnabledResponse)(nil),         // 87: ranging.SetSensorFusionEnabledResponse
-	(*CreateRangingSessionRequest)(nil),            // 88: ranging.CreateRangingSessionRequest
-	(*CreateRangingSessionResponse)(nil),           // 89: ranging.CreateRangingSessionResponse
-	(*RegisterCapabilitiesCallbackRequest)(nil),    // 90: ranging.RegisterCapabilitiesCallbackRequest
-	(*RegisterCapabilitiesCallbackResponse)(nil),   // 91: ranging.RegisterCapabilitiesCallbackResponse
-	(*UnregisterCapabilitiesCallbackRequest)(nil),  // 92: ranging.UnregisterCapabilitiesCallbackRequest
-	(*UnregisterCapabilitiesCallbackResponse)(nil), // 93: ranging.UnregisterCapabilitiesCallbackResponse
-	(*OnRangingCapabilitiesRequest)(nil),           // 94: ranging.OnRangingCapabilitiesRequest
-	(*OnRangingCapabilitiesResponse)(nil),          // 95: ranging.OnRangingCapabilitiesResponse
-	(*GetUuidRequest)(nil),                         // 96: ranging.GetUuidRequest
-	(*GetUuidResponse)(nil),                        // 97: ranging.GetUuidResponse
-	(*SetUuidRequest)(nil),                         // 98: ranging.SetUuidRequest
-	(*SetUuidResponse)(nil),                        // 99: ranging.SetUuidResponse
-	(*GetDeviceRoleRequest)(nil),                   // 100: ranging.GetDeviceRoleRequest
-	(*GetDeviceRoleResponse)(nil),                  // 101: ranging.GetDeviceRoleResponse
-	(*GetRangingParamsRequest)(nil),                // 102: ranging.GetRangingParamsRequest
-	(*GetRangingParamsResponse)(nil),               // 103: ranging.GetRangingParamsResponse
-	(*GetSessionConfigRequest)(nil),                // 104: ranging.GetSessionConfigRequest
-	(*GetSessionConfigResponse)(nil),               // 105: ranging.GetSessionConfigResponse
-	(*SetSessionConfigRequest)(nil),                // 106: ranging.SetSessionConfigRequest
-	(*SetSessionConfigResponse)(nil),               // 107: ranging.SetSessionConfigResponse
-	(*GetCsCapabilitiesRequest)(nil),               // 108: ranging.GetCsCapabilitiesRequest
-	(*GetCsCapabilitiesResponse)(nil),              // 109: ranging.GetCsCapabilitiesResponse
-	(*GetRttRangingCapabilitiesRequest)(nil),       // 110: ranging.GetRttRangingCapabilitiesRequest
-	(*GetRttRangingCapabilitiesResponse)(nil),      // 111: ranging.GetRttRangingCapabilitiesResponse
-	(*GetUwbCapabilitiesRequest)(nil),              // 112: ranging.GetUwbCapabilitiesRequest
-	(*GetUwbCapabilitiesResponse)(nil),             // 113: ranging.GetUwbCapabilitiesResponse
+	(*GetUuidRequest)(nil),                         // 4: ranging.GetUuidRequest
+	(*GetUuidResponse)(nil),                        // 5: ranging.GetUuidResponse
+	(*HashCodeRequest)(nil),                        // 6: ranging.HashCodeRequest
+	(*HashCodeResponse)(nil),                       // 7: ranging.HashCodeResponse
+	(*ToStringRequest)(nil),                        // 8: ranging.ToStringRequest
+	(*ToStringResponse)(nil),                       // 9: ranging.ToStringResponse
+	(*WriteToParcelRequest)(nil),                   // 10: ranging.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                  // 11: ranging.WriteToParcelResponse
+	(*BuildRequest)(nil),                           // 12: ranging.BuildRequest
+	(*BuildResponse)(nil),                          // 13: ranging.BuildResponse
+	(*SetUuidRequest)(nil),                         // 14: ranging.SetUuidRequest
+	(*SetUuidResponse)(nil),                        // 15: ranging.SetUuidResponse
+	(*GetDataNotificationConfigRequest)(nil),       // 16: ranging.GetDataNotificationConfigRequest
+	(*GetDataNotificationConfigResponse)(nil),      // 17: ranging.GetDataNotificationConfigResponse
+	(*GetRangingMeasurementsLimitRequest)(nil),     // 18: ranging.GetRangingMeasurementsLimitRequest
+	(*GetRangingMeasurementsLimitResponse)(nil),    // 19: ranging.GetRangingMeasurementsLimitResponse
+	(*GetSensorFusionParamsRequest)(nil),           // 20: ranging.GetSensorFusionParamsRequest
+	(*GetSensorFusionParamsResponse)(nil),          // 21: ranging.GetSensorFusionParamsResponse
+	(*IsAngleOfArrivalNeededRequest)(nil),          // 22: ranging.IsAngleOfArrivalNeededRequest
+	(*IsAngleOfArrivalNeededResponse)(nil),         // 23: ranging.IsAngleOfArrivalNeededResponse
+	(*SetAngleOfArrivalNeededRequest)(nil),         // 24: ranging.SetAngleOfArrivalNeededRequest
+	(*SetAngleOfArrivalNeededResponse)(nil),        // 25: ranging.SetAngleOfArrivalNeededResponse
+	(*SetDataNotificationConfigRequest)(nil),       // 26: ranging.SetDataNotificationConfigRequest
+	(*SetDataNotificationConfigResponse)(nil),      // 27: ranging.SetDataNotificationConfigResponse
+	(*SetRangingMeasurementsLimitRequest)(nil),     // 28: ranging.SetRangingMeasurementsLimitRequest
+	(*SetRangingMeasurementsLimitResponse)(nil),    // 29: ranging.SetRangingMeasurementsLimitResponse
+	(*SetSensorFusionParamsRequest)(nil),           // 30: ranging.SetSensorFusionParamsRequest
+	(*SetSensorFusionParamsResponse)(nil),          // 31: ranging.SetSensorFusionParamsResponse
+	(*GetDeviceRoleRequest)(nil),                   // 32: ranging.GetDeviceRoleRequest
+	(*GetDeviceRoleResponse)(nil),                  // 33: ranging.GetDeviceRoleResponse
+	(*GetRangingParamsRequest)(nil),                // 34: ranging.GetRangingParamsRequest
+	(*GetRangingParamsResponse)(nil),               // 35: ranging.GetRangingParamsResponse
+	(*GetSessionConfigRequest)(nil),                // 36: ranging.GetSessionConfigRequest
+	(*GetSessionConfigResponse)(nil),               // 37: ranging.GetSessionConfigResponse
+	(*SetSessionConfigRequest)(nil),                // 38: ranging.SetSessionConfigRequest
+	(*SetSessionConfigResponse)(nil),               // 39: ranging.SetSessionConfigResponse
+	(*IsSensorFusionEnabledRequest)(nil),           // 40: ranging.IsSensorFusionEnabledRequest
+	(*IsSensorFusionEnabledResponse)(nil),          // 41: ranging.IsSensorFusionEnabledResponse
+	(*SetSensorFusionEnabledRequest)(nil),          // 42: ranging.SetSensorFusionEnabledRequest
+	(*SetSensorFusionEnabledResponse)(nil),         // 43: ranging.SetSensorFusionEnabledResponse
+	(*AddDeviceToRangingSessionRequest)(nil),       // 44: ranging.AddDeviceToRangingSessionRequest
+	(*AddDeviceToRangingSessionResponse)(nil),      // 45: ranging.AddDeviceToRangingSessionResponse
+	(*CloseRequest)(nil),                           // 46: ranging.CloseRequest
+	(*CloseResponse)(nil),                          // 47: ranging.CloseResponse
+	(*ReconfigureRangingIntervalRequest)(nil),      // 48: ranging.ReconfigureRangingIntervalRequest
+	(*ReconfigureRangingIntervalResponse)(nil),     // 49: ranging.ReconfigureRangingIntervalResponse
+	(*RemoveDeviceFromRangingSessionRequest)(nil),  // 50: ranging.RemoveDeviceFromRangingSessionRequest
+	(*RemoveDeviceFromRangingSessionResponse)(nil), // 51: ranging.RemoveDeviceFromRangingSessionResponse
+	(*StartRequest)(nil),                           // 52: ranging.StartRequest
+	(*StartResponse)(nil),                          // 53: ranging.StartResponse
+	(*StopRequest)(nil),                            // 54: ranging.StopRequest
+	(*StopResponse)(nil),                           // 55: ranging.StopResponse
+	(*OnClosedRequest)(nil),                        // 56: ranging.OnClosedRequest
+	(*OnClosedResponse)(nil),                       // 57: ranging.OnClosedResponse
+	(*OnOpenFailedRequest)(nil),                    // 58: ranging.OnOpenFailedRequest
+	(*OnOpenFailedResponse)(nil),                   // 59: ranging.OnOpenFailedResponse
+	(*OnOpenedRequest)(nil),                        // 60: ranging.OnOpenedRequest
+	(*OnOpenedResponse)(nil),                       // 61: ranging.OnOpenedResponse
+	(*OnResultsRequest)(nil),                       // 62: ranging.OnResultsRequest
+	(*OnResultsResponse)(nil),                      // 63: ranging.OnResultsResponse
+	(*OnStartedRequest)(nil),                       // 64: ranging.OnStartedRequest
+	(*OnStartedResponse)(nil),                      // 65: ranging.OnStartedResponse
+	(*OnStoppedRequest)(nil),                       // 66: ranging.OnStoppedRequest
+	(*OnStoppedResponse)(nil),                      // 67: ranging.OnStoppedResponse
+	(*GetCsCapabilitiesRequest)(nil),               // 68: ranging.GetCsCapabilitiesRequest
+	(*GetCsCapabilitiesResponse)(nil),              // 69: ranging.GetCsCapabilitiesResponse
+	(*GetRttRangingCapabilitiesRequest)(nil),       // 70: ranging.GetRttRangingCapabilitiesRequest
+	(*GetRttRangingCapabilitiesResponse)(nil),      // 71: ranging.GetRttRangingCapabilitiesResponse
+	(*GetUwbCapabilitiesRequest)(nil),              // 72: ranging.GetUwbCapabilitiesRequest
+	(*GetUwbCapabilitiesResponse)(nil),             // 73: ranging.GetUwbCapabilitiesResponse
+	(*GetRangingSessionTypeRequest)(nil),           // 74: ranging.GetRangingSessionTypeRequest
+	(*GetRangingSessionTypeResponse)(nil),          // 75: ranging.GetRangingSessionTypeResponse
+	(*GetConfidenceRequest)(nil),                   // 76: ranging.GetConfidenceRequest
+	(*GetConfidenceResponse)(nil),                  // 77: ranging.GetConfidenceResponse
+	(*GetMeasurementRequest)(nil),                  // 78: ranging.GetMeasurementRequest
+	(*GetMeasurementResponse)(nil),                 // 79: ranging.GetMeasurementResponse
+	(*GetAzimuthRequest)(nil),                      // 80: ranging.GetAzimuthRequest
+	(*GetAzimuthResponse)(nil),                     // 81: ranging.GetAzimuthResponse
+	(*GetDistanceRequest)(nil),                     // 82: ranging.GetDistanceRequest
+	(*GetDistanceResponse)(nil),                    // 83: ranging.GetDistanceResponse
+	(*GetElevationRequest)(nil),                    // 84: ranging.GetElevationRequest
+	(*GetElevationResponse)(nil),                   // 85: ranging.GetElevationResponse
+	(*GetRangingTechnologyRequest)(nil),            // 86: ranging.GetRangingTechnologyRequest
+	(*GetRangingTechnologyResponse)(nil),           // 87: ranging.GetRangingTechnologyResponse
+	(*GetRssiRequest)(nil),                         // 88: ranging.GetRssiRequest
+	(*GetRssiResponse)(nil),                        // 89: ranging.GetRssiResponse
+	(*GetTimestampMillisRequest)(nil),              // 90: ranging.GetTimestampMillisRequest
+	(*GetTimestampMillisResponse)(nil),             // 91: ranging.GetTimestampMillisResponse
+	(*HasRssiRequest)(nil),                         // 92: ranging.HasRssiRequest
+	(*HasRssiResponse)(nil),                        // 93: ranging.HasRssiResponse
+	(*CreateRangingSessionRequest)(nil),            // 94: ranging.CreateRangingSessionRequest
+	(*CreateRangingSessionResponse)(nil),           // 95: ranging.CreateRangingSessionResponse
+	(*RegisterCapabilitiesCallbackRequest)(nil),    // 96: ranging.RegisterCapabilitiesCallbackRequest
+	(*RegisterCapabilitiesCallbackResponse)(nil),   // 97: ranging.RegisterCapabilitiesCallbackResponse
+	(*UnregisterCapabilitiesCallbackRequest)(nil),  // 98: ranging.UnregisterCapabilitiesCallbackRequest
+	(*UnregisterCapabilitiesCallbackResponse)(nil), // 99: ranging.UnregisterCapabilitiesCallbackResponse
+	(*OnRangingCapabilitiesRequest)(nil),           // 100: ranging.OnRangingCapabilitiesRequest
+	(*OnRangingCapabilitiesResponse)(nil),          // 101: ranging.OnRangingCapabilitiesResponse
+	(*GetNotificationConfigTypeRequest)(nil),       // 102: ranging.GetNotificationConfigTypeRequest
+	(*GetNotificationConfigTypeResponse)(nil),      // 103: ranging.GetNotificationConfigTypeResponse
+	(*GetProximityFarCmRequest)(nil),               // 104: ranging.GetProximityFarCmRequest
+	(*GetProximityFarCmResponse)(nil),              // 105: ranging.GetProximityFarCmResponse
+	(*GetProximityNearCmRequest)(nil),              // 106: ranging.GetProximityNearCmRequest
+	(*GetProximityNearCmResponse)(nil),             // 107: ranging.GetProximityNearCmResponse
+	(*SetNotificationConfigTypeRequest)(nil),       // 108: ranging.SetNotificationConfigTypeRequest
+	(*SetNotificationConfigTypeResponse)(nil),      // 109: ranging.SetNotificationConfigTypeResponse
+	(*SetProximityFarCmRequest)(nil),               // 110: ranging.SetProximityFarCmRequest
+	(*SetProximityFarCmResponse)(nil),              // 111: ranging.SetProximityFarCmResponse
+	(*SetProximityNearCmRequest)(nil),              // 112: ranging.SetProximityNearCmRequest
+	(*SetProximityNearCmResponse)(nil),             // 113: ranging.SetProximityNearCmResponse
 }
 var file_proto_ranging_ranging_proto_depIdxs = []int32{
-	0,   // 0: ranging.SessionConfigService.DescribeContents:input_type -> ranging.DescribeContentsRequest
-	2,   // 1: ranging.SessionConfigService.Equals:input_type -> ranging.EqualsRequest
-	4,   // 2: ranging.SessionConfigService.GetDataNotificationConfig:input_type -> ranging.GetDataNotificationConfigRequest
-	6,   // 3: ranging.SessionConfigService.GetRangingMeasurementsLimit:input_type -> ranging.GetRangingMeasurementsLimitRequest
-	8,   // 4: ranging.SessionConfigService.GetSensorFusionParams:input_type -> ranging.GetSensorFusionParamsRequest
-	10,  // 5: ranging.SessionConfigService.HashCode:input_type -> ranging.HashCodeRequest
-	12,  // 6: ranging.SessionConfigService.IsAngleOfArrivalNeeded:input_type -> ranging.IsAngleOfArrivalNeededRequest
-	14,  // 7: ranging.SessionConfigService.ToString:input_type -> ranging.ToStringRequest
-	16,  // 8: ranging.SessionConfigService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
-	18,  // 9: ranging.SessionConfigBuilderService.Build:input_type -> ranging.BuildRequest
-	20,  // 10: ranging.SessionConfigBuilderService.SetAngleOfArrivalNeeded:input_type -> ranging.SetAngleOfArrivalNeededRequest
-	22,  // 11: ranging.SessionConfigBuilderService.SetDataNotificationConfig:input_type -> ranging.SetDataNotificationConfigRequest
-	24,  // 12: ranging.SessionConfigBuilderService.SetRangingMeasurementsLimit:input_type -> ranging.SetRangingMeasurementsLimitRequest
-	26,  // 13: ranging.SessionConfigBuilderService.SetSensorFusionParams:input_type -> ranging.SetSensorFusionParamsRequest
-	0,   // 14: ranging.MeasurementService.DescribeContents:input_type -> ranging.DescribeContentsRequest
-	28,  // 15: ranging.MeasurementService.GetConfidence:input_type -> ranging.GetConfidenceRequest
-	30,  // 16: ranging.MeasurementService.GetMeasurement:input_type -> ranging.GetMeasurementRequest
-	14,  // 17: ranging.MeasurementService.ToString:input_type -> ranging.ToStringRequest
-	16,  // 18: ranging.MeasurementService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
-	0,   // 19: ranging.DataService.DescribeContents:input_type -> ranging.DescribeContentsRequest
-	32,  // 20: ranging.DataService.GetAzimuth:input_type -> ranging.GetAzimuthRequest
-	34,  // 21: ranging.DataService.GetDistance:input_type -> ranging.GetDistanceRequest
-	36,  // 22: ranging.DataService.GetElevation:input_type -> ranging.GetElevationRequest
-	38,  // 23: ranging.DataService.GetRangingTechnology:input_type -> ranging.GetRangingTechnologyRequest
-	40,  // 24: ranging.DataService.GetRssi:input_type -> ranging.GetRssiRequest
-	42,  // 25: ranging.DataService.GetTimestampMillis:input_type -> ranging.GetTimestampMillisRequest
-	44,  // 26: ranging.DataService.HasRssi:input_type -> ranging.HasRssiRequest
-	16,  // 27: ranging.DataService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
-	0,   // 28: ranging.DataNotificationConfigService.DescribeContents:input_type -> ranging.DescribeContentsRequest
-	2,   // 29: ranging.DataNotificationConfigService.Equals:input_type -> ranging.EqualsRequest
-	46,  // 30: ranging.DataNotificationConfigService.GetNotificationConfigType:input_type -> ranging.GetNotificationConfigTypeRequest
-	48,  // 31: ranging.DataNotificationConfigService.GetProximityFarCm:input_type -> ranging.GetProximityFarCmRequest
-	50,  // 32: ranging.DataNotificationConfigService.GetProximityNearCm:input_type -> ranging.GetProximityNearCmRequest
-	10,  // 33: ranging.DataNotificationConfigService.HashCode:input_type -> ranging.HashCodeRequest
-	14,  // 34: ranging.DataNotificationConfigService.ToString:input_type -> ranging.ToStringRequest
-	16,  // 35: ranging.DataNotificationConfigService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
-	18,  // 36: ranging.DataNotificationConfigBuilderService.Build:input_type -> ranging.BuildRequest
-	52,  // 37: ranging.DataNotificationConfigBuilderService.SetNotificationConfigType:input_type -> ranging.SetNotificationConfigTypeRequest
-	54,  // 38: ranging.DataNotificationConfigBuilderService.SetProximityFarCm:input_type -> ranging.SetProximityFarCmRequest
-	56,  // 39: ranging.DataNotificationConfigBuilderService.SetProximityNearCm:input_type -> ranging.SetProximityNearCmRequest
-	58,  // 40: ranging.ConfigService.GetRangingSessionType:input_type -> ranging.GetRangingSessionTypeRequest
-	14,  // 41: ranging.ConfigService.ToString:input_type -> ranging.ToStringRequest
-	60,  // 42: ranging.SessionService.AddDeviceToRangingSession:input_type -> ranging.AddDeviceToRangingSessionRequest
-	62,  // 43: ranging.SessionService.Close:input_type -> ranging.CloseRequest
-	64,  // 44: ranging.SessionService.ReconfigureRangingInterval:input_type -> ranging.ReconfigureRangingIntervalRequest
-	66,  // 45: ranging.SessionService.RemoveDeviceFromRangingSession:input_type -> ranging.RemoveDeviceFromRangingSessionRequest
-	68,  // 46: ranging.SessionService.Start:input_type -> ranging.StartRequest
-	70,  // 47: ranging.SessionService.Stop:input_type -> ranging.StopRequest
-	14,  // 48: ranging.SessionService.ToString:input_type -> ranging.ToStringRequest
-	72,  // 49: ranging.SessionCallbackService.OnClosed:input_type -> ranging.OnClosedRequest
-	74,  // 50: ranging.SessionCallbackService.OnOpenFailed:input_type -> ranging.OnOpenFailedRequest
-	76,  // 51: ranging.SessionCallbackService.OnOpened:input_type -> ranging.OnOpenedRequest
-	78,  // 52: ranging.SessionCallbackService.OnResults:input_type -> ranging.OnResultsRequest
-	80,  // 53: ranging.SessionCallbackService.OnStarted:input_type -> ranging.OnStartedRequest
-	82,  // 54: ranging.SessionCallbackService.OnStopped:input_type -> ranging.OnStoppedRequest
-	0,   // 55: ranging.SensorFusionParamsService.DescribeContents:input_type -> ranging.DescribeContentsRequest
-	2,   // 56: ranging.SensorFusionParamsService.Equals:input_type -> ranging.EqualsRequest
-	10,  // 57: ranging.SensorFusionParamsService.HashCode:input_type -> ranging.HashCodeRequest
-	84,  // 58: ranging.SensorFusionParamsService.IsSensorFusionEnabled:input_type -> ranging.IsSensorFusionEnabledRequest
-	14,  // 59: ranging.SensorFusionParamsService.ToString:input_type -> ranging.ToStringRequest
-	16,  // 60: ranging.SensorFusionParamsService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
-	18,  // 61: ranging.SensorFusionParamsBuilderService.Build:input_type -> ranging.BuildRequest
-	86,  // 62: ranging.SensorFusionParamsBuilderService.SetSensorFusionEnabled:input_type -> ranging.SetSensorFusionEnabledRequest
-	88,  // 63: ranging.ManagerService.CreateRangingSession:input_type -> ranging.CreateRangingSessionRequest
-	90,  // 64: ranging.ManagerService.RegisterCapabilitiesCallback:input_type -> ranging.RegisterCapabilitiesCallbackRequest
-	92,  // 65: ranging.ManagerService.UnregisterCapabilitiesCallback:input_type -> ranging.UnregisterCapabilitiesCallbackRequest
-	94,  // 66: ranging.ManagerRangingCapabilitiesCallbackService.OnRangingCapabilities:input_type -> ranging.OnRangingCapabilitiesRequest
-	0,   // 67: ranging.DeviceService.DescribeContents:input_type -> ranging.DescribeContentsRequest
-	2,   // 68: ranging.DeviceService.Equals:input_type -> ranging.EqualsRequest
-	96,  // 69: ranging.DeviceService.GetUuid:input_type -> ranging.GetUuidRequest
-	10,  // 70: ranging.DeviceService.HashCode:input_type -> ranging.HashCodeRequest
-	14,  // 71: ranging.DeviceService.ToString:input_type -> ranging.ToStringRequest
-	16,  // 72: ranging.DeviceService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
-	18,  // 73: ranging.DeviceBuilderService.Build:input_type -> ranging.BuildRequest
-	98,  // 74: ranging.DeviceBuilderService.SetUuid:input_type -> ranging.SetUuidRequest
-	0,   // 75: ranging.PreferenceService.DescribeContents:input_type -> ranging.DescribeContentsRequest
-	100, // 76: ranging.PreferenceService.GetDeviceRole:input_type -> ranging.GetDeviceRoleRequest
-	102, // 77: ranging.PreferenceService.GetRangingParams:input_type -> ranging.GetRangingParamsRequest
-	104, // 78: ranging.PreferenceService.GetSessionConfig:input_type -> ranging.GetSessionConfigRequest
-	14,  // 79: ranging.PreferenceService.ToString:input_type -> ranging.ToStringRequest
-	16,  // 80: ranging.PreferenceService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
-	18,  // 81: ranging.PreferenceBuilderService.Build:input_type -> ranging.BuildRequest
-	106, // 82: ranging.PreferenceBuilderService.SetSessionConfig:input_type -> ranging.SetSessionConfigRequest
-	0,   // 83: ranging.CapabilitiesService.DescribeContents:input_type -> ranging.DescribeContentsRequest
-	108, // 84: ranging.CapabilitiesService.GetCsCapabilities:input_type -> ranging.GetCsCapabilitiesRequest
-	110, // 85: ranging.CapabilitiesService.GetRttRangingCapabilities:input_type -> ranging.GetRttRangingCapabilitiesRequest
-	112, // 86: ranging.CapabilitiesService.GetUwbCapabilities:input_type -> ranging.GetUwbCapabilitiesRequest
-	14,  // 87: ranging.CapabilitiesService.ToString:input_type -> ranging.ToStringRequest
-	16,  // 88: ranging.CapabilitiesService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
-	1,   // 89: ranging.SessionConfigService.DescribeContents:output_type -> ranging.DescribeContentsResponse
-	3,   // 90: ranging.SessionConfigService.Equals:output_type -> ranging.EqualsResponse
-	5,   // 91: ranging.SessionConfigService.GetDataNotificationConfig:output_type -> ranging.GetDataNotificationConfigResponse
-	7,   // 92: ranging.SessionConfigService.GetRangingMeasurementsLimit:output_type -> ranging.GetRangingMeasurementsLimitResponse
-	9,   // 93: ranging.SessionConfigService.GetSensorFusionParams:output_type -> ranging.GetSensorFusionParamsResponse
-	11,  // 94: ranging.SessionConfigService.HashCode:output_type -> ranging.HashCodeResponse
-	13,  // 95: ranging.SessionConfigService.IsAngleOfArrivalNeeded:output_type -> ranging.IsAngleOfArrivalNeededResponse
-	15,  // 96: ranging.SessionConfigService.ToString:output_type -> ranging.ToStringResponse
-	17,  // 97: ranging.SessionConfigService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
-	19,  // 98: ranging.SessionConfigBuilderService.Build:output_type -> ranging.BuildResponse
-	21,  // 99: ranging.SessionConfigBuilderService.SetAngleOfArrivalNeeded:output_type -> ranging.SetAngleOfArrivalNeededResponse
-	23,  // 100: ranging.SessionConfigBuilderService.SetDataNotificationConfig:output_type -> ranging.SetDataNotificationConfigResponse
-	25,  // 101: ranging.SessionConfigBuilderService.SetRangingMeasurementsLimit:output_type -> ranging.SetRangingMeasurementsLimitResponse
-	27,  // 102: ranging.SessionConfigBuilderService.SetSensorFusionParams:output_type -> ranging.SetSensorFusionParamsResponse
-	1,   // 103: ranging.MeasurementService.DescribeContents:output_type -> ranging.DescribeContentsResponse
-	29,  // 104: ranging.MeasurementService.GetConfidence:output_type -> ranging.GetConfidenceResponse
-	31,  // 105: ranging.MeasurementService.GetMeasurement:output_type -> ranging.GetMeasurementResponse
-	15,  // 106: ranging.MeasurementService.ToString:output_type -> ranging.ToStringResponse
-	17,  // 107: ranging.MeasurementService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
-	1,   // 108: ranging.DataService.DescribeContents:output_type -> ranging.DescribeContentsResponse
-	33,  // 109: ranging.DataService.GetAzimuth:output_type -> ranging.GetAzimuthResponse
-	35,  // 110: ranging.DataService.GetDistance:output_type -> ranging.GetDistanceResponse
-	37,  // 111: ranging.DataService.GetElevation:output_type -> ranging.GetElevationResponse
-	39,  // 112: ranging.DataService.GetRangingTechnology:output_type -> ranging.GetRangingTechnologyResponse
-	41,  // 113: ranging.DataService.GetRssi:output_type -> ranging.GetRssiResponse
-	43,  // 114: ranging.DataService.GetTimestampMillis:output_type -> ranging.GetTimestampMillisResponse
-	45,  // 115: ranging.DataService.HasRssi:output_type -> ranging.HasRssiResponse
-	17,  // 116: ranging.DataService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
-	1,   // 117: ranging.DataNotificationConfigService.DescribeContents:output_type -> ranging.DescribeContentsResponse
-	3,   // 118: ranging.DataNotificationConfigService.Equals:output_type -> ranging.EqualsResponse
-	47,  // 119: ranging.DataNotificationConfigService.GetNotificationConfigType:output_type -> ranging.GetNotificationConfigTypeResponse
-	49,  // 120: ranging.DataNotificationConfigService.GetProximityFarCm:output_type -> ranging.GetProximityFarCmResponse
-	51,  // 121: ranging.DataNotificationConfigService.GetProximityNearCm:output_type -> ranging.GetProximityNearCmResponse
-	11,  // 122: ranging.DataNotificationConfigService.HashCode:output_type -> ranging.HashCodeResponse
-	15,  // 123: ranging.DataNotificationConfigService.ToString:output_type -> ranging.ToStringResponse
-	17,  // 124: ranging.DataNotificationConfigService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
-	19,  // 125: ranging.DataNotificationConfigBuilderService.Build:output_type -> ranging.BuildResponse
-	53,  // 126: ranging.DataNotificationConfigBuilderService.SetNotificationConfigType:output_type -> ranging.SetNotificationConfigTypeResponse
-	55,  // 127: ranging.DataNotificationConfigBuilderService.SetProximityFarCm:output_type -> ranging.SetProximityFarCmResponse
-	57,  // 128: ranging.DataNotificationConfigBuilderService.SetProximityNearCm:output_type -> ranging.SetProximityNearCmResponse
-	59,  // 129: ranging.ConfigService.GetRangingSessionType:output_type -> ranging.GetRangingSessionTypeResponse
-	15,  // 130: ranging.ConfigService.ToString:output_type -> ranging.ToStringResponse
-	61,  // 131: ranging.SessionService.AddDeviceToRangingSession:output_type -> ranging.AddDeviceToRangingSessionResponse
-	63,  // 132: ranging.SessionService.Close:output_type -> ranging.CloseResponse
-	65,  // 133: ranging.SessionService.ReconfigureRangingInterval:output_type -> ranging.ReconfigureRangingIntervalResponse
-	67,  // 134: ranging.SessionService.RemoveDeviceFromRangingSession:output_type -> ranging.RemoveDeviceFromRangingSessionResponse
-	69,  // 135: ranging.SessionService.Start:output_type -> ranging.StartResponse
-	71,  // 136: ranging.SessionService.Stop:output_type -> ranging.StopResponse
-	15,  // 137: ranging.SessionService.ToString:output_type -> ranging.ToStringResponse
-	73,  // 138: ranging.SessionCallbackService.OnClosed:output_type -> ranging.OnClosedResponse
-	75,  // 139: ranging.SessionCallbackService.OnOpenFailed:output_type -> ranging.OnOpenFailedResponse
-	77,  // 140: ranging.SessionCallbackService.OnOpened:output_type -> ranging.OnOpenedResponse
-	79,  // 141: ranging.SessionCallbackService.OnResults:output_type -> ranging.OnResultsResponse
-	81,  // 142: ranging.SessionCallbackService.OnStarted:output_type -> ranging.OnStartedResponse
-	83,  // 143: ranging.SessionCallbackService.OnStopped:output_type -> ranging.OnStoppedResponse
-	1,   // 144: ranging.SensorFusionParamsService.DescribeContents:output_type -> ranging.DescribeContentsResponse
-	3,   // 145: ranging.SensorFusionParamsService.Equals:output_type -> ranging.EqualsResponse
-	11,  // 146: ranging.SensorFusionParamsService.HashCode:output_type -> ranging.HashCodeResponse
-	85,  // 147: ranging.SensorFusionParamsService.IsSensorFusionEnabled:output_type -> ranging.IsSensorFusionEnabledResponse
-	15,  // 148: ranging.SensorFusionParamsService.ToString:output_type -> ranging.ToStringResponse
-	17,  // 149: ranging.SensorFusionParamsService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
-	19,  // 150: ranging.SensorFusionParamsBuilderService.Build:output_type -> ranging.BuildResponse
-	87,  // 151: ranging.SensorFusionParamsBuilderService.SetSensorFusionEnabled:output_type -> ranging.SetSensorFusionEnabledResponse
-	89,  // 152: ranging.ManagerService.CreateRangingSession:output_type -> ranging.CreateRangingSessionResponse
-	91,  // 153: ranging.ManagerService.RegisterCapabilitiesCallback:output_type -> ranging.RegisterCapabilitiesCallbackResponse
-	93,  // 154: ranging.ManagerService.UnregisterCapabilitiesCallback:output_type -> ranging.UnregisterCapabilitiesCallbackResponse
-	95,  // 155: ranging.ManagerRangingCapabilitiesCallbackService.OnRangingCapabilities:output_type -> ranging.OnRangingCapabilitiesResponse
-	1,   // 156: ranging.DeviceService.DescribeContents:output_type -> ranging.DescribeContentsResponse
-	3,   // 157: ranging.DeviceService.Equals:output_type -> ranging.EqualsResponse
-	97,  // 158: ranging.DeviceService.GetUuid:output_type -> ranging.GetUuidResponse
-	11,  // 159: ranging.DeviceService.HashCode:output_type -> ranging.HashCodeResponse
-	15,  // 160: ranging.DeviceService.ToString:output_type -> ranging.ToStringResponse
-	17,  // 161: ranging.DeviceService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
-	19,  // 162: ranging.DeviceBuilderService.Build:output_type -> ranging.BuildResponse
-	99,  // 163: ranging.DeviceBuilderService.SetUuid:output_type -> ranging.SetUuidResponse
-	1,   // 164: ranging.PreferenceService.DescribeContents:output_type -> ranging.DescribeContentsResponse
-	101, // 165: ranging.PreferenceService.GetDeviceRole:output_type -> ranging.GetDeviceRoleResponse
-	103, // 166: ranging.PreferenceService.GetRangingParams:output_type -> ranging.GetRangingParamsResponse
-	105, // 167: ranging.PreferenceService.GetSessionConfig:output_type -> ranging.GetSessionConfigResponse
-	15,  // 168: ranging.PreferenceService.ToString:output_type -> ranging.ToStringResponse
-	17,  // 169: ranging.PreferenceService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
-	19,  // 170: ranging.PreferenceBuilderService.Build:output_type -> ranging.BuildResponse
-	107, // 171: ranging.PreferenceBuilderService.SetSessionConfig:output_type -> ranging.SetSessionConfigResponse
-	1,   // 172: ranging.CapabilitiesService.DescribeContents:output_type -> ranging.DescribeContentsResponse
-	109, // 173: ranging.CapabilitiesService.GetCsCapabilities:output_type -> ranging.GetCsCapabilitiesResponse
-	111, // 174: ranging.CapabilitiesService.GetRttRangingCapabilities:output_type -> ranging.GetRttRangingCapabilitiesResponse
-	113, // 175: ranging.CapabilitiesService.GetUwbCapabilities:output_type -> ranging.GetUwbCapabilitiesResponse
-	15,  // 176: ranging.CapabilitiesService.ToString:output_type -> ranging.ToStringResponse
-	17,  // 177: ranging.CapabilitiesService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	0,   // 0: ranging.DeviceService.DescribeContents:input_type -> ranging.DescribeContentsRequest
+	2,   // 1: ranging.DeviceService.Equals:input_type -> ranging.EqualsRequest
+	4,   // 2: ranging.DeviceService.GetUuid:input_type -> ranging.GetUuidRequest
+	6,   // 3: ranging.DeviceService.HashCode:input_type -> ranging.HashCodeRequest
+	8,   // 4: ranging.DeviceService.ToString:input_type -> ranging.ToStringRequest
+	10,  // 5: ranging.DeviceService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
+	12,  // 6: ranging.DeviceBuilderService.Build:input_type -> ranging.BuildRequest
+	14,  // 7: ranging.DeviceBuilderService.SetUuid:input_type -> ranging.SetUuidRequest
+	0,   // 8: ranging.SessionConfigService.DescribeContents:input_type -> ranging.DescribeContentsRequest
+	2,   // 9: ranging.SessionConfigService.Equals:input_type -> ranging.EqualsRequest
+	16,  // 10: ranging.SessionConfigService.GetDataNotificationConfig:input_type -> ranging.GetDataNotificationConfigRequest
+	18,  // 11: ranging.SessionConfigService.GetRangingMeasurementsLimit:input_type -> ranging.GetRangingMeasurementsLimitRequest
+	20,  // 12: ranging.SessionConfigService.GetSensorFusionParams:input_type -> ranging.GetSensorFusionParamsRequest
+	6,   // 13: ranging.SessionConfigService.HashCode:input_type -> ranging.HashCodeRequest
+	22,  // 14: ranging.SessionConfigService.IsAngleOfArrivalNeeded:input_type -> ranging.IsAngleOfArrivalNeededRequest
+	8,   // 15: ranging.SessionConfigService.ToString:input_type -> ranging.ToStringRequest
+	10,  // 16: ranging.SessionConfigService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
+	12,  // 17: ranging.SessionConfigBuilderService.Build:input_type -> ranging.BuildRequest
+	24,  // 18: ranging.SessionConfigBuilderService.SetAngleOfArrivalNeeded:input_type -> ranging.SetAngleOfArrivalNeededRequest
+	26,  // 19: ranging.SessionConfigBuilderService.SetDataNotificationConfig:input_type -> ranging.SetDataNotificationConfigRequest
+	28,  // 20: ranging.SessionConfigBuilderService.SetRangingMeasurementsLimit:input_type -> ranging.SetRangingMeasurementsLimitRequest
+	30,  // 21: ranging.SessionConfigBuilderService.SetSensorFusionParams:input_type -> ranging.SetSensorFusionParamsRequest
+	0,   // 22: ranging.PreferenceService.DescribeContents:input_type -> ranging.DescribeContentsRequest
+	32,  // 23: ranging.PreferenceService.GetDeviceRole:input_type -> ranging.GetDeviceRoleRequest
+	34,  // 24: ranging.PreferenceService.GetRangingParams:input_type -> ranging.GetRangingParamsRequest
+	36,  // 25: ranging.PreferenceService.GetSessionConfig:input_type -> ranging.GetSessionConfigRequest
+	8,   // 26: ranging.PreferenceService.ToString:input_type -> ranging.ToStringRequest
+	10,  // 27: ranging.PreferenceService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
+	12,  // 28: ranging.PreferenceBuilderService.Build:input_type -> ranging.BuildRequest
+	38,  // 29: ranging.PreferenceBuilderService.SetSessionConfig:input_type -> ranging.SetSessionConfigRequest
+	0,   // 30: ranging.SensorFusionParamsService.DescribeContents:input_type -> ranging.DescribeContentsRequest
+	2,   // 31: ranging.SensorFusionParamsService.Equals:input_type -> ranging.EqualsRequest
+	6,   // 32: ranging.SensorFusionParamsService.HashCode:input_type -> ranging.HashCodeRequest
+	40,  // 33: ranging.SensorFusionParamsService.IsSensorFusionEnabled:input_type -> ranging.IsSensorFusionEnabledRequest
+	8,   // 34: ranging.SensorFusionParamsService.ToString:input_type -> ranging.ToStringRequest
+	10,  // 35: ranging.SensorFusionParamsService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
+	12,  // 36: ranging.SensorFusionParamsBuilderService.Build:input_type -> ranging.BuildRequest
+	42,  // 37: ranging.SensorFusionParamsBuilderService.SetSensorFusionEnabled:input_type -> ranging.SetSensorFusionEnabledRequest
+	44,  // 38: ranging.SessionService.AddDeviceToRangingSession:input_type -> ranging.AddDeviceToRangingSessionRequest
+	46,  // 39: ranging.SessionService.Close:input_type -> ranging.CloseRequest
+	48,  // 40: ranging.SessionService.ReconfigureRangingInterval:input_type -> ranging.ReconfigureRangingIntervalRequest
+	50,  // 41: ranging.SessionService.RemoveDeviceFromRangingSession:input_type -> ranging.RemoveDeviceFromRangingSessionRequest
+	52,  // 42: ranging.SessionService.Start:input_type -> ranging.StartRequest
+	54,  // 43: ranging.SessionService.Stop:input_type -> ranging.StopRequest
+	8,   // 44: ranging.SessionService.ToString:input_type -> ranging.ToStringRequest
+	56,  // 45: ranging.SessionCallbackService.OnClosed:input_type -> ranging.OnClosedRequest
+	58,  // 46: ranging.SessionCallbackService.OnOpenFailed:input_type -> ranging.OnOpenFailedRequest
+	60,  // 47: ranging.SessionCallbackService.OnOpened:input_type -> ranging.OnOpenedRequest
+	62,  // 48: ranging.SessionCallbackService.OnResults:input_type -> ranging.OnResultsRequest
+	64,  // 49: ranging.SessionCallbackService.OnStarted:input_type -> ranging.OnStartedRequest
+	66,  // 50: ranging.SessionCallbackService.OnStopped:input_type -> ranging.OnStoppedRequest
+	0,   // 51: ranging.CapabilitiesService.DescribeContents:input_type -> ranging.DescribeContentsRequest
+	68,  // 52: ranging.CapabilitiesService.GetCsCapabilities:input_type -> ranging.GetCsCapabilitiesRequest
+	70,  // 53: ranging.CapabilitiesService.GetRttRangingCapabilities:input_type -> ranging.GetRttRangingCapabilitiesRequest
+	72,  // 54: ranging.CapabilitiesService.GetUwbCapabilities:input_type -> ranging.GetUwbCapabilitiesRequest
+	8,   // 55: ranging.CapabilitiesService.ToString:input_type -> ranging.ToStringRequest
+	10,  // 56: ranging.CapabilitiesService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
+	74,  // 57: ranging.ConfigService.GetRangingSessionType:input_type -> ranging.GetRangingSessionTypeRequest
+	8,   // 58: ranging.ConfigService.ToString:input_type -> ranging.ToStringRequest
+	0,   // 59: ranging.MeasurementService.DescribeContents:input_type -> ranging.DescribeContentsRequest
+	76,  // 60: ranging.MeasurementService.GetConfidence:input_type -> ranging.GetConfidenceRequest
+	78,  // 61: ranging.MeasurementService.GetMeasurement:input_type -> ranging.GetMeasurementRequest
+	8,   // 62: ranging.MeasurementService.ToString:input_type -> ranging.ToStringRequest
+	10,  // 63: ranging.MeasurementService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
+	0,   // 64: ranging.DataService.DescribeContents:input_type -> ranging.DescribeContentsRequest
+	80,  // 65: ranging.DataService.GetAzimuth:input_type -> ranging.GetAzimuthRequest
+	82,  // 66: ranging.DataService.GetDistance:input_type -> ranging.GetDistanceRequest
+	84,  // 67: ranging.DataService.GetElevation:input_type -> ranging.GetElevationRequest
+	86,  // 68: ranging.DataService.GetRangingTechnology:input_type -> ranging.GetRangingTechnologyRequest
+	88,  // 69: ranging.DataService.GetRssi:input_type -> ranging.GetRssiRequest
+	90,  // 70: ranging.DataService.GetTimestampMillis:input_type -> ranging.GetTimestampMillisRequest
+	92,  // 71: ranging.DataService.HasRssi:input_type -> ranging.HasRssiRequest
+	10,  // 72: ranging.DataService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
+	94,  // 73: ranging.ManagerService.CreateRangingSession:input_type -> ranging.CreateRangingSessionRequest
+	96,  // 74: ranging.ManagerService.RegisterCapabilitiesCallback:input_type -> ranging.RegisterCapabilitiesCallbackRequest
+	98,  // 75: ranging.ManagerService.UnregisterCapabilitiesCallback:input_type -> ranging.UnregisterCapabilitiesCallbackRequest
+	100, // 76: ranging.ManagerRangingCapabilitiesCallbackService.OnRangingCapabilities:input_type -> ranging.OnRangingCapabilitiesRequest
+	0,   // 77: ranging.DataNotificationConfigService.DescribeContents:input_type -> ranging.DescribeContentsRequest
+	2,   // 78: ranging.DataNotificationConfigService.Equals:input_type -> ranging.EqualsRequest
+	102, // 79: ranging.DataNotificationConfigService.GetNotificationConfigType:input_type -> ranging.GetNotificationConfigTypeRequest
+	104, // 80: ranging.DataNotificationConfigService.GetProximityFarCm:input_type -> ranging.GetProximityFarCmRequest
+	106, // 81: ranging.DataNotificationConfigService.GetProximityNearCm:input_type -> ranging.GetProximityNearCmRequest
+	6,   // 82: ranging.DataNotificationConfigService.HashCode:input_type -> ranging.HashCodeRequest
+	8,   // 83: ranging.DataNotificationConfigService.ToString:input_type -> ranging.ToStringRequest
+	10,  // 84: ranging.DataNotificationConfigService.WriteToParcel:input_type -> ranging.WriteToParcelRequest
+	12,  // 85: ranging.DataNotificationConfigBuilderService.Build:input_type -> ranging.BuildRequest
+	108, // 86: ranging.DataNotificationConfigBuilderService.SetNotificationConfigType:input_type -> ranging.SetNotificationConfigTypeRequest
+	110, // 87: ranging.DataNotificationConfigBuilderService.SetProximityFarCm:input_type -> ranging.SetProximityFarCmRequest
+	112, // 88: ranging.DataNotificationConfigBuilderService.SetProximityNearCm:input_type -> ranging.SetProximityNearCmRequest
+	1,   // 89: ranging.DeviceService.DescribeContents:output_type -> ranging.DescribeContentsResponse
+	3,   // 90: ranging.DeviceService.Equals:output_type -> ranging.EqualsResponse
+	5,   // 91: ranging.DeviceService.GetUuid:output_type -> ranging.GetUuidResponse
+	7,   // 92: ranging.DeviceService.HashCode:output_type -> ranging.HashCodeResponse
+	9,   // 93: ranging.DeviceService.ToString:output_type -> ranging.ToStringResponse
+	11,  // 94: ranging.DeviceService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	13,  // 95: ranging.DeviceBuilderService.Build:output_type -> ranging.BuildResponse
+	15,  // 96: ranging.DeviceBuilderService.SetUuid:output_type -> ranging.SetUuidResponse
+	1,   // 97: ranging.SessionConfigService.DescribeContents:output_type -> ranging.DescribeContentsResponse
+	3,   // 98: ranging.SessionConfigService.Equals:output_type -> ranging.EqualsResponse
+	17,  // 99: ranging.SessionConfigService.GetDataNotificationConfig:output_type -> ranging.GetDataNotificationConfigResponse
+	19,  // 100: ranging.SessionConfigService.GetRangingMeasurementsLimit:output_type -> ranging.GetRangingMeasurementsLimitResponse
+	21,  // 101: ranging.SessionConfigService.GetSensorFusionParams:output_type -> ranging.GetSensorFusionParamsResponse
+	7,   // 102: ranging.SessionConfigService.HashCode:output_type -> ranging.HashCodeResponse
+	23,  // 103: ranging.SessionConfigService.IsAngleOfArrivalNeeded:output_type -> ranging.IsAngleOfArrivalNeededResponse
+	9,   // 104: ranging.SessionConfigService.ToString:output_type -> ranging.ToStringResponse
+	11,  // 105: ranging.SessionConfigService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	13,  // 106: ranging.SessionConfigBuilderService.Build:output_type -> ranging.BuildResponse
+	25,  // 107: ranging.SessionConfigBuilderService.SetAngleOfArrivalNeeded:output_type -> ranging.SetAngleOfArrivalNeededResponse
+	27,  // 108: ranging.SessionConfigBuilderService.SetDataNotificationConfig:output_type -> ranging.SetDataNotificationConfigResponse
+	29,  // 109: ranging.SessionConfigBuilderService.SetRangingMeasurementsLimit:output_type -> ranging.SetRangingMeasurementsLimitResponse
+	31,  // 110: ranging.SessionConfigBuilderService.SetSensorFusionParams:output_type -> ranging.SetSensorFusionParamsResponse
+	1,   // 111: ranging.PreferenceService.DescribeContents:output_type -> ranging.DescribeContentsResponse
+	33,  // 112: ranging.PreferenceService.GetDeviceRole:output_type -> ranging.GetDeviceRoleResponse
+	35,  // 113: ranging.PreferenceService.GetRangingParams:output_type -> ranging.GetRangingParamsResponse
+	37,  // 114: ranging.PreferenceService.GetSessionConfig:output_type -> ranging.GetSessionConfigResponse
+	9,   // 115: ranging.PreferenceService.ToString:output_type -> ranging.ToStringResponse
+	11,  // 116: ranging.PreferenceService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	13,  // 117: ranging.PreferenceBuilderService.Build:output_type -> ranging.BuildResponse
+	39,  // 118: ranging.PreferenceBuilderService.SetSessionConfig:output_type -> ranging.SetSessionConfigResponse
+	1,   // 119: ranging.SensorFusionParamsService.DescribeContents:output_type -> ranging.DescribeContentsResponse
+	3,   // 120: ranging.SensorFusionParamsService.Equals:output_type -> ranging.EqualsResponse
+	7,   // 121: ranging.SensorFusionParamsService.HashCode:output_type -> ranging.HashCodeResponse
+	41,  // 122: ranging.SensorFusionParamsService.IsSensorFusionEnabled:output_type -> ranging.IsSensorFusionEnabledResponse
+	9,   // 123: ranging.SensorFusionParamsService.ToString:output_type -> ranging.ToStringResponse
+	11,  // 124: ranging.SensorFusionParamsService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	13,  // 125: ranging.SensorFusionParamsBuilderService.Build:output_type -> ranging.BuildResponse
+	43,  // 126: ranging.SensorFusionParamsBuilderService.SetSensorFusionEnabled:output_type -> ranging.SetSensorFusionEnabledResponse
+	45,  // 127: ranging.SessionService.AddDeviceToRangingSession:output_type -> ranging.AddDeviceToRangingSessionResponse
+	47,  // 128: ranging.SessionService.Close:output_type -> ranging.CloseResponse
+	49,  // 129: ranging.SessionService.ReconfigureRangingInterval:output_type -> ranging.ReconfigureRangingIntervalResponse
+	51,  // 130: ranging.SessionService.RemoveDeviceFromRangingSession:output_type -> ranging.RemoveDeviceFromRangingSessionResponse
+	53,  // 131: ranging.SessionService.Start:output_type -> ranging.StartResponse
+	55,  // 132: ranging.SessionService.Stop:output_type -> ranging.StopResponse
+	9,   // 133: ranging.SessionService.ToString:output_type -> ranging.ToStringResponse
+	57,  // 134: ranging.SessionCallbackService.OnClosed:output_type -> ranging.OnClosedResponse
+	59,  // 135: ranging.SessionCallbackService.OnOpenFailed:output_type -> ranging.OnOpenFailedResponse
+	61,  // 136: ranging.SessionCallbackService.OnOpened:output_type -> ranging.OnOpenedResponse
+	63,  // 137: ranging.SessionCallbackService.OnResults:output_type -> ranging.OnResultsResponse
+	65,  // 138: ranging.SessionCallbackService.OnStarted:output_type -> ranging.OnStartedResponse
+	67,  // 139: ranging.SessionCallbackService.OnStopped:output_type -> ranging.OnStoppedResponse
+	1,   // 140: ranging.CapabilitiesService.DescribeContents:output_type -> ranging.DescribeContentsResponse
+	69,  // 141: ranging.CapabilitiesService.GetCsCapabilities:output_type -> ranging.GetCsCapabilitiesResponse
+	71,  // 142: ranging.CapabilitiesService.GetRttRangingCapabilities:output_type -> ranging.GetRttRangingCapabilitiesResponse
+	73,  // 143: ranging.CapabilitiesService.GetUwbCapabilities:output_type -> ranging.GetUwbCapabilitiesResponse
+	9,   // 144: ranging.CapabilitiesService.ToString:output_type -> ranging.ToStringResponse
+	11,  // 145: ranging.CapabilitiesService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	75,  // 146: ranging.ConfigService.GetRangingSessionType:output_type -> ranging.GetRangingSessionTypeResponse
+	9,   // 147: ranging.ConfigService.ToString:output_type -> ranging.ToStringResponse
+	1,   // 148: ranging.MeasurementService.DescribeContents:output_type -> ranging.DescribeContentsResponse
+	77,  // 149: ranging.MeasurementService.GetConfidence:output_type -> ranging.GetConfidenceResponse
+	79,  // 150: ranging.MeasurementService.GetMeasurement:output_type -> ranging.GetMeasurementResponse
+	9,   // 151: ranging.MeasurementService.ToString:output_type -> ranging.ToStringResponse
+	11,  // 152: ranging.MeasurementService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	1,   // 153: ranging.DataService.DescribeContents:output_type -> ranging.DescribeContentsResponse
+	81,  // 154: ranging.DataService.GetAzimuth:output_type -> ranging.GetAzimuthResponse
+	83,  // 155: ranging.DataService.GetDistance:output_type -> ranging.GetDistanceResponse
+	85,  // 156: ranging.DataService.GetElevation:output_type -> ranging.GetElevationResponse
+	87,  // 157: ranging.DataService.GetRangingTechnology:output_type -> ranging.GetRangingTechnologyResponse
+	89,  // 158: ranging.DataService.GetRssi:output_type -> ranging.GetRssiResponse
+	91,  // 159: ranging.DataService.GetTimestampMillis:output_type -> ranging.GetTimestampMillisResponse
+	93,  // 160: ranging.DataService.HasRssi:output_type -> ranging.HasRssiResponse
+	11,  // 161: ranging.DataService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	95,  // 162: ranging.ManagerService.CreateRangingSession:output_type -> ranging.CreateRangingSessionResponse
+	97,  // 163: ranging.ManagerService.RegisterCapabilitiesCallback:output_type -> ranging.RegisterCapabilitiesCallbackResponse
+	99,  // 164: ranging.ManagerService.UnregisterCapabilitiesCallback:output_type -> ranging.UnregisterCapabilitiesCallbackResponse
+	101, // 165: ranging.ManagerRangingCapabilitiesCallbackService.OnRangingCapabilities:output_type -> ranging.OnRangingCapabilitiesResponse
+	1,   // 166: ranging.DataNotificationConfigService.DescribeContents:output_type -> ranging.DescribeContentsResponse
+	3,   // 167: ranging.DataNotificationConfigService.Equals:output_type -> ranging.EqualsResponse
+	103, // 168: ranging.DataNotificationConfigService.GetNotificationConfigType:output_type -> ranging.GetNotificationConfigTypeResponse
+	105, // 169: ranging.DataNotificationConfigService.GetProximityFarCm:output_type -> ranging.GetProximityFarCmResponse
+	107, // 170: ranging.DataNotificationConfigService.GetProximityNearCm:output_type -> ranging.GetProximityNearCmResponse
+	7,   // 171: ranging.DataNotificationConfigService.HashCode:output_type -> ranging.HashCodeResponse
+	9,   // 172: ranging.DataNotificationConfigService.ToString:output_type -> ranging.ToStringResponse
+	11,  // 173: ranging.DataNotificationConfigService.WriteToParcel:output_type -> ranging.WriteToParcelResponse
+	13,  // 174: ranging.DataNotificationConfigBuilderService.Build:output_type -> ranging.BuildResponse
+	109, // 175: ranging.DataNotificationConfigBuilderService.SetNotificationConfigType:output_type -> ranging.SetNotificationConfigTypeResponse
+	111, // 176: ranging.DataNotificationConfigBuilderService.SetProximityFarCm:output_type -> ranging.SetProximityFarCmResponse
+	113, // 177: ranging.DataNotificationConfigBuilderService.SetProximityNearCm:output_type -> ranging.SetProximityNearCmResponse
 	89,  // [89:178] is the sub-list for method output_type
 	0,   // [0:89] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name

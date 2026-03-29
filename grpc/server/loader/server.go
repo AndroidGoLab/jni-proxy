@@ -63,6 +63,29 @@ func (s *ResourcesLoaderServer) ClearProviders(_ context.Context, req *pb.ClearP
 	return &pb.ClearProvidersResponse{}, nil
 }
 
+func (s *ResourcesLoaderServer) GetProviders(_ context.Context, req *pb.GetProvidersRequest) (*pb.GetProvidersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ResourcesLoader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetProviders()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetProvidersResponse{Result: handle}, nil
+}
+
 func (s *ResourcesLoaderServer) RemoveProvider(_ context.Context, req *pb.RemoveProviderRequest) (*pb.RemoveProviderResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {

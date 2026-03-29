@@ -21,6 +21,109 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	AppSetIdManagerService_Get_FullMethodName = "/appsetid.AppSetIdManagerService/Get"
+)
+
+// AppSetIdManagerServiceClient is the client API for AppSetIdManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppSetIdManagerServiceClient interface {
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type appSetIdManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppSetIdManagerServiceClient(cc grpc.ClientConnInterface) AppSetIdManagerServiceClient {
+	return &appSetIdManagerServiceClient{cc}
+}
+
+func (c *appSetIdManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, AppSetIdManagerService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppSetIdManagerServiceServer is the server API for AppSetIdManagerService service.
+// All implementations must embed UnimplementedAppSetIdManagerServiceServer
+// for forward compatibility.
+type AppSetIdManagerServiceServer interface {
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedAppSetIdManagerServiceServer()
+}
+
+// UnimplementedAppSetIdManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppSetIdManagerServiceServer struct{}
+
+func (UnimplementedAppSetIdManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedAppSetIdManagerServiceServer) mustEmbedUnimplementedAppSetIdManagerServiceServer() {
+}
+func (UnimplementedAppSetIdManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAppSetIdManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppSetIdManagerServiceServer will
+// result in compilation errors.
+type UnsafeAppSetIdManagerServiceServer interface {
+	mustEmbedUnimplementedAppSetIdManagerServiceServer()
+}
+
+func RegisterAppSetIdManagerServiceServer(s grpc.ServiceRegistrar, srv AppSetIdManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppSetIdManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppSetIdManagerService_ServiceDesc, srv)
+}
+
+func _AppSetIdManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppSetIdManagerServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppSetIdManagerService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppSetIdManagerServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppSetIdManagerService_ServiceDesc is the grpc.ServiceDesc for AppSetIdManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppSetIdManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appsetid.AppSetIdManagerService",
+	HandlerType: (*AppSetIdManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Get",
+			Handler:    _AppSetIdManagerService_Get_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/appsetid/appsetid.proto",
+}
+
+const (
 	AppSetIdService_NewAppSetId_FullMethodName = "/appsetid.AppSetIdService/NewAppSetId"
 	AppSetIdService_Equals_FullMethodName      = "/appsetid.AppSetIdService/Equals"
 	AppSetIdService_GetId_FullMethodName       = "/appsetid.AppSetIdService/GetId"
@@ -268,109 +371,6 @@ var AppSetIdService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "HashCode",
 			Handler:    _AppSetIdService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/appsetid/appsetid.proto",
-}
-
-const (
-	AppSetIdManagerService_Get_FullMethodName = "/appsetid.AppSetIdManagerService/Get"
-)
-
-// AppSetIdManagerServiceClient is the client API for AppSetIdManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AppSetIdManagerServiceClient interface {
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type appSetIdManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAppSetIdManagerServiceClient(cc grpc.ClientConnInterface) AppSetIdManagerServiceClient {
-	return &appSetIdManagerServiceClient{cc}
-}
-
-func (c *appSetIdManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, AppSetIdManagerService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AppSetIdManagerServiceServer is the server API for AppSetIdManagerService service.
-// All implementations must embed UnimplementedAppSetIdManagerServiceServer
-// for forward compatibility.
-type AppSetIdManagerServiceServer interface {
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedAppSetIdManagerServiceServer()
-}
-
-// UnimplementedAppSetIdManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAppSetIdManagerServiceServer struct{}
-
-func (UnimplementedAppSetIdManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedAppSetIdManagerServiceServer) mustEmbedUnimplementedAppSetIdManagerServiceServer() {
-}
-func (UnimplementedAppSetIdManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAppSetIdManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AppSetIdManagerServiceServer will
-// result in compilation errors.
-type UnsafeAppSetIdManagerServiceServer interface {
-	mustEmbedUnimplementedAppSetIdManagerServiceServer()
-}
-
-func RegisterAppSetIdManagerServiceServer(s grpc.ServiceRegistrar, srv AppSetIdManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAppSetIdManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AppSetIdManagerService_ServiceDesc, srv)
-}
-
-func _AppSetIdManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppSetIdManagerServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppSetIdManagerService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppSetIdManagerServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AppSetIdManagerService_ServiceDesc is the grpc.ServiceDesc for AppSetIdManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AppSetIdManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appsetid.AppSetIdManagerService",
-	HandlerType: (*AppSetIdManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Get",
-			Handler:    _AppSetIdManagerService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

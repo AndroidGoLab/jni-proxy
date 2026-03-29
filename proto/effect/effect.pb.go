@@ -23,6 +23,414 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type CreateEffectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateEffectRequest) Reset() {
+	*x = CreateEffectRequest{}
+	mi := &file_proto_effect_effect_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateEffectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateEffectRequest) ProtoMessage() {}
+
+func (x *CreateEffectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateEffectRequest.ProtoReflect.Descriptor instead.
+func (*CreateEffectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *CreateEffectRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type CreateEffectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateEffectResponse) Reset() {
+	*x = CreateEffectResponse{}
+	mi := &file_proto_effect_effect_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateEffectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateEffectResponse) ProtoMessage() {}
+
+func (x *CreateEffectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateEffectResponse.ProtoReflect.Descriptor instead.
+func (*CreateEffectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CreateEffectResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsEffectSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEffectSupportedRequest) Reset() {
+	*x = IsEffectSupportedRequest{}
+	mi := &file_proto_effect_effect_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEffectSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEffectSupportedRequest) ProtoMessage() {}
+
+func (x *IsEffectSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEffectSupportedRequest.ProtoReflect.Descriptor instead.
+func (*IsEffectSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *IsEffectSupportedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type IsEffectSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEffectSupportedResponse) Reset() {
+	*x = IsEffectSupportedResponse{}
+	mi := &file_proto_effect_effect_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEffectSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEffectSupportedResponse) ProtoMessage() {}
+
+func (x *IsEffectSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEffectSupportedResponse.ProtoReflect.Descriptor instead.
+func (*IsEffectSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *IsEffectSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetFactoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFactoryRequest) Reset() {
+	*x = GetFactoryRequest{}
+	mi := &file_proto_effect_effect_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFactoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFactoryRequest) ProtoMessage() {}
+
+func (x *GetFactoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFactoryRequest.ProtoReflect.Descriptor instead.
+func (*GetFactoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{4}
+}
+
+type GetFactoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFactoryResponse) Reset() {
+	*x = GetFactoryResponse{}
+	mi := &file_proto_effect_effect_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFactoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFactoryResponse) ProtoMessage() {}
+
+func (x *GetFactoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFactoryResponse.ProtoReflect.Descriptor instead.
+func (*GetFactoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetFactoryResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseRequest) Reset() {
+	*x = ReleaseRequest{}
+	mi := &file_proto_effect_effect_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseRequest) ProtoMessage() {}
+
+func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{6}
+}
+
+type ReleaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseResponse) Reset() {
+	*x = ReleaseResponse{}
+	mi := &file_proto_effect_effect_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseResponse) ProtoMessage() {}
+
+func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{7}
+}
+
+type CreateWithCurrentGlContextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWithCurrentGlContextRequest) Reset() {
+	*x = CreateWithCurrentGlContextRequest{}
+	mi := &file_proto_effect_effect_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWithCurrentGlContextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWithCurrentGlContextRequest) ProtoMessage() {}
+
+func (x *CreateWithCurrentGlContextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWithCurrentGlContextRequest.ProtoReflect.Descriptor instead.
+func (*CreateWithCurrentGlContextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{8}
+}
+
+type CreateWithCurrentGlContextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWithCurrentGlContextResponse) Reset() {
+	*x = CreateWithCurrentGlContextResponse{}
+	mi := &file_proto_effect_effect_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWithCurrentGlContextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWithCurrentGlContextResponse) ProtoMessage() {}
+
+func (x *CreateWithCurrentGlContextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_effect_effect_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWithCurrentGlContextResponse.ProtoReflect.Descriptor instead.
+func (*CreateWithCurrentGlContextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *CreateWithCurrentGlContextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type ApplyRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -35,7 +443,7 @@ type ApplyRequest struct {
 
 func (x *ApplyRequest) Reset() {
 	*x = ApplyRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[0]
+	mi := &file_proto_effect_effect_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +455,7 @@ func (x *ApplyRequest) String() string {
 func (*ApplyRequest) ProtoMessage() {}
 
 func (x *ApplyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[0]
+	mi := &file_proto_effect_effect_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +468,7 @@ func (x *ApplyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplyRequest.ProtoReflect.Descriptor instead.
 func (*ApplyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{0}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ApplyRequest) GetArg0() int32 {
@@ -99,7 +507,7 @@ type ApplyResponse struct {
 
 func (x *ApplyResponse) Reset() {
 	*x = ApplyResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[1]
+	mi := &file_proto_effect_effect_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -111,7 +519,7 @@ func (x *ApplyResponse) String() string {
 func (*ApplyResponse) ProtoMessage() {}
 
 func (x *ApplyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[1]
+	mi := &file_proto_effect_effect_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -124,7 +532,7 @@ func (x *ApplyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplyResponse.ProtoReflect.Descriptor instead.
 func (*ApplyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{1}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{11}
 }
 
 type GetNameRequest struct {
@@ -135,7 +543,7 @@ type GetNameRequest struct {
 
 func (x *GetNameRequest) Reset() {
 	*x = GetNameRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[2]
+	mi := &file_proto_effect_effect_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -147,7 +555,7 @@ func (x *GetNameRequest) String() string {
 func (*GetNameRequest) ProtoMessage() {}
 
 func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[2]
+	mi := &file_proto_effect_effect_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -160,7 +568,7 @@ func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
 func (*GetNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{2}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{12}
 }
 
 type GetNameResponse struct {
@@ -172,7 +580,7 @@ type GetNameResponse struct {
 
 func (x *GetNameResponse) Reset() {
 	*x = GetNameResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[3]
+	mi := &file_proto_effect_effect_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -184,7 +592,7 @@ func (x *GetNameResponse) String() string {
 func (*GetNameResponse) ProtoMessage() {}
 
 func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[3]
+	mi := &file_proto_effect_effect_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -197,7 +605,7 @@ func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
 func (*GetNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{3}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetNameResponse) GetResult() string {
@@ -205,78 +613,6 @@ func (x *GetNameResponse) GetResult() string {
 		return x.Result
 	}
 	return ""
-}
-
-type ReleaseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseRequest) Reset() {
-	*x = ReleaseRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseRequest) ProtoMessage() {}
-
-func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
-func (*ReleaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{4}
-}
-
-type ReleaseResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseResponse) Reset() {
-	*x = ReleaseResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseResponse) ProtoMessage() {}
-
-func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
-func (*ReleaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{5}
 }
 
 type SetParameterRequest struct {
@@ -289,7 +625,7 @@ type SetParameterRequest struct {
 
 func (x *SetParameterRequest) Reset() {
 	*x = SetParameterRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[6]
+	mi := &file_proto_effect_effect_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -301,7 +637,7 @@ func (x *SetParameterRequest) String() string {
 func (*SetParameterRequest) ProtoMessage() {}
 
 func (x *SetParameterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[6]
+	mi := &file_proto_effect_effect_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -314,7 +650,7 @@ func (x *SetParameterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetParameterRequest.ProtoReflect.Descriptor instead.
 func (*SetParameterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{6}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *SetParameterRequest) GetArg0() string {
@@ -339,7 +675,7 @@ type SetParameterResponse struct {
 
 func (x *SetParameterResponse) Reset() {
 	*x = SetParameterResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[7]
+	mi := &file_proto_effect_effect_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -351,7 +687,7 @@ func (x *SetParameterResponse) String() string {
 func (*SetParameterResponse) ProtoMessage() {}
 
 func (x *SetParameterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[7]
+	mi := &file_proto_effect_effect_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -364,7 +700,7 @@ func (x *SetParameterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetParameterResponse.ProtoReflect.Descriptor instead.
 func (*SetParameterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{7}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{15}
 }
 
 type SetUpdateListenerRequest struct {
@@ -376,7 +712,7 @@ type SetUpdateListenerRequest struct {
 
 func (x *SetUpdateListenerRequest) Reset() {
 	*x = SetUpdateListenerRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[8]
+	mi := &file_proto_effect_effect_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -388,7 +724,7 @@ func (x *SetUpdateListenerRequest) String() string {
 func (*SetUpdateListenerRequest) ProtoMessage() {}
 
 func (x *SetUpdateListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[8]
+	mi := &file_proto_effect_effect_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -401,7 +737,7 @@ func (x *SetUpdateListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUpdateListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetUpdateListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{8}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *SetUpdateListenerRequest) GetArg0() int64 {
@@ -419,7 +755,7 @@ type SetUpdateListenerResponse struct {
 
 func (x *SetUpdateListenerResponse) Reset() {
 	*x = SetUpdateListenerResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[9]
+	mi := &file_proto_effect_effect_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -431,7 +767,7 @@ func (x *SetUpdateListenerResponse) String() string {
 func (*SetUpdateListenerResponse) ProtoMessage() {}
 
 func (x *SetUpdateListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[9]
+	mi := &file_proto_effect_effect_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -444,7 +780,7 @@ func (x *SetUpdateListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUpdateListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetUpdateListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{9}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{17}
 }
 
 type OnEffectUpdatedRequest struct {
@@ -457,7 +793,7 @@ type OnEffectUpdatedRequest struct {
 
 func (x *OnEffectUpdatedRequest) Reset() {
 	*x = OnEffectUpdatedRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[10]
+	mi := &file_proto_effect_effect_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -469,7 +805,7 @@ func (x *OnEffectUpdatedRequest) String() string {
 func (*OnEffectUpdatedRequest) ProtoMessage() {}
 
 func (x *OnEffectUpdatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[10]
+	mi := &file_proto_effect_effect_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -482,7 +818,7 @@ func (x *OnEffectUpdatedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEffectUpdatedRequest.ProtoReflect.Descriptor instead.
 func (*OnEffectUpdatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{10}
+	return file_proto_effect_effect_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *OnEffectUpdatedRequest) GetArg0() int64 {
@@ -507,7 +843,7 @@ type OnEffectUpdatedResponse struct {
 
 func (x *OnEffectUpdatedResponse) Reset() {
 	*x = OnEffectUpdatedResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[11]
+	mi := &file_proto_effect_effect_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -519,7 +855,7 @@ func (x *OnEffectUpdatedResponse) String() string {
 func (*OnEffectUpdatedResponse) ProtoMessage() {}
 
 func (x *OnEffectUpdatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[11]
+	mi := &file_proto_effect_effect_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -532,372 +868,14 @@ func (x *OnEffectUpdatedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEffectUpdatedResponse.ProtoReflect.Descriptor instead.
 func (*OnEffectUpdatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{11}
-}
-
-type CreateEffectRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateEffectRequest) Reset() {
-	*x = CreateEffectRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateEffectRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateEffectRequest) ProtoMessage() {}
-
-func (x *CreateEffectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateEffectRequest.ProtoReflect.Descriptor instead.
-func (*CreateEffectRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *CreateEffectRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type CreateEffectResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateEffectResponse) Reset() {
-	*x = CreateEffectResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateEffectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateEffectResponse) ProtoMessage() {}
-
-func (x *CreateEffectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateEffectResponse.ProtoReflect.Descriptor instead.
-func (*CreateEffectResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *CreateEffectResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsEffectSupportedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsEffectSupportedRequest) Reset() {
-	*x = IsEffectSupportedRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsEffectSupportedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsEffectSupportedRequest) ProtoMessage() {}
-
-func (x *IsEffectSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsEffectSupportedRequest.ProtoReflect.Descriptor instead.
-func (*IsEffectSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *IsEffectSupportedRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type IsEffectSupportedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsEffectSupportedResponse) Reset() {
-	*x = IsEffectSupportedResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsEffectSupportedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsEffectSupportedResponse) ProtoMessage() {}
-
-func (x *IsEffectSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsEffectSupportedResponse.ProtoReflect.Descriptor instead.
-func (*IsEffectSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *IsEffectSupportedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetFactoryRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFactoryRequest) Reset() {
-	*x = GetFactoryRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFactoryRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFactoryRequest) ProtoMessage() {}
-
-func (x *GetFactoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFactoryRequest.ProtoReflect.Descriptor instead.
-func (*GetFactoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{16}
-}
-
-type GetFactoryResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFactoryResponse) Reset() {
-	*x = GetFactoryResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFactoryResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFactoryResponse) ProtoMessage() {}
-
-func (x *GetFactoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFactoryResponse.ProtoReflect.Descriptor instead.
-func (*GetFactoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetFactoryResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type CreateWithCurrentGlContextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateWithCurrentGlContextRequest) Reset() {
-	*x = CreateWithCurrentGlContextRequest{}
-	mi := &file_proto_effect_effect_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateWithCurrentGlContextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateWithCurrentGlContextRequest) ProtoMessage() {}
-
-func (x *CreateWithCurrentGlContextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateWithCurrentGlContextRequest.ProtoReflect.Descriptor instead.
-func (*CreateWithCurrentGlContextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_effect_effect_proto_rawDescGZIP(), []int{18}
-}
-
-type CreateWithCurrentGlContextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateWithCurrentGlContextResponse) Reset() {
-	*x = CreateWithCurrentGlContextResponse{}
-	mi := &file_proto_effect_effect_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateWithCurrentGlContextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateWithCurrentGlContextResponse) ProtoMessage() {}
-
-func (x *CreateWithCurrentGlContextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_effect_effect_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateWithCurrentGlContextResponse.ProtoReflect.Descriptor instead.
-func (*CreateWithCurrentGlContextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_effect_effect_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *CreateWithCurrentGlContextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 var File_proto_effect_effect_proto protoreflect.FileDescriptor
 
 const file_proto_effect_effect_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/effect/effect.proto\x12\x06effect\"^\n" +
-	"\fApplyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x0f\n" +
-	"\rApplyResponse\"\x10\n" +
-	"\x0eGetNameRequest\")\n" +
-	"\x0fGetNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
-	"\x0eReleaseRequest\"\x11\n" +
-	"\x0fReleaseResponse\"=\n" +
-	"\x13SetParameterRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x16\n" +
-	"\x14SetParameterResponse\".\n" +
-	"\x18SetUpdateListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
-	"\x19SetUpdateListenerResponse\"@\n" +
-	"\x16OnEffectUpdatedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x19\n" +
-	"\x17OnEffectUpdatedResponse\")\n" +
+	"\x19proto/effect/effect.proto\x12\x06effect\")\n" +
 	"\x13CreateEffectRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
 	"\x14CreateEffectResponse\x12\x16\n" +
@@ -908,18 +886,32 @@ const file_proto_effect_effect_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
 	"\x11GetFactoryRequest\",\n" +
 	"\x12GetFactoryResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eReleaseRequest\"\x11\n" +
+	"\x0fReleaseResponse\"#\n" +
 	"!CreateWithCurrentGlContextRequest\"<\n" +
 	"\"CreateWithCurrentGlContextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xe2\x02\n" +
-	"\rEffectService\x124\n" +
-	"\x05Apply\x12\x14.effect.ApplyRequest\x1a\x15.effect.ApplyResponse\x12:\n" +
-	"\aGetName\x12\x16.effect.GetNameRequest\x1a\x17.effect.GetNameResponse\x12:\n" +
-	"\aRelease\x12\x16.effect.ReleaseRequest\x1a\x17.effect.ReleaseResponse\x12I\n" +
-	"\fSetParameter\x12\x1b.effect.SetParameterRequest\x1a\x1c.effect.SetParameterResponse\x12X\n" +
-	"\x11SetUpdateListener\x12 .effect.SetUpdateListenerRequest\x1a!.effect.SetUpdateListenerResponse2k\n" +
-	"\x15UpdateListenerService\x12R\n" +
-	"\x0fOnEffectUpdated\x12\x1e.effect.OnEffectUpdatedRequest\x1a\x1f.effect.OnEffectUpdatedResponse2\xb5\x01\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"^\n" +
+	"\fApplyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x0f\n" +
+	"\rApplyResponse\"\x10\n" +
+	"\x0eGetNameRequest\")\n" +
+	"\x0fGetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"=\n" +
+	"\x13SetParameterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x16\n" +
+	"\x14SetParameterResponse\".\n" +
+	"\x18SetUpdateListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19SetUpdateListenerResponse\"@\n" +
+	"\x16OnEffectUpdatedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x19\n" +
+	"\x17OnEffectUpdatedResponse2\xb5\x01\n" +
 	"\x0eFactoryService\x12I\n" +
 	"\fCreateEffect\x12\x1b.effect.CreateEffectRequest\x1a\x1c.effect.CreateEffectResponse\x12X\n" +
 	"\x11IsEffectSupported\x12 .effect.IsEffectSupportedRequest\x1a!.effect.IsEffectSupportedResponse2\x86\x02\n" +
@@ -927,7 +919,15 @@ const file_proto_effect_effect_proto_rawDesc = "" +
 	"\n" +
 	"GetFactory\x12\x19.effect.GetFactoryRequest\x1a\x1a.effect.GetFactoryResponse\x12:\n" +
 	"\aRelease\x12\x16.effect.ReleaseRequest\x1a\x17.effect.ReleaseResponse\x12s\n" +
-	"\x1aCreateWithCurrentGlContext\x12).effect.CreateWithCurrentGlContextRequest\x1a*.effect.CreateWithCurrentGlContextResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/effectb\x06proto3"
+	"\x1aCreateWithCurrentGlContext\x12).effect.CreateWithCurrentGlContextRequest\x1a*.effect.CreateWithCurrentGlContextResponse2\xe2\x02\n" +
+	"\rEffectService\x124\n" +
+	"\x05Apply\x12\x14.effect.ApplyRequest\x1a\x15.effect.ApplyResponse\x12:\n" +
+	"\aGetName\x12\x16.effect.GetNameRequest\x1a\x17.effect.GetNameResponse\x12:\n" +
+	"\aRelease\x12\x16.effect.ReleaseRequest\x1a\x17.effect.ReleaseResponse\x12I\n" +
+	"\fSetParameter\x12\x1b.effect.SetParameterRequest\x1a\x1c.effect.SetParameterResponse\x12X\n" +
+	"\x11SetUpdateListener\x12 .effect.SetUpdateListenerRequest\x1a!.effect.SetUpdateListenerResponse2k\n" +
+	"\x15UpdateListenerService\x12R\n" +
+	"\x0fOnEffectUpdated\x12\x1e.effect.OnEffectUpdatedRequest\x1a\x1f.effect.OnEffectUpdatedResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/effectb\x06proto3"
 
 var (
 	file_proto_effect_effect_proto_rawDescOnce sync.Once
@@ -943,50 +943,50 @@ func file_proto_effect_effect_proto_rawDescGZIP() []byte {
 
 var file_proto_effect_effect_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_proto_effect_effect_proto_goTypes = []any{
-	(*ApplyRequest)(nil),                       // 0: effect.ApplyRequest
-	(*ApplyResponse)(nil),                      // 1: effect.ApplyResponse
-	(*GetNameRequest)(nil),                     // 2: effect.GetNameRequest
-	(*GetNameResponse)(nil),                    // 3: effect.GetNameResponse
-	(*ReleaseRequest)(nil),                     // 4: effect.ReleaseRequest
-	(*ReleaseResponse)(nil),                    // 5: effect.ReleaseResponse
-	(*SetParameterRequest)(nil),                // 6: effect.SetParameterRequest
-	(*SetParameterResponse)(nil),               // 7: effect.SetParameterResponse
-	(*SetUpdateListenerRequest)(nil),           // 8: effect.SetUpdateListenerRequest
-	(*SetUpdateListenerResponse)(nil),          // 9: effect.SetUpdateListenerResponse
-	(*OnEffectUpdatedRequest)(nil),             // 10: effect.OnEffectUpdatedRequest
-	(*OnEffectUpdatedResponse)(nil),            // 11: effect.OnEffectUpdatedResponse
-	(*CreateEffectRequest)(nil),                // 12: effect.CreateEffectRequest
-	(*CreateEffectResponse)(nil),               // 13: effect.CreateEffectResponse
-	(*IsEffectSupportedRequest)(nil),           // 14: effect.IsEffectSupportedRequest
-	(*IsEffectSupportedResponse)(nil),          // 15: effect.IsEffectSupportedResponse
-	(*GetFactoryRequest)(nil),                  // 16: effect.GetFactoryRequest
-	(*GetFactoryResponse)(nil),                 // 17: effect.GetFactoryResponse
-	(*CreateWithCurrentGlContextRequest)(nil),  // 18: effect.CreateWithCurrentGlContextRequest
-	(*CreateWithCurrentGlContextResponse)(nil), // 19: effect.CreateWithCurrentGlContextResponse
+	(*CreateEffectRequest)(nil),                // 0: effect.CreateEffectRequest
+	(*CreateEffectResponse)(nil),               // 1: effect.CreateEffectResponse
+	(*IsEffectSupportedRequest)(nil),           // 2: effect.IsEffectSupportedRequest
+	(*IsEffectSupportedResponse)(nil),          // 3: effect.IsEffectSupportedResponse
+	(*GetFactoryRequest)(nil),                  // 4: effect.GetFactoryRequest
+	(*GetFactoryResponse)(nil),                 // 5: effect.GetFactoryResponse
+	(*ReleaseRequest)(nil),                     // 6: effect.ReleaseRequest
+	(*ReleaseResponse)(nil),                    // 7: effect.ReleaseResponse
+	(*CreateWithCurrentGlContextRequest)(nil),  // 8: effect.CreateWithCurrentGlContextRequest
+	(*CreateWithCurrentGlContextResponse)(nil), // 9: effect.CreateWithCurrentGlContextResponse
+	(*ApplyRequest)(nil),                       // 10: effect.ApplyRequest
+	(*ApplyResponse)(nil),                      // 11: effect.ApplyResponse
+	(*GetNameRequest)(nil),                     // 12: effect.GetNameRequest
+	(*GetNameResponse)(nil),                    // 13: effect.GetNameResponse
+	(*SetParameterRequest)(nil),                // 14: effect.SetParameterRequest
+	(*SetParameterResponse)(nil),               // 15: effect.SetParameterResponse
+	(*SetUpdateListenerRequest)(nil),           // 16: effect.SetUpdateListenerRequest
+	(*SetUpdateListenerResponse)(nil),          // 17: effect.SetUpdateListenerResponse
+	(*OnEffectUpdatedRequest)(nil),             // 18: effect.OnEffectUpdatedRequest
+	(*OnEffectUpdatedResponse)(nil),            // 19: effect.OnEffectUpdatedResponse
 }
 var file_proto_effect_effect_proto_depIdxs = []int32{
-	0,  // 0: effect.EffectService.Apply:input_type -> effect.ApplyRequest
-	2,  // 1: effect.EffectService.GetName:input_type -> effect.GetNameRequest
-	4,  // 2: effect.EffectService.Release:input_type -> effect.ReleaseRequest
-	6,  // 3: effect.EffectService.SetParameter:input_type -> effect.SetParameterRequest
-	8,  // 4: effect.EffectService.SetUpdateListener:input_type -> effect.SetUpdateListenerRequest
-	10, // 5: effect.UpdateListenerService.OnEffectUpdated:input_type -> effect.OnEffectUpdatedRequest
-	12, // 6: effect.FactoryService.CreateEffect:input_type -> effect.CreateEffectRequest
-	14, // 7: effect.FactoryService.IsEffectSupported:input_type -> effect.IsEffectSupportedRequest
-	16, // 8: effect.ContextService.GetFactory:input_type -> effect.GetFactoryRequest
-	4,  // 9: effect.ContextService.Release:input_type -> effect.ReleaseRequest
-	18, // 10: effect.ContextService.CreateWithCurrentGlContext:input_type -> effect.CreateWithCurrentGlContextRequest
-	1,  // 11: effect.EffectService.Apply:output_type -> effect.ApplyResponse
-	3,  // 12: effect.EffectService.GetName:output_type -> effect.GetNameResponse
-	5,  // 13: effect.EffectService.Release:output_type -> effect.ReleaseResponse
-	7,  // 14: effect.EffectService.SetParameter:output_type -> effect.SetParameterResponse
-	9,  // 15: effect.EffectService.SetUpdateListener:output_type -> effect.SetUpdateListenerResponse
-	11, // 16: effect.UpdateListenerService.OnEffectUpdated:output_type -> effect.OnEffectUpdatedResponse
-	13, // 17: effect.FactoryService.CreateEffect:output_type -> effect.CreateEffectResponse
-	15, // 18: effect.FactoryService.IsEffectSupported:output_type -> effect.IsEffectSupportedResponse
-	17, // 19: effect.ContextService.GetFactory:output_type -> effect.GetFactoryResponse
-	5,  // 20: effect.ContextService.Release:output_type -> effect.ReleaseResponse
-	19, // 21: effect.ContextService.CreateWithCurrentGlContext:output_type -> effect.CreateWithCurrentGlContextResponse
+	0,  // 0: effect.FactoryService.CreateEffect:input_type -> effect.CreateEffectRequest
+	2,  // 1: effect.FactoryService.IsEffectSupported:input_type -> effect.IsEffectSupportedRequest
+	4,  // 2: effect.ContextService.GetFactory:input_type -> effect.GetFactoryRequest
+	6,  // 3: effect.ContextService.Release:input_type -> effect.ReleaseRequest
+	8,  // 4: effect.ContextService.CreateWithCurrentGlContext:input_type -> effect.CreateWithCurrentGlContextRequest
+	10, // 5: effect.EffectService.Apply:input_type -> effect.ApplyRequest
+	12, // 6: effect.EffectService.GetName:input_type -> effect.GetNameRequest
+	6,  // 7: effect.EffectService.Release:input_type -> effect.ReleaseRequest
+	14, // 8: effect.EffectService.SetParameter:input_type -> effect.SetParameterRequest
+	16, // 9: effect.EffectService.SetUpdateListener:input_type -> effect.SetUpdateListenerRequest
+	18, // 10: effect.UpdateListenerService.OnEffectUpdated:input_type -> effect.OnEffectUpdatedRequest
+	1,  // 11: effect.FactoryService.CreateEffect:output_type -> effect.CreateEffectResponse
+	3,  // 12: effect.FactoryService.IsEffectSupported:output_type -> effect.IsEffectSupportedResponse
+	5,  // 13: effect.ContextService.GetFactory:output_type -> effect.GetFactoryResponse
+	7,  // 14: effect.ContextService.Release:output_type -> effect.ReleaseResponse
+	9,  // 15: effect.ContextService.CreateWithCurrentGlContext:output_type -> effect.CreateWithCurrentGlContextResponse
+	11, // 16: effect.EffectService.Apply:output_type -> effect.ApplyResponse
+	13, // 17: effect.EffectService.GetName:output_type -> effect.GetNameResponse
+	7,  // 18: effect.EffectService.Release:output_type -> effect.ReleaseResponse
+	15, // 19: effect.EffectService.SetParameter:output_type -> effect.SetParameterResponse
+	17, // 20: effect.EffectService.SetUpdateListener:output_type -> effect.SetUpdateListenerResponse
+	19, // 21: effect.UpdateListenerService.OnEffectUpdated:output_type -> effect.OnEffectUpdatedResponse
 	11, // [11:22] is the sub-list for method output_type
 	0,  // [0:11] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

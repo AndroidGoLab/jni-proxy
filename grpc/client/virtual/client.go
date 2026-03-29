@@ -125,6 +125,15 @@ func (c *DeviceManagerClient) GetVirtualDevice(ctx context.Context, arg0 int32) 
 	return resp.GetResult(), nil
 }
 
+// GetVirtualDevices calls the GetVirtualDevices RPC.
+func (c *DeviceManagerClient) GetVirtualDevices(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVirtualDevices(ctx, &pb.GetVirtualDevicesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RegisterVirtualDeviceListener calls the RegisterVirtualDeviceListener RPC.
 func (c *DeviceManagerClient) RegisterVirtualDeviceListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterVirtualDeviceListener(ctx, &pb.RegisterVirtualDeviceListenerRequest{

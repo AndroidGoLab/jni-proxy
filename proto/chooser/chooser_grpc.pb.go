@@ -21,6 +21,412 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	TargetService_NewTarget_FullMethodName        = "/chooser.TargetService/NewTarget"
+	TargetService_DescribeContents_FullMethodName = "/chooser.TargetService/DescribeContents"
+	TargetService_GetComponentName_FullMethodName = "/chooser.TargetService/GetComponentName"
+	TargetService_GetIcon_FullMethodName          = "/chooser.TargetService/GetIcon"
+	TargetService_GetIntentExtras_FullMethodName  = "/chooser.TargetService/GetIntentExtras"
+	TargetService_GetScore_FullMethodName         = "/chooser.TargetService/GetScore"
+	TargetService_GetTitle_FullMethodName         = "/chooser.TargetService/GetTitle"
+	TargetService_ToString_FullMethodName         = "/chooser.TargetService/ToString"
+	TargetService_WriteToParcel_FullMethodName    = "/chooser.TargetService/WriteToParcel"
+)
+
+// TargetServiceClient is the client API for TargetService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TargetServiceClient interface {
+	NewTarget(ctx context.Context, in *NewTargetRequest, opts ...grpc.CallOption) (*NewTargetResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetComponentName(ctx context.Context, in *GetComponentNameRequest, opts ...grpc.CallOption) (*GetComponentNameResponse, error)
+	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
+	GetIntentExtras(ctx context.Context, in *GetIntentExtrasRequest, opts ...grpc.CallOption) (*GetIntentExtrasResponse, error)
+	GetScore(ctx context.Context, in *GetScoreRequest, opts ...grpc.CallOption) (*GetScoreResponse, error)
+	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type targetServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTargetServiceClient(cc grpc.ClientConnInterface) TargetServiceClient {
+	return &targetServiceClient{cc}
+}
+
+func (c *targetServiceClient) NewTarget(ctx context.Context, in *NewTargetRequest, opts ...grpc.CallOption) (*NewTargetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTargetResponse)
+	err := c.cc.Invoke(ctx, TargetService_NewTarget_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TargetService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceClient) GetComponentName(ctx context.Context, in *GetComponentNameRequest, opts ...grpc.CallOption) (*GetComponentNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetComponentNameResponse)
+	err := c.cc.Invoke(ctx, TargetService_GetComponentName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconResponse)
+	err := c.cc.Invoke(ctx, TargetService_GetIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceClient) GetIntentExtras(ctx context.Context, in *GetIntentExtrasRequest, opts ...grpc.CallOption) (*GetIntentExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntentExtrasResponse)
+	err := c.cc.Invoke(ctx, TargetService_GetIntentExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceClient) GetScore(ctx context.Context, in *GetScoreRequest, opts ...grpc.CallOption) (*GetScoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScoreResponse)
+	err := c.cc.Invoke(ctx, TargetService_GetScore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceClient) GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTitleResponse)
+	err := c.cc.Invoke(ctx, TargetService_GetTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TargetService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TargetService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TargetServiceServer is the server API for TargetService service.
+// All implementations must embed UnimplementedTargetServiceServer
+// for forward compatibility.
+type TargetServiceServer interface {
+	NewTarget(context.Context, *NewTargetRequest) (*NewTargetResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetComponentName(context.Context, *GetComponentNameRequest) (*GetComponentNameResponse, error)
+	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
+	GetIntentExtras(context.Context, *GetIntentExtrasRequest) (*GetIntentExtrasResponse, error)
+	GetScore(context.Context, *GetScoreRequest) (*GetScoreResponse, error)
+	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTargetServiceServer()
+}
+
+// UnimplementedTargetServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTargetServiceServer struct{}
+
+func (UnimplementedTargetServiceServer) NewTarget(context.Context, *NewTargetRequest) (*NewTargetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTarget not implemented")
+}
+func (UnimplementedTargetServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTargetServiceServer) GetComponentName(context.Context, *GetComponentNameRequest) (*GetComponentNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetComponentName not implemented")
+}
+func (UnimplementedTargetServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
+}
+func (UnimplementedTargetServiceServer) GetIntentExtras(context.Context, *GetIntentExtrasRequest) (*GetIntentExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntentExtras not implemented")
+}
+func (UnimplementedTargetServiceServer) GetScore(context.Context, *GetScoreRequest) (*GetScoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScore not implemented")
+}
+func (UnimplementedTargetServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
+}
+func (UnimplementedTargetServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTargetServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTargetServiceServer) mustEmbedUnimplementedTargetServiceServer() {}
+func (UnimplementedTargetServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeTargetServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TargetServiceServer will
+// result in compilation errors.
+type UnsafeTargetServiceServer interface {
+	mustEmbedUnimplementedTargetServiceServer()
+}
+
+func RegisterTargetServiceServer(s grpc.ServiceRegistrar, srv TargetServiceServer) {
+	// If the following call panics, it indicates UnimplementedTargetServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TargetService_ServiceDesc, srv)
+}
+
+func _TargetService_NewTarget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTargetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).NewTarget(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_NewTarget_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).NewTarget(ctx, req.(*NewTargetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetService_GetComponentName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetComponentNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).GetComponentName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_GetComponentName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).GetComponentName(ctx, req.(*GetComponentNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).GetIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_GetIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).GetIcon(ctx, req.(*GetIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetService_GetIntentExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntentExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).GetIntentExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_GetIntentExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).GetIntentExtras(ctx, req.(*GetIntentExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetService_GetScore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).GetScore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_GetScore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).GetScore(ctx, req.(*GetScoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).GetTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_GetTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TargetService_ServiceDesc is the grpc.ServiceDesc for TargetService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TargetService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "chooser.TargetService",
+	HandlerType: (*TargetServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTarget",
+			Handler:    _TargetService_NewTarget_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TargetService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetComponentName",
+			Handler:    _TargetService_GetComponentName_Handler,
+		},
+		{
+			MethodName: "GetIcon",
+			Handler:    _TargetService_GetIcon_Handler,
+		},
+		{
+			MethodName: "GetIntentExtras",
+			Handler:    _TargetService_GetIntentExtras_Handler,
+		},
+		{
+			MethodName: "GetScore",
+			Handler:    _TargetService_GetScore_Handler,
+		},
+		{
+			MethodName: "GetTitle",
+			Handler:    _TargetService_GetTitle_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TargetService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TargetService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/chooser/chooser.proto",
+}
+
+const (
 	ActionService_DescribeContents_FullMethodName = "/chooser.ActionService/DescribeContents"
 	ActionService_GetAction_FullMethodName        = "/chooser.ActionService/GetAction"
 	ActionService_GetIcon_FullMethodName          = "/chooser.ActionService/GetIcon"
@@ -33,12 +439,12 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActionServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *ActionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error)
-	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
+	GetIcon(ctx context.Context, in *ActionGetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
 	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	ToString(ctx context.Context, in *ActionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *ActionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type actionServiceClient struct {
@@ -49,7 +455,7 @@ func NewActionServiceClient(cc grpc.ClientConnInterface) ActionServiceClient {
 	return &actionServiceClient{cc}
 }
 
-func (c *actionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *actionServiceClient) DescribeContents(ctx context.Context, in *ActionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, ActionService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -69,7 +475,7 @@ func (c *actionServiceClient) GetAction(ctx context.Context, in *GetActionReques
 	return out, nil
 }
 
-func (c *actionServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
+func (c *actionServiceClient) GetIcon(ctx context.Context, in *ActionGetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetIconResponse)
 	err := c.cc.Invoke(ctx, ActionService_GetIcon_FullMethodName, in, out, cOpts...)
@@ -89,7 +495,7 @@ func (c *actionServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest,
 	return out, nil
 }
 
-func (c *actionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *actionServiceClient) ToString(ctx context.Context, in *ActionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, ActionService_ToString_FullMethodName, in, out, cOpts...)
@@ -99,7 +505,7 @@ func (c *actionServiceClient) ToString(ctx context.Context, in *ToStringRequest,
 	return out, nil
 }
 
-func (c *actionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *actionServiceClient) WriteToParcel(ctx context.Context, in *ActionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, ActionService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -113,12 +519,12 @@ func (c *actionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParc
 // All implementations must embed UnimplementedActionServiceServer
 // for forward compatibility.
 type ActionServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *ActionDescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error)
-	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
+	GetIcon(context.Context, *ActionGetIconRequest) (*GetIconResponse, error)
 	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	ToString(context.Context, *ActionToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *ActionWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedActionServiceServer()
 }
 
@@ -129,22 +535,22 @@ type ActionServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedActionServiceServer struct{}
 
-func (UnimplementedActionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedActionServiceServer) DescribeContents(context.Context, *ActionDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedActionServiceServer) GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAction not implemented")
 }
-func (UnimplementedActionServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
+func (UnimplementedActionServiceServer) GetIcon(context.Context, *ActionGetIconRequest) (*GetIconResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
 }
 func (UnimplementedActionServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
 }
-func (UnimplementedActionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedActionServiceServer) ToString(context.Context, *ActionToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedActionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedActionServiceServer) WriteToParcel(context.Context, *ActionWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedActionServiceServer) mustEmbedUnimplementedActionServiceServer() {}
@@ -169,7 +575,7 @@ func RegisterActionServiceServer(s grpc.ServiceRegistrar, srv ActionServiceServe
 }
 
 func _ActionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(ActionDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -181,7 +587,7 @@ func _ActionService_DescribeContents_Handler(srv interface{}, ctx context.Contex
 		FullMethod: ActionService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ActionServiceServer).DescribeContents(ctx, req.(*ActionDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -205,7 +611,7 @@ func _ActionService_GetAction_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _ActionService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconRequest)
+	in := new(ActionGetIconRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -217,7 +623,7 @@ func _ActionService_GetIcon_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: ActionService_GetIcon_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActionServiceServer).GetIcon(ctx, req.(*GetIconRequest))
+		return srv.(ActionServiceServer).GetIcon(ctx, req.(*ActionGetIconRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -241,7 +647,7 @@ func _ActionService_GetLabel_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _ActionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+	in := new(ActionToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -253,13 +659,13 @@ func _ActionService_ToString_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: ActionService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActionServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(ActionServiceServer).ToString(ctx, req.(*ActionToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ActionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(ActionWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -271,7 +677,7 @@ func _ActionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: ActionService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(ActionServiceServer).WriteToParcel(ctx, req.(*ActionWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -415,6 +821,146 @@ var ActionBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	TargetServiceService_OnBind_FullMethodName              = "/chooser.TargetServiceService/OnBind"
+	TargetServiceService_OnGetChooserTargets_FullMethodName = "/chooser.TargetServiceService/OnGetChooserTargets"
+)
+
+// TargetServiceServiceClient is the client API for TargetServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TargetServiceServiceClient interface {
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnGetChooserTargets(ctx context.Context, in *OnGetChooserTargetsRequest, opts ...grpc.CallOption) (*OnGetChooserTargetsResponse, error)
+}
+
+type targetServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTargetServiceServiceClient(cc grpc.ClientConnInterface) TargetServiceServiceClient {
+	return &targetServiceServiceClient{cc}
+}
+
+func (c *targetServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, TargetServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *targetServiceServiceClient) OnGetChooserTargets(ctx context.Context, in *OnGetChooserTargetsRequest, opts ...grpc.CallOption) (*OnGetChooserTargetsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGetChooserTargetsResponse)
+	err := c.cc.Invoke(ctx, TargetServiceService_OnGetChooserTargets_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TargetServiceServiceServer is the server API for TargetServiceService service.
+// All implementations must embed UnimplementedTargetServiceServiceServer
+// for forward compatibility.
+type TargetServiceServiceServer interface {
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnGetChooserTargets(context.Context, *OnGetChooserTargetsRequest) (*OnGetChooserTargetsResponse, error)
+	mustEmbedUnimplementedTargetServiceServiceServer()
+}
+
+// UnimplementedTargetServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTargetServiceServiceServer struct{}
+
+func (UnimplementedTargetServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedTargetServiceServiceServer) OnGetChooserTargets(context.Context, *OnGetChooserTargetsRequest) (*OnGetChooserTargetsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGetChooserTargets not implemented")
+}
+func (UnimplementedTargetServiceServiceServer) mustEmbedUnimplementedTargetServiceServiceServer() {}
+func (UnimplementedTargetServiceServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeTargetServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TargetServiceServiceServer will
+// result in compilation errors.
+type UnsafeTargetServiceServiceServer interface {
+	mustEmbedUnimplementedTargetServiceServiceServer()
+}
+
+func RegisterTargetServiceServiceServer(s grpc.ServiceRegistrar, srv TargetServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedTargetServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TargetServiceService_ServiceDesc, srv)
+}
+
+func _TargetServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TargetServiceService_OnGetChooserTargets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGetChooserTargetsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TargetServiceServiceServer).OnGetChooserTargets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TargetServiceService_OnGetChooserTargets_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TargetServiceServiceServer).OnGetChooserTargets(ctx, req.(*OnGetChooserTargetsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TargetServiceService_ServiceDesc is the grpc.ServiceDesc for TargetServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TargetServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "chooser.TargetServiceService",
+	HandlerType: (*TargetServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnBind",
+			Handler:    _TargetServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnGetChooserTargets",
+			Handler:    _TargetServiceService_OnGetChooserTargets_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/chooser/chooser.proto",
+}
+
+const (
 	ResultService_DescribeContents_FullMethodName     = "/chooser.ResultService/DescribeContents"
 	ResultService_Equals_FullMethodName               = "/chooser.ResultService/Equals"
 	ResultService_GetSelectedComponent_FullMethodName = "/chooser.ResultService/GetSelectedComponent"
@@ -428,13 +974,13 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ResultServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *ResultDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetSelectedComponent(ctx context.Context, in *GetSelectedComponentRequest, opts ...grpc.CallOption) (*GetSelectedComponentResponse, error)
 	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	IsShortcut(ctx context.Context, in *IsShortcutRequest, opts ...grpc.CallOption) (*IsShortcutResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *ResultWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type resultServiceClient struct {
@@ -445,7 +991,7 @@ func NewResultServiceClient(cc grpc.ClientConnInterface) ResultServiceClient {
 	return &resultServiceClient{cc}
 }
 
-func (c *resultServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *resultServiceClient) DescribeContents(ctx context.Context, in *ResultDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, ResultService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -505,7 +1051,7 @@ func (c *resultServiceClient) IsShortcut(ctx context.Context, in *IsShortcutRequ
 	return out, nil
 }
 
-func (c *resultServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *resultServiceClient) WriteToParcel(ctx context.Context, in *ResultWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, ResultService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -519,13 +1065,13 @@ func (c *resultServiceClient) WriteToParcel(ctx context.Context, in *WriteToParc
 // All implementations must embed UnimplementedResultServiceServer
 // for forward compatibility.
 type ResultServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *ResultDescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetSelectedComponent(context.Context, *GetSelectedComponentRequest) (*GetSelectedComponentResponse, error)
 	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	IsShortcut(context.Context, *IsShortcutRequest) (*IsShortcutResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *ResultWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedResultServiceServer()
 }
 
@@ -536,7 +1082,7 @@ type ResultServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedResultServiceServer struct{}
 
-func (UnimplementedResultServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedResultServiceServer) DescribeContents(context.Context, *ResultDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedResultServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
@@ -554,7 +1100,7 @@ func (UnimplementedResultServiceServer) HashCode(context.Context, *HashCodeReque
 func (UnimplementedResultServiceServer) IsShortcut(context.Context, *IsShortcutRequest) (*IsShortcutResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsShortcut not implemented")
 }
-func (UnimplementedResultServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedResultServiceServer) WriteToParcel(context.Context, *ResultWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedResultServiceServer) mustEmbedUnimplementedResultServiceServer() {}
@@ -579,7 +1125,7 @@ func RegisterResultServiceServer(s grpc.ServiceRegistrar, srv ResultServiceServe
 }
 
 func _ResultService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(ResultDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -591,7 +1137,7 @@ func _ResultService_DescribeContents_Handler(srv interface{}, ctx context.Contex
 		FullMethod: ResultService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResultServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ResultServiceServer).DescribeContents(ctx, req.(*ResultDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -687,7 +1233,7 @@ func _ResultService_IsShortcut_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _ResultService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(ResultWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -699,7 +1245,7 @@ func _ResultService_WriteToParcel_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: ResultService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResultServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(ResultServiceServer).WriteToParcel(ctx, req.(*ResultWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -738,514 +1284,6 @@ var ResultService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _ResultService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/chooser/chooser.proto",
-}
-
-const (
-	TargetServiceService_OnBind_FullMethodName = "/chooser.TargetServiceService/OnBind"
-)
-
-// TargetServiceServiceClient is the client API for TargetServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TargetServiceServiceClient interface {
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-}
-
-type targetServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTargetServiceServiceClient(cc grpc.ClientConnInterface) TargetServiceServiceClient {
-	return &targetServiceServiceClient{cc}
-}
-
-func (c *targetServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, TargetServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TargetServiceServiceServer is the server API for TargetServiceService service.
-// All implementations must embed UnimplementedTargetServiceServiceServer
-// for forward compatibility.
-type TargetServiceServiceServer interface {
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	mustEmbedUnimplementedTargetServiceServiceServer()
-}
-
-// UnimplementedTargetServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTargetServiceServiceServer struct{}
-
-func (UnimplementedTargetServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedTargetServiceServiceServer) mustEmbedUnimplementedTargetServiceServiceServer() {}
-func (UnimplementedTargetServiceServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeTargetServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TargetServiceServiceServer will
-// result in compilation errors.
-type UnsafeTargetServiceServiceServer interface {
-	mustEmbedUnimplementedTargetServiceServiceServer()
-}
-
-func RegisterTargetServiceServiceServer(s grpc.ServiceRegistrar, srv TargetServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedTargetServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TargetServiceService_ServiceDesc, srv)
-}
-
-func _TargetServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TargetServiceService_ServiceDesc is the grpc.ServiceDesc for TargetServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TargetServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "chooser.TargetServiceService",
-	HandlerType: (*TargetServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnBind",
-			Handler:    _TargetServiceService_OnBind_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/chooser/chooser.proto",
-}
-
-const (
-	TargetService_NewTarget_FullMethodName        = "/chooser.TargetService/NewTarget"
-	TargetService_DescribeContents_FullMethodName = "/chooser.TargetService/DescribeContents"
-	TargetService_GetComponentName_FullMethodName = "/chooser.TargetService/GetComponentName"
-	TargetService_GetIcon_FullMethodName          = "/chooser.TargetService/GetIcon"
-	TargetService_GetIntentExtras_FullMethodName  = "/chooser.TargetService/GetIntentExtras"
-	TargetService_GetScore_FullMethodName         = "/chooser.TargetService/GetScore"
-	TargetService_GetTitle_FullMethodName         = "/chooser.TargetService/GetTitle"
-	TargetService_ToString_FullMethodName         = "/chooser.TargetService/ToString"
-	TargetService_WriteToParcel_FullMethodName    = "/chooser.TargetService/WriteToParcel"
-)
-
-// TargetServiceClient is the client API for TargetService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TargetServiceClient interface {
-	NewTarget(ctx context.Context, in *NewTargetRequest, opts ...grpc.CallOption) (*NewTargetResponse, error)
-	DescribeContents(ctx context.Context, in *TargetDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetComponentName(ctx context.Context, in *GetComponentNameRequest, opts ...grpc.CallOption) (*GetComponentNameResponse, error)
-	GetIcon(ctx context.Context, in *TargetGetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
-	GetIntentExtras(ctx context.Context, in *GetIntentExtrasRequest, opts ...grpc.CallOption) (*GetIntentExtrasResponse, error)
-	GetScore(ctx context.Context, in *GetScoreRequest, opts ...grpc.CallOption) (*GetScoreResponse, error)
-	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
-	ToString(ctx context.Context, in *TargetToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *TargetWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type targetServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTargetServiceClient(cc grpc.ClientConnInterface) TargetServiceClient {
-	return &targetServiceClient{cc}
-}
-
-func (c *targetServiceClient) NewTarget(ctx context.Context, in *NewTargetRequest, opts ...grpc.CallOption) (*NewTargetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTargetResponse)
-	err := c.cc.Invoke(ctx, TargetService_NewTarget_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetServiceClient) DescribeContents(ctx context.Context, in *TargetDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, TargetService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetServiceClient) GetComponentName(ctx context.Context, in *GetComponentNameRequest, opts ...grpc.CallOption) (*GetComponentNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetComponentNameResponse)
-	err := c.cc.Invoke(ctx, TargetService_GetComponentName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetServiceClient) GetIcon(ctx context.Context, in *TargetGetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconResponse)
-	err := c.cc.Invoke(ctx, TargetService_GetIcon_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetServiceClient) GetIntentExtras(ctx context.Context, in *GetIntentExtrasRequest, opts ...grpc.CallOption) (*GetIntentExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntentExtrasResponse)
-	err := c.cc.Invoke(ctx, TargetService_GetIntentExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetServiceClient) GetScore(ctx context.Context, in *GetScoreRequest, opts ...grpc.CallOption) (*GetScoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScoreResponse)
-	err := c.cc.Invoke(ctx, TargetService_GetScore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetServiceClient) GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTitleResponse)
-	err := c.cc.Invoke(ctx, TargetService_GetTitle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetServiceClient) ToString(ctx context.Context, in *TargetToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, TargetService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *targetServiceClient) WriteToParcel(ctx context.Context, in *TargetWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, TargetService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TargetServiceServer is the server API for TargetService service.
-// All implementations must embed UnimplementedTargetServiceServer
-// for forward compatibility.
-type TargetServiceServer interface {
-	NewTarget(context.Context, *NewTargetRequest) (*NewTargetResponse, error)
-	DescribeContents(context.Context, *TargetDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetComponentName(context.Context, *GetComponentNameRequest) (*GetComponentNameResponse, error)
-	GetIcon(context.Context, *TargetGetIconRequest) (*GetIconResponse, error)
-	GetIntentExtras(context.Context, *GetIntentExtrasRequest) (*GetIntentExtrasResponse, error)
-	GetScore(context.Context, *GetScoreRequest) (*GetScoreResponse, error)
-	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
-	ToString(context.Context, *TargetToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *TargetWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedTargetServiceServer()
-}
-
-// UnimplementedTargetServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTargetServiceServer struct{}
-
-func (UnimplementedTargetServiceServer) NewTarget(context.Context, *NewTargetRequest) (*NewTargetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTarget not implemented")
-}
-func (UnimplementedTargetServiceServer) DescribeContents(context.Context, *TargetDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedTargetServiceServer) GetComponentName(context.Context, *GetComponentNameRequest) (*GetComponentNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetComponentName not implemented")
-}
-func (UnimplementedTargetServiceServer) GetIcon(context.Context, *TargetGetIconRequest) (*GetIconResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
-}
-func (UnimplementedTargetServiceServer) GetIntentExtras(context.Context, *GetIntentExtrasRequest) (*GetIntentExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIntentExtras not implemented")
-}
-func (UnimplementedTargetServiceServer) GetScore(context.Context, *GetScoreRequest) (*GetScoreResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScore not implemented")
-}
-func (UnimplementedTargetServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
-}
-func (UnimplementedTargetServiceServer) ToString(context.Context, *TargetToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedTargetServiceServer) WriteToParcel(context.Context, *TargetWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedTargetServiceServer) mustEmbedUnimplementedTargetServiceServer() {}
-func (UnimplementedTargetServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeTargetServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TargetServiceServer will
-// result in compilation errors.
-type UnsafeTargetServiceServer interface {
-	mustEmbedUnimplementedTargetServiceServer()
-}
-
-func RegisterTargetServiceServer(s grpc.ServiceRegistrar, srv TargetServiceServer) {
-	// If the following call panics, it indicates UnimplementedTargetServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TargetService_ServiceDesc, srv)
-}
-
-func _TargetService_NewTarget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTargetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).NewTarget(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_NewTarget_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).NewTarget(ctx, req.(*NewTargetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TargetDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).DescribeContents(ctx, req.(*TargetDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetService_GetComponentName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetComponentNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).GetComponentName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_GetComponentName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).GetComponentName(ctx, req.(*GetComponentNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TargetGetIconRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).GetIcon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_GetIcon_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).GetIcon(ctx, req.(*TargetGetIconRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetService_GetIntentExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIntentExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).GetIntentExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_GetIntentExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).GetIntentExtras(ctx, req.(*GetIntentExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetService_GetScore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).GetScore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_GetScore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).GetScore(ctx, req.(*GetScoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTitleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).GetTitle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_GetTitle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TargetToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).ToString(ctx, req.(*TargetToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TargetService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TargetWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TargetServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TargetService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TargetServiceServer).WriteToParcel(ctx, req.(*TargetWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TargetService_ServiceDesc is the grpc.ServiceDesc for TargetService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TargetService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "chooser.TargetService",
-	HandlerType: (*TargetServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewTarget",
-			Handler:    _TargetService_NewTarget_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _TargetService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetComponentName",
-			Handler:    _TargetService_GetComponentName_Handler,
-		},
-		{
-			MethodName: "GetIcon",
-			Handler:    _TargetService_GetIcon_Handler,
-		},
-		{
-			MethodName: "GetIntentExtras",
-			Handler:    _TargetService_GetIntentExtras_Handler,
-		},
-		{
-			MethodName: "GetScore",
-			Handler:    _TargetService_GetScore_Handler,
-		},
-		{
-			MethodName: "GetTitle",
-			Handler:    _TargetService_GetTitle_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _TargetService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _TargetService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

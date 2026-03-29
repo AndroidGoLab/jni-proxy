@@ -21,1240 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	StatelessTemplateService_NewStatelessTemplate_FullMethodName = "/templates.StatelessTemplateService/NewStatelessTemplate"
-	StatelessTemplateService_GetTemplateType_FullMethodName      = "/templates.StatelessTemplateService/GetTemplateType"
-)
-
-// StatelessTemplateServiceClient is the client API for StatelessTemplateService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StatelessTemplateServiceClient interface {
-	NewStatelessTemplate(ctx context.Context, in *NewStatelessTemplateRequest, opts ...grpc.CallOption) (*NewStatelessTemplateResponse, error)
-	GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error)
-}
-
-type statelessTemplateServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStatelessTemplateServiceClient(cc grpc.ClientConnInterface) StatelessTemplateServiceClient {
-	return &statelessTemplateServiceClient{cc}
-}
-
-func (c *statelessTemplateServiceClient) NewStatelessTemplate(ctx context.Context, in *NewStatelessTemplateRequest, opts ...grpc.CallOption) (*NewStatelessTemplateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewStatelessTemplateResponse)
-	err := c.cc.Invoke(ctx, StatelessTemplateService_NewStatelessTemplate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statelessTemplateServiceClient) GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTemplateTypeResponse)
-	err := c.cc.Invoke(ctx, StatelessTemplateService_GetTemplateType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StatelessTemplateServiceServer is the server API for StatelessTemplateService service.
-// All implementations must embed UnimplementedStatelessTemplateServiceServer
-// for forward compatibility.
-type StatelessTemplateServiceServer interface {
-	NewStatelessTemplate(context.Context, *NewStatelessTemplateRequest) (*NewStatelessTemplateResponse, error)
-	GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error)
-	mustEmbedUnimplementedStatelessTemplateServiceServer()
-}
-
-// UnimplementedStatelessTemplateServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStatelessTemplateServiceServer struct{}
-
-func (UnimplementedStatelessTemplateServiceServer) NewStatelessTemplate(context.Context, *NewStatelessTemplateRequest) (*NewStatelessTemplateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewStatelessTemplate not implemented")
-}
-func (UnimplementedStatelessTemplateServiceServer) GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTemplateType not implemented")
-}
-func (UnimplementedStatelessTemplateServiceServer) mustEmbedUnimplementedStatelessTemplateServiceServer() {
-}
-func (UnimplementedStatelessTemplateServiceServer) testEmbeddedByValue() {}
-
-// UnsafeStatelessTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StatelessTemplateServiceServer will
-// result in compilation errors.
-type UnsafeStatelessTemplateServiceServer interface {
-	mustEmbedUnimplementedStatelessTemplateServiceServer()
-}
-
-func RegisterStatelessTemplateServiceServer(s grpc.ServiceRegistrar, srv StatelessTemplateServiceServer) {
-	// If the following call panics, it indicates UnimplementedStatelessTemplateServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StatelessTemplateService_ServiceDesc, srv)
-}
-
-func _StatelessTemplateService_NewStatelessTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewStatelessTemplateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatelessTemplateServiceServer).NewStatelessTemplate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatelessTemplateService_NewStatelessTemplate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatelessTemplateServiceServer).NewStatelessTemplate(ctx, req.(*NewStatelessTemplateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatelessTemplateService_GetTemplateType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTemplateTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatelessTemplateServiceServer).GetTemplateType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatelessTemplateService_GetTemplateType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatelessTemplateServiceServer).GetTemplateType(ctx, req.(*GetTemplateTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StatelessTemplateService_ServiceDesc is the grpc.ServiceDesc for StatelessTemplateService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StatelessTemplateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "templates.StatelessTemplateService",
-	HandlerType: (*StatelessTemplateServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewStatelessTemplate",
-			Handler:    _StatelessTemplateService_NewStatelessTemplate_Handler,
-		},
-		{
-			MethodName: "GetTemplateType",
-			Handler:    _StatelessTemplateService_GetTemplateType_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/templates/templates.proto",
-}
-
-const (
-	TemperatureControlTemplateService_NewTemperatureControlTemplate_FullMethodName = "/templates.TemperatureControlTemplateService/NewTemperatureControlTemplate"
-	TemperatureControlTemplateService_GetCurrentActiveMode_FullMethodName          = "/templates.TemperatureControlTemplateService/GetCurrentActiveMode"
-	TemperatureControlTemplateService_GetCurrentMode_FullMethodName                = "/templates.TemperatureControlTemplateService/GetCurrentMode"
-	TemperatureControlTemplateService_GetModes_FullMethodName                      = "/templates.TemperatureControlTemplateService/GetModes"
-	TemperatureControlTemplateService_GetTemplate_FullMethodName                   = "/templates.TemperatureControlTemplateService/GetTemplate"
-	TemperatureControlTemplateService_GetTemplateType_FullMethodName               = "/templates.TemperatureControlTemplateService/GetTemplateType"
-)
-
-// TemperatureControlTemplateServiceClient is the client API for TemperatureControlTemplateService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TemperatureControlTemplateServiceClient interface {
-	NewTemperatureControlTemplate(ctx context.Context, in *NewTemperatureControlTemplateRequest, opts ...grpc.CallOption) (*NewTemperatureControlTemplateResponse, error)
-	GetCurrentActiveMode(ctx context.Context, in *GetCurrentActiveModeRequest, opts ...grpc.CallOption) (*GetCurrentActiveModeResponse, error)
-	GetCurrentMode(ctx context.Context, in *GetCurrentModeRequest, opts ...grpc.CallOption) (*GetCurrentModeResponse, error)
-	GetModes(ctx context.Context, in *GetModesRequest, opts ...grpc.CallOption) (*GetModesResponse, error)
-	GetTemplate(ctx context.Context, in *GetTemplateRequest, opts ...grpc.CallOption) (*GetTemplateResponse, error)
-	GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error)
-}
-
-type temperatureControlTemplateServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTemperatureControlTemplateServiceClient(cc grpc.ClientConnInterface) TemperatureControlTemplateServiceClient {
-	return &temperatureControlTemplateServiceClient{cc}
-}
-
-func (c *temperatureControlTemplateServiceClient) NewTemperatureControlTemplate(ctx context.Context, in *NewTemperatureControlTemplateRequest, opts ...grpc.CallOption) (*NewTemperatureControlTemplateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTemperatureControlTemplateResponse)
-	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_NewTemperatureControlTemplate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureControlTemplateServiceClient) GetCurrentActiveMode(ctx context.Context, in *GetCurrentActiveModeRequest, opts ...grpc.CallOption) (*GetCurrentActiveModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentActiveModeResponse)
-	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetCurrentActiveMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureControlTemplateServiceClient) GetCurrentMode(ctx context.Context, in *GetCurrentModeRequest, opts ...grpc.CallOption) (*GetCurrentModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentModeResponse)
-	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetCurrentMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureControlTemplateServiceClient) GetModes(ctx context.Context, in *GetModesRequest, opts ...grpc.CallOption) (*GetModesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetModesResponse)
-	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetModes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureControlTemplateServiceClient) GetTemplate(ctx context.Context, in *GetTemplateRequest, opts ...grpc.CallOption) (*GetTemplateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTemplateResponse)
-	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetTemplate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureControlTemplateServiceClient) GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTemplateTypeResponse)
-	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetTemplateType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TemperatureControlTemplateServiceServer is the server API for TemperatureControlTemplateService service.
-// All implementations must embed UnimplementedTemperatureControlTemplateServiceServer
-// for forward compatibility.
-type TemperatureControlTemplateServiceServer interface {
-	NewTemperatureControlTemplate(context.Context, *NewTemperatureControlTemplateRequest) (*NewTemperatureControlTemplateResponse, error)
-	GetCurrentActiveMode(context.Context, *GetCurrentActiveModeRequest) (*GetCurrentActiveModeResponse, error)
-	GetCurrentMode(context.Context, *GetCurrentModeRequest) (*GetCurrentModeResponse, error)
-	GetModes(context.Context, *GetModesRequest) (*GetModesResponse, error)
-	GetTemplate(context.Context, *GetTemplateRequest) (*GetTemplateResponse, error)
-	GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error)
-	mustEmbedUnimplementedTemperatureControlTemplateServiceServer()
-}
-
-// UnimplementedTemperatureControlTemplateServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTemperatureControlTemplateServiceServer struct{}
-
-func (UnimplementedTemperatureControlTemplateServiceServer) NewTemperatureControlTemplate(context.Context, *NewTemperatureControlTemplateRequest) (*NewTemperatureControlTemplateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTemperatureControlTemplate not implemented")
-}
-func (UnimplementedTemperatureControlTemplateServiceServer) GetCurrentActiveMode(context.Context, *GetCurrentActiveModeRequest) (*GetCurrentActiveModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentActiveMode not implemented")
-}
-func (UnimplementedTemperatureControlTemplateServiceServer) GetCurrentMode(context.Context, *GetCurrentModeRequest) (*GetCurrentModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentMode not implemented")
-}
-func (UnimplementedTemperatureControlTemplateServiceServer) GetModes(context.Context, *GetModesRequest) (*GetModesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetModes not implemented")
-}
-func (UnimplementedTemperatureControlTemplateServiceServer) GetTemplate(context.Context, *GetTemplateRequest) (*GetTemplateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTemplate not implemented")
-}
-func (UnimplementedTemperatureControlTemplateServiceServer) GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTemplateType not implemented")
-}
-func (UnimplementedTemperatureControlTemplateServiceServer) mustEmbedUnimplementedTemperatureControlTemplateServiceServer() {
-}
-func (UnimplementedTemperatureControlTemplateServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTemperatureControlTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TemperatureControlTemplateServiceServer will
-// result in compilation errors.
-type UnsafeTemperatureControlTemplateServiceServer interface {
-	mustEmbedUnimplementedTemperatureControlTemplateServiceServer()
-}
-
-func RegisterTemperatureControlTemplateServiceServer(s grpc.ServiceRegistrar, srv TemperatureControlTemplateServiceServer) {
-	// If the following call panics, it indicates UnimplementedTemperatureControlTemplateServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TemperatureControlTemplateService_ServiceDesc, srv)
-}
-
-func _TemperatureControlTemplateService_NewTemperatureControlTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTemperatureControlTemplateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureControlTemplateServiceServer).NewTemperatureControlTemplate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureControlTemplateService_NewTemperatureControlTemplate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureControlTemplateServiceServer).NewTemperatureControlTemplate(ctx, req.(*NewTemperatureControlTemplateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureControlTemplateService_GetCurrentActiveMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentActiveModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureControlTemplateServiceServer).GetCurrentActiveMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureControlTemplateService_GetCurrentActiveMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureControlTemplateServiceServer).GetCurrentActiveMode(ctx, req.(*GetCurrentActiveModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureControlTemplateService_GetCurrentMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureControlTemplateServiceServer).GetCurrentMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureControlTemplateService_GetCurrentMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureControlTemplateServiceServer).GetCurrentMode(ctx, req.(*GetCurrentModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureControlTemplateService_GetModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetModesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureControlTemplateServiceServer).GetModes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureControlTemplateService_GetModes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureControlTemplateServiceServer).GetModes(ctx, req.(*GetModesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureControlTemplateService_GetTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTemplateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureControlTemplateServiceServer).GetTemplate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureControlTemplateService_GetTemplate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureControlTemplateServiceServer).GetTemplate(ctx, req.(*GetTemplateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureControlTemplateService_GetTemplateType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTemplateTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureControlTemplateServiceServer).GetTemplateType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureControlTemplateService_GetTemplateType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureControlTemplateServiceServer).GetTemplateType(ctx, req.(*GetTemplateTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TemperatureControlTemplateService_ServiceDesc is the grpc.ServiceDesc for TemperatureControlTemplateService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TemperatureControlTemplateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "templates.TemperatureControlTemplateService",
-	HandlerType: (*TemperatureControlTemplateServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewTemperatureControlTemplate",
-			Handler:    _TemperatureControlTemplateService_NewTemperatureControlTemplate_Handler,
-		},
-		{
-			MethodName: "GetCurrentActiveMode",
-			Handler:    _TemperatureControlTemplateService_GetCurrentActiveMode_Handler,
-		},
-		{
-			MethodName: "GetCurrentMode",
-			Handler:    _TemperatureControlTemplateService_GetCurrentMode_Handler,
-		},
-		{
-			MethodName: "GetModes",
-			Handler:    _TemperatureControlTemplateService_GetModes_Handler,
-		},
-		{
-			MethodName: "GetTemplate",
-			Handler:    _TemperatureControlTemplateService_GetTemplate_Handler,
-		},
-		{
-			MethodName: "GetTemplateType",
-			Handler:    _TemperatureControlTemplateService_GetTemplateType_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/templates/templates.proto",
-}
-
-const (
-	ControlButtonService_NewControlButton_FullMethodName     = "/templates.ControlButtonService/NewControlButton"
-	ControlButtonService_DescribeContents_FullMethodName     = "/templates.ControlButtonService/DescribeContents"
-	ControlButtonService_GetActionDescription_FullMethodName = "/templates.ControlButtonService/GetActionDescription"
-	ControlButtonService_IsChecked_FullMethodName            = "/templates.ControlButtonService/IsChecked"
-	ControlButtonService_WriteToParcel_FullMethodName        = "/templates.ControlButtonService/WriteToParcel"
-)
-
-// ControlButtonServiceClient is the client API for ControlButtonService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ControlButtonServiceClient interface {
-	NewControlButton(ctx context.Context, in *NewControlButtonRequest, opts ...grpc.CallOption) (*NewControlButtonResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetActionDescription(ctx context.Context, in *GetActionDescriptionRequest, opts ...grpc.CallOption) (*GetActionDescriptionResponse, error)
-	IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type controlButtonServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewControlButtonServiceClient(cc grpc.ClientConnInterface) ControlButtonServiceClient {
-	return &controlButtonServiceClient{cc}
-}
-
-func (c *controlButtonServiceClient) NewControlButton(ctx context.Context, in *NewControlButtonRequest, opts ...grpc.CallOption) (*NewControlButtonResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewControlButtonResponse)
-	err := c.cc.Invoke(ctx, ControlButtonService_NewControlButton_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *controlButtonServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ControlButtonService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *controlButtonServiceClient) GetActionDescription(ctx context.Context, in *GetActionDescriptionRequest, opts ...grpc.CallOption) (*GetActionDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActionDescriptionResponse)
-	err := c.cc.Invoke(ctx, ControlButtonService_GetActionDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *controlButtonServiceClient) IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCheckedResponse)
-	err := c.cc.Invoke(ctx, ControlButtonService_IsChecked_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *controlButtonServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ControlButtonService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ControlButtonServiceServer is the server API for ControlButtonService service.
-// All implementations must embed UnimplementedControlButtonServiceServer
-// for forward compatibility.
-type ControlButtonServiceServer interface {
-	NewControlButton(context.Context, *NewControlButtonRequest) (*NewControlButtonResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetActionDescription(context.Context, *GetActionDescriptionRequest) (*GetActionDescriptionResponse, error)
-	IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedControlButtonServiceServer()
-}
-
-// UnimplementedControlButtonServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedControlButtonServiceServer struct{}
-
-func (UnimplementedControlButtonServiceServer) NewControlButton(context.Context, *NewControlButtonRequest) (*NewControlButtonResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewControlButton not implemented")
-}
-func (UnimplementedControlButtonServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedControlButtonServiceServer) GetActionDescription(context.Context, *GetActionDescriptionRequest) (*GetActionDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActionDescription not implemented")
-}
-func (UnimplementedControlButtonServiceServer) IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsChecked not implemented")
-}
-func (UnimplementedControlButtonServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedControlButtonServiceServer) mustEmbedUnimplementedControlButtonServiceServer() {}
-func (UnimplementedControlButtonServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeControlButtonServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ControlButtonServiceServer will
-// result in compilation errors.
-type UnsafeControlButtonServiceServer interface {
-	mustEmbedUnimplementedControlButtonServiceServer()
-}
-
-func RegisterControlButtonServiceServer(s grpc.ServiceRegistrar, srv ControlButtonServiceServer) {
-	// If the following call panics, it indicates UnimplementedControlButtonServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ControlButtonService_ServiceDesc, srv)
-}
-
-func _ControlButtonService_NewControlButton_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewControlButtonRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ControlButtonServiceServer).NewControlButton(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ControlButtonService_NewControlButton_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ControlButtonServiceServer).NewControlButton(ctx, req.(*NewControlButtonRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ControlButtonService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ControlButtonServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ControlButtonService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ControlButtonServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ControlButtonService_GetActionDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActionDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ControlButtonServiceServer).GetActionDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ControlButtonService_GetActionDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ControlButtonServiceServer).GetActionDescription(ctx, req.(*GetActionDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ControlButtonService_IsChecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCheckedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ControlButtonServiceServer).IsChecked(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ControlButtonService_IsChecked_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ControlButtonServiceServer).IsChecked(ctx, req.(*IsCheckedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ControlButtonService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ControlButtonServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ControlButtonService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ControlButtonServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ControlButtonService_ServiceDesc is the grpc.ServiceDesc for ControlButtonService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ControlButtonService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "templates.ControlButtonService",
-	HandlerType: (*ControlButtonServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewControlButton",
-			Handler:    _ControlButtonService_NewControlButton_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ControlButtonService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetActionDescription",
-			Handler:    _ControlButtonService_GetActionDescription_Handler,
-		},
-		{
-			MethodName: "IsChecked",
-			Handler:    _ControlButtonService_IsChecked_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ControlButtonService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/templates/templates.proto",
-}
-
-const (
-	RangeTemplateService_NewRangeTemplate_FullMethodName = "/templates.RangeTemplateService/NewRangeTemplate"
-	RangeTemplateService_GetCurrentValue_FullMethodName  = "/templates.RangeTemplateService/GetCurrentValue"
-	RangeTemplateService_GetFormatString_FullMethodName  = "/templates.RangeTemplateService/GetFormatString"
-	RangeTemplateService_GetMaxValue_FullMethodName      = "/templates.RangeTemplateService/GetMaxValue"
-	RangeTemplateService_GetMinValue_FullMethodName      = "/templates.RangeTemplateService/GetMinValue"
-	RangeTemplateService_GetStepValue_FullMethodName     = "/templates.RangeTemplateService/GetStepValue"
-	RangeTemplateService_GetTemplateType_FullMethodName  = "/templates.RangeTemplateService/GetTemplateType"
-)
-
-// RangeTemplateServiceClient is the client API for RangeTemplateService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangeTemplateServiceClient interface {
-	NewRangeTemplate(ctx context.Context, in *NewRangeTemplateRequest, opts ...grpc.CallOption) (*NewRangeTemplateResponse, error)
-	GetCurrentValue(ctx context.Context, in *GetCurrentValueRequest, opts ...grpc.CallOption) (*GetCurrentValueResponse, error)
-	GetFormatString(ctx context.Context, in *GetFormatStringRequest, opts ...grpc.CallOption) (*GetFormatStringResponse, error)
-	GetMaxValue(ctx context.Context, in *GetMaxValueRequest, opts ...grpc.CallOption) (*GetMaxValueResponse, error)
-	GetMinValue(ctx context.Context, in *GetMinValueRequest, opts ...grpc.CallOption) (*GetMinValueResponse, error)
-	GetStepValue(ctx context.Context, in *GetStepValueRequest, opts ...grpc.CallOption) (*GetStepValueResponse, error)
-	GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error)
-}
-
-type rangeTemplateServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangeTemplateServiceClient(cc grpc.ClientConnInterface) RangeTemplateServiceClient {
-	return &rangeTemplateServiceClient{cc}
-}
-
-func (c *rangeTemplateServiceClient) NewRangeTemplate(ctx context.Context, in *NewRangeTemplateRequest, opts ...grpc.CallOption) (*NewRangeTemplateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRangeTemplateResponse)
-	err := c.cc.Invoke(ctx, RangeTemplateService_NewRangeTemplate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeTemplateServiceClient) GetCurrentValue(ctx context.Context, in *GetCurrentValueRequest, opts ...grpc.CallOption) (*GetCurrentValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentValueResponse)
-	err := c.cc.Invoke(ctx, RangeTemplateService_GetCurrentValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeTemplateServiceClient) GetFormatString(ctx context.Context, in *GetFormatStringRequest, opts ...grpc.CallOption) (*GetFormatStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFormatStringResponse)
-	err := c.cc.Invoke(ctx, RangeTemplateService_GetFormatString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeTemplateServiceClient) GetMaxValue(ctx context.Context, in *GetMaxValueRequest, opts ...grpc.CallOption) (*GetMaxValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxValueResponse)
-	err := c.cc.Invoke(ctx, RangeTemplateService_GetMaxValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeTemplateServiceClient) GetMinValue(ctx context.Context, in *GetMinValueRequest, opts ...grpc.CallOption) (*GetMinValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMinValueResponse)
-	err := c.cc.Invoke(ctx, RangeTemplateService_GetMinValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeTemplateServiceClient) GetStepValue(ctx context.Context, in *GetStepValueRequest, opts ...grpc.CallOption) (*GetStepValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStepValueResponse)
-	err := c.cc.Invoke(ctx, RangeTemplateService_GetStepValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeTemplateServiceClient) GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTemplateTypeResponse)
-	err := c.cc.Invoke(ctx, RangeTemplateService_GetTemplateType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangeTemplateServiceServer is the server API for RangeTemplateService service.
-// All implementations must embed UnimplementedRangeTemplateServiceServer
-// for forward compatibility.
-type RangeTemplateServiceServer interface {
-	NewRangeTemplate(context.Context, *NewRangeTemplateRequest) (*NewRangeTemplateResponse, error)
-	GetCurrentValue(context.Context, *GetCurrentValueRequest) (*GetCurrentValueResponse, error)
-	GetFormatString(context.Context, *GetFormatStringRequest) (*GetFormatStringResponse, error)
-	GetMaxValue(context.Context, *GetMaxValueRequest) (*GetMaxValueResponse, error)
-	GetMinValue(context.Context, *GetMinValueRequest) (*GetMinValueResponse, error)
-	GetStepValue(context.Context, *GetStepValueRequest) (*GetStepValueResponse, error)
-	GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error)
-	mustEmbedUnimplementedRangeTemplateServiceServer()
-}
-
-// UnimplementedRangeTemplateServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangeTemplateServiceServer struct{}
-
-func (UnimplementedRangeTemplateServiceServer) NewRangeTemplate(context.Context, *NewRangeTemplateRequest) (*NewRangeTemplateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRangeTemplate not implemented")
-}
-func (UnimplementedRangeTemplateServiceServer) GetCurrentValue(context.Context, *GetCurrentValueRequest) (*GetCurrentValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentValue not implemented")
-}
-func (UnimplementedRangeTemplateServiceServer) GetFormatString(context.Context, *GetFormatStringRequest) (*GetFormatStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFormatString not implemented")
-}
-func (UnimplementedRangeTemplateServiceServer) GetMaxValue(context.Context, *GetMaxValueRequest) (*GetMaxValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxValue not implemented")
-}
-func (UnimplementedRangeTemplateServiceServer) GetMinValue(context.Context, *GetMinValueRequest) (*GetMinValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMinValue not implemented")
-}
-func (UnimplementedRangeTemplateServiceServer) GetStepValue(context.Context, *GetStepValueRequest) (*GetStepValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStepValue not implemented")
-}
-func (UnimplementedRangeTemplateServiceServer) GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTemplateType not implemented")
-}
-func (UnimplementedRangeTemplateServiceServer) mustEmbedUnimplementedRangeTemplateServiceServer() {}
-func (UnimplementedRangeTemplateServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeRangeTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangeTemplateServiceServer will
-// result in compilation errors.
-type UnsafeRangeTemplateServiceServer interface {
-	mustEmbedUnimplementedRangeTemplateServiceServer()
-}
-
-func RegisterRangeTemplateServiceServer(s grpc.ServiceRegistrar, srv RangeTemplateServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangeTemplateServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangeTemplateService_ServiceDesc, srv)
-}
-
-func _RangeTemplateService_NewRangeTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRangeTemplateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeTemplateServiceServer).NewRangeTemplate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeTemplateService_NewRangeTemplate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeTemplateServiceServer).NewRangeTemplate(ctx, req.(*NewRangeTemplateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeTemplateService_GetCurrentValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeTemplateServiceServer).GetCurrentValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeTemplateService_GetCurrentValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeTemplateServiceServer).GetCurrentValue(ctx, req.(*GetCurrentValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeTemplateService_GetFormatString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFormatStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeTemplateServiceServer).GetFormatString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeTemplateService_GetFormatString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeTemplateServiceServer).GetFormatString(ctx, req.(*GetFormatStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeTemplateService_GetMaxValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeTemplateServiceServer).GetMaxValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeTemplateService_GetMaxValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeTemplateServiceServer).GetMaxValue(ctx, req.(*GetMaxValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeTemplateService_GetMinValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMinValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeTemplateServiceServer).GetMinValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeTemplateService_GetMinValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeTemplateServiceServer).GetMinValue(ctx, req.(*GetMinValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeTemplateService_GetStepValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStepValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeTemplateServiceServer).GetStepValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeTemplateService_GetStepValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeTemplateServiceServer).GetStepValue(ctx, req.(*GetStepValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeTemplateService_GetTemplateType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTemplateTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeTemplateServiceServer).GetTemplateType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeTemplateService_GetTemplateType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeTemplateServiceServer).GetTemplateType(ctx, req.(*GetTemplateTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangeTemplateService_ServiceDesc is the grpc.ServiceDesc for RangeTemplateService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangeTemplateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "templates.RangeTemplateService",
-	HandlerType: (*RangeTemplateServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRangeTemplate",
-			Handler:    _RangeTemplateService_NewRangeTemplate_Handler,
-		},
-		{
-			MethodName: "GetCurrentValue",
-			Handler:    _RangeTemplateService_GetCurrentValue_Handler,
-		},
-		{
-			MethodName: "GetFormatString",
-			Handler:    _RangeTemplateService_GetFormatString_Handler,
-		},
-		{
-			MethodName: "GetMaxValue",
-			Handler:    _RangeTemplateService_GetMaxValue_Handler,
-		},
-		{
-			MethodName: "GetMinValue",
-			Handler:    _RangeTemplateService_GetMinValue_Handler,
-		},
-		{
-			MethodName: "GetStepValue",
-			Handler:    _RangeTemplateService_GetStepValue_Handler,
-		},
-		{
-			MethodName: "GetTemplateType",
-			Handler:    _RangeTemplateService_GetTemplateType_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/templates/templates.proto",
-}
-
-const (
-	ToggleTemplateService_NewToggleTemplate_FullMethodName     = "/templates.ToggleTemplateService/NewToggleTemplate"
-	ToggleTemplateService_GetContentDescription_FullMethodName = "/templates.ToggleTemplateService/GetContentDescription"
-	ToggleTemplateService_GetTemplateType_FullMethodName       = "/templates.ToggleTemplateService/GetTemplateType"
-	ToggleTemplateService_IsChecked_FullMethodName             = "/templates.ToggleTemplateService/IsChecked"
-)
-
-// ToggleTemplateServiceClient is the client API for ToggleTemplateService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ToggleTemplateServiceClient interface {
-	NewToggleTemplate(ctx context.Context, in *NewToggleTemplateRequest, opts ...grpc.CallOption) (*NewToggleTemplateResponse, error)
-	GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error)
-	GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error)
-	IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error)
-}
-
-type toggleTemplateServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewToggleTemplateServiceClient(cc grpc.ClientConnInterface) ToggleTemplateServiceClient {
-	return &toggleTemplateServiceClient{cc}
-}
-
-func (c *toggleTemplateServiceClient) NewToggleTemplate(ctx context.Context, in *NewToggleTemplateRequest, opts ...grpc.CallOption) (*NewToggleTemplateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewToggleTemplateResponse)
-	err := c.cc.Invoke(ctx, ToggleTemplateService_NewToggleTemplate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *toggleTemplateServiceClient) GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetContentDescriptionResponse)
-	err := c.cc.Invoke(ctx, ToggleTemplateService_GetContentDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *toggleTemplateServiceClient) GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTemplateTypeResponse)
-	err := c.cc.Invoke(ctx, ToggleTemplateService_GetTemplateType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *toggleTemplateServiceClient) IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCheckedResponse)
-	err := c.cc.Invoke(ctx, ToggleTemplateService_IsChecked_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ToggleTemplateServiceServer is the server API for ToggleTemplateService service.
-// All implementations must embed UnimplementedToggleTemplateServiceServer
-// for forward compatibility.
-type ToggleTemplateServiceServer interface {
-	NewToggleTemplate(context.Context, *NewToggleTemplateRequest) (*NewToggleTemplateResponse, error)
-	GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error)
-	GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error)
-	IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error)
-	mustEmbedUnimplementedToggleTemplateServiceServer()
-}
-
-// UnimplementedToggleTemplateServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedToggleTemplateServiceServer struct{}
-
-func (UnimplementedToggleTemplateServiceServer) NewToggleTemplate(context.Context, *NewToggleTemplateRequest) (*NewToggleTemplateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewToggleTemplate not implemented")
-}
-func (UnimplementedToggleTemplateServiceServer) GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetContentDescription not implemented")
-}
-func (UnimplementedToggleTemplateServiceServer) GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTemplateType not implemented")
-}
-func (UnimplementedToggleTemplateServiceServer) IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsChecked not implemented")
-}
-func (UnimplementedToggleTemplateServiceServer) mustEmbedUnimplementedToggleTemplateServiceServer() {}
-func (UnimplementedToggleTemplateServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeToggleTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ToggleTemplateServiceServer will
-// result in compilation errors.
-type UnsafeToggleTemplateServiceServer interface {
-	mustEmbedUnimplementedToggleTemplateServiceServer()
-}
-
-func RegisterToggleTemplateServiceServer(s grpc.ServiceRegistrar, srv ToggleTemplateServiceServer) {
-	// If the following call panics, it indicates UnimplementedToggleTemplateServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ToggleTemplateService_ServiceDesc, srv)
-}
-
-func _ToggleTemplateService_NewToggleTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewToggleTemplateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ToggleTemplateServiceServer).NewToggleTemplate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ToggleTemplateService_NewToggleTemplate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ToggleTemplateServiceServer).NewToggleTemplate(ctx, req.(*NewToggleTemplateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ToggleTemplateService_GetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetContentDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ToggleTemplateServiceServer).GetContentDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ToggleTemplateService_GetContentDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ToggleTemplateServiceServer).GetContentDescription(ctx, req.(*GetContentDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ToggleTemplateService_GetTemplateType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTemplateTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ToggleTemplateServiceServer).GetTemplateType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ToggleTemplateService_GetTemplateType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ToggleTemplateServiceServer).GetTemplateType(ctx, req.(*GetTemplateTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ToggleTemplateService_IsChecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCheckedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ToggleTemplateServiceServer).IsChecked(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ToggleTemplateService_IsChecked_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ToggleTemplateServiceServer).IsChecked(ctx, req.(*IsCheckedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ToggleTemplateService_ServiceDesc is the grpc.ServiceDesc for ToggleTemplateService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ToggleTemplateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "templates.ToggleTemplateService",
-	HandlerType: (*ToggleTemplateServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewToggleTemplate",
-			Handler:    _ToggleTemplateService_NewToggleTemplate_Handler,
-		},
-		{
-			MethodName: "GetContentDescription",
-			Handler:    _ToggleTemplateService_GetContentDescription_Handler,
-		},
-		{
-			MethodName: "GetTemplateType",
-			Handler:    _ToggleTemplateService_GetTemplateType_Handler,
-		},
-		{
-			MethodName: "IsChecked",
-			Handler:    _ToggleTemplateService_IsChecked_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/templates/templates.proto",
-}
-
-const (
 	ThumbnailTemplateService_NewThumbnailTemplate_FullMethodName  = "/templates.ThumbnailTemplateService/NewThumbnailTemplate"
 	ThumbnailTemplateService_GetContentDescription_FullMethodName = "/templates.ThumbnailTemplateService/GetContentDescription"
 	ThumbnailTemplateService_GetTemplateType_FullMethodName       = "/templates.ThumbnailTemplateService/GetTemplateType"
@@ -1727,6 +493,147 @@ var ControlTemplateService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	StatelessTemplateService_NewStatelessTemplate_FullMethodName = "/templates.StatelessTemplateService/NewStatelessTemplate"
+	StatelessTemplateService_GetTemplateType_FullMethodName      = "/templates.StatelessTemplateService/GetTemplateType"
+)
+
+// StatelessTemplateServiceClient is the client API for StatelessTemplateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StatelessTemplateServiceClient interface {
+	NewStatelessTemplate(ctx context.Context, in *NewStatelessTemplateRequest, opts ...grpc.CallOption) (*NewStatelessTemplateResponse, error)
+	GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error)
+}
+
+type statelessTemplateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStatelessTemplateServiceClient(cc grpc.ClientConnInterface) StatelessTemplateServiceClient {
+	return &statelessTemplateServiceClient{cc}
+}
+
+func (c *statelessTemplateServiceClient) NewStatelessTemplate(ctx context.Context, in *NewStatelessTemplateRequest, opts ...grpc.CallOption) (*NewStatelessTemplateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStatelessTemplateResponse)
+	err := c.cc.Invoke(ctx, StatelessTemplateService_NewStatelessTemplate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statelessTemplateServiceClient) GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTemplateTypeResponse)
+	err := c.cc.Invoke(ctx, StatelessTemplateService_GetTemplateType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StatelessTemplateServiceServer is the server API for StatelessTemplateService service.
+// All implementations must embed UnimplementedStatelessTemplateServiceServer
+// for forward compatibility.
+type StatelessTemplateServiceServer interface {
+	NewStatelessTemplate(context.Context, *NewStatelessTemplateRequest) (*NewStatelessTemplateResponse, error)
+	GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error)
+	mustEmbedUnimplementedStatelessTemplateServiceServer()
+}
+
+// UnimplementedStatelessTemplateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStatelessTemplateServiceServer struct{}
+
+func (UnimplementedStatelessTemplateServiceServer) NewStatelessTemplate(context.Context, *NewStatelessTemplateRequest) (*NewStatelessTemplateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStatelessTemplate not implemented")
+}
+func (UnimplementedStatelessTemplateServiceServer) GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTemplateType not implemented")
+}
+func (UnimplementedStatelessTemplateServiceServer) mustEmbedUnimplementedStatelessTemplateServiceServer() {
+}
+func (UnimplementedStatelessTemplateServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStatelessTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StatelessTemplateServiceServer will
+// result in compilation errors.
+type UnsafeStatelessTemplateServiceServer interface {
+	mustEmbedUnimplementedStatelessTemplateServiceServer()
+}
+
+func RegisterStatelessTemplateServiceServer(s grpc.ServiceRegistrar, srv StatelessTemplateServiceServer) {
+	// If the following call panics, it indicates UnimplementedStatelessTemplateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StatelessTemplateService_ServiceDesc, srv)
+}
+
+func _StatelessTemplateService_NewStatelessTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStatelessTemplateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatelessTemplateServiceServer).NewStatelessTemplate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatelessTemplateService_NewStatelessTemplate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatelessTemplateServiceServer).NewStatelessTemplate(ctx, req.(*NewStatelessTemplateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatelessTemplateService_GetTemplateType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTemplateTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatelessTemplateServiceServer).GetTemplateType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatelessTemplateService_GetTemplateType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatelessTemplateServiceServer).GetTemplateType(ctx, req.(*GetTemplateTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StatelessTemplateService_ServiceDesc is the grpc.ServiceDesc for StatelessTemplateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StatelessTemplateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "templates.StatelessTemplateService",
+	HandlerType: (*StatelessTemplateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewStatelessTemplate",
+			Handler:    _StatelessTemplateService_NewStatelessTemplate_Handler,
+		},
+		{
+			MethodName: "GetTemplateType",
+			Handler:    _StatelessTemplateService_GetTemplateType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/templates/templates.proto",
+}
+
+const (
 	ToggleRangeTemplateService_NewToggleRangeTemplate_FullMethodName = "/templates.ToggleRangeTemplateService/NewToggleRangeTemplate"
 	ToggleRangeTemplateService_GetActionDescription_FullMethodName   = "/templates.ToggleRangeTemplateService/GetActionDescription"
 	ToggleRangeTemplateService_GetRange_FullMethodName               = "/templates.ToggleRangeTemplateService/GetRange"
@@ -1975,6 +882,1099 @@ var ToggleRangeTemplateService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IsChecked",
 			Handler:    _ToggleRangeTemplateService_IsChecked_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/templates/templates.proto",
+}
+
+const (
+	RangeTemplateService_NewRangeTemplate_FullMethodName = "/templates.RangeTemplateService/NewRangeTemplate"
+	RangeTemplateService_GetCurrentValue_FullMethodName  = "/templates.RangeTemplateService/GetCurrentValue"
+	RangeTemplateService_GetFormatString_FullMethodName  = "/templates.RangeTemplateService/GetFormatString"
+	RangeTemplateService_GetMaxValue_FullMethodName      = "/templates.RangeTemplateService/GetMaxValue"
+	RangeTemplateService_GetMinValue_FullMethodName      = "/templates.RangeTemplateService/GetMinValue"
+	RangeTemplateService_GetStepValue_FullMethodName     = "/templates.RangeTemplateService/GetStepValue"
+	RangeTemplateService_GetTemplateType_FullMethodName  = "/templates.RangeTemplateService/GetTemplateType"
+)
+
+// RangeTemplateServiceClient is the client API for RangeTemplateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangeTemplateServiceClient interface {
+	NewRangeTemplate(ctx context.Context, in *NewRangeTemplateRequest, opts ...grpc.CallOption) (*NewRangeTemplateResponse, error)
+	GetCurrentValue(ctx context.Context, in *GetCurrentValueRequest, opts ...grpc.CallOption) (*GetCurrentValueResponse, error)
+	GetFormatString(ctx context.Context, in *GetFormatStringRequest, opts ...grpc.CallOption) (*GetFormatStringResponse, error)
+	GetMaxValue(ctx context.Context, in *GetMaxValueRequest, opts ...grpc.CallOption) (*GetMaxValueResponse, error)
+	GetMinValue(ctx context.Context, in *GetMinValueRequest, opts ...grpc.CallOption) (*GetMinValueResponse, error)
+	GetStepValue(ctx context.Context, in *GetStepValueRequest, opts ...grpc.CallOption) (*GetStepValueResponse, error)
+	GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error)
+}
+
+type rangeTemplateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangeTemplateServiceClient(cc grpc.ClientConnInterface) RangeTemplateServiceClient {
+	return &rangeTemplateServiceClient{cc}
+}
+
+func (c *rangeTemplateServiceClient) NewRangeTemplate(ctx context.Context, in *NewRangeTemplateRequest, opts ...grpc.CallOption) (*NewRangeTemplateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRangeTemplateResponse)
+	err := c.cc.Invoke(ctx, RangeTemplateService_NewRangeTemplate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeTemplateServiceClient) GetCurrentValue(ctx context.Context, in *GetCurrentValueRequest, opts ...grpc.CallOption) (*GetCurrentValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentValueResponse)
+	err := c.cc.Invoke(ctx, RangeTemplateService_GetCurrentValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeTemplateServiceClient) GetFormatString(ctx context.Context, in *GetFormatStringRequest, opts ...grpc.CallOption) (*GetFormatStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFormatStringResponse)
+	err := c.cc.Invoke(ctx, RangeTemplateService_GetFormatString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeTemplateServiceClient) GetMaxValue(ctx context.Context, in *GetMaxValueRequest, opts ...grpc.CallOption) (*GetMaxValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxValueResponse)
+	err := c.cc.Invoke(ctx, RangeTemplateService_GetMaxValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeTemplateServiceClient) GetMinValue(ctx context.Context, in *GetMinValueRequest, opts ...grpc.CallOption) (*GetMinValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinValueResponse)
+	err := c.cc.Invoke(ctx, RangeTemplateService_GetMinValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeTemplateServiceClient) GetStepValue(ctx context.Context, in *GetStepValueRequest, opts ...grpc.CallOption) (*GetStepValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStepValueResponse)
+	err := c.cc.Invoke(ctx, RangeTemplateService_GetStepValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeTemplateServiceClient) GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTemplateTypeResponse)
+	err := c.cc.Invoke(ctx, RangeTemplateService_GetTemplateType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangeTemplateServiceServer is the server API for RangeTemplateService service.
+// All implementations must embed UnimplementedRangeTemplateServiceServer
+// for forward compatibility.
+type RangeTemplateServiceServer interface {
+	NewRangeTemplate(context.Context, *NewRangeTemplateRequest) (*NewRangeTemplateResponse, error)
+	GetCurrentValue(context.Context, *GetCurrentValueRequest) (*GetCurrentValueResponse, error)
+	GetFormatString(context.Context, *GetFormatStringRequest) (*GetFormatStringResponse, error)
+	GetMaxValue(context.Context, *GetMaxValueRequest) (*GetMaxValueResponse, error)
+	GetMinValue(context.Context, *GetMinValueRequest) (*GetMinValueResponse, error)
+	GetStepValue(context.Context, *GetStepValueRequest) (*GetStepValueResponse, error)
+	GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error)
+	mustEmbedUnimplementedRangeTemplateServiceServer()
+}
+
+// UnimplementedRangeTemplateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangeTemplateServiceServer struct{}
+
+func (UnimplementedRangeTemplateServiceServer) NewRangeTemplate(context.Context, *NewRangeTemplateRequest) (*NewRangeTemplateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRangeTemplate not implemented")
+}
+func (UnimplementedRangeTemplateServiceServer) GetCurrentValue(context.Context, *GetCurrentValueRequest) (*GetCurrentValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentValue not implemented")
+}
+func (UnimplementedRangeTemplateServiceServer) GetFormatString(context.Context, *GetFormatStringRequest) (*GetFormatStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFormatString not implemented")
+}
+func (UnimplementedRangeTemplateServiceServer) GetMaxValue(context.Context, *GetMaxValueRequest) (*GetMaxValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxValue not implemented")
+}
+func (UnimplementedRangeTemplateServiceServer) GetMinValue(context.Context, *GetMinValueRequest) (*GetMinValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinValue not implemented")
+}
+func (UnimplementedRangeTemplateServiceServer) GetStepValue(context.Context, *GetStepValueRequest) (*GetStepValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStepValue not implemented")
+}
+func (UnimplementedRangeTemplateServiceServer) GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTemplateType not implemented")
+}
+func (UnimplementedRangeTemplateServiceServer) mustEmbedUnimplementedRangeTemplateServiceServer() {}
+func (UnimplementedRangeTemplateServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeRangeTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangeTemplateServiceServer will
+// result in compilation errors.
+type UnsafeRangeTemplateServiceServer interface {
+	mustEmbedUnimplementedRangeTemplateServiceServer()
+}
+
+func RegisterRangeTemplateServiceServer(s grpc.ServiceRegistrar, srv RangeTemplateServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangeTemplateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangeTemplateService_ServiceDesc, srv)
+}
+
+func _RangeTemplateService_NewRangeTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRangeTemplateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeTemplateServiceServer).NewRangeTemplate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeTemplateService_NewRangeTemplate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeTemplateServiceServer).NewRangeTemplate(ctx, req.(*NewRangeTemplateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeTemplateService_GetCurrentValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeTemplateServiceServer).GetCurrentValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeTemplateService_GetCurrentValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeTemplateServiceServer).GetCurrentValue(ctx, req.(*GetCurrentValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeTemplateService_GetFormatString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFormatStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeTemplateServiceServer).GetFormatString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeTemplateService_GetFormatString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeTemplateServiceServer).GetFormatString(ctx, req.(*GetFormatStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeTemplateService_GetMaxValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeTemplateServiceServer).GetMaxValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeTemplateService_GetMaxValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeTemplateServiceServer).GetMaxValue(ctx, req.(*GetMaxValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeTemplateService_GetMinValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeTemplateServiceServer).GetMinValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeTemplateService_GetMinValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeTemplateServiceServer).GetMinValue(ctx, req.(*GetMinValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeTemplateService_GetStepValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStepValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeTemplateServiceServer).GetStepValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeTemplateService_GetStepValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeTemplateServiceServer).GetStepValue(ctx, req.(*GetStepValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeTemplateService_GetTemplateType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTemplateTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeTemplateServiceServer).GetTemplateType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeTemplateService_GetTemplateType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeTemplateServiceServer).GetTemplateType(ctx, req.(*GetTemplateTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangeTemplateService_ServiceDesc is the grpc.ServiceDesc for RangeTemplateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangeTemplateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "templates.RangeTemplateService",
+	HandlerType: (*RangeTemplateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRangeTemplate",
+			Handler:    _RangeTemplateService_NewRangeTemplate_Handler,
+		},
+		{
+			MethodName: "GetCurrentValue",
+			Handler:    _RangeTemplateService_GetCurrentValue_Handler,
+		},
+		{
+			MethodName: "GetFormatString",
+			Handler:    _RangeTemplateService_GetFormatString_Handler,
+		},
+		{
+			MethodName: "GetMaxValue",
+			Handler:    _RangeTemplateService_GetMaxValue_Handler,
+		},
+		{
+			MethodName: "GetMinValue",
+			Handler:    _RangeTemplateService_GetMinValue_Handler,
+		},
+		{
+			MethodName: "GetStepValue",
+			Handler:    _RangeTemplateService_GetStepValue_Handler,
+		},
+		{
+			MethodName: "GetTemplateType",
+			Handler:    _RangeTemplateService_GetTemplateType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/templates/templates.proto",
+}
+
+const (
+	TemperatureControlTemplateService_NewTemperatureControlTemplate_FullMethodName = "/templates.TemperatureControlTemplateService/NewTemperatureControlTemplate"
+	TemperatureControlTemplateService_GetCurrentActiveMode_FullMethodName          = "/templates.TemperatureControlTemplateService/GetCurrentActiveMode"
+	TemperatureControlTemplateService_GetCurrentMode_FullMethodName                = "/templates.TemperatureControlTemplateService/GetCurrentMode"
+	TemperatureControlTemplateService_GetModes_FullMethodName                      = "/templates.TemperatureControlTemplateService/GetModes"
+	TemperatureControlTemplateService_GetTemplate_FullMethodName                   = "/templates.TemperatureControlTemplateService/GetTemplate"
+	TemperatureControlTemplateService_GetTemplateType_FullMethodName               = "/templates.TemperatureControlTemplateService/GetTemplateType"
+)
+
+// TemperatureControlTemplateServiceClient is the client API for TemperatureControlTemplateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TemperatureControlTemplateServiceClient interface {
+	NewTemperatureControlTemplate(ctx context.Context, in *NewTemperatureControlTemplateRequest, opts ...grpc.CallOption) (*NewTemperatureControlTemplateResponse, error)
+	GetCurrentActiveMode(ctx context.Context, in *GetCurrentActiveModeRequest, opts ...grpc.CallOption) (*GetCurrentActiveModeResponse, error)
+	GetCurrentMode(ctx context.Context, in *GetCurrentModeRequest, opts ...grpc.CallOption) (*GetCurrentModeResponse, error)
+	GetModes(ctx context.Context, in *GetModesRequest, opts ...grpc.CallOption) (*GetModesResponse, error)
+	GetTemplate(ctx context.Context, in *GetTemplateRequest, opts ...grpc.CallOption) (*GetTemplateResponse, error)
+	GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error)
+}
+
+type temperatureControlTemplateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTemperatureControlTemplateServiceClient(cc grpc.ClientConnInterface) TemperatureControlTemplateServiceClient {
+	return &temperatureControlTemplateServiceClient{cc}
+}
+
+func (c *temperatureControlTemplateServiceClient) NewTemperatureControlTemplate(ctx context.Context, in *NewTemperatureControlTemplateRequest, opts ...grpc.CallOption) (*NewTemperatureControlTemplateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTemperatureControlTemplateResponse)
+	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_NewTemperatureControlTemplate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureControlTemplateServiceClient) GetCurrentActiveMode(ctx context.Context, in *GetCurrentActiveModeRequest, opts ...grpc.CallOption) (*GetCurrentActiveModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentActiveModeResponse)
+	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetCurrentActiveMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureControlTemplateServiceClient) GetCurrentMode(ctx context.Context, in *GetCurrentModeRequest, opts ...grpc.CallOption) (*GetCurrentModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentModeResponse)
+	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetCurrentMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureControlTemplateServiceClient) GetModes(ctx context.Context, in *GetModesRequest, opts ...grpc.CallOption) (*GetModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetModesResponse)
+	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureControlTemplateServiceClient) GetTemplate(ctx context.Context, in *GetTemplateRequest, opts ...grpc.CallOption) (*GetTemplateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTemplateResponse)
+	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetTemplate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureControlTemplateServiceClient) GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTemplateTypeResponse)
+	err := c.cc.Invoke(ctx, TemperatureControlTemplateService_GetTemplateType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TemperatureControlTemplateServiceServer is the server API for TemperatureControlTemplateService service.
+// All implementations must embed UnimplementedTemperatureControlTemplateServiceServer
+// for forward compatibility.
+type TemperatureControlTemplateServiceServer interface {
+	NewTemperatureControlTemplate(context.Context, *NewTemperatureControlTemplateRequest) (*NewTemperatureControlTemplateResponse, error)
+	GetCurrentActiveMode(context.Context, *GetCurrentActiveModeRequest) (*GetCurrentActiveModeResponse, error)
+	GetCurrentMode(context.Context, *GetCurrentModeRequest) (*GetCurrentModeResponse, error)
+	GetModes(context.Context, *GetModesRequest) (*GetModesResponse, error)
+	GetTemplate(context.Context, *GetTemplateRequest) (*GetTemplateResponse, error)
+	GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error)
+	mustEmbedUnimplementedTemperatureControlTemplateServiceServer()
+}
+
+// UnimplementedTemperatureControlTemplateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTemperatureControlTemplateServiceServer struct{}
+
+func (UnimplementedTemperatureControlTemplateServiceServer) NewTemperatureControlTemplate(context.Context, *NewTemperatureControlTemplateRequest) (*NewTemperatureControlTemplateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTemperatureControlTemplate not implemented")
+}
+func (UnimplementedTemperatureControlTemplateServiceServer) GetCurrentActiveMode(context.Context, *GetCurrentActiveModeRequest) (*GetCurrentActiveModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentActiveMode not implemented")
+}
+func (UnimplementedTemperatureControlTemplateServiceServer) GetCurrentMode(context.Context, *GetCurrentModeRequest) (*GetCurrentModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentMode not implemented")
+}
+func (UnimplementedTemperatureControlTemplateServiceServer) GetModes(context.Context, *GetModesRequest) (*GetModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetModes not implemented")
+}
+func (UnimplementedTemperatureControlTemplateServiceServer) GetTemplate(context.Context, *GetTemplateRequest) (*GetTemplateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTemplate not implemented")
+}
+func (UnimplementedTemperatureControlTemplateServiceServer) GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTemplateType not implemented")
+}
+func (UnimplementedTemperatureControlTemplateServiceServer) mustEmbedUnimplementedTemperatureControlTemplateServiceServer() {
+}
+func (UnimplementedTemperatureControlTemplateServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTemperatureControlTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TemperatureControlTemplateServiceServer will
+// result in compilation errors.
+type UnsafeTemperatureControlTemplateServiceServer interface {
+	mustEmbedUnimplementedTemperatureControlTemplateServiceServer()
+}
+
+func RegisterTemperatureControlTemplateServiceServer(s grpc.ServiceRegistrar, srv TemperatureControlTemplateServiceServer) {
+	// If the following call panics, it indicates UnimplementedTemperatureControlTemplateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TemperatureControlTemplateService_ServiceDesc, srv)
+}
+
+func _TemperatureControlTemplateService_NewTemperatureControlTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTemperatureControlTemplateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureControlTemplateServiceServer).NewTemperatureControlTemplate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureControlTemplateService_NewTemperatureControlTemplate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureControlTemplateServiceServer).NewTemperatureControlTemplate(ctx, req.(*NewTemperatureControlTemplateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureControlTemplateService_GetCurrentActiveMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentActiveModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureControlTemplateServiceServer).GetCurrentActiveMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureControlTemplateService_GetCurrentActiveMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureControlTemplateServiceServer).GetCurrentActiveMode(ctx, req.(*GetCurrentActiveModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureControlTemplateService_GetCurrentMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureControlTemplateServiceServer).GetCurrentMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureControlTemplateService_GetCurrentMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureControlTemplateServiceServer).GetCurrentMode(ctx, req.(*GetCurrentModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureControlTemplateService_GetModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureControlTemplateServiceServer).GetModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureControlTemplateService_GetModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureControlTemplateServiceServer).GetModes(ctx, req.(*GetModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureControlTemplateService_GetTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTemplateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureControlTemplateServiceServer).GetTemplate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureControlTemplateService_GetTemplate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureControlTemplateServiceServer).GetTemplate(ctx, req.(*GetTemplateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureControlTemplateService_GetTemplateType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTemplateTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureControlTemplateServiceServer).GetTemplateType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureControlTemplateService_GetTemplateType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureControlTemplateServiceServer).GetTemplateType(ctx, req.(*GetTemplateTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TemperatureControlTemplateService_ServiceDesc is the grpc.ServiceDesc for TemperatureControlTemplateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TemperatureControlTemplateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "templates.TemperatureControlTemplateService",
+	HandlerType: (*TemperatureControlTemplateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTemperatureControlTemplate",
+			Handler:    _TemperatureControlTemplateService_NewTemperatureControlTemplate_Handler,
+		},
+		{
+			MethodName: "GetCurrentActiveMode",
+			Handler:    _TemperatureControlTemplateService_GetCurrentActiveMode_Handler,
+		},
+		{
+			MethodName: "GetCurrentMode",
+			Handler:    _TemperatureControlTemplateService_GetCurrentMode_Handler,
+		},
+		{
+			MethodName: "GetModes",
+			Handler:    _TemperatureControlTemplateService_GetModes_Handler,
+		},
+		{
+			MethodName: "GetTemplate",
+			Handler:    _TemperatureControlTemplateService_GetTemplate_Handler,
+		},
+		{
+			MethodName: "GetTemplateType",
+			Handler:    _TemperatureControlTemplateService_GetTemplateType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/templates/templates.proto",
+}
+
+const (
+	ToggleTemplateService_NewToggleTemplate_FullMethodName     = "/templates.ToggleTemplateService/NewToggleTemplate"
+	ToggleTemplateService_GetContentDescription_FullMethodName = "/templates.ToggleTemplateService/GetContentDescription"
+	ToggleTemplateService_GetTemplateType_FullMethodName       = "/templates.ToggleTemplateService/GetTemplateType"
+	ToggleTemplateService_IsChecked_FullMethodName             = "/templates.ToggleTemplateService/IsChecked"
+)
+
+// ToggleTemplateServiceClient is the client API for ToggleTemplateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ToggleTemplateServiceClient interface {
+	NewToggleTemplate(ctx context.Context, in *NewToggleTemplateRequest, opts ...grpc.CallOption) (*NewToggleTemplateResponse, error)
+	GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error)
+	GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error)
+	IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error)
+}
+
+type toggleTemplateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewToggleTemplateServiceClient(cc grpc.ClientConnInterface) ToggleTemplateServiceClient {
+	return &toggleTemplateServiceClient{cc}
+}
+
+func (c *toggleTemplateServiceClient) NewToggleTemplate(ctx context.Context, in *NewToggleTemplateRequest, opts ...grpc.CallOption) (*NewToggleTemplateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewToggleTemplateResponse)
+	err := c.cc.Invoke(ctx, ToggleTemplateService_NewToggleTemplate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *toggleTemplateServiceClient) GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentDescriptionResponse)
+	err := c.cc.Invoke(ctx, ToggleTemplateService_GetContentDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *toggleTemplateServiceClient) GetTemplateType(ctx context.Context, in *GetTemplateTypeRequest, opts ...grpc.CallOption) (*GetTemplateTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTemplateTypeResponse)
+	err := c.cc.Invoke(ctx, ToggleTemplateService_GetTemplateType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *toggleTemplateServiceClient) IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCheckedResponse)
+	err := c.cc.Invoke(ctx, ToggleTemplateService_IsChecked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ToggleTemplateServiceServer is the server API for ToggleTemplateService service.
+// All implementations must embed UnimplementedToggleTemplateServiceServer
+// for forward compatibility.
+type ToggleTemplateServiceServer interface {
+	NewToggleTemplate(context.Context, *NewToggleTemplateRequest) (*NewToggleTemplateResponse, error)
+	GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error)
+	GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error)
+	IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error)
+	mustEmbedUnimplementedToggleTemplateServiceServer()
+}
+
+// UnimplementedToggleTemplateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedToggleTemplateServiceServer struct{}
+
+func (UnimplementedToggleTemplateServiceServer) NewToggleTemplate(context.Context, *NewToggleTemplateRequest) (*NewToggleTemplateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewToggleTemplate not implemented")
+}
+func (UnimplementedToggleTemplateServiceServer) GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentDescription not implemented")
+}
+func (UnimplementedToggleTemplateServiceServer) GetTemplateType(context.Context, *GetTemplateTypeRequest) (*GetTemplateTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTemplateType not implemented")
+}
+func (UnimplementedToggleTemplateServiceServer) IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsChecked not implemented")
+}
+func (UnimplementedToggleTemplateServiceServer) mustEmbedUnimplementedToggleTemplateServiceServer() {}
+func (UnimplementedToggleTemplateServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeToggleTemplateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ToggleTemplateServiceServer will
+// result in compilation errors.
+type UnsafeToggleTemplateServiceServer interface {
+	mustEmbedUnimplementedToggleTemplateServiceServer()
+}
+
+func RegisterToggleTemplateServiceServer(s grpc.ServiceRegistrar, srv ToggleTemplateServiceServer) {
+	// If the following call panics, it indicates UnimplementedToggleTemplateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ToggleTemplateService_ServiceDesc, srv)
+}
+
+func _ToggleTemplateService_NewToggleTemplate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewToggleTemplateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ToggleTemplateServiceServer).NewToggleTemplate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ToggleTemplateService_NewToggleTemplate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ToggleTemplateServiceServer).NewToggleTemplate(ctx, req.(*NewToggleTemplateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ToggleTemplateService_GetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ToggleTemplateServiceServer).GetContentDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ToggleTemplateService_GetContentDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ToggleTemplateServiceServer).GetContentDescription(ctx, req.(*GetContentDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ToggleTemplateService_GetTemplateType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTemplateTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ToggleTemplateServiceServer).GetTemplateType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ToggleTemplateService_GetTemplateType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ToggleTemplateServiceServer).GetTemplateType(ctx, req.(*GetTemplateTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ToggleTemplateService_IsChecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCheckedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ToggleTemplateServiceServer).IsChecked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ToggleTemplateService_IsChecked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ToggleTemplateServiceServer).IsChecked(ctx, req.(*IsCheckedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ToggleTemplateService_ServiceDesc is the grpc.ServiceDesc for ToggleTemplateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ToggleTemplateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "templates.ToggleTemplateService",
+	HandlerType: (*ToggleTemplateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewToggleTemplate",
+			Handler:    _ToggleTemplateService_NewToggleTemplate_Handler,
+		},
+		{
+			MethodName: "GetContentDescription",
+			Handler:    _ToggleTemplateService_GetContentDescription_Handler,
+		},
+		{
+			MethodName: "GetTemplateType",
+			Handler:    _ToggleTemplateService_GetTemplateType_Handler,
+		},
+		{
+			MethodName: "IsChecked",
+			Handler:    _ToggleTemplateService_IsChecked_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/templates/templates.proto",
+}
+
+const (
+	ControlButtonService_NewControlButton_FullMethodName     = "/templates.ControlButtonService/NewControlButton"
+	ControlButtonService_DescribeContents_FullMethodName     = "/templates.ControlButtonService/DescribeContents"
+	ControlButtonService_GetActionDescription_FullMethodName = "/templates.ControlButtonService/GetActionDescription"
+	ControlButtonService_IsChecked_FullMethodName            = "/templates.ControlButtonService/IsChecked"
+	ControlButtonService_WriteToParcel_FullMethodName        = "/templates.ControlButtonService/WriteToParcel"
+)
+
+// ControlButtonServiceClient is the client API for ControlButtonService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ControlButtonServiceClient interface {
+	NewControlButton(ctx context.Context, in *NewControlButtonRequest, opts ...grpc.CallOption) (*NewControlButtonResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetActionDescription(ctx context.Context, in *GetActionDescriptionRequest, opts ...grpc.CallOption) (*GetActionDescriptionResponse, error)
+	IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type controlButtonServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewControlButtonServiceClient(cc grpc.ClientConnInterface) ControlButtonServiceClient {
+	return &controlButtonServiceClient{cc}
+}
+
+func (c *controlButtonServiceClient) NewControlButton(ctx context.Context, in *NewControlButtonRequest, opts ...grpc.CallOption) (*NewControlButtonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewControlButtonResponse)
+	err := c.cc.Invoke(ctx, ControlButtonService_NewControlButton_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *controlButtonServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ControlButtonService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *controlButtonServiceClient) GetActionDescription(ctx context.Context, in *GetActionDescriptionRequest, opts ...grpc.CallOption) (*GetActionDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionDescriptionResponse)
+	err := c.cc.Invoke(ctx, ControlButtonService_GetActionDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *controlButtonServiceClient) IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCheckedResponse)
+	err := c.cc.Invoke(ctx, ControlButtonService_IsChecked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *controlButtonServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ControlButtonService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ControlButtonServiceServer is the server API for ControlButtonService service.
+// All implementations must embed UnimplementedControlButtonServiceServer
+// for forward compatibility.
+type ControlButtonServiceServer interface {
+	NewControlButton(context.Context, *NewControlButtonRequest) (*NewControlButtonResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetActionDescription(context.Context, *GetActionDescriptionRequest) (*GetActionDescriptionResponse, error)
+	IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedControlButtonServiceServer()
+}
+
+// UnimplementedControlButtonServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedControlButtonServiceServer struct{}
+
+func (UnimplementedControlButtonServiceServer) NewControlButton(context.Context, *NewControlButtonRequest) (*NewControlButtonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewControlButton not implemented")
+}
+func (UnimplementedControlButtonServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedControlButtonServiceServer) GetActionDescription(context.Context, *GetActionDescriptionRequest) (*GetActionDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActionDescription not implemented")
+}
+func (UnimplementedControlButtonServiceServer) IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsChecked not implemented")
+}
+func (UnimplementedControlButtonServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedControlButtonServiceServer) mustEmbedUnimplementedControlButtonServiceServer() {}
+func (UnimplementedControlButtonServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeControlButtonServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ControlButtonServiceServer will
+// result in compilation errors.
+type UnsafeControlButtonServiceServer interface {
+	mustEmbedUnimplementedControlButtonServiceServer()
+}
+
+func RegisterControlButtonServiceServer(s grpc.ServiceRegistrar, srv ControlButtonServiceServer) {
+	// If the following call panics, it indicates UnimplementedControlButtonServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ControlButtonService_ServiceDesc, srv)
+}
+
+func _ControlButtonService_NewControlButton_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewControlButtonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ControlButtonServiceServer).NewControlButton(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ControlButtonService_NewControlButton_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ControlButtonServiceServer).NewControlButton(ctx, req.(*NewControlButtonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ControlButtonService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ControlButtonServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ControlButtonService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ControlButtonServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ControlButtonService_GetActionDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ControlButtonServiceServer).GetActionDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ControlButtonService_GetActionDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ControlButtonServiceServer).GetActionDescription(ctx, req.(*GetActionDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ControlButtonService_IsChecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCheckedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ControlButtonServiceServer).IsChecked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ControlButtonService_IsChecked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ControlButtonServiceServer).IsChecked(ctx, req.(*IsCheckedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ControlButtonService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ControlButtonServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ControlButtonService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ControlButtonServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ControlButtonService_ServiceDesc is the grpc.ServiceDesc for ControlButtonService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ControlButtonService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "templates.ControlButtonService",
+	HandlerType: (*ControlButtonServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewControlButton",
+			Handler:    _ControlButtonService_NewControlButton_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ControlButtonService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetActionDescription",
+			Handler:    _ControlButtonService_GetActionDescription_Handler,
+		},
+		{
+			MethodName: "IsChecked",
+			Handler:    _ControlButtonService_IsChecked_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ControlButtonService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
